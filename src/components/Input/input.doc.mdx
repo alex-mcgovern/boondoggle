@@ -1,0 +1,38 @@
+---
+title: Input
+mdxType: Component
+atomicLevel: Atoms
+categories: ["Interactive", "Inputs"]
+description:
+  "Customisable & accessible input, designed to play nice with UI libraries."
+---
+
+import { Box } from "@alexmcgovern/boondoggle.design";
+import { Typography } from "../typography/typography.tsx";
+import { INPUT_SIZE_VARIANTS_MOCK } from "./__mocks__/input_size_variants.mock";
+import { Input } from "./input.tsx";
+
+The current implementation of the `Button` component is tied to Gatsby's `Link`
+routing component. There are plans to decouple this, and allow passing in a
+custom routing component (e.g. Reach Router's `Link`) and add an `asChild` prop
+to dynamically merge button attrs, styles and children onto any HTML element.
+
+---
+
+## Variants
+
+<Box
+    display="grid"
+    gridTemplateColumns={ mobile: "1x", tablet: "3x" }
+    gap="spacing2"
+> {INPUT_SIZE_VARIANTS_MOCK?.length > 0 &&
+
+    INPUT_SIZE_VARIANTS_MOCK.map((mock) => {
+      return (
+        <Box>
+          <Input {...mock}></Input>
+        </Box>
+      );
+    })}
+
+</Box>

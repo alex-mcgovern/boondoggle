@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given required props, matches snapshot 1`] = `
+<input
+  aria-invalid="false"
+  class="Input_inputElement__17v4xld9 Input__17v4xld8 getSprinkles_paddingLeft_spacing1__1jganc99i getSprinkles_paddingRight_spacing1__1jganc99x getSprinkles_width_100%_mobile__1jganc9fb getSprinkles_height_100%_mobile__1jganc9ht"
+  data-testid="tested-component"
+  id="input"
+  name="Test input"
+  value=""
+/>
+`;

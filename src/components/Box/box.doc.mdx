@@ -1,0 +1,65 @@
+---
+title: Box
+mdxType: Component
+atomicLevel: Atoms
+categories: ["Polymorphic"]
+description: "Highly configurable React wrapper over the CSS box model."
+---
+
+import { Box } from "./index.tsx";
+
+## Usage
+
+### Customisation
+
+Customisation is available through several methods:
+
+#### Via `customisation` prop:
+
+The `customisation` prop exposes a consistent API for customising styling and
+appearance. Arguments from the `getSprinkles` function are exposed, which uses
+Vanilla Extract's
+[Sprinkles API](https://vanilla-extract.style/documentation/sprinkles-api/)
+under-the-hood.
+
+### Polymorphism
+
+Inspired by
+[Styled Components v4](https://medium.com/styled-components/announcing-styled-components-v4-better-faster-stronger-3fe1aba1a112),
+the `as` prop allows changing the HTML tag rendered by a component. You can find
+the full list of supported elements in the props table.
+
+<Box
+
+    display="grid"
+    gridTemplateColumns={{ mobile: "1x", tablet: "2x", desktop: "3x" }}
+    gap="spacing2"
+
+>
+
+  <Box
+
+>
+
+    I am a div
+
+  </Box>
+  <Box
+
+    as="span"
+
+>
+
+    I am a span
+
+  </Box>
+  <Box
+    as="section"
+  >
+    I am a section
+  </Box>
+</Box>
+
+## Variants
+
+This component doesn't have any variants

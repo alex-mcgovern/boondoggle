@@ -1,0 +1,115 @@
+---
+title: Tag
+mdxType: Component
+atomicLevel: Atoms
+categories: ["Interactive"]
+description: "A simple, customisable, and accessible tag component."
+---
+
+import { Box } from "@alexmcgovern/boondoggle.design";
+import { Box } from "../typography/typography.tsx";
+import { BUTTON_APPEARANCE_VARIANTS_MOCK } from "./__mocks__/tag_appearance_variants.mock.ts";
+import { BUTTON_ICON_VARIANTS_MOCK } from "./__mocks__/tag_icon_variants.mock.ts";
+import { BUTTON_SIZE_VARIANTS_MOCK } from "./__mocks__/tag_size_variants.mock.ts";
+import { Tag } from "./tag.tsx";
+
+<Tag
+  title="Click me friend"
+  size="lg"
+  onClick={() => alert("Hello friend")}
+
+    marginTop="spacing3"
+
+> </Tag>
+
+The `Tag` includes everything you would expect; handling internal & external
+links as well as onClick handlers.
+
+Customising the tag is easy using the `customisation` prop. This exposes a large
+set of CSS properties for quick, inline adaptation without the need to create
+custom CSS classes, or add unnecessary wrapper DOM elements.
+
+**Note:** The current implementation of the `Tag` component is tied to Gatsby's
+`Link` routing component. There are plans to decouple this, and allow passing in
+a custom routing component (e.g. Reach Router's `Link`) and add an `asChild`
+prop to dynamically merge tag attrs, styles and children onto any HTML element.
+
+---
+
+### Usage examples
+
+#### Variants
+
+Variants are configurable via the `variant` prop.
+
+##### Appearance
+
+<Box
+
+    display="grid"
+    gridTemplateColumns={{ mobile: "1x", tablet: "2x", desktop: "3x" }}
+    gap="spacing2"
+
+> {BUTTON_APPEARANCE_VARIANTS_MOCK?.length > 0 &&
+
+    BUTTON_APPEARANCE_VARIANTS_MOCK.map((mock) => {
+      return (
+        <Box>
+            <Box
+              as="code"
+              display="block"
+              width="min-content"
+              marginBottom="spacing3"
+            >
+              {mock?.variant?.appearance}
+            </Box>
+          <Tag {...mock}></Tag>
+        </Box>
+      );
+    })}
+
+</Box>
+
+##### Size
+
+<Box
+    display="grid"
+    gridTemplateColumns={ mobile: "1x", tablet: "2x", desktop: "3x" }
+    gap="spacing2"
+> {BUTTON_SIZE_VARIANTS_MOCK?.length > 0 &&
+
+    BUTTON_SIZE_VARIANTS_MOCK.map((mock) => {
+      return (
+        <Box>
+            <Box
+              as="code"
+              display="block"
+              width="min-content"
+              marginBottom="spacing3"
+            >
+              {mock?.variant?.size}
+            </Box>
+          <Tag {...mock}></Tag>
+        </Box>
+      );
+    })}
+
+</Box>
+
+##### Icon
+
+<Box
+    display="grid"
+    gridTemplateColumns={{ mobile: "1x", tablet: "3x" }}
+    gap="spacing2"
+> {BUTTON_ICON_VARIANTS_MOCK?.length > 0 &&
+
+    BUTTON_ICON_VARIANTS_MOCK.map((mock) => {
+      return (
+        <Box>
+          <Tag {...mock}></Tag>
+        </Box>
+      );
+    })}
+
+</Box>
