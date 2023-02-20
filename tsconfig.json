@@ -19,6 +19,6 @@
     "strictNullChecks": true,
     "target": "ES2020"
   },
-  "include": ["./src", "stylesheet.css.ts"],
+  "include": [".", "stylesheet.css.ts"],
   "exclude": ["cypress", "./cypress.config.ts"]
 }
