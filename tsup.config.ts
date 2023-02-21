@@ -5,7 +5,7 @@ import { dependencies, peerDependencies } from "./package.json";
 export default defineConfig({
   entry: ["src/index.ts"],
   outDir: "dist",
-  splitting: false,
+  splitting: true,
   bundle: true,
   minify: false,
   sourcemap: true,
