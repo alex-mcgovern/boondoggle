@@ -16,13 +16,14 @@
     "outDir": "lib",
     "module": "ESNext",
     "skipLibCheck": true,
-    "rootDir": "src",
+    "rootDir": ".",
     "emitDeclarationOnly": true,
     "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*",
     "lib/index.d.ts", // declaration file path
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "tsup.config.ts"
   ]
 }
