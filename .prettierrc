@@ -1,0 +1,11 @@
+{
+  "arrowParens": "always",
+  "proseWrap": "always",
+  "importOrder": [
+    "^react$",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
+}
