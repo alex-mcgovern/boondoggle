@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 import { dependencies, peerDependencies } from "./package.json";
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: ["src/**/*.ts", "src/**/*.tsx"],
   outDir: "dist",
   splitting: true,
   bundle: true,
