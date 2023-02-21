@@ -5,6 +5,7 @@ import { dependencies, peerDependencies } from "./package.json";
 export default defineConfig({
   entry: ["src/**/*.ts", "src/**/*.tsx"],
   outDir: "dist",
+  config: "./tsconfig.build.json",
   splitting: true,
   bundle: true,
   minify: false,
