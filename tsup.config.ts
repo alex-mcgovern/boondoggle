@@ -1,3 +1,4 @@
+import VanillaExtractPlugin from "@vanilla-extract/esbuild-plugin";
 import type { Options } from "tsup";
 
 const env = process.env.NODE_ENV;
@@ -17,5 +18,5 @@ export const tsup: Options = {
   config: "tsconfig.build.json",
   outDir: env === "production" ? "dist" : "lib",
   // outDir: "dist",
-  entry: ["src/**/*.ts"],
+  entry: ["src/index.ts"],
 };
