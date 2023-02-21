@@ -12,7 +12,6 @@ export const tsup: Options = {
   minify: env === "production",
   bundle: env === "production",
   skipNodeModulesBundle: true,
-  entryPoints: ["src/index.ts"],
   watch: env === "development",
   target: "es2020",
   config: "tsconfig.build.json",
