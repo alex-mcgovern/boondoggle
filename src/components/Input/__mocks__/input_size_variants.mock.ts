@@ -3,29 +3,26 @@ import type { InputProps } from "..";
 export const INPUT_SIZE_VARIANTS_MOCK: InputProps[] = [
   {
     iconTrailing: "arrow-right",
-    placeholder: "Type in me",
     id: "input-large",
     label: "Large input",
-    variant: {
-      size: "lg",
-    },
+    name: "Large input",
+    placeholder: "Type in me",
+    size: "lg",
   },
   {
     iconTrailing: "arrow-right",
-    placeholder: "Type in me",
     id: "input-sm",
     label: "Small input",
-    variant: {
-      size: "sm",
-    },
+    name: "Small input",
+    placeholder: "Type in me",
+    size: "sm",
   },
   {
     iconTrailing: "arrow-right",
-    placeholder: "Type in me",
     id: "input-xs",
     label: "Extra-small input",
-    variant: {
-      size: "md",
-    },
+    name: "Extra-small input",
+    placeholder: "Type in me",
+    size: "md",
   },
 ];

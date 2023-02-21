@@ -1,9 +1,9 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { focusBaseStyle } from "../../styles/common/focus_ring_styles.css";
-import { createAccessibleTransition } from "../../styles/css_preprocessing_utils/createAccessibleTransition";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yFocusStyleRule } from "../../styles/common/a11y.focus.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const variantTextAreaSize = styleVariants({
   sm: [
@@ -49,7 +49,7 @@ export const getTextAreaStyles = recipe({
           borderColor: vars.color.accent_border_interactiveActive,
         },
         "&:is(&:not([disabled]):focus, &:not([disabled]):focus-within)":
-          focusBaseStyle,
+          a11yFocusStyleRule,
         "&[disabled]": {
           borderColor: vars.color.neutral_border_interactive,
         },

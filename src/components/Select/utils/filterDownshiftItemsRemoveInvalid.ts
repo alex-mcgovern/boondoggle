@@ -16,7 +16,7 @@ export function filterDownshiftItemsRemoveInvalid({
   items,
   itemsToFilter,
 }: FilterDownshiftItemsRemoveInvalidArgs) {
-  if (!itemsToFilter || itemsToFilter.length < 1) return [];
+  if (!itemsToFilter || itemsToFilter.length < 1) {return [];}
 
   return itemsToFilter?.filter((initialSelectedItem) => {
     return items.some((item) => {

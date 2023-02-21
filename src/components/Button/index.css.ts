@@ -1,10 +1,10 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { disabledStateStyles } from "../../styles/common/disabled_state_styles.css";
-import { focusedStateStyle } from "../../styles/common/focus_ring_styles.css";
-import { variantInteractiveElementSize } from "../../styles/common/variant_interactive_element_size.css";
-import { createAccessibleTransition } from "../../styles/css_preprocessing_utils/createAccessibleTransition";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yDisabled } from "../../styles/common/a11y.disabled.css";
+import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import { variantUiScale } from "../../styles/common/variant.ui_scale.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { variantButtonColor } from "./button-color.css";
 import { variantButtonAppearance } from "./variantButtonAppearance.css";
 
@@ -19,8 +19,8 @@ export const getButtonStyles = recipe({
    * ----------------------------------------------- */
 
   base: [
-    focusedStateStyle,
-    disabledStateStyles,
+    a11yFocus,
+    a11yDisabled,
     getSprinkles({
       borderRadius: "md",
       display: "flex",
@@ -46,7 +46,7 @@ export const getButtonStyles = recipe({
   variants: {
     appearance: variantButtonAppearance,
     color: variantButtonColor,
-    size: variantInteractiveElementSize,
+    size: variantUiScale,
   },
 
   defaultVariants: {

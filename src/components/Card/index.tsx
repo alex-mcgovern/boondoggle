@@ -2,8 +2,8 @@ import type { ElementType, ReactElement, ReactNode } from "react";
 import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,

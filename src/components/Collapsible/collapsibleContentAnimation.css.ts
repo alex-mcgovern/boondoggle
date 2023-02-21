@@ -1,5 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { vars } from "../theme.css";
+import { vars } from "../../styles/theme.css";
 
 /**
  * Shared styles used for collapsible open/close state

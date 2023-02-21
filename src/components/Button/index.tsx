@@ -10,9 +10,12 @@ import type {
 import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import type { VariantInteractiveElementSizeEnum } from "../../styles/common/variant_interactive_element_size.css";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
+import type {
+  GetSprinklesArgs} from "../../styles/utils/get_sprinkles.css";
+import {
+  getSprinkles,
+} from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
@@ -46,7 +49,7 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = Omit<
       /** HTML button type, defaults to `button`. */
       type?: "button" | "submit" | "reset";
       /** Size of the button element */
-      size?: VariantInteractiveElementSizeEnum;
+      size?: VariantUiScaleEnum;
       /** Color for the button */
       color?: VariantButtonColorEnum;
       /** Appearance for the button */

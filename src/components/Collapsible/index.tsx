@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import React, { useCallback, useState } from "react";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
-import { collapsibleContentAnimation } from "../../styles/common/collapsibleContentAnimation.css";
+import { collapsibleContentAnimation } from "./collapsibleContentAnimation.css";
 
 export interface CollapsibleProps {
   /** Element to use as Dialog trigger. Note: Must accept a ref. */

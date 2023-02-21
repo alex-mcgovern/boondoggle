@@ -1,5 +1,5 @@
 import React from "react";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
+import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { InputProps } from "../Input";
 import { Label } from "../Label";

@@ -3,8 +3,8 @@ import React from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import clsx from "clsx";
-import { focusedStateStyle } from "../../styles/common/focus_ring_styles.css";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type { BoxProps } from "../Box";
 import { Box } from "../Box";
 import { Icon } from "../Icon";
@@ -44,7 +44,7 @@ export function Tag({
   const tagStyle = clsx([
     styles.getTagStyle({ state }),
     getSprinkles(atomProps),
-    focusedStateStyle,
+    a11yFocus,
   ]);
 
   return (

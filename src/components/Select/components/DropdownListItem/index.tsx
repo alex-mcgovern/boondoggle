@@ -1,14 +1,14 @@
 import type { Ref } from "react";
 import React, { forwardRef } from "react";
 import clsx from "clsx";
-import type { VariantInteractiveElementSizeEnum } from "../../../../styles/common/variant_interactive_element_size.css";
+import type { VariantUiScaleEnum } from "../../../../styles/common/variant.ui_scale.css";
 import { Box } from "../../../Box";
 import type { DropdownItem } from "../../types";
 import * as styles from "./index.css";
 
 export interface DropdownListItemProps {
   isHighlighted: boolean;
-  size?: VariantInteractiveElementSizeEnum;
+  size?: VariantUiScaleEnum;
   item: DropdownItem;
   isSelected?: boolean;
   isCheckboxVisible: boolean;

@@ -34,7 +34,7 @@ import { varsWidth } from "./vars/vars_width.css";
  * These are declared as css vars at the `root:` level, in scope of the `html` element
  * ------------------------------------------------------------------------------- */
 
-export const root = createGlobalTheme(":root", {
+const root = createGlobalTheme(":root", {
   aspectRatio: varsAspectRatio,
   borderRadius: varsBorderRadius,
   boxShadow: varsShadow,
@@ -56,23 +56,23 @@ export const root = createGlobalTheme(":root", {
  * THEME CONFIG
  * ------------------------------------------------------------------------------- */
 
-export const accentPaletteDark = plumDark;
-export const accentPaletteLight = plum;
+const accentPaletteDark = plumDark;
+const accentPaletteLight = plum;
 
-export const grayPaletteDark = mauveDark;
-export const grayPaletteLight = mauve;
+const grayPaletteDark = mauveDark;
+const grayPaletteLight = mauve;
 
-export const semanticBluePaletteDark = blueDark;
-export const semanticBluePaletteLight = blue;
+const semanticBluePaletteDark = blueDark;
+const semanticBluePaletteLight = blue;
 
-export const semanticGreenPaletteDark = greenDark;
-export const semanticGreenPaletteLight = green;
+const semanticGreenPaletteDark = greenDark;
+const semanticGreenPaletteLight = green;
 
-export const semanticRedPaletteDark = redDark;
-export const semanticRedPaletteLight = red;
+const semanticRedPaletteDark = redDark;
+const semanticRedPaletteLight = red;
 
-export const semanticYellowPaletteDark = yellowDark;
-export const semanticYellowPaletteLight = yellow;
+const semanticYellowPaletteDark = yellowDark;
+const semanticYellowPaletteLight = yellow;
 
 /** ---------------------------------------------—
  * THEME CONTRACT

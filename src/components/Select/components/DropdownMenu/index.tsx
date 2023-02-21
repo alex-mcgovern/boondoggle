@@ -1,14 +1,14 @@
 import type { LegacyRef } from "react";
 import React, { forwardRef, useContext } from "react";
 import clsx from "clsx";
-import type { VariantInteractiveElementSizeEnum } from "../../../../styles/common/variant_interactive_element_size.css";
+import type { VariantUiScaleEnum } from "../../../../styles/common/variant.ui_scale.css";
 import { Box } from "../../../Box";
 import { DownshiftContext } from "../../context/DownshiftContext";
 import { DropdownListItem } from "../DropdownListItem";
 import * as styles from "./index.css";
 
 interface DropdownMenuProps {
-  size?: VariantInteractiveElementSizeEnum;
+  size?: VariantUiScaleEnum;
   isSelectMultiFilterable?: boolean;
 }
 

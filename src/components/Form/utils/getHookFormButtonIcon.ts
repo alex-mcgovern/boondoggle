@@ -1,4 +1,3 @@
-import type { IconProps } from "@alexmcgovern/boondoggle.design";
 import {
   faCheckCircle,
   faExclamationTriangle,
@@ -6,6 +5,7 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import type { FieldValues, FormState } from "react-hook-form";
+import type { IconProps } from "../../Icon";
 
 interface GetHookFormButtonIconProps {
   isValid: FormState<FieldValues>["isValid"];

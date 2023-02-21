@@ -3,7 +3,7 @@ import type { LegacyRef } from "react";
 import React, { forwardRef, useContext } from "react";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
-import { invalidInput } from "../../../../styles/common/invalid_input_styles.css";
+import { a11yError } from "../../../../styles/common/a11y.error.css";
 import type { ButtonProps } from "../../../Button";
 import { Button } from "../../../Button";
 import { DownshiftContext } from "../../context/DownshiftContext";
@@ -28,7 +28,7 @@ export const SelectToggleButton = forwardRef(
     const { getToggleButtonProps, isOpen } = useContext(DownshiftContext);
 
     const dropdownToggleButtonClassNames = clsx({
-      [invalidInput]: invalid,
+      [a11yError]: invalid,
     });
 
     return (

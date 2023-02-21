@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { createAccessibleTransition } from "../../styles/css_preprocessing_utils/createAccessibleTransition";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 
 export const icon = style([
   createAccessibleTransition({

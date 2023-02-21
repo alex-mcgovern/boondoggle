@@ -1,4 +1,4 @@
-import { createModularScale } from "../css_preprocessing_utils/create_modular_scale";
+import { createModularScale } from "../utils/create_modular_scale";
 
 const fontSizeScale = createModularScale(1.125, 16);
 

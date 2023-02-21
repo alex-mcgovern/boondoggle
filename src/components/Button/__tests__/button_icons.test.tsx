@@ -2,7 +2,7 @@
 import React from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { cleanup } from "@testing-library/react";
-import { renderTestComponent } from "../../../../../../test/renderTestComponent";
+import { renderTestComponent } from "../../../../test/renderTestComponent";
 import type { ButtonProps } from "../index";
 import { Button } from "../index";
 

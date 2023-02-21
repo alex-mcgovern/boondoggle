@@ -4,7 +4,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { cleanup } from "@testing-library/react";
 import type { InputProps } from "..";
 import { Input } from "..";
-import { renderTestComponent } from "../../../../../../test/renderTestComponent";
+import { renderTestComponent } from "../../../../test/renderTestComponent";
 
 afterEach(cleanup);
 

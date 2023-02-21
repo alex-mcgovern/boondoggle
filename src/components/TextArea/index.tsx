@@ -6,14 +6,17 @@ import type {
 import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { focusedStateStyle } from "../../styles/common/focus_ring_styles.css";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import type {
+  GetSprinklesArgs} from "../../styles/utils/get_sprinkles.css";
+import {
+  getSprinkles,
+} from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import { InputErrorMessage } from "../InputErrorMessage";
 import { Label } from "../Label";
-import type { VariantTextAreaSizeEnum } from "./index.css";
-import { getTextAreaStyles } from "./index.css";
+import type { VariantTextAreaSizeEnum } from "./styles.css";
+import { getTextAreaStyles } from "./styles.css";
 
 export interface TextAreaProps
   extends GetSprinklesArgs,
@@ -54,7 +57,7 @@ export const TextArea = forwardRef(
       getTextAreaStyles({
         size,
       }),
-      focusedStateStyle,
+      a11yFocus,
       getSprinkles({ ...atomProps })
     );
 

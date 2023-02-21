@@ -6,10 +6,10 @@ import type {
 } from "react";
 import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
-import { focusedStateStyle } from "../../styles/common/focus_ring_styles.css";
-import type { VariantInteractiveElementSizeEnum } from "../../styles/common/variant_interactive_element_size.css";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
+import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
@@ -53,7 +53,7 @@ export interface InputProps
   /** Aria role to use for the input (e.g. `search`). */
   role?: AriaRole;
   /** Common interactive element size, shared with button, select, etc */
-  size?: VariantInteractiveElementSizeEnum;
+  size?: VariantUiScaleEnum;
   /** Allows directly assigning a value when the input is acting as a controlled element. */
   value?: string;
   type?: HTMLInputTypeAttribute;
@@ -91,7 +91,7 @@ export const Input = forwardRef(
       styles.getInputWrapperStyles({
         size,
       }),
-      focusedStateStyle,
+      a11yFocus,
       getSprinkles({ ...atomProps }),
     ];
 

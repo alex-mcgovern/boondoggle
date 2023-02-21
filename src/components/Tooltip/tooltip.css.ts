@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
-import { focusedStateStyle } from "../../styles/common/focus_ring_styles.css";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yFocus } from "../../styles/common/a11y.focus.css";
 import { vars } from "../../styles/theme.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const popoverTrigger = style([
   {
@@ -23,5 +23,5 @@ export const popoverTrigger = style([
   getSprinkles({
     padding: "spacing0",
   }),
-  focusedStateStyle,
+  a11yFocus,
 ]);

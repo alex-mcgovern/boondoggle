@@ -1,6 +1,5 @@
 import type { AriaRole, HTMLInputTypeAttribute, Ref } from "react";
 import React, { forwardRef } from "react";
-import type { VariantInteractiveElementSizeEnum } from "@alexmcgovern/boondoggle.design";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import {
   Range as RadixSliderRange,
@@ -8,7 +7,8 @@ import {
   Thumb as RadixSliderThumb,
   Track as RadixSliderTrack,
 } from "@radix-ui/react-slider";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
+import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
+import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
@@ -46,7 +46,7 @@ export interface SliderProps
   /** Aria role to use for the input (e.g. `search`). */
   role?: AriaRole;
   /** Common interactive element size, shared with button, select, etc */
-  size?: VariantInteractiveElementSizeEnum;
+  size?: VariantUiScaleEnum;
 
   type?: HTMLInputTypeAttribute;
 }

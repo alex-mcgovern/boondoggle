@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
+import { a11yFocusStyleRule } from "../../styles/common/a11y.focus.css";
 import {
   SELECTOR_IS_FOCUS,
   SELECTOR_IS_HOVER,
-} from "../../styles/common/css_selector_vars";
-import { focusBaseStyle } from "../../styles/common/focus_ring_styles.css";
-import { createAccessibleTransition } from "../../styles/css_preprocessing_utils/createAccessibleTransition";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+} from "../../styles/common/common.selectors";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const sliderRoot = style([
   getSprinkles({
@@ -83,7 +83,7 @@ export const sliderThumb = style([
       [`&${SELECTOR_IS_FOCUS}`]: {
         outline: "none",
         boxShadow: vars.boxShadow.md,
-        ...focusBaseStyle,
+        ...a11yFocusStyleRule,
       },
     },
   },
