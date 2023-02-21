@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 import { dependencies, peerDependencies } from "./package.json";
 
 export default defineConfig({
-  entry: ["src/**/index.(ts|tsx)"],
+  entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
   outDir: "dist",
   config: "./tsconfig.build.json",
   splitting: true,
