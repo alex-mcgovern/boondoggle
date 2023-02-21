@@ -94,12 +94,12 @@ export {
   SELECTOR_IS_HOVER,
   SELECTOR_IS_FOCUS,
   SELECTOR_LINK_BUTTON_HOVER_FOCUS,
-} from "./styles/common/common.selectors";
+} from "./styles/common/common.selectors.css";
 export {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_TABLET,
   MEDIA_QUERY_MOBILE,
-} from "./styles/common/common.media_queries";
+} from "./styles/common/common.media_queries.css";
 export {
   variantUiScale,
   type VariantUiScaleEnum,

@@ -4,7 +4,7 @@ import {
   SELECTOR_LINK_BUTTON_FOCUS,
   SELECTOR_LINK_BUTTON_HOVER,
   SELECTOR_LINK_BUTTON_HOVER_FOCUS,
-} from "../../styles/common/common.selectors";
+} from "../../styles/common/common.selectors.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { varsButtonTheme } from "./button.theme.css";

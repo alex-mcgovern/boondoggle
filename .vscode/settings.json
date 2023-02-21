@@ -60,7 +60,7 @@
     }
   },
   "cSpell.language": "en-GB",
-  "cSpell.words": [],
+  "cSpell.words": ["vars"],
   "turboConsoleLog.delimiterInsideMessage": "",
   "turboConsoleLog.includeFileNameAndLineNum": false,
   "turboConsoleLog.insertEnclosingClass": false,

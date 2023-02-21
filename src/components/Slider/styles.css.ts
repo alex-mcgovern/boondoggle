@@ -3,7 +3,7 @@ import { a11yFocusStyleRule } from "../../styles/common/a11y.focus.css";
 import {
   SELECTOR_IS_FOCUS,
   SELECTOR_IS_HOVER,
-} from "../../styles/common/common.selectors";
+} from "../../styles/common/common.selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";

@@ -21,7 +21,7 @@
     "strictPropertyInitialization": false
   },
   "include": [
-    "src/**/*",
+    ".",
     "lib/index.d.ts", // declaration file path
     ".eslintrc.js",
     "tsup.config.ts"
