@@ -1,4 +1,4 @@
-import VanillaExtractPlugin from "@vanilla-extract/esbuild-plugin";
+import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import type { Options } from "tsup";
 
 const env = process.env.NODE_ENV;
@@ -18,4 +18,5 @@ export const tsup: Options = {
   outDir: env === "production" ? "dist" : "lib",
   // outDir: "dist",
   entry: ["src/index.ts"],
+  plugins: [vanillaExtractPlugin()],
 };
