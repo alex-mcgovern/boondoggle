@@ -14,7 +14,7 @@ export default defineConfig({
   dts: true,
   target: "es2020",
 
-  esbuildPlugins: [vanillaExtractPlugin()],
+  plugins: [vanillaExtractPlugin()],
   external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
   clean: true,
 });
