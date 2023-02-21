@@ -1,4 +1,4 @@
-// import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
+import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { defineConfig } from "tsup";
 import { dependencies, peerDependencies } from "./package.json";
 
@@ -14,7 +14,7 @@ export default defineConfig({
   dts: true,
   target: "es2020",
 
-  // plugins: [vanillaExtractPlugin()],
+  esbuildPlugins: [vanillaExtractPlugin()],
   external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
   clean: true,
 });
