@@ -1,22 +1,20 @@
 import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
-import type { Options } from "tsup";
+import { defineConfig } from "tsup";
+import { dependencies, peerDependencies } from "./package.json";
 
-const env = process.env.NODE_ENV;
-
-export const tsup: Options = {
-  splitting: true,
-  sourcemap: env === "prod", // source map is only available in prod
-  clean: true, // rimraf disr
-  dts: true, // generate dts file for main module
-  format: ["cjs", "esm"], // generate cjs and esm files
-  minify: env === "production",
-  bundle: env === "production",
-  skipNodeModulesBundle: true,
-  watch: env === "development",
-  target: "es2020",
-  config: "tsconfig.build.json",
-  outDir: env === "production" ? "dist" : "lib",
-  // outDir: "dist",
+export default defineConfig({
   entry: ["src/index.ts"],
-  plugins: [vanillaExtractPlugin()],
-};
+  outDir: "dist",
+  splitting: false,
+  bundle: true,
+  minify: false,
+  sourcemap: true,
+  format: ["cjs", "esm"],
+  dts: true,
+  target: "node12",
+  platform: "browser",
+
+  esbuildPlugins: [vanillaExtractPlugin()],
+  external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
+  clean: true,
+});
