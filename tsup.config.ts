@@ -6,7 +6,7 @@ export default defineConfig({
   entry: ["src/index.ts"],
   outDir: "dist",
   splitting: true,
-  bundle: true,
+  bundle: false,
   minify: false,
   sourcemap: true,
   format: ["cjs", "esm"],
