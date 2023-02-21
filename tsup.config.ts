@@ -9,7 +9,7 @@ export default defineConfig({
   bundle: true,
   minify: false,
   sourcemap: true,
-  format: ["cjs", "esm"],
+  format: ["esm"],
   dts: true,
   target: "node12",
   platform: "browser",
