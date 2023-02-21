@@ -17,7 +17,8 @@
     "dist"
   ],
   "sideEffects": [
-    "dist/styles/stylesheet.css.ts "
+    "dist/styles/stylesheet.css.ts",
+    "dist/styles/theme.css.ts"
   ],
   "scripts": {
     "ts-types": "tsc",
