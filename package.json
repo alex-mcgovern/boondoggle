@@ -16,7 +16,9 @@
     "lib",
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "dist/styles/stylesheet.css.ts "
+  ],
   "scripts": {
     "ts-types": "tsc",
     "build:dev": "rm -rf lib && tsup --watch",
