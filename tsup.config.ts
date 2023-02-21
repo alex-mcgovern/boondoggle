@@ -13,7 +13,6 @@ export default defineConfig({
   dts: true,
   target: "node12",
   platform: "browser",
-  treeshake: true,
 
   esbuildPlugins: [vanillaExtractPlugin()],
   external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),
