@@ -52,7 +52,7 @@ const semanticYellowPaletteLight = yellow;
  * These are declared as css vars at the `root:` level, in scope of the `html` element
  * ------------------------------------------------------------------------------- */
 
-export const vars = createGlobalTheme(":root", {
+const root = createGlobalTheme(":root", {
   aspectRatio: varsAspectRatio,
   borderRadius: varsBorderRadius,
   boxShadow: varsShadow,
@@ -68,66 +68,67 @@ export const vars = createGlobalTheme(":root", {
   spacing: varsSpacing,
   transitionDuration: varsTransitionTime,
   width: varsWidth,
-  color: {
-    /** Accent color scale */
-    accent_background_base: accentPaletteLight.plum1,
-    accent_background_raised: accentPaletteLight.plum2,
+});
 
-    accent_secondary_base: accentPaletteLight.plum3,
-    accent_secondary_active: accentPaletteLight.plum4,
-    accent_secondary_selected: accentPaletteLight.plum5,
+const color = createGlobalTheme(":root", {
+  /** Accent color scale */
+  accent_background_base: accentPaletteLight.plum1,
+  accent_background_raised: accentPaletteLight.plum2,
 
-    accent_border_nonInteractive: accentPaletteLight.plum6,
-    accent_border_interactive: accentPaletteLight.plum7,
-    accent_border_interactiveActive: accentPaletteLight.plum8,
+  accent_secondary_base: accentPaletteLight.plum3,
+  accent_secondary_active: accentPaletteLight.plum4,
+  accent_secondary_selected: accentPaletteLight.plum5,
 
-    accent_primary_base: accentPaletteLight.plum9,
-    accent_primary_active: accentPaletteLight.plum10,
+  accent_border_nonInteractive: accentPaletteLight.plum6,
+  accent_border_interactive: accentPaletteLight.plum7,
+  accent_border_interactiveActive: accentPaletteLight.plum8,
 
-    accent_text_lowContrast: accentPaletteLight.plum11,
-    accent_text_highContrast: accentPaletteLight.plum12,
+  accent_primary_base: accentPaletteLight.plum9,
+  accent_primary_active: accentPaletteLight.plum10,
 
-    /** Neutral color scale */
-    neutral_white: grayPaletteLight.mauve1,
-    neutral_black: grayPaletteLight.mauve12,
+  accent_text_lowContrast: accentPaletteLight.plum11,
+  accent_text_highContrast: accentPaletteLight.plum12,
 
-    neutral_background_base: grayPaletteLight.mauve1,
-    neutral_background_raised: grayPaletteLight.mauve2,
+  /** Neutral color scale */
+  neutral_white: grayPaletteLight.mauve1,
+  neutral_black: grayPaletteLight.mauve12,
 
-    neutral_secondary_base: grayPaletteLight.mauve3,
-    neutral_secondary_active: grayPaletteLight.mauve4,
-    neutral_secondary_selected: grayPaletteLight.mauve5,
+  neutral_background_base: grayPaletteLight.mauve1,
+  neutral_background_raised: grayPaletteLight.mauve2,
 
-    neutral_border_nonInteractive: grayPaletteLight.mauve6,
-    neutral_border_interactive: grayPaletteLight.mauve7,
-    neutral_border_interactiveActive: grayPaletteLight.mauve8,
+  neutral_secondary_base: grayPaletteLight.mauve3,
+  neutral_secondary_active: grayPaletteLight.mauve4,
+  neutral_secondary_selected: grayPaletteLight.mauve5,
 
-    neutral_primary_base: grayPaletteLight.mauve9,
-    neutral_primary_active: grayPaletteLight.mauve10,
+  neutral_border_nonInteractive: grayPaletteLight.mauve6,
+  neutral_border_interactive: grayPaletteLight.mauve7,
+  neutral_border_interactiveActive: grayPaletteLight.mauve8,
 
-    neutral_text_lowContrast: grayPaletteLight.mauve11,
-    neutral_text_highContrast: grayPaletteLight.mauve12,
+  neutral_primary_base: grayPaletteLight.mauve9,
+  neutral_primary_active: grayPaletteLight.mauve10,
 
-    /** Semantic color scale */
-    semantic_blue_lowContrast: semanticBluePaletteLight.blue5,
-    semantic_blue_highContrast: semanticBluePaletteLight.blue10,
+  neutral_text_lowContrast: grayPaletteLight.mauve11,
+  neutral_text_highContrast: grayPaletteLight.mauve12,
 
-    semantic_green_lowContrast: semanticGreenPaletteLight.green5,
-    semantic_green_highContrast: semanticGreenPaletteLight.green10,
+  /** Semantic color scale */
+  semantic_blue_lowContrast: semanticBluePaletteLight.blue5,
+  semantic_blue_highContrast: semanticBluePaletteLight.blue10,
 
-    semantic_red_lowContrast: semanticRedPaletteLight.red5,
-    semantic_red_highContrast: semanticRedPaletteLight.red10,
+  semantic_green_lowContrast: semanticGreenPaletteLight.green5,
+  semantic_green_highContrast: semanticGreenPaletteLight.green10,
 
-    semantic_yellow_lowContrast: semanticYellowPaletteLight.yellow5,
-    semantic_yellow_highContrast: semanticYellowPaletteLight.yellow10,
-  },
+  semantic_red_lowContrast: semanticRedPaletteLight.red5,
+  semantic_red_highContrast: semanticRedPaletteLight.red10,
+
+  semantic_yellow_lowContrast: semanticYellowPaletteLight.yellow5,
+  semantic_yellow_highContrast: semanticYellowPaletteLight.yellow10,
 });
 
 /** ---------------------------------------------
  * DARK THEME
  * ----------------------------------------------- */
 
-export const darkTheme = createTheme(vars.color, {
+export const darkTheme = createTheme(color, {
   /** Accent color scale */
   accent_background_base: accentPaletteDark.plum1,
   accent_background_raised: accentPaletteDark.plum2,
@@ -180,3 +181,5 @@ export const darkTheme = createTheme(vars.color, {
   semantic_yellow_lowContrast: semanticYellowPaletteDark.yellow5,
   semantic_yellow_highContrast: semanticYellowPaletteDark.yellow10,
 });
+
+export const vars = { ...root, color };
