@@ -16,6 +16,7 @@
     "lib",
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "ts-types": "tsc",
     "build:dev": "rm -rf lib && tsup --watch",
