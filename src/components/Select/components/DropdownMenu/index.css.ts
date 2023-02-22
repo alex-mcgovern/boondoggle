@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { focusedStateStyle } from "../../../../styles/common/focus_ring_styles.css";
-import { createAccessibleTransition } from "../../../../styles/css_preprocessing_utils/createAccessibleTransition";
-import { getSprinkles } from "../../../../styles/getSprinkles.css";
+import { a11yFocus } from "../../../../styles/common/a11y.focus.css";
 import { vars } from "../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 export const dropdownMenu = style([
-  focusedStateStyle,
+  a11yFocus,
   getSprinkles({
     marginTop: "spacing1",
     width: "max-content",

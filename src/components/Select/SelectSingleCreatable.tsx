@@ -1,7 +1,7 @@
 import type { Ref } from "react";
 import React, { forwardRef } from "react";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import type { GetSprinklesArgs } from "../../styles/getSprinkles.css";
+import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { ButtonProps } from "../Button";
 import type { InputProps } from "../Input";

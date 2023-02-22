@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { createAccessibleTransition } from "../../styles/css_preprocessing_utils/createAccessibleTransition";
-import { getSprinkles } from "../../styles/getSprinkles.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const overlayShow = keyframes({
   "0%": { opacity: 0 },

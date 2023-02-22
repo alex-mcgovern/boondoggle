@@ -1,0 +1,113 @@
+{
+  "Helper function": {
+    "scope": "javascript,typescript",
+    "prefix": "JS Fn",
+    "body": [
+      "export function functionName({ argument }) {",
+      "\treturn argument;",
+      "}"
+    ]
+  },
+  "vanilla-extract style": {
+    "scope": "typescript,css",
+    "prefix": "VE Style",
+    "body": [
+      "import { style } from \"@vanilla-extract/css\";",
+      "export const className = style({",
+      "\t",
+      "})"
+    ],
+    "description": "Vanilla Extract style"
+  },
+  "vanilla-extract recipe": {
+    "scope": "typescript,css",
+    "prefix": "VE Recipe",
+    "body": [
+      "import { recipe } from \"@vanilla-extract/recipes\";",
+      "export const className = recipe({",
+      "\tbase: {",
+      "",
+      "\t},",
+      "\tvariants: {",
+      "\t\tvariantGroup: {",
+      "\t\t\tvariant1: {",
+      "\t\t\t\t",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "\t",
+      "})"
+    ]
+  },
+  "jest suite boilerplate": {
+    "scope": "javascript,typescript",
+    "prefix": "Jest",
+    "body": [
+      "test(\"XXXXX\", () => {",
+      "  expect(YYYYYY).toBe(ZZZZZ)",
+      "});",
+      ""
+    ]
+  },
+
+  "testing-library boilerplate": {
+    "scope": "typescriptreact",
+    "prefix": "React testing library",
+    "body": [
+      "/**",
+      " * @jest-environment jsdom",
+      " */",
+      "import React from \"react\";",
+      "import { render } from \"@testing-library/react\";",
+      "import { XXX_MOCK } from \"../path_to_mock\";",
+      "import XXX from \"../xxx\";",
+      "",
+      "const COMPONENT_NAME = \"[xxx-xxx]\";",
+      "",
+      "const renderComponent = ({ ...props }) => {",
+      "  return render(<XXX {...props} />);",
+      "};",
+      "",
+      "let component = null;",
+      "",
+      "describe(COMPONENT_NAME, () => {",
+      "  describe(`Renders correctly`, () => {",
+      "\tbeforeEach(() => {",
+      "\t  component = renderComponent({",
+      "\t\t...XXX_MOCK,",
+      "\t  });",
+      "\t});",
+      "\tit(\"Renders title correctly\", () => {",
+      "\t  expect(",
+      "\t\tcomponent.getByText(\"Lorem ipsum\", { exact: false })",
+      "\t  ).toBeInTheDocument();",
+      "\t});",
+      "\tit(\"Matches snapshot\", () => {",
+      "\t  expect(component).toMatchSnapshot();",
+      "\t});",
+      "  });",
+      "});",
+      ""
+    ],
+    "description": "testing library boilerplate"
+  },
+  "React TypeScript Functional Component": {
+    "scope": "typescriptreact",
+    "prefix": "TS FC",
+    "description": "",
+    "body": [
+      "import React from \"react\";",
+      "",
+      "",
+      "interface ComponentProps {",
+      "\tplaceholderProp: undefined",
+      "}",
+      "",
+      "export const Component = ({ placeholderProp }: ComponentProps) => {",
+      "\treturn (",
+      "",
+      "\t)",
+      "}"
+    ]
+  }
+}

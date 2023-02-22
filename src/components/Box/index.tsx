@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { createBox } from "@dessert-box/react";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 /**
  * Polymorphic `Box` component that allows customisation with

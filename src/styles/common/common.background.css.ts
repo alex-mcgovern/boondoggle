@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-export const backgroundImage = style([
+export const commonBackground = style([
   {
     position: "absolute",
     top: 0,

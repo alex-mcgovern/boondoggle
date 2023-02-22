@@ -1,5 +1,5 @@
 import { styleVariants } from "@vanilla-extract/css";
-import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/css_selector_vars";
+import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
 import { vars } from "../../styles/theme.css";
 
 export const variantTagState = styleVariants({

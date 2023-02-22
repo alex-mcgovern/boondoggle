@@ -1,24 +1,21 @@
 {
+  "include": ["src", "types", "test", "tsup.config.ts"],
   "compilerOptions": {
-    "allowJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
     "jsx": "react",
     "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "lib",
-    "removeComments": true,
+    "outDir": "dist",
+    "rootDir": ".",
     "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "target": "ES2020"
-  },
-  "include": ["./src", "stylesheet.css.ts"],
-  "exclude": ["cypress", "./cypress.config.ts"]
+    "strict": true
+  }
 }

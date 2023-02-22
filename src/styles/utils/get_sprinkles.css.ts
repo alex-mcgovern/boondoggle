@@ -2,10 +2,10 @@ import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_TABLET,
-} from "./common/css_vars_media_queries";
-import { vars } from "./theme.css";
-import { varsBorder } from "./vars/vars_border.css";
-import { varsDisplay } from "./vars/vars_display.css";
+} from "../common/common.media_queries.css";
+import { vars } from "../theme.css";
+import { varsBorder } from "../vars/vars_border.css";
+import { varsDisplay } from "../vars/vars_display.css";
 
 const properties = defineProperties({
   properties: {

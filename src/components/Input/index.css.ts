@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { recipe } from "@vanilla-extract/recipes";
-import { focusBaseStyle } from "../../styles/common/focus_ring_styles.css";
-import { variantInteractiveElementSize } from "../../styles/common/variant_interactive_element_size.css";
-import { createAccessibleTransition } from "../../styles/css_preprocessing_utils/createAccessibleTransition";
-import { getSprinkles } from "../../styles/getSprinkles.css";
+import { a11yFocusStyleRule } from "../../styles/common/a11y.focus.css";
+import { variantUiScale } from "../../styles/common/variant.ui_scale.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const getInputWrapperStyles = recipe({
   base: [
@@ -25,7 +25,7 @@ export const getInputWrapperStyles = recipe({
           borderColor: vars.color.accent_border_interactiveActive,
         },
         "&:is(&:not([disabled]):focus, &:not([disabled]):focus-within)":
-          focusBaseStyle,
+          a11yFocusStyleRule,
         "&[disabled]": {
           borderColor: vars.color.neutral_border_interactive,
         },
@@ -37,7 +37,7 @@ export const getInputWrapperStyles = recipe({
     }),
   ],
 
-  variants: { size: variantInteractiveElementSize },
+  variants: { size: variantUiScale },
 
   defaultVariants: {
     size: "md",

@@ -1,7 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
-import { getSprinkles } from "../getSprinkles.css";
+import { getSprinkles } from "../utils/get_sprinkles.css";
 
-export const variantInteractiveElementSize = styleVariants({
+export const variantUiScale = styleVariants({
   sm: [
     getSprinkles({
       fontStyle: { mobile: "body_lg", tablet: "body_sm" },
@@ -50,5 +50,4 @@ export const variantInteractiveElementSize = styleVariants({
   ],
 });
 
-export type VariantInteractiveElementSizeEnum =
-  keyof typeof variantInteractiveElementSize;
+export type VariantUiScaleEnum = keyof typeof variantUiScale;

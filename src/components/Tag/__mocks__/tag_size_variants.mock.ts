@@ -5,10 +5,6 @@ export const BUTTON_SIZE_VARIANTS_MOCK: TagProps[] = [
   {
     iconTrailing: "arrow-right",
     title: "Click me",
-
-    variant: {
-      size: "lg",
-    },
     id: "tag-lg-primary",
   },
 
@@ -16,9 +12,6 @@ export const BUTTON_SIZE_VARIANTS_MOCK: TagProps[] = [
   {
     iconTrailing: "arrow-right",
     title: "Click me",
-    variant: {
-      size: "sm",
-    },
     id: "tag-sm-primary",
   },
 
@@ -26,9 +19,6 @@ export const BUTTON_SIZE_VARIANTS_MOCK: TagProps[] = [
   {
     iconTrailing: "arrow-right",
     title: "Click me",
-    variant: {
-      size: "md",
-    },
     id: "tag-xs-primary",
   },
 ];

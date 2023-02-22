@@ -12,29 +12,47 @@ import {
   yellow,
   yellowDark,
 } from "@radix-ui/colors";
-import {
-  createGlobalTheme,
-  createTheme,
-  createThemeContract,
-} from "@vanilla-extract/css";
+import { createGlobalTheme, createTheme } from "@vanilla-extract/css";
 import { varsAspectRatio } from "./vars/vars_aspect_ratio.css";
 import { varsBorderRadius } from "./vars/vars_border_radius.css";
 import { varsShadow } from "./vars/vars_box_shadow.css";
 import { varsFontSize } from "./vars/vars_font_size.css";
 import { varsFontWeight } from "./vars/vars_font_weight.css";
 import { varsGridTemplateColumns } from "./vars/vars_grid_template_columns.css";
-import { varsHeight } from "./vars/vars_height";
+import { varsHeight } from "./vars/vars_height.css";
 import { varsLineHeight } from "./vars/vars_line_height.css";
 import { varsSpacing } from "./vars/vars_spacing.css";
 import { varsTransitionTime } from "./vars/vars_transition.css";
 import { varsWidth } from "./vars/vars_width.css";
 
 /** -----------------------------------------------------------------------------
+ * THEME CONFIG
+ * ------------------------------------------------------------------------------- */
+
+const accentPaletteDark = plumDark;
+const accentPaletteLight = plum;
+
+const grayPaletteDark = mauveDark;
+const grayPaletteLight = mauve;
+
+const semanticBluePaletteDark = blueDark;
+const semanticBluePaletteLight = blue;
+
+const semanticGreenPaletteDark = greenDark;
+const semanticGreenPaletteLight = green;
+
+const semanticRedPaletteDark = redDark;
+const semanticRedPaletteLight = red;
+
+const semanticYellowPaletteDark = yellowDark;
+const semanticYellowPaletteLight = yellow;
+
+/** -----------------------------------------------------------------------------
  * GLOBAL VARIABLES
  * These are declared as css vars at the `root:` level, in scope of the `html` element
  * ------------------------------------------------------------------------------- */
 
-export const root = createGlobalTheme(":root", {
+const root = createGlobalTheme(":root", {
   aspectRatio: varsAspectRatio,
   borderRadius: varsBorderRadius,
   boxShadow: varsShadow,
@@ -52,90 +70,7 @@ export const root = createGlobalTheme(":root", {
   width: varsWidth,
 });
 
-/** -----------------------------------------------------------------------------
- * THEME CONFIG
- * ------------------------------------------------------------------------------- */
-
-export const accentPaletteDark = plumDark;
-export const accentPaletteLight = plum;
-
-export const grayPaletteDark = mauveDark;
-export const grayPaletteLight = mauve;
-
-export const semanticBluePaletteDark = blueDark;
-export const semanticBluePaletteLight = blue;
-
-export const semanticGreenPaletteDark = greenDark;
-export const semanticGreenPaletteLight = green;
-
-export const semanticRedPaletteDark = redDark;
-export const semanticRedPaletteLight = red;
-
-export const semanticYellowPaletteDark = yellowDark;
-export const semanticYellowPaletteLight = yellow;
-
-/** ---------------------------------------------—
- * THEME CONTRACT
- * ----------------------------------------------- */
-const color = createThemeContract({
-  /** Accent color scale */
-  accent_background_base: null,
-  accent_background_raised: null,
-
-  accent_border_nonInteractive: null,
-  accent_border_interactive: null,
-  accent_border_interactiveActive: null,
-
-  accent_primary_base: null,
-  accent_primary_active: null,
-
-  accent_text_lowContrast: null,
-  accent_text_highContrast: null,
-
-  accent_secondary_base: null,
-  accent_secondary_active: null,
-  accent_secondary_selected: null,
-
-  /** Neutral color scale */
-  neutral_white: null,
-  neutral_black: null,
-
-  neutral_background_base: null,
-  neutral_background_raised: null,
-
-  neutral_border_nonInteractive: null,
-  neutral_border_interactive: null,
-  neutral_border_interactiveActive: null,
-
-  neutral_primary_base: null,
-  neutral_primary_active: null,
-
-  neutral_text_lowContrast: null,
-  neutral_text_highContrast: null,
-
-  neutral_secondary_base: null,
-  neutral_secondary_active: null,
-  neutral_secondary_selected: null,
-
-  /** Semantic color scale */
-  semantic_blue_lowContrast: null,
-  semantic_blue_highContrast: null,
-
-  semantic_green_lowContrast: null,
-  semantic_green_highContrast: null,
-
-  semantic_red_lowContrast: null,
-  semantic_red_highContrast: null,
-
-  semantic_yellow_lowContrast: null,
-  semantic_yellow_highContrast: null,
-});
-
-/** ---------------------------------------------
- * LIGHT THEME
- * ----------------------------------------------- */
-
-export const lightTheme = createTheme(color, {
+const color = createGlobalTheme(":root", {
   /** Accent color scale */
   accent_background_base: accentPaletteLight.plum1,
   accent_background_raised: accentPaletteLight.plum2,

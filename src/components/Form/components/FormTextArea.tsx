@@ -1,5 +1,4 @@
 import React from "react";
-import type { Validate } from "react-hook-form";
 import { useController, useFormContext } from "react-hook-form";
 import type { TextAreaProps } from "../../TextArea";
 import { TextArea } from "../../TextArea";
@@ -8,7 +7,7 @@ export interface FormTextAreaProps extends TextAreaProps {
   /** Message to render when erroring. */
   errorMessage: string;
   /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: Validate<string>;
+  validateFunction?: (value: string) => boolean;
   /** a11y label passed to `Label` component */
   label: string;
 }

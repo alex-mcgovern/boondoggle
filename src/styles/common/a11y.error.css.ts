@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../theme.css";
 
-export const invalidInput = style([
+export const a11yError = style([
   {
     borderColor: `${vars.color.semantic_red_highContrast} !important`,
     selectors: {

@@ -1,7 +1,7 @@
 /** @jest-environment jsdom */
 import React from "react";
 import { cleanup } from "@testing-library/react";
-import { renderTestComponent } from "../../../../../../test/renderTestComponent";
+import { renderTestComponent } from "../../../../test/renderTestComponent";
 import type { SelectSingleProps } from "../SelectSingle";
 import { SelectSingle } from "../SelectSingle";
 

@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "graphql.vscode-graphql",
+    "streetsidesoftware.code-spell-checker",
+    "slysherz.comment-box",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "taniarascia.new-moon-vscode",
+    "esbenp.prettier-vscode",
+    "wenfangdu.snippet-generator",
+    "zengxingxin.sort-js-object-keys",
+    "stylelint.vscode-stylelint",
+    "adamwalzer.string-converter",
+    "lakkannawalikar.css-converter",
+    "ChakrounAnas.turbo-console-log"
+  ]
+}
