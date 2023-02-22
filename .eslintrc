@@ -64,16 +64,10 @@
       }
     },
     /**
-     * Ensure gatsby pages & page templates use default exports.
+     * Overrides to allow default exports.
      */
     {
-      "files": [
-        "gatsby-config.ts",
-        "tsup.config.ts",
-        "jest.*",
-        "**/pages/**/*.tsx",
-        "**/templates/**/*.tsx"
-      ],
+      "files": ["**/*.stories.tsx", "tsup.config.ts", "jest.*"],
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error"

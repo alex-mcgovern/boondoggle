@@ -8,6 +8,7 @@
       "}"
     ]
   },
+
   "vanilla-extract style": {
     "scope": "typescript,css",
     "prefix": "VE Style",
@@ -108,6 +109,36 @@
       "",
       "\t)",
       "}"
+    ]
+  },
+  "Storybook story": {
+    "scope": "typescriptreact",
+    "prefix": "story",
+    "description": "Simple Storybook story",
+    "body": [
+      "import React from \"react\";",
+      "import type { ComponentMeta, Story } from \"@storybook/react\";",
+      "import type { ${1:Component}Props } from \".\";",
+      "import { ${1:Component} as StoryComponent } from \".\";",
+      "",
+      "export default {",
+      "  title: \"${1:Component}\",",
+      "  component: StoryComponent,",
+      "} as ComponentMeta<typeof StoryComponent>;",
+      "",
+      "const Template: Story<${1:Component}Props> = ({ name, ...rest }) => {",
+      "  return <StoryComponent name={name} {...rest} />;",
+      "};",
+      "",
+      "export const ${1:Component} = Template.bind({});",
+      "",
+      "${1:Component}.args = {",
+      "  name: \"Test button\",",
+      "  appearance: \"primary\",",
+      "  children: \"Test button\",",
+      "  onClick: () => alert(\"hello\"),",
+      "};",
+      ""
     ]
   }
 }
