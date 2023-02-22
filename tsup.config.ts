@@ -11,7 +11,7 @@ export default defineConfig({
   bundle: true,
   minify: true,
   sourcemap: true,
-  format: ["esm"],
+  format: ["cjs", "esm"],
   dts: true,
   target: "es2020",
 
