@@ -13,3 +13,7 @@ A React component library that aims to be lightweight, and very fast to work wit
 (Thanks to the amazing teams maintaining these op-source projects. ❤️)
 
 ## Installation
+
+```bash
+npm i @alex-mcgovern/boondoggle.design
+```
