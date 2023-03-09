@@ -1,39 +1,89 @@
 {
-  "env": {
-    "browser": true,
-    "node": true
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
+
+  "plugins": ["react-perf", "sonarjs", "jsdoc", "unused-imports", "import"],
 
   "extends": [
     "airbnb",
-    "airbnb/hooks",
+    // "airbnb/hooks",
     "airbnb-typescript",
     "eslint:recommended",
     "plugin:react-perf/recommended",
     "prettier"
   ],
 
-  "parserOptions": {
-    "babelOptions": {
-      "presets": ["@babel/preset-react"]
-    },
-    "project": "./tsconfig.json",
-    "requireConfigFile": true
-  },
-
-  "plugins": [
-    "react-perf",
-    "sonarjs",
-    "jsdoc",
-    // "@typescript-eslint",
-    "unused-imports",
-    "import"
-  ],
-
   "ignorePatterns": [
     "*.(snap|md)",
     "*.mdx", // <— We really *should* lint MDX files, but it's not working yet.
     "dist"
+  ],
+
+  /** -----------------------------------------------------------------------------
+   * Overrides
+   * ------------------------------------------------------------------------------- */
+
+  "overrides": [
+    /**
+     * Overrides for TypeScript files
+     */
+
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"]
+    },
+
+    /**
+     * Overrides for MDX files
+     */
+
+    {
+      "files": ["**/*.mdx"],
+      "extends": "plugin:mdx/recommended",
+      "parser": "eslint-mdx"
+    },
+
+    /**
+     * Overrides for vanilla extract css.ts files
+     */
+
+    {
+      "files": ["**/*.css.ts"],
+      "rules": {
+        "sonarjs/no-duplicate-string": "off"
+      }
+    },
+
+    /**
+     * Overrides for test files
+     */
+
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "sonarjs/no-duplicate-string": "off",
+        "react-perf/jsx-no-jsx-as-prop": "off",
+        "react-perf/jsx-no-new-array-as-prop": "off",
+        "react-perf/jsx-no-new-function-as-prop": "off",
+        "react-perf/jsx-no-new-object-as-prop": "off"
+      }
+    },
+
+    /**
+     * Overrides to allow default exports.
+     */
+
+    {
+      "files": ["*.stories.tsx", "tsup.config.ts"],
+      "rules": {
+        "import/no-default-export": "off",
+        "import/prefer-default-export": "error"
+      }
+    }
   ],
 
   /** -----------------------------------------------------------------------------
@@ -145,67 +195,5 @@
         "varsIgnorePattern": "^_"
       }
     ]
-  },
-
-  /** -----------------------------------------------------------------------------
-   * Overrides
-   * ------------------------------------------------------------------------------- */
-
-  "overrides": [
-    /**
-     * Overrides for TypeScript files
-     */
-
-    {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "extends": ["plugin:@typescript-eslint/recommended"]
-    },
-
-    /**
-     * Overrides for MDX files
-     */
-
-    {
-      "files": "**/*.mdx",
-      "extends": "plugin:mdx/recommended"
-      // "parser": "eslint-mdx"
-    },
-
-    /**
-     * Overrides for vanilla extract css.ts files
-     */
-    {
-      "files": ["**/*.css.ts"],
-      "rules": {
-        "sonarjs/no-duplicate-string": "off"
-      }
-    },
-    /**
-     * Overrides for test files
-     */
-
-    {
-      "files": ["**/*.test.ts", "**/*.test.tsx"],
-      "env": {
-        "jest": true
-      },
-      "rules": {
-        "sonarjs/no-duplicate-string": "off",
-        "react-perf/jsx-no-jsx-as-prop": "off",
-        "react-perf/jsx-no-new-array-as-prop": "off",
-        "react-perf/jsx-no-new-function-as-prop": "off",
-        "react-perf/jsx-no-new-object-as-prop": "off"
-      }
-    },
-    /**
-     * Overrides to allow default exports.
-     */
-    {
-      "files": ["*.stories.tsx", "tsup.config.ts"],
-      "rules": {
-        "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
-      }
-    }
-  ]
+  }
 }
