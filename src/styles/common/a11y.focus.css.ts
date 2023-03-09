@@ -3,12 +3,12 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "../theme.css";
 
 export const a11yFocusStyleRule: StyleRule = {
-  outline: `2px solid ${vars.color.accent_primary_active}`,
+  outline: `2px solid ${vars.color.accent.border.interactive}`,
   outlineOffset: "2px",
-  borderColor: vars.color.accent_border_interactiveActive,
+  borderColor: vars.color.accent.border.interactiveActive,
 };
 
-export const a11yFocus = style([
+export const classnamesFocusedState = style([
   {
     selectors: {
       [`&:focus:not(:focus-visible)`]: {

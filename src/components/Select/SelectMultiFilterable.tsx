@@ -1,5 +1,5 @@
 import React from "react";
-import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { InputProps } from "../Input";
 import { Label } from "../Label";
@@ -9,8 +9,8 @@ import { DownshiftProviderMulti } from "./context/DownshiftProviderMulti";
 import type { DropdownItem } from "./types";
 
 export interface SelectMultiFilterableProps
-  extends Omit<InputProps, "value" | "iconTrailing">,
-    GetSprinklesArgs {
+  extends Omit<InputProps, "value" | "iconRight">,
+    SprinklesArgs {
   items: Array<DropdownItem>;
   initialValue?: Array<DropdownItem>;
   onValueChange?(...args: Array<unknown>): unknown;
@@ -26,7 +26,7 @@ export function SelectMultiFilterable({
   initialValue,
   id,
   disabled,
-  iconLeading,
+  iconLeft,
   label,
   placeholder,
   size,
@@ -44,7 +44,7 @@ export function SelectMultiFilterable({
         {label && <Label htmlFor={id} label={label} />}
         <SelectInput
           disabled={disabled}
-          iconLeading={iconLeading}
+          iconLeft={iconLeft}
           id={id}
           name={name}
           placeholder={placeholder}

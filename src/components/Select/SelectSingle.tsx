@@ -10,7 +10,7 @@ import { DownshiftProviderSingle } from "./context/DownshiftProviderSingle";
 import type { DropdownItem } from "./types";
 
 export interface SelectSingleProps
-  extends Omit<ButtonProps, "onChange" | "color" | "iconTrailing"> {
+  extends Omit<ButtonProps, "onChange" | "color" | "iconRight"> {
   buttonProps?: ButtonProps;
   errorMessage?: string;
   id: string;
@@ -35,7 +35,7 @@ export const SelectSingle = forwardRef(
       placeholder,
       label,
       disabled,
-      iconLeading,
+      iconLeft,
       initialValue,
       id,
       invalid,
@@ -63,7 +63,7 @@ export const SelectSingle = forwardRef(
                 {label && <Label htmlFor={id} label={label} />}
                 <SelectToggleButton
                   disabled={disabled}
-                  iconLeading={iconLeading}
+                  iconLeft={iconLeft}
                   id={id}
                   invalid={invalid}
                   name={name}

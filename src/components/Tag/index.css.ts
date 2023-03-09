@@ -35,7 +35,7 @@ export const getTagStyle = recipe({
   },
 });
 
-export const iconLeading = style({
+export const iconLeft = style({
   flexShrink: 0,
   justifySelf: "start",
   selectors: {
@@ -44,11 +44,11 @@ export const iconLeading = style({
     },
   },
 });
-export const iconTrailing = style({
+export const iconRight = style({
   flexShrink: 0,
   justifySelf: "end",
   selectors: {
-    "&:not(:first-child)": {
+    "&:not(:first-of-type)": {
       marginLeft: vars.spacing.spacing1,
     },
   },

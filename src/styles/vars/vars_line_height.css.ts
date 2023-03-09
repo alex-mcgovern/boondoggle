@@ -8,6 +8,7 @@ export const varsLineHeight = {
   h5: "1",
   h6: "1",
 
+  body_xl: "1.5",
   body_lg: "1.5",
   body_md: "1.5",
   body_sm: "1.5",

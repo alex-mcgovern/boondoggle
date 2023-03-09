@@ -2,7 +2,7 @@ import type { InputProps } from "..";
 
 export const INPUT_SIZE_VARIANTS_MOCK: InputProps[] = [
   {
-    iconTrailing: "arrow-right",
+    iconRight: "arrow-right",
     id: "input-large",
     label: "Large input",
     name: "Large input",
@@ -10,7 +10,7 @@ export const INPUT_SIZE_VARIANTS_MOCK: InputProps[] = [
     size: "lg",
   },
   {
-    iconTrailing: "arrow-right",
+    iconRight: "arrow-right",
     id: "input-sm",
     label: "Small input",
     name: "Small input",
@@ -18,7 +18,7 @@ export const INPUT_SIZE_VARIANTS_MOCK: InputProps[] = [
     size: "sm",
   },
   {
-    iconTrailing: "arrow-right",
+    iconRight: "arrow-right",
     id: "input-xs",
     label: "Extra-small input",
     name: "Extra-small input",

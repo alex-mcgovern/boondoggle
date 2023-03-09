@@ -4,48 +4,23 @@ import { getSprinkles } from "../utils/get_sprinkles.css";
 export const variantUiScale = styleVariants({
   sm: [
     getSprinkles({
-      fontStyle: { mobile: "body_lg", tablet: "body_sm" },
-      height: "spacing3",
+      fontStyle: "body_md",
+      paddingX: "spacing1",
+      paddingY: "none",
     }),
   ],
   md: [
     getSprinkles({
-      fontStyle: { mobile: "body_lg", tablet: "body_md" },
-      height: "spacing4",
+      fontStyle: "body_lg",
+      paddingX: "spacing2",
+      paddingY: "spacing1",
     }),
   ],
   lg: [
     getSprinkles({
-      fontStyle: { mobile: "body_lg", tablet: "body_lg" },
-      height: "spacing5",
-    }),
-  ],
-
-  sm_square: [
-    getSprinkles({
-      fontStyle: "body_sm",
-      height: "spacing3",
-      paddingX: "none",
-      paddingY: "spacing1",
-      width: "spacing3",
-    }),
-  ],
-  md_square: [
-    getSprinkles({
-      fontStyle: "body_md",
-      height: "spacing4",
-      paddingX: "spacing1",
-      paddingY: "spacing1",
-      width: "spacing4",
-    }),
-  ],
-  lg_square: [
-    getSprinkles({
-      fontStyle: "body_lg",
-      height: "spacing5",
-      paddingX: "spacing1",
-      paddingY: "spacing1",
-      width: "spacing5",
+      fontStyle: "body_xl",
+      paddingX: "spacing3",
+      paddingY: "spacing2",
     }),
   ],
 });

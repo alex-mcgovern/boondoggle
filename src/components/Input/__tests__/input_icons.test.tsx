@@ -15,7 +15,7 @@ afterEach(cleanup);
 describe("Renders Fontawesome icons", () => {
   test("When a leading icon is provided, should render an input with this adornment", () => {
     const { getByRole } = renderTestComponent<InputProps>(
-      <Input id="input" name="Test input" iconLeading={faSearch} />
+      <Input id="input" name="Test input" iconLeft={faSearch} />
     );
 
     expect(getByRole("img", { hidden: true })).not.toBeNull();
@@ -23,7 +23,7 @@ describe("Renders Fontawesome icons", () => {
 
   test("When an trailing icon is provided, should render an input with this adornment", () => {
     const { getByRole } = renderTestComponent<InputProps>(
-      <Input id="input" name="Test input" iconTrailing={faSearch} />
+      <Input id="input" name="Test input" iconRight={faSearch} />
     );
 
     expect(getByRole("img", { hidden: true })).not.toBeNull();

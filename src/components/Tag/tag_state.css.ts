@@ -5,15 +5,15 @@ import { vars } from "../../styles/theme.css";
 export const variantTagState = styleVariants({
   inactive: [
     {
-      color: vars.color.neutral_text_lowContrast,
-      backgroundColor: vars.color.neutral_secondary_base,
-      borderColor: vars.color.neutral_border_nonInteractive,
+      color: vars.color.neutral.text.lowContrast,
+      backgroundColor: vars.color.neutral.secondary.base,
+      borderColor: vars.color.neutral.border.nonInteractive,
 
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.neutral_text_highContrast,
-          backgroundColor: vars.color.neutral_secondary_active,
-          borderColor: vars.color.neutral_border_interactiveActive,
+          color: vars.color.neutral.text.highContrast,
+          backgroundColor: vars.color.neutral.secondary.active,
+          borderColor: vars.color.neutral.border.interactiveActive,
         },
       },
     },
@@ -21,15 +21,15 @@ export const variantTagState = styleVariants({
 
   active: [
     {
-      color: vars.color.accent_text_lowContrast,
-      backgroundColor: vars.color.accent_secondary_active,
-      borderColor: vars.color.accent_border_interactive,
+      color: vars.color.accent.text.lowContrast,
+      backgroundColor: vars.color.accent.secondary.active,
+      borderColor: vars.color.accent.border.interactive,
 
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.accent_text_highContrast,
-          backgroundColor: vars.color.accent_secondary_selected,
-          borderColor: vars.color.accent_border_interactiveActive,
+          color: vars.color.accent.text.highContrast,
+          backgroundColor: vars.color.accent.secondary.selected,
+          borderColor: vars.color.accent.border.interactiveActive,
         },
       },
     },

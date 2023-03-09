@@ -12,38 +12,37 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
 import type {
-  GetSprinklesArgs} from "../../styles/utils/get_sprinkles.css";
-import {
-  getSprinkles,
+  SprinklesArgs,
+  SprinklesMargin,
 } from "../../styles/utils/get_sprinkles.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
 } from "../../types";
 import { Icon } from "../Icon/index";
 import type { IconProps } from "../Icon/index";
-import type { VariantButtonColorEnum } from "./button-color.css";
-import { buttonTheme } from "./button.theme.css";
-import { getButtonStyles, iconStyle } from "./index.css";
-import type { VariantButtonAppearanceEnum } from "./variantButtonAppearance.css";
+import type {
+  VariantButtonAppearanceEnum,
+  VariantButtonColorEnum,
+} from "./button.css";
+import { buttonTheme, getButtonStyles } from "./button.css";
 
-type BaseButtonProps<TPolymorphicAs extends ElementType> = Omit<
-  GetSprinklesArgs,
-  "color"
-> &
+type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
+  Pick<SprinklesArgs, "display" | "maxWidth" | "minWidth"> &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
-      /** Is button disabled. Mapped to html5 <button> `disabled` attribute and `aria-disabled` attribute. */
+      /** Controls html element `disabled` attribute and `aria-disabled` attribute. */
       disabled?: boolean;
       /** FontAwesome icon shown on the left side of button. */
-      iconLeading?: IconProps["icon"];
+      iconLeft?: IconProps["icon"];
       /** Props for leading icon */
-      iconLeadingProps?: Omit<IconProps, "icon">;
+      iconLeftProps?: Omit<IconProps, "icon">;
       /** FontAwesome icon shown on the right side of button. */
-      iconTrailing?: IconProps["icon"];
+      iconRight?: IconProps["icon"];
       /** Props for trailing icon */
-      iconTrailingProps?: Omit<IconProps, "icon">;
+      iconRightProps?: Omit<IconProps, "icon">;
       /** Title for button, shown in the UI */
       name: string;
       /** HTML button type, defaults to `button`. */
@@ -63,10 +62,6 @@ type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(
 
 export type ButtonProps = ComponentPropsWithoutRef<typeof Button>;
 
-/** -----------------------------------------------------------------------------
- * Button component
- * ------------------------------------------------------------------------------- */
-
 export const Button: ButtonComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
@@ -74,12 +69,12 @@ export const Button: ButtonComponent = forwardRef(
       as,
       children,
       className: userClassName,
-      color,
-      disabled,
-      iconLeading,
-      iconLeadingProps,
-      iconTrailing,
-      iconTrailingProps,
+      color = "accent",
+      disabled = false,
+      iconLeft,
+      iconLeftProps,
+      iconRight,
+      iconRightProps,
       id,
       size = "md",
       type = "button",
@@ -111,21 +106,9 @@ export const Button: ButtonComponent = forwardRef(
           ...otherProps,
         }}
       >
-        {iconLeading && (
-          <Icon
-            className={iconStyle}
-            icon={iconLeading}
-            {...iconLeadingProps}
-          />
-        )}
+        {iconLeft && <Icon icon={iconLeft} {...iconLeftProps} />}
         {children}
-        {iconTrailing && (
-          <Icon
-            className={iconStyle}
-            icon={iconTrailing}
-            {...iconTrailingProps}
-          />
-        )}
+        {iconRight && <Icon icon={iconRight} {...iconRightProps} />}
       </Component>
     );
   }

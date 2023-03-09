@@ -1,11 +1,11 @@
 export const BUTTON_ICON_VARIANTS_MOCK = [
   {
-    iconLeading: "arrow-right",
+    iconLeft: "arrow-right",
     title: "Leading icon",
     id: "tag-icon-leading",
   },
   {
-    iconTrailing: "arrow-right",
+    iconRight: "arrow-right",
     title: "Trailing icon",
     id: "tag-icon-trailing",
   },

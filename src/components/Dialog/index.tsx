@@ -63,7 +63,7 @@ export function Dialog({
                 name="close"
                 size="md_square"
                 appearance="secondary"
-                iconLeading={faTimes}
+                iconLeft={faTimes}
                 aria-label="Close"
                 type="button"
                 width="100%"

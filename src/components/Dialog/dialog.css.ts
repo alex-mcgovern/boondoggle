@@ -36,7 +36,7 @@ export const dialogContent = style([
     isolation: "isolate",
     overflow: "hidden",
     textDecoration: "none",
-    background: "neutral_background_base",
+    background: "base",
     border: "neutral_border_interactive",
     borderRadius: "md",
     boxShadow: "lg",

@@ -8,7 +8,7 @@ import {
   Track as RadixSliderTrack,
 } from "@radix-ui/react-slider";
 import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
-import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
@@ -18,18 +18,18 @@ import * as styles from "./styles.css";
 
 export interface SliderProps
   extends Omit<RadixSliderProps, "color">,
-    GetSprinklesArgs {
+    SprinklesArgs {
   autoComplete?: HTMLInputElement["autocomplete"];
   /** FontAwesome icon shown on the left side of input. */
-  iconLeading?: IconProps["icon"];
+  iconLeft?: IconProps["icon"];
   /** Props for leading icon */
-  iconLeadingProps?: Omit<IconProps, "icon">;
+  iconLeftProps?: Omit<IconProps, "icon">;
   /** Controls `aria-required` and input `required` attributes. */
   required?: boolean;
   /** FontAwesome icon shown on the right side of input. */
-  iconTrailing?: IconProps["icon"];
+  iconRight?: IconProps["icon"];
   /** Props for trailing icon */
-  iconTrailingProps?: Omit<IconProps, "icon">;
+  iconRightProps?: Omit<IconProps, "icon">;
   /** Allow controlling components to set error styles, `aria-invalid` prop and display error message. */
   invalid?: boolean;
   /** Is input disabled. Mapped to html5 <input> `disabled` attribute and `aria-disabled` attribute. */
@@ -58,10 +58,10 @@ export const Slider = forwardRef(
       id,
       errorMessage,
       required,
-      iconLeading,
-      iconTrailing,
-      iconLeadingProps,
-      iconTrailingProps,
+      iconLeft,
+      iconRight,
+      iconLeftProps,
+      iconRightProps,
       invalid,
       ...rest
     }: SliderProps,
@@ -77,12 +77,12 @@ export const Slider = forwardRef(
           marginY="spacing1"
           alignItems="center"
         >
-          {iconLeading && (
+          {iconLeft && (
             <Icon
               className={styles.leadingIcon}
-              icon={iconLeading}
+              icon={iconLeft}
               size="xl"
-              {...iconLeadingProps}
+              {...iconLeftProps}
             />
           )}
           <RadixSliderRoot
@@ -96,12 +96,12 @@ export const Slider = forwardRef(
             </RadixSliderTrack>
             <RadixSliderThumb className={styles.sliderThumb} />
           </RadixSliderRoot>
-          {iconTrailing && (
+          {iconRight && (
             <Icon
               className={styles.trailingIcon}
-              icon={iconTrailing}
+              icon={iconRight}
               size="xl"
-              {...iconTrailingProps}
+              {...iconRightProps}
             />
           )}
         </Box>

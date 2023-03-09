@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { recipe } from "@vanilla-extract/recipes";
 import { classnamesDisabledState } from "../../styles/common/a11y.disabled_state.css";
 import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
@@ -12,17 +13,19 @@ export const getWrapperStyles = recipe({
     getSprinkles({
       display: "flex",
       gap: "spacing2",
-      alignItems: "start",
+      alignItems: "center",
       width: "100%",
     }),
   ],
+
   variants: { size: variantUiScale },
+
   defaultVariants: {
     size: "md",
   },
 });
 
-export const textArea = style([
+export const input = style([
   getSprinkles({
     padding: "spacing1",
     width: "100%",
@@ -34,3 +37,5 @@ export const textArea = style([
   classnamesDisabledState,
   classnamesFocusedState,
 ]);
+
+export type InputVariants = RecipeVariants<typeof getWrapperStyles>;

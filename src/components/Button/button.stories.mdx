@@ -1,0 +1,174 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Button } from ".";
+import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
+import * as stories from "./button.stories.tsx";
+
+<Meta title="Components/Button" component={Button} />
+
+# Button
+
+- Simple wrapper around base html5 button element.
+- Supports all html5 button attributes, events & types
+- Exposes [variants](#variants) via `appearance`, `color`, and `size` props
+- Includes `FontAwesome` icons and exposes `iconLeft` and `iconRight`, as well
+  as `iconLeftProps` and `iconRightProps` to forward props to
+  [Icon](?path=/docs/components-icon--icon)
+- Supports [customisation](#customisation) via `getSprinkles` utility
+- Supports polymorphic `as` prop to render as any html5 element or React
+  component (e.g. `as="a"` or `as={Link}`)
+
+## Appearance
+
+The `Button` comes with three `appearance` variants:
+
+- `primary` buttons for the main action that draws the user's attention.
+- `secondary` buttons are for alternative actions with less emphasis.
+- `tertiary` buttons are for additional actions with the least visual emphasis
+  and should not be used for frequent or important actions.
+
+<Canvas>
+  <Story name="appearance" story={stories.StoryButtonAppearancePrimary} />
+  <Story
+    name="appearance-secondary"
+    story={stories.StoryButtonAppearanceSecondary}
+  />
+  <Story
+    name="appearance-tertiary"
+    story={stories.StoryButtonAppearanceTertiary}
+  />
+</Canvas>
+
+## Color
+
+The `Button` has four color variants: `"accent"` and `"neutral"`.
+
+- `"accent"` is the default color
+- `"neutral"` should be used carefully with consideration for the correct
+  appearance variant.
+
+<Canvas>
+  <Story name="docs/color/accent" story={stories.StoryButtonColorAccent} />
+  <Story name="docs/color-neutral" story={stories.StoryButtonColorNeutral} />
+  <Story
+    name="docs/color/semanticGreen"
+    story={stories.StoryButtonColorSemanticGood}
+  />
+  <Story
+    name="docs/color/semanticRed"
+    story={stories.StoryButtonColorSemanticBad}
+  />
+</Canvas>
+
+## Customisation
+
+- Button allows customization through top-level props.
+- The props map to the `getSprinkles` utility for composing additional styles.
+
+```tsx
+const Component = () => {
+  return (
+    <Button margin="spacing5" width="100%">
+      Click me
+    </Button>
+  );
+};
+```
+
+<Canvas>
+  <Story
+    name="customisation-margin"
+    story={stories.StoryButtonCustomisationMargin}
+  />
+  {/* <Story story={stories.CustomisationWidth} /> */}
+</Canvas>
+
+## Icons
+
+- Button exposes `iconLeft` and `iconRight` props for FontAwesome icons.
+- The parent component must import compatible `IconProp` or `IconDefinition`
+  from `"@fortawesome"`.
+- `iconLeftProps` and `iconRightProps` allow further customization via
+  sprinkles.
+
+```tsx
+import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
+
+const Component = () => {
+  return (
+    <Button
+      iconLeft={faTriangleCircleSquare}
+      iconLeftProps={{ color: "accent_primary_base" }}
+      to="/home"
+    >
+      Home
+    </Button>
+  );
+};
+```
+
+<Canvas>
+  <Story name="icon-left" story={stories.StoryButtonIconLeft} />
+  <Story name="icon-right" story={stories.StoryButtonIconRight} />
+</Canvas>
+
+## Polymorphism
+
+`Button` allows polymorphism via the `as` prop. This allows you to render the
+button as any html5 element or React component. The `Button` component will
+automatically forward all props to the rendered element, and infer the correct
+types to allow them to be validated in your IDE or at compile time.
+
+This is particularly useful when dealing with routing libraries like
+`react-router` or `next.js`, which export a `Link` component that you can use
+for internal routing.
+
+```tsx
+// Use `as` prop to render `Button` as a `Link` component
+import { Link } from "next/link";
+
+// or "react-router-dom"
+
+<Button as={Link} to="/home">
+  Home
+</Button>;
+```
+
+## Size
+
+The `Button` has three size variants: `"sm"`, `"md"`, and `"lg"`.
+
+- `"sm"` is for small secondary content, like nav bars or sidebars
+- `"md"` is the default size, and meets Apple's minimum tap target size
+  requirements
+- `"lg"` is for edge cases, like marketing CTAs
+
+<Canvas>
+  <Story name="icon-size-sm" story={stories.StoryButtonIconSizeSm} />
+  <Story name="icon-size-md" story={stories.StoryButtonIconSizeMd} />
+  <Story name="icon-size-lg" story={stories.StoryButtonIconSizeLg} />
+</Canvas>
+
+## State
+
+The `Button` component has state-specific styles that respective the following
+selectors
+
+- :hover
+- :focus-visible
+- [disabled] or [aria-disabled="true"]
+
+<Canvas>
+  <Story name="icon-state-hover" story={stories.StoryButtonIconStateHover} />
+  <Story
+    name="icon-state-focus-visible"
+    story={stories.StoryButtonIconStateFocusVisible}
+  />
+  <Story
+    name="icon-state-disabled"
+    story={stories.StoryButtonIconStateDisabled}
+  />
+</Canvas>
+
+# Props
+
+<ArgsTable of={Button} />

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-export const a11yDisabled = style({
+export const classnamesDisabledState = style({
   selectors: {
     "&:not([disabled]):hover": {
       cursor: "pointer",

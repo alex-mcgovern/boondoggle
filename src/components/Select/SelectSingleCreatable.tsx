@@ -1,7 +1,7 @@
 import type { Ref } from "react";
 import React, { forwardRef } from "react";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import type { ButtonProps } from "../Button";
 import type { InputProps } from "../Input";
@@ -14,7 +14,7 @@ import type { DropdownItem } from "./types";
 
 export interface SelectSingleCreatableProps {
   /** FontAwesome icon shown on the left side of select. */
-  iconLeading?: IconProp;
+  iconLeft?: IconProp;
   /** HTML id attribute */
   id: string;
   /** Initial value for the select */
@@ -35,7 +35,7 @@ export interface SelectSingleCreatableProps {
   errorMessage?: string;
   label?: string;
   size?: InputProps["size"];
-  wrapperProps?: GetSprinklesArgs;
+  wrapperProps?: SprinklesArgs;
 }
 
 export const SelectSingleCreatable = forwardRef(
@@ -45,7 +45,7 @@ export const SelectSingleCreatable = forwardRef(
       onSelectItem,
       disabled,
       errorMessage,
-      iconLeading,
+      iconLeft,
       id,
       initialInputValue,
       invalid,
@@ -72,7 +72,7 @@ export const SelectSingleCreatable = forwardRef(
                 {label && <Label htmlFor={id} label={label} />}
                 <SelectInput
                   disabled={disabled}
-                  iconLeading={iconLeading}
+                  iconLeft={iconLeft}
                   id={id}
                   invalid={invalid}
                   name={name}

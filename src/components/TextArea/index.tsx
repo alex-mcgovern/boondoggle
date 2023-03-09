@@ -1,34 +1,29 @@
-import type {
-  DetailedHTMLProps,
-  LegacyRef,
-  TextareaHTMLAttributes,
-} from "react";
+import type { LegacyRef } from "react";
 import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
-import clsx from "clsx";
-import { a11yFocus } from "../../styles/common/a11y.focus.css";
-import type {
-  GetSprinklesArgs} from "../../styles/utils/get_sprinkles.css";
-import {
-  getSprinkles,
-} from "../../styles/utils/get_sprinkles.css";
+import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
+import type { IconProps } from "../Icon";
+import { Icon } from "../Icon";
 import { InputErrorMessage } from "../InputErrorMessage";
 import { Label } from "../Label";
-import type { VariantTextAreaSizeEnum } from "./styles.css";
-import { getTextAreaStyles } from "./styles.css";
+import * as styles from "./styles.css";
 
 export interface TextAreaProps
-  extends GetSprinklesArgs,
-    Omit<
-      DetailedHTMLProps<
-        TextareaHTMLAttributes<HTMLTextAreaElement>,
-        HTMLTextAreaElement
-      >,
-      "color" | "ref"
-    > {
-  size?: VariantTextAreaSizeEnum;
+  extends SprinklesArgs,
+    Omit<React.ComponentPropsWithoutRef<"textarea">, "color" | "ref"> {
+  size?: VariantUiScaleEnum;
   name: string;
+  /** FontAwesome icon shown on the left side of input. */
+  iconLeft?: IconProps["icon"];
+  /** Props for leading icon */
+  iconLeftProps?: Omit<IconProps, "icon">;
+  /** FontAwesome icon shown on the right side of input. */
+  iconRight?: IconProps["icon"];
+  /** Props for trailing icon */
+  iconRightProps?: Omit<IconProps, "icon">;
   errorMessage?: string;
   invalid?: boolean;
   /** Used as the html ID. */
@@ -43,34 +38,50 @@ export const TextArea = forwardRef(
       size = "md",
       invalid,
       errorMessage,
-
+      iconLeft,
+      iconLeftProps,
+      iconRight,
+      iconRightProps,
       label,
       id,
       ...rest
     }: TextAreaProps,
     ref: LegacyRef<HTMLTextAreaElement> | undefined
   ) => {
-    /** Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract */
+    /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
-
-    const inputWrapperStyles = clsx(
-      getTextAreaStyles({
-        size,
-      }),
-      a11yFocus,
-      getSprinkles({ ...atomProps })
-    );
 
     return (
       <Box>
         {label && id && <Label label={label} htmlFor={id} />}
 
-        <textarea
-          aria-invalid={invalid}
-          className={inputWrapperStyles}
-          ref={ref}
-          {...otherProps}
-        />
+        <Box className={styles.getWrapperStyles({ size })} {...atomProps}>
+          {iconLeft && (
+            <Icon
+              marginY="spacing1"
+              color="neutral_border_interactive"
+              icon={iconLeft}
+              {...iconLeftProps}
+            />
+          )}
+
+          <textarea
+            aria-invalid={invalid}
+            className={styles.textArea}
+            ref={ref}
+            {...otherProps}
+          />
+
+          {iconRight && (
+            <Icon
+              marginY="spacing1"
+              color="neutral_border_interactive"
+              icon={iconRight}
+              {...iconRightProps}
+            />
+          )}
+        </Box>
+
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
         )}

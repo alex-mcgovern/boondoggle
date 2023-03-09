@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus } from "../../../../styles/common/a11y.focus.css";
+import { classnamesFocusedState } from "../../../../styles/common/a11y.focus.css";
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 export const dropdownMenu = style([
-  a11yFocus,
+  classnamesFocusedState,
   getSprinkles({
     marginTop: "spacing1",
     width: "max-content",
@@ -19,7 +19,7 @@ export const dropdownMenu = style([
     borderRadius: "sm",
     overflow: "hidden",
 
-    background: "neutral_background_raised",
+    background: "base",
     boxShadow: "sm",
     border: "neutral_border_interactive",
     overflowY: "auto",
@@ -36,7 +36,7 @@ export const dropdownMenu = style([
 
     selectors: {
       "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {
-        borderColor: vars.color.accent_border_interactiveActive,
+        borderColor: vars.color.accent.border.interactiveActive,
       },
       "&:empty": {
         display: "none",

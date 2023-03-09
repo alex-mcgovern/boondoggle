@@ -83,10 +83,13 @@ export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
 export { createModularScale } from "./styles/utils/create_modular_scale";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
-export type { GetSprinklesArgs } from "./styles/utils/get_sprinkles.css";
-export { a11yDisabled } from "./styles/common/a11y.disabled.css";
+export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";
+export { classnamesDisabledState } from "./styles/common/a11y.disabled_state.css";
 export { a11yError } from "./styles/common/a11y.error.css";
-export { a11yFocus, a11yFocusStyleRule } from "./styles/common/a11y.focus.css";
+export {
+  classnamesFocusedState,
+  a11yFocusStyleRule,
+} from "./styles/common/a11y.focus.css";
 export { commonBackground } from "./styles/common/common.background.css";
 export {
   SELECTOR_LINK_BUTTON_HOVER,

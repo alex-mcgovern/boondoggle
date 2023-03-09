@@ -15,4 +15,6 @@ export const varsSpacing = {
   spacing3: "1.5rem",
   spacing4: "2rem",
   spacing5: "2.5rem",
+  spacing6: "3rem",
+  spacing7: "3.5rem",
 };

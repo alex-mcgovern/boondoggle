@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const popoverTrigger = style([
   {
-    color: vars.color.accent_text_lowContrast,
+    color: vars.color.accent.text.lowContrast,
     borderRadius: vars.borderRadius.sm,
 
     transition: `color ease`,
@@ -13,15 +13,15 @@ export const popoverTrigger = style([
 
     selectors: {
       "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {
-        color: vars.color.accent_text_highContrast,
+        color: vars.color.accent.text.highContrast,
       },
       "&[disabled]": {
-        borderColor: "accent_border_3",
+        borderColor: "accent.border.3",
       },
     },
   },
   getSprinkles({
     padding: "spacing0",
   }),
-  a11yFocus,
+  classnamesFocusedState,
 ]);

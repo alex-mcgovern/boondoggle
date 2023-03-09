@@ -9,7 +9,7 @@ import { Button } from "../../../Button";
 import { DownshiftContext } from "../../context/DownshiftContext";
 
 export interface SelectToggleButtonProps
-  extends Omit<ButtonProps, "iconTrailing"> {
+  extends Omit<ButtonProps, "iconRight"> {
   invalid?: boolean;
 }
 
@@ -36,9 +36,9 @@ export const SelectToggleButton = forwardRef(
         {...rest}
         className={dropdownToggleButtonClassNames}
         appearance={appearance}
-        iconTrailing={faAngleDown}
+        iconRight={faAngleDown}
         // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
-        iconTrailingProps={{
+        iconRightProps={{
           rotation: isOpen ? 180 : undefined,
         }}
         justifyContent={justifyContent}

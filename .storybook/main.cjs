@@ -2,7 +2,12 @@ const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const { merge } = require("webpack-merge");
 
 module.exports = {
-  stories: ["../src/**/*.stories.tsx"],
+  stories: [
+    "../src/**/*.stories.tsx",
+    "../src/**/*.stories.mdx",
+    "../documentation/**/*.stories.tsx",
+    "../documentation/**/*.stories.mdx",
+  ],
   typescript: {
     check: false,
     checkOptions: {},
@@ -19,6 +24,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "storybook-addon-pseudo-states",
   ],
   framework: "@storybook/react",
   core: {

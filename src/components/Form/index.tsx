@@ -121,8 +121,8 @@ export function Form({
           width="100%"
           name="submit"
           type="submit"
-          iconTrailing={buttonIcon}
-          iconTrailingProps={buttonIconProps}
+          iconRight={buttonIcon}
+          iconRightProps={buttonIconProps}
           disabled={disabled}
         >
           {submitButtonText}

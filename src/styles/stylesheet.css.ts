@@ -12,8 +12,8 @@ globalStyle(`*`, {
 });
 
 globalStyle(`html`, {
-  color: vars.color.neutral_text_highContrast,
-  backgroundColor: vars.color.neutral_background_raised,
+  color: vars.color.neutral.text.highContrast,
+  backgroundColor: vars.color.neutral.background.raised,
   fontSize: vars.fontSize.root,
 });
 
@@ -36,7 +36,7 @@ globalStyle(`a`, {
   padding: 0,
   margin: 0,
   listStyleType: "none",
-  color: vars.color.accent_text_lowContrast,
+  color: vars.color.accent.text.lowContrast,
 });
 
 /* -----------------------------------------------------------------------------—
@@ -72,7 +72,7 @@ globalStyle(`button`, {
  * ------------------------------------------------------------------------------- */
 
 globalStyle("input[type=checkbox]", {
-  accentColor: vars.color.accent_primary_base,
+  accentColor: vars.color.accent.solid.base,
 });
 
 /** -----------------------------------------------------------------------------
@@ -80,8 +80,8 @@ globalStyle("input[type=checkbox]", {
  * ------------------------------------------------------------------------------- */
 
 globalStyle(`code`, {
-  background: vars.color.neutral_secondary_active,
-  color: vars.color.neutral_text_highContrast,
+  background: vars.color.neutral.secondary.active,
+  color: vars.color.neutral.text.highContrast,
   fontWeight: vars.fontWeight.normal,
 });
 
@@ -143,7 +143,7 @@ globalStyle(`h6`, {
 globalStyle(`hr`, {
   borderBottom: "none",
   borderTop: "1px solid",
-  borderColor: vars.color.neutral_border_interactive,
+  borderColor: vars.color.neutral.border.interactive,
   marginTop: vars.spacing.spacing3,
   marginBottom: vars.spacing.spacing3,
 });
@@ -152,11 +152,12 @@ globalStyle(`hr`, {
  * Input
  * ------------------------------------------------------------------------------- */
 
-globalStyle("input", {
-  border: "none",
-  backgroundImage: "none",
-  backgroundColor: "transparent",
-  boxShadow: "none",
+globalStyle("input, textarea", {
+  padding: vars.spacing.spacing1,
+  border: `1px solid ${vars.color.neutral.border.interactive}`,
+  borderRadius: vars.borderRadius.md,
+  background: vars.color.neutral.background.base,
+  color: vars.color.neutral.text.lowContrast,
 });
 
 /** -----------------------------------------------------------------------------
@@ -218,7 +219,7 @@ globalStyle(`table`, {
   overflow: "hidden",
   boxSizing: "border-box",
   border: "1px solid",
-  borderColor: vars.color.neutral_border_nonInteractive,
+  borderColor: vars.color.neutral.border.nonInteractive,
   borderSpacing: 0,
   emptyCells: "show",
   marginBottom: vars.spacing.spacing3,
@@ -228,7 +229,7 @@ globalStyle(`table`, {
 });
 
 globalStyle(`thead`, {
-  backgroundColor: vars.color.neutral_secondary_base,
+  backgroundColor: vars.color.neutral.secondary.base,
   textAlign: "left",
   verticalAlign: "bottom",
 });
@@ -238,7 +239,7 @@ globalStyle(`tr`, {
 });
 
 globalStyle(`tbody tr:nth-of-type(odd)`, {
-  backgroundColor: vars.color.neutral_background_raised,
+  backgroundColor: vars.color.neutral.background.raised,
 });
 
 globalStyle(`th`, {

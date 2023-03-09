@@ -12,6 +12,7 @@
     "stylelint.vscode-stylelint",
     "adamwalzer.string-converter",
     "lakkannawalikar.css-converter",
-    "ChakrounAnas.turbo-console-log"
+    "chakrounanas.turbo-console-log",
+    "unifiedjs.vscode-mdx"
   ]
 }

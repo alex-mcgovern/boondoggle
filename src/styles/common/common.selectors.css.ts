@@ -3,7 +3,7 @@ export const SELECTOR_IS_NOT_DISABLED = ":not([disabled])";
 
 export const SELECTOR_IS_HOVER = `:is(:hover)`;
 export const SELECTOR_IS_FOCUS = `:is(:focus-visible)`;
-export const SELECTOR_IS_HOVER_FOCUS = `:is(:hover, :focus-visible, [aria-current="page"])`;
+export const SELECTOR_IS_HOVER_FOCUS = `:is(:hover, :focus-visible)`;
 
 /** ---------------------------------------------—
  * BUTTON/LINK: HOVER

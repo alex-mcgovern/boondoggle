@@ -26,48 +26,38 @@
     "*.test.*",
     "*.mock.*",
     "*.svg",
-    "*.md",
-    "*.mdx", // <— We really *should* lint MDX files, but it's not working yet.
     "coverage"
   ],
 
   "overrides": [
-    /**
-     * Overrides for TypeScript files
-     */
-
     {
-      "files": ["*.(ts|tsx)"],
-      "extends": ["plugin:@typescript-eslint/recommended"]
+      "files": [".tsx", ".ts"],
+      "extends": "plugin:@typescript-eslint/recommended-requiring-type-checking"
     },
-
-    /**
-     * Overrides for MDX files
-     */
-
+    {
+      "files": "*.md",
+      "extends": "plugin:markdown/recommended"
+    },
     {
       "files": "*.mdx",
-      "extends": "plugin:mdx/recommended"
-      // "parser": "eslint-mdx"
+      "parser": "eslint-mdx",
+      "extends": "plugin:mdx/recommended",
+      "settings": {
+        "mdx/code-blocks": true
+      }
     },
-
-    /**
-     * Overrides for vanilla extract css.ts files
-     */
     {
       "files": ["**/*.css.ts"],
       "rules": {
         "sonarjs/no-duplicate-string": "off"
       }
     },
-    /**
-     * Overrides for test files
-     */
+
     {
+      "files": ["**/*/test.ts", "**/*.test.tsx"],
       "env": {
         "jest": true
       },
-      "files": ["**/*/test.ts", "**/*.test.tsx"],
       "rules": {
         "sonarjs/no-duplicate-string": "off",
         "react-perf/jsx-no-jsx-as-prop": "off",
@@ -76,11 +66,8 @@
         "react-perf/jsx-no-new-object-as-prop": "off"
       }
     },
-    /**
-     * Overrides to allow default exports.
-     */
     {
-      "files": ["**/*.stories.tsx", "tsup.config.ts", "jest.*"],
+      "files": ["**/*.stories.*", "tsup.config.ts", "jest.*"],
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error"
@@ -126,25 +113,7 @@
         ]
       }
     ],
-    /**
-     * Override annoying default behavior for unescaped entities, focusing on only the characters
-     * most likely to break JSX. Although I've never experienced this issue personally.
-     */
-    "react/no-unescaped-entities": [
-      "error",
-      {
-        "forbid": [
-          {
-            "char": ">",
-            "alternatives": ["&gt;"]
-          },
-          {
-            "char": "}",
-            "alternatives": ["&#125;"]
-          }
-        ]
-      }
-    ],
+
     /**
      * Allow simpler prop typings for Typescript components.
 "* ToDo":  Consider generating react prop types at compile time for component library.

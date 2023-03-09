@@ -3,7 +3,7 @@ import React from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import clsx from "clsx";
-import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type { BoxProps } from "../Box";
 import { Box } from "../Box";
@@ -15,9 +15,9 @@ export interface TagProps extends BoxProps {
   /** Variant prop controlling tag appearance. Note: Auto-generated documentation for this is still a WIP, so variant styles are missing. */
   state?: VariantTagStateEnum;
   /** FontAwesome icon shown on the left side of tag. */
-  iconLeading?: IconProp;
+  iconLeft?: IconProp;
   /** FontAwesome icon shown on the right side of tag. */
-  iconTrailing?: IconProp;
+  iconRight?: IconProp;
   /** Used as the html ID. */
   id?: string;
   /** If `true`, the component is disabled. */
@@ -33,8 +33,8 @@ export interface TagProps extends BoxProps {
 export function Tag({
   as,
   id,
-  iconLeading,
-  iconTrailing,
+  iconLeft,
+  iconRight,
   state,
   children,
   ...rest
@@ -44,18 +44,14 @@ export function Tag({
   const tagStyle = clsx([
     styles.getTagStyle({ state }),
     getSprinkles(atomProps),
-    a11yFocus,
+    classnamesFocusedState,
   ]);
 
   return (
     <Box as={as} className={tagStyle} id={id} {...otherProps}>
-      {iconLeading && (
-        <Icon className={styles.iconLeading} icon={iconLeading} />
-      )}
+      {iconLeft && <Icon className={styles.iconLeft} icon={iconLeft} />}
       {children}
-      {iconTrailing && (
-        <Icon className={styles.iconTrailing} icon={iconTrailing} />
-      )}
+      {iconRight && <Icon className={styles.iconRight} icon={iconRight} />}
     </Box>
   );
 }

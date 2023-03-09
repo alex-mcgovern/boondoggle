@@ -2,7 +2,7 @@ import type { ElementType, ReactElement, ReactNode } from "react";
 import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
@@ -11,7 +11,7 @@ import type {
 import { Box } from "../Box";
 import * as styles from "./index.css";
 
-type BaseCardProps<TPolymorphicAs extends ElementType> = GetSprinklesArgs &
+type BaseCardProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
@@ -34,7 +34,7 @@ export const Card: CardProps = forwardRef(
     }: BaseCardProps<TPolymorphicAs>,
     ref?: PolymorphicRef<TPolymorphicAs>
   ) => {
-    /** Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract */
+    /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     const Component = as || Box;

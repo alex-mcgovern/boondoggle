@@ -1,8 +1,8 @@
 import React from "react";
-import type { GetSprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 
-export interface LabelProps extends GetSprinklesArgs {
+export interface LabelProps extends SprinklesArgs {
   label: string;
   htmlFor: string;
 }

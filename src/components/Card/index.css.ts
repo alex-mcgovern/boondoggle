@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus } from "../../styles/common/a11y.focus.css";
+import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
 import { darkTheme, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
@@ -12,11 +12,11 @@ export const cardStyle = style([
     isolation: "isolate",
     // overflow: "hidden",
     textDecoration: "none",
-    background: "neutral_secondary_base",
-    border: "neutral_border_interactive",
+    background: "base",
+    border: "neutral_nonInteractive",
     borderRadius: "md",
   }),
-  a11yFocus,
+  classnamesFocusedState,
   createAccessibleTransition({
     transition: `ease ${vars.transitionDuration.short}`,
     transitionProperty:
@@ -27,8 +27,8 @@ export const cardStyle = style([
 
     selectors: {
       [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-        borderColor: vars.color.neutral_border_interactiveActive,
-        backgroundColor: vars.color.neutral_secondary_base,
+        borderColor: vars.color.neutral.border.interactiveActive,
+        backgroundColor: vars.color.neutral.secondary.base,
         boxShadow: vars.boxShadow.md,
         /**
          * TranslateY on hover isn't always desirable.
@@ -37,7 +37,7 @@ export const cardStyle = style([
         // transform: `translateY(${calc.multiply(vars.spacing.spacing0, -1)})`,
       },
       [`${darkTheme} ${SELECTOR_LINK_BUTTON_HOVER_FOCUS}`]: {
-        backgroundColor: vars.color.neutral_secondary_active,
+        backgroundColor: vars.color.neutral.secondary.active,
       },
     },
   },

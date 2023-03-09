@@ -5,7 +5,7 @@ import type { InputProps } from "../../../Input";
 import { Input } from "../../../Input";
 import { DownshiftContext } from "../../context/DownshiftContext";
 
-export type SelectInputProps = Omit<InputProps, "iconTrailing">;
+export type SelectInputProps = Omit<InputProps, "iconRight">;
 
 export const SelectInput = forwardRef(
   (
@@ -37,9 +37,9 @@ export const SelectInput = forwardRef(
       <Input
         {...getInputProps({
           ...getDropdownProps({ preventKeyAction: isOpen, ref }),
-          iconTrailing: faAngleDown,
+          iconRight: faAngleDown,
           // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
-          iconTrailingProps: {
+          iconRightProps: {
             rotation: isOpen ? 180 : undefined,
           },
           onClick: toggleMenu,
