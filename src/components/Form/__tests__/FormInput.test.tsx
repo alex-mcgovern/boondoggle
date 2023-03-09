@@ -2,7 +2,8 @@
 import React from "react";
 import { cleanup } from "@testing-library/react";
 import { renderTestComponent } from "../../../../test/renderTestComponent";
-import { FormInput, FormInputProps } from "../components/FormInput";
+import type { FormInputProps } from "../components/FormInput";
+import { FormInput } from "../components/FormInput";
 import { FormTestProvider } from "../components/TestFormProvider";
 
 afterEach(cleanup);
