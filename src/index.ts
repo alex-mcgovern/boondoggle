@@ -5,8 +5,8 @@
 export { Box } from "./components/Box";
 export type { BoxProps } from "./components/Box";
 
-export { Button } from "./components/button_component/button.comp";
-export type { ButtonProps } from "./components/button_component/button.comp";
+export { Button } from "./components/button/Button";
+export type { ButtonProps } from "./components/button/Button";
 
 export { Card } from "./components/Card";
 export type { CardProps } from "./components/Card";
@@ -29,7 +29,7 @@ export { FormInput } from "./components/Form/components/FormInput";
 export { FormSingleSelect } from "./components/Form/components/FormSingleSelect";
 export { FormTextArea } from "./components/Form/components/FormTextArea";
 export { FormSingleSelectCreatable } from "./components/Form/components/FormSingleSelectCreatable";
-export { getHookFormButtonIconProps } from "./components/Form/utils/getHookFormButtonIcon";
+export { getHookFormIconProps } from "./components/Form/utils/getHookFormIcon";
 
 export { Input } from "./components/Input";
 export type { InputProps } from "./components/Input";

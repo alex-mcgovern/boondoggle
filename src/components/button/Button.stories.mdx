@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 
 import { Button } from ".";
 import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
-import * as stories from "./button.story.tsx";
+import * as stories from "./Button.stories.tsx";
 
 <Meta title="Components/Button" component={Button} />
 
@@ -28,15 +28,9 @@ The `Button` comes with three `appearance` variants:
   and should not be used for frequent or important actions.
 
 <Canvas>
-  <Story name="appearance" story={stories.StoryButtonAppearancePrimary} />
-  <Story
-    name="appearance-secondary"
-    story={stories.StoryButtonAppearanceSecondary}
-  />
-  <Story
-    name="appearance-tertiary"
-    story={stories.StoryButtonAppearanceTertiary}
-  />
+  <Story name="appearance/primary" story={stories.AppearancePrimary} />
+  <Story name="appearance/secondary" story={stories.AppearanceSecondary} />
+  <Story name="appearance/tertiary" story={stories.AppearanceTertiary} />
 </Canvas>
 
 ## Color
@@ -52,10 +46,10 @@ The `Button` has four color variants:
   "Delete" or "Cancel".
 
 <Canvas>
-  <Story name="color/accent" story={stories.StoryButtonColorAccent} />
-  <Story name="color-neutral" story={stories.StoryButtonColorNeutral} />
-  <Story name="color/green" story={stories.StoryButtonColorGreen} />
-  <Story name="color/red" story={stories.StoryButtonColorSemanticBad} />
+  <Story name="color/accent" story={stories.ColorAccent} />
+  <Story name="color/neutral" story={stories.ColorNeutral} />
+  <Story name="color/green" story={stories.ColorGreen} />
+  <Story name="color/red" story={stories.ColorSemanticBad} />
 </Canvas>
 
 ## Customisation
@@ -64,10 +58,7 @@ The `Button` has four color variants:
 - The props map to the `getSprinkles` utility for composing additional styles.
 
 <Canvas>
-  <Story
-    name="customisation-margin"
-    story={stories.StoryButtonCustomisationMargin}
-  />
+  <Story name="customisation/margin" story={stories.CustomisationMargin} />
   {/* <Story story={stories.CustomisationWidth} /> */}
 </Canvas>
 
@@ -80,8 +71,8 @@ The `Button` has four color variants:
   sprinkles.
 
 <Canvas>
-  <Story name="icon-left" story={stories.StoryButtonIconLeft} />
-  <Story name="icon-right" story={stories.StoryButtonIconRight} />
+  <Story name="icon/left" story={stories.IconLeft} />
+  <Story name="icon/right" story={stories.IconRight} />
 </Canvas>
 
 ## Size
@@ -94,9 +85,9 @@ The `Button` has three size variants: `"sm"`, `"md"`, and `"lg"`.
 - `"lg"` is for edge cases, like marketing CTAs
 
 <Canvas>
-  <Story name="icon-size-sm" story={stories.StoryButtonIconSizeSm} />
-  <Story name="icon-size-md" story={stories.StoryButtonIconSizeMd} />
-  <Story name="icon-size-lg" story={stories.StoryButtonIconSizeLg} />
+  <Story name="size/sm" story={stories.SizeSm} />
+  <Story name="size/md" story={stories.SizeMd} />
+  <Story name="size/lg" story={stories.SizeLg} />
 </Canvas>
 
 ## State
@@ -109,15 +100,9 @@ selectors
 - [disabled] or [aria-disabled="true"]
 
 <Canvas>
-  <Story name="icon-state-hover" story={stories.StoryButtonIconStateHover} />
-  <Story
-    name="icon-state-focus-visible"
-    story={stories.StoryButtonIconStateFocusVisible}
-  />
-  <Story
-    name="icon-state-disabled"
-    story={stories.StoryButtonIconStateDisabled}
-  />
+  <Story name="state/hover" story={stories.StateHover} />
+  <Story name="state/focus-visible" story={stories.StateFocusVisible} />
+  <Story name="state/disabled" story={stories.StateDisabled} />
 </Canvas>
 
 # Props

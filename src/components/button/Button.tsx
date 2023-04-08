@@ -7,7 +7,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { getButtonStyles } from "./button.css";
+import { getButtonStyles } from "./styles.css";
 
 import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
 import type {
@@ -18,10 +18,7 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
 } from "../../types";
-import type {
-  VariantButtonAppearanceEnum,
-  VariantButtonColorEnum,
-} from "./button.css";
+import type { VariantAppearanceEnum, VariantColorEnum } from "./styles.css";
 import type {
   ComponentPropsWithoutRef,
   ElementType,
@@ -45,9 +42,9 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
       /** Size of the button element */
       size?: VariantUiScaleEnum;
       /** Color for the button */
-      color?: VariantButtonColorEnum;
+      color?: VariantColorEnum;
       /** Appearance for the button */
-      appearance?: VariantButtonAppearanceEnum;
+      appearance?: VariantAppearanceEnum;
     }
   >;
 

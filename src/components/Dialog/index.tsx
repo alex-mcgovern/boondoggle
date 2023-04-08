@@ -3,7 +3,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import React from "react";
 
 import { Box } from "../Box";
-import { Button } from "../button_component/button.comp";
+import { Button } from "../button/Button";
 import * as styles from "./dialog.css";
 
 import type { ReactNode } from "react";

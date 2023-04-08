@@ -8,7 +8,7 @@ import { SelectToggleButton } from "./components/SelectToggleButton";
 import { DownshiftContext } from "./context/DownshiftContext";
 import { DownshiftProviderSingle } from "./context/DownshiftProviderSingle";
 
-import type { ButtonProps } from "../button_component/button.comp";
+import type { ButtonProps } from "../button/Button";
 import type { DropdownItem } from "./types";
 
 export interface SelectSingleProps

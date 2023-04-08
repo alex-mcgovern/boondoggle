@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { Box } from "../Box";
-import { Button } from "../button_component/button.comp";
-import { getHookFormButtonIconProps } from "./utils/getHookFormButtonIcon";
+import { Button } from "../button/Button";
+import { getHookFormIconProps } from "./utils/getHookFormIcon";
 
 import type { FormInputProps } from "./components/FormInput";
 import type { FormSingleSelectProps } from "./components/FormSingleSelect";
@@ -59,7 +59,7 @@ export function Form({
    * ----------------------------------------------- */
 
   const { buttonIcon, buttonIconProps } = useMemo(() => {
-    return getHookFormButtonIconProps({
+    return getHookFormIconProps({
       isValid,
       isValidating,
       isSubmitting,

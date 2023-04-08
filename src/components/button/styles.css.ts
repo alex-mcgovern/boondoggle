@@ -32,8 +32,8 @@ const makeButtonTheme = (theme: ColorScale) => {
  * Button theme
  *
  * Describes the values that can be used to theme the button,
- * and their default values. In {@link variantButtonColor} and
- * {@link variantButtonAppearance} we re-assign these values as
+ * and their default values. In {@link variantColor} and
+ * {@link variantAppearance} we re-assign these values as
  * needed to create the different variants of the button, then
  * consume them in {@link getButtonStyles}.
  * ------------------------------------------------------------------------------- */
@@ -46,7 +46,7 @@ export const [buttonTheme, varsButtonTheme] = createTheme(
  * Button color variants
  * ------------------------------------------------------------------------------- */
 
-export const variantButtonColor = styleVariants({
+export const variantColor = styleVariants({
   accent: {
     vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.accent)),
   },
@@ -61,7 +61,7 @@ export const variantButtonColor = styleVariants({
   },
 });
 
-export type VariantButtonColorEnum = keyof typeof variantButtonColor;
+export type VariantColorEnum = keyof typeof variantColor;
 
 /** -----------------------------------------------------------------------------
  * Button appearance variants
@@ -75,7 +75,7 @@ const commonButtonSprinkles: SprinklesArgs = {
   fontWeight: "semibold",
 };
 
-export const variantButtonAppearance = styleVariants({
+export const variantAppearance = styleVariants({
   primary: [
     getSprinkles(commonButtonSprinkles),
     {
@@ -124,13 +124,13 @@ export const variantButtonAppearance = styleVariants({
   ],
 });
 
-export type VariantButtonAppearanceEnum = keyof typeof variantButtonAppearance;
+export type VariantAppearanceEnum = keyof typeof variantAppearance;
 
 /** -----------------------------------------------------------------------------
  * Button recipe function
  *
  * This is the main function that returns the styles for the button,
- * it exposes {@link variantButtonColor} and {@link variantButtonAppearance}
+ * it exposes {@link variantColor} and {@link variantAppearance}
  * as arguments, which are then exposed as top-level props on the Button component.
  *
  * See: https://vanilla-extract.style/documentation/packages/recipes/
@@ -155,8 +155,8 @@ export const getButtonStyles = recipe({
     }),
   ],
   variants: {
-    appearance: variantButtonAppearance,
-    color: variantButtonColor,
+    appearance: variantAppearance,
+    color: variantColor,
     size: {
       square: [
         getSprinkles({

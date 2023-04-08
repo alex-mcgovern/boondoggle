@@ -4,9 +4,9 @@ import { cleanup } from "@testing-library/react";
 import React from "react";
 
 import { renderTestComponent } from "../../../../test/renderTestComponent";
-import { Button } from "../button.comp";
+import { Button } from "../Button";
 
-import type { ButtonProps } from "../button.comp";
+import type { ButtonProps } from "../Button";
 
 afterEach(cleanup);
 

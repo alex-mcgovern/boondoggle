@@ -4,10 +4,11 @@ import {
   faPaperPlane,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
-import type { FieldValues, FormState } from "react-hook-form";
-import type { IconProps } from "../../Icon";
 
-interface GetHookFormButtonIconProps {
+import type { IconProps } from "../../Icon";
+import type { FieldValues, FormState } from "react-hook-form";
+
+interface GetHookFormIconProps {
   isValid: FormState<FieldValues>["isValid"];
   isValidating: FormState<FieldValues>["isValidating"];
   isSubmitting: FormState<FieldValues>["isSubmitting"];
@@ -24,12 +25,12 @@ interface GetHookFormButtonIconProps {
  * ToDo: Reconsider how icon & iconProps are handled in `packages/boondoggle.design/src/Icon`
  * it doesn't really make sense how they have been typed.
  */
-export function getHookFormButtonIconProps({
+export function getHookFormIconProps({
   errors,
   isSubmitSuccessful,
   isSubmitted,
   isSubmitting,
-}: GetHookFormButtonIconProps): {
+}: GetHookFormIconProps): {
   buttonIcon: IconProps["icon"] | undefined;
   buttonIconProps: Omit<IconProps, "icon"> | undefined;
 } {

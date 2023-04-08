@@ -4,10 +4,10 @@ import clsx from "clsx";
 import React, { forwardRef, useContext } from "react";
 
 import { globalErrorStyles } from "../../../../styles/common/globalErrorStyles.css";
-import { Button } from "../../../button_component/button.comp";
+import { Button } from "../../../button/Button";
 import { DownshiftContext } from "../../context/DownshiftContext";
 
-import type { ButtonProps } from "../../../button_component/button.comp";
+import type { ButtonProps } from "../../../button/Button";
 import type { LegacyRef } from "react";
 
 export interface SelectToggleButtonProps
