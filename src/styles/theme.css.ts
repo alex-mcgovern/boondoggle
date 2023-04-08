@@ -9,6 +9,7 @@ import {
   slateDark,
 } from "@radix-ui/colors";
 import { createGlobalTheme, createTheme } from "@vanilla-extract/css";
+
 import { makeTheme } from "./utils/make_theme";
 import { varsAspectRatio } from "./vars/vars_aspect_ratio.css";
 import { varsBorderRadius } from "./vars/vars_border_radius.css";
@@ -59,8 +60,8 @@ export const color = createGlobalTheme(":root", {
   ...makeTheme({
     accent: blue,
     neutral: slate,
-    semanticRed: red,
-    semanticGreen: green,
+    red: red,
+    green: green,
   }),
 });
 
@@ -79,8 +80,8 @@ export const darkTheme = createTheme(color, {
   ...makeTheme({
     accent: blueDark,
     neutral: slateDark,
-    semanticRed: redDark,
-    semanticGreen: greenDark,
+    red: redDark,
+    green: greenDark,
   }),
 });
 

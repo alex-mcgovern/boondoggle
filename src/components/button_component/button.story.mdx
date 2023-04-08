@@ -1,7 +1,8 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
 import { Button } from ".";
 import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
-import * as stories from "./button.stories.tsx";
+import * as stories from "./button.story.tsx";
 
 <Meta title="Components/Button" component={Button} />
 
@@ -12,7 +13,7 @@ import * as stories from "./button.stories.tsx";
 - Exposes [variants](#variants) via `appearance`, `color`, and `size` props
 - Includes `FontAwesome` icons and exposes `iconLeft` and `iconRight`, as well
   as `iconLeftProps` and `iconRightProps` to forward props to
-  [Icon](?path=/docs/components-icon--icon)
+  [Icon](?path=/components-icon--icon)
 - Supports [customisation](#customisation) via `getSprinkles` utility
 - Supports polymorphic `as` prop to render as any html5 element or React
   component (e.g. `as="a"` or `as={Link}`)
@@ -40,39 +41,27 @@ The `Button` comes with three `appearance` variants:
 
 ## Color
 
-The `Button` has four color variants: `"accent"` and `"neutral"`.
+The `Button` has four color variants:
 
-- `"accent"` is the default color
+- `"accent"` is the default color.
 - `"neutral"` should be used carefully with consideration for the correct
   appearance variant.
+- `"green"` should be used for actions that are positive or affirmative, like
+  "Save" or "Submit".
+- `"red"` should be used for actions that are negative or destructive, like
+  "Delete" or "Cancel".
 
 <Canvas>
-  <Story name="docs/color/accent" story={stories.StoryButtonColorAccent} />
-  <Story name="docs/color-neutral" story={stories.StoryButtonColorNeutral} />
-  <Story
-    name="docs/color/semanticGreen"
-    story={stories.StoryButtonColorSemanticGood}
-  />
-  <Story
-    name="docs/color/semanticRed"
-    story={stories.StoryButtonColorSemanticBad}
-  />
+  <Story name="color/accent" story={stories.StoryButtonColorAccent} />
+  <Story name="color-neutral" story={stories.StoryButtonColorNeutral} />
+  <Story name="color/green" story={stories.StoryButtonColorGreen} />
+  <Story name="color/red" story={stories.StoryButtonColorSemanticBad} />
 </Canvas>
 
 ## Customisation
 
 - Button allows customization through top-level props.
 - The props map to the `getSprinkles` utility for composing additional styles.
-
-```tsx
-const Component = () => {
-  return (
-    <Button margin="spacing5" width="100%">
-      Click me
-    </Button>
-  );
-};
-```
 
 <Canvas>
   <Story
@@ -90,48 +79,10 @@ const Component = () => {
 - `iconLeftProps` and `iconRightProps` allow further customization via
   sprinkles.
 
-```tsx
-import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
-
-const Component = () => {
-  return (
-    <Button
-      iconLeft={faTriangleCircleSquare}
-      iconLeftProps={{ color: "accent_primary_base" }}
-      to="/home"
-    >
-      Home
-    </Button>
-  );
-};
-```
-
 <Canvas>
   <Story name="icon-left" story={stories.StoryButtonIconLeft} />
   <Story name="icon-right" story={stories.StoryButtonIconRight} />
 </Canvas>
-
-## Polymorphism
-
-`Button` allows polymorphism via the `as` prop. This allows you to render the
-button as any html5 element or React component. The `Button` component will
-automatically forward all props to the rendered element, and infer the correct
-types to allow them to be validated in your IDE or at compile time.
-
-This is particularly useful when dealing with routing libraries like
-`react-router` or `next.js`, which export a `Link` component that you can use
-for internal routing.
-
-```tsx
-// Use `as` prop to render `Button` as a `Link` component
-import { Link } from "next/link";
-
-// or "react-router-dom"
-
-<Button as={Link} to="/home">
-  Home
-</Button>;
-```
 
 ## Size
 

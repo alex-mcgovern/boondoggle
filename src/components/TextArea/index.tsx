@@ -1,15 +1,17 @@
-import type { LegacyRef } from "react";
-import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
-import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import React, { forwardRef } from "react";
+
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
-import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
 import { InputErrorMessage } from "../InputErrorMessage";
 import { Label } from "../Label";
 import * as styles from "./styles.css";
+
+import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { IconProps } from "../Icon";
+import type { LegacyRef } from "react";
 
 export interface TextAreaProps
   extends SprinklesArgs,

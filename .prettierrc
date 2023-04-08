@@ -2,10 +2,12 @@
   "arrowParens": "always",
   "proseWrap": "always",
   "importOrder": [
-    "^react$",
     "<THIRD_PARTY_MODULES>",
-    "^[./]"
+    "^[../]",
+    "^[./]",
+    "<THIRD_PARTY_TS_TYPES>",
+    "<TS_TYPES>"
   ],
-  "importOrderSeparation": false,
+  "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

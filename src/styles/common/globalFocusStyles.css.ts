@@ -1,6 +1,8 @@
-import type { StyleRule } from "@vanilla-extract/css";
 import { style } from "@vanilla-extract/css";
+
 import { vars } from "../theme.css";
+
+import type { StyleRule } from "@vanilla-extract/css";
 
 export const a11yFocusStyleRule: StyleRule = {
   outline: `2px solid ${vars.color.accent.border.interactive}`,
@@ -8,7 +10,7 @@ export const a11yFocusStyleRule: StyleRule = {
   borderColor: vars.color.accent.border.interactiveActive,
 };
 
-export const classnamesFocusedState = style([
+export const globalFocusStyles = style([
   {
     selectors: {
       [`&:focus:not(:focus-visible)`]: {

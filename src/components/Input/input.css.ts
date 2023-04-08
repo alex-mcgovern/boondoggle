@@ -1,12 +1,14 @@
 import { style } from "@vanilla-extract/css";
-import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { recipe } from "@vanilla-extract/recipes";
-import { classnamesDisabledState } from "../../styles/common/a11y.disabled_state.css";
-import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
-import { variantUiScale } from "../../styles/common/variant.ui_scale.css";
+
+import { globalDisabledStyles } from "../../styles/common/globalDisabledStyles.css";
+import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
+import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+
+import type { RecipeVariants } from "@vanilla-extract/recipes";
 
 export const getWrapperStyles = recipe({
   base: [
@@ -18,7 +20,7 @@ export const getWrapperStyles = recipe({
     }),
   ],
 
-  variants: { size: variantUiScale },
+  variants: { size: globalVariantsUiScale },
 
   defaultVariants: {
     size: "md",
@@ -34,8 +36,8 @@ export const input = style([
     transition: `ease ${vars.transitionDuration.short}`,
     transitionProperty: "color, background-color, border-color",
   }),
-  classnamesDisabledState,
-  classnamesFocusedState,
+  globalDisabledStyles,
+  globalFocusStyles,
 ]);
 
 export type InputVariants = RecipeVariants<typeof getWrapperStyles>;

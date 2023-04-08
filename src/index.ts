@@ -5,8 +5,8 @@
 export { Box } from "./components/Box";
 export type { BoxProps } from "./components/Box";
 
-export { Button } from "./components/Button";
-export type { ButtonProps } from "./components/Button";
+export { Button } from "./components/button_component/button.comp";
+export type { ButtonProps } from "./components/button_component/button.comp";
 
 export { Card } from "./components/Card";
 export type { CardProps } from "./components/Card";
@@ -84,12 +84,12 @@ export { createModularScale } from "./styles/utils/create_modular_scale";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
 export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";
-export { classnamesDisabledState } from "./styles/common/a11y.disabled_state.css";
-export { a11yError } from "./styles/common/a11y.error.css";
+export { globalDisabledStyles } from "./styles/common/globalDisabledStyles.css";
+export { globalErrorStyles } from "./styles/common/globalErrorStyles.css";
 export {
-  classnamesFocusedState,
+  globalFocusStyles,
   a11yFocusStyleRule,
-} from "./styles/common/a11y.focus.css";
+} from "./styles/common/globalFocusStyles.css";
 export { commonBackground } from "./styles/common/common.background.css";
 export {
   SELECTOR_LINK_BUTTON_HOVER,
@@ -104,9 +104,9 @@ export {
   MEDIA_QUERY_MOBILE,
 } from "./styles/common/common.media_queries.css";
 export {
-  variantUiScale,
+  globalVariantsUiScale,
   type VariantUiScaleEnum,
-} from "./styles/common/variant.ui_scale.css";
+} from "./styles/common/globalVariantsUiScale.css";
 
 export { vars } from "./styles/theme.css";
 

@@ -1,12 +1,14 @@
 /* eslint-disable react/no-children-prop */
-import type { LegacyRef } from "react";
-import React, { forwardRef, useContext } from "react";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
-import { a11yError } from "../../../../styles/common/a11y.error.css";
-import type { ButtonProps } from "../../../Button";
-import { Button } from "../../../Button";
+import React, { forwardRef, useContext } from "react";
+
+import { globalErrorStyles } from "../../../../styles/common/globalErrorStyles.css";
+import { Button } from "../../../button_component/button.comp";
 import { DownshiftContext } from "../../context/DownshiftContext";
+
+import type { ButtonProps } from "../../../button_component/button.comp";
+import type { LegacyRef } from "react";
 
 export interface SelectToggleButtonProps
   extends Omit<ButtonProps, "iconRight"> {
@@ -28,7 +30,7 @@ export const SelectToggleButton = forwardRef(
     const { getToggleButtonProps, isOpen } = useContext(DownshiftContext);
 
     const dropdownToggleButtonClassNames = clsx({
-      [a11yError]: invalid,
+      [globalErrorStyles]: invalid,
     });
 
     return (

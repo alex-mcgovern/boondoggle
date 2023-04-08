@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
-import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
+
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
+import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
 import { darkTheme, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -16,7 +17,7 @@ export const cardStyle = style([
     border: "neutral_nonInteractive",
     borderRadius: "md",
   }),
-  classnamesFocusedState,
+  globalFocusStyles,
   createAccessibleTransition({
     transition: `ease ${vars.transitionDuration.short}`,
     transitionProperty:

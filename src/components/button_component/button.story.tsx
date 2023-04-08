@@ -1,15 +1,22 @@
-import React from "react";
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
-import type { Story } from "@storybook/react";
-import type { ButtonProps } from ".";
-import { Button as StoryComponent } from ".";
+import React from "react";
+
 import { Box } from "../Box";
+import { Icon } from "../Icon";
+import { Button as StoryComponent } from "./button.comp";
+
+import type { ButtonProps } from "./button.comp";
+import type { Story } from "@storybook/react";
 
 // eslint-disable-next-line react/function-component-definition
-const Template: Story<ButtonProps> = ({ name, ...rest }) => {
+const Template: Story<ButtonProps> = ({
+  name,
+  children = "Click me",
+  ...rest
+}) => {
   return (
     <StoryComponent name={name} {...rest}>
-      Click me
+      {children}
     </StoryComponent>
   );
 };
@@ -22,18 +29,21 @@ export const StoryButtonAppearancePrimary = Template.bind({});
 
 StoryButtonAppearancePrimary.args = {
   appearance: "primary",
+  children: "Primary",
 };
 
 export const StoryButtonAppearanceSecondary = Template.bind({});
 
 StoryButtonAppearanceSecondary.args = {
   appearance: "secondary",
+  children: "Secondary",
 };
 
 export const StoryButtonAppearanceTertiary = Template.bind({});
 
 StoryButtonAppearanceTertiary.args = {
   appearance: "tertiary",
+  children: "Tertiary",
 };
 
 // eslint-disable-next-line react/function-component-definition
@@ -67,18 +77,17 @@ StoryButtonColorNeutral.args = {
   color: "neutral",
 };
 
-export const StoryButtonColorSemanticGood =
-  StoryButtonTemplateAllAppearances.bind({});
+export const StoryButtonColorGreen = StoryButtonTemplateAllAppearances.bind({});
 
-StoryButtonColorSemanticGood.args = {
-  color: "semanticGreen",
+StoryButtonColorGreen.args = {
+  color: "green",
 };
 
 export const StoryButtonColorSemanticBad =
   StoryButtonTemplateAllAppearances.bind({});
 
 StoryButtonColorSemanticBad.args = {
-  color: "semanticRed",
+  color: "red",
 };
 
 /** -----------------------------------------------------------------------------
@@ -104,13 +113,13 @@ StoryButtonCustomisationMargin.args = {
 export const StoryButtonIconLeft = Template.bind({});
 
 StoryButtonIconLeft.args = {
-  iconLeft: faTriangleCircleSquare,
+  slotLeft: <Icon icon={faTriangleCircleSquare} />,
 };
 
 export const StoryButtonIconRight = Template.bind({});
 
 StoryButtonIconRight.args = {
-  iconRight: faTriangleCircleSquare,
+  slotRight: <Icon icon={faTriangleCircleSquare} />,
 };
 
 /** -----------------------------------------------------------------------------
@@ -139,7 +148,7 @@ export const StoryButtonIconSizeSquare = Template.bind({});
 
 StoryButtonIconSizeSquare.args = {
   size: "square",
-  iconLeft: faTriangleCircleSquare,
+  slotLeft: <Icon icon={faTriangleCircleSquare} />,
   children: null,
 };
 

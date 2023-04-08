@@ -1,15 +1,17 @@
-import type { ReactNode } from "react";
-import React from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
-import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import clsx from "clsx";
-import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
+import React from "react";
+
+import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import type { BoxProps } from "../Box";
 import { Box } from "../Box";
 import { Icon } from "../Icon";
 import * as styles from "./index.css";
+
+import type { BoxProps } from "../Box";
 import type { VariantTagStateEnum } from "./tag_state.css";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { ReactNode } from "react";
 
 export interface TagProps extends BoxProps {
   /** Variant prop controlling tag appearance. Note: Auto-generated documentation for this is still a WIP, so variant styles are missing. */
@@ -44,7 +46,7 @@ export function Tag({
   const tagStyle = clsx([
     styles.getTagStyle({ state }),
     getSprinkles(atomProps),
-    classnamesFocusedState,
+    globalFocusStyles,
   ]);
 
   return (

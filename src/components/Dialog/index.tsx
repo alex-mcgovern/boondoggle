@@ -1,10 +1,12 @@
-import type { ReactNode } from "react";
-import React from "react";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import React from "react";
+
 import { Box } from "../Box";
-import { Button } from "../Button";
+import { Button } from "../button_component/button.comp";
 import * as styles from "./dialog.css";
+
+import type { ReactNode } from "react";
 
 export interface DialogProps {
   /** Element to use as Dialog trigger. Note: Must accept a ref. */

@@ -1,13 +1,15 @@
 import { assignVars, createTheme, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { classnamesDisabledState } from "../../styles/common/a11y.disabled_state.css";
-import { classnamesFocusedState } from "../../styles/common/a11y.focus.css";
+
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
-import { variantUiScale } from "../../styles/common/variant.ui_scale.css";
+import { globalDisabledStyles } from "../../styles/common/globalDisabledStyles.css";
+import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
+import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ColorScale } from "../../styles/utils/make_theme";
 
 /** -----------------------------------------------------------------------------
@@ -51,14 +53,11 @@ export const variantButtonColor = styleVariants({
   neutral: {
     vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.neutral)),
   },
-  semanticGreen: {
-    vars: assignVars(
-      varsButtonTheme,
-      makeButtonTheme(vars.color.semanticGreen)
-    ),
+  green: {
+    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.green)),
   },
-  semanticRed: {
-    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.semanticRed)),
+  red: {
+    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.red)),
   },
 });
 
@@ -139,8 +138,9 @@ export type VariantButtonAppearanceEnum = keyof typeof variantButtonAppearance;
 
 export const getButtonStyles = recipe({
   base: [
-    classnamesFocusedState,
-    classnamesDisabledState,
+    globalFocusStyles,
+    globalDisabledStyles,
+    buttonTheme,
     getSprinkles({
       borderRadius: "md",
       display: "flex",
@@ -165,7 +165,7 @@ export const getButtonStyles = recipe({
           width: "spacing5",
         }),
       ],
-      ...variantUiScale,
+      ...globalVariantsUiScale,
     },
   },
 

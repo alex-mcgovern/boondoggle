@@ -1,10 +1,12 @@
-import type { Ref } from "react";
-import React, { forwardRef } from "react";
 import clsx from "clsx";
-import type { VariantUiScaleEnum } from "../../../../styles/common/variant.ui_scale.css";
+import React, { forwardRef } from "react";
+
 import { Box } from "../../../Box";
-import type { DropdownItem } from "../../types";
 import * as styles from "./index.css";
+
+import type { VariantUiScaleEnum } from "../../../../styles/common/globalVariantsUiScale.css";
+import type { DropdownItem } from "../../types";
+import type { Ref } from "react";
 
 export interface DropdownListItemProps {
   isHighlighted: boolean;

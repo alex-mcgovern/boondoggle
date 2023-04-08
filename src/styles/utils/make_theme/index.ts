@@ -43,20 +43,15 @@ export type ColorScale = ReturnType<typeof makeColorScale>;
 interface MakeThemeArgs {
   accent: PaletteShape;
   neutral: PaletteShape;
-  semanticGreen: PaletteShape;
-  semanticRed: PaletteShape;
+  green: PaletteShape;
+  red: PaletteShape;
 }
 
-export const makeTheme = ({
-  accent,
-  neutral,
-  semanticGreen,
-  semanticRed,
-}: MakeThemeArgs) => {
+export const makeTheme = ({ accent, neutral, green, red }: MakeThemeArgs) => {
   return {
     accent: makeColorScale(accent),
     neutral: makeColorScale(neutral),
-    semanticGreen: makeColorScale(semanticGreen),
-    semanticRed: makeColorScale(semanticRed),
+    green: makeColorScale(green),
+    red: makeColorScale(red),
   };
 };

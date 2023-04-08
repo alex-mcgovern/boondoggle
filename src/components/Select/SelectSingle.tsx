@@ -1,12 +1,14 @@
 import React, { forwardRef } from "react";
+
 import { Box } from "../Box";
-import type { ButtonProps } from "../Button";
 import { InputErrorMessage } from "../InputErrorMessage";
 import { Label } from "../Label";
 import { DropdownMenu } from "./components/DropdownMenu";
 import { SelectToggleButton } from "./components/SelectToggleButton";
 import { DownshiftContext } from "./context/DownshiftContext";
 import { DownshiftProviderSingle } from "./context/DownshiftProviderSingle";
+
+import type { ButtonProps } from "../button_component/button.comp";
 import type { DropdownItem } from "./types";
 
 export interface SelectSingleProps

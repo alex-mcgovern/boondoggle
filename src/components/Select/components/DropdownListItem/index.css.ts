@@ -1,16 +1,17 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { classnamesDisabledState } from "../../../../styles/common/a11y.disabled_state.css";
-import { classnamesFocusedState } from "../../../../styles/common/a11y.focus.css";
-import { variantUiScale } from "../../../../styles/common/variant.ui_scale.css";
+
+import { globalDisabledStyles } from "../../../../styles/common/globalDisabledStyles.css";
+import { globalFocusStyles } from "../../../../styles/common/globalFocusStyles.css";
+import { globalVariantsUiScale } from "../../../../styles/common/globalVariantsUiScale.css";
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 export const getDropdownListItemStyles = recipe({
   base: [
-    classnamesFocusedState,
-    classnamesDisabledState,
+    globalFocusStyles,
+    globalDisabledStyles,
     getSprinkles({
       display: "flex",
       alignItems: "center",
@@ -39,12 +40,12 @@ export const getDropdownListItemStyles = recipe({
     },
   ],
   variants: {
-    size: variantUiScale,
+    size: globalVariantsUiScale,
   },
 });
 
 export const isHighlighted = style([
-  classnamesFocusedState,
+  globalFocusStyles,
   {
     backgroundColor: vars.color.accent.secondary.base,
   },

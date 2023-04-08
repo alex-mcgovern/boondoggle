@@ -1,7 +1,8 @@
 import { styleVariants } from "@vanilla-extract/css";
+
 import { getSprinkles } from "../utils/get_sprinkles.css";
 
-export const variantUiScale = styleVariants({
+export const globalVariantsUiScale = styleVariants({
   sm: [
     getSprinkles({
       fontStyle: "body_md",
@@ -25,4 +26,4 @@ export const variantUiScale = styleVariants({
   ],
 });
 
-export type VariantUiScaleEnum = keyof typeof variantUiScale;
+export type VariantUiScaleEnum = keyof typeof globalVariantsUiScale;

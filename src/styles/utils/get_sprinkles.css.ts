@@ -1,4 +1,5 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+
 import {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_TABLET,
@@ -18,8 +19,8 @@ export const sprinklesProperties = defineProperties({
     background: {
       ...vars.color.accent.background,
       ...vars.color.neutral.background,
-      ...vars.color.semanticGreen.background,
-      ...vars.color.semanticRed.background,
+      ...vars.color.green.background,
+      ...vars.color.red.background,
     },
     color: {
       ...vars.color.accent.text,

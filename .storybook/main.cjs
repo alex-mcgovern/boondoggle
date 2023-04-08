@@ -2,12 +2,7 @@ const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const { merge } = require("webpack-merge");
 
 module.exports = {
-  stories: [
-    "../src/**/*.stories.tsx",
-    "../src/**/*.stories.mdx",
-    "../documentation/**/*.stories.tsx",
-    "../documentation/**/*.stories.mdx",
-  ],
+  stories: ["../(src|documentation)/**/*.(story|stories).(tsx|mdx)"],
   typescript: {
     check: false,
     checkOptions: {},

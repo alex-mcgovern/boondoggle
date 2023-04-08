@@ -2,47 +2,42 @@
  * Approach adapted from a LogRocket blog by Ohans Emmanuel
  * https://blog.logrocket.com/build-strongly-typed-polymorphic-components-react-typescript/
  */
-import type {
-  ComponentPropsWithoutRef,
-  ElementType,
-  ReactElement,
-} from "react";
-import React, { forwardRef } from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import type { VariantUiScaleEnum } from "../../styles/common/variant.ui_scale.css";
+import React, { forwardRef } from "react";
+
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { getButtonStyles } from "./button.css";
+
+import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
 import type {
   SprinklesArgs,
   SprinklesMargin,
 } from "../../styles/utils/get_sprinkles.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
 } from "../../types";
-import { Icon } from "../Icon/index";
-import type { IconProps } from "../Icon/index";
 import type {
   VariantButtonAppearanceEnum,
   VariantButtonColorEnum,
 } from "./button.css";
-import { buttonTheme, getButtonStyles } from "./button.css";
+import type {
+  ComponentPropsWithoutRef,
+  ElementType,
+  ReactElement,
+  ReactNode,
+} from "react";
 
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
   Pick<SprinklesArgs, "display" | "maxWidth" | "minWidth"> &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
-      /** Controls html element `disabled` attribute and `aria-disabled` attribute. */
-      disabled?: boolean;
-      /** FontAwesome icon shown on the left side of button. */
-      iconLeft?: IconProps["icon"];
-      /** Props for leading icon */
-      iconLeftProps?: Omit<IconProps, "icon">;
-      /** FontAwesome icon shown on the right side of button. */
-      iconRight?: IconProps["icon"];
-      /** Props for trailing icon */
-      iconRightProps?: Omit<IconProps, "icon">;
+      /** React node shown on the left side of button. */
+      slotLeft?: ReactNode;
+      /** React node shown on the right side of button. */
+      slotRight?: ReactNode;
       /** Title for button, shown in the UI */
       name: string;
       /** HTML button type, defaults to `button`. */
@@ -70,12 +65,8 @@ export const Button: ButtonComponent = forwardRef(
       children,
       className: userClassName,
       color = "accent",
-      disabled = false,
-      iconLeft,
-      iconLeftProps,
-      iconRight,
-      iconRightProps,
-      id,
+      slotLeft,
+      slotRight,
       size = "md",
       type = "button",
       ...rest
@@ -87,28 +78,22 @@ export const Button: ButtonComponent = forwardRef(
 
     const Component = as || "button";
 
-    const buttonClassNames = clsx(
-      buttonTheme,
-      getButtonStyles({ appearance, color, size }),
-      getSprinkles(atomProps),
-      userClassName
-    );
-
     return (
       <Component
         {...{
-          "aria-disabled": disabled,
-          className: buttonClassNames,
-          disabled,
-          id,
+          className: clsx(
+            getButtonStyles({ appearance, color, size }),
+            getSprinkles(atomProps),
+            userClassName
+          ),
           ref,
           type,
           ...otherProps,
         }}
       >
-        {iconLeft && <Icon icon={iconLeft} {...iconLeftProps} />}
+        {slotLeft}
         {children}
-        {iconRight && <Icon icon={iconRight} {...iconRightProps} />}
+        {slotRight}
       </Component>
     );
   }

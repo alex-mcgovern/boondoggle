@@ -1,16 +1,18 @@
-import type { Ref } from "react";
 import React, { forwardRef } from "react";
-import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+
 import { Box } from "../Box";
-import type { ButtonProps } from "../Button";
-import type { InputProps } from "../Input";
 import { Label } from "../Label";
 import { DropdownMenu } from "./components/DropdownMenu";
 import { SelectInput } from "./components/SelectInput";
 import { DownshiftContext } from "./context/DownshiftContext";
 import { DownshiftProviderSingleFilterable } from "./context/DownshiftProviderSingleFilterable";
+
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { InputProps } from "../Input";
+import type { ButtonProps } from "../button_component/button.comp";
 import type { DropdownItem } from "./types";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { Ref } from "react";
 
 export interface SelectSingleFilterableProps {
   /** FontAwesome icon shown on the left side of select. */
