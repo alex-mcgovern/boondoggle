@@ -9,7 +9,7 @@ import { DownshiftProviderCreatable } from "./context/DownshiftProviderCreatable
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../Input";
-import type { ButtonProps } from "../button/Button";
+import type { ButtonProps } from "../button/button.component";
 import type { DropdownItem } from "./types";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { Ref } from "react";

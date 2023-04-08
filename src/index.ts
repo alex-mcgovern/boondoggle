@@ -5,8 +5,8 @@
 export { Box } from "./components/Box";
 export type { BoxProps } from "./components/Box";
 
-export { Button } from "./components/button/Button";
-export type { ButtonProps } from "./components/button/Button";
+export { Button } from "./components/button";
+export type { ButtonProps } from "./components/button";
 
 export { Card } from "./components/Card";
 export type { CardProps } from "./components/Card";

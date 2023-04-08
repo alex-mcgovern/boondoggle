@@ -3,9 +3,9 @@ import React from "react";
 
 import { Box } from "../Box";
 import { Icon } from "../Icon";
-import { Button as StoryComponent } from "./Button";
+import { Button as StoryComponent } from "./button.component";
 
-import type { ButtonProps } from "./Button";
+import type { ButtonProps } from "./button.component";
 import type { Story } from "@storybook/react";
 
 export const Template: Story<ButtonProps> = ({

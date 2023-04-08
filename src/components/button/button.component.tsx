@@ -7,7 +7,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { getButtonStyles } from "./styles.css";
+import { getButtonStyles } from "./button.styles.css";
 
 import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
 import type {
@@ -18,7 +18,10 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
 } from "../../types";
-import type { VariantAppearanceEnum, VariantColorEnum } from "./styles.css";
+import type {
+  VariantAppearanceEnum,
+  VariantColorEnum,
+} from "./button.styles.css";
 import type {
   ComponentPropsWithoutRef,
   ElementType,

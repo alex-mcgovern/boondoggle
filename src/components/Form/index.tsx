@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { Box } from "../Box";
-import { Button } from "../button/Button";
+import { Button } from "../button/button.component";
 import { getHookFormIconProps } from "./utils/getHookFormIcon";
 
 import type { FormInputProps } from "./components/FormInput";
