@@ -54,7 +54,7 @@
         ],
         "import/prefer-default-export": "off",
         "import/order": [
-          "warn",
+          "error",
           {
             "groups": [
               ["builtin", "external"],

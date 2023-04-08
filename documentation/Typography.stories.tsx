@@ -1,6 +1,8 @@
 import React from "react";
+
+import { Box } from "../src/components/box_component/box.component";
+
 import type { ComponentMeta } from "@storybook/react";
-import { Box } from "../src/components/Box";
 
 export default {
   title: "Documentation/Typography",

@@ -1,7 +1,9 @@
 import React from "react";
-import type { ComponentMeta } from "@storybook/react";
-import { Box } from "../src/components/Box";
+
+import { Box } from "../src/components/box_component/box.component";
 import { vars } from "../src/styles/theme.css";
+
+import type { ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Documentation/ColorPalette",
