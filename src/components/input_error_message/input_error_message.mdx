@@ -1,0 +1,24 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import LinkTo from "@storybook/addon-links/react";
+
+import { Box } from ".";
+import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
+import * as stories from "./input_error_message.stories.tsx";
+
+<Meta of={stories} />
+
+# InputErrorMessage
+
+## Overview
+
+`InputErrorMessage` is a simple styled component used to display an error
+message for an `Input` component. (Which may be nested in other components, like
+a `Form` or `Select`)
+
+## Related links
+
+- [Components/Input](/docs/components-input--documentation)
+
+<Canvas of={stories.Default} />
+<Canvas of={stories.SlotLeft} />
+<Canvas of={stories.SlotRight} />

@@ -1,5 +1,5 @@
 export const varsTransitionTime = {
-  short: "300ms",
-  medium: "600ms",
-  long: "900ms",
+  short: "200ms",
+  medium: "400ms",
+  long: "600ms",
 };

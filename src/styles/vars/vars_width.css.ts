@@ -1,4 +1,5 @@
 import { calc } from "@vanilla-extract/css-utils";
+
 import { varsSpacing } from "./vars_spacing.css";
 
 const GRID_MAX_WIDTH = 1080;

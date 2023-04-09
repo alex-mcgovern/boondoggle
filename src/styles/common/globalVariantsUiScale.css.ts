@@ -6,22 +6,16 @@ export const globalVariantsUiScale = styleVariants({
   sm: [
     getSprinkles({
       fontStyle: "body_md",
-      paddingX: "spacing1",
-      paddingY: "none",
     }),
   ],
   md: [
     getSprinkles({
       fontStyle: "body_lg",
-      paddingX: "spacing2",
-      paddingY: "spacing1",
     }),
   ],
   lg: [
     getSprinkles({
       fontStyle: "body_xl",
-      paddingX: "spacing3",
-      paddingY: "spacing2",
     }),
   ],
 });

@@ -1,0 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+
+import { Form } from ".";
+import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
+import { Box } from "../box";
+import * as stories from "./form.stories.tsx";
+
+<Meta of={stories} />
+
+# Form
+
+## Introduction
+
+`Form` is a simple wrapper around the html5 `button` element, with support for
+style variants, quick customisation via `getSprinkles` and an `as` prop that
+enables polymorphism, (e.g. if you would like to return an `<a>` element, or a
+custom `Link` component instead of the normal `<button>` element.).
+
+## Usage
+
+### `as` prop (polymorphism)
+
+<Canvas sourceState="shown" of={stories.Default} />

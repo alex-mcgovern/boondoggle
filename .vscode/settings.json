@@ -67,5 +67,6 @@
   "turboConsoleLog.insertEnclosingFunction": false,
   "turboConsoleLog.logMessagePrefix": "debug",
   "turboConsoleLog.logType": "debug",
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "mdx.experimentalLanguageServer": true
 }

@@ -1,18 +1,20 @@
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
-import { Icon } from "../Icon";
-import { Box } from "../box_component/box.component";
-import { Button as StoryComponent } from "./button.component";
+import { Button as StoryComponent } from ".";
+import { Link } from "../../../.storybook/link.component.mock";
+import { Icon } from "../icon";
+import { Loader } from "../loader";
 
-import type { ButtonProps } from "./button.component";
-import type { Story } from "@storybook/react";
+import type { ButtonProps as StoryComponentProps } from ".";
+import type { StoryFn, StoryObj } from "@storybook/react";
 
-export const Template: Story<ButtonProps> = ({
-  name,
+export default { title: "Components/Button", component: StoryComponent };
+const Template: StoryFn<StoryComponentProps> = ({
   children = "Click me",
+  name,
   ...rest
-}) => {
+}: StoryComponentProps) => {
   return (
     <StoryComponent name={name} {...rest}>
       {children}
@@ -21,119 +23,137 @@ export const Template: Story<ButtonProps> = ({
 };
 
 /** -----------------------------------------------------------------------------
+ * Polymorphism examples
+ * ------------------------------------------------------------------------------- */
+
+export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryComponentProps> =
+  {
+    name: "polymorphism/generic_anchor_tag",
+    render: Template,
+    args: {
+      as: "a",
+      href: "https://google.com",
+      children: "I am an anchor element",
+    },
+  };
+
+export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
+  {
+    name: "polymorphism/generic_react_component",
+    render: Template,
+    args: {
+      as: Link,
+      href: "https://google.com",
+      children: "I am a `Link` component",
+    },
+  };
+
+/** -----------------------------------------------------------------------------
  * Appearance
  * ------------------------------------------------------------------------------- */
 
-export const AppearancePrimary = Template.bind({});
-export const AppearanceTertiary = Template.bind({});
-export const AppearanceSecondary = Template.bind({});
-
-AppearancePrimary.args = {
-  appearance: "primary",
-  children: "Primary",
+export const AppearancePrimary = {
+  render: Template,
+  name: "appearance/primary",
+  args: { appearance: "primary", children: "Primary" },
 };
-AppearanceSecondary.args = {
-  appearance: "secondary",
-  children: "Secondary",
+export const AppearanceSecondary = {
+  render: Template,
+  name: "appearance/secondary",
+  args: { appearance: "secondary", children: "Secondary" },
 };
-AppearanceTertiary.args = {
-  appearance: "tertiary",
-  children: "Tertiary",
+export const AppearanceTertiary = {
+  render: Template,
+  name: "appearance/tertiary",
+  args: { appearance: "tertiary", children: "Tertiary" },
 };
 
 /** -----------------------------------------------------------------------------
  * Color
  * ------------------------------------------------------------------------------- */
-const TemplateAllAppearances: Story<ButtonProps> = (rest) => {
-  return (
-    <Box display="flex" gap="spacing3">
-      <StoryComponent appearance="primary" name="primary" {...rest}>
-        Primary
-      </StoryComponent>
-      <StoryComponent appearance="secondary" name="secondary" {...rest}>
-        Secondary
-      </StoryComponent>
-      <StoryComponent appearance="tertiary" name="tertiary" {...rest}>
-        Tertiary
-      </StoryComponent>
-    </Box>
-  );
-};
 
-export const ColorAccent = TemplateAllAppearances.bind({});
-export const ColorNeutral = TemplateAllAppearances.bind({});
-export const ColorGreen = TemplateAllAppearances.bind({});
-export const ColorSemanticBad = TemplateAllAppearances.bind({});
-
-ColorAccent.args = {
-  color: "accent",
+export const ColorAccent = {
+  render: Template,
+  name: "color/default",
+  args: { color: "default", children: "Default" },
 };
-ColorNeutral.args = {
-  color: "neutral",
+export const ColorGreen = {
+  render: Template,
+  name: "color/green",
+  args: { color: "green", children: "Green" },
 };
-ColorGreen.args = {
-  color: "green",
-};
-ColorSemanticBad.args = {
-  color: "red",
+export const ColorRed = {
+  render: Template,
+  name: "color/red",
+  args: { color: "red", children: "Red" },
 };
 
 /** -----------------------------------------------------------------------------
- * Customisation
+ * Customisation examples
  * ------------------------------------------------------------------------------- */
 
-export const CustomisationMargin = Template.bind({});
-
-CustomisationMargin.args = {
-  margin: "spacing5",
-};
-
-/** -----------------------------------------------------------------------------
- *  FontAwesome
- * ------------------------------------------------------------------------------- */
-
-export const IconLeft = TemplateAllAppearances.bind({});
-export const IconRight = TemplateAllAppearances.bind({});
-
-IconLeft.args = {
-  slotLeft: <Icon icon={faTriangleCircleSquare} />,
-};
-
-IconRight.args = {
-  slotRight: <Icon icon={faTriangleCircleSquare} />,
+export const CustomisationMargin = {
+  render: Template,
+  name: "customisation/margin",
+  args: { margin: "spacing5" },
 };
 
 /** -----------------------------------------------------------------------------
  * Size
  * ------------------------------------------------------------------------------- */
 
-export const SizeSm = TemplateAllAppearances.bind({});
-export const SizeMd = TemplateAllAppearances.bind({});
-export const SizeLg = TemplateAllAppearances.bind({});
-export const SizeSquare = TemplateAllAppearances.bind({});
-
-SizeSm.args = {
-  size: "sm",
+export const SizeSm = {
+  name: "size/sm",
+  render: Template,
+  args: { size: "sm" },
 };
-SizeMd.args = {
-  size: "md",
+export const SizeMd = {
+  name: "size/md",
+  render: Template,
+  args: { size: "md" },
 };
-SizeLg.args = {
-  size: "lg",
+export const SizeLg = {
+  name: "size/lg",
+  render: Template,
+  args: { size: "lg" },
 };
 
 /** -----------------------------------------------------------------------------
- *  State
+ * Slot props
  * ------------------------------------------------------------------------------- */
 
-export const StateHover = Template.bind({});
-export const StateFocusVisible = Template.bind({});
-export const StateDisabled = Template.bind({});
-
-StateHover.parameters = { pseudo: { hover: true } };
-StateFocusVisible.parameters = {
-  pseudo: { focusVisible: true },
+export const SlotLeftIcon = {
+  render: Template,
+  name: "slotLeft/icon",
+  args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
 };
-StateDisabled.args = {
-  disabled: true,
+export const SlotRightIcon = {
+  render: Template,
+  name: "slotRight/icon",
+  args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
+};
+export const SlotRightLoader = {
+  render: Template,
+  name: "slotRight/loader",
+  args: { slotRight: <Loader /> },
+};
+
+/** -----------------------------------------------------------------------------
+ * State
+ * ------------------------------------------------------------------------------- */
+
+export const StateHover = {
+  render: Template,
+  name: "state/hover",
+  parameters: { pseudo: { hover: true } },
+};
+export const StateFocusVisible = {
+  render: Template,
+  name: "state/focus-visible",
+  parameters: { pseudo: { focusVisible: true } },
+};
+export const StateDisabled = {
+  render: Template,
+  name: "state/disabled",
+  args: { disabled: true },
 };

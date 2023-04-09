@@ -2,73 +2,68 @@
  * React components
  * ------------------------------------------------------------------------------- */
 
-export { Box } from "./components/box_component/box.component";
-export type { BoxProps } from "./components/box_component/box.component";
+export { Box } from "./components/box";
+export type { BoxProps } from "./components/box";
 
 export { Button } from "./components/button";
 export type { ButtonProps } from "./components/button";
 
-export { Card } from "./components/card_component";
-export type { CardProps } from "./components/card_component";
+export { Card } from "./components/card";
+export type { CardProps } from "./components/card";
 
-export { Collapsible } from "./components/collapsible_component";
-export type { CollapsibleProps } from "./components/collapsible_component";
+export { Collapsible } from "./components/collapsible";
+export type { CollapsibleProps } from "./components/collapsible";
 
-export type { DropdownItem } from "./components/select_component/types";
+// export type { DropdownItemShape } from "./components/select_new/types";
 
-export { Dialog } from "./components/dialog_component";
-export type { DialogProps } from "./components/dialog_component";
+export { Dialog } from "./components/dialog";
+export type { DialogProps } from "./components/dialog";
 
-export { Form } from "./components/form_component";
-export type { FormProps } from "./components/form_component";
+export { Form } from "./components/form";
+export type { FormProps } from "./components/form";
 
-export { FormSlider } from "./components/form_component/components/FormSlider";
-export type { FormSliderProps } from "./components/form_component/components/FormSlider";
+export { FormSlider } from "./components/form";
+export type { FormSliderProps } from "./components/form";
 
-export { FormInput } from "./components/form_component/components/FormInput";
-export { FormSingleSelect } from "./components/form_component/components/FormSingleSelect";
-export { FormTextArea } from "./components/form_component/components/FormTextArea";
-export { FormSingleSelectCreatable } from "./components/form_component/components/FormSingleSelectCreatable";
-export { getHookFormIconProps } from "./components/form_component/utils/getHookFormIcon";
+export { FormInput } from "./components/form";
+export { FormSingleSelect } from "./components/form";
+export { FormTextArea } from "./components/form";
 
-export { Input } from "./components/input_component";
-export type { InputProps } from "./components/input_component";
+export { Input } from "./components/input";
+export type { InputProps } from "./components/input";
 
-export { InputErrorMessage } from "./components/input_error_message_component";
-export type { InputErrorMessageProps } from "./components/input_error_message_component";
+export { InputErrorMessage } from "./components/input_error_message";
+export type { InputErrorMessageProps } from "./components/input_error_message";
 
-export { Icon } from "./components/Icon";
-export type { IconProps } from "./components/Icon";
+export { Icon } from "./components/icon";
+export type { IconProps } from "./components/icon";
 
-export { Label } from "./components/label_component";
-export type { LabelProps } from "./components/label_component";
+export { Label } from "./components/label";
+export type { LabelProps } from "./components/label";
 
-export { ListItem } from "./components/list_item_component";
-export type { ListItemProps } from "./components/list_item_component";
+export { Loader } from "./components/loader";
+export type { LoaderProps } from "./components/loader";
 
-export { Loader } from "./components/loader_component";
-export type { LoaderProps } from "./components/loader_component";
+export { SelectSingle } from "./components/select_new/select_single.component";
+export type { SelectSingleProps } from "./components/select_new/select_single.component";
 
-export { SelectSingle } from "./components/select_component/SelectSingle";
-export type { SelectSingleProps } from "./components/select_component/SelectSingle";
+// export { SelectMultiFilterable } from "./components/select_new/SelectMultiFilterable";
+// export type { SelectMultiFilterableProps } from "./components/select_new/SelectMultiFilterable";
 
-export { SelectMultiFilterable } from "./components/select_component/SelectMultiFilterable";
-export type { SelectMultiFilterableProps } from "./components/select_component/SelectMultiFilterable";
+// export { SelectSingleFilterable } from "./components/select_new/SelectSingleFilterable";
+// export type { SelectSingleFilterableProps } from "./components/select_new/SelectSingleFilterable";
 
-export { SelectSingleFilterable } from "./components/select_component/SelectSingleFilterable";
-export type { SelectSingleFilterableProps } from "./components/select_component/SelectSingleFilterable";
+// export { SelectSingleCreatable } from "./components/select_new/SelectSingleCreatable";
+// export type { SelectSingleCreatableProps } from "./components/select_new/SelectSingleCreatable";
 
-export { SelectSingleCreatable } from "./components/select_component/SelectSingleCreatable";
-export type { SelectSingleCreatableProps } from "./components/select_component/SelectSingleCreatable";
+export { Tag } from "./components/tag";
+export type { TagProps } from "./components/tag";
 
-export { Tag } from "./components/tag_component";
-export type { TagProps } from "./components/tag_component";
+export { Tooltip } from "./components/tooltip";
+export type { TooltipProps } from "./components/tooltip";
 
-export { Tooltip } from "./components/tooltip_component";
-export type { TooltipProps } from "./components/tooltip_component";
-
-export { TextArea } from "./components/textarea_component";
-export type { TextAreaProps } from "./components/textarea_component";
+export { TextArea } from "./components/text_area";
+export type { TextAreaProps } from "./components/text_area";
 
 /** -----------------------------------------------------------------------------
  * React context

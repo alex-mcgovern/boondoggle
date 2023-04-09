@@ -1,4 +1,4 @@
-import { assignVars, createTheme, styleVariants } from "@vanilla-extract/css";
+import { createTheme, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
@@ -10,23 +10,6 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ColorScale } from "../../styles/utils/make_theme";
-
-/** -----------------------------------------------------------------------------
- * Util to populate button theme
- * ------------------------------------------------------------------------------- */
-
-const makeButtonTheme = (theme: ColorScale) => {
-  return {
-    textColor: theme.text.lowContrast,
-    textColor_hover: theme.text.highContrast,
-    textColor_alt: theme.background.base,
-    backgroundColor: theme.solid.base,
-    backgroundColor_hover: theme.solid.active,
-    backgroundColor_tint: theme.secondary.base,
-    borderColor: theme.border.interactive,
-  };
-};
 
 /** -----------------------------------------------------------------------------
  * Button theme
@@ -38,27 +21,42 @@ const makeButtonTheme = (theme: ColorScale) => {
  * consume them in {@link getButtonStyles}.
  * ------------------------------------------------------------------------------- */
 
-export const [buttonTheme, varsButtonTheme] = createTheme(
-  makeButtonTheme(vars.color.accent)
-);
+const [buttonTheme, varsButtonTheme] = createTheme({
+  background: vars.color.button.button_default,
+  backgroundColor_hover: vars.color.button.button_default_active,
+  backgroundColor_tint: vars.color.tint.tint_accent,
+  borderColor: vars.color.button.button_default_active,
+  textColor_alt: vars.color.neutral.white,
+  textColor_hover: vars.color.button.button_default_active,
+  textColor: vars.color.button.button_default,
+});
+const buttonThemeRed = createTheme(varsButtonTheme, {
+  background: vars.color.button.button_red,
+  backgroundColor_hover: vars.color.button.button_red_active,
+  backgroundColor_tint: vars.color.tint.tint_red,
+  borderColor: vars.color.button.button_red_active,
+  textColor_alt: vars.color.neutral.white,
+  textColor_hover: vars.color.button.button_red_active,
+  textColor: vars.color.button.button_red,
+});
+const buttonThemeGreen = createTheme(varsButtonTheme, {
+  background: vars.color.button.button_green,
+  backgroundColor_hover: vars.color.button.button_green_active,
+  backgroundColor_tint: vars.color.tint.tint_green,
+  borderColor: vars.color.button.button_green_active,
+  textColor_alt: vars.color.neutral.white,
+  textColor_hover: vars.color.button.button_green_active,
+  textColor: vars.color.button.button_green,
+});
 
 /** -----------------------------------------------------------------------------
  * Button color variants
  * ------------------------------------------------------------------------------- */
 
 export const variantColor = styleVariants({
-  accent: {
-    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.accent)),
-  },
-  neutral: {
-    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.neutral)),
-  },
-  green: {
-    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.green)),
-  },
-  red: {
-    vars: assignVars(varsButtonTheme, makeButtonTheme(vars.color.red)),
-  },
+  default: [buttonTheme],
+  green: [buttonThemeRed],
+  red: [buttonThemeGreen],
 });
 
 export type VariantColorEnum = keyof typeof variantColor;
@@ -69,18 +67,20 @@ export type VariantColorEnum = keyof typeof variantColor;
  * These are the different variants of the button, (e.g. primary, secondary, etc.)
  * ------------------------------------------------------------------------------- */
 
-const commonButtonSprinkles: SprinklesArgs = {
+const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
   justifyContent: "center",
   whiteSpace: "nowrap",
   fontWeight: "semibold",
+  paddingX: "spacing2",
+  paddingY: "spacing1",
 };
 
 export const variantAppearance = styleVariants({
   primary: [
-    getSprinkles(commonButtonSprinkles),
+    getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
       color: varsButtonTheme.textColor_alt,
-      background: varsButtonTheme.backgroundColor,
+      background: varsButtonTheme.background,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: varsButtonTheme.textColor_alt,
@@ -92,9 +92,9 @@ export const variantAppearance = styleVariants({
   ],
 
   secondary: [
-    getSprinkles(commonButtonSprinkles),
+    getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: varsButtonTheme.backgroundColor,
+      color: varsButtonTheme.background,
       border: "1px solid",
       borderColor: varsButtonTheme.borderColor,
       selectors: {
@@ -113,7 +113,7 @@ export const variantAppearance = styleVariants({
       paddingY: "spacing1",
     }),
     {
-      color: varsButtonTheme.backgroundColor,
+      color: varsButtonTheme.background,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: varsButtonTheme.backgroundColor_hover,
@@ -143,14 +143,14 @@ export const getButtonStyles = recipe({
     buttonTheme,
     getSprinkles({
       borderRadius: "md",
-      display: "flex",
+      display: "inline-flex",
       gap: "spacing1",
       alignItems: "center",
       textDecoration: "none",
     }),
     createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.medium} ease\
-                   background ${vars.transitionDuration.medium} ease\
+      transition: `color ${vars.transitionDuration.medium} ease,\
+                   background ${vars.transitionDuration.medium} ease,\
                    box-shadow ${vars.transitionDuration.medium} ease`,
     }),
   ],
@@ -171,6 +171,7 @@ export const getButtonStyles = recipe({
 
   defaultVariants: {
     appearance: "primary",
+    color: "default",
     size: "md",
   },
 });

@@ -1,6 +1,9 @@
 # Boondoggle.design
 
-A React component library that aims to be lightweight, and very fast to work with. Thanks to a single, props-driven API for setting styles directly in markup (Tailwind-like experience, but with type-safety and cleaner (debatably) markup — thanks to [Vanilla Extract](https://vanilla-extract.style/))
+A React component library that aims to be lightweight, and very fast to work
+with. Thanks to a single, props-driven API for setting styles directly in markup
+(Tailwind-like experience, but with type-safety and cleaner (debatably) markup —
+thanks to [Vanilla Extract](https://vanilla-extract.style/))
 
 ## Built with
 

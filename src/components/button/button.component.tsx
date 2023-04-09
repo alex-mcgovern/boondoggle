@@ -30,24 +30,24 @@ import type {
 } from "react";
 
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
-  Pick<SprinklesArgs, "display" | "maxWidth" | "minWidth"> &
+  Pick<SprinklesArgs, "display" | "maxWidth" | "minWidth" | "width"> &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
+      /** Appearance for the button */
+      appearance?: VariantAppearanceEnum;
+      /** Color for the button */
+      color?: VariantColorEnum;
+      /** Title for button, shown in the UI */
+      name: string;
+      /** Size of the button element */
+      size?: VariantUiScaleEnum;
       /** React node shown on the left side of button. */
       slotLeft?: ReactNode;
       /** React node shown on the right side of button. */
       slotRight?: ReactNode;
-      /** Title for button, shown in the UI */
-      name: string;
       /** HTML button type, defaults to `button`. */
       type?: "button" | "submit" | "reset";
-      /** Size of the button element */
-      size?: VariantUiScaleEnum;
-      /** Color for the button */
-      color?: VariantColorEnum;
-      /** Appearance for the button */
-      appearance?: VariantAppearanceEnum;
     }
   >;
 
@@ -64,10 +64,10 @@ export const Button: ButtonComponent = forwardRef(
       as,
       children,
       className: userClassName,
-      color = "accent",
+      color = "default",
+      size = "md",
       slotLeft,
       slotRight,
-      size = "md",
       type = "button",
       ...rest
     }: BaseButtonProps<TPolymorphicAs>,

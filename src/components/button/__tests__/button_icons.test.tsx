@@ -20,7 +20,7 @@ describe("Renders Fontawesome icons", () => {
       <Button
         id="button"
         name="Test button"
-        iconLeft={faSearch}
+        slotLeft={faSearch}
         color="accent"
       />
     );
@@ -33,7 +33,7 @@ describe("Renders Fontawesome icons", () => {
       <Button
         id="button"
         name="Test button"
-        iconRight={faSearch}
+        slotRight={faSearch}
         color="accent"
       />
     );

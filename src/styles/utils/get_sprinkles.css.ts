@@ -14,36 +14,33 @@ import { varsDisplay } from "../vars/vars_display.css";
 
 export const sprinklesProperties = defineProperties({
   properties: {
-    alignItems: ["stretch", "start", "center", "end"],
     aspectRatio: vars.aspectRatio,
-    background: {
-      ...vars.color.accent.background,
-      ...vars.color.neutral.background,
-      ...vars.color.green.background,
-      ...vars.color.red.background,
-    },
-    color: {
-      ...vars.color.accent.text,
-    },
-    borderRadius: vars.borderRadius,
-    border: {
-      accent_nonInteractive: `1px solid ${vars.color.accent.border.nonInteractive}`,
-      accent_border_interactive: `1px solid ${vars.color.accent.border.interactive}`,
-      accent_border_interactiveActive: `1px solid ${vars.color.accent.border.interactiveActive}`,
-      neutral_nonInteractive: `1px solid ${vars.color.neutral.border.nonInteractive}`,
-      neutral_border_interactive: `1px solid ${vars.color.neutral.border.interactive}`,
-      neutral_border_interactiveActive: `1px solid ${vars.color.neutral.border.interactiveActive}`,
-    },
     boxShadow: vars.boxShadow,
+
+    /** Border radius */
+    borderRadius: vars.borderRadius,
+
+    /** Border */
+    border: varsBorder,
     borderRight: varsBorder,
     borderLeft: varsBorder,
     borderBottom: varsBorder,
     borderTop: varsBorder,
+
+    /** Color  */
+    background: {
+      ...vars.color.background,
+      ...vars.color.button,
+      ...vars.color.surface,
+      ...vars.color.tint,
+    },
+    color: { ...vars.color.text, ...vars.color.neutral },
+
+    /** Flex * Grid */
+    alignItems: ["stretch", "start", "center", "end"],
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     flexWrap: ["wrap", "nowrap"],
     flexShrink: ["0"],
-    fontWeight: vars.fontWeight,
-    isolation: ["isolate"],
     gap: vars.spacing,
     justifyContent: [
       "stretch",
@@ -54,16 +51,19 @@ export const sprinklesProperties = defineProperties({
       "space-between",
     ],
 
+    fontWeight: vars.fontWeight,
+    isolation: ["isolate"],
+
     margin: vars.spacing,
     padding: vars.spacing,
     marginBottom: vars.spacing,
     marginLeft: vars.spacing,
     marginRight: vars.spacing,
     marginTop: vars.spacing,
-    maxHeight: vars.spacing,
+    maxHeight: { ...vars.height, ...vars.spacing },
     maxWidth: vars.width,
     minWidth: { ...vars.width, ...vars.spacing },
-    minHeight: vars.height,
+    minHeight: { ...vars.height, ...vars.spacing },
     overflow: ["hidden"],
     overflowY: ["auto"],
     paddingBottom: vars.spacing,
@@ -72,10 +72,12 @@ export const sprinklesProperties = defineProperties({
     paddingTop: vars.spacing,
     fontSize: vars.fontSize,
     lineHeight: vars.lineHeight,
-    gridTemplateColumns: vars.gridTemplateColumns,
-    gridTemplateRows: vars.gridTemplateColumns,
-    height: vars.spacing,
+    height: { ...vars.height, ...vars.spacing },
     top: ["0"],
+    right: ["0"],
+    left: ["0"],
+    bottom: ["0"],
+    inset: ["0"],
     position: ["relative", "absolute", "sticky"],
     textAlign: ["center", "left", "right"],
     textDecoration: ["underline", "none"],
@@ -89,12 +91,14 @@ export const sprinklesProperties = defineProperties({
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
     fontStyle: ["fontSize", "lineHeight"],
+    placeItems: ["alignItems", "justifyContent"],
   },
 });
 
 export const responsiveSprinklesProperties = defineProperties({
   properties: {
     width: { ...vars.width, ...vars.spacing },
+    gridTemplateColumns: vars.gridTemplateColumns,
     display: varsDisplay,
   },
   conditions: {

@@ -1,4 +1,5 @@
 import { blueDark } from "@radix-ui/colors";
+
 import { makeColorScale } from ".";
 
 test("Makes individual palette correctly", () => {
@@ -8,9 +9,9 @@ test("Makes individual palette correctly", () => {
       raised: "hsl(214, 59.4%, 15.3%)",
     },
     border: {
-      interactive: "hsl(211, 89.7%, 34.1%)",
-      interactiveActive: "hsl(206, 100%, 50.0%)",
-      nonInteractive: "hsl(211, 85.1%, 27.4%)",
+      default: "hsl(211, 89.7%, 34.1%)",
+      active: "hsl(206, 100%, 50.0%)",
+      default: "hsl(211, 85.1%, 27.4%)",
     },
     primary: {
       active: "hsl(210, 100%, 66.1%)",
@@ -22,8 +23,8 @@ test("Makes individual palette correctly", () => {
       selected: "hsl(212, 77.4%, 23.1%)",
     },
     text: {
-      highContrast: undefined,
-      lowContrast: "hsl(206, 98.0%, 95.8%)",
+      text_default_high_contrast: undefined,
+      text_default_low_contrast: "hsl(206, 98.0%, 95.8%)",
     },
   });
 });

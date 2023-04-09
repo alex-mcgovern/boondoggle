@@ -1,6 +1,8 @@
 import { globalStyle } from "@vanilla-extract/css";
-// import "./src/styles/reset.css"; <-- should probably be used for cross-browser support, but need to sort import order issue
+
+import "./reset.css";
 import { vars } from "./theme.css";
+import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
 /* -----------------------------------------------------------------------------—
  * Global selectors
@@ -10,19 +12,16 @@ globalStyle(`*`, {
   boxSizing: `border-box`,
   margin: 0,
 });
-
 globalStyle(`html`, {
-  color: vars.color.neutral.text.highContrast,
-  backgroundColor: vars.color.neutral.background.raised,
+  color: vars.color.text.text_default_high_contrast,
+  background: vars.color.background.bg_default,
   fontSize: vars.fontSize.root,
 });
-
 globalStyle(`html, body`, {
   height: `100%`,
   fontFamily: vars.fontFamily.body,
   fontSize: vars.fontSize.body_md,
 });
-
 globalStyle(`body`, {
   lineHeight: vars.lineHeight.body_md,
   WebkitFontSmoothing: `antialiased`,
@@ -36,7 +35,7 @@ globalStyle(`a`, {
   padding: 0,
   margin: 0,
   listStyleType: "none",
-  color: vars.color.accent.text.lowContrast,
+  color: vars.color.text.text_default_high_contrast,
 });
 
 /* -----------------------------------------------------------------------------—
@@ -72,7 +71,7 @@ globalStyle(`button`, {
  * ------------------------------------------------------------------------------- */
 
 globalStyle("input[type=checkbox]", {
-  accentColor: vars.color.accent.solid.base,
+  accentColor: vars.color.button.button_default,
 });
 
 /** -----------------------------------------------------------------------------
@@ -80,8 +79,7 @@ globalStyle("input[type=checkbox]", {
  * ------------------------------------------------------------------------------- */
 
 globalStyle(`code`, {
-  background: vars.color.neutral.secondary.active,
-  color: vars.color.neutral.text.highContrast,
+  color: vars.color.text.text_default_high_contrast,
   fontWeight: vars.fontWeight.normal,
 });
 
@@ -104,34 +102,25 @@ globalStyle(`h1, h2, h3, h4, h5, h6`, {
   display: "block",
   overflowWrap: `break-word`,
   lineHeight: 1.4,
-
-  marginTop: vars.spacing.spacing2,
-  marginBottom: vars.spacing.spacing2,
-
+  marginBottom: vars.spacing.spacing1,
   fontFamily: vars.fontFamily.display,
   fontWeight: vars.fontWeight.medium,
 });
-
 globalStyle(`h1`, {
   fontSize: vars.fontSize.h1,
 });
-
 globalStyle(`h2`, {
   fontSize: vars.fontSize.h2,
 });
-
 globalStyle(`h3`, {
   fontSize: vars.fontSize.h3,
 });
-
 globalStyle(`h4`, {
   fontSize: vars.fontSize.h4,
 });
-
 globalStyle(`h5`, {
   fontSize: vars.fontSize.h5,
 });
-
 globalStyle(`h6`, {
   fontSize: vars.fontSize.h6,
 });
@@ -143,21 +132,35 @@ globalStyle(`h6`, {
 globalStyle(`hr`, {
   borderBottom: "none",
   borderTop: "1px solid",
-  borderColor: vars.color.neutral.border.interactive,
+  borderColor: vars.color.border.border_default,
   marginTop: vars.spacing.spacing3,
   marginBottom: vars.spacing.spacing3,
 });
 
 /** -----------------------------------------------------------------------------
- * Input
+ * Input & textarea
  * ------------------------------------------------------------------------------- */
 
 globalStyle("input, textarea", {
-  padding: vars.spacing.spacing1,
-  border: `1px solid ${vars.color.neutral.border.interactive}`,
+  background: vars.color.background.bg_default,
+  border: `1px solid ${vars.color.border.border_default}`,
   borderRadius: vars.borderRadius.md,
-  background: vars.color.neutral.background.base,
-  color: vars.color.neutral.text.lowContrast,
+  color: vars.color.text.text_default_high_contrast,
+  padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
+  ...createAccessibleTransition({
+    transition: `ease ${vars.transitionDuration.short}`,
+    transitionProperty: "color, background-color, border-color",
+  }),
+});
+globalStyle(
+  "input:not([disabled]):is(:hover,:focus), textarea:not([disabled]):is(:hover,:focus)",
+  {
+    borderColor: vars.color.border.border_default_active,
+    background: vars.color.surface.surface_default,
+  }
+);
+globalStyle("input:invalid, textarea:invalid", {
+  borderColor: vars.color.border.border_red_active,
 });
 
 /** -----------------------------------------------------------------------------
@@ -169,23 +172,6 @@ globalStyle(`ul`, {
   marginBlockEnd: vars.spacing.spacing1,
   paddingInlineStart: vars.spacing.spacing1,
 });
-
-// globalStyle(`ul, ol`, {
-//   paddingInlineStart: vars.spacing.spacing3,
-//   marginTop: vars.spacing.spacing3,
-//   marginBottom: vars.spacing.spacing3,
-// });
-
-// globalStyle(`ul li, ol li`, {
-//   position: "relative",
-//   marginBottom: vars.spacing.spacing1,
-//   paddingLeft: vars.spacing.spacing0,
-// });
-
-// globalStyle(`ul li::marker, ol li::marker`, {
-//   color: vars.color.accent_base,
-//   fontWeight: vars.fontWeight.extrabold,
-// });
 
 /** -----------------------------------------------------------------------------
  * Menu
@@ -204,10 +190,7 @@ globalStyle(`menu`, {
 globalStyle(`p`, {
   overflowWrap: `break-word`,
 
-  marginTop: vars.spacing.spacing2,
-  marginBottom: vars.spacing.spacing2,
-
-  // maxWidth: vars.width.gridSpan6,
+  marginBottom: vars.spacing.spacing1,
 });
 
 /** -----------------------------------------------------------------------------
@@ -219,7 +202,7 @@ globalStyle(`table`, {
   overflow: "hidden",
   boxSizing: "border-box",
   border: "1px solid",
-  borderColor: vars.color.neutral.border.nonInteractive,
+  borderColor: vars.color.border.border_default,
   borderSpacing: 0,
   emptyCells: "show",
   marginBottom: vars.spacing.spacing3,
@@ -227,21 +210,17 @@ globalStyle(`table`, {
   fontSize: vars.fontSize.body_md,
   width: "100%",
 });
-
 globalStyle(`thead`, {
-  backgroundColor: vars.color.neutral.secondary.base,
+  background: vars.color.surface.surface_default_active,
   textAlign: "left",
   verticalAlign: "bottom",
 });
-
 globalStyle(`tr`, {
   overflow: "visible",
 });
-
 globalStyle(`tbody tr:nth-of-type(odd)`, {
-  backgroundColor: vars.color.neutral.background.raised,
+  background: vars.color.surface.surface_default,
 });
-
 globalStyle(`th`, {
   textAlign: "left",
   paddingTop: vars.spacing.spacing1,
@@ -249,7 +228,6 @@ globalStyle(`th`, {
   paddingRight: vars.spacing.spacing2,
   paddingLeft: vars.spacing.spacing2,
 });
-
 globalStyle(`td`, {
   verticalAlign: "top",
   border: "none",

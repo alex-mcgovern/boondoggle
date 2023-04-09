@@ -1,0 +1,96 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import LinkTo from "@storybook/addon-links/react";
+
+import { Box } from ".";
+import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
+import * as stories from "./box.stories.tsx";
+
+<Meta of={stories} />
+
+# Box
+
+## Overview
+
+`Box` is the lowest level component in the component library. It's purpose is to
+provide a consistent and fast way to write and style markup. Most other
+components in the library are built on top of `Box`.
+
+It follows the commonly used **"Box component"** design pattern. Other examples
+of this approach can be found in
+[Material UI](https://mui.com/material-ui/react-box/),
+[Chakra UI](https://chakra-ui.com/docs/components/box) and
+[Braid Design System](https://seek-oss.github.io/braid-design-system/components/Box/).
+
+## Related links
+
+- [Components/Button](/docs/components-button--documentation)
+
+## Usage
+
+### `as` prop (polymorphism)
+
+`Box` is a polymorphic component that accepts an `as` prop to change the
+underlying HTML element. By default it will return a `<div>` element.
+
+You can compose generic html elements:
+
+<Canvas sourceState="shown" of={stories.ExamplePolymorphismGenericElements} />
+
+Or you can pass a React component. E.g. in this case, we are passing a custom
+Link component, similar to the one provided by frameworks like Reach Router,
+NextJS or Gatsby.
+
+<Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
+
+### Styling `Box` with "sprinkles"
+
+`Box` accepts all arguments for `getSprinkles`, which is a utility function
+provided by
+[Vanilla Extract](https://vanilla-extract.style/documentation/packages/sprinkles/)
+that allows quick composition of a minimal set of utility CSS classes. This
+allows you to quickly style elements inline by passing CSS rules as props —
+think of it a bit like Tailwind CSS, but with a bit more structure in the markup
+and intellisense and type-safety.
+
+E.g. here we pass keywords for background, border, border-radius and padding:
+
+<Canvas sourceState="shown" of={stories.ExampleBasicSprinkles} />
+
+Note that some properties defined in `getSprinkles` support responsive values,
+which can be passed as an object:
+
+<Canvas sourceState="shown" of={stories.ExampleResponsiveSprinkles} />
+
+### Styling `Box` with "escape hatch props"
+
+`Box` also exposes a set of "escape hatch" props that allow you to pass any
+valid CSS value to the corresponding CSS property. (See relevant section in
+[Dessert Box documentation](https://github.com/TheMightyPenguin/dessert-box#escape-hatch)).
+You can access these props by prefixing the CSS property with `__`, e.g.
+`__margin` or `__padding`.
+
+<Canvas sourceState="shown" of={stories.ExampleEscapeHatchStyles} />
+
+## Advanced usage examples
+
+### Example: Composing multiple `Box` components to create an `Alert` component
+
+Here we have composed several `Box` components to create a custom `Alert`. By
+using the `background` and `color` props we can add a bit of semantic meaning to
+the elements in the `Alert`. Note the use of the `as` prop to render the title
+and description as a `<h3>` and `<p>` respectively. This is how we would
+typically build a component like this in the component library.
+
+<Canvas of={stories.BoxAsWarning} />
+<Canvas of={stories.BoxAsConfirmation} />
+
+### Box as grid layout
+
+<Canvas of={stories.BoxAsGridLayout} />
+
+### Box as list
+
+# Props
+
+<ArgsTable of={Box} />
+```
