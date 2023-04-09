@@ -4,7 +4,8 @@ import React, { forwardRef } from "react";
 import { Box } from "../box";
 import * as styles from "./styles.css";
 
-import type { DropdownItemShape, VariantUiScaleEnum } from "../..";
+import type { VariantUiScaleEnum } from "../..";
+import type { DropdownItemShape } from "../select_old/types";
 import type { Ref } from "react";
 
 export interface DropdownItemProps {

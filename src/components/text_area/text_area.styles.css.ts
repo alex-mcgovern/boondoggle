@@ -7,14 +7,6 @@ import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const getWrapperStyles = recipe({
-  base: [
-    getSprinkles({
-      display: "flex",
-      gap: "spacing2",
-      alignItems: "start",
-      width: "100%",
-    }),
-  ],
   variants: { size: globalVariantsUiScale },
   defaultVariants: {
     size: "md",

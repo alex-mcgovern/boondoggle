@@ -15,6 +15,7 @@ export const sliderRoot = style([
     display: "flex",
     alignItems: "center",
     width: "100%",
+    marginY: "spacing1",
   }),
   {
     userSelect: "none",

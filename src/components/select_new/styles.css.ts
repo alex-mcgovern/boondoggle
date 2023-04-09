@@ -22,8 +22,9 @@ export const dropdownWrapperClosed = style({
 export const dropdownListWrapper = style([
   globalFocusStyles,
   getSprinkles({
+    background: "bg_default",
     marginTop: "spacing1",
-    // width: "max-content",
+    minWidth: "gridSpan3",
     display: "block",
     margin: "none",
 
@@ -36,14 +37,9 @@ export const dropdownListWrapper = style([
     overflowY: "auto",
   }),
   {
-    // minWidth: `max("100%", "max-content")`,
-    // width: "100%",
-    width: "max-content",
-    zIndex: 999,
-    position: "absolute",
-    top: "100%",
-    left: 0,
-    maxHeight: "33vh",
+    width: "100%",
+
+    maxHeight: "10rem",
 
     selectors: {
       "&:empty": {

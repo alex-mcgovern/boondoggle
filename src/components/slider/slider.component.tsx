@@ -9,6 +9,7 @@ import React, { forwardRef } from "react";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
+import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
 import * as styles from "./slider.styles.css";
 
 import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
@@ -64,13 +65,7 @@ export const Slider = forwardRef(
       <Box marginBottom="spacing2">
         {label && id && <Label label={label} htmlFor={id} />}
 
-        <Box
-          display="flex"
-          gap="spacing2"
-          marginY="spacing1"
-          alignItems="center"
-        >
-          {slotLeft}
+        <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
           <RadixSliderRoot
             aria-required={required}
             className={styles.sliderRoot}
@@ -82,8 +77,7 @@ export const Slider = forwardRef(
             </RadixSliderTrack>
             <RadixSliderThumb className={styles.sliderThumb} />
           </RadixSliderRoot>
-          {slotRight}
-        </Box>
+        </SlotWrapper>
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
         )}

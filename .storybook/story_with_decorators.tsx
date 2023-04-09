@@ -18,17 +18,6 @@ function StoryWrapper({ Story, className, title }: StoryWrapperProps) {
       padding="spacing3"
       background="bg_default"
     >
-      <Box
-        position="absolute"
-        top="0"
-        right="0"
-        fontStyle="body_sm"
-        color="text_default_low_contrast"
-        padding="spacing1"
-        __background="#2d2d2d50"
-      >
-        {title}
-      </Box>
       <Story />
     </Box>
   );

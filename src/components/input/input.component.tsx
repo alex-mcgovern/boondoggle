@@ -7,6 +7,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
+import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
 import * as styles from "./input.styles.css";
 
 import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
@@ -58,14 +59,15 @@ export const Input = forwardRef(
     return (
       <Box>
         {label && id && <Label label={label} htmlFor={id} />}
-        <Box
+
+        <SlotWrapper
           {...atomProps}
           className={styles.getWrapperStyles({
             size,
           })}
+          slotLeft={slotLeft}
+          slotRight={slotRight}
         >
-          {slotLeft}
-
           <input
             className={clsx(styles.input, {
               [globalErrorStyles]: invalid,
@@ -75,9 +77,8 @@ export const Input = forwardRef(
             ref={ref}
             {...otherProps}
           />
+        </SlotWrapper>
 
-          {slotRight}
-        </Box>
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
         )}

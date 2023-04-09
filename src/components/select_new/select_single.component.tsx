@@ -2,11 +2,13 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useCombobox } from "downshift";
 import React, { forwardRef, useCallback, useMemo, useState } from "react";
+import { Popover } from "react-tiny-popover";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Icon } from "../icon";
 import { Input } from "../input";
+import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { downshiftStateReducer } from "./downshift_state_reducer";
 import { DropdownMenu } from "./dropdown_menu.component";
@@ -41,6 +43,7 @@ export interface SelectSingleProps extends SprinklesArgs {
   disabled?: boolean;
   errorMessage?: string;
   slotLeft?: React.ReactNode;
+  slotRight?: React.ReactNode;
   initialHighlightedItem?: DropdownItemShape;
   initialSelectedItem?: DropdownItemShape | null;
   inputProps?: Partial<InputProps>;
@@ -57,13 +60,14 @@ export interface SelectSingleProps extends SprinklesArgs {
   size?: VariantUiScaleEnum;
 }
 
-const INPUT_SLOT_RIGHT = <Icon icon={faAngleDown} />;
+const DEFAULT_SLOT_RIGHT = <Icon icon={faAngleDown} />;
 
 /** Accessible select component, supports multi & single modes. */
 export const SelectSingle = forwardRef(
   (
     {
       disabled,
+      errorMessage,
       id,
       initialHighlightedItem,
       initialSelectedItem,
@@ -80,6 +84,7 @@ export const SelectSingle = forwardRef(
       placeholder,
       size,
       slotLeft,
+      slotRight = DEFAULT_SLOT_RIGHT,
       ...rest
     }: SelectSingleProps,
     ref: Ref<HTMLInputElement>
@@ -165,37 +170,46 @@ export const SelectSingle = forwardRef(
     );
 
     return (
-      <Box position="relative" {...rest}>
+      <Box {...rest}>
         {label && <Label htmlFor={id} label={label} />}
-
-        <Input
-          size={size}
-          slotLeft={slotLeft}
-          slotRight={INPUT_SLOT_RIGHT}
-          readOnly={!isFilterable}
-          invalid={invalid}
-          {...inputAtomProps}
-          {...getInputProps?.({
-            ...inputOtherProps,
-            disabled,
-            id,
-            name,
-            onClick: toggleMenu,
-            placeholder,
-            ref,
-            value: inputValue,
-          })}
-        />
-
-        <DropdownMenu
-          getIsItemSelected={getIsItemSelected}
-          getItemProps={getItemProps}
-          getMenuProps={getMenuProps}
-          highlightedIndex={highlightedIndex}
+        <Popover
           isOpen={isOpen}
-          items={filteredItems}
-          size={size}
-        />
+          align="start"
+          positions={["bottom"]} // preferred positions by priority
+          content={
+            <DropdownMenu
+              getIsItemSelected={getIsItemSelected}
+              getItemProps={getItemProps}
+              getMenuProps={getMenuProps}
+              highlightedIndex={highlightedIndex}
+              isOpen={isOpen}
+              items={filteredItems}
+              size={size}
+            />
+          }
+        >
+          <Input
+            size={size}
+            slotLeft={slotLeft}
+            slotRight={slotRight}
+            readOnly={!isFilterable}
+            invalid={invalid}
+            {...inputAtomProps}
+            {...getInputProps?.({
+              ...inputOtherProps,
+              disabled,
+              id,
+              name,
+              onClick: toggleMenu,
+              placeholder,
+              ref,
+              value: inputValue,
+            })}
+          />
+        </Popover>
+        {invalid && errorMessage && (
+          <InputErrorMessage message={errorMessage} />
+        )}
       </Box>
     );
   }

@@ -9,14 +9,6 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 
 export const getWrapperStyles = recipe({
-  base: [
-    getSprinkles({
-      display: "flex",
-      gap: "spacing2",
-      alignItems: "center",
-    }),
-  ],
-
   variants: { size: globalVariantsUiScale },
 
   defaultVariants: {
@@ -28,7 +20,6 @@ export const input = style([
   getSprinkles({
     width: "100%",
   }),
-
   globalDisabledStyles,
   globalFocusStyles,
 ]);

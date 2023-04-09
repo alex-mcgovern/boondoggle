@@ -55,8 +55,8 @@ const buttonThemeGreen = createTheme(varsButtonTheme, {
 
 export const variantColor = styleVariants({
   default: [buttonTheme],
-  green: [buttonThemeRed],
-  red: [buttonThemeGreen],
+  red: [buttonThemeRed],
+  green: [buttonThemeGreen],
 });
 
 export type VariantColorEnum = keyof typeof variantColor;

@@ -14,7 +14,6 @@ export const dropdownMenu = style([
     maxWidth: "gridSpan3",
     display: "block",
     margin: "none",
-    // isolation: "isolate",
 
     /** Style as a card */
     borderRadius: "sm",

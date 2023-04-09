@@ -159,6 +159,9 @@ globalStyle(
     background: vars.color.surface.surface_default,
   }
 );
+globalStyle("input::placeholder, textarea::placeholder", {
+  color: vars.color.text.text_default_low_contrast,
+});
 globalStyle("input:invalid, textarea:invalid", {
   borderColor: vars.color.border.border_red_active,
 });

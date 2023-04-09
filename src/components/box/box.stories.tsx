@@ -60,9 +60,9 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
 
 const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
   padding: "spacing3",
-  border: "border_accent_active",
+  border: "border_default",
   borderRadius: "sm",
-  background: "bg_default",
+  background: "surface_default",
 };
 
 export const ExampleBasicSprinkles: StoryObj<StoryComponentProps> = {

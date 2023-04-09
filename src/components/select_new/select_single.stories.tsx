@@ -27,7 +27,7 @@ const FIRST_ITEM = MOCK_SELECT_ITEMS[0];
 const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
 
 export default {
-  title: "Components/select/select_single",
+  title: "Components/SelectSingle",
   component: StoryComponent,
 };
 
@@ -45,6 +45,10 @@ export const Default = {
     items: [
       { label: "United Kingdom", value: "uk" },
       { label: "France", value: "fr" },
+      { label: "Germany", value: "de" },
+      { label: "Spain", value: "es" },
+      { label: "Italy", value: "it" },
+      { label: "Portugal", value: "pt" },
     ],
     label: "Single select",
     name: "country",

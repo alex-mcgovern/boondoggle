@@ -3,7 +3,8 @@
     "**/package-lock.json": true,
     "**/node_modules": true,
     "**/.cache": true,
-    "**/*.snap": true
+    "**/*.snap": true,
+    ".git": true
   },
   "commentBox.styles": {
     "h1": {
