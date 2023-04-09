@@ -4,8 +4,7 @@ module.exports = {
     ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "<rootDir>/test/__mocks__/file-mock.ts",
   },
-  testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/test/setup_test_env.ts"],
+  setupFilesAfterEnv: ["<rootDir>/test/setup_test_env.js"],
   testEnvironmentOptions: {
     url: "http://localhost",
   },
@@ -18,6 +17,6 @@ module.exports = {
   ],
   transform: {
     "\\.css\\.ts$": "@vanilla-extract/jest-transform",
-    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
   },
 };

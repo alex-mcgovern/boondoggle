@@ -16,6 +16,7 @@
     "dist"
   ],
   "sideEffects": [
+    "src/styles/reset.css.ts",
     "src/styles/stylesheet.css.ts",
     "src/styles/theme.css.ts"
   ],
@@ -95,6 +96,7 @@
     "@vanilla-extract/recipes": "^0.4.0",
     "@vanilla-extract/sprinkles": "^1.5.2",
     "@vanilla-extract/webpack-plugin": "^2.2.0",
+    "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.17.3",
     "downshift": "^7.6.0",
