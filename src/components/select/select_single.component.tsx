@@ -10,16 +10,18 @@ import { Icon } from "../icon";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { downshiftStateReducer } from "./downshift_state_reducer";
 import { DropdownMenu } from "./dropdown_menu.component";
-import { getDefaultHighlightedIndex } from "./get_default_highlighted_index";
-import { getFilteredDropdownItems } from "./get_filtered_dropdown_items";
-import { getIsSelected } from "./get_is_selected";
+import {
+  downshiftStateReducer,
+  getDefaultHighlightedIndex,
+  getFilteredDropdownItems,
+  getIsSelected,
+} from "./select.utils";
 
 import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../input";
-import type { DropdownItemShape } from "../select_old/types";
+import type { DropdownItemShape } from "./select.types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 
@@ -35,15 +37,9 @@ const defaultItemToString = (item: DropdownItemShape | null) => {
 };
 
 export interface SelectSingleProps extends SprinklesArgs {
-  id: string;
-  items: Array<DropdownItemShape>;
-  name: string;
-  placeholder: string;
-
   disabled?: boolean;
   errorMessage?: string;
-  slotLeft?: React.ReactNode;
-  slotRight?: React.ReactNode;
+  id: string;
   initialHighlightedItem?: DropdownItemShape;
   initialSelectedItem?: DropdownItemShape | null;
   inputProps?: Partial<InputProps>;
@@ -51,9 +47,15 @@ export interface SelectSingleProps extends SprinklesArgs {
   isFilterable?: boolean;
   isMulti?: true;
   isOpen?: boolean;
+  items: Array<DropdownItemShape>;
   itemToString?: (item: DropdownItemShape | null) => string;
   label?: string;
+  name: string;
   onIsOpenChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
+  placeholder: string;
+  slotLeft?: React.ReactNode;
+  slotRight?: React.ReactNode;
+
   onSelectedItemChange?: (
     changes: UseComboboxStateChange<DropdownItemShape>
   ) => void;
@@ -155,7 +157,7 @@ export const SelectSingle = forwardRef(
         }
       },
       stateReducer: (state, actionAndChanges) => {
-        return downshiftStateReducer(state, actionAndChanges, {});
+        return downshiftStateReducer(state, actionAndChanges);
       },
     });
 

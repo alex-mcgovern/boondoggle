@@ -1,21 +1,16 @@
-import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
-import { merge } from "webpack-merge";
+import mdx from "@mdx-js/rollup";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { mergeConfig } from "vite";
 
 export default {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "storybook-addon-pseudo-states",
-    "@storybook/addon-mdx-gfm",
   ],
   docs: {
     autodocs: true,
     defaultName: "Documentation",
-  },
-  framework: {
-    name: "@storybook/react-webpack5",
-    options: {},
   },
   stories: [
     "../(src|documentation)/**/*.stories.tsx",
@@ -33,8 +28,19 @@ export default {
       shouldExtractLiteralValuesFromEnum: true,
     },
   },
-  webpackFinal: async (config) =>
-    merge(config, {
-      plugins: [new VanillaExtractPlugin()],
-    }),
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
+      plugins: [vanillaExtractPlugin()],
+      optimizeDeps: {
+        include: [
+          "@dessert-box/react",
+          "@vanilla-extract/sprinkles/createRuntimeSprinkles",
+        ],
+      },
+    });
+  },
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
 };

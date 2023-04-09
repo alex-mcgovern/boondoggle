@@ -3,10 +3,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { globalErrorStyles } from "../../styles/common/globalErrorStyles.css";
-import {
-  VariantUiScaleEnum,
-  globalVariantsUiScale,
-} from "../../styles/common/globalVariantsUiScale.css";
+import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
@@ -14,6 +11,7 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
 import * as styles from "./input.styles.css";
 
+import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ReactNode, Ref } from "react";
 

@@ -4,13 +4,12 @@ import React, { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
-import { DropdownItem } from "./dropdown_item";
-import * as styles from "./styles.css";
+import { DropdownItem } from "./dropdown_item.component";
+import * as styles from "./select.styles.css";
 
-import type { DropdownItemShape } from "../..";
 import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { DropdownItemProps } from "./dropdown_item";
+import type { DropdownItemShape } from "./select.types";
 import type {
   UseComboboxPropGetters,
   UseMultipleSelectionActions,
@@ -31,7 +30,7 @@ interface GetDropdownItemPropsArgs
     DropdownMenuProps,
     "getItemProps" | "getSelectedItemProps" | "removeSelectedItem"
   > {
-  item: DropdownItemProps;
+  item: DropdownItemShape;
   isItemSelected?: boolean;
   [key: string]: unknown;
 }

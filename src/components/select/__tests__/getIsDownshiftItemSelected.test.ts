@@ -2,7 +2,7 @@ import {
   ITEM_TO_FIND_MOCK,
   SELECTED_ITEMS_MOCK,
 } from "../__mocks__/downshift_items.mock";
-import { getIsSelected } from "../common/get_is_selected";
+import { getIsSelected } from "../select.utils";
 
 describe("Get is dropdown item selected", () => {
   test.skip("Downshift items mock none refined", () => {

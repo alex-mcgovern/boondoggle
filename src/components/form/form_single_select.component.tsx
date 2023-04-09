@@ -1,10 +1,11 @@
 import React, { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
-import { SelectSingle } from "../select_new/select_single.component";
+import { SelectSingle } from "../select/select_single.component";
 
-import type { SelectSingleProps } from "../select_new/select_single.component";
-import type { DropdownItemShape } from "../select_new/types";
+import type { DropdownItemShape } from "../select/select.types";
+import type { SelectSingleProps } from "../select/select_single.component";
+import type { UseComboboxStateChange } from "downshift";
 
 export interface FormSingleSelectProps extends SelectSingleProps {
   errorMessage: string;
@@ -12,11 +13,7 @@ export interface FormSingleSelectProps extends SelectSingleProps {
 
 /** React Hook Form connected version of `SelectSingle`. Uses `useFormContext`
  * to access Hook Form's methods so can be deeply nested. */
-export function FormSingleSelect({
-  name,
-
-  ...rest
-}: FormSingleSelectProps) {
+export function FormSingleSelect({ name, ...rest }: FormSingleSelectProps) {
   const { control } = useFormContext();
 
   const {
@@ -30,8 +27,8 @@ export function FormSingleSelect({
   });
 
   const handleChange = useCallback(
-    (item: DropdownItemShape) => {
-      return onChange(item.value);
+    ({ selectedItem }: UseComboboxStateChange<DropdownItemShape>) => {
+      return selectedItem ? onChange(selectedItem.value) : null;
     },
     [onChange]
   );
@@ -40,7 +37,7 @@ export function FormSingleSelect({
     <SelectSingle
       ref={ref}
       invalid={!!error}
-      onValueChange={handleChange}
+      onSelectedItemChange={handleChange}
       name={name}
       {...rest}
     />

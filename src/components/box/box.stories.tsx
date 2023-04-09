@@ -5,8 +5,8 @@ import {
 import React from "react";
 
 import { Box, Box as StoryComponent } from ".";
-import { Link } from "../../../.storybook/link.component.mock";
 import { LOREM } from "../../../mocks/LOREM.mock";
+import { Link } from "../../../test/link.component.mock";
 import { Icon } from "../icon";
 
 import type { BoxProps as StoryComponentProps } from ".";

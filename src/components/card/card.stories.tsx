@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Card as StoryComponent } from ".";
-import { Link } from "../../../.storybook/link.component.mock";
 import { LOREM } from "../../../mocks/LOREM.mock";
+import { Link } from "../../../test/link.component.mock";
 import { Box } from "../box";
 
 import type { CardProps as StoryComponentProps } from ".";

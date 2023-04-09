@@ -44,8 +44,8 @@ export type { LabelProps } from "./components/label";
 export { Loader } from "./components/loader";
 export type { LoaderProps } from "./components/loader";
 
-export { SelectSingle } from "./components/select_new/select_single.component";
-export type { SelectSingleProps } from "./components/select_new/select_single.component";
+export { SelectSingle } from "./components/select/select_single.component";
+export type { SelectSingleProps } from "./components/select/select_single.component";
 
 // export { SelectMultiFilterable } from "./components/select_new/SelectMultiFilterable";
 // export type { SelectMultiFilterableProps } from "./components/select_new/SelectMultiFilterable";
@@ -75,7 +75,6 @@ export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
  * Styles
  * ------------------------------------------------------------------------------- */
 
-export { createModularScale } from "./styles/utils/create_modular_scale";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
 export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";

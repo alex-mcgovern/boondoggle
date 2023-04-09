@@ -6,6 +6,9 @@
     "**/*.snap": true,
     ".git": true
   },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "commentBox.styles": {
     "h1": {
       "bottomEdgeToken": "-",

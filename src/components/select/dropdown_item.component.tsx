@@ -2,10 +2,10 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { Box } from "../box";
-import * as styles from "./styles.css";
+import * as styles from "./select.styles.css";
 
 import type { VariantUiScaleEnum } from "../..";
-import type { DropdownItemShape } from "../select_old/types";
+import type { DropdownItemShape } from "./select.types";
 import type { Ref } from "react";
 
 export interface DropdownItemProps {
@@ -29,7 +29,7 @@ export const DropdownItem = forwardRef(
     }: DropdownItemProps,
     ref
   ) => {
-    const { label, decorativeNode, description } = item || {};
+    const { label } = item || {};
 
     return (
       <Box
@@ -47,11 +47,7 @@ export const DropdownItem = forwardRef(
         {...rest}
         ref={ref as Ref<HTMLButtonElement>}
       >
-        {decorativeNode}
-        <Box flexShrink="0">
-          {label}
-          {description}
-        </Box>
+        <Box flexShrink="0">{label}</Box>
         {isMulti && (
           <Box
             as="input"

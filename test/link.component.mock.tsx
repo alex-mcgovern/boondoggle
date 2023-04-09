@@ -9,10 +9,10 @@ interface LinkProps {
   children: React.ReactNode;
 }
 
-export const Link = ({ href, children, ...rest }: LinkProps) => {
+export function Link({ href, children, ...rest }: LinkProps) {
   return (
     <a href={href} target="_blank" rel="noreferrer" {...rest}>
       {children}
     </a>
   );
-};
+}

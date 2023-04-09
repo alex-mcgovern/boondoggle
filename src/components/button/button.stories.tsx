@@ -2,7 +2,7 @@ import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 import { Button as StoryComponent } from ".";
-import { Link } from "../../../.storybook/link.component.mock";
+import { Link } from "../../../test/link.component.mock";
 import { Icon } from "../icon";
 import { Loader } from "../loader";
 
@@ -145,12 +145,12 @@ export const SlotRightLoader = {
 export const StateHover = {
   render: Template,
   name: "state/hover",
-  parameters: { pseudo: { hover: true } },
+  // parameters: { pseudo: { hover: true } },
 };
 export const StateFocusVisible = {
   render: Template,
   name: "state/focus-visible",
-  parameters: { pseudo: { focusVisible: true } },
+  // parameters: { pseudo: { focusVisible: true } },
 };
 export const StateDisabled = {
   render: Template,

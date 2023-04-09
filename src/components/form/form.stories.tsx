@@ -71,7 +71,7 @@ export const Default: StoryObj<StoryComponentProps> = {
 
 export const WithSlotLeft: StoryObj<StoryComponentProps> = {
   render: Template,
-  name: "default",
+  name: "withSlotLeft",
   args: {
     submitButtonText: "Submit",
     children: [
@@ -117,7 +117,7 @@ export const WithSlotLeft: StoryObj<StoryComponentProps> = {
 
 export const WithSlotRight: StoryObj<StoryComponentProps> = {
   render: Template,
-  name: "default",
+  name: "withSlotRight",
   args: {
     submitButtonText: "Submit",
     children: [

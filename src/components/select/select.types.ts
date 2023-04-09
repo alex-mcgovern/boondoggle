@@ -1,5 +1,4 @@
 export interface DropdownItemShape {
-  label?: string;
+  label: string;
   value: string;
-  link?: string;
 }
