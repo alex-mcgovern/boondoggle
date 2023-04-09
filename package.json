@@ -43,8 +43,6 @@
     "@radix-ui/react-popover": "^1.0.5",
     "@radix-ui/react-slider": "^1.1.1",
     "clsx": "^1.2.1",
-    "match-sorter": "^6.3.1",
-    "polished": "^4.2.2",
     "react-dom": "^18.2.0",
     "react-tiny-popover": "^7.2.4"
   },
@@ -129,7 +127,6 @@
     "react-hook-form": "^7.43.9",
     "storybook": "^7.0.2",
     "storybook-addon-pseudo-states": "^1.15.5",
-    "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",

@@ -70,14 +70,14 @@ describe("<Button />", () => {
       expect(getByRole("button")).not.toBeNull();
     });
 
-    it("should render a button element when as = button", () => {
+    it("should render a button element when as = `button`", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" as="button" color="default" />
       );
       expect(getByRole("button")).not.toBeNull();
     });
 
-    it("should render a link element when as = a", () => {
+    it("should render a link element when as = `a`", () => {
       const { getByRole } = render(
         <Button
           id="button"
@@ -104,7 +104,7 @@ describe("<Button />", () => {
         </a>
       );
     });
-    it("should render a link element when as = Link", () => {
+    it("should render a link element when as = `Link`", () => {
       const { getByRole } = render(
         <Button
           id="button"
@@ -121,10 +121,10 @@ describe("<Button />", () => {
   });
 
   /** -----------------------------------------------------------------------------
-   * Appearance props
+   * `appearance` prop
    * ----------------------------------------------------------------------------- */
 
-  describe("Appearance prop", () => {
+  describe("`appearance` prop", () => {
     it("should have the primary class name by default", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" color="default" />
@@ -175,10 +175,10 @@ describe("<Button />", () => {
   });
 
   /** -----------------------------------------------------------------------------
-   * Color prop
+   * `color` prop
    * ------------------------------------------------------------------------------- */
 
-  describe("Color prop", () => {
+  describe("`color` prop", () => {
     it("should have the default color class name by default", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
       expect(getByRole("button")).toHaveClass(
@@ -212,10 +212,10 @@ describe("<Button />", () => {
   });
 
   /** -----------------------------------------------------------------------------
-   * Classname prop
+   * `className` prop
    * ------------------------------------------------------------------------------- */
 
-  describe("Classname prop", () => {
+  describe("`className` prop", () => {
     it("should have the classname passed to it", () => {
       const { getByRole } = render(
         <Button
@@ -230,11 +230,11 @@ describe("<Button />", () => {
   });
 
   /** -----------------------------------------------------------------------------
-   * Mouse
+   * Events
    * ----------------------------------------------------------------------------- */
 
   describe("Events", () => {
-    describe("onClick", () => {
+    describe("`onClick`", () => {
       it("should call `onClick` when enabled", async () => {
         const onClick = jest.fn();
         const { getByRole } = render(
@@ -264,7 +264,7 @@ describe("<Button />", () => {
       });
     });
 
-    describe("onMouseOver", () => {
+    describe("`onMouseOver`", () => {
       it("should call `onMouseOver` when enabled", () => {
         const onMouseOver = jest.fn();
         const { getByRole } = render(
@@ -294,8 +294,8 @@ describe("<Button />", () => {
       });
     });
 
-    describe("onMouseLeave", () => {
-      it("should call onMouseLeave when enabled", () => {
+    describe("`onMouseLeave`", () => {
+      it("should call `onMouseLeave` when enabled", () => {
         const onMouseLeave = jest.fn();
         const { getByRole } = render(
           <Button
@@ -308,7 +308,7 @@ describe("<Button />", () => {
         fireEvent.mouseLeave(getByRole("button"));
         expect(onMouseLeave).toHaveBeenCalled();
       });
-      it("should call onMouseLeave when disabled", () => {
+      it("should call `onMouseLeave` when disabled", () => {
         const onMouseLeave = jest.fn();
         const { getByRole } = render(
           <Button
@@ -324,8 +324,8 @@ describe("<Button />", () => {
       });
     });
 
-    describe("onFocus", () => {
-      it("should call onFocus when enabled", () => {
+    describe("`onFocus`", () => {
+      it("should call `onFocus` when enabled", () => {
         const onFocus = jest.fn();
         const { getByRole } = render(
           <Button
@@ -340,7 +340,7 @@ describe("<Button />", () => {
         getByRole("button").focus();
         expect(onFocus).toHaveBeenCalled();
       });
-      it("should not call onFocus when disabled", () => {
+      it("should not call `onFocus` when disabled", () => {
         const onFocus = jest.fn();
         const { getByRole } = render(
           <Button
@@ -356,8 +356,8 @@ describe("<Button />", () => {
       });
     });
 
-    describe("onBlur", () => {
-      it("should call onBlur when enabled", () => {
+    describe("`onBlur`", () => {
+      it("should call `onBlur` when enabled", () => {
         const onBlur = jest.fn();
         const { getByRole } = render(
           <Button
@@ -371,7 +371,7 @@ describe("<Button />", () => {
         getByRole("button").blur();
         expect(onBlur).toHaveBeenCalled();
       });
-      it("should not call onBlur when disabled", () => {
+      it("should not call `onBlur` when disabled", () => {
         const onBlur = jest.fn();
         const { getByRole } = render(
           <Button
@@ -393,27 +393,27 @@ describe("<Button />", () => {
    * Size prop
    * ----------------------------------------------------------------------------- */
 
-  describe("Size prop", () => {
-    it("should have the md class name by default", () => {
+  describe("`size` prop", () => {
+    it("should have the `md` class name by default", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" color="default" />
       );
 
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.md);
     });
-    it("should have the sm class name when size = sm", () => {
+    it("should have the `sm` class name when size = sm", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" size="sm" color="default" />
       );
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.sm);
     });
-    it("should have the md class name when size = md", () => {
+    it("should have the `md` class name when size = md", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" size="md" color="default" />
       );
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.md);
     });
-    it("should have the lg class name when size = lg", () => {
+    it("should have the `lg` class name when size = lg", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" size="lg" color="default" />
       );
@@ -425,7 +425,7 @@ describe("<Button />", () => {
    * Slot props
    * ----------------------------------------------------------------------------- */
 
-  describe("Slot prop", () => {
+  describe("Slot props", () => {
     it("should render node passed to `slotLeft`", () => {
       const { getByTestId } = render(
         <Button

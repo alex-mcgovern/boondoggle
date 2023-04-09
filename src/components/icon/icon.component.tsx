@@ -17,10 +17,10 @@ import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 
 export interface IconProps
-  extends SprinklesMargin,
-    SprinklesPadding,
-    SprinklesColor,
-    SprinklesSize,
+  extends Partial<SprinklesMargin>,
+    Partial<SprinklesPadding>,
+    Partial<SprinklesColor>,
+    Partial<SprinklesSize>,
     Pick<SprinklesArgs, "display">,
     Pick<FontAwesomeIconProps, "size" | "spin"> {
   icon: IconProp;

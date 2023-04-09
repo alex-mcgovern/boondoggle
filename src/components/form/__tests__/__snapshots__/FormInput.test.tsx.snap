@@ -2,11 +2,11 @@
 
 exports[`Given required props, matches snapshot 1`] = `
 <input
-  aria-invalid="false"
-  class="Input_inputElement__17v4xld9 Input__17v4xld8 getSprinkles_paddingLeft_spacing1__1jganc99i getSprinkles_paddingRight_spacing1__1jganc99x getSprinkles_width_100%_mobile__1jganc9fb getSprinkles_height_100%_mobile__1jganc9ht"
+  class="input.styles_input__3x32wp1 input.styles__3x32wp0 get_sprinkles_width_100%_mobile__eiij7bae globalDisabledStyles_globalDisabledStyles__1t4g5d00 globalFocusStyles_globalFocusStyles__1dgcopm0 globalVariantsUiScale_globalVariantsUiScale_md__ugxx5e4 globalVariantsUiScale__ugxx5e1 get_sprinkles_fontSize_body_lg__eiij7b8u get_sprinkles_lineHeight_body_lg__eiij7b95"
   data-testid="tested-component"
   id="input"
   name="Test input"
+  placeholder="test placeholder"
   value=""
 />
 `;

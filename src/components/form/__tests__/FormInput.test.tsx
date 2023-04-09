@@ -3,8 +3,8 @@ import { cleanup } from "@testing-library/react";
 import React from "react";
 
 import { renderTestComponent } from "../../../../test/renderTestComponent";
-import { FormTestProvider } from "../components/test_form_provider.component";
 import { FormInput } from "../form_input.component";
+import { FormTestProvider } from "../form_provider_test.component";
 
 import type { FormInputProps } from "../form_input.component";
 
@@ -18,6 +18,7 @@ test("Given required props, renders without errors", async () => {
   const { component } = renderTestComponent<FormInputProps>(
     <FormTestProvider>
       <FormInput
+        placeholder="test placeholder"
         id="input"
         name="Test input"
         errorMessage="Error"
@@ -33,6 +34,7 @@ test("Given required props, matches snapshot", async () => {
   const { component } = renderTestComponent<FormInputProps>(
     <FormTestProvider>
       <FormInput
+        placeholder="test placeholder"
         id="input"
         name="Test input"
         errorMessage="Error"
@@ -48,6 +50,7 @@ test("Given an input without value, when changing, it should have the new value"
   const { user, getByRole } = renderTestComponent<FormInputProps>(
     <FormTestProvider>
       <FormInput
+        placeholder="test placeholder"
         id="input"
         name="Test input"
         errorMessage="Error"

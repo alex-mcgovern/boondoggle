@@ -1,301 +1,425 @@
 /** @jest-environment jsdom */
-import { cleanup, fireEvent } from "@testing-library/react";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 
-import { renderTestComponent } from "../../../../test/renderTestComponent";
+import { globalVariantsUiScale } from "../../../styles/common/globalVariantsUiScale.css";
+import { Icon } from "../../icon";
 import { Input } from "../input.component";
-
-import type { InputProps } from "../input.component";
 
 afterEach(cleanup);
 
-describe("<Button />", () => {
-  describe("Renders correctly", () => {
-    test("Renders without error", () => {
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" />
+describe("<Input />", () => {
+  describe("Basic smoke tests", () => {
+    it("should render without throwing", () => {
+      const { getByRole } = render(
+        <Input placeholder="Placeholder" id="input" name="Test input" />
       );
-
-      expect(component).not.toBeNull();
+      expect(getByRole("textbox")).not.toBeNull();
     });
 
-    test("When a placeholder is provided, should render an input with this placeholder", () => {
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" placeholder="Placeholder" />
+    it("should render placeholder when present", () => {
+      const { getByRole } = render(
+        <Input placeholder="Placeholder" id="input" name="Test input" />
       );
-
-      expect((component as HTMLInputElement)?.placeholder).toBe("Placeholder");
+      expect((getByRole("textbox") as HTMLInputElement)?.placeholder).toBe(
+        "Placeholder"
+      );
     });
   });
 
-  /**
-   * UPDATING VALUE
-   */
-  describe("Updating input value", () => {
-    describe("Uncontrolled version", () => {
-      test("Given an input without value, when changing, it should have the new value", async () => {
-        const { component, user } = renderTestComponent<InputProps>(
-          <Input id="input" name="Test input" />
-        );
+  /** -----------------------------------------------------------------------------
+   * a11y labelling
+   * ----------------------------------------------------------------------------- */
 
-        expect((component as HTMLInputElement)?.value).toBe("");
-        await user.type(component as HTMLInputElement, "New value");
-        expect((component as HTMLInputElement)?.value).toBe("New value");
+  describe("a11y labelling", () => {
+    it("should assign id to the input element", () => {
+      const { getByRole } = render(
+        <Input placeholder="Placeholder" id="input-test-id" name="Test input" />
+      );
+      expect(getByRole("textbox")?.id).toBe("input-test-id");
+    });
+
+    it("should assign name to the input element", () => {
+      const { getByRole } = render(
+        <Input placeholder="Placeholder" id="input" name="Test input" />
+      );
+      expect((getByRole("textbox") as HTMLInputElement)?.name).toBe(
+        "Test input"
+      );
+    });
+
+    it("should assign tabIndex to the input html element", () => {
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          tabIndex={0}
+        />
+      );
+      expect(getByRole("textbox")?.tabIndex).toBe(0);
+    });
+  });
+
+  /** -----------------------------------------------------------------------------
+   * `className` prop
+   * ------------------------------------------------------------------------------- */
+
+  describe("`className` prop", () => {
+    it("should have the classname passed to it", () => {
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          className="test-class"
+        />
+      );
+      expect(getByRole("textbox")).toHaveClass("test-class");
+    });
+  });
+
+  /** -----------------------------------------------------------------------------
+   * Events
+   * ----------------------------------------------------------------------------- */
+
+  describe("Events", () => {
+    describe("handling updates to value", () => {
+      describe("when uncontrolled", () => {
+        it("should update value when the user types", async () => {
+          const { getByRole } = render(
+            <Input placeholder="Placeholder" id="input" name="Test input" />
+          );
+          expect((getByRole("textbox") as HTMLInputElement)?.value).toBe("");
+          await userEvent.type(getByRole("textbox"), "New value");
+          expect((getByRole("textbox") as HTMLInputElement)?.value).toBe(
+            "New value"
+          );
+        });
+
+        it("should update value when the user types when there is `defaultValue`", async () => {
+          const { getByRole } = render(
+            <Input
+              placeholder="Placeholder"
+              id="input"
+              name="Test input"
+              defaultValue="Old value"
+            />
+          );
+          expect((getByRole("textbox") as HTMLInputElement)?.value).toBe(
+            "Old value"
+          );
+          await userEvent.clear(getByRole("textbox"));
+          await userEvent.type(getByRole("textbox"), "New value");
+          expect((getByRole("textbox") as HTMLInputElement)?.value).toBe(
+            "New value"
+          );
+        });
       });
 
-      test("Given an input with a value, when changing, it should have the new value", async () => {
-        const { component, user } = renderTestComponent<InputProps>(
-          <Input id="input" name="Test input" defaultValue="Old value" />
-        );
-
-        expect((component as HTMLInputElement)?.value).toBe("Old value");
-        await user.clear(component as HTMLInputElement);
-        await user.type(component as HTMLInputElement, "New value");
-        expect((component as HTMLInputElement)?.value).toBe("New value");
-      });
-
-      test("Given an input without value, when changing, it twice should have the right value each time", async () => {
-        const { component, user } = renderTestComponent<InputProps>(
-          <Input id="input" name="Test input" />
-        );
-
-        expect((component as HTMLInputElement)?.value).toBe("");
-
-        await user.clear(component as HTMLInputElement);
-        await user.type(component as HTMLInputElement, "New value");
-        expect((component as HTMLInputElement)?.value).toBe("New value");
-
-        await user.clear(component as HTMLInputElement);
-        await user.type(component as HTMLInputElement, "New value updated");
-        expect((component as HTMLInputElement)?.value).toBe(
-          "New value updated"
-        );
+      describe("when controlled", () => {
+        it("should trigger onChange callback when user types when initialised with no value", async () => {
+          const onChange = jest.fn();
+          const { getByRole } = render(
+            <Input
+              placeholder="Placeholder"
+              id="input"
+              name="Test input"
+              onChange={onChange}
+              value=""
+            />
+          );
+          expect(onChange).toHaveBeenCalledTimes(0);
+          await userEvent.clear(getByRole("textbox"));
+          await userEvent.type(getByRole("textbox"), "New value");
+          expect(onChange).toHaveBeenCalled();
+        });
       });
     });
 
-    describe("Controlled version", () => {
-      test("Given an input without value, when changing, it should trigger onChange callback", async () => {
+    describe("onChange handling", () => {
+      it("should trigger onChange callback when user types", async () => {
         const onChange = jest.fn();
-
-        const { component, user } = renderTestComponent<InputProps>(
-          <Input id="input" name="Test input" onChange={onChange} value="" />
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            onChange={onChange}
+            value=""
+          />
         );
-
         expect(onChange).toHaveBeenCalledTimes(0);
-
-        await user.clear(component as HTMLInputElement);
-        await user.type(component as HTMLInputElement, "New value");
+        await userEvent.clear(getByRole("textbox"));
+        await userEvent.type(getByRole("textbox"), "New value");
         expect(onChange).toHaveBeenCalled();
       });
 
-      test("Given an input with a value, when changing, it should trigger onChange callback", async () => {
+      it("should trigger onChange callback when user types when initialised with a value", async () => {
         const onChange = jest.fn();
-
-        const { component, user } = renderTestComponent<InputProps>(
+        const { getByRole } = render(
           <Input
+            placeholder="Placeholder"
             id="input"
             name="Test input"
             onChange={onChange}
             value="Old value"
           />
         );
-
         expect(onChange).toHaveBeenCalledTimes(0);
-        await user.type(component as HTMLInputElement, "New value");
+        await userEvent.type(getByRole("textbox"), "New value");
         expect(onChange).toHaveBeenCalled();
+      });
+
+      it("should not call onChange when readonly", async () => {
+        const onChange = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            readOnly
+            onChange={onChange}
+          />
+        );
+        await userEvent.type(getByRole("textbox"), "New value");
+        expect(onChange).not.toHaveBeenCalled();
+      });
+
+      it("Given a disabled input, when changing, it should not call onChange", async () => {
+        const onChange = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            disabled
+            onChange={onChange}
+          />
+        );
+        await userEvent.type(getByRole("textbox"), "New value");
+        expect(onChange).not.toHaveBeenCalled();
+      });
+    });
+
+    describe("`onClick`", () => {
+      it("Given an enabled input, when clicking, it should call onClick", () => {
+        const onClick = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            onClick={onClick}
+          />
+        );
+        getByRole("textbox").click();
+        expect(onClick).toHaveBeenCalled();
+      });
+
+      it("Given a readonly input,  when clicking, it should call onClick", () => {
+        const onClick = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            readOnly
+            onClick={onClick}
+          />
+        );
+        getByRole("textbox").click();
+        expect(onClick).toHaveBeenCalled();
+      });
+
+      it("Given a disabled input, when clicking, it should not call onClick", () => {
+        const onClick = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            disabled
+            onClick={onClick}
+          />
+        );
+        getByRole("textbox").click();
+        expect(onClick).not.toHaveBeenCalled();
+      });
+    });
+
+    describe("mouseOver", () => {
+      it("Given an enabled input, when hovering, it should call onMouseOver", () => {
+        const onMouseOver = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            onMouseOver={onMouseOver}
+          />
+        );
+        fireEvent.mouseEnter(getByRole("textbox"));
+        expect(onMouseOver).toHaveBeenCalled();
+      });
+
+      it("Given a readonly input, when hovering, it should call onMouseOver", () => {
+        const onMouseOver = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            readOnly
+            onMouseOver={onMouseOver}
+          />
+        );
+        fireEvent.mouseEnter(getByRole("textbox"));
+        expect(onMouseOver).toHaveBeenCalled();
+      });
+
+      it("Given a disabled input, when hovering, it should call onMouseOver", () => {
+        const onMouseOver = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            disabled
+            onMouseOver={onMouseOver}
+          />
+        );
+        fireEvent.mouseEnter(getByRole("textbox"));
+        expect(onMouseOver).toHaveBeenCalled();
+      });
+    });
+
+    describe("`mouseLeave`", () => {
+      it("it should call `onMouseLeave` by default", () => {
+        const onMouseLeave = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            onMouseLeave={onMouseLeave}
+          />
+        );
+        fireEvent.mouseLeave(getByRole("textbox"));
+        expect(onMouseLeave).toHaveBeenCalled();
+      });
+
+      it("it should call `onMouseLeave` when `readonly`", () => {
+        const onMouseLeave = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            readOnly
+            onMouseLeave={onMouseLeave}
+          />
+        );
+        fireEvent.mouseLeave(getByRole("textbox"));
+        expect(onMouseLeave).toHaveBeenCalled();
+      });
+
+      it("it should call `onMouseLeave` when `disabled`", () => {
+        const onMouseLeave = jest.fn();
+        const { getByRole } = render(
+          <Input
+            placeholder="Placeholder"
+            id="input"
+            name="Test input"
+            disabled
+            onMouseLeave={onMouseLeave}
+          />
+        );
+        fireEvent.mouseLeave(getByRole("textbox"));
+        expect(onMouseLeave).toHaveBeenCalled();
       });
     });
   });
 
-  /**
-   * ONCHANGE HANDLING
-   */
+  /** -----------------------------------------------------------------------------
+   * Size prop
+   * ----------------------------------------------------------------------------- */
 
-  describe("onChange handling", () => {
-    test("Given an enabled input, when changing, it should call onChange", async () => {
-      const onChange = jest.fn();
-
-      const { component, user } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" onChange={onChange} />
+  describe("`size` prop", () => {
+    it("should have the `md` class name by default", () => {
+      const { getByRole } = render(
+        <Input placeholder="Placeholder" id="input" name="Test input" />
       );
 
-      await user.type(component as HTMLInputElement, "New value");
-      expect(onChange).toHaveBeenCalled();
+      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.md);
     });
 
-    test("Given a readonly input, when changing, it should not call onChange", async () => {
-      const onChange = jest.fn();
-
-      const { component, user } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" readOnly onChange={onChange} />
+    it("should have the `sm` class name when size = sm", () => {
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          size="sm"
+        />
       );
-
-      await user.type(component as HTMLInputElement, "New value");
-      expect(onChange).not.toHaveBeenCalled();
+      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.sm);
     });
 
-    test("Given a disabled input, when changing, it should not call onChange", async () => {
-      const onChange = jest.fn();
-
-      const { component, user } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" disabled onChange={onChange} />
+    it("should have the `md` class name when size = md", () => {
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          size="md"
+        />
       );
+      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.md);
+    });
 
-      await user.type(component as HTMLInputElement, "New value");
-      expect(onChange).not.toHaveBeenCalled();
+    it("should have the `lg` class name when size = lg", () => {
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          size="lg"
+        />
+      );
+      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.lg);
     });
   });
 
-  /**
-   * ONCLICK EVENTS
-   */
+  /** -----------------------------------------------------------------------------
+   * Slot props
+   * ----------------------------------------------------------------------------- */
 
-  describe("onClick events", () => {
-    test("Given an enabled input, when clicking, it should call onClick", () => {
-      const onClick = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" onClick={onClick} />
-      );
-
-      (component as HTMLInputElement).click();
-      expect(onClick).toHaveBeenCalled();
-    });
-
-    test("Given a readonly input,  when clicking, it should call onClick", () => {
-      const onClick = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" readOnly onClick={onClick} />
-      );
-
-      (component as HTMLInputElement).click();
-      expect(onClick).toHaveBeenCalled();
-    });
-
-    test("Given a disabled input, when clicking, it should not call onClick", () => {
-      const onClick = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" disabled onClick={onClick} />
-      );
-
-      (component as HTMLInputElement).click();
-      expect(onClick).not.toHaveBeenCalled();
-    });
-  });
-
-  /**
-   * MOUSEOVER EVENTS
-   */
-
-  describe("mouseOver events", () => {
-    test("Given an enabled input, when hovering, it should call onMouseOver", () => {
-      const onMouseOver = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" onMouseOver={onMouseOver} />
-      );
-
-      fireEvent.mouseEnter(component as HTMLInputElement);
-      expect(onMouseOver).toHaveBeenCalled();
-    });
-
-    test("Given a readonly input, when hovering, it should call onMouseOver", () => {
-      const onMouseOver = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
+  describe("Slot props", () => {
+    it("should render node passed to `slotLeft`", () => {
+      const { getByTestId } = render(
         <Input
+          placeholder="Placeholder"
           id="input"
           name="Test input"
-          readOnly
-          onMouseOver={onMouseOver}
+          slotLeft={<Icon data-testid="icon" icon={faSearch} />}
         />
       );
-
-      fireEvent.mouseEnter(component as HTMLInputElement);
-      expect(onMouseOver).toHaveBeenCalled();
+      expect(getByTestId("icon")).not.toBeNull();
     });
 
-    test("Given a disabled input, when hovering, it should call onMouseOver", () => {
-      const onMouseOver = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
+    it("should render node passed to `slotRight`", () => {
+      const { getByTestId } = render(
         <Input
+          placeholder="Placeholder"
           id="input"
           name="Test input"
-          disabled
-          onMouseOver={onMouseOver}
+          slotRight={<Icon data-testid="icon" icon={faSearch} />}
         />
       );
-
-      fireEvent.mouseEnter(component as HTMLInputElement);
-      expect(onMouseOver).toHaveBeenCalled();
-    });
-  });
-
-  /**
-   * MOUSELEAVE EVENTS
-   */
-
-  describe("mouseLeave events", () => {
-    test("Given an enabled input, when leaving, it should call onMouseLeave", () => {
-      const onMouseLeave = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" onMouseLeave={onMouseLeave} />
-      );
-
-      fireEvent.mouseLeave(component as HTMLInputElement);
-      expect(onMouseLeave).toHaveBeenCalled();
-    });
-
-    test("Given a readonly input, when leaving, it should call onMouseLeave", () => {
-      const onMouseLeave = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input
-          id="input"
-          name="Test input"
-          readOnly
-          onMouseLeave={onMouseLeave}
-        />
-      );
-
-      fireEvent.mouseLeave(component as HTMLInputElement);
-      expect(onMouseLeave).toHaveBeenCalled();
-    });
-
-    test("Given a disabled input, when leaving, it should call onMouseLeave", () => {
-      const onMouseLeave = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input
-          id="input"
-          name="Test input"
-          disabled
-          onMouseLeave={onMouseLeave}
-        />
-      );
-
-      fireEvent.mouseLeave(component as HTMLInputElement);
-      expect(onMouseLeave).toHaveBeenCalled();
-    });
-  });
-
-  describe("Renders Fontawesome icons", () => {
-    test.skip("When a leading icon is provided, should render an input with this adornment", () => {
-      const { getByRole } = renderTestComponent<InputProps>();
-      // <Input id="input" name="Test input" slotLeft={faSearch} />
-
-      expect(getByRole("img", { hidden: true })).not.toBeNull();
-    });
-
-    test.skip("When an trailing icon is provided, should render an input with this adornment", () => {
-      const { getByRole } = renderTestComponent<InputProps>();
-      // <Input id="input" name="Test input" slotRight={faSearch} />
-
-      expect(getByRole("img", { hidden: true })).not.toBeNull();
+      expect(getByTestId("icon")).not.toBeNull();
     });
   });
 
@@ -303,66 +427,49 @@ describe("<Button />", () => {
    * ONFOCUS EVENTS
    */
 
-  describe("onFocus events", () => {
-    test("Given an enabled input, when focusing, it should call onFocus", () => {
+  describe("`onFocus`", () => {
+    it("should call `onFocus` by default", () => {
       const onFocus = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" onFocus={onFocus} />
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          onFocus={onFocus}
+        />
       );
-
-      (component as HTMLInputElement).focus();
+      getByRole("textbox").focus();
       expect(onFocus).toHaveBeenCalled();
     });
 
-    test("Given a readonly input, when focusing, it should call onFocus", () => {
+    it("should call `onFocus` when `readonly`", () => {
       const onFocus = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" readOnly onFocus={onFocus} />
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          readOnly
+          onFocus={onFocus}
+        />
       );
-
-      (component as HTMLInputElement).focus();
+      getByRole("textbox").focus();
       expect(onFocus).toHaveBeenCalled();
     });
 
-    test("Given a disabled input, when focusing, it should not call onFocus", () => {
+    it("should not call `onFocus` when `disabled`", () => {
       const onFocus = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" disabled onFocus={onFocus} />
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          disabled
+          onFocus={onFocus}
+        />
       );
-
-      (component as HTMLInputElement).focus();
+      getByRole("textbox").focus();
       expect(onFocus).not.toHaveBeenCalled();
-    });
-    /**
-     * CURRENTLY UNSUPPORTED BEHAVIOR FROM PRISMA V3
-     */
-
-    test.skip("Given an enabled input, when focusing, it should select the current value", () => {
-      const value = "My value";
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" value={value} />
-      );
-
-      (component as HTMLInputElement).focus();
-
-      expect((component as HTMLInputElement)?.selectionStart).toBe(0);
-      expect((component as HTMLInputElement)?.selectionEnd).toBe(value.length);
-    });
-
-    test.skip("Given a readonly input, when focusing, it should select the current value", () => {
-      const value = "My value";
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" readOnly value={value} />
-      );
-
-      (component as HTMLInputElement).focus();
-
-      expect((component as HTMLInputElement)?.selectionStart).toBe(0);
-      expect((component as HTMLInputElement)?.selectionEnd).toBe(value.length);
     });
   });
 
@@ -370,90 +477,52 @@ describe("<Button />", () => {
    * ONBLUR EVENTS
    */
 
-  describe("onBlur events", () => {
-    test("Given an enabled input, when blurring, it should call onBlur", () => {
+  describe("`onBlur`", () => {
+    it("it should call onBlur by default", () => {
       const onBlur = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" onBlur={onBlur} />
-      );
-      (component as HTMLInputElement).focus();
-      (component as HTMLInputElement).blur();
-      expect(onBlur).toHaveBeenCalled();
-    });
-
-    test("Given a readonly input, when blurring, it should call onBlur", () => {
-      const onBlur = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" readOnly onBlur={onBlur} />
-      );
-      (component as HTMLInputElement).focus();
-      (component as HTMLInputElement).blur();
-      expect(onBlur).toHaveBeenCalled();
-    });
-
-    test("Given a disabled input, when blurring, it should not call onBlur", () => {
-      const onBlur = jest.fn();
-
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" disabled onBlur={onBlur} />
-      );
-
-      (component as HTMLInputElement).focus();
-      (component as HTMLInputElement).blur();
-      expect(onBlur).not.toHaveBeenCalled();
-    });
-  });
-
-  /**
-   * ACCESSIBILITY AND LABELLING
-   */
-
-  describe("Accessibility and labelling", () => {
-    test("When an id is provided, should assign it to the input html element", () => {
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input-test-id" name="Test input" />
-      );
-      expect((component as HTMLInputElement)?.id).toBe("input-test-id");
-    });
-
-    test("When a name is provided, should assign it to the input html element", () => {
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" />
-      );
-      expect((component as HTMLInputElement)?.name).toBe("Test input");
-    });
-
-    test("When a tabIndex is provided, should assign it to the input html element", () => {
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" tabIndex={0} />
-      );
-      expect((component as HTMLInputElement)?.tabIndex).toBe(0);
-    });
-  });
-
-  describe("Aria testing", () => {
-    test('Given an input When required should assign the "aria-required" property', () => {
-      const { component } = renderTestComponent<InputProps>(
-        <Input id="input" name="Test input" required />
-      );
-      expect(
-        (component as HTMLInputElement)?.getAttribute("aria-required")
-      ).toBe("true");
-    });
-
-    test.skip('Given an input When describedBy is provided, should assign the "aria-describedby" property', () => {
-      const { component } = renderTestComponent<InputProps>(
+      const { getByRole } = render(
         <Input
+          placeholder="Placeholder"
           id="input"
           name="Test input"
-          // describedBy="describe-by-id"
+          onBlur={onBlur}
         />
       );
-      expect(
-        (component as HTMLInputElement)?.getAttribute("aria-describedby")
-      ).toBe("describe-by-id");
+      (getByRole("textbox") as HTMLInputElement).focus();
+      getByRole("textbox").blur();
+      expect(onBlur).toHaveBeenCalled();
+    });
+
+    it("it should call onBlur when readonly", () => {
+      const onBlur = jest.fn();
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          readOnly
+          onBlur={onBlur}
+        />
+      );
+      getByRole("textbox").focus();
+      getByRole("textbox").blur();
+      expect(onBlur).toHaveBeenCalled();
+    });
+
+    it("should not call onBlur when disabled", () => {
+      const onBlur = jest.fn();
+      const { getByRole } = render(
+        <Input
+          placeholder="Placeholder"
+          id="input"
+          name="Test input"
+          disabled
+          onBlur={onBlur}
+        />
+      );
+      getByRole("textbox").focus();
+      getByRole("textbox").blur();
+      expect(onBlur).not.toHaveBeenCalled();
     });
   });
 });

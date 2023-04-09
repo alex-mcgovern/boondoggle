@@ -1,3 +1,4 @@
+/** @jest-environment jsdom */
 import { cleanup } from "@testing-library/react";
 
 import { handleMultipleSelection } from "../utils/handleMultipleSelection";
