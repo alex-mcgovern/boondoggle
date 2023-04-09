@@ -3,6 +3,7 @@ import React from "react";
 
 import { Button as StoryComponent } from ".";
 import { Link } from "../../../test/link.component.mock";
+import { Box } from "../box";
 import { Icon } from "../icon";
 import { Loader } from "../loader";
 
@@ -19,6 +20,22 @@ const Template: StoryFn<StoryComponentProps> = ({
     <StoryComponent name={name} {...rest}>
       {children}
     </StoryComponent>
+  );
+};
+
+const TemplateAllAppearances: StoryFn<StoryComponentProps> = (rest) => {
+  return (
+    <Box display="flex" gap="spacing3">
+      <StoryComponent appearance="primary" name="primary" {...rest}>
+        Primary
+      </StoryComponent>
+      <StoryComponent appearance="secondary" name="secondary" {...rest}>
+        Secondary
+      </StoryComponent>
+      <StoryComponent appearance="tertiary" name="tertiary" {...rest}>
+        Tertiary
+      </StoryComponent>
+    </Box>
   );
 };
 
@@ -52,20 +69,9 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
  * Appearance
  * ------------------------------------------------------------------------------- */
 
-export const AppearancePrimary = {
-  render: Template,
-  name: "appearance/primary",
-  args: { appearance: "primary", children: "Primary" },
-};
-export const AppearanceSecondary = {
-  render: Template,
-  name: "appearance/secondary",
-  args: { appearance: "secondary", children: "Secondary" },
-};
-export const AppearanceTertiary = {
-  render: Template,
-  name: "appearance/tertiary",
-  args: { appearance: "tertiary", children: "Tertiary" },
+export const Appearance = {
+  render: TemplateAllAppearances,
+  name: "appearance",
 };
 
 /** -----------------------------------------------------------------------------
@@ -73,17 +79,17 @@ export const AppearanceTertiary = {
  * ------------------------------------------------------------------------------- */
 
 export const ColorAccent = {
-  render: Template,
+  render: TemplateAllAppearances,
   name: "color/default",
   args: { color: "default", children: "Default" },
 };
 export const ColorGreen = {
-  render: Template,
+  render: TemplateAllAppearances,
   name: "color/green",
   args: { color: "green", children: "Green" },
 };
 export const ColorRed = {
-  render: Template,
+  render: TemplateAllAppearances,
   name: "color/red",
   args: { color: "red", children: "Red" },
 };

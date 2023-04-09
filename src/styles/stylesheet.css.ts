@@ -79,7 +79,7 @@ globalStyle("input[type=checkbox]", {
  * ------------------------------------------------------------------------------- */
 
 globalStyle(`code`, {
-  color: vars.color.text.text_default_high_contrast,
+  color: "inherit",
   fontWeight: vars.fontWeight.normal,
 });
 
