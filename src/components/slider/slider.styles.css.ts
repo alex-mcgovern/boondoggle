@@ -6,7 +6,7 @@ import {
 } from "../../styles/common/common.selectors.css";
 import { a11yFocusStyleRule } from "../../styles/common/globalFocusStyles.css";
 import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const sliderRoot = style([

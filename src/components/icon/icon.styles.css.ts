@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition.css";
 
 export const icon = style([
   createAccessibleTransition({

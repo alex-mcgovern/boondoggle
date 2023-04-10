@@ -75,7 +75,7 @@ export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
  * Styles
  * ------------------------------------------------------------------------------- */
 
-export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
+export { createAccessibleTransition } from "./styles/utils/create_accessible_transition.css";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
 export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";
 export { globalDisabledStyles } from "./styles/common/globalDisabledStyles.css";
