@@ -7,8 +7,8 @@ export default defineConfig({
   entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
   outDir: "dist",
   config: "./tsconfig.build.json",
-  splitting: true,
-  bundle: true,
+  splitting: false, // <- change back after development
+  bundle: false, // <- change back after development
   minify: true,
   sourcemap: true,
   format: ["cjs", "esm"],
