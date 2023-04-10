@@ -3,7 +3,7 @@ import { globalStyle } from "@vanilla-extract/css";
 import { a11yFocusStyleRule } from "./common/globalFocusStyles.css";
 import "./reset.css";
 import { vars } from "./theme.css";
-import { createAccessibleTransition } from "./utils/create_accessible_transition.css";
+import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
 /* -----------------------------------------------------------------------------—
  * Global selectors

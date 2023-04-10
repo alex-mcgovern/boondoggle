@@ -29,12 +29,10 @@ export const DropdownItem = forwardRef(
     }: DropdownItemProps,
     ref
   ) => {
-    const { label } = item || {};
-
     return (
       <Box
         as="button"
-        id={label}
+        id={item.label}
         className={clsx(
           styles.getDropdownItemStyles({
             size,
@@ -47,7 +45,7 @@ export const DropdownItem = forwardRef(
         {...rest}
         ref={ref as Ref<HTMLButtonElement>}
       >
-        <Box flexShrink="0">{label}</Box>
+        <Box flexShrink="0">{item.label}</Box>
         {isMulti && (
           <Box
             as="input"

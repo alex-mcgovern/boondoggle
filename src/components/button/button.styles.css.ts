@@ -6,7 +6,7 @@ import { globalDisabledStyles } from "../../styles/common/globalDisabledStyles.c
 import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
 import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
