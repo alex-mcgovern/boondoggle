@@ -6,16 +6,14 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: ["src/index.ts"],
   outDir: "dist",
-  // config: "./tsconfig.build.json",
-  splitting: false,
+  splitting: true,
   bundle: true,
-  minify: false,
+  minify: true,
   sourcemap: false,
-  format: ["cjs"],
+  format: ["cjs", "esm"],
   dts: true,
   target: "es2020",
   tsconfig: "./tsconfig.build.json",
-
   esbuildPlugins: [
     vanillaExtractPlugin({
       outputCss: true,
