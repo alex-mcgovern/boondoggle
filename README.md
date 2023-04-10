@@ -16,3 +16,7 @@ thanks to [Vanilla Extract](https://vanilla-extract.style/))
 (Thanks to the amazing teams maintaining these op-source projects. ❤️)
 
 ## Installation
+
+```bash
+npm i @alex-mcgovern/boondoggle.design
+```
