@@ -11,7 +11,7 @@ export default defineConfig({
   bundle: true,
   minify: false,
   sourcemap: false,
-  format: ["esm"],
+  format: ["cjs"],
   dts: true,
   target: "es2020",
   tsconfig: "./tsconfig.build.json",
