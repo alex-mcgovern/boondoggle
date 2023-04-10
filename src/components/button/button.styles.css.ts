@@ -85,7 +85,6 @@ export const variantAppearance = styleVariants({
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: varsButtonTheme.textColor_alt,
           background: varsButtonTheme.backgroundColor_hover,
-          boxShadow: vars.boxShadow.lg,
         },
       },
     },
