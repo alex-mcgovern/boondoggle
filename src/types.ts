@@ -9,7 +9,7 @@ import type {
  * Polymorphic component types
  * ------------------------------------------------------------------------------- */
 
-export type PolyMorphicAsProp<TPolymorphicAs> = {
+export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**
    * Pass an HTML tag or custom component to this prop to merge the
    * original component props with the supplied element/component props
@@ -24,7 +24,7 @@ export type PropsToOmit<
 > = keyof (PolyMorphicAsProp<TPolymorphicAs> & P);
 
 export type PolymorphicComponentProp<
-  TPolymorphicAs,
+  TPolymorphicAs extends ElementType,
   Props = Record<string, unknown>
 > = PropsWithChildren<Props & PolyMorphicAsProp<TPolymorphicAs>> &
   Omit<
@@ -33,7 +33,7 @@ export type PolymorphicComponentProp<
   >;
 
 export type PolymorphicComponentPropWithRef<
-  TPolymorphicAs,
+  TPolymorphicAs extends ElementType,
   Props = Record<string, unknown>
 > = PolymorphicComponentProp<TPolymorphicAs, Props> & {
   ref?: PolymorphicRef<TPolymorphicAs>;

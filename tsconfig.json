@@ -2,7 +2,7 @@
   "include": ["./**/*"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "composite": true,
+    // "composite": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,

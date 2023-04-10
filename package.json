@@ -23,9 +23,9 @@
   "scripts": {
     "build-storybook": "storybook build",
     "build:dev": "rm -rf lib && tsup --watch",
-    "build:prod": "npm run prebuild && rm -rf dist && env NODE_ENV=production tsup",
+    "build:prod": "npm run check && rm -rf dist && env NODE_ENV=production tsup",
     "build:watch": "tsup --watch",
-    "check": "npm run tsc && npm run lint && npm run test",
+    "check": "npm run tsc && npm run ci-lint && npm run test",
     "format": "prettier  --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
     "lint:fix": "eslint . --quiet --fix",
     "ci-lint": "eslint . --quiet",

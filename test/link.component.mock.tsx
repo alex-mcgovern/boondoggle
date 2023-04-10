@@ -1,12 +1,9 @@
 import React from "react";
 
 interface LinkProps {
-  placeholderProp: undefined;
-}
-
-interface LinkProps {
   href: string;
   children: React.ReactNode;
+  id?: string;
 }
 
 export function Link({ href, children, ...rest }: LinkProps) {
@@ -16,5 +13,3 @@ export function Link({ href, children, ...rest }: LinkProps) {
     </a>
   );
 }
-
-Link.displayName = "Link";

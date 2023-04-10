@@ -11,12 +11,12 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
 
-const MOCK_SELECT_ITEMS = [
-  { label: "United Kingdom", value: "uk" },
-  { label: "France", value: "fr" },
-];
-const FIRST_ITEM = MOCK_SELECT_ITEMS[0];
-const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
+// const MOCK_SELECT_ITEMS = [
+//   { label: "United Kingdom", value: "uk" },
+//   { label: "France", value: "fr" },
+// ];
+// const FIRST_ITEM = MOCK_SELECT_ITEMS[0];
+// const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
 
 export default {
   title: "React components/Select",
