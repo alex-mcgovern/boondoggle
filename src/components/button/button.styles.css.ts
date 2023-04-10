@@ -149,9 +149,8 @@ export const getButtonStyles = recipe({
       textDecoration: "none",
     }),
     createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.medium} ease,\
-                   background ${vars.transitionDuration.medium} ease,\
-                   box-shadow ${vars.transitionDuration.medium} ease`,
+      transition: `color ${vars.transitionDuration.short} ease-out,\
+                   background ${vars.transitionDuration.short} ease-out`,
     }),
   ],
   variants: {

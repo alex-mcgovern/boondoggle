@@ -6,7 +6,7 @@ import {
   responsiveSprinklesProperties,
   sprinklesProperties,
 } from "../src/styles/utils/get_sprinkles.css";
-import { StoryWithDecorators } from "../test/story_with_decorators";
+// import { StoryWithDecorators } from "../test/story_with_decorators";
 import { getSprinklesControls } from "./utils/get_storybook_controls_sprinkles";
 
 /** -----------------------------------------------------------------------------
@@ -27,6 +27,7 @@ export const parameters: Parameters = {
   controls: {
     sort: "requiredFirst",
     expanded: false,
+    argTypes,
 
     matchers: {
       color: /(background|color)$/i,

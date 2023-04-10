@@ -9,11 +9,11 @@ import type {
  * Polymorphic component types
  * ------------------------------------------------------------------------------- */
 
-export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
+export type PolyMorphicAsProp<TPolymorphicAs> = {
   /**
-   * Change the component to the HTML tag or custom component passed to this prop.
-   * This will merge the original component props with the props of the supplied
-   * element/component and change the underlying DOM node.
+   * Pass an HTML tag or custom component to this prop to merge the
+   * original component props with the supplied element/component props
+   * and change the DOM node.
    */
   as?: TPolymorphicAs;
 };
@@ -24,7 +24,7 @@ export type PropsToOmit<
 > = keyof (PolyMorphicAsProp<TPolymorphicAs> & P);
 
 export type PolymorphicComponentProp<
-  TPolymorphicAs extends ElementType,
+  TPolymorphicAs,
   Props = Record<string, unknown>
 > = PropsWithChildren<Props & PolyMorphicAsProp<TPolymorphicAs>> &
   Omit<
@@ -33,7 +33,7 @@ export type PolymorphicComponentProp<
   >;
 
 export type PolymorphicComponentPropWithRef<
-  TPolymorphicAs extends ElementType,
+  TPolymorphicAs,
   Props = Record<string, unknown>
 > = PolymorphicComponentProp<TPolymorphicAs, Props> & {
   ref?: PolymorphicRef<TPolymorphicAs>;

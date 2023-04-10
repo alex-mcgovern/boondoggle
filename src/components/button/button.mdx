@@ -16,31 +16,14 @@ style variants, quick customisation via `getSprinkles` and an `as` prop that
 enables polymorphism, (e.g. if you would like to return an `<a>` element, or a
 custom `Link` component instead of the normal `<button>` element.).
 
-## Style variants
+## Usage
 
-### Appearance
+### `appearance` prop
 
 <ArgsTable of={Button} include={["appearance"]} />
 <Canvas of={stories.Appearance} />
 
-### Color
-
-<ArgsTable of={Button} include={["color"]} />
-<Story of={stories.ColorAccent} />
-<Story of={stories.ColorGreen} />
-<Story of={stories.ColorRed} />
-
-### Size
-
-<ArgsTable of={Button} include={["size"]} />
-
-<Box display="grid" gridTemplateColumns="3x" gap="spacing3">
-  <Canvas sourceState="shown" of={stories.SizeSm} />
-  <Canvas sourceState="shown" of={stories.SizeMd} />
-  <Canvas sourceState="shown" of={stories.SizeLg} />
-</Box>
-
-## `as` prop (polymorphism)
+### `as` (polymorphism)
 
 <ArgsTable of={Button} include={["as"]} />
 
@@ -64,7 +47,24 @@ custom Link component, similar to the one provided by frameworks like
   <Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
 </Box>
 
-## "slot" props
+### `color`
+
+<ArgsTable of={Button} include={["color"]} />
+<Story of={stories.ColorAccent} />
+<Story of={stories.ColorGreen} />
+<Story of={stories.ColorRed} />
+
+### `size `
+
+<ArgsTable of={Button} include={["size"]} />
+
+<Box display="grid" gridTemplateColumns="3x" gap="spacing3">
+  <Canvas sourceState="shown" of={stories.SizeSm} />
+  <Canvas sourceState="shown" of={stories.SizeMd} />
+  <Canvas sourceState="shown" of={stories.SizeLg} />
+</Box>
+
+### "slot" props
 
 <ArgsTable of={Button} include={["slotLeft", "slotRight"]} />
 
@@ -78,14 +78,14 @@ inside the button, on the corresponding side.
   <Canvas sourceState="shown" of={stories.SlotRightLoader} />
 </Box>
 
-## Customisation
+### Customisation
 
 - Button allows customization through top-level props.
 - The props map to the `getSprinkles` utility for composing additional styles.
 
 <Canvas sourceState="shown" of={stories.CustomisationMargin} />
 
-### State
+#### State
 
 The `Button` component has state-specific styles that respective the following
 selectors
@@ -99,3 +99,7 @@ selectors
   <Story of={stories.StateFocusVisible} />
   <Story of={stories.StateDisabled} />
 </Canvas>
+
+# Reference
+
+<ArgsTable of={Button} />
