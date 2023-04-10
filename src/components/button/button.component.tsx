@@ -34,14 +34,22 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
-      /** Appearance for the button */
+      /**
+       * Come in three sizes: `primary` for important actions, `secondary`
+       * for less important actions, and `tertiary` for additional actions with the least emphasis.
+       */
       appearance?: VariantAppearanceEnum;
-      /** Color for the button */
+      /**
+       * You can change the button color to communicate intent. Default uses normal theme colors, green for positive actions, and red for negative actions.       */
       color?: VariantColorEnum;
+      /**
+       * Buttons come in three sizes: `sm` for small secondary content,
+       * `md` as the default size meeting tap target requirements, and
+       * `lg` for edge cases like marketing CTAs.
+       */
+      size?: VariantUiScaleEnum;
       /** Title for button, shown in the UI */
       name: string;
-      /** Size of the button element */
-      size?: VariantUiScaleEnum;
       /** React node shown on the left side of button. */
       slotLeft?: ReactNode;
       /** React node shown on the right side of button. */
@@ -61,7 +69,7 @@ export const Button: ButtonComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
       appearance = "primary",
-      as,
+      as = "button",
       children,
       className: userClassName,
       color = "default",

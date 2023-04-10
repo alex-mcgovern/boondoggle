@@ -8,9 +8,10 @@ import type { StoryFn } from "@storybook/react";
 interface StoryWrapperProps {
   Story: StoryFn;
   className?: string;
+  title: string;
 }
 
-function StoryWrapper({ Story, className }: StoryWrapperProps) {
+function StoryWrapper({ Story, className, title }: StoryWrapperProps) {
   return (
     <Box
       position="relative"
@@ -18,6 +19,18 @@ function StoryWrapper({ Story, className }: StoryWrapperProps) {
       padding="spacing3"
       background="bg_default"
     >
+      {title && (
+        <Box
+          position="absolute"
+          top="0"
+          right="0"
+          __fontSize="12px"
+          padding="spacing0"
+          __background="#2d2d2d50"
+        >
+          {title}
+        </Box>
+      )}
       <Story />
     </Box>
   );
@@ -25,12 +38,14 @@ function StoryWrapper({ Story, className }: StoryWrapperProps) {
 const GRID_TEMPLATE_COLUMNS = { desktop: "2x", mobile: "1x" } as const;
 
 export function StoryWithDecorators(Story: StoryFn) {
-  // return Story;
-
   return (
-    <Box display="grid" gridTemplateColumns={GRID_TEMPLATE_COLUMNS}>
-      <StoryWrapper Story={Story} />
-      <StoryWrapper Story={Story} className={darkTheme} />
+    <Box
+      width="100%"
+      display="grid"
+      gridTemplateColumns={GRID_TEMPLATE_COLUMNS}
+    >
+      <StoryWrapper Story={Story} title="Light mode" />
+      <StoryWrapper Story={Story} className={darkTheme} title="Dark mode" />
     </Box>
   );
 }

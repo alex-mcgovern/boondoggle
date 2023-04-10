@@ -48,8 +48,7 @@
               "**/*.test.ts",
               "**/*.test.tsx",
               "./test/**/*",
-              "tsup.config.ts",
-              "vite.config.ts"
+              "tsup.config.ts"
             ]
           }
         ],
@@ -157,20 +156,6 @@
 
     {
       "files": ["*.stories.tsx"],
-
-      "rules": {
-        "react/function-component-definition": "off",
-        "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
-      }
-    },
-
-    /**
-     * Vite
-     */
-
-    {
-      "files": ["vite.config.ts"],
 
       "rules": {
         "react/function-component-definition": "off",

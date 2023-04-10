@@ -50,7 +50,7 @@ export const sprinklesProperties = defineProperties({
       "space-around",
       "space-between",
     ],
-
+    flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
     fontWeight: vars.fontWeight,
     isolation: ["isolate"],
 

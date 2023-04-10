@@ -10,6 +10,11 @@ import type {
  * ------------------------------------------------------------------------------- */
 
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
+  /**
+   * Change the component to the HTML tag or custom component passed to this prop.
+   * This will merge the original component props with the props of the supplied
+   * element/component and change the underlying DOM node.
+   */
   as?: TPolymorphicAs;
 };
 

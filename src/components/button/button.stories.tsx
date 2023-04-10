@@ -3,6 +3,7 @@ import React from "react";
 
 import { Button as StoryComponent } from ".";
 import { Link } from "../../../test/link.component.mock";
+import { StoryWithDecorators } from "../../../test/story_with_decorators";
 import { Box } from "../box";
 import { Icon } from "../icon";
 import { Loader } from "../loader";
@@ -37,6 +38,15 @@ const TemplateAllAppearances: StoryFn<StoryComponentProps> = (rest) => {
       </StoryComponent>
     </Box>
   );
+};
+
+/** -----------------------------------------------------------------------------
+ * Default
+ * ------------------------------------------------------------------------------- */
+
+export const Default = {
+  render: Template,
+  name: "default",
 };
 
 /** -----------------------------------------------------------------------------
@@ -82,16 +92,28 @@ export const ColorAccent = {
   render: TemplateAllAppearances,
   name: "color/default",
   args: { color: "default", children: "Default" },
+  parameters: {
+    layout: "fullscreen",
+  },
+  decorators: [StoryWithDecorators],
 };
 export const ColorGreen = {
   render: TemplateAllAppearances,
   name: "color/green",
   args: { color: "green", children: "Green" },
+  parameters: {
+    layout: "fullscreen",
+  },
+  decorators: [StoryWithDecorators],
 };
 export const ColorRed = {
   render: TemplateAllAppearances,
   name: "color/red",
   args: { color: "red", children: "Red" },
+  parameters: {
+    layout: "fullscreen",
+  },
+  decorators: [StoryWithDecorators],
 };
 
 /** -----------------------------------------------------------------------------
@@ -132,11 +154,6 @@ export const SlotLeftIcon = {
   render: Template,
   name: "slotLeft/icon",
   args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
-};
-export const SlotRightIcon = {
-  render: Template,
-  name: "slotRight/icon",
-  args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
 };
 export const SlotRightLoader = {
   render: Template,

@@ -73,10 +73,10 @@
     "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-interactions": "^7.0.2",
     "@storybook/addon-links": "^7.0.2",
+    "@storybook/addon-mdx-gfm": "^7.0.2",
     "@storybook/blocks": "^7.0.2",
     "@storybook/jest": "^0.1.0",
     "@storybook/react": "^7.0.2",
-    "@storybook/react-vite": "^7.0.2",
     "@storybook/react-webpack5": "^7.0.2",
     "@storybook/testing-library": "^0.1.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -94,8 +94,7 @@
     "@vanilla-extract/jest-transform": "^1.1.1",
     "@vanilla-extract/recipes": "^0.4.0",
     "@vanilla-extract/sprinkles": "^1.5.2",
-    "@vanilla-extract/vite-plugin": "^3.8.0",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vanilla-extract/webpack-plugin": "^2.2.0",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.17.3",
@@ -131,8 +130,6 @@
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "vite": "^4.2.1",
-    "vite-dts": "^1.0.4",
     "webpack-merge": "^5.8.0"
   }
 }

@@ -9,32 +9,31 @@ import * as stories from "./box.stories.tsx";
 
 # Box
 
-## Overview
+## Polymorphic component with a wide range of styling options.
 
-`Box` is the lowest level component in the component library. It's purpose is to
-provide a consistent and fast way to write and style markup. Most other
-components in the library are built on top of `Box`.
+This component uses
+[Dessert Box](https://github.com/TheMightyPenguin/dessert-box) to create a
+component that accepts all of the arguments for `getSprinkles`, a global util
+for composing a set of pre-defined utility CSS classes (see
+[Vanilla Extract's Sprinkles API](https://vanilla-extract.style/documentation/packages/sprinkles/)).
 
-It follows the commonly used **"Box component"** design pattern. Other examples
-of this approach can be found in
-[Material UI](https://mui.com/material-ui/react-box/),
-[Chakra UI](https://chakra-ui.com/docs/components/box) and
-[Braid Design System](https://seek-oss.github.io/braid-design-system/components/Box/).
+It can also return any valid HTML element via the `as` prop, or merge props onto
+another React component (though this is not recommmended for complex
+components).
 
-## Related links
-
-- [Components/Button](/docs/components-button--documentation)
+`Box` is basically a low level building block for building other components,
+rapidly protyping and building page layouts.
 
 ## Usage
 
-### `as` prop (polymorphism)
+### Using the `as` to return an element other than a div
 
 `Box` is a polymorphic component that accepts an `as` prop to change the
 underlying HTML element. By default it will return a `<div>` element.
 
 You can compose generic html elements:
 
-<Canvas sourceState="shown" of={stories.ExamplePolymorphismGenericElements} />
+<Canvas sourceState="shown" of={stories.ExamplePolymorphismListItems} />
 
 Or you can pass a React component. E.g. in this case, we are passing a custom
 Link component, similar to the one provided by frameworks like Reach Router,
@@ -42,17 +41,11 @@ NextJS or Gatsby.
 
 <Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
 
-### Styling `Box` with "sprinkles"
+### Styling with "sprinkles"
 
-`Box` accepts all arguments for `getSprinkles`, which is a utility function
-provided by
-[Vanilla Extract](https://vanilla-extract.style/documentation/packages/sprinkles/)
-that allows quick composition of a minimal set of utility CSS classes. This
-allows you to quickly style elements inline by passing CSS rules as props —
-think of it a bit like Tailwind CSS, but with a bit more structure in the markup
-and intellisense and type-safety.
-
-E.g. here we pass keywords for background, border, border-radius and padding:
+All of the arguments for `getSprinkles` are available as props on `Box`. E.g.
+here we can add some background, border, border-radius and padding to mmake this
+look a bit more card-like.
 
 <Canvas sourceState="shown" of={stories.ExampleBasicSprinkles} />
 

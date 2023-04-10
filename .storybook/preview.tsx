@@ -24,7 +24,6 @@ export const argTypes: ArgTypes = {
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-  layout: "fullscreen",
   controls: {
     sort: "requiredFirst",
     expanded: false,
@@ -40,4 +39,4 @@ export const parameters: Parameters = {
  * Decorators to add additional context to stories
  * ------------------------------------------------------------------------------- */
 
-export const decorators: Array<Decorator> = [StoryWithDecorators];
+// export const decorators: Array<Decorator> = [StoryWithDecorators];

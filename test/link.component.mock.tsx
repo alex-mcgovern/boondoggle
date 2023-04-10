@@ -16,3 +16,5 @@ export function Link({ href, children, ...rest }: LinkProps) {
     </a>
   );
 }
+
+Link.displayName = "Link";

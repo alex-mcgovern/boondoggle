@@ -7,6 +7,7 @@ import React from "react";
 import { Box, Box as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
+import { StoryWithDecorators } from "../../../test/story_with_decorators";
 import { Icon } from "../icon";
 
 import type { BoxProps as StoryComponentProps } from ".";
@@ -29,19 +30,19 @@ const Template: StoryFn<StoryComponentProps> = ({
  * Polymorphism examples
  * ------------------------------------------------------------------------------- */
 
-export const ExamplePolymorphismGenericElements: StoryObj<StoryComponentProps> =
-  {
-    name: "polymorphism/generic_elements",
-    render: Template,
-    args: {
-      as: "ul",
-      children: [
-        <StoryComponent as="li">List item 1</StoryComponent>,
-        <StoryComponent as="li">List item 2</StoryComponent>,
-        <StoryComponent as="li">List item 3</StoryComponent>,
-      ],
-    },
-  };
+export const ExamplePolymorphismListItems: StoryObj<StoryComponentProps> = {
+  name: "as/ul_li",
+  render: Template,
+  decorators: [StoryWithDecorators],
+  args: {
+    as: "ul",
+    children: [
+      <StoryComponent as="li">List item 1</StoryComponent>,
+      <StoryComponent as="li">List item 2</StoryComponent>,
+      <StoryComponent as="li">List item 3</StoryComponent>,
+    ],
+  },
+};
 
 export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
   {
