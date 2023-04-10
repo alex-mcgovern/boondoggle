@@ -5,7 +5,7 @@ import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import { Popover } from "react-tiny-popover";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";

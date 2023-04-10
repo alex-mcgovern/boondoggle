@@ -1,7 +1,7 @@
 import React from "react";
 
 import { LOREM } from "../mocks/LOREM.mock";
-import { Box } from "../src/components/box";
+import { Box } from "../src/components/box_component";
 
 import type { ComponentMeta } from "@storybook/react";
 

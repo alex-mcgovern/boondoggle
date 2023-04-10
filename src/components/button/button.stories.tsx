@@ -4,7 +4,7 @@ import React from "react";
 import { Button as StoryComponent } from ".";
 import { Link } from "../../../test/link.component.mock";
 import { StoryWithDecorators } from "../../../test/story_with_decorators";
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { Icon } from "../icon";
 import { Loader } from "../loader";
 

@@ -6,7 +6,7 @@ import {
 } from "@radix-ui/react-slider";
 import React, { forwardRef } from "react";
 
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";

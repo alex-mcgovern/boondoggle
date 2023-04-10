@@ -3,7 +3,7 @@ import React from "react";
 import { Card as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
-import { Box } from "../box";
+import { Box } from "../box_component";
 
 import type { CardProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";

@@ -1,7 +1,7 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { Button } from "../button/button.component";
 import { Icon } from "../icon";
 import { getHookFormIconProps } from "./util.get_hook_form_icon_props";

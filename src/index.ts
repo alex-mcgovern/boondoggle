@@ -2,8 +2,8 @@
  * React components
  * ------------------------------------------------------------------------------- */
 
-export { Box } from "./components/box";
-export type { BoxProps } from "./components/box";
+export { Box } from "./components/box_component";
+export type { BoxProps } from "./components/box_component";
 
 export { Button } from "./components/button";
 export type { ButtonProps } from "./components/button";

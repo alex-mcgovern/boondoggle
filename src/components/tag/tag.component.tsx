@@ -4,11 +4,11 @@ import React from "react";
 
 import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { Icon } from "../icon";
 import * as styles from "./tag.styles.css";
 
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box_component";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { ReactNode } from "react";
 

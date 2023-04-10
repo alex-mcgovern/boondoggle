@@ -2,7 +2,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import React from "react";
 
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import * as styles from "./dialog.styles.css";

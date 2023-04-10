@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box } from "../src/components/box";
+import { Box } from "../src/components/box_component";
 import { darkTheme } from "../src/styles/theme.css";
 
 import type { StoryFn } from "@storybook/react";

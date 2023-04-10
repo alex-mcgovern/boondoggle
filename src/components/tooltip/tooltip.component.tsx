@@ -2,7 +2,7 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import * as RadixPopover from "@radix-ui/react-popover";
 import React from "react";
 
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { Card } from "../card/card.component";
 import { Icon } from "../icon";
 import * as styles from "./tooltip.styles.css";

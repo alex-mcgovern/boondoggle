@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 
 import { globalErrorStyles } from "../../styles/common/globalErrorStyles.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
+import { Box } from "../box_component";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
