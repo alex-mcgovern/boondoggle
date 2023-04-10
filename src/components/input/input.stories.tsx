@@ -8,7 +8,7 @@ import { Loader } from "../loader";
 import type { InputProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
-export default { title: "Components/Input", component: StoryComponent };
+export default { title: "React components/Input", component: StoryComponent };
 const Template: StoryFn<StoryComponentProps> = ({
   placeholder = "Type something",
   name,

@@ -11,7 +11,7 @@ import { Loader } from "../loader";
 import type { ButtonProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
-export default { title: "Components/Button", component: StoryComponent };
+export default { title: "React components/Button", component: StoryComponent };
 const Template: StoryFn<StoryComponentProps> = ({
   children = "Click me",
   name,

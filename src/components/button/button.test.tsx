@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 import React from "react";
 
 import { LOREM } from "../../../mocks/LOREM.mock";
+import { Link } from "../../../test/link.component.mock";
 import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import { Icon } from "../icon";
 import { Button } from "./button.component";
@@ -98,19 +99,6 @@ describe("<Button />", () => {
       );
 
       expect(getByRole("link")).not.toBeNull();
-    });
-
-    interface LinkProps {
-      href: string;
-      children?: React.ReactNode;
-      id?: string;
-    }
-    const Link = jest.fn(({ href, children, ...rest }: LinkProps) => {
-      return (
-        <a href={href} {...rest}>
-          {children}
-        </a>
-      );
     });
 
     it("should render a link element when as = `Link`", () => {
@@ -255,10 +243,10 @@ describe("<Button />", () => {
   });
 
   /** -----------------------------------------------------------------------------
-   * Events
+   * Event handlers
    * ----------------------------------------------------------------------------- */
 
-  describe("Events", () => {
+  describe("Event handlers", () => {
     describe("`onClick`", () => {
       /** ---------------------------------------------
        * onClick

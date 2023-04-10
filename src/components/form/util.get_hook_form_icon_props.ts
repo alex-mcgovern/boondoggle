@@ -34,51 +34,26 @@ export function getHookFormIconProps({
   buttonIcon: IconProps["icon"] | undefined;
   buttonIconProps: Omit<IconProps, "icon"> | undefined;
 } {
-  if (isSubmitted) {
-    /** -----------------------------------------------------------------------------
-     * ✅ Handle success case
-     * ------------------------------------------------------------------------------- */
-    if (isSubmitSuccessful) {
-      return {
-        buttonIcon: faCheckCircle,
-        buttonIconProps: undefined,
-      };
-    }
-
-    /** -----------------------------------------------------------------------------
-     * ⛔️⏳ Handle non-success cases
-     * ------------------------------------------------------------------------------- */
-
-    if (!isSubmitSuccessful) {
-      /** ---------------------------------------------
-       * ⛔️ Validation errors
-       * ----------------------------------------------- */
-
-      if (errors) {
-        return {
-          buttonIcon: faExclamationTriangle,
-          buttonIconProps: undefined,
-        };
-      }
-
-      /** ---------------------------------------------
-       * ⏳ Waiting on form submission
-       * ----------------------------------------------- */
-
-      if (!errors && isSubmitting) {
-        return {
-          buttonIcon: faSpinner,
-          buttonIconProps: {
-            spin: true,
-          },
-        };
-      }
-    }
+  if (isSubmitted && isSubmitSuccessful) {
+    return {
+      buttonIcon: faCheckCircle,
+      buttonIconProps: undefined,
+    };
   }
-
-  /** -----------------------------------------------------------------------------
-   * Default icon props
-   * ------------------------------------------------------------------------------- */
+  if (isSubmitted && !isSubmitSuccessful && errors) {
+    return {
+      buttonIcon: faExclamationTriangle,
+      buttonIconProps: undefined,
+    };
+  }
+  if (isSubmitted && !isSubmitSuccessful && !errors && isSubmitting) {
+    return {
+      buttonIcon: faSpinner,
+      buttonIconProps: {
+        spin: true,
+      },
+    };
+  }
 
   return {
     buttonIcon: faPaperPlane,

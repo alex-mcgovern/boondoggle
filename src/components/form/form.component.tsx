@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { Box } from "../box";
@@ -8,14 +8,16 @@ import { getHookFormIconProps } from "./util.get_hook_form_icon_props";
 
 import type { FormInputProps } from "./form_input.component";
 import type { FormSingleSelectProps } from "./form_single_select.component";
-import type { FormEvent, ReactElement } from "react";
 
 export interface FormProps {
   callbackOnSuccessfulFormSubmission: () => void;
   children:
-    | ReactElement<FormInputProps>
-    | ReactElement<FormSingleSelectProps>
-    | Array<ReactElement<FormInputProps> | ReactElement<FormSingleSelectProps>>;
+    | React.ReactElement<FormInputProps>
+    | React.ReactElement<FormSingleSelectProps>
+    | Array<
+        | React.ReactElement<FormInputProps>
+        | React.ReactElement<FormSingleSelectProps>
+      >;
   /** ToDo(react-hook-form): Fix submission handler types */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   handleFormSubmission: (...args: Array<any>) => Promise<unknown>;
@@ -53,7 +55,7 @@ export function Form({
    * Update icon based on form state. (Add a bit of ✨fun✨)
    * ----------------------------------------------- */
 
-  const { buttonIcon, buttonIconProps } = useMemo(() => {
+  const { buttonIcon, buttonIconProps } = React.useMemo(() => {
     return getHookFormIconProps({
       isValid,
       isValidating,
@@ -80,7 +82,7 @@ export function Form({
   /**
    * Submission handler passed from parent scope
    */
-  const onSubmit = async (event: FormEvent) => {
+  const onSubmit = async (event: React.FormEvent) => {
     return handleSubmit(handleFormSubmission)(event);
   };
 
@@ -91,7 +93,7 @@ export function Form({
    * Note: because of the way react-hook-form batches updates to `formState`, it is  better to attach
    * `isSubmitSuccessful` as a dependency to a `useEffect`, rather than chain a `.then()` off the form handler.
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (isSubmitSuccessful) {
       reset();
       if (callbackOnSuccessfulFormSubmission) {

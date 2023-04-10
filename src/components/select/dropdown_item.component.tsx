@@ -4,14 +4,14 @@ import React, { forwardRef } from "react";
 import { Box } from "../box";
 import * as styles from "./select.styles.css";
 
-import type { VariantUiScaleEnum } from "../..";
+import type { SharedUiScale } from "../..";
 import type { DropdownItemShape } from "./select.types";
 import type { Ref } from "react";
 
 export interface DropdownItemProps {
   isHighlighted: boolean;
   isMultipleSelectionEnabled?: boolean;
-  size?: VariantUiScaleEnum;
+  size?: SharedUiScale;
   isMulti?: boolean;
   item: DropdownItemShape;
   isDropdownItemSelected?: boolean;

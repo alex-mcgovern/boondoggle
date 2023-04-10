@@ -20,4 +20,4 @@ export const globalVariantsUiScale = styleVariants({
   ],
 });
 
-export type VariantUiScaleEnum = keyof typeof globalVariantsUiScale;
+export type SharedUiScale = keyof typeof globalVariantsUiScale;

@@ -99,7 +99,7 @@ export {
 } from "./styles/common/common.media_queries.css";
 export {
   globalVariantsUiScale,
-  type VariantUiScaleEnum,
+  type SharedUiScale,
 } from "./styles/common/globalVariantsUiScale.css";
 
 export { vars } from "./styles/theme.css";

@@ -12,7 +12,7 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
 import * as styles from "./slider.styles.css";
 
-import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
+import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, HTMLInputTypeAttribute, Ref } from "react";
@@ -42,7 +42,7 @@ export interface SliderProps
   /** Aria role to use for the input (e.g. `search`). */
   role?: AriaRole;
   /** Common interactive element size, shared with button, select, etc */
-  size?: VariantUiScaleEnum;
+  size?: SharedUiScale;
 
   type?: HTMLInputTypeAttribute;
 }

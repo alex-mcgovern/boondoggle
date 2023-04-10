@@ -10,14 +10,14 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
 import * as styles from "./text_area.styles.css";
 
-import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
+import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { LegacyRef } from "react";
 
 export interface TextAreaProps
   extends SprinklesArgs,
     Omit<React.ComponentPropsWithoutRef<"textarea">, "color" | "ref"> {
-  size?: VariantUiScaleEnum;
+  size?: SharedUiScale;
   name: string;
   /** React node shown on the left side of input. */
   slotLeft?: React.ReactNode;

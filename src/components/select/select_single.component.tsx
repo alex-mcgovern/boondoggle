@@ -18,7 +18,7 @@ import {
   getIsSelected,
 } from "./select.utils";
 
-import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
+import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../input";
 import type { DropdownItemShape } from "./select.types";
@@ -59,7 +59,7 @@ export interface SelectSingleProps extends SprinklesArgs {
   onSelectedItemChange?: (
     changes: UseComboboxStateChange<DropdownItemShape>
   ) => void;
-  size?: VariantUiScaleEnum;
+  size?: SharedUiScale;
 }
 
 const DEFAULT_SLOT_RIGHT = <Icon icon={faAngleDown} />;

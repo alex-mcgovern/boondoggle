@@ -11,7 +11,7 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
 import * as styles from "./input.styles.css";
 
-import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
+import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ReactNode, Ref } from "react";
 
@@ -32,7 +32,7 @@ export interface InputProps
   /** Name of the form control. Submitted with the form as part of a name/value pair */
   name: string;
   /** Common interactive element size, shared with button, select, etc */
-  size?: VariantUiScaleEnum;
+  size?: SharedUiScale;
   /** React node shown on the left side of input. */
   slotLeft?: ReactNode;
   /** React node shown on the right side of input. */

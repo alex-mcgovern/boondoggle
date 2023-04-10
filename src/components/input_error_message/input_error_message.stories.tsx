@@ -10,7 +10,7 @@ import type { InputProps } from "../input/input.component";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "Components/InputErrorMessage",
+  title: "React components/InputErrorMessage",
   component: StoryComponent,
 };
 

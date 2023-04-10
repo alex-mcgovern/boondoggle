@@ -19,7 +19,7 @@ const FIRST_ITEM = MOCK_SELECT_ITEMS[0];
 const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
 
 export default {
-  title: "Components/Select",
+  title: "React components/Select",
   component: StoryComponent,
 };
 

@@ -82,10 +82,10 @@ describe("<Input />", () => {
   });
 
   /** -----------------------------------------------------------------------------
-   * Events
+   * Event handlers
    * ----------------------------------------------------------------------------- */
 
-  describe("Events", () => {
+  describe("Even handlers", () => {
     describe("handling updates to value", () => {
       describe("when uncontrolled", () => {
         it("should update value when the user types", async () => {
@@ -423,9 +423,9 @@ describe("<Input />", () => {
     });
   });
 
-  /**
-   * ONFOCUS EVENTS
-   */
+  /** ---------------------------------------------
+   * onFocus events
+   * ----------------------------------------------- */
 
   describe("`onFocus`", () => {
     it("should call `onFocus` by default", () => {
@@ -473,9 +473,9 @@ describe("<Input />", () => {
     });
   });
 
-  /**
-   * ONBLUR EVENTS
-   */
+  /** ---------------------------------------------
+   * onBlur events
+   * ----------------------------------------------- */
 
   describe("`onBlur`", () => {
     it("it should call onBlur by default", () => {

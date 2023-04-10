@@ -7,7 +7,7 @@ import { Box } from "../box";
 import { DropdownItem } from "./dropdown_item.component";
 import * as styles from "./select.styles.css";
 
-import type { VariantUiScaleEnum } from "../../styles/common/globalVariantsUiScale.css";
+import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape } from "./select.types";
 import type {
@@ -88,7 +88,7 @@ export interface DropdownMenuProps extends SprinklesArgs {
   isMulti?: boolean;
   highlightedIndex?: number | undefined;
   removeSelectedItem?: UseMultipleSelectionActions<DropdownItemShape>["removeSelectedItem"];
-  size?: VariantUiScaleEnum;
+  size?: SharedUiScale;
 }
 
 export const DropdownMenu = forwardRef(

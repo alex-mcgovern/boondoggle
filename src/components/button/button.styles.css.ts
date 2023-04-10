@@ -59,7 +59,7 @@ export const variantColor = styleVariants({
   green: [buttonThemeGreen],
 });
 
-export type VariantColorEnum = keyof typeof variantColor;
+export type Color = keyof typeof variantColor;
 
 /** -----------------------------------------------------------------------------
  * Button appearance variants
@@ -124,7 +124,7 @@ export const variantAppearance = styleVariants({
   ],
 });
 
-export type VariantAppearanceEnum = keyof typeof variantAppearance;
+export type Appearance = keyof typeof variantAppearance;
 
 /** -----------------------------------------------------------------------------
  * Button recipe function

@@ -20,7 +20,7 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 
 const CLOSE_BUTTON_ICON = <Icon icon={faTimes} />;
 
-export default { title: "Components/Form", component: StoryComponent };
+export default { title: "React components/Form", component: StoryComponent };
 const Template: StoryFn<StoryComponentProps> = ({
   ...rest
 }: StoryComponentProps) => {
