@@ -44,8 +44,8 @@ export type { LabelProps } from "./components/label";
 export { Loader } from "./components/loader";
 export type { LoaderProps } from "./components/loader";
 
-export { SelectSingle } from "./components/select/select_single.component";
-export type { SelectSingleProps } from "./components/select/select_single.component";
+export { SelectSingle } from "./components/select";
+export type { SelectSingleProps } from "./components/select";
 
 // export { SelectMultiFilterable } from "./components/select_new/SelectMultiFilterable";
 // export type { SelectMultiFilterableProps } from "./components/select_new/SelectMultiFilterable";
