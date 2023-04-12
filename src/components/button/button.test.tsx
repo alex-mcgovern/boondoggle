@@ -7,6 +7,7 @@ import React from "react";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
 import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import { getTheme } from "../../styles/theme.css";
 import { Icon } from "../icon";
 import { Button } from "./button.component";
 import { getButtonStyles } from "./button.styles.css";
@@ -14,16 +15,14 @@ import { getButtonStyles } from "./button.styles.css";
 describe("<Button />", () => {
   describe("Basic smoke tests", () => {
     it("should render without throwing", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="default" />
-      );
+      const { getByRole } = render(<Button id="button" name="Test button" />);
 
       expect(getByRole("button")).not.toBeNull();
     });
 
     it("should render text passed as children", () => {
       const { getByText } = render(
-        <Button id="button" name="Test button" color="default">
+        <Button id="button" name="Test button">
           {LOREM.button_text}
         </Button>
       );
@@ -39,16 +38,14 @@ describe("<Button />", () => {
   describe("a11y labelling", () => {
     it("Given a button, when an id is provided, should assign it to the button html element", () => {
       const { getByRole } = render(
-        <Button id="button-test-id" name="Test button" color="default" />
+        <Button id="button-test-id" name="Test button" />
       );
 
       expect(getByRole("button")?.id).toBe("button-test-id");
     });
 
     it("Given a button, when a name is provided, should assign it to the button html element", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="default" />
-      );
+      const { getByRole } = render(<Button id="button" name="Test button" />);
 
       expect((getByRole("button") as HTMLButtonElement)?.name).toBe(
         "Test button"
@@ -57,7 +54,7 @@ describe("<Button />", () => {
 
     it("Given a button, when a tabIndex is provided, should assign it to the button html element", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" tabIndex={0} color="default" />
+        <Button id="button" name="Test button" tabIndex={0} />
       );
 
       expect(getByRole("button")?.tabIndex).toBe(0);
@@ -70,16 +67,14 @@ describe("<Button />", () => {
 
   describe("as prop (polymorphism)", () => {
     it("should render a button element by default", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="default" />
-      );
+      const { getByRole } = render(<Button id="button" name="Test button" />);
 
       expect(getByRole("button")).not.toBeNull();
     });
 
     it("should render a button element when as = `button`", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" as="button" color="default" />
+        <Button id="button" name="Test button" as="button" />
       );
 
       expect(getByRole("button")).not.toBeNull();
@@ -92,7 +87,6 @@ describe("<Button />", () => {
           name="Test button"
           as="a"
           href="https://www.google.com"
-          color="default"
         >
           {LOREM.link_text}
         </Button>
@@ -108,7 +102,6 @@ describe("<Button />", () => {
           href="https://www.google.com"
           name="Test button"
           as={Link}
-          color="default"
         >
           {LOREM.link_text}
         </Button>
@@ -124,9 +117,7 @@ describe("<Button />", () => {
 
   describe("`appearance` prop", () => {
     it("should have the primary class name by default", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="default" />
-      );
+      const { getByRole } = render(<Button id="button" name="Test button" />);
 
       expect(getByRole("button")).toHaveClass(
         getButtonStyles({ appearance: "primary" })
@@ -135,12 +126,7 @@ describe("<Button />", () => {
 
     it("should have the primary class name when appearance = primary", () => {
       const { getByRole } = render(
-        <Button
-          id="button"
-          name="Test button"
-          appearance="primary"
-          color="default"
-        />
+        <Button id="button" name="Test button" appearance="primary" />
       );
 
       expect(getByRole("button")).toHaveClass(
@@ -150,12 +136,7 @@ describe("<Button />", () => {
 
     it("should have the secondary class name when appearance = secondary", () => {
       const { getByRole } = render(
-        <Button
-          id="button"
-          name="Test button"
-          appearance="secondary"
-          color="default"
-        />
+        <Button id="button" name="Test button" appearance="secondary" />
       );
 
       expect(getByRole("button")).toHaveClass(
@@ -165,12 +146,7 @@ describe("<Button />", () => {
 
     it("should have the tertiary class name when appearance = tertiary", () => {
       const { getByRole } = render(
-        <Button
-          id="button"
-          name="Test button"
-          appearance="tertiary"
-          color="default"
-        />
+        <Button id="button" name="Test button" appearance="tertiary" />
       );
 
       expect(getByRole("button")).toHaveClass(
@@ -184,42 +160,20 @@ describe("<Button />", () => {
    * ------------------------------------------------------------------------------- */
 
   describe("`color` prop", () => {
-    it("should have the default color class name by default", () => {
-      const { getByRole } = render(<Button id="button" name="Test button" />);
-
-      expect(getByRole("button")).toHaveClass(
-        getButtonStyles({ color: "default" })
+    it("should have the bad color class name when color = bad", () => {
+      const { getByRole } = render(
+        <Button id="button" name="Test button" intent="bad" />
       );
+
+      expect(getByRole("button")).toHaveClass(getTheme({ intent: "bad" }));
     });
 
-    it("should have the default color class name when color = default", () => {
+    it("should have the good color class name when color = good", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" color="default" />
+        <Button id="button" name="Test button" intent="good" />
       );
 
-      expect(getByRole("button")).toHaveClass(
-        getButtonStyles({ color: "default" })
-      );
-    });
-
-    it("should have the red color class name when color = red", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="red" />
-      );
-
-      expect(getByRole("button")).toHaveClass(
-        getButtonStyles({ color: "red" })
-      );
-    });
-
-    it("should have the green color class name when color = green", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="green" />
-      );
-
-      expect(getByRole("button")).toHaveClass(
-        getButtonStyles({ color: "green" })
-      );
+      expect(getByRole("button")).toHaveClass(getTheme({ intent: "good" }));
     });
   });
 
@@ -230,12 +184,7 @@ describe("<Button />", () => {
   describe("`className` prop", () => {
     it("should have the classname passed to it", () => {
       const { getByRole } = render(
-        <Button
-          id="button"
-          name="Test button"
-          className="test-class"
-          color="default"
-        />
+        <Button id="button" name="Test button" className="test-class" />
       );
 
       expect(getByRole("button")).toHaveClass("test-class");
@@ -256,12 +205,7 @@ describe("<Button />", () => {
         const onClick = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            color="default"
-            name="Test button"
-            onClick={onClick}
-          />
+          <Button id="button" name="Test button" onClick={onClick} />
         );
 
         await userEvent.click(getByRole("button"));
@@ -273,13 +217,7 @@ describe("<Button />", () => {
         const onClick = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            color="default"
-            disabled
-            name="Test button"
-            onClick={onClick}
-          />
+          <Button id="button" disabled name="Test button" onClick={onClick} />
         );
 
         await userEvent.click(getByRole("button"));
@@ -297,12 +235,7 @@ describe("<Button />", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            color="default"
-            onMouseOver={onMouseOver}
-          />
+          <Button id="button" name="Test button" onMouseOver={onMouseOver} />
         );
 
         fireEvent.mouseEnter(getByRole("button"));
@@ -317,7 +250,6 @@ describe("<Button />", () => {
           <Button
             id="button"
             name="Test button"
-            color="default"
             disabled
             onMouseOver={onMouseOver}
           />
@@ -338,12 +270,7 @@ describe("<Button />", () => {
         const onMouseLeave = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            color="default"
-            onMouseLeave={onMouseLeave}
-          />
+          <Button id="button" name="Test button" onMouseLeave={onMouseLeave} />
         );
 
         fireEvent.mouseLeave(getByRole("button"));
@@ -358,7 +285,6 @@ describe("<Button />", () => {
           <Button
             id="button"
             name="Test button"
-            color="default"
             disabled
             onMouseLeave={onMouseLeave}
           />
@@ -383,7 +309,6 @@ describe("<Button />", () => {
             id="button"
             name="Test button"
             onFocus={onFocus}
-            color="default"
             title="Test button"
             onClick={jest.fn()}
           />
@@ -398,13 +323,7 @@ describe("<Button />", () => {
         const onFocus = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            disabled
-            color="default"
-            onFocus={onFocus}
-          />
+          <Button id="button" name="Test button" disabled onFocus={onFocus} />
         );
 
         getByRole("button").focus();
@@ -422,12 +341,7 @@ describe("<Button />", () => {
         const onBlur = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            color="default"
-            onBlur={onBlur}
-          />
+          <Button id="button" name="Test button" onBlur={onBlur} />
         );
 
         getByRole("button").focus();
@@ -441,13 +355,7 @@ describe("<Button />", () => {
         const onBlur = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            disabled
-            color="default"
-            onBlur={onBlur}
-          />
+          <Button id="button" name="Test button" disabled onBlur={onBlur} />
         );
 
         getByRole("button").focus();
@@ -465,16 +373,14 @@ describe("<Button />", () => {
 
   describe("`size` prop", () => {
     it("should have the `md` class name by default", () => {
-      const { getByRole } = render(
-        <Button id="button" name="Test button" color="default" />
-      );
+      const { getByRole } = render(<Button id="button" name="Test button" />);
 
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.md);
     });
 
     it("should have the `sm` class name when size = sm", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" size="sm" color="default" />
+        <Button id="button" name="Test button" size="sm" />
       );
 
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.sm);
@@ -482,7 +388,7 @@ describe("<Button />", () => {
 
     it("should have the `md` class name when size = md", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" size="md" color="default" />
+        <Button id="button" name="Test button" size="md" />
       );
 
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.md);
@@ -490,7 +396,7 @@ describe("<Button />", () => {
 
     it("should have the `lg` class name when size = lg", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" size="lg" color="default" />
+        <Button id="button" name="Test button" size="lg" />
       );
 
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.lg);
@@ -508,7 +414,6 @@ describe("<Button />", () => {
           id="button"
           name="Test button"
           slotLeft={<Icon data-testid="icon" icon={faSearch} />}
-          color="default"
         />
       );
 
@@ -521,7 +426,6 @@ describe("<Button />", () => {
           id="button"
           name="Test button"
           slotRight={<Icon data-testid="icon" icon={faSearch} />}
-          color="default"
         />
       );
 

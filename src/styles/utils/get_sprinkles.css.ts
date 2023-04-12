@@ -28,13 +28,8 @@ export const sprinklesProperties = defineProperties({
     borderTop: varsBorder,
 
     /** Color  */
-    background: {
-      ...vars.color.background,
-      ...vars.color.button,
-      ...vars.color.surface,
-      ...vars.color.tint,
-    },
-    color: { ...vars.color.text, ...vars.color.neutral },
+    background: vars.color,
+    color: vars.color,
 
     /** Flex * Grid */
     alignItems: ["stretch", "start", "center", "end"],

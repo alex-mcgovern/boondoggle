@@ -14,7 +14,7 @@ export function InputErrorMessage({ message }: InputErrorMessageProps) {
   if (message) {
     return (
       <Box
-        color="text_red_low_contrast"
+        color="text_low_contrast"
         display="flex"
         gap="spacing0"
         alignItems="center"

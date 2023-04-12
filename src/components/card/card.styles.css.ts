@@ -12,7 +12,7 @@ export const cardStyle = style([
     display: "block",
     isolation: "isolate",
     textDecoration: "none",
-    background: "surface_default",
+    background: "tint",
     border: "border_default",
     borderRadius: "md",
   }),
@@ -26,8 +26,8 @@ export const cardStyle = style([
 
     selectors: {
       [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-        borderColor: vars.color.border.border_default_active,
-        background: vars.color.surface.surface_default_active,
+        borderColor: vars.color.border_active,
+        background: vars.color.tint_active,
         boxShadow: vars.boxShadow.md,
       },
     },

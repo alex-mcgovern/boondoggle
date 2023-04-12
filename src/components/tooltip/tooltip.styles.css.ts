@@ -6,7 +6,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const popoverTrigger = style([
   {
-    color: vars.color.text.text_default_low_contrast,
+    color: vars.color.text_low_contrast,
     borderRadius: vars.borderRadius.sm,
 
     transition: `color ease`,
@@ -14,7 +14,7 @@ export const popoverTrigger = style([
 
     selectors: {
       "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {
-        color: vars.color.text.text_default_high_contrast,
+        color: vars.color.text_high_contrast,
       },
       "&[disabled]": {
         borderColor: "accent.border.3",

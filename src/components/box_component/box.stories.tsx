@@ -63,7 +63,7 @@ const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
   padding: "spacing3",
   border: "border_default",
   borderRadius: "sm",
-  background: "surface_default",
+  background: "tint",
 };
 
 export const ExampleBasicSprinkles: StoryObj<StoryComponentProps> = {
@@ -112,7 +112,7 @@ export const BoxAsInfoCard: StoryObj<StoryComponentProps> = {
   name: "example/box_as_info_card",
   render: Template,
   args: {
-    background: "surface_default",
+    background: "tint",
     border: "border_default",
     borderRadius: "sm",
     padding: "spacing3",
@@ -130,24 +130,20 @@ export const BoxAsWarning: StoryObj<StoryComponentProps> = {
   render: Template,
   args: {
     borderRadius: "sm",
-    border: "border_red",
+    border: "border_default",
     display: "flex",
     alignItems: "start",
     padding: "spacing3",
     gap: "spacing3",
-    background: "surface_red",
+    background: "tint",
     children: [
-      <Icon
-        size="xl"
-        icon={faExclamationCircle}
-        color="text_red_low_contrast"
-      />,
+      <Icon size="xl" icon={faExclamationCircle} color="text_low_contrast" />,
       <StoryComponent>
         <StoryComponent
           as="h3"
           fontSize="body_lg"
           fontWeight="bold"
-          color="text_red_low_contrast"
+          color="text_low_contrast"
         >
           {LOREM.title_short}
         </StoryComponent>
@@ -161,24 +157,24 @@ export const BoxAsConfirmation: StoryObj<StoryComponentProps> = {
   render: Template,
   args: {
     borderRadius: "sm",
-    border: "border_green",
+    border: "border_default",
     display: "flex",
     alignItems: "start",
     padding: "spacing3",
     gap: "spacing3",
-    background: "surface_green",
+    background: "tint",
     children: [
-      <Icon size="xl" icon={faCheckCircle} color="text_green_low_contrast" />,
+      <Icon size="xl" icon={faCheckCircle} color="text_low_contrast" />,
       <StoryComponent>
         <StoryComponent
           as="h3"
           fontSize="body_lg"
           fontWeight="bold"
-          color="text_green_low_contrast"
+          color="text_low_contrast"
         >
           {LOREM.title_short}
         </StoryComponent>
-        <StoryComponent as="p" color="text_green_high_contrast">
+        <StoryComponent as="p" color="text_high_contrast">
           {LOREM.text_short}
         </StoryComponent>
       </StoryComponent>,
@@ -194,13 +190,13 @@ export const BoxAsGridLayout: StoryObj<StoryComponentProps> = {
     gridTemplateColumns: "3x",
     gap: "spacing3",
     children: [
-      <StoryComponent background="tint_accent" padding="spacing3">
+      <StoryComponent background="tint" padding="spacing3">
         Content 1
       </StoryComponent>,
-      <StoryComponent background="tint_accent" padding="spacing3">
+      <StoryComponent background="tint" padding="spacing3">
         Content 2
       </StoryComponent>,
-      <StoryComponent background="tint_accent" padding="spacing3">
+      <StoryComponent background="tint" padding="spacing3">
         Content 3
       </StoryComponent>,
     ],

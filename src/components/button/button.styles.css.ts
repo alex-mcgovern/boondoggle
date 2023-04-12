@@ -1,4 +1,4 @@
-import { createTheme, styleVariants } from "@vanilla-extract/css";
+import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
@@ -21,46 +21,6 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
  * consume them in {@link getButtonStyles}.
  * ------------------------------------------------------------------------------- */
 
-const [buttonTheme, varsButtonTheme] = createTheme({
-  background: vars.color.button.button_default,
-  backgroundColor_hover: vars.color.button.button_default_active,
-  backgroundColor_tint: vars.color.tint.tint_accent,
-  borderColor: vars.color.button.button_default_active,
-  textColor_alt: vars.color.neutral.white,
-  textColor_hover: vars.color.button.button_default_active,
-  textColor: vars.color.button.button_default,
-});
-const buttonThemeRed = createTheme(varsButtonTheme, {
-  background: vars.color.button.button_red,
-  backgroundColor_hover: vars.color.button.button_red_active,
-  backgroundColor_tint: vars.color.tint.tint_red,
-  borderColor: vars.color.button.button_red_active,
-  textColor_alt: vars.color.neutral.white,
-  textColor_hover: vars.color.button.button_red_active,
-  textColor: vars.color.button.button_red,
-});
-const buttonThemeGreen = createTheme(varsButtonTheme, {
-  background: vars.color.button.button_green,
-  backgroundColor_hover: vars.color.button.button_green_active,
-  backgroundColor_tint: vars.color.tint.tint_green,
-  borderColor: vars.color.button.button_green_active,
-  textColor_alt: vars.color.neutral.white,
-  textColor_hover: vars.color.button.button_green_active,
-  textColor: vars.color.button.button_green,
-});
-
-/** -----------------------------------------------------------------------------
- * Button color variants
- * ------------------------------------------------------------------------------- */
-
-export const variantColor = styleVariants({
-  default: [buttonTheme],
-  red: [buttonThemeRed],
-  green: [buttonThemeGreen],
-});
-
-export type Color = keyof typeof variantColor;
-
 /** -----------------------------------------------------------------------------
  * Button appearance variants
  *
@@ -79,12 +39,12 @@ export const variantAppearance = styleVariants({
   primary: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: varsButtonTheme.textColor_alt,
-      background: varsButtonTheme.background,
+      color: vars.color.white,
+      background: vars.color.button_default,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: varsButtonTheme.textColor_alt,
-          background: varsButtonTheme.backgroundColor_hover,
+          color: vars.color.white,
+          background: vars.color.button_active,
         },
       },
     },
@@ -93,13 +53,13 @@ export const variantAppearance = styleVariants({
   secondary: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: varsButtonTheme.background,
+      color: vars.color.button_default,
       border: "1px solid",
-      borderColor: varsButtonTheme.borderColor,
+      borderColor: vars.color.button_active,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: varsButtonTheme.backgroundColor_hover,
-          background: varsButtonTheme.backgroundColor_tint,
+          color: vars.color.button_active,
+          background: vars.color.tint,
         },
       },
     },
@@ -112,10 +72,10 @@ export const variantAppearance = styleVariants({
       paddingY: "spacing1",
     }),
     {
-      color: varsButtonTheme.background,
+      color: vars.color.button_default,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: varsButtonTheme.backgroundColor_hover,
+          color: vars.color.button_active,
           textDecoration: "underline",
         },
       },
@@ -139,7 +99,6 @@ export const getButtonStyles = recipe({
   base: [
     globalFocusStyles,
     globalDisabledStyles,
-    buttonTheme,
     getSprinkles({
       borderRadius: "md",
       display: "inline-flex",
@@ -154,7 +113,6 @@ export const getButtonStyles = recipe({
   ],
   variants: {
     appearance: variantAppearance,
-    color: variantColor,
     size: {
       square: [
         getSprinkles({
@@ -169,7 +127,6 @@ export const getButtonStyles = recipe({
 
   defaultVariants: {
     appearance: "primary",
-    color: "default",
     size: "md",
   },
 });

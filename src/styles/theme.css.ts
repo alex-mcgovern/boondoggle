@@ -8,7 +8,12 @@ import {
   slate,
   slateDark,
 } from "@radix-ui/colors";
-import { createGlobalTheme, createTheme } from "@vanilla-extract/css";
+import {
+  assignVars,
+  createGlobalTheme,
+  createTheme,
+} from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { varsAspectRatio } from "./vars/vars_aspect_ratio.css";
 import { varsBorderRadius } from "./vars/vars_border_radius.css";
@@ -49,9 +54,7 @@ const root = createGlobalTheme(":root", {
 });
 
 /** -----------------------------------------------------------------------------
- * Default color theme
- *
- * These are also declared as CSS vars at the `root:` level, in scope of the `html` element
+ * Color theme
  * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
  * ------------------------------------------------------------------------------- */
 
@@ -66,104 +69,141 @@ const getFromPaletteByIndex = (
 };
 
 interface MakeThemeArgs {
-  accentPalette: PaletteShape;
-  neutralPalette: PaletteShape;
-  greenPalette: PaletteShape;
-  redPalette: PaletteShape;
+  primaryPalette: PaletteShape;
+  secondaryPalette: PaletteShape;
 }
 
-const makeBaseTheme = ({
-  accentPalette,
-  neutralPalette,
-  greenPalette,
-  redPalette,
-}: MakeThemeArgs) => {
+const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   return {
-    background: {
-      bg_default: getFromPaletteByIndex(neutralPalette, 0),
-    },
-    border: {
-      border_default: getFromPaletteByIndex(neutralPalette, 6),
-      border_default_active: getFromPaletteByIndex(neutralPalette, 7),
-      border_accent: getFromPaletteByIndex(accentPalette, 6),
-      border_accent_active: getFromPaletteByIndex(accentPalette, 7),
-      border_green: getFromPaletteByIndex(greenPalette, 6),
-      border_green_active: getFromPaletteByIndex(greenPalette, 7),
-      border_red: getFromPaletteByIndex(redPalette, 6),
-      border_red_active: getFromPaletteByIndex(redPalette, 7),
-    },
-    button: {
-      button_default: getFromPaletteByIndex(accentPalette, 8),
-      button_default_active: getFromPaletteByIndex(accentPalette, 10),
-      button_green: getFromPaletteByIndex(greenPalette, 8),
-      button_green_active: getFromPaletteByIndex(greenPalette, 10),
-      button_red: getFromPaletteByIndex(redPalette, 8),
-      button_red_active: getFromPaletteByIndex(redPalette, 10),
-    },
-    surface: {
-      surface_default: getFromPaletteByIndex(neutralPalette, 2),
-      surface_default_active: getFromPaletteByIndex(neutralPalette, 4),
-      surface_accent: getFromPaletteByIndex(accentPalette, 2),
-      surface_accent_active: getFromPaletteByIndex(accentPalette, 4),
-      surface_green: getFromPaletteByIndex(greenPalette, 2),
-      surface_green_active: getFromPaletteByIndex(greenPalette, 4),
-      surface_red: getFromPaletteByIndex(redPalette, 2),
-      surface_red_active: getFromPaletteByIndex(redPalette, 4),
-    },
-    tint: {
-      tint_default: getFromPaletteByIndex(neutralPalette, 4),
-      tint_default_active: getFromPaletteByIndex(neutralPalette, 6),
-      tint_accent: getFromPaletteByIndex(accentPalette, 4),
-      tint_accent_active: getFromPaletteByIndex(accentPalette, 6),
-      tint_green: getFromPaletteByIndex(greenPalette, 4),
-      tint_green_active: getFromPaletteByIndex(greenPalette, 6),
-      tint_red: getFromPaletteByIndex(redPalette, 4),
-      tint_red_active: getFromPaletteByIndex(redPalette, 6),
-    },
-    text: {
-      text_default_high_contrast: getFromPaletteByIndex(neutralPalette, 11),
-      text_default_low_contrast: getFromPaletteByIndex(neutralPalette, 10),
-      text_accent_high_contrast: getFromPaletteByIndex(accentPalette, 11),
-      text_accent_low_contrast: getFromPaletteByIndex(accentPalette, 10),
-      text_green_high_contrast: getFromPaletteByIndex(greenPalette, 11),
-      text_green_low_contrast: getFromPaletteByIndex(greenPalette, 10),
-      text_red_high_contrast: getFromPaletteByIndex(redPalette, 11),
-      text_red_low_contrast: getFromPaletteByIndex(redPalette, 10),
-    },
-    neutral: {
-      black: getFromPaletteByIndex(slate, 0),
-      white: getFromPaletteByIndex(slate, 1),
-    },
+    white: slate.slate1,
+    black: slate.slate11,
+
+    background: getFromPaletteByIndex(secondaryPalette, 0),
+
+    border_default: getFromPaletteByIndex(secondaryPalette, 6),
+    border_active: getFromPaletteByIndex(secondaryPalette, 7),
+
+    button_default: getFromPaletteByIndex(primaryPalette, 8),
+    button_active: getFromPaletteByIndex(primaryPalette, 10),
+
+    tint: getFromPaletteByIndex(secondaryPalette, 2),
+    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
+
+    text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
+    text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
   };
 };
 
-export const color = createGlobalTheme(":root", {
-  ...makeBaseTheme({
-    accentPalette: blue,
-    neutralPalette: slate,
-    redPalette: red,
-    greenPalette: green,
+export const [color, colorVars] = createTheme({
+  ...makeTheme({
+    primaryPalette: blue,
+    secondaryPalette: slate,
   }),
+});
+
+export const getTheme = recipe({
+  base: [
+    color,
+    {
+      "@media": {
+        "(prefers-color-scheme: dark)": {
+          vars: assignVars(
+            colorVars,
+            makeTheme({
+              primaryPalette: blueDark,
+              secondaryPalette: slateDark,
+            })
+          ),
+        },
+      },
+    },
+  ],
+  variants: {
+    intent: {
+      good: {
+        vars: assignVars(
+          colorVars,
+          makeTheme({ primaryPalette: green, secondaryPalette: green })
+        ),
+        "@media": {
+          "(prefers-color-scheme: dark)": {
+            vars: assignVars(
+              colorVars,
+              makeTheme({
+                primaryPalette: greenDark,
+                secondaryPalette: greenDark,
+              })
+            ),
+          },
+        },
+      },
+      bad: {
+        vars: assignVars(
+          colorVars,
+          makeTheme({ primaryPalette: red, secondaryPalette: red })
+        ),
+        "@media": {
+          "(prefers-color-scheme: dark)": {
+            vars: assignVars(
+              colorVars,
+              makeTheme({
+                primaryPalette: redDark,
+                secondaryPalette: redDark,
+              })
+            ),
+          },
+        },
+      },
+    },
+
+    darkMode: {
+      true: {
+        vars: assignVars(
+          colorVars,
+          makeTheme({
+            primaryPalette: blueDark,
+            secondaryPalette: slateDark,
+          })
+        ),
+      },
+      false: {},
+    },
+  },
+  compoundVariants: [
+    {
+      variants: {
+        intent: "good",
+        darkMode: true,
+      },
+      style: {
+        vars: assignVars(
+          colorVars,
+          makeTheme({
+            primaryPalette: greenDark,
+            secondaryPalette: greenDark,
+          })
+        ),
+      },
+    },
+    {
+      variants: {
+        intent: "bad",
+        darkMode: true,
+      },
+      style: {
+        vars: assignVars(
+          colorVars,
+          makeTheme({
+            primaryPalette: redDark,
+            secondaryPalette: redDark,
+          })
+        ),
+      },
+    },
+  ],
 });
 
 export type ColorScheme = typeof color;
+export type Intent = "good" | "bad";
 
-/** -----------------------------------------------------------------------------
- * Dark mode color theme
- *
- *
- * - Created as a separate class, so that it can be imported and toggled on/off in the app
- * - Overrides the vars defined in {@link color}
- * https://vanilla-extract.style/documentation/api/create-theme/
- * ------------------------------------------------------------------------------- */
-
-export const darkTheme = createTheme(color, {
-  ...makeBaseTheme({
-    accentPalette: blueDark,
-    neutralPalette: slateDark,
-    redPalette: redDark,
-    greenPalette: greenDark,
-  }),
-});
-
-export const vars = { ...root, color };
+export const vars = { ...root, color: colorVars };

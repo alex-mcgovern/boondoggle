@@ -26,7 +26,7 @@ export function SlotWrapper({
       {...rest}
     >
       {slotLeft && (
-        <Box paddingY="spacing1" color="text_default_low_contrast">
+        <Box paddingY="spacing1" color="text_low_contrast">
           {slotLeft}
         </Box>
       )}
@@ -34,7 +34,7 @@ export function SlotWrapper({
       {children}
 
       {slotRight && (
-        <Box paddingY="spacing1" color="text_default_low_contrast">
+        <Box paddingY="spacing1" color="text_low_contrast">
           {slotRight}
         </Box>
       )}

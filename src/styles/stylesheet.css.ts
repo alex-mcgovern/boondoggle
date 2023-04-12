@@ -15,8 +15,8 @@ globalStyle(`*`, {
 });
 
 globalStyle(`html`, {
-  color: vars.color.text.text_default_high_contrast,
-  background: vars.color.background.bg_default,
+  color: vars.color.text_high_contrast,
+  background: vars.color.background,
   fontSize: vars.fontSize.root,
 });
 
@@ -39,7 +39,7 @@ globalStyle(`a`, {
   padding: 0,
   margin: 0,
   listStyleType: "none",
-  color: vars.color.text.text_default_high_contrast,
+  color: vars.color.text_high_contrast,
 });
 
 /* -----------------------------------------------------------------------------—
@@ -75,7 +75,7 @@ globalStyle(`button`, {
  * ------------------------------------------------------------------------------- */
 
 globalStyle("input[type=checkbox]", {
-  accentColor: vars.color.button.button_default,
+  accentColor: vars.color.button_default,
 });
 
 /** -----------------------------------------------------------------------------
@@ -131,7 +131,7 @@ globalStyle(`h6`, {
 globalStyle(`hr`, {
   borderBottom: "none",
   borderTop: "1px solid",
-  borderColor: vars.color.border.border_default,
+  borderColor: vars.color.border_default,
   marginTop: vars.spacing.spacing3,
   marginBottom: vars.spacing.spacing3,
 });
@@ -141,10 +141,10 @@ globalStyle(`hr`, {
  * ------------------------------------------------------------------------------- */
 
 globalStyle("input, textarea", {
-  background: vars.color.background.bg_default,
-  border: `1px solid ${vars.color.border.border_default}`,
+  background: vars.color.background,
+  border: `1px solid ${vars.color.border_default}`,
   borderRadius: vars.borderRadius.md,
-  color: vars.color.text.text_default_high_contrast,
+  color: vars.color.text_high_contrast,
   padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
   ...createAccessibleTransition({
     transition: `ease ${vars.transitionDuration.short}`,
@@ -153,14 +153,14 @@ globalStyle("input, textarea", {
 });
 
 globalStyle("input::placeholder, textarea::placeholder", {
-  color: vars.color.text.text_default_low_contrast,
+  color: vars.color.text_low_contrast,
 });
 
 globalStyle(
   "input:not([disabled]):is(:hover,:focus), textarea:not([disabled]):is(:hover,:focus)",
   {
-    borderColor: vars.color.border.border_default_active,
-    background: vars.color.surface.surface_default,
+    borderColor: vars.color.border_active,
+    background: vars.color.tint,
   }
 );
 
@@ -203,7 +203,7 @@ globalStyle(`p`, {
  * ------------------------------------------------------------------------------- */
 
 globalStyle(`table`, {
-  border: `1px solid ${vars.color.border.border_default}`,
+  border: `1px solid ${vars.color.border_default}`,
   borderCollapse: "collapse",
 });
 
@@ -212,7 +212,7 @@ globalStyle(`thead`, {
 });
 
 globalStyle(`tbody tr:nth-of-type(odd)`, {
-  background: vars.color.surface.surface_default,
+  background: vars.color.tint,
 });
 
 globalStyle(`th, td`, {

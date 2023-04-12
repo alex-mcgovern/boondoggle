@@ -47,6 +47,8 @@
             "devDependencies": [
               "**/*.test.ts",
               "**/*.test.tsx",
+              "**/*.css.ts",
+              "**/*.stories.tsx",
               "./test/**/*",
               "tsup.config.ts"
             ]

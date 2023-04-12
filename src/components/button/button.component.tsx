@@ -6,10 +6,12 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 
+import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import * as styles from "./button.styles.css";
 
 import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { Intent } from "../../styles/theme.css";
 import type {
   SprinklesArgs,
   SprinklesMargin,
@@ -31,8 +33,8 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
     {
       /** The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis. */
       appearance?: styles.Appearance;
-      /** The color of the button to communicate intent. The default uses normal theme colors, green for positive actions, and red for negative actions. */
-      color?: styles.Color;
+      /** The intent of the button to communicate intent. The default uses normal theme colors, green for positive actions, and red for negative actions. */
+      intent?: Intent;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
       size?: SharedUiScale;
       /** The React node shown in the button. */
@@ -61,7 +63,7 @@ export const Button: ButtonComponent = forwardRef(
       as,
       children,
       className: userClassName,
-      color = "default",
+      intent,
       size = "md",
       slotLeft,
       slotRight,
@@ -79,7 +81,8 @@ export const Button: ButtonComponent = forwardRef(
       <Component
         {...{
           className: clsx(
-            styles.getButtonStyles({ appearance, color, size }),
+            getTheme({ intent }),
+            styles.getButtonStyles({ appearance, size }),
             getSprinkles(atomProps),
             userClassName
           ),

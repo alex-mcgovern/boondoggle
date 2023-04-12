@@ -9,15 +9,15 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 export const variantTagState = styleVariants({
   inactive: [
     {
-      color: vars.color.text.text_default_low_contrast,
-      background: vars.color.tint.tint_default,
-      borderColor: vars.color.border.border_default,
+      color: vars.color.text_low_contrast,
+      background: vars.color.tint,
+      borderColor: vars.color.border_default,
 
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.text.text_default_high_contrast,
-          background: vars.color.tint.tint_default_active,
-          borderColor: vars.color.border.border_default_active,
+          color: vars.color.text_high_contrast,
+          background: vars.color.tint_active,
+          borderColor: vars.color.border_active,
         },
       },
     },
@@ -25,15 +25,15 @@ export const variantTagState = styleVariants({
 
   active: [
     {
-      color: vars.color.text.text_accent_low_contrast,
-      background: vars.color.tint.tint_accent,
-      borderColor: vars.color.border.border_accent,
+      color: vars.color.text_low_contrast,
+      background: vars.color.tint,
+      borderColor: vars.color.border_active,
 
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.text.text_accent_high_contrast,
-          background: vars.color.tint.tint_accent_active,
-          borderColor: vars.color.border.border_accent_active,
+          color: vars.color.text_high_contrast,
+          background: vars.color.tint_active,
+          borderColor: vars.color.border_active,
         },
       },
     },
@@ -45,7 +45,7 @@ export const getTagStyle = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
-      border: "border_accent_active",
+      border: "border_active",
       borderRadius: "pill",
       display: "flex",
       flexShrink: "0",

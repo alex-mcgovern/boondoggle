@@ -4,7 +4,8 @@
     "**/node_modules": true,
     "**/.cache": true,
     "**/*.snap": true,
-    ".git": true
+    ".git": true,
+    "dist": true
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

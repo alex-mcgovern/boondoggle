@@ -27,7 +27,6 @@ export const sliderRoot = style([
       [`&[data-orientation='vertical']`]: {
         flexDirection: "column",
         width: vars.spacing.spacing3,
-        height: vars.width.gridSpan2,
       },
     },
   },
@@ -39,7 +38,7 @@ export const sliderTrack = style([
     borderRadius: "md",
   }),
   {
-    background: vars.color.border.border_default,
+    background: vars.color.border_default,
     flexGrow: 1,
     selectors: {
       [`&[data-orientation='horizontal']`]: {
@@ -55,7 +54,7 @@ export const sliderTrack = style([
 export const sliderRange = style([
   getSprinkles({
     position: "absolute",
-    background: "button_default",
+    background: "tint",
     borderRadius: "pill",
     height: "100%",
   }),
@@ -67,8 +66,8 @@ export const sliderThumb = style([
     width: "spacing3",
     height: "spacing3",
 
-    background: "surface_default",
-    border: "border_default_active",
+    background: "tint",
+    border: "border_active",
     boxShadow: "sm",
     borderRadius: "50%",
   }),
@@ -80,8 +79,8 @@ export const sliderThumb = style([
     selectors: {
       [`&${SELECTOR_IS_HOVER}`]: {
         cursor: "pointer",
-        background: vars.color.surface.surface_default_active,
-        borderColor: vars.color.border.border_default_active,
+        background: vars.color.tint_active,
+        borderColor: vars.color.border_active,
       },
       [`&${SELECTOR_IS_FOCUS}`]: {
         outline: "none",
@@ -93,14 +92,14 @@ export const sliderThumb = style([
 ]);
 
 export const leadingIcon = style([
-  { color: vars.color.text.text_default_low_contrast },
+  { color: vars.color.text_low_contrast },
   getSprinkles({
     padding: "spacing1",
   }),
 ]);
 
 export const trailingIcon = style([
-  { color: vars.color.text.text_default_low_contrast },
+  { color: vars.color.text_low_contrast },
   getSprinkles({
     padding: "spacing1",
   }),

@@ -22,7 +22,7 @@ export const dropdownWrapperClosed = style({
 export const dropdownListWrapper = style([
   globalFocusStyles,
   getSprinkles({
-    background: "bg_default",
+    background: "background",
     marginTop: "spacing1",
     minWidth: "gridSpan3",
     display: "block",
@@ -75,7 +75,7 @@ export const getDropdownItemStyles = recipe({
       alignItems: "center",
       gap: "spacing1",
 
-      color: "text_default_high_contrast",
+      color: "text_high_contrast",
       textDecoration: "none",
       textAlign: "left",
 
@@ -92,7 +92,7 @@ export const getDropdownItemStyles = recipe({
 
 export const isHighlighted = style([
   {
-    backgroundColor: vars.color.tint.tint_accent_active,
+    backgroundColor: vars.color.tint_active,
   },
 ]);
 

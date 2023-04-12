@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Controls, Meta, Story } from "@storybook/blocks";
 
 import { Button } from ".";
 import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
-import { Box } from "../box";
+import { Box } from "../box/box.component";
 import * as stories from "./button.stories.tsx";
 
 <Meta of={stories} />
@@ -73,10 +73,11 @@ To allow more fine-grained control over the bundling of dependencies, the
 `slotLeft` and `slotRight` prop, which can be used to render any React node
 inside the button, on the corresponding side.
 
-<Box display="grid" gridTemplateColumns="2x" gap="spacing3">
-  <Canvas sourceState="shown" of={stories.SlotLeftIcon} />
-  <Canvas sourceState="shown" of={stories.SlotRightLoader} />
-</Box>
+ <Box display="grid" gridTemplateColumns="2x" gap="spacing3">
+
+<Canvas sourceState="shown" of={stories.SlotLeftIcon} />
+<Canvas sourceState="shown" of={stories.SlotRightLoader} />
+ </Box>
 
 ### Customisation
 

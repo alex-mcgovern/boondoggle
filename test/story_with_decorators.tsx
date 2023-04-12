@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box } from "../src/components/box_component";
-import { darkTheme } from "../src/styles/theme.css";
+import { getTheme } from "../src/styles/theme.css";
 
 import type { StoryFn } from "@storybook/react";
 
@@ -17,7 +17,7 @@ function StoryWrapper({ Story, className, title }: StoryWrapperProps) {
       position="relative"
       className={className}
       padding="spacing3"
-      background="bg_default"
+      background="background"
     >
       {title && (
         <Box
@@ -45,7 +45,11 @@ export function StoryWithDecorators(Story: StoryFn) {
       gridTemplateColumns={GRID_TEMPLATE_COLUMNS}
     >
       <StoryWrapper Story={Story} title="Light mode" />
-      <StoryWrapper Story={Story} className={darkTheme} title="Dark mode" />
+      <StoryWrapper
+        Story={Story}
+        className={getTheme({ darkMode: true })}
+        title="Dark mode"
+      />
     </Box>
   );
 }

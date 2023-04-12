@@ -8,7 +8,7 @@ export default defineConfig({
   outDir: "dist",
   splitting: true,
   bundle: true,
-  minify: true,
+  minify: false,
   sourcemap: false,
   format: ["cjs", "esm"],
   dts: true,
@@ -18,7 +18,7 @@ export default defineConfig({
     vanillaExtractPlugin({
       outputCss: true,
       runtime: false,
-      identifiers: "debug",
+      // identifiers: "debug",
     }),
   ],
   // external: Object.keys(dependencies).concat(Object.keys(peerDependencies)),

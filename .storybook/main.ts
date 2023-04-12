@@ -1,7 +1,9 @@
 import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 import { merge } from "webpack-merge";
 
-export default {
+import type { StorybookConfig } from "@storybook/react-webpack5";
+
+const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -38,3 +40,5 @@ export default {
       plugins: [new VanillaExtractPlugin()],
     }),
 };
+
+export default config;

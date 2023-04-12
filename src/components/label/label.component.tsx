@@ -13,7 +13,7 @@ export function Label({ label, htmlFor, ...rest }: LabelProps) {
   return (
     <Box
       as="label"
-      color="text_default_low_contrast"
+      color="text_low_contrast"
       display="block"
       fontSize="body_sm"
       fontWeight="medium"
