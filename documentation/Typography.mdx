@@ -1,18 +1,13 @@
-import React from "react";
+import { Canvas, Meta } from "@storybook/blocks";
 
 import { LOREM } from "../mocks/LOREM.mock";
 import { Box } from "../src/components/box";
 
-import type { ComponentMeta } from "@storybook/react";
+<Meta title="Documentation/Typography" />;
 
-export default {
-  title: "Documentation/Typography",
-  component: Box,
-} as ComponentMeta<typeof Box>;
+# Typography
 
-export function Typography() {
-  return (
-    <Box>
+<Canvas>
       <Box as="h1">H1 {LOREM.text_xxs}</Box>
       <Box as="h2">H2 {LOREM.text_xxs}</Box>
       <Box as="h3">H3 {LOREM.text_xxs}</Box>
@@ -26,6 +21,5 @@ export function Typography() {
         voluptatibus mollitia repellendus necessitatibus, maiores ipsa nulla
         quod unde consectetur eligendi iusto!
       </Box>
-    </Box>
-  );
-}
+
+</Canvas>
