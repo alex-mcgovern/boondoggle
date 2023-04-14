@@ -7,7 +7,7 @@ import React from "react";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
 import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
-import { getTheme } from "../../styles/theme.css";
+import { variantIntent } from "../../styles/theme.css";
 import { Icon } from "../icon";
 import { Button } from "./button.component";
 import { getButtonStyles } from "./button.styles.css";
@@ -62,7 +62,7 @@ describe("<Button />", () => {
   });
 
   /**
-   * as prop (polymorphism)
+   * `as` prop (polymorphism)
    */
 
   describe("as prop (polymorphism)", () => {
@@ -160,20 +160,20 @@ describe("<Button />", () => {
    */
 
   describe("`color` prop", () => {
-    it("should have the bad color class name when color = bad", () => {
+    it("should have the correct class name when intent = bad", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" intent="bad" />
       );
 
-      expect(getByRole("button")).toHaveClass(getTheme({ intent: "bad" }));
+      expect(getByRole("button")).toHaveClass(variantIntent.bad);
     });
 
-    it("should have the good color class name when color = good", () => {
+    it("should have the correct class name name when intent = good", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" intent="good" />
       );
 
-      expect(getByRole("button")).toHaveClass(getTheme({ intent: "good" }));
+      expect(getByRole("button")).toHaveClass(variantIntent.good);
     });
   });
 
@@ -400,6 +400,16 @@ describe("<Button />", () => {
       );
 
       expect(getByRole("button")).toHaveClass(globalVariantsUiScale.lg);
+    });
+
+    it("should have the `square` class name when size = square", () => {
+      const { getByRole } = render(
+        <Button id="button" name="Test button" size="square" />
+      );
+
+      expect(getByRole("button")).toHaveClass(
+        getButtonStyles({ size: "square" })
+      );
     });
   });
 
