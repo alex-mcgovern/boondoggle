@@ -3,7 +3,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box_component";
+import { Box } from "../box";
 import * as styles from "./card.styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";

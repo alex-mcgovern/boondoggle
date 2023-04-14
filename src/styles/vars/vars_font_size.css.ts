@@ -1,4 +1,4 @@
-/** -----------------------------------------------------------------------------
+/**
  * Font size scale
  *
  * Base Size
@@ -6,7 +6,7 @@
  * Scale: 1.125 – Major Second
  *
  *  https://typescale.com/?size=16&scale=1.125&text=Lorem%20ipsum%20dolor%20sit%20amet&font=Poppins&fontweight=400&bodyfont=body_font_default&bodyfontweight=400&lineheight=1.75&backgroundcolor=%23ffffff&fontcolor=%23000000&preview=false
- * ------------------------------------------------------------------------------- */
+ */
 
 export const varsFontSize = {
   root: "16px",

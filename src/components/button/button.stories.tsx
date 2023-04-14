@@ -2,9 +2,9 @@ import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 import { Button as StoryComponent } from ".";
+import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { Link } from "../../../test/link.component.mock";
-import { StoryWithDecorators } from "../../../test/story_with_decorators";
-import { Box } from "../box_component";
+import { Box } from "../box";
 import { Icon } from "../icon";
 import { Loader } from "../loader";
 
@@ -13,7 +13,7 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default { title: "React components/Button", component: StoryComponent };
 const Template: StoryFn<StoryComponentProps> = ({
-  children = "Click me",
+  children,
   name,
   ...rest
 }: StoryComponentProps) => {
@@ -40,18 +40,41 @@ const TemplateAllAppearances: StoryFn<StoryComponentProps> = (rest) => {
   );
 };
 
-/** -----------------------------------------------------------------------------
- * Default
- * ------------------------------------------------------------------------------- */
+// const TemplateAllSizes: StoryFn<StoryComponentProps> = (rest) => {
+//   return (
+//     <Box display="flex" gap="spacing3">
+//       <StoryComponent size="sm" name="primary" {...rest}>
+//         Small
+//       </StoryComponent>
+//       <StoryComponent size="md" name="secondary" {...rest}>
+//         Medium
+//       </StoryComponent>
+//       <StoryComponent size="lg" name="tertiary" {...rest}>
+//         Large
+//       </StoryComponent>
+//     </Box>
+//   );
+// };
 
-export const Default = {
+/**
+ * Default
+ */
+
+export const Default: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "default",
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    children: "Click me",
+  },
+  decorators: [WithDarkLightMode],
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Polymorphism examples
- * ------------------------------------------------------------------------------- */
+ */
 
 export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryComponentProps> =
   {
@@ -75,108 +98,109 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
     },
   };
 
-/** -----------------------------------------------------------------------------
+/**
  * Appearance
- * ------------------------------------------------------------------------------- */
+ */
 
-export const Appearance = {
+export const Appearance: StoryObj<StoryComponentProps> = {
   render: TemplateAllAppearances,
   name: "appearance",
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Color
- * ------------------------------------------------------------------------------- */
+ */
 
-export const ColorAccent = {
+export const IntentGood: StoryObj<StoryComponentProps> = {
   render: TemplateAllAppearances,
-  name: "color/default",
-  args: { color: "default", children: "Default" },
+  name: "intent/good",
+  args: { intent: "good" },
   parameters: {
     layout: "fullscreen",
   },
-  decorators: [StoryWithDecorators],
+  decorators: [WithDarkLightMode],
 };
-export const ColorGreen = {
+export const IntentBad: StoryObj<StoryComponentProps> = {
   render: TemplateAllAppearances,
-  name: "color/green",
-  args: { color: "green", children: "Green" },
+  name: "intent/bad",
+  args: { intent: "bad" },
   parameters: {
     layout: "fullscreen",
   },
-  decorators: [StoryWithDecorators],
-};
-export const ColorRed = {
-  render: TemplateAllAppearances,
-  name: "color/red",
-  args: { color: "red", children: "Red" },
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [StoryWithDecorators],
+  decorators: [WithDarkLightMode],
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Customisation examples
- * ------------------------------------------------------------------------------- */
+ */
 
-export const CustomisationMargin = {
+export const CustomisationMargin: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "customisation/margin",
-  args: { margin: "spacing5" },
+  args: { margin: "spacing5", children: "Click me" },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Size
- * ------------------------------------------------------------------------------- */
+ */
 
-export const SizeSm = {
+export const SizeSm: StoryObj<StoryComponentProps> = {
   name: "size/sm",
   render: Template,
-  args: { size: "sm" },
+  args: { size: "sm", children: "Small" },
 };
-export const SizeMd = {
+export const SizeMd: StoryObj<StoryComponentProps> = {
   name: "size/md",
   render: Template,
-  args: { size: "md" },
+  args: { size: "md", children: "Medium" },
 };
-export const SizeLg = {
+export const SizeLg: StoryObj<StoryComponentProps> = {
   name: "size/lg",
   render: Template,
-  args: { size: "lg" },
+  args: { size: "lg", children: "Large" },
+};
+export const SizeSquare: StoryObj<StoryComponentProps> = {
+  name: "size/lg",
+  render: Template,
+  args: { size: "square", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Slot props
- * ------------------------------------------------------------------------------- */
+ */
 
-export const SlotLeftIcon = {
+export const SlotLeftIcon: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "slotLeft/icon",
-  args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
+  args: {
+    children: "Click me",
+    slotLeft: <Icon icon={faTriangleCircleSquare} />,
+  },
 };
-export const SlotRightLoader = {
+export const SlotRightLoader: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "slotRight/loader",
-  args: { slotRight: <Loader /> },
+  args: { children: "Click me", slotRight: <Loader /> },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * State
- * ------------------------------------------------------------------------------- */
+ */
 
-export const StateHover = {
+export const StateHover: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "state/hover",
-  // parameters: { pseudo: { hover: true } },
+  parameters: { pseudo: { hover: true } },
+  args: { children: "Hover" },
 };
-export const StateFocusVisible = {
+export const StateFocusVisible: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "state/focus-visible",
-  // parameters: { pseudo: { focusVisible: true } },
+  parameters: { pseudo: { focusVisible: true } },
+  args: { children: "Hover" },
 };
-export const StateDisabled = {
+export const StateDisabled: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "state/disabled",
-  args: { disabled: true },
+  args: { disabled: true, children: "Disabled" },
 };

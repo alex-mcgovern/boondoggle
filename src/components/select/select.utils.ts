@@ -8,9 +8,9 @@ import type {
   UseMultipleSelectionProps,
 } from "downshift";
 
-/** -----------------------------------------------------------------------------
+/**
  * Util function that can be used to determine if an item is selected in a dropdown.
- * ------------------------------------------------------------------------------- */
+ */
 
 export interface GetIsItemSelectedArgs {
   item: DropdownItemShape | undefined | null;
@@ -41,9 +41,9 @@ export const getIsSelected = ({
   return false;
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Util to filter dropdown items based on `inputValue`
- * ------------------------------------------------------------------------------- */
+ */
 
 export interface GetFilteredDropdownItemsArgs {
   /** An array of dropdown items */
@@ -67,9 +67,9 @@ export function getFilteredDropdownItems({
   });
 }
 
-/** -----------------------------------------------------------------------------
+/**
  * Util to get the display value for a dropdown when we are using `useMultipleSelection`
- * ------------------------------------------------------------------------------- */
+ */
 
 interface GetDisplayValueArgs {
   originalValue: string;
@@ -87,9 +87,9 @@ export const getDisplayValue = ({
   return originalValue;
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Util to get the default highlighted index for a dropdown
- * ------------------------------------------------------------------------------- */
+ */
 
 interface GetDefaultHighlightedIndexArgs {
   items: Array<DropdownItemShape>;
@@ -105,9 +105,9 @@ export const getDefaultHighlightedIndex = ({
   });
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * React state reducer to determine the currently selected item
- * ------------------------------------------------------------------------------- */
+ */
 
 /**
  * Maintains the state of the `Select` component, is passed to downshift as the `stateReducer` prop.

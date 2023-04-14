@@ -1,8 +1,7 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/addon-docs";
 import LinkTo from "@storybook/addon-links/react";
 
 import { Box } from ".";
-import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
 import * as stories from "./box.stories.tsx";
 
 <Meta of={stories} />
@@ -85,5 +84,5 @@ typically build a component like this in the component library.
 
 # Props
 
-<ArgsTable of={Box} />
+<ArgTypes of={Box} />
 ```

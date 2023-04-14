@@ -3,10 +3,10 @@ import { faGlobeEurope } from "@fortawesome/free-solid-svg-icons";
 import { jest } from "@storybook/jest";
 import React from "react";
 
+import { SelectSingle as StoryComponent } from ".";
 import { Icon } from "../icon";
-import { SelectSingle as StoryComponent } from "./select_single.component";
 
-import type { SelectSingleProps as StoryComponentProps } from "./select_single.component";
+import type { SelectSingleProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
@@ -73,9 +73,9 @@ export const Default: StoryObj<StoryComponentProps> = {
 // const SECOND_ITEM_LABEL = SECOND_ITEM?.label || "";
 
 // /**
-//  * ------------------------------------------------------------------------------
+//  * -
 //  * Multi select
-//  * ------------------------------------------------------------------------------
+//  * -
 //  */
 
 // export const SelectMulti = Template.bind({});
@@ -120,9 +120,9 @@ export const Default: StoryObj<StoryComponentProps> = {
 // };
 
 // /**
-//  * ------------------------------------------------------------------------------
+//  * -
 //  * Multi-select filterable
-//  * ------------------------------------------------------------------------------
+//  * -
 //  */
 
 // export const Filterable = Template.bind({});

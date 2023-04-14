@@ -23,17 +23,17 @@ describe("<Button />", () => {
     it("should render text passed as children", () => {
       const { getByText } = render(
         <Button id="button" name="Test button">
-          {LOREM.button_text}
+          {LOREM.button}
         </Button>
       );
 
-      expect(getByText(LOREM.button_text)).not.toBeNull();
+      expect(getByText(LOREM.button)).not.toBeNull();
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * a11y labelling
-   * ----------------------------------------------------------------------------- */
+   */
 
   describe("a11y labelling", () => {
     it("Given a button, when an id is provided, should assign it to the button html element", () => {
@@ -61,9 +61,9 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * as prop (polymorphism)
-   * ----------------------------------------------------------------------------- */
+   */
 
   describe("as prop (polymorphism)", () => {
     it("should render a button element by default", () => {
@@ -88,7 +88,7 @@ describe("<Button />", () => {
           as="a"
           href="https://www.google.com"
         >
-          {LOREM.link_text}
+          {LOREM.link}
         </Button>
       );
 
@@ -103,7 +103,7 @@ describe("<Button />", () => {
           name="Test button"
           as={Link}
         >
-          {LOREM.link_text}
+          {LOREM.link}
         </Button>
       );
 
@@ -111,9 +111,9 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * `appearance` prop
-   * ----------------------------------------------------------------------------- */
+   */
 
   describe("`appearance` prop", () => {
     it("should have the primary class name by default", () => {
@@ -155,9 +155,9 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * `color` prop
-   * ------------------------------------------------------------------------------- */
+   */
 
   describe("`color` prop", () => {
     it("should have the bad color class name when color = bad", () => {
@@ -177,9 +177,9 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * `className` prop
-   * ------------------------------------------------------------------------------- */
+   */
 
   describe("`className` prop", () => {
     it("should have the classname passed to it", () => {
@@ -191,15 +191,15 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * Event handlers
-   * ----------------------------------------------------------------------------- */
+   */
 
   describe("Event handlers", () => {
     describe("`onClick`", () => {
-      /** ---------------------------------------------
+      /**
        * onClick
-       * ----------------------------------------------- */
+       */
 
       it("should call `onClick` when enabled", async () => {
         const onClick = jest.fn();
@@ -226,9 +226,9 @@ describe("<Button />", () => {
       });
     });
 
-    /** ---------------------------------------------
+    /**
      * onMouseOver
-     * ----------------------------------------------- */
+     */
 
     describe("`onMouseOver`", () => {
       it("should call `onMouseOver` when enabled", () => {
@@ -261,9 +261,9 @@ describe("<Button />", () => {
       });
     });
 
-    /** ---------------------------------------------
+    /**
      *  onMouseLeave
-     * ----------------------------------------------- */
+     */
 
     describe("`onMouseLeave`", () => {
       it("should call `onMouseLeave` when enabled", () => {
@@ -296,9 +296,9 @@ describe("<Button />", () => {
       });
     });
 
-    /** ---------------------------------------------
+    /**
      * onFocus
-     * ----------------------------------------------- */
+     */
 
     describe("`onFocus`", () => {
       it("should call `onFocus` when enabled", () => {
@@ -332,9 +332,9 @@ describe("<Button />", () => {
       });
     });
 
-    /** ---------------------------------------------
+    /**
      * onBlur
-     * ----------------------------------------------- */
+     */
 
     describe("`onBlur`", () => {
       it("should call `onBlur` when enabled", () => {
@@ -367,9 +367,9 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * Size prop
-   * ----------------------------------------------------------------------------- */
+   */
 
   describe("`size` prop", () => {
     it("should have the `md` class name by default", () => {
@@ -403,9 +403,9 @@ describe("<Button />", () => {
     });
   });
 
-  /** -----------------------------------------------------------------------------
+  /**
    * Slot props
-   * ----------------------------------------------------------------------------- */
+   */
 
   describe("Slot props", () => {
     it("should render node passed to `slotLeft`", () => {

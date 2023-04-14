@@ -27,12 +27,12 @@ export {
   type SharedUiScale,
 } from "./styles/common/globalVariantsUiScale.css";
 
-/** -----------------------------------------------------------------------------
+/**
  * React components
- * ------------------------------------------------------------------------------- */
+ */
 
-export { Box } from "./components/box_component";
-export type { BoxProps } from "./components/box_component";
+export { Box } from "./components/box";
+export type { BoxProps } from "./components/box";
 
 export { Button } from "./components/button";
 export type { ButtonProps } from "./components/button";
@@ -94,12 +94,12 @@ export type { TooltipProps } from "./components/tooltip";
 export { TextArea } from "./components/text_area";
 export type { TextAreaProps } from "./components/text_area";
 
-/** -----------------------------------------------------------------------------
+/**
  * React context
- * ------------------------------------------------------------------------------- */
+ */
 
 export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
 
-/** -----------------------------------------------------------------------------
+/**
  * Styles
- * ------------------------------------------------------------------------------- */
+ */

@@ -2,8 +2,8 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import * as RadixPopover from "@radix-ui/react-popover";
 import React from "react";
 
-import { Box } from "../box_component";
-import { Card } from "../card/card.component";
+import { Box } from "../box";
+import { Card } from "../card";
 import { Icon } from "../icon";
 import * as styles from "./tooltip.styles.css";
 
@@ -21,8 +21,8 @@ export function Tooltip({ popoverText, icon = faInfoCircle }: TooltipProps) {
         <Icon icon={icon} />
       </RadixPopover.Trigger>
 
-      <RadixPopover.Content sideOffset={1} side="top">
-        <Card maxWidth="gridSpan5" padding="spacing3">
+      <RadixPopover.Content sideOffset={1} side="bottom">
+        <Card maxWidth="gridSpan5" padding="spacing1">
           <Box>{popoverText}</Box>
         </Card>
       </RadixPopover.Content>

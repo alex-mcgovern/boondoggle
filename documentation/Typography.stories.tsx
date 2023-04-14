@@ -1,7 +1,7 @@
 import React from "react";
 
 import { LOREM } from "../mocks/LOREM.mock";
-import { Box } from "../src/components/box_component";
+import { Box } from "../src/components/box";
 
 import type { ComponentMeta } from "@storybook/react";
 
@@ -13,12 +13,12 @@ export default {
 export function Typography() {
   return (
     <Box>
-      <Box as="h1">H1 {LOREM.title_short}</Box>
-      <Box as="h2">H2 {LOREM.title_short}</Box>
-      <Box as="h3">H3 {LOREM.title_short}</Box>
-      <Box as="h4">H4 {LOREM.title_short}</Box>
-      <Box as="h5">H5 {LOREM.title_short}</Box>
-      <Box as="h6">H6 {LOREM.title_short}</Box>
+      <Box as="h1">H1 {LOREM.text_xxs}</Box>
+      <Box as="h2">H2 {LOREM.text_xxs}</Box>
+      <Box as="h3">H3 {LOREM.text_xxs}</Box>
+      <Box as="h4">H4 {LOREM.text_xxs}</Box>
+      <Box as="h5">H5 {LOREM.text_xxs}</Box>
+      <Box as="h6">H6 {LOREM.text_xxs}</Box>
 
       <Box as="p">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis

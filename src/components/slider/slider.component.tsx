@@ -4,12 +4,14 @@ import {
   Thumb as RadixSliderThumb,
   Track as RadixSliderTrack,
 } from "@radix-ui/react-slider";
+import clsx from "clsx";
 import React, { forwardRef } from "react";
 
-import { Box } from "../box_component";
+import { getTheme } from "../../styles/theme.css";
+import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
+import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./slider.styles.css";
 
 import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
@@ -62,7 +64,7 @@ export const Slider = forwardRef(
     ref: Ref<HTMLSpanElement>
   ) => {
     return (
-      <Box marginBottom="spacing2">
+      <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
         {label && id && <Label label={label} htmlFor={id} />}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>

@@ -12,7 +12,7 @@ export const cardStyle = style([
     display: "block",
     isolation: "isolate",
     textDecoration: "none",
-    background: "tint",
+    background: "tint_default",
     border: "border_default",
     borderRadius: "md",
   }),

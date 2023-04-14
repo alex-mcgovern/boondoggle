@@ -37,7 +37,7 @@ export const dialogContent = style([
     isolation: "isolate",
     overflow: "hidden",
     textDecoration: "none",
-    background: "tint",
+    background: "tint_default",
     border: "border_default",
     borderRadius: "md",
     boxShadow: "lg",

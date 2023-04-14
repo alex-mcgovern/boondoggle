@@ -1,7 +1,6 @@
-import { ArgsTable, Canvas, Controls, Meta, Story } from "@storybook/blocks";
+import { ArgTypes, Canvas, Controls, Meta, Story } from "@storybook/blocks";
 
 import { Button } from ".";
-import { getFontAwesomeControls } from "../../../.storybook/utils/get_storybook_controls_font_awesome";
 import { Box } from "../box";
 import * as stories from "./button.stories.tsx";
 
@@ -9,7 +8,7 @@ import * as stories from "./button.stories.tsx";
 
 # Button
 
-<Story of={stories.Default} />
+<Canvas of={stories.Default} />
 
 `Button` is a simple wrapper around the html5 `button` element, with support for
 style variants, quick customisation via `getSprinkles` and an `as` prop that
@@ -20,12 +19,12 @@ custom `Link` component instead of the normal `<button>` element.).
 
 ### `appearance` prop
 
-<ArgsTable of={Button} include={["appearance"]} />
+<ArgTypes of={Button} include={["appearance"]} />
 <Canvas of={stories.Appearance} />
 
 ### `as` (polymorphism)
 
-<ArgsTable of={Button} include={["as"]} />
+<ArgTypes of={Button} include={["as"]} />
 
 `Button` is a polymorphic component that accepts an `as` prop to change the
 underlying HTML element. You can pass the name of a generic HTML element, or you
@@ -47,37 +46,36 @@ custom Link component, similar to the one provided by frameworks like
   <Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
 </Box>
 
-### `color`
+### `intent`
 
-<ArgsTable of={Button} include={["color"]} />
-<Story of={stories.ColorAccent} />
-<Story of={stories.ColorGreen} />
-<Story of={stories.ColorRed} />
+<ArgTypes of={Button} include={["intent"]} />
+<Canvas of={stories.IntentGood} />
+<Canvas of={stories.IntentBad} />
 
 ### `size `
 
-<ArgsTable of={Button} include={["size"]} />
+<ArgTypes of={Button} include={["size"]} />
 
-<Box display="grid" gridTemplateColumns="3x" gap="spacing3">
-  <Canvas sourceState="shown" of={stories.SizeSm} />
-  <Canvas sourceState="shown" of={stories.SizeMd} />
-  <Canvas sourceState="shown" of={stories.SizeLg} />
+<Box display="grid" gridTemplateColumns="4x" gap="spacing3">
+  <Canvas of={stories.SizeSm} />
+  <Canvas of={stories.SizeMd} />
+  <Canvas of={stories.SizeLg} />
+  <Canvas of={stories.SizeSquare} />
 </Box>
 
 ### "slot" props
 
-<ArgsTable of={Button} include={["slotLeft", "slotRight"]} />
+<ArgTypes of={Button} include={["slotLeft", "slotRight"]} />
 
 To allow more fine-grained control over the bundling of dependencies, the
 `Button` component does not include any icon library. Instead, it accepts a
 `slotLeft` and `slotRight` prop, which can be used to render any React node
 inside the button, on the corresponding side.
 
- <Box display="grid" gridTemplateColumns="2x" gap="spacing3">
-
-<Canvas sourceState="shown" of={stories.SlotLeftIcon} />
-<Canvas sourceState="shown" of={stories.SlotRightLoader} />
- </Box>
+<Box display="grid" gridTemplateColumns="2x" gap="spacing3">
+  <Canvas sourceState="shown" of={stories.SlotLeftIcon} />
+  <Canvas sourceState="shown" of={stories.SlotRightLoader} />
+</Box>
 
 ### Customisation
 
@@ -103,4 +101,4 @@ selectors
 
 # Reference
 
-<ArgsTable of={Button} />
+<ArgTypes of={Button} />

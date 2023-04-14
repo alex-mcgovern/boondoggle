@@ -4,9 +4,9 @@ import React from "react";
 import { InputErrorMessage as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Icon } from "../icon";
-import { Input } from "../input/input.component";
+import { Input } from "../input";
 
-import type { InputProps } from "../input/input.component";
+import type { InputProps } from "../input";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
@@ -15,7 +15,7 @@ export default {
 };
 
 const InputWithError: StoryFn<InputProps> = ({ ...rest }) => {
-  return <Input invalid errorMessage={LOREM.text_short} {...rest} />;
+  return <Input invalid errorMessage={LOREM.text_md} {...rest} />;
 };
 
 export const Default: StoryObj<InputProps> = {

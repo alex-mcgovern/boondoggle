@@ -1,11 +1,13 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import clsx from "clsx";
 import { useCombobox } from "downshift";
 import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import { Popover } from "react-tiny-popover";
 
+import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box_component";
+import { Box } from "../box";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
@@ -26,10 +28,10 @@ import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 
 /**
- * ------------------------------------------------------------------------------
+ * -
  * Util function for transforming a dropdown item into a string (for use as a `value` for {@link Input}).
  * Can be overridden by passing a custom `itemToString` prop to the `SelectSingle` component.
- * ------------------------------------------------------------------------------
+ * -
  */
 
 const defaultItemToString = (item: DropdownItemShape | null) => {
@@ -97,9 +99,9 @@ export const SelectSingle = forwardRef(
     const [inputValue, setInputValue] = useState("");
 
     /**
-     * ------------------------------------------------------------------------------
+     * -
      * When `isFilterable` is true, we need to filter the items based on the input value.
-     * ------------------------------------------------------------------------------
+     * -
      */
 
     const filteredItems = useMemo(() => {
@@ -172,7 +174,10 @@ export const SelectSingle = forwardRef(
     );
 
     return (
-      <Box {...rest}>
+      <Box
+        className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        {...rest}
+      >
         {label && <Label htmlFor={id} label={label} />}
         <Popover
           isOpen={isOpen}

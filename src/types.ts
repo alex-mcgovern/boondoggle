@@ -5,9 +5,9 @@ import type {
   PropsWithChildren,
 } from "react";
 
-/** -----------------------------------------------------------------------------
+/**
  * Polymorphic component types
- * ------------------------------------------------------------------------------- */
+ */
 
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**

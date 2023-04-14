@@ -5,9 +5,10 @@ import {
 import React from "react";
 
 import { Box, Box as StoryComponent } from ".";
+import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
-import { StoryWithDecorators } from "../../../test/story_with_decorators";
+import { getTheme } from "../../styles/theme.css";
 import { Icon } from "../icon";
 
 import type { BoxProps as StoryComponentProps } from ".";
@@ -26,14 +27,14 @@ const Template: StoryFn<StoryComponentProps> = ({
   return <StoryComponent {...rest}>{children}</StoryComponent>;
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Polymorphism examples
- * ------------------------------------------------------------------------------- */
+ */
 
 export const ExamplePolymorphismListItems: StoryObj<StoryComponentProps> = {
   name: "as/ul_li",
   render: Template,
-  decorators: [StoryWithDecorators],
+
   args: {
     as: "ul",
     children: [
@@ -55,15 +56,15 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
     },
   };
 
-/** -----------------------------------------------------------------------------
+/**
  * Basic styling examples
- * ------------------------------------------------------------------------------- */
+ */
 
 const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
   padding: "spacing3",
   border: "border_default",
   borderRadius: "sm",
-  background: "tint",
+  background: "tint_default",
 };
 
 export const ExampleBasicSprinkles: StoryObj<StoryComponentProps> = {
@@ -71,7 +72,7 @@ export const ExampleBasicSprinkles: StoryObj<StoryComponentProps> = {
   render: Template,
   args: {
     ...BASIC_SPRINKLES_PROPS,
-    children: LOREM.title_short,
+    children: LOREM.text_xxs,
   },
 };
 
@@ -100,27 +101,27 @@ export const ExampleEscapeHatchStyles: StoryObj<StoryComponentProps> = {
     __borderRadius: "0.5rem",
     __background: "#BA55D330",
     __fontWeight: "bold",
-    children: LOREM.title_short,
+    children: LOREM.text_xxs,
   },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Advanced usage examples
- * ------------------------------------------------------------------------------- */
+ */
 
 export const BoxAsInfoCard: StoryObj<StoryComponentProps> = {
   name: "example/box_as_info_card",
   render: Template,
   args: {
-    background: "tint",
+    background: "tint_default",
     border: "border_default",
     borderRadius: "sm",
     padding: "spacing3",
     children: [
       <StoryComponent as="h3" fontSize="body_lg" fontWeight="bold">
-        {LOREM.title_short}
+        {LOREM.text_xxs}
       </StoryComponent>,
-      <StoryComponent as="p">{LOREM.title_long}</StoryComponent>,
+      <StoryComponent as="p">{LOREM.text_md}</StoryComponent>,
     ],
   },
 };
@@ -128,6 +129,10 @@ export const BoxAsInfoCard: StoryObj<StoryComponentProps> = {
 export const BoxAsWarning: StoryObj<StoryComponentProps> = {
   name: "example/box_as_warning",
   render: Template,
+  parameters: {
+    layout: "fullscreen",
+  },
+  decorators: [WithDarkLightMode],
   args: {
     borderRadius: "sm",
     border: "border_default",
@@ -135,7 +140,8 @@ export const BoxAsWarning: StoryObj<StoryComponentProps> = {
     alignItems: "start",
     padding: "spacing3",
     gap: "spacing3",
-    background: "tint",
+    background: "tint_default",
+    className: getTheme({ intent: "bad" }),
     children: [
       <Icon size="xl" icon={faExclamationCircle} color="text_low_contrast" />,
       <StoryComponent>
@@ -145,9 +151,9 @@ export const BoxAsWarning: StoryObj<StoryComponentProps> = {
           fontWeight="bold"
           color="text_low_contrast"
         >
-          {LOREM.title_short}
+          {LOREM.text_xxs}
         </StoryComponent>
-        <StoryComponent as="p">{LOREM.text_short}</StoryComponent>
+        <StoryComponent as="p">{LOREM.text_md}</StoryComponent>
       </StoryComponent>,
     ],
   },
@@ -155,6 +161,10 @@ export const BoxAsWarning: StoryObj<StoryComponentProps> = {
 export const BoxAsConfirmation: StoryObj<StoryComponentProps> = {
   name: "example/box_as_confirmation",
   render: Template,
+  parameters: {
+    layout: "fullscreen",
+  },
+  decorators: [WithDarkLightMode],
   args: {
     borderRadius: "sm",
     border: "border_default",
@@ -162,7 +172,8 @@ export const BoxAsConfirmation: StoryObj<StoryComponentProps> = {
     alignItems: "start",
     padding: "spacing3",
     gap: "spacing3",
-    background: "tint",
+    background: "tint_default",
+    className: getTheme({ intent: "good" }),
     children: [
       <Icon size="xl" icon={faCheckCircle} color="text_low_contrast" />,
       <StoryComponent>
@@ -172,10 +183,10 @@ export const BoxAsConfirmation: StoryObj<StoryComponentProps> = {
           fontWeight="bold"
           color="text_low_contrast"
         >
-          {LOREM.title_short}
+          {LOREM.text_xxs}
         </StoryComponent>
         <StoryComponent as="p" color="text_high_contrast">
-          {LOREM.text_short}
+          {LOREM.text_md}
         </StoryComponent>
       </StoryComponent>,
     ],
@@ -190,13 +201,13 @@ export const BoxAsGridLayout: StoryObj<StoryComponentProps> = {
     gridTemplateColumns: "3x",
     gap: "spacing3",
     children: [
-      <StoryComponent background="tint" padding="spacing3">
+      <StoryComponent background="tint_default" padding="spacing3">
         Content 1
       </StoryComponent>,
-      <StoryComponent background="tint" padding="spacing3">
+      <StoryComponent background="tint_default" padding="spacing3">
         Content 2
       </StoryComponent>,
-      <StoryComponent background="tint" padding="spacing3">
+      <StoryComponent background="tint_default" padding="spacing3">
         Content 3
       </StoryComponent>,
     ],

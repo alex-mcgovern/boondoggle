@@ -4,11 +4,12 @@ import React, { forwardRef } from "react";
 
 import { globalErrorStyles } from "../../styles/common/globalErrorStyles.css";
 import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box_component";
+import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
+import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./input.styles.css";
 
 import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
@@ -61,7 +62,7 @@ export const Input = forwardRef(
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
-      <Box>
+      <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
         {label && id && <Label label={label} htmlFor={id} />}
 
         <SlotWrapper {...atomProps} slotLeft={slotLeft} slotRight={slotRight}>

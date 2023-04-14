@@ -3,11 +3,12 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { globalErrorStyles } from "../../styles/common/globalErrorStyles.css";
+import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box_component";
+import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { SlotWrapper } from "../slot_wrapper/slot_wrapper.component";
+import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./text_area.styles.css";
 
 import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
@@ -19,9 +20,9 @@ export interface TextAreaProps
     Omit<React.ComponentPropsWithoutRef<"textarea">, "color" | "ref"> {
   size?: SharedUiScale;
   name: string;
-  /** React node shown on the left side of input. */
+  /** React node shown on the left side of text area. */
   slotLeft?: React.ReactNode;
-  /** React node shown on the right side of input. */
+  /** React node shown on the right side of text area. */
   slotRight?: React.ReactNode;
   errorMessage?: string;
   invalid?: boolean;
@@ -50,7 +51,7 @@ export const TextArea = forwardRef(
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
-      <Box>
+      <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
         {label && id && <Label label={label} htmlFor={id} />}
 
         <SlotWrapper

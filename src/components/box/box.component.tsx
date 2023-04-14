@@ -14,7 +14,7 @@ import type { ComponentPropsWithoutRef } from "react";
  */
 export const Box = createBox({
   atoms: getSprinkles,
-  // defaultClassName: getSprinkles({ color: "text_high_contrast" }),
+  defaultClassName: getSprinkles({ color: "text_high_contrast" }),
 });
 
 export type BoxProps = ComponentPropsWithoutRef<typeof Box> & SprinklesArgs;

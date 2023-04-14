@@ -3,7 +3,7 @@ import React from "react";
 import { Card as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
-import { Box } from "../box_component";
+import { Box } from "../box";
 
 import type { CardProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -22,14 +22,14 @@ const Template: StoryFn<StoryComponentProps> = ({
       <Box as="h3" fontSize="body_lg" fontWeight="bold">
         {children}
       </Box>
-      <Box as="p">{LOREM.title_long}</Box>
+      <Box as="p">{LOREM.text_md}</Box>
     </StoryComponent>
   );
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Polymorphism examples
- * ------------------------------------------------------------------------------- */
+ */
 
 export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryComponentProps> =
   {
@@ -53,15 +53,15 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
     },
   };
 
-/** -----------------------------------------------------------------------------
+/**
  * Basic styling examples
- * ------------------------------------------------------------------------------- */
+ */
 
 export const ExampleBasicSprinkles: StoryObj<StoryComponentProps> = {
   name: "example/basic_sprinkles",
   render: Template,
   args: {
     padding: "spacing5",
-    children: LOREM.title_short,
+    children: LOREM.text_xxs,
   },
 };

@@ -54,7 +54,7 @@ export const sliderTrack = style([
 export const sliderRange = style([
   getSprinkles({
     position: "absolute",
-    background: "tint",
+    background: "button_default",
     borderRadius: "pill",
     height: "100%",
   }),
@@ -66,7 +66,7 @@ export const sliderThumb = style([
     width: "spacing3",
     height: "spacing3",
 
-    background: "tint",
+    background: "tint_default",
     border: "border_active",
     boxShadow: "sm",
     borderRadius: "50%",

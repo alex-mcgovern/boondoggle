@@ -6,12 +6,11 @@ import { globalDisabledStyles } from "../../styles/common/globalDisabledStyles.c
 import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
 import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
-/** -----------------------------------------------------------------------------
+/**
  * Button theme
  *
  * Describes the values that can be used to theme the button,
@@ -19,13 +18,13 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
  * {@link variantAppearance} we re-assign these values as
  * needed to create the different variants of the button, then
  * consume them in {@link getButtonStyles}.
- * ------------------------------------------------------------------------------- */
+ */
 
-/** -----------------------------------------------------------------------------
+/**
  * Button appearance variants
  *
  * These are the different variants of the button, (e.g. primary, secondary, etc.)
- * ------------------------------------------------------------------------------- */
+ */
 
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
   justifyContent: "center",
@@ -59,7 +58,7 @@ export const variantAppearance = styleVariants({
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: vars.color.button_active,
-          background: vars.color.tint,
+          background: vars.color.tint_default,
         },
       },
     },
@@ -85,7 +84,7 @@ export const variantAppearance = styleVariants({
 
 export type Appearance = keyof typeof variantAppearance;
 
-/** -----------------------------------------------------------------------------
+/**
  * Button recipe function
  *
  * This is the main function that returns the styles for the button,
@@ -93,7 +92,7 @@ export type Appearance = keyof typeof variantAppearance;
  * as arguments, which are then exposed as top-level props on the Button component.
  *
  * See: https://vanilla-extract.style/documentation/packages/recipes/
- * ------------------------------------------------------------------------------- */
+ */
 
 export const getButtonStyles = recipe({
   base: [
@@ -106,10 +105,10 @@ export const getButtonStyles = recipe({
       alignItems: "center",
       textDecoration: "none",
     }),
-    createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.short} ease-out,\
-                   background ${vars.transitionDuration.short} ease-out`,
-    }),
+    // createAccessibleTransition({
+    //   transition: `color ${vars.transitionDuration.short} ease-in,\
+    //                background ${vars.transitionDuration.short} ease-in`,
+    // }),
   ],
   variants: {
     appearance: variantAppearance,
@@ -117,8 +116,8 @@ export const getButtonStyles = recipe({
       square: [
         getSprinkles({
           fontStyle: "body_lg",
-          height: "spacing5",
-          width: "spacing5",
+          height: "spacing6",
+          width: "spacing6",
         }),
       ],
       ...globalVariantsUiScale,

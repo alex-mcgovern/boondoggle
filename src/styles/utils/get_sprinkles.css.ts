@@ -8,9 +8,9 @@ import { vars } from "../theme.css";
 import { varsBorder } from "../vars/vars_border.css";
 import { varsDisplay } from "../vars/vars_display.css";
 
-/** -----------------------------------------------------------------------------
+/**
  * Util function for extracting color vars for use with a sprinkles property
- * ------------------------------------------------------------------------------- */
+ */
 
 export const sprinklesProperties = defineProperties({
   properties: {
@@ -35,7 +35,8 @@ export const sprinklesProperties = defineProperties({
     alignItems: ["stretch", "start", "center", "end"],
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     flexWrap: ["wrap", "nowrap"],
-    flexShrink: ["0"],
+    flexGrow: ["0", "1"],
+    flexShrink: ["0", "1"],
     gap: vars.spacing,
     justifyContent: [
       "stretch",
@@ -115,10 +116,10 @@ export const getSprinkles = createSprinkles(
 
 export type SprinklesArgs = Parameters<typeof getSprinkles>[0];
 
-/** -----------------------------------------------------------------------------
+/**
  * Export subtypes of SprinklesArgs for quickly
  * extending style customisations in components.
- * ------------------------------------------------------------------------------- */
+ */
 
 export type SprinklesMargin = Pick<
   SprinklesArgs,

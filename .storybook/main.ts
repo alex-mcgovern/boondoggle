@@ -5,11 +5,11 @@ import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
   addons: [
-    "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "storybook-addon-pseudo-states",
+    "@storybook/addon-links",
     "@storybook/addon-mdx-gfm",
+    "storybook-addon-pseudo-states",
   ],
   docs: {
     autodocs: true,

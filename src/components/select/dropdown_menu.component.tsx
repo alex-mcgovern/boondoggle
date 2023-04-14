@@ -3,7 +3,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box_component";
+import { Box } from "../box";
 import { DropdownItem } from "./dropdown_item.component";
 import * as styles from "./select.styles.css";
 
@@ -18,11 +18,11 @@ import type {
 import type { LegacyRef } from "react";
 
 /**
- * ------------------------------------------------------------------------------
+ * -
  * Util function to get props for individual dropdown items
  * May conditionally call `getItemProps` or `getSelectedItemProps` depending on
  * whether `isMulti` is true, and whether the item is selected or not
- * ------------------------------------------------------------------------------
+ * -
  */
 
 interface GetDropdownItemPropsArgs
@@ -68,9 +68,9 @@ export const getDropdownItemProps = ({
 };
 
 /**
- * ------------------------------------------------------------------------------
+ * -
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMultiple`
- * ------------------------------------------------------------------------------
+ * -
  */
 
 export interface DropdownMenuProps extends SprinklesArgs {

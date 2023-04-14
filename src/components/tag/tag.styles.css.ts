@@ -10,7 +10,7 @@ export const variantTagState = styleVariants({
   inactive: [
     {
       color: vars.color.text_low_contrast,
-      background: vars.color.tint,
+      background: vars.color.tint_default,
       borderColor: vars.color.border_default,
 
       selectors: {
@@ -26,7 +26,7 @@ export const variantTagState = styleVariants({
   active: [
     {
       color: vars.color.text_low_contrast,
-      background: vars.color.tint,
+      background: vars.color.tint_default,
       borderColor: vars.color.border_active,
 
       selectors: {
@@ -46,9 +46,8 @@ export const getTagStyle = recipe({
     getSprinkles({
       alignItems: "center",
       border: "border_active",
-      borderRadius: "pill",
-      display: "flex",
-      flexShrink: "0",
+      borderRadius: "sm",
+      display: "inline-flex",
       fontStyle: "body_sm",
       gap: "spacing0",
       paddingX: "spacing1",

@@ -1,7 +1,7 @@
-/** -----------------------------------------------------------------------------
+/**
  * Util to generate Storybook controls for all
  * FontAwesome related props and group them in the UI.
- * ------------------------------------------------------------------------------- */
+ */
 import {
   faArrowRight,
   faTriangleCircleSquare,

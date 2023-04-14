@@ -61,9 +61,9 @@ export const dropdownListWrapper = style([
 ]);
 
 /**
- * ------------------------------------------------------------------------------
+ * -
  * Dropdown item styles
- * ------------------------------------------------------------------------------
+ * -
  */
 
 export const getDropdownItemStyles = recipe({

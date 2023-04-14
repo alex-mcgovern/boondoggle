@@ -6,16 +6,13 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 
-import { getTheme } from "../../styles/theme.css";
+import { variantIntent } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import * as styles from "./button.styles.css";
 
 import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
 import type { Intent } from "../../styles/theme.css";
-import type {
-  SprinklesArgs,
-  SprinklesMargin,
-} from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
@@ -26,17 +23,16 @@ import type {
   ReactElement,
 } from "react";
 
-type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesMargin &
-  Pick<SprinklesArgs, "display" | "maxWidth" | "minWidth" | "width"> &
+type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
       /** The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis. */
       appearance?: styles.Appearance;
-      /** The intent of the button to communicate intent. The default uses normal theme colors, green for positive actions, and red for negative actions. */
+      /** Use color to indicate beneficial, or potentially destructive actions. */
       intent?: Intent;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
-      size?: SharedUiScale;
+      size?: "square" | SharedUiScale;
       /** The React node shown in the button. */
       children?: React.ReactNode;
       /** The title for the button, shown in the UI. */
@@ -81,10 +77,10 @@ export const Button: ButtonComponent = forwardRef(
       <Component
         {...{
           className: clsx(
-            getTheme({ intent }),
             styles.getButtonStyles({ appearance, size }),
             getSprinkles(atomProps),
-            userClassName
+            userClassName,
+            intent ? variantIntent[intent] : undefined
           ),
           ref,
           type,

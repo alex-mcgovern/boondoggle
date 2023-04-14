@@ -17,9 +17,9 @@ const Template: StoryFn<StoryComponentProps> = ({
   return <StoryComponent placeholder={placeholder} name={name} {...rest} />;
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Customisation examples
- * ------------------------------------------------------------------------------- */
+ */
 
 export const CustomisationMargin: StoryObj<StoryComponentProps> = {
   render: Template,
@@ -27,9 +27,9 @@ export const CustomisationMargin: StoryObj<StoryComponentProps> = {
   args: { margin: "spacing5" },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Size
- * ------------------------------------------------------------------------------- */
+ */
 
 export const SizeSm: StoryObj<StoryComponentProps> = {
   name: "size/sm",
@@ -47,9 +47,9 @@ export const SizeLg: StoryObj<StoryComponentProps> = {
   args: { size: "lg" },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * Slot props
- * ------------------------------------------------------------------------------- */
+ */
 
 export const SlotLeftIcon: StoryObj<StoryComponentProps> = {
   render: Template,
@@ -67,9 +67,9 @@ export const SlotRightLoader: StoryObj<StoryComponentProps> = {
   args: { slotRight: <Loader /> },
 };
 
-/** -----------------------------------------------------------------------------
+/**
  * State
- * ------------------------------------------------------------------------------- */
+ */
 
 export const StateHover: StoryObj<StoryComponentProps> = {
   render: Template,

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box } from "../src/components/box_component";
+import { Box } from "../src/components/box";
 import { getTheme } from "../src/styles/theme.css";
 
 import type { StoryFn } from "@storybook/react";
@@ -37,7 +37,7 @@ function StoryWrapper({ Story, className, title }: StoryWrapperProps) {
 }
 const GRID_TEMPLATE_COLUMNS = { desktop: "2x", mobile: "1x" } as const;
 
-export function StoryWithDecorators(Story: StoryFn) {
+export function WithDarkLightMode(Story: StoryFn) {
   return (
     <Box
       width="100%"

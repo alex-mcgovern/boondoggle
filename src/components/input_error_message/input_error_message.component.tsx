@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box } from "../box_component";
+import { Box } from "../box";
 
 export interface InputErrorMessageProps {
   message?: string;

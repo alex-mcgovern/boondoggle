@@ -2,7 +2,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import React from "react";
 
-import { Box } from "../box_component";
+import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import * as styles from "./dialog.styles.css";
@@ -48,9 +48,9 @@ export function Dialog({
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className={styles.dialogOverlay} />
         <DialogPrimitive.Content className={styles.dialogContent}>
-          {/* ---------------------------------------------——
+          {/* ——
            * DIALOG HEADER
-           * ---------------------------------------------—— */}
+           * —— */}
           <Box
             display="flex"
             justifyContent="space-between"
@@ -65,12 +65,14 @@ export function Dialog({
             <DialogPrimitive.Close asChild>
               <Button
                 name="close"
-                size="md"
+                size="square"
+                marginLeft="auto"
+                flexGrow="0"
                 appearance="secondary"
                 slotLeft={CLOSE_BUTTON_ICON}
                 aria-label="Close"
                 type="button"
-                width="100%"
+                // width="100%"
               />
             </DialogPrimitive.Close>
           </Box>
@@ -79,9 +81,9 @@ export function Dialog({
             {description}
           </DialogPrimitive.Description>
 
-          {/* ---------------------------------------------——
+          {/* ——
            * DIALOG CONTENT
-           * ---------------------------------------------—— */}
+           * —— */}
 
           {children}
         </DialogPrimitive.Content>

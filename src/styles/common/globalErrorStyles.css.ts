@@ -1,9 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
-import { getTheme, vars } from "../theme.css";
+import { vars } from "../theme.css";
 
 export const globalErrorStyles = style([
-  getTheme({ intent: "bad" }),
   {
     borderColor: vars.color.border_active,
     selectors: {

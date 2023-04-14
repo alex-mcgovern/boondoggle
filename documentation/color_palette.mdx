@@ -1,34 +1,53 @@
-import { ColorItem, ColorPalette, Meta } from "@storybook/blocks";
+import { ColorItem, Meta } from "@storybook/blocks";
 
-import { vars } from "../src/styles/theme.css";
+import { Box } from "../src/components/box";
+import { getTheme, vars } from "../src/styles/theme.css";
+import { ColorPalette } from "./color_palette.component";
 
 <Meta title="Documentation/Color palette" />
 
 # Color palettes
 
-## Accent
+## Base color palette (light mode)
 
-<ColorPalette>
-  <ColorItem
-    title="vars.color.background"
-    subtitle="Background"
-    colors={vars.color.background}
-  />
-  <ColorItem
-    title="vars.color.border"
-    subtitle="Border"
-    colors={vars.color.border}
-  />
-  <ColorItem
-    title="vars.color.button_default"
-    subtitle="Button"
-    colors={vars.color.button_default}
-  />
-  <ColorItem
-    title="vars.color.surface"
-    subtitle="Surface"
-    colors={vars.color.surface}
-  />
-  <ColorItem title="vars.color.tint" subtitle="Tint" colors={vars.color.tint} />
-  <ColorItem title="vars.color.text" subtitle="Text" colors={vars.color.text} />
-</ColorPalette>
+<Box className={getTheme()}>
+  <ColorPalette />
+</Box>
+
+## Base color palette (dark mode)
+
+<Box className={getTheme({ darkMode: true })}>
+  <ColorPalette />
+</Box>
+
+## Intent: Good (light mode)
+
+<Box className={getTheme({ intent: "good" })}>
+  <ColorPalette>
+    <ColorPalette />
+  </ColorPalette>
+</Box>
+
+## Intent: Good (dark mode)
+
+<Box className={getTheme({ darkMode: true, intent: "good" })}>
+  <ColorPalette>
+    <ColorPalette />
+  </ColorPalette>
+</Box>
+
+## Intent: Bad (light mode)
+
+<Box className={getTheme({ intent: "bad" })}>
+  <ColorPalette>
+    <ColorPalette />
+  </ColorPalette>
+</Box>
+
+## Intent: Bad (dark mode)
+
+<Box className={getTheme({ darkMode: true, intent: "bad" })}>
+  <ColorPalette>
+    <ColorPalette />
+  </ColorPalette>
+</Box>

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 
-import { Box } from "../box_component";
+import { Box } from "../box";
 import * as styles from "./select.styles.css";
 
 import type { SharedUiScale } from "../..";

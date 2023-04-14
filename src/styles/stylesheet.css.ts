@@ -5,9 +5,9 @@ import "./reset.css";
 import { vars } from "./theme.css";
 import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
-/* -----------------------------------------------------------------------------—
+/* —
  * Global selectors
- ** -----------------------------------------------------------------------------— */
+ ** — */
 
 globalStyle(`*`, {
   boxSizing: `border-box`,
@@ -31,9 +31,9 @@ globalStyle(`body`, {
   WebkitFontSmoothing: `antialiased`,
 });
 
-/* -----------------------------------------------------------------------------—
+/* —
  * Anchor tags
- ** -----------------------------------------------------------------------------— */
+ ** — */
 
 globalStyle(`a`, {
   padding: 0,
@@ -42,26 +42,26 @@ globalStyle(`a`, {
   color: vars.color.text_high_contrast,
 });
 
-/* -----------------------------------------------------------------------------—
+/* —
  * Visual elements
- ** -----------------------------------------------------------------------------— */
+ ** — */
 
 globalStyle(`img, picture, video, canvas, svg`, {
   display: `block`,
   maxWidth: `100%`,
 });
 
-/* -----------------------------------------------------------------------------—
+/* —
  * Inputs
- ** -----------------------------------------------------------------------------— */
+ ** — */
 
 globalStyle(`input, button, textarea, select`, {
   font: `inherit`,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Button
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`button`, {
   WebkitAppearance: "none",
@@ -70,26 +70,26 @@ globalStyle(`button`, {
   background: "none",
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Checkbox
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle("input[type=checkbox]", {
   accentColor: vars.color.button_default,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Code
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`code`, {
   color: "inherit",
   fontWeight: vars.fontWeight.normal,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Headings
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`h1, h2, h3, h4, h5, h6`, {
   display: "block",
@@ -124,9 +124,9 @@ globalStyle(`h6`, {
   fontSize: vars.fontSize.h6,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Horizontal rule
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`hr`, {
   borderBottom: "none",
@@ -136,9 +136,9 @@ globalStyle(`hr`, {
   marginBottom: vars.spacing.spacing3,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Input & textarea
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle("input, textarea", {
   background: vars.color.background,
@@ -160,7 +160,7 @@ globalStyle(
   "input:not([disabled]):is(:hover,:focus), textarea:not([disabled]):is(:hover,:focus)",
   {
     borderColor: vars.color.border_active,
-    background: vars.color.tint,
+    background: vars.color.tint_default,
   }
 );
 
@@ -168,9 +168,9 @@ globalStyle("input:is(:focus-visible), textarea:is(:focus-visible)", {
   ...a11yFocusStyleRule,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Lists
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`ul, ol`, {
   marginBlockStart: vars.spacing.spacing1,
@@ -178,9 +178,9 @@ globalStyle(`ul, ol`, {
   paddingInlineStart: vars.spacing.spacing1,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Menu
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`menu`, {
   listStyleType: "none",
@@ -188,9 +188,9 @@ globalStyle(`menu`, {
   margin: 0,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Paragraph
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`p`, {
   overflowWrap: `break-word`,
@@ -198,9 +198,9 @@ globalStyle(`p`, {
   marginBottom: vars.spacing.spacing1,
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Tables
- * ------------------------------------------------------------------------------- */
+ */
 
 globalStyle(`table`, {
   border: `1px solid ${vars.color.border_default}`,
@@ -212,7 +212,7 @@ globalStyle(`thead`, {
 });
 
 globalStyle(`tbody tr:nth-of-type(odd)`, {
-  background: vars.color.tint,
+  background: vars.color.tint_default,
 });
 
 globalStyle(`th, td`, {

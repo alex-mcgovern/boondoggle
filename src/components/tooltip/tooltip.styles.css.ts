@@ -16,9 +16,6 @@ export const popoverTrigger = style([
       "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {
         color: vars.color.text_high_contrast,
       },
-      "&[disabled]": {
-        borderColor: "accent.border.3",
-      },
     },
   },
   getSprinkles({
