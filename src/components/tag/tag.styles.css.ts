@@ -2,7 +2,7 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
-import { vars } from "../../styles/theme.css";
+import { variantIntent, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
@@ -63,6 +63,7 @@ export const getTagStyle = recipe({
 
   variants: {
     state: variantTagState,
+    intent: variantIntent,
   },
 
   defaultVariants: {

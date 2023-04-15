@@ -6,22 +6,12 @@ import React from "react";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import * as styles from "./icon.styles.css";
 
-import type {
-  SprinklesArgs,
-  SprinklesColor,
-  SprinklesMargin,
-  SprinklesPadding,
-  SprinklesSize,
-} from "../../styles/utils/get_sprinkles.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 
 export interface IconProps
-  extends Partial<SprinklesMargin>,
-    Partial<SprinklesPadding>,
-    Partial<SprinklesColor>,
-    Partial<SprinklesSize>,
-    Pick<SprinklesArgs, "display">,
+  extends SprinklesArgs,
     Pick<FontAwesomeIconProps, "size" | "spin"> {
   icon: IconProp;
   className?: string;

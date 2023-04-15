@@ -56,7 +56,7 @@ custom Link component, similar to the one provided by frameworks like
 
 <ArgTypes of={Button} include={["size"]} />
 
-<Box display="grid" gridTemplateColumns="4x" gap="spacing3">
+<Box display="grid" gridTemplateColumns="2x" gap="spacing3">
   <Canvas of={stories.SizeSm} />
   <Canvas of={stories.SizeMd} />
   <Canvas of={stories.SizeLg} />
@@ -93,11 +93,11 @@ selectors
 - :focus-visible
 - \[disabled] or \[aria-disabled="true"]
 
-<Canvas>
-  <Story of={stories.StateHover} />
-  <Story of={stories.StateFocusVisible} />
-  <Story of={stories.StateDisabled} />
-</Canvas>
+<Box display="grid" gridTemplateColumns="3x" columnGap="spacing3">
+  <Canvas of={stories.StateHover} />
+  <Canvas of={stories.StateFocusVisible} />
+  <Canvas of={stories.StateDisabled} />
+</Box>
 
 # Reference
 

@@ -11,7 +11,6 @@ import type {
 /**
  * Util function that can be used to determine if an item is selected in a dropdown.
  */
-
 export interface GetIsItemSelectedArgs {
   item: DropdownItemShape | undefined | null;
   selectedItems?: UseMultipleSelectionProps<DropdownItemShape>["selectedItems"];
@@ -22,7 +21,7 @@ export interface GetIsItemSelectedArgs {
 export const getIsSelected = ({
   item,
   isMulti,
-  selectedItems,
+  selectedItems: prevSelectedItems,
   selectedItem,
 }: GetIsItemSelectedArgs): boolean => {
   if (!isMulti && selectedItem) {
@@ -31,9 +30,9 @@ export const getIsSelected = ({
 
   if (isMulti) {
     return (
-      Array.isArray(selectedItems) &&
-      selectedItems.some((oneOfSelected) => {
-        return oneOfSelected?.value === item?.value;
+      Array.isArray(prevSelectedItems) &&
+      prevSelectedItems.some((prevSelectedItem) => {
+        return prevSelectedItem?.value === item?.value;
       })
     );
   }
@@ -44,7 +43,6 @@ export const getIsSelected = ({
 /**
  * Util to filter dropdown items based on `inputValue`
  */
-
 export interface GetFilteredDropdownItemsArgs {
   /** An array of dropdown items */
   items: Array<DropdownItemShape>;
@@ -70,12 +68,10 @@ export function getFilteredDropdownItems({
 /**
  * Util to get the display value for a dropdown when we are using `useMultipleSelection`
  */
-
 interface GetDisplayValueArgs {
   originalValue: string;
   length?: number;
 }
-
 export const getDisplayValue = ({
   originalValue,
   length,
@@ -90,12 +86,10 @@ export const getDisplayValue = ({
 /**
  * Util to get the default highlighted index for a dropdown
  */
-
 interface GetDefaultHighlightedIndexArgs {
   items: Array<DropdownItemShape>;
   initialHighlightedItem?: DropdownItemShape;
 }
-
 export const getDefaultHighlightedIndex = ({
   items,
   initialHighlightedItem,
@@ -106,18 +100,15 @@ export const getDefaultHighlightedIndex = ({
 };
 
 /**
- * React state reducer to determine the currently selected item
+ * React state reducer to determine the currently selected item.
+ * Maintains the state of the corresponding `Select*` component,
+ * is passed to downshift as the `stateReducer` prop.
+ * See https://www.downshift-js.com/use-combobox/#state-reducer
  */
-
-/**
- * Maintains the state of the `Select` component, is passed to downshift as the `stateReducer` prop.
- * @see https://www.downshift-js.com/use-combobox/#state-reducer
- */
-
 export const downshiftStateReducer = (
   state: UseComboboxState<DropdownItemShape>,
   actionAndChanges: UseComboboxStateChangeOptions<DropdownItemShape>,
-  isMulti?: boolean
+  { isMulti }: { isMulti?: boolean }
 ) => {
   const { changes, type } = actionAndChanges;
 
@@ -131,7 +122,6 @@ export const downshiftStateReducer = (
       return { ...changes, isOpen: false };
 
     /** Keep the menu open in multi-select mode */
-
     case useCombobox.stateChangeTypes.InputBlur:
     case useCombobox.stateChangeTypes.InputKeyDownEnter:
     case useCombobox.stateChangeTypes.ItemClick:

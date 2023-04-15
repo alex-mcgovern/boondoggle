@@ -8,7 +8,6 @@ import type {
 /**
  * Polymorphic component types
  */
-
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**
    * Pass an HTML tag or custom component to this prop to merge the

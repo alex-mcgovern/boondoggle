@@ -30,7 +30,6 @@ const Template: StoryFn<StoryComponentProps> = ({
 /**
  * Polymorphism examples
  */
-
 export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryComponentProps> =
   {
     name: "polymorphism/generic_anchor_tag",
@@ -56,7 +55,6 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
 /**
  * Basic styling examples
  */
-
 export const ExampleBasicSprinkles: StoryObj<StoryComponentProps> = {
   name: "example/basic_sprinkles",
   render: Template,

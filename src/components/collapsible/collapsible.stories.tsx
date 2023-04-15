@@ -2,9 +2,8 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 import { Collapsible as StoryComponent } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Icon } from "../icon";
 
 import type { CollapsibleProps as StoryComponentProps } from ".";
@@ -16,10 +15,17 @@ export default {
 };
 
 const TriggerNode = (
-  <Box display="flex" alignItems="center">
+  <button
+    type="button"
+    className={getSprinkles({
+      display: "flex",
+      alignItems: "center",
+      width: "100%",
+    })}
+  >
     Open collapsible
     <Icon marginLeft="auto" icon={faAngleDown} />
-  </Box>
+  </button>
 );
 
 const Template: StoryFn<StoryComponentProps> = ({
@@ -31,10 +37,6 @@ const Template: StoryFn<StoryComponentProps> = ({
 export const Default: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [WithDarkLightMode],
   args: {
     children: LOREM.title_xl,
   },

@@ -13,7 +13,6 @@
     /**
      *  Typescript
      */
-
     {
       "files": ["**/*.ts", "**/*.tsx"],
 
@@ -114,7 +113,6 @@
     /**
      * Overrides for MDX files
      */
-
     {
       "files": ["**/*.mdx"],
 
@@ -125,7 +123,6 @@
     /**
      * Overrides for vanilla extract css.ts files
      */
-
     {
       "files": ["**/*.css.ts"],
 
@@ -137,7 +134,6 @@
     /**
      * Tests
      */
-
     {
       "files": ["**/*.test.ts", "**/*.test.tsx"],
 
@@ -156,7 +152,6 @@
     /**
      * Storybook
      */
-
     {
       "files": ["*.stories.tsx"],
 
@@ -170,7 +165,6 @@
     /**
      * Misc
      */
-
     {
       "files": ["*.stories.tsx", "tsup.config.ts"],
 

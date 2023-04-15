@@ -65,7 +65,7 @@
     }
   },
   "cSpell.language": "en-GB",
-  "cSpell.words": ["popover", "vars"],
+  "cSpell.words": ["Combobox", "popover", "vars"],
   "turboConsoleLog.delimiterInsideMessage": "",
   "turboConsoleLog.includeFileNameAndLineNum": false,
   "turboConsoleLog.insertEnclosingClass": false,

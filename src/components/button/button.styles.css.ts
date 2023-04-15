@@ -19,13 +19,11 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
  * needed to create the different variants of the button, then
  * consume them in {@link getButtonStyles}.
  */
-
 /**
  * Button appearance variants
  *
  * These are the different variants of the button, (e.g. primary, secondary, etc.)
  */
-
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
   justifyContent: "center",
   whiteSpace: "nowrap",
@@ -93,7 +91,6 @@ export type Appearance = keyof typeof variantAppearance;
  *
  * See: https://vanilla-extract.style/documentation/packages/recipes/
  */
-
 export const getButtonStyles = recipe({
   base: [
     globalFocusStyles,

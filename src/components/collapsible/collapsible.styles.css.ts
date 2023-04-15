@@ -5,7 +5,6 @@ import { vars } from "../../styles/theme.css";
 /**
  * Shared styles used for collapsible open/close state
  */
-
 const TRANSITION_TIMING = vars.transitionDuration.short;
 
 const open = keyframes({

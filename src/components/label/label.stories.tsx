@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Label as StoryComponent } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { LOREM } from "../../../mocks/LOREM.mock";
 
 import type { LabelProps as StoryComponentProps } from ".";
@@ -21,10 +20,6 @@ const Template: StoryFn<StoryComponentProps> = ({
 export const Default: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [WithDarkLightMode],
   args: {
     label: LOREM.text_xxs,
   },

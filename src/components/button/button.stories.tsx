@@ -59,7 +59,6 @@ const TemplateAllAppearances: StoryFn<StoryComponentProps> = (rest) => {
 /**
  * Default
  */
-
 export const Default: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "default",
@@ -75,7 +74,6 @@ export const Default: StoryObj<StoryComponentProps> = {
 /**
  * Polymorphism examples
  */
-
 export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryComponentProps> =
   {
     name: "polymorphism/generic_anchor_tag",
@@ -101,7 +99,6 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
 /**
  * Appearance
  */
-
 export const Appearance: StoryObj<StoryComponentProps> = {
   render: TemplateAllAppearances,
   name: "appearance",
@@ -110,30 +107,20 @@ export const Appearance: StoryObj<StoryComponentProps> = {
 /**
  * Color
  */
-
 export const IntentGood: StoryObj<StoryComponentProps> = {
   render: TemplateAllAppearances,
   name: "intent/good",
   args: { intent: "good" },
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [WithDarkLightMode],
 };
 export const IntentBad: StoryObj<StoryComponentProps> = {
   render: TemplateAllAppearances,
   name: "intent/bad",
   args: { intent: "bad" },
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [WithDarkLightMode],
 };
 
 /**
  * Customisation examples
  */
-
 export const CustomisationMargin: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "customisation/margin",
@@ -143,7 +130,6 @@ export const CustomisationMargin: StoryObj<StoryComponentProps> = {
 /**
  * Size
  */
-
 export const SizeSm: StoryObj<StoryComponentProps> = {
   name: "size/sm",
   render: Template,
@@ -168,7 +154,6 @@ export const SizeSquare: StoryObj<StoryComponentProps> = {
 /**
  * Slot props
  */
-
 export const SlotLeftIcon: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "slotLeft/icon",
@@ -186,18 +171,17 @@ export const SlotRightLoader: StoryObj<StoryComponentProps> = {
 /**
  * State
  */
-
 export const StateHover: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "state/hover",
   parameters: { pseudo: { hover: true } },
-  args: { children: "Hover" },
+  args: { children: "Hovered" },
 };
 export const StateFocusVisible: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "state/focus-visible",
   parameters: { pseudo: { focusVisible: true } },
-  args: { children: "Hover" },
+  args: { children: "Focused" },
 };
 export const StateDisabled: StoryObj<StoryComponentProps> = {
   render: Template,

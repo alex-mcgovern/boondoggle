@@ -11,7 +11,6 @@ import { varsDisplay } from "../vars/vars_display.css";
 /**
  * Util function for extracting color vars for use with a sprinkles property
  */
-
 export const sprinklesProperties = defineProperties({
   properties: {
     aspectRatio: vars.aspectRatio,
@@ -38,6 +37,8 @@ export const sprinklesProperties = defineProperties({
     flexGrow: ["0", "1"],
     flexShrink: ["0", "1"],
     gap: vars.spacing,
+    columnGap: vars.spacing,
+    rowGap: vars.spacing,
     justifyContent: [
       "stretch",
       "start",
@@ -120,7 +121,6 @@ export type SprinklesArgs = Parameters<typeof getSprinkles>[0];
  * Export subtypes of SprinklesArgs for quickly
  * extending style customisations in components.
  */
-
 export type SprinklesMargin = Pick<
   SprinklesArgs,
   | "margin"

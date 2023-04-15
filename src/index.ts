@@ -30,7 +30,6 @@ export {
 /**
  * React components
  */
-
 export { Box } from "./components/box";
 export type { BoxProps } from "./components/box";
 
@@ -97,7 +96,6 @@ export type { TextAreaProps } from "./components/text_area";
 /**
  * React context
  */
-
 export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
 
 /**

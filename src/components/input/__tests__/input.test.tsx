@@ -32,7 +32,6 @@ describe("<Input />", () => {
   /**
    * a11y labelling
    */
-
   describe("a11y labelling", () => {
     it("should assign id to the input element", () => {
       const { getByRole } = render(
@@ -66,7 +65,6 @@ describe("<Input />", () => {
   /**
    * `className` prop
    */
-
   describe("`className` prop", () => {
     it("should have the classname passed to it", () => {
       const { getByRole } = render(
@@ -84,7 +82,6 @@ describe("<Input />", () => {
   /**
    * Event handlers
    */
-
   describe("Even handlers", () => {
     describe("handling updates to value", () => {
       describe("when uncontrolled", () => {
@@ -346,7 +343,6 @@ describe("<Input />", () => {
   /**
    * Size prop
    */
-
   describe("`size` prop", () => {
     it("should have the `md` class name by default", () => {
       const { getByRole } = render(
@@ -396,7 +392,6 @@ describe("<Input />", () => {
   /**
    * Slot props
    */
-
   describe("Slot props", () => {
     it("should render node passed to `slotLeft`", () => {
       const { getByTestId } = render(
@@ -426,7 +421,6 @@ describe("<Input />", () => {
   /**
    * onFocus events
    */
-
   describe("`onFocus`", () => {
     it("should call `onFocus` by default", () => {
       const onFocus = jest.fn();
@@ -476,7 +470,6 @@ describe("<Input />", () => {
   /**
    * onBlur events
    */
-
   describe("`onBlur`", () => {
     it("it should call onBlur by default", () => {
       const onBlur = jest.fn();

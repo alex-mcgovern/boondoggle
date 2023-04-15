@@ -33,7 +33,6 @@ import { varsWidth } from "./vars/vars_width.css";
  * These are declared as css vars at the `root:` level, in scope of the `html` element
  * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
  */
-
 const root = createGlobalTheme(":root", {
   aspectRatio: varsAspectRatio,
   borderRadius: varsBorderRadius,
@@ -57,7 +56,6 @@ const root = createGlobalTheme(":root", {
  * Color theme
  * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
  */
-
 type PaletteKey = `${string}${number}`;
 type PaletteShape = Record<PaletteKey, string>;
 
@@ -82,6 +80,8 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
 
     border_default: getFromPaletteByIndex(secondaryPalette, 6),
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
+
+    focus_ring: getFromPaletteByIndex(primaryPalette, 8),
 
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_active: getFromPaletteByIndex(primaryPalette, 10),

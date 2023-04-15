@@ -34,7 +34,6 @@ describe("<Button />", () => {
   /**
    * a11y labelling
    */
-
   describe("a11y labelling", () => {
     it("Given a button, when an id is provided, should assign it to the button html element", () => {
       const { getByRole } = render(
@@ -64,7 +63,6 @@ describe("<Button />", () => {
   /**
    * `as` prop (polymorphism)
    */
-
   describe("as prop (polymorphism)", () => {
     it("should render a button element by default", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
@@ -114,7 +112,6 @@ describe("<Button />", () => {
   /**
    * `appearance` prop
    */
-
   describe("`appearance` prop", () => {
     it("should have the primary class name by default", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
@@ -158,7 +155,6 @@ describe("<Button />", () => {
   /**
    * `color` prop
    */
-
   describe("`color` prop", () => {
     it("should have the correct class name when intent = bad", () => {
       const { getByRole } = render(
@@ -180,7 +176,6 @@ describe("<Button />", () => {
   /**
    * `className` prop
    */
-
   describe("`className` prop", () => {
     it("should have the classname passed to it", () => {
       const { getByRole } = render(
@@ -194,13 +189,11 @@ describe("<Button />", () => {
   /**
    * Event handlers
    */
-
   describe("Event handlers", () => {
     describe("`onClick`", () => {
       /**
        * onClick
        */
-
       it("should call `onClick` when enabled", async () => {
         const onClick = jest.fn();
 
@@ -229,7 +222,6 @@ describe("<Button />", () => {
     /**
      * onMouseOver
      */
-
     describe("`onMouseOver`", () => {
       it("should call `onMouseOver` when enabled", () => {
         const onMouseOver = jest.fn();
@@ -264,7 +256,6 @@ describe("<Button />", () => {
     /**
      *  onMouseLeave
      */
-
     describe("`onMouseLeave`", () => {
       it("should call `onMouseLeave` when enabled", () => {
         const onMouseLeave = jest.fn();
@@ -299,7 +290,6 @@ describe("<Button />", () => {
     /**
      * onFocus
      */
-
     describe("`onFocus`", () => {
       it("should call `onFocus` when enabled", () => {
         const onFocus = jest.fn();
@@ -335,7 +325,6 @@ describe("<Button />", () => {
     /**
      * onBlur
      */
-
     describe("`onBlur`", () => {
       it("should call `onBlur` when enabled", () => {
         const onBlur = jest.fn();
@@ -370,7 +359,6 @@ describe("<Button />", () => {
   /**
    * Size prop
    */
-
   describe("`size` prop", () => {
     it("should have the `md` class name by default", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
@@ -416,7 +404,6 @@ describe("<Button />", () => {
   /**
    * Slot props
    */
-
   describe("Slot props", () => {
     it("should render node passed to `slotLeft`", () => {
       const { getByTestId } = render(

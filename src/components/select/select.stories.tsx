@@ -3,10 +3,12 @@ import { faGlobeEurope } from "@fortawesome/free-solid-svg-icons";
 import { jest } from "@storybook/jest";
 import React from "react";
 
-import { SelectSingle as StoryComponent } from ".";
+import { SelectSingle } from ".";
 import { Icon } from "../icon";
+import { SelectMultiple } from "./select_multiple.component";
 
-import type { SelectSingleProps as StoryComponentProps } from ".";
+import type { SelectSingleProps } from ".";
+import type { SelectMultipleProps } from "./select_multiple.component";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
@@ -20,17 +22,18 @@ const ON_CHANGE = jest.fn();
 
 export default {
   title: "React components/Select",
-  component: StoryComponent,
+  component: SelectSingle,
 };
 
-const Template: StoryFn<StoryComponentProps> = ({
-  ...rest
-}: StoryComponentProps) => {
-  return <StoryComponent {...rest} />;
+const SelectSingleTemplate: StoryFn<SelectSingleProps> = ({ ...rest }) => {
+  return <SelectSingle {...rest} />;
+};
+const SelectMultipleTemplate: StoryFn<SelectMultipleProps> = ({ ...rest }) => {
+  return <SelectMultiple {...rest} />;
 };
 
-export const Default: StoryObj<StoryComponentProps> = {
-  render: Template,
+export const SelectSingleDefault: StoryObj<SelectSingleProps> = {
+  render: SelectSingleTemplate,
   args: {
     slotLeft: <Icon icon={faGlobeEurope} />,
     items: [
@@ -43,9 +46,43 @@ export const Default: StoryObj<StoryComponentProps> = {
     ],
     label: "Single select",
     name: "country",
-    onSelectedItemChange: ON_CHANGE,
+    onChange: ON_CHANGE,
   },
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
 
+  //   const combobox = canvas.getByRole("combobox");
+  //   await userEvent.click(combobox);
+
+  //   const firstItem = await canvas.findByText(FIRST_ITEM_LABEL);
+  //   await userEvent.click(firstItem);
+
+  //   /** Wait for lazy loaded components / images load in before asserting */
+  //   await waitFor(() => {
+  //     expect(ON_CHANGE).toHaveBeenCalledWith(
+  //       expect.objectContaining({
+  //         selectedItem: FIRST_ITEM,
+  //       })
+  //     );
+  //   });
+  // },
+};
+export const SelectMultipleDefault: StoryObj<SelectMultipleProps> = {
+  render: SelectMultipleTemplate,
+  args: {
+    slotLeft: <Icon icon={faGlobeEurope} />,
+    items: [
+      { label: "United Kingdom", value: "uk" },
+      { label: "France", value: "fr" },
+      { label: "Germany", value: "de" },
+      { label: "Spain", value: "es" },
+      { label: "Italy", value: "it" },
+      { label: "Portugal", value: "pt" },
+    ],
+    label: "Single select",
+    name: "country",
+    onChange: ON_CHANGE,
+  },
   // play: async ({ canvasElement }) => {
   //   const canvas = within(canvasElement);
 
@@ -77,8 +114,7 @@ export const Default: StoryObj<StoryComponentProps> = {
 //  * Multi select
 //  * -
 //  */
-
-// export const SelectMulti = Template.bind({});
+// export const SelectMulti = SelectSingleTemplate.bind({});
 
 // SelectMulti.args = {
 //   slotLeft: <Icon icon={faGlobeEurope} />,
@@ -89,7 +125,7 @@ export const Default: StoryObj<StoryComponentProps> = {
 //   onChange: ON_CHANGE,
 // };
 
-// Default.play = async ({ canvasElement }) => {
+// SelectSingleDefault.play = async ({ canvasElement }) => {
 //   const canvas = within(canvasElement);
 
 //   await waitFor(async () => {
@@ -124,8 +160,7 @@ export const Default: StoryObj<StoryComponentProps> = {
 //  * Multi-select filterable
 //  * -
 //  */
-
-// export const Filterable = Template.bind({});
+// export const Filterable = SelectSingleTemplate.bind({});
 
 // Filterable.args = {
 //   slotLeft: faGlobeEurope,
@@ -136,7 +171,7 @@ export const Default: StoryObj<StoryComponentProps> = {
 // };
 
 // // export const Filterable = {
-// //   render: Template,
+// //   render: SelectSingleTemplate,
 
 // //   args: {
 // //     slotLeft: faGlobeEurope,
@@ -144,7 +179,7 @@ export const Default: StoryObj<StoryComponentProps> = {
 // //     label: "Single select",
 // //     name: "country",
 // //     isFilterable: true,
-// //     onSelectedItemChange: ON_CHANGE,
+// //     onChange: ON_CHANGE,
 // //   },
 
 // //   play: async ({ canvasElement }) => {

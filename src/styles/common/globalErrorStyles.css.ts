@@ -4,7 +4,7 @@ import { vars } from "../theme.css";
 
 export const globalErrorStyles = style([
   {
-    borderColor: vars.color.border_active,
+    borderColor: vars.color.focus_ring,
     selectors: {
       [`&:is(&:focus, &:focus-visible), &:focus-within`]: {
         outline: `2px solid ${vars.color.border_active}`,

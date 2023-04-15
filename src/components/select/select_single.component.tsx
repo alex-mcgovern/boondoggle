@@ -1,5 +1,4 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 import { useCombobox } from "downshift";
 import React, { forwardRef, useCallback, useMemo, useState } from "react";
@@ -8,11 +7,11 @@ import { Popover } from "react-tiny-popover";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
-import { Icon } from "../icon";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { DropdownMenu } from "./dropdown_menu.component";
+import { DEFAULT_SLOT_RIGHT } from "./select.shared_components";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -33,7 +32,6 @@ import type { Ref } from "react";
  * Can be overridden by passing a custom `itemToString` prop to the `SelectSingle` component.
  * -
  */
-
 const defaultItemToString = (item: DropdownItemShape | null) => {
   return item?.label || "";
 };
@@ -57,14 +55,9 @@ export interface SelectSingleProps extends SprinklesArgs {
   placeholder: string;
   slotLeft?: React.ReactNode;
   slotRight?: React.ReactNode;
-
-  onSelectedItemChange?: (
-    changes: UseComboboxStateChange<DropdownItemShape>
-  ) => void;
+  onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
   size?: SharedUiScale;
 }
-
-const DEFAULT_SLOT_RIGHT = <Icon icon={faAngleDown} />;
 
 /** Accessible select component, supports multi & single modes. */
 export const SelectSingle = forwardRef(
@@ -84,7 +77,7 @@ export const SelectSingle = forwardRef(
       label,
       name,
       onIsOpenChange,
-      onSelectedItemChange,
+      onChange,
       placeholder,
       size,
       slotLeft,
@@ -98,12 +91,7 @@ export const SelectSingle = forwardRef(
 
     const [inputValue, setInputValue] = useState("");
 
-    /**
-     * -
-     * When `isFilterable` is true, we need to filter the items based on the input value.
-     * -
-     */
-
+    // Filter dropdown items based on input if `isFilterable` is true
     const filteredItems = useMemo(() => {
       if (!items || !isFilterable) {
         return items;
@@ -132,7 +120,7 @@ export const SelectSingle = forwardRef(
       items: filteredItems,
       itemToString,
       onIsOpenChange,
-      onSelectedItemChange,
+      onSelectedItemChange: onChange,
       onStateChange({
         inputValue: newInputValue,
         type,
@@ -159,7 +147,7 @@ export const SelectSingle = forwardRef(
         }
       },
       stateReducer: (state, actionAndChanges) => {
-        return downshiftStateReducer(state, actionAndChanges);
+        return downshiftStateReducer(state, actionAndChanges, {});
       },
     });
 
@@ -182,7 +170,7 @@ export const SelectSingle = forwardRef(
         <Popover
           isOpen={isOpen}
           align="start"
-          positions={["bottom"]} // preferred positions by priority
+          positions={["bottom"]}
           content={
             <DropdownMenu
               getIsItemSelected={getIsItemSelected}

@@ -2,11 +2,11 @@
 
 ## A collection of CSS & components to make building UIs in React faster
 
-It's an opinionated take on a component library and styling framework that
-attempts to abstract the _slowness and repetitiveness_ of building UI by
-offering a simple set of components, with a unified set of utility CSS
-"sprinkles" (thanks [Vanilla Extract](https://vanilla-extract.style/) 💙), which
-are compatible with _any_ component to allow "Tailwind-like" inline styling in a
+An opinionated take on a component library and styling framework that attempts
+to abstract the _slowness and repetitiveness_ of building UI by offering a
+simple set of components, with a unified set of utility CSS "sprinkles" (thanks
+[Vanilla Extract](https://vanilla-extract.style/) 💙), which are compatible with
+_any_ component to allow type-safe, "Tailwind-like" inline styling in a
 type-safe, "React-ful" way.
 
 By relying heavily on (pre-processed) vanilla CSS, base HTML5 elements, and with

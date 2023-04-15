@@ -1,4 +1,4 @@
-import { ArgTypes, Parameters } from "@storybook/react";
+import { ArgTypes, Decorator, Parameters } from "@storybook/react";
 
 import "../src/styles/stylesheet.css";
 import "../src/styles/theme.css";
@@ -7,19 +7,12 @@ import {
   sprinklesProperties,
 } from "../src/styles/utils/get_sprinkles.css";
 import { getSprinklesControls } from "./utils/get_storybook_controls_sprinkles";
-
-/**
- * Common {@link ArgTypes} definitions for all Storybook stories.
- */
+import { WithDarkLightMode } from "./with_dark_light_mode";
 
 export const argTypes: ArgTypes = {
   ...getSprinklesControls(sprinklesProperties),
   ...getSprinklesControls(responsiveSprinklesProperties),
 };
-
-/**
- * Common {@link Parameters} definitions for all Storybook stories.
- */
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -33,4 +26,7 @@ export const parameters: Parameters = {
       date: /Date$/,
     },
   },
+  layout: "fullscreen",
 };
+
+export const decorators: Array<Decorator> = [WithDarkLightMode];

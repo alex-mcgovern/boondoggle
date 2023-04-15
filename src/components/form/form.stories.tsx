@@ -31,10 +31,6 @@ const Template: StoryFn<StoryComponentProps> = ({
 export const Default: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [WithDarkLightMode],
   args: {
     submitButtonText: "Submit",
     children: [

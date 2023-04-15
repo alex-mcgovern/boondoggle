@@ -20,7 +20,6 @@ const Template: StoryFn<StoryComponentProps> = ({
 /**
  * Customisation examples
  */
-
 export const CustomisationMargin: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "customisation/margin",
@@ -30,7 +29,6 @@ export const CustomisationMargin: StoryObj<StoryComponentProps> = {
 /**
  * Size
  */
-
 export const SizeSm: StoryObj<StoryComponentProps> = {
   name: "size/sm",
   render: Template,
@@ -50,7 +48,6 @@ export const SizeLg: StoryObj<StoryComponentProps> = {
 /**
  * Slot props
  */
-
 export const SlotLeftIcon: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "slotLeft/icon",
@@ -70,7 +67,6 @@ export const SlotRightLoader: StoryObj<StoryComponentProps> = {
 /**
  * State
  */
-
 export const StateHover: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "state/hover",

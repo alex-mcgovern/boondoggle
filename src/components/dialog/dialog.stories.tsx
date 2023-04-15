@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Dialog as StoryComponent } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Button } from "../button";
 
@@ -22,10 +21,6 @@ const Template: StoryFn<StoryComponentProps> = ({
 export const Default: StoryObj<StoryComponentProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  decorators: [WithDarkLightMode],
   args: {
     triggerNode: <Button name="Dialog button">Open dialog</Button>,
     children: LOREM.text_xxl,

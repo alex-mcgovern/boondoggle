@@ -28,3 +28,29 @@ export const Default: StoryObj<StoryComponentProps> = {
   },
   decorators: [WithDarkLightMode],
 };
+
+export const IntentGood: StoryObj<StoryComponentProps> = {
+  render: Template,
+  name: "default",
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    children: "Tag",
+    intent: "good",
+  },
+  decorators: [WithDarkLightMode],
+};
+
+export const IntentBad: StoryObj<StoryComponentProps> = {
+  render: Template,
+  name: "default",
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    children: "Tag",
+    intent: "bad",
+  },
+  decorators: [WithDarkLightMode],
+};

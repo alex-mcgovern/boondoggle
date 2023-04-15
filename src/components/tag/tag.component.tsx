@@ -8,6 +8,7 @@ import { Box } from "../box";
 import { Icon } from "../icon";
 import * as styles from "./tag.styles.css";
 
+import type { Intent } from "../../styles/theme.css";
 import type { BoxProps } from "../box";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { ReactNode } from "react";
@@ -21,6 +22,8 @@ export interface TagProps extends BoxProps {
   slotRight?: IconProp;
   /** Used as the html ID. */
   id?: string;
+  /** USed to communicate semantic meaning */
+  intent?: Intent;
   /** If `true`, the component is disabled. */
   disabled?: boolean;
   /** Callback on click. */
@@ -34,6 +37,7 @@ export interface TagProps extends BoxProps {
 export function Tag({
   as,
   id,
+  intent,
   slotLeft,
   slotRight,
   state,
@@ -43,7 +47,7 @@ export function Tag({
   const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
   const tagStyle = clsx([
-    styles.getTagStyle({ state }),
+    styles.getTagStyle({ state, intent }),
     getSprinkles(atomProps),
     globalFocusStyles,
   ]);

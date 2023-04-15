@@ -1,10 +1,11 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import * as React from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
-import { DropdownItem } from "./dropdown_item.component";
+import { Icon } from "../icon";
 import * as styles from "./select.styles.css";
 
 import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
@@ -15,7 +16,62 @@ import type {
   UseMultipleSelectionActions,
   UseMultipleSelectionGetSelectedItemPropsOptions,
 } from "downshift";
-import type { LegacyRef } from "react";
+import type { LegacyRef, ReactNode } from "react";
+
+export const DEFAULT_SLOT_RIGHT: ReactNode = <Icon icon={faAngleDown} />;
+
+export interface DropdownItemProps {
+  isHighlighted: boolean;
+  isMultipleSelectionEnabled?: boolean;
+  size?: SharedUiScale;
+  isMulti?: boolean;
+  item: DropdownItemShape;
+  isDropdownItemSelected?: boolean;
+}
+
+export const DropdownItem = React.forwardRef(
+  (
+    {
+      item,
+      size,
+      isHighlighted,
+      isMulti,
+      isDropdownItemSelected,
+      ...rest
+    }: DropdownItemProps,
+    ref
+  ) => {
+    return (
+      <Box
+        as="button"
+        id={item.label}
+        className={clsx(
+          styles.getDropdownItemStyles({
+            size,
+          }),
+          {
+            [styles.isHighlighted]: isHighlighted,
+            [styles.isSelected]: isDropdownItemSelected,
+          }
+        )}
+        {...rest}
+        ref={ref as React.Ref<HTMLButtonElement>}
+      >
+        <Box flexShrink="0">{item.label}</Box>
+        {isMulti && (
+          <Box
+            as="input"
+            type="checkbox"
+            readOnly
+            tabIndex={-1}
+            checked={isDropdownItemSelected}
+            marginLeft="auto"
+          />
+        )}
+      </Box>
+    );
+  }
+);
 
 /**
  * -
@@ -24,7 +80,6 @@ import type { LegacyRef } from "react";
  * whether `isMulti` is true, and whether the item is selected or not
  * -
  */
-
 interface GetDropdownItemPropsArgs
   extends Pick<
     DropdownMenuProps,
@@ -72,7 +127,6 @@ export const getDropdownItemProps = ({
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMultiple`
  * -
  */
-
 export interface DropdownMenuProps extends SprinklesArgs {
   /** Required props  */
   getIsItemSelected: (item: DropdownItemShape) => boolean;

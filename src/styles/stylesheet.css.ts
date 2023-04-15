@@ -8,7 +8,6 @@ import { createAccessibleTransition } from "./utils/create_accessible_transition
 /* —
  * Global selectors
  ** — */
-
 globalStyle(`*`, {
   boxSizing: `border-box`,
   margin: 0,
@@ -34,7 +33,6 @@ globalStyle(`body`, {
 /* —
  * Anchor tags
  ** — */
-
 globalStyle(`a`, {
   padding: 0,
   margin: 0,
@@ -45,7 +43,6 @@ globalStyle(`a`, {
 /* —
  * Visual elements
  ** — */
-
 globalStyle(`img, picture, video, canvas, svg`, {
   display: `block`,
   maxWidth: `100%`,
@@ -54,7 +51,6 @@ globalStyle(`img, picture, video, canvas, svg`, {
 /* —
  * Inputs
  ** — */
-
 globalStyle(`input, button, textarea, select`, {
   font: `inherit`,
 });
@@ -62,7 +58,6 @@ globalStyle(`input, button, textarea, select`, {
 /**
  * Button
  */
-
 globalStyle(`button`, {
   WebkitAppearance: "none",
   border: "none",
@@ -73,7 +68,6 @@ globalStyle(`button`, {
 /**
  * Checkbox
  */
-
 globalStyle("input[type=checkbox]", {
   accentColor: vars.color.button_default,
 });
@@ -81,7 +75,6 @@ globalStyle("input[type=checkbox]", {
 /**
  * Code
  */
-
 globalStyle(`code`, {
   color: "inherit",
   fontWeight: vars.fontWeight.normal,
@@ -90,7 +83,6 @@ globalStyle(`code`, {
 /**
  * Headings
  */
-
 globalStyle(`h1, h2, h3, h4, h5, h6`, {
   display: "block",
   overflowWrap: `break-word`,
@@ -127,7 +119,6 @@ globalStyle(`h6`, {
 /**
  * Horizontal rule
  */
-
 globalStyle(`hr`, {
   borderBottom: "none",
   borderTop: "1px solid",
@@ -139,7 +130,6 @@ globalStyle(`hr`, {
 /**
  * Input & textarea
  */
-
 globalStyle("input, textarea", {
   background: vars.color.background,
   border: `1px solid ${vars.color.border_default}`,
@@ -171,7 +161,6 @@ globalStyle("input:is(:focus-visible), textarea:is(:focus-visible)", {
 /**
  * Lists
  */
-
 globalStyle(`ul, ol`, {
   marginBlockStart: vars.spacing.spacing1,
   marginBlockEnd: vars.spacing.spacing1,
@@ -181,7 +170,6 @@ globalStyle(`ul, ol`, {
 /**
  * Menu
  */
-
 globalStyle(`menu`, {
   listStyleType: "none",
   padding: 0,
@@ -191,7 +179,6 @@ globalStyle(`menu`, {
 /**
  * Paragraph
  */
-
 globalStyle(`p`, {
   overflowWrap: `break-word`,
 
@@ -201,7 +188,6 @@ globalStyle(`p`, {
 /**
  * Tables
  */
-
 globalStyle(`table`, {
   border: `1px solid ${vars.color.border_default}`,
   borderCollapse: "collapse",
