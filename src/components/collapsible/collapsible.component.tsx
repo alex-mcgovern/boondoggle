@@ -1,5 +1,5 @@
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { collapsibleContentAnimation } from "./collapsible.styles.css";
 

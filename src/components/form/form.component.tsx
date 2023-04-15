@@ -4,7 +4,7 @@ import {
   faPaperPlane,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
-import React, { useCallback } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import {
   FormProvider,
   useController,
@@ -20,6 +20,7 @@ import { SelectSingle } from "../select";
 import { Slider } from "../slider";
 import { TextArea } from "../text_area";
 
+import type { FormEvent, ReactElement} from "react";
 import type { IconProps } from "../icon";
 import type { InputProps } from "../input";
 import type { DropdownItemShape, SelectSingleProps } from "../select";
@@ -225,7 +226,7 @@ export function FormSingleSelect({ name, ...rest }: FormSingleSelectProps) {
     <SelectSingle
       ref={ref}
       invalid={!!error}
-      onSelectedItemChange={handleChange}
+      onChange={handleChange}
       name={name}
       {...rest}
     />
@@ -294,12 +295,9 @@ export function FormInput({
  * Main form component, wraps `react-hook-form` and provides a consistent interface for
  * composing forms. Allows only a selection of connected form input elements.
  */ type PermittedFormElements =
-  | React.ReactElement<FormInputProps>
-  | React.ReactElement<FormSingleSelectProps>
-  | Array<
-      | React.ReactElement<FormInputProps>
-      | React.ReactElement<FormSingleSelectProps>
-    >;
+  | ReactElement<FormInputProps>
+  | ReactElement<FormSingleSelectProps>
+  | Array<ReactElement<FormInputProps> | ReactElement<FormSingleSelectProps>>;
 export interface FormProps {
   children: PermittedFormElements;
   disabled?: boolean;
@@ -321,11 +319,11 @@ export function Form({
    */
   const formMethods = useForm();
 
-  const { buttonIcon, buttonIconProps } = React.useMemo(() => {
+  const { buttonIcon, buttonIconProps } = useMemo(() => {
     return getSubmitButtonIcon(formMethods.formState);
   }, [formMethods.formState]);
 
-  const onSubmit = async (event: React.FormEvent) => {
+  const onSubmit = async (event: FormEvent) => {
     return formMethods.handleSubmit(handleFormSubmission)(event);
   };
 
@@ -337,7 +335,7 @@ export function Form({
    * it is better to attach `formMethods` as a dependency to a `useEffect`, rather than
    * chain a `.then()` off the form handler.
    */
-  React.useEffect(() => {
+  useEffect(() => {
     if (formMethods.formState.isSubmitSuccessful) {
       formMethods.reset();
       if (onSubmission) {

@@ -1,11 +1,11 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/common.selectors.css";
-import { globalDisabledStyles } from "../../styles/common/globalDisabledStyles.css";
-import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
-import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
+import { elementSize } from "../../styles/common/element_size.css";
+import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
@@ -93,8 +93,8 @@ export type Appearance = keyof typeof variantAppearance;
  */
 export const getButtonStyles = recipe({
   base: [
-    globalFocusStyles,
-    globalDisabledStyles,
+    a11yFocus,
+    a11yDisabled,
     getSprinkles({
       borderRadius: "md",
       display: "inline-flex",
@@ -102,10 +102,10 @@ export const getButtonStyles = recipe({
       alignItems: "center",
       textDecoration: "none",
     }),
-    // createAccessibleTransition({
-    //   transition: `color ${vars.transitionDuration.short} ease-in,\
-    //                background ${vars.transitionDuration.short} ease-in`,
-    // }),
+    createAccessibleTransition({
+      transition: `color ${vars.transitionDuration.short} ease-in,\
+                   background ${vars.transitionDuration.short} ease-in`,
+    }),
   ],
   variants: {
     appearance: variantAppearance,
@@ -117,7 +117,7 @@ export const getButtonStyles = recipe({
           width: "spacing6",
         }),
       ],
-      ...globalVariantsUiScale,
+      ...elementSize,
     },
   },
 

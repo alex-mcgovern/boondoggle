@@ -1,13 +1,14 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useCombobox, useMultipleSelection } from "downshift";
-import React, { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
+import { Icon } from "../icon";
 import { Input } from "../input";
 import { Label } from "../label";
-import { DropdownMenu } from "./dropdown_menu.component";
+import { DropdownMenu } from "./select.shared_components";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -16,7 +17,7 @@ import {
   getIsSelected,
 } from "./select.utils";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../input";
 import type { DropdownItemShape } from "./select.types";
@@ -47,7 +48,7 @@ export interface SelectMultipleProps extends SprinklesArgs {
   ) => void;
   onIsOpenChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
   placeholder: string;
-  size?: SharedUiScale;
+  size?: ElementSizeEnum;
   slotLeft?: ReactNode;
 }
 
@@ -215,7 +216,7 @@ export const SelectMultiple = forwardRef(
         <Input
           size={size}
           slotLeft={slotLeft}
-          slotRight={<Icon icon={faAngleDown} />}}
+          slotRight={<Icon icon={faAngleDown} />}
           readOnly={!isFilterable}
           invalid={invalid}
           {...inputAtomProps}

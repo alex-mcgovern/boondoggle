@@ -2,7 +2,6 @@ import {
   faCheckCircle,
   faExclamationCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import { Box, Box as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";

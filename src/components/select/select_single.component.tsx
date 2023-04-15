@@ -1,7 +1,7 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { useCombobox } from "downshift";
-import React, { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import { Popover } from "react-tiny-popover";
 
 import { getTheme } from "../../styles/theme.css";
@@ -10,8 +10,7 @@ import { Box } from "../box";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { DropdownMenu } from "./dropdown_menu.component";
-import { DEFAULT_SLOT_RIGHT } from "./select.shared_components";
+import { DEFAULT_SLOT_RIGHT, DropdownMenu } from "./select.shared_components";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -19,12 +18,12 @@ import {
   getIsSelected,
 } from "./select.utils";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../input";
 import type { DropdownItemShape } from "./select.types";
 import type { UseComboboxStateChange } from "downshift";
-import type { Ref } from "react";
+import type { ReactNode, Ref } from "react";
 
 /**
  * -
@@ -53,10 +52,10 @@ export interface SelectSingleProps extends SprinklesArgs {
   name: string;
   onIsOpenChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
   placeholder: string;
-  slotLeft?: React.ReactNode;
-  slotRight?: React.ReactNode;
+  slotLeft?: ReactNode;
+  slotRight?: ReactNode;
   onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-  size?: SharedUiScale;
+  size?: ElementSizeEnum;
 }
 
 /** Accessible select component, supports multi & single modes. */

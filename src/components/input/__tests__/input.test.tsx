@@ -2,9 +2,8 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import React from "react";
 
-import { globalVariantsUiScale } from "../../../styles/common/globalVariantsUiScale.css";
+import { elementSize } from "../../../styles/common/element_size.css";
 import { Icon } from "../../icon";
 import { Input } from "../input.component";
 
@@ -349,7 +348,7 @@ describe("<Input />", () => {
         <Input placeholder="Placeholder" id="input" name="Test input" />
       );
 
-      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.md);
+      expect(getByRole("textbox")).toHaveClass(elementSize.md);
     });
 
     it("should have the `sm` class name when size = sm", () => {
@@ -361,7 +360,7 @@ describe("<Input />", () => {
           size="sm"
         />
       );
-      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.sm);
+      expect(getByRole("textbox")).toHaveClass(elementSize.sm);
     });
 
     it("should have the `md` class name when size = md", () => {
@@ -373,7 +372,7 @@ describe("<Input />", () => {
           size="md"
         />
       );
-      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.md);
+      expect(getByRole("textbox")).toHaveClass(elementSize.md);
     });
 
     it("should have the `lg` class name when size = lg", () => {
@@ -385,7 +384,7 @@ describe("<Input />", () => {
           size="lg"
         />
       );
-      expect(getByRole("textbox")).toHaveClass(globalVariantsUiScale.lg);
+      expect(getByRole("textbox")).toHaveClass(elementSize.lg);
     });
   });
 

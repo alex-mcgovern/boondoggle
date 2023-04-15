@@ -1,5 +1,4 @@
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import { Icon as StoryComponent } from ".";
 

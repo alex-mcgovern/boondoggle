@@ -1,8 +1,8 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
-import { globalErrorStyles } from "../../styles/common/globalErrorStyles.css";
+import { a11yError } from "../../styles/common/a11y.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
@@ -11,19 +11,19 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./text_area.styles.css";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { LegacyRef } from "react";
+import type { ComponentPropsWithoutRef, LegacyRef, ReactNode } from "react";
 
 export interface TextAreaProps
   extends SprinklesArgs,
-    Omit<React.ComponentPropsWithoutRef<"textarea">, "color" | "ref"> {
-  size?: SharedUiScale;
+    Omit<ComponentPropsWithoutRef<"textarea">, "color" | "ref"> {
+  size?: ElementSizeEnum;
   name: string;
   /** React node shown on the left side of text area. */
-  slotLeft?: React.ReactNode;
+  slotLeft?: ReactNode;
   /** React node shown on the right side of text area. */
-  slotRight?: React.ReactNode;
+  slotRight?: ReactNode;
   errorMessage?: string;
   invalid?: boolean;
   placeholder: string;
@@ -63,7 +63,7 @@ export const TextArea = forwardRef(
           <textarea
             aria-invalid={invalid}
             className={clsx(styles.textArea, {
-              [globalErrorStyles]: invalid,
+              [a11yError]: invalid,
             })}
             ref={ref}
             {...otherProps}

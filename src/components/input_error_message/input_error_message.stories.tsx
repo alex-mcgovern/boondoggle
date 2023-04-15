@@ -1,5 +1,4 @@
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import { InputErrorMessage as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";

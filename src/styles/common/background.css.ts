@@ -12,10 +12,5 @@ export const commonBackground = style([
     overflow: "hidden",
     height: "100%",
     pointerEvents: "none",
-
-    // width: "100%",
-
-    // height: "100%",
-    // zIndex: -1,
   },
 ]);

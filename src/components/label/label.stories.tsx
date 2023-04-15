@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Label as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 

@@ -1,9 +1,9 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
-import { globalErrorStyles } from "../../styles/common/globalErrorStyles.css";
-import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import { a11yError } from "../../styles/common/a11y.css";
+import { elementSize } from "../../styles/common/element_size.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
@@ -12,13 +12,13 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./input.styles.css";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ReactNode, Ref } from "react";
+import type { ComponentPropsWithoutRef, ReactNode, Ref } from "react";
 
 export interface InputProps
   extends Omit<
-      React.ComponentPropsWithoutRef<"input">,
+      ComponentPropsWithoutRef<"input">,
       "width" | "height" | "style" | "color" | "size"
     >,
     SprinklesArgs {
@@ -33,7 +33,7 @@ export interface InputProps
   /** Name of the form control. Submitted with the form as part of a name/value pair */
   name: string;
   /** Common interactive element size, shared with button, select, etc */
-  size?: SharedUiScale;
+  size?: ElementSizeEnum;
   /** React node shown on the left side of input. */
   slotLeft?: ReactNode;
   /** React node shown on the right side of input. */
@@ -67,14 +67,9 @@ export const Input = forwardRef(
 
         <SlotWrapper {...atomProps} slotLeft={slotLeft} slotRight={slotRight}>
           <input
-            className={clsx(
-              styles.input,
-              userClassName,
-              globalVariantsUiScale[size],
-              {
-                [globalErrorStyles]: invalid,
-              }
-            )}
+            className={clsx(styles.input, userClassName, elementSize[size], {
+              [a11yError]: invalid,
+            })}
             name={name}
             id={id}
             ref={ref}

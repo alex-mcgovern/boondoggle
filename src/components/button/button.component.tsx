@@ -4,13 +4,13 @@
  */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { variantIntent } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import * as styles from "./button.styles.css";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { Intent } from "../../styles/theme.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
@@ -21,6 +21,7 @@ import type {
   ComponentPropsWithoutRef,
   ElementType,
   ReactElement,
+  ReactNode,
 } from "react";
 
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
@@ -32,15 +33,15 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       /** Use color to indicate beneficial, or potentially destructive actions. */
       intent?: Intent;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
-      size?: "square" | SharedUiScale;
+      size?: "square" | ElementSizeEnum;
       /** The React node shown in the button. */
-      children?: React.ReactNode;
+      children?: ReactNode;
       /** The title for the button, shown in the UI. */
       name: string;
       /** The React node shown on the left side of the button. */
-      slotLeft?: React.ReactNode;
+      slotLeft?: ReactNode;
       /** The React node shown on the right side of the button. */
-      slotRight?: React.ReactNode;
+      slotRight?: ReactNode;
       /** The HTML button type, defaults to `button`. */
       type?: "button" | "submit" | "reset";
     }

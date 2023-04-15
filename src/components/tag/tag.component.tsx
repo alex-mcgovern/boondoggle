@@ -1,8 +1,7 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import React from "react";
 
-import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
+import { a11yFocus } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Icon } from "../icon";
@@ -49,7 +48,7 @@ export function Tag({
   const tagStyle = clsx([
     styles.getTagStyle({ state, intent }),
     getSprinkles(atomProps),
-    globalFocusStyles,
+    a11yFocus,
   ]);
 
   return (

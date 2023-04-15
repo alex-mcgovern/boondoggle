@@ -1,9 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { globalDisabledStyles } from "../../styles/common/globalDisabledStyles.css";
-import { globalFocusStyles } from "../../styles/common/globalFocusStyles.css";
-import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
+import { elementSize } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -20,7 +19,7 @@ export const dropdownWrapperClosed = style({
 });
 
 export const dropdownListWrapper = style([
-  globalFocusStyles,
+  a11yFocus,
   getSprinkles({
     background: "background",
     marginTop: "spacing1",
@@ -49,14 +48,6 @@ export const dropdownListWrapper = style([
   },
   createAccessibleTransition({
     transformOrigin: "top center",
-    // selectors: {
-    //   [`&:not(.${dropdownWrapperClosed})`]: {
-    //     animation: `${scaleIn} ${vars.transitionDuration.short} ease forwards`,
-    //   },
-    //   [`&.${dropdownWrapperClosed}`]: {
-    //     animation: `${scaleOut} ${vars.transitionDuration.short} ease forwards`,
-    //   },
-    // },
   }),
 ]);
 
@@ -81,11 +72,11 @@ export const getDropdownItemStyles = recipe({
       margin: "none",
       padding: "spacing1",
     }),
-    globalDisabledStyles,
-    globalFocusStyles,
+    a11yDisabled,
+    a11yFocus,
   ],
   variants: {
-    size: globalVariantsUiScale,
+    size: elementSize,
   },
 });
 
@@ -97,7 +88,7 @@ export const isHighlighted = style([
 
 export const isSelected = style({
   fontWeight: vars.fontWeight.semibold,
-  // backgroundColor: vars.color.accent.accent_tint,
+  backgroundColor: vars.color.tint_active,
 });
 
 export const resultWrapper = style([]);

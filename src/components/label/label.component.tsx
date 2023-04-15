@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Box } from "../box";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";

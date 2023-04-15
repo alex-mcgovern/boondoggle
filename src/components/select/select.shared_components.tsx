@@ -1,14 +1,14 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Icon } from "../icon";
 import * as styles from "./select.styles.css";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape } from "./select.types";
 import type {
@@ -16,20 +16,20 @@ import type {
   UseMultipleSelectionActions,
   UseMultipleSelectionGetSelectedItemPropsOptions,
 } from "downshift";
-import type { LegacyRef, ReactNode } from "react";
+import type { LegacyRef, ReactNode, Ref } from "react";
 
 export const DEFAULT_SLOT_RIGHT: ReactNode = <Icon icon={faAngleDown} />;
 
 export interface DropdownItemProps {
   isHighlighted: boolean;
   isMultipleSelectionEnabled?: boolean;
-  size?: SharedUiScale;
+  size?: ElementSizeEnum;
   isMulti?: boolean;
   item: DropdownItemShape;
   isDropdownItemSelected?: boolean;
 }
 
-export const DropdownItem = React.forwardRef(
+export const DropdownItem = forwardRef(
   (
     {
       item,
@@ -55,7 +55,7 @@ export const DropdownItem = React.forwardRef(
           }
         )}
         {...rest}
-        ref={ref as React.Ref<HTMLButtonElement>}
+        ref={ref as Ref<HTMLButtonElement>}
       >
         <Box flexShrink="0">{item.label}</Box>
         {isMulti && (
@@ -142,7 +142,7 @@ export interface DropdownMenuProps extends SprinklesArgs {
   isMulti?: boolean;
   highlightedIndex?: number | undefined;
   removeSelectedItem?: UseMultipleSelectionActions<DropdownItemShape>["removeSelectedItem"];
-  size?: SharedUiScale;
+  size?: ElementSizeEnum;
 }
 
 export const DropdownMenu = forwardRef(

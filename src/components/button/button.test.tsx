@@ -2,11 +2,10 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import React from "react";
 
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";
-import { globalVariantsUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import { elementSize } from "../../styles/common/element_size.css";
 import { variantIntent } from "../../styles/theme.css";
 import { Icon } from "../icon";
 import { Button } from "./button.component";
@@ -363,7 +362,7 @@ describe("<Button />", () => {
     it("should have the `md` class name by default", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
 
-      expect(getByRole("button")).toHaveClass(globalVariantsUiScale.md);
+      expect(getByRole("button")).toHaveClass(elementSize.md);
     });
 
     it("should have the `sm` class name when size = sm", () => {
@@ -371,7 +370,7 @@ describe("<Button />", () => {
         <Button id="button" name="Test button" size="sm" />
       );
 
-      expect(getByRole("button")).toHaveClass(globalVariantsUiScale.sm);
+      expect(getByRole("button")).toHaveClass(elementSize.sm);
     });
 
     it("should have the `md` class name when size = md", () => {
@@ -379,7 +378,7 @@ describe("<Button />", () => {
         <Button id="button" name="Test button" size="md" />
       );
 
-      expect(getByRole("button")).toHaveClass(globalVariantsUiScale.md);
+      expect(getByRole("button")).toHaveClass(elementSize.md);
     });
 
     it("should have the `lg` class name when size = lg", () => {
@@ -387,7 +386,7 @@ describe("<Button />", () => {
         <Button id="button" name="Test button" size="lg" />
       );
 
-      expect(getByRole("button")).toHaveClass(globalVariantsUiScale.lg);
+      expect(getByRole("button")).toHaveClass(elementSize.lg);
     });
 
     it("should have the `square` class name when size = square", () => {

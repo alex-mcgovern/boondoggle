@@ -1,8 +1,6 @@
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import { Button as StoryComponent } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { Link } from "../../../test/link.component.mock";
 import { Box } from "../box";
 import { Icon } from "../icon";
@@ -68,7 +66,6 @@ export const Default: StoryObj<StoryComponentProps> = {
   args: {
     children: "Click me",
   },
-  decorators: [WithDarkLightMode],
 };
 
 /**

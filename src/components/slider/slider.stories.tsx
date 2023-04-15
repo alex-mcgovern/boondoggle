@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Slider as StoryComponent } from ".";
 
 import type { SliderProps as StoryComponentProps } from ".";

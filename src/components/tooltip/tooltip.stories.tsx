@@ -1,7 +1,4 @@
-import React from "react";
-
 import { Tooltip as StoryComponent } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 
 import type { TooltipProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -26,5 +23,4 @@ export const Default: StoryObj<StoryComponentProps> = {
   args: {
     popoverText: "This is a tooltip",
   },
-  decorators: [WithDarkLightMode],
 };

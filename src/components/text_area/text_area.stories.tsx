@@ -1,5 +1,4 @@
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import { TextArea as StoryComponent } from ".";
 import { Icon } from "../icon";

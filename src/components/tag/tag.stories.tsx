@@ -1,7 +1,4 @@
-import React from "react";
-
 import { Tag as StoryComponent } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 
 import type { TagProps as StoryComponentProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -26,7 +23,6 @@ export const Default: StoryObj<StoryComponentProps> = {
   args: {
     children: "Tag",
   },
-  decorators: [WithDarkLightMode],
 };
 
 export const IntentGood: StoryObj<StoryComponentProps> = {
@@ -39,7 +35,6 @@ export const IntentGood: StoryObj<StoryComponentProps> = {
     children: "Tag",
     intent: "good",
   },
-  decorators: [WithDarkLightMode],
 };
 
 export const IntentBad: StoryObj<StoryComponentProps> = {
@@ -52,5 +47,4 @@ export const IntentBad: StoryObj<StoryComponentProps> = {
     children: "Tag",
     intent: "bad",
   },
-  decorators: [WithDarkLightMode],
 };

@@ -2,7 +2,6 @@ import {
   ColorItem,
   ColorPalette as StoryblokColorPalette,
 } from "@storybook/blocks";
-import * as React from "react";
 
 import { vars } from "../src/styles/theme.css";
 

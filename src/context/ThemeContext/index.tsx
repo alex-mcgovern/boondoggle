@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useCallback,
   useEffect,
@@ -6,8 +6,12 @@ import React, {
   useState,
 } from "react";
 
-interface IThemeProviderProps {
-  children: React.ReactNode;
+import { MEDIA_QUERY_DARK } from "../../styles/common/media_queries.css";
+
+import type { ReactNode } from "react";
+
+interface ThemeProviderProps {
+  children: ReactNode;
 }
 
 interface ThemeContextProvided {
@@ -17,7 +21,7 @@ interface ThemeContextProvided {
 
 export const ThemeContext = createContext<ThemeContextProvided>({ dark: true });
 
-export function ThemeProvider({ children }: IThemeProviderProps) {
+export function ThemeProvider({ children }: ThemeProviderProps) {
   const [dark, setDark] = useState(true);
 
   const toggleDark = useCallback(() => {
@@ -27,7 +31,7 @@ export function ThemeProvider({ children }: IThemeProviderProps) {
   }, []);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaQuery = window.matchMedia(MEDIA_QUERY_DARK);
     setDark(mediaQuery.matches);
 
     const handleToggle = (e: MediaQueryListEvent) => {

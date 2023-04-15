@@ -1,7 +1,6 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
-import React from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import * as styles from "./icon.styles.css";

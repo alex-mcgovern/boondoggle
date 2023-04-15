@@ -4,7 +4,6 @@ import {
   faGlobe,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import {
   FormInput,
@@ -13,7 +12,6 @@ import {
   FormTextArea,
   Form as StoryComponent,
 } from ".";
-import { WithDarkLightMode } from "../../../.storybook/with_dark_light_mode";
 import { Icon } from "../icon";
 
 import type { FormProps as StoryComponentProps } from ".";

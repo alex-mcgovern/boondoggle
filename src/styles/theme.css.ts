@@ -15,6 +15,7 @@ import {
 } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { MEDIA_QUERY_DARK } from "./common/media_queries.css";
 import { varsAspectRatio } from "./vars/vars_aspect_ratio.css";
 import { varsBorderRadius } from "./vars/vars_border_radius.css";
 import { varsShadow } from "./vars/vars_box_shadow.css";
@@ -140,7 +141,7 @@ export const variantIntent = styleVariants({
       },
     },
     "@media": {
-      "(prefers-color-scheme: dark)": {
+      [MEDIA_QUERY_DARK]: {
         vars: assignVars(
           color,
           makeTheme({
@@ -168,7 +169,7 @@ export const variantIntent = styleVariants({
       },
     },
     "@media": {
-      "(prefers-color-scheme: dark)": {
+      [MEDIA_QUERY_DARK]: {
         vars: assignVars(
           color,
           makeTheme({
@@ -186,7 +187,7 @@ export const getTheme = recipe({
     // color,
     {
       "@media": {
-        "(prefers-color-scheme: dark)": {
+        [MEDIA_QUERY_DARK]: {
           vars: assignVars(
             color,
             makeTheme({

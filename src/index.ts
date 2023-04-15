@@ -3,29 +3,27 @@ export * as stylesheet from "./styles/stylesheet.css";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
 export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";
-export { globalDisabledStyles } from "./styles/common/globalDisabledStyles.css";
-export { globalErrorStyles } from "./styles/common/globalErrorStyles.css";
+
+export { a11yDisabled } from "./styles/common/a11y.css";
 export {
-  globalFocusStyles,
+  a11yFocus,
   a11yFocusStyleRule,
-} from "./styles/common/globalFocusStyles.css";
-export { commonBackground } from "./styles/common/common.background.css";
+  a11yError,
+} from "./styles/common/a11y.css";
+export { commonBackground } from "./styles/common/background.css";
 export {
   SELECTOR_LINK_BUTTON_HOVER,
   SELECTOR_LINK_BUTTON_FOCUS,
   SELECTOR_IS_HOVER,
   SELECTOR_IS_FOCUS,
   SELECTOR_LINK_BUTTON_HOVER_FOCUS,
-} from "./styles/common/common.selectors.css";
+} from "./styles/common/selectors.css";
 export {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_TABLET,
   MEDIA_QUERY_MOBILE,
-} from "./styles/common/common.media_queries.css";
-export {
-  globalVariantsUiScale,
-  type SharedUiScale,
-} from "./styles/common/globalVariantsUiScale.css";
+} from "./styles/common/media_queries.css";
+export { elementSize, ElementSizeEnum } from "./styles/common/element_size.css";
 
 /**
  * React components
@@ -41,8 +39,6 @@ export type { CardProps } from "./components/card";
 
 export { Collapsible } from "./components/collapsible";
 export type { CollapsibleProps } from "./components/collapsible";
-
-// export type { DropdownItemShape } from "./components/select_new/types";
 
 export { Dialog } from "./components/dialog";
 export type { DialogProps } from "./components/dialog";
@@ -97,7 +93,3 @@ export type { TextAreaProps } from "./components/text_area";
  * React context
  */
 export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
-
-/**
- * Styles
- */

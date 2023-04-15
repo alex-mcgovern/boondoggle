@@ -3,10 +3,6 @@
     "project": "./tsconfig.json"
   },
 
-  "plugins": ["react-perf", "sonarjs", "jsdoc", "unused-imports", "import"],
-
-  "extends": [],
-
   "ignorePatterns": ["*.snap", "dist"],
 
   "overrides": [
@@ -16,7 +12,10 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
 
+      "plugins": ["react-perf", "sonarjs", "jsdoc", "unused-imports", "import"],
+
       "extends": [
+        "plugin:react/jsx-runtime",
         "airbnb",
         "airbnb/hooks",
         "airbnb-typescript",
@@ -75,6 +74,8 @@
           }
         ],
         "no-unused-vars": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-react": "off",
         "react-perf/jsx-no-jsx-as-prop": "warn",
         "react-perf/jsx-no-new-array-as-prop": "warn",
         "react-perf/jsx-no-new-function-as-prop": "warn",

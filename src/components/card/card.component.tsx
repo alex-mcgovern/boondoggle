@@ -1,6 +1,6 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";

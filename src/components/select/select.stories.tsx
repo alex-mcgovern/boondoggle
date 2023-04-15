@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { faGlobeEurope } from "@fortawesome/free-solid-svg-icons";
 import { jest } from "@storybook/jest";
-import React from "react";
 
 import { SelectSingle } from ".";
 import { Icon } from "../icon";

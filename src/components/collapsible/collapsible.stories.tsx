@@ -1,5 +1,4 @@
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 import { Collapsible as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";

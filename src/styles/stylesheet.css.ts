@@ -1,6 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { a11yFocusStyleRule } from "./common/globalFocusStyles.css";
+import { a11yFocusStyleRule } from "./common/a11y.css";
 import "./reset.css";
 import { vars } from "./theme.css";
 import { createAccessibleTransition } from "./utils/create_accessible_transition";

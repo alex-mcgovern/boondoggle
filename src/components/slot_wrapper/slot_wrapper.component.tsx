@@ -1,13 +1,12 @@
-import React from "react";
-
 import { Box } from "../box";
 
 import type { BoxProps } from "../box";
+import type { ReactNode } from "react";
 
 export interface SlotWrapperProps extends BoxProps {
-  slotLeft?: React.ReactNode;
-  slotRight?: React.ReactNode;
-  children?: React.ReactNode;
+  slotLeft?: ReactNode;
+  slotRight?: ReactNode;
+  children?: ReactNode;
 }
 
 export function SlotWrapper({

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Dialog as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Button } from "../button";

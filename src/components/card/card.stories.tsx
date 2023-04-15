@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Card as StoryComponent } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.component.mock";

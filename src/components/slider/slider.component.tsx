@@ -5,7 +5,7 @@ import {
   Track as RadixSliderTrack,
 } from "@radix-ui/react-slider";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { getTheme } from "../../styles/theme.css";
 import { Box } from "../box";
@@ -14,10 +14,10 @@ import { Label } from "../label";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./slider.styles.css";
 
-import type { SharedUiScale } from "../../styles/common/globalVariantsUiScale.css";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
-import type { AriaRole, HTMLInputTypeAttribute, Ref } from "react";
+import type { AriaRole, HTMLInputTypeAttribute, ReactNode, Ref } from "react";
 
 export interface SliderProps
   extends Omit<RadixSliderProps, "color">,
@@ -32,9 +32,9 @@ export interface SliderProps
   /** Name of the form control. Submitted with the form as part of a name/value pair */
   name: string;
   /** React node shown on the left side of input. */
-  slotLeft?: React.ReactNode;
+  slotLeft?: ReactNode;
   /** React node shown on the right side of input. */
-  slotRight?: React.ReactNode;
+  slotRight?: ReactNode;
   /** Controls `aria-required` and input `required` attributes. */
   required?: boolean;
   /** Label text. (Will also be used as accessible `name` on the input element.) */
@@ -44,7 +44,7 @@ export interface SliderProps
   /** Aria role to use for the input (e.g. `search`). */
   role?: AriaRole;
   /** Common interactive element size, shared with button, select, etc */
-  size?: SharedUiScale;
+  size?: ElementSizeEnum;
 
   type?: HTMLInputTypeAttribute;
 }

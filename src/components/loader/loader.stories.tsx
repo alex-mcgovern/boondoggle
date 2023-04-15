@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Loader as StoryComponent } from ".";
 
 import type { LoaderProps as StoryComponentProps } from ".";

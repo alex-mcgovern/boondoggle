@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Box } from "../src/components/box";
 import { getTheme } from "../src/styles/theme.css";
 
