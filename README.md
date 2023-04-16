@@ -19,3 +19,7 @@ a little help from battle-tested, open-source libraries like
 My goal is to give you tools to build a complete and polished UI with a minimal
 bundle footprint and a buttery-smooth developer experience, _without wasting a
 lot of time reinventing the wheel_.
+
+## Documentation
+
+Coming soon!
