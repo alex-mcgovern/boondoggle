@@ -8,7 +8,6 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dropdownListInner = style([
-  getSprinkles({}),
   {
     maxHeight: "33vh",
   },
@@ -36,10 +35,10 @@ export const dropdownListWrapper = style([
     overflowY: "auto",
   }),
   {
+    position: "absolute",
+    zIndex: 999,
     width: "100%",
-
     maxHeight: "10rem",
-
     selectors: {
       "&:empty": {
         display: "none",

@@ -79,16 +79,14 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
 
     background: getFromPaletteByIndex(secondaryPalette, 0),
 
-    border_default: getFromPaletteByIndex(secondaryPalette, 6),
-    border_active: getFromPaletteByIndex(secondaryPalette, 7),
+    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
+    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
 
-    focus_ring: getFromPaletteByIndex(primaryPalette, 8),
+    border_default: getFromPaletteByIndex(secondaryPalette, 6),
+    border_active: getFromPaletteByIndex(secondaryPalette, 8),
 
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
-
-    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
-    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
 
     text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
     text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),

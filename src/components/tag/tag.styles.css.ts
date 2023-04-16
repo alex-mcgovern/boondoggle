@@ -80,6 +80,7 @@ export const slotLeft = style({
     },
   },
 });
+
 export const slotRight = style({
   flexShrink: 0,
   justifySelf: "end",

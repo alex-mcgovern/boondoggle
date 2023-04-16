@@ -26,7 +26,7 @@ export const dialogOverlay = style([
     },
   },
   createAccessibleTransition({
-    animation: `${overlayShow} ${vars.transitionDuration.short} cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+    animation: `${overlayShow} ${vars.transitionDuration.medium} cubic-bezier(0.16, 1, 0.3, 1) forwards`,
   }),
 ]);
 
@@ -56,6 +56,6 @@ export const dialogContent = style([
     },
   },
   createAccessibleTransition({
-    animation: `${contentShow} ${vars.transitionDuration.short} ease forwards`,
+    animation: `${contentShow} ${vars.transitionDuration.long} ease forwards`,
   }),
 ]);

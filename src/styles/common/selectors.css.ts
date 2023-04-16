@@ -4,9 +4,10 @@ export const SELECTOR_IS_NOT_DISABLED = ":not([disabled])";
 export const SELECTOR_IS_HOVER = `:is(:hover)`;
 export const SELECTOR_IS_FOCUS = `:is(:focus-visible)`;
 export const SELECTOR_IS_HOVER_FOCUS = `:is(:hover, :focus-visible)`;
+export const SELECTOR_IS_ACTIVE = `:active`;
 
-/** —
- * BUTTON/LINK: HOVER
+/**
+ * Button/link: hover
  */
 const hoverSelectorArray = [
   "&",
@@ -16,8 +17,8 @@ const hoverSelectorArray = [
 ];
 export const SELECTOR_LINK_BUTTON_HOVER = hoverSelectorArray.join("");
 
-/** —
- * BUTTON/LINK: FOCUS
+/**
+ * Button/link: focus
  */
 const focusSelectorArray = [
   "&",
@@ -27,8 +28,8 @@ const focusSelectorArray = [
 ];
 export const SELECTOR_LINK_BUTTON_FOCUS = focusSelectorArray.join("");
 
-/** —
- * BUTTON/LINK: HOVER/FOCUS
+/**
+ * Button/link: hover/focus
  */
 const hoverFocusSelectorArray = [
   "&",
@@ -38,3 +39,14 @@ const hoverFocusSelectorArray = [
 ];
 export const SELECTOR_LINK_BUTTON_HOVER_FOCUS =
   hoverFocusSelectorArray.join("");
+
+/**
+ * Button/link: hover/focus
+ */
+const activeSelectorArray = [
+  "&",
+  SELECTOR_IS_LINK_OR_BUTTON,
+  SELECTOR_IS_NOT_DISABLED,
+  SELECTOR_IS_ACTIVE,
+];
+export const SELECTOR_LINK_BUTTON_ACTIVE = activeSelectorArray.join("");

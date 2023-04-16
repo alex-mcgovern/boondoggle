@@ -6,7 +6,7 @@ import type { StyleRule } from "@vanilla-extract/css";
 
 export const a11yError = style([
   {
-    borderColor: vars.color.focus_ring,
+    borderColor: vars.color.button_default,
     selectors: {
       [`&:is(&:focus, &:focus-visible), &:focus-within`]: {
         outline: `2px solid ${vars.color.border_active}`,
@@ -28,9 +28,9 @@ export const a11yDisabled = style({
 });
 
 export const a11yFocusStyleRule: StyleRule = {
-  outline: `2px solid ${vars.color.focus_ring}`,
+  outline: `2px solid ${vars.color.button_default}`,
   outlineOffset: "2px",
-  borderColor: vars.color.focus_ring,
+  borderColor: vars.color.button_default,
 };
 
 export const a11yFocus = style([

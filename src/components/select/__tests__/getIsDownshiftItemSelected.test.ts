@@ -15,6 +15,7 @@ describe("Get is dropdown item selected", () => {
       })
     ).toBe(false);
   });
+
   test.skip("Downshift items mock 1 refined", () => {
     expect(
       getIsSelected({

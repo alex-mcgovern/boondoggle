@@ -9,5 +9,6 @@
     "<TS_TYPES>"
   ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "plugins": ["prettier-plugin-jsdoc"]
 }

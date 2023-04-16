@@ -10,7 +10,7 @@ export const popoverTrigger = style([
     borderRadius: vars.borderRadius.sm,
 
     transition: `color ease`,
-    transitionDuration: vars.transitionDuration.short,
+    transitionDuration: vars.transitionDuration.medium,
 
     selectors: {
       "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {

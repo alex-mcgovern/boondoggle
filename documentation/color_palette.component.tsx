@@ -36,7 +36,7 @@ export function ColorPalette() {
       />
       <ColorItem
         title="Button"
-        subtitle="Used for buttons, and other use cases requiring a saturated color. Is re-assigned when in dark mode or by intent."
+        subtitle="Used for buttons, and other use cases requiring a saturated color. Is re-assigned when in dark mode or by intent. Also used for the focus ring."
         colors={{
           button_default: vars.color.button_default,
           button_active: vars.color.button_active,

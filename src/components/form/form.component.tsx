@@ -20,13 +20,13 @@ import { SelectSingle } from "../select";
 import { Slider } from "../slider";
 import { TextArea } from "../text_area";
 
-import type { FormEvent, ReactElement} from "react";
 import type { IconProps } from "../icon";
 import type { InputProps } from "../input";
 import type { DropdownItemShape, SelectSingleProps } from "../select";
 import type { SliderProps } from "../slider";
 import type { TextAreaProps } from "../text_area";
 import type { UseComboboxStateChange } from "downshift";
+import type { FormEvent, ReactElement } from "react";
 import type { FieldValues, FormState } from "react-hook-form";
 
 /**

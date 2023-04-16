@@ -1,0 +1,58 @@
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import { Card } from "..";
+import * as stories from "./card.stories.tsx";
+
+<Meta of={stories} />
+
+# Card
+
+## Overview
+
+`Card` is a simple container component that can be used to group content. It's
+purpose is to minimise repetition, and ensure consistent appearance of card
+content.
+
+`Card` accepts all arguments for `getSprinkles`, and may also be polymorphic
+using the `as` prop. When configured to return a `<button>` or `<a>` element, it
+will automatically apply hover/focus state styles.
+
+## Related links
+
+- [Components/Box](/docs/components-box--documentation)
+
+## Usage
+
+### `as` prop (polymorphism)
+
+`Card` is a polymorphic component that accepts an `as` prop to change the
+underlying HTML element. By default it will return a `<button>` element.
+
+You can pass the name of a generic HTML element, like `a` for an `<a>` tag:
+
+<Canvas sourceState="shown" of={stories.ExamplePolymorphismGenericAnchorTag} />
+
+Or you can pass a React component. E.g. in this case, we are passing a custom
+Link component, similar to the one provided by frameworks like Reach Router,
+NextJS or Gatsby.
+
+<Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
+
+### Styling `Card` with "sprinkles"
+
+`Card` accepts all arguments for `getSprinkles`, which is a utility function
+provided by
+[Vanilla Extract](https://vanilla-extract.style/documentation/packages/sprinkles/)
+that allows quick composition of a minimal set of utility CSS classes. This
+allows you to quickly style elements inline by passing CSS rules as props —
+think of it a bit like Tailwind CSS, but with a bit more structure in the markup
+and intellisense and type-safety.
+
+E.g. here we override the default padding of `spacing3` with `spacing5`:
+
+<Canvas sourceState="shown" of={stories.ExampleBasicSprinkles} />
+
+# Props
+
+<ArgTypes of={Card} />
+```

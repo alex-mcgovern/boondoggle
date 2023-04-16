@@ -3,7 +3,10 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import { elementSize } from "../../styles/common/element_size.css";
-import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/selectors.css";
+import {
+  SELECTOR_LINK_BUTTON_ACTIVE,
+  SELECTOR_LINK_BUTTON_HOVER_FOCUS,
+} from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -43,6 +46,9 @@ export const variantAppearance = styleVariants({
           color: vars.color.white,
           background: vars.color.button_active,
         },
+        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+          background: vars.color.button_default,
+        },
       },
     },
   ],
@@ -57,6 +63,9 @@ export const variantAppearance = styleVariants({
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: vars.color.button_active,
           background: vars.color.tint_default,
+        },
+        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+          background: "transparent",
         },
       },
     },
@@ -75,6 +84,9 @@ export const variantAppearance = styleVariants({
           color: vars.color.button_active,
           textDecoration: "underline",
         },
+      },
+      [SELECTOR_LINK_BUTTON_ACTIVE]: {
+        color: vars.color.button_default,
       },
     },
   ],
@@ -103,8 +115,8 @@ export const getButtonStyles = recipe({
       textDecoration: "none",
     }),
     createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.short} ease-in,\
-                   background ${vars.transitionDuration.short} ease-in`,
+      transition: `color ${vars.transitionDuration.short} ease,\
+                   background ${vars.transitionDuration.short} ease`,
     }),
   ],
   variants: {

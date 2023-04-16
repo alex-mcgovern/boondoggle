@@ -92,4 +92,4 @@ export type { TextAreaProps } from "./components/text_area";
 /**
  * React context
  */
-export { ThemeContext, ThemeProvider } from "./context/ThemeContext";
+export { ThemeContext, ThemeProvider } from "./context/theme_context";

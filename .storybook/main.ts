@@ -7,7 +7,6 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-links",
     "@storybook/addon-mdx-gfm",
     "storybook-addon-pseudo-states",
   ],
