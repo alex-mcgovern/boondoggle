@@ -1,2 +1,2 @@
-export { Card } from "./card.component";
-export type { CardProps } from "./card.component";
+export { Card } from "./card.comp";
+export type { CardProps } from "./card.comp";

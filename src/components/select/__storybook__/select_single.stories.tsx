@@ -1,76 +1,69 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { faGlobeEurope } from "@fortawesome/free-solid-svg-icons";
 import { jest } from "@storybook/jest";
 
-import { SelectSingle } from "..";
+import { SelectSingle as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectSingleProps } from "..";
+import type { SelectSingleProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
 
 const ITEMS = mockSelectItems();
 
+const PROPS: StoryCompProps = {
+  items: ITEMS,
+  id: LOREM.id(),
+  label: LOREM.label(),
+  name: LOREM.name(),
+  onChange: ON_CHANGE,
+  placeholder: LOREM.placeholder(),
+};
+
 export default {
-    title: "React components/Select/Single",
-    component: SelectSingle,
+  title: "React components/SelectSingle",
+  component: StoryComp,
 };
 
-const SelectSingleTemplate: StoryFn<SelectSingleProps> = ({ ...rest }) => {
-    return <SelectSingle {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
+  return <StoryComp {...rest} />;
 };
 
-export const SelectSingleDefault: StoryObj<SelectSingleProps> = {
-    render: SelectSingleTemplate,
-    args: {
-        items: ITEMS,
-        id: LOREM.id(),
-        label: LOREM.label(),
-        name: "country",
-        onChange: ON_CHANGE,
-        placeholder: LOREM.placeholder(),
-    },
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: PROPS,
 };
 
-export const InitialSelectedItem: StoryObj<SelectSingleProps> = {
-    render: SelectSingleTemplate,
-    args: {
-        id: LOREM.id(),
-        initialSelectedItem: ITEMS[0],
-        items: ITEMS,
-        label: LOREM.label(),
-        name: "country",
-        onChange: ON_CHANGE,
-        placeholder: LOREM.placeholder(),
-    },
+export const InitialSelectedItem: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    ...PROPS,
+    initialSelectedItem: ITEMS[0],
+  },
 };
 
-export const Invalid: StoryObj<SelectSingleProps> = {
-    render: SelectSingleTemplate,
-    args: {
-        errorMessage: LOREM.errorMessage(),
-        id: LOREM.id(),
-        invalid: true,
-        items: ITEMS,
-        label: LOREM.label(),
-        name: "country",
-        onChange: ON_CHANGE,
-        placeholder: LOREM.placeholder(),
-    },
+export const Invalid: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    ...PROPS,
+    invalid: true,
+    errorMessage: LOREM.errorMessage(),
+  },
 };
 
-export const Filterable: StoryObj<SelectSingleProps> = {
-    render: SelectSingleTemplate,
-    args: {
-        id: LOREM.id(),
-        isFilterable: true,
-        items: ITEMS,
-        label: LOREM.label(),
-        name: "country",
-        onChange: ON_CHANGE,
-        placeholder: LOREM.placeholder(),
-    },
+export const Filterable: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    ...PROPS,
+    isFilterable: true,
+  },
+};
+
+export const Disabled: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    ...PROPS,
+    disabled: true,
+  },
 };

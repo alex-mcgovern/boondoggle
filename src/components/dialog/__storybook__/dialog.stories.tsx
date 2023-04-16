@@ -1,27 +1,25 @@
-import { Dialog as StoryComponent } from "..";
+import { Dialog as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Button } from "../../button";
 
-import type { DialogProps as StoryComponentProps } from "..";
+import type { DialogProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-    title: "React components/Organisms/Dialog",
-    component: StoryComponent,
+  title: "React components/Dialog",
+  component: StoryComp,
 };
 
-const Template: StoryFn<StoryComponentProps> = ({
-    ...rest
-}: StoryComponentProps) => {
-    return <StoryComponent {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+  return <StoryComp {...rest} />;
 };
 
-export const Default: StoryObj<StoryComponentProps> = {
-    render: Template,
-    name: "default",
-    args: {
-        triggerNode: <Button name="Dialog button">Open dialog</Button>,
-        children: LOREM.textXxl,
-        title: LOREM.textXxs,
-    },
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
+  args: {
+    triggerNode: <Button name="Dialog button">Open dialog</Button>,
+    children: LOREM.textXxl,
+    title: LOREM.textXxs,
+  },
 };

@@ -1,13 +1,13 @@
 import type { StyleRule } from "@vanilla-extract/css";
 
 export function createAccessibleTransition({
-    ...styleRules
+  ...styleRules
 }: StyleRule): StyleRule {
-    return {
-        "@media": {
-            "(prefers-reduced-motion: no-preference)": {
-                ...styleRules,
-            },
-        },
-    };
+  return {
+    "@media": {
+      "(prefers-reduced-motion: no-preference)": {
+        ...styleRules,
+      },
+    },
+  };
 }

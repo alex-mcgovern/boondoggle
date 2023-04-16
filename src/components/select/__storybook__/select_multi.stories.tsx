@@ -1,34 +1,43 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { faGlobeEurope } from "@fortawesome/free-solid-svg-icons";
 import { jest } from "@storybook/jest";
 
-import { SelectMulti } from "..";
-import { Icon } from "../../icon";
+import { SelectMulti as StoryComp } from "..";
+import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectMultiProps } from "../select_multi.comp";
+import type { SelectMultiProps as StoryCompProps } from "../select_multi.comp";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
 
 const ITEMS = mockSelectItems();
 
+const PROPS: StoryCompProps = {
+  items: ITEMS,
+  id: LOREM.id(),
+  label: LOREM.label(),
+  name: LOREM.name(),
+  onChange: ON_CHANGE,
+  placeholder: LOREM.placeholder(),
+};
+
 export default {
-    title: "React components/Select/Multi",
-    component: SelectMulti,
+  title: "React components/SelectMulti",
+  component: StoryComp,
 };
 
-const SelectMultiTemplate: StoryFn<SelectMultiProps> = ({ ...rest }) => {
-    return <SelectMulti {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+  return <StoryComp {...rest} />;
 };
 
-export const SelectMultiDefault: StoryObj<SelectMultiProps> = {
-    render: SelectMultiTemplate,
-    args: {
-        slotLeft: <Icon icon={faGlobeEurope} />,
-        items: ITEMS,
-        label: "Single select",
-        name: "country",
-        onChange: ON_CHANGE,
-    },
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: PROPS,
+};
+
+export const InitialSelectedItems: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    ...PROPS,
+    initialSelectedItems: [ITEMS[0]],
+  },
 };

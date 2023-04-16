@@ -1,20 +1,18 @@
-import { Slider as StoryComponent } from "..";
+import { Slider as StoryComp } from "..";
 
-import type { SliderProps as StoryComponentProps } from "..";
+import type { SliderProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-    title: "React components/Molecules/Slider",
-    component: StoryComponent,
+  title: "React components/Slider",
+  component: StoryComp,
 };
 
-const Template: StoryFn<StoryComponentProps> = ({
-    ...rest
-}: StoryComponentProps) => {
-    return <StoryComponent {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+  return <StoryComp {...rest} />;
 };
 
-export const Default: StoryObj<StoryComponentProps> = {
-    render: Template,
-    name: "default",
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
 };

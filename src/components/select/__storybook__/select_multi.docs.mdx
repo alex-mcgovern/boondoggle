@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Meta, Story } from "@storybook/addon-docs";
 
+import { SelectMulti } from "..";
 import * as stories from "./select_multi.stories.tsx";
 
 <Meta of={stories} />
@@ -11,9 +12,9 @@ import * as stories from "./select_multi.stories.tsx";
 
 ## Default
 
-<Canvas name="default" of={stories.SelectMultiDefault} />
+<Canvas name="default" of={stories.Default} />
 
-## Filterable
+## `initialSelectedItems`
 
-[ToDo: Add filterable example]
-{/* <Canvas name="filterable" of={stories.Filterable} /> */}
+<ArgTypes of={SelectMulti} include={["initialSelectedItems"]} />
+<Canvas name="initialSelectedItems" of={stories.InitialSelectedItems} />

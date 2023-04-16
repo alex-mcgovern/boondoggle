@@ -10,24 +10,24 @@ import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 
 export interface IconProps
-    extends SprinklesArgs,
-        Pick<FontAwesomeIconProps, "size" | "spin"> {
-    icon: IconProp;
-    className?: string;
+  extends SprinklesArgs,
+    Pick<FontAwesomeIconProps, "size" | "spin"> {
+  icon: IconProp;
+  className?: string;
 }
 
 export function Icon({ icon, className: userClassName, ...rest }: IconProps) {
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+  const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
-    return (
-        <FontAwesomeIcon
-            icon={icon}
-            className={clsx(
-                styles.icon,
-                userClassName,
-                getSprinkles({ ...atomProps, flexShrink: "0" })
-            )}
-            {...otherProps}
-        />
-    );
+  return (
+    <FontAwesomeIcon
+      icon={icon}
+      className={clsx(
+        styles.icon,
+        userClassName,
+        getSprinkles({ ...atomProps, flexShrink: "0" })
+      )}
+      {...otherProps}
+    />
+  );
 }

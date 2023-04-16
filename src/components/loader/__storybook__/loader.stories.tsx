@@ -1,20 +1,18 @@
-import { Loader as StoryComponent } from "..";
+import { Loader as StoryComp } from "..";
 
-import type { LoaderProps as StoryComponentProps } from "..";
+import type { LoaderProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-    title: "React components/Atoms/Loader",
-    component: StoryComponent,
+  title: "React components/Loader",
+  component: StoryComp,
 };
 
-const Template: StoryFn<StoryComponentProps> = ({
-    ...rest
-}: StoryComponentProps) => {
-    return <StoryComponent {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+  return <StoryComp {...rest} />;
 };
 
-export const Default: StoryObj<StoryComponentProps> = {
-    render: Template,
-    name: "default",
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
 };

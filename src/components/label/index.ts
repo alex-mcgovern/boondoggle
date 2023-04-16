@@ -1,2 +1,2 @@
-export { Label } from "./label.component";
-export type { LabelProps } from "./label.component";
+export { Label } from "./label.comp";
+export type { LabelProps } from "./label.comp";

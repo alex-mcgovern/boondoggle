@@ -1,3 +1,3 @@
-export { Button } from "./button.component";
+export { Button } from "./button.comp";
 export { getButtonStyles } from "./button.styles.css";
-export type { ButtonProps } from "./button.component";
+export type { ButtonProps } from "./button.comp";

@@ -9,22 +9,21 @@ import * as styles from "./tooltip.styles.css";
 import type { IconProps } from "../icon";
 
 export interface TooltipProps {
-    popoverText: string;
-    icon?: IconProps["icon"];
+  popoverText: string;
+  icon?: IconProps["icon"];
 }
-
 export function Tooltip({ popoverText, icon = faInfoCircle }: TooltipProps) {
-    return (
-        <RadixPopover.Root>
-            <RadixPopover.Trigger className={styles.popoverTrigger}>
-                <Icon icon={icon} />
-            </RadixPopover.Trigger>
+  return (
+    <RadixPopover.Root>
+      <RadixPopover.Trigger className={styles.popoverTrigger}>
+        <Icon icon={icon} />
+      </RadixPopover.Trigger>
 
-            <RadixPopover.Content sideOffset={1} side="bottom">
-                <Card maxWidth="gridSpan5" padding="spacing1">
-                    <Box>{popoverText}</Box>
-                </Card>
-            </RadixPopover.Content>
-        </RadixPopover.Root>
-    );
+      <RadixPopover.Content sideOffset={1} side="bottom">
+        <Card maxWidth="gridSpan5" padding="spacing1">
+          <Box>{popoverText}</Box>
+        </Card>
+      </RadixPopover.Content>
+    </RadixPopover.Root>
+  );
 }

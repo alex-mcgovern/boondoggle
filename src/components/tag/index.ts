@@ -1,2 +1,2 @@
-export { Tag } from "./tag.component";
-export type { TagProps } from "./tag.component";
+export { Tag } from "./tag.comp";
+export type { TagProps } from "./tag.comp";

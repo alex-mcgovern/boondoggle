@@ -2,101 +2,101 @@ import { useCombobox } from "downshift";
 
 import type { DropdownItemShape } from "./select.types";
 import type {
-    UseComboboxProps,
-    UseComboboxState,
-    UseComboboxStateChangeOptions,
-    UseMultipleSelectionProps,
+  UseComboboxProps,
+  UseComboboxState,
+  UseComboboxStateChangeOptions,
+  UseMultipleSelectionProps,
 } from "downshift";
 
 /**
  * Util function that can be used to determine if an item is selected in a dropdown.
  */
 export interface GetIsItemSelectedArgs {
-    item: DropdownItemShape | undefined | null;
-    selectedItems?: UseMultipleSelectionProps<DropdownItemShape>["selectedItems"];
-    selectedItem?: UseComboboxProps<DropdownItemShape>["selectedItem"];
-    isMulti?: boolean;
+  item: DropdownItemShape | undefined | null;
+  selectedItems?: UseMultipleSelectionProps<DropdownItemShape>["selectedItems"];
+  selectedItem?: UseComboboxProps<DropdownItemShape>["selectedItem"];
+  isMulti?: boolean;
 }
 
 export const getIsSelected = ({
-    item,
-    isMulti,
-    selectedItems: prevSelectedItems,
-    selectedItem,
+  item,
+  isMulti,
+  selectedItems: prevSelectedItems,
+  selectedItem,
 }: GetIsItemSelectedArgs): boolean => {
-    if (!isMulti && selectedItem) {
-        return selectedItem?.label.toLowerCase() === item?.label.toLowerCase();
-    }
+  if (!isMulti && selectedItem) {
+    return selectedItem?.label.toLowerCase() === item?.label.toLowerCase();
+  }
 
-    if (isMulti) {
-        return (
-            Array.isArray(prevSelectedItems) &&
-            prevSelectedItems.some((prevSelectedItem) => {
-                return prevSelectedItem?.value === item?.value;
-            })
-        );
-    }
+  if (isMulti) {
+    return (
+      Array.isArray(prevSelectedItems) &&
+      prevSelectedItems.some((prevSelectedItem) => {
+        return prevSelectedItem?.value === item?.value;
+      })
+    );
+  }
 
-    return false;
+  return false;
 };
 
 /**
  * Util to filter dropdown items based on `inputValue`
  */
 export interface GetFilteredDropdownItemsArgs {
-    /** An array of dropdown items */
-    items: Array<DropdownItemShape>;
-    /** Value of controlled combobox input */
-    inputValue?: string;
+  /** An array of dropdown items */
+  items: Array<DropdownItemShape>;
+  /** Value of controlled combobox input */
+  inputValue?: string;
 }
 
 /** Removes items not matching `inputValue` from `items` */
 export function getFilteredDropdownItems({
-    items,
-    inputValue,
+  items,
+  inputValue,
 }: GetFilteredDropdownItemsArgs) {
-    if (!inputValue) {
-        return items;
-    }
+  if (!inputValue) {
+    return items;
+  }
 
-    /** Filter out items that don't match the `inputValue` */
-    return items.filter((item) => {
-        return item.label.toLowerCase().includes(inputValue.toLowerCase());
-    });
+  /** Filter out items that don't match the `inputValue` */
+  return items.filter((item) => {
+    return item.label.toLowerCase().includes(inputValue.toLowerCase());
+  });
 }
 
 /**
  * Util to get the display value for a dropdown when we are using `useMultipleSelection`
  */
 interface GetDisplayValueArgs {
-    originalValue: string;
-    length?: number;
+  originalValue: string;
+  length?: number;
 }
 export const getDisplayValue = ({
-    originalValue,
-    length,
+  originalValue,
+  length,
 }: GetDisplayValueArgs) => {
-    if (length && length > 0) {
-        return `${length} selected`;
-    }
+  if (length && length > 0) {
+    return `${length} selected`;
+  }
 
-    return originalValue;
+  return originalValue;
 };
 
 /**
  * Util to get the default highlighted index for a dropdown
  */
 interface GetDefaultHighlightedIndexArgs {
-    items: Array<DropdownItemShape>;
-    initialHighlightedItem?: DropdownItemShape;
+  items: Array<DropdownItemShape>;
+  initialHighlightedItem?: DropdownItemShape;
 }
 export const getDefaultHighlightedIndex = ({
-    items,
-    initialHighlightedItem,
+  items,
+  initialHighlightedItem,
 }: GetDefaultHighlightedIndexArgs) => {
-    return items.findIndex((item) => {
-        return item.label === initialHighlightedItem?.label;
-    });
+  return items.findIndex((item) => {
+    return item.label === initialHighlightedItem?.label;
+  });
 };
 
 /**
@@ -106,34 +106,35 @@ export const getDefaultHighlightedIndex = ({
  * See https://www.downshift-js.com/use-combobox/#state-reducer
  */
 export const downshiftStateReducer = (
-    state: UseComboboxState<DropdownItemShape>,
-    actionAndChanges: UseComboboxStateChangeOptions<DropdownItemShape>,
-    { isMulti }: { isMulti?: boolean }
+  state: UseComboboxState<DropdownItemShape>,
+  actionAndChanges: UseComboboxStateChangeOptions<DropdownItemShape>,
+  { isMulti }: { isMulti?: boolean }
 ) => {
-    const { changes, type } = actionAndChanges;
+  const { changes, type } = actionAndChanges;
 
-    switch (type) {
-        /**
-         * Prevent flash of menu on first input click
-         * Should be resolved by issue here: https://github.com/downshift-js/downshift/issues/1439
-         * @todo: [Select] Test downshift fix and report back
-         */
-        case useCombobox.stateChangeTypes.InputFocus:
-            return { ...changes, isOpen: false };
+  switch (type) {
+    /**
+     * Prevent flash of menu on first input click
+     * Should be resolved by issue here: https://github.com/downshift-js/downshift/issues/1439
+     *
+     * ToDo: [Select] Test downshift fix and report back
+     */
+    case useCombobox.stateChangeTypes.InputFocus:
+      return { ...changes, isOpen: false };
 
-        /** Keep the menu open in multi-select mode */
-        case useCombobox.stateChangeTypes.InputBlur:
-        case useCombobox.stateChangeTypes.InputKeyDownEnter:
-        case useCombobox.stateChangeTypes.ItemClick:
-            return {
-                ...changes,
-                ...(changes.selectedItem && {
-                    isOpen: isMulti,
-                    highlightedIndex: state.highlightedIndex,
-                }),
-            };
+    /** Keep the menu open in multi-select mode */
+    case useCombobox.stateChangeTypes.InputBlur:
+    case useCombobox.stateChangeTypes.InputKeyDownEnter:
+    case useCombobox.stateChangeTypes.ItemClick:
+      return {
+        ...changes,
+        ...(changes.selectedItem && {
+          isOpen: isMulti,
+          highlightedIndex: state.highlightedIndex,
+        }),
+      };
 
-        default:
-            return changes;
-    }
+    default:
+      return changes;
+  }
 };

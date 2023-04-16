@@ -9,9 +9,14 @@ import * as stories from "./select_single.stories.tsx";
 
 ## Accessible single select component built with [downshift.js](https://www.downshift-js.com/)
 
-<Canvas name="default" of={stories.SelectSingleDefault} />
+<Canvas name="default" of={stories.Default} />
 
 ## Usage
+
+### `disabled`
+
+<ArgTypes of={SelectSingle} include={["disabled"]} />
+<Canvas name="default" of={stories.Disabled} />
 
 ### `initialSelectedItem`
 
@@ -23,11 +28,10 @@ import * as stories from "./select_single.stories.tsx";
 <ArgTypes of={SelectSingle} include={["invalid"]} />
 <Canvas name="default" of={stories.Invalid} />
 
-## Filterable
+## `isFilterable`
 
-[ToDo: Add filterable example] //
-
-<Canvas name="filterable" of={stories.Filterable} />{" "}
+<ArgTypes of={SelectSingle} include={["isFilterable"]} />
+<Canvas name="filterable" of={stories.Filterable} />
 
 # Reference
 

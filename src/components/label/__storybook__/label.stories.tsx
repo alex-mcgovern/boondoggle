@@ -1,24 +1,22 @@
-import { Label as StoryComponent } from "..";
+import { Label as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 
-import type { LabelProps as StoryComponentProps } from "..";
+import type { LabelProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-    title: "React components/Atoms/Label",
-    component: StoryComponent,
+  title: "React components/Label",
+  component: StoryComp,
 };
 
-const Template: StoryFn<StoryComponentProps> = ({
-    ...rest
-}: StoryComponentProps) => {
-    return <StoryComponent {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+  return <StoryComp {...rest} />;
 };
 
-export const Default: StoryObj<StoryComponentProps> = {
-    render: Template,
-    name: "default",
-    args: {
-        label: LOREM.textXxs,
-    },
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
+  args: {
+    label: LOREM.textXxs,
+  },
 };

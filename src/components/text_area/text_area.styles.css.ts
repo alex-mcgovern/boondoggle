@@ -6,16 +6,16 @@ import { elementSize } from "../../styles/common/element_size.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const getWrapperStyles = recipe({
-    variants: { size: elementSize },
-    defaultVariants: {
-        size: "md",
-    },
+  variants: { size: elementSize },
+  defaultVariants: {
+    size: "md",
+  },
 });
 
 export const textArea = style([
-    getSprinkles({
-        width: "100%",
-    }),
-    a11yDisabled,
-    a11yFocus,
+  getSprinkles({
+    width: "100%",
+  }),
+  a11yDisabled,
+  a11yFocus,
 ]);

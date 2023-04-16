@@ -12,12 +12,11 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
 
-      "plugins": ["react-perf", "sonarjs", "unused-imports", "import"],
+      "plugins": ["react-perf", "sonarjs", "jsdoc", "unused-imports", "import"],
 
       "extends": [
         "plugin:react/jsx-runtime",
         "airbnb",
-        "plugin:jsdoc/recommended-error",
         "airbnb/hooks",
         "airbnb-typescript",
         "eslint:recommended",
@@ -68,10 +67,6 @@
             "newlines-between": "always"
           }
         ],
-        "jsdoc/no-types": "warning",
-        "jsdoc/require-param-type": "off",
-        "jsdoc/require-property-type": "off",
-        "jsdoc/require-returns-type": "off",
         "no-console": [
           "error",
           {

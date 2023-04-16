@@ -1,25 +1,23 @@
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
 
-import { Icon as StoryComponent } from "..";
+import { Icon as StoryComp } from "..";
 
-import type { IconProps as StoryComponentProps } from "..";
+import type { IconProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-    title: "React components/Atoms/Icon",
-    component: StoryComponent,
+  title: "React components/Icon",
+  component: StoryComp,
 };
 
-const Template: StoryFn<StoryComponentProps> = ({
-    ...rest
-}: StoryComponentProps) => {
-    return <StoryComponent {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+  return <StoryComp {...rest} />;
 };
 
-export const Default: StoryObj<StoryComponentProps> = {
-    render: Template,
-    name: "default",
-    args: {
-        icon: faShapes,
-    },
+export const Default: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
+  args: {
+    icon: faShapes,
+  },
 };
