@@ -22,12 +22,6 @@ jobs:
           # cache-dependency-path: subdir/package-lock.json
       - run: npm ci
       - run: npm run check
-  chromatic:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    name: Check
-    steps:
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
