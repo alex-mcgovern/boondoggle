@@ -67,3 +67,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# local working directory
+tmp
+
+# storybook build output
+storybook-static

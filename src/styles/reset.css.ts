@@ -2,7 +2,7 @@
  * Unchanged* Eric Meyer's Reset CSS implemented with vanilla-extract:
  * https://meyerweb.com/eric/tools/css/reset/
  *
- * *The original rule for `blockquote:before, blockquote:after, q:before, q:after`
+ * The original rule for `blockquote:before, blockquote:after, q:before, q:after`
  * contains fallback for `content` which is not possible with vanilla-extract.
  */
 import { globalStyle, style } from "@vanilla-extract/css";

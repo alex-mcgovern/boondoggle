@@ -5,11 +5,15 @@ import type {
   PropsWithChildren,
 } from "react";
 
-/** -----------------------------------------------------------------------------
+/**
  * Polymorphic component types
- * ------------------------------------------------------------------------------- */
-
+ */
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
+  /**
+   * Pass an HTML tag or custom component to this prop to merge the
+   * original component props with the supplied element/component props
+   * and change the DOM node.
+   */
   as?: TPolymorphicAs;
 };
 

@@ -1,11 +1,4 @@
 export const varsSpacing = {
-  "": "0",
-  "100%": "100%",
-  "100vh": "100vh",
-  "50%": "50%",
-  "25%": "25%",
-  "50vh": "50vh",
-  "75vh": "75vh",
   auto: "auto",
 
   none: "0",
@@ -15,4 +8,6 @@ export const varsSpacing = {
   spacing3: "1.5rem",
   spacing4: "2rem",
   spacing5: "2.5rem",
+  spacing6: "3rem",
+  spacing7: "3.5rem",
 };

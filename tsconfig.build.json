@@ -2,12 +2,5 @@
   "extends": "./tsconfig.json",
   "compilerOptions": { "rootDir": "src" },
   "include": ["./src/**/*"],
-  "exclude": [
-    "**/*.test.*",
-    "__tests__",
-    "**/*.mock.*",
-    "__mocks__",
-    ".eslintrc.js",
-    "test"
-  ]
+  "exclude": ["**/*.(test|mock|stories).*"]
 }

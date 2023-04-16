@@ -1,31 +1,44 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+
 import {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_TABLET,
-} from "../common/common.media_queries.css";
+} from "../common/media_queries.css";
 import { vars } from "../theme.css";
 import { varsBorder } from "../vars/vars_border.css";
 import { varsDisplay } from "../vars/vars_display.css";
 
-const properties = defineProperties({
+/**
+ * Util function for extracting color vars for use with a sprinkles property
+ */
+export const sprinklesProperties = defineProperties({
   properties: {
-    alignItems: ["stretch", "start", "center", "end"],
     aspectRatio: vars.aspectRatio,
     boxShadow: vars.boxShadow,
-    background: vars.color,
-    color: vars.color,
+
+    /** Border radius */
     borderRadius: vars.borderRadius,
+
+    /** Border */
     border: varsBorder,
     borderRight: varsBorder,
     borderLeft: varsBorder,
     borderBottom: varsBorder,
     borderTop: varsBorder,
+
+    /** Color  */
+    background: vars.color,
+    color: vars.color,
+
+    /** Flex * Grid */
+    alignItems: ["stretch", "start", "center", "end"],
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     flexWrap: ["wrap", "nowrap"],
-    flexShrink: ["0"],
-    fontWeight: vars.fontWeight,
-    isolation: ["isolate"],
+    flexGrow: ["0", "1"],
+    flexShrink: ["0", "1"],
     gap: vars.spacing,
+    columnGap: vars.spacing,
+    rowGap: vars.spacing,
     justifyContent: [
       "stretch",
       "start",
@@ -34,6 +47,9 @@ const properties = defineProperties({
       "space-around",
       "space-between",
     ],
+    flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
+    fontWeight: vars.fontWeight,
+    isolation: ["isolate"],
 
     margin: vars.spacing,
     padding: vars.spacing,
@@ -41,17 +57,24 @@ const properties = defineProperties({
     marginLeft: vars.spacing,
     marginRight: vars.spacing,
     marginTop: vars.spacing,
-    maxHeight: vars.spacing,
+    maxHeight: { ...vars.height, ...vars.spacing },
     maxWidth: vars.width,
     minWidth: { ...vars.width, ...vars.spacing },
-    minHeight: vars.height,
+    minHeight: { ...vars.height, ...vars.spacing },
     overflow: ["hidden"],
     overflowY: ["auto"],
     paddingBottom: vars.spacing,
     paddingLeft: vars.spacing,
     paddingRight: vars.spacing,
     paddingTop: vars.spacing,
+    fontSize: vars.fontSize,
+    lineHeight: vars.lineHeight,
+    height: { ...vars.height, ...vars.spacing },
     top: ["0"],
+    right: ["0"],
+    left: ["0"],
+    bottom: ["0"],
+    inset: ["0"],
     position: ["relative", "absolute", "sticky"],
     textAlign: ["center", "left", "right"],
     textDecoration: ["underline", "none"],
@@ -64,10 +87,17 @@ const properties = defineProperties({
     marginY: ["marginTop", "marginBottom"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
+    fontStyle: ["fontSize", "lineHeight"],
+    placeItems: ["alignItems", "justifyContent"],
   },
 });
 
-const responsiveProperties = defineProperties({
+export const responsiveSprinklesProperties = defineProperties({
+  properties: {
+    width: { ...vars.width, ...vars.spacing },
+    gridTemplateColumns: vars.gridTemplateColumns,
+    display: varsDisplay,
+  },
   conditions: {
     mobile: {},
     tablet: {
@@ -78,20 +108,44 @@ const responsiveProperties = defineProperties({
     },
   },
   defaultCondition: "mobile",
-  properties: {
-    display: varsDisplay,
-    fontSize: vars.fontSize,
-    lineHeight: vars.lineHeight,
-    gridTemplateColumns: vars.gridTemplateColumns,
-    gridTemplateRows: vars.gridTemplateColumns,
-    width: { ...vars.width, ...vars.spacing },
-    height: vars.spacing,
-  },
-  shorthands: {
-    fontStyle: ["fontSize", "lineHeight"],
-  },
 });
 
-export const getSprinkles = createSprinkles(properties, responsiveProperties);
+export const getSprinkles = createSprinkles(
+  sprinklesProperties,
+  responsiveSprinklesProperties
+);
 
-export type GetSprinklesArgs = Parameters<typeof getSprinkles>[0];
+export type SprinklesArgs = Parameters<typeof getSprinkles>[0];
+
+/**
+ * Export subtypes of SprinklesArgs for quickly
+ * extending style customisations in components.
+ */
+export type SprinklesMargin = Pick<
+  SprinklesArgs,
+  | "margin"
+  | "marginX"
+  | "marginY"
+  | "marginTop"
+  | "marginBottom"
+  | "marginLeft"
+  | "marginRight"
+>;
+
+export type SprinklesPadding = Pick<
+  SprinklesArgs,
+  | "padding"
+  | "paddingX"
+  | "paddingY"
+  | "paddingTop"
+  | "paddingBottom"
+  | "paddingLeft"
+  | "paddingRight"
+>;
+
+export type SprinklesColor = Pick<SprinklesArgs, "color" | "background">;
+
+export type SprinklesSize = Pick<
+  SprinklesArgs,
+  "width" | "height" | "maxWidth" | "maxHeight" | "minWidth" | "minHeight"
+>;

@@ -1,0 +1,60 @@
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/blocks";
+
+import { Input } from "..";
+import * as stories from "./input.stories.tsx";
+
+<Meta of={stories} />
+
+# Input
+
+## Overview
+
+`Input` is a simple styled wrapper around the html5 `input` element.
+
+### Customisation
+
+- Input allows customization through top-level props.
+- The props map to the `getSprinkles` utility for composing additional styles.
+
+<Canvas of={stories.CustomisationMargin} />
+
+### "slot" props
+
+To allow more fine-grained control over the bundling of dependencies, the
+`Input` component does not include any icon library. Instead, it accepts a
+`slotLeft` and `slotRight` prop, which can be used to render any React node
+inside the input, on the corresponding side.
+
+<Canvas of={stories.SlotLeftIcon} />
+<Canvas of={stories.SlotRightIcon} />
+<Canvas of={stories.SlotRightLoader} />
+
+### Size
+
+The `Input` has three size variants: `"sm"`, `"md"`, and `"lg"`.
+
+- `"sm"` is for small secondary content, like nav bars or sidebars
+- `"md"` is the default size, and meets Apple's minimum tap target size
+  requirements
+- `"lg"` is for edge cases, like marketing CTAs
+
+<Canvas of={stories.SizeSm} />
+<Canvas of={stories.SizeMd} />
+<Canvas of={stories.SizeLg} />
+
+### State
+
+The `Input` component has state-specific styles that respective the following
+selectors
+
+- :hover
+- :focus-visible
+- \[disabled] or \[aria-disabled="true"]
+
+<Canvas of={stories.StateHover} />
+<Canvas of={stories.StateFocusVisible} />
+<Canvas of={stories.StateDisabled} />
+
+# Props
+
+<ArgTypes of={Input} />

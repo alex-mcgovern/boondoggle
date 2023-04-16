@@ -3,7 +3,12 @@
     "**/package-lock.json": true,
     "**/node_modules": true,
     "**/.cache": true,
-    "**/*.snap": true
+    "**/*.snap": true,
+    ".git": true,
+    "dist": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
   "commentBox.styles": {
     "h1": {
@@ -60,12 +65,13 @@
     }
   },
   "cSpell.language": "en-GB",
-  "cSpell.words": ["vars"],
+  "cSpell.words": ["arrowdown", "Combobox", "popover", "vars"],
   "turboConsoleLog.delimiterInsideMessage": "",
   "turboConsoleLog.includeFileNameAndLineNum": false,
   "turboConsoleLog.insertEnclosingClass": false,
   "turboConsoleLog.insertEnclosingFunction": false,
   "turboConsoleLog.logMessagePrefix": "debug",
   "turboConsoleLog.logType": "debug",
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "mdx.experimentalLanguageServer": true
 }

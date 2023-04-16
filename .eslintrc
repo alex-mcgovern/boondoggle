@@ -1,60 +1,146 @@
 {
-  "env": {
-    "browser": true,
-    "node": true
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
 
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:mdx/recommended",
-    "plugin:react-perf/recommended",
-    "prettier"
-  ],
-
-  "globals": {
-    "cy": true,
-    "Cypress": true,
-    "fs": true
-  },
-
-  "ignorePatterns": [
-    "**/public",
-    "dist",
-    "*.snap",
-    "*.test.*",
-    "*.mock.*",
-    "*.svg",
-    "*.md",
-    "*.mdx",
-    "coverage"
-  ],
+  "ignorePatterns": ["*.snap", "dist"],
 
   "overrides": [
     /**
+     *  Typescript
+     */
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+
+      "plugins": ["react-perf", "sonarjs", "jsdoc", "unused-imports", "import"],
+
+      "extends": [
+        "plugin:react/jsx-runtime",
+        "airbnb",
+        "airbnb/hooks",
+        "airbnb-typescript",
+        "eslint:recommended",
+        "plugin:react-perf/recommended",
+        "prettier",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          {
+            "disallowTypeAnnotations": true,
+            "prefer": "type-imports"
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/prefer-optional-chain": "error",
+        "arrow-body-style": ["error", "always"],
+        "curly": ["error", "all"],
+        "import/no-cycle": "error",
+        "import/no-default-export": "error",
+        "import/no-duplicates": "error",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": [
+              "**/*.test.ts",
+              "**/*.test.tsx",
+              "**/*.css.ts",
+              "**/*.stories.tsx",
+              "./test/**/*",
+              "./documentation/**/*",
+              "tsup.config.ts"
+            ]
+          }
+        ],
+        "import/prefer-default-export": "off",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              ["builtin", "external"],
+              "internal",
+              ["parent", "sibling", "index"],
+              "object",
+              "type"
+            ],
+            "newlines-between": "always"
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": ["warn", "error", "info"]
+          }
+        ],
+        "no-unused-vars": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-react": "off",
+        "react-perf/jsx-no-jsx-as-prop": "warn",
+        "react-perf/jsx-no-new-array-as-prop": "warn",
+        "react-perf/jsx-no-new-function-as-prop": "warn",
+        "react-perf/jsx-no-new-object-as-prop": "warn",
+        "react/button-has-type": "error",
+        "react/destructuring-assignment": [
+          "error",
+          "always",
+          {
+            "destructureInSignature": "always",
+            "ignoreClassFields": true
+          }
+        ],
+        "react/jsx-filename-extension": [
+          "error",
+          {
+            "extensions": [".tsx"]
+          }
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "react/require-default-props": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "error",
+          {
+            "args": "after-used",
+            "argsIgnorePattern": "^_",
+            "vars": "all",
+            "varsIgnorePattern": "^_"
+          }
+        ]
+      }
+    },
+
+    /**
      * Overrides for MDX files
      */
+    {
+      "files": ["**/*.mdx"],
+
+      "extends": "plugin:mdx/recommended",
+      "parser": "eslint-mdx"
+    },
 
     /**
      * Overrides for vanilla extract css.ts files
      */
     {
       "files": ["**/*.css.ts"],
+
       "rules": {
         "sonarjs/no-duplicate-string": "off"
       }
     },
+
     /**
-     * Overrides for test files
+     * Tests
      */
     {
+      "files": ["**/*.test.ts", "**/*.test.tsx"],
+
       "env": {
         "jest": true
       },
-      "files": ["**/*/test.ts", "**/*.test.tsx"],
       "rules": {
         "sonarjs/no-duplicate-string": "off",
         "react-perf/jsx-no-jsx-as-prop": "off",
@@ -63,156 +149,30 @@
         "react-perf/jsx-no-new-object-as-prop": "off"
       }
     },
+
     /**
-     * Ensure gatsby pages & page templates use default exports.
+     * Storybook
      */
     {
-      "files": [
-        "gatsby-config.ts",
-        "tsup.config.ts",
-        "jest.*",
-        "**/pages/**/*.tsx",
-        "**/templates/**/*.tsx"
-      ],
+      "files": ["*.stories.tsx"],
+
+      "rules": {
+        "react/function-component-definition": "off",
+        "import/no-default-export": "off",
+        "import/prefer-default-export": "error"
+      }
+    },
+
+    /**
+     * Misc
+     */
+    {
+      "files": ["*.stories.tsx", "tsup.config.ts"],
+
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error"
       }
     }
-  ],
-
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "babelOptions": {
-      "presets": ["@babel/preset-react"]
-    },
-    "project": "./tsconfig.json",
-    "requireConfigFile": true
-  },
-
-  "plugins": [
-    "react-perf",
-    "sonarjs",
-    "jsdoc",
-    "@typescript-eslint",
-    "unused-imports",
-    "import"
-  ],
-
-  "rules": {
-    "import/no-cycle": "error",
-    "import/no-duplicates": "error",
-    "react/button-has-type": "error",
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
-    "react/jsx-props-no-spreading": "off",
-    /**
-     * Prevent eslint from complaining about dev dependencies imported in test files
-     */
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "./test/**/*",
-          "tsup.config.ts"
-        ]
-      }
-    ],
-    /**
-     * Override annoying default behavior for unescaped entities, focusing on only the characters
-     * most likely to break JSX. Although I've never experienced this issue personally.
-     */
-    "react/no-unescaped-entities": [
-      "error",
-      {
-        "forbid": [
-          {
-            "char": ">",
-            "alternatives": ["&gt;"]
-          },
-          {
-            "char": "}",
-            "alternatives": ["&#125;"]
-          }
-        ]
-      }
-    ],
-    /**
-     * Allow simpler prop typings for Typescript components.
-"* ToDo":  Consider generating react prop types at compile time for component library.
-     * */
-    "react/prop-types": "off",
-    "react/require-default-props": "off",
-    /**
-     * Enforce "type imports", ensuring transpilers *absolutely* do not
-     * import or include types in runtime JS.
-     */
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      {
-        "disallowTypeAnnotations": true,
-        "prefer": "type-imports"
-      }
-    ],
-    /**
-     * Rules aimed at improving code readability and style consistency.
-     */
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "arrow-body-style": ["error", "always"],
-    "curly": ["error", "all"],
-    "react/destructuring-assignment": [
-      "error",
-      "always",
-      {
-        "destructureInSignature": "always",
-        "ignoreClassFields": true
-      }
-    ],
-    /**
-     * Warn on patterns that may cause frontend performance degradation.
-     */
-    "react-perf/jsx-no-jsx-as-prop": "warn",
-    "react-perf/jsx-no-new-array-as-prop": "warn",
-    "react-perf/jsx-no-new-function-as-prop": "warn",
-    "react-perf/jsx-no-new-object-as-prop": "warn",
-    /**
-     * Ensure errant console.log & console.debug's are not left lying about,
-     * while allowing log levels used for intentionally logging a result.
-     */
-    "no-console": [
-      "error",
-      {
-        "allow": ["warn", "error", "info"]
-      }
-    ],
-    /**
-     * Ensure named exports are used, which helps speed up code refactoring
-     * and ensures things are referenced consistently throughout codebase
-     */
-    "import/prefer-default-export": "off",
-    "import/no-default-export": "error",
-    /**
-     * Disable default unused vars/imports rules in favour of unused-imports
-     * plugin, which enables fixing these issues on lint via the --fix flag.
-     */
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "off",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "error",
-      {
-        "args": "after-used",
-        "argsIgnorePattern": "^_",
-        "vars": "all",
-        "varsIgnorePattern": "^_"
-      }
-    ]
-  },
-
-  "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    }
-  }
+  ]
 }
