@@ -8,55 +8,58 @@ import * as styles from "./card.styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+    PolymorphicComponentPropWithRef,
+    PolymorphicRef,
 } from "../../types";
 import type { ElementType, ReactElement, ReactNode } from "react";
 
 type BaseCardProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
-  PolymorphicComponentPropWithRef<
-    TPolymorphicAs,
-    {
-      children: ReactNode | Array<ReactNode>;
-      className?: string;
-    }
-  >;
+    PolymorphicComponentPropWithRef<
+        TPolymorphicAs,
+        {
+            children: ReactNode | Array<ReactNode>;
+            className?: string;
+        }
+    >;
 
 export type CardProps = <TPolymorphicAs extends ElementType = "button">(
-  props: BaseCardProps<TPolymorphicAs>
+    props: BaseCardProps<TPolymorphicAs>
 ) => ReactElement | null;
 
 export const Card: CardProps = forwardRef(
-  <TPolymorphicAs extends ElementType = "div">(
-    {
-      children,
-      as,
-      className: userClassName,
-      ...rest
-    }: BaseCardProps<TPolymorphicAs>,
-    ref?: PolymorphicRef<TPolymorphicAs>
-  ) => {
-    /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    <TPolymorphicAs extends ElementType = "div">(
+        {
+            children,
+            as,
+            className: userClassName,
+            ...rest
+        }: BaseCardProps<TPolymorphicAs>,
+        ref?: PolymorphicRef<TPolymorphicAs>
+    ) => {
+        /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
+        const { atomProps, otherProps } = extractAtomsFromProps(
+            rest,
+            getSprinkles
+        );
 
-    const Component = as || Box;
+        const Component = as || Box;
 
-    const classNames = clsx(
-      styles.cardStyle,
-      getSprinkles(atomProps),
-      userClassName
-    );
+        const classNames = clsx(
+            styles.cardStyle,
+            getSprinkles(atomProps),
+            userClassName
+        );
 
-    return (
-      <Component
-        {...{
-          ref,
-          className: classNames,
-          ...otherProps,
-        }}
-      >
-        {children}
-      </Component>
-    );
-  }
+        return (
+            <Component
+                {...{
+                    ref,
+                    className: classNames,
+                    ...otherProps,
+                }}
+            >
+                {children}
+            </Component>
+        );
+    }
 );

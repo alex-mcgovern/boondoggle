@@ -1,0 +1,34 @@
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import { SelectSingle } from "..";
+import * as stories from "./select_single.stories.tsx";
+
+<Meta of={stories} />
+
+# Select
+
+## Accessible single select component built with [downshift.js](https://www.downshift-js.com/)
+
+<Canvas name="default" of={stories.SelectSingleDefault} />
+
+## Usage
+
+### `initialSelectedItem`
+
+<ArgTypes of={SelectSingle} include={["initialSelectedItem"]} />
+<Canvas name="default" of={stories.InitialSelectedItem} />
+
+### `invalid`
+
+<ArgTypes of={SelectSingle} include={["invalid"]} />
+<Canvas name="default" of={stories.Invalid} />
+
+## Filterable
+
+[ToDo: Add filterable example] //
+
+<Canvas name="filterable" of={stories.Filterable} />{" "}
+
+# Reference
+
+<ArgTypes of={SelectSingle} />

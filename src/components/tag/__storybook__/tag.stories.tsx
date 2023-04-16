@@ -4,47 +4,47 @@ import type { TagProps as StoryComponentProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Tag",
-  component: StoryComponent,
+    title: "React components/Atoms/Tag",
+    component: StoryComponent,
 };
 
 const Template: StoryFn<StoryComponentProps> = ({
-  ...rest
+    ...rest
 }: StoryComponentProps) => {
-  return <StoryComponent {...rest} />;
+    return <StoryComponent {...rest} />;
 };
 
 export const Default: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  args: {
-    children: "Tag",
-  },
+    render: Template,
+    name: "default",
+    parameters: {
+        layout: "fullscreen",
+    },
+    args: {
+        children: "Tag",
+    },
 };
 
 export const IntentGood: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  args: {
-    children: "Tag",
-    intent: "good",
-  },
+    render: Template,
+    name: "default",
+    parameters: {
+        layout: "fullscreen",
+    },
+    args: {
+        children: "Tag",
+        intent: "good",
+    },
 };
 
 export const IntentBad: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  args: {
-    children: "Tag",
-    intent: "bad",
-  },
+    render: Template,
+    name: "default",
+    parameters: {
+        layout: "fullscreen",
+    },
+    args: {
+        children: "Tag",
+        intent: "bad",
+    },
 };

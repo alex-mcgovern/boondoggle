@@ -8,91 +8,85 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dropdownListInner = style([
-  {
-    maxHeight: "33vh",
-  },
+    {
+        maxHeight: "33vh",
+    },
 ]);
 
 export const dropdownWrapperClosed = style({
-  display: "none",
+    display: "none",
+    visibility: "hidden",
 });
 
 export const dropdownListWrapper = style([
-  a11yFocus,
-  getSprinkles({
-    background: "background",
-    marginTop: "spacing1",
-    minWidth: "gridSpan3",
-    display: "block",
-    margin: "none",
+    a11yFocus,
+    getSprinkles({
+        background: "background",
+        marginTop: "spacing1",
+        minWidth: "gridSpan3",
+        display: "block",
+        margin: "none",
 
-    /** Style as a card */
-    borderRadius: "sm",
-    overflow: "hidden",
-    isolation: "isolate",
-    boxShadow: "sm",
-    border: "border_default",
-    overflowY: "auto",
-  }),
-  {
-    position: "absolute",
-    zIndex: 999,
-    width: "100%",
-    maxHeight: "10rem",
-    selectors: {
-      "&:empty": {
-        display: "none",
-      },
+        /** Style as a card */
+        borderRadius: "sm",
+        overflow: "hidden",
+        isolation: "isolate",
+        boxShadow: "sm",
+        border: "border_default",
+        overflowY: "auto",
+    }),
+    {
+        position: "absolute",
+        zIndex: 999,
+        width: "100%",
+        maxHeight: "10rem",
+        selectors: {
+            "&:empty": {
+                display: "none",
+            },
+        },
     },
-  },
-  createAccessibleTransition({
-    transformOrigin: "top center",
-  }),
+    createAccessibleTransition({
+        transformOrigin: "top center",
+    }),
 ]);
 
 /**
- * -
  * Dropdown item styles
- * -
  */
 export const getDropdownItemStyles = recipe({
-  base: [
-    getSprinkles({
-      width: "100%",
+    base: [
+        getSprinkles({
+            width: "100%",
 
-      display: "flex",
-      alignItems: "center",
-      gap: "spacing1",
+            display: "flex",
+            alignItems: "center",
+            gap: "spacing1",
 
-      color: "text_high_contrast",
-      textDecoration: "none",
-      textAlign: "left",
+            color: "text_high_contrast",
+            textDecoration: "none",
+            textAlign: "left",
 
-      margin: "none",
-      padding: "spacing1",
-    }),
-    a11yDisabled,
-    a11yFocus,
-  ],
-  variants: {
-    size: elementSize,
-  },
+            margin: "none",
+            padding: "spacing1",
+        }),
+        a11yDisabled,
+        a11yFocus,
+    ],
+    variants: {
+        size: elementSize,
+    },
 });
 
-export const isHighlighted = style([
-  {
+export const isHighlighted = style({
     backgroundColor: vars.color.tint_active,
-  },
-]);
+});
 
 export const isSelected = style({
-  fontWeight: vars.fontWeight.semibold,
-  backgroundColor: vars.color.tint_active,
+    fontWeight: vars.fontWeight.semibold,
 });
 
-export const resultWrapper = style([]);
-
 export const listItemWrapper = style({
-  paddingLeft: "0",
-  marginTop: "0",
+    paddingLeft: "0",
+    marginTop: "0",
 });

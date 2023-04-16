@@ -4,18 +4,18 @@ import { FormProvider, useForm } from "react-hook-form";
 import type { JSXElementConstructor, ReactElement } from "react";
 
 export function FormTestProvider({
-  children,
-  ...rest
+    children,
+    ...rest
 }: {
-  children: ReactElement<unknown, string | JSXElementConstructor<unknown>>;
+    children: ReactElement<unknown, string | JSXElementConstructor<unknown>>;
 }) {
-  const reactHookFormMethods = useForm();
+    const reactHookFormMethods = useForm();
 
-  return (
-    <FormProvider {...reactHookFormMethods}>
-      {cloneElement(children, {
-        ...rest,
-      })}
-    </FormProvider>
-  );
+    return (
+        <FormProvider {...reactHookFormMethods}>
+            {cloneElement(children, {
+                ...rest,
+            })}
+        </FormProvider>
+    );
 }

@@ -17,70 +17,82 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ComponentPropsWithoutRef, ReactNode, Ref } from "react";
 
 export interface InputProps
-  extends Omit<
-      ComponentPropsWithoutRef<"input">,
-      "width" | "height" | "style" | "color" | "size"
-    >,
-    SprinklesArgs {
-  /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
-  errorMessage?: string;
-  /** Used as the html ID. */
-  id: string;
-  /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
-  invalid?: boolean;
-  /** Label text. (Will also be used as accessible `name` on the input element.) */
-  label?: string;
-  /** Name of the form control. Submitted with the form as part of a name/value pair */
-  name: string;
-  /** Common interactive element size, shared with button, select, etc */
-  size?: ElementSizeEnum;
-  /** React node shown on the left side of input. */
-  slotLeft?: ReactNode;
-  /** React node shown on the right side of input. */
-  slotRight?: ReactNode;
-  /** Placeholder text shown when input is empty. */
-  placeholder: string;
+    extends Omit<
+            ComponentPropsWithoutRef<"input">,
+            "width" | "height" | "style" | "color" | "size"
+        >,
+        SprinklesArgs {
+    /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
+    errorMessage?: string;
+    /** Used as the html ID. */
+    id: string;
+    /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
+    invalid?: boolean;
+    /** Label text. (Will also be used as accessible `name` on the input element.) */
+    label?: string;
+    /** Name of the form control. Submitted with the form as part of a name/value pair */
+    name: string;
+    /** Common interactive element size, shared with button, select, etc */
+    size?: ElementSizeEnum;
+    /** React node shown on the left side of input. */
+    slotLeft?: ReactNode;
+    /** React node shown on the right side of input. */
+    slotRight?: ReactNode;
+    /** Placeholder text shown when input is empty. */
+    placeholder: string;
 }
 
 export const Input = forwardRef(
-  (
-    {
-      errorMessage,
-      className: userClassName,
-      slotLeft,
-      slotRight,
-      id,
-      invalid,
-      label,
-      name,
-      size = "md",
-      ...rest
-    }: InputProps,
-    ref: Ref<HTMLInputElement>
-  ) => {
-    /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    (
+        {
+            errorMessage,
+            className: userClassName,
+            slotLeft,
+            slotRight,
+            id,
+            invalid,
+            label,
+            name,
+            size = "md",
+            ...rest
+        }: InputProps,
+        ref: Ref<HTMLInputElement>
+    ) => {
+        /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
+        const { atomProps, otherProps } = extractAtomsFromProps(
+            rest,
+            getSprinkles
+        );
 
-    return (
-      <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
-        {label && id && <Label label={label} htmlFor={id} />}
+        return (
+            <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
+                {label && id && <Label label={label} htmlFor={id} />}
 
-        <SlotWrapper {...atomProps} slotLeft={slotLeft} slotRight={slotRight}>
-          <input
-            className={clsx(styles.input, userClassName, elementSize[size], {
-              [a11yError]: invalid,
-            })}
-            name={name}
-            id={id}
-            ref={ref}
-            {...otherProps}
-          />
-        </SlotWrapper>
+                <SlotWrapper
+                    {...atomProps}
+                    slotLeft={slotLeft}
+                    slotRight={slotRight}
+                >
+                    <input
+                        className={clsx(
+                            styles.input,
+                            userClassName,
+                            elementSize[size],
+                            {
+                                [a11yError]: invalid,
+                            }
+                        )}
+                        name={name}
+                        id={id}
+                        ref={ref}
+                        {...otherProps}
+                    />
+                </SlotWrapper>
 
-        {invalid && errorMessage && (
-          <InputErrorMessage message={errorMessage} />
-        )}
-      </Box>
-    );
-  }
+                {invalid && errorMessage && (
+                    <InputErrorMessage message={errorMessage} />
+                )}
+            </Box>
+        );
+    }
 );

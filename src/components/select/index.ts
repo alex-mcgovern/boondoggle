@@ -1,5 +1,5 @@
-export { SelectSingle } from "./select.single.comp";
-export type { SelectSingleProps } from "./select.single.comp";
-export { SelectMulti } from "./select.multi.comp";
-export type { SelectMultiProps } from "./select.multi.comp";
+export { SelectSingle } from "./select_single.comp";
+export type { SelectSingleProps } from "./select_single.comp";
+export { SelectMulti } from "./select_multi.comp";
+export type { SelectMultiProps } from "./select_multi.comp";
 export type { DropdownItemShape } from "./select.types";

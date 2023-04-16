@@ -1,7 +1,6 @@
 import { ArgTypes, Canvas, Controls, Meta, Story } from "@storybook/blocks";
 
 import { Button } from "..";
-import { Box } from "../../box";
 import * as stories from "./button.stories.tsx";
 
 <Meta of={stories} />
@@ -38,13 +37,8 @@ custom Link component, similar to the one provided by frameworks like
 [NextJS](https://nextjs.org/docs/api-reference/next/link) or
 [Gatsby](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/).
 
-<Box display="grid" gridTemplateColumns="2x" gap="spacing3">
-  <Canvas
-    sourceState="shown"
-    of={stories.ExamplePolymorphismGenericAnchorTag}
-  />
-  <Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
-</Box>
+<Canvas of={stories.ExamplePolymorphismGenericAnchorTag} />
+<Canvas of={stories.ExamplePolymorphismReactComponent} />
 
 ### `intent`
 
@@ -56,12 +50,10 @@ custom Link component, similar to the one provided by frameworks like
 
 <ArgTypes of={Button} include={["size"]} />
 
-<Box display="grid" gridTemplateColumns="2x" gap="spacing3">
-  <Canvas of={stories.SizeSm} />
-  <Canvas of={stories.SizeMd} />
-  <Canvas of={stories.SizeLg} />
-  <Canvas of={stories.SizeSquare} />
-</Box>
+<Canvas of={stories.SizeSm} />
+<Canvas of={stories.SizeMd} />
+<Canvas of={stories.SizeLg} />
+<Canvas of={stories.SizeSquare} />
 
 ### "slot" props
 
@@ -72,17 +64,15 @@ To allow more fine-grained control over the bundling of dependencies, the
 `slotLeft` and `slotRight` prop, which can be used to render any React node
 inside the button, on the corresponding side.
 
-<Box display="grid" gridTemplateColumns="2x" gap="spacing3">
-  <Canvas sourceState="shown" of={stories.SlotLeftIcon} />
-  <Canvas sourceState="shown" of={stories.SlotRightLoader} />
-</Box>
+<Canvas of={stories.SlotLeftIcon} />
+<Canvas of={stories.SlotRightLoader} />
 
 ### Customisation
 
 - Button allows customization through top-level props.
 - The props map to the `getSprinkles` utility for composing additional styles.
 
-<Canvas sourceState="shown" of={stories.CustomisationMargin} />
+<Canvas of={stories.CustomisationMargin} />
 
 #### State
 
@@ -93,11 +83,9 @@ selectors
 - :focus-visible
 - \[disabled] or \[aria-disabled="true"]
 
-<Box display="grid" gridTemplateColumns="3x" columnGap="spacing3">
-  <Canvas of={stories.StateHover} />
-  <Canvas of={stories.StateFocusVisible} />
-  <Canvas of={stories.StateDisabled} />
-</Box>
+<Canvas of={stories.StateHover} />
+<Canvas of={stories.StateFocusVisible} />
+<Canvas of={stories.StateDisabled} />
 
 # Reference
 

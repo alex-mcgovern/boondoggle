@@ -1,17 +1,17 @@
 import {
-  blue,
-  blueDark,
-  green,
-  greenDark,
-  red,
-  redDark,
-  slate,
-  slateDark,
+    blue,
+    blueDark,
+    green,
+    greenDark,
+    red,
+    redDark,
+    slate,
+    slateDark,
 } from "@radix-ui/colors";
 import {
-  assignVars,
-  createGlobalTheme,
-  styleVariants,
+    assignVars,
+    createGlobalTheme,
+    styleVariants,
 } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -35,22 +35,22 @@ import { varsWidth } from "./vars/vars_width.css";
  * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
  */
 const root = createGlobalTheme(":root", {
-  aspectRatio: varsAspectRatio,
-  borderRadius: varsBorderRadius,
-  boxShadow: varsShadow,
+    aspectRatio: varsAspectRatio,
+    borderRadius: varsBorderRadius,
+    boxShadow: varsShadow,
 
-  fontFamily: {
-    body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
-    display: `"DM Sans", sans-serif;`,
-  },
-  fontSize: varsFontSize,
-  fontWeight: varsFontWeight,
-  gridTemplateColumns: varsGridTemplateColumns,
-  lineHeight: varsLineHeight,
-  height: varsHeight,
-  spacing: varsSpacing,
-  transitionDuration: varsTransitionTime,
-  width: varsWidth,
+    fontFamily: {
+        body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
+        display: `"DM Sans", sans-serif;`,
+    },
+    fontSize: varsFontSize,
+    fontWeight: varsFontWeight,
+    gridTemplateColumns: varsGridTemplateColumns,
+    lineHeight: varsLineHeight,
+    height: varsHeight,
+    spacing: varsSpacing,
+    transitionDuration: varsTransitionTime,
+    width: varsWidth,
 });
 
 /**
@@ -61,178 +61,178 @@ type PaletteKey = `${string}${number}`;
 type PaletteShape = Record<PaletteKey, string>;
 
 const getFromPaletteByIndex = (
-  palette: Record<PaletteKey, string>,
-  index: number
+    palette: Record<PaletteKey, string>,
+    index: number
 ) => {
-  return palette[Object.keys(palette)[index] as PaletteKey];
+    return palette[Object.keys(palette)[index] as PaletteKey];
 };
 
 interface MakeThemeArgs {
-  primaryPalette: PaletteShape;
-  secondaryPalette: PaletteShape;
+    primaryPalette: PaletteShape;
+    secondaryPalette: PaletteShape;
 }
 
 const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
-  return {
-    white: slate.slate1,
-    black: slate.slate12,
+    return {
+        white: slate.slate1,
+        black: slate.slate12,
 
-    background: getFromPaletteByIndex(secondaryPalette, 0),
+        background: getFromPaletteByIndex(secondaryPalette, 0),
 
-    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
-    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
+        tint_default: getFromPaletteByIndex(secondaryPalette, 2),
+        tint_active: getFromPaletteByIndex(secondaryPalette, 4),
 
-    border_default: getFromPaletteByIndex(secondaryPalette, 6),
-    border_active: getFromPaletteByIndex(secondaryPalette, 8),
+        border_default: getFromPaletteByIndex(secondaryPalette, 6),
+        border_active: getFromPaletteByIndex(secondaryPalette, 8),
 
-    button_default: getFromPaletteByIndex(primaryPalette, 8),
-    button_active: getFromPaletteByIndex(primaryPalette, 10),
+        button_default: getFromPaletteByIndex(primaryPalette, 8),
+        button_active: getFromPaletteByIndex(primaryPalette, 10),
 
-    text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
-    text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
-  };
+        text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
+        text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
+    };
 };
 
 export const color = createGlobalTheme(":root", {
-  ...makeTheme({
-    primaryPalette: blue,
-    secondaryPalette: slate,
-  }),
+    ...makeTheme({
+        primaryPalette: blue,
+        secondaryPalette: slate,
+    }),
 });
 
 export const variantDarkMode = styleVariants({
-  true: {
-    vars: assignVars(
-      color,
-      makeTheme({
-        primaryPalette: blueDark,
-        secondaryPalette: slateDark,
-      })
-    ),
-  },
-  false: {
-    vars: assignVars(
-      color,
-      makeTheme({
-        primaryPalette: blue,
-        secondaryPalette: slate,
-      })
-    ),
-  },
+    true: {
+        vars: assignVars(
+            color,
+            makeTheme({
+                primaryPalette: blueDark,
+                secondaryPalette: slateDark,
+            })
+        ),
+    },
+    false: {
+        vars: assignVars(
+            color,
+            makeTheme({
+                primaryPalette: blue,
+                secondaryPalette: slate,
+            })
+        ),
+    },
 });
 
 export const variantIntent = styleVariants({
-  good: {
-    vars: assignVars(
-      color,
-      makeTheme({ primaryPalette: green, secondaryPalette: green })
-    ),
-    selectors: {
-      [`${variantDarkMode.true} &`]: {
+    good: {
         vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: greenDark,
-            secondaryPalette: greenDark,
-          })
+            color,
+            makeTheme({ primaryPalette: green, secondaryPalette: green })
         ),
-      },
+        selectors: {
+            [`${variantDarkMode.true} &`]: {
+                vars: assignVars(
+                    color,
+                    makeTheme({
+                        primaryPalette: greenDark,
+                        secondaryPalette: greenDark,
+                    })
+                ),
+            },
+        },
+        "@media": {
+            [MEDIA_QUERY_DARK]: {
+                vars: assignVars(
+                    color,
+                    makeTheme({
+                        primaryPalette: greenDark,
+                        secondaryPalette: greenDark,
+                    })
+                ),
+            },
+        },
     },
-    "@media": {
-      [MEDIA_QUERY_DARK]: {
+    bad: {
         vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: greenDark,
-            secondaryPalette: greenDark,
-          })
+            color,
+            makeTheme({ primaryPalette: red, secondaryPalette: red })
         ),
-      },
+        selectors: {
+            [`${variantDarkMode.true} &`]: {
+                vars: assignVars(
+                    color,
+                    makeTheme({
+                        primaryPalette: redDark,
+                        secondaryPalette: redDark,
+                    })
+                ),
+            },
+        },
+        "@media": {
+            [MEDIA_QUERY_DARK]: {
+                vars: assignVars(
+                    color,
+                    makeTheme({
+                        primaryPalette: redDark,
+                        secondaryPalette: redDark,
+                    })
+                ),
+            },
+        },
     },
-  },
-  bad: {
-    vars: assignVars(
-      color,
-      makeTheme({ primaryPalette: red, secondaryPalette: red })
-    ),
-    selectors: {
-      [`${variantDarkMode.true} &`]: {
-        vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: redDark,
-            secondaryPalette: redDark,
-          })
-        ),
-      },
-    },
-    "@media": {
-      [MEDIA_QUERY_DARK]: {
-        vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: redDark,
-            secondaryPalette: redDark,
-          })
-        ),
-      },
-    },
-  },
 });
 
 export const getTheme = recipe({
-  base: [
-    // color,
-    {
-      "@media": {
-        [MEDIA_QUERY_DARK]: {
-          vars: assignVars(
-            color,
-            makeTheme({
-              primaryPalette: blueDark,
-              secondaryPalette: slateDark,
-            })
-          ),
+    base: [
+        // color,
+        {
+            "@media": {
+                [MEDIA_QUERY_DARK]: {
+                    vars: assignVars(
+                        color,
+                        makeTheme({
+                            primaryPalette: blueDark,
+                            secondaryPalette: slateDark,
+                        })
+                    ),
+                },
+            },
         },
-      },
+    ],
+    variants: {
+        darkMode: variantDarkMode,
+        intent: variantIntent,
     },
-  ],
-  variants: {
-    darkMode: variantDarkMode,
-    intent: variantIntent,
-  },
-  compoundVariants: [
-    {
-      variants: {
-        intent: "good",
-        darkMode: true,
-      },
-      style: {
-        vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: greenDark,
-            secondaryPalette: greenDark,
-          })
-        ),
-      },
-    },
-    {
-      variants: {
-        intent: "bad",
-        darkMode: true,
-      },
-      style: {
-        vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: redDark,
-            secondaryPalette: redDark,
-          })
-        ),
-      },
-    },
-  ],
+    compoundVariants: [
+        {
+            variants: {
+                intent: "good",
+                darkMode: true,
+            },
+            style: {
+                vars: assignVars(
+                    color,
+                    makeTheme({
+                        primaryPalette: greenDark,
+                        secondaryPalette: greenDark,
+                    })
+                ),
+            },
+        },
+        {
+            variants: {
+                intent: "bad",
+                darkMode: true,
+            },
+            style: {
+                vars: assignVars(
+                    color,
+                    makeTheme({
+                        primaryPalette: redDark,
+                        secondaryPalette: redDark,
+                    })
+                ),
+            },
+        },
+    ],
 });
 
 export type ColorScheme = typeof color;

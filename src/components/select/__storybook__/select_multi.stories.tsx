@@ -6,7 +6,7 @@ import { SelectMulti } from "..";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectMultiProps } from "../select.multi.comp";
+import type { SelectMultiProps } from "../select_multi.comp";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
@@ -14,21 +14,21 @@ const ON_CHANGE = jest.fn();
 const ITEMS = mockSelectItems();
 
 export default {
-  title: "React components/Select/Multi",
-  component: SelectMulti,
+    title: "React components/Select/Multi",
+    component: SelectMulti,
 };
 
 const SelectMultiTemplate: StoryFn<SelectMultiProps> = ({ ...rest }) => {
-  return <SelectMulti {...rest} />;
+    return <SelectMulti {...rest} />;
 };
 
 export const SelectMultiDefault: StoryObj<SelectMultiProps> = {
-  render: SelectMultiTemplate,
-  args: {
-    slotLeft: <Icon icon={faGlobeEurope} />,
-    items: ITEMS,
-    label: "Single select",
-    name: "country",
-    onChange: ON_CHANGE,
-  },
+    render: SelectMultiTemplate,
+    args: {
+        slotLeft: <Icon icon={faGlobeEurope} />,
+        items: ITEMS,
+        label: "Single select",
+        name: "country",
+        onChange: ON_CHANGE,
+    },
 };

@@ -5,20 +5,20 @@ import type { LabelProps as StoryComponentProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Label",
-  component: StoryComponent,
+    title: "React components/Atoms/Label",
+    component: StoryComponent,
 };
 
 const Template: StoryFn<StoryComponentProps> = ({
-  ...rest
+    ...rest
 }: StoryComponentProps) => {
-  return <StoryComponent {...rest} />;
+    return <StoryComponent {...rest} />;
 };
 
 export const Default: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "default",
-  args: {
-    label: LOREM.textXxs,
-  },
+    render: Template,
+    name: "default",
+    args: {
+        label: LOREM.textXxs,
+    },
 };

@@ -6,22 +6,22 @@ import type { DialogProps as StoryComponentProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Dialog",
-  component: StoryComponent,
+    title: "React components/Organisms/Dialog",
+    component: StoryComponent,
 };
 
 const Template: StoryFn<StoryComponentProps> = ({
-  ...rest
+    ...rest
 }: StoryComponentProps) => {
-  return <StoryComponent {...rest} />;
+    return <StoryComponent {...rest} />;
 };
 
 export const Default: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "default",
-  args: {
-    triggerNode: <Button name="Dialog button">Open dialog</Button>,
-    children: LOREM.textXxl,
-    title: LOREM.textXxs,
-  },
+    render: Template,
+    name: "default",
+    args: {
+        triggerNode: <Button name="Dialog button">Open dialog</Button>,
+        children: LOREM.textXxl,
+        title: LOREM.textXxs,
+    },
 };

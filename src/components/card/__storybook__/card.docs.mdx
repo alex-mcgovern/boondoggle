@@ -17,10 +17,6 @@ content.
 using the `as` prop. When configured to return a `<button>` or `<a>` element, it
 will automatically apply hover/focus state styles.
 
-## Related links
-
-- [Components/Box](/docs/components-box--documentation)
-
 ## Usage
 
 ### `as` prop (polymorphism)
@@ -30,13 +26,13 @@ underlying HTML element. By default it will return a `<button>` element.
 
 You can pass the name of a generic HTML element, like `a` for an `<a>` tag:
 
-<Canvas sourceState="shown" of={stories.ExamplePolymorphismGenericAnchorTag} />
+<Canvas of={stories.ExamplePolymorphismGenericAnchorTag} />
 
 Or you can pass a React component. E.g. in this case, we are passing a custom
 Link component, similar to the one provided by frameworks like Reach Router,
 NextJS or Gatsby.
 
-<Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
+<Canvas of={stories.ExamplePolymorphismReactComponent} />
 
 ### Styling `Card` with "sprinkles"
 
@@ -50,7 +46,7 @@ and intellisense and type-safety.
 
 E.g. here we override the default padding of `spacing3` with `spacing5`:
 
-<Canvas sourceState="shown" of={stories.ExampleBasicSprinkles} />
+<Canvas of={stories.ExampleBasicSprinkles} />
 
 # Props
 

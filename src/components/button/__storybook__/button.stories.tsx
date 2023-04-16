@@ -9,33 +9,36 @@ import { Loader } from "../../loader";
 import type { ButtonProps as StoryComponentProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
-export default { title: "React components/Button", component: StoryComponent };
+export default {
+    title: "React components/Atoms/Button",
+    component: StoryComponent,
+};
 const Template: StoryFn<StoryComponentProps> = ({
-  children,
-  name,
-  ...rest
+    children,
+    name,
+    ...rest
 }: StoryComponentProps) => {
-  return (
-    <StoryComponent name={name} {...rest}>
-      {children}
-    </StoryComponent>
-  );
+    return (
+        <StoryComponent name={name} {...rest}>
+            {children}
+        </StoryComponent>
+    );
 };
 
 const TemplateAllAppearances: StoryFn<StoryComponentProps> = (rest) => {
-  return (
-    <Box display="flex" gap="spacing3">
-      <StoryComponent appearance="primary" name="primary" {...rest}>
-        Primary
-      </StoryComponent>
-      <StoryComponent appearance="secondary" name="secondary" {...rest}>
-        Secondary
-      </StoryComponent>
-      <StoryComponent appearance="tertiary" name="tertiary" {...rest}>
-        Tertiary
-      </StoryComponent>
-    </Box>
-  );
+    return (
+        <Box display="flex" gap="spacing3">
+            <StoryComponent appearance="primary" name="primary" {...rest}>
+                Primary
+            </StoryComponent>
+            <StoryComponent appearance="secondary" name="secondary" {...rest}>
+                Secondary
+            </StoryComponent>
+            <StoryComponent appearance="tertiary" name="tertiary" {...rest}>
+                Tertiary
+            </StoryComponent>
+        </Box>
+    );
 };
 
 // const TemplateAllSizes: StoryFn<StoryComponentProps> = (rest) => {
@@ -58,130 +61,130 @@ const TemplateAllAppearances: StoryFn<StoryComponentProps> = (rest) => {
  * Default
  */
 export const Default: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
-  args: {
-    children: "Click me",
-  },
+    render: Template,
+    name: "default",
+    parameters: {
+        layout: "fullscreen",
+    },
+    args: {
+        children: "Click me",
+    },
 };
 
 /**
  * Polymorphism examples
  */
 export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryComponentProps> =
-  {
-    name: "polymorphism/generic_anchor_tag",
-    render: Template,
-    args: {
-      as: "a",
-      href: "https://google.com",
-      children: "I am an anchor element",
-    },
-  };
+    {
+        name: "polymorphism/generic_anchor_tag",
+        render: Template,
+        args: {
+            as: "a",
+            href: "https://google.com",
+            children: "I am an anchor element",
+        },
+    };
 
 export const ExamplePolymorphismReactComponent: StoryObj<StoryComponentProps> =
-  {
-    name: "polymorphism/generic_react_component",
-    render: Template,
-    args: {
-      as: Link,
-      href: "https://google.com",
-      children: "I am a `Link` component",
-    },
-  };
+    {
+        name: "polymorphism/generic_react_component",
+        render: Template,
+        args: {
+            as: Link,
+            href: "https://google.com",
+            children: "I am a `Link` component",
+        },
+    };
 
 /**
  * Appearance
  */
 export const Appearance: StoryObj<StoryComponentProps> = {
-  render: TemplateAllAppearances,
-  name: "appearance",
+    render: TemplateAllAppearances,
+    name: "appearance",
 };
 
 /**
  * Color
  */
 export const IntentGood: StoryObj<StoryComponentProps> = {
-  render: TemplateAllAppearances,
-  name: "intent/good",
-  args: { intent: "good" },
+    render: TemplateAllAppearances,
+    name: "intent/good",
+    args: { intent: "good" },
 };
 export const IntentBad: StoryObj<StoryComponentProps> = {
-  render: TemplateAllAppearances,
-  name: "intent/bad",
-  args: { intent: "bad" },
+    render: TemplateAllAppearances,
+    name: "intent/bad",
+    args: { intent: "bad" },
 };
 
 /**
  * Customisation examples
  */
 export const CustomisationMargin: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "customisation/margin",
-  args: { margin: "spacing5", children: "Click me" },
+    render: Template,
+    name: "customisation/margin",
+    args: { margin: "spacing5", children: "Click me" },
 };
 
 /**
  * Size
  */
 export const SizeSm: StoryObj<StoryComponentProps> = {
-  name: "size/sm",
-  render: Template,
-  args: { size: "sm", children: "Small" },
+    name: "size/sm",
+    render: Template,
+    args: { size: "sm", children: "Small" },
 };
 export const SizeMd: StoryObj<StoryComponentProps> = {
-  name: "size/md",
-  render: Template,
-  args: { size: "md", children: "Medium" },
+    name: "size/md",
+    render: Template,
+    args: { size: "md", children: "Medium" },
 };
 export const SizeLg: StoryObj<StoryComponentProps> = {
-  name: "size/lg",
-  render: Template,
-  args: { size: "lg", children: "Large" },
+    name: "size/lg",
+    render: Template,
+    args: { size: "lg", children: "Large" },
 };
 export const SizeSquare: StoryObj<StoryComponentProps> = {
-  name: "size/lg",
-  render: Template,
-  args: { size: "square", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
+    name: "size/lg",
+    render: Template,
+    args: { size: "square", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
 };
 
 /**
  * Slot props
  */
 export const SlotLeftIcon: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "slotLeft/icon",
-  args: {
-    children: "Click me",
-    slotLeft: <Icon icon={faTriangleCircleSquare} />,
-  },
+    render: Template,
+    name: "slotLeft/icon",
+    args: {
+        children: "Click me",
+        slotLeft: <Icon icon={faTriangleCircleSquare} />,
+    },
 };
 export const SlotRightLoader: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "slotRight/loader",
-  args: { children: "Click me", slotRight: <Loader /> },
+    render: Template,
+    name: "slotRight/loader",
+    args: { children: "Click me", slotRight: <Loader /> },
 };
 
 /**
  * State
  */
 export const StateHover: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "state/hover",
-  parameters: { pseudo: { hover: true } },
-  args: { children: "Hovered" },
+    render: Template,
+    name: "state/hover",
+    parameters: { pseudo: { hover: true } },
+    args: { children: "Hovered" },
 };
 export const StateFocusVisible: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "state/focus-visible",
-  parameters: { pseudo: { focusVisible: true } },
-  args: { children: "Focused" },
+    render: Template,
+    name: "state/focus-visible",
+    parameters: { pseudo: { focusVisible: true } },
+    args: { children: "Focused" },
 };
 export const StateDisabled: StoryObj<StoryComponentProps> = {
-  render: Template,
-  name: "state/disabled",
-  args: { disabled: true, children: "Disabled" },
+    render: Template,
+    name: "state/disabled",
+    args: { disabled: true, children: "Disabled" },
 };

@@ -1,6 +1,7 @@
 {
   "arrowParens": "always",
   "proseWrap": "always",
+  "tabWidth": 4,
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^[../]",

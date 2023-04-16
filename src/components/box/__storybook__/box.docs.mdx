@@ -31,13 +31,13 @@ underlying HTML element. By default it will return a `<div>` element.
 
 You can compose generic html elements:
 
-<Canvas sourceState="shown" of={stories.ExamplePolymorphismListItems} />
+<Canvas of={stories.ExamplePolymorphismListItems} />
 
 Or you can pass a React component. E.g. in this case, we are passing a custom
 Link component, similar to the one provided by frameworks like Reach Router,
 NextJS or Gatsby.
 
-<Canvas sourceState="shown" of={stories.ExamplePolymorphismReactComponent} />
+<Canvas of={stories.ExamplePolymorphismReactComponent} />
 
 ### Styling with "sprinkles"
 
@@ -45,12 +45,12 @@ All of the arguments for `getSprinkles` are available as props on `Box`. E.g.
 here we can add some background, border, border-radius and padding to mmake this
 look a bit more card-like.
 
-<Canvas sourceState="shown" of={stories.ExampleBasicSprinkles} />
+<Canvas of={stories.ExampleBasicSprinkles} />
 
 Note that some properties defined in `getSprinkles` support responsive values,
 which can be passed as an object:
 
-<Canvas sourceState="shown" of={stories.ExampleResponsiveSprinkles} />
+<Canvas of={stories.ExampleResponsiveSprinkles} />
 
 ### Styling `Box` with "escape hatch props"
 
@@ -60,7 +60,7 @@ valid CSS value to the corresponding CSS property. (See relevant section in
 You can access these props by prefixing the CSS property with `__`, e.g.
 `__margin` or `__padding`.
 
-<Canvas sourceState="shown" of={stories.ExampleEscapeHatchStyles} />
+<Canvas of={stories.ExampleEscapeHatchStyles} />
 
 ## Advanced usage examples
 
