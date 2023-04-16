@@ -25,7 +25,7 @@ jobs:
           # cache-dependency-path: subdir/package-lock.json
       - run: npm ci
       - run: npm run check
-      - name: Publish to Chromatic
+      - name: Chromatic
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

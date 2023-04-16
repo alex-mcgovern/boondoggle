@@ -39,7 +39,7 @@ export const variantAppearance = styleVariants({
   primary: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: vars.color.black,
+      color: vars.color.white,
       background: vars.color.button_default,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {

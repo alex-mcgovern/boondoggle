@@ -26,7 +26,7 @@
     "test:watch": "jest --watch",
     "test": "jest",
     "tsc": "tsc",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@dessert-box/core": "^0.2.0",
