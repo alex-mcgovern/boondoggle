@@ -40,6 +40,7 @@ export function WithDarkLightMode(Story: StoryFn) {
     <Box
       width="100%"
       display="grid"
+      className={getTheme()}
       gridTemplateColumns={GRID_TEMPLATE_COLUMNS}
     >
       <StoryWrapper Story={Story} title="Light mode" />

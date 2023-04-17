@@ -5,9 +5,9 @@
  * The original rule for `blockquote:before, blockquote:after, q:before, q:after`
  * contains fallback for `content` which is not possible with vanilla-extract.
  */
-import { globalStyle, style } from "@vanilla-extract/css";
+import { globalStyle } from "@vanilla-extract/css";
 
-export const testStyle = style({ color: "red" });
+import { resetLayer } from "./layers.css";
 
 globalStyle(
   `html, body, div, span, applet, object, iframe,
@@ -24,12 +24,16 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video`,
   {
-    margin: 0,
-    padding: 0,
-    border: 0,
-    fontSize: "100%",
-    font: "inherit",
-    verticalAlign: "baseline",
+    "@layer": {
+      [resetLayer]: {
+        margin: 0,
+        padding: 0,
+        border: 0,
+        fontSize: "100%",
+        font: "inherit",
+        verticalAlign: "baseline",
+      },
+    },
   }
 );
 
@@ -37,46 +41,78 @@ globalStyle(
   `article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section`,
   {
-    display: "block",
+    "@layer": {
+      [resetLayer]: {
+        display: "block",
+      },
+    },
   }
 );
 
 globalStyle("body", {
-  lineHeight: 1,
+  "@layer": {
+    [resetLayer]: {
+      lineHeight: 1,
+    },
+  },
 });
 
 globalStyle("blockquote, q", {
-  quotes: "none",
+  "@layer": {
+    [resetLayer]: {
+      quotes: "none",
+    },
+  },
 });
 
 globalStyle(
   `blockquote:before, blockquote:after,
     q:before, q:after`,
   {
-    // NOTE: The original also has `content: "''"` but that is not possible
-    // to have duplicate rules with vanilla-extract.
-    content: "none",
+    "@layer": {
+      [resetLayer]: {
+        // NOTE: The original also has `content: "''"` but that is not possible
+        // to have duplicate rules with vanilla-extract.
+        content: "none",
+      },
+    },
   }
 );
 
 globalStyle("table", {
-  borderCollapse: "collapse",
-  borderSpacing: 0,
+  "@layer": {
+    [resetLayer]: {
+      borderCollapse: "collapse",
+      borderSpacing: 0,
+    },
+  },
 });
 
 globalStyle("button", {
-  display: "block",
-  appearance: "none",
-  padding: 0,
-  background: "none",
-  border: "none",
-  textDecoration: "none",
+  "@layer": {
+    [resetLayer]: {
+      display: "block",
+      appearance: "none",
+      padding: 0,
+      background: "none",
+      border: "none",
+      textDecoration: "none",
+    },
+  },
 });
 
 globalStyle(`input[type="search"]`, {
-  appearance: "none",
+  "@layer": {
+    [resetLayer]: {
+      appearance: "none",
+    },
+  },
 });
 
 globalStyle("button:not([disabled])", {
-  cursor: "pointer",
+  "@layer": {
+    [resetLayer]: {
+      cursor: "pointer",
+    },
+  },
 });

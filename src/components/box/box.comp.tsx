@@ -1,6 +1,7 @@
 import { createBox } from "@dessert-box/react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { box } from "./box.styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ComponentPropsWithoutRef } from "react";
@@ -14,7 +15,7 @@ import type { ComponentPropsWithoutRef } from "react";
  */
 export const Box = createBox({
   atoms: getSprinkles,
-  defaultClassName: getSprinkles({ color: "text_high_contrast" }),
+  defaultClassName: box,
 });
 
 export type BoxProps = ComponentPropsWithoutRef<typeof Box> & SprinklesArgs;

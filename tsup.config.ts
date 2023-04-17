@@ -16,6 +16,7 @@ export default defineConfig({
     vanillaExtractPlugin({
       outputCss: true,
       runtime: false,
+      identifiers: "short"
     }),
   ],
   clean: true,

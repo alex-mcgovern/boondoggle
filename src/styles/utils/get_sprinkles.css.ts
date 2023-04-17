@@ -4,12 +4,14 @@ import {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_TABLET,
 } from "../common/media_queries.css";
+import { sprinklesLayer } from "../layers.css";
 import { vars } from "../theme.css";
 
 /**
  * Util function for extracting color vars for use with a sprinkles property
  */
 export const sprinklesProperties = defineProperties({
+  "@layer": sprinklesLayer,
   properties: {
     aspectRatio: vars.aspectRatio,
     boxShadow: vars.boxShadow,
@@ -18,15 +20,18 @@ export const sprinklesProperties = defineProperties({
     borderRadius: vars.borderRadius,
 
     /** Border */
-    border: vars.border,
+    border: {
+      border_default: `1px solid ${vars.color.border_default}`,
+      border_active: `1px solid ${vars.color.border_active}`,
+    },
     borderRight: vars.border,
     borderLeft: vars.border,
     borderBottom: vars.border,
     borderTop: vars.border,
 
     /** Color  */
-    background: vars.color,
-    color: vars.color,
+    background: { ...vars.color, inherit: "inherit" },
+    color: { ...vars.color, inherit: "inherit" },
 
     /** Flex * Grid */
     alignItems: ["stretch", "start", "center", "end"],
