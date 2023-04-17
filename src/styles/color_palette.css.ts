@@ -80,9 +80,9 @@ export const variantDarkMode = styleVariants({
       },
     },
   },
-  "@layer": {
-    [themeLayer]: {
-      false: {
+  false: {
+    "@layer": {
+      [themeLayer]: {
         vars: assignVars(
           color,
           makeTheme({
