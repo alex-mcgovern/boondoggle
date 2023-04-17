@@ -14,21 +14,29 @@ exports[`<SelectButton /> Basic smoke tests should match snapshot 1`] = `
   tabindex="0"
   type="button"
 >
-  Select a thing
-  <svg
-    aria-hidden="true"
-    class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1m"
-    data-icon="angle-down"
-    data-prefix="fas"
-    focusable="false"
-    role="img"
-    viewBox="0 0 448 512"
-    xmlns="http://www.w3.org/2000/svg"
+  <div
+    class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_start__eiij7b1b get_sprinkles_gap_spacing2__eiij7b1s get_sprinkles_color_inherit__eiij7b19 box.styles_box__1xdhb490"
   >
-    <path
-      d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-      fill="currentColor"
-    />
-  </svg>
+    Select a thing
+    <div
+      class="get_sprinkles_paddingTop_spacing1__eiij7b81 get_sprinkles_paddingBottom_spacing1__eiij7b77 get_sprinkles_color_inherit__eiij7b19 get_sprinkles_width_spacing3_mobile__eiij7bbu box.styles_box__1xdhb490"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1m"
+        data-icon="angle-down"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
 </button>
 `;
