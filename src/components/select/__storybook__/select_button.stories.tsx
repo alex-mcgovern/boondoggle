@@ -49,3 +49,14 @@ export const SlotLeft: StoryObj<StoryCompProps> = {
     items: mockSelectItems({ withIcon: true }),
   },
 };
+
+export const ButtonProps: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    ...PROPS,
+    buttonProps: {
+      appearance: "tertiary",
+      size: "sm",
+    },
+  },
+};

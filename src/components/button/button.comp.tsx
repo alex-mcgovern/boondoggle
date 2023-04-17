@@ -8,6 +8,7 @@ import { forwardRef } from "react";
 
 import { variantIntent } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./button.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
@@ -88,9 +89,9 @@ export const Button: ButtonComponent = forwardRef(
           ...otherProps,
         }}
       >
-        {slotLeft}
-        {children}
-        {slotRight}
+        <SlotWrapper color="inherit" slotLeft={slotLeft} slotRight={slotRight}>
+          {children}
+        </SlotWrapper>
       </Component>
     );
   }
