@@ -11,9 +11,9 @@ export interface CollapsibleProps {
   /** Dialog content */
   children: ReactNode | Array<ReactNode>;
   /** Function called with new state when state changes. */
-  onOpenChange: (openState: boolean) => void;
+  onOpenChange?: (openState: boolean) => void;
   /** Allow collapsible to act as a controlled component */
-  isOpen: boolean;
+  isOpen?: boolean;
 }
 
 export function Collapsible({
@@ -27,7 +27,9 @@ export function Collapsible({
   const handleOpenChange = useCallback(
     (openState: boolean) => {
       setLocalOpenState(openState);
-      onOpenChange(openState);
+      if (onOpenChange) {
+        onOpenChange(openState);
+      }
     },
     [onOpenChange]
   );
