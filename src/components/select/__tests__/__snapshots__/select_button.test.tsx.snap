@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectButton /> Basic smoke tests should match snapshot 1`] = `
+<button
+  aria-activedescendant=""
+  aria-controls="downshift-10-menu"
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-labelledby="downshift-10-label"
+  class="button.styles_getButtonStyles__3vuwsi8 a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 button.styles__3vuwsi6 get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_borderRadius_md__eiij7ba get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_textDecoration_none__eiij7b9q button.styles_getButtonStyles_appearance_primary__3vuwsi9 button.styles_variantAppearance_primary__3vuwsi3 button.styles__3vuwsi0 get_sprinkles_paddingLeft_spacing2__eiij7b7i get_sprinkles_paddingRight_spacing2__eiij7b7s get_sprinkles_paddingTop_spacing1__eiij7b81 get_sprinkles_paddingBottom_spacing1__eiij7b77 get_sprinkles_justifyContent_center__eiij7b2k get_sprinkles_whiteSpace_nowrap__eiij7b9u get_sprinkles_fontWeight_semibold__eiij7b2v button.styles_getButtonStyles_size_md__3vuwsie element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r"
+  id="lorem-ipsum"
+  name="Lorem ipsum"
+  role="combobox"
+  tabindex="0"
+  type="button"
+>
+  Select a thing
+  <svg
+    aria-hidden="true"
+    class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1m"
+    data-icon="angle-down"
+    data-prefix="fas"
+    focusable="false"
+    role="img"
+    viewBox="0 0 448 512"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+      fill="currentColor"
+    />
+  </svg>
+</button>
+`;

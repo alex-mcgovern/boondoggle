@@ -16,7 +16,7 @@ import type { SelectMultiProps } from "..";
 const ON_CHANGE = jest.fn();
 const ON_IS_OPEN_CHANGE = jest.fn();
 
-const ITEMS = mockSelectItems();
+const ITEMS = mockSelectItems({});
 const FIRST_ITEM = ITEMS[0];
 const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
 const SECOND_ITEM = ITEMS[1];

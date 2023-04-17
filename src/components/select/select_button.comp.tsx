@@ -1,5 +1,5 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
-import { useCombobox } from "downshift";
+import { useSelect } from "downshift";
 import { forwardRef, useCallback } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -10,16 +10,12 @@ import {
   DropdownMenu,
   useSelectPopper,
 } from "./select_shared.comp";
-import {
-  downshiftStateReducer,
-  getDefaultHighlightedIndex,
-  getIsSelected,
-} from "./select_utils";
+import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
-import type { UseComboboxStateChange } from "downshift";
+import type { UseSelectStateChange } from "downshift";
 import type { Ref } from "react";
 
 export interface SelectButtonProps
@@ -28,8 +24,8 @@ export interface SelectButtonProps
       "inputProps" | "invalid" | "isFilterable" | "label" | "errorMessage"
     >,
     SprinklesArgs {
-  onIsOpenChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-  onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
+  onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+  onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
   buttonText: string;
   buttonProps?: ButtonProps;
 }
@@ -57,7 +53,7 @@ export const SelectButton = forwardRef(
     const { atomProps: buttonAtomProps, otherProps: buttonOtherProps } =
       extractAtomsFromProps(buttonProps, getSprinkles);
 
-    /** Initialise downshift `useCombobox` hook */
+    /** Initialise downshift `useSelect` hook */
     const {
       getToggleButtonProps,
       getItemProps,
@@ -66,7 +62,7 @@ export const SelectButton = forwardRef(
       selectedItem,
       selectItem,
       isOpen,
-    } = useCombobox({
+    } = useSelect({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
@@ -77,9 +73,7 @@ export const SelectButton = forwardRef(
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
-          case useCombobox.stateChangeTypes.InputKeyDownEnter:
-          case useCombobox.stateChangeTypes.ItemClick:
-          case useCombobox.stateChangeTypes.InputBlur:
+          case useSelect.stateChangeTypes.ItemClick:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
             }
@@ -88,9 +82,6 @@ export const SelectButton = forwardRef(
           default:
             break;
         }
-      },
-      stateReducer: (state, actionAndChanges) => {
-        return downshiftStateReducer(state, actionAndChanges, {});
       },
     });
 

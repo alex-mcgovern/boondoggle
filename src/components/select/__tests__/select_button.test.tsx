@@ -3,15 +3,13 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { SelectSingle } from "..";
+import { SelectButton } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { a11yError } from "../../../styles/common/a11y.css";
 import { elementSize } from "../../../styles/common/element_size.css";
-import { variantIntent } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectSingleProps } from "..";
+import type { SelectButtonProps } from "..";
 
 const ON_CHANGE = jest.fn();
 const ON_IS_OPEN_CHANGE = jest.fn();
@@ -22,27 +20,26 @@ const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
 const SECOND_ITEM = ITEMS[1];
 const SECOND_ITEM_LABEL = SECOND_ITEM?.label || "";
 
-const PROPS: SelectSingleProps = {
+const PROPS: SelectButtonProps = {
   items: ITEMS,
-  label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
   id: LOREM.id(),
-  placeholder: LOREM.select,
+  buttonText: LOREM.select,
 };
 
-const renderComponent = async (props: SelectSingleProps) => {
+const renderComponent = async (props: SelectButtonProps) => {
   /**
    * Popper.js calls its update() method asynchronously after the
    * initial render, so we must wrap the render() call in waitFor()
    * to prevent test execution from being out of order.
    */
   return waitFor(async () => {
-    return render(<SelectSingle {...props} />);
+    return render(<SelectButton {...props} />);
   });
 };
 
-describe("<SelectSingle />", () => {
+describe("<SelectButton />", () => {
   describe("Basic smoke tests", () => {
     it("should render without throwing", async () => {
       const { getByRole } = await renderComponent(PROPS);
@@ -50,26 +47,11 @@ describe("<SelectSingle />", () => {
       expect(getByRole("combobox")).not.toBeNull();
     });
 
-    it("should render placeholder", async () => {
+    it("should render buttonText", async () => {
       const { getByRole } = await renderComponent(PROPS);
 
       const combobox = getByRole("combobox");
-      expect((combobox as HTMLInputElement).placeholder).toBe(
-        PROPS.placeholder
-      );
-    });
-
-    it("should be labelled", async () => {
-      const { container, getByRole } = await renderComponent(PROPS);
-
-      const combobox = getByRole("combobox");
-      const label = container.querySelector("label");
-      const labelId = label?.getAttribute("id");
-
-      expect(combobox.getAttribute("aria-labelledby")).toBe(labelId);
-      expect(label).not.toBeNull();
-      expect(label?.getAttribute("for")).toBe(PROPS.id);
-      expect(label?.textContent).toBe(PROPS.label);
+      expect(combobox as HTMLInputElement).toHaveTextContent(PROPS.buttonText);
     });
 
     it("should match snapshot", async () => {
@@ -130,43 +112,6 @@ describe("<SelectSingle />", () => {
     });
   });
 
-  describe("Initial selected item", () => {
-    it("should have value of initial selected item", async () => {
-      const { getByRole } = await renderComponent({
-        ...PROPS,
-        initialSelectedItem: FIRST_ITEM,
-      });
-
-      const combobox = getByRole("combobox");
-      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_LABEL);
-    });
-  });
-
-  describe("Invalid", () => {
-    it("should have error styling", async () => {
-      const { getByRole } = await renderComponent({
-        ...PROPS,
-        invalid: true,
-      });
-
-      const combobox = getByRole("combobox");
-      const outerElement = combobox.parentElement?.parentElement;
-
-      expect(combobox).toHaveClass(a11yError);
-      expect(outerElement).toHaveClass(variantIntent.bad);
-    });
-
-    it("should render error message", async () => {
-      const { getByText } = await renderComponent({
-        ...PROPS,
-        invalid: true,
-        errorMessage: LOREM.errorMessage(),
-      });
-
-      expect(getByText(LOREM.errorMessage())).not.toBeNull();
-    });
-  });
-
   describe("On `isOpen` change", () => {
     it("should call onIsOpenChange when user opens select by clicking", async () => {
       const { getByRole } = await renderComponent({
@@ -218,17 +163,6 @@ describe("<SelectSingle />", () => {
       );
     });
 
-    it("should have value of first clicked item", async () => {
-      const { getByRole, getByText } = await renderComponent(PROPS);
-      const combobox = getByRole("combobox");
-      await userEvent.click(combobox);
-
-      const firstItem = getByText(FIRST_ITEM_LABEL);
-      await userEvent.click(firstItem);
-
-      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_LABEL);
-    });
-
     it("should call `onChange` with second clicked item", async () => {
       const { getByRole, getByText } = await renderComponent(PROPS);
       const combobox = getByRole("combobox");
@@ -246,20 +180,6 @@ describe("<SelectSingle />", () => {
         })
       );
     });
-
-    it("should have value of second clicked item", async () => {
-      const { getByRole, getByText } = await renderComponent(PROPS);
-      const combobox = getByRole("combobox");
-      await userEvent.click(combobox);
-
-      const firstItem = getByText(FIRST_ITEM_LABEL);
-      await userEvent.click(firstItem);
-
-      const secondItem = getByText(SECOND_ITEM_LABEL);
-      await userEvent.click(secondItem);
-
-      expect((combobox as HTMLInputElement).value).toBe(SECOND_ITEM_LABEL);
-    });
   });
 
   describe("Selecting with keyboard", () => {
@@ -276,18 +196,6 @@ describe("<SelectSingle />", () => {
           selectedItem: FIRST_ITEM,
         })
       );
-    });
-
-    it("should have value of first item selected with keyboard", async () => {
-      const { getByRole } = await renderComponent(PROPS);
-      const combobox = getByRole("combobox");
-
-      await userEvent.tab();
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{enter}");
-
-      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_LABEL);
     });
 
     it("should call `onChange` with second item selected with keyboard", async () => {
@@ -308,23 +216,6 @@ describe("<SelectSingle />", () => {
           selectedItem: SECOND_ITEM,
         })
       );
-    });
-
-    it("should have value of second item selected with keyboard", async () => {
-      const { getByRole } = await renderComponent(PROPS);
-      const combobox = getByRole("combobox");
-
-      await userEvent.tab();
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{enter}");
-
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{arrowdown}");
-      await userEvent.keyboard("{enter}");
-
-      expect((combobox as HTMLInputElement).value).toBe(SECOND_ITEM_LABEL);
     });
   });
 
