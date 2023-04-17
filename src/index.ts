@@ -68,6 +68,9 @@ export type { LabelProps } from "./components/label";
 export { Loader } from "./components/loader";
 export type { LoaderProps } from "./components/loader";
 
+export { SelectButton } from "./components/select";
+export type { SelectButtonProps } from "./components/select";
+
 export { SelectSingle } from "./components/select";
 export type { SelectSingleProps } from "./components/select";
 
