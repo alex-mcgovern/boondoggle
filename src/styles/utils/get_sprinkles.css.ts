@@ -5,8 +5,6 @@ import {
   MEDIA_QUERY_TABLET,
 } from "../common/media_queries.css";
 import { vars } from "../theme.css";
-import { varsBorder } from "../vars/vars_border.css";
-import { varsDisplay } from "../vars/vars_display.css";
 
 /**
  * Util function for extracting color vars for use with a sprinkles property
@@ -20,11 +18,11 @@ export const sprinklesProperties = defineProperties({
     borderRadius: vars.borderRadius,
 
     /** Border */
-    border: varsBorder,
-    borderRight: varsBorder,
-    borderLeft: varsBorder,
-    borderBottom: varsBorder,
-    borderTop: varsBorder,
+    border: vars.border,
+    borderRight: vars.border,
+    borderLeft: vars.border,
+    borderBottom: vars.border,
+    borderTop: vars.border,
 
     /** Color  */
     background: vars.color,
@@ -96,7 +94,7 @@ export const responsiveSprinklesProperties = defineProperties({
   properties: {
     width: { ...vars.width, ...vars.spacing },
     gridTemplateColumns: vars.gridTemplateColumns,
-    display: varsDisplay,
+    display: vars.display,
   },
   conditions: {
     mobile: {},

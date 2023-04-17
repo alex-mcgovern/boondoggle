@@ -42,7 +42,7 @@ export const dialogContent = style([
       tablet: "gridSpan8",
       desktop: "gridSpan8",
     },
-    maxWidth: "maxContained",
+    maxWidth: "gridSpan10",
     maxHeight: "100vh",
   }),
   {
