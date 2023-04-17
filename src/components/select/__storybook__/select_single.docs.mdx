@@ -5,7 +5,7 @@ import * as stories from "./select_single.stories.tsx";
 
 <Meta of={stories} />
 
-# Select
+# SelectSingle
 
 ## Accessible single select component built with [downshift.js](https://www.downshift-js.com/)
 
@@ -32,6 +32,10 @@ import * as stories from "./select_single.stories.tsx";
 
 <ArgTypes of={SelectSingle} include={["isFilterable"]} />
 <Canvas name="filterable" of={stories.Filterable} />
+
+## Items w. `slotLeft`
+
+<Canvas name="iconsWithSlotLeft" of={stories.SlotLeft} />
 
 # Reference
 

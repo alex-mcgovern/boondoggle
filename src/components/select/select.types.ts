@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 export interface DropdownItemShape {
   label: string;
   value: string;
+  slotLeft?: ReactNode;
 }
 
 export interface SelectCommonProps {

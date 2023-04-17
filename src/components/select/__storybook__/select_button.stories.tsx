@@ -1,10 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { jest } from "@storybook/jest";
 
-import { SelectMulti as StoryComp } from "..";
+import { SelectButton as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectMultiProps as StoryCompProps } from "../select_multi.comp";
+import type { SelectButtonProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
@@ -14,18 +15,17 @@ const ITEMS = mockSelectItems({});
 const PROPS: StoryCompProps = {
   items: ITEMS,
   id: LOREM.id(),
-  label: LOREM.label(),
   name: LOREM.name(),
   onChange: ON_CHANGE,
-  placeholder: LOREM.placeholder(),
+  buttonText: LOREM.button,
 };
 
 export default {
-  title: "React components/SelectMulti",
+  title: "React components/SelectButton",
   component: StoryComp,
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
   return <StoryComp {...rest} />;
 };
 
@@ -34,11 +34,11 @@ export const Default: StoryObj<StoryCompProps> = {
   args: PROPS,
 };
 
-export const InitialSelectedItems: StoryObj<StoryCompProps> = {
+export const Disabled: StoryObj<StoryCompProps> = {
   render: Template,
   args: {
     ...PROPS,
-    initialSelectedItems: [ITEMS[0]],
+    disabled: true,
   },
 };
 

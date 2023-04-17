@@ -5,7 +5,7 @@ import * as stories from "./select_multi.stories.tsx";
 
 <Meta of={stories} />
 
-# Select
+# SelectMulti
 
 - Wrapper around Downshift to provide a select component with a few options for
   styling and behavior
@@ -18,3 +18,7 @@ import * as stories from "./select_multi.stories.tsx";
 
 <ArgTypes of={SelectMulti} include={["initialSelectedItems"]} />
 <Canvas name="initialSelectedItems" of={stories.InitialSelectedItems} />
+
+## Items w. `slotLeft`
+
+<Canvas name="iconsWithSlotLeft" of={stories.SlotLeft} />

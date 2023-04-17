@@ -1,0 +1,27 @@
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import { SelectButton } from "..";
+import * as stories from "./select_button.stories.tsx";
+
+<Meta of={stories} />
+
+# SelectButton
+
+## Accessible button select component built with [downshift.js](https://www.downshift-js.com/)
+
+<Canvas name="default" of={stories.Default} />
+
+## Usage
+
+### `disabled`
+
+<ArgTypes of={SelectButton} include={["disabled"]} />
+<Canvas name="default" of={stories.Disabled} />
+
+## Items w. `slotLeft`
+
+<Canvas name="iconsWithSlotLeft" of={stories.SlotLeft} />
+
+# Reference
+
+<ArgTypes of={SelectButton} />

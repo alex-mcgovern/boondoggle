@@ -86,6 +86,7 @@ export const DropdownItem = forwardRef(
         {...rest}
         ref={ref}
       >
+        {item.slotLeft && item.slotLeft}
         <Box flexShrink="0">{item.label}</Box>
         {isMulti && (
           <Box
