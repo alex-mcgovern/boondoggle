@@ -21,7 +21,7 @@ export function SlotWrapper({
       className={userClassName}
       display="flex"
       alignItems="center"
-      gap="spacing2"
+      gap="spacing1"
       {...rest}
     >
       {slotLeft && (
