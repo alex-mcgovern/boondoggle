@@ -20,7 +20,7 @@ export function SlotWrapper({
     <Box
       className={userClassName}
       display="flex"
-      alignItems="start"
+      alignItems="center"
       gap="spacing2"
       {...rest}
     >
