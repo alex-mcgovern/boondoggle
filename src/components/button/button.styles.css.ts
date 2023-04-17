@@ -78,7 +78,7 @@ export const variantAppearance = styleVariants({
       paddingY: "spacing1",
     }),
     {
-      color: vars.color.button_default,
+      color: vars.color.text_low_contrast,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: vars.color.button_active,
