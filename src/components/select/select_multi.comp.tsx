@@ -210,6 +210,7 @@ export const SelectMulti = forwardRef(
       <Box
         className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
         ref={setPopperAnchorEl}
+        position="relative"
         {...rest}
       >
         {label && (
