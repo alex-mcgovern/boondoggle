@@ -71,14 +71,10 @@ export type { LoaderProps } from "./components/loader";
 export { SelectSingle } from "./components/select";
 export type { SelectSingleProps } from "./components/select";
 
-// export { SelectMultiFilterable } from "./components/select_new/SelectMultiFilterable";
-// export type { SelectMultiFilterableProps } from "./components/select_new/SelectMultiFilterable";
+export { SelectMulti } from "./components/select";
+export type { SelectMultiProps } from "./components/select";
 
-// export { SelectSingleFilterable } from "./components/select_new/SelectSingleFilterable";
-// export type { SelectSingleFilterableProps } from "./components/select_new/SelectSingleFilterable";
-
-// export { SelectSingleCreatable } from "./components/select_new/SelectSingleCreatable";
-// export type { SelectSingleCreatableProps } from "./components/select_new/SelectSingleCreatable";
+export type { DropdownItemShape } from "./components/select";
 
 export { Tag } from "./components/tag";
 export type { TagProps } from "./components/tag";
