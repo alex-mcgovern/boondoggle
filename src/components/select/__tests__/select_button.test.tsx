@@ -51,7 +51,9 @@ describe("<SelectButton />", () => {
       const { getByRole } = await renderComponent(PROPS);
 
       const combobox = getByRole("combobox");
-      expect(combobox as HTMLInputElement).toHaveTextContent(PROPS.buttonText);
+      expect(combobox as HTMLInputElement).toHaveTextContent(
+        PROPS.buttonText as string
+      );
     });
 
     it("should match snapshot", async () => {
