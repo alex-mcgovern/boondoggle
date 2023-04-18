@@ -26,7 +26,7 @@ export interface SelectButtonProps
     SprinklesArgs {
   onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
   onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-  buttonText: string;
+  buttonText?: string;
   buttonProps?: ButtonProps;
 }
 
