@@ -1,4 +1,9 @@
-export { vars } from "./styles/theme.css";
+export {
+  vars,
+  getTheme,
+  variantDarkMode,
+  variantIntent,
+} from "./styles/theme.css";
 export * as stylesheet from "./styles/stylesheet.css";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
