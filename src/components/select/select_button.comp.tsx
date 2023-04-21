@@ -117,6 +117,7 @@ export const SelectButton = forwardRef(
             disabled,
             id,
             name,
+            "aria-label": name,
             ref,
           })}
         >
