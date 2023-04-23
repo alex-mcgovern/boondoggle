@@ -5,7 +5,7 @@ import "@vanilla-extract/css/disableRuntimeStyles";
 
 import { FormInput } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { FormTestProvider } from "../form_provider_test.comp";
+import { FormTestProvider } from "../form_test_provider.comp";
 
 import type { FormInputProps } from "..";
 

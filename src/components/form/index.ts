@@ -15,3 +15,5 @@ export type { FormTextAreaProps } from "./sub_components/form_textarea.comp";
 
 export { FormSubmitButton } from "./sub_components/form_submit_button.comp";
 export type { FormSubmitButtonProps } from "./sub_components/form_submit_button.comp";
+
+export { FormTestProvider } from "./form_test_provider.comp";
