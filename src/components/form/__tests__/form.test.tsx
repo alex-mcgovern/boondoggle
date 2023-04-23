@@ -7,6 +7,7 @@ import { Form } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/has_pointer_capture.mock";
 import "../../../../test/resize_observer.mock";
+import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 
 import type { FormProps } from "..";
@@ -75,7 +76,7 @@ describe("<Form />", () => {
   });
 
   describe("Happy path", () => {
-    it("should allow form submission", async () => {
+    it("should submit successfully when user inputs values", async () => {
       const { getByRole, getByLabelText } = await renderComponent(PROPS);
 
       const emailInput = getByLabelText(LOREM.labelEmail());
@@ -94,7 +95,6 @@ describe("<Form />", () => {
       await act(async () => {
         await userEvent.click(selectComponent);
         await userEvent.keyboard("{arrowdown}");
-        await userEvent.keyboard("{arrowdown}");
         await userEvent.keyboard("{enter}");
 
         await userEvent.click(sliderThumb);
@@ -110,8 +110,38 @@ describe("<Form />", () => {
           expect.objectContaining({
             email: LOREM.email(),
             description: LOREM.textXxs,
-            select: "fr",
+            select: mockSelectItems({})[0].value,
             amount: 1,
+          }),
+          expect.objectContaining({
+            type: "submit",
+          })
+        );
+      });
+    });
+
+    it("should submit successfully when default values are provided", async () => {
+      const handleFormSubmissionDefaultValuesMock = jest.fn();
+
+      const { getByRole } = await renderComponent(
+        mockForm({
+          handleFormSubmission: handleFormSubmissionDefaultValuesMock,
+          handleErrors: handleErrorsMock,
+          withDefaultValues: true,
+        })
+      );
+
+      await act(async () => {
+        fireEvent.submit(getByRole("form"));
+      });
+
+      await waitFor(() => {
+        expect(handleFormSubmissionDefaultValuesMock).toHaveBeenCalledWith(
+          expect.objectContaining({
+            email: LOREM.email(),
+            description: LOREM.textXxs,
+            select: mockSelectItems({})[0].value,
+            amount: 50,
           }),
           expect.objectContaining({
             type: "submit",

@@ -1,7 +1,6 @@
 import {
   faCheckCircle,
   faExclamationTriangle,
-  faPaperPlane,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -42,7 +41,7 @@ export function getSubmitButtonIcon({
   }
 
   return {
-    buttonIcon: faPaperPlane,
+    buttonIcon: faCheckCircle,
     buttonIconProps: undefined,
   };
 }

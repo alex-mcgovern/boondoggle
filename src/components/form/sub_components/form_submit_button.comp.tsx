@@ -25,7 +25,7 @@ export function FormSubmitButton({ children, ...rest }: FormSubmitButtonProps) {
       size="md"
       name="submit"
       type="submit"
-      slotLeft={
+      slotRight={
         buttonIcon ? <Icon icon={buttonIcon} {...buttonIconProps} /> : null
       }
       {...rest}

@@ -24,6 +24,9 @@ export function FormSelectSingle({ name, ...rest }: FormSelectSingleProps) {
     name,
     control,
     rules: { required: true },
+    ...(rest.initialSelectedItem && {
+      defaultValue: rest.initialSelectedItem.value,
+    }),
   });
 
   const handleChange = useCallback(

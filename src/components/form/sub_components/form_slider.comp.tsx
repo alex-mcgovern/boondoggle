@@ -23,7 +23,7 @@ export function FormSlider({
   errorMessage,
   required,
   validateFunction,
-  defaultValue,
+  defaultValue: defaultValueArray,
   ...rest
 }: FormSliderProps) {
   const { control } = useFormContext();
@@ -43,7 +43,10 @@ export function FormSlider({
         return !!value;
       },
     },
-    defaultValue,
+    ...(defaultValueArray &&
+      Array.isArray(defaultValueArray) && {
+        defaultValue: defaultValueArray[0],
+      }),
   });
 
   /**
