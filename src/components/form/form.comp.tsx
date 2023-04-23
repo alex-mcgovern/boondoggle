@@ -6,27 +6,30 @@ import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
-export type FormProps = Omit<BoxProps, "children"> & {
+export type FormProps<TFieldValues extends FieldValues> = Omit<
+  BoxProps,
+  "children"
+> & {
   children: ReactNode | ReactNode[];
   disabled?: boolean;
   handleFormSubmission:
-    | ((fieldValues: Record<string, unknown>) => Promise<void>)
-    | ((fieldValues: Record<string, unknown>) => void);
+    | ((fieldValues: TFieldValues) => Promise<void>)
+    | ((fieldValues: TFieldValues) => void);
   handleErrors?:
     | ((errors: FieldErrors) => Promise<void>)
     | ((errors: FieldErrors) => void);
   name: string;
-  resolver: Resolver<FieldValues, any>;
+  resolver: Resolver<TFieldValues, any>;
 };
 
-export function Form({
+export function Form<TFieldValues extends FieldValues>({
   children,
   handleFormSubmission,
   name,
   handleErrors,
   resolver,
-}: FormProps) {
-  const formMethods = useForm({ resolver });
+}: FormProps<TFieldValues>) {
+  const formMethods = useForm<TFieldValues>({ resolver });
 
   return (
     <FormProvider {...formMethods}>
