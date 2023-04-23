@@ -55,7 +55,12 @@ export const TextArea = forwardRef(
       >
         {label && id && <Label label={label} htmlFor={id} />}
 
-        <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
+        <SlotWrapper
+          slotProps={{ paddingY: "spacing1" }}
+          slotLeft={slotLeft}
+          slotRight={slotRight}
+          alignItems="start"
+        >
           <textarea
             name={name}
             aria-invalid={invalid}

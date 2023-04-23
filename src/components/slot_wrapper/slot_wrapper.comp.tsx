@@ -7,6 +7,7 @@ export type SlotWrapperProps = BoxProps & {
   slotLeft?: ReactNode;
   slotRight?: ReactNode;
   children?: ReactNode;
+  slotProps?: BoxProps;
 };
 
 export function SlotWrapper({
@@ -14,6 +15,7 @@ export function SlotWrapper({
   slotRight,
   children,
   className: userClassName,
+  slotProps,
   ...rest
 }: SlotWrapperProps) {
   return (
@@ -25,7 +27,7 @@ export function SlotWrapper({
       {...rest}
     >
       {slotLeft && (
-        <Box paddingY="spacing1" color="inherit" width="spacing3">
+        <Box {...slotProps} color="inherit" width="spacing3">
           {slotLeft}
         </Box>
       )}
@@ -33,7 +35,7 @@ export function SlotWrapper({
       {children}
 
       {slotRight && (
-        <Box paddingY="spacing1" color="inherit" width="spacing3">
+        <Box {...slotProps} color="inherit" width="spacing3">
           {slotRight}
         </Box>
       )}

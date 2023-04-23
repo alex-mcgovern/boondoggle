@@ -65,7 +65,11 @@ export const Input = forwardRef(
       >
         {label && id && <Label label={label} htmlFor={id} />}
 
-        <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
+        <SlotWrapper
+          slotProps={{ paddingY: "spacing1" }}
+          slotLeft={slotLeft}
+          slotRight={slotRight}
+        >
           <input
             className={clsx(styles.input, userClassName, elementSize[size], {
               [a11yError]: invalid,
