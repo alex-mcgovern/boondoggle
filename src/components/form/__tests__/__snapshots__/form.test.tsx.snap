@@ -7,7 +7,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
   name="Name ipsum"
 >
   <div
-    class="get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+    class="box.styles_box__1xdhb490"
   >
     <label
       as="label"
@@ -29,7 +29,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+    class="box.styles_box__1xdhb490"
   >
     <label
       as="label"
@@ -52,7 +52,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="get_sprinkles_position_relative__eiij7b9j get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+    class="get_sprinkles_position_relative__eiij7b9j box.styles_box__1xdhb490"
   >
     <label
       as="label"
@@ -195,7 +195,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+    class="box.styles_box__1xdhb490"
   >
     <label
       as="label"
