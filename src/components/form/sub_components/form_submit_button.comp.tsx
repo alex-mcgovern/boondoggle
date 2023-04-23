@@ -22,7 +22,6 @@ export function FormSubmitButton({ children, ...rest }: FormSubmitButtonProps) {
 
   return (
     <Button
-      width="100%"
       size="md"
       name="submit"
       type="submit"
