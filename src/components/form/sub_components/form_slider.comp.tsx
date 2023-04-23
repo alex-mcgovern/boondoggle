@@ -63,7 +63,6 @@ export function FormSlider({
       aria-required={required}
       errorMessage={errorMessage}
       invalid={!!error}
-      marginBottom="spacing2"
       name={name}
       onBlur={onBlur}
       onValueChange={handleChange}

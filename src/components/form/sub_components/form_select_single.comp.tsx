@@ -36,7 +36,6 @@ export function FormSelectSingle({ name, ...rest }: FormSelectSingleProps) {
   return (
     <SelectSingle
       invalid={!!error}
-      marginBottom="spacing2"
       name={name}
       onChange={handleChange}
       ref={ref}

@@ -50,7 +50,6 @@ export function FormTextArea({
       aria-required={required}
       errorMessage={errorMessage}
       invalid={!!error}
-      marginBottom="spacing2"
       name={name}
       onBlur={onBlur}
       onChange={onChange}
