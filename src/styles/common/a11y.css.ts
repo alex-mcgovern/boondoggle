@@ -40,7 +40,7 @@ export const a11yFocus = style([
         outline: "none",
       },
 
-      [`&:focus-visible`]: {
+      [`&:not(:is([disabled], [readonly])):focus-visible`]: {
         ...a11yFocusStyleRule,
       },
     },
