@@ -6,7 +6,7 @@ import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
-export type FormProps<TFieldValues extends FieldValues> = Omit<
+export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
   BoxProps,
   "children"
 > & {
