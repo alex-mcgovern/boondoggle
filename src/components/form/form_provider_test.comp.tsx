@@ -9,7 +9,7 @@ export function FormTestProvider({
 }: {
   children: ReactElement<unknown, string | JSXElementConstructor<unknown>>;
 }) {
-  const reactHookFormMethods = useForm();
+  const reactHookFormMethods = useForm({});
 
   return (
     <FormProvider {...reactHookFormMethods}>

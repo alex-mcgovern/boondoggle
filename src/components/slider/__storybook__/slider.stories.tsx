@@ -1,18 +1,19 @@
 import { Slider as StoryComp } from "..";
+import { LOREM } from "../../../../mocks/LOREM.mock";
 
-import type { SliderProps as StoryCompProps } from "..";
-import type { StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-export default {
+const meta = {
   title: "React components/Slider",
   component: StoryComp,
-};
+  args: {
+    name: LOREM.name(),
+  },
+} satisfies Meta<typeof StoryComp>;
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
-  return <StoryComp {...rest} />;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
+export const Default: Story = {
   name: "default",
 };

@@ -1,11 +1,11 @@
 import { Box } from "../box";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { BoxProps } from "../box";
 
-export interface LabelProps extends SprinklesArgs {
+export type LabelProps = BoxProps & {
   label: string;
   htmlFor: string;
-}
+};
 
 export function Label({ label, htmlFor, ...rest }: LabelProps) {
   return (

@@ -8,10 +8,10 @@ import * as styles from "./tooltip.styles.css";
 
 import type { IconProps } from "../icon";
 
-export interface TooltipProps {
+export type TooltipProps = {
   popoverText: string;
   icon?: IconProps["icon"];
-}
+};
 export function Tooltip({ popoverText, icon = faInfoCircle }: TooltipProps) {
   return (
     <RadixPopover.Root>

@@ -5,7 +5,7 @@ import { collapsibleContentAnimation } from "./collapsible.styles.css";
 
 import type { ReactNode } from "react";
 
-export interface CollapsibleProps {
+export type CollapsibleProps = {
   /** Element to use as Dialog trigger. Note: Must accept a ref. */
   triggerNode: ReactNode;
   /** Dialog content */
@@ -14,7 +14,7 @@ export interface CollapsibleProps {
   onOpenChange?: (openState: boolean) => void;
   /** Allow collapsible to act as a controlled component */
   isOpen?: boolean;
-}
+};
 
 export function Collapsible({
   triggerNode,

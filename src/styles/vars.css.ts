@@ -6,12 +6,12 @@ import { color } from "./color_palette.css";
 const GRID_MAX_WIDTH = 1080;
 const GRID_MAX_WIDTH_PX = `${GRID_MAX_WIDTH}px`;
 
-/** -----------------------------------------------------------------------------
+/**
  * Global variables (css vars)
  *
  * These are declared as css vars at the `root:` level, in scope of the `html` element
  * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
- * ------------------------------------------------------------------------------- */
+ */
 
 export const rootVars = createGlobalTheme(":root", {
   aspectRatio: {

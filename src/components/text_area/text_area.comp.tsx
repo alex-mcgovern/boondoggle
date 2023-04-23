@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
+import { elementSize } from "../../styles/common/element_size.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
@@ -13,25 +14,21 @@ import * as styles from "./text_area.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { ConditionalLabelProps } from "../../types";
 import type { ComponentPropsWithoutRef, LegacyRef, ReactNode } from "react";
 
-export interface TextAreaProps
-  extends SprinklesArgs,
-    Omit<ComponentPropsWithoutRef<"textarea">, "color" | "ref"> {
-  size?: ElementSizeEnum;
-  name: string;
-  /** React node shown on the left side of text area. */
-  slotLeft?: ReactNode;
-  /** React node shown on the right side of text area. */
-  slotRight?: ReactNode;
-  errorMessage?: string;
-  invalid?: boolean;
-  placeholder: string;
-  /** Used as the html ID. */
-  id: string;
-  /** Label text. (Will also be used as accessible `name` on the textarea element.) */
-  label?: string;
-}
+export type TextAreaProps = SprinklesArgs &
+  Omit<ComponentPropsWithoutRef<"textarea">, "color" | "ref"> &
+  ConditionalLabelProps & {
+    size?: ElementSizeEnum;
+    name: string;
+    /** React node shown on the left side of text area. */
+    slotLeft?: ReactNode;
+    /** React node shown on the right side of text area. */
+    slotRight?: ReactNode;
+    errorMessage?: string;
+    invalid?: boolean;
+  };
 
 export const TextArea = forwardRef(
   (
@@ -41,6 +38,7 @@ export const TextArea = forwardRef(
       errorMessage,
       slotLeft,
       slotRight,
+      name,
       label,
       id,
       ...rest
@@ -51,20 +49,21 @@ export const TextArea = forwardRef(
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
-      <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
+      <Box
+        className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        {...atomProps}
+      >
         {label && id && <Label label={label} htmlFor={id} />}
 
-        <SlotWrapper
-          slotLeft={slotLeft}
-          slotRight={slotRight}
-          className={styles.getWrapperStyles({ size })}
-          {...atomProps}
-        >
+        <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
           <textarea
+            name={name}
             aria-invalid={invalid}
-            className={clsx(styles.textArea, {
+            aria-label={name}
+            className={clsx(styles.textArea, elementSize[size], {
               [a11yError]: invalid,
             })}
+            id={id}
             ref={ref}
             {...otherProps}
           />

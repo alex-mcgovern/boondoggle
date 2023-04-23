@@ -9,16 +9,14 @@ import type { SliderProps } from "../../slider";
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export interface FormSliderProps extends SliderProps {
+export type FormSliderProps = SliderProps & {
   /** Message to render when erroring. */
   errorMessage: string;
   /** Callback for validation, else simply validates is non-empty. */
   validateFunction?: (value: string) => boolean;
-  /** a11y label passed to `Label` component */
-  label: string;
   /** Whether the slider is a required form element */
   required?: boolean;
-}
+};
 
 export function FormSlider({
   name,

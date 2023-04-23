@@ -3,11 +3,11 @@ import { getTheme } from "../src/styles/theme.css";
 
 import type { StoryFn } from "@storybook/react";
 
-interface StoryWrapperProps {
+type StoryWrapperProps = {
   Story: StoryFn;
   className?: string;
   title: string;
-}
+};
 
 function StoryWrapper({ Story, className, title }: StoryWrapperProps) {
   return (

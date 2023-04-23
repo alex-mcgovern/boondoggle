@@ -14,33 +14,30 @@ import * as styles from "./input.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { ConditionalLabelProps } from "../../types";
 import type { ComponentPropsWithoutRef, ReactNode, Ref } from "react";
 
-export interface InputProps
-  extends Omit<
-      ComponentPropsWithoutRef<"input">,
-      "width" | "height" | "style" | "color" | "size"
-    >,
-    SprinklesArgs {
-  /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
-  errorMessage?: string;
-  /** Used as the html ID. */
-  id: string;
-  /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
-  invalid?: boolean;
-  /** Label text. (Will also be used as accessible `name` on the input element.) */
-  label?: string;
-  /** Name of the form control. Submitted with the form as part of a name/value pair */
-  name: string;
-  /** Common interactive element size, shared with button, select, etc */
-  size?: ElementSizeEnum;
-  /** React node shown on the left side of input. */
-  slotLeft?: ReactNode;
-  /** React node shown on the right side of input. */
-  slotRight?: ReactNode;
-  /** Placeholder text shown when input is empty. */
-  placeholder: string;
-}
+export type InputProps = Omit<
+  ComponentPropsWithoutRef<"input">,
+  "width" | "height" | "style" | "color" | "size" | "label" | "id"
+> &
+  SprinklesArgs &
+  ConditionalLabelProps & {
+    /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
+    errorMessage?: string;
+    /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
+    invalid?: boolean;
+    /** Name of the form control. Submitted with the form as part of a name/value pair */
+    name: string;
+    /** Common interactive element size, shared with button, select, etc */
+    size?: ElementSizeEnum;
+    /** React node shown on the left side of input. */
+    slotLeft?: ReactNode;
+    /** React node shown on the right side of input. */
+    slotRight?: ReactNode;
+    /** Placeholder text shown when input is empty. */
+    placeholder: string;
+  };
 
 export const Input = forwardRef(
   (
@@ -62,10 +59,13 @@ export const Input = forwardRef(
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
-      <Box className={clsx({ [getTheme({ intent: "bad" })]: invalid })}>
+      <Box
+        className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        {...atomProps}
+      >
         {label && id && <Label label={label} htmlFor={id} />}
 
-        <SlotWrapper {...atomProps} slotLeft={slotLeft} slotRight={slotRight}>
+        <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
           <input
             className={clsx(styles.input, userClassName, elementSize[size], {
               [a11yError]: invalid,

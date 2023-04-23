@@ -12,7 +12,7 @@ import type { BoxProps } from "../box";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { ReactNode } from "react";
 
-export interface TagProps extends BoxProps {
+export type TagProps = BoxProps & {
   /** Variant prop controlling tag appearance. Note: Auto-generated documentation for this is still a WIP, so variant styles are missing. */
   state?: styles.VariantTagStateEnum;
   /** FontAwesome icon shown on the left side of tag. */
@@ -31,7 +31,7 @@ export interface TagProps extends BoxProps {
   children?: ReactNode;
   /** The string URI to link to. Supports relative and absolute URIs. */
   to?: string;
-}
+};
 
 export function Tag({
   as,

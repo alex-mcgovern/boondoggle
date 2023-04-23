@@ -100,7 +100,7 @@
       "import React from \"react\";",
       "",
       "",
-      "interface ComponentProps {",
+      "type ComponentProps = {",
       "\tplaceholderProp: undefined",
       "}",
       "",

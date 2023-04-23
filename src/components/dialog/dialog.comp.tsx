@@ -8,7 +8,7 @@ import * as styles from "./dialog.styles.css";
 
 import type { ReactNode } from "react";
 
-export interface DialogProps {
+export type DialogProps = {
   /** Element to use as Dialog trigger. Note: Must accept a ref. */
   triggerNode: ReactNode;
   /** Accessible title for dialog */
@@ -19,7 +19,7 @@ export interface DialogProps {
   children: ReactNode | Array<ReactNode>;
   callbackOnOpenChange: (isOpen: boolean) => void;
   isOpen: boolean;
-}
+};
 
 const CLOSE_BUTTON_ICON = <Icon icon={faTimes} />;
 export function Dialog({

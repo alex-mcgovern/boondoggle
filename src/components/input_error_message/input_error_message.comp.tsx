@@ -1,8 +1,8 @@
 import { Box } from "../box";
 
-export interface InputErrorMessageProps {
+export type InputErrorMessageProps = {
   message?: string;
-}
+};
 
 export function InputErrorMessage({ message }: InputErrorMessageProps) {
   if (!message) {
@@ -12,6 +12,7 @@ export function InputErrorMessage({ message }: InputErrorMessageProps) {
   if (message) {
     return (
       <Box
+        role="alert"
         color="text_low_contrast"
         display="flex"
         gap="spacing0"

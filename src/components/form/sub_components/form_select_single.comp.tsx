@@ -10,9 +10,9 @@ import type { UseComboboxStateChange } from "downshift";
  * React Hook Form connected version of `SelectSingle`. Uses `useFormContext`
  * to access Hook Form's methods so can be deeply nested.
  */
-export interface FormSelectSingleProps extends SelectSingleProps {
+export type FormSelectSingleProps = SelectSingleProps & {
   errorMessage: string;
-}
+};
 
 export function FormSelectSingle({ name, ...rest }: FormSelectSingleProps) {
   const { control } = useFormContext();

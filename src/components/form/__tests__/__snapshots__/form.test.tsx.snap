@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
+<form
+  as="form"
+  class="box.styles_box__1xdhb490"
+  name="Name ipsum"
+>
+  <div
+    class="get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+  >
+    <label
+      as="label"
+      class="get_sprinkles_color_text_low_contrast__eiij7b18 get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_fontSize_body_sm__eiij7b8i get_sprinkles_fontWeight_medium__eiij7b2u get_sprinkles_marginBottom_spacing0__eiij7b3l box.styles_box__1xdhb490"
+      for="email"
+    >
+      Email ipsum
+    </label>
+    <div
+      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r box.styles_box__1xdhb490"
+    >
+      <input
+        class="input.styles_input__3x32wp1 input.styles__3x32wp0 get_sprinkles_width_100%_mobile__eiij7ba0 a11y_a11yDisabled__r8he5t1 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r"
+        id="email"
+        name="email"
+        placeholder="Enter your email address"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+  >
+    <label
+      as="label"
+      class="get_sprinkles_color_text_low_contrast__eiij7b18 get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_fontSize_body_sm__eiij7b8i get_sprinkles_fontWeight_medium__eiij7b2u get_sprinkles_marginBottom_spacing0__eiij7b3l box.styles_box__1xdhb490"
+      for="description"
+    >
+      Description ipsum
+    </label>
+    <div
+      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r box.styles_box__1xdhb490"
+    >
+      <textarea
+        aria-invalid="false"
+        aria-label="description"
+        class="text_area.styles_textArea__1l2bu6h1 text_area.styles__1l2bu6h0 get_sprinkles_width_100%_mobile__eiij7ba0 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r"
+        id="description"
+        name="description"
+        placeholder="Enter your description"
+      />
+    </div>
+  </div>
+  <div
+    class="get_sprinkles_position_relative__eiij7b9j get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+  >
+    <label
+      as="label"
+      class="get_sprinkles_color_text_low_contrast__eiij7b18 get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_fontSize_body_sm__eiij7b8i get_sprinkles_fontWeight_medium__eiij7b2u get_sprinkles_marginBottom_spacing0__eiij7b3l box.styles_box__1xdhb490"
+      for="select"
+      id="downshift-5-label"
+    >
+      Dropdown ipsum
+    </label>
+    <div
+      class="box.styles_box__1xdhb490"
+    >
+      <div
+        class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r box.styles_box__1xdhb490"
+      >
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          aria-controls="downshift-5-menu"
+          aria-expanded="false"
+          aria-labelledby="downshift-5-label"
+          autocomplete="off"
+          class="input.styles_input__3x32wp1 input.styles__3x32wp0 get_sprinkles_width_100%_mobile__eiij7ba0 a11y_a11yDisabled__r8he5t1 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r"
+          id="select"
+          name="select"
+          placeholder="Select an option from the dropdown"
+          readonly=""
+          role="combobox"
+          value=""
+        />
+        <div
+          class="get_sprinkles_paddingTop_spacing1__eiij7b81 get_sprinkles_paddingBottom_spacing1__eiij7b77 get_sprinkles_color_inherit__eiij7b19 get_sprinkles_width_spacing3_mobile__eiij7bbu box.styles_box__1xdhb490"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1m"
+            data-icon="angle-down"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="downshift-5-label"
+      class="select.styles_dropdownListWrapper__g5jh3w4 a11y_a11yFocus__r8he5t2 select.styles__g5jh3w3 get_sprinkles_background_background__eiij7bo get_sprinkles_marginTop_spacing1__eiij7b4g get_sprinkles_minWidth_gridSpan3__eiij7b5z get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_margin_none__eiij7b30 get_sprinkles_borderRadius_sm__eiij7bb get_sprinkles_overflow_hidden__eiij7b72 get_sprinkles_isolation_isolate__eiij7b2y get_sprinkles_boxShadow_sm__eiij7b6 get_sprinkles_border_border_default__eiij7bc get_sprinkles_overflowY_auto__eiij7b73 select.styles_dropdownWrapperClosed__g5jh3w2 box.styles_box__1xdhb490"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden="true"
+      id="downshift-5-menu"
+      role="listbox"
+      style="position: fixed; left: 0px; top: 0px; transform: translate(0px, 0px);"
+    >
+      <li
+        aria-selected="false"
+        as="li"
+        class="select.styles_getDropdownItemStyles__g5jh3w6 select.styles__g5jh3w5 get_sprinkles_width_100%_mobile__eiij7ba0 get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_text_high_contrast__eiij7b17 get_sprinkles_textDecoration_none__eiij7b9q get_sprinkles_textAlign_left__eiij7b9n get_sprinkles_margin_none__eiij7b30 get_sprinkles_padding_spacing1__eiij7b3c a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 select.styles_getDropdownItemStyles_size_md__g5jh3w8 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r box.styles_box__1xdhb490"
+        id="downshift-5-item-0"
+        role="option"
+      >
+        <div
+          class="get_sprinkles_flexShrink_0__eiij7b1m box.styles_box__1xdhb490"
+        >
+          United Kingdom
+        </div>
+      </li>
+      <li
+        aria-selected="false"
+        as="li"
+        class="select.styles_getDropdownItemStyles__g5jh3w6 select.styles__g5jh3w5 get_sprinkles_width_100%_mobile__eiij7ba0 get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_text_high_contrast__eiij7b17 get_sprinkles_textDecoration_none__eiij7b9q get_sprinkles_textAlign_left__eiij7b9n get_sprinkles_margin_none__eiij7b30 get_sprinkles_padding_spacing1__eiij7b3c a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 select.styles_getDropdownItemStyles_size_md__g5jh3w8 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r box.styles_box__1xdhb490"
+        id="downshift-5-item-1"
+        role="option"
+      >
+        <div
+          class="get_sprinkles_flexShrink_0__eiij7b1m box.styles_box__1xdhb490"
+        >
+          France
+        </div>
+      </li>
+      <li
+        aria-selected="false"
+        as="li"
+        class="select.styles_getDropdownItemStyles__g5jh3w6 select.styles__g5jh3w5 get_sprinkles_width_100%_mobile__eiij7ba0 get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_text_high_contrast__eiij7b17 get_sprinkles_textDecoration_none__eiij7b9q get_sprinkles_textAlign_left__eiij7b9n get_sprinkles_margin_none__eiij7b30 get_sprinkles_padding_spacing1__eiij7b3c a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 select.styles_getDropdownItemStyles_size_md__g5jh3w8 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r box.styles_box__1xdhb490"
+        id="downshift-5-item-2"
+        role="option"
+      >
+        <div
+          class="get_sprinkles_flexShrink_0__eiij7b1m box.styles_box__1xdhb490"
+        >
+          Germany
+        </div>
+      </li>
+      <li
+        aria-selected="false"
+        as="li"
+        class="select.styles_getDropdownItemStyles__g5jh3w6 select.styles__g5jh3w5 get_sprinkles_width_100%_mobile__eiij7ba0 get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_text_high_contrast__eiij7b17 get_sprinkles_textDecoration_none__eiij7b9q get_sprinkles_textAlign_left__eiij7b9n get_sprinkles_margin_none__eiij7b30 get_sprinkles_padding_spacing1__eiij7b3c a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 select.styles_getDropdownItemStyles_size_md__g5jh3w8 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r box.styles_box__1xdhb490"
+        id="downshift-5-item-3"
+        role="option"
+      >
+        <div
+          class="get_sprinkles_flexShrink_0__eiij7b1m box.styles_box__1xdhb490"
+        >
+          Spain
+        </div>
+      </li>
+      <li
+        aria-selected="false"
+        as="li"
+        class="select.styles_getDropdownItemStyles__g5jh3w6 select.styles__g5jh3w5 get_sprinkles_width_100%_mobile__eiij7ba0 get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_text_high_contrast__eiij7b17 get_sprinkles_textDecoration_none__eiij7b9q get_sprinkles_textAlign_left__eiij7b9n get_sprinkles_margin_none__eiij7b30 get_sprinkles_padding_spacing1__eiij7b3c a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 select.styles_getDropdownItemStyles_size_md__g5jh3w8 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r box.styles_box__1xdhb490"
+        id="downshift-5-item-4"
+        role="option"
+      >
+        <div
+          class="get_sprinkles_flexShrink_0__eiij7b1m box.styles_box__1xdhb490"
+        >
+          Italy
+        </div>
+      </li>
+      <li
+        aria-selected="false"
+        as="li"
+        class="select.styles_getDropdownItemStyles__g5jh3w6 select.styles__g5jh3w5 get_sprinkles_width_100%_mobile__eiij7ba0 get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_text_high_contrast__eiij7b17 get_sprinkles_textDecoration_none__eiij7b9q get_sprinkles_textAlign_left__eiij7b9n get_sprinkles_margin_none__eiij7b30 get_sprinkles_padding_spacing1__eiij7b3c a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 select.styles_getDropdownItemStyles_size_md__g5jh3w8 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r box.styles_box__1xdhb490"
+        id="downshift-5-item-5"
+        role="option"
+      >
+        <div
+          class="get_sprinkles_flexShrink_0__eiij7b1m box.styles_box__1xdhb490"
+        >
+          Portugal
+        </div>
+      </li>
+    </div>
+  </div>
+  <div
+    class="get_sprinkles_marginBottom_spacing2__eiij7b3n box.styles_box__1xdhb490"
+  >
+    <label
+      as="label"
+      class="get_sprinkles_color_text_low_contrast__eiij7b18 get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_fontSize_body_sm__eiij7b8i get_sprinkles_fontWeight_medium__eiij7b2u get_sprinkles_marginBottom_spacing0__eiij7b3l box.styles_box__1xdhb490"
+      for="amount"
+      id="amount-label"
+    >
+      Slider ipsum
+    </label>
+    <div
+      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r box.styles_box__1xdhb490"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="amount"
+        aria-labelledby="amount-label"
+        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing1__eiij7b4g get_sprinkles_marginBottom_spacing1__eiij7b3m get_sprinkles_position_relative__eiij7b9j get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_width_100%_mobile__eiij7ba0"
+        data-orientation="horizontal"
+        dir="ltr"
+        id="amount"
+        placeholder="Enter an amount"
+        style="--radix-slider-thumb-transform: translateX(-50%);"
+      >
+        <span
+          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_position_relative__eiij7b9j get_sprinkles_borderRadius_md__eiij7ba"
+          data-orientation="horizontal"
+        >
+          <span
+            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_position_absolute__eiij7b9k get_sprinkles_background_button_default__eiij7bt get_sprinkles_borderRadius_pill__eiij7b7 get_sprinkles_height_100%__eiij7b8v"
+            data-orientation="horizontal"
+            style="left: 0%; right: 100%;"
+          />
+        </span>
+        <span
+          style="transform: var(--radix-slider-thumb-transform); position: absolute; left: calc(0% + 0px);"
+        >
+          <span
+            aria-orientation="horizontal"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_width_spacing3_mobile__eiij7bbu get_sprinkles_height_spacing3__eiij7b99 get_sprinkles_background_tint_default__eiij7bp get_sprinkles_border_border_active__eiij7bd get_sprinkles_boxShadow_sm__eiij7b6 get_sprinkles_borderRadius_50%__eiij7b8"
+            data-orientation="horizontal"
+            data-radix-collection-item=""
+            role="slider"
+            style=""
+            tabindex="0"
+          />
+        </span>
+      </span>
+      <input
+        name="amount"
+        style="display: none;"
+        value="0"
+      />
+    </div>
+  </div>
+  <button
+    class="button.styles_getButtonStyles__3vuwsi8 a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 button.styles__3vuwsi6 get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_borderRadius_md__eiij7ba get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_textDecoration_none__eiij7b9q button.styles_getButtonStyles_appearance_primary__3vuwsi9 button.styles_variantAppearance_primary__3vuwsi3 button.styles__3vuwsi0 get_sprinkles_paddingLeft_spacing2__eiij7b7i get_sprinkles_paddingRight_spacing2__eiij7b7s get_sprinkles_paddingTop_spacing1__eiij7b81 get_sprinkles_paddingBottom_spacing1__eiij7b77 get_sprinkles_justifyContent_center__eiij7b2k get_sprinkles_whiteSpace_nowrap__eiij7b9u get_sprinkles_fontWeight_semibold__eiij7b2v button.styles_getButtonStyles_size_md__3vuwsie element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8g get_sprinkles_lineHeight_body_lg__eiij7b8r get_sprinkles_width_100%_mobile__eiij7ba0"
+    name="submit"
+    type="submit"
+  >
+    <div
+      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_inherit__eiij7b19 box.styles_box__1xdhb490"
+    >
+      <div
+        class="get_sprinkles_paddingTop_spacing1__eiij7b81 get_sprinkles_paddingBottom_spacing1__eiij7b77 get_sprinkles_color_inherit__eiij7b19 get_sprinkles_width_spacing3_mobile__eiij7bbu box.styles_box__1xdhb490"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-paper-plane icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1m"
+          data-icon="paper-plane"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      Submit
+    </div>
+  </button>
+</form>
+`;

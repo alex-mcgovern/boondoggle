@@ -5,73 +5,57 @@ import { SelectSingle as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectSingleProps as StoryCompProps } from "..";
-import type { StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
 
 const ITEMS = mockSelectItems({});
 
-const PROPS: StoryCompProps = {
-  items: ITEMS,
-  id: LOREM.id(),
-  label: LOREM.label(),
-  name: LOREM.name(),
-  onChange: ON_CHANGE,
-  placeholder: LOREM.placeholder(),
-};
-
-export default {
+const meta = {
   title: "React components/SelectSingle",
   component: StoryComp,
-};
-
-const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
-  return <StoryComp {...rest} />;
-};
-
-export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
-  args: PROPS,
-};
-
-export const InitialSelectedItem: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
-    ...PROPS,
+    items: ITEMS,
+    id: LOREM.id(),
+    label: LOREM.label(),
+    name: LOREM.name(),
+    onChange: ON_CHANGE,
+    placeholder: LOREM.placeholder(),
+  },
+} satisfies Meta<typeof StoryComp>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+
+export const InitialSelectedItem: Story = {
+  args: {
     initialSelectedItem: ITEMS[0],
   },
 };
 
-export const Invalid: StoryObj<StoryCompProps> = {
-  render: Template,
+export const Invalid: Story = {
   args: {
-    ...PROPS,
     invalid: true,
     errorMessage: LOREM.errorMessage(),
   },
 };
 
-export const Filterable: StoryObj<StoryCompProps> = {
-  render: Template,
+export const Filterable: Story = {
   args: {
-    ...PROPS,
     isFilterable: true,
   },
 };
 
-export const Disabled: StoryObj<StoryCompProps> = {
-  render: Template,
+export const Disabled: Story = {
   args: {
-    ...PROPS,
     disabled: true,
   },
 };
 
-export const SlotLeft: StoryObj<StoryCompProps> = {
-  render: Template,
+export const SlotLeft: Story = {
   args: {
-    ...PROPS,
     items: mockSelectItems({ withIcon: true }),
   },
 };

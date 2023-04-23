@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
-interface LinkProps {
+type LinkProps = {
   href: string;
   children: ReactNode;
   id?: string;
-}
+};
 
 export function Link({ href, children, ...rest }: LinkProps) {
   return (

@@ -18,10 +18,10 @@ import { recipe } from "@vanilla-extract/recipes";
 import { MEDIA_QUERY_DARK } from "./common/media_queries.css";
 import { themeLayer } from "./layers.css";
 
-/** -----------------------------------------------------------------------------
+/**
  * Color theme
- * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
- * ------------------------------------------------------------------------------- */
+ * @see https://vanilla-extract.style/documentation/global-api/create-global-theme/
+ */
 
 type PaletteKey = `${string}${number}`;
 type PaletteShape = Record<PaletteKey, string>;
@@ -33,10 +33,10 @@ const getFromPaletteByIndex = (
   return palette[Object.keys(palette)[index] as PaletteKey];
 };
 
-interface MakeThemeArgs {
+type MakeThemeArgs = {
   primaryPalette: PaletteShape;
   secondaryPalette: PaletteShape;
-}
+};
 
 const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   return {

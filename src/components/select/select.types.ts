@@ -1,25 +1,24 @@
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
+import type { ConditionalLabelProps } from "../../types";
 import type { InputProps } from "../input/input.comp";
 import type { ReactNode } from "react";
 
-export interface DropdownItemShape {
+export type DropdownItemShape = {
   label: string;
   value: string;
   slotLeft?: ReactNode;
-}
+};
 
-export interface SelectCommonProps {
+export type SelectCommonProps = ConditionalLabelProps & {
   disabled?: boolean;
   errorMessage?: string;
-  id: string;
   initialHighlightedItem?: DropdownItemShape;
   inputProps?: Partial<InputProps>;
   invalid?: boolean;
   isFilterable?: boolean;
   items: Array<DropdownItemShape>;
-  label?: string;
   name: string;
   size?: ElementSizeEnum;
   slotLeft?: ReactNode;
   slotRight?: ReactNode;
-}
+};

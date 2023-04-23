@@ -8,16 +8,14 @@ import type { TextAreaProps } from "../../text_area";
  * React Hook Form connected version of Boondoggle's `TextArea`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export interface FormTextAreaProps extends TextAreaProps {
+export type FormTextAreaProps = TextAreaProps & {
   /** Message to render when erroring. */
   errorMessage: string;
   /** Callback for validation, else simply validates is non-empty. */
   validateFunction?: (value: string) => boolean;
-  /** a11y label passed to `Label` component */
-  label: string;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
-}
+};
 
 export function FormTextArea({
   name,
@@ -30,7 +28,7 @@ export function FormTextArea({
   const { control } = useFormContext();
 
   const {
-    field: { onChange, onBlur, ref, value: controlledValue },
+    field: { onChange, onBlur, ref, value: controlledValue = "" },
     fieldState: { error },
   } = useController({
     name,

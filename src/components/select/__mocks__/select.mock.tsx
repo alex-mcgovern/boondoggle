@@ -4,9 +4,9 @@ import { Icon } from "../../icon";
 
 import type { DropdownItemShape } from "../select.types";
 
-interface MockSelectItemsArgs {
+type MockSelectItemsArgs = {
   withIcon?: boolean;
-}
+};
 
 export const mockSelectItems = ({
   withIcon,

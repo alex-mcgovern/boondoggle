@@ -34,13 +34,16 @@ const defaultItemToString = (item: DropdownItemShape | null) => {
   return item?.label || "";
 };
 
-export interface SelectSingleProps extends SelectCommonProps, SprinklesArgs {
-  initialSelectedItem?: DropdownItemShape | null;
-  itemToString?: (item: DropdownItemShape | null) => string;
-  onIsOpenChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-  onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-  placeholder: string;
-}
+export type SelectSingleProps = SelectCommonProps &
+  SprinklesArgs & {
+    initialSelectedItem?: DropdownItemShape | null;
+    itemToString?: (item: DropdownItemShape | null) => string;
+    onIsOpenChange?: (
+      changes: UseComboboxStateChange<DropdownItemShape>
+    ) => void;
+    onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
+    placeholder: string;
+  };
 
 /** Accessible select component, supports multi & single modes. */
 export const SelectSingle = forwardRef(

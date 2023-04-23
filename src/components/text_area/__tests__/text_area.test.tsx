@@ -7,17 +7,17 @@ import "@vanilla-extract/css/disableRuntimeStyles";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { elementSize } from "../../../styles/common/element_size.css";
 import { Icon } from "../../icon";
-import { Input } from "../input.comp";
+import { TextArea } from "../text_area.comp";
 
-import type { InputProps } from "../input.comp";
+import type { TextAreaProps } from "../text_area.comp";
 
 afterEach(cleanup);
 
-const renderComponent = (props: InputProps) => {
-  return render(<Input {...props} />);
+const renderComponent = (props: TextAreaProps) => {
+  return render(<TextArea {...props} />);
 };
 
-describe("<Input />", () => {
+describe("<TextArea />", () => {
   describe("Basic smoke tests", () => {
     it("should render without throwing", () => {
       const { getByRole } = renderComponent({
@@ -34,7 +34,7 @@ describe("<Input />", () => {
         placeholder: LOREM.placeholder(),
       });
 
-      expect((getByRole("textbox") as HTMLInputElement).placeholder).toBe(
+      expect((getByRole("textbox") as HTMLTextAreaElement).placeholder).toBe(
         LOREM.placeholder()
       );
     });
@@ -50,7 +50,7 @@ describe("<Input />", () => {
         placeholder: LOREM.placeholder(),
       });
 
-      expect((getByRole("textbox") as HTMLInputElement).name).toBe(
+      expect((getByRole("textbox") as HTMLTextAreaElement).name).toBe(
         LOREM.name()
       );
     });
@@ -199,7 +199,7 @@ describe("<Input />", () => {
         expect(onChange).not.toHaveBeenCalled();
       });
 
-      it("Given a disabled input, when changing, it should not call onChange", async () => {
+      it("Given a disabled TextArea, when changing, it should not call onChange", async () => {
         const onChange = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -216,7 +216,7 @@ describe("<Input />", () => {
     });
 
     describe("`onClick`", () => {
-      it("Given an enabled input, when clicking, it should call onClick", () => {
+      it("Given an enabled TextArea, when clicking, it should call onClick", () => {
         const onClick = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -230,7 +230,7 @@ describe("<Input />", () => {
         expect(onClick).toHaveBeenCalled();
       });
 
-      it("Given a readonly input,  when clicking, it should call onClick", () => {
+      it("Given a readonly TextArea,  when clicking, it should call onClick", () => {
         const onClick = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -245,7 +245,7 @@ describe("<Input />", () => {
         expect(onClick).toHaveBeenCalled();
       });
 
-      it("Given a disabled input, when clicking, it should not call onClick", () => {
+      it("Given a disabled TextArea, when clicking, it should not call onClick", () => {
         const onClick = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -262,7 +262,7 @@ describe("<Input />", () => {
     });
 
     describe("mouseOver", () => {
-      it("Given an enabled input, when hovering, it should call onMouseOver", () => {
+      it("Given an enabled TextArea, when hovering, it should call onMouseOver", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -276,7 +276,7 @@ describe("<Input />", () => {
         expect(onMouseOver).toHaveBeenCalled();
       });
 
-      it("Given a readonly input, when hovering, it should call onMouseOver", () => {
+      it("Given a readonly TextArea, when hovering, it should call onMouseOver", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -291,7 +291,7 @@ describe("<Input />", () => {
         expect(onMouseOver).toHaveBeenCalled();
       });
 
-      it("Given a disabled input, when hovering, it should call onMouseOver", () => {
+      it("Given a disabled TextArea, when hovering, it should call onMouseOver", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = renderComponent({

@@ -31,7 +31,7 @@ describe("<Button />", () => {
   });
 
   describe("a11y labelling", () => {
-    it("Given a button, when an id is provided, should assign it to the button html element", () => {
+    it("Given a button, when an id is provided, should assign it to the element", () => {
       const { getByRole } = render(
         <Button id="button-test-id" name="Test button" />
       );
@@ -39,7 +39,7 @@ describe("<Button />", () => {
       expect(getByRole("button")?.id).toBe("button-test-id");
     });
 
-    it("Given a button, when a name is provided, should assign it to the button html element", () => {
+    it("Given a button, when a name is provided, should assign it to the element", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
 
       expect((getByRole("button") as HTMLButtonElement)?.name).toBe(
@@ -47,7 +47,7 @@ describe("<Button />", () => {
       );
     });
 
-    it("Given a button, when a tabIndex is provided, should assign it to the button html element", () => {
+    it("Given a button, when a tabIndex is provided, should assign it to the element", () => {
       const { getByRole } = render(
         <Button id="button" name="Test button" tabIndex={0} />
       );
@@ -73,12 +73,7 @@ describe("<Button />", () => {
 
     it("should render a link element when as = `a`", () => {
       const { getByRole } = render(
-        <Button
-          id="button"
-          name="Test button"
-          as="a"
-          href="https://www.google.com"
-        >
+        <Button name="Test button" as="a" href="https://www.google.com">
           {LOREM.link}
         </Button>
       );
@@ -88,12 +83,7 @@ describe("<Button />", () => {
 
     it("should render a link element when as = `Link`", () => {
       const { getByRole } = render(
-        <Button
-          id="button"
-          href="https://www.google.com"
-          name="Test button"
-          as={Link}
-        >
+        <Button href="https://www.google.com" name="Test button" as={Link}>
           {LOREM.link}
         </Button>
       );
@@ -214,12 +204,7 @@ describe("<Button />", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            disabled
-            onMouseOver={onMouseOver}
-          />
+          <Button name="Test button" disabled onMouseOver={onMouseOver} />
         );
 
         fireEvent.mouseEnter(getByRole("button"));
@@ -245,12 +230,7 @@ describe("<Button />", () => {
         const onMouseLeave = jest.fn();
 
         const { getByRole } = render(
-          <Button
-            id="button"
-            name="Test button"
-            disabled
-            onMouseLeave={onMouseLeave}
-          />
+          <Button name="Test button" disabled onMouseLeave={onMouseLeave} />
         );
 
         fireEvent.mouseLeave(getByRole("button"));
@@ -265,7 +245,6 @@ describe("<Button />", () => {
 
         const { getByRole } = render(
           <Button
-            id="button"
             name="Test button"
             onFocus={onFocus}
             title="Test button"
@@ -368,7 +347,6 @@ describe("<Button />", () => {
     it("should render node passed to `slotLeft`", () => {
       const { getByTestId } = render(
         <Button
-          id="button"
           name="Test button"
           slotLeft={<Icon data-testid="icon" icon={faSearch} />}
         />
@@ -380,7 +358,6 @@ describe("<Button />", () => {
     it("should render node passed to `slotRight`", () => {
       const { getByTestId } = render(
         <Button
-          id="button"
           name="Test button"
           slotRight={<Icon data-testid="icon" icon={faSearch} />}
         />

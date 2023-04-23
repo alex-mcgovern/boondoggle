@@ -9,12 +9,11 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 
-export interface IconProps
-  extends SprinklesArgs,
-    Pick<FontAwesomeIconProps, "size" | "spin"> {
-  icon: IconProp;
-  className?: string;
-}
+export type IconProps = SprinklesArgs &
+  Pick<FontAwesomeIconProps, "size" | "spin"> & {
+    icon: IconProp;
+    className?: string;
+  };
 
 export function Icon({ icon, className: userClassName, ...rest }: IconProps) {
   const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);

@@ -49,14 +49,14 @@ export const useSelectPopper = () => {
   };
 };
 
-export interface DropdownItemProps {
+export type DropdownItemProps = {
   isHighlighted: boolean;
   isMultipleSelectionEnabled?: boolean;
   size?: ElementSizeEnum;
   isMulti?: boolean;
   item: DropdownItemShape;
   isDropdownItemSelected?: boolean;
-}
+};
 
 export const DropdownItem = forwardRef(
   (
@@ -106,15 +106,14 @@ export const DropdownItem = forwardRef(
 /**
  * Util function to get props for individual dropdown items * May conditionally call `getItemProps` or `getSelectedItemProps` depending on * whether `isMulti` is true, and whether the item is selected or not
  */
-interface GetDropdownItemPropsArgs
-  extends Pick<
-    DropdownMenuProps,
-    "getItemProps" | "getSelectedItemProps" | "removeSelectedItem"
-  > {
+type GetDropdownItemPropsArgs = Pick<
+  DropdownMenuProps,
+  "getItemProps" | "getSelectedItemProps" | "removeSelectedItem"
+> & {
   item: DropdownItemShape;
   isItemSelected?: boolean;
   [key: string]: unknown;
-}
+};
 
 export const getDropdownItemProps = ({
   isItemSelected,
@@ -151,7 +150,7 @@ export const getDropdownItemProps = ({
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export interface DropdownMenuProps extends BoxProps {
+export type DropdownMenuProps = BoxProps & {
   getIsItemSelected: (item: DropdownItemShape) => boolean;
   getItemProps: UseComboboxPropGetters<DropdownItemShape>["getItemProps"];
   getMenuProps: UseComboboxPropGetters<DropdownItemShape>["getMenuProps"];
@@ -164,7 +163,7 @@ export interface DropdownMenuProps extends BoxProps {
   items: Array<DropdownItemShape>;
   removeSelectedItem?: UseMultipleSelectionActions<DropdownItemShape>["removeSelectedItem"];
   size?: ElementSizeEnum;
-}
+};
 
 export const DropdownMenu = forwardRef(
   (

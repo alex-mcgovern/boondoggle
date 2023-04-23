@@ -6,9 +6,9 @@ import "./reset.css";
 import { vars } from "./theme.css";
 import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
-/** -----------------------------------------------------------------------------
+/**
  * Global selectors
- * ------------------------------------------------------------------------------- */
+ */
 globalStyle(`*`, {
   "@layer": {
     [baseLayer]: { boxSizing: `border-box`, margin: 0 },
@@ -44,9 +44,9 @@ globalStyle(`body`, {
   },
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Anchor tags
- * ------------------------------------------------------------------------------- */
+ */
 globalStyle(`a`, {
   "@layer": {
     [baseLayer]: {
@@ -58,9 +58,9 @@ globalStyle(`a`, {
   },
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Visual elements
- * ------------------------------------------------------------------------------- */
+ */
 globalStyle(`img, picture, video, canvas, svg`, {
   "@layer": {
     [baseLayer]: {
@@ -70,9 +70,9 @@ globalStyle(`img, picture, video, canvas, svg`, {
   },
 });
 
-/** -----------------------------------------------------------------------------
+/**
  * Inputs
- * ------------------------------------------------------------------------------- */
+ */
 globalStyle(`input, button, textarea, select`, {
   "@layer": {
     [baseLayer]: {

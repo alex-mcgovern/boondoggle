@@ -10,14 +10,14 @@ import { MEDIA_QUERY_DARK } from "../../styles/common/media_queries.css";
 
 import type { ReactNode } from "react";
 
-interface ThemeProviderProps {
+type ThemeProviderProps = {
   children: ReactNode;
-}
+};
 
-interface ThemeContextProvided {
+type ThemeContextProvided = {
   dark: boolean;
   toggleDark?: () => void;
-}
+};
 
 export const ThemeContext = createContext<ThemeContextProvided>({ dark: true });
 

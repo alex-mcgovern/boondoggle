@@ -18,17 +18,16 @@ import type { DropdownItemShape, SelectCommonProps } from "./select.types";
 import type { UseSelectStateChange } from "downshift";
 import type { Ref } from "react";
 
-export interface SelectButtonProps
-  extends Omit<
-      SelectCommonProps,
-      "inputProps" | "invalid" | "isFilterable" | "label" | "errorMessage"
-    >,
-    SprinklesArgs {
-  onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-  onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-  buttonText?: string;
-  buttonProps?: ButtonProps;
-}
+export type SelectButtonProps = Omit<
+  SelectCommonProps,
+  "inputProps" | "invalid" | "isFilterable" | "label" | "errorMessage"
+> &
+  SprinklesArgs & {
+    onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    buttonText?: string;
+    buttonProps?: ButtonProps;
+  };
 
 /** Accessible select component, supports multi & single modes. */
 export const SelectButton = forwardRef(

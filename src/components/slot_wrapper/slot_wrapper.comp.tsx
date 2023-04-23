@@ -3,11 +3,11 @@ import { Box } from "../box";
 import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 
-export interface SlotWrapperProps extends BoxProps {
+export type SlotWrapperProps = BoxProps & {
   slotLeft?: ReactNode;
   slotRight?: ReactNode;
   children?: ReactNode;
-}
+};
 
 export function SlotWrapper({
   slotLeft,

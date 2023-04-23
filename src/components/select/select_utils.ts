@@ -11,12 +11,12 @@ import type {
 /**
  * Util function that can be used to determine if an item is selected in a dropdown.
  */
-export interface GetIsItemSelectedArgs {
+export type GetIsItemSelectedArgs = {
   item: DropdownItemShape | undefined | null;
   selectedItems?: UseMultipleSelectionProps<DropdownItemShape>["selectedItems"];
   selectedItem?: UseComboboxProps<DropdownItemShape>["selectedItem"];
   isMulti?: boolean;
-}
+};
 
 export const getIsSelected = ({
   item,
@@ -43,12 +43,12 @@ export const getIsSelected = ({
 /**
  * Util to filter dropdown items based on `inputValue`
  */
-export interface GetFilteredDropdownItemsArgs {
+export type GetFilteredDropdownItemsArgs = {
   /** An array of dropdown items */
   items: Array<DropdownItemShape>;
   /** Value of controlled combobox input */
   inputValue?: string;
-}
+};
 
 /** Removes items not matching `inputValue` from `items` */
 export function getFilteredDropdownItems({
@@ -68,10 +68,10 @@ export function getFilteredDropdownItems({
 /**
  * Util to get the display value for a dropdown when we are using `useMultipleSelection`
  */
-interface GetDisplayValueArgs {
+type GetDisplayValueArgs = {
   originalValue: string;
   length?: number;
-}
+};
 export const getDisplayValue = ({
   originalValue,
   length,
@@ -86,10 +86,10 @@ export const getDisplayValue = ({
 /**
  * Util to get the default highlighted index for a dropdown
  */
-interface GetDefaultHighlightedIndexArgs {
+type GetDefaultHighlightedIndexArgs = {
   items: Array<DropdownItemShape>;
   initialHighlightedItem?: DropdownItemShape;
-}
+};
 export const getDefaultHighlightedIndex = ({
   items,
   initialHighlightedItem,

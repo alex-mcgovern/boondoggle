@@ -30,15 +30,18 @@ import type {
 } from "downshift";
 import type { Ref } from "react";
 
-export interface SelectMultiProps extends SelectCommonProps, SprinklesArgs {
-  initialSelectedItems?: Array<DropdownItemShape>;
-  itemToString?: (item: DropdownItemShape | null) => string;
-  onChange?: (
-    changes: UseMultipleSelectionStateChange<DropdownItemShape>
-  ) => void;
-  onIsOpenChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-  placeholder: string;
-}
+export type SelectMultiProps = SelectCommonProps &
+  SprinklesArgs & {
+    initialSelectedItems?: Array<DropdownItemShape>;
+    itemToString?: (item: DropdownItemShape | null) => string;
+    onChange?: (
+      changes: UseMultipleSelectionStateChange<DropdownItemShape>
+    ) => void;
+    onIsOpenChange?: (
+      changes: UseComboboxStateChange<DropdownItemShape>
+    ) => void;
+    placeholder: string;
+  };
 
 export const SelectMulti = forwardRef(
   (
@@ -78,9 +81,7 @@ export const SelectMulti = forwardRef(
     );
 
     /**
-     * ------------------------------------------------------------------------------
      * Callback to update input value and call `onChange` (if provided) when selected items change.
-     * ------------------------------------------------------------------------------
      */
     const onSelectedItemsChange = useCallback(
       (changes: UseMultipleSelectionStateChange<DropdownItemShape>) => {
@@ -98,10 +99,8 @@ export const SelectMulti = forwardRef(
     );
 
     /**
-     * ------------------------------------------------------------------------------
      * Downshift `useMultipleSelection` hook
      * @see https://www.downshift-js.com/use-multiple-selection
-     * ------------------------------------------------------------------------------
      */
     const {
       getSelectedItemProps,
@@ -115,9 +114,7 @@ export const SelectMulti = forwardRef(
     });
 
     /**
-     * ------------------------------------------------------------------------------
      * When `isFilterable` is true, we need to filter the items based on the input value.
-     * ------------------------------------------------------------------------------
      */
     const filteredItems = useMemo(() => {
       if (!items || !isFilterable) {
@@ -128,10 +125,8 @@ export const SelectMulti = forwardRef(
     }, [items, isFilterable, inputValue]);
 
     /**
-     * ------------------------------------------------------------------------------
      * Downshift `useCombobox` hook
      * @see https://www.downshift-js.com/use-combobox
-     * ------------------------------------------------------------------------------
      */
     const {
       isOpen,
@@ -181,9 +176,7 @@ export const SelectMulti = forwardRef(
     });
 
     /**
-     * ------------------------------------------------------------------------------
      * Util function for checking if item is selected, passed down to DropdownItemShape via DropdownMenu
-     * ------------------------------------------------------------------------------
      */
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {

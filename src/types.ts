@@ -40,3 +40,19 @@ export type PolymorphicComponentPropWithRef<
 
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
   ComponentPropsWithRef<TPolymorphicAs>["ref"];
+
+export type LabelledElement = {
+  label: string;
+  id: string;
+};
+
+export type UnlabelledElement = {
+  label?: never;
+  id?: string;
+};
+
+export type ConditionalLabelProps =
+  /** When label is defined, id must also be defined */
+  | LabelledElement
+  /** When label is not defined, id may be undefined */
+  | UnlabelledElement;

@@ -8,7 +8,7 @@
     "dist": true
   },
   "editor.codeActionsOnSave": {
-    // "source.fixAll.eslint": true
+    "source.fixAll.eslint": true
   },
   "commentBox.styles": {
     "h1": {
@@ -65,7 +65,14 @@
     }
   },
   "cSpell.language": "en-GB",
-  "cSpell.words": ["arrowdown", "Combobox", "popover", "vars"],
+  "cSpell.words": [
+    "arrowdown",
+    "arrowright",
+    "Boondoggle's",
+    "Combobox",
+    "popover",
+    "vars"
+  ],
   "turboConsoleLog.delimiterInsideMessage": "",
   "turboConsoleLog.includeFileNameAndLineNum": false,
   "turboConsoleLog.insertEnclosingClass": false,

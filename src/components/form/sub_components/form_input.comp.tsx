@@ -8,16 +8,14 @@ import type { InputProps } from "../../input";
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export interface FormInputProps extends InputProps {
+export type FormInputProps = InputProps & {
   /** Message to render when erroring. */
   errorMessage: string;
   /** Callback for validation, else simply validates is non-empty. */
   validateFunction?: (value: string) => boolean;
-  /** a11y label passed to `Label` component */
-  label: string;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
-}
+};
 
 export function FormInput({
   defaultValue,
@@ -30,7 +28,7 @@ export function FormInput({
   const { control } = useFormContext();
 
   const {
-    field: { onChange, onBlur, ref, value: controlledValue },
+    field: { onChange, onBlur, ref, value: controlledValue = "" },
     fieldState: { error },
   } = useController({
     name,
