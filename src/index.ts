@@ -55,8 +55,13 @@ export { FormSlider } from "./components/form";
 export type { FormSliderProps } from "./components/form";
 
 export { FormInput } from "./components/form";
+export { FormInputProps } from "./components/form";
+
 export { FormSelectSingle } from "./components/form";
+export type { FormSelectSingleProps } from "./components/form";
+
 export { FormTextArea } from "./components/form";
+export type { FormTextAreaProps } from "./components/form";
 
 export { Input } from "./components/input";
 export type { InputProps } from "./components/input";
