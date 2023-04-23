@@ -236,13 +236,16 @@ globalStyle(
   }
 );
 
-globalStyle("input:is(:focus-visible), textarea:is(:focus-visible)", {
-  "@layer": {
-    [baseLayer]: {
-      ...a11yFocusStyleRule,
+globalStyle(
+  "input:not(:is([disabled], [readonly])):is(:focus-visible), textarea:not(:is([disabled], [readonly])):is(:focus-visible)",
+  {
+    "@layer": {
+      [baseLayer]: {
+        ...a11yFocusStyleRule,
+      },
     },
-  },
-});
+  }
+);
 
 /**
  * Lists
