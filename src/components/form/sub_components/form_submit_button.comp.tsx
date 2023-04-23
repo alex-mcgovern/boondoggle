@@ -7,12 +7,9 @@ import { getSubmitButtonIcon } from "../utils/get_form_button_icon";
 
 import type { ButtonProps } from "../../button";
 
-type FormSubmitButtonProps = ButtonProps
+export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
 
-export function FormSubmitButton({
-  children,
-  ...rest
-}: FormSubmitButtonProps) {
+export function FormSubmitButton({ children, ...rest }: FormSubmitButtonProps) {
   /**
    * Initialise react-hook-form and subscribe to form state proxy
    * https://react-hook-form.com/api/useform/formstate

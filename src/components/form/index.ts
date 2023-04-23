@@ -12,3 +12,6 @@ export type { FormSelectSingleProps } from "./sub_components/form_select_single.
 
 export { FormTextArea } from "./sub_components/form_textarea.comp";
 export type { FormTextAreaProps } from "./sub_components/form_textarea.comp";
+
+export { FormSubmitButton } from "./sub_components/form_submit_button.comp";
+export type { FormSubmitButtonProps } from "./sub_components/form_submit_button.comp";
