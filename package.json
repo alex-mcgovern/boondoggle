@@ -19,13 +19,14 @@
     "build:prod": "npm run check && env NODE_ENV=production tsup",
     "build:watch": "tsup --watch",
     "check": "npm run tsc && npm run ci-lint && npm run test",
+    "ci-build-prerelease": "npm run build:prod && npm version prerelease && npm publish --access public",
+    "ci-lint": "eslint . --quiet",
     "format": "prettier  --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
     "lint:fix": "eslint . --quiet --fix",
-    "ci-lint": "eslint . --quiet",
-    "ci-build-prerelease": "npm run build:prod && npm version prerelease && npm publish --access public",
+    "patch": "npm run build:prod && npm version patch && npm publish --access public",
     "storybook": "storybook dev -p 6006",
-    "test:watch": "jest --watch",
     "test": "jest",
+    "test:watch": "jest --watch",
     "tsc": "tsc"
   },
   "dependencies": {
