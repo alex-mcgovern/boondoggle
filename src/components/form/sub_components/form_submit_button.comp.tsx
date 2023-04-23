@@ -9,7 +9,11 @@ import type { ButtonProps } from "../../button";
 
 export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
 
-export function FormSubmitButton({ children, ...rest }: FormSubmitButtonProps) {
+export function FormSubmitButton({
+  children,
+  slotRight,
+  ...rest
+}: FormSubmitButtonProps) {
   /**
    * Initialise react-hook-form and subscribe to form state proxy
    * https://react-hook-form.com/api/useform/formstate
@@ -26,7 +30,10 @@ export function FormSubmitButton({ children, ...rest }: FormSubmitButtonProps) {
       name="submit"
       type="submit"
       slotRight={
-        buttonIcon ? <Icon icon={buttonIcon} {...buttonIconProps} /> : null
+        slotRight ||
+        (buttonIcon ? (
+          <Icon icon={buttonIcon} {...buttonIconProps} />
+        ) : undefined)
       }
       {...rest}
     >

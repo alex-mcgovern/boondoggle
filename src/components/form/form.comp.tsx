@@ -9,8 +9,12 @@ import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 export type FormProps = Omit<BoxProps, "children"> & {
   children: ReactNode | ReactNode[];
   disabled?: boolean;
-  handleFormSubmission: (fieldValues: FieldValues) => Promise<void>;
-  handleErrors?: (errors: FieldErrors) => Promise<void>;
+  handleFormSubmission:
+    | ((fieldValues: Record<string, unknown>) => Promise<void>)
+    | ((fieldValues: Record<string, unknown>) => void);
+  handleErrors?:
+    | ((errors: FieldErrors) => Promise<void>)
+    | ((errors: FieldErrors) => void);
   name: string;
   resolver: Resolver<FieldValues, any>;
 };
