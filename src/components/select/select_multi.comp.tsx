@@ -204,6 +204,7 @@ export const SelectMulti = forwardRef(
         className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
         ref={setPopperAnchorEl}
         position="relative"
+        color="text_low_contrast"
         {...rest}
       >
         {label && (

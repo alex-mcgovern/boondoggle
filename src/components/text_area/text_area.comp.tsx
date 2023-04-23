@@ -51,6 +51,7 @@ export const TextArea = forwardRef(
     return (
       <Box
         className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        color="text_low_contrast"
         {...atomProps}
       >
         {label && id && <Label label={label} htmlFor={id} />}
