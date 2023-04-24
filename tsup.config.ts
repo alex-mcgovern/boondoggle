@@ -8,6 +8,7 @@ export default defineConfig({
   bundle: true,
   minify: false,
   sourcemap: false,
+  treeshake: true,
   format: ["cjs", "esm"],
   dts: true,
   target: "es2020",
@@ -16,7 +17,7 @@ export default defineConfig({
     vanillaExtractPlugin({
       outputCss: true,
       runtime: false,
-      identifiers: "short"
+      identifiers: "short",
     }),
   ],
   clean: true,
