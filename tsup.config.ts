@@ -2,7 +2,8 @@ import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: ["src/**.(ts|tsx)", "!src/**/*.test", "!src/**/*.mock"],
+  entryPoints: ["src/index.ts"],
   outDir: "dist",
   splitting: true,
   bundle: true,
