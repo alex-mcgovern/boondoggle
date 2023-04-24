@@ -18,8 +18,10 @@ const ON_IS_OPEN_CHANGE = jest.fn();
 
 const ITEMS = mockSelectItems({});
 const FIRST_ITEM = ITEMS[0];
+const FIRST_ITEM_VALUE = FIRST_ITEM?.value || "";
 const FIRST_ITEM_LABEL = FIRST_ITEM?.label || "";
 const SECOND_ITEM = ITEMS[1];
+const SECOND_ITEM_VALUE = SECOND_ITEM?.value || "";
 const SECOND_ITEM_LABEL = SECOND_ITEM?.label || "";
 
 const PROPS: SelectSingleProps = {
@@ -138,7 +140,7 @@ describe("<SelectSingle />", () => {
       });
 
       const combobox = getByRole("combobox");
-      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_LABEL);
+      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_VALUE);
     });
   });
 
@@ -226,7 +228,7 @@ describe("<SelectSingle />", () => {
       const firstItem = getByText(FIRST_ITEM_LABEL);
       await userEvent.click(firstItem);
 
-      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_LABEL);
+      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_VALUE);
     });
 
     it("should call `onChange` with second clicked item", async () => {
@@ -258,7 +260,7 @@ describe("<SelectSingle />", () => {
       const secondItem = getByText(SECOND_ITEM_LABEL);
       await userEvent.click(secondItem);
 
-      expect((combobox as HTMLInputElement).value).toBe(SECOND_ITEM_LABEL);
+      expect((combobox as HTMLInputElement).value).toBe(SECOND_ITEM_VALUE);
     });
   });
 
@@ -287,7 +289,7 @@ describe("<SelectSingle />", () => {
       await userEvent.keyboard("{arrowdown}");
       await userEvent.keyboard("{enter}");
 
-      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_LABEL);
+      expect((combobox as HTMLInputElement).value).toBe(FIRST_ITEM_VALUE);
     });
 
     it("should call `onChange` with second item selected with keyboard", async () => {
@@ -324,7 +326,7 @@ describe("<SelectSingle />", () => {
       await userEvent.keyboard("{arrowdown}");
       await userEvent.keyboard("{enter}");
 
-      expect((combobox as HTMLInputElement).value).toBe(SECOND_ITEM_LABEL);
+      expect((combobox as HTMLInputElement).value).toBe(SECOND_ITEM_VALUE);
     });
   });
 

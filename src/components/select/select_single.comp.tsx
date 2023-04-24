@@ -75,7 +75,7 @@ export const SelectSingle = forwardRef(
       extractAtomsFromProps(inputProps, getSprinkles);
 
     const [inputValue, setInputValue] = useState(
-      initialSelectedItem?.label || ""
+      initialSelectedItem?.value || ""
     );
 
     // Filter dropdown items based on input if `isFilterable` is true
