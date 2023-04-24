@@ -119,7 +119,7 @@ export const SelectSingle = forwardRef(
           case useCombobox.stateChangeTypes.InputBlur:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
-              setInputValue(newSelectedItem.label);
+              setInputValue(newSelectedItem.value);
             }
             break;
 
