@@ -6,7 +6,7 @@ export default defineConfig({
   outDir: "dist",
   splitting: true,
   bundle: true,
-  minify: false,
+  minify: true,
   sourcemap: false,
   treeshake: true,
   format: ["cjs", "esm"],
