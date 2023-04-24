@@ -66,7 +66,7 @@ export const getDropdownItemStyles = recipe({
       alignItems: "center",
       gap: "spacing1",
 
-      color: "text_high_contrast",
+      color: "text_low_contrast",
       textDecoration: "none",
       textAlign: "left",
 
