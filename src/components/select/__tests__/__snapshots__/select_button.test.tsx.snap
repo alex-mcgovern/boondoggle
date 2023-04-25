@@ -15,11 +15,11 @@ exports[`<SelectButton /> Basic smoke tests should match snapshot 1`] = `
   type="button"
 >
   <div
-    class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_inherit__eiij7b19 box.styles_box__1xdhb490"
+    class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r get_sprinkles_color_inherit__eiij7b19"
   >
     Select a thing
     <div
-      class="get_sprinkles_color_inherit__eiij7b19 get_sprinkles_width_spacing3_mobile__eiij7bbu box.styles_box__1xdhb490"
+      class="get_sprinkles_color_inherit__eiij7b19 get_sprinkles_width_spacing3_mobile__eiij7bbu"
     >
       <svg
         aria-hidden="true"

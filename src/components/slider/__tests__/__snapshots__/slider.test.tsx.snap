@@ -3,10 +3,10 @@
 exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
 <div>
   <div
-    class="get_sprinkles_color_text_low_contrast__eiij7b18 box.styles_box__1xdhb490"
+    class="get_sprinkles_color_text_low_contrast__eiij7b18"
   >
     <div
-      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r box.styles_box__1xdhb490"
+      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r"
     >
       <span
         aria-disabled="false"
