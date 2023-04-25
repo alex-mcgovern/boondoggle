@@ -247,6 +247,17 @@ globalStyle(
   }
 );
 
+globalStyle(
+  "input:is([disabled], [readonly]):is(:focus-visible, :focus), textarea:is([disabled], [readonly]):is(:focus-visible, :focus)",
+  {
+    "@layer": {
+      [baseLayer]: {
+        outline: "none",
+      },
+    },
+  }
+);
+
 /**
  * Lists
  */
