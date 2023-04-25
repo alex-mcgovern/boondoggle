@@ -1,5 +1,5 @@
 {
-  "include": ["./**/*", ".storybook/with_dark_light_mode.tsx"],
+  "include": ["./**/*"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

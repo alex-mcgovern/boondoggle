@@ -1,9 +1,4 @@
-export {
-  vars,
-  getTheme,
-  variantDarkMode,
-  variantIntent,
-} from "./styles/theme.css";
+export { vars, getTheme, variantIntent } from "./styles/theme.css";
 export * as stylesheet from "./styles/stylesheet.css";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
@@ -102,8 +97,3 @@ export type { TooltipProps } from "./components/tooltip";
 
 export { TextArea } from "./components/text_area";
 export type { TextAreaProps } from "./components/text_area";
-
-/**
- * React context
- */
-export { ThemeContext, ThemeProvider } from "./context/theme_context";

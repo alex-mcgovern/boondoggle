@@ -1,9 +1,4 @@
-import {
-  color,
-  getTheme,
-  variantDarkMode,
-  variantIntent,
-} from "./color_palette.css";
+import { color, getTheme, variantIntent } from "./color_palette.css";
 import { rootVars } from "./vars.css";
 
 import type { Intent } from "./color_palette.css";
@@ -13,5 +8,5 @@ const vars = {
   color,
 };
 
-export { vars, getTheme, variantDarkMode, variantIntent };
+export { vars, getTheme, variantIntent };
 export type { Intent };

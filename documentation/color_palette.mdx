@@ -8,19 +8,13 @@ import { ColorPalette } from "./color_palette.comp";
 
 # Color palettes
 
-## Base color palette (light mode)
+## Base color palette
 
 <Box className={getTheme()}>
   <ColorPalette />
 </Box>
 
-## Base color palette (dark mode)
-
-<Box className={getTheme({ darkMode: true })}>
-  <ColorPalette />
-</Box>
-
-## Intent: Good (light mode)
+## Intent: Good
 
 <Box className={getTheme({ intent: "good" })}>
   <ColorPalette>
@@ -28,25 +22,9 @@ import { ColorPalette } from "./color_palette.comp";
   </ColorPalette>
 </Box>
 
-## Intent: Good (dark mode)
-
-<Box className={getTheme({ darkMode: true, intent: "good" })}>
-  <ColorPalette>
-    <ColorPalette />
-  </ColorPalette>
-</Box>
-
-## Intent: Bad (light mode)
+## Intent: Bad
 
 <Box className={getTheme({ intent: "bad" })}>
-  <ColorPalette>
-    <ColorPalette />
-  </ColorPalette>
-</Box>
-
-## Intent: Bad (dark mode)
-
-<Box className={getTheme({ darkMode: true, intent: "bad" })}>
   <ColorPalette>
     <ColorPalette />
   </ColorPalette>

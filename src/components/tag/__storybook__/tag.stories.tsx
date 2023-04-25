@@ -15,9 +15,6 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 export const Default: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
   args: {
     children: "Tag",
   },
@@ -26,9 +23,6 @@ export const Default: StoryObj<StoryCompProps> = {
 export const IntentGood: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
   args: {
     children: "Tag",
     intent: "good",
@@ -38,9 +32,6 @@ export const IntentGood: StoryObj<StoryCompProps> = {
 export const IntentBad: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
   args: {
     children: "Tag",
     intent: "bad",
