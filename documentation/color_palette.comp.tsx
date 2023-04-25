@@ -10,17 +10,17 @@ export function ColorPalette() {
     <StoryblokColorPalette>
       <ColorItem
         title="Neutral"
-        subtitle="General purpose neutral colors, that ARE NOT re-assigned when in dark mode or by intent."
+        subtitle="General purpose neutral colors, that ARE NOT re-assigned by intent."
         colors={{ white: vars.color.white, black: vars.color.black }}
       />
       <ColorItem
         title="Background"
-        subtitle="Used for page background. Is re-assigned when in dark mode or by intent."
+        subtitle="Used for page background. Is re-assigned by intent."
         colors={{ background: vars.color.background }}
       />
       <ColorItem
         title="Tint"
-        subtitle="Used for tags, cards/surfaces, etc. Is re-assigned when in dark mode or by intent."
+        subtitle="Used for tags, cards/surfaces, etc. Is re-assigned by intent."
         colors={{
           tint_default: vars.color.tint_default,
           tint_active: vars.color.tint_active,
@@ -28,7 +28,7 @@ export function ColorPalette() {
       />
       <ColorItem
         title="Border"
-        subtitle="Used for borders, dividers, etc. Is re-assigned when in dark mode or by intent."
+        subtitle="Used for borders, dividers, etc. Is re-assigned by intent."
         colors={{
           border_default: vars.color.border_default,
           border_active: vars.color.border_active,
@@ -36,7 +36,7 @@ export function ColorPalette() {
       />
       <ColorItem
         title="Button"
-        subtitle="Used for buttons, and other use cases requiring a saturated color. Is re-assigned when in dark mode or by intent. Also used for the focus ring."
+        subtitle="Used for buttons, and other use cases requiring a saturated color. Is re-assigned by intent. Also used for the focus ring."
         colors={{
           button_default: vars.color.button_default,
           button_active: vars.color.button_active,
@@ -44,7 +44,7 @@ export function ColorPalette() {
       />
       <ColorItem
         title="Text"
-        subtitle="Used for text. Is re-assigned when in dark mode or by intent."
+        subtitle="Used for text. Is re-assigned by intent."
         colors={{
           text_low_contrast: vars.color.text_low_contrast,
           text_high_contrast: vars.color.text_high_contrast,

@@ -1,13 +1,4 @@
-import {
-  blue,
-  blueDark,
-  green,
-  greenDark,
-  red,
-  redDark,
-  slate,
-  slateDark,
-} from "@radix-ui/colors";
+import { blue, green, red, slate } from "@radix-ui/colors";
 import {
   assignVars,
   createGlobalTheme,
@@ -15,7 +6,6 @@ import {
 } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { MEDIA_QUERY_DARK } from "./common/media_queries.css";
 import { themeLayer } from "./layers.css";
 
 /**
@@ -66,35 +56,6 @@ export const color = createGlobalTheme(":root", {
   }),
 });
 
-export const variantDarkMode = styleVariants({
-  true: {
-    "@layer": {
-      [themeLayer]: {
-        vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: blueDark,
-            secondaryPalette: slateDark,
-          })
-        ),
-      },
-    },
-  },
-  false: {
-    "@layer": {
-      [themeLayer]: {
-        vars: assignVars(
-          color,
-          makeTheme({
-            primaryPalette: blue,
-            secondaryPalette: slate,
-          })
-        ),
-      },
-    },
-  },
-});
-
 export const variantIntent = styleVariants({
   good: {
     "@layer": {
@@ -103,28 +64,6 @@ export const variantIntent = styleVariants({
           color,
           makeTheme({ primaryPalette: green, secondaryPalette: green })
         ),
-        selectors: {
-          [`${variantDarkMode.true} &`]: {
-            vars: assignVars(
-              color,
-              makeTheme({
-                primaryPalette: greenDark,
-                secondaryPalette: greenDark,
-              })
-            ),
-          },
-        },
-        "@media": {
-          [MEDIA_QUERY_DARK]: {
-            vars: assignVars(
-              color,
-              makeTheme({
-                primaryPalette: greenDark,
-                secondaryPalette: greenDark,
-              })
-            ),
-          },
-        },
       },
     },
   },
@@ -135,97 +74,15 @@ export const variantIntent = styleVariants({
           color,
           makeTheme({ primaryPalette: red, secondaryPalette: red })
         ),
-        selectors: {
-          [`${variantDarkMode.true} &`]: {
-            vars: assignVars(
-              color,
-              makeTheme({
-                primaryPalette: redDark,
-                secondaryPalette: redDark,
-              })
-            ),
-          },
-        },
-        "@media": {
-          [MEDIA_QUERY_DARK]: {
-            vars: assignVars(
-              color,
-              makeTheme({
-                primaryPalette: redDark,
-                secondaryPalette: redDark,
-              })
-            ),
-          },
-        },
       },
     },
   },
 });
 
 export const getTheme = recipe({
-  base: [
-    {
-      "@layer": {
-        [themeLayer]: {
-          "@media": {
-            [MEDIA_QUERY_DARK]: {
-              vars: assignVars(
-                color,
-                makeTheme({
-                  primaryPalette: blueDark,
-                  secondaryPalette: slateDark,
-                })
-              ),
-            },
-          },
-        },
-      },
-    },
-  ],
   variants: {
-    darkMode: variantDarkMode,
     intent: variantIntent,
   },
-  compoundVariants: [
-    {
-      variants: {
-        intent: "good",
-        darkMode: true,
-      },
-      style: {
-        "@layer": {
-          [themeLayer]: {
-            vars: assignVars(
-              color,
-              makeTheme({
-                primaryPalette: greenDark,
-                secondaryPalette: greenDark,
-              })
-            ),
-          },
-        },
-      },
-    },
-    {
-      variants: {
-        intent: "bad",
-        darkMode: true,
-      },
-      style: {
-        "@layer": {
-          [themeLayer]: {
-            vars: assignVars(
-              color,
-              makeTheme({
-                primaryPalette: redDark,
-                secondaryPalette: redDark,
-              })
-            ),
-          },
-        },
-      },
-    },
-  ],
 });
 
 export type ColorScheme = typeof color;

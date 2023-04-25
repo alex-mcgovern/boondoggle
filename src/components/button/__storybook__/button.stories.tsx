@@ -41,31 +41,13 @@ const TemplateAllAppearances: StoryFn<StoryCompProps> = (rest) => {
   );
 };
 
-// const TemplateAllSizes: StoryFn<StoryCompProps> = (rest) => {
-//   return (
-//     <Box display="flex" gap="spacing3">
-//       <StoryComp size="sm" name="primary" {...rest}>
-//         Small
-//       </StoryComp>
-//       <StoryComp size="md" name="secondary" {...rest}>
-//         Medium
-//       </StoryComp>
-//       <StoryComp size="lg" name="tertiary" {...rest}>
-//         Large
-//       </StoryComp>
-//     </Box>
-//   );
-// };
-
 /**
  * Default
  */
 export const Default: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
+
   args: {
     children: "Click me",
   },

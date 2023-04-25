@@ -75,6 +75,13 @@ export const getDropdownItemStyles = recipe({
     }),
     a11yDisabled,
     a11yFocus,
+    {
+      selectors: {
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
+    },
   ],
   variants: {
     size: elementSize,

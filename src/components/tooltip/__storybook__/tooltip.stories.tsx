@@ -15,9 +15,6 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 export const Default: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
-  parameters: {
-    layout: "fullscreen",
-  },
   args: {
     popoverText: "This is a tooltip",
   },

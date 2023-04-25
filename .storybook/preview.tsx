@@ -7,7 +7,6 @@ import {
   sprinklesProperties,
 } from "../src/styles/utils/get_sprinkles.css";
 import { getSprinklesControls } from "./utils/get_storybook_controls_sprinkles";
-import { WithDarkLightMode } from "./with_dark_light_mode";
 
 export const argTypes: ArgTypes = {
   ...getSprinklesControls(sprinklesProperties),
@@ -26,7 +25,4 @@ export const parameters: Parameters = {
       date: /Date$/,
     },
   },
-  layout: "fullscreen",
 };
-
-export const decorators: Array<Decorator> = [WithDarkLightMode];
