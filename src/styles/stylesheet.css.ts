@@ -311,22 +311,38 @@ globalStyle(`table`, {
   },
 });
 
+globalStyle(`tr:not(:last-child)`, {
+  "@layer": {
+    [baseLayer]: {},
+  },
+});
+
 globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
-      fontWeight: "bold",
+      fontWeight: vars.fontWeight.medium,
+      fontSize: vars.fontSize.body_sm,
       color: vars.color.text_low_contrast,
     },
   },
 });
 
-globalStyle(`tbody tr:nth-of-type(odd)`, {
+globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
   "@layer": {
     [baseLayer]: {
-      background: vars.color.tint_default,
+      borderBottom: `1px solid ${vars.color.border_default}`,
     },
   },
 });
+
+// globalStyle(`tbody tr:nth-of-type(odd)`, {
+//   "@layer": {
+//     [baseLayer]: {
+//       borderBottom: `1px solid ${vars.color.border_default}`,
+//       // background: vars.color.tint_default,
+//     },
+//   },
+// });
 
 globalStyle(`th, td`, {
   "@layer": {
