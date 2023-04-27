@@ -58,6 +58,14 @@ globalStyle(`a`, {
   },
 });
 
+globalStyle(`a:hover`, {
+  "@layer": {
+    [baseLayer]: {
+      color: vars.color.button_default,
+    },
+  },
+});
+
 /**
  * Visual elements
  */
@@ -304,16 +312,8 @@ globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
-      // borderCollapse: "collapse",
-      overflow: "hidden",
       borderRadius: vars.borderRadius.md,
     },
-  },
-});
-
-globalStyle(`tr:not(:last-child)`, {
-  "@layer": {
-    [baseLayer]: {},
   },
 });
 
@@ -334,15 +334,6 @@ globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
     },
   },
 });
-
-// globalStyle(`tbody tr:nth-of-type(odd)`, {
-//   "@layer": {
-//     [baseLayer]: {
-//       borderBottom: `1px solid ${vars.color.border_default}`,
-//       // background: vars.color.tint_default,
-//     },
-//   },
-// });
 
 globalStyle(`th, td`, {
   "@layer": {
