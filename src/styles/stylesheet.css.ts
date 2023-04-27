@@ -304,7 +304,9 @@ globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
-      borderCollapse: "collapse",
+      // borderCollapse: "collapse",
+      overflow: "hidden",
+      borderRadius: vars.borderRadius.md,
     },
   },
 });
@@ -313,6 +315,7 @@ globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
       fontWeight: "bold",
+      color: vars.color.text_low_contrast,
     },
   },
 });
@@ -329,7 +332,7 @@ globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
       textAlign: "left",
-      padding: `${vars.spacing.spacing1} ${vars.spacing.spacing1}`,
+      padding: `${vars.spacing.spacing2} ${vars.spacing.spacing3}`,
     },
   },
 });

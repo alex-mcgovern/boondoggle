@@ -82,7 +82,7 @@ globalStyle(
 globalStyle("table", {
   "@layer": {
     [resetLayer]: {
-      borderCollapse: "collapse",
+      // borderCollapse: "collapse",
       borderSpacing: 0,
     },
   },
