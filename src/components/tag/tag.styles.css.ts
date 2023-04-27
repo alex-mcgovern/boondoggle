@@ -1,4 +1,4 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/selectors.css";
@@ -68,25 +68,5 @@ export const getTagStyle = recipe({
 
   defaultVariants: {
     state: "inactive",
-  },
-});
-
-export const slotLeft = style({
-  flexShrink: 0,
-  justifySelf: "start",
-  selectors: {
-    "&:not(:last-child)": {
-      marginRight: vars.spacing.spacing1,
-    },
-  },
-});
-
-export const slotRight = style({
-  flexShrink: 0,
-  justifySelf: "end",
-  selectors: {
-    "&:not(:first-of-type)": {
-      marginLeft: vars.spacing.spacing1,
-    },
   },
 });
