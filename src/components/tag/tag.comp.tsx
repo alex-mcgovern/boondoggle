@@ -52,7 +52,12 @@ export function Tag({
 
   return (
     <Box as={as} className={tagStyle} id={id} {...otherProps}>
-      <SlotWrapper color="inherit" slotLeft={slotLeft} slotRight={slotRight}>
+      <SlotWrapper
+        gap="none"
+        color="inherit"
+        slotLeft={slotLeft}
+        slotRight={slotRight}
+      >
         {children}
       </SlotWrapper>
     </Box>
