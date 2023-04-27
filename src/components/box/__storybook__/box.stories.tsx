@@ -130,7 +130,7 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
     padding: "spacing3",
     gap: "spacing3",
     background: "tint_default",
-    className: getTheme({ intent: "bad" }),
+    className: getTheme({ colorOverlay: "red" }),
     children: [
       <Icon size="xl" icon={faExclamationCircle} color="text_low_contrast" />,
       <StoryComp>
@@ -158,7 +158,7 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
     padding: "spacing3",
     gap: "spacing3",
     background: "tint_default",
-    className: getTheme({ intent: "good" }),
+    className: getTheme({ colorOverlay: "green" }),
     children: [
       <Icon size="xl" icon={faCheckCircle} color="text_low_contrast" />,
       <StoryComp>

@@ -6,13 +6,13 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { variantIntent } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./button.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { Intent } from "../../styles/theme.css";
+import type { ColorOverlay } from "../../styles/theme.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
@@ -33,7 +33,7 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       /** The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis. */
       appearance?: styles.Appearance;
       /** Use color to indicate beneficial, or potentially destructive actions. */
-      intent?: Intent;
+      colorOverlay?: ColorOverlay;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
       size?: "square" | ElementSizeEnum;
       /** The React node shown in the button. */
@@ -64,7 +64,7 @@ export const Button: ButtonComponent = forwardRef(
       as,
       children,
       className: userClassName,
-      intent,
+      colorOverlay,
       size = "md",
       slotLeft,
       slotRight,
@@ -86,7 +86,7 @@ export const Button: ButtonComponent = forwardRef(
             styles.getButtonStyles({ appearance, size }),
             getSprinkles(atomProps),
             userClassName,
-            intent ? variantIntent[intent] : undefined
+            colorOverlay ? variantColorOverlay[colorOverlay] : undefined
           ),
           ref,
           type,

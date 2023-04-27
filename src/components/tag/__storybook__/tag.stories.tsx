@@ -1,4 +1,7 @@
+import { faShapes } from "@fortawesome/free-solid-svg-icons";
+
 import { Tag as StoryComp } from "..";
+import { Icon } from "../../icon";
 
 import type { TagProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -20,20 +23,42 @@ export const Default: StoryObj<StoryCompProps> = {
   },
 };
 
-export const IntentGood: StoryObj<StoryCompProps> = {
+export const ColorOverlayBlue: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
   args: {
     children: "Tag",
-    intent: "good",
+    colorOverlay: "blue",
+    slotLeft: <Icon icon={faShapes} />,
   },
 };
 
-export const IntentBad: StoryObj<StoryCompProps> = {
+export const ColorOverlayAmber: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
   args: {
     children: "Tag",
-    intent: "bad",
+    colorOverlay: "amber",
+    slotLeft: <Icon icon={faShapes} />,
+  },
+};
+
+export const ColorOverlayGreen: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
+  args: {
+    children: "Tag",
+    colorOverlay: "green",
+    slotLeft: <Icon icon={faShapes} />,
+  },
+};
+
+export const ColorOverlayRed: StoryObj<StoryCompProps> = {
+  render: Template,
+  name: "default",
+  args: {
+    children: "Tag",
+    colorOverlay: "red",
+    slotLeft: <Icon icon={faShapes} />,
   },
 };

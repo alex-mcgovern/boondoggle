@@ -60,7 +60,7 @@ export const Input = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         color="text_low_contrast"
         {...atomProps}
       >

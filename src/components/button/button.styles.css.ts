@@ -58,7 +58,7 @@ export const variantAppearance = styleVariants({
     {
       color: vars.color.button_default,
       border: "1px solid",
-      borderColor: vars.color.button_active,
+      borderColor: vars.color.button_default,
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: vars.color.button_active,

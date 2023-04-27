@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
 import { elementSize } from "../../../styles/common/element_size.css";
-import { variantIntent } from "../../../styles/theme.css";
+import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 import { Button } from "../button.comp";
 import { getButtonStyles } from "../button.styles.css";
@@ -133,20 +133,36 @@ describe("<Button />", () => {
   });
 
   describe("`color` prop", () => {
-    it("should have the correct class name when intent = bad", () => {
+    it("should have the correct class name when colorOverlay = blue", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" intent="bad" />
+        <Button id="button" name="Test button" colorOverlay="blue" />
       );
 
-      expect(getByRole("button")).toHaveClass(variantIntent.bad);
+      expect(getByRole("button")).toHaveClass(variantColorOverlay.blue);
     });
 
-    it("should have the correct class name name when intent = good", () => {
+    it("should have the correct class name when colorOverlay = amber", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" intent="good" />
+        <Button id="button" name="Test button" colorOverlay="amber" />
       );
 
-      expect(getByRole("button")).toHaveClass(variantIntent.good);
+      expect(getByRole("button")).toHaveClass(variantColorOverlay.amber);
+    });
+
+    it("should have the correct class name when colorOverlay = red", () => {
+      const { getByRole } = render(
+        <Button id="button" name="Test button" colorOverlay="red" />
+      );
+
+      expect(getByRole("button")).toHaveClass(variantColorOverlay.red);
+    });
+
+    it("should have the correct class name name when colorOverlay = green", () => {
+      const { getByRole } = render(
+        <Button id="button" name="Test button" colorOverlay="green" />
+      );
+
+      expect(getByRole("button")).toHaveClass(variantColorOverlay.green);
     });
   });
 

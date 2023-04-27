@@ -14,17 +14,33 @@ import { ColorPalette } from "./color_palette.comp";
   <ColorPalette />
 </Box>
 
-## Intent: Good
+## ColorOverlay: Blue
 
-<Box className={getTheme({ intent: "good" })}>
+<Box className={getTheme({ colorOverlay: "blue" })}>
   <ColorPalette>
     <ColorPalette />
   </ColorPalette>
 </Box>
 
-## Intent: Bad
+## ColorOverlay: Amber
 
-<Box className={getTheme({ intent: "bad" })}>
+<Box className={getTheme({ colorOverlay: "amber" })}>
+  <ColorPalette>
+    <ColorPalette />
+  </ColorPalette>
+</Box>
+
+## ColorOverlay: Green
+
+<Box className={getTheme({ colorOverlay: "green" })}>
+  <ColorPalette>
+    <ColorPalette />
+  </ColorPalette>
+</Box>
+
+## ColorOverlay: Red
+
+<Box className={getTheme({ colorOverlay: "red" })}>
   <ColorPalette>
     <ColorPalette />
   </ColorPalette>

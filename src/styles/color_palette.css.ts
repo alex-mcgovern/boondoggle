@@ -1,4 +1,4 @@
-import { blue, green, red, slate } from "@radix-ui/colors";
+import { amber, blue, green, red, slate } from "@radix-ui/colors";
 import {
   assignVars,
   createGlobalTheme,
@@ -56,8 +56,28 @@ export const color = createGlobalTheme(":root", {
   }),
 });
 
-export const variantIntent = styleVariants({
-  good: {
+export const variantColorOverlay = styleVariants({
+  blue: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: blue, secondaryPalette: blue })
+        ),
+      },
+    },
+  },
+  amber: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: amber, secondaryPalette: amber })
+        ),
+      },
+    },
+  },
+  green: {
     "@layer": {
       [themeLayer]: {
         vars: assignVars(
@@ -67,7 +87,7 @@ export const variantIntent = styleVariants({
       },
     },
   },
-  bad: {
+  red: {
     "@layer": {
       [themeLayer]: {
         vars: assignVars(
@@ -81,9 +101,9 @@ export const variantIntent = styleVariants({
 
 export const getTheme = recipe({
   variants: {
-    intent: variantIntent,
+    colorOverlay: variantColorOverlay,
   },
 });
 
 export type ColorScheme = typeof color;
-export type Intent = "good" | "bad";
+export type ColorOverlay = "blue" | "amber" | "green" | "red";

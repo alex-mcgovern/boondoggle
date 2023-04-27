@@ -7,7 +7,7 @@ import { SelectMulti } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { a11yError } from "../../../styles/common/a11y.css";
 import { elementSize } from "../../../styles/common/element_size.css";
-import { variantIntent } from "../../../styles/theme.css";
+import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
@@ -153,7 +153,7 @@ describe("<SelectMulti />", () => {
       const outerElement = combobox.parentElement?.parentElement;
 
       expect(combobox).toHaveClass(a11yError);
-      expect(outerElement).toHaveClass(variantIntent.bad);
+      expect(outerElement).toHaveClass(variantColorOverlay.red);
     });
 
     it("should render error message", async () => {

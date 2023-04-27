@@ -1,52 +1,18 @@
-import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/selectors.css";
-import { variantIntent, vars } from "../../styles/theme.css";
+import { a11yFocus } from "../../styles/common/a11y.css";
+import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-export const variantTagState = styleVariants({
-  inactive: [
-    {
-      color: vars.color.text_low_contrast,
-      background: vars.color.tint_default,
-      borderColor: vars.color.border_default,
-
-      selectors: {
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.text_high_contrast,
-          background: vars.color.tint_active,
-          borderColor: vars.color.border_active,
-        },
-      },
-    },
-  ],
-
-  active: [
-    {
-      color: vars.color.text_low_contrast,
-      background: vars.color.tint_default,
-      borderColor: vars.color.border_active,
-
-      selectors: {
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.text_high_contrast,
-          background: vars.color.tint_active,
-          borderColor: vars.color.border_active,
-        },
-      },
-    },
-  ],
-});
-
-export type VariantTagStateEnum = keyof typeof variantTagState;
 export const getTagStyle = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
       border: "border_active",
       borderRadius: "sm",
+      background: "tint_default",
+      color: "text_low_contrast",
       display: "inline-flex",
       fontStyle: "body_sm",
       gap: "spacing0",
@@ -55,18 +21,22 @@ export const getTagStyle = recipe({
       whiteSpace: "nowrap",
       textDecoration: "none",
     }),
+    a11yFocus,
     createAccessibleTransition({
       transition: `ease ${vars.transitionDuration.short}`,
       transitionProperty: "color, background-color, border-color",
     }),
+    {
+      selectors: {
+        "&:hover": {
+          background: vars.color.tint_active,
+          color: vars.color.text_high_contrast,
+        },
+      },
+    },
   ],
 
   variants: {
-    state: variantTagState,
-    intent: variantIntent,
-  },
-
-  defaultVariants: {
-    state: "inactive",
+    colorOverlay: variantColorOverlay,
   },
 });

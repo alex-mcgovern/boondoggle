@@ -87,15 +87,25 @@ export const Appearance: StoryObj<StoryCompProps> = {
 /**
  * Color
  */
-export const IntentGood: StoryObj<StoryCompProps> = {
+export const ColorOverlayAmber: StoryObj<StoryCompProps> = {
   render: TemplateAllAppearances,
-  name: "intent/good",
-  args: { intent: "good" },
+  name: "colorOverlay/amber",
+  args: { colorOverlay: "amber" },
 };
-export const IntentBad: StoryObj<StoryCompProps> = {
+export const ColorOverlayBlue: StoryObj<StoryCompProps> = {
   render: TemplateAllAppearances,
-  name: "intent/bad",
-  args: { intent: "bad" },
+  name: "colorOverlay/blue",
+  args: { colorOverlay: "blue" },
+};
+export const ColorOverlayGreen: StoryObj<StoryCompProps> = {
+  render: TemplateAllAppearances,
+  name: "colorOverlay/green",
+  args: { colorOverlay: "green" },
+};
+export const ColorOverlayRed: StoryObj<StoryCompProps> = {
+  render: TemplateAllAppearances,
+  name: "colorOverlay/red",
+  args: { colorOverlay: "red" },
 };
 
 /**

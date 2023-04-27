@@ -201,7 +201,7 @@ export const SelectMulti = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         ref={setPopperAnchorEl}
         position="relative"
         color="text_low_contrast"

@@ -160,7 +160,7 @@ export const SelectSingle = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ intent: "bad" })]: invalid })}
+        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         position="relative"
         color="text_low_contrast"
         ref={setPopperAnchorEl}
