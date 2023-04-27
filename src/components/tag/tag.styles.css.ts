@@ -16,7 +16,6 @@ export const getTagStyle = recipe({
       background: "tint_default",
       color: "text_low_contrast",
       display: "inline-flex",
-      fontStyle: "body_sm",
       gap: "spacing0",
       paddingX: "spacing1",
       paddingY: "spacing0",
