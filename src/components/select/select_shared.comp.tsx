@@ -49,7 +49,7 @@ export const useSelectPopper = () => {
   };
 };
 
-export type DropdownItemProps = {
+export type DropdownItemProps = BoxProps & {
   isHighlighted: boolean;
   isMultipleSelectionEnabled?: boolean;
   size?: ElementSizeEnum;
