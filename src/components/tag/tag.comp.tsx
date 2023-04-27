@@ -39,13 +39,14 @@ export function Tag({
   colorOverlay,
   slotLeft,
   slotRight,
+  size,
   children,
   ...rest
 }: TagProps) {
   const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
   const tagStyle = clsx([
-    styles.getTagStyle({ colorOverlay }),
+    styles.getTagStyle({ colorOverlay, size }),
     getSprinkles(atomProps),
     a11yFocus,
   ]);
