@@ -70,10 +70,12 @@ export const DropdownItem = forwardRef(
     }: DropdownItemProps,
     ref: Ref<HTMLLIElement>
   ) => {
+    const { label, slotLeft, ...restItemProps } = item || {};
+
     return (
       <Box
         as="li"
-        id={item.label}
+        id={label}
         className={clsx(
           styles.getDropdownItemStyles({
             size,
@@ -84,10 +86,11 @@ export const DropdownItem = forwardRef(
           }
         )}
         {...rest}
+        {...restItemProps}
         ref={ref}
       >
-        {item.slotLeft && item.slotLeft}
-        <Box flexShrink="0">{item.label}</Box>
+        {slotLeft && slotLeft}
+        <Box flexShrink="0">{label}</Box>
         {isMulti && (
           <Box
             as="input"

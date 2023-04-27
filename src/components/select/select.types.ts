@@ -1,9 +1,10 @@
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { ConditionalLabelProps } from "../../types";
+import type { BoxProps } from "../box";
 import type { InputProps } from "../input/input.comp";
 import type { ReactNode } from "react";
 
-export type DropdownItemShape = {
+export type DropdownItemShape = BoxProps & {
   label: string;
   value: string;
   slotLeft?: ReactNode;
