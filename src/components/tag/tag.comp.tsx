@@ -7,9 +7,9 @@ import { Box } from "../box";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./tag.styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { ColorOverlay } from "../../styles/theme.css";
 import type { BoxProps } from "../box";
+import type { TagSizeEnum } from "./tag.styles.css";
 import type { ReactNode } from "react";
 
 export type TagProps = BoxProps & {
@@ -30,7 +30,7 @@ export type TagProps = BoxProps & {
   /** The string URI to link to. Supports relative and absolute URIs. */
   to?: string;
   /** The size of the tag */
-  size?: ElementSizeEnum;
+  size?: TagSizeEnum;
 };
 
 export function Tag({
