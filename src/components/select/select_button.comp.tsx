@@ -110,6 +110,7 @@ export const SelectButton = forwardRef(
           size={size}
           slotLeft={slotLeft}
           slotRight={slotRight}
+          slotProps={{ gap: "none" }}
           {...buttonAtomProps}
           {...getToggleButtonProps?.({
             ...buttonOtherProps,

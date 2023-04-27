@@ -18,6 +18,7 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
 } from "../../types";
+import type { SlotWrapperProps } from "../slot_wrapper";
 import type {
   ComponentPropsWithoutRef,
   ElementType,
@@ -45,6 +46,8 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       slotRight?: ReactNode;
       /** The HTML button type, defaults to `button`. */
       type?: "button" | "submit" | "reset";
+      /** Props forwarded to slots */
+      slotProps?: SlotWrapperProps["slotProps"];
     }
   >;
 
@@ -65,6 +68,7 @@ export const Button: ButtonComponent = forwardRef(
       size = "md",
       slotLeft,
       slotRight,
+      slotProps,
       type = "button",
       ...rest
     }: BaseButtonProps<TPolymorphicAs>,
@@ -89,7 +93,12 @@ export const Button: ButtonComponent = forwardRef(
           ...otherProps,
         }}
       >
-        <SlotWrapper color="inherit" slotLeft={slotLeft} slotRight={slotRight}>
+        <SlotWrapper
+          color="inherit"
+          slotLeft={slotLeft}
+          slotProps={slotProps}
+          slotRight={slotRight}
+        >
           {children}
         </SlotWrapper>
       </Component>
