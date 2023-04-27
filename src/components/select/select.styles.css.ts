@@ -3,7 +3,7 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import { elementSize } from "../../styles/common/element_size.css";
-import { vars } from "../../styles/theme.css";
+import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
@@ -88,9 +88,12 @@ export const getDropdownItemStyles = recipe({
   },
 });
 
-export const isHighlighted = style({
-  backgroundColor: vars.color.tint_active,
-});
+export const isHighlighted = style([
+  variantColorOverlay.blue,
+  {
+    backgroundColor: vars.color.tint_active,
+  },
+]);
 
 export const isSelected = style({
   fontWeight: vars.fontWeight.semibold,
