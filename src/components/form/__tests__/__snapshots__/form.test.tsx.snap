@@ -62,7 +62,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
       Dropdown ipsum
     </label>
     <div
-      class="get_sprinkles_color_text_low_contrast__eiij7b18"
+      class="get_sprinkles_color_text_low_contrast__eiij7b18 get_sprinkles_textTransform_capitalize__eiij7b9r"
     >
       <div
         class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r"
