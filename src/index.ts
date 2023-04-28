@@ -92,6 +92,9 @@ export type { DropdownItemShape } from "./components/select";
 export { Tag } from "./components/tag";
 export type { TagProps } from "./components/tag";
 
+export { Tab } from "./components/tab";
+export type { TabProps } from "./components/tab";
+
 export { Tooltip } from "./components/tooltip";
 export type { TooltipProps } from "./components/tooltip";
 
