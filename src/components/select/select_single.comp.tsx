@@ -181,6 +181,7 @@ export const SelectSingle = forwardRef(
           slotRight={slotRight}
           readOnly={!isFilterable}
           invalid={invalid}
+          textTransform="capitalize"
           {...inputAtomProps}
           {...getInputProps?.({
             ...inputOtherProps,

@@ -222,6 +222,7 @@ export const SelectMulti = forwardRef(
           slotRight={slotRight}
           readOnly={!isFilterable}
           invalid={invalid}
+          textTransform="capitalize"
           {...inputAtomProps}
           {...getInputProps?.({
             ...getDropdownProps({
