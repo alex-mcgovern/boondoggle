@@ -233,7 +233,7 @@ globalStyle("input::placeholder, textarea::placeholder", {
 });
 
 globalStyle(
-  "input:not(:is([disabled], [readonly])):is(:hover,:focus), textarea:not([disabled]):is(:hover,:focus)",
+  "input:not([disabled]):is(:hover,:focus), textarea:not([disabled]):is(:hover,:focus)",
   {
     "@layer": {
       [baseLayer]: {
@@ -245,7 +245,7 @@ globalStyle(
 );
 
 globalStyle(
-  "input:not(:is([disabled], [readonly])):is(:focus-visible), textarea:not(:is([disabled], [readonly])):is(:focus-visible)",
+  "input:not([disabled]):is(:focus-visible), textarea:not([disabled]):is(:focus-visible)",
   {
     "@layer": {
       [baseLayer]: {
@@ -256,7 +256,7 @@ globalStyle(
 );
 
 globalStyle(
-  "input:is([disabled], [readonly]):is(:focus-visible, :focus), textarea:is([disabled], [readonly]):is(:focus-visible, :focus)",
+  "input[disabled]:is(:focus-visible, :focus), textarea[disabled]:is(:focus-visible, :focus)",
   {
     "@layer": {
       [baseLayer]: {

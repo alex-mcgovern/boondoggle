@@ -90,3 +90,7 @@ export const StateDisabled: Story = {
   name: "state/disabled",
   args: { disabled: true },
 };
+export const StateReadOnly: Story = {
+  name: "state/readOnly",
+  args: { readOnly: true },
+};
