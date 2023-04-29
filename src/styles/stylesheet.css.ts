@@ -54,14 +54,24 @@ globalStyle(`a`, {
       margin: 0,
       listStyleType: "none",
       color: vars.color.button_default,
+      textDecoration: "none",
     },
   },
 });
 
-globalStyle(`a:hover`, {
+globalStyle(`a:hover, a:focus, a:focus-visible`, {
   "@layer": {
     [baseLayer]: {
       color: vars.color.button_active,
+      textDecoration: "underline",
+    },
+  },
+});
+
+globalStyle("a:focus-visible", {
+  "@layer": {
+    [baseLayer]: {
+      ...a11yFocusStyleRule,
     },
   },
 });
