@@ -53,7 +53,7 @@ globalStyle(`a`, {
       padding: 0,
       margin: 0,
       listStyleType: "none",
-      color: vars.color.text_high_contrast,
+      color: vars.color.button_default,
     },
   },
 });
@@ -61,7 +61,7 @@ globalStyle(`a`, {
 globalStyle(`a:hover`, {
   "@layer": {
     [baseLayer]: {
-      color: vars.color.button_default,
+      color: vars.color.button_active,
     },
   },
 });
