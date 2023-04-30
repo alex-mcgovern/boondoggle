@@ -4,7 +4,7 @@ exports[`<FormTextArea /> Basic smoke tests should match snapshot 1`] = `
 <textarea
   aria-invalid="false"
   aria-label="Name ipsum"
-  class="text_area.styles_textArea__1l2bu6h1 text_area.styles__1l2bu6h0 get_sprinkles_width_100%_mobile__eiij7ba6 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8k get_sprinkles_lineHeight_body_lg__eiij7b8v"
+  class="text_area.styles_textArea__1l2bu6h1 text_area.styles__1l2bu6h0 get_sprinkles_width_100%_mobile__eiij7ba8 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 element_size_elementSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_lg__eiij7b8k get_sprinkles_lineHeight_body_lg__eiij7b8w"
   name="Name ipsum"
   placeholder="Placeholder ipsum"
 />
