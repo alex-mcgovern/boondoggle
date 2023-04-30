@@ -71,22 +71,19 @@ export function Dialog({
                 slotLeft={CLOSE_BUTTON_ICON}
                 aria-label="Close"
                 type="button"
-                // width="100%"
               />
             </DialogPrimitive.Close>
           </Box>
 
-          {description && (
-            <DialogPrimitive.Description>
-              {description}
-            </DialogPrimitive.Description>
-          )}
+          <Box className={styles.dialogInner}>
+            {description && (
+              <DialogPrimitive.Description>
+                {description}
+              </DialogPrimitive.Description>
+            )}
 
-          {/* ——
-           * DIALOG CONTENT
-           * —— */}
-
-          {children}
+            {children}
+          </Box>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>
     </DialogPrimitive.Root>
