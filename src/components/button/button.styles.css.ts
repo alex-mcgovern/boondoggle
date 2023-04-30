@@ -62,7 +62,7 @@ export const variantAppearance = styleVariants({
       selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: vars.color.button_active,
-          background: vars.color.tint_default,
+          background: vars.color.button_tint,
         },
         [SELECTOR_LINK_BUTTON_ACTIVE]: {
           background: "transparent",

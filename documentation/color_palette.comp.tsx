@@ -40,6 +40,7 @@ export function ColorPalette() {
         colors={{
           button_default: vars.color.button_default,
           button_active: vars.color.button_active,
+          button_tint: vars.color.button_tint,
         }}
       />
       <ColorItem

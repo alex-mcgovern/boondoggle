@@ -54,9 +54,11 @@ export function Dialog({
             display="flex"
             justifyContent="space-between"
             alignItems="center"
+            borderBottom="border_default"
+            padding="spacing2"
           >
             <DialogPrimitive.Title asChild>
-              <Box as="h2" fontStyle="h4" marginY="none">
+              <Box as="h2" fontStyle="body_lg" marginY="none">
                 {title}
               </Box>
             </DialogPrimitive.Title>

@@ -28,7 +28,6 @@ export const dialogOverlay = style([
 
 export const dialogContent = style([
   getSprinkles({
-    padding: "spacing2",
     display: "block",
     isolation: "isolate",
     overflow: "hidden",
@@ -62,6 +61,7 @@ export const dialogContent = style([
 export const dialogInner = style([
   getSprinkles({
     maxHeight: "90vh",
+    padding: "spacing2",
   }),
   {
     overflowY: "auto",

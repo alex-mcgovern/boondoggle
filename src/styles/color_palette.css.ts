@@ -41,6 +41,7 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
     border_default: getFromPaletteByIndex(secondaryPalette, 6),
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
 
+    button_tint: getFromPaletteByIndex(primaryPalette, 3),
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
 

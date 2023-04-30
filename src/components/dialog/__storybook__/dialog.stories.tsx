@@ -19,7 +19,7 @@ export const Default: StoryObj<StoryCompProps> = {
   name: "default",
   args: {
     triggerNode: <Button name="Dialog button">Open dialog</Button>,
-    children: LOREM.textXxl,
+    children: `${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl}`,
     title: LOREM.textXxs,
   },
 };
