@@ -43,7 +43,7 @@ export const dialogContent = style([
       desktop: "gridSpan8",
     },
     maxWidth: "gridSpan10",
-    maxHeight: "100vh",
+    maxHeight: "90vh",
   }),
   {
     zIndex: 99999,
@@ -54,6 +54,7 @@ export const dialogContent = style([
     selectors: {
       "&:focus": { outline: "none" },
     },
+    overflowY: "auto",
   },
   createAccessibleTransition({
     animation: `${contentShow} ${vars.transitionDuration.long} ease forwards`,

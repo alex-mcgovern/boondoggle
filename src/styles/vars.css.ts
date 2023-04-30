@@ -106,6 +106,7 @@ export const rootVars = createGlobalTheme(":root", {
     "50%": "50%",
     "25%": "25%",
     "100vh": "100vh",
+    "90vh": "90vh",
     "75vh": "75vh",
     "50vh": "50vh",
     "25vh": "25vh",
