@@ -6,22 +6,22 @@ exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
     class="get_sprinkles_color_text_low_contrast__eiij7b18"
   >
     <div
-      class="get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r"
+      class="get_sprinkles_display_flex_mobile__eiij7bdf get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_gap_spacing1__eiij7b1r"
     >
       <span
         aria-disabled="false"
         aria-label="Name ipsum"
-        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing1__eiij7b4g get_sprinkles_marginBottom_spacing1__eiij7b3m get_sprinkles_position_relative__eiij7b9j get_sprinkles_display_flex_mobile__eiij7bdc get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_width_100%_mobile__eiij7ba0"
+        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing1__eiij7b4g get_sprinkles_marginBottom_spacing1__eiij7b3m get_sprinkles_position_relative__eiij7b9m get_sprinkles_display_flex_mobile__eiij7bdf get_sprinkles_alignItems_center__eiij7b1c get_sprinkles_width_100%_mobile__eiij7ba3"
         data-orientation="horizontal"
         dir="ltr"
         style="--radix-slider-thumb-transform: translateX(-50%);"
       >
         <span
-          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_position_relative__eiij7b9j get_sprinkles_borderRadius_md__eiij7ba"
+          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_position_relative__eiij7b9m get_sprinkles_borderRadius_md__eiij7ba"
           data-orientation="horizontal"
         >
           <span
-            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_position_absolute__eiij7b9k get_sprinkles_background_button_default__eiij7bt get_sprinkles_borderRadius_pill__eiij7b7 get_sprinkles_height_100%__eiij7b8v"
+            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_position_absolute__eiij7b9n get_sprinkles_background_button_default__eiij7bt get_sprinkles_borderRadius_pill__eiij7b7 get_sprinkles_height_100%__eiij7b8x"
             data-orientation="horizontal"
             style="left: 0%; right: 100%;"
           />
@@ -34,7 +34,7 @@ exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="0"
-            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_display_block_mobile__eiij7bd9 get_sprinkles_width_spacing3_mobile__eiij7bbu get_sprinkles_height_spacing3__eiij7b99 get_sprinkles_background_tint_default__eiij7bp get_sprinkles_border_border_active__eiij7bd get_sprinkles_boxShadow_sm__eiij7b6 get_sprinkles_borderRadius_50%__eiij7b8"
+            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_display_block_mobile__eiij7bdc get_sprinkles_width_spacing3_mobile__eiij7bbx get_sprinkles_height_spacing3__eiij7b9c get_sprinkles_background_tint_default__eiij7bp get_sprinkles_border_border_active__eiij7bd get_sprinkles_boxShadow_sm__eiij7b6 get_sprinkles_borderRadius_50%__eiij7b8"
             data-orientation="horizontal"
             data-radix-collection-item=""
             role="slider"
