@@ -63,6 +63,7 @@ export const rootVars = createGlobalTheme(":root", {
     body_lg: "1.125rem", // 18.00px
     body_md: "1rem", // 16.00px
     body_sm: "0.889rem", // 14.22px
+    body_xs: "0.79rem", // 14.22px
   },
   fontWeight: {
     light: "300",
@@ -98,6 +99,7 @@ export const rootVars = createGlobalTheme(":root", {
     body_lg: "1.5",
     body_md: "1.5",
     body_sm: "1.5",
+    body_xs: "1.25",
   },
   height: {
     "": "0",
