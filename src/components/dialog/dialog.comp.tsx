@@ -14,7 +14,7 @@ export type DialogProps = {
   /** Accessible title for dialog */
   title: string;
   /** Accessible description for dialog */
-  description: string;
+  description?: string;
   /** Dialog content */
   children: ReactNode | Array<ReactNode>;
   callbackOnOpenChange?: (isOpen: boolean) => void;
@@ -76,9 +76,11 @@ export function Dialog({
             </DialogPrimitive.Close>
           </Box>
 
-          <DialogPrimitive.Description>
-            {description}
-          </DialogPrimitive.Description>
+          {description && (
+            <DialogPrimitive.Description>
+              {description}
+            </DialogPrimitive.Description>
+          )}
 
           {/* ——
            * DIALOG CONTENT
