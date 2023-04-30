@@ -17,8 +17,8 @@ export type DialogProps = {
   description: string;
   /** Dialog content */
   children: ReactNode | Array<ReactNode>;
-  callbackOnOpenChange: (isOpen: boolean) => void;
-  isOpen: boolean;
+  callbackOnOpenChange?: (isOpen: boolean) => void;
+  isOpen?: boolean;
 };
 
 const CLOSE_BUTTON_ICON = <Icon icon={faTimes} />;
