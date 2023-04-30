@@ -124,9 +124,9 @@ export const getButtonStyles = recipe({
     size: {
       square: [
         getSprinkles({
-          fontStyle: "body_lg",
-          height: "spacing6",
-          width: "spacing6",
+          fontStyle: "body_md",
+          height: "spacing5",
+          width: "spacing5",
         }),
       ],
       ...elementSize,
