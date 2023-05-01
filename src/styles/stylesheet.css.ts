@@ -289,6 +289,14 @@ globalStyle(`ul, ol`, {
   },
 });
 
+globalStyle(`ul li::marker`, {
+  "@layer": {
+    [baseLayer]: {
+      color: vars.color.button_default,
+    },
+  },
+});
+
 /**
  * Menu
  */
