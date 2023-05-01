@@ -27,11 +27,7 @@ export function SlotWrapper({
       {...rest}
     >
       {slotLeft && (
-        <Box
-          {...slotProps}
-          color="inherit"
-          // width="spacing3"
-        >
+        <Box {...slotProps} color="inherit" width="spacing1">
           {slotLeft}
         </Box>
       )}
@@ -39,11 +35,7 @@ export function SlotWrapper({
       {children}
 
       {slotRight && (
-        <Box
-          {...slotProps}
-          color="inherit"
-          // width="spacing3"
-        >
+        <Box {...slotProps} color="inherit" width="spacing1">
           {slotRight}
         </Box>
       )}
