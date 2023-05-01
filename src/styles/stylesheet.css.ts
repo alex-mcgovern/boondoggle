@@ -282,6 +282,7 @@ globalStyle(
 globalStyle(`ul, ol`, {
   "@layer": {
     [baseLayer]: {
+      listStylePosition: "outside",
       marginBlockStart: vars.spacing.spacing1,
       marginBlockEnd: vars.spacing.spacing1,
       paddingInlineStart: vars.spacing.spacing1,
