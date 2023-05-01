@@ -52,7 +52,7 @@ globalStyle(`a`, {
     [baseLayer]: {
       padding: 0,
       margin: 0,
-      listStyleType: "none",
+      // listStyleType: "none",
       color: vars.color.button_default,
       textDecoration: "none",
     },
@@ -289,10 +289,19 @@ globalStyle(`ul, ol`, {
   },
 });
 
-globalStyle(`ul li::marker`, {
+globalStyle(`ul li, ol li`, {
+  "@layer": {
+    [baseLayer]: {
+      marginBottom: vars.spacing.spacing1,
+    },
+  },
+});
+
+globalStyle(`ul li::marker, ol li::marker`, {
   "@layer": {
     [baseLayer]: {
       color: vars.color.button_default,
+      fontWeight: vars.fontWeight.semibold,
     },
   },
 });
