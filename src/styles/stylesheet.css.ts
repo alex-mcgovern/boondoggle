@@ -282,9 +282,9 @@ globalStyle(
 globalStyle(`ul, ol`, {
   "@layer": {
     [baseLayer]: {
-      marginBlockStart: vars.spacing.spacing1,
-      marginBlockEnd: vars.spacing.spacing1,
-      paddingInlineStart: vars.spacing.spacing1,
+      marginBlockStart: 0,
+      marginBlockEnd: 0,
+      paddingInlineStart: 0,
     },
   },
 });
