@@ -22,6 +22,7 @@ import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
+import type { UseSelectPlacement } from "./shared/use_select_popper";
 import type {
   UseComboboxStateChange,
   UseMultipleSelectionStateChange,
@@ -39,7 +40,7 @@ export type SelectMultiProps = SelectCommonProps &
       changes: UseComboboxStateChange<DropdownItemShape>
     ) => void;
     placeholder: string;
-    isFlipped?: boolean;
+    placement?: UseSelectPlacement;
   };
 
 export const SelectMulti = forwardRef(
@@ -53,7 +54,7 @@ export const SelectMulti = forwardRef(
       inputProps,
       invalid,
       isFilterable,
-      isFlipped,
+      placement,
       items,
       label,
       name,
@@ -197,7 +198,7 @@ export const SelectMulti = forwardRef(
       setPopperElement,
       popperStyles,
       popperAttributes,
-    } = useSelectPopper({ isFlipped });
+    } = useSelectPopper({ placement });
 
     return (
       <Box

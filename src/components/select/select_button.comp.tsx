@@ -13,6 +13,7 @@ import { useSelectPopper } from "./shared/use_select_popper";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
+import type { UseSelectPlacement } from "./shared/use_select_popper";
 import type { UseSelectStateChange } from "downshift";
 import type { Ref } from "react";
 
@@ -25,7 +26,7 @@ export type SelectButtonProps = Omit<
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     buttonText?: string;
     buttonProps?: ButtonProps;
-    isFlipped?: boolean;
+    placement?: UseSelectPlacement;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -39,7 +40,7 @@ export const SelectButton = forwardRef(
       items,
       name,
       onIsOpenChange,
-      isFlipped,
+      placement,
       onChange,
       buttonText,
       size,
@@ -102,7 +103,7 @@ export const SelectButton = forwardRef(
       setPopperElement,
       popperStyles,
       popperAttributes,
-    } = useSelectPopper({ isFlipped });
+    } = useSelectPopper({ placement });
 
     return (
       <Box position="relative" ref={setPopperAnchorEl} {...rest}>

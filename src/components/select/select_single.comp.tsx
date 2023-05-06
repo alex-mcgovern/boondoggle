@@ -21,6 +21,7 @@ import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
+import type { UseSelectPlacement } from "./shared/use_select_popper";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 
@@ -41,7 +42,7 @@ export type SelectSingleProps = SelectCommonProps &
     ) => void;
     onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
     placeholder: string;
-    isFlipped?: boolean;
+    placement?: UseSelectPlacement;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -56,7 +57,7 @@ export const SelectSingle = forwardRef(
       inputProps,
       invalid,
       isFilterable,
-      isFlipped,
+      placement,
       items,
       itemToString = defaultItemToString,
       label,
@@ -156,7 +157,7 @@ export const SelectSingle = forwardRef(
       setPopperElement,
       popperStyles,
       popperAttributes,
-    } = useSelectPopper({ isFlipped });
+    } = useSelectPopper({ placement });
 
     return (
       <Box

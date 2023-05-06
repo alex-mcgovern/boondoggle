@@ -4,12 +4,19 @@
 import { useState } from "react";
 import { usePopper } from "react-popper";
 
+import type { VariationPlacement } from "@popperjs/core";
+
+export type UseSelectPlacement = Extract<
+  VariationPlacement,
+  "bottom-start" | "bottom-end"
+>;
+
 type UseSelectPopperProps = {
-  isFlipped?: boolean;
+  placement?: Extract<VariationPlacement, "bottom-start" | "bottom-end">;
 };
 
 export const useSelectPopper = ({
-  isFlipped = false,
+  placement = "bottom-start",
 }: UseSelectPopperProps) => {
   const [popperAnchorEl, setPopperAnchorEl] = useState<HTMLDivElement | null>(
     null
@@ -22,9 +29,8 @@ export const useSelectPopper = ({
     popperAnchorEl,
     popperElement,
     {
-      placement: "bottom-start",
+      placement,
       strategy: "fixed",
-      modifiers: [{ name: "flip", enabled: isFlipped }],
     }
   );
 
