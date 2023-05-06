@@ -17,15 +17,41 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 
 export const Default: StoryObj<StoryCompProps> = {
   render: Template,
-  name: "default",
   args: {
     children: "Tag",
   },
 };
 
+export const SizeSm: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    children: "Tag",
+    size: "sm",
+    slotLeft: <Icon icon={faShapes} />,
+  },
+};
+
+export const SizeMd: StoryObj<StoryCompProps> = {
+  render: Template,
+
+  args: {
+    children: "Tag",
+    size: "md",
+    slotLeft: <Icon icon={faShapes} />,
+  },
+};
+
+export const SizeLg: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    children: "Tag",
+    size: "lg",
+    slotLeft: <Icon icon={faShapes} />,
+  },
+};
+
 export const ColorOverlayBlue: StoryObj<StoryCompProps> = {
   render: Template,
-  name: "default",
   args: {
     children: "Tag",
     colorOverlay: "blue",
@@ -35,7 +61,6 @@ export const ColorOverlayBlue: StoryObj<StoryCompProps> = {
 
 export const ColorOverlayAmber: StoryObj<StoryCompProps> = {
   render: Template,
-  name: "default",
   args: {
     children: "Tag",
     colorOverlay: "amber",
@@ -45,7 +70,6 @@ export const ColorOverlayAmber: StoryObj<StoryCompProps> = {
 
 export const ColorOverlayGreen: StoryObj<StoryCompProps> = {
   render: Template,
-  name: "default",
   args: {
     children: "Tag",
     colorOverlay: "green",
@@ -55,7 +79,6 @@ export const ColorOverlayGreen: StoryObj<StoryCompProps> = {
 
 export const ColorOverlayRed: StoryObj<StoryCompProps> = {
   render: Template,
-  name: "default",
   args: {
     children: "Tag",
     colorOverlay: "red",

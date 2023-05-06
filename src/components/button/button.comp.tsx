@@ -4,7 +4,7 @@
  */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 
 import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -18,6 +18,7 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
 } from "../../types";
+import type { BoxProps } from "../box";
 import type { SlotWrapperProps } from "../slot_wrapper";
 import type {
   ComponentPropsWithoutRef,
@@ -68,7 +69,7 @@ export const Button: ButtonComponent = forwardRef(
       size = "md",
       slotLeft,
       slotRight,
-      slotProps,
+      slotProps: userSlotProps,
       type = "button",
       ...rest
     }: BaseButtonProps<TPolymorphicAs>,
@@ -78,6 +79,16 @@ export const Button: ButtonComponent = forwardRef(
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     const Component = as || "button";
+
+    const slotProps: BoxProps | undefined = useMemo(() => {
+      if (size === "square") {
+        return {
+          ...userSlotProps,
+          width: "spacing3",
+        };
+      }
+      return userSlotProps;
+    }, [size, userSlotProps]);
 
     return (
       <Component

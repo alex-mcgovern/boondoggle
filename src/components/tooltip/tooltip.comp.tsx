@@ -20,14 +20,15 @@ export function Tooltip({
     </button>
   ),
   side = "bottom",
+  ...rest
 }: TooltipProps) {
   return (
     <RadixTooltip.TooltipProvider>
-      <RadixTooltip.Root>
+      <RadixTooltip.Root {...rest}>
         <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
 
         <RadixTooltip.Content
-          sideOffset={1}
+          sideOffset={2}
           side={side}
           className={styles.tooltipText}
         >
