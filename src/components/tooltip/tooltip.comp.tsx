@@ -4,6 +4,7 @@ import * as RadixPopover from "@radix-ui/react-popover";
 import { Box } from "../box";
 import { Card } from "../card";
 import { Icon } from "../icon";
+import * as styles from "./tooltip.styles.css";
 
 import type { ReactNode } from "react";
 
@@ -14,7 +15,7 @@ export type TooltipProps = {
 };
 export function Tooltip({
   popoverText,
-  children = <Icon icon={faInfoCircle} />,
+  children = <Icon className={styles.popoverTrigger} icon={faInfoCircle} />,
   side = "bottom",
 }: TooltipProps) {
   return (
