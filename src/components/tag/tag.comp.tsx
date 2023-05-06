@@ -58,6 +58,7 @@ export const Tag: TagComponent = forwardRef(
       as,
       id,
       colorOverlay,
+      className: userClassName,
       slotLeft,
       slotRight,
       size,
@@ -75,6 +76,7 @@ export const Tag: TagComponent = forwardRef(
       <Component
         {...{
           className: clsx(
+            userClassName,
             styles.getTagStyle({ colorOverlay, size }),
             getSprinkles(atomProps),
             a11yFocus

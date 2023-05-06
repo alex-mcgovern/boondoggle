@@ -59,6 +59,7 @@ export const Tab: TabComponent = forwardRef(
       id,
       colorOverlay,
       slotLeft,
+      className: userClassName,
       slotRight,
       size,
       children,
@@ -75,6 +76,7 @@ export const Tab: TabComponent = forwardRef(
       <Component
         {...{
           className: clsx(
+            userClassName,
             styles.getTabStyle({ colorOverlay, size }),
             getSprinkles(atomProps),
             a11yFocus
