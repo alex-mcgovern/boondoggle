@@ -11,15 +11,20 @@ import type { IconProps } from "../icon";
 export type TooltipProps = {
   popoverText: string;
   icon?: IconProps["icon"];
+  side: RadixPopover.PopoverContentProps["side"];
 };
-export function Tooltip({ popoverText, icon = faInfoCircle }: TooltipProps) {
+export function Tooltip({
+  popoverText,
+  icon = faInfoCircle,
+  side = "bottom",
+}: TooltipProps) {
   return (
     <RadixPopover.Root>
       <RadixPopover.Trigger className={styles.popoverTrigger}>
         <Icon icon={icon} />
       </RadixPopover.Trigger>
 
-      <RadixPopover.Content sideOffset={1} side="bottom">
+      <RadixPopover.Content sideOffset={1} side={side}>
         <Card maxWidth="gridSpan5" padding="spacing1">
           <Box>{popoverText}</Box>
         </Card>
