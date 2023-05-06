@@ -83,7 +83,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           value=""
         />
         <div
-          class="get_sprinkles_paddingTop_spacing1__eiij7b85 get_sprinkles_paddingBottom_spacing1__eiij7b7b get_sprinkles_color_inherit__eiij7b1b get_sprinkles_width_spacing2_mobile__eiij7bbz"
+          class="get_sprinkles_paddingTop_spacing1__eiij7b85 get_sprinkles_paddingBottom_spacing1__eiij7b7b get_sprinkles_color_inherit__eiij7b1b"
         >
           <svg
             aria-hidden="true"
@@ -268,7 +268,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     >
       Submit
       <div
-        class="get_sprinkles_color_inherit__eiij7b1b get_sprinkles_width_spacing2_mobile__eiij7bbz"
+        class="get_sprinkles_color_inherit__eiij7b1b"
       >
         <svg
           aria-hidden="true"
