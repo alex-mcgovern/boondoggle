@@ -4,7 +4,7 @@ import { a11yFocus } from "../../styles/common/a11y.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-export const popoverTrigger = style([
+export const tooltipTrigger = style([
   {
     color: vars.color.text_low_contrast,
     borderRadius: vars.borderRadius.sm,
@@ -22,4 +22,13 @@ export const popoverTrigger = style([
     padding: "spacing0",
   }),
   a11yFocus,
+]);
+
+export const tooltipText = style([
+  getSprinkles({
+    fontStyle: "body_xs",
+    padding: "spacing1",
+    borderRadius: "sm",
+  }),
+  { background: vars.color.text_low_contrast, color: vars.color.white },
 ]);

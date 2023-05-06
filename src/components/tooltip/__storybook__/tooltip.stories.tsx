@@ -16,6 +16,6 @@ export const Default: StoryObj<StoryCompProps> = {
   render: Template,
   name: "default",
   args: {
-    popoverText: "This is a tooltip",
+    tooltipText: "This is a tooltip",
   },
 };
