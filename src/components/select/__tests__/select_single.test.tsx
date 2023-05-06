@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { SelectSingle } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { a11yError } from "../../../styles/common/a11y.css";
-import { elementSize } from "../../../styles/common/element_size.css";
+import { elementFontSize } from "../../../styles/common/element_size.css";
 import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
@@ -334,25 +334,25 @@ describe("<SelectSingle />", () => {
     it("should have the `md` class name by default", async () => {
       const { getByRole } = await renderComponent(PROPS);
 
-      expect(getByRole("combobox")).toHaveClass(elementSize.md);
+      expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
     });
 
     it("should have the `sm` class name when size = sm", async () => {
       const { getByRole } = await renderComponent({ ...PROPS, size: "sm" });
 
-      expect(getByRole("combobox")).toHaveClass(elementSize.sm);
+      expect(getByRole("combobox")).toHaveClass(elementFontSize.sm);
     });
 
     it("should have the `md` class name when size = md", async () => {
       const { getByRole } = await renderComponent({ ...PROPS, size: "md" });
 
-      expect(getByRole("combobox")).toHaveClass(elementSize.md);
+      expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
     });
 
     it("should have the `lg` class name when size = lg", async () => {
       const { getByRole } = await renderComponent({ ...PROPS, size: "lg" });
 
-      expect(getByRole("combobox")).toHaveClass(elementSize.lg);
+      expect(getByRole("combobox")).toHaveClass(elementFontSize.lg);
     });
   });
 

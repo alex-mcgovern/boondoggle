@@ -10,16 +10,14 @@ import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import {
-  DEFAULT_SLOT_RIGHT,
-  DropdownMenu,
-  useSelectPopper,
-} from "./select_shared.comp";
-import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
   getFilteredDropdownItems,
   getIsSelected,
 } from "./select_utils";
+import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
+import { DropdownMenu } from "./shared/dropdown_menu.comp";
+import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
@@ -43,6 +41,7 @@ export type SelectSingleProps = SelectCommonProps &
     ) => void;
     onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
     placeholder: string;
+    isFlipped?: boolean;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -57,12 +56,13 @@ export const SelectSingle = forwardRef(
       inputProps,
       invalid,
       isFilterable,
+      isFlipped,
       items,
       itemToString = defaultItemToString,
       label,
       name,
-      onIsOpenChange,
       onChange,
+      onIsOpenChange,
       placeholder,
       size,
       slotLeft,
@@ -156,7 +156,7 @@ export const SelectSingle = forwardRef(
       setPopperElement,
       popperStyles,
       popperAttributes,
-    } = useSelectPopper();
+    } = useSelectPopper({ isFlipped });
 
     return (
       <Box

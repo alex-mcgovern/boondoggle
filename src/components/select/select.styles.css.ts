@@ -1,11 +1,20 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { keyframes, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
-import { elementSize } from "../../styles/common/element_size.css";
+import {
+  elementFontSize,
+  elementPadding,
+} from "../../styles/common/element_size.css";
 import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+
+const size = styleVariants({
+  sm: [elementFontSize.sm, elementPadding.sm],
+  md: [elementFontSize.md, elementPadding.md],
+  lg: [elementFontSize.lg, elementPadding.lg],
+});
 
 const contentShow = keyframes({
   "0%": { opacity: 0 },
@@ -42,7 +51,7 @@ export const dropdownListWrapper = style([
   }),
   {
     zIndex: 999,
-    maxHeight: "10rem",
+    maxHeight: "20rem",
     selectors: {
       "&:empty": {
         display: "none",
@@ -84,7 +93,7 @@ export const getDropdownItemStyles = recipe({
     },
   ],
   variants: {
-    size: elementSize,
+    size,
   },
 });
 

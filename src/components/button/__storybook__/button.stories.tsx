@@ -1,6 +1,7 @@
 import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
 
 import { Button as StoryComp } from "..";
+import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
@@ -123,17 +124,17 @@ export const CustomisationMargin: StoryObj<StoryCompProps> = {
 export const SizeSm: StoryObj<StoryCompProps> = {
   name: "size/sm",
   render: Template,
-  args: { size: "sm", children: "Small" },
+  args: { size: "sm", children: LOREM.button },
 };
 export const SizeMd: StoryObj<StoryCompProps> = {
   name: "size/md",
   render: Template,
-  args: { size: "md", children: "Medium" },
+  args: { size: "md", children: LOREM.button },
 };
 export const SizeLg: StoryObj<StoryCompProps> = {
   name: "size/lg",
   render: Template,
-  args: { size: "lg", children: "Large" },
+  args: { size: "lg", children: LOREM.button },
 };
 export const SizeSquare: StoryObj<StoryCompProps> = {
   name: "size/lg",

@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { elementSize } from "../../../styles/common/element_size.css";
+import { elementFontSize } from "../../../styles/common/element_size.css";
 import { Icon } from "../../icon";
 import { TextArea } from "../text_area.comp";
 
@@ -364,7 +364,7 @@ describe("<TextArea />", () => {
         placeholder: LOREM.placeholder(),
       });
 
-      expect(getByRole("textbox")).toHaveClass(elementSize.md);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.md);
     });
 
     it("should have the `sm` class name when size = sm", () => {
@@ -374,7 +374,7 @@ describe("<TextArea />", () => {
         size: "sm",
       });
 
-      expect(getByRole("textbox")).toHaveClass(elementSize.sm);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.sm);
     });
 
     it("should have the `md` class name when size = md", () => {
@@ -384,7 +384,7 @@ describe("<TextArea />", () => {
         size: "md",
       });
 
-      expect(getByRole("textbox")).toHaveClass(elementSize.md);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.md);
     });
 
     it("should have the `lg` class name when size = lg", () => {
@@ -394,7 +394,7 @@ describe("<TextArea />", () => {
         size: "lg",
       });
 
-      expect(getByRole("textbox")).toHaveClass(elementSize.lg);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.lg);
     });
   });
 

@@ -2,7 +2,10 @@ import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
-import { elementSize } from "../../styles/common/element_size.css";
+import {
+  elementFontSize,
+  elementPadding,
+} from "../../styles/common/element_size.css";
 import {
   SELECTOR_LINK_BUTTON_ACTIVE,
   SELECTOR_LINK_BUTTON_HOVER_FOCUS,
@@ -13,27 +16,36 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
-/**
- * Button theme
- *
- * Describes the values that can be used to theme the button,
- * and their default values. In {@link variantColor} and
- * {@link variantAppearance} we re-assign these values as
- * needed to create the different variants of the button, then
- * consume them in {@link getButtonStyles}.
- */
-/**
- * Button appearance variants
- *
- * These are the different variants of the button, (e.g. primary, secondary, etc.)
- */
+/** -----------------------------------------------------------------------------
+ * Button size variants
+ * ------------------------------------------------------------------------------- */
+
+const variantSize = styleVariants({
+  sm: [elementFontSize.sm, elementPadding.sm],
+  md: [elementFontSize.md, elementPadding.md],
+  lg: [elementFontSize.lg, elementPadding.lg],
+  square: [
+    getSprinkles({
+      fontStyle: "body_md",
+      height: "spacing5",
+      width: "spacing5",
+    }),
+  ],
+});
+
+/** -----------------------------------------------------------------------------
+ * Common props for all appearance variants
+ * ------------------------------------------------------------------------------- */
+
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
   justifyContent: "center",
   whiteSpace: "nowrap",
   fontWeight: "semibold",
-  paddingX: "spacing2",
-  paddingY: "spacing1",
 };
+
+/** -----------------------------------------------------------------------------
+ * Button appearance variants
+ * ------------------------------------------------------------------------------- */
 
 export const variantAppearance = styleVariants({
   primary: [
@@ -121,16 +133,7 @@ export const getButtonStyles = recipe({
   ],
   variants: {
     appearance: variantAppearance,
-    size: {
-      square: [
-        getSprinkles({
-          fontStyle: "body_md",
-          height: "spacing5",
-          width: "spacing5",
-        }),
-      ],
-      ...elementSize,
-    },
+    size: variantSize,
   },
 
   defaultVariants: {

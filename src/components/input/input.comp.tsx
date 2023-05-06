@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
-import { elementSize } from "../../styles/common/element_size.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
@@ -72,7 +71,7 @@ export const Input = forwardRef(
           slotRight={slotRight}
         >
           <input
-            className={clsx(styles.input, userClassName, elementSize[size], {
+            className={clsx(styles.getInputStyles({ size }), userClassName, {
               [a11yError]: invalid,
             })}
             name={name}

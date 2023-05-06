@@ -121,6 +121,7 @@ export const rootVars = createGlobalTheme(":root", {
     none: "0",
     spacing0: "0.25rem",
     spacing1: "0.5rem",
+    "spacing1.5": "0.75rem",
     spacing2: "1rem",
     spacing3: "1.5rem",
     spacing4: "2rem",

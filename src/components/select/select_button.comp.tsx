@@ -5,12 +5,10 @@ import { forwardRef, useCallback } from "react";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Button } from "../button";
-import {
-  DEFAULT_SLOT_RIGHT,
-  DropdownMenu,
-  useSelectPopper,
-} from "./select_shared.comp";
 import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
+import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
+import { DropdownMenu } from "./shared/dropdown_menu.comp";
+import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
@@ -27,6 +25,7 @@ export type SelectButtonProps = Omit<
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     buttonText?: string;
     buttonProps?: ButtonProps;
+    isFlipped?: boolean;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -40,6 +39,7 @@ export const SelectButton = forwardRef(
       items,
       name,
       onIsOpenChange,
+      isFlipped,
       onChange,
       buttonText,
       size,
@@ -102,7 +102,7 @@ export const SelectButton = forwardRef(
       setPopperElement,
       popperStyles,
       popperAttributes,
-    } = useSelectPopper();
+    } = useSelectPopper({ isFlipped });
 
     return (
       <Box position="relative" ref={setPopperAnchorEl} {...rest}>

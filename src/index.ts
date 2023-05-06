@@ -23,7 +23,11 @@ export {
   MEDIA_QUERY_TABLET,
   MEDIA_QUERY_MOBILE,
 } from "./styles/common/media_queries.css";
-export { elementSize, ElementSizeEnum } from "./styles/common/element_size.css";
+export {
+  elementFontSize,
+  elementPadding,
+  ElementSizeEnum,
+} from "./styles/common/element_size.css";
 
 /**
  * React components

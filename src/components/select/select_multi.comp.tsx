@@ -10,17 +10,15 @@ import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import {
-  DEFAULT_SLOT_RIGHT,
-  DropdownMenu,
-  useSelectPopper,
-} from "./select_shared.comp";
-import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
   getDisplayValue,
   getFilteredDropdownItems,
   getIsSelected,
 } from "./select_utils";
+import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
+import { DropdownMenu } from "./shared/dropdown_menu.comp";
+import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
@@ -41,6 +39,7 @@ export type SelectMultiProps = SelectCommonProps &
       changes: UseComboboxStateChange<DropdownItemShape>
     ) => void;
     placeholder: string;
+    isFlipped?: boolean;
   };
 
 export const SelectMulti = forwardRef(
@@ -54,6 +53,7 @@ export const SelectMulti = forwardRef(
       inputProps,
       invalid,
       isFilterable,
+      isFlipped,
       items,
       label,
       name,
@@ -197,7 +197,7 @@ export const SelectMulti = forwardRef(
       setPopperElement,
       popperStyles,
       popperAttributes,
-    } = useSelectPopper();
+    } = useSelectPopper({ isFlipped });
 
     return (
       <Box

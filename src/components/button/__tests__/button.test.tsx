@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
-import { elementSize } from "../../../styles/common/element_size.css";
+import { elementFontSize } from "../../../styles/common/element_size.css";
 import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 import { Button } from "../button.comp";
@@ -321,7 +321,7 @@ describe("<Button />", () => {
     it("should have the `md` class name by default", () => {
       const { getByRole } = render(<Button id="button" name="Test button" />);
 
-      expect(getByRole("button")).toHaveClass(elementSize.md);
+      expect(getByRole("button")).toHaveClass(elementFontSize.md);
     });
 
     it("should have the `sm` class name when size = sm", () => {
@@ -329,7 +329,7 @@ describe("<Button />", () => {
         <Button id="button" name="Test button" size="sm" />
       );
 
-      expect(getByRole("button")).toHaveClass(elementSize.sm);
+      expect(getByRole("button")).toHaveClass(elementFontSize.sm);
     });
 
     it("should have the `md` class name when size = md", () => {
@@ -337,7 +337,7 @@ describe("<Button />", () => {
         <Button id="button" name="Test button" size="md" />
       );
 
-      expect(getByRole("button")).toHaveClass(elementSize.md);
+      expect(getByRole("button")).toHaveClass(elementFontSize.md);
     });
 
     it("should have the `lg` class name when size = lg", () => {
@@ -345,7 +345,7 @@ describe("<Button />", () => {
         <Button id="button" name="Test button" size="lg" />
       );
 
-      expect(getByRole("button")).toHaveClass(elementSize.lg);
+      expect(getByRole("button")).toHaveClass(elementFontSize.lg);
     });
 
     it("should have the `square` class name when size = square", () => {

@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
-import { elementSize } from "../../styles/common/element_size.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
@@ -66,7 +65,7 @@ export const TextArea = forwardRef(
             name={name}
             aria-invalid={invalid}
             aria-label={name}
-            className={clsx(styles.textArea, elementSize[size], {
+            className={clsx(styles.getTextAreaStyles({ size }), {
               [a11yError]: invalid,
             })}
             id={id}
