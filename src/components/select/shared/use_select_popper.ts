@@ -8,7 +8,9 @@ type UseSelectPopperProps = {
   isFlipped?: boolean;
 };
 
-export const useSelectPopper = ({ isFlipped }: UseSelectPopperProps) => {
+export const useSelectPopper = ({
+  isFlipped = false,
+}: UseSelectPopperProps) => {
   const [popperAnchorEl, setPopperAnchorEl] = useState<HTMLDivElement | null>(
     null
   );
