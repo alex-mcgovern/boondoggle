@@ -85,7 +85,7 @@ export const Tab: TabComponent = forwardRef(
         }}
       >
         <SlotWrapper
-          gap="none"
+          gap="spacing0"
           color="inherit"
           slotLeft={slotLeft}
           slotRight={slotRight}
