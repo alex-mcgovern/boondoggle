@@ -21,9 +21,9 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
  * ------------------------------------------------------------------------------- */
 
 const variantSize = styleVariants({
-  sm: [elementFontSize.sm, elementPadding.sm],
-  md: [elementFontSize.md, elementPadding.md],
-  lg: [elementFontSize.lg, elementPadding.lg],
+  sm: [elementFontSize.sm],
+  md: [elementFontSize.md],
+  lg: [elementFontSize.lg],
   square: [
     getSprinkles({
       fontStyle: "body_md",
@@ -88,6 +88,7 @@ export const variantAppearance = styleVariants({
       textAlign: "left",
       fontWeight: "semibold",
       paddingY: "spacing1",
+      paddingX: "none",
     }),
     {
       color: vars.color.text_low_contrast,
@@ -140,4 +141,31 @@ export const getButtonStyles = recipe({
     appearance: "primary",
     size: "md",
   },
+
+  compoundVariants: [
+    {
+      variants: { appearance: "primary", size: "sm" },
+      style: [elementPadding.sm],
+    },
+    {
+      variants: { appearance: "secondary", size: "sm" },
+      style: [elementPadding.sm],
+    },
+    {
+      variants: { appearance: "primary", size: "md" },
+      style: [elementPadding.md],
+    },
+    {
+      variants: { appearance: "secondary", size: "md" },
+      style: [elementPadding.md],
+    },
+    {
+      variants: { appearance: "primary", size: "lg" },
+      style: [elementPadding.lg],
+    },
+    {
+      variants: { appearance: "secondary", size: "lg" },
+      style: [elementPadding.lg],
+    },
+  ],
 });
