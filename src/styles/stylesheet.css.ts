@@ -52,7 +52,7 @@ globalStyle(`a`, {
     [baseLayer]: {
       padding: 0,
       margin: 0,
-      // listStyleType: "none",
+      fontWeight: vars.fontWeight.medium,
       color: vars.color.button_default,
       textDecoration: "none",
     },
