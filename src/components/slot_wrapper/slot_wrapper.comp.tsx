@@ -27,7 +27,7 @@ export function SlotWrapper({
       {...rest}
     >
       {slotLeft && (
-        <Box {...slotProps} color="inherit">
+        <Box {...slotProps} flexShrink="0" color="inherit">
           {slotLeft}
         </Box>
       )}
@@ -35,7 +35,7 @@ export function SlotWrapper({
       {children}
 
       {slotRight && (
-        <Box {...slotProps} color="inherit">
+        <Box {...slotProps} flexShrink="0" color="inherit">
           {slotRight}
         </Box>
       )}
