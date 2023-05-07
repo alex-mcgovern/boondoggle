@@ -27,5 +27,9 @@ export const tooltipText = style([
     padding: "spacing1",
     borderRadius: "sm",
   }),
-  { background: vars.color.text_low_contrast, color: vars.color.white },
+  {
+    maxWidth: "10rem",
+    background: vars.color.text_low_contrast,
+    color: vars.color.white,
+  },
 ]);

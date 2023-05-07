@@ -1,4 +1,5 @@
 import { Tooltip as StoryComp } from "..";
+import { LOREM } from "../../../../mocks/LOREM.mock";
 
 import type { TooltipProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -14,8 +15,13 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 
 export const Default: StoryObj<StoryCompProps> = {
   render: Template,
-  name: "default",
   args: {
-    tooltipText: "This is a tooltip",
+    tooltipText: LOREM.textXxs,
+  },
+};
+export const WithLongText: StoryObj<StoryCompProps> = {
+  render: Template,
+  args: {
+    tooltipText: LOREM.textXxl,
   },
 };
