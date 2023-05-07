@@ -29,6 +29,7 @@ export const tooltipText = style([
   }),
   {
     maxWidth: "10rem",
+    whiteSpace: "normal",
     background: vars.color.text_low_contrast,
     color: vars.color.white,
   },
