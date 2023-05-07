@@ -7,6 +7,7 @@ const meta = {
   component: StoryComp,
   args: {
     value: 50,
+    isValueVisible: true,
   },
 } satisfies Meta<typeof StoryComp>;
 
@@ -16,6 +17,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     value: 50,
+  },
+};
+export const VisibleValue: Story = {
+  args: {
+    value: 50,
+    isValueVisible: true,
   },
 };
 export const Max: Story = {

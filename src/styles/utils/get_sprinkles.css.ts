@@ -61,7 +61,7 @@ export const sprinklesProperties = defineProperties({
     marginRight: vars.spacing,
     marginTop: vars.spacing,
     maxHeight: { ...vars.height, ...vars.spacing },
-    maxWidth: vars.width,
+    maxWidth: { ...vars.width, ...vars.spacing },
     minWidth: { ...vars.width, ...vars.spacing },
     minHeight: { ...vars.height, ...vars.spacing },
     overflow: ["hidden"],
