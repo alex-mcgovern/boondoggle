@@ -23,7 +23,7 @@ const contentShow = keyframes({
 
 export const dropdownListInner = style([
   {
-    maxHeight: "33vh",
+    maxHeight: "20rem",
   },
 ]);
 
@@ -37,7 +37,7 @@ export const dropdownListWrapper = style([
   getSprinkles({
     background: "background",
     marginTop: "spacing1",
-    minWidth: "gridSpan3",
+    width: "auto",
     display: "block",
     margin: "none",
 
