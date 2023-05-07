@@ -10,7 +10,7 @@ export type ProgressBarProps = {
   /** Whether the value will be render with the component */
   isValueVisible?: boolean;
   /** Size of the progress bar. Consistent with the `Tag` component */
-  size: ElementSizeEnum;
+  size?: ElementSizeEnum;
 } & BoxProps;
 
 export function ProgressBar({
