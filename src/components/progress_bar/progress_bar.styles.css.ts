@@ -1,7 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { variantColorOverlay } from "../../styles/color_palette.css";
 import {
   elementFontSize,
   elementPadding,
@@ -16,17 +15,15 @@ const size = styleVariants({
 
 export const getProgressBarStyles = recipe({
   base: [
-    variantColorOverlay.blue,
     getSprinkles({
+      background: "background",
       alignItems: "center",
-      border: "border_active",
-      borderRadius: "sm",
+      border: "border_default",
+      borderRadius: "md",
       color: "text_low_contrast",
       display: "flex",
       justifyContent: "center",
       overflow: "hidden",
-      paddingX: "spacing1",
-      paddingY: "spacing0",
       whiteSpace: "nowrap",
       position: "relative",
       minWidth: "spacing7",
