@@ -5,10 +5,13 @@ import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const tooltipTrigger = style([
+  getSprinkles({
+    color: "text_low_contrast",
+    borderRadius: "sm",
+    flexShrink: "0",
+    minWidth: "spacing1.5",
+  }),
   {
-    color: vars.color.text_low_contrast,
-    borderRadius: vars.borderRadius.sm,
-
     transition: `color ease`,
     transitionDuration: vars.transitionDuration.medium,
 
