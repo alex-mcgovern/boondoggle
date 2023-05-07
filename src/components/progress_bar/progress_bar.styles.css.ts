@@ -2,27 +2,17 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
+import {
+  elementFontSize,
+  elementPadding,
+} from "../../styles/common/element_size.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  sm: [
-    getSprinkles({
-      fontStyle: "body_xs",
-    }),
-  ],
-  md: [
-    getSprinkles({
-      fontStyle: "body_sm",
-    }),
-  ],
-  lg: [
-    getSprinkles({
-      fontStyle: "body_md",
-    }),
-  ],
+  sm: [elementFontSize.sm, elementPadding.sm],
+  md: [elementFontSize.md, elementPadding.md],
+  lg: [elementFontSize.lg, elementPadding.lg],
 });
-
-export type ProgressBarSizeEnum = keyof typeof size;
 
 export const getProgressBarStyles = recipe({
   base: [

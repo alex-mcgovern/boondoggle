@@ -1,6 +1,7 @@
 import { Box } from "../box";
 import * as styles from "./progress_bar.styles.css";
 
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { BoxProps } from "../box";
 
 export type ProgressBarProps = {
@@ -9,7 +10,7 @@ export type ProgressBarProps = {
   /** Whether the value will be render with the component */
   isValueVisible?: boolean;
   /** Size of the progress bar. Consistent with the `Tag` component */
-  size: styles.ProgressBarSizeEnum;
+  size: ElementSizeEnum;
 } & BoxProps;
 
 export function ProgressBar({
