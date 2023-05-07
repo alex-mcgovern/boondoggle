@@ -22,7 +22,7 @@ export const getTabStyle = recipe({
     getSprinkles({
       alignItems: "center",
       borderRadius: "sm",
-      background: "tint_default",
+      background: "tint_active",
       color: "text_low_contrast",
       display: "inline-flex",
       gap: "spacing0",
