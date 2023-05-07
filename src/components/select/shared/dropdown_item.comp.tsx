@@ -4,11 +4,9 @@ import { forwardRef } from "react";
 import { Box } from "../../box";
 import * as styles from "../select.styles.css";
 
+import type { ElementSizeEnum } from "../../../styles/common/element_size.css";
+import type { BoxProps } from "../../box";
 import type { DropdownItemShape } from "../select.types";
-import type {
-  BoxProps,
-  ElementSizeEnum,
-} from "@alex-mcgovern/boondoggle.design";
 import type { Ref } from "react";
 
 export type DropdownItemProps = BoxProps & {
