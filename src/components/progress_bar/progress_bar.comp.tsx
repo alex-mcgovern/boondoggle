@@ -22,7 +22,7 @@ export function ProgressBar({
   className: userClassName,
   ...rest
 }: ProgressBarProps) {
-  if (typeof value !== "number" || typeof value !== "string") {
+  if (typeof value !== "number" && typeof value !== "string") {
     console.error("[ProgressBar] invalid value");
   }
 
