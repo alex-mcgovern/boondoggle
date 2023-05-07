@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import { Box } from "../box";
 import * as styles from "./progress_bar.styles.css";
 
@@ -17,6 +19,7 @@ export function ProgressBar({
   value,
   isValueVisible,
   size,
+  className: userClassName,
   ...rest
 }: ProgressBarProps) {
   if (typeof value !== "number" || typeof value !== "string") {
@@ -27,7 +30,10 @@ export function ProgressBar({
   const clampedValue = Math.min(100, Math.max(0, parsedValue));
 
   return (
-    <Box className={styles.getProgressBarStyles({ size })} {...rest}>
+    <Box
+      className={clsx(userClassName, styles.getProgressBarStyles({ size }))}
+      {...rest}
+    >
       {isValueVisible && <Box zIndex="1">{value} %</Box>}
       <Box
         className={styles.progressBarInnerStyles}
