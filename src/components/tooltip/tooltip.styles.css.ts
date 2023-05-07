@@ -26,11 +26,12 @@ export const tooltipText = style([
     fontStyle: "body_xs",
     padding: "spacing1",
     borderRadius: "sm",
+    textAlign: "center",
+    color: "white",
+    background: "text_low_contrast",
+    whiteSpace: "normal",
   }),
   {
-    maxWidth: "10rem",
-    whiteSpace: "normal",
-    background: vars.color.text_low_contrast,
-    color: vars.color.white,
+    maxWidth: "12rem",
   },
 ]);

@@ -82,7 +82,7 @@ export const sprinklesProperties = defineProperties({
     textAlign: ["center", "left", "right"],
     textDecoration: ["underline", "none", "line-through"],
     textTransform: ["capitalize", "uppercase", "lowercase"],
-    whiteSpace: ["nowrap"],
+    whiteSpace: ["nowrap", "normal"],
     zIndex: ["-1", "1"],
   },
   shorthands: {
