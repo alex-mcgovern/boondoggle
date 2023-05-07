@@ -18,9 +18,6 @@ export const tooltipTrigger = style([
       },
     },
   },
-  getSprinkles({
-    padding: "spacing0",
-  }),
   a11yFocus,
 ]);
 
