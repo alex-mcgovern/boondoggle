@@ -41,6 +41,7 @@ export const getTagStyle = recipe({
       paddingY: "spacing0",
       whiteSpace: "nowrap",
       textDecoration: "none",
+      width: "max-content",
     }),
     a11yFocus,
     createAccessibleTransition({
