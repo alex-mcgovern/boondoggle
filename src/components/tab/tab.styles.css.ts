@@ -28,6 +28,7 @@ export const getTabStyle = recipe({
       gap: "spacing0",
       whiteSpace: "nowrap",
       textDecoration: "none",
+      width: "max-content",
     }),
     a11yFocus,
     createAccessibleTransition({
@@ -47,5 +48,8 @@ export const getTabStyle = recipe({
   variants: {
     colorOverlay: variantColorOverlay,
     size,
+  },
+  defaultVariants: {
+    size: "md",
   },
 });
