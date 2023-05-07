@@ -20,11 +20,12 @@ export function Tooltip({
     </button>
   ),
   side = "bottom",
+  delayDuration = 0,
   ...rest
 }: TooltipProps) {
   return (
     <RadixTooltip.TooltipProvider>
-      <RadixTooltip.Root {...rest}>
+      <RadixTooltip.Root {...rest} delayDuration={delayDuration}>
         <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
 
         <RadixTooltip.Content
