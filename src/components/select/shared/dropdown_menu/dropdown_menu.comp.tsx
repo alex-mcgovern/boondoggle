@@ -87,7 +87,7 @@ export const DropdownMenu = forwardRef(
                 item={item}
                 isMulti={isMulti}
                 isHighlighted={highlightedIndex === index}
-                key={item.label}
+                key={`${item.label}-${item.value}`}
                 isDropdownItemSelected={isItemSelected}
                 size={size}
                 {...getDropdownItemProps({
