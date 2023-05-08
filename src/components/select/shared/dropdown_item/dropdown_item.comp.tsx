@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { Box } from "../../../box";
+import { SlotWrapper } from "../../../slot_wrapper";
 import * as styles from "./dropdown_item.styles.css";
 
 import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
@@ -33,9 +34,11 @@ export const DropdownItem = forwardRef(
     const { label, slotLeft, ...restItemProps } = item || {};
 
     return (
-      <Box
+      <SlotWrapper
         as="li"
         id={label}
+        slotLeft={slotLeft}
+        slotProps={{ width: "spacing2" }}
         className={clsx(
           styles.getDropdownItemStyles({
             size,
@@ -49,7 +52,6 @@ export const DropdownItem = forwardRef(
         {...restItemProps}
         ref={ref}
       >
-        {slotLeft && slotLeft}
         <Box flexShrink="0">{label}</Box>
         {isMulti && (
           <Box
@@ -61,7 +63,7 @@ export const DropdownItem = forwardRef(
             marginLeft="auto"
           />
         )}
-      </Box>
+      </SlotWrapper>
     );
   }
 );

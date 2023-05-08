@@ -25,14 +25,12 @@ export const dropdownListWrapper = style([
     /** Style as a card */
     borderRadius: "sm",
     overflow: "hidden",
-    // isolation: "isolate",
     boxShadow: "sm",
     border: "border_default",
     overflowY: "auto",
   }),
   {
-    // zIndex: 999,
-    maxHeight: "20rem",
+    maxHeight: "15rem",
     selectors: {
       "&:empty": {
         display: "none",
