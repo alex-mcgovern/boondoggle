@@ -133,6 +133,7 @@ export const rootVars = createGlobalTheme(":root", {
     short: "150ms",
     medium: "300ms",
     long: "450ms",
+    very_long: "600ms",
   },
   width: {
     "": "0",
