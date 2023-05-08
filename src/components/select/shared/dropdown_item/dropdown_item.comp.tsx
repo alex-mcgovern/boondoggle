@@ -29,7 +29,7 @@ export const DropdownItem = forwardRef(
       isDropdownItemSelected,
       ...rest
     }: DropdownItemProps,
-    ref: Ref<HTMLLIElement>
+    ref: Ref<HTMLDivElement>
   ) => {
     const { label, slotLeft, ...restItemProps } = item || {};
 
