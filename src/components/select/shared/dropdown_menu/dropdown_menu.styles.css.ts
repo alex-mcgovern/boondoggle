@@ -24,6 +24,7 @@ export const dropdownListWrapper = style([
 
     /** Style as a card */
     borderRadius: "sm",
+    position: "absolute",
     overflow: "hidden",
     boxShadow: "sm",
     border: "border_default",
