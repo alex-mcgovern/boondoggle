@@ -45,8 +45,8 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
 
-    text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
     text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
+    text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
   };
 };
 
