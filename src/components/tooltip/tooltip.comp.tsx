@@ -16,7 +16,7 @@ export function Tooltip({
   tooltipText,
   children = (
     <button type="button" className={styles.tooltipTrigger}>
-      <Icon icon={faInfoCircle} />
+      <Icon size="sm" icon={faInfoCircle} />
     </button>
   ),
   side = "bottom",
