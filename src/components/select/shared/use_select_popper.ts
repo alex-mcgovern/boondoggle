@@ -30,7 +30,7 @@ export const useSelectPopper = ({
     popperElement,
     {
       placement,
-      strategy: "fixed",
+      strategy: "absolute",
     }
   );
 
