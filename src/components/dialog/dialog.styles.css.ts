@@ -22,7 +22,7 @@ export const dialogOverlay = style([
     zIndex: 99999,
   },
   createAccessibleTransition({
-    animation: `${overlayShow} ${vars.transitionDuration.medium} cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+    animation: `${overlayShow} ${vars.transitionDuration.medium} ease forwards`,
   }),
 ]);
 

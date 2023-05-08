@@ -226,7 +226,7 @@ globalStyle("input, textarea", {
       color: vars.color.text_high_contrast,
       padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
       ...createAccessibleTransition({
-        transition: `ease ${vars.transitionDuration.short}`,
+        transition: `ease ${vars.transitionDuration.short} ease`,
         transitionProperty: "color, background-color, border-color",
       }),
     },

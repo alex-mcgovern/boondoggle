@@ -59,7 +59,8 @@ export const dropdownListWrapper = style([
     },
   },
   createAccessibleTransition({
-    animation: `${contentShow} ${vars.transitionDuration.medium} cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+    animation: `${contentShow} ${vars.transitionDuration.medium} ease forwards`,
+    transition: `transform ${vars.transitionDuration.medium} ease`,
   }),
 ]);
 

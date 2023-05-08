@@ -72,7 +72,7 @@ export const sliderThumb = style([
     borderRadius: "50%",
   }),
   createAccessibleTransition({
-    transition: `ease ${vars.transitionDuration.short}`,
+    transition: `ease ${vars.transitionDuration.short} ease`,
     transitionProperty: "background",
   }),
   {

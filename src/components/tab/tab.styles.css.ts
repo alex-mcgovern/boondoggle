@@ -32,7 +32,7 @@ export const getTabStyle = recipe({
     }),
     a11yFocus,
     createAccessibleTransition({
-      transition: `ease ${vars.transitionDuration.short}`,
+      transition: `ease ${vars.transitionDuration.short} ease`,
       transitionProperty: "color, background-color, border-color",
     }),
     {
