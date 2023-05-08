@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { Box } from "../../box";
-import * as styles from "../select.styles.css";
+import { Box } from "../../../box";
+import * as styles from "./dropdown_item.styles.css";
 
-import type { ElementSizeEnum } from "../../../styles/common/element_size.css";
-import type { BoxProps } from "../../box";
-import type { DropdownItemShape } from "../select.types";
+import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
+import type { BoxProps } from "../../../box";
+import type { DropdownItemShape } from "../../select.types";
 import type { Ref } from "react";
 
 export type DropdownItemProps = BoxProps & {

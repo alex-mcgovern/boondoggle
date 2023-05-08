@@ -31,6 +31,14 @@ export const useSelectPopper = ({
     {
       placement,
       strategy: "absolute",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 8],
+          },
+        },
+      ],
     }
   );
 

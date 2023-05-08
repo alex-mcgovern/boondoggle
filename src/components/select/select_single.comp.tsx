@@ -16,7 +16,7 @@ import {
   getIsSelected,
 } from "./select_utils";
 import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
-import { DropdownMenu } from "./shared/dropdown_menu.comp";
+import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
@@ -162,7 +162,6 @@ export const SelectSingle = forwardRef(
     return (
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
-        position="relative"
         color="text_low_contrast"
         ref={setPopperAnchorEl}
         {...rest}

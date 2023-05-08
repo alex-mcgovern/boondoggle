@@ -7,7 +7,7 @@ import { Box } from "../box";
 import { Button } from "../button";
 import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
 import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
-import { DropdownMenu } from "./shared/dropdown_menu.comp";
+import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
@@ -106,7 +106,7 @@ export const SelectButton = forwardRef(
     } = useSelectPopper({ placement });
 
     return (
-      <Box position="relative" ref={setPopperAnchorEl} {...rest}>
+      <Box ref={setPopperAnchorEl} {...rest}>
         <Button
           size={size}
           slotLeft={slotLeft}

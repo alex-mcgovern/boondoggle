@@ -1,5 +1,5 @@
 import type { DropdownItemShape } from "../select.types";
-import type { DropdownMenuProps } from "./dropdown_menu.comp";
+import type { DropdownMenuProps } from "./dropdown_menu/dropdown_menu.comp";
 
 /**
  * Util function to get props for individual dropdown items * May conditionally call `getItemProps` or `getSelectedItemProps` depending on * whether `isMulti` is true, and whether the item is selected or not
