@@ -61,7 +61,10 @@ export function getFilteredDropdownItems({
 
   /** Filter out items that don't match the `inputValue` */
   return items.filter((item) => {
-    return item.label.toLowerCase().includes(inputValue.toLowerCase());
+    return (
+      item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+      item.value.toLowerCase().includes(inputValue.toLowerCase())
+    );
   });
 }
 
