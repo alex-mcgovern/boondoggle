@@ -105,7 +105,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
     <div
       aria-labelledby="downshift-5-label"
-      class="dropdown_menu.styles_dropdownListWrapper__ofq1dt3 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt2 get_sprinkles_background_background__eiij7bo get_sprinkles_width_auto_mobile__eiij7bba get_sprinkles_display_block_mobile__eiij7bed get_sprinkles_borderRadius_sm__eiij7bb get_sprinkles_overflow_hidden__eiij7b7t get_sprinkles_boxShadow_sm__eiij7b6 get_sprinkles_border_border_default__eiij7bc get_sprinkles_overflowY_auto__eiij7b7u dropdown_menu.styles_dropdownWrapperClosed__ofq1dt1"
+      class="dropdown_menu.styles_dropdownListWrapper__ofq1dt3 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt2 get_sprinkles_background_background__eiij7bo get_sprinkles_width_auto_mobile__eiij7bba get_sprinkles_display_block_mobile__eiij7bed get_sprinkles_borderRadius_sm__eiij7bb get_sprinkles_position_absolute__eiij7baj get_sprinkles_overflow_hidden__eiij7b7t get_sprinkles_boxShadow_sm__eiij7b6 get_sprinkles_border_border_default__eiij7bc get_sprinkles_overflowY_auto__eiij7b7u dropdown_menu.styles_dropdownWrapperClosed__ofq1dt1"
       data-popper-escaped="true"
       data-popper-placement="bottom-start"
       data-popper-reference-hidden="true"
