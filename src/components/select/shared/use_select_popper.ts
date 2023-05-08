@@ -33,6 +33,12 @@ export const useSelectPopper = ({
       strategy: "absolute",
       modifiers: [
         {
+          name: "flip",
+          options: {
+            fallbackPlacements: [],
+          },
+        },
+        {
           name: "offset",
           options: {
             offset: [0, 8],

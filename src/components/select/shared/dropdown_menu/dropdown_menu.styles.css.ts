@@ -40,6 +40,5 @@ export const dropdownListWrapper = style([
   },
   createAccessibleTransition({
     animation: `${contentShow} ${vars.transitionDuration.medium} ease forwards`,
-    transition: `transform ${vars.transitionDuration.very_long} ease`,
   }),
 ]);
