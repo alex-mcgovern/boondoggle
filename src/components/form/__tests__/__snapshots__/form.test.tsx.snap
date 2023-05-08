@@ -111,7 +111,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
       data-popper-reference-hidden="true"
       id="downshift-5-menu"
       role="listbox"
-      style="position: fixed; left: 0px; top: 0px; transform: translate(0px, 0px);"
+      style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
     >
       <li
         aria-selected="false"
