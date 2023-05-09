@@ -43,6 +43,8 @@ export type SelectSingleProps = SelectCommonProps &
     onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
     placeholder: string;
     placement?: UseSelectPlacement;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -64,6 +66,7 @@ export const SelectSingle = forwardRef(
       name,
       onChange,
       onIsOpenChange,
+      labelTooltip,
       placeholder,
       size,
       slotLeft,
@@ -168,6 +171,7 @@ export const SelectSingle = forwardRef(
       >
         {label && (
           <Label
+            labelTooltip={labelTooltip}
             {...getLabelProps({
               htmlFor: id,
               label,

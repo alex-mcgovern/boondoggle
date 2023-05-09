@@ -27,6 +27,8 @@ export type TextAreaProps = SprinklesArgs &
     slotRight?: ReactNode;
     errorMessage?: string;
     invalid?: boolean;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
   };
 
 export const TextArea = forwardRef(
@@ -35,6 +37,7 @@ export const TextArea = forwardRef(
       size = "md",
       invalid,
       errorMessage,
+      labelTooltip,
       slotLeft,
       slotRight,
       name,
@@ -53,7 +56,9 @@ export const TextArea = forwardRef(
         color="text_low_contrast"
         {...atomProps}
       >
-        {label && id && <Label label={label} htmlFor={id} />}
+        {label && id && (
+          <Label labelTooltip={labelTooltip} label={label} htmlFor={id} />
+        )}
 
         <SlotWrapper
           slotProps={{ paddingY: "spacing1" }}

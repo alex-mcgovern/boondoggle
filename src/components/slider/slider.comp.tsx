@@ -47,6 +47,8 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
     /** Common interactive element size, shared with button, select, etc */
     size?: ElementSizeEnum;
     type?: HTMLInputTypeAttribute;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
   };
 
 export const Slider = forwardRef(
@@ -58,6 +60,7 @@ export const Slider = forwardRef(
       label,
       name,
       required,
+      labelTooltip,
       slotLeft,
       slotRight,
       ...rest
@@ -74,7 +77,14 @@ export const Slider = forwardRef(
         color="text_low_contrast"
         {...atomProps}
       >
-        {label && id && <Label label={label} htmlFor={id} id={labelId} />}
+        {label && id && (
+          <Label
+            labelTooltip={labelTooltip}
+            label={label}
+            htmlFor={id}
+            id={labelId}
+          />
+        )}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
           <RadixSliderRoot

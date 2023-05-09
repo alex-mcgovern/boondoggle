@@ -36,6 +36,8 @@ export type InputProps = Omit<
     slotRight?: ReactNode;
     /** Placeholder text shown when input is empty. */
     placeholder: string;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
   };
 
 export const Input = forwardRef(
@@ -47,6 +49,7 @@ export const Input = forwardRef(
       slotRight,
       id,
       invalid,
+      labelTooltip,
       label,
       name,
       size = "md",
@@ -63,7 +66,9 @@ export const Input = forwardRef(
         color="text_low_contrast"
         {...atomProps}
       >
-        {label && id && <Label label={label} htmlFor={id} />}
+        {label && id && (
+          <Label labelTooltip={labelTooltip} label={label} htmlFor={id} />
+        )}
 
         <SlotWrapper
           slotProps={{ paddingY: "spacing1" }}

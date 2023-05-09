@@ -41,6 +41,8 @@ export type SelectMultiProps = SelectCommonProps &
     ) => void;
     placeholder: string;
     placement?: UseSelectPlacement;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
   };
 
 export const SelectMulti = forwardRef(
@@ -57,6 +59,7 @@ export const SelectMulti = forwardRef(
       placement,
       items,
       label,
+      labelTooltip,
       name,
       onChange,
       onIsOpenChange,
@@ -209,6 +212,7 @@ export const SelectMulti = forwardRef(
       >
         {label && (
           <Label
+            labelTooltip={labelTooltip}
             {...getLabelProps({
               htmlFor: id,
               label,
