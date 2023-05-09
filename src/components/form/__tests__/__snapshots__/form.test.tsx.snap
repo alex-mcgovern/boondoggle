@@ -10,7 +10,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
   >
     <label
       as="label"
-      class="get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_block_mobile__eiij7bed get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_marginBottom_spacing0__eiij7b3t"
+      class="get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_flex_mobile__eiij7beg get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_gap_spacing0__eiij7b1t get_sprinkles_marginBottom_spacing0__eiij7b3t"
       for="email"
     >
       Email ipsum
@@ -32,7 +32,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
   >
     <label
       as="label"
-      class="get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_block_mobile__eiij7bed get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_marginBottom_spacing0__eiij7b3t"
+      class="get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_flex_mobile__eiij7beg get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_gap_spacing0__eiij7b1t get_sprinkles_marginBottom_spacing0__eiij7b3t"
       for="description"
     >
       Description ipsum
@@ -55,7 +55,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
   >
     <label
       as="label"
-      class="get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_block_mobile__eiij7bed get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_marginBottom_spacing0__eiij7b3t"
+      class="get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_flex_mobile__eiij7beg get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_gap_spacing0__eiij7b1t get_sprinkles_marginBottom_spacing0__eiij7b3t"
       for="select"
       id="downshift-5-label"
     >
@@ -204,7 +204,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
   >
     <label
       as="label"
-      class="get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_block_mobile__eiij7bed get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_marginBottom_spacing0__eiij7b3t"
+      class="get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_color_text_low_contrast__eiij7b19 get_sprinkles_display_flex_mobile__eiij7beg get_sprinkles_fontSize_body_sm__eiij7b9d get_sprinkles_fontWeight_medium__eiij7b30 get_sprinkles_gap_spacing0__eiij7b1t get_sprinkles_marginBottom_spacing0__eiij7b3t"
       for="amount"
       id="amount-label"
     >
