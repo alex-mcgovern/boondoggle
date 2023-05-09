@@ -6,7 +6,7 @@ import { usePopper } from "react-popper";
 
 import type { VariationPlacement } from "@popperjs/core";
 
-export type UseSelectPlacement = Extract<
+export type UsePopperPlacement = Extract<
   VariationPlacement,
   "bottom-start" | "bottom-end"
 >;

@@ -13,7 +13,7 @@ import { useSelectPopper } from "./shared/use_select_popper";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
-import type { UseSelectPlacement } from "./shared/use_select_popper";
+import type { UsePopperPlacement } from "./shared/use_select_popper";
 import type { UseSelectStateChange } from "downshift";
 import type { Ref } from "react";
 
@@ -26,7 +26,7 @@ export type SelectButtonProps = Omit<
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     buttonText?: string;
     buttonProps?: ButtonProps;
-    placement?: UseSelectPlacement;
+    placement?: UsePopperPlacement;
   };
 
 /** Accessible select component, supports multi & single modes. */

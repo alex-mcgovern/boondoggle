@@ -6,7 +6,7 @@ import type { IconProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Icon",
+  title: "Components/Icon",
   component: StoryComp,
 };
 

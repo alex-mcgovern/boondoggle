@@ -41,7 +41,7 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
     border_default: getFromPaletteByIndex(secondaryPalette, 6),
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
 
-    button_tint: getFromPaletteByIndex(primaryPalette, 3),
+    button_tint: getFromPaletteByIndex(primaryPalette, 4),
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
 
@@ -98,6 +98,16 @@ export const variantColorOverlay = styleVariants({
       },
     },
   },
+  grey: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: slate, secondaryPalette: slate })
+        ),
+      },
+    },
+  },
 });
 
 export const getTheme = recipe({
@@ -107,4 +117,4 @@ export const getTheme = recipe({
 });
 
 export type ColorScheme = typeof color;
-export type ColorOverlay = "blue" | "amber" | "green" | "red";
+export type ColorOverlay = keyof typeof variantColorOverlay;

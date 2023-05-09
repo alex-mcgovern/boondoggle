@@ -7,7 +7,7 @@ import type { TagProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Tag",
+  title: "Components/Tag",
   component: StoryComp,
 };
 

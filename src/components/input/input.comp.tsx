@@ -20,8 +20,7 @@ export type InputProps = Omit<
   ComponentPropsWithoutRef<"input">,
   "width" | "height" | "style" | "color" | "size" | "label" | "id"
 > &
-  SprinklesArgs &
-  ConditionalLabelProps & {
+  SprinklesArgs & {
     /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
     errorMessage?: string;
     /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
@@ -36,7 +35,7 @@ export type InputProps = Omit<
     slotRight?: ReactNode;
     /** Placeholder text shown when input is empty. */
     placeholder: string;
-  };
+  } & ConditionalLabelProps;
 
 export const Input = forwardRef(
   (

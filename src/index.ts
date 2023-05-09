@@ -30,7 +30,7 @@ export {
 } from "./styles/common/element_size.css";
 
 /**
- * React components
+ * Components
  */
 export { Box } from "./components/box";
 export type { BoxProps } from "./components/box";

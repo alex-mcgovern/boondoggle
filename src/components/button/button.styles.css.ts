@@ -83,6 +83,22 @@ export const variantAppearance = styleVariants({
     },
   ],
 
+  ghost: [
+    getSprinkles(COMMON_BUTTON_SPRINKLES),
+    {
+      color: vars.color.text_low_contrast,
+      selectors: {
+        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+          color: vars.color.button_active,
+          background: vars.color.button_tint,
+        },
+        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+          background: "transparent",
+        },
+      },
+    },
+  ],
+
   tertiary: [
     getSprinkles({
       textAlign: "left",
@@ -126,7 +142,7 @@ export const getButtonStyles = recipe({
       display: "flex",
       gap: "spacing1",
       textDecoration: "none",
-      width: "max-content",
+      // width: "max-content",
     }),
     createAccessibleTransition({
       transition: `color ${vars.transitionDuration.short} ease,\
@@ -145,28 +161,40 @@ export const getButtonStyles = recipe({
 
   compoundVariants: [
     {
-      variants: { appearance: "primary", size: "sm" },
-      style: [elementPadding.sm],
-    },
-    {
-      variants: { appearance: "secondary", size: "sm" },
-      style: [elementPadding.sm],
+      variants: { appearance: "primary", size: "lg" },
+      style: [elementPadding.lg],
     },
     {
       variants: { appearance: "primary", size: "md" },
       style: [elementPadding.md],
     },
     {
-      variants: { appearance: "secondary", size: "md" },
-      style: [elementPadding.md],
-    },
-    {
-      variants: { appearance: "primary", size: "lg" },
-      style: [elementPadding.lg],
+      variants: { appearance: "primary", size: "sm" },
+      style: [elementPadding.sm],
     },
     {
       variants: { appearance: "secondary", size: "lg" },
       style: [elementPadding.lg],
+    },
+    {
+      variants: { appearance: "secondary", size: "md" },
+      style: [elementPadding.md],
+    },
+    {
+      variants: { appearance: "secondary", size: "sm" },
+      style: [elementPadding.sm],
+    },
+    {
+      variants: { appearance: "ghost", size: "lg" },
+      style: [elementPadding.lg],
+    },
+    {
+      variants: { appearance: "ghost", size: "md" },
+      style: [elementPadding.md],
+    },
+    {
+      variants: { appearance: "ghost", size: "sm" },
+      style: [elementPadding.sm],
     },
   ],
 });

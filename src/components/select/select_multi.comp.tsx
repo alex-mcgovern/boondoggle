@@ -22,7 +22,7 @@ import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
-import type { UseSelectPlacement } from "./shared/use_select_popper";
+import type { UsePopperPlacement } from "./shared/use_select_popper";
 import type {
   UseComboboxStateChange,
   UseMultipleSelectionStateChange,
@@ -40,7 +40,7 @@ export type SelectMultiProps = SelectCommonProps &
       changes: UseComboboxStateChange<DropdownItemShape>
     ) => void;
     placeholder: string;
-    placement?: UseSelectPlacement;
+    placement?: UsePopperPlacement;
   };
 
 export const SelectMulti = forwardRef(

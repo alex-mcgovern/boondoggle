@@ -11,7 +11,7 @@ import type { ButtonProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Button",
+  title: "Components/Button",
   component: StoryComp,
 };
 const Template: StoryFn<StoryCompProps> = ({

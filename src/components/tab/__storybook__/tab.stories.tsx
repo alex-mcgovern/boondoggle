@@ -7,7 +7,7 @@ import type { TabProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Tab",
+  title: "Components/Tab",
   component: StoryComp,
 };
 

@@ -6,6 +6,7 @@ module.exports = {
       "<rootDir>/test/__mocks__/file-mock.ts", // <-- haven't bothered with this yet
   },
   setupFilesAfterEnv: ["<rootDir>/test/setup_test_env.ts"],
+  globalSetup: "<rootDir>/test/global_setup.ts",
   testEnvironmentOptions: {
     url: "http://localhost",
   },
