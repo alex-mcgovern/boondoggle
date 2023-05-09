@@ -55,10 +55,6 @@ export const DropdownMenu = forwardRef(
     }: DropdownMenuProps,
     ref
   ) => {
-    const dropdownWrapperStyles = clsx(styles.dropdownListWrapper, {
-      [styles.dropdownWrapperClosed]: !isOpen,
-    });
-
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     /**
@@ -67,7 +63,9 @@ export const DropdownMenu = forwardRef(
      */
     return (
       <Box
-        className={dropdownWrapperStyles}
+        className={clsx(styles.dropdownListWrapper, {
+          [styles.dropdownWrapperClosed]: !isOpen,
+        })}
         {...atomProps}
         {...getMenuProps?.({
           ...otherProps,
