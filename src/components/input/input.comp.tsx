@@ -14,7 +14,7 @@ import * as styles from "./input.styles.css";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ConditionalLabelProps } from "../../types";
-import type { ComponentPropsWithoutRef, ReactNode, Ref } from "react";
+import type { ComponentPropsWithoutRef, LegacyRef, ReactNode } from "react";
 
 export type InputProps = Omit<
   ComponentPropsWithoutRef<"input">,
@@ -51,7 +51,7 @@ export const Input = forwardRef(
       size = "md",
       ...rest
     }: InputProps,
-    ref: Ref<HTMLInputElement>
+    ref: LegacyRef<HTMLInputElement> | undefined
   ) => {
     /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);

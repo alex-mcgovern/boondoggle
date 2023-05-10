@@ -8,3 +8,8 @@ export const inputDate = style({
     },
   },
 });
+
+export const datePickerClosed = style({
+  display: "none",
+  visibility: "hidden",
+});

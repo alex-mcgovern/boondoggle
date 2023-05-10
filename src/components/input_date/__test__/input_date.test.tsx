@@ -1,7 +1,6 @@
 /** @jest-environment jsdom */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { act, render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, waitFor } from "@testing-library/react";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { elementFontSize } from "../../../styles/common/element_size.css";
@@ -25,31 +24,33 @@ jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
  * Integration test
  * ------------------------------------------------------------------------------- */
 
-const renderComponent = ({ ...props }: InputDateProps) => {
-  return render(<InputDate {...props} />);
+const renderComponent = async ({ ...props }: InputDateProps) => {
+  return waitFor(() => {
+    return render(<InputDate {...props} />);
+  });
 };
 
 describe("<InputDate />", () => {
   describe("Basic smoke tests", () => {
-    it("should render without throwing", () => {
-      const { getByRole } = renderComponent(PROPS);
+    it("should render without throwing", async () => {
+      const { getByRole } = await renderComponent(PROPS);
 
-      expect(getByRole("button")).not.toBeNull();
+      expect(getByRole("textbox")).not.toBeNull();
     });
 
-    it("should match snapshot", () => {
-      const { getByRole } = renderComponent(PROPS);
+    it("should match snapshot", async () => {
+      const { getByRole } = await renderComponent(PROPS);
 
-      expect(getByRole("button")).toMatchSnapshot();
+      expect(getByRole("textbox")).toMatchSnapshot();
     });
 
-    it("should render placeholder when present", () => {
-      const { getByRole } = renderComponent({
+    it("should render placeholder when present", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
       });
 
-      expect((getByRole("button") as HTMLInputElement).placeholder).toBe(
+      expect((getByRole("textbox") as HTMLInputElement).placeholder).toBe(
         LOREM.placeholder()
       );
     });
@@ -59,17 +60,19 @@ describe("<InputDate />", () => {
    * a11y labelling
    */
   describe("a11y labelling", () => {
-    it("should assign name to the element", () => {
-      const { getByRole } = renderComponent({
+    it("should assign name to the element", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
       });
 
-      expect((getByRole("button") as HTMLInputElement).name).toBe(LOREM.name());
+      expect((getByRole("textbox") as HTMLInputElement).name).toBe(
+        LOREM.name()
+      );
     });
 
-    it("should label element correctly", () => {
-      const { getByLabelText } = renderComponent({
+    it("should label element correctly", async () => {
+      const { getByLabelText } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         label: LOREM.label(),
@@ -79,14 +82,14 @@ describe("<InputDate />", () => {
       expect(getByLabelText(LOREM.label())).not.toBeNull();
     });
 
-    it("should assign tabIndex to the element", () => {
-      const { getByRole } = renderComponent({
+    it("should assign tabIndex to the element", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         tabIndex: 0,
       });
 
-      expect(getByRole("button")?.tabIndex).toBe(0);
+      expect(getByRole("textbox")?.tabIndex).toBe(0);
     });
   });
 
@@ -94,14 +97,14 @@ describe("<InputDate />", () => {
    * `className` prop
    */
   describe("`className` prop", () => {
-    it("should have the className passed to it", () => {
-      const { getByRole } = renderComponent({
+    it("should have the className passed to it", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         className: "test-class",
       });
 
-      expect(getByRole("button")).toHaveClass("test-class");
+      expect(getByRole("textbox")).toHaveClass("test-class");
     });
   });
 
@@ -109,43 +112,43 @@ describe("<InputDate />", () => {
    * Size prop
    */
   describe("`size` prop", () => {
-    it("should have the `md` class name by default", () => {
-      const { getByRole } = renderComponent({
+    it("should have the `md` class name by default", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
       });
 
-      expect(getByRole("button")).toHaveClass(elementFontSize.md);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.md);
     });
 
-    it("should have the `sm` class name when size = sm", () => {
-      const { getByRole } = renderComponent({
+    it("should have the `sm` class name when size = sm", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         size: "sm",
       });
 
-      expect(getByRole("button")).toHaveClass(elementFontSize.sm);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.sm);
     });
 
-    it("should have the `md` class name when size = md", () => {
-      const { getByRole } = renderComponent({
+    it("should have the `md` class name when size = md", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         size: "md",
       });
 
-      expect(getByRole("button")).toHaveClass(elementFontSize.md);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.md);
     });
 
-    it("should have the `lg` class name when size = lg", () => {
-      const { getByRole } = renderComponent({
+    it("should have the `lg` class name when size = lg", async () => {
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         size: "lg",
       });
 
-      expect(getByRole("button")).toHaveClass(elementFontSize.lg);
+      expect(getByRole("textbox")).toHaveClass(elementFontSize.lg);
     });
   });
 
@@ -153,8 +156,8 @@ describe("<InputDate />", () => {
    * Slot props
    */
   describe("Slot props", () => {
-    it("should render node passed to `slotLeft`", () => {
-      const { getByTestId } = renderComponent({
+    it("should render node passed to `slotLeft`", async () => {
+      const { getByTestId } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         slotLeft: <Icon data-testid="icon" icon={faSearch} />,
@@ -163,8 +166,8 @@ describe("<InputDate />", () => {
       expect(getByTestId("icon")).not.toBeNull();
     });
 
-    it("should render node passed to `slotRight`", () => {
-      const { getByTestId } = renderComponent({
+    it("should render node passed to `slotRight`", async () => {
+      const { getByTestId } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         slotRight: <Icon data-testid="icon" icon={faSearch} />,
@@ -178,46 +181,46 @@ describe("<InputDate />", () => {
    * onFocus events
    */
   describe("`onFocus`", () => {
-    it("should call `onFocus` by default", () => {
+    it("should call `onFocus` by default", async () => {
       const onFocus = jest.fn();
 
-      const { getByRole } = renderComponent({
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         onFocus,
       });
 
-      getByRole("button").focus();
+      getByRole("textbox").focus();
 
       expect(onFocus).toHaveBeenCalled();
     });
 
-    it("should call `onFocus` when `readonly`", () => {
+    it("should call `onFocus` when `readonly`", async () => {
       const onFocus = jest.fn();
 
-      const { getByRole } = renderComponent({
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         readOnly: true,
         onFocus,
       });
 
-      getByRole("button").focus();
+      getByRole("textbox").focus();
 
       expect(onFocus).toHaveBeenCalled();
     });
 
-    it("should not call `onFocus` when `disabled`", () => {
+    it("should not call `onFocus` when `disabled`", async () => {
       const onFocus = jest.fn();
 
-      const { getByRole } = renderComponent({
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         disabled: true,
         onFocus,
       });
 
-      getByRole("button").focus();
+      getByRole("textbox").focus();
 
       expect(onFocus).not.toHaveBeenCalled();
     });
@@ -227,82 +230,54 @@ describe("<InputDate />", () => {
    * onBlur events
    */
   describe("`onBlur`", () => {
-    it("it should call onBlur by default", () => {
+    it("it should call onBlur by default", async () => {
       const onBlur = jest.fn();
 
-      const { getByRole } = renderComponent({
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         onBlur,
       });
 
-      getByRole("button").focus();
+      getByRole("textbox").focus();
 
-      getByRole("button").blur();
+      getByRole("textbox").blur();
 
       expect(onBlur).toHaveBeenCalled();
     });
 
-    it("it should call onBlur when readonly", () => {
+    it("it should call onBlur when readonly", async () => {
       const onBlur = jest.fn();
 
-      const { getByRole } = renderComponent({
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         onBlur,
         readOnly: true,
       });
 
-      getByRole("button").focus();
+      getByRole("textbox").focus();
 
-      getByRole("button").blur();
+      getByRole("textbox").blur();
 
       expect(onBlur).toHaveBeenCalled();
     });
 
-    it("should not call onBlur when disabled", () => {
+    it("should not call onBlur when disabled", async () => {
       const onBlur = jest.fn();
 
-      const { getByRole } = renderComponent({
+      const { getByRole } = await renderComponent({
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
         onBlur,
         disabled: true,
       });
 
-      getByRole("button").focus();
+      getByRole("textbox").focus();
 
-      getByRole("button").blur();
+      getByRole("textbox").blur();
 
       expect(onBlur).not.toHaveBeenCalled();
-    });
-  });
-
-  /** -----------------------------------------------------------------------------
-   * Integration test
-   * ------------------------------------------------------------------------------- */
-
-  describe.only("Integration test", () => {
-    it("should have updated value when user selects a date", async () => {
-      const { getByRole } = renderComponent(PROPS);
-
-      const buttonElement = getByRole("button");
-      expect(buttonElement).not.toBeNull();
-
-      await act(() => {
-        return userEvent.click(buttonElement);
-      });
-      return;
-
-      const newDateButton = getByRole("button", { name: "Jan-02" });
-
-      await act(() => {
-        userEvent.click(newDateButton);
-      });
-
-      await waitFor(() => {
-        expect(buttonElement).toHaveValue("2021-01-02");
-      });
     });
   });
 });

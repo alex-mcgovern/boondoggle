@@ -1,14 +1,8 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 
 import { a11yFocus } from "../../../../styles/common/a11y.css";
-import { vars } from "../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
+import { animateAppear } from "../../../../styles/common/animations.css";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
-
-const contentShow = keyframes({
-  "0%": { opacity: 0 },
-  "100%": { opacity: 1 },
-});
 
 export const dropdownWrapperClosed = style({
   display: "none",
@@ -38,7 +32,5 @@ export const dropdownListWrapper = style([
       },
     },
   },
-  createAccessibleTransition({
-    animation: `${contentShow} ${vars.transitionDuration.medium} ease forwards`,
-  }),
+  animateAppear,
 ]);

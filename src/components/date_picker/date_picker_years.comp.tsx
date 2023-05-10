@@ -18,6 +18,7 @@ export function DatePickerYears({
       {years.map((calendarYear) => {
         return (
           <Button
+            key={calendarYear.year.toString()}
             appearance={calendarYear.selected ? "primary" : "ghost"}
             width="100%"
             name={calendarYear.year.toString()}

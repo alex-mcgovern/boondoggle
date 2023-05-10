@@ -113,9 +113,9 @@ export const variantAppearance = styleVariants({
           color: vars.color.button_active,
           textDecoration: "underline",
         },
-      },
-      [SELECTOR_LINK_BUTTON_ACTIVE]: {
-        color: vars.color.button_default,
+        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+          color: vars.color.button_default,
+        },
       },
     },
   ],
@@ -142,11 +142,10 @@ export const getButtonStyles = recipe({
       display: "flex",
       gap: "spacing1",
       textDecoration: "none",
-      // width: "max-content",
+      width: "max-content",
     }),
     createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.short} ease,\
-                   background ${vars.transitionDuration.short} ease`,
+      transition: `color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
     }),
   ],
   variants: {

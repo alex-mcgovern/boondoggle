@@ -7,7 +7,6 @@ import {
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import * as styles from "./date_picker.styles.css";
 
 import type { BoxProps } from "../box";
 import type {
@@ -51,18 +50,14 @@ export function DatePickerControls({
         marginBottom="spacing2"
       >
         <Button
+          {...(isShowingYears ? previousYearsButton() : previousMonthButton())}
           appearance="ghost"
-          name="prev-month"
+          name="prev"
           size="square"
           slotLeft={<Icon icon={faAngleLeft} />}
-          {...(isShowingYears ? previousYearsButton() : previousMonthButton())}
         />
 
-        <button
-          type="button"
-          onClick={onToggleYears}
-          className={styles.titleButton}
-        >
+        <Button onClick={onToggleYears} appearance="ghost" name="toggle_years">
           {isShowingYears ? (
             <> {`${years[0].year} - ${years[years.length - 1].year}`}</>
           ) : (
@@ -71,14 +66,14 @@ export function DatePickerControls({
             </>
           )}
           <Icon icon={faAngleDown} />
-        </button>
+        </Button>
 
         <Button
+          {...(isShowingYears ? nextYearsButton() : nextMonthButton())}
           appearance="ghost"
-          name="next-month"
+          name="next"
           size="square"
           slotLeft={<Icon icon={faAngleRight} />}
-          {...(isShowingYears ? nextYearsButton() : nextMonthButton())}
         />
       </Box>
     </Box>

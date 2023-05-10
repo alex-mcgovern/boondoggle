@@ -1,18 +1,7 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 
-import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
+import { animateAppear } from "../../styles/common/animations.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-
-const overlayShow = keyframes({
-  "0%": { opacity: 0 },
-  "100%": { opacity: 1 },
-});
-
-const contentShow = keyframes({
-  "0%": { opacity: 0, transform: "translate(-50%, -48%) scale(.96)" },
-  "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
-});
 
 export const dialogOverlay = style([
   {
@@ -21,9 +10,7 @@ export const dialogOverlay = style([
     inset: 0,
     zIndex: 99999,
   },
-  createAccessibleTransition({
-    animation: `${overlayShow} ${vars.transitionDuration.medium} ease forwards`,
-  }),
+  animateAppear,
 ]);
 
 export const dialogContent = style([
@@ -53,9 +40,7 @@ export const dialogContent = style([
       "&:focus": { outline: "none" },
     },
   },
-  createAccessibleTransition({
-    animation: `${contentShow} ${vars.transitionDuration.long} ease forwards`,
-  }),
+  animateAppear,
 ]);
 
 export const dialogInner = style([

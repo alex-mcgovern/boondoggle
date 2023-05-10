@@ -33,7 +33,7 @@ export const sprinklesProperties = defineProperties({
     background: { ...vars.color, inherit: "inherit" },
     color: { ...vars.color, inherit: "inherit" },
 
-    /** Flex * Grid */
+    /** Flex / Grid */
     alignItems: ["stretch", "start", "center", "end", "baseline"],
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     flexWrap: ["wrap", "nowrap"],

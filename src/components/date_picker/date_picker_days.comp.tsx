@@ -30,37 +30,37 @@ type DatePickerDaysProps = {
 
 export function DatePickerDays({
   days,
-  month,
   dayButton,
   onDayClick,
 }: DatePickerDaysProps) {
   return (
     <>
       {days.map((calendarDay) => {
+        if (!calendarDay.inCurrentMonth) {
+          return null;
+        }
+
         return (
-          <>
-            {/* {`${month}-${calendarDay.day}`} */}
-            <Button
-              colorOverlay={
-                calendarDay.inCurrentMonth || calendarDay.selected
-                  ? undefined
-                  : "grey"
-              }
-              key={`${month}-${calendarDay.day}`}
-              appearance={getDayButtonAppearance({
-                now: calendarDay.now,
-                selected: calendarDay.selected,
-              })}
-              name={`${month}-${calendarDay.day}`}
-              size="square"
-              {...dayButton(calendarDay, {
-                disabled: !calendarDay.inCurrentMonth,
-                onClick: onDayClick,
-              })}
-            >
-              {calendarDay.day}
-            </Button>
-          </>
+          <Button
+            {...dayButton(calendarDay, {
+              disabled: !calendarDay.inCurrentMonth,
+              onClick: onDayClick,
+            })}
+            colorOverlay={
+              calendarDay.inCurrentMonth || calendarDay.selected
+                ? undefined
+                : "grey"
+            }
+            name={calendarDay.$date.toISOString()}
+            key={calendarDay.$date.toISOString()}
+            appearance={getDayButtonAppearance({
+              now: calendarDay.now,
+              selected: calendarDay.selected,
+            })}
+            size="square"
+          >
+            {calendarDay.day}
+          </Button>
         );
       })}
     </>

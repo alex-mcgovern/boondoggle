@@ -1,16 +1,12 @@
 import { Box } from "../box";
 
-import type { Calendar, UseDatePickerValue } from "@rehookify/datepicker";
+import type { UseDatePickerValue } from "@rehookify/datepicker";
 
 type DatePickerDayNamesProps = {
   weekDays: UseDatePickerValue["data"]["weekDays"];
-  month: Calendar["month"];
 };
 
-export function DatePickerDayNames({
-  weekDays,
-  month,
-}: DatePickerDayNamesProps) {
+export function DatePickerDayNames({ weekDays }: DatePickerDayNamesProps) {
   return (
     <>
       {weekDays.map((day) => {
@@ -19,7 +15,7 @@ export function DatePickerDayNames({
             color="text_low_contrast"
             fontStyle="body_sm"
             textAlign="center"
-            key={`${month}-${day}`}
+            key={day}
           >
             {day}
           </Box>

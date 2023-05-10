@@ -6,6 +6,19 @@ import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
+export const datePickerRoot = style([
+  getSprinkles({
+    background: "background",
+    border: "border_default",
+    borderRadius: "md",
+    padding: "spacing2",
+    width: "max-content",
+  }),
+  {
+    minWidth: "24rem",
+  },
+]);
+
 export const titleButton = style([
   getSprinkles({
     color: "text_low_contrast",

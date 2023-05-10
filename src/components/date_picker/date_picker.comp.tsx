@@ -1,28 +1,35 @@
 import { useDatePicker } from "@rehookify/datepicker";
+import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
 import { Box } from "../box";
+import * as styles from "./date_picker.styles.css";
 import { DatePickerControls } from "./date_picker_controls.comp";
-import { DatePickerDayNames } from "./date_picker_day_names.comp";
 import { DatePickerDays } from "./date_picker_days.comp";
 import { DatePickerYears } from "./date_picker_years.comp";
 
 import type { BoxProps } from "../box";
 import type { MouseEvent, Ref } from "react";
 
-type DatePickerProps = {
+export type DatePickerProps = {
   onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 } & BoxProps;
 
 export const DatePicker = forwardRef(
-  ({ onDayClick, ...rest }: DatePickerProps, ref: Ref<HTMLButtonElement>) => {
-    console.log("DatePicker");
+  (
+    {
+      onDayClick,
+      className: userClassName,
 
+      ...rest
+    }: DatePickerProps,
+    ref: Ref<HTMLElement>
+  ) => {
     const [selectedDates, onDatesChange] = useState<Date[]>([]);
     const [isShowingYears, setIsShowingYears] = useState(false);
 
     const {
-      data: { weekDays, calendars, years },
+      data: { calendars, years },
       propGetters: {
         dayButton,
         previousMonthButton,
@@ -41,8 +48,8 @@ export const DatePicker = forwardRef(
         mode: "static",
       },
       years: {
-        numberOfYears: 24,
-        step: 24,
+        numberOfYears: 20,
+        step: 20,
       },
     });
     const { year, month, days } = calendars[0];
@@ -59,12 +66,8 @@ export const DatePicker = forwardRef(
 
     return (
       <Box
-        background="background"
-        border="border_default"
-        borderRadius="md"
-        padding="spacing2"
+        className={clsx(userClassName, styles.datePickerRoot)}
         as="section"
-        width="max-content"
         __minWidth="24rem"
         ref={ref}
         {...rest}
@@ -102,10 +105,6 @@ export const DatePicker = forwardRef(
             isShowingYears ? "repeat(4, 1fr)" : "repeat(7, 1fr)"
           }
         >
-          {!isShowingYears && (
-            <DatePickerDayNames month={month} weekDays={weekDays} />
-          )}
-
           {isShowingYears ? (
             <DatePickerYears
               onYearClick={onYearClick}
