@@ -21,7 +21,7 @@ const PROPS: StoryCompProps = {
 };
 
 export default {
-  title: "Components/SelectButton",
+  title: "React Components/SelectButton",
   component: StoryComp,
 };
 

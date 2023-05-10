@@ -8,7 +8,7 @@ import { Loader } from "../../loader";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "Components/TextArea",
+  title: "React Components/TextArea",
   component: StoryComp,
   args: {
     placeholder: LOREM.placeholder(),

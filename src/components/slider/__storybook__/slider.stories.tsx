@@ -4,7 +4,7 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "Components/Slider",
+  title: "React Components/Slider",
   component: StoryComp,
   args: {
     name: LOREM.name(),

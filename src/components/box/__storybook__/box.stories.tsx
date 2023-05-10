@@ -14,7 +14,7 @@ import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "Components/Box",
+  title: "React Components/Box",
   component: StoryComp,
 };
 

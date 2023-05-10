@@ -5,7 +5,7 @@ import type { LabelProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "Components/Label",
+  title: "React Components/Label",
   component: StoryComp,
 };
 

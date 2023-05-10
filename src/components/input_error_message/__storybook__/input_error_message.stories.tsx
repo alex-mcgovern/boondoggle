@@ -4,7 +4,7 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "Components/InputErrorMessage",
+  title: "React Components/InputErrorMessage",
   component: StoryComp,
   args: {
     message: LOREM.errorMessage(),

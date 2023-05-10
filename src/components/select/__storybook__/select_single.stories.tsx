@@ -12,7 +12,7 @@ const ON_CHANGE = jest.fn();
 const ITEMS = mockSelectItems({});
 
 const meta = {
-  title: "Components/SelectSingle",
+  title: "React Components/SelectSingle",
   component: StoryComp,
   args: {
     items: ITEMS,

@@ -43,14 +43,8 @@ export function DatePickerDays({
         return (
           <Button
             {...dayButton(calendarDay, {
-              disabled: !calendarDay.inCurrentMonth,
               onClick: onDayClick,
             })}
-            colorOverlay={
-              calendarDay.inCurrentMonth || calendarDay.selected
-                ? undefined
-                : "grey"
-            }
             name={calendarDay.$date.toISOString()}
             key={calendarDay.$date.toISOString()}
             appearance={getDayButtonAppearance({
