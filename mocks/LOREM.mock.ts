@@ -18,18 +18,22 @@ export const LOREM = {
   email: () => {
     return `john.smith@email.com`;
   },
+  labelDate: (suffix?: string) => {
+    return `Date label${suffix ? `-${suffix}` : ""}`;
+  },
   labelEmail: (suffix?: string) => {
-    return `Email ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Email label${suffix ? `-${suffix}` : ""}`;
   },
   labelDescription: (suffix?: string) => {
-    return `Description ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Description label${suffix ? `-${suffix}` : ""}`;
   },
   labelDropdown: (suffix?: string) => {
-    return `Dropdown ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Dropdown label${suffix ? `-${suffix}` : ""}`;
   },
   labelSlider: (suffix?: string) => {
-    return `Slider ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Slider label${suffix ? `-${suffix}` : ""}`;
   },
+  dateFormatted: `02/06/1993`,
   link: "Go to the thing",
   select: "Select a thing",
   textMd: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
