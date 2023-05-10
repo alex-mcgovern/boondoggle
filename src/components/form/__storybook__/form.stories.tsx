@@ -31,7 +31,7 @@ export const Default: Story = {
 export const WithDefaultValues: Story = {
   args: mockForm({
     handleFormSubmission: handleFormSubmissionMock,
-    // handleErrors: handleErrorMock,
+    handleErrors: handleErrorMock,
     withDefaultValues: true,
   }),
 };
