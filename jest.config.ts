@@ -5,6 +5,7 @@ module.exports = {
     ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "<rootDir>/test/__mocks__/file-mock.ts", // <-- haven't bothered with this yet
   },
+  setupFiles: ["<rootDir>/test/setup_tests.ts"],
   setupFilesAfterEnv: ["<rootDir>/test/setup_test_env.ts"],
   globalSetup: "<rootDir>/test/global_setup.ts",
   testEnvironmentOptions: {

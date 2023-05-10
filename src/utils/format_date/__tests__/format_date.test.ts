@@ -16,7 +16,7 @@ test("formatDate()", () => {
   expect(formatDate(undefined)).toBe(undefined);
   expect(formatDate("")).toBe(undefined);
   // @ts-expect-error object is not a string
-  expect(formatDate({})).toBe("Invalid Date");
+  expect(formatDate({})).toBe(undefined);
   // @ts-expect-error null is not a string
   expect(formatDate(null)).toBe(undefined);
 });

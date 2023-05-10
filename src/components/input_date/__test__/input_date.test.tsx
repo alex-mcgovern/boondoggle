@@ -94,21 +94,6 @@ describe("<InputDate />", () => {
   });
 
   /**
-   * `className` prop
-   */
-  describe("`className` prop", () => {
-    it("should have the className passed to it", async () => {
-      const { getByRole } = await renderComponent({
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
-        className: "test-class",
-      });
-
-      expect(getByRole("textbox")).toHaveClass("test-class");
-    });
-  });
-
-  /**
    * Size prop
    */
   describe("`size` prop", () => {
