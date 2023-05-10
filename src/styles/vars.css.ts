@@ -80,6 +80,7 @@ export const rootVars = createGlobalTheme(":root", {
     "4x": "repeat(4, 1fr)",
     "5x": "repeat(5, 1fr)",
     "6x": "repeat(6, 1fr)",
+    "7x": "repeat(7, 1fr)",
     "1_2": "1fr 2fr",
     "1_3": "1fr 3fr",
     "2_1": "2fr 1fr",

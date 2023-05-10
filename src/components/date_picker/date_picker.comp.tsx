@@ -72,10 +72,6 @@ export const DatePicker = forwardRef(
         ref={ref}
         {...rest}
       >
-        {/** ----------------------------------------------------------------------------
-         * Controls
-         * ------------------------------------------------------------------------------- */}
-
         <DatePickerControls
           isShowingYears={isShowingYears}
           month={month}
@@ -88,22 +84,10 @@ export const DatePicker = forwardRef(
           years={years}
         />
 
-        {/** ----------------------------------------------------------------------------
-         * Days
-         * ------------------------------------------------------------------------------- */}
-
         <Box
           gap="spacing1"
           display="grid"
-          __gridTemplateColumns="repeat(7, 1fr)"
-        />
-
-        <Box
-          gap="spacing1"
-          display="grid"
-          __gridTemplateColumns={
-            isShowingYears ? "repeat(4, 1fr)" : "repeat(7, 1fr)"
-          }
+          gridTemplateColumns={isShowingYears ? "4x" : "7x"}
         >
           {isShowingYears ? (
             <DatePickerYears
