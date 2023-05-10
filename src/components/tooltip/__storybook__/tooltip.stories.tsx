@@ -5,7 +5,7 @@ import type { TooltipProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React Components/Tooltip",
+  title: "React components/Tooltip",
   component: StoryComp,
 };
 

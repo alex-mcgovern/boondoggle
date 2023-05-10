@@ -6,7 +6,7 @@ import type { DialogProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React Components/Dialog",
+  title: "React components/Dialog",
   component: StoryComp,
 };
 

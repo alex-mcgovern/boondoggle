@@ -7,7 +7,7 @@ import type { CardProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React Components/Card",
+  title: "React components/Card",
   component: StoryComp,
 };
 

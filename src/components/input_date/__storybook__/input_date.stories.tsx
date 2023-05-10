@@ -7,7 +7,7 @@ import { InputDate as StoryComp } from "../input_date.comp";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "React Components/InputDate",
+  title: "React components/InputDate",
   component: StoryComp,
 } satisfies Meta<typeof StoryComp>;
 

@@ -13,7 +13,7 @@ const handleErrorMock = async (errors: FieldErrors) => {
 };
 
 const meta = {
-  title: "React Components/Form",
+  title: "React components/Form",
   component: StoryComp,
   args: mockForm({
     handleFormSubmission: handleFormSubmissionMock,

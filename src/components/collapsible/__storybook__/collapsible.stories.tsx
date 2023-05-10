@@ -9,7 +9,7 @@ import type { CollapsibleProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React Components/Collapsible",
+  title: "React components/Collapsible",
   component: StoryComp,
 };
 
