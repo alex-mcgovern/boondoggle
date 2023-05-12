@@ -19,7 +19,7 @@ import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 import { useSelectPopper } from "./shared/use_select_popper";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { InputCustomisation } from "../input/input.comp";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
 import type { UsePopperPlacement } from "./shared/use_select_popper";
 import type { UseComboboxStateChange } from "downshift";
@@ -34,7 +34,7 @@ const defaultItemToString = (item: DropdownItemShape | null) => {
 };
 
 export type SelectSingleProps = SelectCommonProps &
-  SprinklesArgs & {
+  InputCustomisation & {
     initialSelectedItem?: DropdownItemShape | null;
     itemToString?: (item: DropdownItemShape | null) => string;
     onIsOpenChange?: (
@@ -54,7 +54,6 @@ export const SelectSingle = forwardRef(
       id,
       initialHighlightedItem,
       initialSelectedItem,
-      inputProps,
       invalid,
       isFilterable,
       placement,
@@ -68,6 +67,8 @@ export const SelectSingle = forwardRef(
       size,
       slotLeft,
       slotRight = DEFAULT_SLOT_RIGHT,
+      wrapperProps,
+      inputProps,
       ...rest
     }: SelectSingleProps,
     ref: Ref<HTMLInputElement>
@@ -163,7 +164,7 @@ export const SelectSingle = forwardRef(
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         color="text_low_contrast"
-        {...rest}
+        {...wrapperProps}
       >
         {label && (
           <Label
@@ -181,6 +182,7 @@ export const SelectSingle = forwardRef(
           readOnly={!isFilterable}
           ref={setPopperAnchorEl}
           invalid={invalid}
+          inputProps={inputAtomProps}
           textTransform="capitalize"
           {...inputAtomProps}
           {...getInputProps?.({
@@ -192,6 +194,7 @@ export const SelectSingle = forwardRef(
             placeholder,
             ref,
             value: inputValue,
+            ...rest,
           })}
         />
 

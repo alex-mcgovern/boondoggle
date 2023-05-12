@@ -44,8 +44,8 @@ export type { CardProps } from "./components/card";
 export { Collapsible } from "./components/collapsible";
 export type { CollapsibleProps } from "./components/collapsible";
 
-export { Dialog } from "./components/dialog";
-export type { DialogProps } from "./components/dialog";
+export { Dialog } from "./components/dialog_modal";
+export type { DialogProps } from "./components/dialog_modal";
 
 export { Form } from "./components/form";
 export type { FormProps } from "./components/form";

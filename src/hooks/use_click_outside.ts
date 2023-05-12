@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 
+import type { ElementTypeArg } from "../types";
 import type { MutableRefObject, RefObject } from "react";
-
-type ElementTypeArg =
-  | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
-  | undefined;
 
 type UseClickOutsideArgs<
   TContentType extends ElementTypeArg,

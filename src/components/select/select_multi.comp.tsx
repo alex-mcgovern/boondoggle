@@ -20,7 +20,7 @@ import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 import { useSelectPopper } from "./shared/use_select_popper";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { InputCustomisation } from "../input/input.comp";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
 import type { UsePopperPlacement } from "./shared/use_select_popper";
 import type {
@@ -30,7 +30,7 @@ import type {
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &
-  SprinklesArgs & {
+  InputCustomisation & {
     initialSelectedItems?: Array<DropdownItemShape>;
     itemToString?: (item: DropdownItemShape | null) => string;
     onChange?: (

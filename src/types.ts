@@ -5,9 +5,10 @@ import type {
   PropsWithChildren,
 } from "react";
 
-/**
+/** -----------------------------------------------------------------------------
  * Polymorphic component types
- */
+ * ------------------------------------------------------------------------------- */
+
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**
    * Pass an HTML tag or custom component to this prop to merge the
@@ -40,6 +41,15 @@ export type PolymorphicComponentPropWithRef<
 
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
   ComponentPropsWithRef<TPolymorphicAs>["ref"];
+
+/** -----------------------------------------------------------------------------
+ * Common types shared across multiple components
+ * ------------------------------------------------------------------------------- */
+
+// Enum of all HTML element types
+export type ElementTypeArg =
+  | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
+  | undefined;
 
 export type LabelledElement = {
   label: string;

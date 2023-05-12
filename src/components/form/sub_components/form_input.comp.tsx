@@ -3,6 +3,7 @@ import { useController, useFormContext } from "react-hook-form";
 import { Input } from "../../input";
 
 import type { InputProps } from "../../input";
+import type { InputCustomisation } from "../../input/input.comp";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
@@ -23,8 +24,10 @@ export function FormInput({
   name,
   required,
   validateFunction,
+  inputProps,
+  wrapperProps,
   ...rest
-}: FormInputProps) {
+}: FormInputProps & InputCustomisation) {
   const { control } = useFormContext();
 
   const {
@@ -55,6 +58,8 @@ export function FormInput({
       onChange={onChange}
       ref={ref}
       value={controlledValue}
+      wrapperProps={wrapperProps}
+      inputProps={inputProps}
       {...rest}
     />
   );
