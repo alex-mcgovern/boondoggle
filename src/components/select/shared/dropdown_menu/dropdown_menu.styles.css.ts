@@ -12,20 +12,12 @@ export const dropdownWrapperClosed = style({
 export const dropdownListWrapper = style([
   a11yFocus,
   getSprinkles({
-    background: "background",
-    
-border: "border_default",
-    
-/** Style as a card */
-borderRadius: "sm",
-
-    
+    borderRadius: "sm",
     boxShadow: "sm",
     display: "block",
     overflow: "hidden",
     overflowY: "auto",
-    position: "absolute",
-    width: "auto",
+    width: "100%",
   }),
   {
     maxHeight: "15rem",

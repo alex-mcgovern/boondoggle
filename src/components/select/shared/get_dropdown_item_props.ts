@@ -9,12 +9,15 @@ import type {
  */
 type GetDropdownItemPropsArgs = {
   [key: string]: unknown;
-  getIsItemSelected: (item: DropdownItemShape) => boolean;
+  getIsItemSelected?: (item: DropdownItemShape) => boolean;
   getItemProps: UseComboboxPropGetters<DropdownItemShape>["getItemProps"];
-  getMenuProps: UseComboboxPropGetters<DropdownItemShape>["getMenuProps"];
-  getSelectedItemProps: UseMultipleSelectionPropGetters<DropdownItemShape>["getSelectedItemProps"];
+  getMenuProps?: UseComboboxPropGetters<DropdownItemShape>["getMenuProps"];
+  getSelectedItemProps:
+    | UseMultipleSelectionPropGetters<DropdownItemShape>["getSelectedItemProps"]
+    | undefined;
   isItemSelected?: boolean;
   item: DropdownItemShape;
+  removeSelectedItem?: (item: DropdownItemShape) => void;
 };
 
 /**

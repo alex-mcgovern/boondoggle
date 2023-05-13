@@ -58,5 +58,5 @@ export const isHighlighted = style([
 ]);
 
 export const isSelected = style({
-  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.text_high_contrast,
 });

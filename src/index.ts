@@ -44,8 +44,11 @@ export type { CardProps } from "./components/card";
 export { Collapsible } from "./components/collapsible";
 export type { CollapsibleProps } from "./components/collapsible";
 
-export { Dialog } from "./components/dialog_modal";
-export type { DialogProps } from "./components/dialog_modal";
+export { Dialog } from "./components/dialog";
+export type { DialogProps } from "./components/dialog";
+
+export { DialogModal } from "./components/dialog_modal";
+export type { DialogModalProps } from "./components/dialog_modal";
 
 export { Form } from "./components/form";
 export type { FormProps } from "./components/form";
@@ -69,6 +72,9 @@ export type { FormSubmitButtonProps } from "./components/form";
 
 export { Input } from "./components/input";
 export type { InputProps } from "./components/input";
+
+export { InputDate } from "./components/input_date";
+export type { InputDateProps } from "./components/input_date";
 
 export { InputErrorMessage } from "./components/input_error_message";
 export type { InputErrorMessageProps } from "./components/input_error_message";

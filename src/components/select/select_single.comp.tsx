@@ -6,6 +6,7 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
+import { Dialog } from "../dialog";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
@@ -17,7 +18,6 @@ import {
 } from "./select_utils";
 import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
-import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { InputCustomisation } from "../input/input.comp";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
@@ -121,7 +121,7 @@ export const SelectSingle = forwardRef(
           case useCombobox.stateChangeTypes.InputBlur:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
-              setInputValue(newSelectedItem.value);
+              setInputValue(newSelectedItem.label);
             }
             break;
 
@@ -150,16 +150,6 @@ export const SelectSingle = forwardRef(
       [selectedItem]
     );
 
-    /**
-     * Use popper.js to position the dropdown menu
-     */
-    const {
-      setPopperAnchorEl,
-      setPopperElement,
-      popperStyles,
-      popperAttributes,
-    } = useSelectPopper({ placement });
-
     return (
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
@@ -175,45 +165,43 @@ export const SelectSingle = forwardRef(
           />
         )}
 
-        <Input
-          inputProps={inputAtomProps}
-          invalid={invalid}
-          readOnly={!isFilterable}
-          ref={setPopperAnchorEl}
-          size={size}
-          slotLeft={slotLeft}
-          slotRight={slotRight}
-          textTransform="capitalize"
-          {...inputAtomProps}
-          {...getInputProps?.({
-            ...inputOtherProps,
-            disabled,
-            id,
-            name,
-            onClick: toggleMenu,
-            placeholder,
-            ref,
-            value: inputValue,
-            ...rest,
-          })}
-        />
-
-        {invalid && errorMessage && (
-          <InputErrorMessage message={errorMessage} />
-        )}
-
         <DropdownMenu
+          as={Dialog}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
           highlightedIndex={highlightedIndex}
           isOpen={isOpen}
           items={filteredItems}
-          ref={setPopperElement}
           size={size}
-          style={popperStyles.popper}
-          {...popperAttributes.popper}
+          triggerNode={
+            <Input
+              inputProps={inputAtomProps}
+              invalid={invalid}
+              readOnly={!isFilterable}
+              size={size}
+              slotLeft={slotLeft}
+              slotRight={slotRight}
+              textTransform="capitalize"
+              {...inputAtomProps}
+              {...getInputProps?.({
+                ...inputOtherProps,
+                disabled,
+                id,
+                name,
+                onClick: toggleMenu,
+                placeholder,
+                ref,
+                value: inputValue,
+                ...rest,
+              })}
+            />
+          }
         />
+
+        {invalid && errorMessage && (
+          <InputErrorMessage message={errorMessage} />
+        )}
       </Box>
     );
   }

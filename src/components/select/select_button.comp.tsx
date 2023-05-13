@@ -5,10 +5,10 @@ import { forwardRef, useCallback } from "react";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Button } from "../button";
+import { Dialog } from "../dialog";
 import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
 import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
-import { useSelectPopper } from "./shared/use_select_popper";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
@@ -95,48 +95,40 @@ export const SelectButton = forwardRef(
       [selectedItem]
     );
 
-    /**
-     * Use popper.js to position the dropdown menu
-     */
-    const {
-      setPopperAnchorEl,
-      setPopperElement,
-      popperStyles,
-      popperAttributes,
-    } = useSelectPopper({ placement });
-
     return (
-      <Box ref={setPopperAnchorEl} {...rest}>
-        <Button
-          size={size}
-          slotLeft={slotLeft}
-          slotProps={{ gap: "none" }}
-          slotRight={slotRight}
-          {...buttonAtomProps}
-          {...getToggleButtonProps?.({
-            ...buttonOtherProps,
-            "aria-label": name,
-            disabled,
-            id,
-            name,
-            ref,
-          })}
-        >
-          {buttonText}
-        </Button>
-
-        <DropdownMenu
-          getIsItemSelected={getIsItemSelected}
-          getItemProps={getItemProps}
-          getMenuProps={getMenuProps}
-          highlightedIndex={highlightedIndex}
+      <Box {...rest}>
+        <Dialog
           isOpen={isOpen}
-          items={items}
-          ref={setPopperElement}
-          size={size}
-          style={popperStyles.popper}
-          {...popperAttributes.popper}
-        />
+          triggerNode={
+            <Button
+              size={size}
+              slotLeft={slotLeft}
+              slotProps={{ gap: "none" }}
+              slotRight={slotRight}
+              {...buttonAtomProps}
+              {...getToggleButtonProps?.({
+                ...buttonOtherProps,
+                "aria-label": name,
+                disabled,
+                id,
+                name,
+                ref,
+              })}
+            >
+              {buttonText}
+            </Button>
+          }
+        >
+          <DropdownMenu
+            getIsItemSelected={getIsItemSelected}
+            getItemProps={getItemProps}
+            getMenuProps={getMenuProps}
+            highlightedIndex={highlightedIndex}
+            isOpen={isOpen}
+            items={items}
+            size={size}
+          />
+        </Dialog>
       </Box>
     );
   }

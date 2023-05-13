@@ -20,6 +20,8 @@ export function useEnterWhileFocused<TTriggerType extends ElementTypeArg>({
         triggerRef.current === document.activeElement &&
         event.key === "Enter"
       ) {
+        /** Avoid accidentally triggering a form submission if used within form context */
+        event.preventDefault();
         callback();
       }
     };

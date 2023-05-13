@@ -4,6 +4,7 @@ import { createRef, forwardRef, useCallback } from "react";
 
 import { useClickOutside } from "../../hooks/use_click_outside";
 import { useEnterWhileFocused } from "../../hooks/use_enter_while_focused";
+import { a11yFocus } from "../../styles/common/a11y.css";
 import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
 
@@ -81,11 +82,13 @@ export const Dialog = forwardRef(
           background="background"
           border="border_default"
           borderRadius="md"
-          className={clsx(animateAppear, userClassName)}
+          className={clsx(animateAppear, userClassName, a11yFocus)}
           marginTop="spacing1"
           open={controlledIsOpen}
           padding="none"
+          position="absolute"
           ref={dialogRef}
+          zIndex="1"
           {...dialogProps}
         >
           {children}

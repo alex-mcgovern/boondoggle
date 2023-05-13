@@ -1,8 +1,6 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../../box";
 import { DropdownItem } from "../dropdown_item/dropdown_item.comp";
 import { getDropdownItemProps } from "../get_dropdown_item_props";
@@ -32,7 +30,6 @@ export type DropdownMenuProps = BoxProps & {
   ) => { [key: string]: unknown };
   highlightedIndex?: number | undefined;
   isMulti?: boolean;
-  isOpen: boolean;
   items: Array<DropdownItemShape>;
   removeSelectedItem?: UseMultipleSelectionActions<DropdownItemShape>["removeSelectedItem"];
   size?: ElementSizeEnum;
@@ -44,22 +41,21 @@ export const DropdownMenu = forwardRef(
       getIsItemSelected,
       getItemProps,
       getMenuProps,
+      className: userClassName,
       getSelectedItemProps,
       highlightedIndex,
       removeSelectedItem,
       isMulti,
-      isOpen,
       items,
       size = "md",
       ...rest
     }: DropdownMenuProps,
     ref
   ) => {
-    const dropdownWrapperStyles = clsx(styles.dropdownListWrapper, {
-      [styles.dropdownWrapperClosed]: !isOpen,
-    });
-
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    const dropdownWrapperStyles = clsx(
+      styles.dropdownListWrapper,
+      userClassName
+    );
 
     /**
      * Note: `DropdownMenu` *must* not be in a conditional render, or
@@ -68,9 +64,8 @@ export const DropdownMenu = forwardRef(
     return (
       <Box
         className={dropdownWrapperStyles}
-        {...atomProps}
+        {...rest}
         {...getMenuProps?.({
-          ...otherProps,
           ref: ref as LegacyRef<HTMLElement>,
         })}
       >

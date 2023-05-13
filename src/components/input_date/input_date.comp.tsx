@@ -20,7 +20,7 @@ export type InputDateProps = Omit<InputProps, "value"> & {
   /**
    * On change handler designed to be used with React Hook Form's `register` method.
    */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: (...event: any[]) => void;
   rawValueTransformer?: (value: string) => string;
 };
