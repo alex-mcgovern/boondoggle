@@ -13,35 +13,70 @@ import { vars } from "../theme.css";
 export const sprinklesProperties = defineProperties({
   "@layer": sprinklesLayer,
   properties: {
-    aspectRatio: vars.aspectRatio,
-    boxShadow: vars.boxShadow,
-
-    /** Border radius */
-    borderRadius: vars.borderRadius,
-
-    /** Border */
-    border: {
-      border_default: `1px solid ${vars.color.border_default}`,
-      border_active: `1px solid ${vars.color.border_active}`,
-    },
-    borderRight: vars.border,
-    borderLeft: vars.border,
-    borderBottom: vars.border,
-    borderTop: vars.border,
-
-    /** Color  */
-    background: { ...vars.color, inherit: "inherit" },
-    color: { ...vars.color, inherit: "inherit" },
-
     /** Flex / Grid */
-    alignItems: ["stretch", "start", "center", "end", "baseline"],
+alignItems: ["stretch", "start", "center", "end", "baseline"],
+    
+
+
+
+aspectRatio: vars.aspectRatio,
+
+    
+    
+
+
+
+
+/** Color  */
+background: { ...vars.color, inherit: "inherit" },
+
+    
+    
+
+
+/** Border */
+border: {
+      border_active: `1px solid ${vars.color.border_active}`,
+      border_default: `1px solid ${vars.color.border_default}`,
+    },
+    
+
+
+borderBottom: vars.border,
+    
+
+
+borderLeft: vars.border,
+    
+
+/** Border radius */
+borderRadius: vars.borderRadius,
+    
+
+borderRight: vars.border,
+
+    
+    
+borderTop: vars.border,
+    
+bottom: ["0"],
+
+    
+    boxShadow: vars.boxShadow,
+    color: { ...vars.color, inherit: "inherit" },
+    columnGap: vars.spacing,
+    flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
-    flexWrap: ["wrap", "nowrap"],
     flexGrow: ["0", "1"],
     flexShrink: ["0", "1"],
+    flexWrap: ["wrap", "nowrap"],
+    fontSize: vars.fontSize,
+    fontWeight: vars.fontWeight,
     gap: vars.spacing,
-    columnGap: vars.spacing,
-    rowGap: vars.spacing,
+    height: { ...vars.height, ...vars.spacing },
+
+    inset: ["0"],
+    isolation: ["isolate"],
     justifyContent: [
       "stretch",
       "start",
@@ -50,67 +85,60 @@ export const sprinklesProperties = defineProperties({
       "space-around",
       "space-between",
     ],
-    flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
-    fontWeight: vars.fontWeight,
-    isolation: ["isolate"],
-
+    left: ["0"],
+    lineHeight: vars.lineHeight,
     margin: vars.spacing,
-    padding: vars.spacing,
     marginBottom: vars.spacing,
     marginLeft: vars.spacing,
     marginRight: vars.spacing,
     marginTop: vars.spacing,
     maxHeight: { ...vars.height, ...vars.spacing },
     maxWidth: { ...vars.width, ...vars.spacing },
-    minWidth: { ...vars.width, ...vars.spacing },
     minHeight: { ...vars.height, ...vars.spacing },
+    minWidth: { ...vars.width, ...vars.spacing },
     overflow: ["hidden"],
     overflowY: ["auto"],
+    padding: vars.spacing,
     paddingBottom: vars.spacing,
     paddingLeft: vars.spacing,
     paddingRight: vars.spacing,
     paddingTop: vars.spacing,
-    fontSize: vars.fontSize,
-    lineHeight: vars.lineHeight,
-    height: { ...vars.height, ...vars.spacing },
-    top: ["0"],
-    right: ["0"],
-    left: ["0"],
-    bottom: ["0"],
-    inset: ["0"],
     position: ["relative", "absolute", "sticky"],
+    right: ["0"],
+    rowGap: vars.spacing,
     textAlign: ["center", "left", "right"],
     textDecoration: ["underline", "none", "line-through"],
     textTransform: ["capitalize", "uppercase", "lowercase"],
+    top: ["0"],
     whiteSpace: ["nowrap", "normal"],
     zIndex: ["-1", "1"],
   },
   shorthands: {
+    fontStyle: ["fontSize", "lineHeight"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
-    fontStyle: ["fontSize", "lineHeight"],
     placeItems: ["alignItems", "justifyContent"],
   },
 });
 
 export const responsiveSprinklesProperties = defineProperties({
-  properties: {
-    width: { ...vars.width, ...vars.spacing },
-    gridTemplateColumns: vars.gridTemplateColumns,
-    display: vars.display,
-  },
   conditions: {
+    desktop: {
+      "@media": MEDIA_QUERY_DESKTOP,
+    },
     mobile: {},
     tablet: {
       "@media": MEDIA_QUERY_TABLET,
     },
-    desktop: {
-      "@media": MEDIA_QUERY_DESKTOP,
-    },
   },
   defaultCondition: "mobile",
+  properties: {
+    display: vars.display,
+    gridTemplateColumns: vars.gridTemplateColumns,
+    width: { ...vars.width, ...vars.spacing },
+  },
 });
 
 export const getSprinkles = createSprinkles(

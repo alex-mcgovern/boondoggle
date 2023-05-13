@@ -12,10 +12,10 @@ import type { InputCustomisation } from "../../input/input.comp";
 export type FormInputProps = InputProps & {
   /** Message to render when erroring. */
   errorMessage: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
+  /** Callback for validation, else simply validates is non-empty. */
+  validateFunction?: (value: string) => boolean;
 };
 
 export function FormInput({
@@ -34,8 +34,9 @@ export function FormInput({
     field: { onChange, onBlur, ref, value: controlledValue = "" },
     fieldState: { error },
   } = useController({
-    name,
     control,
+    defaultValue,
+    name,
     rules: {
       required: required && errorMessage,
       validate: (value) => {
@@ -45,13 +46,13 @@ export function FormInput({
         return !!value;
       },
     },
-    defaultValue,
   });
 
   return (
     <Input
       aria-required={required}
       errorMessage={errorMessage}
+      inputProps={inputProps}
       invalid={!!error}
       name={name}
       onBlur={onBlur}
@@ -59,7 +60,6 @@ export function FormInput({
       ref={ref}
       value={controlledValue}
       wrapperProps={wrapperProps}
-      inputProps={inputProps}
       {...rest}
     />
   );

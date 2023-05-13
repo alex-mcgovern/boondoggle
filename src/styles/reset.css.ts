@@ -26,11 +26,11 @@ time, mark, audio, video`,
   {
     "@layer": {
       [resetLayer]: {
+        border: 0,
+        font: "inherit",
+        fontSize: "100%",
         margin: 0,
         padding: 0,
-        border: 0,
-        fontSize: "100%",
-        font: "inherit",
         verticalAlign: "baseline",
       },
     },
@@ -91,11 +91,11 @@ globalStyle("table", {
 globalStyle("button", {
   "@layer": {
     [resetLayer]: {
-      display: "block",
       appearance: "none",
-      padding: 0,
       background: "none",
       border: "none",
+      display: "block",
+      padding: 0,
       textDecoration: "none",
     },
   },

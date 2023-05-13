@@ -30,23 +30,23 @@ type MakeThemeArgs = {
 
 const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   return {
-    white: slate.slate1,
+    background: getFromPaletteByIndex(secondaryPalette, 0),
     black: slate.slate12,
 
-    background: getFromPaletteByIndex(secondaryPalette, 0),
-
-    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
-    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
-
-    border_default: getFromPaletteByIndex(secondaryPalette, 6),
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
 
-    button_tint: getFromPaletteByIndex(primaryPalette, 4),
-    button_default: getFromPaletteByIndex(primaryPalette, 8),
+    border_default: getFromPaletteByIndex(secondaryPalette, 6),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
 
-    text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
+    button_default: getFromPaletteByIndex(primaryPalette, 8),
+    button_tint: getFromPaletteByIndex(primaryPalette, 4),
+
     text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
+    text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
+    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
+
+    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
+    white: slate.slate1,
   };
 };
 
@@ -58,22 +58,22 @@ export const color = createGlobalTheme(":root", {
 });
 
 export const variantColorOverlay = styleVariants({
-  blue: {
-    "@layer": {
-      [themeLayer]: {
-        vars: assignVars(
-          color,
-          makeTheme({ primaryPalette: blue, secondaryPalette: blue })
-        ),
-      },
-    },
-  },
   amber: {
     "@layer": {
       [themeLayer]: {
         vars: assignVars(
           color,
           makeTheme({ primaryPalette: amber, secondaryPalette: amber })
+        ),
+      },
+    },
+  },
+  blue: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: blue, secondaryPalette: blue })
         ),
       },
     },
@@ -88,22 +88,22 @@ export const variantColorOverlay = styleVariants({
       },
     },
   },
-  red: {
-    "@layer": {
-      [themeLayer]: {
-        vars: assignVars(
-          color,
-          makeTheme({ primaryPalette: red, secondaryPalette: red })
-        ),
-      },
-    },
-  },
   grey: {
     "@layer": {
       [themeLayer]: {
         vars: assignVars(
           color,
           makeTheme({ primaryPalette: slate, secondaryPalette: slate })
+        ),
+      },
+    },
+  },
+  red: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: red, secondaryPalette: red })
         ),
       },
     },

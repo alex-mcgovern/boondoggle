@@ -39,14 +39,14 @@ export const DatePicker = forwardRef(
         yearButton,
       },
     } = useDatePicker({
-      selectedDates,
-      onDatesChange,
-      dates: {
-        mode: "single",
-      },
       calendar: {
         mode: "static",
       },
+      dates: {
+        mode: "single",
+      },
+      onDatesChange,
+      selectedDates,
       years: {
         numberOfYears: 20,
         step: 20,
@@ -66,9 +66,9 @@ export const DatePicker = forwardRef(
 
     return (
       <Box
-        className={clsx(userClassName, styles.datePickerRoot)}
-        as="section"
         __minWidth="24rem"
+        as="section"
+        className={clsx(userClassName, styles.datePickerRoot)}
         ref={ref}
         {...rest}
       >
@@ -85,8 +85,8 @@ export const DatePicker = forwardRef(
         />
 
         <Box
-          gap="spacing1"
           display="grid"
+          gap="spacing1"
           gridTemplateColumns={isShowingYears ? "4x" : "7x"}
         >
           {isShowingYears ? (

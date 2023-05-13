@@ -13,16 +13,19 @@ export const dropdownListWrapper = style([
   a11yFocus,
   getSprinkles({
     background: "background",
-    width: "auto",
-    display: "block",
+    
+border: "border_default",
+    
+/** Style as a card */
+borderRadius: "sm",
 
-    /** Style as a card */
-    borderRadius: "sm",
-    position: "absolute",
-    overflow: "hidden",
+    
     boxShadow: "sm",
-    border: "border_default",
+    display: "block",
+    overflow: "hidden",
     overflowY: "auto",
+    position: "absolute",
+    width: "auto",
   }),
   {
     maxHeight: "15rem",

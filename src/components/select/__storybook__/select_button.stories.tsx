@@ -13,16 +13,16 @@ const ON_CHANGE = jest.fn();
 const ITEMS = mockSelectItems({});
 
 const PROPS: StoryCompProps = {
-  items: ITEMS,
+  buttonText: LOREM.button,
   id: LOREM.id(),
+  items: ITEMS,
   name: LOREM.name(),
   onChange: ON_CHANGE,
-  buttonText: LOREM.button,
 };
 
 export default {
-  title: "React components/SelectButton",
   component: StoryComp,
+  title: "React components/SelectButton",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
@@ -30,28 +30,27 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
   args: PROPS,
+  render: Template,
 };
 
 export const Disabled: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     ...PROPS,
     disabled: true,
   },
+  render: Template,
 };
 
 export const SlotLeft: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     ...PROPS,
     items: mockSelectItems({ withIcon: true }),
   },
+  render: Template,
 };
 
 export const ButtonProps: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     ...PROPS,
     buttonProps: {
@@ -59,4 +58,5 @@ export const ButtonProps: StoryObj<StoryCompProps> = {
       size: "sm",
     },
   },
+  render: Template,
 };

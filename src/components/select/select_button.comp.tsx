@@ -22,10 +22,10 @@ export type SelectButtonProps = Omit<
   "inputProps" | "invalid" | "isFilterable" | "label" | "errorMessage"
 > &
   SprinklesArgs & {
-    onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-    onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-    buttonText?: string;
     buttonProps?: ButtonProps;
+    buttonText?: string;
+    onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     placement?: UsePopperPlacement;
   };
 
@@ -110,15 +110,15 @@ export const SelectButton = forwardRef(
         <Button
           size={size}
           slotLeft={slotLeft}
-          slotRight={slotRight}
           slotProps={{ gap: "none" }}
+          slotRight={slotRight}
           {...buttonAtomProps}
           {...getToggleButtonProps?.({
             ...buttonOtherProps,
+            "aria-label": name,
             disabled,
             id,
             name,
-            "aria-label": name,
             ref,
           })}
         >
@@ -126,15 +126,15 @@ export const SelectButton = forwardRef(
         </Button>
 
         <DropdownMenu
-          style={popperStyles.popper}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
           highlightedIndex={highlightedIndex}
           isOpen={isOpen}
           items={items}
-          size={size}
           ref={setPopperElement}
+          size={size}
+          style={popperStyles.popper}
           {...popperAttributes.popper}
         />
       </Box>

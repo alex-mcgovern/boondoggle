@@ -7,8 +7,8 @@ import type { CardProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Card",
   component: StoryComp,
+  title: "React components/Card",
 };
 
 const Template: StoryFn<StoryCompProps> = ({
@@ -29,33 +29,33 @@ const Template: StoryFn<StoryCompProps> = ({
  * Polymorphism examples
  */
 export const ExamplePolymorphismGenericAnchorTag: StoryObj<StoryCompProps> = {
-  name: "polymorphism/generic_anchor_tag",
-  render: Template,
   args: {
     as: "a",
-    href: "https://google.com",
     children: "I am an anchor element",
+    href: "https://google.com",
   },
+  name: "polymorphism/generic_anchor_tag",
+  render: Template,
 };
 
 export const ExamplePolymorphismReactComponent: StoryObj<StoryCompProps> = {
-  name: "polymorphism/generic_react_component",
-  render: Template,
   args: {
     as: Link,
-    href: "https://google.com",
     children: "I am a `Link` component",
+    href: "https://google.com",
   },
+  name: "polymorphism/generic_react_component",
+  render: Template,
 };
 
 /**
  * Basic styling examples
  */
 export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
+  args: {
+    children: LOREM.textXxs,
+    padding: "spacing5",
+  },
   name: "example/basic_sprinkles",
   render: Template,
-  args: {
-    padding: "spacing5",
-    children: LOREM.textXxs,
-  },
 };

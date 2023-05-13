@@ -7,23 +7,29 @@ import { useEnterWhileFocused } from "../../hooks/use_enter_while_focused";
 import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
 
+import type { BoxProps } from "../box";
 import type { LegacyRef, ReactNode } from "react";
 
 export type DialogProps = {
-  isOpen?: boolean;
-  triggerNode?: ReactNode;
-  className?: string;
   children?: ReactNode;
+  className?: string;
+  dialogProps?: BoxProps;
+  isOpen?: boolean;
+  onIsOpenChange?: (isOpen?: boolean) => void;
+  triggerNode?: ReactNode;
+  wrapperProps?: BoxProps;
 };
 
 export const Dialog = forwardRef(
   (
     {
-      className: userClassName,
-      triggerNode,
       children,
+      className: userClassName,
       isOpen: controlledIsOpen,
-      ...rest
+      onIsOpenChange,
+      triggerNode,
+      wrapperProps,
+      dialogProps,
     }: DialogProps,
     ref: LegacyRef<HTMLDivElement> | undefined
   ) => {
@@ -34,42 +40,53 @@ export const Dialog = forwardRef(
      * Callback for when the input is clicked or focused.
      */
     const toggleIsOpen = useCallback(() => {
-      return dialogRef.current?.open
-        ? dialogRef.current?.close()
-        : dialogRef.current?.show();
-    }, [dialogRef]);
+      if (!dialogRef.current) {
+        return undefined;
+      }
+
+      return (
+        dialogRef.current?.open
+          ? dialogRef.current?.close()
+          : dialogRef.current?.show(),
+        onIsOpenChange?.(dialogRef.current?.open)
+      );
+    }, [dialogRef, onIsOpenChange]);
 
     /**
      * When input is focused and user presses enter, open the date picker.
      */
     useEnterWhileFocused<HTMLElement>({
-      triggerRef,
       callback: toggleIsOpen,
+      triggerRef,
     });
 
     /**
      * Handle click outside dialog
      */
     useClickOutside<HTMLDialogElement, HTMLElement>({
-      contentRef: dialogRef,
-      triggerRef,
       callback: () => {
         return dialogRef.current?.close();
       },
+      contentRef: dialogRef,
+      triggerRef,
     });
 
     return (
-      <Box position="relative" ref={ref}>
+      <Box position="relative" ref={ref} {...wrapperProps}>
         <Slot onClick={toggleIsOpen} ref={triggerRef}>
           {triggerNode}
         </Slot>
         <Box
-          ref={dialogRef}
-          open={controlledIsOpen}
+          as="dialog"
+          background="background"
+          border="border_default"
+          borderRadius="md"
           className={clsx(animateAppear, userClassName)}
           marginTop="spacing1"
-          as="dialog"
-          {...rest}
+          open={controlledIsOpen}
+          padding="none"
+          ref={dialogRef}
+          {...dialogProps}
         >
           {children}
         </Box>

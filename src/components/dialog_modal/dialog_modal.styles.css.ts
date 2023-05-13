@@ -6,8 +6,8 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 export const dialogOverlay = style([
   {
     background: `#00000080`,
-    position: "fixed",
     inset: 0,
+    position: "fixed",
     zIndex: 99999,
   },
   animateAppear,
@@ -15,30 +15,30 @@ export const dialogOverlay = style([
 
 export const dialogContent = style([
   getSprinkles({
-    display: "block",
-    isolation: "isolate",
-    overflow: "hidden",
-    textDecoration: "none",
     background: "tint_default",
     border: "border_default",
     borderRadius: "md",
     boxShadow: "lg",
+    display: "block",
+    isolation: "isolate",
+    maxWidth: "gridSpan10",
+    overflow: "hidden",
+    textDecoration: "none",
     width: {
+      desktop: "gridSpan8",
       mobile: "gridSpan10",
       tablet: "gridSpan8",
-      desktop: "gridSpan8",
     },
-    maxWidth: "gridSpan10",
   }),
   {
-    zIndex: 99999,
-    position: "fixed",
-    top: "50%",
     left: "50%",
-    transform: "translate(-50%, -50%)",
+    position: "fixed",
     selectors: {
       "&:focus": { outline: "none" },
     },
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 99999,
   },
   animateAppear,
 ]);

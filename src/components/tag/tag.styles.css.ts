@@ -8,9 +8,9 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const tagSize = styleVariants({
-  sm: [
+  lg: [
     getSprinkles({
-      fontStyle: "body_xs",
+      fontStyle: "body_md",
     }),
   ],
   md: [
@@ -18,9 +18,9 @@ export const tagSize = styleVariants({
       fontStyle: "body_sm",
     }),
   ],
-  lg: [
+  sm: [
     getSprinkles({
-      fontStyle: "body_md",
+      fontStyle: "body_xs",
     }),
   ],
 });
@@ -31,16 +31,16 @@ export const getTagStyle = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
+      background: "tint_default",
       border: "border_active",
       borderRadius: "sm",
-      background: "tint_default",
       color: "text_low_contrast",
       display: "inline-flex",
       gap: "spacing0",
       paddingX: "spacing1",
       paddingY: "spacing0",
-      whiteSpace: "nowrap",
       textDecoration: "none",
+      whiteSpace: "nowrap",
       width: "max-content",
     }),
     a11yFocus,

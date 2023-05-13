@@ -3,9 +3,9 @@ import { Button } from "../button";
 import type { UseDatePickerValue } from "@rehookify/datepicker";
 
 type DatePickerYearsProps = {
-  years: UseDatePickerValue["data"]["years"];
-  yearButton: UseDatePickerValue["propGetters"]["yearButton"];
   onYearClick: () => void;
+  yearButton: UseDatePickerValue["propGetters"]["yearButton"];
+  years: UseDatePickerValue["data"]["years"];
 };
 
 export function DatePickerYears({
@@ -18,10 +18,10 @@ export function DatePickerYears({
       {years.map((calendarYear) => {
         return (
           <Button
-            key={calendarYear.year.toString()}
             appearance={calendarYear.selected ? "primary" : "ghost"}
-            width="100%"
+            key={calendarYear.year.toString()}
             name={calendarYear.year.toString()}
+            width="100%"
             {...yearButton(calendarYear, {
               onClick: onYearClick,
             })}

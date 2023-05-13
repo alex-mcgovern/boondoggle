@@ -50,8 +50,8 @@ export const Card: CardProps = forwardRef(
     return (
       <Component
         {...{
-          ref,
           className: classNames,
+          ref,
           ...otherProps,
         }}
       >

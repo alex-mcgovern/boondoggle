@@ -76,8 +76,8 @@ export const SelectMulti = forwardRef(
     const [inputValue, setInputValue] = useState("");
     const [inputPlaceholder, setInputPlaceholder] = useState(
       getDisplayValue({
-        originalValue: placeholder,
         length: initialSelectedItems?.length,
+        originalValue: placeholder,
       })
     );
 
@@ -91,8 +91,8 @@ export const SelectMulti = forwardRef(
         }
         setInputPlaceholder(
           getDisplayValue({
-            originalValue: placeholder,
             length: changes?.selectedItems?.length,
+            originalValue: placeholder,
           })
         );
       },
@@ -110,8 +110,8 @@ export const SelectMulti = forwardRef(
       selectedItems,
       setSelectedItems,
     } = useMultipleSelection<DropdownItemShape>({
-      onSelectedItemsChange,
       initialSelectedItems,
+      onSelectedItemsChange,
     });
 
     /**
@@ -122,7 +122,7 @@ export const SelectMulti = forwardRef(
         return items;
       }
 
-      return getFilteredDropdownItems({ items, inputValue });
+      return getFilteredDropdownItems({ inputValue, items });
     }, [items, isFilterable, inputValue]);
 
     /**
@@ -182,8 +182,8 @@ export const SelectMulti = forwardRef(
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {
         return getIsSelected({
-          item,
           isMulti: true,
+          item,
           selectedItems,
         });
       },
@@ -203,8 +203,8 @@ export const SelectMulti = forwardRef(
     return (
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
-        ref={setPopperAnchorEl}
         color="text_low_contrast"
+        ref={setPopperAnchorEl}
         {...rest}
       >
         {label && (
@@ -217,13 +217,13 @@ export const SelectMulti = forwardRef(
         )}
 
         <Input
+          invalid={invalid}
+          readOnly={!isFilterable}
           size={size}
           slotLeft={slotLeft}
           slotRight={slotRight}
-          readOnly={!isFilterable}
-          invalid={invalid}
           {...inputAtomProps}
-          {...getInputProps?.({
+          inputProps={getInputProps({
             ...getDropdownProps({
               preventKeyAction: isOpen,
               ref,
@@ -239,18 +239,18 @@ export const SelectMulti = forwardRef(
         />
 
         <DropdownMenu
-          style={popperStyles.popper}
-          getSelectedItemProps={getSelectedItemProps}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
+          getSelectedItemProps={getSelectedItemProps}
           highlightedIndex={highlightedIndex}
-          isOpen={isOpen}
-          removeSelectedItem={removeSelectedItem}
-          items={filteredItems}
           isMulti
-          size={size}
+          isOpen={isOpen}
+          items={filteredItems}
           ref={setPopperElement}
+          removeSelectedItem={removeSelectedItem}
+          size={size}
+          style={popperStyles.popper}
           {...popperAttributes.popper}
         />
 

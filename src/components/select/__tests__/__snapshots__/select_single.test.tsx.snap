@@ -14,6 +14,7 @@ exports[`<SelectSingle /> Basic smoke tests should match snapshot 1`] = `
   placeholder="Select a thing"
   readonly=""
   role="combobox"
+  texttransform="capitalize"
   value=""
 />
 `;

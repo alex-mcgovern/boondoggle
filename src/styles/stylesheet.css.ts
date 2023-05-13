@@ -27,9 +27,9 @@ globalStyle(`html`, {
 globalStyle(`html, body`, {
   "@layer": {
     [baseLayer]: {
-      height: `100%`,
       fontFamily: vars.fontFamily.body,
       fontSize: vars.fontSize.body_md,
+      height: `100%`,
     },
   },
 });
@@ -50,9 +50,9 @@ globalStyle(`body`, {
 globalStyle(`a`, {
   "@layer": {
     [baseLayer]: {
-      padding: 0,
-      margin: 0,
       color: vars.color.button_default,
+      margin: 0,
+      padding: 0,
       textDecoration: "none",
     },
   },
@@ -104,10 +104,10 @@ globalStyle(`input, button, textarea, select`, {
 globalStyle(`button`, {
   "@layer": {
     [baseLayer]: {
-      WebkitAppearance: "none",
+      background: "none",
       border: "none",
       textDecoration: "none",
-      background: "none",
+      WebkitAppearance: "none",
     },
   },
 });
@@ -142,11 +142,11 @@ globalStyle(`h1, h2, h3, h4, h5, h6`, {
   "@layer": {
     [baseLayer]: {
       display: "block",
-      overflowWrap: `break-word`,
-      lineHeight: 1.4,
-      marginBottom: vars.spacing.spacing1,
       fontFamily: vars.fontFamily.display,
       fontWeight: vars.fontWeight.medium,
+      lineHeight: 1.4,
+      marginBottom: vars.spacing.spacing1,
+      overflowWrap: `break-word`,
     },
   },
 });
@@ -206,10 +206,10 @@ globalStyle(`hr`, {
   "@layer": {
     [baseLayer]: {
       borderBottom: "none",
-      borderTop: "1px solid",
       borderColor: vars.color.border_default,
-      marginTop: vars.spacing.spacing3,
+      borderTop: "1px solid",
       marginBottom: vars.spacing.spacing3,
+      marginTop: vars.spacing.spacing3,
     },
   },
 });
@@ -246,8 +246,8 @@ globalStyle(
   {
     "@layer": {
       [baseLayer]: {
-        borderColor: vars.color.border_active,
         background: vars.color.tint_default,
+        borderColor: vars.color.border_active,
       },
     },
   }
@@ -281,8 +281,8 @@ globalStyle(
 globalStyle(`ul, ol`, {
   "@layer": {
     [baseLayer]: {
-      marginBlockStart: 0,
       marginBlockEnd: 0,
+      marginBlockStart: 0,
       paddingInlineStart: 0,
     },
   },
@@ -313,8 +313,8 @@ globalStyle(`menu`, {
   "@layer": {
     [baseLayer]: {
       listStyleType: "none",
-      padding: 0,
       margin: 0,
+      padding: 0,
     },
   },
 });
@@ -325,9 +325,9 @@ globalStyle(`menu`, {
 globalStyle(`p`, {
   "@layer": {
     [baseLayer]: {
-      overflowWrap: `break-word`,
-
       marginBottom: vars.spacing.spacing1,
+
+      overflowWrap: `break-word`,
     },
   },
 });
@@ -347,8 +347,8 @@ globalStyle(`table`, {
 globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
-      fontSize: vars.fontSize.body_sm,
       color: vars.color.text_low_contrast,
+      fontSize: vars.fontSize.body_sm,
     },
   },
 });
@@ -364,8 +364,8 @@ globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      textAlign: "left",
       padding: `${vars.spacing.spacing2} ${vars.spacing.spacing3}`,
+      textAlign: "left",
     },
   },
 });

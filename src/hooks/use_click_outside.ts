@@ -7,13 +7,13 @@ type UseClickOutsideArgs<
   TContentType extends ElementTypeArg,
   TTriggerType extends ElementTypeArg
 > = {
+  callback: () => void;
   contentRef:
     | RefObject<TContentType | undefined>
     | MutableRefObject<TContentType | undefined>;
   triggerRef?:
     | RefObject<TTriggerType | undefined>
     | MutableRefObject<TTriggerType | undefined>;
-  callback: () => void;
 };
 
 export function useClickOutside<

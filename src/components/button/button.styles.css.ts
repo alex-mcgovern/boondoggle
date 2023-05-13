@@ -21,9 +21,9 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
  * ------------------------------------------------------------------------------- */
 
 const variantSize = styleVariants({
-  sm: [elementFontSize.sm],
-  md: [elementFontSize.md],
   lg: [elementFontSize.lg],
+  md: [elementFontSize.md],
+  sm: [elementFontSize.sm],
   square: [
     getSprinkles({
       fontStyle: "body_md",
@@ -38,9 +38,9 @@ const variantSize = styleVariants({
  * ------------------------------------------------------------------------------- */
 
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
+  fontWeight: "semibold",
   justifyContent: "center",
   whiteSpace: "nowrap",
-  fontWeight: "semibold",
 };
 
 /** -----------------------------------------------------------------------------
@@ -48,18 +48,34 @@ const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
  * ------------------------------------------------------------------------------- */
 
 export const variantAppearance = styleVariants({
+  ghost: [
+    getSprinkles(COMMON_BUTTON_SPRINKLES),
+    {
+      color: vars.color.text_low_contrast,
+      selectors: {
+        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+          background: "transparent",
+        },
+        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+          background: vars.color.button_tint,
+          color: vars.color.button_active,
+        },
+      },
+    },
+  ],
+
   primary: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: vars.color.white,
       background: vars.color.button_default,
+      color: vars.color.white,
       selectors: {
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.white,
-          background: vars.color.button_active,
-        },
         [SELECTOR_LINK_BUTTON_ACTIVE]: {
           background: vars.color.button_default,
+        },
+        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+          background: vars.color.button_active,
+          color: vars.color.white,
         },
       },
     },
@@ -68,32 +84,16 @@ export const variantAppearance = styleVariants({
   secondary: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: vars.color.button_default,
       border: "1px solid",
       borderColor: vars.color.button_default,
+      color: vars.color.button_default,
       selectors: {
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.button_active,
-          background: vars.color.button_tint,
-        },
         [SELECTOR_LINK_BUTTON_ACTIVE]: {
           background: "transparent",
         },
-      },
-    },
-  ],
-
-  ghost: [
-    getSprinkles(COMMON_BUTTON_SPRINKLES),
-    {
-      color: vars.color.text_low_contrast,
-      selectors: {
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-          color: vars.color.button_active,
           background: vars.color.button_tint,
-        },
-        [SELECTOR_LINK_BUTTON_ACTIVE]: {
-          background: "transparent",
+          color: vars.color.button_active,
         },
       },
     },
@@ -101,20 +101,20 @@ export const variantAppearance = styleVariants({
 
   tertiary: [
     getSprinkles({
-      textAlign: "left",
       fontWeight: "semibold",
-      paddingY: "spacing1",
       paddingX: "none",
+      paddingY: "spacing1",
+      textAlign: "left",
     }),
     {
       color: vars.color.text_low_contrast,
       selectors: {
+        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+          color: vars.color.button_default,
+        },
         [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
           color: vars.color.button_active,
           textDecoration: "underline",
-        },
-        [SELECTOR_LINK_BUTTON_ACTIVE]: {
-          color: vars.color.button_default,
         },
       },
     },
@@ -148,52 +148,52 @@ export const getButtonStyles = recipe({
       transition: `color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
     }),
   ],
-  variants: {
-    appearance: variantAppearance,
-    size: variantSize,
-  },
+  compoundVariants: [
+    {
+      style: [elementPadding.lg],
+      variants: { appearance: "primary", size: "lg" },
+    },
+    {
+      style: [elementPadding.md],
+      variants: { appearance: "primary", size: "md" },
+    },
+    {
+      style: [elementPadding.sm],
+      variants: { appearance: "primary", size: "sm" },
+    },
+    {
+      style: [elementPadding.lg],
+      variants: { appearance: "secondary", size: "lg" },
+    },
+    {
+      style: [elementPadding.md],
+      variants: { appearance: "secondary", size: "md" },
+    },
+    {
+      style: [elementPadding.sm],
+      variants: { appearance: "secondary", size: "sm" },
+    },
+    {
+      style: [elementPadding.lg],
+      variants: { appearance: "ghost", size: "lg" },
+    },
+    {
+      style: [elementPadding.md],
+      variants: { appearance: "ghost", size: "md" },
+    },
+    {
+      style: [elementPadding.sm],
+      variants: { appearance: "ghost", size: "sm" },
+    },
+  ],
 
   defaultVariants: {
     appearance: "primary",
     size: "md",
   },
 
-  compoundVariants: [
-    {
-      variants: { appearance: "primary", size: "lg" },
-      style: [elementPadding.lg],
-    },
-    {
-      variants: { appearance: "primary", size: "md" },
-      style: [elementPadding.md],
-    },
-    {
-      variants: { appearance: "primary", size: "sm" },
-      style: [elementPadding.sm],
-    },
-    {
-      variants: { appearance: "secondary", size: "lg" },
-      style: [elementPadding.lg],
-    },
-    {
-      variants: { appearance: "secondary", size: "md" },
-      style: [elementPadding.md],
-    },
-    {
-      variants: { appearance: "secondary", size: "sm" },
-      style: [elementPadding.sm],
-    },
-    {
-      variants: { appearance: "ghost", size: "lg" },
-      style: [elementPadding.lg],
-    },
-    {
-      variants: { appearance: "ghost", size: "md" },
-      style: [elementPadding.md],
-    },
-    {
-      variants: { appearance: "ghost", size: "sm" },
-      style: [elementPadding.sm],
-    },
-  ],
+  variants: {
+    appearance: variantAppearance,
+    size: variantSize,
+  },
 });

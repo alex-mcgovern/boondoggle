@@ -7,21 +7,21 @@ import { InputDate as StoryComp } from "../input_date.comp";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "React components/InputDate",
   component: StoryComp,
+  title: "React components/InputDate",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  name: "default",
   args: {
-    placeholder: LOREM.placeholder(),
-    label: LOREM.label(),
     id: LOREM.id(),
+    label: LOREM.label(),
     name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
   },
+  name: "default",
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 

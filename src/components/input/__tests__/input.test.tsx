@@ -57,10 +57,10 @@ describe("<Input />", () => {
 
     it("should label element correctly", () => {
       const { getByLabelText } = renderComponent({
+        id: LOREM.id(),
+        label: LOREM.label(),
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
-        label: LOREM.label(),
-        id: LOREM.id(),
       });
 
       expect(getByLabelText(LOREM.label())).not.toBeNull();
@@ -83,9 +83,9 @@ describe("<Input />", () => {
   describe("`className` prop", () => {
     it("should have the className passed to it", () => {
       const { getByRole } = renderComponent({
+        className: "test-class",
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
-        className: "test-class",
       });
 
       expect(getByRole("textbox")).toHaveClass("test-class");
@@ -113,9 +113,9 @@ describe("<Input />", () => {
 
         it("should update value when the user types when there is `defaultValue`", async () => {
           const { getByRole } = renderComponent({
+            defaultValue: "Old value",
             name: LOREM.name(),
             placeholder: LOREM.placeholder(),
-            defaultValue: "Old value",
           });
 
           expect(getByRole("textbox")).toHaveValue("Old value");
@@ -133,8 +133,8 @@ describe("<Input />", () => {
 
           const { getByRole } = renderComponent({
             name: LOREM.name(),
-            placeholder: LOREM.placeholder(),
             onChange,
+            placeholder: LOREM.placeholder(),
             value: "",
           });
 
@@ -154,8 +154,8 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           onChange,
+          placeholder: LOREM.placeholder(),
           value: "",
         });
 
@@ -172,8 +172,8 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           onChange,
+          placeholder: LOREM.placeholder(),
           value: "Old value",
         });
 
@@ -189,8 +189,8 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           onChange,
+          placeholder: LOREM.placeholder(),
           readOnly: true,
         });
 
@@ -203,10 +203,10 @@ describe("<Input />", () => {
         const onChange = jest.fn();
 
         const { getByRole } = renderComponent({
-          name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
-          onChange,
           disabled: true,
+          name: LOREM.name(),
+          onChange,
+          placeholder: LOREM.placeholder(),
         });
 
         await userEvent.type(getByRole("textbox"), "New value");
@@ -221,8 +221,8 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           onClick,
+          placeholder: LOREM.placeholder(),
         });
 
         getByRole("textbox").click();
@@ -235,9 +235,9 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
+          onClick,
           placeholder: LOREM.placeholder(),
           readOnly: true,
-          onClick,
         });
 
         getByRole("textbox").click();
@@ -249,10 +249,10 @@ describe("<Input />", () => {
         const onClick = jest.fn();
 
         const { getByRole } = renderComponent({
-          name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           disabled: true,
+          name: LOREM.name(),
           onClick,
+          placeholder: LOREM.placeholder(),
         });
 
         getByRole("textbox").click();
@@ -267,8 +267,8 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           onMouseOver,
+          placeholder: LOREM.placeholder(),
         });
 
         fireEvent.mouseEnter(getByRole("textbox"));
@@ -281,9 +281,9 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
+          onMouseOver,
           placeholder: LOREM.placeholder(),
           readOnly: true,
-          onMouseOver,
         });
 
         fireEvent.mouseEnter(getByRole("textbox"));
@@ -295,10 +295,10 @@ describe("<Input />", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = renderComponent({
-          name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           disabled: true,
+          name: LOREM.name(),
           onMouseOver,
+          placeholder: LOREM.placeholder(),
         });
 
         fireEvent.mouseEnter(getByRole("textbox"));
@@ -313,8 +313,8 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           onMouseLeave,
+          placeholder: LOREM.placeholder(),
         });
 
         fireEvent.mouseLeave(getByRole("textbox"));
@@ -327,9 +327,9 @@ describe("<Input />", () => {
 
         const { getByRole } = renderComponent({
           name: LOREM.name(),
+          onMouseLeave,
           placeholder: LOREM.placeholder(),
           readOnly: true,
-          onMouseLeave,
         });
 
         fireEvent.mouseLeave(getByRole("textbox"));
@@ -341,10 +341,10 @@ describe("<Input />", () => {
         const onMouseLeave = jest.fn();
 
         const { getByRole } = renderComponent({
-          name: LOREM.name(),
-          placeholder: LOREM.placeholder(),
           disabled: true,
+          name: LOREM.name(),
           onMouseLeave,
+          placeholder: LOREM.placeholder(),
         });
 
         fireEvent.mouseLeave(getByRole("textbox"));
@@ -432,8 +432,8 @@ describe("<Input />", () => {
 
       const { getByRole } = renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onFocus,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();
@@ -446,9 +446,9 @@ describe("<Input />", () => {
 
       const { getByRole } = renderComponent({
         name: LOREM.name(),
+        onFocus,
         placeholder: LOREM.placeholder(),
         readOnly: true,
-        onFocus,
       });
 
       getByRole("textbox").focus();
@@ -460,10 +460,10 @@ describe("<Input />", () => {
       const onFocus = jest.fn();
 
       const { getByRole } = renderComponent({
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         disabled: true,
+        name: LOREM.name(),
         onFocus,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();
@@ -481,8 +481,8 @@ describe("<Input />", () => {
 
       const { getByRole } = renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onBlur,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();
@@ -497,8 +497,8 @@ describe("<Input />", () => {
 
       const { getByRole } = renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onBlur,
+        placeholder: LOREM.placeholder(),
         readOnly: true,
       });
 
@@ -513,10 +513,10 @@ describe("<Input />", () => {
       const onBlur = jest.fn();
 
       const { getByRole } = renderComponent({
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
-        onBlur,
         disabled: true,
+        name: LOREM.name(),
+        onBlur,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();

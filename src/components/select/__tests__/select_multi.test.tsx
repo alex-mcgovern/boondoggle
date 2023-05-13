@@ -23,11 +23,11 @@ const SECOND_ITEM = ITEMS[1];
 const SECOND_ITEM_LABEL = SECOND_ITEM?.label || "";
 
 const PROPS: SelectMultiProps = {
+  id: LOREM.id(),
   items: ITEMS,
   label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  id: LOREM.id(),
   placeholder: LOREM.select,
 };
 
@@ -159,8 +159,8 @@ describe("<SelectMulti />", () => {
     it("should render error message", async () => {
       const { getByText } = await renderComponent({
         ...PROPS,
-        invalid: true,
         errorMessage: LOREM.errorMessage(),
+        invalid: true,
       });
 
       expect(getByText(LOREM.errorMessage())).not.toBeNull();

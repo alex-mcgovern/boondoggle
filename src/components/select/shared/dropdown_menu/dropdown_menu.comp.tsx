@@ -31,8 +31,8 @@ export type DropdownMenuProps = BoxProps & {
     options: UseMultipleSelectionGetSelectedItemPropsOptions<DropdownItemShape>
   ) => { [key: string]: unknown };
   highlightedIndex?: number | undefined;
-  isOpen: boolean;
   isMulti?: boolean;
+  isOpen: boolean;
   items: Array<DropdownItemShape>;
   removeSelectedItem?: UseMultipleSelectionActions<DropdownItemShape>["removeSelectedItem"];
   size?: ElementSizeEnum;
@@ -84,19 +84,19 @@ export const DropdownMenu = forwardRef(
 
             return (
               <DropdownItem
-                item={item}
-                isMulti={isMulti}
-                isHighlighted={highlightedIndex === index}
-                key={`${item.label}-${item.value}`}
                 isDropdownItemSelected={isItemSelected}
+                isHighlighted={highlightedIndex === index}
+                isMulti={isMulti}
+                item={item}
+                key={`${item.label}-${item.value}`}
                 size={size}
                 {...getDropdownItemProps({
-                  isItemSelected,
-                  index,
                   getItemProps,
                   getSelectedItemProps,
-                  item,
+                  index,
+                  isItemSelected,
                   isMulti,
+                  item,
                   removeSelectedItem,
                 })}
               />

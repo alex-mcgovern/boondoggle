@@ -12,12 +12,12 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 > & {
   children: ReactNode | ReactNode[];
   disabled?: boolean;
-  handleFormSubmission:
-    | ((fieldValues: TFieldValues) => Promise<void>)
-    | ((fieldValues: TFieldValues) => void);
   handleErrors?:
     | ((errors: FieldErrors) => Promise<void>)
     | ((errors: FieldErrors) => void);
+  handleFormSubmission:
+    | ((fieldValues: TFieldValues) => Promise<void>)
+    | ((fieldValues: TFieldValues) => void);
   name: string;
   resolver: Resolver<TFieldValues, any>;
 };

@@ -9,9 +9,9 @@ import {
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  sm: [elementFontSize.sm, elementPadding.sm],
-  md: [elementFontSize.md, elementPadding.md],
   lg: [elementFontSize.lg, elementPadding.lg],
+  md: [elementFontSize.md, elementPadding.md],
+  sm: [elementFontSize.sm, elementPadding.sm],
 });
 
 export const getInputStyles = recipe({
@@ -21,10 +21,10 @@ export const getInputStyles = recipe({
     }),
     a11yDisabled,
   ],
-  variants: {
-    size,
-  },
   defaultVariants: {
     size: "md",
+  },
+  variants: {
+    size,
   },
 });

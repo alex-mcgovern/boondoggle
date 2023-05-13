@@ -21,11 +21,11 @@ const SECOND_ITEM = ITEMS[1];
 const SECOND_ITEM_LABEL = SECOND_ITEM?.label || "";
 
 const PROPS: SelectButtonProps = {
+  buttonText: LOREM.select,
+  id: LOREM.id(),
   items: ITEMS,
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  id: LOREM.id(),
-  buttonText: LOREM.select,
 };
 
 const renderComponent = async (props: SelectButtonProps) => {

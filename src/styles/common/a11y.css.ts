@@ -18,19 +18,19 @@ export const a11yError = style([
 
 export const a11yDisabled = style({
   selectors: {
-    "&[disabled]:hover, &[aria-disabled='true']:hover": {
-      cursor: "not-allowed",
-    },
     "&[disabled], &[aria-disabled='true']": {
       opacity: 0.3,
+    },
+    "&[disabled]:hover, &[aria-disabled='true']:hover": {
+      cursor: "not-allowed",
     },
   },
 });
 
 export const a11yFocusStyleRule: StyleRule = {
+  borderColor: vars.color.button_default,
   outline: `2px solid ${vars.color.button_default}`,
   outlineOffset: "2px",
-  borderColor: vars.color.button_default,
 };
 
 export const a11yFocus = style([

@@ -9,22 +9,22 @@ import type { CollapsibleProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Collapsible",
   component: StoryComp,
+  title: "React components/Collapsible",
 };
 
 const TriggerNode = (
   <button
-    type="button"
     className={getSprinkles({
-      display: "flex",
       alignItems: "center",
-      width: "100%",
       color: "text_high_contrast",
+      display: "flex",
+      width: "100%",
     })}
+    type="button"
   >
     Open collapsible
-    <Icon marginLeft="auto" icon={faAngleDown} />
+    <Icon icon={faAngleDown} marginLeft="auto" />
   </button>
 );
 
@@ -33,9 +33,9 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     children: LOREM.titleXl,
   },
+  name: "default",
+  render: Template,
 };

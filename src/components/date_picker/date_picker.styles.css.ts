@@ -8,9 +8,9 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const datePickerRoot = style([
   getSprinkles({
-    background: "background",
-    border: "border_default",
-    borderRadius: "md",
+    // background: "background",
+    // border: "border_default",
+    // borderRadius: "md",
     padding: "spacing2",
     width: "max-content",
   }),
@@ -21,10 +21,10 @@ export const datePickerRoot = style([
 
 export const titleButton = style([
   getSprinkles({
-    color: "text_low_contrast",
-    fontWeight: "semibold",
-    display: "flex",
     alignItems: "center",
+    color: "text_low_contrast",
+    display: "flex",
+    fontWeight: "semibold",
     gap: "spacing1",
   }),
   a11yFocus,

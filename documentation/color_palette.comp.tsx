@@ -9,47 +9,47 @@ export function ColorPalette() {
   return (
     <StoryblokColorPalette>
       <ColorItem
-        title="Neutral"
+        colors={{ black: vars.color.black, white: vars.color.white }}
         subtitle="General purpose neutral colors, that ARE NOT re-assigned by color overlay."
-        colors={{ white: vars.color.white, black: vars.color.black }}
+        title="Neutral"
       />
       <ColorItem
-        title="Background"
-        subtitle="Used for page background. Is re-assigned by color overlay."
         colors={{ background: vars.color.background }}
+        subtitle="Used for page background. Is re-assigned by color overlay."
+        title="Background"
       />
       <ColorItem
-        title="Tint"
-        subtitle="Used for tags, cards/surfaces, etc. Is re-assigned by color overlay."
         colors={{
-          tint_default: vars.color.tint_default,
           tint_active: vars.color.tint_active,
+          tint_default: vars.color.tint_default,
         }}
+        subtitle="Used for tags, cards/surfaces, etc. Is re-assigned by color overlay."
+        title="Tint"
       />
       <ColorItem
-        title="Border"
-        subtitle="Used for borders, dividers, etc. Is re-assigned by color overlay."
         colors={{
-          border_default: vars.color.border_default,
           border_active: vars.color.border_active,
+          border_default: vars.color.border_default,
         }}
+        subtitle="Used for borders, dividers, etc. Is re-assigned by color overlay."
+        title="Border"
       />
       <ColorItem
-        title="Button"
-        subtitle="Used for buttons, and other use cases requiring a saturated color. Is re-assigned by color overlay. Also used for the focus ring."
         colors={{
-          button_default: vars.color.button_default,
           button_active: vars.color.button_active,
+          button_default: vars.color.button_default,
           button_tint: vars.color.button_tint,
         }}
+        subtitle="Used for buttons, and other use cases requiring a saturated color. Is re-assigned by color overlay. Also used for the focus ring."
+        title="Button"
       />
       <ColorItem
-        title="Text"
-        subtitle="Used for text. Is re-assigned by color overlay."
         colors={{
-          text_low_contrast: vars.color.text_low_contrast,
           text_high_contrast: vars.color.text_high_contrast,
+          text_low_contrast: vars.color.text_low_contrast,
         }}
+        subtitle="Used for text. Is re-assigned by color overlay."
+        title="Text"
       />
     </StoryblokColorPalette>
   );

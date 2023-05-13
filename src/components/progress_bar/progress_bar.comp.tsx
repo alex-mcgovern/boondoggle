@@ -7,12 +7,12 @@ import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { BoxProps } from "../box";
 
 export type ProgressBarProps = {
-  /** A number within the range 0-100 */
-  value: number;
   /** Whether the value will be render with the component */
   isValueVisible?: boolean;
   /** Size of the progress bar. Consistent with the `Tag` component */
   size?: ElementSizeEnum;
+  /** A number within the range 0-100 */
+  value: number;
 } & BoxProps;
 
 export function ProgressBar({
@@ -36,8 +36,8 @@ export function ProgressBar({
     >
       {isValueVisible && <Box zIndex="1">{value} %</Box>}
       <Box
-        className={styles.progressBarInnerStyles}
         background="tint_active"
+        className={styles.progressBarInnerStyles}
         style={{ width: `${clampedValue}%` }}
       />
     </Box>

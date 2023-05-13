@@ -14,33 +14,33 @@ export const mockSelectItems = ({
   return [
     {
       label: "United Kingdom",
-      value: "uk",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "uk",
     },
     {
       label: "France",
-      value: "fr",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "fr",
     },
     {
       label: "Germany",
-      value: "de",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "de",
     },
     {
       label: "Spain",
-      value: "es",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "es",
     },
     {
       label: "Italy",
-      value: "it",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "it",
     },
     {
       label: "Portugal",
-      value: "pt",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "pt",
     },
   ];
 };

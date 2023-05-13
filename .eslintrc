@@ -12,7 +12,15 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
 
-      "plugins": ["react-perf", "sonarjs", "jsdoc", "unused-imports", "import"],
+      "plugins": [
+        "import",
+        "jsdoc",
+        "react-perf",
+        "sonarjs",
+        "sort-keys-fix",
+        "typescript-sort-keys",
+        "unused-imports"
+      ],
 
       "extends": [
         "plugin:react/jsx-runtime",
@@ -25,6 +33,19 @@
         "plugin:@typescript-eslint/recommended"
       ],
       "rules": {
+        "typescript-sort-keys/interface": "error",
+        "typescript-sort-keys/string-enum": "error",
+        "sort-keys-fix/sort-keys-fix": [
+          "error",
+          "asc",
+          { "caseSensitive": false, "natural": true }
+        ],
+        "react/jsx-sort-props": [
+          "error",
+          {
+            "ignoreCase": true
+          }
+        ],
         "@typescript-eslint/consistent-type-imports": [
           "error",
           {
@@ -32,6 +53,8 @@
             "prefer": "type-imports"
           }
         ],
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
+
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "arrow-body-style": ["error", "always"],

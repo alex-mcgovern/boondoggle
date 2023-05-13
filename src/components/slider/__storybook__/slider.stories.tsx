@@ -4,11 +4,11 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "React components/Slider",
-  component: StoryComp,
   args: {
     name: LOREM.name(),
   },
+  component: StoryComp,
+  title: "React components/Slider",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

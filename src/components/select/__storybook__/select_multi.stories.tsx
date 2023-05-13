@@ -11,16 +11,16 @@ const ON_CHANGE = jest.fn();
 const ITEMS = mockSelectItems({});
 
 const meta = {
-  title: "React components/SelectMulti",
-  component: StoryComp,
   args: {
-    items: ITEMS,
     id: LOREM.id(),
+    items: ITEMS,
     label: LOREM.label(),
     name: LOREM.name(),
     onChange: ON_CHANGE,
     placeholder: LOREM.placeholder(),
   },
+  component: StoryComp,
+  title: "React components/SelectMulti",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

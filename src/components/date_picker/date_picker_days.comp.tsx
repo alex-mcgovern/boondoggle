@@ -22,8 +22,8 @@ const getDayButtonAppearance = ({
 };
 
 type DatePickerDaysProps = {
-  days: Array<CalendarDay>;
   dayButton: ReturnType<typeof useDaysPropGetters>["dayButton"];
+  days: Array<CalendarDay>;
   month: Calendar["month"];
   onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 };
@@ -45,12 +45,12 @@ export function DatePickerDays({
             {...dayButton(calendarDay, {
               onClick: onDayClick,
             })}
-            name={calendarDay.$date.toISOString()}
-            key={calendarDay.$date.toISOString()}
             appearance={getDayButtonAppearance({
               now: calendarDay.now,
               selected: calendarDay.selected,
             })}
+            key={calendarDay.$date.toISOString()}
+            name={calendarDay.$date.toISOString()}
             size="square"
           >
             {calendarDay.day}

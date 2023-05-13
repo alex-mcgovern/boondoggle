@@ -19,11 +19,11 @@ const close = keyframes({
 export const collapsibleContentAnimation = style({
   overflow: "hidden",
   selectors: {
-    '&[data-state="open"]': {
-      animation: `${open} ${vars.transitionDuration.medium} ease forwards`,
-    },
     '&[data-state="closed"]': {
       animation: `${close} ${vars.transitionDuration.medium} ease forwards`,
+    },
+    '&[data-state="open"]': {
+      animation: `${open} ${vars.transitionDuration.medium} ease forwards`,
     },
   },
 });

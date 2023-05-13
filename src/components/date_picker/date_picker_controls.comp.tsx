@@ -42,12 +42,12 @@ export function DatePickerControls({
   return (
     <Box as="header" {...rest}>
       <Box
+        alignItems="center"
         display="flex"
-        width="100%"
         gap="spacing1"
         justifyContent="space-between"
-        alignItems="center"
         marginBottom="spacing2"
+        width="100%"
       >
         <Button
           {...(isShowingYears ? previousYearsButton() : previousMonthButton())}
@@ -57,7 +57,7 @@ export function DatePickerControls({
           slotLeft={<Icon icon={faAngleLeft} />}
         />
 
-        <Button onClick={onToggleYears} appearance="ghost" name="toggle_years">
+        <Button appearance="ghost" name="toggle_years" onClick={onToggleYears}>
           {isShowingYears ? (
             <> {`${years[0].year} - ${years[years.length - 1].year}`}</>
           ) : (

@@ -11,12 +11,12 @@ import type { DropdownItemShape } from "../../select.types";
 import type { Ref } from "react";
 
 export type DropdownItemProps = BoxProps & {
-  isHighlighted: boolean;
-  isMultipleSelectionEnabled?: boolean;
-  size?: ElementSizeEnum;
-  isMulti?: boolean;
-  item: DropdownItemShape;
   isDropdownItemSelected?: boolean;
+  isHighlighted: boolean;
+  isMulti?: boolean;
+  isMultipleSelectionEnabled?: boolean;
+  item: DropdownItemShape;
+  size?: ElementSizeEnum;
 };
 
 export const DropdownItem = forwardRef(
@@ -36,9 +36,6 @@ export const DropdownItem = forwardRef(
     return (
       <SlotWrapper
         as="li"
-        id={label}
-        slotLeft={slotLeft}
-        slotProps={{ width: "spacing2" }}
         className={clsx(
           styles.getDropdownItemStyles({
             size,
@@ -48,6 +45,9 @@ export const DropdownItem = forwardRef(
             [styles.isSelected]: isDropdownItemSelected,
           }
         )}
+        id={label}
+        slotLeft={slotLeft}
+        slotProps={{ width: "spacing2" }}
         {...rest}
         {...restItemProps}
         ref={ref}
@@ -56,11 +56,11 @@ export const DropdownItem = forwardRef(
         {isMulti && (
           <Box
             as="input"
-            type="checkbox"
-            readOnly
-            tabIndex={-1}
             checked={isDropdownItemSelected}
             marginLeft="auto"
+            readOnly
+            tabIndex={-1}
+            type="checkbox"
           />
         )}
       </SlotWrapper>

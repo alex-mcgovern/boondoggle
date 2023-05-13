@@ -37,10 +37,10 @@ export type SelectSingleProps = SelectCommonProps &
   InputCustomisation & {
     initialSelectedItem?: DropdownItemShape | null;
     itemToString?: (item: DropdownItemShape | null) => string;
+    onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
     onIsOpenChange?: (
       changes: UseComboboxStateChange<DropdownItemShape>
     ) => void;
-    onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
     placeholder: string;
     placement?: UsePopperPlacement;
   };
@@ -86,7 +86,7 @@ export const SelectSingle = forwardRef(
         return items;
       }
 
-      return getFilteredDropdownItems({ items, inputValue });
+      return getFilteredDropdownItems({ inputValue, items });
     }, [items, isFilterable, inputValue]);
 
     /** Initialise downshift `useCombobox` hook */
@@ -176,13 +176,13 @@ export const SelectSingle = forwardRef(
         )}
 
         <Input
+          inputProps={inputAtomProps}
+          invalid={invalid}
+          readOnly={!isFilterable}
+          ref={setPopperAnchorEl}
           size={size}
           slotLeft={slotLeft}
           slotRight={slotRight}
-          readOnly={!isFilterable}
-          ref={setPopperAnchorEl}
-          invalid={invalid}
-          inputProps={inputAtomProps}
           textTransform="capitalize"
           {...inputAtomProps}
           {...getInputProps?.({
@@ -203,15 +203,15 @@ export const SelectSingle = forwardRef(
         )}
 
         <DropdownMenu
-          style={popperStyles.popper}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
           highlightedIndex={highlightedIndex}
           isOpen={isOpen}
           items={filteredItems}
-          size={size}
           ref={setPopperElement}
+          size={size}
+          style={popperStyles.popper}
           {...popperAttributes.popper}
         />
       </Box>

@@ -5,8 +5,8 @@ import type { TooltipProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Tooltip",
   component: StoryComp,
+  title: "React components/Tooltip",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -14,14 +14,14 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     tooltipText: LOREM.textXxs,
   },
+  render: Template,
 };
 export const WithLongText: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     tooltipText: LOREM.textXxl,
   },
+  render: Template,
 };

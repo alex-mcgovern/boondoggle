@@ -3,51 +3,51 @@ import { getFilteredDropdownItems } from "../select_utils";
 test.skip("Given no selected items, and empty string as inputValue, returns all items", () => {
   expect(
     getFilteredDropdownItems({
-      items: [
-        { value: "foo", label: "foo" },
-        { value: "bar", label: "bar" },
-        { value: "bob", label: "bob" },
-        { value: "alice", label: "alice" },
-      ],
       inputValue: "",
+      items: [
+        { label: "foo", value: "foo" },
+        { label: "bar", value: "bar" },
+        { label: "bob", value: "bob" },
+        { label: "alice", value: "alice" },
+      ],
     })
   ).toStrictEqual([
-    { value: "foo", label: "foo" },
-    { value: "bar", label: "bar" },
-    { value: "bob", label: "bob" },
-    { value: "alice", label: "alice" },
+    { label: "foo", value: "foo" },
+    { label: "bar", value: "bar" },
+    { label: "bob", value: "bob" },
+    { label: "alice", value: "alice" },
   ]);
 });
 
 test.skip("Given no selected items, and undefined as inputValue, returns all items", () => {
   expect(
     getFilteredDropdownItems({
-      items: [
-        { value: "foo", label: "foo" },
-        { value: "bar", label: "bar" },
-        { value: "bob", label: "bob" },
-        { value: "alice", label: "alice" },
-      ],
       inputValue: undefined,
+      items: [
+        { label: "foo", value: "foo" },
+        { label: "bar", value: "bar" },
+        { label: "bob", value: "bob" },
+        { label: "alice", value: "alice" },
+      ],
     })
   ).toStrictEqual([
-    { value: "foo", label: "foo" },
-    { value: "bar", label: "bar" },
-    { value: "bob", label: "bob" },
-    { value: "alice", label: "alice" },
+    { label: "foo", value: "foo" },
+    { label: "bar", value: "bar" },
+    { label: "bob", value: "bob" },
+    { label: "alice", value: "alice" },
   ]);
 });
 
 test.skip("Given no selected items, and inputValue, returns only items matching inputValue", () => {
   expect(
     getFilteredDropdownItems({
-      items: [
-        { value: "foo", label: "foo" },
-        { value: "bar", label: "bar" },
-        { value: "bob", label: "bob" },
-        { value: "alice", label: "alice" },
-      ],
       inputValue: "foo",
+      items: [
+        { label: "foo", value: "foo" },
+        { label: "bar", value: "bar" },
+        { label: "bob", value: "bob" },
+        { label: "alice", value: "alice" },
+      ],
     })
-  ).toStrictEqual([{ value: "foo", label: "foo" }]);
+  ).toStrictEqual([{ label: "foo", value: "foo" }]);
 });

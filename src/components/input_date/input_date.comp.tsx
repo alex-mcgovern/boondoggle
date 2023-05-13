@@ -1,6 +1,5 @@
 import { forwardRef, useCallback, useState } from "react";
 
-import { animateAppear } from "../../styles/common/animations.css";
 import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker/date_picker.comp";
 import { Dialog } from "../dialog/dialog.comp";
@@ -16,30 +15,32 @@ export type InputDateValue = {
 };
 
 export type InputDateProps = Omit<InputProps, "value"> & {
-  locale?: Intl.LocalesArgument;
-  rawValueTransformer?: (value: string) => string;
   isOpen?: boolean;
+  locale?: Intl.LocalesArgument;
   /**
    * On change handler designed to be used with React Hook Form's `register` method.
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: (...event: any[]) => void;
+  rawValueTransformer?: (value: string) => string;
 };
 
 export const InputDate = forwardRef(
   (
     {
+      className: userClassName,
       locale,
       rawValueTransformer,
       defaultValue,
       isOpen: controlledIsOpen,
+      wrapperProps,
       onChange,
       ...rest
     }: InputDateProps,
     ref: Ref<HTMLInputElement>
   ) => {
     const [inputValue, setInputValue] = useState<string>("");
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
 
     /**
      * Callback for when a day is clicked in the date picker.
@@ -60,26 +61,25 @@ export const InputDate = forwardRef(
       },
       [locale, rawValueTransformer, onChange]
     );
+
     return (
       <Dialog
+        className={userClassName}
+        isOpen={isOpen}
+        onIsOpenChange={setIsOpen}
         ref={ref}
         triggerNode={
           <Input
-            readOnly
-            defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
-            className={styles.inputDate}
-            value={inputValue}
             {...(rest as InputProps)}
+            className={styles.inputDate}
+            defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
+            readOnly
+            value={inputValue}
           />
         }
+        wrapperProps={wrapperProps}
       >
-        <DatePicker
-          isOpen={isOpen}
-          open={controlledIsOpen}
-          className={animateAppear}
-          marginTop="spacing1"
-          onDayClick={onDayClick}
-        />
+        <DatePicker onDayClick={onDayClick} />
       </Dialog>
     );
   }

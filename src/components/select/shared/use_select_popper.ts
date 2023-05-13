@@ -29,8 +29,6 @@ export const useSelectPopper = ({
     popperAnchorEl,
     popperElement,
     {
-      placement,
-      strategy: "absolute",
       modifiers: [
         {
           name: "flip",
@@ -45,13 +43,15 @@ export const useSelectPopper = ({
           },
         },
       ],
+      placement,
+      strategy: "absolute",
     }
   );
 
   return {
+    popperAttributes,
+    popperStyles,
     setPopperAnchorEl,
     setPopperElement,
-    popperStyles,
-    popperAttributes,
   };
 };

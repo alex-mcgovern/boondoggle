@@ -8,12 +8,12 @@ import { Loader } from "../../loader";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "React components/TextArea",
-  component: StoryComp,
   args: {
-    placeholder: LOREM.placeholder(),
     name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
   },
+  component: StoryComp,
+  title: "React components/TextArea",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -23,43 +23,43 @@ type Story = StoryObj<typeof meta>;
  * Customisation examples
  */
 export const CustomisationMargin: Story = {
-  name: "customisation/margin",
   args: { margin: "spacing5" },
+  name: "customisation/margin",
 };
 
 /**
  * Size
  */
 export const SizeSm: Story = {
-  name: "size/sm",
-
   args: { size: "sm" },
+
+  name: "size/sm",
 };
 export const SizeMd: Story = {
-  name: "size/md",
-
   args: { size: "md" },
+
+  name: "size/md",
 };
 export const SizeLg: Story = {
-  name: "size/lg",
-
   args: { size: "lg" },
+
+  name: "size/lg",
 };
 
 /**
  * Slot props
  */
 export const SlotLeftIcon: Story = {
-  name: "slotLeft/icon",
   args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
+  name: "slotLeft/icon",
 };
 export const SlotRightIcon: Story = {
-  name: "slotRight/icon",
   args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
+  name: "slotRight/icon",
 };
 export const SlotRightLoader: Story = {
-  name: "slotRight/loader",
   args: { slotRight: <Loader /> },
+  name: "slotRight/loader",
 };
 
 /**
@@ -74,6 +74,6 @@ export const StateFocusVisible: Story = {
   parameters: { pseudo: { focusVisible: true } },
 };
 export const StateDisabled: Story = {
-  name: "state/disabled",
   args: { disabled: true },
+  name: "state/disabled",
 };

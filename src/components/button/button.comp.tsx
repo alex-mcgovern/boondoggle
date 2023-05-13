@@ -33,22 +33,22 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
     {
       /** The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis. */
       appearance?: styles.Appearance;
-      /** Use color to indicate beneficial, or potentially destructive actions. */
-      colorOverlay?: ColorOverlay;
-      /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
-      size?: "square" | ElementSizeEnum;
       /** The React node shown in the button. */
       children?: ReactNode;
+      /** Use color to indicate beneficial, or potentially destructive actions. */
+      colorOverlay?: ColorOverlay;
       /** The title for the button, shown in the UI. */
       name: string;
+      /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
+      size?: "square" | ElementSizeEnum;
       /** The React node shown on the left side of the button. */
       slotLeft?: ReactNode;
+      /** Props forwarded to slots */
+      slotProps?: SlotWrapperProps["slotProps"];
       /** The React node shown on the right side of the button. */
       slotRight?: ReactNode;
       /** The HTML button type, defaults to `button`. */
       type?: "button" | "submit" | "reset";
-      /** Props forwarded to slots */
-      slotProps?: SlotWrapperProps["slotProps"];
     }
   >;
 

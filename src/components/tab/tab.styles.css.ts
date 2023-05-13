@@ -12,22 +12,22 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  sm: [elementFontSize.sm, elementPadding.sm],
-  md: [elementFontSize.md, elementPadding.md],
   lg: [elementFontSize.lg, elementPadding.lg],
+  md: [elementFontSize.md, elementPadding.md],
+  sm: [elementFontSize.sm, elementPadding.sm],
 });
 
 export const getTabStyle = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
-      borderRadius: "sm",
       background: "tint_active",
+      borderRadius: "sm",
       color: "text_low_contrast",
       display: "inline-flex",
       gap: "spacing0",
-      whiteSpace: "nowrap",
       textDecoration: "none",
+      whiteSpace: "nowrap",
       width: "max-content",
     }),
     a11yFocus,
@@ -45,11 +45,11 @@ export const getTabStyle = recipe({
     },
   ],
 
+  defaultVariants: {
+    size: "md",
+  },
   variants: {
     colorOverlay: variantColorOverlay,
     size,
-  },
-  defaultVariants: {
-    size: "md",
   },
 });

@@ -23,8 +23,8 @@ import type {
 } from "react";
 
 export type InputCustomisation = {
-  wrapperProps?: BoxProps;
   inputProps?: SprinklesArgs;
+  wrapperProps?: BoxProps;
 };
 
 export type InputProps = Omit<
@@ -37,14 +37,14 @@ export type InputProps = Omit<
   invalid?: boolean;
   /** Name of the form control. Submitted with the form as part of a name/value pair */
   name: string;
+  /** Placeholder text shown when input is empty. */
+  placeholder: string;
   /** Common interactive element size, shared with button, select, etc */
   size?: ElementSizeEnum;
   /** React node shown on the left side of input. */
   slotLeft?: ReactNode;
   /** React node shown on the right side of input. */
   slotRight?: ReactNode;
-  /** Placeholder text shown when input is empty. */
-  placeholder: string;
 } & ConditionalLabelProps &
   InputCustomisation;
 
@@ -62,6 +62,7 @@ export const Input = forwardRef(
       size = "md",
       inputProps,
       wrapperProps,
+      ...rest
     }: InputProps,
     ref:
       | LegacyRef<HTMLInputElement>
@@ -69,10 +70,8 @@ export const Input = forwardRef(
       | undefined
   ) => {
     /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
-    const { atomProps, otherProps } = extractAtomsFromProps(
-      inputProps,
-      getSprinkles
-    );
+    const { atomProps: inputAtomProps, otherProps: inputOtherProps } =
+      extractAtomsFromProps(inputProps, getSprinkles);
 
     return (
       <Box
@@ -80,26 +79,27 @@ export const Input = forwardRef(
         color="text_low_contrast"
         {...wrapperProps}
       >
-        {label && id && <Label label={label} htmlFor={id} />}
+        {label && id && <Label htmlFor={id} label={label} />}
 
         <SlotWrapper
-          slotProps={{ paddingY: "spacing1" }}
           slotLeft={slotLeft}
+          slotProps={{ paddingY: "spacing1" }}
           slotRight={slotRight}
         >
           <input
             className={clsx(
-              getSprinkles(atomProps),
+              getSprinkles(inputAtomProps),
               styles.getInputStyles({ size }),
               userClassName,
               {
                 [a11yError]: invalid,
               }
             )}
-            name={name}
             id={id}
+            name={name}
             ref={ref as LegacyRef<HTMLInputElement>}
-            {...otherProps}
+            {...inputOtherProps}
+            {...rest}
           />
         </SlotWrapper>
 

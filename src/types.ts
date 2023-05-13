@@ -52,13 +52,13 @@ export type ElementTypeArg =
   | undefined;
 
 export type LabelledElement = {
-  label: string;
   id: string;
+  label: string;
 };
 
 export type UnlabelledElement = {
-  label?: never;
   id?: string;
+  label?: never;
 };
 
 export type ConditionalLabelProps =

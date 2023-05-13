@@ -9,16 +9,16 @@ import * as styles from "./dialog_modal.styles.css";
 import type { ReactNode } from "react";
 
 export type DialogModalProps = {
-  /** Element to use as DialogModal trigger. Note: Must accept a ref. */
-  triggerNode: ReactNode;
-  /** Accessible title for dialog */
-  title: string;
-  /** Accessible description for dialog */
-  description?: string;
+  callbackOnOpenChange?: (isOpen: boolean) => void;
   /** DialogModal content */
   children: ReactNode | Array<ReactNode>;
-  callbackOnOpenChange?: (isOpen: boolean) => void;
+  /** Accessible description for dialog */
+  description?: string;
   isOpen?: boolean;
+  /** Accessible title for dialog */
+  title: string;
+  /** Element to use as DialogModal trigger. Note: Must accept a ref. */
+  triggerNode: ReactNode;
 };
 
 const CLOSE_BUTTON_ICON = <Icon icon={faTimes} />;
@@ -53,10 +53,10 @@ export function DialogModal({
            * DIALOG HEADER
            * —— */}
           <Box
-            display="flex"
-            justifyContent="space-between"
             alignItems="center"
             borderBottom="border_default"
+            display="flex"
+            justifyContent="space-between"
             padding="spacing2"
           >
             <DialogModalPrimitive.Title asChild>
@@ -67,13 +67,13 @@ export function DialogModal({
 
             <DialogModalPrimitive.Close asChild>
               <Button
+                appearance="secondary"
+                aria-label="Close"
+                flexGrow="0"
+                marginLeft="auto"
                 name="close"
                 size="square"
-                marginLeft="auto"
-                flexGrow="0"
-                appearance="secondary"
                 slotLeft={CLOSE_BUTTON_ICON}
-                aria-label="Close"
                 type="button"
               />
             </DialogModalPrimitive.Close>

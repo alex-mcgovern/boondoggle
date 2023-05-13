@@ -73,10 +73,10 @@ describe("<InputDate />", () => {
 
     it("should label element correctly", async () => {
       const { getByLabelText } = await renderComponent({
+        id: LOREM.id(),
+        label: LOREM.label(),
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
-        label: LOREM.label(),
-        id: LOREM.id(),
       });
 
       expect(getByLabelText(LOREM.label())).not.toBeNull();
@@ -171,8 +171,8 @@ describe("<InputDate />", () => {
 
       const { getByRole } = await renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onFocus,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();
@@ -185,9 +185,9 @@ describe("<InputDate />", () => {
 
       const { getByRole } = await renderComponent({
         name: LOREM.name(),
+        onFocus,
         placeholder: LOREM.placeholder(),
         readOnly: true,
-        onFocus,
       });
 
       getByRole("textbox").focus();
@@ -199,10 +199,10 @@ describe("<InputDate />", () => {
       const onFocus = jest.fn();
 
       const { getByRole } = await renderComponent({
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         disabled: true,
+        name: LOREM.name(),
         onFocus,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();
@@ -220,8 +220,8 @@ describe("<InputDate />", () => {
 
       const { getByRole } = await renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onBlur,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();
@@ -236,8 +236,8 @@ describe("<InputDate />", () => {
 
       const { getByRole } = await renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onBlur,
+        placeholder: LOREM.placeholder(),
         readOnly: true,
       });
 
@@ -252,10 +252,10 @@ describe("<InputDate />", () => {
       const onBlur = jest.fn();
 
       const { getByRole } = await renderComponent({
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
-        onBlur,
         disabled: true,
+        name: LOREM.name(),
+        onBlur,
+        placeholder: LOREM.placeholder(),
       });
 
       getByRole("textbox").focus();

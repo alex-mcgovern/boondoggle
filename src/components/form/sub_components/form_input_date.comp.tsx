@@ -10,14 +10,14 @@ import type { InputProps } from "../../input";
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
 export type FormInputProps = Omit<InputProps, "defaultValue"> & {
-  /** Message to render when erroring. */
-  errorMessage: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
-  /** Placeholder text to display when input is empty. */
-  placeholder: string;
   /** Override input default value to accept a string only */
   defaultValue?: string;
+  /** Message to render when erroring. */
+  errorMessage: string;
+  /** Placeholder text to display when input is empty. */
+  placeholder: string;
+  /** Callback for validation, else simply validates is non-empty. */
+  validateFunction?: (value: string) => boolean;
 };
 
 export function FormInputDate({
@@ -34,8 +34,9 @@ export function FormInputDate({
     field: { onBlur, ref, onChange, value: controlledValue },
     fieldState: { error },
   } = useController({
-    name,
     control,
+    defaultValue,
+    name,
     rules: {
       required: required && errorMessage,
       validate: (value) => {
@@ -45,7 +46,6 @@ export function FormInputDate({
         return !!value;
       },
     },
-    defaultValue,
   });
 
   return (
@@ -54,10 +54,10 @@ export function FormInputDate({
       errorMessage={errorMessage}
       invalid={!!error}
       name={name}
-      value={controlledValue ? formatDate(controlledValue) : ""}
       onBlur={onBlur}
       onChange={onChange}
       ref={ref}
+      value={controlledValue ? formatDate(controlledValue) : ""}
       {...rest}
     />
   );

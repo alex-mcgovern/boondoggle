@@ -12,16 +12,16 @@ const ON_CHANGE = jest.fn();
 const ITEMS = mockSelectItems({});
 
 const meta = {
-  title: "React components/SelectSingle",
-  component: StoryComp,
   args: {
-    items: ITEMS,
     id: LOREM.id(),
+    items: ITEMS,
     label: LOREM.label(),
     name: LOREM.name(),
     onChange: ON_CHANGE,
     placeholder: LOREM.placeholder(),
   },
+  component: StoryComp,
+  title: "React components/SelectSingle",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -37,8 +37,8 @@ export const InitialSelectedItem: Story = {
 
 export const Invalid: Story = {
   args: {
-    invalid: true,
     errorMessage: LOREM.errorMessage(),
+    invalid: true,
   },
 };
 

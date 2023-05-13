@@ -8,13 +8,13 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const cardStyle = style([
   getSprinkles({
-    padding: "spacing2",
-    display: "block",
-    isolation: "isolate",
-    textDecoration: "none",
     background: "tint_default",
     border: "border_default",
     borderRadius: "md",
+    display: "block",
+    isolation: "isolate",
+    padding: "spacing2",
+    textDecoration: "none",
   }),
   a11yFocus,
   createAccessibleTransition({
@@ -26,8 +26,8 @@ export const cardStyle = style([
 
     selectors: {
       [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
-        borderColor: vars.color.border_active,
         background: vars.color.tint_active,
+        borderColor: vars.color.border_active,
         boxShadow: vars.boxShadow.md,
       },
     },

@@ -14,8 +14,8 @@ export function DatePickerDayNames({ weekDays }: DatePickerDayNamesProps) {
           <Box
             color="text_low_contrast"
             fontStyle="body_sm"
-            textAlign="center"
             key={day}
+            textAlign="center"
           >
             {day}
           </Box>

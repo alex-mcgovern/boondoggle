@@ -3,12 +3,12 @@ import { ProgressBar as StoryComp } from "../progress_bar.comp";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: "React components/ProgressBar",
-  component: StoryComp,
   args: {
-    value: 50,
     isValueVisible: true,
+    value: 50,
   },
+  component: StoryComp,
+  title: "React components/ProgressBar",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -21,8 +21,8 @@ export const Default: Story = {
 };
 export const VisibleValue: Story = {
   args: {
-    value: 50,
     isValueVisible: true,
+    value: 50,
   },
 };
 export const Max: Story = {

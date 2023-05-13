@@ -4,8 +4,8 @@ import type { LoaderProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Loader",
   component: StoryComp,
+  title: "React components/Loader",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -13,6 +13,6 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
   name: "default",
+  render: Template,
 };

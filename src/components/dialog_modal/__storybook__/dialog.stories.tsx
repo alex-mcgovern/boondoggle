@@ -6,8 +6,8 @@ import type { DialogModalProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/DialogModal",
   component: StoryComp,
+  title: "React components/DialogModal",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -15,11 +15,11 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
-    triggerNode: <Button name="DialogModal button">Open dialog</Button>,
     children: `${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl} ${LOREM.textXxl}`,
     title: LOREM.textXxs,
+    triggerNode: <Button name="DialogModal button">Open dialog</Button>,
   },
+  name: "default",
+  render: Template,
 };

@@ -6,8 +6,8 @@ import type { IconProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Icon",
   component: StoryComp,
+  title: "React components/Icon",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -15,9 +15,9 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     icon: faShapes,
   },
+  name: "default",
+  render: Template,
 };

@@ -25,11 +25,11 @@ const SECOND_ITEM_VALUE = SECOND_ITEM?.value || "";
 const SECOND_ITEM_LABEL = SECOND_ITEM?.label || "";
 
 const PROPS: SelectSingleProps = {
+  id: LOREM.id(),
   items: ITEMS,
   label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  id: LOREM.id(),
   placeholder: LOREM.select,
 };
 
@@ -161,8 +161,8 @@ describe("<SelectSingle />", () => {
     it("should render error message", async () => {
       const { getByText } = await renderComponent({
         ...PROPS,
-        invalid: true,
         errorMessage: LOREM.errorMessage(),
+        invalid: true,
       });
 
       expect(getByText(LOREM.errorMessage())).not.toBeNull();

@@ -4,10 +4,10 @@ import type { ElementTypeArg } from "../types";
 import type { MutableRefObject, RefObject } from "react";
 
 type UseEnterWhileFocusedArgs<TTriggerType extends ElementTypeArg> = {
+  callback: () => void;
   triggerRef:
     | RefObject<TTriggerType | undefined>
     | MutableRefObject<TTriggerType | undefined>;
-  callback: () => void;
 };
 
 export function useEnterWhileFocused<TTriggerType extends ElementTypeArg>({

@@ -16,8 +16,8 @@ const handleFormSubmissionMock = jest.fn();
 const handleErrorsMock = jest.fn();
 
 const PROPS: FormProps = mockForm({
-  handleFormSubmission: handleFormSubmissionMock,
   handleErrors: handleErrorsMock,
+  handleFormSubmission: handleFormSubmissionMock,
 });
 
 const renderComponent = async ({ ...props }: FormProps) => {
@@ -108,10 +108,10 @@ describe("<Form />", () => {
       await waitFor(() => {
         expect(handleFormSubmissionMock).toHaveBeenCalledWith(
           expect.objectContaining({
-            email: LOREM.email(),
-            description: LOREM.textXxs,
-            select: mockSelectItems({})[0].value,
             amount: 1,
+            description: LOREM.textXxs,
+            email: LOREM.email(),
+            select: mockSelectItems({})[0].value,
           }),
           expect.objectContaining({
             type: "submit",
@@ -125,8 +125,8 @@ describe("<Form />", () => {
 
       const { getByRole } = await renderComponent(
         mockForm({
-          handleFormSubmission: handleFormSubmissionDefaultValuesMock,
           handleErrors: handleErrorsMock,
+          handleFormSubmission: handleFormSubmissionDefaultValuesMock,
           withDefaultValues: true,
         })
       );
@@ -138,10 +138,10 @@ describe("<Form />", () => {
       await waitFor(() => {
         expect(handleFormSubmissionDefaultValuesMock).toHaveBeenCalledWith(
           expect.objectContaining({
-            email: LOREM.email(),
-            description: LOREM.textXxs,
-            select: mockSelectItems({})[0].value,
             amount: 50,
+            description: LOREM.textXxs,
+            email: LOREM.email(),
+            select: mockSelectItems({})[0].value,
           }),
           expect.objectContaining({
             type: "submit",
@@ -181,7 +181,7 @@ describe("<Form />", () => {
         );
 
         /** Should display error message for all 4 inputs */
-        expect(getAllByRole("alert")).toHaveLength(4);
+        expect(getAllByRole("alert")).toHaveLength(5);
       });
     });
   });

@@ -17,13 +17,13 @@ import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./slider.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ConditionalLabelProps } from "../../types";
+import type { InputCustomisation } from "../input/input.comp";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, HTMLInputTypeAttribute, ReactNode, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
-  SprinklesArgs &
+  InputCustomisation &
   ConditionalLabelProps & {
     autoComplete?: HTMLInputElement["autocomplete"];
     /** Is input disabled. Mapped to html5 <input> `disabled` attribute and `aria-disabled` attribute. */
@@ -34,18 +34,18 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
     invalid?: boolean;
     /** Name of the form control. Submitted with the form as part of a name/value pair */
     name: string;
-    /** React node shown on the left side of input. */
-    slotLeft?: ReactNode;
-    /** React node shown on the right side of input. */
-    slotRight?: ReactNode;
-    /** Controls `aria-required` and input `required` attributes. */
-    required?: boolean;
     /** Text shown before user has interacted with the input. */
     placeholder?: string;
+    /** Controls `aria-required` and input `required` attributes. */
+    required?: boolean;
     /** Aria role to use for the input (e.g. `search`). */
     role?: AriaRole;
     /** Common interactive element size, shared with button, select, etc */
     size?: ElementSizeEnum;
+    /** React node shown on the left side of input. */
+    slotLeft?: ReactNode;
+    /** React node shown on the right side of input. */
+    slotRight?: ReactNode;
     type?: HTMLInputTypeAttribute;
   };
 
@@ -54,6 +54,8 @@ export const Slider = forwardRef(
     {
       errorMessage,
       id,
+      wrapperProps,
+      inputProps,
       invalid,
       label,
       name,
@@ -64,28 +66,34 @@ export const Slider = forwardRef(
     }: SliderProps,
     ref: Ref<HTMLSpanElement>
   ) => {
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    const labelId = id ? `${id}-label` : undefined;
 
-    const labelId = `${id}-label`;
+    const { atomProps, otherProps } = extractAtomsFromProps(
+      inputProps,
+      getSprinkles
+    );
 
     return (
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         color="text_low_contrast"
-        {...atomProps}
+        {...wrapperProps}
       >
-        {label && id && <Label label={label} htmlFor={id} id={labelId} />}
+        {label && id && labelId && (
+          <Label htmlFor={id} id={labelId} label={label} />
+        )}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
           <RadixSliderRoot
-            aria-required={required}
-            className={styles.sliderRoot}
-            name={name}
             aria-label={name}
             aria-labelledby={label && id ? labelId : undefined}
+            aria-required={required}
+            className={clsx(styles.sliderRoot, getSprinkles(atomProps))}
             id={id}
+            name={name}
             ref={ref}
             {...otherProps}
+            {...rest}
           >
             <RadixSliderTrack className={styles.sliderTrack}>
               <RadixSliderRange className={styles.sliderRange} />
