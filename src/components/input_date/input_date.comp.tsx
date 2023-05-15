@@ -7,7 +7,7 @@ import { Input } from "../input/input.comp";
 import * as styles from "./input_date.styles.css";
 
 import type { InputProps } from "../input/input.comp";
-import type { MouseEvent, Ref } from "react";
+import type { MouseEvent } from "react";
 
 export type InputDateValue = {
   humanReadable: string;
@@ -25,7 +25,7 @@ export type InputDateProps = Omit<InputProps, "value"> & {
   rawValueTransformer?: (value: string) => string;
 };
 
-export const InputDate = forwardRef(
+export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
   (
     {
       className: userClassName,
@@ -37,7 +37,7 @@ export const InputDate = forwardRef(
       onChange,
       ...rest
     }: InputDateProps,
-    ref: Ref<HTMLInputElement>
+    ref
   ) => {
     const [inputValue, setInputValue] = useState<string>("");
     const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
@@ -67,13 +67,13 @@ export const InputDate = forwardRef(
         className={userClassName}
         isOpen={isOpen}
         onIsOpenChange={setIsOpen}
-        ref={ref}
         triggerNode={
           <Input
             {...(rest as InputProps)}
             className={styles.inputDate}
             defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
             readOnly
+            ref={ref}
             value={inputValue}
           />
         }

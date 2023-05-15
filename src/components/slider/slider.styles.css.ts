@@ -66,7 +66,7 @@ export const sliderThumb = style([
     border: "border_active",
     borderRadius: "50%",
 
-    boxShadow: "sm",
+    boxShadow: "md",
     display: "block",
     height: "spacing3",
     width: "spacing3",
@@ -83,7 +83,7 @@ export const sliderThumb = style([
         cursor: "pointer",
       },
       [`&${SELECTOR_IS_FOCUS}`]: {
-        boxShadow: vars.boxShadow.md,
+        boxShadow: vars.boxShadow.lg,
         outline: "none",
         ...a11yFocusStyleRule,
       },

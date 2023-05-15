@@ -32,9 +32,9 @@ export const rootVars = createGlobalTheme(":root", {
     sm: "4px",
   },
   boxShadow: {
-    lg: `0px 8px 8px #00000012`,
-    md: `0px 4px 8px #00000008`,
-    sm: `0px 2px 8px #00000004`,
+    lg: "0 8px 24px rgba(140,149,159,0.2)",
+    md: "0 3px 6px rgba(140,149,159,0.15)",
+    sm: "0 1px 0 rgba(31,35,40,0.04)",
   },
   display: {
     block: "block",
@@ -51,90 +51,18 @@ export const rootVars = createGlobalTheme(":root", {
     display: `"DM Sans", sans-serif;`,
   },
   fontSize: {
-    
-// 20.25px (Same as h6)
-body_lg: "1.125rem",
-    
-
-
-
-// 18.00px
-body_md: "1rem", 
-    
-
-
-
-
-
-// 16.00px
-body_sm: "0.889rem", 
-    
-
-
-
-
-
-// 20.25px
-body_xl: "1.266rem", 
-    
-
-
-
-
-
-// 14.22px
-body_xs: "0.79rem", 
-    
-
-
-
-
-
-
-
-h1: "2.281rem", 
-    
-
-
-
-
-
-
-
-// 36.49px
-h2: "2.027rem", 
-
-    
-
-
-
-
-
-
-// 32.44px
-h3: "1.802rem", 
-    
-
-
-
-
-
-// 28.83px
-h4: "1.602rem", 
-    
-
-
-
-
-// 25.63px
-h5: "1.424rem", 
-    
-
-
-// 22.78px
-h6: "1.266rem", 
-    
-root: "16px", // 14.22px
+    body_lg: "1.125rem",
+    body_md: "1rem",
+    body_sm: "0.889rem",
+    body_xl: "1.266rem",
+    body_xs: "0.79rem",
+    h1: "2.281rem",
+    h2: "2.027rem",
+    h3: "1.802rem",
+    h4: "1.602rem",
+    h5: "1.424rem",
+    h6: "1.266rem",
+    root: "16px",
   },
   fontWeight: {
     bold: "700",
@@ -189,7 +117,6 @@ root: "16px", // 14.22px
   },
   spacing: {
     auto: "auto",
-
     none: "0",
     spacing0: "0.25rem",
     spacing1: "0.5rem",

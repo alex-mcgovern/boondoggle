@@ -139,6 +139,7 @@ export const SelectSingle = forwardRef(
         return downshiftStateReducer(state, actionAndChanges, {});
       },
     });
+    console.debug("debug  isOpen:", isOpen);
 
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {
@@ -165,15 +166,8 @@ export const SelectSingle = forwardRef(
           />
         )}
 
-        <DropdownMenu
-          as={Dialog}
-          getIsItemSelected={getIsItemSelected}
-          getItemProps={getItemProps}
-          getMenuProps={getMenuProps}
-          highlightedIndex={highlightedIndex}
+        <Dialog
           isOpen={isOpen}
-          items={filteredItems}
-          size={size}
           triggerNode={
             <Input
               inputProps={inputAtomProps}
@@ -197,7 +191,16 @@ export const SelectSingle = forwardRef(
               })}
             />
           }
-        />
+        >
+          <DropdownMenu
+            getIsItemSelected={getIsItemSelected}
+            getItemProps={getItemProps}
+            getMenuProps={getMenuProps}
+            highlightedIndex={highlightedIndex}
+            items={filteredItems}
+            size={size}
+          />
+        </Dialog>
 
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />

@@ -7,7 +7,7 @@ import { getDropdownItemProps } from "../get_dropdown_item_props";
 import * as styles from "./dropdown_menu.styles.css";
 
 import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
-import type { BoxProps } from "../../../box";
+import type { DialogProps } from "../../../dialog";
 import type { DropdownItemShape } from "../../select.types";
 import type {
   UseComboboxPropGetters,
@@ -17,11 +17,9 @@ import type {
 import type { LegacyRef } from "react";
 
 /**
-
-/**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export type DropdownMenuProps = BoxProps & {
+export type DropdownMenuProps = DialogProps & {
   getIsItemSelected: (item: DropdownItemShape) => boolean;
   getItemProps: UseComboboxPropGetters<DropdownItemShape>["getItemProps"];
   getMenuProps: UseComboboxPropGetters<DropdownItemShape>["getMenuProps"];
@@ -47,6 +45,7 @@ export const DropdownMenu = forwardRef(
       removeSelectedItem,
       isMulti,
       items,
+      isOpen,
       size = "md",
       ...rest
     }: DropdownMenuProps,
@@ -63,11 +62,10 @@ export const DropdownMenu = forwardRef(
      */
     return (
       <Box
+        as="ul"
         className={dropdownWrapperStyles}
-        {...rest}
-        {...getMenuProps?.({
-          ref: ref as LegacyRef<HTMLElement>,
-        })}
+        {...getMenuProps?.({ ref: ref as LegacyRef<HTMLElement>, ...rest })}
+        isOpen={isOpen}
       >
         {Array.isArray(items) &&
           items.map((item, index) => {

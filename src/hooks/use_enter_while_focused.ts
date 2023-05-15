@@ -18,7 +18,7 @@ export function useEnterWhileFocused<TTriggerType extends ElementTypeArg>({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
         triggerRef.current === document.activeElement &&
-        event.key === "Enter"
+        (event.key === "ArrowDown" || event.key === "Enter")
       ) {
         /** Avoid accidentally triggering a form submission if used within form context */
         event.preventDefault();

@@ -1,4 +1,4 @@
-import { amber, blue, green, red, slate } from "@radix-ui/colors";
+import { amber, blue, green, red, slate, slateA } from "@radix-ui/colors";
 import {
   assignVars,
   createGlobalTheme,
@@ -32,19 +32,15 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   return {
     background: getFromPaletteByIndex(secondaryPalette, 0),
     black: slate.slate12,
-
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
-
     border_default: getFromPaletteByIndex(secondaryPalette, 6),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
-
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_tint: getFromPaletteByIndex(primaryPalette, 4),
-
+    shadow: slateA.slateA5,
     text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
     text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
     tint_active: getFromPaletteByIndex(secondaryPalette, 4),
-
     tint_default: getFromPaletteByIndex(secondaryPalette, 2),
     white: slate.slate1,
   };
