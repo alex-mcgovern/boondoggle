@@ -35,7 +35,6 @@ export const sprinklesProperties = defineProperties({
 
     /** Flex * Grid */
     alignItems: ["stretch", "start", "center", "end", "baseline"],
-    flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     flexWrap: ["wrap", "nowrap"],
     flexGrow: ["0", "1"],
     flexShrink: ["0", "1"],
@@ -100,6 +99,7 @@ export const responsiveSprinklesProperties = defineProperties({
     width: { ...vars.width, ...vars.spacing },
     gridTemplateColumns: vars.gridTemplateColumns,
     display: vars.display,
+    flexDirection: ["row", "column", "row-reverse", "column-reverse"],
   },
   conditions: {
     mobile: {},
