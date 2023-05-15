@@ -7,7 +7,7 @@ exports[`<SelectButton /> Basic smoke tests should match snapshot 1`] = `
   aria-expanded="false"
   aria-haspopup="listbox"
   aria-label="Lorem ipsum"
-  class="button.styles_getButtonStyles__3vuwsic a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 button.styles__3vuwsib get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_borderRadius_md__eiij7ba get_sprinkles_display_flex_mobile__eiij7beg get_sprinkles_gap_spacing1__eiij7b1u get_sprinkles_textDecoration_none__eiij7bap get_sprinkles_width_max-content_mobile__eiij7bbg button.styles_getButtonStyles_appearance_primary__3vuwsid button.styles_variantAppearance_primary__3vuwsi8 button.styles__3vuwsi5 get_sprinkles_justifyContent_center__eiij7b2q get_sprinkles_whiteSpace_nowrap__eiij7bau get_sprinkles_fontWeight_semibold__eiij7b31 button.styles_getButtonStyles_size_md__3vuwsih button.styles_variantSize_md__3vuwsi2 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b9c get_sprinkles_lineHeight_body_md__eiij7b9o button.styles_getButtonStyles_compound_2__3vuwsim element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing1.5__eiij7b8a get_sprinkles_paddingRight_spacing1.5__eiij7b8l get_sprinkles_paddingTop_spacing1__eiij7b8v get_sprinkles_paddingBottom_spacing1__eiij7b7y"
+  class="button.styles_getButtonStyles__3vuwsic a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 button.styles__3vuwsib get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_borderRadius_md__eiij7ba get_sprinkles_display_flex_mobile__eiij7bec get_sprinkles_gap_spacing1__eiij7b1q get_sprinkles_textDecoration_none__eiij7bal get_sprinkles_width_max-content_mobile__eiij7bbc button.styles_getButtonStyles_appearance_primary__3vuwsid button.styles_variantAppearance_primary__3vuwsi8 button.styles__3vuwsi5 get_sprinkles_justifyContent_center__eiij7b2m get_sprinkles_whiteSpace_nowrap__eiij7baq get_sprinkles_fontWeight_semibold__eiij7b2x button.styles_getButtonStyles_size_md__3vuwsih button.styles_variantSize_md__3vuwsi2 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b98 get_sprinkles_lineHeight_body_md__eiij7b9k button.styles_getButtonStyles_compound_2__3vuwsim element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing1.5__eiij7b86 get_sprinkles_paddingRight_spacing1.5__eiij7b8h get_sprinkles_paddingTop_spacing1__eiij7b8r get_sprinkles_paddingBottom_spacing1__eiij7b7u"
   id="lorem-ipsum"
   name="Lorem ipsum"
   role="combobox"
@@ -15,15 +15,15 @@ exports[`<SelectButton /> Basic smoke tests should match snapshot 1`] = `
   type="button"
 >
   <div
-    class="get_sprinkles_display_flex_mobile__eiij7beg get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_gap_spacing1__eiij7b1u get_sprinkles_color_inherit__eiij7b1b"
+    class="get_sprinkles_display_flex_mobile__eiij7bec get_sprinkles_alignItems_center__eiij7b1e get_sprinkles_gap_spacing1__eiij7b1q get_sprinkles_color_inherit__eiij7b1b"
   >
     Select a thing
     <div
-      class="get_sprinkles_gap_none__eiij7b1s get_sprinkles_flexShrink_0__eiij7b1p get_sprinkles_color_inherit__eiij7b1b"
+      class="get_sprinkles_gap_none__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1l get_sprinkles_color_inherit__eiij7b1b"
     >
       <svg
         aria-hidden="true"
-        class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1p"
+        class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1l"
         data-icon="angle-down"
         data-prefix="fas"
         focusable="false"
