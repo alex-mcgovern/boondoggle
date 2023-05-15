@@ -14,7 +14,11 @@ export type FormSelectSingleProps = SelectSingleProps & {
   errorMessage: string;
 };
 
-export function FormSelectSingle({ name, ...rest }: FormSelectSingleProps) {
+export function FormSelectSingle({
+  name,
+  onChange: onChangeParent,
+  ...rest
+}: FormSelectSingleProps) {
   const { control } = useFormContext();
 
   const {
@@ -30,10 +34,12 @@ export function FormSelectSingle({ name, ...rest }: FormSelectSingleProps) {
   });
 
   const handleChange = useCallback(
-    ({ selectedItem }: UseComboboxStateChange<DropdownItemShape>) => {
-      return selectedItem ? onChange(selectedItem.value) : null;
+    (changes: UseComboboxStateChange<DropdownItemShape>) => {
+      return changes.selectedItem
+        ? (onChange(changes.selectedItem.value), onChangeParent?.(changes))
+        : null;
     },
-    [onChange]
+    [onChange, onChangeParent]
   );
 
   return (
