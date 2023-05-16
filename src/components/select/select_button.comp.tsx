@@ -1,12 +1,14 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
-import { useSelect } from "downshift";
+import { useCombobox } from "downshift";
 import { forwardRef, useCallback } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
 import { Button } from "../button";
-import { Dialog } from "../dialog";
-import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
+import {
+  downshiftStateReducer,
+  getDefaultHighlightedIndex,
+  getIsSelected,
+} from "./select_utils";
 import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 
@@ -14,8 +16,8 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
 import type { UsePopperPlacement } from "./shared/use_select_popper";
-import type { UseSelectStateChange } from "downshift";
-import type { Ref } from "react";
+import type { UseComboboxStateChange } from "downshift";
+import type { LegacyRef, Ref } from "react";
 
 export type SelectButtonProps = Omit<
   SelectCommonProps,
@@ -24,8 +26,10 @@ export type SelectButtonProps = Omit<
   SprinklesArgs & {
     buttonProps?: ButtonProps;
     buttonText?: string;
-    onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-    onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
+    onIsOpenChange?: (
+      changes: UseComboboxStateChange<DropdownItemShape>
+    ) => void;
     placement?: UsePopperPlacement;
   };
 
@@ -40,13 +44,11 @@ export const SelectButton = forwardRef(
       items,
       name,
       onIsOpenChange,
-      placement,
       onChange,
       buttonText,
       size,
       slotLeft,
       slotRight = DEFAULT_SLOT_RIGHT,
-      ...rest
     }: SelectButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
@@ -55,33 +57,41 @@ export const SelectButton = forwardRef(
 
     /** Initialise downshift `useSelect` hook */
     const {
-      getToggleButtonProps,
+      getInputProps,
       getItemProps,
       getMenuProps,
+      toggleMenu,
+      selectItem,
       highlightedIndex,
       selectedItem,
-      selectItem,
+      // selectItem,
       isOpen,
-    } = useSelect({
+      ...rest
+    } = useCombobox({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
       }),
-
       items,
       onIsOpenChange,
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
-          case useSelect.stateChangeTypes.ItemClick:
+          case useCombobox.stateChangeTypes.InputKeyDownEnter:
+          case useCombobox.stateChangeTypes.ItemClick:
+          case useCombobox.stateChangeTypes.InputBlur:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
             }
             break;
 
+            break;
           default:
             break;
         }
+      },
+      stateReducer: (state, actionAndChanges) => {
+        return downshiftStateReducer(state, actionAndChanges, {});
       },
     });
 
@@ -96,40 +106,37 @@ export const SelectButton = forwardRef(
     );
 
     return (
-      <Box {...rest}>
-        <Dialog
-          isOpen={isOpen}
-          triggerNode={
-            <Button
-              size={size}
-              slotLeft={slotLeft}
-              slotProps={{ gap: "none" }}
-              slotRight={slotRight}
-              {...buttonAtomProps}
-              {...getToggleButtonProps?.({
-                ...buttonOtherProps,
-                "aria-label": name,
-                disabled,
-                id,
-                name,
-                ref,
-              })}
-            >
-              {buttonText}
-            </Button>
-          }
-        >
-          <DropdownMenu
-            getIsItemSelected={getIsItemSelected}
-            getItemProps={getItemProps}
-            getMenuProps={getMenuProps}
-            highlightedIndex={highlightedIndex}
-            isOpen={isOpen}
-            items={items}
+      <DropdownMenu
+        getIsItemSelected={getIsItemSelected}
+        getItemProps={getItemProps}
+        getMenuProps={getMenuProps}
+        highlightedIndex={highlightedIndex}
+        isOpen={isOpen}
+        items={items}
+        size={size}
+        triggerNode={
+          // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
+          <Button
             size={size}
-          />
-        </Dialog>
-      </Box>
+            slotLeft={slotLeft}
+            slotProps={{ gap: "none" }}
+            slotRight={slotRight}
+            {...buttonAtomProps}
+            {...getInputProps?.({
+              ...buttonOtherProps,
+              disabled,
+              id,
+              name,
+              onClick: toggleMenu,
+              ref: ref as LegacyRef<HTMLInputElement>,
+              // value: inputValue,
+              ...rest,
+            })}
+          >
+            {buttonText}
+          </Button>
+        }
+      />
     );
   }
 );

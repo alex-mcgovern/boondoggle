@@ -6,7 +6,7 @@ import { createRef } from "react";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/dialog.mock";
-import "../../../../test/resize_observer.mock";
+// import "../../../../test/resize_observer.mock";
 import { InputDate } from "../input_date.comp";
 
 import type { InputDateProps } from "../input_date.comp";

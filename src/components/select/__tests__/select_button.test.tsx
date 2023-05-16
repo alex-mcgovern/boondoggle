@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 import { SelectButton } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import "../../../../test/dialog.mock";
 import { elementFontSize } from "../../../styles/common/element_size.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";

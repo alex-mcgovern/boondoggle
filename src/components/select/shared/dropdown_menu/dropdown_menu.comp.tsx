@@ -45,7 +45,7 @@ export const DropdownMenu = forwardRef(
       removeSelectedItem,
       isMulti,
       items,
-      isOpen,
+      isOpen: controlledIsOpen,
       size = "md",
       ...rest
     }: DropdownMenuProps,
@@ -63,7 +63,7 @@ export const DropdownMenu = forwardRef(
     return (
       <Dialog
         className={dropdownWrapperStyles}
-        isOpen={isOpen}
+        isOpen={controlledIsOpen}
         preventOpenOnKeydown
         {...rest}
         {...getMenuProps?.({
