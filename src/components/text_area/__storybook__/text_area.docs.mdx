@@ -22,8 +22,10 @@ import * as stories from "./text_area.stories.tsx";
 
 To allow more fine-grained control over the bundling of dependencies, the
 `TextArea` component does not include any icon library. Instead, it accepts a
-`slotLeft` and `slotRight` prop, which can be used to render any React node
-inside the text area, on the corresponding side.
+`slotLeft` prop, which can be used to render any React node inside the text
+area, on the left hand side only. Unlike other components (e.g. `Button` or
+`Input`) the `TextArea` does not have a `slotRight` prop. This is to prevent the
+scrollbar position from jumping around when the `slotRight` content changes.
 
 <Canvas of={stories.SlotLeftIcon} />
 <Canvas of={stories.SlotRightIcon} />

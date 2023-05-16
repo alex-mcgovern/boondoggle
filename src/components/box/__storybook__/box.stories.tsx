@@ -169,7 +169,7 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
         </StoryComp>
       </StoryComp>,
     ],
-    className: getTheme({ colorOverlay: "green" }),
+    className: variantColorOverlay.green,
     display: "flex",
     gap: "spacing3",
     padding: "spacing3",

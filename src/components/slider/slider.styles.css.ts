@@ -66,14 +66,12 @@ export const sliderThumb = style([
     border: "border_active",
     borderRadius: "50%",
 
-    boxShadow: "md",
     display: "block",
     height: "spacing3",
     width: "spacing3",
   }),
   createAccessibleTransition({
-    transition: `ease ${vars.transitionDuration.short} ease`,
-    transitionProperty: "background",
+    transition: `background ${vars.transitionDuration.short} ease, border-color ${vars.transitionDuration.short} ease`,
   }),
   {
     selectors: {
@@ -83,7 +81,7 @@ export const sliderThumb = style([
         cursor: "pointer",
       },
       [`&${SELECTOR_IS_FOCUS}`]: {
-        boxShadow: vars.boxShadow.lg,
+        boxShadow: vars.boxShadow.md,
         outline: "none",
         ...a11yFocusStyleRule,
       },
