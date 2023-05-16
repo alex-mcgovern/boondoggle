@@ -12,7 +12,7 @@ import { Box } from "../box";
 import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 
-export type DialogProps = {
+export type DialogProps = BoxProps & {
   children?: ReactNode;
   className?: string;
   inert?: boolean;
@@ -33,6 +33,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       preventOpenOnKeydown = false,
       triggerNode,
       wrapperProps,
+      ...rest
     }: DialogProps,
     ref
   ) => {
@@ -82,7 +83,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           {triggerNode}
         </Slot>
         <Box
-          // {...rest}
+          {...rest}
           as="dialog"
           background="background"
           border="border_default"

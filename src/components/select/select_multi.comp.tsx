@@ -6,7 +6,6 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
-import { Dialog } from "../dialog";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
@@ -54,7 +53,7 @@ export const SelectMulti = forwardRef(
       inputProps,
       invalid,
       isFilterable,
-      placement,
+      // placement,
       items,
       label,
       name,
@@ -205,8 +204,17 @@ export const SelectMulti = forwardRef(
           />
         )}
 
-        <Dialog
+        <DropdownMenu
+          getIsItemSelected={getIsItemSelected}
+          getItemProps={getItemProps}
+          getMenuProps={getMenuProps}
+          getSelectedItemProps={getSelectedItemProps}
+          highlightedIndex={highlightedIndex}
+          isMulti
           isOpen={isOpen}
+          items={filteredItems}
+          removeSelectedItem={removeSelectedItem}
+          size={size}
           triggerNode={
             <Input
               invalid={invalid}
@@ -230,20 +238,7 @@ export const SelectMulti = forwardRef(
               })}
             />
           }
-        >
-          <DropdownMenu
-            getIsItemSelected={getIsItemSelected}
-            getItemProps={getItemProps}
-            getMenuProps={getMenuProps}
-            getSelectedItemProps={getSelectedItemProps}
-            highlightedIndex={highlightedIndex}
-            isMulti
-            isOpen={isOpen}
-            items={filteredItems}
-            removeSelectedItem={removeSelectedItem}
-            size={size}
-          />
-        </Dialog>
+        />
 
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />

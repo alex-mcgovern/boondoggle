@@ -173,6 +173,7 @@ export const SelectSingle = forwardRef(
           items={filteredItems}
           size={size}
           triggerNode={
+            // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
               inputProps={inputAtomProps}
               invalid={invalid}
@@ -180,7 +181,6 @@ export const SelectSingle = forwardRef(
               size={size}
               slotLeft={slotLeft}
               slotRight={slotRight}
-              textTransform="capitalize"
               {...inputAtomProps}
               {...getInputProps?.({
                 ...inputOtherProps,
@@ -195,6 +195,7 @@ export const SelectSingle = forwardRef(
               })}
             />
           }
+          width="100%"
         />
 
         {invalid && errorMessage && (

@@ -8,7 +8,7 @@ export const dropdownListWrapper = style([
   getSprinkles({
     overflow: "hidden",
     overflowY: "auto",
-    width: "100%",
+    // width: "100%",
   }),
   {
     listStyle: "none",

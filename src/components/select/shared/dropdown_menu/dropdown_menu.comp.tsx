@@ -65,10 +65,9 @@ export const DropdownMenu = forwardRef(
         className={dropdownWrapperStyles}
         isOpen={isOpen}
         preventOpenOnKeydown
+        {...rest}
         {...getMenuProps?.({
-          id: "test",
           ref: ref as LegacyRef<HTMLElement>,
-          ...rest,
         })}
       >
         {Array.isArray(items) &&
