@@ -48,7 +48,6 @@ describe("<SelectMulti />", () => {
 
         const combobox = getByRole("combobox");
 
-        await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
         await user.tab();
 
         await user.keyboard("{arrowdown}");
@@ -62,7 +61,6 @@ describe("<SelectMulti />", () => {
         const { getByRole, user } = renderComponent(PROPS);
         const combobox = getByRole("combobox");
 
-        await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
         await user.tab();
 
         await user.keyboard("{arrowdown}");
@@ -86,7 +84,6 @@ describe("<SelectMulti />", () => {
       it("should call `onIsOpenChange()` when user opens select with keyboard", async () => {
         const { user } = renderComponent(PROPS);
 
-        await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
         await user.tab();
         await user.keyboard("{arrowdown}");
 
@@ -106,7 +103,6 @@ describe("<SelectMulti />", () => {
       it("should call `onChange()` with first item selected with keyboard", async () => {
         const { user } = renderComponent(PROPS);
 
-        await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
         await user.tab();
 
         await user.keyboard("{arrowdown}");
@@ -123,7 +119,6 @@ describe("<SelectMulti />", () => {
       it("should call `onChange()` with second item selected with keyboard", async () => {
         const { user } = renderComponent(PROPS);
 
-        await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
         await user.tab();
 
         await user.keyboard("{arrowdown}");
@@ -143,7 +138,6 @@ describe("<SelectMulti />", () => {
       it("should call `onChange()` with no items after selecting then deselecting", async () => {
         const { user } = renderComponent(PROPS);
 
-        await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
         await user.tab();
 
         await user.keyboard("{arrowdown}");

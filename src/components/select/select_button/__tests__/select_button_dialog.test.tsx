@@ -56,7 +56,6 @@ describe("<SelectButton />", () => {
     it("should be visible after user opens select with keyboard", async () => {
       const { getByRole, user } = renderComponent(PROPS);
 
-      await user.tab(); // Initial tab will focus <body> for some reason ¯\_(ツ)_/¯
       await user.tab();
       await user.keyboard("{arrowdown}");
 
