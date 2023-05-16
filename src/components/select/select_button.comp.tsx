@@ -1,15 +1,10 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
-import { useCombobox } from "downshift";
+import { useSelect } from "downshift";
 import { forwardRef, useCallback } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { getButtonStyles } from "../button";
-import { Input } from "../input";
-import {
-  downshiftStateReducer,
-  getDefaultHighlightedIndex,
-  getIsSelected,
-} from "./select_utils";
+import { Button } from "../button";
+import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
 import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 
@@ -17,7 +12,7 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../button";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
 import type { UsePopperPlacement } from "./shared/use_select_popper";
-import type { UseComboboxStateChange } from "downshift";
+import type { UseSelectStateChange } from "downshift";
 import type { LegacyRef, Ref } from "react";
 
 export type SelectButtonProps = Omit<
@@ -27,10 +22,8 @@ export type SelectButtonProps = Omit<
   SprinklesArgs & {
     buttonProps?: ButtonProps;
     buttonText?: string;
-    onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-    onIsOpenChange?: (
-      changes: UseComboboxStateChange<DropdownItemShape>
-    ) => void;
+    onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     placement?: UsePopperPlacement;
   };
 
@@ -58,7 +51,7 @@ export const SelectButton = forwardRef(
 
     /** Initialise downshift `useSelect` hook */
     const {
-      getInputProps,
+      getToggleButtonProps,
       getItemProps,
       getMenuProps,
       toggleMenu,
@@ -68,7 +61,7 @@ export const SelectButton = forwardRef(
       // selectItem,
       isOpen,
       ...rest
-    } = useCombobox({
+    } = useSelect({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
@@ -78,21 +71,17 @@ export const SelectButton = forwardRef(
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
-          case useCombobox.stateChangeTypes.InputKeyDownEnter:
-          case useCombobox.stateChangeTypes.ItemClick:
-          case useCombobox.stateChangeTypes.InputBlur:
+          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+          case useSelect.stateChangeTypes.ItemClick:
+          case useSelect.stateChangeTypes.ToggleButtonBlur:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
             }
             break;
 
-            break;
           default:
             break;
         }
-      },
-      stateReducer: (state, actionAndChanges) => {
-        return downshiftStateReducer(state, actionAndChanges, {});
       },
     });
 
@@ -117,25 +106,24 @@ export const SelectButton = forwardRef(
         size={size}
         triggerNode={
           // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-          <Input
-            className={getButtonStyles({ size })}
+          <Button
             size={size}
             slotLeft={slotLeft}
             slotProps={{ gap: "none" }}
             slotRight={slotRight}
-            type="button"
             {...buttonAtomProps}
-            {...getInputProps?.({
+            {...getToggleButtonProps?.({
               ...buttonOtherProps,
               disabled,
               id,
               name,
               onClick: toggleMenu,
-              ref: ref as LegacyRef<HTMLInputElement>,
-              value: buttonText,
+              ref: ref as LegacyRef<HTMLButtonElement>,
               ...rest,
             })}
-          />
+          >
+            {buttonText}
+          </Button>
         }
       />
     );

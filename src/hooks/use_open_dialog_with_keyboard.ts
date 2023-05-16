@@ -3,22 +3,26 @@ import { useEffect } from "react";
 import type { ElementTypeArg } from "../types";
 import type { MutableRefObject, RefObject } from "react";
 
-type UseEnterWhileFocusedArgs<TTriggerType extends ElementTypeArg> = {
+type UseOpenDialogWithKeyboardArgs<TTriggerType extends ElementTypeArg> = {
   callback: () => void;
+  dialogRef:
+    | RefObject<HTMLDialogElement | undefined>
+    | MutableRefObject<HTMLDialogElement | undefined>;
   preventOpenOnKeydown?: boolean;
   triggerRef:
     | RefObject<TTriggerType | undefined>
     | MutableRefObject<TTriggerType | undefined>;
 };
 
-export function useEnterWhileFocused<TTriggerType extends ElementTypeArg>({
+export function useOpenDialogWithKeyboard<TTriggerType extends ElementTypeArg>({
   triggerRef,
   callback,
+  dialogRef,
   preventOpenOnKeydown,
-}: UseEnterWhileFocusedArgs<TTriggerType>) {
+}: UseOpenDialogWithKeyboardArgs<TTriggerType>) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (preventOpenOnKeydown) {
+      if (preventOpenOnKeydown || dialogRef.current?.open) {
         return;
       }
 
@@ -37,5 +41,5 @@ export function useEnterWhileFocused<TTriggerType extends ElementTypeArg>({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [callback, preventOpenOnKeydown, triggerRef]);
+  }, [callback, dialogRef, preventOpenOnKeydown, triggerRef]);
 }

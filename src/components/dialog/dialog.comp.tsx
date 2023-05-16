@@ -1,10 +1,10 @@
 import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
-import { createRef, forwardRef, useCallback } from "react";
+import { createRef, forwardRef, useCallback, useEffect } from "react";
 
 import { useClickOutside } from "../../hooks/use_click_outside";
-import { useEnterWhileFocused } from "../../hooks/use_enter_while_focused";
 import { useForwardRef } from "../../hooks/use_forward_ref";
+import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyboard";
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
@@ -41,6 +41,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     const triggerRef = createRef<HTMLElement>();
 
+    useEffect(() => {
+      triggerRef.current?.focus();
+    }, [triggerRef]);
+
     /**
      * Callback for when the input is clicked or focused.
      */
@@ -60,8 +64,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     /**
      * When input is focused and user presses enter, open the date picker.
      */
-    useEnterWhileFocused<HTMLElement>({
+    useOpenDialogWithKeyboard<HTMLElement>({
       callback: toggleIsOpen,
+      dialogRef,
       preventOpenOnKeydown,
       triggerRef,
     });
