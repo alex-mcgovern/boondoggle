@@ -3,24 +3,24 @@ import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { variantColorOverlay } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
-import { Input } from "../input";
-import { InputErrorMessage } from "../input_error_message";
-import { Label } from "../label";
+import { variantColorOverlay } from "../../../styles/theme.css";
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
+import { Input } from "../../input";
+import { InputErrorMessage } from "../../input_error_message";
+import { Label } from "../../label";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
   getDisplayValue,
   getFilteredDropdownItems,
   getIsSelected,
-} from "./select_utils";
-import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
-import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
+} from "../select_utils";
+import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
+import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
 
-import type { InputCustomisation } from "../input/input.comp";
-import type { DropdownItemShape, SelectCommonProps } from "./select.types";
+import type { InputCustomisation } from "../../input/input.comp";
+import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type {
   UseComboboxStateChange,
   UseMultipleSelectionStateChange,
@@ -122,6 +122,21 @@ export const SelectMulti = forwardRef(
       return getFilteredDropdownItems({ inputValue, items });
     }, [items, isFilterable, inputValue]);
 
+    /** -----------------------------------------------------------------------------
+     * Util function for checking if item is selected, passed down to DropdownItemShape via DropdownMenu
+     * ------------------------------------------------------------------------------- */
+
+    const getIsItemSelected = useCallback(
+      (item: DropdownItemShape) => {
+        return getIsSelected({
+          isMulti: true,
+          item,
+          selectedItems,
+        });
+      },
+      [selectedItems]
+    );
+
     /**
      * Downshift `useCombobox` hook
      * @see https://www.downshift-js.com/use-combobox
@@ -150,14 +165,26 @@ export const SelectMulti = forwardRef(
           case useCombobox.stateChangeTypes.InputKeyDownEnter:
           case useCombobox.stateChangeTypes.ItemClick:
           case useCombobox.stateChangeTypes.InputBlur:
+            if (!newSelectedItem) {
+              break;
+            }
+
+            if (getIsItemSelected(newSelectedItem)) {
+              removeSelectedItem(newSelectedItem);
+              break;
+            }
+
             if (newSelectedItem) {
               setSelectedItems([...selectedItems, newSelectedItem]);
+              break;
             }
+
             break;
 
           case useCombobox.stateChangeTypes.InputChange:
             if (typeof newInputValue !== "undefined") {
               setInputValue(newInputValue);
+              break;
             }
 
             break;
@@ -172,20 +199,6 @@ export const SelectMulti = forwardRef(
         });
       },
     });
-
-    /**
-     * Util function for checking if item is selected, passed down to DropdownItemShape via DropdownMenu
-     */
-    const getIsItemSelected = useCallback(
-      (item: DropdownItemShape) => {
-        return getIsSelected({
-          isMulti: true,
-          item,
-          selectedItems,
-        });
-      },
-      [selectedItems]
-    );
 
     return (
       <Box

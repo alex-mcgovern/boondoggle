@@ -21,7 +21,7 @@ const PROPS: DatePickerProps = {
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 /** -----------------------------------------------------------------------------
- * Integration test
+ * Test cases
  * ------------------------------------------------------------------------------- */
 
 const renderComponent = async ({ ...props }: DatePickerProps) => {

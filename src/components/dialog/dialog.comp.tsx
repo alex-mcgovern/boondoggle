@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
-import { createRef, forwardRef, useCallback, useEffect } from "react";
+import { createRef, forwardRef, useCallback } from "react";
 
 import { useClickOutside } from "../../hooks/use_click_outside";
 import { useForwardRef } from "../../hooks/use_forward_ref";
@@ -40,10 +40,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     const dialogRef = useForwardRef<HTMLDialogElement>(ref);
 
     const triggerRef = createRef<HTMLElement>();
-
-    useEffect(() => {
-      triggerRef.current?.focus();
-    }, [triggerRef]);
 
     /**
      * Callback for when the input is clicked or focused.

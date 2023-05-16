@@ -1,17 +1,16 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { useSelect } from "downshift";
-import { forwardRef, useCallback } from "react";
+import { forwardRef, useCallback, useMemo } from "react";
 
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Button } from "../button";
-import { getDefaultHighlightedIndex, getIsSelected } from "./select_utils";
-import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
-import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Button } from "../../button";
+import { getDefaultHighlightedIndex, getIsSelected } from "../select_utils";
+import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
+import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ButtonProps } from "../button";
-import type { DropdownItemShape, SelectCommonProps } from "./select.types";
-import type { UsePopperPlacement } from "./shared/use_select_popper";
+import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
+import type { ButtonProps } from "../../button";
+import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type { UseSelectStateChange } from "downshift";
 import type { LegacyRef, Ref } from "react";
 
@@ -24,7 +23,6 @@ export type SelectButtonProps = Omit<
     buttonText?: string;
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-    placement?: UsePopperPlacement;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -58,7 +56,6 @@ export const SelectButton = forwardRef(
       selectItem,
       highlightedIndex,
       selectedItem,
-      // selectItem,
       isOpen,
       ...rest
     } = useSelect({
@@ -95,6 +92,51 @@ export const SelectButton = forwardRef(
       [selectedItem]
     );
 
+    /** -----------------------------------------------------------------------------
+     * Trigger node (Button) for SelectButton component
+     * ------------------------------------------------------------------------------- */
+
+    const triggerNode = useMemo(() => {
+      return (
+        <Button
+          size={size}
+          slotLeft={slotLeft}
+          slotProps={{ gap: "none" }}
+          slotRight={slotRight}
+          {...buttonAtomProps}
+          {...getToggleButtonProps?.({
+            ...buttonOtherProps,
+            disabled,
+            id,
+            name,
+            onClick: toggleMenu,
+            ref: ref as LegacyRef<HTMLButtonElement>,
+            ...rest,
+          })}
+        >
+          {buttonText}
+        </Button>
+      );
+    }, [
+      buttonAtomProps,
+      buttonOtherProps,
+      buttonText,
+      disabled,
+      getToggleButtonProps,
+      id,
+      name,
+      ref,
+      rest,
+      size,
+      slotLeft,
+      slotRight,
+      toggleMenu,
+    ]);
+
+    /** -----------------------------------------------------------------------------
+     * Layout for SelectButton component
+     * ------------------------------------------------------------------------------- */
+
     return (
       <DropdownMenu
         getIsItemSelected={getIsItemSelected}
@@ -104,27 +146,7 @@ export const SelectButton = forwardRef(
         isOpen={isOpen}
         items={items}
         size={size}
-        triggerNode={
-          // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-          <Button
-            size={size}
-            slotLeft={slotLeft}
-            slotProps={{ gap: "none" }}
-            slotRight={slotRight}
-            {...buttonAtomProps}
-            {...getToggleButtonProps?.({
-              ...buttonOtherProps,
-              disabled,
-              id,
-              name,
-              onClick: toggleMenu,
-              ref: ref as LegacyRef<HTMLButtonElement>,
-              ...rest,
-            })}
-          >
-            {buttonText}
-          </Button>
-        }
+        triggerNode={triggerNode}
       />
     );
   }

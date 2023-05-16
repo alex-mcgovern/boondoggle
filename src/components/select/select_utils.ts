@@ -106,7 +106,7 @@ export const getDefaultHighlightedIndex = ({
  * React state reducer to determine the currently selected item.
  * Maintains the state of the corresponding `Select*` component,
  * is passed to downshift as the `stateReducer` prop.
- * See https://www.downshift-js.com/use-combobox/#state-reducer
+ * @see https://www.downshift-js.com/use-combobox/#state-reducer
  */
 export const downshiftStateReducer = (
   state: UseComboboxState<DropdownItemShape>,

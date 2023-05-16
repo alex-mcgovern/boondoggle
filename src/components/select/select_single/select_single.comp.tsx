@@ -3,23 +3,23 @@ import clsx from "clsx";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { variantColorOverlay } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
-import { Input } from "../input";
-import { InputErrorMessage } from "../input_error_message";
-import { Label } from "../label";
+import { variantColorOverlay } from "../../../styles/theme.css";
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
+import { Input } from "../../input";
+import { InputErrorMessage } from "../../input_error_message";
+import { Label } from "../../label";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
   getFilteredDropdownItems,
   getIsSelected,
-} from "./select_utils";
-import { DEFAULT_SLOT_RIGHT } from "./shared/DEFAULT_SLOT_RIGHT";
-import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
+} from "../select_utils";
+import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
+import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
 
-import type { InputCustomisation } from "../input/input.comp";
-import type { DropdownItemShape, SelectCommonProps } from "./select.types";
+import type { InputCustomisation } from "../../input/input.comp";
+import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 
@@ -74,7 +74,7 @@ export const SelectSingle = forwardRef(
       extractAtomsFromProps(inputProps, getSprinkles);
 
     const [inputValue, setInputValue] = useState(
-      initialSelectedItem?.value || ""
+      initialSelectedItem?.label || ""
     );
 
     const [localSlotLeft, setLocalSlotLeft] = useState(slotLeft);
@@ -150,6 +150,55 @@ export const SelectSingle = forwardRef(
       [selectedItem]
     );
 
+    /** -----------------------------------------------------------------------------
+     * Select trigger node (input)
+     * ------------------------------------------------------------------------------- */
+
+    const triggerNode = useMemo(() => {
+      return (
+        <Input
+          inputProps={inputAtomProps}
+          invalid={invalid}
+          // readOnly={!isFilterable}
+          size={size}
+          slotLeft={localSlotLeft}
+          slotRight={slotRight}
+          {...inputAtomProps}
+          {...getInputProps?.({
+            ...inputOtherProps,
+            disabled,
+            id,
+            name,
+            onClick: toggleMenu,
+            placeholder,
+            ref,
+            value: inputValue,
+            ...rest,
+          })}
+        />
+      );
+    }, [
+      disabled,
+      getInputProps,
+      id,
+      inputAtomProps,
+      inputOtherProps,
+      inputValue,
+      invalid,
+      localSlotLeft,
+      name,
+      placeholder,
+      ref,
+      rest,
+      size,
+      slotRight,
+      toggleMenu,
+    ]);
+
+    /** -----------------------------------------------------------------------------
+     * Layout for select component
+     * ------------------------------------------------------------------------------- */
+
     return (
       <Box
         className={clsx({ [variantColorOverlay.red]: invalid })}
@@ -173,29 +222,7 @@ export const SelectSingle = forwardRef(
           isOpen={isOpen}
           items={filteredItems}
           size={size}
-          triggerNode={
-            // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-            <Input
-              inputProps={inputAtomProps}
-              invalid={invalid}
-              readOnly={!isFilterable}
-              size={size}
-              slotLeft={localSlotLeft}
-              slotRight={slotRight}
-              {...inputAtomProps}
-              {...getInputProps?.({
-                ...inputOtherProps,
-                disabled,
-                id,
-                name,
-                onClick: toggleMenu,
-                placeholder,
-                ref,
-                value: inputValue,
-                ...rest,
-              })}
-            />
-          }
+          triggerNode={triggerNode}
           width="100%"
         />
 

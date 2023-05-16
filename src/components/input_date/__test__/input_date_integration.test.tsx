@@ -23,7 +23,7 @@ const PROPS: InputDateProps = {
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 /** -----------------------------------------------------------------------------
- * Integration test
+ * Test cases
  * ------------------------------------------------------------------------------- */
 
 const renderComponent = async ({ ...props }: InputDateProps) => {
@@ -35,7 +35,7 @@ const renderComponent = async ({ ...props }: InputDateProps) => {
 };
 
 /** -----------------------------------------------------------------------------
- * Integration test
+ * Test cases
  * ------------------------------------------------------------------------------- */
 
 describe.only("Integration test", () => {

@@ -90,12 +90,14 @@ export const Input = forwardRef(
               [a11yError]: invalid,
             }
           )}
+          tabIndex={-1}
           {...inputAtomProps}
         >
           <SlotWrapper
             slotLeft={slotLeft}
             slotProps={{ paddingY: "spacing1" }}
             slotRight={slotRight}
+            tabIndex={-1}
           >
             <input
               className={styles.getInputInnerStyles({ innerSize: size })}

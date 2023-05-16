@@ -104,8 +104,7 @@ export const variantAppearance = styleVariants({
   tertiary: [
     getSprinkles({
       fontWeight: "semibold",
-      paddingX: "none",
-      paddingY: "spacing1",
+      padding: "none",
       textAlign: "left",
     }),
     {
@@ -125,14 +124,16 @@ export const variantAppearance = styleVariants({
 
 export type Appearance = keyof typeof variantAppearance;
 
-/**
+/** -----------------------------------------------------------------------------
  * Button recipe function
- *
+ * ------------------------------------------------------------------------------- */
+
+/**
  * This is the main function that returns the styles for the button,
  * it exposes {@link variantColor} and {@link variantAppearance}
  * as arguments, which are then exposed as top-level props on the Button component.
  *
- * See: https://vanilla-extract.style/documentation/packages/recipes/
+ * @see https://vanilla-extract.style/documentation/packages/recipes/
  */
 export const getButtonStyles = recipe({
   base: [

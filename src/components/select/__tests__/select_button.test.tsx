@@ -30,11 +30,6 @@ const PROPS: SelectButtonProps = {
 };
 
 const renderComponent = async (props: SelectButtonProps) => {
-  /**
-   * Popper.js calls its update() method asynchronously after the
-   * initial render, so we must wrap the render() call in waitFor()
-   * to prevent test execution from being out of order.
-   */
   return waitFor(async () => {
     return render(<SelectButton {...props} />);
   });

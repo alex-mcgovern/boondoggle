@@ -1,11 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { jest } from "@storybook/jest";
+import { expect, jest } from "@storybook/jest";
+import { userEvent, waitFor, within } from "@storybook/testing-library";
 
 import { SelectSingle as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
+import type { DropdownItemShape } from "..";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { UseComboboxStateChange } from "downshift";
 
 const ON_CHANGE = jest.fn();
 
@@ -51,6 +54,49 @@ export const Filterable: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+};
+
+export const SizeSm: Story = {
+  args: {
+    size: "sm",
+  },
+};
+export const SizeMd: Story = {
+  args: {
+    size: "md",
+  },
+};
+export const SizeLg: Story = {
+  args: {
+    size: "lg",
+  },
+};
+
+export const OnChange: Story = {
+  args: {
+    onChange: (changes: UseComboboxStateChange<DropdownItemShape>) => {
+      alert(changes.selectedItem?.label);
+    },
+  },
+};
+
+export const PlayKeyboardNavigation: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const combobox = canvas.getByRole("combobox");
+
+    // await userEvent.click(combobox);
+
+    await userEvent.keyboard("{tab}");
+    await userEvent.keyboard("{tab}");
+    await userEvent.keyboard("{arrowdown}");
+    await userEvent.keyboard("{arrowdown}");
+    await userEvent.keyboard("{enter}");
+
+    await waitFor(() => {
+      expect((combobox as HTMLInputElement).value).toBe(ITEMS[0].label);
+    });
   },
 };
 

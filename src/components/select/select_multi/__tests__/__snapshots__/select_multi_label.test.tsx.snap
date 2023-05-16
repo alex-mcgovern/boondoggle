@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SelectMulti /> Basic smoke tests should match snapshot 1`] = `
+exports[`<SelectMulti /> should match snapshot 1`] = `
 <input
   aria-activedescendant=""
   aria-autocomplete="list"
-  aria-controls="downshift-9-menu"
+  aria-controls="downshift-2-menu"
   aria-expanded="false"
-  aria-labelledby="downshift-9-label"
+  aria-labelledby="downshift-2-label"
   autocomplete="off"
   class="input.styles_getInputInnerStyles__3x32wpc input.styles__3x32wpb get_sprinkles_width_100%_mobile__eiij7bd1 input.styles_getInputInnerStyles_innerSize_md__3x32wpe input.styles_innerSize_md__3x32wp4 element_size_elementPaddingY_md__1f6zrvm element_size__1f6zrvj get_sprinkles_paddingTop_spacing1__eiij7b9z get_sprinkles_paddingBottom_spacing1__eiij7b92"
   id="lorem-ipsum"
