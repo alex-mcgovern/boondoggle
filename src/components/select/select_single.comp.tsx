@@ -6,7 +6,6 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
-import { Dialog } from "../dialog";
 import { Input } from "../input";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
@@ -56,7 +55,7 @@ export const SelectSingle = forwardRef(
       initialSelectedItem,
       invalid,
       isFilterable,
-      placement,
+      // placement,
       items,
       itemToString = defaultItemToString,
       label,
@@ -139,7 +138,6 @@ export const SelectSingle = forwardRef(
         return downshiftStateReducer(state, actionAndChanges, {});
       },
     });
-    console.debug("debug  isOpen:", isOpen);
 
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {
@@ -166,8 +164,14 @@ export const SelectSingle = forwardRef(
           />
         )}
 
-        <Dialog
+        <DropdownMenu
+          getIsItemSelected={getIsItemSelected}
+          getItemProps={getItemProps}
+          getMenuProps={getMenuProps}
+          highlightedIndex={highlightedIndex}
           isOpen={isOpen}
+          items={filteredItems}
+          size={size}
           triggerNode={
             <Input
               inputProps={inputAtomProps}
@@ -191,16 +195,7 @@ export const SelectSingle = forwardRef(
               })}
             />
           }
-        >
-          <DropdownMenu
-            getIsItemSelected={getIsItemSelected}
-            getItemProps={getItemProps}
-            getMenuProps={getMenuProps}
-            highlightedIndex={highlightedIndex}
-            items={filteredItems}
-            size={size}
-          />
-        </Dialog>
+        />
 
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />

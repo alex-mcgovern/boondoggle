@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { Box } from "../../../box";
+import { Dialog } from "../../../dialog";
 import { DropdownItem } from "../dropdown_item/dropdown_item.comp";
 import { getDropdownItemProps } from "../get_dropdown_item_props";
 import * as styles from "./dropdown_menu.styles.css";
@@ -45,6 +45,7 @@ export const DropdownMenu = forwardRef(
       removeSelectedItem,
       isMulti,
       items,
+      isOpen,
       size = "md",
       ...rest
     }: DropdownMenuProps,
@@ -60,10 +61,15 @@ export const DropdownMenu = forwardRef(
      * downshift's `getMenuProps` will be unable to apply a ref and throw an error
      */
     return (
-      <Box
-        as="ul"
+      <Dialog
         className={dropdownWrapperStyles}
-        {...getMenuProps?.({ ref: ref as LegacyRef<HTMLElement>, ...rest })}
+        isOpen={isOpen}
+        preventOpenOnKeydown
+        {...getMenuProps?.({
+          id: "test",
+          ref: ref as LegacyRef<HTMLElement>,
+          ...rest,
+        })}
       >
         {Array.isArray(items) &&
           items.map((item, index) => {
@@ -93,7 +99,7 @@ export const DropdownMenu = forwardRef(
               />
             );
           })}
-      </Box>
+      </Dialog>
     );
   }
 );
