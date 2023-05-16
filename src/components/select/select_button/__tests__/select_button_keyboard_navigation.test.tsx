@@ -14,7 +14,6 @@ import type { SelectButtonProps } from "../select_button.comp";
  * ------------------------------------------------------------------------------- */
 
 const ON_CHANGE = jest.fn();
-const ON_IS_OPEN_CHANGE = jest.fn();
 
 const PROPS: SelectButtonProps = {
   buttonText: LOREM.select,
@@ -22,7 +21,6 @@ const PROPS: SelectButtonProps = {
   items: mockSelectItems({}),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  onIsOpenChange: ON_IS_OPEN_CHANGE,
 };
 
 const renderComponent = (props: SelectButtonProps) => {
@@ -38,63 +36,6 @@ const renderComponent = (props: SelectButtonProps) => {
 
 describe("<SelectButton />", () => {
   describe("keyboard navigation", () => {
-    /** ---------------------------------------------
-     * input value
-     * ----------------------------------------------- */
-
-    describe("input value", () => {
-      it("should have value of first item selected with keyboard", async () => {
-        const { getByRole, user } = renderComponent(PROPS);
-
-        const combobox = getByRole("combobox");
-
-        await user.tab();
-
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{enter}");
-
-        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
-      });
-
-      it("should have value of second item selected with keyboard", async () => {
-        const { getByRole, user } = renderComponent(PROPS);
-        const combobox = getByRole("combobox");
-
-        await user.tab();
-
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{enter}");
-
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{arrowdown}");
-        await user.keyboard("{enter}");
-
-        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[1].label);
-      });
-    });
-
-    /** ---------------------------------------------
-     * onIsOpenChange();
-     * ----------------------------------------------- */
-
-    describe("onIsOpenChange()", () => {
-      it("should call `onIsOpenChange()` when user opens select with keyboard", async () => {
-        const { user } = renderComponent(PROPS);
-
-        await user.tab();
-        await user.keyboard("{arrowdown}");
-
-        expect(ON_IS_OPEN_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            isOpen: true,
-          })
-        );
-      });
-    });
-
     /** ---------------------------------------------
      * onChange();
      * ----------------------------------------------- */

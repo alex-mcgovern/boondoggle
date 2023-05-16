@@ -36,9 +36,6 @@ export type SelectSingleProps = SelectCommonProps &
     initialSelectedItem?: DropdownItemShape | null;
     itemToString?: (item: DropdownItemShape | null) => string;
     onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
-    onIsOpenChange?: (
-      changes: UseComboboxStateChange<DropdownItemShape>
-    ) => void;
     placeholder: string;
   };
 
@@ -59,7 +56,6 @@ export const SelectSingle = forwardRef(
       label,
       name,
       onChange,
-      onIsOpenChange,
       placeholder,
       size,
       slotLeft,
@@ -107,7 +103,6 @@ export const SelectSingle = forwardRef(
       initialSelectedItem,
       items: filteredItems,
       itemToString,
-      onIsOpenChange,
       onSelectedItemChange: onChange,
       onStateChange({
         inputValue: newInputValue,

@@ -6,14 +6,14 @@ import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
 import { SelectMulti } from "../select_multi.comp";
-import { SelectMultiProps } from "../select_multi.comp";
+
+import type { SelectMultiProps } from "../select_multi.comp";
 
 /** -----------------------------------------------------------------------------
  * Test setup
  * ------------------------------------------------------------------------------- */
 
 const ON_CHANGE = jest.fn();
-const ON_IS_OPEN_CHANGE = jest.fn();
 
 const PROPS: SelectMultiProps = {
   id: LOREM.id(),
@@ -21,7 +21,6 @@ const PROPS: SelectMultiProps = {
   label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  onIsOpenChange: ON_IS_OPEN_CHANGE,
   placeholder: LOREM.select,
 };
 
@@ -73,25 +72,6 @@ describe("<SelectMulti />", () => {
         await user.keyboard("{enter}");
 
         expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
-      });
-    });
-
-    /** ---------------------------------------------
-     * onIsOpenChange();
-     * ----------------------------------------------- */
-
-    describe("onIsOpenChange()", () => {
-      it("should call `onIsOpenChange()` when user opens select with keyboard", async () => {
-        const { user } = renderComponent(PROPS);
-
-        await user.tab();
-        await user.keyboard("{arrowdown}");
-
-        expect(ON_IS_OPEN_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            isOpen: true,
-          })
-        );
       });
     });
 

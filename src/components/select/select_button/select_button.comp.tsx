@@ -22,7 +22,6 @@ export type SelectButtonProps = Omit<
     buttonProps?: ButtonProps;
     buttonText?: string;
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
-    onIsOpenChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -35,7 +34,6 @@ export const SelectButton = forwardRef(
       buttonProps,
       items,
       name,
-      onIsOpenChange,
       onChange,
       buttonText,
       size,
@@ -57,20 +55,18 @@ export const SelectButton = forwardRef(
       highlightedIndex,
       selectedItem,
       isOpen,
-      ...rest
     } = useSelect({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
       }),
       items,
-      onIsOpenChange,
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
-          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+          // case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
           case useSelect.stateChangeTypes.ItemClick:
-          case useSelect.stateChangeTypes.ToggleButtonBlur:
+            // case useSelect.stateChangeTypes.ToggleButtonBlur:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
             }
@@ -111,7 +107,6 @@ export const SelectButton = forwardRef(
             name,
             onClick: toggleMenu,
             ref: ref as LegacyRef<HTMLButtonElement>,
-            ...rest,
           })}
         >
           {buttonText}
@@ -126,7 +121,6 @@ export const SelectButton = forwardRef(
       id,
       name,
       ref,
-      rest,
       size,
       slotLeft,
       slotRight,

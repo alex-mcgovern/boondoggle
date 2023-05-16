@@ -66,7 +66,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
       <Dialog
         className={userClassName}
         isOpen={isOpen}
-        onIsOpenChange={setIsOpen}
         triggerNode={
           <Input
             {...(rest as InputProps)}

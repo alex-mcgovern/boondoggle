@@ -21,10 +21,7 @@ import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
 
 import type { InputCustomisation } from "../../input/input.comp";
 import type { DropdownItemShape, SelectCommonProps } from "../select.types";
-import type {
-  UseComboboxStateChange,
-  UseMultipleSelectionStateChange,
-} from "downshift";
+import type { UseMultipleSelectionStateChange } from "downshift";
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &
@@ -34,9 +31,7 @@ export type SelectMultiProps = SelectCommonProps &
     onChange?: (
       changes: UseMultipleSelectionStateChange<DropdownItemShape>
     ) => void;
-    onIsOpenChange?: (
-      changes: UseComboboxStateChange<DropdownItemShape>
-    ) => void;
+
     placeholder: string;
   };
 
@@ -51,12 +46,10 @@ export const SelectMulti = forwardRef(
       inputProps,
       invalid,
       isFilterable,
-      // placement,
       items,
       label,
       name,
       onChange,
-      onIsOpenChange,
       placeholder,
       size,
       slotLeft,
@@ -155,7 +148,6 @@ export const SelectMulti = forwardRef(
         items,
       }),
       items: filteredItems,
-      onIsOpenChange,
       onStateChange({
         inputValue: newInputValue,
         type,

@@ -6,13 +6,15 @@ import { createRef } from "react";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/dialog.mock";
-// import "../../../../test/resize_observer.mock";
 import { InputDate } from "../input_date.comp";
 
 import type { InputDateProps } from "../input_date.comp";
 
+const ON_CHANGE = jest.fn();
+
 const PROPS: InputDateProps = {
   name: LOREM.name(),
+  onChange: ON_CHANGE,
   placeholder: LOREM.placeholder(),
 };
 
@@ -59,10 +61,7 @@ describe.only("Integration test", () => {
 
     await waitFor(() => {
       expect(triggerElement).toHaveValue("01/01/2023");
-      expect(triggerElement).toHaveAttribute(
-        "data-raw",
-        "2023-01-01T00:00:00.000Z"
-      );
+      expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01T00:00:00.000Z");
     });
   });
 
@@ -86,10 +85,7 @@ describe.only("Integration test", () => {
 
     await waitFor(() => {
       expect(triggerElement).toHaveValue("01/01/2023");
-      expect(triggerElement).toHaveAttribute(
-        "data-raw",
-        "2023-01-01T00:00:00.000Z"
-      );
+      expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01T00:00:00.000Z");
     });
   });
 
@@ -118,7 +114,7 @@ describe.only("Integration test", () => {
 
     await waitFor(() => {
       expect(triggerElement).toHaveValue("01/01/2023");
-      expect(triggerElement).toHaveAttribute("data-raw", "2023-01-01");
+      expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
     });
   });
 });

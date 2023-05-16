@@ -1,8 +1,8 @@
 import { jest } from "@storybook/jest";
 
-import { SelectMulti as StoryComp } from "..";
-import { LOREM } from "../../../../mocks/LOREM.mock";
-import { mockSelectItems } from "../__mocks__/select.mock";
+import { SelectMulti as StoryComp } from "../..";
+import { LOREM } from "../../../../../mocks/LOREM.mock";
+import { mockSelectItems } from "../../__mocks__/select.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

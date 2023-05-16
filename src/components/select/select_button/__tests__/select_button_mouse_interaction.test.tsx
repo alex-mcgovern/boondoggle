@@ -5,31 +5,28 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectMulti } from "../select_multi.comp";
+import { SelectButton } from "../select_button.comp";
 
-import type { SelectMultiProps } from "../select_multi.comp";
+import type { SelectButtonProps } from "../select_button.comp";
 
 /** -----------------------------------------------------------------------------
  * Test setup
  * ------------------------------------------------------------------------------- */
 
 const ON_CHANGE = jest.fn();
-const ON_IS_OPEN_CHANGE = jest.fn();
 
-const PROPS: SelectMultiProps = {
+const PROPS: SelectButtonProps = {
+  buttonText: LOREM.select,
   id: LOREM.id(),
   items: mockSelectItems({}),
-  label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  onIsOpenChange: ON_IS_OPEN_CHANGE,
-  placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectMultiProps) => {
+const renderComponent = (props: SelectButtonProps) => {
   return {
     user: userEvent.setup(),
-    ...render(<SelectMulti {...props} />),
+    ...render(<SelectButton {...props} />),
   };
 };
 
@@ -37,14 +34,14 @@ const renderComponent = (props: SelectMultiProps) => {
  * Test cases
  * ------------------------------------------------------------------------------- */
 
-describe("<SelectMulti />", () => {
-  describe("keyboard navigation", () => {
+describe("<SelectButton />", () => {
+  describe("mouse navigation", () => {
     /** ---------------------------------------------
      * input value
      * ----------------------------------------------- */
 
     describe("input value", () => {
-      it("should have placeholder with count of 1 selected items", async () => {
+      it("should have value of first clicked item", async () => {
         const { getByRole, getByText, user } = await renderComponent(PROPS);
         const combobox = getByRole("combobox");
         await user.click(combobox);
@@ -52,10 +49,10 @@ describe("<SelectMulti />", () => {
         const firstItem = getByText(PROPS.items[0].label);
         await user.click(firstItem);
 
-        expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
+        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
       });
 
-      it("should have placeholder with count of 2 items", async () => {
+      it("should have value of second clicked item", async () => {
         const { getByRole, getByText, user } = await renderComponent(PROPS);
         const combobox = getByRole("combobox");
         await user.click(combobox);
@@ -66,29 +63,7 @@ describe("<SelectMulti />", () => {
         const secondItem = getByText(PROPS.items[1].label);
         await user.click(secondItem);
 
-        expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
-      });
-    });
-
-    /** ---------------------------------------------
-     * onIsOpenChange();
-     * ----------------------------------------------- */
-
-    describe("onIsOpenChange()", () => {
-      it("should call `onIsOpenChange()` when user opens select by clicking", async () => {
-        const { getByRole, user } = await renderComponent({
-          ...PROPS,
-          onIsOpenChange: ON_IS_OPEN_CHANGE,
-        });
-
-        const combobox = getByRole("combobox");
-        await user.click(combobox);
-
-        expect(ON_IS_OPEN_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            isOpen: true,
-          })
-        );
+        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[1].label);
       });
     });
 
@@ -108,7 +83,7 @@ describe("<SelectMulti />", () => {
 
         expect(ON_CHANGE).toHaveBeenCalledWith(
           expect.objectContaining({
-            selectedItems: [PROPS.items[0]],
+            selectedItem: PROPS.items[0],
           })
         );
       });
@@ -126,7 +101,7 @@ describe("<SelectMulti />", () => {
 
         expect(ON_CHANGE).toHaveBeenLastCalledWith(
           expect.objectContaining({
-            selectedItems: [PROPS.items[0], PROPS.items[1]],
+            selectedItem: PROPS.items[1],
           })
         );
       });

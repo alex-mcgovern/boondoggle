@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { jest } from "@storybook/jest";
 
-import { SelectButton as StoryComp } from "..";
-import { LOREM } from "../../../../mocks/LOREM.mock";
-import { mockSelectItems } from "../__mocks__/select.mock";
+import { SelectButton as StoryComp } from "../..";
+import { LOREM } from "../../../../../mocks/LOREM.mock";
+import { mockSelectItems } from "../../__mocks__/select.mock";
 
-import type { SelectButtonProps as StoryCompProps } from "..";
+import type { SelectButtonProps as StoryCompProps } from "../..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
@@ -17,7 +17,9 @@ const PROPS: StoryCompProps = {
   id: LOREM.id(),
   items: ITEMS,
   name: LOREM.name(),
-  onChange: ON_CHANGE,
+  onChange: (changes) => {
+    alert(JSON.stringify(changes));
+  },
 };
 
 export default {

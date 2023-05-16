@@ -14,7 +14,6 @@ import type { SelectSingleProps } from "../select_single.comp";
  * ------------------------------------------------------------------------------- */
 
 const ON_CHANGE = jest.fn();
-const ON_IS_OPEN_CHANGE = jest.fn();
 
 const PROPS: SelectSingleProps = {
   id: LOREM.id(),
@@ -22,7 +21,6 @@ const PROPS: SelectSingleProps = {
   label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  onIsOpenChange: ON_IS_OPEN_CHANGE,
   placeholder: LOREM.select,
 };
 
@@ -74,25 +72,6 @@ describe("<SelectSingle />", () => {
         await user.keyboard("{enter}");
 
         expect((combobox as HTMLInputElement).value).toBe(PROPS.items[1].label);
-      });
-    });
-
-    /** ---------------------------------------------
-     * onIsOpenChange();
-     * ----------------------------------------------- */
-
-    describe("onIsOpenChange()", () => {
-      it("should call `onIsOpenChange()` when user opens select with keyboard", async () => {
-        const { user } = renderComponent(PROPS);
-
-        await user.tab();
-        await user.keyboard("{arrowdown}");
-
-        expect(ON_IS_OPEN_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            isOpen: true,
-          })
-        );
       });
     });
 

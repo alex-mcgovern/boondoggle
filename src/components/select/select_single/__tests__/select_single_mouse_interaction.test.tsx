@@ -5,29 +5,29 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectButton } from "../select_button.comp";
-import { SelectButtonProps } from "../select_button.comp";
+import { SelectSingle } from "../select_single.comp";
+
+import type { SelectSingleProps } from "../select_single.comp";
 
 /** -----------------------------------------------------------------------------
  * Test setup
  * ------------------------------------------------------------------------------- */
 
 const ON_CHANGE = jest.fn();
-const ON_IS_OPEN_CHANGE = jest.fn();
 
-const PROPS: SelectButtonProps = {
-  buttonText: LOREM.select,
+const PROPS: SelectSingleProps = {
   id: LOREM.id(),
   items: mockSelectItems({}),
+  label: LOREM.label(),
   name: LOREM.textXxs,
   onChange: ON_CHANGE,
-  onIsOpenChange: ON_IS_OPEN_CHANGE,
+  placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectButtonProps) => {
+const renderComponent = (props: SelectSingleProps) => {
   return {
     user: userEvent.setup(),
-    ...render(<SelectButton {...props} />),
+    ...render(<SelectSingle {...props} />),
   };
 };
 
@@ -35,8 +35,8 @@ const renderComponent = (props: SelectButtonProps) => {
  * Test cases
  * ------------------------------------------------------------------------------- */
 
-describe("<SelectButton />", () => {
-  describe("keyboard navigation", () => {
+describe("<SelectSingle />", () => {
+  describe("mouse navigation", () => {
     /** ---------------------------------------------
      * input value
      * ----------------------------------------------- */
@@ -65,28 +65,6 @@ describe("<SelectButton />", () => {
         await user.click(secondItem);
 
         expect((combobox as HTMLInputElement).value).toBe(PROPS.items[1].label);
-      });
-    });
-
-    /** ---------------------------------------------
-     * onIsOpenChange();
-     * ----------------------------------------------- */
-
-    describe("onIsOpenChange()", () => {
-      it("should call `onIsOpenChange()` when user opens select by clicking", async () => {
-        const { getByRole, user } = await renderComponent({
-          ...PROPS,
-          onIsOpenChange: ON_IS_OPEN_CHANGE,
-        });
-
-        const combobox = getByRole("combobox");
-        await user.click(combobox);
-
-        expect(ON_IS_OPEN_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            isOpen: true,
-          })
-        );
       });
     });
 

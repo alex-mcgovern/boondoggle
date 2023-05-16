@@ -2,11 +2,11 @@
 import { expect, jest } from "@storybook/jest";
 import { userEvent, waitFor, within } from "@storybook/testing-library";
 
-import { SelectSingle as StoryComp } from "..";
-import { LOREM } from "../../../../mocks/LOREM.mock";
-import { mockSelectItems } from "../__mocks__/select.mock";
+import { SelectSingle as StoryComp } from "../..";
+import { LOREM } from "../../../../../mocks/LOREM.mock";
+import { mockSelectItems } from "../../__mocks__/select.mock";
 
-import type { DropdownItemShape } from "..";
+import type { DropdownItemShape } from "../..";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { UseComboboxStateChange } from "downshift";
 
