@@ -4,7 +4,6 @@ import { a11yFocusStyleRule } from "./common/a11y.css";
 import { baseLayer } from "./layers.css";
 import "./reset.css";
 import { vars } from "./theme.css";
-import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
 /**
  * Global selectors
@@ -220,15 +219,8 @@ globalStyle(`hr`, {
 globalStyle("input, textarea", {
   "@layer": {
     [baseLayer]: {
-      background: vars.color.background,
-      border: `1px solid ${vars.color.border_default}`,
-      borderRadius: vars.borderRadius.md,
-      color: vars.color.text_high_contrast,
-      padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
-      ...createAccessibleTransition({
-        transition: `ease ${vars.transitionDuration.short} ease`,
-        transitionProperty: "color, background-color, border-color",
-      }),
+      background: "none",
+      border: "none",
     },
   },
 });
@@ -246,8 +238,9 @@ globalStyle(
   {
     "@layer": {
       [baseLayer]: {
-        background: vars.color.tint_default,
-        borderColor: vars.color.border_active,
+        background: "none",
+        borderColor: "none",
+        outline: "none",
       },
     },
   }
@@ -258,7 +251,9 @@ globalStyle(
   {
     "@layer": {
       [baseLayer]: {
-        ...a11yFocusStyleRule,
+        background: "none",
+        borderColor: "none",
+        outline: "none",
       },
     },
   }

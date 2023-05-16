@@ -20,10 +20,18 @@ export const elementFontSize = styleVariants({
   ],
 });
 
-export const elementPadding = styleVariants({
-  lg: [getSprinkles({ paddingX: "spacing2", paddingY: "spacing1.5" })],
-  md: [getSprinkles({ paddingX: "spacing1.5", paddingY: "spacing1" })],
-  sm: [getSprinkles({ paddingX: "spacing1", paddingY: "spacing0" })],
+export const elementPaddingX = styleVariants({
+  lg: [getSprinkles({ paddingX: "spacing2" })],
+  md: [getSprinkles({ paddingX: "spacing1.5" })],
+  sm: [getSprinkles({ paddingX: "spacing1" })],
 });
 
-export type ElementSizeEnum = keyof typeof elementFontSize;
+export const elementPaddingY = styleVariants({
+  lg: [getSprinkles({ paddingY: "spacing1.5" })],
+  md: [getSprinkles({ paddingY: "spacing1" })],
+  sm: [getSprinkles({ paddingY: "spacing0" })],
+});
+
+export type ElementSizeEnum = keyof typeof elementFontSize &
+  keyof typeof elementPaddingX &
+  keyof typeof elementPaddingY;

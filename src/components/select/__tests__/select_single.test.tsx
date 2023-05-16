@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 import { SelectSingle } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import "../../../../test/dialog.mock";
 import { a11yError } from "../../../styles/common/a11y.css";
 import { elementFontSize } from "../../../styles/common/element_size.css";
 import { variantColorOverlay } from "../../../styles/theme.css";

@@ -3,7 +3,8 @@ import { useCombobox } from "downshift";
 import { forwardRef, useCallback } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Button } from "../button";
+import { getButtonStyles } from "../button";
+import { Input } from "../input";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -116,11 +117,13 @@ export const SelectButton = forwardRef(
         size={size}
         triggerNode={
           // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-          <Button
+          <Input
+            className={getButtonStyles({ size })}
             size={size}
             slotLeft={slotLeft}
             slotProps={{ gap: "none" }}
             slotRight={slotRight}
+            type="button"
             {...buttonAtomProps}
             {...getInputProps?.({
               ...buttonOtherProps,
@@ -129,12 +132,10 @@ export const SelectButton = forwardRef(
               name,
               onClick: toggleMenu,
               ref: ref as LegacyRef<HTMLInputElement>,
-              // value: inputValue,
+              value: buttonText,
               ...rest,
             })}
-          >
-            {buttonText}
-          </Button>
+          />
         }
       />
     );

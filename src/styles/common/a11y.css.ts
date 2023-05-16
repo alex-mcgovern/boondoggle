@@ -28,9 +28,9 @@ export const a11yDisabled = style({
 });
 
 export const a11yFocusStyleRule: StyleRule = {
-  borderColor: vars.color.button_default,
-  outline: `2px solid ${vars.color.button_default}`,
-  outlineOffset: "2px",
+  borderColor: `${vars.color.button_default} !important`,
+  outline: `2px solid ${vars.color.button_default} !important`,
+  outlineOffset: "2px !important",
 };
 
 export const a11yFocus = style([

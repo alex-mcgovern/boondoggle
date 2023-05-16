@@ -12,11 +12,11 @@ export {
 } from "./styles/common/a11y.css";
 export { commonBackground } from "./styles/common/background.css";
 export {
-  SELECTOR_LINK_BUTTON_HOVER,
-  SELECTOR_LINK_BUTTON_FOCUS,
+  SELECTOR_LINK_BUTTON_INPUT_HOVER,
+  SELECTOR_LINK_BUTTON_INPUT_FOCUS,
   SELECTOR_IS_HOVER,
   SELECTOR_IS_FOCUS,
-  SELECTOR_LINK_BUTTON_HOVER_FOCUS,
+  SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 } from "./styles/common/selectors.css";
 export {
   MEDIA_QUERY_DESKTOP,

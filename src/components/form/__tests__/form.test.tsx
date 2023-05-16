@@ -5,6 +5,7 @@ import "@vanilla-extract/css/disableRuntimeStyles";
 
 import { Form } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import "../../../../test/dialog.mock";
 import "../../../../test/has_pointer_capture.mock";
 import "../../../../test/resize_observer.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";

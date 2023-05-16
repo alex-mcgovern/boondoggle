@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 
 import { Box } from "../box";
+import * as styles from "./slot_wrapper.styles.css";
 
 import type { BoxProps } from "../box";
 import type { ReactNode, Ref } from "react";
@@ -35,7 +36,12 @@ export const SlotWrapper = forwardRef(
         {...rest}
       >
         {slotLeft && (
-          <Box {...slotProps} color="inherit" flexShrink="0">
+          <Box
+            {...slotProps}
+            className={styles.slot}
+            color="inherit"
+            flexShrink="0"
+          >
             {slotLeft}
           </Box>
         )}
@@ -43,7 +49,12 @@ export const SlotWrapper = forwardRef(
         {children}
 
         {slotRight && (
-          <Box {...slotProps} color="inherit" flexShrink="0">
+          <Box
+            {...slotProps}
+            className={styles.slot}
+            color="inherit"
+            flexShrink="0"
+          >
             {slotRight}
           </Box>
         )}

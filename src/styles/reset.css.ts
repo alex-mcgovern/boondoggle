@@ -109,7 +109,7 @@ globalStyle(`input[type="search"]`, {
   },
 });
 
-globalStyle("button:not([disabled])", {
+globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
   "@layer": {
     [resetLayer]: {
       cursor: "pointer",

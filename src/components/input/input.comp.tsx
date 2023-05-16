@@ -81,27 +81,32 @@ export const Input = forwardRef(
       >
         {label && id && <Label htmlFor={id} label={label} />}
 
-        <SlotWrapper
-          slotLeft={slotLeft}
-          slotProps={{ paddingY: "spacing1" }}
-          slotRight={slotRight}
+        <Box
+          aria-disabled={rest.disabled}
+          className={clsx(
+            styles.getInputWrapperStyles({ outerSize: size }),
+            userClassName,
+            {
+              [a11yError]: invalid,
+            }
+          )}
+          {...inputAtomProps}
         >
-          <input
-            className={clsx(
-              getSprinkles(inputAtomProps),
-              styles.getInputStyles({ size }),
-              userClassName,
-              {
-                [a11yError]: invalid,
-              }
-            )}
-            id={id}
-            name={name}
-            ref={ref as LegacyRef<HTMLInputElement>}
-            {...inputOtherProps}
-            {...rest}
-          />
-        </SlotWrapper>
+          <SlotWrapper
+            slotLeft={slotLeft}
+            slotProps={{ paddingY: "spacing1" }}
+            slotRight={slotRight}
+          >
+            <input
+              className={styles.getInputInnerStyles({ innerSize: size })}
+              id={id}
+              name={name}
+              ref={ref as LegacyRef<HTMLInputElement>}
+              {...inputOtherProps}
+              {...rest}
+            />
+          </SlotWrapper>
+        </Box>
 
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />

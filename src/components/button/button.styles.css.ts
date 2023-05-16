@@ -4,11 +4,12 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import {
   elementFontSize,
-  elementPadding,
+  elementPaddingX,
+  elementPaddingY,
 } from "../../styles/common/element_size.css";
 import {
-  SELECTOR_LINK_BUTTON_ACTIVE,
-  SELECTOR_LINK_BUTTON_HOVER_FOCUS,
+  SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
+  SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
@@ -53,10 +54,10 @@ export const variantAppearance = styleVariants({
     {
       color: vars.color.text_low_contrast,
       selectors: {
-        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+        [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
         },
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           background: vars.color.button_tint,
           color: vars.color.button_active,
         },
@@ -70,10 +71,10 @@ export const variantAppearance = styleVariants({
       background: vars.color.button_default,
       color: vars.color.white,
       selectors: {
-        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+        [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: vars.color.button_default,
         },
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           background: vars.color.button_active,
           color: vars.color.white,
         },
@@ -88,10 +89,10 @@ export const variantAppearance = styleVariants({
       borderColor: vars.color.button_default,
       color: vars.color.button_default,
       selectors: {
-        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+        [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
         },
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           background: vars.color.button_tint,
           color: vars.color.button_active,
         },
@@ -109,10 +110,10 @@ export const variantAppearance = styleVariants({
     {
       color: vars.color.text_low_contrast,
       selectors: {
-        [SELECTOR_LINK_BUTTON_ACTIVE]: {
+        [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           color: vars.color.button_default,
         },
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           color: vars.color.button_active,
           textDecoration: "underline",
         },
@@ -150,39 +151,39 @@ export const getButtonStyles = recipe({
   ],
   compoundVariants: [
     {
-      style: [elementPadding.lg],
+      style: [elementPaddingX.lg, elementPaddingY.lg],
       variants: { appearance: "primary", size: "lg" },
     },
     {
-      style: [elementPadding.md],
+      style: [elementPaddingX.md, elementPaddingY.md],
       variants: { appearance: "primary", size: "md" },
     },
     {
-      style: [elementPadding.sm],
+      style: [elementPaddingX.sm, elementPaddingY.sm],
       variants: { appearance: "primary", size: "sm" },
     },
     {
-      style: [elementPadding.lg],
+      style: [elementPaddingX.lg, elementPaddingY.lg],
       variants: { appearance: "secondary", size: "lg" },
     },
     {
-      style: [elementPadding.md],
+      style: [elementPaddingX.md, elementPaddingY.md],
       variants: { appearance: "secondary", size: "md" },
     },
     {
-      style: [elementPadding.sm],
+      style: [elementPaddingX.sm, elementPaddingY.sm],
       variants: { appearance: "secondary", size: "sm" },
     },
     {
-      style: [elementPadding.lg],
+      style: [elementPaddingX.lg, elementPaddingY.lg],
       variants: { appearance: "ghost", size: "lg" },
     },
     {
-      style: [elementPadding.md],
+      style: [elementPaddingX.md, elementPaddingY.md],
       variants: { appearance: "ghost", size: "md" },
     },
     {
-      style: [elementPadding.sm],
+      style: [elementPaddingX.sm, elementPaddingY.sm],
       variants: { appearance: "ghost", size: "sm" },
     },
   ],

@@ -238,6 +238,7 @@ export const SelectMulti = forwardRef(
               })}
             />
           }
+          width="100%"
         />
 
         {invalid && errorMessage && (
