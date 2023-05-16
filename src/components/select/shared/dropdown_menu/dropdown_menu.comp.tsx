@@ -45,7 +45,6 @@ export const DropdownMenu = forwardRef(
       removeSelectedItem,
       isMulti,
       items,
-      isOpen,
       size = "md",
       ...rest
     }: DropdownMenuProps,
@@ -65,7 +64,6 @@ export const DropdownMenu = forwardRef(
         as="ul"
         className={dropdownWrapperStyles}
         {...getMenuProps?.({ ref: ref as LegacyRef<HTMLElement>, ...rest })}
-        isOpen={isOpen}
       >
         {Array.isArray(items) &&
           items.map((item, index) => {
