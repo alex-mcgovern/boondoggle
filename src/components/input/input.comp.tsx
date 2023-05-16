@@ -2,8 +2,8 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { a11yError } from "../../styles/common/a11y.css";
-import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
@@ -75,7 +75,7 @@ export const Input = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx({ [variantColorOverlay.red]: invalid })}
         color="text_low_contrast"
         {...wrapperProps}
       >

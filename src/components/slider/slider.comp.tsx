@@ -8,7 +8,7 @@ import {
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { getTheme } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
@@ -75,7 +75,7 @@ export const Slider = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx({ [variantColorOverlay.red]: invalid })}
         color="text_low_contrast"
         {...wrapperProps}
       >

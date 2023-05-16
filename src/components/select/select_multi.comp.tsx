@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { getTheme } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Input } from "../input";
@@ -21,7 +21,6 @@ import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 
 import type { InputCustomisation } from "../input/input.comp";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
-import type { UsePopperPlacement } from "./shared/use_select_popper";
 import type {
   UseComboboxStateChange,
   UseMultipleSelectionStateChange,
@@ -39,7 +38,6 @@ export type SelectMultiProps = SelectCommonProps &
       changes: UseComboboxStateChange<DropdownItemShape>
     ) => void;
     placeholder: string;
-    placement?: UsePopperPlacement;
   };
 
 export const SelectMulti = forwardRef(
@@ -191,7 +189,7 @@ export const SelectMulti = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx({ [variantColorOverlay.red]: invalid })}
         color="text_low_contrast"
         {...rest}
       >

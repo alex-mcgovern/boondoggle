@@ -4,7 +4,8 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import {
   elementFontSize,
-  elementPaddingX,
+  elementPaddingLeft,
+  elementPaddingRight,
   elementPaddingY,
 } from "../../styles/common/element_size.css";
 import {
@@ -151,39 +152,75 @@ export const getButtonStyles = recipe({
   ],
   compoundVariants: [
     {
-      style: [elementPaddingX.lg, elementPaddingY.lg],
+      style: [
+        elementPaddingLeft.lg,
+        elementPaddingRight.lg,
+        elementPaddingY.lg,
+      ],
       variants: { appearance: "primary", size: "lg" },
     },
     {
-      style: [elementPaddingX.md, elementPaddingY.md],
+      style: [
+        elementPaddingLeft.md,
+        elementPaddingRight.md,
+        elementPaddingY.md,
+      ],
       variants: { appearance: "primary", size: "md" },
     },
     {
-      style: [elementPaddingX.sm, elementPaddingY.sm],
+      style: [
+        elementPaddingLeft.sm,
+        elementPaddingRight.sm,
+        elementPaddingY.sm,
+      ],
       variants: { appearance: "primary", size: "sm" },
     },
     {
-      style: [elementPaddingX.lg, elementPaddingY.lg],
+      style: [
+        elementPaddingLeft.lg,
+        elementPaddingRight.lg,
+        elementPaddingY.lg,
+      ],
       variants: { appearance: "secondary", size: "lg" },
     },
     {
-      style: [elementPaddingX.md, elementPaddingY.md],
+      style: [
+        elementPaddingLeft.md,
+        elementPaddingRight.md,
+        elementPaddingY.md,
+      ],
       variants: { appearance: "secondary", size: "md" },
     },
     {
-      style: [elementPaddingX.sm, elementPaddingY.sm],
+      style: [
+        elementPaddingLeft.sm,
+        elementPaddingRight.sm,
+        elementPaddingY.sm,
+      ],
       variants: { appearance: "secondary", size: "sm" },
     },
     {
-      style: [elementPaddingX.lg, elementPaddingY.lg],
+      style: [
+        elementPaddingLeft.lg,
+        elementPaddingRight.lg,
+        elementPaddingY.lg,
+      ],
       variants: { appearance: "ghost", size: "lg" },
     },
     {
-      style: [elementPaddingX.md, elementPaddingY.md],
+      style: [
+        elementPaddingLeft.md,
+        elementPaddingRight.md,
+        elementPaddingY.md,
+      ],
       variants: { appearance: "ghost", size: "md" },
     },
     {
-      style: [elementPaddingX.sm, elementPaddingY.sm],
+      style: [
+        elementPaddingLeft.sm,
+        elementPaddingRight.sm,
+        elementPaddingY.sm,
+      ],
       variants: { appearance: "ghost", size: "sm" },
     },
   ],

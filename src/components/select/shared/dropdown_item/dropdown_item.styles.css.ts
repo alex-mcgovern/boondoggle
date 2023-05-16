@@ -5,16 +5,32 @@ import { variantColorOverlay } from "../../../../styles/color_palette.css";
 import { a11yDisabled, a11yFocus } from "../../../../styles/common/a11y.css";
 import {
   elementFontSize,
-  elementPaddingX,
+  elementPaddingLeft,
+  elementPaddingRight,
   elementPaddingY,
 } from "../../../../styles/common/element_size.css";
 import { vars } from "../../../../styles/theme.css";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  lg: [elementFontSize.lg, elementPaddingX.lg, elementPaddingY.lg],
-  md: [elementFontSize.md, elementPaddingX.md, elementPaddingY.md],
-  sm: [elementFontSize.sm, elementPaddingX.sm, elementPaddingY.sm],
+  lg: [
+    elementFontSize.lg,
+    elementPaddingLeft.lg,
+    elementPaddingRight.lg,
+    elementPaddingY.lg,
+  ],
+  md: [
+    elementFontSize.md,
+    elementPaddingLeft.md,
+    elementPaddingRight.md,
+    elementPaddingY.md,
+  ],
+  sm: [
+    elementFontSize.sm,
+    elementPaddingLeft.sm,
+    elementPaddingRight.sm,
+    elementPaddingY.sm,
+  ],
 });
 
 /**

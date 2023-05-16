@@ -4,7 +4,8 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yDisabled, a11yFocusStyleRule } from "../../styles/common/a11y.css";
 import {
   elementFontSize,
-  elementPaddingX,
+  elementPaddingLeft,
+  elementPaddingRight,
   elementPaddingY,
 } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
@@ -12,9 +13,9 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const outerSize = styleVariants({
-  lg: [elementFontSize.lg, elementPaddingX.lg],
-  md: [elementFontSize.md, elementPaddingX.md],
-  sm: [elementFontSize.sm, elementPaddingX.sm],
+  lg: [elementFontSize.lg, elementPaddingLeft.lg, elementPaddingRight.lg],
+  md: [elementFontSize.md, elementPaddingLeft.md, elementPaddingRight.md],
+  sm: [elementFontSize.sm, elementPaddingLeft.sm, elementPaddingRight.sm],
 });
 
 const innerSize = styleVariants({

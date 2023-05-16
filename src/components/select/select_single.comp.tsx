@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { getTheme } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Input } from "../input";
@@ -20,7 +20,6 @@ import { DropdownMenu } from "./shared/dropdown_menu/dropdown_menu.comp";
 
 import type { InputCustomisation } from "../input/input.comp";
 import type { DropdownItemShape, SelectCommonProps } from "./select.types";
-import type { UsePopperPlacement } from "./shared/use_select_popper";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 
@@ -41,7 +40,6 @@ export type SelectSingleProps = SelectCommonProps &
       changes: UseComboboxStateChange<DropdownItemShape>
     ) => void;
     placeholder: string;
-    placement?: UsePopperPlacement;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -78,6 +76,8 @@ export const SelectSingle = forwardRef(
     const [inputValue, setInputValue] = useState(
       initialSelectedItem?.value || ""
     );
+
+    const [localSlotLeft, setLocalSlotLeft] = useState(slotLeft);
 
     // Filter dropdown items based on input if `isFilterable` is true
     const filteredItems = useMemo(() => {
@@ -121,6 +121,7 @@ export const SelectSingle = forwardRef(
             if (newSelectedItem) {
               selectItem(newSelectedItem);
               setInputValue(newSelectedItem.label);
+              setLocalSlotLeft(newSelectedItem.slotLeft);
             }
             break;
 
@@ -151,7 +152,7 @@ export const SelectSingle = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx({ [variantColorOverlay.red]: invalid })}
         color="text_low_contrast"
         {...wrapperProps}
       >
@@ -179,7 +180,7 @@ export const SelectSingle = forwardRef(
               invalid={invalid}
               readOnly={!isFilterable}
               size={size}
-              slotLeft={slotLeft}
+              slotLeft={localSlotLeft}
               slotRight={slotRight}
               {...inputAtomProps}
               {...getInputProps?.({

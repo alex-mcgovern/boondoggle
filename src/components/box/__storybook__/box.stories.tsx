@@ -6,7 +6,7 @@ import {
 import { Box, Box as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
-import { getTheme } from "../../../styles/theme.css";
+import { getTheme, variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 
 import type { BoxProps as StoryCompProps } from "..";
@@ -139,7 +139,7 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
         <StoryComp as="p">{LOREM.textMd}</StoryComp>
       </StoryComp>,
     ],
-    className: getTheme({ colorOverlay: "red" }),
+    className: variantColorOverlay.red,
     display: "flex",
     gap: "spacing3",
     padding: "spacing3",
