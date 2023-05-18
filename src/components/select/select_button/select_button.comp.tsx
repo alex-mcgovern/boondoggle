@@ -11,6 +11,7 @@ import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
 
 import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../../button";
+import type { DialogPlacementEnum } from "../../dialog/dialog.styles.css";
 import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type { UseSelectStateChange } from "downshift";
 import type { LegacyRef, Ref } from "react";
@@ -23,6 +24,7 @@ export type SelectButtonProps = Omit<
     buttonProps?: ButtonProps;
     buttonText?: string;
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    placement?: DialogPlacementEnum;
     wrapperProps?: SprinklesArgs;
   };
 
@@ -36,6 +38,7 @@ export const SelectButton = forwardRef(
       buttonProps,
       items,
       name,
+      placement = "bottom-start",
       onChange,
       buttonText,
       size,
@@ -102,6 +105,7 @@ export const SelectButton = forwardRef(
           highlightedIndex={highlightedIndex}
           isOpen={isOpen}
           items={items}
+          placement={placement}
           size={size}
           triggerNode={
             <Button

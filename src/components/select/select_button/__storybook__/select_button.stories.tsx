@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { SelectButton as StoryComp } from "../..";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
+import { Box } from "../../../box";
 import { mockSelectItems } from "../../__mocks__/select.mock";
 
 import type { SelectButtonProps as StoryCompProps } from "../..";
@@ -25,6 +26,16 @@ export default {
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
   return <StoryComp {...rest} />;
+};
+
+const PlacementTemplate: StoryFn<StoryCompProps> = ({ ...rest }) => {
+  return (
+    <Box display="flex" width="50%">
+      <Box marginLeft="auto">
+        <StoryComp {...rest} />
+      </Box>
+    </Box>
+  );
 };
 
 export const Default: StoryObj<StoryCompProps> = {
@@ -53,6 +64,24 @@ export const SlotLeft: StoryObj<StoryCompProps> = {
     items: mockSelectItems({ withIcon: true }),
   },
   render: Template,
+};
+
+export const PlacementBottomEnd: StoryObj<StoryCompProps> = {
+  args: {
+    ...PROPS,
+    buttonText: "",
+    placement: "bottom-end",
+  },
+  render: PlacementTemplate,
+};
+
+export const PlacementBottomCenter: StoryObj<StoryCompProps> = {
+  args: {
+    ...PROPS,
+    buttonText: "",
+    placement: "bottom-center",
+  },
+  render: PlacementTemplate,
 };
 
 export const ButtonProps: StoryObj<StoryCompProps> = {

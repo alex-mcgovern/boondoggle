@@ -8,8 +8,10 @@ import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyb
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
+import { getDialogStyles } from "./dialog.styles.css";
 
 import type { BoxProps } from "../box";
+import type { DialogPlacementEnum } from "./dialog.styles.css";
 import type { ReactNode } from "react";
 
 export type DialogProps = BoxProps & {
@@ -18,6 +20,7 @@ export type DialogProps = BoxProps & {
   inert?: boolean;
   isOpen?: boolean;
   onIsOpenChange?: (isOpen?: boolean) => void;
+  placement?: DialogPlacementEnum;
   preventOpenOnKeydown?: boolean;
   triggerNode?: ReactNode;
   wrapperProps?: BoxProps;
@@ -32,6 +35,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       onIsOpenChange,
       preventOpenOnKeydown = false,
       triggerNode,
+      placement,
       wrapperProps,
       ...rest
     }: DialogProps,
@@ -86,18 +90,14 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         <Box
           {...rest}
           as="dialog"
-          background="background"
-          border="border_default"
-          borderRadius="md"
-          boxShadow="md"
-          className={clsx(animateAppear, userClassName, a11yFocus)}
-          marginTop="spacing1"
           open={controlledIsOpen}
-          overflow="hidden"
-          padding="none"
-          position="absolute"
           ref={dialogRef}
-          zIndex="1"
+          className={clsx(
+            animateAppear,
+            userClassName,
+            a11yFocus,
+            getDialogStyles({ placement })
+          )}
         >
           {children}
         </Box>
