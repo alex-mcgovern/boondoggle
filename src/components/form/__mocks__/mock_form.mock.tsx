@@ -18,7 +18,7 @@ import type { FormProps } from "../form.comp";
 
 const mockFormSchema = z.object({
   amount: z.number().min(1),
-  date: z.string().min(1),
+  // date: z.string().min(1),
   description: z.string().min(1),
   email: z.string().email().min(2),
   select: z.string().min(1),

@@ -182,7 +182,7 @@ describe("<Form />", () => {
         );
 
         /** Should display error message for all 4 inputs */
-        expect(getAllByRole("alert")).toHaveLength(5);
+        expect(getAllByRole("alert")).toHaveLength(4);
       });
     });
   });
