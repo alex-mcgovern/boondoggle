@@ -1,8 +1,14 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+
+const contentShow = keyframes({
+  "0%": { opacity: 0 },
+  "100%": { opacity: 1 },
+});
 
 export const tooltipTrigger = style([
   getSprinkles({
@@ -37,4 +43,7 @@ export const tooltipText = style([
   {
     maxWidth: "12rem",
   },
+  createAccessibleTransition({
+    animation: `${contentShow} ${vars.transitionDuration.medium} ease forwards`,
+  }),
 ]);

@@ -30,6 +30,8 @@ export type SelectSingleProps = SelectCommonProps &
   LabelledElementCustomisation & {
     initialSelectedItem?: DropdownItemShape | null;
     itemToString?: (item: DropdownItemShape | null) => string;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
     onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
     placeholder: string;
   };
@@ -50,6 +52,7 @@ export const SelectSingle = forwardRef(
       label,
       name,
       onChange,
+      labelTooltip,
       placeholder,
       size,
       slotLeft,
@@ -154,6 +157,7 @@ export const SelectSingle = forwardRef(
               errorMessage={errorMessage}
               invalid={invalid}
               label={label}
+              labelTooltip={labelTooltip}
               readOnly={!isFilterable}
               size={size}
               slotLeft={slotLeft}

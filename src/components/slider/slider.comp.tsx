@@ -36,6 +36,8 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
     errorMessage?: string;
     /** Allow controlling components to set error styles, `aria-invalid` prop and display error message. */
     invalid?: boolean;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
     /** Name of the form control. Submitted with the form as part of a name/value pair */
     name: string;
     /** Text shown before user has interacted with the input. */
@@ -64,6 +66,7 @@ export const Slider = forwardRef(
       label,
       name,
       required,
+      labelTooltip,
       slotLeft,
       slotRight,
       ...rest
@@ -81,7 +84,12 @@ export const Slider = forwardRef(
         {...wrapperProps}
       >
         {label && id && labelId && (
-          <Label htmlFor={id} id={labelId} label={label} />
+          <Label
+            htmlFor={id}
+            id={labelId}
+            label={label}
+            labelTooltip={labelTooltip}
+          />
         )}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>

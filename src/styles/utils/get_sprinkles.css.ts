@@ -13,60 +13,23 @@ import { vars } from "../theme.css";
 export const sprinklesProperties = defineProperties({
   "@layer": sprinklesLayer,
   properties: {
-    /** Flex / Grid */
-alignItems: ["stretch", "start", "center", "end", "baseline"],
-    
-
-
-
-aspectRatio: vars.aspectRatio,
-
-    
-    
-
-
-
-
-/** Color  */
-background: { ...vars.color, inherit: "inherit" },
-
-    
-    
-
-
-/** Border */
-border: {
+    alignItems: ["stretch", "start", "center", "end", "baseline"],
+    aspectRatio: vars.aspectRatio,
+    background: { ...vars.color, inherit: "inherit" },
+    border: {
       border_active: `1px solid ${vars.color.border_active}`,
       border_default: `1px solid ${vars.color.border_default}`,
     },
-    
-
-
-borderBottom: vars.border,
-    
-
-
-borderLeft: vars.border,
-    
-
-/** Border radius */
-borderRadius: vars.borderRadius,
-    
-
-borderRight: vars.border,
-
-    
-    
-borderTop: vars.border,
-    
-bottom: ["0"],
-
-    
+    borderBottom: vars.border,
+    borderLeft: vars.border,
+    borderRadius: vars.borderRadius,
+    borderRight: vars.border,
+    borderTop: vars.border,
+    bottom: ["0"],
     boxShadow: vars.boxShadow,
     color: { ...vars.color, inherit: "inherit" },
     columnGap: vars.spacing,
     flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
-    flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     flexGrow: ["0", "1"],
     flexShrink: ["0", "1"],
     flexWrap: ["wrap", "nowrap"],
@@ -74,7 +37,6 @@ bottom: ["0"],
     fontWeight: vars.fontWeight,
     gap: vars.spacing,
     height: { ...vars.height, ...vars.spacing },
-
     inset: ["0"],
     isolation: ["isolate"],
     justifyContent: [
@@ -136,6 +98,7 @@ export const responsiveSprinklesProperties = defineProperties({
   defaultCondition: "mobile",
   properties: {
     display: vars.display,
+    flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     gridTemplateColumns: vars.gridTemplateColumns,
     width: { ...vars.width, ...vars.spacing },
   },

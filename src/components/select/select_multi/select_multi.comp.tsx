@@ -23,10 +23,12 @@ export type SelectMultiProps = SelectCommonProps &
   LabelledElementCustomisation & {
     initialSelectedItems?: Array<DropdownItemShape>;
     itemToString?: (item: DropdownItemShape | null) => string;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
+
     onChange?: (
       changes: UseMultipleSelectionStateChange<DropdownItemShape>
     ) => void;
-
     placeholder: string;
   };
 
@@ -42,6 +44,7 @@ export const SelectMulti = forwardRef(
       isFilterable,
       items,
       label,
+      labelTooltip,
       name,
       onChange,
       placeholder,
@@ -204,6 +207,7 @@ export const SelectMulti = forwardRef(
               errorMessage={errorMessage}
               invalid={invalid}
               label={label}
+              labelTooltip={labelTooltip}
               readOnly={!isFilterable}
               size={size}
               slotLeft={slotLeft}
