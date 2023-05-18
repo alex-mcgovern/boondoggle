@@ -5,7 +5,7 @@ export default defineConfig({
   bundle: true,
   clean: true,
   config: "./tsconfig.build.json",
-  // dts: true,
+  dts: true,
   entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
   esbuildPlugins: [
     vanillaExtractPlugin({
