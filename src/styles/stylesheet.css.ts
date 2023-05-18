@@ -325,7 +325,7 @@ globalStyle(`hr`, {
   "@layer": {
     [baseLayer]: {
       borderBottom: "none",
-      borderColor: vars.color.border_default,
+      borderColor: `${vars.color.border_default} !important`,
       borderTop: "1px solid",
       marginBottom: vars.spacing.spacing3,
       marginTop: vars.spacing.spacing3,
