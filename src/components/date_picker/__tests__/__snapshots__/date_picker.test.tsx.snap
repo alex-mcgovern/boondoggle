@@ -3,13 +3,10 @@
 exports[`<DatePicker /> Basic smoke tests should match snapshot 1`] = `
 <div>
   <section
-    as="section"
     class="date_picker.styles_datePickerRoot__1luencl1 date_picker.styles__1luencl0 get_sprinkles_padding_spacing2__eiij7b8p get_sprinkles_width_max-content_mobile__eiij7bef"
     style="min-width: 24rem;"
   >
-    <header
-      as="header"
-    >
+    <header>
       <div
         class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_spacing1__eiij7b2q get_sprinkles_justifyContent_space-between__eiij7b3r get_sprinkles_marginBottom_spacing2__eiij7b4l get_sprinkles_width_100%_mobile__eiij7bd9"
       >

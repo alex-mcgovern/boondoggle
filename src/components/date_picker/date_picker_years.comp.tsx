@@ -1,11 +1,11 @@
 import { Button } from "../button";
 
-import type { UseDatePickerValue } from "@rehookify/datepicker";
+import type { DPUseYearsPropGetters, DPYear } from "@rehookify/datepicker";
 
 type DatePickerYearsProps = {
   onYearClick: () => void;
-  yearButton: UseDatePickerValue["propGetters"]["yearButton"];
-  years: UseDatePickerValue["data"]["years"];
+  yearButton: ReturnType<DPUseYearsPropGetters>["yearButton"];
+  years: Array<DPYear>;
 };
 
 export function DatePickerYears({

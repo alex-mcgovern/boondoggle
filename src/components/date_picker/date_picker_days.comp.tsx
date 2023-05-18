@@ -1,8 +1,8 @@
 import { Button } from "../button";
 
 import type {
-  Calendar,
-  CalendarDay,
+  DPCalendar,
+  DPDay,
   useDaysPropGetters,
 } from "@rehookify/datepicker";
 import type { MouseEvent } from "react";
@@ -10,7 +10,7 @@ import type { MouseEvent } from "react";
 const getDayButtonAppearance = ({
   now,
   selected,
-}: Pick<CalendarDay, "now" | "selected">) => {
+}: Pick<DPDay, "now" | "selected">) => {
   if (selected) {
     return "primary";
   }
@@ -23,8 +23,8 @@ const getDayButtonAppearance = ({
 
 type DatePickerDaysProps = {
   dayButton: ReturnType<typeof useDaysPropGetters>["dayButton"];
-  days: Array<CalendarDay>;
-  month: Calendar["month"];
+  days: Array<DPDay>;
+  month: DPCalendar["month"];
   onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 };
 

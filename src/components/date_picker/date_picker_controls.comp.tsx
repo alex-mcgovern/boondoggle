@@ -10,21 +10,22 @@ import { Icon } from "../icon";
 
 import type { BoxProps } from "../box";
 import type {
-  Calendar,
-  CalendarYear,
-  UseDatePickerValue,
+  DPCalendar,
+  DPUseMonthsPropGetters,
+  DPUseYearsPropGetters,
+  DPYear,
 } from "@rehookify/datepicker";
 
 type DatePickerControlsProps = {
   isShowingYears: boolean;
-  month: Calendar["month"];
-  nextMonthButton: UseDatePickerValue["propGetters"]["nextMonthButton"];
-  nextYearsButton: UseDatePickerValue["propGetters"]["nextYearsButton"];
+  month: DPCalendar["month"];
+  nextMonthButton: ReturnType<DPUseMonthsPropGetters>["nextMonthButton"];
+  nextYearsButton: ReturnType<DPUseYearsPropGetters>["nextYearsButton"];
   onToggleYears: () => void;
-  previousMonthButton: UseDatePickerValue["propGetters"]["previousMonthButton"];
-  previousYearsButton: UseDatePickerValue["propGetters"]["previousYearsButton"];
-  year: Calendar["year"];
-  years: Array<CalendarYear>;
+  previousMonthButton: ReturnType<DPUseMonthsPropGetters>["previousMonthButton"];
+  previousYearsButton: ReturnType<DPUseYearsPropGetters>["previousYearsButton"];
+  year: DPCalendar["year"];
+  years: Array<DPYear>;
 } & BoxProps;
 
 export function DatePickerControls({
