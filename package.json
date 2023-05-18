@@ -12,7 +12,7 @@
     "url": "https://github.com/alex-mcgovern/boondoggle.design"
   },
   "engines": {
-    "node": ">=18.16.0"
+    "node": ">=18.0.0"
   },
   "exports": {
     ".": "./dist/index.js",
