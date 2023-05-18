@@ -140,6 +140,7 @@ export const SelectMulti = forwardRef(
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
+        selectedItem: selectedItems?.[0],
       }),
       items: filteredItems,
       onStateChange({

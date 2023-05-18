@@ -68,7 +68,6 @@ describe("<SelectSingle />", () => {
 
         await user.keyboard("{arrowdown}");
         await user.keyboard("{arrowdown}");
-        await user.keyboard("{arrowdown}");
         await user.keyboard("{enter}");
 
         expect((combobox as HTMLInputElement).value).toBe(PROPS.items[1].label);
@@ -105,7 +104,6 @@ describe("<SelectSingle />", () => {
         await user.keyboard("{arrowdown}");
         await user.keyboard("{enter}");
 
-        await user.keyboard("{arrowdown}");
         await user.keyboard("{arrowdown}");
         await user.keyboard("{arrowdown}");
         await user.keyboard("{enter}");

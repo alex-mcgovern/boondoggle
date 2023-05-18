@@ -62,7 +62,9 @@ export const SelectSingle = forwardRef(
     }: SelectSingleProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [selectedItem, setSelectedItem] = useState(initialSelectedItem);
+    const [selectedItem, setSelectedItem] = useState(
+      initialSelectedItem || null
+    );
 
     const [inputValue, setInputValue] = useState(
       initialSelectedItem?.label || ""

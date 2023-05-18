@@ -50,7 +50,9 @@ export const SelectButton = forwardRef(
     }: SelectButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
-    const [selectedItem, setSelectedItem] = useState(initialSelectedItem);
+    const [selectedItem, setSelectedItem] = useState(
+      initialSelectedItem || null
+    );
 
     const { atomProps: buttonAtomProps, otherProps: buttonOtherProps } =
       extractAtomsFromProps(buttonProps, getSprinkles);
