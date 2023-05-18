@@ -8,7 +8,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { SlotWrapper } from "../slot_wrapper";
+import { SlotWrapperInset } from "../slot_wrapper_inset";
 import * as styles from "./input.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
@@ -85,11 +85,7 @@ export const Input = forwardRef(
           />
         )}
 
-        <SlotWrapper
-          slotLeft={slotLeft}
-          slotProps={{ marginX: "spacing1" }}
-          slotRight={slotRight}
-        >
+        <SlotWrapperInset slotLeft={slotLeft} slotRight={slotRight}>
           <input
             id={id}
             name={name}
@@ -104,7 +100,7 @@ export const Input = forwardRef(
             )}
             {...otherProps}
           />
-        </SlotWrapper>
+        </SlotWrapperInset>
 
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />

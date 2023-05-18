@@ -52,11 +52,6 @@ export const DropdownMenu = forwardRef(
     }: DropdownMenuProps,
     ref
   ) => {
-    const dropdownWrapperStyles = clsx(
-      styles.dropdownListWrapper,
-      userClassName
-    );
-
     /**
      * Note: `DropdownMenu` *must* not be in a conditional render, or
      * downshift's `getMenuProps` will be unable to apply a ref and throw an error
@@ -70,16 +65,15 @@ export const DropdownMenu = forwardRef(
           ref: ref as LegacyRef<HTMLElement>,
         })}
       >
-        <Box className={dropdownWrapperStyles}>
+        <Box className={clsx(styles.dropdownListWrapper, userClassName)}>
           {Array.isArray(items) &&
             items.map((item, index) => {
               if (!item.label) {
                 return null;
               }
-              const isItemSelected = getIsItemSelected?.(item);
               return (
                 <DropdownItem
-                  isDropdownItemSelected={isItemSelected}
+                  isDropdownItemSelected={getIsItemSelected?.(item)}
                   isHighlighted={highlightedIndex === index}
                   isMulti={isMulti}
                   item={item}
@@ -89,7 +83,6 @@ export const DropdownMenu = forwardRef(
                     getItemProps,
                     getSelectedItemProps,
                     index,
-                    isItemSelected,
                     isMulti,
                     item,
                     removeSelectedItem,
