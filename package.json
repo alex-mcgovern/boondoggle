@@ -14,9 +14,9 @@
   "sideEffects": [
     "./src/styles/stylesheet.css.ts"
   ],
+  "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "scripts": {
     "build-storybook": "storybook build",
     "build:dev": "rm -rf lib && tsup --watch",

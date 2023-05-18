@@ -14,7 +14,7 @@ export default defineConfig({
       runtime: false,
     }),
   ],
-  format: ["esm"],
+  format: ["esm", "cjs"],
   minify: true,
   outDir: "dist",
   sourcemap: true,
