@@ -1,4 +1,4 @@
-import { faSpinner } from "@fortawesome/pro-solid-svg-icons";
+import { faSpinner } from "@fortawesome/pro-light-svg-icons";
 
 import { Icon } from "../icon";
 

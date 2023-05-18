@@ -17,7 +17,7 @@ export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
       color="text_low_contrast"
       display="flex"
       fontSize="body_sm"
-      fontWeight="medium"
+      fontWeight="normal"
       gap="spacing0"
       htmlFor={htmlFor}
       marginBottom="spacing0"

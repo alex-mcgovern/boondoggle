@@ -37,10 +37,12 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
     button_active: getFromPaletteByIndex(primaryPalette, 10),
     button_default: getFromPaletteByIndex(primaryPalette, 8),
     button_tint: getFromPaletteByIndex(primaryPalette, 4),
+    focus_ring: getFromPaletteByIndex(primaryPalette, 7),
     shadow: slateA.slateA5,
     text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
     text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
     tint_active: getFromPaletteByIndex(secondaryPalette, 4),
+    tint_active_highlight: getFromPaletteByIndex(secondaryPalette, 5),
     tint_default: getFromPaletteByIndex(secondaryPalette, 2),
     white: slate.slate1,
   };

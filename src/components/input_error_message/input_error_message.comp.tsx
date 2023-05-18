@@ -1,7 +1,9 @@
+import { faExclamationCircle } from "@fortawesome/pro-light-svg-icons";
 import clsx from "clsx";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";
+import { Icon } from "../icon";
 
 import type { BoxProps } from "../box";
 
@@ -26,12 +28,12 @@ export function InputErrorMessage({
         color="text_low_contrast"
         display="flex"
         fontStyle="body_sm"
-        fontWeight="semibold"
         gap="spacing0"
         marginY="spacing0"
         role="alert"
         {...rest}
       >
+        <Icon icon={faExclamationCircle} />
         {message}
       </Box>
     );

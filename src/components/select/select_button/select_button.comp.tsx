@@ -1,6 +1,6 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { useSelect } from "downshift";
-import { forwardRef, useCallback } from "react";
+import { forwardRef, useCallback, useState } from "react";
 
 import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
@@ -23,6 +23,7 @@ export type SelectButtonProps = Omit<
   SprinklesArgs & {
     buttonProps?: ButtonProps;
     buttonText?: string;
+    initialSelectedItem?: DropdownItemShape | null;
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
     placement?: DialogPlacementEnum;
     wrapperProps?: SprinklesArgs;
@@ -42,12 +43,15 @@ export const SelectButton = forwardRef(
       onChange,
       buttonText,
       size,
+      initialSelectedItem,
       slotLeft,
       wrapperProps,
       slotRight = DEFAULT_SLOT_RIGHT,
     }: SelectButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
+    const [selectedItem, setSelectedItem] = useState(initialSelectedItem);
+
     const { atomProps: buttonAtomProps, otherProps: buttonOtherProps } =
       extractAtomsFromProps(buttonProps, getSprinkles);
 
@@ -57,22 +61,22 @@ export const SelectButton = forwardRef(
       getItemProps,
       getMenuProps,
       toggleMenu,
-      selectItem,
       highlightedIndex,
-      selectedItem,
       isOpen,
     } = useSelect({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
+        selectedItem,
       }),
+      initialSelectedItem,
       items,
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
           case useSelect.stateChangeTypes.ItemClick:
             if (newSelectedItem) {
-              selectItem(newSelectedItem);
+              setSelectedItem(newSelectedItem);
             }
             break;
 

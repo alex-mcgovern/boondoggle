@@ -2,7 +2,7 @@ import {
   faAngleDown,
   faAngleLeft,
   faAngleRight,
-} from "@fortawesome/pro-solid-svg-icons";
+} from "@fortawesome/pro-light-svg-icons";
 
 import { Box } from "../box";
 import { Button } from "../button";

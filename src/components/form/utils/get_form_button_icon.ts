@@ -2,7 +2,7 @@ import {
   faCheckCircle,
   faExclamationTriangle,
   faSpinner,
-} from "@fortawesome/pro-solid-svg-icons";
+} from "@fortawesome/pro-light-svg-icons";
 
 import type { IconProps } from "../../icon";
 import type { FieldValues, FormState } from "react-hook-form";

@@ -92,11 +92,19 @@ export const getDisplayValue = ({
 type GetDefaultHighlightedIndexArgs = {
   initialHighlightedItem?: DropdownItemShape;
   items: Array<DropdownItemShape>;
+  selectedItem?: DropdownItemShape | null;
 };
 export const getDefaultHighlightedIndex = ({
   items,
   initialHighlightedItem,
+  selectedItem,
 }: GetDefaultHighlightedIndexArgs) => {
+  if (selectedItem) {
+    return items.findIndex((item) => {
+      return item.label === selectedItem?.label;
+    });
+  }
+
   return items.findIndex((item) => {
     return item.label === initialHighlightedItem?.label;
   });

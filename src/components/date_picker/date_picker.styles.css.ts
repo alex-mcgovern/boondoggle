@@ -1,9 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-import { a11yFocus } from "../../styles/common/a11y.css";
-import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../styles/common/selectors.css";
-import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const datePickerRoot = style([
@@ -13,26 +9,5 @@ export const datePickerRoot = style([
   }),
   {
     minWidth: "24rem",
-  },
-]);
-
-export const titleButton = style([
-  getSprinkles({
-    alignItems: "center",
-    color: "text_low_contrast",
-    display: "flex",
-    fontWeight: "semibold",
-    gap: "spacing1",
-  }),
-  a11yFocus,
-  createAccessibleTransition({
-    transition: `color ${vars.transitionDuration.short} ease`,
-  }),
-  {
-    selectors: {
-      [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-        color: vars.color.text_high_contrast,
-      },
-    },
   },
 ]);

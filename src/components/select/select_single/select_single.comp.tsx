@@ -62,11 +62,15 @@ export const SelectSingle = forwardRef(
     }: SelectSingleProps,
     ref: Ref<HTMLInputElement>
   ) => {
+    const [selectedItem, setSelectedItem] = useState(initialSelectedItem);
+
     const [inputValue, setInputValue] = useState(
       initialSelectedItem?.label || ""
     );
 
-    // Filter dropdown items based on input if `isFilterable` is true
+    const [localSlotLeft, setLocalSlotLeft] = useState(slotLeft);
+
+    /** Filter dropdown items based on input if `isFilterable` is true */
     const filteredItems = useMemo(() => {
       if (!items || !isFilterable) {
         return items;
@@ -82,14 +86,14 @@ export const SelectSingle = forwardRef(
       getMenuProps,
       getLabelProps,
       highlightedIndex,
-      selectedItem,
-      selectItem,
+
       isOpen,
       toggleMenu,
     } = useCombobox({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
         items,
+        selectedItem,
       }),
       initialSelectedItem,
       items: filteredItems,
@@ -105,8 +109,11 @@ export const SelectSingle = forwardRef(
           case useCombobox.stateChangeTypes.ItemClick:
           case useCombobox.stateChangeTypes.InputBlur:
             if (newSelectedItem) {
-              selectItem(newSelectedItem);
+              setSelectedItem(newSelectedItem);
               setInputValue(newSelectedItem.label);
+              if (newSelectedItem.slotLeft) {
+                setLocalSlotLeft(newSelectedItem.slotLeft);
+              }
             }
             break;
 
@@ -120,6 +127,7 @@ export const SelectSingle = forwardRef(
             break;
         }
       },
+      selectedItem,
       stateReducer: (state, actionAndChanges) => {
         return downshiftStateReducer(state, actionAndChanges, {});
       },
@@ -160,7 +168,7 @@ export const SelectSingle = forwardRef(
               labelTooltip={labelTooltip}
               readOnly={!isFilterable}
               size={size}
-              slotLeft={slotLeft}
+              slotLeft={localSlotLeft}
               slotRight={slotRight}
               labelProps={getLabelProps({
                 htmlFor: id,

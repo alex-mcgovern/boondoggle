@@ -1,8 +1,10 @@
+import { faCalendarAlt } from "@fortawesome/pro-light-svg-icons";
 import { forwardRef, useCallback, useState } from "react";
 
 import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker/date_picker.comp";
 import { Dialog } from "../dialog/dialog.comp";
+import { Icon } from "../icon/icon.comp";
 import { Input } from "../input/input.comp";
 import * as styles from "./input_date.styles.css";
 
@@ -36,6 +38,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
       wrapperProps,
       onChange,
       value,
+      slotLeft = <Icon icon={faCalendarAlt} />,
       ...rest
     }: InputDateProps,
     ref
@@ -77,6 +80,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
             readOnly
             ref={ref}
+            slotLeft={slotLeft}
             value={inputValue}
           />
         }

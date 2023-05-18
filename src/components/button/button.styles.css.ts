@@ -38,7 +38,7 @@ const variantSize = styleVariants({
  * ------------------------------------------------------------------------------- */
 
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
-  fontWeight: "semibold",
+  fontWeight: "normal",
   justifyContent: "center",
   whiteSpace: "nowrap",
 };
@@ -101,7 +101,7 @@ export const variantAppearance = styleVariants({
 
   tertiary: [
     getSprinkles({
-      fontWeight: "semibold",
+      fontWeight: "normal",
       padding: "none",
       textAlign: "left",
     }),

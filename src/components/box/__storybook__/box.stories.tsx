@@ -1,7 +1,7 @@
 import {
   faCheckCircle,
   faExclamationCircle,
-} from "@fortawesome/pro-solid-svg-icons";
+} from "@fortawesome/pro-light-svg-icons";
 
 import { Box, Box as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
