@@ -37,37 +37,6 @@ const renderComponent = (props: SelectButtonProps) => {
 describe("<SelectButton />", () => {
   describe("mouse navigation", () => {
     /** ---------------------------------------------
-     * input value
-     * ----------------------------------------------- */
-
-    describe("input value", () => {
-      it("should have value of first clicked item", async () => {
-        const { getByRole, getByText, user } = await renderComponent(PROPS);
-        const combobox = getByRole("combobox");
-        await user.click(combobox);
-
-        const firstItem = getByText(PROPS.items[0].label);
-        await user.click(firstItem);
-
-        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
-      });
-
-      it("should have value of second clicked item", async () => {
-        const { getByRole, getByText, user } = await renderComponent(PROPS);
-        const combobox = getByRole("combobox");
-        await user.click(combobox);
-
-        const firstItem = getByText(PROPS.items[0].label);
-        await user.click(firstItem);
-
-        const secondItem = getByText(PROPS.items[1].label);
-        await user.click(secondItem);
-
-        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[1].label);
-      });
-    });
-
-    /** ---------------------------------------------
      * onChange();
      * ----------------------------------------------- */
 

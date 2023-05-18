@@ -160,7 +160,6 @@ export const SelectSingle = forwardRef(
               slotRight={slotRight}
               labelProps={getLabelProps({
                 htmlFor: id,
-                label,
               })}
               {...getInputProps?.({
                 disabled,

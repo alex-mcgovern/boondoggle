@@ -12,6 +12,7 @@ const ITEMS = mockSelectItems({});
 
 const meta = {
   args: {
+    errorMessage: LOREM.errorMessage(),
     id: LOREM.id(),
     items: ITEMS,
     label: LOREM.label(),
@@ -31,6 +32,12 @@ export const Default: Story = {};
 export const InitialSelectedItems: Story = {
   args: {
     initialSelectedItems: [ITEMS[0]],
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    invalid: true,
   },
 };
 

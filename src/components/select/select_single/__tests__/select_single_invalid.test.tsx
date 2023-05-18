@@ -16,7 +16,9 @@ import type { SelectSingleProps } from "../select_single.comp";
  * ------------------------------------------------------------------------------- */
 
 const PROPS: SelectSingleProps = {
+  errorMessage: LOREM.errorMessage(),
   id: LOREM.id(),
+  invalid: true,
   items: mockSelectItems({}),
   label: LOREM.label(),
   name: LOREM.textXxs,
@@ -37,23 +39,18 @@ const renderComponent = (props: SelectSingleProps) => {
 describe("<SelectSingle />", () => {
   describe("Invalid", () => {
     it("should have error styling", async () => {
-      const { getByRole } = await renderComponent({
-        ...PROPS,
-        invalid: true,
-      });
+      const { getByRole } = await renderComponent(PROPS);
 
       const combobox = getByRole("combobox");
 
       expect(combobox).toHaveClass(a11yError);
-      expect(combobox?.parentNode).toHaveClass(variantColorOverlay.red);
+      expect(combobox?.parentNode?.parentNode).toHaveClass(
+        variantColorOverlay.red
+      );
     });
 
     it("should render error message", async () => {
-      const { getByText } = await renderComponent({
-        ...PROPS,
-        errorMessage: LOREM.errorMessage(),
-        invalid: true,
-      });
+      const { getByText } = await renderComponent(PROPS);
 
       expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });

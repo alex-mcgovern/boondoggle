@@ -203,13 +203,13 @@ export const SelectMulti = forwardRef(
               className={selectInputCursorStyles}
               errorMessage={errorMessage}
               invalid={invalid}
+              label={label}
               readOnly={!isFilterable}
               size={size}
               slotLeft={slotLeft}
               slotRight={slotRight}
               labelProps={getLabelProps({
                 htmlFor: id,
-                label,
               })}
               {...getInputProps?.({
                 ...getDropdownProps({
