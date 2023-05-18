@@ -2,7 +2,7 @@ import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  // bundle: true,
+  bundle: true,
   clean: true,
   config: "./tsconfig.build.json",
   // dts: true,
@@ -15,11 +15,11 @@ export default defineConfig({
     }),
   ],
   format: ["esm"],
-  // minify: true,
+  minify: true,
   outDir: "dist",
   sourcemap: true,
-  // splitting: true,
+  splitting: true,
   target: "es2020",
-  // treeshake: true,
+  treeshake: true,
   tsconfig: "./tsconfig.build.json",
 });
