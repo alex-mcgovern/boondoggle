@@ -1,16 +1,16 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
+import { LabelledElementCustomisation } from "../../../types";
 import { Slider } from "../../slider";
 
-import type { InputCustomisation } from "../../input/input.comp";
 import type { SliderProps } from "../../slider";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormSliderProps = InputCustomisation &
+export type FormSliderProps = LabelledElementCustomisation &
   SliderProps & {
     /** Message to render when erroring. */
     errorMessage: string;
