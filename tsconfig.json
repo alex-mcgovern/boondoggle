@@ -17,6 +17,7 @@
     "outDir": "dist",
     "rootDir": ".",
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "typeRoots": []
   }
 }

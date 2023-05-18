@@ -6,7 +6,7 @@ export default defineConfig({
   clean: true,
   config: "./tsconfig.build.json",
   dts: true,
-  entry: ["src/index.ts"],
+  entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
   esbuildPlugins: [
     vanillaExtractPlugin({
       identifiers: "short",
@@ -14,7 +14,7 @@ export default defineConfig({
       runtime: false,
     }),
   ],
-  format: ["esm"],
+  format: ["esm", "cjs"],
   minify: true,
   outDir: "dist",
   sourcemap: true,
