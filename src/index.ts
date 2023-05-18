@@ -62,6 +62,9 @@ export type { FormSelectSingleProps } from "./components/form";
 export { FormTextArea } from "./components/form";
 export type { FormTextAreaProps } from "./components/form";
 
+export { FormInputDate } from "./components/form";
+export type { FormInputDateProps } from "./components/form";
+
 export { FormTestProvider } from "./components/form";
 
 export { FormSubmitButton } from "./components/form";

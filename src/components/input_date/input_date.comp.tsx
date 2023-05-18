@@ -14,7 +14,7 @@ export type InputDateValue = {
   raw: string;
 };
 
-export type InputDateProps = Omit<InputProps, "value"> & {
+export type InputDateProps = InputProps & {
   isOpen?: boolean;
   locale?: Intl.LocalesArgument;
   /**
@@ -35,11 +35,14 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
       isOpen: controlledIsOpen,
       wrapperProps,
       onChange,
+      value,
       ...rest
     }: InputDateProps,
     ref
   ) => {
-    const [inputValue, setInputValue] = useState<string>("");
+    const [inputValue, setInputValue] = useState<
+      string | number | readonly string[]
+    >(value || "");
     const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
 
     /**

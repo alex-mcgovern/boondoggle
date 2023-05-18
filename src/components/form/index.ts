@@ -4,6 +4,9 @@ export type { FormProps } from "./form.comp";
 export { FormInput } from "./sub_components/form_input.comp";
 export type { FormInputProps } from "./sub_components/form_input.comp";
 
+export { FormInputDate } from "./sub_components/form_input_date.comp";
+export type { FormInputDateProps } from "./sub_components/form_input_date.comp";
+
 export { FormSlider } from "./sub_components/form_slider.comp";
 export type { FormSliderProps } from "./sub_components/form_slider.comp";
 

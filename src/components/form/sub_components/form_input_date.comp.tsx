@@ -1,15 +1,13 @@
 import { useController, useFormContext } from "react-hook-form";
 
 import { formatDate } from "../../../utils/format_date";
-import { InputDate } from "../../input_date/input_date.comp";
-
-import type { InputProps } from "../../input";
+import { InputDate, InputDateProps } from "../../input_date/input_date.comp";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormInputProps = Omit<InputProps, "defaultValue"> & {
+export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> & {
   /** Override input default value to accept a string only */
   defaultValue?: string;
   /** Message to render when erroring. */
@@ -27,7 +25,7 @@ export function FormInputDate({
   required,
   validateFunction,
   ...rest
-}: FormInputProps) {
+}: FormInputDateProps) {
   const { control } = useFormContext();
 
   const {
@@ -50,6 +48,7 @@ export function FormInputDate({
 
   return (
     <InputDate
+      {...(rest as InputDateProps)}
       aria-required={required}
       errorMessage={errorMessage}
       invalid={!!error}
@@ -58,7 +57,6 @@ export function FormInputDate({
       onChange={onChange}
       ref={ref}
       value={controlledValue ? formatDate(controlledValue) : ""}
-      {...rest}
     />
   );
 }
