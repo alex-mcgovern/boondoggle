@@ -1,9 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { faGlobeAfrica } from "@fortawesome/pro-light-svg-icons";
 import { expect, jest } from "@storybook/jest";
 import { userEvent, waitFor, within } from "@storybook/testing-library";
 
 import { SelectSingle as StoryComp } from "../..";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
+import { Icon } from "../../../icon";
 import { mockSelectItems } from "../../__mocks__/select.mock";
 
 import type { DropdownItemShape } from "../..";
@@ -111,5 +113,6 @@ export const PlayKeyboardNavigation: Story = {
 export const SlotLeft: Story = {
   args: {
     items: mockSelectItems({ withIcon: true }),
+    slotLeft: <Icon icon={faGlobeAfrica} />,
   },
 };
