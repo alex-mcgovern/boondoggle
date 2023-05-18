@@ -3,26 +3,29 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Slider } from "../../slider";
 
+import type { InputCustomisation } from "../../input/input.comp";
 import type { SliderProps } from "../../slider";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormSliderProps = SliderProps & {
-  /** Message to render when erroring. */
-  errorMessage: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
-  /** Whether the slider is a required form element */
-  required?: boolean;
-};
+export type FormSliderProps = InputCustomisation &
+  SliderProps & {
+    /** Message to render when erroring. */
+    errorMessage: string;
+    /** Whether the slider is a required form element */
+    required?: boolean;
+    /** Callback for validation, else simply validates is non-empty. */
+    validateFunction?: (value: string) => boolean;
+  };
 
 export function FormSlider({
   name,
   errorMessage,
   required,
   validateFunction,
+  wrapperProps,
   defaultValue: defaultValueArray,
   ...rest
 }: FormSliderProps) {
@@ -32,8 +35,8 @@ export function FormSlider({
     field: { onChange, onBlur, ref },
     fieldState: { error },
   } = useController({
-    name,
     control,
+    name,
     rules: {
       required: required && errorMessage,
       validate: (value) => {
@@ -70,6 +73,7 @@ export function FormSlider({
       onBlur={onBlur}
       onValueChange={handleChange}
       ref={ref}
+      wrapperProps={wrapperProps}
       {...rest}
     />
   );

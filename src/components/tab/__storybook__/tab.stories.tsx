@@ -7,8 +7,8 @@ import type { TabProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Tab",
   component: StoryComp,
+  title: "React components/Tab",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -16,49 +16,49 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     children: "Tab",
   },
+  name: "default",
+  render: Template,
 };
 
 export const ColorOverlayBlue: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     children: "Tab",
     colorOverlay: "blue",
     slotLeft: <Icon icon={faShapes} />,
   },
+  name: "default",
+  render: Template,
 };
 
 export const ColorOverlayAmber: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     children: "Tab",
     colorOverlay: "amber",
     slotLeft: <Icon icon={faShapes} />,
   },
+  name: "default",
+  render: Template,
 };
 
 export const ColorOverlayGreen: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     children: "Tab",
     colorOverlay: "green",
     slotLeft: <Icon icon={faShapes} />,
   },
+  name: "default",
+  render: Template,
 };
 
 export const ColorOverlayRed: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     children: "Tab",
     colorOverlay: "red",
     slotLeft: <Icon icon={faShapes} />,
   },
+  name: "default",
+  render: Template,
 };

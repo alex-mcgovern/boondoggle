@@ -26,8 +26,8 @@ export function FormSubmitButton({
 
   return (
     <Button
-      size="md"
       name="submit"
+      size="md"
       type="submit"
       slotRight={
         slotRight ||

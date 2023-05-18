@@ -25,24 +25,24 @@ type BaseTagProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
-      /** The React node shown on the left side of the Tag. */
-      slotLeft?: ReactNode;
-      /** The React node shown on the right side of the Tag. */
-      slotRight?: ReactNode;
-      /** Used as the html ID. */
-      id?: string;
+      /** The react node rendered in the tag. */
+      children?: ReactNode;
       /** USed to communicate semantic meaning */
       colorOverlay?: ColorOverlay;
       /** If `true`, the component is disabled. */
       disabled?: boolean;
+      /** Used as the html ID. */
+      id?: string;
       /** Callback on click. */
       onClick?(...args: unknown[]): unknown;
-      /** The react node rendered in the tag. */
-      children?: ReactNode;
-      /** The string URI to link to. Supports relative and absolute URIs. */
-      to?: string;
       /** The size of the tag */
       size?: ElementSizeEnum;
+      /** The React node shown on the left side of the Tag. */
+      slotLeft?: ReactNode;
+      /** The React node shown on the right side of the Tag. */
+      slotRight?: ReactNode;
+      /** The string URI to link to. Supports relative and absolute URIs. */
+      to?: string;
     }
   >;
 
@@ -81,14 +81,14 @@ export const Tag: TagComponent = forwardRef(
             getSprinkles(atomProps),
             a11yFocus
           ),
-          ref,
           id,
+          ref,
           ...otherProps,
         }}
       >
         <SlotWrapper
-          gap="spacing0"
           color="inherit"
+          gap="spacing0"
           slotLeft={slotLeft}
           slotRight={slotRight}
         >

@@ -8,7 +8,7 @@ import {
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { getTheme } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputErrorMessage } from "../input_error_message";
@@ -18,12 +18,16 @@ import * as styles from "./slider.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ConditionalLabelProps } from "../../types";
+import type {
+  ConditionalLabelProps,
+  LabelledElementCustomisation,
+} from "../../types";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, HTMLInputTypeAttribute, ReactNode, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
   SprinklesArgs &
+  LabelledElementCustomisation &
   ConditionalLabelProps & {
     autoComplete?: HTMLInputElement["autocomplete"];
     /** Is input disabled. Mapped to html5 <input> `disabled` attribute and `aria-disabled` attribute. */
@@ -32,23 +36,23 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
     errorMessage?: string;
     /** Allow controlling components to set error styles, `aria-invalid` prop and display error message. */
     invalid?: boolean;
+    /** Optional tooltip for label */
+    labelTooltip?: string;
     /** Name of the form control. Submitted with the form as part of a name/value pair */
     name: string;
-    /** React node shown on the left side of input. */
-    slotLeft?: ReactNode;
-    /** React node shown on the right side of input. */
-    slotRight?: ReactNode;
-    /** Controls `aria-required` and input `required` attributes. */
-    required?: boolean;
     /** Text shown before user has interacted with the input. */
     placeholder?: string;
+    /** Controls `aria-required` and input `required` attributes. */
+    required?: boolean;
     /** Aria role to use for the input (e.g. `search`). */
     role?: AriaRole;
     /** Common interactive element size, shared with button, select, etc */
     size?: ElementSizeEnum;
+    /** React node shown on the left side of input. */
+    slotLeft?: ReactNode;
+    /** React node shown on the right side of input. */
+    slotRight?: ReactNode;
     type?: HTMLInputTypeAttribute;
-    /** Optional tooltip for label */
-    labelTooltip?: string;
   };
 
 export const Slider = forwardRef(
@@ -56,6 +60,8 @@ export const Slider = forwardRef(
     {
       errorMessage,
       id,
+      wrapperProps,
+
       invalid,
       label,
       name,
@@ -67,33 +73,33 @@ export const Slider = forwardRef(
     }: SliderProps,
     ref: Ref<HTMLSpanElement>
   ) => {
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    const labelId = id ? `${id}-label` : undefined;
 
-    const labelId = `${id}-label`;
+    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx({ [variantColorOverlay.red]: invalid })}
         color="text_low_contrast"
-        {...atomProps}
+        {...wrapperProps}
       >
-        {label && id && (
+        {label && id && labelId && (
           <Label
-            labelTooltip={labelTooltip}
-            label={label}
             htmlFor={id}
             id={labelId}
+            label={label}
+            labelTooltip={labelTooltip}
           />
         )}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
           <RadixSliderRoot
-            aria-required={required}
-            className={styles.sliderRoot}
-            name={name}
             aria-label={name}
             aria-labelledby={label && id ? labelId : undefined}
+            aria-required={required}
+            className={clsx(styles.sliderRoot, getSprinkles(atomProps))}
             id={id}
+            name={name}
             ref={ref}
             {...otherProps}
           >

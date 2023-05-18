@@ -4,9 +4,9 @@ import { Tooltip } from "../tooltip";
 import type { BoxProps } from "../box";
 
 export type LabelProps = BoxProps & {
+  htmlFor: string;
   label: string;
   labelTooltip?: string;
-  htmlFor: string;
 };
 
 export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
@@ -19,12 +19,12 @@ export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
       fontSize="body_sm"
       fontWeight="medium"
       gap="spacing0"
-      marginBottom="spacing0"
       htmlFor={htmlFor}
+      marginBottom="spacing0"
       {...rest}
     >
       {label}
-      {labelTooltip && <Tooltip tooltipText={labelTooltip} side="top" />}
+      {labelTooltip && <Tooltip side="top" tooltipText={labelTooltip} />}
     </Box>
   );
 }

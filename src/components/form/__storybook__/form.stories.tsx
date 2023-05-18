@@ -13,12 +13,12 @@ const handleErrorMock = async (errors: FieldErrors) => {
 };
 
 const meta = {
-  title: "React components/Form",
-  component: StoryComp,
   args: mockForm({
-    handleFormSubmission: handleFormSubmissionMock,
     handleErrors: handleErrorMock,
+    handleFormSubmission: handleFormSubmissionMock,
   }),
+  component: StoryComp,
+  title: "React components/Form",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -30,8 +30,8 @@ export const Default: Story = {
 
 export const WithDefaultValues: Story = {
   args: mockForm({
-    handleFormSubmission: handleFormSubmissionMock,
     handleErrors: handleErrorMock,
+    handleFormSubmission: handleFormSubmissionMock,
     withDefaultValues: true,
   }),
 };

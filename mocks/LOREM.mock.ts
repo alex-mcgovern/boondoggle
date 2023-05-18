@@ -1,36 +1,41 @@
 export const LOREM = {
   button: "Do the thing",
-  id: (suffix?: string) => {
-    return `lorem-ipsum${suffix ? `-${suffix}` : ""}`;
-  },
-  name: (suffix?: string) => {
-    return `Name ipsum${suffix ? `-${suffix}` : ""}`;
-  },
-  label: (suffix?: string) => {
-    return `Label ipsum${suffix ? `-${suffix}` : ""}`;
-  },
-  placeholder: (suffix?: string) => {
-    return `Placeholder ipsum${suffix ? `-${suffix}` : ""}`;
+  dateFormatted: `02/06/1993`,
+  dateISO: "1993-02-06T00:00:00.000Z",
+  email: () => {
+    return `john.smith@email.com`;
   },
   errorMessage: (suffix?: string) => {
     return `Error ipsum${suffix ? `-${suffix}` : ""}`;
   },
-  email: () => {
-    return `john.smith@email.com`;
+  id: (suffix?: string) => {
+    return `lorem-ipsum${suffix ? `-${suffix}` : ""}`;
   },
-  labelEmail: (suffix?: string) => {
-    return `Email ipsum${suffix ? `-${suffix}` : ""}`;
+  label: (suffix?: string) => {
+    return `Label ipsum${suffix ? `-${suffix}` : ""}`;
+  },
+  labelDate: (suffix?: string) => {
+    return `Date label${suffix ? `-${suffix}` : ""}`;
   },
   labelDescription: (suffix?: string) => {
-    return `Description ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Description label${suffix ? `-${suffix}` : ""}`;
   },
   labelDropdown: (suffix?: string) => {
-    return `Dropdown ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Dropdown label${suffix ? `-${suffix}` : ""}`;
+  },
+  labelEmail: (suffix?: string) => {
+    return `Email label${suffix ? `-${suffix}` : ""}`;
   },
   labelSlider: (suffix?: string) => {
-    return `Slider ipsum${suffix ? `-${suffix}` : ""}`;
+    return `Slider label${suffix ? `-${suffix}` : ""}`;
   },
   link: "Go to the thing",
+  name: (suffix?: string) => {
+    return `Name ipsum${suffix ? `-${suffix}` : ""}`;
+  },
+  placeholder: (suffix?: string) => {
+    return `Placeholder ipsum${suffix ? `-${suffix}` : ""}`;
+  },
   select: "Select a thing",
   textMd: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   textXxl:

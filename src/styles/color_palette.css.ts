@@ -1,4 +1,4 @@
-import { amber, blue, green, red, slate } from "@radix-ui/colors";
+import { amber, blue, green, red, slate, slateA } from "@radix-ui/colors";
 import {
   assignVars,
   createGlobalTheme,
@@ -30,23 +30,19 @@ type MakeThemeArgs = {
 
 const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   return {
-    white: slate.slate1,
-    black: slate.slate12,
-
     background: getFromPaletteByIndex(secondaryPalette, 0),
-
-    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
-    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
-
-    border_default: getFromPaletteByIndex(secondaryPalette, 6),
+    black: slate.slate12,
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
-
-    button_tint: getFromPaletteByIndex(primaryPalette, 3),
-    button_default: getFromPaletteByIndex(primaryPalette, 8),
+    border_default: getFromPaletteByIndex(secondaryPalette, 6),
     button_active: getFromPaletteByIndex(primaryPalette, 10),
-
-    text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
+    button_default: getFromPaletteByIndex(primaryPalette, 8),
+    button_tint: getFromPaletteByIndex(primaryPalette, 4),
+    shadow: slateA.slateA5,
     text_high_contrast: getFromPaletteByIndex(secondaryPalette, 11),
+    text_low_contrast: getFromPaletteByIndex(secondaryPalette, 10),
+    tint_active: getFromPaletteByIndex(secondaryPalette, 4),
+    tint_default: getFromPaletteByIndex(secondaryPalette, 2),
+    white: slate.slate1,
   };
 };
 
@@ -58,16 +54,6 @@ export const color = createGlobalTheme(":root", {
 });
 
 export const variantColorOverlay = styleVariants({
-  blue: {
-    "@layer": {
-      [themeLayer]: {
-        vars: assignVars(
-          color,
-          makeTheme({ primaryPalette: blue, secondaryPalette: blue })
-        ),
-      },
-    },
-  },
   amber: {
     "@layer": {
       [themeLayer]: {
@@ -78,12 +64,32 @@ export const variantColorOverlay = styleVariants({
       },
     },
   },
+  blue: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: blue, secondaryPalette: blue })
+        ),
+      },
+    },
+  },
   green: {
     "@layer": {
       [themeLayer]: {
         vars: assignVars(
           color,
           makeTheme({ primaryPalette: green, secondaryPalette: green })
+        ),
+      },
+    },
+  },
+  grey: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({ primaryPalette: slate, secondaryPalette: slate })
         ),
       },
     },
@@ -107,4 +113,4 @@ export const getTheme = recipe({
 });
 
 export type ColorScheme = typeof color;
-export type ColorOverlay = "blue" | "amber" | "green" | "red";
+export type ColorOverlay = keyof typeof variantColorOverlay;

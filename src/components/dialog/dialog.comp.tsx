@@ -1,95 +1,107 @@
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Slot } from "@radix-ui/react-slot";
+import clsx from "clsx";
+import { createRef, forwardRef, useCallback } from "react";
 
+import { useClickOutside } from "../../hooks/use_click_outside";
+import { useForwardRef } from "../../hooks/use_forward_ref";
+import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyboard";
+import { a11yFocus } from "../../styles/common/a11y.css";
+import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
-import { Button } from "../button";
-import { Icon } from "../icon";
-import * as styles from "./dialog.styles.css";
 
+import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 
-export type DialogProps = {
-  /** Element to use as Dialog trigger. Note: Must accept a ref. */
-  triggerNode: ReactNode;
-  /** Accessible title for dialog */
-  title: string;
-  /** Accessible description for dialog */
-  description?: string;
-  /** Dialog content */
-  children: ReactNode | Array<ReactNode>;
-  callbackOnOpenChange?: (isOpen: boolean) => void;
+export type DialogProps = BoxProps & {
+  children?: ReactNode;
+  className?: string;
+  inert?: boolean;
   isOpen?: boolean;
+  onIsOpenChange?: (isOpen?: boolean) => void;
+  preventOpenOnKeydown?: boolean;
+  triggerNode?: ReactNode;
+  wrapperProps?: BoxProps;
 };
 
-const CLOSE_BUTTON_ICON = <Icon icon={faTimes} />;
-export function Dialog({
-  triggerNode,
-  title,
-  description,
-  children,
-  isOpen,
-  callbackOnOpenChange,
-  ...rest
-}: DialogProps) {
-  return (
-    <DialogPrimitive.Root
-      onOpenChange={callbackOnOpenChange}
-      open={isOpen}
-      {...rest}
-    >
-      {/**
-       * Allow custom trigger node, e.g. menu icon.
-       * ToDo: Figure out a way to require triggerNode to accept ref, or to
-       * wrap triggerNode so it is always able to accept a ref.
-       */}
-      <DialogPrimitive.Trigger asChild>{triggerNode}</DialogPrimitive.Trigger>
+export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
+  (
+    {
+      children,
+      className: userClassName,
+      isOpen: controlledIsOpen,
+      onIsOpenChange,
+      preventOpenOnKeydown = false,
+      triggerNode,
+      wrapperProps,
+      ...rest
+    }: DialogProps,
+    ref
+  ) => {
+    const dialogRef = useForwardRef<HTMLDialogElement>(ref);
 
-      <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className={styles.dialogOverlay} />
-        <DialogPrimitive.Content className={styles.dialogContent}>
-          {/* ——
-           * DIALOG HEADER
-           * —— */}
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom="border_default"
-            padding="spacing2"
-          >
-            <DialogPrimitive.Title asChild>
-              <Box as="h2" fontStyle="body_lg" marginY="none">
-                {title}
-              </Box>
-            </DialogPrimitive.Title>
+    const triggerRef = createRef<HTMLElement>();
 
-            <DialogPrimitive.Close asChild>
-              <Button
-                name="close"
-                size="square"
-                marginLeft="auto"
-                flexGrow="0"
-                appearance="secondary"
-                slotLeft={CLOSE_BUTTON_ICON}
-                aria-label="Close"
-                type="button"
-              />
-            </DialogPrimitive.Close>
-          </Box>
+    /**
+     * Callback for when the input is clicked or focused.
+     */
+    const toggleIsOpen = useCallback(() => {
+      if (!dialogRef.current) {
+        return undefined;
+      }
 
-          <Box className={styles.dialogInner}>
-            {description && (
-              <DialogPrimitive.Description>
-                {description}
-              </DialogPrimitive.Description>
-            )}
+      return (
+        dialogRef.current?.open
+          ? dialogRef.current?.close()
+          : dialogRef.current?.show(),
+        onIsOpenChange?.(dialogRef.current?.open)
+      );
+    }, [dialogRef, onIsOpenChange]);
 
-            {children}
-          </Box>
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
-  );
-}
+    /**
+     * When input is focused and user presses enter, open the date picker.
+     */
+    useOpenDialogWithKeyboard<HTMLElement>({
+      callback: toggleIsOpen,
+      dialogRef,
+      preventOpenOnKeydown,
+      triggerRef,
+    });
 
-export const DialogCloseButton = DialogPrimitive.Close;
+    /**
+     * Handle click outside dialog
+     */
+    useClickOutside<HTMLDialogElement, HTMLElement>({
+      callback: () => {
+        return dialogRef.current?.close();
+      },
+      contentRef: dialogRef,
+      triggerRef,
+    });
+
+    return (
+      <Box position="relative" {...wrapperProps}>
+        <Slot onClick={toggleIsOpen} ref={triggerRef}>
+          {triggerNode}
+        </Slot>
+        <Box
+          {...rest}
+          as="dialog"
+          background="background"
+          border="border_default"
+          borderRadius="md"
+          boxShadow="lg"
+          className={clsx(animateAppear, userClassName, a11yFocus)}
+          marginTop="spacing1"
+          open={controlledIsOpen}
+          overflow="hidden"
+          padding="none"
+          position="absolute"
+          ref={dialogRef}
+          zIndex="1"
+        >
+          {children}
+        </Box>
+      </Box>
+    );
+  }
+);

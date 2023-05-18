@@ -5,8 +5,8 @@ import type { LabelProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Label",
   component: StoryComp,
+  title: "React components/Label",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -14,9 +14,9 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
-  name: "default",
   args: {
     label: LOREM.textXxs,
   },
+  name: "default",
+  render: Template,
 };

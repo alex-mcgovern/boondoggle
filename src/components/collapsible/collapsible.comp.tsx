@@ -6,14 +6,14 @@ import { collapsibleContentAnimation } from "./collapsible.styles.css";
 import type { ReactNode } from "react";
 
 export type CollapsibleProps = {
-  /** Element to use as Dialog trigger. Note: Must accept a ref. */
-  triggerNode: ReactNode;
   /** Dialog content */
   children: ReactNode | Array<ReactNode>;
-  /** Function called with new state when state changes. */
-  onOpenChange?: (openState: boolean) => void;
   /** Allow collapsible to act as a controlled component */
   isOpen?: boolean;
+  /** Function called with new state when state changes. */
+  onOpenChange?: (openState: boolean) => void;
+  /** Element to use as Dialog trigger. Note: Must accept a ref. */
+  triggerNode: ReactNode;
 };
 
 export function Collapsible({
@@ -36,8 +36,8 @@ export function Collapsible({
 
   return (
     <CollapsiblePrimitive.Root
-      open={localOpenState}
       onOpenChange={handleOpenChange}
+      open={localOpenState}
     >
       {/**
        * Allow custom trigger node. Must accept a ref.

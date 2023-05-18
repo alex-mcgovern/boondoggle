@@ -65,7 +65,7 @@ describe("<Button />", () => {
 
     it("should render a button element when as = `button`", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" as="button" />
+        <Button as="button" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).not.toBeNull();
@@ -73,7 +73,7 @@ describe("<Button />", () => {
 
     it("should render a link element when as = `a`", () => {
       const { getByRole } = render(
-        <Button name="Test button" as="a" href="https://www.google.com">
+        <Button as="a" href="https://www.google.com" name="Test button">
           {LOREM.link}
         </Button>
       );
@@ -83,7 +83,7 @@ describe("<Button />", () => {
 
     it("should render a link element when as = `Link`", () => {
       const { getByRole } = render(
-        <Button href="https://www.google.com" name="Test button" as={Link}>
+        <Button as={Link} href="https://www.google.com" name="Test button">
           {LOREM.link}
         </Button>
       );
@@ -103,7 +103,7 @@ describe("<Button />", () => {
 
     it("should have the primary class name when appearance = primary", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" appearance="primary" />
+        <Button appearance="primary" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(
@@ -113,7 +113,7 @@ describe("<Button />", () => {
 
     it("should have the secondary class name when appearance = secondary", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" appearance="secondary" />
+        <Button appearance="secondary" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(
@@ -123,7 +123,7 @@ describe("<Button />", () => {
 
     it("should have the tertiary class name when appearance = tertiary", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" appearance="tertiary" />
+        <Button appearance="tertiary" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(
@@ -135,7 +135,7 @@ describe("<Button />", () => {
   describe("`color` prop", () => {
     it("should have the correct class name when colorOverlay = blue", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" colorOverlay="blue" />
+        <Button colorOverlay="blue" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(variantColorOverlay.blue);
@@ -143,7 +143,7 @@ describe("<Button />", () => {
 
     it("should have the correct class name when colorOverlay = amber", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" colorOverlay="amber" />
+        <Button colorOverlay="amber" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(variantColorOverlay.amber);
@@ -151,7 +151,7 @@ describe("<Button />", () => {
 
     it("should have the correct class name when colorOverlay = red", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" colorOverlay="red" />
+        <Button colorOverlay="red" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(variantColorOverlay.red);
@@ -159,7 +159,7 @@ describe("<Button />", () => {
 
     it("should have the correct class name name when colorOverlay = green", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" colorOverlay="green" />
+        <Button colorOverlay="green" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass(variantColorOverlay.green);
@@ -169,7 +169,7 @@ describe("<Button />", () => {
   describe("`className` prop", () => {
     it("should have the classname passed to it", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" className="test-class" />
+        <Button className="test-class" id="button" name="Test button" />
       );
 
       expect(getByRole("button")).toHaveClass("test-class");
@@ -194,7 +194,7 @@ describe("<Button />", () => {
         const onClick = jest.fn();
 
         const { getByRole } = render(
-          <Button id="button" disabled name="Test button" onClick={onClick} />
+          <Button disabled id="button" name="Test button" onClick={onClick} />
         );
 
         await userEvent.click(getByRole("button"));
@@ -220,7 +220,7 @@ describe("<Button />", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = render(
-          <Button name="Test button" disabled onMouseOver={onMouseOver} />
+          <Button disabled name="Test button" onMouseOver={onMouseOver} />
         );
 
         fireEvent.mouseEnter(getByRole("button"));
@@ -246,7 +246,7 @@ describe("<Button />", () => {
         const onMouseLeave = jest.fn();
 
         const { getByRole } = render(
-          <Button name="Test button" disabled onMouseLeave={onMouseLeave} />
+          <Button disabled name="Test button" onMouseLeave={onMouseLeave} />
         );
 
         fireEvent.mouseLeave(getByRole("button"));
@@ -262,9 +262,9 @@ describe("<Button />", () => {
         const { getByRole } = render(
           <Button
             name="Test button"
+            onClick={jest.fn()}
             onFocus={onFocus}
             title="Test button"
-            onClick={jest.fn()}
           />
         );
 
@@ -277,7 +277,7 @@ describe("<Button />", () => {
         const onFocus = jest.fn();
 
         const { getByRole } = render(
-          <Button id="button" name="Test button" disabled onFocus={onFocus} />
+          <Button disabled id="button" name="Test button" onFocus={onFocus} />
         );
 
         getByRole("button").focus();
@@ -305,7 +305,7 @@ describe("<Button />", () => {
         const onBlur = jest.fn();
 
         const { getByRole } = render(
-          <Button id="button" name="Test button" disabled onBlur={onBlur} />
+          <Button disabled id="button" name="Test button" onBlur={onBlur} />
         );
 
         getByRole("button").focus();

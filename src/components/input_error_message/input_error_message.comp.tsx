@@ -21,15 +21,15 @@ export function InputErrorMessage({
   if (message) {
     return (
       <Box
+        alignItems="center"
         className={clsx(userClassName, variantColorOverlay.red)}
-        role="alert"
         color="text_low_contrast"
         display="flex"
-        gap="spacing0"
-        alignItems="center"
-        marginY="spacing0"
         fontStyle="body_sm"
         fontWeight="semibold"
+        gap="spacing0"
+        marginY="spacing0"
+        role="alert"
         {...rest}
       >
         {message}

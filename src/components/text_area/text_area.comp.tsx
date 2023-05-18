@@ -13,22 +13,29 @@ import * as styles from "./text_area.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ConditionalLabelProps } from "../../types";
+import type {
+  ConditionalLabelProps,
+  LabelledElementCustomisation,
+} from "../../types";
 import type { ComponentPropsWithoutRef, LegacyRef, ReactNode } from "react";
 
-export type TextAreaProps = SprinklesArgs &
-  Omit<ComponentPropsWithoutRef<"textarea">, "color" | "ref"> &
+export type TextAreaProps = Omit<
+  ComponentPropsWithoutRef<"textarea">,
+  "color" | "ref"
+> &
+  SprinklesArgs &
+  LabelledElementCustomisation &
   ConditionalLabelProps & {
-    size?: ElementSizeEnum;
-    name: string;
-    /** React node shown on the left side of text area. */
-    slotLeft?: ReactNode;
-    /** React node shown on the right side of text area. */
-    slotRight?: ReactNode;
     errorMessage?: string;
     invalid?: boolean;
     /** Optional tooltip for label */
     labelTooltip?: string;
+    name: string;
+    size?: ElementSizeEnum;
+    /** React node shown on the left side of text area. */
+    slotLeft?: ReactNode;
+    /** React node shown on the right side of text area. */
+    slotRight?: ReactNode;
   };
 
 export const TextArea = forwardRef(
@@ -43,6 +50,7 @@ export const TextArea = forwardRef(
       name,
       label,
       id,
+      wrapperProps,
       ...rest
     }: TextAreaProps,
     ref: LegacyRef<HTMLTextAreaElement> | undefined
@@ -54,27 +62,32 @@ export const TextArea = forwardRef(
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         color="text_low_contrast"
-        {...atomProps}
+        {...wrapperProps}
       >
         {label && id && (
-          <Label labelTooltip={labelTooltip} label={label} htmlFor={id} />
+          <Label htmlFor={id} label={label} labelTooltip={labelTooltip} />
         )}
 
         <SlotWrapper
-          slotProps={{ paddingY: "spacing1" }}
-          slotLeft={slotLeft}
-          slotRight={slotRight}
           alignItems="start"
+          slotLeft={slotLeft}
+          slotProps={{ paddingY: "spacing1" }}
+          slotRight={slotRight}
         >
           <textarea
-            name={name}
             aria-invalid={invalid}
-            aria-label={name}
-            className={clsx(styles.getTextAreaStyles({ size }), {
-              [a11yError]: invalid,
-            })}
+            aria-label={label}
             id={id}
+            name={name}
             ref={ref}
+            className={clsx(
+              styles.getTextAreaStyles({ size }),
+              getSprinkles(atomProps),
+
+              {
+                [a11yError]: invalid,
+              }
+            )}
             {...otherProps}
           />
         </SlotWrapper>

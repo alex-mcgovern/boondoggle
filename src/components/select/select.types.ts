@@ -6,8 +6,8 @@ import type { ReactNode } from "react";
 
 export type DropdownItemShape = BoxProps & {
   label: string;
-  value: string;
   slotLeft?: ReactNode;
+  value: string;
 };
 
 export type SelectCommonProps = ConditionalLabelProps & {
