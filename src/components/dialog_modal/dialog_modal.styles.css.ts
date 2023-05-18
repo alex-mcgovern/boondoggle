@@ -17,7 +17,7 @@ export const dialogContent = style([
   getSprinkles({
     background: "tint_default",
     border: "border_default",
-    borderRadius: "md",
+    borderRadius: "sm",
     boxShadow: "lg",
     display: "block",
     isolation: "isolate",

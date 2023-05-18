@@ -342,7 +342,7 @@ globalStyle("input, textarea", {
     [baseLayer]: {
       background: vars.color.background,
       border: `1px solid ${vars.color.border_default}`,
-      borderRadius: vars.borderRadius.md,
+      borderRadius: vars.borderRadius.sm,
       color: vars.color.text_high_contrast,
       padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
       ...createAccessibleTransition({
@@ -462,7 +462,7 @@ globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
-      borderRadius: vars.borderRadius.md,
+      borderRadius: vars.borderRadius.sm,
     },
   },
 });

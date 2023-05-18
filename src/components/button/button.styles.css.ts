@@ -139,7 +139,7 @@ export const getButtonStyles = recipe({
     a11yDisabled,
     getSprinkles({
       alignItems: "center",
-      borderRadius: "md",
+      borderRadius: "sm",
       display: "flex",
       gap: "spacing1",
       textDecoration: "none",

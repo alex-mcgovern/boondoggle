@@ -34,7 +34,7 @@ export const sliderRoot = style([
 
 export const sliderTrack = style([
   getSprinkles({
-    borderRadius: "md",
+    borderRadius: "sm",
     position: "relative",
   }),
   {

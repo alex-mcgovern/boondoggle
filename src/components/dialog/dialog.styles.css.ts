@@ -24,7 +24,7 @@ export const getDialogStyles = recipe({
     getSprinkles({
       background: "background",
       border: "border_default",
-      borderRadius: "md",
+      borderRadius: "sm",
       boxShadow: "md",
       marginTop: "spacing1",
       overflow: "hidden",

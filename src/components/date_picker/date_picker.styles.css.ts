@@ -8,9 +8,6 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const datePickerRoot = style([
   getSprinkles({
-    // background: "background",
-    // border: "border_default",
-    // borderRadius: "md",
     padding: "spacing2",
     width: "max-content",
   }),
