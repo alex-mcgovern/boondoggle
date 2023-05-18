@@ -1,5 +1,5 @@
 /** @jest-environment jsdom */
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -7,7 +7,7 @@ import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { Icon } from "../../../icon";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectMulti  } from "../select_multi.comp";
+import { SelectMulti } from "../select_multi.comp";
 
 import type { SelectMultiProps } from "../select_multi.comp";
 

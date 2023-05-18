@@ -1,4 +1,4 @@
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
 
 import { Icon } from "../../icon";
 

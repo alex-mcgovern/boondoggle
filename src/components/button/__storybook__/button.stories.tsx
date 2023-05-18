@@ -1,4 +1,4 @@
-import { faTriangleCircleSquare } from "@fortawesome/free-solid-svg-icons";
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
 
 import { Button as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";

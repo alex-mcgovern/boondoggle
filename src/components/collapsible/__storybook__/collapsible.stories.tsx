@@ -1,4 +1,4 @@
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 
 import { Collapsible as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";

@@ -1,4 +1,4 @@
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
 
 import { Icon } from "../icon";
