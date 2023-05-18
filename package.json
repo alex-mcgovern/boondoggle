@@ -14,10 +14,7 @@
   "sideEffects": [
     "./src/styles/stylesheet.css.ts"
   ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
-  },
+  "module": "./dist/index.js",
   "type": "module",
   "scripts": {
     "build-storybook": "storybook build",
