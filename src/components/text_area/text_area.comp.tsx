@@ -76,7 +76,7 @@ export const TextArea = forwardRef(
         >
           <textarea
             aria-invalid={invalid}
-            aria-label={name}
+            aria-label={label}
             id={id}
             name={name}
             ref={ref}
