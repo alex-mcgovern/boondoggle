@@ -67,7 +67,7 @@ export function DialogModal({
 
             <DialogModalPrimitive.Close asChild>
               <Button
-                appearance="secondary"
+                appearance="ghost"
                 aria-label="Close"
                 flexGrow="0"
                 marginLeft="auto"
