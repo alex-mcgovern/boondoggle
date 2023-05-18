@@ -1,11 +1,11 @@
 /** @jest-environment jsdom */
 import { render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { createRef } from "react";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/dialog.mock";
+import { selectFromInputDate } from "../../../../test/test_utils/select_date_from_input_date";
 import { InputDate } from "../input_date.comp";
 
 import type { InputDateProps } from "../input_date.comp";
@@ -13,20 +13,18 @@ import type { InputDateProps } from "../input_date.comp";
 const ON_CHANGE = jest.fn();
 
 const PROPS: InputDateProps = {
+  id: LOREM.id(),
+  label: LOREM.label(),
   name: LOREM.name(),
   onChange: ON_CHANGE,
   placeholder: LOREM.placeholder(),
 };
 
 /** -----------------------------------------------------------------------------
- * Force a specific date for tests
+ * Test setup
  * ------------------------------------------------------------------------------- */
 
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
-
-/** -----------------------------------------------------------------------------
- * Test cases
- * ------------------------------------------------------------------------------- */
 
 const renderComponent = async ({ ...props }: InputDateProps) => {
   const ref = createRef<HTMLInputElement>();
@@ -44,48 +42,12 @@ describe.only("Integration test", () => {
   it("should have updated value when user selects a date", async () => {
     const { getByRole } = await renderComponent(PROPS);
 
-    const triggerElement = getByRole("textbox");
-    expect(triggerElement).not.toBeNull();
-
-    await waitFor(() => {
-      return userEvent.click(triggerElement);
-    });
-
-    const newDateButton = getByRole("button", {
-      name: "01",
-    });
-
-    await waitFor(() => {
-      userEvent.click(newDateButton);
-    });
-
-    await waitFor(() => {
-      expect(triggerElement).toHaveValue("01/01/2023");
-      expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01T00:00:00.000Z");
-    });
-  });
-
-  it("should have updated value when user selects a date", async () => {
-    const { getByRole } = await renderComponent(PROPS);
-
-    const triggerElement = getByRole("textbox");
-    expect(triggerElement).not.toBeNull();
-
-    await waitFor(() => {
-      return userEvent.click(triggerElement);
-    });
-
-    const newDateButton = getByRole("button", {
-      name: "01",
-    });
-
-    await waitFor(() => {
-      userEvent.click(newDateButton);
-    });
-
-    await waitFor(() => {
-      expect(triggerElement).toHaveValue("01/01/2023");
-      expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01T00:00:00.000Z");
+    await selectFromInputDate({
+      expectedValueIso: "2023-01-01T00:00:00.000Z",
+      expectedValuePretty: "01/01/2023",
+      getByRole,
+      onChange: ON_CHANGE,
+      selectLabel: PROPS.label as string,
     });
   });
 
@@ -97,24 +59,12 @@ describe.only("Integration test", () => {
       },
     });
 
-    const triggerElement = getByRole("textbox");
-    expect(triggerElement).not.toBeNull();
-
-    await waitFor(() => {
-      return userEvent.click(triggerElement);
-    });
-
-    const newDateButton = getByRole("button", {
-      name: "01",
-    });
-
-    await waitFor(() => {
-      userEvent.click(newDateButton);
-    });
-
-    await waitFor(() => {
-      expect(triggerElement).toHaveValue("01/01/2023");
-      expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
+    await selectFromInputDate({
+      expectedValueIso: "2023-01-01",
+      expectedValuePretty: "01/01/2023",
+      getByRole,
+      onChange: ON_CHANGE,
+      selectLabel: PROPS.label as string,
     });
   });
 });

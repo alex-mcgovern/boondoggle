@@ -20,12 +20,12 @@ export function Icon({ icon, className: userClassName, ...rest }: IconProps) {
 
   return (
     <FontAwesomeIcon
+      icon={icon}
       className={clsx(
         styles.icon,
         userClassName,
         getSprinkles({ ...atomProps, flexShrink: "0" })
       )}
-      icon={icon}
       {...otherProps}
     />
   );

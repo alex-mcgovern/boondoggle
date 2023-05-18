@@ -5,8 +5,9 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectMulti } from "../select_multi.comp";
-import { SelectMultiProps } from "../select_multi.comp";
+import { SelectMulti  } from "../select_multi.comp";
+
+import type { SelectMultiProps } from "../select_multi.comp";
 
 /** -----------------------------------------------------------------------------
  * Test setup

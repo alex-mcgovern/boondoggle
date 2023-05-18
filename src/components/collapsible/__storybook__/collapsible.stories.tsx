@@ -15,13 +15,13 @@ export default {
 
 const TriggerNode = (
   <button
+    type="button"
     className={getSprinkles({
       alignItems: "center",
       color: "text_high_contrast",
       display: "flex",
       width: "100%",
     })}
-    type="button"
   >
     Open collapsible
     <Icon icon={faAngleDown} marginLeft="auto" />

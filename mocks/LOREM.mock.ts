@@ -1,6 +1,7 @@
 export const LOREM = {
   button: "Do the thing",
   dateFormatted: `02/06/1993`,
+  dateISO: "1993-02-06T00:00:00.000Z",
   email: () => {
     return `john.smith@email.com`;
   },

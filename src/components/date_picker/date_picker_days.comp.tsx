@@ -45,13 +45,13 @@ export function DatePickerDays({
             {...dayButton(calendarDay, {
               onClick: onDayClick,
             })}
+            key={calendarDay.$date.toISOString()}
+            name={calendarDay.$date.toISOString()}
+            size="square"
             appearance={getDayButtonAppearance({
               now: calendarDay.now,
               selected: calendarDay.selected,
             })}
-            key={calendarDay.$date.toISOString()}
-            name={calendarDay.$date.toISOString()}
-            size="square"
           >
             {calendarDay.day}
           </Button>

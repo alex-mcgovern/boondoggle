@@ -38,9 +38,6 @@ export type { BoxProps } from "./components/box";
 export { Button } from "./components/button";
 export type { ButtonProps } from "./components/button";
 
-export { Card } from "./components/card";
-export type { CardProps } from "./components/card";
-
 export { Collapsible } from "./components/collapsible";
 export type { CollapsibleProps } from "./components/collapsible";
 

@@ -66,6 +66,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
       <Dialog
         className={userClassName}
         isOpen={isOpen}
+        wrapperProps={wrapperProps}
         triggerNode={
           <Input
             {...(rest as InputProps)}
@@ -76,7 +77,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             value={inputValue}
           />
         }
-        wrapperProps={wrapperProps}
       >
         <DatePicker onDayClick={onDayClick} />
       </Dialog>

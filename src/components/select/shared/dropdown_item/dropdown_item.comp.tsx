@@ -36,6 +36,9 @@ export const DropdownItem = forwardRef(
     return (
       <SlotWrapper
         as="li"
+        id={label}
+        slotLeft={slotLeft}
+        slotProps={{ width: "spacing2" }}
         className={clsx(
           styles.getDropdownItemStyles({
             size,
@@ -45,9 +48,6 @@ export const DropdownItem = forwardRef(
             [styles.isSelected]: isDropdownItemSelected,
           }
         )}
-        id={label}
-        slotLeft={slotLeft}
-        slotProps={{ width: "spacing2" }}
         {...rest}
         {...restItemProps}
         ref={ref}

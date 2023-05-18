@@ -139,7 +139,6 @@ export const SelectSingle = forwardRef(
     return (
       <Box {...wrapperProps}>
         <DropdownMenu
-          errorMessage={errorMessage}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
@@ -152,6 +151,7 @@ export const SelectSingle = forwardRef(
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
               className={selectInputCursorStyles}
+              errorMessage={errorMessage}
               invalid={invalid}
               label={label}
               readOnly={!isFilterable}

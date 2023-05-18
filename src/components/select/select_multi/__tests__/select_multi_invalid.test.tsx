@@ -7,8 +7,9 @@ import "../../../../../test/dialog.mock";
 import { a11yError } from "../../../../styles/common/a11y.css";
 import { variantColorOverlay } from "../../../../styles/theme.css";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectMulti } from "../select_multi.comp";
-import { SelectMultiProps } from "../select_multi.comp";
+import { SelectMulti  } from "../select_multi.comp";
+
+import type { SelectMultiProps } from "../select_multi.comp";
 
 /** -----------------------------------------------------------------------------
  * Test setup

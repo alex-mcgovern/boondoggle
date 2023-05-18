@@ -186,7 +186,6 @@ export const SelectMulti = forwardRef(
     return (
       <Box {...wrapperProps}>
         <DropdownMenu
-          errorMessage={errorMessage}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
@@ -202,6 +201,7 @@ export const SelectMulti = forwardRef(
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
               className={selectInputCursorStyles}
+              errorMessage={errorMessage}
               invalid={invalid}
               readOnly={!isFilterable}
               size={size}

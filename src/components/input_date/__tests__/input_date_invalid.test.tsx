@@ -41,7 +41,9 @@ describe("<InputDate />", () => {
       const textbox = getByRole("textbox");
 
       expect(textbox).toHaveClass(a11yError);
-      expect(textbox?.parentNode).toHaveClass(variantColorOverlay.red);
+      expect(textbox?.parentNode?.parentNode).toHaveClass(
+        variantColorOverlay.red
+      );
     });
 
     it("should render error message", async () => {

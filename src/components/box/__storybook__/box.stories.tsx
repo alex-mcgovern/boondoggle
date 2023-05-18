@@ -6,7 +6,7 @@ import {
 import { Box, Box as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
-import { getTheme, variantColorOverlay } from "../../../styles/theme.css";
+import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 
 import type { BoxProps as StoryCompProps } from "..";
