@@ -4,7 +4,6 @@ import * as z from "zod";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { FormInput } from "../sub_components/form_input.comp";
-import { FormInputDate } from "../sub_components/form_input_date.comp";
 import { FormSelectSingle } from "../sub_components/form_select_single.comp";
 import { FormSlider } from "../sub_components/form_slider.comp";
 import { FormSubmitButton } from "../sub_components/form_submit_button.comp";
@@ -52,15 +51,15 @@ export const mockForm = ({
   return {
     children: (
       <>
-        <FormInputDate
-          defaultValue={withDefaultValues ? LOREM.email() : undefined}
+        {/* <FormInputDate
+          defaultValue={withDefaultValues ? LOREM.dateISO : undefined}
           errorMessage="Date is required"
           id="date"
           label={LOREM.labelDate()}
           name="date"
           placeholder="Select a date"
           wrapperProps={WRAPPER_PROPS}
-        />
+        /> */}
         <FormInput
           defaultValue={withDefaultValues ? LOREM.email() : undefined}
           errorMessage="Enter a valid email address"

@@ -28,13 +28,13 @@ export function FormSubmitButton({
     <Button
       name="submit"
       size="md"
+      type="submit"
       slotRight={
         slotRight ||
         (buttonIcon ? (
           <Icon icon={buttonIcon} {...buttonIconProps} />
         ) : undefined)
       }
-      type="submit"
       {...rest}
     >
       {children}
