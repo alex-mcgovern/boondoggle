@@ -36,8 +36,8 @@ describe("<Input />", () => {
 
       const textbox = getByRole("textbox");
 
-      expect(textbox.parentNode?.parentNode).toHaveClass(a11yError);
-      expect(textbox.parentNode?.parentNode?.parentNode).toHaveClass(
+      expect(textbox).toHaveClass(a11yError);
+      expect(textbox?.parentNode?.parentNode).toHaveClass(
         variantColorOverlay.red
       );
     });

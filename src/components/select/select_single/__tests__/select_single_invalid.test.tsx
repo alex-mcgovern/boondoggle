@@ -44,10 +44,8 @@ describe("<SelectSingle />", () => {
 
       const combobox = getByRole("combobox");
 
-      expect(combobox.parentNode?.parentNode).toHaveClass(a11yError);
-      expect(combobox.parentNode?.parentNode?.parentNode).toHaveClass(
-        variantColorOverlay.red
-      );
+      expect(combobox).toHaveClass(a11yError);
+      expect(combobox?.parentNode).toHaveClass(variantColorOverlay.red);
     });
 
     it("should render error message", async () => {

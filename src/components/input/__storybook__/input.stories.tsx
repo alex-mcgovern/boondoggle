@@ -42,6 +42,15 @@ export const Label: Story = {
   name: "label",
 };
 
+export const Invalid: Story = {
+  args: {
+    id: LOREM.id(),
+    invalid: true,
+    label: LOREM.label(),
+  },
+  name: "invalid",
+};
+
 /**
  * Size
  */
