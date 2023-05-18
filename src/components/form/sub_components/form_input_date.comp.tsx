@@ -1,7 +1,9 @@
 import { useController, useFormContext } from "react-hook-form";
 
 import { formatDate } from "../../../utils/format_date";
-import { InputDate, InputDateProps } from "../../input_date/input_date.comp";
+import { InputDate } from "../../input_date/input_date.comp";
+
+import type { InputDateProps } from "../../input_date/input_date.comp";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
