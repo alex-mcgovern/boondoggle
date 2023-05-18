@@ -9,9 +9,9 @@ import {
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  sm: [elementFontSize.sm, elementPadding.sm],
-  md: [elementFontSize.md, elementPadding.md],
   lg: [elementFontSize.lg, elementPadding.lg],
+  md: [elementFontSize.md, elementPadding.md],
+  sm: [elementFontSize.sm, elementPadding.sm],
 });
 
 export const getTextAreaStyles = recipe({
@@ -22,10 +22,10 @@ export const getTextAreaStyles = recipe({
     a11yDisabled,
     a11yFocus,
   ],
-  variants: {
-    size,
-  },
   defaultVariants: {
     size: "md",
+  },
+  variants: {
+    size,
   },
 });

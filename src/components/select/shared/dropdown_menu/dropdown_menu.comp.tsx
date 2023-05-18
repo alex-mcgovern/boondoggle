@@ -1,15 +1,14 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
-import { Box } from "../../../box";
+import { Box } from "../../../box/box.comp";
+import { Dialog } from "../../../dialog";
 import { DropdownItem } from "../dropdown_item/dropdown_item.comp";
 import { getDropdownItemProps } from "../get_dropdown_item_props";
 import * as styles from "./dropdown_menu.styles.css";
 
 import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
-import type { BoxProps } from "../../../box";
+import type { DialogProps } from "../../../dialog";
 import type { DropdownItemShape } from "../../select.types";
 import type {
   UseComboboxPropGetters,
@@ -19,11 +18,9 @@ import type {
 import type { LegacyRef } from "react";
 
 /**
-
-/**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export type DropdownMenuProps = BoxProps & {
+export type DropdownMenuProps = DialogProps & {
   getIsItemSelected: (item: DropdownItemShape) => boolean;
   getItemProps: UseComboboxPropGetters<DropdownItemShape>["getItemProps"];
   getMenuProps: UseComboboxPropGetters<DropdownItemShape>["getMenuProps"];
@@ -31,7 +28,6 @@ export type DropdownMenuProps = BoxProps & {
     options: UseMultipleSelectionGetSelectedItemPropsOptions<DropdownItemShape>
   ) => { [key: string]: unknown };
   highlightedIndex?: number | undefined;
-  isOpen: boolean;
   isMulti?: boolean;
   items: Array<DropdownItemShape>;
   removeSelectedItem?: UseMultipleSelectionActions<DropdownItemShape>["removeSelectedItem"];
@@ -44,63 +40,65 @@ export const DropdownMenu = forwardRef(
       getIsItemSelected,
       getItemProps,
       getMenuProps,
+      className: userClassName,
       getSelectedItemProps,
       highlightedIndex,
       removeSelectedItem,
       isMulti,
-      isOpen,
       items,
+      isOpen: controlledIsOpen,
       size = "md",
       ...rest
     }: DropdownMenuProps,
     ref
   ) => {
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    const dropdownWrapperStyles = clsx(
+      styles.dropdownListWrapper,
+      userClassName
+    );
 
     /**
      * Note: `DropdownMenu` *must* not be in a conditional render, or
      * downshift's `getMenuProps` will be unable to apply a ref and throw an error
      */
     return (
-      <Box
-        className={clsx(styles.dropdownListWrapper, {
-          [styles.dropdownWrapperClosed]: !isOpen,
-        })}
-        {...atomProps}
+      <Dialog
+        isOpen={controlledIsOpen}
+        preventOpenOnKeydown
+        {...rest}
         {...getMenuProps?.({
-          ...otherProps,
           ref: ref as LegacyRef<HTMLElement>,
         })}
       >
-        {Array.isArray(items) &&
-          items.map((item, index) => {
-            if (!item.label) {
-              return null;
-            }
-
-            const isItemSelected = getIsItemSelected?.(item);
-
-            return (
-              <DropdownItem
-                item={item}
-                isMulti={isMulti}
-                isHighlighted={highlightedIndex === index}
-                key={`${item.label}-${item.value}`}
-                isDropdownItemSelected={isItemSelected}
-                size={size}
-                {...getDropdownItemProps({
-                  isItemSelected,
-                  index,
-                  getItemProps,
-                  getSelectedItemProps,
-                  item,
-                  isMulti,
-                  removeSelectedItem,
-                })}
-              />
-            );
-          })}
-      </Box>
+        <Box className={dropdownWrapperStyles}>
+          {Array.isArray(items) &&
+            items.map((item, index) => {
+              if (!item.label) {
+                return null;
+              }
+              const isItemSelected = getIsItemSelected?.(item);
+              return (
+                <DropdownItem
+                  isDropdownItemSelected={isItemSelected}
+                  isHighlighted={highlightedIndex === index}
+                  isMulti={isMulti}
+                  item={item}
+                  key={`${item.label}-${item.value}`}
+                  size={size}
+                  {...getDropdownItemProps({
+                    getItemProps,
+                    getSelectedItemProps,
+                    index,
+                    isItemSelected,
+                    isMulti,
+                    item,
+                    removeSelectedItem,
+                  })}
+                />
+              );
+            })}
+        </Box>
+      </Dialog>
     );
   }
 );

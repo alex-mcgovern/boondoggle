@@ -6,28 +6,28 @@ import {
   elementFontSize,
   elementPadding,
 } from "../../styles/common/element_size.css";
-import { SELECTOR_LINK_BUTTON_HOVER_FOCUS } from "../../styles/common/selectors.css";
+import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../styles/common/selectors.css";
 import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  sm: [elementFontSize.sm, elementPadding.sm],
-  md: [elementFontSize.md, elementPadding.md],
   lg: [elementFontSize.lg, elementPadding.lg],
+  md: [elementFontSize.md, elementPadding.md],
+  sm: [elementFontSize.sm, elementPadding.sm],
 });
 
 export const getTabStyle = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
-      borderRadius: "sm",
       background: "tint_active",
+      borderRadius: "sm",
       color: "text_low_contrast",
       display: "inline-flex",
       gap: "spacing0",
-      whiteSpace: "nowrap",
       textDecoration: "none",
+      whiteSpace: "nowrap",
       width: "max-content",
     }),
     a11yFocus,
@@ -37,7 +37,7 @@ export const getTabStyle = recipe({
     }),
     {
       selectors: {
-        [SELECTOR_LINK_BUTTON_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           background: vars.color.tint_active,
           color: vars.color.text_high_contrast,
         },
@@ -45,11 +45,11 @@ export const getTabStyle = recipe({
     },
   ],
 
+  defaultVariants: {
+    size: "md",
+  },
   variants: {
     colorOverlay: variantColorOverlay,
     size,
-  },
-  defaultVariants: {
-    size: "md",
   },
 });

@@ -9,9 +9,9 @@ describe("Get is dropdown item selected", () => {
     expect(
       getIsSelected({
         isMulti: true,
+        item: ITEM_TO_FIND_MOCK,
         selectedItem: null,
         selectedItems: [],
-        item: ITEM_TO_FIND_MOCK,
       })
     ).toBe(false);
   });
@@ -20,9 +20,9 @@ describe("Get is dropdown item selected", () => {
     expect(
       getIsSelected({
         isMulti: true,
+        item: ITEM_TO_FIND_MOCK,
         selectedItem: null,
         selectedItems: SELECTED_ITEMS_MOCK,
-        item: ITEM_TO_FIND_MOCK,
       })
     ).toBe(true);
   });

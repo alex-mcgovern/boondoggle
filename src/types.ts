@@ -1,3 +1,5 @@
+import type { BoxProps } from "./components/box";
+import type { LabelProps } from "./components/label";
 import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
@@ -5,9 +7,10 @@ import type {
   PropsWithChildren,
 } from "react";
 
-/**
+/** -----------------------------------------------------------------------------
  * Polymorphic component types
- */
+ * ------------------------------------------------------------------------------- */
+
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**
    * Pass an HTML tag or custom component to this prop to merge the
@@ -41,14 +44,23 @@ export type PolymorphicComponentPropWithRef<
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
   ComponentPropsWithRef<TPolymorphicAs>["ref"];
 
+/** -----------------------------------------------------------------------------
+ * Common types shared across multiple components
+ * ------------------------------------------------------------------------------- */
+
+// Enum of all HTML element types
+export type ElementTypeArg =
+  | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
+  | undefined;
+
 export type LabelledElement = {
-  label: string;
   id: string;
+  label: string;
 };
 
 export type UnlabelledElement = {
-  label?: never;
   id?: string;
+  label?: never;
 };
 
 export type ConditionalLabelProps =
@@ -56,3 +68,8 @@ export type ConditionalLabelProps =
   | LabelledElement
   /** When label is not defined, id may be undefined */
   | UnlabelledElement;
+
+export type LabelledElementCustomisation = {
+  labelProps?: LabelProps;
+  wrapperProps?: BoxProps;
+};

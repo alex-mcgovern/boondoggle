@@ -11,8 +11,8 @@ import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 
 export type IconProps = SprinklesArgs &
   Pick<FontAwesomeIconProps, "size" | "spin"> & {
-    icon: IconProp;
     className?: string;
+    icon: IconProp;
   };
 
 export function Icon({ icon, className: userClassName, ...rest }: IconProps) {

@@ -7,16 +7,16 @@ import * as styles from "./tooltip.styles.css";
 import type { ReactNode } from "react";
 
 export type TooltipProps = {
-  tooltipText: string;
   children?: ReactNode;
   side?: RadixTooltip.TooltipContentProps["side"];
+  tooltipText: string;
 } & RadixTooltip.TooltipProps;
 
 export function Tooltip({
   tooltipText,
   children = (
-    <button type="button" className={styles.tooltipTrigger}>
-      <Icon size="sm" icon={faInfoCircle} />
+    <button className={styles.tooltipTrigger} type="button">
+      <Icon icon={faInfoCircle} size="sm" />
     </button>
   ),
   side = "bottom",
@@ -29,9 +29,9 @@ export function Tooltip({
         <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
 
         <RadixTooltip.Content
-          sideOffset={2}
-          side={side}
           className={styles.tooltipText}
+          side={side}
+          sideOffset={2}
         >
           {tooltipText}
         </RadixTooltip.Content>

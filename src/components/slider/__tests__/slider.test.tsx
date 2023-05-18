@@ -44,10 +44,10 @@ describe("<Slider />", () => {
 
     it("should label element correctly", () => {
       const { getByLabelText } = renderComponent({
+        id: LOREM.id(),
+        label: LOREM.label(),
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
-        label: LOREM.label(),
-        id: LOREM.id(),
       });
 
       expect(getByLabelText(LOREM.label())).not.toBeNull();
@@ -60,8 +60,8 @@ describe("<Slider />", () => {
 
       const { getByRole } = renderComponent({
         name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
         onValueChange,
+        placeholder: LOREM.placeholder(),
       });
 
       const sliderThumb = getByRole("slider");

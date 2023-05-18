@@ -11,10 +11,10 @@ import type { TextAreaProps } from "../../text_area";
 export type FormTextAreaProps = TextAreaProps & {
   /** Message to render when erroring. */
   errorMessage: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
+  /** Callback for validation, else simply validates is non-empty. */
+  validateFunction?: (value: string) => boolean;
 };
 
 export function FormTextArea({
@@ -23,6 +23,7 @@ export function FormTextArea({
   required,
   validateFunction,
   defaultValue,
+  wrapperProps,
   ...rest
 }: FormTextAreaProps) {
   const { control } = useFormContext();
@@ -31,8 +32,9 @@ export function FormTextArea({
     field: { onChange, onBlur, ref, value: controlledValue = "" },
     fieldState: { error },
   } = useController({
-    name,
     control,
+    defaultValue,
+    name,
     rules: {
       required: required && errorMessage,
       validate: (value) => {
@@ -42,7 +44,6 @@ export function FormTextArea({
         return !!value;
       },
     },
-    defaultValue,
   });
 
   return (
@@ -55,6 +56,7 @@ export function FormTextArea({
       onChange={onChange}
       ref={ref}
       value={controlledValue}
+      wrapperProps={wrapperProps}
       {...rest}
     />
   );

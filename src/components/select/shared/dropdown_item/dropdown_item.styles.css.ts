@@ -11,9 +11,9 @@ import { vars } from "../../../../styles/theme.css";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  sm: [elementFontSize.sm, elementPadding.sm],
-  md: [elementFontSize.md, elementPadding.md],
   lg: [elementFontSize.lg, elementPadding.lg],
+  md: [elementFontSize.md, elementPadding.md],
+  sm: [elementFontSize.sm, elementPadding.sm],
 });
 
 /**
@@ -22,18 +22,18 @@ const size = styleVariants({
 export const getDropdownItemStyles = recipe({
   base: [
     getSprinkles({
-      width: "100%",
-
-      display: "flex",
       alignItems: "center",
-      gap: "spacing1",
 
       color: "text_low_contrast",
-      textDecoration: "none",
-      textAlign: "left",
+      display: "flex",
+      gap: "spacing1",
 
       margin: "none",
       padding: "spacing1",
+      textAlign: "left",
+
+      textDecoration: "none",
+      width: "100%",
     }),
     a11yDisabled,
     a11yFocus,
@@ -58,5 +58,5 @@ export const isHighlighted = style([
 ]);
 
 export const isSelected = style({
-  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.text_high_contrast,
 });

@@ -3,22 +3,22 @@ import type { TabProps } from "../tab.comp";
 export const BUTTON_SIZE_VARIANTS_MOCK: TabProps[] = [
   // Large tabs
   {
+    id: "tab-lg-primary",
     slotRight: "arrow-right",
     title: "Click me",
-    id: "tab-lg-primary",
   },
 
   // Medium tabs
   {
+    id: "tab-sm-primary",
     slotRight: "arrow-right",
     title: "Click me",
-    id: "tab-sm-primary",
   },
 
   // Small tabs
   {
+    id: "tab-xs-primary",
     slotRight: "arrow-right",
     title: "Click me",
-    id: "tab-xs-primary",
   },
 ];

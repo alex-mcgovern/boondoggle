@@ -6,7 +6,7 @@ import {
 import { Box, Box as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
-import { getTheme } from "../../../styles/theme.css";
+import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 
 import type { BoxProps as StoryCompProps } from "..";
@@ -14,8 +14,8 @@ import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Box",
   component: StoryComp,
+  title: "React components/Box",
 };
 
 const Template: StoryFn<StoryCompProps> = ({
@@ -29,8 +29,6 @@ const Template: StoryFn<StoryCompProps> = ({
  * Polymorphism examples
  */
 export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
-  name: "as/ul_li",
-  render: Template,
   args: {
     as: "ul",
     children: [
@@ -39,134 +37,130 @@ export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
       <StoryComp as="li">List item 3</StoryComp>,
     ],
   },
+  name: "as/ul_li",
+  render: Template,
 };
 
 export const ExamplePolymorphismReactComponent: StoryObj<StoryCompProps> = {
-  name: "polymorphism/generic_react_component",
-  render: Template,
   args: {
     as: Link,
-    href: "https://google.com",
     children: "I am a `Link` component",
+    href: "https://google.com",
   },
+  name: "polymorphism/generic_react_component",
+  render: Template,
 };
 
 /**
  * Basic styling examples
  */
 const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
-  padding: "spacing3",
+  background: "tint_default",
   border: "border_default",
   borderRadius: "sm",
-  background: "tint_default",
+  padding: "spacing3",
 };
 
 export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
-  name: "example/basic_sprinkles",
-  render: Template,
   args: {
     ...BASIC_SPRINKLES_PROPS,
     children: LOREM.textXxs,
   },
+  name: "example/basic_sprinkles",
+  render: Template,
 };
 
 export const ExampleResponsiveSprinkles: StoryObj<StoryCompProps> = {
-  name: "example/responsive_sprinkles",
-  render: Template,
   args: {
+    children: [<Box>Item 1</Box>, <Box>Item 2</Box>, <Box>Item 3</Box>],
     display: "grid",
     gap: "spacing3",
     gridTemplateColumns: {
+      desktop: "3x",
       mobile: "1x",
       tablet: "2x",
-      desktop: "3x",
     },
-    children: [<Box>Item 1</Box>, <Box>Item 2</Box>, <Box>Item 3</Box>],
   },
+  name: "example/responsive_sprinkles",
+  render: Template,
 };
 
 export const ExampleEscapeHatchStyles: StoryObj<StoryCompProps> = {
-  name: "example/escape_hatch_styles",
-  render: Template,
   args: {
-    __padding: "1.5rem",
-    __border: "1px solid #BA55D3",
-    __color: "#BA55D3",
-    __borderRadius: "0.5rem",
     __background: "#BA55D330",
+    __border: "1px solid #BA55D3",
+    __borderRadius: "0.5rem",
+    __color: "#BA55D3",
     __fontWeight: "bold",
+    __padding: "1.5rem",
     children: LOREM.textXxs,
   },
+  name: "example/escape_hatch_styles",
+  render: Template,
 };
 
 /**
  * Advanced usage examples
  */
 export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
-  name: "example/box_as_info_card",
-  render: Template,
   args: {
     background: "tint_default",
     border: "border_default",
     borderRadius: "sm",
-    padding: "spacing3",
     children: [
       <StoryComp as="h3" fontSize="body_lg" fontWeight="bold">
         {LOREM.textXxs}
       </StoryComp>,
       <StoryComp as="p">{LOREM.textMd}</StoryComp>,
     ],
+    padding: "spacing3",
   },
+  name: "example/box_as_info_card",
+  render: Template,
 };
 
 export const BoxAsWarning: StoryObj<StoryCompProps> = {
-  name: "example/box_as_warning",
-  render: Template,
   args: {
-    borderRadius: "sm",
-    border: "border_default",
-    display: "flex",
     alignItems: "start",
-    padding: "spacing3",
-    gap: "spacing3",
     background: "tint_default",
-    className: getTheme({ colorOverlay: "red" }),
+    border: "border_default",
+    borderRadius: "sm",
     children: [
-      <Icon size="xl" icon={faExclamationCircle} color="text_low_contrast" />,
+      <Icon color="text_low_contrast" icon={faExclamationCircle} size="xl" />,
       <StoryComp>
         <StoryComp
           as="h3"
+          color="text_low_contrast"
           fontSize="body_lg"
           fontWeight="bold"
-          color="text_low_contrast"
         >
           {LOREM.textXxs}
         </StoryComp>
         <StoryComp as="p">{LOREM.textMd}</StoryComp>
       </StoryComp>,
     ],
+    className: variantColorOverlay.red,
+    display: "flex",
+    gap: "spacing3",
+    padding: "spacing3",
   },
+  name: "example/box_as_warning",
+  render: Template,
 };
 export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
-  name: "example/box_as_confirmation",
-  render: Template,
   args: {
-    borderRadius: "sm",
-    border: "border_default",
-    display: "flex",
     alignItems: "start",
-    padding: "spacing3",
-    gap: "spacing3",
     background: "tint_default",
-    className: getTheme({ colorOverlay: "green" }),
+    border: "border_default",
+    borderRadius: "sm",
     children: [
-      <Icon size="xl" icon={faCheckCircle} color="text_low_contrast" />,
+      <Icon color="text_low_contrast" icon={faCheckCircle} size="xl" />,
       <StoryComp>
         <StoryComp
           as="h3"
+          color="text_low_contrast"
           fontSize="body_lg"
           fontWeight="bold"
-          color="text_low_contrast"
         >
           {LOREM.textXxs}
         </StoryComp>
@@ -175,16 +169,17 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
         </StoryComp>
       </StoryComp>,
     ],
+    className: variantColorOverlay.green,
+    display: "flex",
+    gap: "spacing3",
+    padding: "spacing3",
   },
+  name: "example/box_as_confirmation",
+  render: Template,
 };
 
 export const BoxAsGridLayout: StoryObj<StoryCompProps> = {
-  name: "example/box_as_grid_layout",
-  render: Template,
   args: {
-    display: "grid",
-    gridTemplateColumns: "3x",
-    gap: "spacing3",
     children: [
       <StoryComp background="tint_default" padding="spacing3">
         Content 1
@@ -196,5 +191,10 @@ export const BoxAsGridLayout: StoryObj<StoryCompProps> = {
         Content 3
       </StoryComp>,
     ],
+    display: "grid",
+    gap: "spacing3",
+    gridTemplateColumns: "3x",
   },
+  name: "example/box_as_grid_layout",
+  render: Template,
 };

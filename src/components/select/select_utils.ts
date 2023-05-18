@@ -12,10 +12,10 @@ import type {
  * Util function that can be used to determine if an item is selected in a dropdown.
  */
 export type GetIsItemSelectedArgs = {
-  item: DropdownItemShape | undefined | null;
-  selectedItems?: UseMultipleSelectionProps<DropdownItemShape>["selectedItems"];
-  selectedItem?: UseComboboxProps<DropdownItemShape>["selectedItem"];
   isMulti?: boolean;
+  item: DropdownItemShape | undefined | null;
+  selectedItem?: UseComboboxProps<DropdownItemShape>["selectedItem"];
+  selectedItems?: UseMultipleSelectionProps<DropdownItemShape>["selectedItems"];
 };
 
 export const getIsSelected = ({
@@ -44,10 +44,10 @@ export const getIsSelected = ({
  * Util to filter dropdown items based on `inputValue`
  */
 export type GetFilteredDropdownItemsArgs = {
-  /** An array of dropdown items */
-  items: Array<DropdownItemShape>;
   /** Value of controlled combobox input */
   inputValue?: string;
+  /** An array of dropdown items */
+  items: Array<DropdownItemShape>;
 };
 
 /** Removes items not matching `inputValue` from `items` */
@@ -72,8 +72,8 @@ export function getFilteredDropdownItems({
  * Util to get the display value for a dropdown when we are using `useMultipleSelection`
  */
 type GetDisplayValueArgs = {
-  originalValue: string;
   length?: number;
+  originalValue: string;
 };
 export const getDisplayValue = ({
   originalValue,
@@ -90,8 +90,8 @@ export const getDisplayValue = ({
  * Util to get the default highlighted index for a dropdown
  */
 type GetDefaultHighlightedIndexArgs = {
-  items: Array<DropdownItemShape>;
   initialHighlightedItem?: DropdownItemShape;
+  items: Array<DropdownItemShape>;
 };
 export const getDefaultHighlightedIndex = ({
   items,
@@ -106,7 +106,7 @@ export const getDefaultHighlightedIndex = ({
  * React state reducer to determine the currently selected item.
  * Maintains the state of the corresponding `Select*` component,
  * is passed to downshift as the `stateReducer` prop.
- * See https://www.downshift-js.com/use-combobox/#state-reducer
+ * @see https://www.downshift-js.com/use-combobox/#state-reducer
  */
 export const downshiftStateReducer = (
   state: UseComboboxState<DropdownItemShape>,
@@ -132,8 +132,8 @@ export const downshiftStateReducer = (
       return {
         ...changes,
         ...(changes.selectedItem && {
-          isOpen: isMulti,
           highlightedIndex: state.highlightedIndex,
+          isOpen: isMulti,
         }),
       };
 

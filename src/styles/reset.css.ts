@@ -26,11 +26,11 @@ time, mark, audio, video`,
   {
     "@layer": {
       [resetLayer]: {
+        border: 0,
+        font: "inherit",
+        fontSize: "100%",
         margin: 0,
         padding: 0,
-        border: 0,
-        fontSize: "100%",
-        font: "inherit",
         verticalAlign: "baseline",
       },
     },
@@ -91,12 +91,29 @@ globalStyle("table", {
 globalStyle("button", {
   "@layer": {
     [resetLayer]: {
-      display: "block",
       appearance: "none",
-      padding: 0,
       background: "none",
       border: "none",
+      display: "block",
+      padding: 0,
       textDecoration: "none",
+    },
+  },
+});
+
+globalStyle(`img, picture, video, canvas, svg`, {
+  "@layer": {
+    [resetLayer]: {
+      display: `block`,
+      maxWidth: `100%`,
+    },
+  },
+});
+
+globalStyle(`input, button, textarea, select`, {
+  "@layer": {
+    [resetLayer]: {
+      font: `inherit`,
     },
   },
 });
@@ -109,7 +126,7 @@ globalStyle(`input[type="search"]`, {
   },
 });
 
-globalStyle("button:not([disabled])", {
+globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
   "@layer": {
     [resetLayer]: {
       cursor: "pointer",

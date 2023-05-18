@@ -11,10 +11,10 @@ import type { InputProps } from "../../input";
 export type FormInputProps = InputProps & {
   /** Message to render when erroring. */
   errorMessage: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
+  /** Callback for validation, else simply validates is non-empty. */
+  validateFunction?: (value: string) => boolean;
 };
 
 export function FormInput({
@@ -23,6 +23,7 @@ export function FormInput({
   name,
   required,
   validateFunction,
+  wrapperProps,
   ...rest
 }: FormInputProps) {
   const { control } = useFormContext();
@@ -31,8 +32,9 @@ export function FormInput({
     field: { onChange, onBlur, ref, value: controlledValue = "" },
     fieldState: { error },
   } = useController({
-    name,
     control,
+    defaultValue,
+    name,
     rules: {
       required: required && errorMessage,
       validate: (value) => {
@@ -42,7 +44,6 @@ export function FormInput({
         return !!value;
       },
     },
-    defaultValue,
   });
 
   return (
@@ -55,6 +56,7 @@ export function FormInput({
       onChange={onChange}
       ref={ref}
       value={controlledValue}
+      wrapperProps={wrapperProps}
       {...rest}
     />
   );

@@ -7,8 +7,8 @@ import type { TagProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  title: "React components/Tag",
   component: StoryComp,
+  title: "React components/Tag",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
@@ -16,72 +16,72 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
   },
+  render: Template,
 };
 
 export const SizeSm: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
     size: "sm",
     slotLeft: <Icon icon={faShapes} />,
   },
+  render: Template,
 };
 
 export const SizeMd: StoryObj<StoryCompProps> = {
-  render: Template,
-
   args: {
     children: "Tag",
     size: "md",
     slotLeft: <Icon icon={faShapes} />,
   },
+
+  render: Template,
 };
 
 export const SizeLg: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
     size: "lg",
     slotLeft: <Icon icon={faShapes} />,
   },
+  render: Template,
 };
 
 export const ColorOverlayBlue: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
     colorOverlay: "blue",
     slotLeft: <Icon icon={faShapes} />,
   },
+  render: Template,
 };
 
 export const ColorOverlayAmber: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
     colorOverlay: "amber",
     slotLeft: <Icon icon={faShapes} />,
   },
+  render: Template,
 };
 
 export const ColorOverlayGreen: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
     colorOverlay: "green",
     slotLeft: <Icon icon={faShapes} />,
   },
+  render: Template,
 };
 
 export const ColorOverlayRed: StoryObj<StoryCompProps> = {
-  render: Template,
   args: {
     children: "Tag",
     colorOverlay: "red",
     slotLeft: <Icon icon={faShapes} />,
   },
+  render: Template,
 };

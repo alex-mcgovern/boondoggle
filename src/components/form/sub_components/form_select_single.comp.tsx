@@ -25,8 +25,8 @@ export function FormSelectSingle({
     field: { onChange, ref },
     fieldState: { error },
   } = useController({
-    name,
     control,
+    name,
     rules: { required: true },
     ...(rest.initialSelectedItem && {
       defaultValue: rest.initialSelectedItem.value,

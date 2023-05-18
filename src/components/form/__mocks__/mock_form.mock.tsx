@@ -9,14 +9,32 @@ import { FormSlider } from "../sub_components/form_slider.comp";
 import { FormSubmitButton } from "../sub_components/form_submit_button.comp";
 import { FormTextArea } from "../sub_components/form_textarea.comp";
 
+import type { BoxProps } from "../../box";
 import type { FormProps } from "../form.comp";
 
+/** -----------------------------------------------------------------------------
+ * Form validation Zod schema
+ * ------------------------------------------------------------------------------- */
+
 const mockFormSchema = z.object({
-  email: z.string().email().min(2),
-  description: z.string().min(1),
-  select: z.string().min(1),
   amount: z.number().min(1),
+  // date: z.string().min(1),
+  description: z.string().min(1),
+  email: z.string().email().min(2),
+  select: z.string().min(1),
 });
+
+/** -----------------------------------------------------------------------------
+ * Common props for all form components
+ * ------------------------------------------------------------------------------- */
+
+const WRAPPER_PROPS: BoxProps = {
+  marginBottom: "spacing3",
+};
+
+/** -----------------------------------------------------------------------------
+ * Function for composing form component for testing
+ * ------------------------------------------------------------------------------- */
 
 type MockFormProps = Pick<
   FormProps,
@@ -31,53 +49,62 @@ export const mockForm = ({
   withDefaultValues = false,
 }: MockFormProps): FormProps => {
   return {
-    handleFormSubmission,
-    handleErrors,
-    name: LOREM.name(),
-    resolver: zodResolver(mockFormSchema),
     children: (
       <>
+        {/* <FormInputDate
+          defaultValue={withDefaultValues ? LOREM.dateISO : undefined}
+          errorMessage="Date is required"
+          id="date"
+          label={LOREM.labelDate()}
+          name="date"
+          placeholder="Select a date"
+          wrapperProps={WRAPPER_PROPS}
+        /> */}
         <FormInput
-          marginBottom="spacing3"
+          defaultValue={withDefaultValues ? LOREM.email() : undefined}
           errorMessage="Enter a valid email address"
+          id="email"
           label={LOREM.labelEmail()}
           name="email"
-          id="email"
           placeholder="Enter your email address"
-          defaultValue={withDefaultValues ? LOREM.email() : undefined}
+          wrapperProps={WRAPPER_PROPS}
         />
         <FormTextArea
-          marginBottom="spacing3"
+          defaultValue={withDefaultValues ? LOREM.textXxs : undefined}
           errorMessage="Enter a valid description"
+          id="description"
           label={LOREM.labelDescription()}
           name="description"
-          id="description"
           placeholder="Enter your description"
-          defaultValue={withDefaultValues ? LOREM.textXxs : undefined}
+          wrapperProps={WRAPPER_PROPS}
         />
         <FormSelectSingle
-          marginBottom="spacing3"
-          items={mockSelectItems({})}
           errorMessage="Select an option"
-          label={LOREM.labelDropdown()}
           id="select"
+          items={mockSelectItems({})}
+          label={LOREM.labelDropdown()}
           name="select"
           placeholder="Select an option from the dropdown"
+          wrapperProps={WRAPPER_PROPS}
           initialSelectedItem={
             withDefaultValues ? mockSelectItems({})[0] : null
           }
         />
         <FormSlider
-          marginBottom="spacing3"
+          defaultValue={withDefaultValues ? [50] : undefined}
           errorMessage="Pick a value from the range"
+          id="amount"
           label={LOREM.labelSlider()}
           name="amount"
-          id="amount"
           placeholder="Enter an amount"
-          defaultValue={withDefaultValues ? [50] : undefined}
+          wrapperProps={WRAPPER_PROPS}
         />
         <FormSubmitButton width="100%">Submit</FormSubmitButton>
       </>
     ),
+    handleErrors,
+    handleFormSubmission,
+    name: LOREM.name(),
+    resolver: zodResolver(mockFormSchema),
   };
 };

@@ -11,15 +11,13 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const sliderRoot = style([
   getSprinkles({
-    position: "relative",
-    display: "flex",
     alignItems: "center",
-    width: "100%",
+    display: "flex",
     marginY: "spacing1",
+    position: "relative",
+    width: "100%",
   }),
   {
-    userSelect: "none",
-    touchAction: "none",
     selectors: {
       [`&[data-orientation='horizontal']`]: {
         height: vars.spacing.spacing3,
@@ -29,13 +27,15 @@ export const sliderRoot = style([
         width: vars.spacing.spacing3,
       },
     },
+    touchAction: "none",
+    userSelect: "none",
   },
 ]);
 
 export const sliderTrack = style([
   getSprinkles({
-    position: "relative",
     borderRadius: "md",
+    position: "relative",
   }),
   {
     background: vars.color.border_default,
@@ -53,38 +53,36 @@ export const sliderTrack = style([
 
 export const sliderRange = style([
   getSprinkles({
-    position: "absolute",
     background: "button_default",
     borderRadius: "pill",
     height: "100%",
+    position: "absolute",
   }),
 ]);
 
 export const sliderThumb = style([
   getSprinkles({
-    display: "block",
-    width: "spacing3",
-    height: "spacing3",
-
     background: "tint_default",
     border: "border_active",
-    boxShadow: "sm",
     borderRadius: "50%",
+
+    display: "block",
+    height: "spacing3",
+    width: "spacing3",
   }),
   createAccessibleTransition({
-    transition: `ease ${vars.transitionDuration.short} ease`,
-    transitionProperty: "background",
+    transition: `background ${vars.transitionDuration.short} ease, border-color ${vars.transitionDuration.short} ease`,
   }),
   {
     selectors: {
       [`&${SELECTOR_IS_HOVER}`]: {
-        cursor: "pointer",
         background: vars.color.tint_active,
         borderColor: vars.color.border_active,
+        cursor: "pointer",
       },
       [`&${SELECTOR_IS_FOCUS}`]: {
-        outline: "none",
         boxShadow: vars.boxShadow.md,
+        outline: "none",
         ...a11yFocusStyleRule,
       },
     },
