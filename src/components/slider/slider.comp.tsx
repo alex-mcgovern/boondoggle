@@ -17,13 +17,17 @@ import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./slider.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { ConditionalLabelProps } from "../../types";
-import type { InputCustomisation } from "../input/input.comp";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type {
+  ConditionalLabelProps,
+  LabelledElementCustomisation,
+} from "../../types";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, HTMLInputTypeAttribute, ReactNode, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
-  InputCustomisation &
+  SprinklesArgs &
+  LabelledElementCustomisation &
   ConditionalLabelProps & {
     autoComplete?: HTMLInputElement["autocomplete"];
     /** Is input disabled. Mapped to html5 <input> `disabled` attribute and `aria-disabled` attribute. */
@@ -55,7 +59,7 @@ export const Slider = forwardRef(
       errorMessage,
       id,
       wrapperProps,
-      inputProps,
+
       invalid,
       label,
       name,
@@ -68,10 +72,7 @@ export const Slider = forwardRef(
   ) => {
     const labelId = id ? `${id}-label` : undefined;
 
-    const { atomProps, otherProps } = extractAtomsFromProps(
-      inputProps,
-      getSprinkles
-    );
+    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
       <Box
@@ -93,7 +94,6 @@ export const Slider = forwardRef(
             name={name}
             ref={ref}
             {...otherProps}
-            {...rest}
           >
             <RadixSliderTrack className={styles.sliderTrack}>
               <RadixSliderRange className={styles.sliderRange} />

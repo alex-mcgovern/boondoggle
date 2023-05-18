@@ -1,14 +1,8 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
-import clsx from "clsx";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { variantColorOverlay } from "../../../styles/theme.css";
-import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
 import { Input } from "../../input";
-import { InputErrorMessage } from "../../input_error_message";
-import { Label } from "../../label";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -17,8 +11,9 @@ import {
 } from "../select_utils";
 import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
+import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 
-import type { InputCustomisation } from "../../input/input.comp";
+import type { LabelledElementCustomisation } from "../../../types";
 import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
@@ -32,7 +27,7 @@ const defaultItemToString = (item: DropdownItemShape | null) => {
 };
 
 export type SelectSingleProps = SelectCommonProps &
-  InputCustomisation & {
+  LabelledElementCustomisation & {
     initialSelectedItem?: DropdownItemShape | null;
     itemToString?: (item: DropdownItemShape | null) => string;
     onChange?: (changes: UseComboboxStateChange<DropdownItemShape>) => void;
@@ -50,7 +45,6 @@ export const SelectSingle = forwardRef(
       initialSelectedItem,
       invalid,
       isFilterable,
-      // placement,
       items,
       itemToString = defaultItemToString,
       label,
@@ -61,19 +55,13 @@ export const SelectSingle = forwardRef(
       slotLeft,
       slotRight = DEFAULT_SLOT_RIGHT,
       wrapperProps,
-      inputProps,
       ...rest
     }: SelectSingleProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const { atomProps: inputAtomProps, otherProps: inputOtherProps } =
-      extractAtomsFromProps(inputProps, getSprinkles);
-
     const [inputValue, setInputValue] = useState(
       initialSelectedItem?.label || ""
     );
-
-    const [localSlotLeft, setLocalSlotLeft] = useState(slotLeft);
 
     // Filter dropdown items based on input if `isFilterable` is true
     const filteredItems = useMemo(() => {
@@ -116,7 +104,6 @@ export const SelectSingle = forwardRef(
             if (newSelectedItem) {
               selectItem(newSelectedItem);
               setInputValue(newSelectedItem.label);
-              setLocalSlotLeft(newSelectedItem.slotLeft);
             }
             break;
 
@@ -146,70 +133,13 @@ export const SelectSingle = forwardRef(
     );
 
     /** -----------------------------------------------------------------------------
-     * Select trigger node (input)
-     * ------------------------------------------------------------------------------- */
-
-    const triggerNode = useMemo(() => {
-      return (
-        <Input
-          inputProps={inputAtomProps}
-          invalid={invalid}
-          // readOnly={!isFilterable}
-          size={size}
-          slotLeft={localSlotLeft}
-          slotRight={slotRight}
-          {...inputAtomProps}
-          {...getInputProps?.({
-            ...inputOtherProps,
-            disabled,
-            id,
-            name,
-            onClick: toggleMenu,
-            placeholder,
-            ref,
-            value: inputValue,
-            ...rest,
-          })}
-        />
-      );
-    }, [
-      disabled,
-      getInputProps,
-      id,
-      inputAtomProps,
-      inputOtherProps,
-      inputValue,
-      invalid,
-      localSlotLeft,
-      name,
-      placeholder,
-      ref,
-      rest,
-      size,
-      slotRight,
-      toggleMenu,
-    ]);
-
-    /** -----------------------------------------------------------------------------
      * Layout for select component
      * ------------------------------------------------------------------------------- */
 
     return (
-      <Box
-        className={clsx({ [variantColorOverlay.red]: invalid })}
-        color="text_low_contrast"
-        {...wrapperProps}
-      >
-        {label && (
-          <Label
-            {...getLabelProps({
-              htmlFor: id,
-              label,
-            })}
-          />
-        )}
-
+      <Box {...wrapperProps}>
         <DropdownMenu
+          errorMessage={errorMessage}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
@@ -217,13 +147,34 @@ export const SelectSingle = forwardRef(
           isOpen={isOpen}
           items={filteredItems}
           size={size}
-          triggerNode={triggerNode}
           width="100%"
+          triggerNode={
+            // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
+            <Input
+              className={selectInputCursorStyles}
+              invalid={invalid}
+              label={label}
+              readOnly={!isFilterable}
+              size={size}
+              slotLeft={slotLeft}
+              slotRight={slotRight}
+              labelProps={getLabelProps({
+                htmlFor: id,
+                label,
+              })}
+              {...getInputProps?.({
+                disabled,
+                id,
+                name,
+                onClick: toggleMenu,
+                placeholder,
+                ref,
+                value: inputValue,
+                ...rest,
+              })}
+            />
+          }
         />
-
-        {invalid && errorMessage && (
-          <InputErrorMessage message={errorMessage} />
-        )}
       </Box>
     );
   }

@@ -1,14 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { jest } from "@storybook/jest";
-
 import { SelectButton as StoryComp } from "../..";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
 
 import type { SelectButtonProps as StoryCompProps } from "../..";
 import type { StoryFn, StoryObj } from "@storybook/react";
-
-const ON_CHANGE = jest.fn();
 
 const ITEMS = mockSelectItems({});
 
@@ -34,6 +30,13 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }) => {
 export const Default: StoryObj<StoryCompProps> = {
   args: PROPS,
   render: Template,
+};
+
+export const Customisation: StoryObj<StoryCompProps> = {
+  args: {
+    ...PROPS,
+    wrapperProps: { marginBottom: "spacing3" },
+  },
 };
 
 export const Disabled: StoryObj<StoryCompProps> = {

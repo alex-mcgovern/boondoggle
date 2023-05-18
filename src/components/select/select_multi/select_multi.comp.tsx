@@ -1,14 +1,8 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
-import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { variantColorOverlay } from "../../../styles/theme.css";
-import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
 import { Input } from "../../input";
-import { InputErrorMessage } from "../../input_error_message";
-import { Label } from "../../label";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -18,14 +12,15 @@ import {
 } from "../select_utils";
 import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
+import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 
-import type { InputCustomisation } from "../../input/input.comp";
+import type { LabelledElementCustomisation } from "../../../types";
 import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type { UseMultipleSelectionStateChange } from "downshift";
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &
-  InputCustomisation & {
+  LabelledElementCustomisation & {
     initialSelectedItems?: Array<DropdownItemShape>;
     itemToString?: (item: DropdownItemShape | null) => string;
     onChange?: (
@@ -43,7 +38,6 @@ export const SelectMulti = forwardRef(
       id,
       initialHighlightedItem,
       initialSelectedItems = [],
-      inputProps,
       invalid,
       isFilterable,
       items,
@@ -53,15 +47,12 @@ export const SelectMulti = forwardRef(
       placeholder,
       size,
       slotLeft,
+      wrapperProps,
       slotRight = DEFAULT_SLOT_RIGHT,
       ...rest
     }: SelectMultiProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    /** Vanilla extract styling stuff */
-    const { atomProps: inputAtomProps, otherProps: inputOtherProps } =
-      extractAtomsFromProps(inputProps, getSprinkles);
-
     /** Externally controlled state for downshift and {@link Input} component */
     const [inputValue, setInputValue] = useState("");
     const [inputPlaceholder, setInputPlaceholder] = useState(
@@ -193,21 +184,9 @@ export const SelectMulti = forwardRef(
     });
 
     return (
-      <Box
-        className={clsx({ [variantColorOverlay.red]: invalid })}
-        color="text_low_contrast"
-        {...rest}
-      >
-        {label && (
-          <Label
-            {...getLabelProps({
-              htmlFor: id,
-              label,
-            })}
-          />
-        )}
-
+      <Box {...wrapperProps}>
         <DropdownMenu
+          errorMessage={errorMessage}
           getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
@@ -218,20 +197,26 @@ export const SelectMulti = forwardRef(
           items={filteredItems}
           removeSelectedItem={removeSelectedItem}
           size={size}
+          width="100%"
           triggerNode={
+            // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
+              className={selectInputCursorStyles}
               invalid={invalid}
               readOnly={!isFilterable}
               size={size}
               slotLeft={slotLeft}
               slotRight={slotRight}
-              {...inputAtomProps}
+              labelProps={getLabelProps({
+                htmlFor: id,
+                label,
+              })}
               {...getInputProps?.({
                 ...getDropdownProps({
                   preventKeyAction: isOpen,
                   ref,
                 }),
-                ...inputOtherProps,
+                ...rest,
                 disabled,
                 id,
                 name,
@@ -241,12 +226,7 @@ export const SelectMulti = forwardRef(
               })}
             />
           }
-          width="100%"
         />
-
-        {invalid && errorMessage && (
-          <InputErrorMessage message={errorMessage} />
-        )}
       </Box>
     );
   }

@@ -25,7 +25,6 @@ export function FormSlider({
   errorMessage,
   required,
   validateFunction,
-  inputProps,
   wrapperProps,
   defaultValue: defaultValueArray,
   ...rest
@@ -69,7 +68,6 @@ export function FormSlider({
     <Slider
       aria-required={required}
       errorMessage={errorMessage}
-      inputProps={inputProps}
       invalid={!!error}
       name={name}
       onBlur={onBlur}

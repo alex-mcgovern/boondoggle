@@ -1,3 +1,5 @@
+import type { BoxProps } from "./components/box";
+import type { LabelProps } from "./components/label";
 import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
@@ -66,3 +68,8 @@ export type ConditionalLabelProps =
   | LabelledElement
   /** When label is not defined, id may be undefined */
   | UnlabelledElement;
+
+export type LabelledElementCustomisation = {
+  labelProps?: LabelProps;
+  wrapperProps?: BoxProps;
+};

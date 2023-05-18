@@ -26,7 +26,7 @@ export function FormTextArea({
   validateFunction,
   defaultValue,
   wrapperProps,
-  inputProps,
+  textAreaProps,
   ...rest
 }: FormTextAreaProps) {
   const { control } = useFormContext();
@@ -53,12 +53,12 @@ export function FormTextArea({
     <TextArea
       aria-required={required}
       errorMessage={errorMessage}
-      inputProps={inputProps}
       invalid={!!error}
       name={name}
       onBlur={onBlur}
       onChange={onChange}
       ref={ref}
+      textAreaProps={textAreaProps}
       value={controlledValue}
       wrapperProps={wrapperProps}
       {...rest}

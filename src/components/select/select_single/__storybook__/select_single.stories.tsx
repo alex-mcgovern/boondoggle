@@ -51,6 +51,14 @@ export const Filterable: Story = {
   },
 };
 
+export const Customisation: Story = {
+  args: {
+    wrapperProps: {
+      marginBottom: "spacing3",
+    },
+  },
+};
+
 export const Disabled: Story = {
   args: {
     disabled: true,

@@ -101,6 +101,23 @@ globalStyle("button", {
   },
 });
 
+globalStyle(`img, picture, video, canvas, svg`, {
+  "@layer": {
+    [resetLayer]: {
+      display: `block`,
+      maxWidth: `100%`,
+    },
+  },
+});
+
+globalStyle(`input, button, textarea, select`, {
+  "@layer": {
+    [resetLayer]: {
+      font: `inherit`,
+    },
+  },
+});
+
 globalStyle(`input[type="search"]`, {
   "@layer": {
     [resetLayer]: {

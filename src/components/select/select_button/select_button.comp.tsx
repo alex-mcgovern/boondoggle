@@ -1,8 +1,9 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { useSelect } from "downshift";
-import { forwardRef, useCallback, useMemo } from "react";
+import { forwardRef, useCallback } from "react";
 
 import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
 import { Button } from "../../button";
 import { getDefaultHighlightedIndex, getIsSelected } from "../select_utils";
 import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
@@ -22,6 +23,7 @@ export type SelectButtonProps = Omit<
     buttonProps?: ButtonProps;
     buttonText?: string;
     onChange?: (changes: UseSelectStateChange<DropdownItemShape>) => void;
+    wrapperProps?: SprinklesArgs;
   };
 
 /** Accessible select component, supports multi & single modes. */
@@ -38,6 +40,7 @@ export const SelectButton = forwardRef(
       buttonText,
       size,
       slotLeft,
+      wrapperProps,
       slotRight = DEFAULT_SLOT_RIGHT,
     }: SelectButtonProps,
     ref: Ref<HTMLButtonElement>
@@ -64,9 +67,7 @@ export const SelectButton = forwardRef(
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
-          // case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
           case useSelect.stateChangeTypes.ItemClick:
-            // case useSelect.stateChangeTypes.ToggleButtonBlur:
             if (newSelectedItem) {
               selectItem(newSelectedItem);
             }
@@ -89,59 +90,40 @@ export const SelectButton = forwardRef(
     );
 
     /** -----------------------------------------------------------------------------
-     * Trigger node (Button) for SelectButton component
-     * ------------------------------------------------------------------------------- */
-
-    const triggerNode = useMemo(() => {
-      return (
-        <Button
-          size={size}
-          slotLeft={slotLeft}
-          slotProps={{ gap: "none" }}
-          slotRight={slotRight}
-          {...buttonAtomProps}
-          {...getToggleButtonProps?.({
-            ...buttonOtherProps,
-            disabled,
-            id,
-            name,
-            onClick: toggleMenu,
-            ref: ref as LegacyRef<HTMLButtonElement>,
-          })}
-        >
-          {buttonText}
-        </Button>
-      );
-    }, [
-      buttonAtomProps,
-      buttonOtherProps,
-      buttonText,
-      disabled,
-      getToggleButtonProps,
-      id,
-      name,
-      ref,
-      size,
-      slotLeft,
-      slotRight,
-      toggleMenu,
-    ]);
-
-    /** -----------------------------------------------------------------------------
      * Layout for SelectButton component
      * ------------------------------------------------------------------------------- */
 
     return (
-      <DropdownMenu
-        getIsItemSelected={getIsItemSelected}
-        getItemProps={getItemProps}
-        getMenuProps={getMenuProps}
-        highlightedIndex={highlightedIndex}
-        isOpen={isOpen}
-        items={items}
-        size={size}
-        triggerNode={triggerNode}
-      />
+      <Box {...wrapperProps}>
+        <DropdownMenu
+          getIsItemSelected={getIsItemSelected}
+          getItemProps={getItemProps}
+          getMenuProps={getMenuProps}
+          highlightedIndex={highlightedIndex}
+          isOpen={isOpen}
+          items={items}
+          size={size}
+          triggerNode={
+            <Button
+              size={size}
+              slotLeft={slotLeft}
+              slotProps={{ gap: "none" }}
+              slotRight={slotRight}
+              {...buttonAtomProps}
+              {...getToggleButtonProps?.({
+                ...buttonOtherProps,
+                disabled,
+                id,
+                name,
+                onClick: toggleMenu,
+                ref: ref as LegacyRef<HTMLButtonElement>,
+              })}
+            >
+              {buttonText}
+            </Button>
+          }
+        />
+      </Box>
     );
   }
 );

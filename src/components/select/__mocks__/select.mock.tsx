@@ -42,5 +42,20 @@ export const mockSelectItems = ({
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "pt",
     },
+    {
+      label: "United States",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "us",
+    },
+    {
+      label: "Canada",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "ca",
+    },
+    {
+      label: "Australia",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "au",
+    },
   ];
 };

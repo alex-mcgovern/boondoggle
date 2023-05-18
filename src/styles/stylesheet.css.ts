@@ -4,10 +4,12 @@ import { a11yFocusStyleRule } from "./common/a11y.css";
 import { baseLayer } from "./layers.css";
 import "./reset.css";
 import { vars } from "./theme.css";
+import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
-/**
+/** -----------------------------------------------------------------------------
  * Global selectors
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`*`, {
   "@layer": {
     [baseLayer]: { boxSizing: `border-box`, margin: 0 },
@@ -43,9 +45,10 @@ globalStyle(`body`, {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Anchor tags
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`a`, {
   "@layer": {
     [baseLayer]: {
@@ -74,32 +77,10 @@ globalStyle("a:focus-visible", {
   },
 });
 
-/**
- * Visual elements
- */
-globalStyle(`img, picture, video, canvas, svg`, {
-  "@layer": {
-    [baseLayer]: {
-      display: `block`,
-      maxWidth: `100%`,
-    },
-  },
-});
-
-/**
- * Inputs
- */
-globalStyle(`input, button, textarea, select`, {
-  "@layer": {
-    [baseLayer]: {
-      font: `inherit`,
-    },
-  },
-});
-
-/**
+/** -----------------------------------------------------------------------------
  * Button
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`button`, {
   "@layer": {
     [baseLayer]: {
@@ -111,9 +92,10 @@ globalStyle(`button`, {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Checkbox
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle("input[type=checkbox]", {
   "@layer": {
     [baseLayer]: {
@@ -122,9 +104,10 @@ globalStyle("input[type=checkbox]", {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Code
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`code`, {
   "@layer": {
     [baseLayer]: {
@@ -134,9 +117,10 @@ globalStyle(`code`, {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Headings
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`h1, h2, h3, h4, h5, h6`, {
   "@layer": {
     [baseLayer]: {
@@ -198,9 +182,10 @@ globalStyle(`h6`, {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Horizontal rule
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`hr`, {
   "@layer": {
     [baseLayer]: {
@@ -213,14 +198,22 @@ globalStyle(`hr`, {
   },
 });
 
-/**
- * Input & textarea
- */
+/** -----------------------------------------------------------------------------
+ * Input & text area
+ * ------------------------------------------------------------------------------- */
+
 globalStyle("input, textarea", {
   "@layer": {
     [baseLayer]: {
-      background: "none",
-      border: "none",
+      background: vars.color.background,
+      border: `1px solid ${vars.color.border_default}`,
+      borderRadius: vars.borderRadius.md,
+      color: vars.color.text_high_contrast,
+      padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
+      ...createAccessibleTransition({
+        transition: `ease ${vars.transitionDuration.short} ease`,
+        transitionProperty: "color, background-color, border-color",
+      }),
     },
   },
 });
@@ -238,9 +231,8 @@ globalStyle(
   {
     "@layer": {
       [baseLayer]: {
-        background: "none",
-        borderColor: "none",
-        outline: "none",
+        background: vars.color.tint_default,
+        borderColor: vars.color.border_active,
       },
     },
   }
@@ -251,9 +243,7 @@ globalStyle(
   {
     "@layer": {
       [baseLayer]: {
-        background: "none",
-        borderColor: "none",
-        outline: "none",
+        ...a11yFocusStyleRule,
       },
     },
   }
@@ -270,9 +260,10 @@ globalStyle(
   }
 );
 
-/**
- * Lists
- */
+/** -----------------------------------------------------------------------------
+ * List elements
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`ul, ol`, {
   "@layer": {
     [baseLayer]: {
@@ -301,9 +292,10 @@ globalStyle(`ul li::marker, ol li::marker`, {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Menu
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`menu`, {
   "@layer": {
     [baseLayer]: {
@@ -314,22 +306,23 @@ globalStyle(`menu`, {
   },
 });
 
-/**
+/** -----------------------------------------------------------------------------
  * Paragraph
- */
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`p`, {
   "@layer": {
     [baseLayer]: {
       marginBottom: vars.spacing.spacing1,
-
       overflowWrap: `break-word`,
     },
   },
 });
 
-/**
- * Tables
- */
+/** -----------------------------------------------------------------------------
+ * Table styles
+ * ------------------------------------------------------------------------------- */
+
 globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {

@@ -93,6 +93,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           className={clsx(animateAppear, userClassName, a11yFocus)}
           marginTop="spacing1"
           open={controlledIsOpen}
+          overflow="hidden"
           padding="none"
           position="absolute"
           ref={dialogRef}

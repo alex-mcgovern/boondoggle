@@ -34,6 +34,14 @@ export const InitialSelectedItems: Story = {
   },
 };
 
+export const Customisation: Story = {
+  args: {
+    wrapperProps: {
+      marginBottom: "spacing3",
+    },
+  },
+};
+
 export const SlotLeft: Story = {
   args: {
     items: mockSelectItems({ withIcon: true }),

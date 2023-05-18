@@ -82,14 +82,14 @@ export const mockForm = ({
         <FormSelectSingle
           errorMessage="Select an option"
           id="select"
-          initialSelectedItem={
-            withDefaultValues ? mockSelectItems({})[0] : null
-          }
           items={mockSelectItems({})}
           label={LOREM.labelDropdown()}
           name="select"
           placeholder="Select an option from the dropdown"
           wrapperProps={WRAPPER_PROPS}
+          initialSelectedItem={
+            withDefaultValues ? mockSelectItems({})[0] : null
+          }
         />
         <FormSlider
           defaultValue={withDefaultValues ? [50] : undefined}

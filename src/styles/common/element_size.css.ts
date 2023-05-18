@@ -20,25 +20,10 @@ export const elementFontSize = styleVariants({
   ],
 });
 
-export const elementPaddingLeft = styleVariants({
-  lg: [getSprinkles({ paddingLeft: "spacing2" })],
-  md: [getSprinkles({ paddingLeft: "spacing1.5" })],
-  sm: [getSprinkles({ paddingLeft: "spacing1" })],
+export const elementPadding = styleVariants({
+  lg: [getSprinkles({ paddingX: "spacing2", paddingY: "spacing1.5" })],
+  md: [getSprinkles({ paddingX: "spacing1.5", paddingY: "spacing1" })],
+  sm: [getSprinkles({ paddingX: "spacing1", paddingY: "spacing0" })],
 });
 
-export const elementPaddingRight = styleVariants({
-  lg: [getSprinkles({ paddingRight: "spacing2" })],
-  md: [getSprinkles({ paddingRight: "spacing1.5" })],
-  sm: [getSprinkles({ paddingRight: "spacing1" })],
-});
-
-export const elementPaddingY = styleVariants({
-  lg: [getSprinkles({ paddingY: "spacing1.5" })],
-  md: [getSprinkles({ paddingY: "spacing1" })],
-  sm: [getSprinkles({ paddingY: "spacing0" })],
-});
-
-export type ElementSizeEnum = keyof typeof elementFontSize &
-  keyof typeof elementPaddingLeft &
-  keyof typeof elementPaddingRight &
-  keyof typeof elementPaddingY;
+export type ElementSizeEnum = keyof typeof elementFontSize;
