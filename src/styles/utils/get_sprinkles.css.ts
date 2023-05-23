@@ -60,11 +60,6 @@ export const sprinklesProperties = defineProperties({
     minWidth: { ...vars.width, ...vars.spacing },
     overflow: ["hidden"],
     overflowY: ["auto"],
-    padding: vars.spacing,
-    paddingBottom: vars.spacing,
-    paddingLeft: vars.spacing,
-    paddingRight: vars.spacing,
-    paddingTop: vars.spacing,
     position: ["relative", "absolute", "sticky"],
     right: ["0"],
     rowGap: vars.spacing,
@@ -79,8 +74,6 @@ export const sprinklesProperties = defineProperties({
     fontStyle: ["fontSize", "lineHeight"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
-    paddingX: ["paddingLeft", "paddingRight"],
-    paddingY: ["paddingTop", "paddingBottom"],
     placeItems: ["alignItems", "justifyContent"],
   },
 });
@@ -102,7 +95,16 @@ export const responsiveSprinklesProperties = defineProperties({
     display: vars.display,
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
     gridTemplateColumns: vars.gridTemplateColumns,
+    padding: vars.spacing,
+    paddingBottom: vars.spacing,
+    paddingLeft: vars.spacing,
+    paddingRight: vars.spacing,
+    paddingTop: vars.spacing,
     width: { ...vars.width, ...vars.spacing },
+  },
+  shorthands: {
+    paddingX: ["paddingLeft", "paddingRight"],
+    paddingY: ["paddingTop", "paddingBottom"],
   },
 });
 
