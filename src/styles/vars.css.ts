@@ -47,8 +47,8 @@ export const rootVars = createGlobalTheme(":root", {
     table: "table",
   },
   fontFamily: {
-    body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
-    display: `"DM Sans", sans-serif;`,
+    body: `sans-serif;`,
+    display: `sans-serif;`,
   },
   fontSize: {
     body_lg: "1.125rem",
