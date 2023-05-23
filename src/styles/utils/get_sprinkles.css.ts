@@ -87,13 +87,15 @@ export const sprinklesProperties = defineProperties({
 
 export const responsiveSprinklesProperties = defineProperties({
   conditions: {
-    desktop: {
-      "@media": MEDIA_QUERY_DESKTOP,
-    },
+    /* eslint-disable sort-keys-fix/sort-keys-fix */
     mobile: {},
     tablet: {
       "@media": MEDIA_QUERY_TABLET,
     },
+    desktop: {
+      "@media": MEDIA_QUERY_DESKTOP,
+    },
+    /* eslint-enable sort-keys-fix/sort-keys-fix */
   },
   defaultCondition: "mobile",
   properties: {
