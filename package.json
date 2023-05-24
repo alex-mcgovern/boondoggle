@@ -17,10 +17,15 @@
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
       }
     },
     "./dist/index.css": {
-      "import": "./dist/index.css"
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
     }
   },
   "sideEffects": [
