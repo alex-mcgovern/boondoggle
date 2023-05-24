@@ -1,5 +1,5 @@
 import { Form as StoryComp } from "..";
-import { mockForm } from "../__mocks__/mock_form.mock";
+import { MockForm } from "../__mocks__/mock_form.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import type { FieldErrors, FieldValues } from "react-hook-form";
@@ -13,7 +13,7 @@ const handleErrorMock = async (errors: FieldErrors) => {
 };
 
 const meta = {
-  args: mockForm({
+  args: MockForm({
     handleErrors: handleErrorMock,
     handleFormSubmission: handleFormSubmissionMock,
   }),
@@ -29,7 +29,7 @@ export const Default: Story = {
 };
 
 export const WithDefaultValues: Story = {
-  args: mockForm({
+  args: MockForm({
     handleErrors: handleErrorMock,
     handleFormSubmission: handleFormSubmissionMock,
     withDefaultValues: true,

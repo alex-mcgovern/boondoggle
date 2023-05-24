@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
@@ -43,11 +44,13 @@ type MockFormProps = Pick<
   withDefaultValues?: boolean;
 };
 
-export const mockForm = ({
+export const MockForm = ({
   handleFormSubmission = async () => {},
   handleErrors = async () => {},
   withDefaultValues = false,
 }: MockFormProps): FormProps => {
+  const formMethods = useForm({ resolver: zodResolver(mockFormSchema) });
+
   return {
     children: (
       <>
@@ -102,9 +105,9 @@ export const mockForm = ({
         <FormSubmitButton width="100%">Submit</FormSubmitButton>
       </>
     ),
+    formMethods,
     handleErrors,
     handleFormSubmission,
     name: LOREM.name(),
-    resolver: zodResolver(mockFormSchema),
   };
 };

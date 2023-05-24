@@ -9,14 +9,14 @@ import "../../../../test/dialog.mock";
 import "../../../../test/has_pointer_capture.mock";
 import "../../../../test/resize_observer.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
-import { mockForm } from "../__mocks__/mock_form.mock";
+import { MockForm } from "../__mocks__/mock_form.mock";
 
 import type { FormProps } from "..";
 
 const handleFormSubmissionMock = jest.fn();
 const handleErrorsMock = jest.fn();
 
-const PROPS: FormProps = mockForm({
+const PROPS: FormProps = MockForm({
   handleErrors: handleErrorsMock,
   handleFormSubmission: handleFormSubmissionMock,
 });
@@ -125,7 +125,7 @@ describe("<Form />", () => {
       const handleFormSubmissionDefaultValuesMock = jest.fn();
 
       const { getByRole } = await renderComponent(
-        mockForm({
+        MockForm({
           handleErrors: handleErrorsMock,
           handleFormSubmission: handleFormSubmissionDefaultValuesMock,
           withDefaultValues: true,
