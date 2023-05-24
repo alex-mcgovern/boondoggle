@@ -11,7 +11,6 @@
     "type": "git",
     "url": "https://github.com/alex-mcgovern/boondoggle.design"
   },
-  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": [
