@@ -1,10 +1,5 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
-import {
-  Range as RadixSliderRange,
-  Root as RadixSliderRoot,
-  Thumb as RadixSliderThumb,
-  Track as RadixSliderTrack,
-} from "@radix-ui/react-slider";
+import * as RadixSlider from "@radix-ui/react-slider";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
@@ -93,7 +88,7 @@ export const Slider = forwardRef(
         )}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
-          <RadixSliderRoot
+          <RadixSlider..Root
             aria-label={name}
             aria-labelledby={label && id ? labelId : undefined}
             aria-required={required}
@@ -103,11 +98,11 @@ export const Slider = forwardRef(
             ref={ref}
             {...otherProps}
           >
-            <RadixSliderTrack className={styles.sliderTrack}>
-              <RadixSliderRange className={styles.sliderRange} />
-            </RadixSliderTrack>
-            <RadixSliderThumb className={styles.sliderThumb} />
-          </RadixSliderRoot>
+            <RadixSlider..Track className={styles.sliderTrack}>
+              <RadixSlider.Range className={styles.sliderRange} />
+            </RadixSlider..Track>
+            <RadixSlider.Thumb className={styles.sliderThumb} />
+          </RadixSlider..Root>
         </SlotWrapper>
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
