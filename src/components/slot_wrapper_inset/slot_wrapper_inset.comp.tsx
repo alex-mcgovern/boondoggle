@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import Slot from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
@@ -36,14 +36,14 @@ export const SlotWrapperInset = forwardRef(
           </Box>
         )}
 
-        <Slot
+        <Slot.Slot
           className={clsx({
             [styles.offsetSlotLeft]: !!slotLeft,
             [styles.offsetSlotRight]: !!slotRight,
           })}
         >
           {children}
-        </Slot>
+        </Slot.Slot>
 
         {slotRight && (
           <Box {...slotProps} className={styles.slot} right="0">
