@@ -12,6 +12,7 @@
     "url": "https://github.com/alex-mcgovern/boondoggle.design"
   },
   "module": "dist/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": [
     "./src/styles/stylesheet.css.ts"
@@ -41,7 +42,7 @@
     "@hookform/resolvers": "3.1.0",
     "@radix-ui/react-collapsible": "1.0.2",
     "@radix-ui/react-dialog": "1.0.3",
-    "@radix-ui/react-slider": "1.1.1",
+    "@radix-ui/react-slider": "^1.1.1",
     "@radix-ui/react-slot": "1.0.1",
     "@radix-ui/react-tooltip": "1.0.5",
     "@rehookify/datepicker": "5.0.0",

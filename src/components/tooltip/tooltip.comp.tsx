@@ -1,5 +1,5 @@
 import { faInfoCircle } from "@fortawesome/pro-light-svg-icons";
-import * as RadixTooltip from "@radix-ui/react-tooltip";
+import * as RadixTooltip from "@radix-ui/react-tooltip/dist/index";
 
 import { Icon } from "../icon";
 import * as styles from "./tooltip.styles.css";

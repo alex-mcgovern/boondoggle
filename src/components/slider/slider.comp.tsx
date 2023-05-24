@@ -4,7 +4,7 @@ import {
   Root as RadixSliderRoot,
   Thumb as RadixSliderThumb,
   Track as RadixSliderTrack,
-} from "@radix-ui/react-slider";
+} from "@radix-ui/react-slider/dist/index";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
@@ -22,7 +22,7 @@ import type {
   ConditionalLabelProps,
   LabelledElementCustomisation,
 } from "../../types";
-import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
+import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider/dist/index";
 import type { AriaRole, HTMLInputTypeAttribute, ReactNode, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &

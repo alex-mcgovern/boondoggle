@@ -1,5 +1,5 @@
 import { faTimes } from "@fortawesome/pro-light-svg-icons";
-import * as DialogModalPrimitive from "@radix-ui/react-dialog";
+import * as DialogModalPrimitive from "@radix-ui/react-dialog/dist/index";
 
 import { Box } from "../box";
 import { Button } from "../button";
