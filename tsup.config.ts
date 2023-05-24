@@ -16,7 +16,7 @@ export default defineConfig({
       runtime: false,
     }),
   ],
-  format: ["esm"],
+  format: ["esm", "cjs"],
   minify: env === "production",
   outDir: env === "production" ? "dist" : "lib",
   sourcemap: env === "prod",
