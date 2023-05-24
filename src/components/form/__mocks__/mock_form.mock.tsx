@@ -4,6 +4,7 @@ import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { Form } from "../form.comp";
 import { FormInput } from "../sub_components/form_input.comp";
 import { FormSelectSingle } from "../sub_components/form_select_single.comp";
 import { FormSlider } from "../sub_components/form_slider.comp";
@@ -44,70 +45,58 @@ type MockFormProps = Pick<
   withDefaultValues?: boolean;
 };
 
-export const MockForm = ({
+export function MockForm({
   handleFormSubmission = async () => {},
   handleErrors = async () => {},
   withDefaultValues = false,
-}: MockFormProps): FormProps => {
+}: MockFormProps) {
   const formMethods = useForm({ resolver: zodResolver(mockFormSchema) });
 
-  return {
-    children: (
-      <>
-        {/* <FormInputDate
-          defaultValue={withDefaultValues ? LOREM.dateISO : undefined}
-          errorMessage="Date is required"
-          id="date"
-          label={LOREM.labelDate()}
-          name="date"
-          placeholder="Select a date"
-          wrapperProps={WRAPPER_PROPS}
-        /> */}
-        <FormInput
-          defaultValue={withDefaultValues ? LOREM.email() : undefined}
-          errorMessage="Enter a valid email address"
-          id="email"
-          label={LOREM.labelEmail()}
-          name="email"
-          placeholder="Enter your email address"
-          wrapperProps={WRAPPER_PROPS}
-        />
-        <FormTextArea
-          defaultValue={withDefaultValues ? LOREM.textXxs : undefined}
-          errorMessage="Enter a valid description"
-          id="description"
-          label={LOREM.labelDescription()}
-          name="description"
-          placeholder="Enter your description"
-          wrapperProps={WRAPPER_PROPS}
-        />
-        <FormSelectSingle
-          errorMessage="Select an option"
-          id="select"
-          items={mockSelectItems({})}
-          label={LOREM.labelDropdown()}
-          name="select"
-          placeholder="Select an option from the dropdown"
-          wrapperProps={WRAPPER_PROPS}
-          initialSelectedItem={
-            withDefaultValues ? mockSelectItems({})[0] : null
-          }
-        />
-        <FormSlider
-          defaultValue={withDefaultValues ? [50] : undefined}
-          errorMessage="Pick a value from the range"
-          id="amount"
-          label={LOREM.labelSlider()}
-          name="amount"
-          placeholder="Enter an amount"
-          wrapperProps={WRAPPER_PROPS}
-        />
-        <FormSubmitButton width="100%">Submit</FormSubmitButton>
-      </>
-    ),
-    formMethods,
-    handleErrors,
-    handleFormSubmission,
-    name: LOREM.name(),
-  };
-};
+  return (
+    <Form
+      formMethods={formMethods}
+      handleErrors={handleErrors}
+      handleFormSubmission={handleFormSubmission}
+      name={LOREM.name()}
+    >
+      <FormInput
+        defaultValue={withDefaultValues ? LOREM.email() : undefined}
+        errorMessage="Enter a valid email address"
+        id="email"
+        label={LOREM.labelEmail()}
+        name="email"
+        placeholder="Enter your email address"
+        wrapperProps={WRAPPER_PROPS}
+      />
+      <FormTextArea
+        defaultValue={withDefaultValues ? LOREM.textXxs : undefined}
+        errorMessage="Enter a valid description"
+        id="description"
+        label={LOREM.labelDescription()}
+        name="description"
+        placeholder="Enter your description"
+        wrapperProps={WRAPPER_PROPS}
+      />
+      <FormSelectSingle
+        errorMessage="Select an option"
+        id="select"
+        initialSelectedItem={withDefaultValues ? mockSelectItems({})[0] : null}
+        items={mockSelectItems({})}
+        label={LOREM.labelDropdown()}
+        name="select"
+        placeholder="Select an option from the dropdown"
+        wrapperProps={WRAPPER_PROPS}
+      />
+      <FormSlider
+        defaultValue={withDefaultValues ? [50] : undefined}
+        errorMessage="Pick a value from the range"
+        id="amount"
+        label={LOREM.labelSlider()}
+        name="amount"
+        placeholder="Enter an amount"
+        wrapperProps={WRAPPER_PROPS}
+      />
+      <FormSubmitButton width="100%">Submit</FormSubmitButton>
+    </Form>
+  );
+}
