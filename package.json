@@ -17,7 +17,6 @@
   "sideEffects": [
     "./src/styles/stylesheet.css.ts"
   ],
-  "type": "module",
   "scripts": {
     "build-storybook": "storybook build",
     "build:dev": "rm -rf lib && tsup --watch",
