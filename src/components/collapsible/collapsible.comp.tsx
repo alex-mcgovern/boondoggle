@@ -1,4 +1,4 @@
-import * as CollapsiblePrimitive from "@radix-ui/react-collapsible/dist/index";
+import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
 
 import { collapsibleContentAnimation } from "./collapsible.styles.css";

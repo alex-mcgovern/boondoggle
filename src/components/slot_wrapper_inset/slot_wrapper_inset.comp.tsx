@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot/dist/index";
+import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
