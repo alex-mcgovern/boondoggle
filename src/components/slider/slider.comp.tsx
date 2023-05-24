@@ -88,7 +88,7 @@ export const Slider = forwardRef(
         )}
 
         <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
-          <RadixSlider..Root
+          <RadixSlider.Root
             aria-label={name}
             aria-labelledby={label && id ? labelId : undefined}
             aria-required={required}
@@ -98,11 +98,11 @@ export const Slider = forwardRef(
             ref={ref}
             {...otherProps}
           >
-            <RadixSlider..Track className={styles.sliderTrack}>
+            <RadixSlider.Track className={styles.sliderTrack}>
               <RadixSlider.Range className={styles.sliderRange} />
-            </RadixSlider..Track>
+            </RadixSlider.Track>
             <RadixSlider.Thumb className={styles.sliderThumb} />
-          </RadixSlider..Root>
+          </RadixSlider.Root>
         </SlotWrapper>
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
