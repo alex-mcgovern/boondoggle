@@ -1,10 +1,10 @@
-import { FormProvider } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 import { Box } from "../box";
 
 import type { BoxProps } from "../box";
 import type { KeyboardEvent, ReactNode } from "react";
-import type { FieldErrors, FieldValues, UseFormReturn } from "react-hook-form";
+import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
 /** -----------------------------------------------------------------------------
  * Util function to prevent misfires of the form on an enter keypress
@@ -27,7 +27,6 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 > & {
   children: ReactNode | ReactNode[];
   disabled?: boolean;
-  formMethods: UseFormReturn<TFieldValues, any>;
   handleErrors?:
     | ((errors: FieldErrors) => Promise<void>)
     | ((errors: FieldErrors) => void);
@@ -35,6 +34,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     | ((fieldValues: TFieldValues) => Promise<void>)
     | ((fieldValues: TFieldValues) => void);
   name: string;
+  resolver: Resolver<TFieldValues, any>;
 };
 
 export function Form<TFieldValues extends FieldValues>({
@@ -42,8 +42,10 @@ export function Form<TFieldValues extends FieldValues>({
   handleFormSubmission,
   name,
   handleErrors,
-  formMethods,
+  resolver,
 }: FormProps<TFieldValues>) {
+  const formMethods = useForm<TFieldValues>({ resolver });
+
   return (
     <FormProvider {...formMethods}>
       <Box
