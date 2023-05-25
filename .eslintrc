@@ -3,7 +3,7 @@
     "project": "./tsconfig.json"
   },
 
-  "ignorePatterns": ["*.snap", "dist", "lib", "storybook-static"],
+  "ignorePatterns": ["*.snap", "dist", "storybook-static"],
 
   "overrides": [
     /**
