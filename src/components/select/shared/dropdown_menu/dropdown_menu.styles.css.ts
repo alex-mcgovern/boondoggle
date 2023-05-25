@@ -6,8 +6,10 @@ import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 export const dropdownListWrapper = style([
   a11yFocus,
   getSprinkles({
+    maxWidth: "100%",
     overflow: "hidden",
     overflowY: "auto",
+    width: "max-content",
   }),
   {
     listStyle: "none",

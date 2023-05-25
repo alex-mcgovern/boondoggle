@@ -8,6 +8,10 @@ type MockSelectItemsArgs = {
   withIcon?: boolean;
 };
 
+/** -----------------------------------------------------------------------------
+ * Standard select items
+ * ------------------------------------------------------------------------------- */
+
 export const mockSelectItems = ({
   withIcon,
 }: MockSelectItemsArgs): Array<DropdownItemShape> => {
@@ -33,6 +37,11 @@ export const mockSelectItems = ({
       value: "es",
     },
     {
+      label: "The United Kingdom of Great Britain and Northern Ireland",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "gb",
+    },
+    {
       label: "Italy",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "it",
@@ -53,6 +62,77 @@ export const mockSelectItems = ({
       value: "ca",
     },
     {
+      label: "Australia",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "au",
+    },
+  ];
+};
+
+/** -----------------------------------------------------------------------------
+ * Select items as buttons
+ * ------------------------------------------------------------------------------- */
+
+export const mockSelectItemsAsButtons = ({
+  withIcon,
+}: MockSelectItemsArgs): Array<DropdownItemShape> => {
+  return [
+    {
+      as: "button",
+      label: "United Kingdom",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "uk",
+    },
+    {
+      as: "button",
+      label: "France",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "fr",
+    },
+    {
+      as: "button",
+      label: "Germany",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "de",
+    },
+    {
+      as: "button",
+      label: "Spain",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "es",
+    },
+    {
+      as: "button",
+      label: "The United Kingdom of Great Britain and Northern Ireland",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "gb",
+    },
+    {
+      as: "button",
+      label: "Italy",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "it",
+    },
+    {
+      as: "button",
+      label: "Portugal",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "pt",
+    },
+    {
+      as: "button",
+      label: "United States",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "us",
+    },
+    {
+      as: "button",
+      label: "Canada",
+      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      value: "ca",
+    },
+    {
+      as: "button",
       label: "Australia",
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "au",

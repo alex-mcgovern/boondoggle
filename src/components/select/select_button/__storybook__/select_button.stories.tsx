@@ -2,7 +2,10 @@
 import { SelectButton as StoryComp } from "../..";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import { Box } from "../../../box";
-import { mockSelectItems } from "../../__mocks__/select.mock";
+import {
+  mockSelectItems,
+  mockSelectItemsAsButtons,
+} from "../../__mocks__/select.mock";
 
 import type { SelectButtonProps as StoryCompProps } from "../..";
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -40,6 +43,11 @@ const PlacementTemplate: StoryFn<StoryCompProps> = ({ ...rest }) => {
 
 export const Default: StoryObj<StoryCompProps> = {
   args: PROPS,
+  render: Template,
+};
+
+export const ItemsAsButtons: StoryObj<StoryCompProps> = {
+  args: { ...PROPS, items: mockSelectItemsAsButtons({ withIcon: true }) },
   render: Template,
 };
 
