@@ -83,6 +83,9 @@ export const SelectButton = forwardRef(
             break;
           case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
             if (newSelectedItem) {
+              if (newSelectedItem.onClick) {
+                newSelectedItem.onClick();
+              }
               setSelectedItem(newSelectedItem);
             }
             setIsOpen((current) => {
@@ -92,6 +95,9 @@ export const SelectButton = forwardRef(
 
           case useSelect.stateChangeTypes.ItemClick:
             if (newSelectedItem) {
+              if (newSelectedItem.onClick) {
+                newSelectedItem.onClick();
+              }
               setSelectedItem(newSelectedItem);
             }
             setIsOpen(false);

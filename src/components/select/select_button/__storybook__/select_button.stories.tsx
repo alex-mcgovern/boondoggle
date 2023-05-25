@@ -17,9 +17,9 @@ const PROPS: StoryCompProps = {
   id: LOREM.id(),
   items: ITEMS,
   name: LOREM.name(),
-  onChange: (changes) => {
-    alert(JSON.stringify(changes));
-  },
+  // onChange: () => {
+  //   console.log("clicked");
+  // },
 };
 
 export default {

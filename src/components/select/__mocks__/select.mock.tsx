@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { faGlobe } from "@fortawesome/pro-light-svg-icons";
 
 import { Icon } from "../../icon";
@@ -80,60 +81,90 @@ export const mockSelectItemsAsButtons = ({
     {
       as: "button",
       label: "United Kingdom",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "uk",
     },
     {
       as: "button",
       label: "France",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "fr",
     },
     {
       as: "button",
       label: "Germany",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "de",
     },
     {
       as: "button",
       label: "Spain",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "es",
     },
     {
       as: "button",
       label: "The United Kingdom of Great Britain and Northern Ireland",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "gb",
     },
     {
       as: "button",
       label: "Italy",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "it",
     },
     {
       as: "button",
       label: "Portugal",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "pt",
     },
     {
       as: "button",
       label: "United States",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "us",
     },
     {
       as: "button",
       label: "Canada",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "ca",
     },
     {
       as: "button",
       label: "Australia",
+      onClick: () => {
+        return console.log("test");
+      },
       slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
       value: "au",
     },

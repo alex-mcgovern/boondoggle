@@ -68,6 +68,9 @@ export const DropdownMenu = forwardRef(
         <Box className={clsx(styles.dropdownListWrapper, userClassName)}>
           {Array.isArray(items) &&
             items.map((item, index) => {
+              // eslint-disable-next-line @typescript-eslint/naming-convention
+              const { onClick: _unusedOnClick, ...restItem } = item;
+
               if (!item.label) {
                 return null;
               }
@@ -76,7 +79,7 @@ export const DropdownMenu = forwardRef(
                   isDropdownItemSelected={getIsItemSelected?.(item)}
                   isHighlighted={highlightedIndex === index}
                   isMulti={isMulti}
-                  item={item}
+                  item={restItem}
                   key={`${item.label}-${item.value}`}
                   size={size}
                   {...getDropdownItemProps({
@@ -84,8 +87,7 @@ export const DropdownMenu = forwardRef(
                     getSelectedItemProps,
                     index,
                     isMulti,
-                    item,
-                    onClick: item.onClick,
+                    item: restItem,
                     removeSelectedItem,
                   })}
                 />
