@@ -85,6 +85,7 @@ export const DropdownMenu = forwardRef(
                     index,
                     isMulti,
                     item,
+                    onClick: item.onClick,
                     removeSelectedItem,
                   })}
                 />
