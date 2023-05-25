@@ -68,7 +68,6 @@ describe("<SelectButton />", () => {
 
         await user.keyboard("{arrowdown}");
         await user.keyboard("{arrowdown}");
-        await user.keyboard("{arrowdown}");
         await user.keyboard("{enter}");
 
         expect(ON_CHANGE).toHaveBeenLastCalledWith(

@@ -109,7 +109,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         role="listbox"
       >
         <div
-          class="dropdown_menu.styles_dropdownListWrapper__ofq1dt1 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt0 get_sprinkles_maxWidth_100%__eiij7b6f get_sprinkles_overflow_hidden__eiij7b8k get_sprinkles_overflowY_auto__eiij7b8l get_sprinkles_width_max-content_mobile__eiij7beg"
+          class="dropdown_menu.styles_dropdownListWrapper__ofq1dt1 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt0 get_sprinkles_maxWidth_100%__eiij7b6f get_sprinkles_minWidth_max-content__eiij7b88 get_sprinkles_overflow_hidden__eiij7b8k get_sprinkles_overflowY_auto__eiij7b8l get_sprinkles_width_100%_mobile__eiij7bda"
         >
           <li
             aria-selected="false"

@@ -78,9 +78,16 @@ export const SelectButton = forwardRef(
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
           case useSelect.stateChangeTypes.ToggleButtonClick:
-          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
           case useSelect.stateChangeTypes.ToggleButtonKeyDownArrowDown:
             setIsOpen(true);
+            break;
+          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+            if (newSelectedItem) {
+              setSelectedItem(newSelectedItem);
+            }
+            setIsOpen((current) => {
+              return !current;
+            });
             break;
 
           case useSelect.stateChangeTypes.ItemClick:
