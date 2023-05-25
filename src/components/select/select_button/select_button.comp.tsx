@@ -53,6 +53,7 @@ export const SelectButton = forwardRef(
     const [selectedItem, setSelectedItem] = useState(
       initialSelectedItem || null
     );
+    const [isOpen, setIsOpen] = useState(false);
 
     const { atomProps: buttonAtomProps, otherProps: buttonOtherProps } =
       extractAtomsFromProps(buttonProps, getSprinkles);
@@ -64,7 +65,6 @@ export const SelectButton = forwardRef(
       getMenuProps,
       toggleMenu,
       highlightedIndex,
-      isOpen,
     } = useSelect({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
@@ -72,14 +72,22 @@ export const SelectButton = forwardRef(
         selectedItem,
       }),
       initialSelectedItem,
+      isOpen,
       items,
       onSelectedItemChange: onChange,
       onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
+          case useSelect.stateChangeTypes.ToggleButtonClick:
+          case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+          case useSelect.stateChangeTypes.ToggleButtonKeyDownArrowDown:
+            setIsOpen(true);
+            break;
+
           case useSelect.stateChangeTypes.ItemClick:
             if (newSelectedItem) {
               setSelectedItem(newSelectedItem);
             }
+            setIsOpen(false);
             break;
 
           default:

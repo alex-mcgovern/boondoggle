@@ -7,9 +7,10 @@ export const dropdownListWrapper = style([
   a11yFocus,
   getSprinkles({
     maxWidth: "100%",
+    minWidth: "max-content",
     overflow: "hidden",
     overflowY: "auto",
-    width: "max-content",
+    width: "100%",
   }),
   {
     listStyle: "none",
