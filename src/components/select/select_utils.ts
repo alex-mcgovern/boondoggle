@@ -25,7 +25,7 @@ export const getIsSelected = ({
   selectedItem,
 }: GetIsItemSelectedArgs): boolean => {
   if (!isMulti && selectedItem) {
-    return selectedItem?.label.toLowerCase() === item?.label.toLowerCase();
+    return selectedItem?.value.toLowerCase() === item?.value.toLowerCase();
   }
 
   if (isMulti) {
