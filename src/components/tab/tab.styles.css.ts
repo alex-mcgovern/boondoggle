@@ -4,6 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yFocus } from "../../styles/common/a11y.css";
 import {
   elementFontSize,
+  elementHeight,
   elementPadding,
 } from "../../styles/common/element_size.css";
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../styles/common/selectors.css";
@@ -12,9 +13,21 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  lg: [elementFontSize.lg, elementPadding.lg],
-  md: [elementFontSize.md, elementPadding.md],
-  sm: [elementFontSize.sm, elementPadding.sm],
+  lg: [
+    elementFontSize.lg,
+    elementPadding.lg,
+    getSprinkles({ height: elementHeight.lg }),
+  ],
+  md: [
+    elementFontSize.md,
+    elementPadding.md,
+    getSprinkles({ height: elementHeight.md }),
+  ],
+  sm: [
+    elementFontSize.sm,
+    elementPadding.sm,
+    getSprinkles({ height: elementHeight.sm }),
+  ],
 });
 
 export const getTabStyle = recipe({

@@ -5,15 +5,28 @@ import { variantColorOverlay } from "../../../../styles/color_palette.css";
 import { a11yDisabled, a11yFocus } from "../../../../styles/common/a11y.css";
 import {
   elementFontSize,
+  elementHeight,
   elementPadding,
 } from "../../../../styles/common/element_size.css";
 import { vars } from "../../../../styles/theme.css";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  lg: [elementFontSize.lg, elementPadding.lg],
-  md: [elementFontSize.md, elementPadding.md],
-  sm: [elementFontSize.sm, elementPadding.sm],
+  lg: [
+    elementFontSize.lg,
+    elementPadding.lg,
+    getSprinkles({ height: elementHeight.lg }),
+  ],
+  md: [
+    elementFontSize.md,
+    elementPadding.md,
+    getSprinkles({ height: elementHeight.md }),
+  ],
+  sm: [
+    elementFontSize.sm,
+    elementPadding.sm,
+    getSprinkles({ height: elementHeight.sm }),
+  ],
 });
 
 /**

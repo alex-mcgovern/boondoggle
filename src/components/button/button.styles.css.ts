@@ -4,6 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import {
   elementFontSize,
+  elementHeight,
   elementPadding,
 } from "../../styles/common/element_size.css";
 import {
@@ -151,39 +152,39 @@ export const getButtonStyles = recipe({
   ],
   compoundVariants: [
     {
-      style: [elementPadding.lg],
+      style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
       variants: { appearance: "primary", size: "lg" },
     },
     {
-      style: [elementPadding.md],
+      style: [elementPadding.md, getSprinkles({ height: elementHeight.md })],
       variants: { appearance: "primary", size: "md" },
     },
     {
-      style: [elementPadding.sm],
+      style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
       variants: { appearance: "primary", size: "sm" },
     },
     {
-      style: [elementPadding.lg],
+      style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
       variants: { appearance: "secondary", size: "lg" },
     },
     {
-      style: [elementPadding.md],
+      style: [elementPadding.md, getSprinkles({ height: elementHeight.md })],
       variants: { appearance: "secondary", size: "md" },
     },
     {
-      style: [elementPadding.sm],
+      style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
       variants: { appearance: "secondary", size: "sm" },
     },
     {
-      style: [elementPadding.lg],
+      style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
       variants: { appearance: "ghost", size: "lg" },
     },
     {
-      style: [elementPadding.md],
+      style: [elementPadding.md, getSprinkles({ height: elementHeight.md })],
       variants: { appearance: "ghost", size: "md" },
     },
     {
-      style: [elementPadding.sm],
+      style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
       variants: { appearance: "ghost", size: "sm" },
     },
   ],
