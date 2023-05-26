@@ -21,7 +21,7 @@ exports[`<DatePicker /> Basic smoke tests should match snapshot 1`] = `
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb1 get_sprinkles_gap_spacing1__eiij7b2s get_sprinkles_color_inherit__eiij7b1l"
           >
             <div
-              class="slot_wrapper.styles_slot__1xvz5xe0 get_sprinkles_width_spacing3_mobile__eiij7bf1 get_sprinkles_color_inherit__eiij7b1l get_sprinkles_flexShrink_0__eiij7b23"
+              class="slot_wrapper.styles_slot_wrapper.styles__1xvz5xe0_get_sprinkles_alignItems_center__eiij7b2_get_sprinkles_display_flex_mobile__eiij7bb1_get_sprinkles_justifyContent_center__eiij7b3q_get_sprinkles_maxHeight_spacing3__eiij7b67_get_sprinkles_maxWidth_spacing3__eiij7b70__1xvz5xe1 get_sprinkles_width_spacing3_mobile__eiij7bf1 get_sprinkles_color_inherit__eiij7b1l get_sprinkles_flexShrink_0__eiij7b23"
             >
               <svg
                 aria-hidden="true"
@@ -80,7 +80,7 @@ exports[`<DatePicker /> Basic smoke tests should match snapshot 1`] = `
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb1 get_sprinkles_gap_spacing1__eiij7b2s get_sprinkles_color_inherit__eiij7b1l"
           >
             <div
-              class="slot_wrapper.styles_slot__1xvz5xe0 get_sprinkles_width_spacing3_mobile__eiij7bf1 get_sprinkles_color_inherit__eiij7b1l get_sprinkles_flexShrink_0__eiij7b23"
+              class="slot_wrapper.styles_slot_wrapper.styles__1xvz5xe0_get_sprinkles_alignItems_center__eiij7b2_get_sprinkles_display_flex_mobile__eiij7bb1_get_sprinkles_justifyContent_center__eiij7b3q_get_sprinkles_maxHeight_spacing3__eiij7b67_get_sprinkles_maxWidth_spacing3__eiij7b70__1xvz5xe1 get_sprinkles_width_spacing3_mobile__eiij7bf1 get_sprinkles_color_inherit__eiij7b1l get_sprinkles_flexShrink_0__eiij7b23"
             >
               <svg
                 aria-hidden="true"
