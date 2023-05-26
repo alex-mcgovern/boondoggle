@@ -260,7 +260,6 @@ globalStyle(`h1, h2, h3, h4, h5, h6`, {
   "@layer": {
     [baseLayer]: {
       display: "block",
-      fontFamily: vars.fontFamily.display,
       fontWeight: vars.fontWeight.medium,
       lineHeight: 1.4,
       marginBottom: vars.spacing.spacing1,
