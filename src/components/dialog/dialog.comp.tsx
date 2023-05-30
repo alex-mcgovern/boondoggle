@@ -8,7 +8,7 @@ import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyb
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
-import { getDialogStyles } from "./dialog.styles.css";
+import { dialogInnerStyles, getDialogStyles } from "./dialog.styles.css";
 
 import type { BoxProps } from "../box";
 import type { DialogPlacementEnum } from "./dialog.styles.css";
@@ -99,7 +99,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
             getDialogStyles({ placement })
           )}
         >
-          {children}
+          <Box className={dialogInnerStyles}>{children}</Box>
         </Box>
       </Box>
     );

@@ -1,4 +1,4 @@
-import { styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -7,12 +7,12 @@ export const placement = styleVariants({
   "bottom-center": [
     {
       insetInlineStart: "50%",
-      transform: "translateX(calc(-50% + 0.3px))",
+      transform: "translateX(-50%)",
     },
   ],
   "bottom-end": {
     insetInlineStart: "100%",
-    transform: "translateX(calc(-100% + 0.1px))",
+    transform: "translateX(-100%)",
   },
   "bottom-start": [],
 });
@@ -38,4 +38,8 @@ export const getDialogStyles = recipe({
   variants: {
     placement,
   },
+});
+
+export const dialogInnerStyles = style({
+  // transform: "translate3d(0, 0, 0)",
 });
