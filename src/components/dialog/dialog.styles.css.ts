@@ -11,8 +11,10 @@ export const placement = styleVariants({
     },
   ],
   "bottom-end": {
-    insetInlineStart: "100%",
-    transform: "translateX(-100%)",
+    left: "auto",
+    // insetInlineStart: "100%",
+    // transform: "translateX(-100%)",
+    position: "absolute",
   },
   "bottom-start": [],
 });
