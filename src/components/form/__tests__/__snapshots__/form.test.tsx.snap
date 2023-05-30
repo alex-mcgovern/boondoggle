@@ -112,7 +112,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           class="dialog.styles_dialogInnerStyles__mfom5p8"
         >
           <div
-            class="dropdown_menu.styles_dropdownListWrapper__ofq1dt1 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt0 get_sprinkles_maxWidth_100%__eiij7b6f get_sprinkles_minWidth_max-content__eiij7b88 get_sprinkles_overflow_hidden__eiij7b8k get_sprinkles_overflowY_auto__eiij7b8l get_sprinkles_width_100%_mobile__eiij7bda"
+            class="dropdown_menu.styles_dropdownListWrapper__ofq1dt1 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt0 get_sprinkles_minWidth_100%__eiij7b7u get_sprinkles_overflow_hidden__eiij7b8k get_sprinkles_overflowY_auto__eiij7b8l get_sprinkles_width_max-content_mobile__eiij7beg"
           >
             <li
               aria-selected="false"
