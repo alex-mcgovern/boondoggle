@@ -1,10 +1,6 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 
 import { color } from "./color_palette.css";
-
-const GRID_MAX_WIDTH = 1080;
-const GRID_MAX_WIDTH_PX = `${GRID_MAX_WIDTH}px`;
 
 /**
  * Global variables (css vars)
@@ -45,6 +41,7 @@ export const rootVars = createGlobalTheme(":root", {
     "inline-flex": "inline-flex",
     none: "none",
     table: "table",
+    "table-cell": "table-cell",
   },
   fontFamily: {
     body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
@@ -139,18 +136,18 @@ export const rootVars = createGlobalTheme(":root", {
     "50%": "50%",
     "100%": "100%",
     auto: "auto",
-    gridSpan1: calc.divide(GRID_MAX_WIDTH_PX, 12),
-    gridSpan2: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 2),
-    gridSpan3: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 3),
-    gridSpan4: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 4),
-    gridSpan5: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 5),
-    gridSpan6: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 6),
-    gridSpan7: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 7),
-    gridSpan8: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 8),
-    gridSpan9: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 9),
-    gridSpan10: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 10),
-    gridSpan11: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 11),
-    gridSpan12: calc.multiply(calc.divide(GRID_MAX_WIDTH_PX, 12), 12),
+    col_1: "8.33333333%",
+    col_2: "16.66666666%",
+    col_3: "24.99999999%",
+    col_4: "33.33333332%",
+    col_5: "41.66666665%",
+    col_6: "49.99999998%",
+    col_7: "58.33333331%",
+    col_8: "66.66666664%",
+    col_9: "74.99999997%",
+    col_10: "83.3333333%",
+    col_11: "91.66666663%",
+    col_12: "100%",
     "max-content": "max-content",
     "min-content": "min-content",
   },
