@@ -9,7 +9,7 @@ export default defineConfig({
   entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
   esbuildPlugins: [
     vanillaExtractPlugin({
-      identifiers: "short",
+      identifiers: "debug",
       outputCss: true,
       runtime: false,
     }),
