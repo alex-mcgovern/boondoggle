@@ -6,6 +6,7 @@ import {
   MEDIA_QUERY_MOBILE,
   MEDIA_QUERY_TABLET,
 } from "../../styles/common/media_queries.css";
+import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dialogOverlay = style([
@@ -21,9 +22,6 @@ export const dialogOverlay = style([
 export const dialogContent = style([
   getSprinkles({
     background: "tint_default",
-    border: "border_default",
-    borderRadius: "sm",
-    boxShadow: "lg",
     display: "block",
     isolation: "isolate",
     overflow: "hidden",
@@ -32,6 +30,9 @@ export const dialogContent = style([
   {
     "@media": {
       [MEDIA_QUERY_DESKTOP]: {
+        border: vars.border.border_default,
+        borderRadius: vars.borderRadius.sm,
+        boxShadow: vars.boxShadow.lg,
         height: "100dvh",
         width: "50vw",
       },
@@ -40,6 +41,9 @@ export const dialogContent = style([
         width: "100vw",
       },
       [MEDIA_QUERY_TABLET]: {
+        border: vars.border.border_default,
+        borderRadius: vars.borderRadius.sm,
+        boxShadow: vars.boxShadow.lg,
         maxHeight: "75dvh",
         width: "75vw",
       },
