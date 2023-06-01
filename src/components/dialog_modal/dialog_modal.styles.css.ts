@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 
 import { animateAppear } from "../../styles/common/animations.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -21,23 +22,19 @@ export const dialogContent = style([
     boxShadow: "lg",
     display: "block",
     isolation: "isolate",
-    maxWidth: "gridSpan10",
     overflow: "hidden",
     textDecoration: "none",
-    width: {
-      desktop: "gridSpan8",
-      mobile: "gridSpan10",
-      tablet: "gridSpan8",
-    },
   }),
   {
     left: "50%",
+    maxWidth: calc.subtract("100vw", "spacing2"),
     position: "fixed",
     selectors: {
       "&:focus": { outline: "none" },
     },
     top: "50%",
     transform: "translate(-50%, -50%)",
+    width: "50%",
     zIndex: 99999,
   },
   animateAppear,
