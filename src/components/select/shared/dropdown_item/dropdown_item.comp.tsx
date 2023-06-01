@@ -38,7 +38,7 @@ export const DropdownItem = forwardRef(
         as="li"
         id={label}
         slotLeft={slotLeft}
-        slotProps={{ width: "spacing2" }}
+        slotProps={{ width: "spacing_2" }}
         className={clsx(
           styles.getDropdownItemStyles({
             size,

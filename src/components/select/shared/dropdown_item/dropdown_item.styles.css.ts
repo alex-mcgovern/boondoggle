@@ -39,10 +39,10 @@ export const getDropdownItemStyles = recipe({
 
       color: "text_low_contrast",
       display: "flex",
-      gap: "spacing1",
+      gap: "spacing_1",
 
       margin: "none",
-      padding: "spacing1",
+      padding: "spacing_1",
       textAlign: "left",
 
       textDecoration: "none",

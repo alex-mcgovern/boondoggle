@@ -8,9 +8,9 @@ export const elementHeight: Record<
   ElementSizeEnum,
   SprinklesArgs["height"] & SprinklesArgs["minHeight"]
 > = {
-  lg: "spacing6",
-  md: "spacing5",
-  sm: "spacing4",
+  lg: "spacing_6",
+  md: "spacing_5",
+  sm: "spacing_4",
 };
 
 export const elementFontSize = styleVariants({
@@ -32,9 +32,9 @@ export const elementFontSize = styleVariants({
 });
 
 export const elementPadding = styleVariants({
-  lg: [getSprinkles({ paddingX: "spacing2", paddingY: "spacing1.5" })],
-  md: [getSprinkles({ paddingX: "spacing1.5", paddingY: "spacing1" })],
-  sm: [getSprinkles({ paddingX: "spacing1", paddingY: "spacing0" })],
+  lg: [getSprinkles({ paddingX: "spacing_2", paddingY: "spacing_1.5" })],
+  md: [getSprinkles({ paddingX: "spacing_1.5", paddingY: "spacing_1" })],
+  sm: [getSprinkles({ paddingX: "spacing_1", paddingY: "spacing_0" })],
 });
 
 export type ElementSizeEnum = keyof typeof elementFontSize &

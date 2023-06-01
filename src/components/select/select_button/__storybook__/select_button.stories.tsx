@@ -54,7 +54,7 @@ export const ItemsAsButtons: StoryObj<StoryCompProps> = {
 export const Customisation: StoryObj<StoryCompProps> = {
   args: {
     ...PROPS,
-    wrapperProps: { marginBottom: "spacing3" },
+    wrapperProps: { marginBottom: "spacing_3" },
   },
 };
 

@@ -12,7 +12,7 @@ import type { BoxProps } from "../box";
 import type { MouseEvent, Ref } from "react";
 
 export type DatePickerProps = {
-  className?:string;
+  className?: string;
   onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 } & BoxProps;
 
@@ -87,7 +87,7 @@ export const DatePicker = forwardRef(
 
         <Box
           display="grid"
-          gap="spacing1"
+          gap="spacing_1"
           gridTemplateColumns={isShowingYears ? "4x" : "7x"}
         >
           {isShowingYears ? (

@@ -84,7 +84,7 @@ export const Button: ButtonComponent = forwardRef(
       if (size === "square") {
         return {
           ...userSlotProps,
-          width: "spacing3",
+          width: "spacing_3",
         };
       }
       return userSlotProps;

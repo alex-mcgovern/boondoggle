@@ -29,7 +29,7 @@ const mockFormSchema = z.object({
  * ------------------------------------------------------------------------------- */
 
 const WRAPPER_PROPS: BoxProps = {
-  marginBottom: "spacing3",
+  marginBottom: "spacing_3",
 };
 
 /** -----------------------------------------------------------------------------

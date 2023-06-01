@@ -71,7 +71,7 @@ export const TextArea = forwardRef(
         <SlotWrapper
           alignItems="start"
           slotLeft={slotLeft}
-          slotProps={{ paddingY: "spacing1" }}
+          slotProps={{ paddingY: "spacing_1" }}
           slotRight={slotRight}
         >
           <textarea

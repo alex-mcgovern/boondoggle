@@ -58,7 +58,7 @@ const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
   background: "tint_default",
   border: "border_default",
   borderRadius: "sm",
-  padding: "spacing3",
+  padding: "spacing_3",
 };
 
 export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
@@ -74,7 +74,7 @@ export const ExampleResponsiveSprinkles: StoryObj<StoryCompProps> = {
   args: {
     children: [<Box>Item 1</Box>, <Box>Item 2</Box>, <Box>Item 3</Box>],
     display: "grid",
-    gap: "spacing3",
+    gap: "spacing_3",
     gridTemplateColumns: {
       desktop: "3x",
       mobile: "1x",
@@ -113,7 +113,7 @@ export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
       </StoryComp>,
       <StoryComp as="p">{LOREM.textMd}</StoryComp>,
     ],
-    padding: "spacing3",
+    padding: "spacing_3",
   },
   name: "example/box_as_info_card",
   render: Template,
@@ -141,8 +141,8 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
     ],
     className: variantColorOverlay.red,
     display: "flex",
-    gap: "spacing3",
-    padding: "spacing3",
+    gap: "spacing_3",
+    padding: "spacing_3",
   },
   name: "example/box_as_warning",
   render: Template,
@@ -171,8 +171,8 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
     ],
     className: variantColorOverlay.green,
     display: "flex",
-    gap: "spacing3",
-    padding: "spacing3",
+    gap: "spacing_3",
+    padding: "spacing_3",
   },
   name: "example/box_as_confirmation",
   render: Template,
@@ -181,18 +181,18 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
 export const BoxAsGridLayout: StoryObj<StoryCompProps> = {
   args: {
     children: [
-      <StoryComp background="tint_default" padding="spacing3">
+      <StoryComp background="tint_default" padding="spacing_3">
         Content 1
       </StoryComp>,
-      <StoryComp background="tint_default" padding="spacing3">
+      <StoryComp background="tint_default" padding="spacing_3">
         Content 2
       </StoryComp>,
-      <StoryComp background="tint_default" padding="spacing3">
+      <StoryComp background="tint_default" padding="spacing_3">
         Content 3
       </StoryComp>,
     ],
     display: "grid",
-    gap: "spacing3",
+    gap: "spacing_3",
     gridTemplateColumns: "3x",
   },
   name: "example/box_as_grid_layout",

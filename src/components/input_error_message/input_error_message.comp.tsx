@@ -28,8 +28,8 @@ export function InputErrorMessage({
         color="text_low_contrast"
         display="flex"
         fontStyle="body_sm"
-        gap="spacing0"
-        marginY="spacing0"
+        gap="spacing_0"
+        marginY="spacing_0"
         role="alert"
         {...rest}
       >

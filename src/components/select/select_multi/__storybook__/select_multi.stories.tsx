@@ -44,7 +44,7 @@ export const Invalid: Story = {
 export const Customisation: Story = {
   args: {
     wrapperProps: {
-      marginBottom: "spacing3",
+      marginBottom: "spacing_3",
     },
   },
 };

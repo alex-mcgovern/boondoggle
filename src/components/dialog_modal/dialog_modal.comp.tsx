@@ -57,7 +57,7 @@ export function DialogModal({
             borderBottom="border_default"
             display="flex"
             justifyContent="space-between"
-            padding="spacing2"
+            padding="spacing_2"
           >
             <DialogModalPrimitive.Title asChild>
               <Box as="h2" fontStyle="body_lg" marginY="none">

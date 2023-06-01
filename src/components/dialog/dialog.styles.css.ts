@@ -22,13 +22,13 @@ export type DialogPlacementEnum = keyof typeof placement;
 
 export const getDialogStyles = recipe({
   base: [
-    { maxWidth: calc.subtract("100vw", vars.spacing.spacing2) },
+    { maxWidth: calc.subtract("100vw", vars.spacing.spacing_2) },
     getSprinkles({
       background: "background",
       border: "border_default",
       borderRadius: "sm",
       boxShadow: "md",
-      marginTop: "spacing1",
+      marginTop: "spacing_1",
       overflow: "hidden",
       padding: "none",
       zIndex: "1",

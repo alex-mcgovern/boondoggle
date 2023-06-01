@@ -15,15 +15,15 @@ export const slot = style([
 
     position: "absolute",
     top: "0",
-    width: "spacing4",
+    width: "spacing_4",
   }),
   { pointerEvents: "none" },
 ]);
 
 export const offsetSlotRight = style({
-  paddingRight: `${vars.spacing.spacing4} !important`,
+  paddingRight: `${vars.spacing.spacing_4} !important`,
 });
 
 export const offsetSlotLeft = style({
-  paddingLeft: `${vars.spacing.spacing4} !important`,
+  paddingLeft: `${vars.spacing.spacing_4} !important`,
 });

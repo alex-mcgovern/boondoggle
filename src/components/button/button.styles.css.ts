@@ -28,8 +28,8 @@ const variantSize = styleVariants({
   square: [
     getSprinkles({
       fontStyle: "body_md",
-      height: "spacing5",
-      width: "spacing5",
+      height: "spacing_5",
+      width: "spacing_5",
     }),
   ],
 });
@@ -142,7 +142,7 @@ export const getButtonStyles = recipe({
       alignItems: "center",
       borderRadius: "sm",
       display: "flex",
-      gap: "spacing1",
+      gap: "spacing_1",
       textDecoration: "none",
       width: "max-content",
     }),

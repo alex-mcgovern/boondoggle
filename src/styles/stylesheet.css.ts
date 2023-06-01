@@ -278,7 +278,7 @@ globalStyle(`h1, h2, h3, h4, h5, h6`, {
       display: "block",
       fontWeight: vars.fontWeight.medium,
       lineHeight: 1.4,
-      marginBottom: vars.spacing.spacing1,
+      marginBottom: vars.spacing.spacing_1,
       overflowWrap: `break-word`,
     },
   },
@@ -342,8 +342,8 @@ globalStyle(`hr`, {
       borderBottom: "none",
       borderColor: `${vars.color.border_default} !important`,
       borderTop: "1px solid",
-      marginBottom: vars.spacing.spacing3,
-      marginTop: vars.spacing.spacing3,
+      marginBottom: vars.spacing.spacing_3,
+      marginTop: vars.spacing.spacing_3,
     },
   },
 });
@@ -359,7 +359,7 @@ globalStyle("input, textarea", {
       border: `1px solid ${vars.color.border_default}`,
       borderRadius: vars.borderRadius.sm,
       color: vars.color.text_high_contrast,
-      padding: `${vars.spacing.spacing1} ${vars.spacing.spacing2}`,
+      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
       ...createAccessibleTransition({
         transition: `ease ${vars.transitionDuration.short} ease`,
         transitionProperty: "color, background-color, border-color",
@@ -428,7 +428,7 @@ globalStyle(`ul li, ol li`, {
   "@layer": {
     [baseLayer]: {
       listStylePosition: "inside",
-      marginBottom: vars.spacing.spacing1,
+      marginBottom: vars.spacing.spacing_1,
     },
   },
 });
@@ -463,7 +463,7 @@ globalStyle(`menu`, {
 globalStyle(`p`, {
   "@layer": {
     [baseLayer]: {
-      marginBottom: vars.spacing.spacing1,
+      marginBottom: vars.spacing.spacing_1,
       overflowWrap: `break-word`,
     },
   },
@@ -502,7 +502,7 @@ globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      padding: `${vars.spacing.spacing2} ${vars.spacing.spacing3}`,
+      padding: `${vars.spacing.spacing_2} ${vars.spacing.spacing_3}`,
       textAlign: "left",
     },
   },

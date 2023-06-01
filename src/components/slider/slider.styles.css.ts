@@ -13,18 +13,18 @@ export const sliderRoot = style([
   getSprinkles({
     alignItems: "center",
     display: "flex",
-    marginY: "spacing1",
+    marginY: "spacing_1",
     position: "relative",
     width: "100%",
   }),
   {
     selectors: {
       [`&[data-orientation='horizontal']`]: {
-        height: vars.spacing.spacing3,
+        height: vars.spacing.spacing_3,
       },
       [`&[data-orientation='vertical']`]: {
         flexDirection: "column",
-        width: vars.spacing.spacing3,
+        width: vars.spacing.spacing_3,
       },
     },
     touchAction: "none",
@@ -42,10 +42,10 @@ export const sliderTrack = style([
     flexGrow: 1,
     selectors: {
       [`&[data-orientation='horizontal']`]: {
-        height: vars.spacing.spacing0,
+        height: vars.spacing.spacing_0,
       },
       [`&[data-orientation='vertical']`]: {
-        width: vars.spacing.spacing0,
+        width: vars.spacing.spacing_0,
       },
     },
   },
@@ -67,8 +67,8 @@ export const sliderThumb = style([
     borderRadius: "50%",
 
     display: "block",
-    height: "spacing3",
-    width: "spacing3",
+    height: "spacing_3",
+    width: "spacing_3",
   }),
   createAccessibleTransition({
     transition: `background ${vars.transitionDuration.short} ease, border-color ${vars.transitionDuration.short} ease`,
@@ -92,13 +92,13 @@ export const sliderThumb = style([
 export const leadingIcon = style([
   { color: vars.color.text_low_contrast },
   getSprinkles({
-    padding: "spacing1",
+    padding: "spacing_1",
   }),
 ]);
 
 export const trailingIcon = style([
   { color: vars.color.text_low_contrast },
   getSprinkles({
-    padding: "spacing1",
+    padding: "spacing_1",
   }),
 ]);

@@ -10,7 +10,7 @@ export const slot = style(
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
-    maxHeight: "spacing3",
-    maxWidth: "spacing3",
+    maxHeight: "spacing_3",
+    maxWidth: "spacing_3",
   })
 );

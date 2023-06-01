@@ -28,7 +28,7 @@ const Template: StoryFn<StoryCompProps> = ({
 
 const TemplateAllAppearances: StoryFn<StoryCompProps> = (rest) => {
   return (
-    <Box display="flex" gap="spacing3">
+    <Box display="flex" gap="spacing_3">
       <StoryComp appearance="primary" name="primary" {...rest}>
         Primary
       </StoryComp>
@@ -113,7 +113,7 @@ export const ColorOverlayRed: StoryObj<StoryCompProps> = {
  * Customisation examples
  */
 export const CustomisationMargin: StoryObj<StoryCompProps> = {
-  args: { children: "Click me", margin: "spacing5" },
+  args: { children: "Click me", margin: "spacing_5" },
   name: "customisation/margin",
   render: Template,
 };

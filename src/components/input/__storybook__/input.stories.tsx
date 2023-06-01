@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const CustomisationMargin: Story = {
   args: {
     wrapperProps: {
-      margin: "spacing5",
+      margin: "spacing_5",
     },
   },
   name: "customisation/margin",
