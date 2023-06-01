@@ -28,14 +28,12 @@ export const sprinklesProperties = defineProperties({
     bottom: ["0"],
     boxShadow: vars.boxShadow,
     color: { ...vars.color, inherit: "inherit" },
-    columnGap: vars.spacing,
     flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
     flexGrow: ["0", "1"],
     flexShrink: ["0", "1"],
     flexWrap: ["wrap", "nowrap"],
     fontSize: vars.fontSize,
     fontWeight: vars.fontWeight,
-    gap: vars.spacing,
     height: { ...vars.height, ...vars.spacing },
     inset: ["0"],
     isolation: ["isolate"],
@@ -61,7 +59,6 @@ export const sprinklesProperties = defineProperties({
     overflow: ["hidden"],
     overflowY: ["auto"],
     right: ["0"],
-    rowGap: vars.spacing,
     textAlign: ["center", "left", "right"],
     textDecoration: ["underline", "none", "line-through"],
     textTransform: ["capitalize", "uppercase", "lowercase"],
@@ -78,8 +75,10 @@ export const sprinklesProperties = defineProperties({
 });
 
 export const responsiveSprinklesProperties = defineProperties({
+  /**
+   * Note, the ordering of conditions is important
+   */
   conditions: {
-    /** Note, the ordering of these are important */
     /* eslint-disable sort-keys-fix/sort-keys-fix */
     mobile: {},
     tablet: {
@@ -94,6 +93,7 @@ export const responsiveSprinklesProperties = defineProperties({
   properties: {
     display: vars.display,
     flexDirection: ["row", "column", "row-reverse", "column-reverse"],
+    gap: vars.spacing,
     gridTemplateColumns: vars.gridTemplateColumns,
     padding: vars.spacing,
     paddingBottom: vars.spacing,

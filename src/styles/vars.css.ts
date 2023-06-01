@@ -104,6 +104,7 @@ export const rootVars = createGlobalTheme(":root", {
     body_sm: "1.5",
     body_xl: "1.5",
     body_xs: "1.25",
+    h0: "1",
     h1: "1",
     h2: "1",
     h3: "1",
