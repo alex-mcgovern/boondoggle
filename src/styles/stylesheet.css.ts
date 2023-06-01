@@ -146,12 +146,11 @@ globalStyle(":root", {
   "@media": {
     [MEDIA_QUERY_MOBILE]: {
       vars: {
-        [vars.fontSize.h1]: "2.027rem",
-        [vars.fontSize.h2]: "1.802rem",
-        [vars.fontSize.h3]: "1.602rem",
-        [vars.fontSize.h4]: "1.424rem",
-        [vars.fontSize.h5]: "1.266rem",
-        [vars.fontSize.h6]: "1.125rem",
+        [vars.fontSize.h0]: "2.5rem",
+        [vars.fontSize.h1]: "2rem",
+        [vars.fontSize.h2]: "1.625rem",
+        [vars.fontSize.h3]: "1.375rem",
+        [vars.fontSize.h4]: "1.125rem",
       },
     },
   },
