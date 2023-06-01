@@ -11,17 +11,17 @@ exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
       <span
         aria-disabled="false"
         aria-label="Name ipsum"
-        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing1__eiij7b5i get_sprinkles_marginBottom_spacing1__eiij7b4l get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b9f get_sprinkles_position_relative_mobile__eiij7bg0 get_sprinkles_width_100%_mobile__eiij7bgi"
+        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing1__eiij7b5i get_sprinkles_marginBottom_spacing1__eiij7b4l get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b9f get_sprinkles_position_relative_mobile__eiij7bg3 get_sprinkles_width_100%_mobile__eiij7bgl"
         data-orientation="horizontal"
         dir="ltr"
         style="--radix-slider-thumb-transform: translateX(-50%);"
       >
         <span
-          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_borderRadius_sm__eiij7by get_sprinkles_position_relative_mobile__eiij7bg0"
+          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_borderRadius_sm__eiij7by get_sprinkles_position_relative_mobile__eiij7bg3"
           data-orientation="horizontal"
         >
           <span
-            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_background_button_default__eiij7be get_sprinkles_borderRadius_pill__eiij7bx get_sprinkles_height_100%__eiij7b38 get_sprinkles_position_absolute_mobile__eiij7bg3"
+            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_background_button_default__eiij7be get_sprinkles_borderRadius_pill__eiij7bx get_sprinkles_height_100%__eiij7b38 get_sprinkles_position_absolute_mobile__eiij7bg6"
             data-orientation="horizontal"
             style="left: 0%; right: 100%;"
           />
@@ -34,7 +34,7 @@ exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="0"
-            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_background_tint_default__eiij7bl get_sprinkles_border_border_active__eiij7bo get_sprinkles_borderRadius_50%__eiij7bu get_sprinkles_display_block_mobile__eiij7b9c get_sprinkles_height_spacing3__eiij7b3h get_sprinkles_width_spacing3_mobile__eiij7bi9"
+            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_background_tint_default__eiij7bl get_sprinkles_border_border_active__eiij7bo get_sprinkles_borderRadius_50%__eiij7bu get_sprinkles_display_block_mobile__eiij7b9c get_sprinkles_height_spacing3__eiij7b3h get_sprinkles_width_spacing3_mobile__eiij7bic"
             data-orientation="horizontal"
             data-radix-collection-item=""
             role="slider"
