@@ -1,6 +1,7 @@
 import { globalStyle } from "@vanilla-extract/css";
 
 import { a11yFocusStyleRule } from "./common/a11y.css";
+import { MEDIA_QUERY_MOBILE } from "./common/media_queries.css";
 import { baseLayer, resetLayer } from "./layers.css";
 import { vars } from "./theme.css";
 import { createAccessibleTransition } from "./utils/create_accessible_transition";
@@ -137,6 +138,21 @@ globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
   "@layer": {
     [resetLayer]: {
       cursor: "pointer",
+    },
+  },
+});
+
+globalStyle(":root", {
+  "@media": {
+    [MEDIA_QUERY_MOBILE]: {
+      vars: {
+        [vars.fontSize.h1]: "2.027rem",
+        [vars.fontSize.h2]: "1.802rem",
+        [vars.fontSize.h3]: "1.602rem",
+        [vars.fontSize.h4]: "1.424rem",
+        [vars.fontSize.h5]: "1.266rem",
+        [vars.fontSize.h6]: "1.125rem",
+      },
     },
   },
 });
