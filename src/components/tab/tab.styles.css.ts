@@ -38,6 +38,7 @@ export const getTabStyle = recipe({
       borderRadius: "sm",
       color: "text_low_contrast",
       display: "inline-flex",
+      flexShrink: "0",
       gap: "spacing_0",
       textDecoration: "none",
       whiteSpace: "nowrap",

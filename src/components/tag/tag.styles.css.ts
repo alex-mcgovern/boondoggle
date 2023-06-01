@@ -36,6 +36,7 @@ export const getTagStyle = recipe({
       borderRadius: "sm",
       color: "text_low_contrast",
       display: "inline-flex",
+      flexShrink: "0",
       gap: "spacing_0",
       paddingX: "spacing_1",
       paddingY: "spacing_0",
