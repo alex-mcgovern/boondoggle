@@ -91,6 +91,9 @@ export type { LoaderProps } from "./components/loader";
 export { SelectButton } from "./components/select";
 export type { SelectButtonProps } from "./components/select";
 
+export { SlotWrapper } from "./components/slot_wrapper";
+export type { SlotWrapperProps } from "./components/slot_wrapper";
+
 export { SelectSingle } from "./components/select";
 export type { SelectSingleProps } from "./components/select";
 
