@@ -10,6 +10,7 @@ export const a11yError = style([
     selectors: {
       [`&:is(&:focus, &:focus-visible), &:focus-within`]: {
         boxShadow: `0 0 0 2px ${vars.color.focus_ring} !important`,
+        outline: "none !important",
       },
     },
   },
@@ -29,13 +30,14 @@ export const a11yDisabled = style({
 export const a11yFocusStyleRule: StyleRule = {
   borderColor: `${vars.color.button_default} !important`,
   boxShadow: `0 0 0 2px ${vars.color.focus_ring} !important`,
+  outline: "none !important",
 };
 
 export const a11yFocus = style([
   {
     selectors: {
       [`&:focus:not(:focus-visible)`]: {
-        outline: "none",
+        outline: "none !important",
       },
 
       [`&:not(:is([disabled], [readonly])):focus-visible`]: {
