@@ -239,7 +239,7 @@ export function DialogModal({
 
           {/** ---------------------------------------------------------------------------- */}
 
-          {dialogButtonOnClick && dialogButtonText && (
+          {dialogButtonText && (
             <DialogButton
               dialogButtonOnClick={dialogButtonOnClick}
               dialogButtonProps={dialogButtonProps}
