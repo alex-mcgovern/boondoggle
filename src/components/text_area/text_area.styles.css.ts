@@ -34,6 +34,7 @@ export const getTextAreaStyles = recipe({
     }),
     a11yDisabled,
     a11yFocus,
+    { resize: "none" },
   ],
   defaultVariants: {
     size: "md",
