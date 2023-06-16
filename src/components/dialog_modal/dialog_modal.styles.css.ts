@@ -34,7 +34,7 @@ export const dialogContent = style([
         borderRadius: vars.borderRadius.sm,
         boxShadow: vars.boxShadow.lg,
         height: "100dvh",
-        width: "50vw",
+        width: "28rem",
       },
       [MEDIA_QUERY_MOBILE]: {
         height: "100dvh",
@@ -45,7 +45,7 @@ export const dialogContent = style([
         borderRadius: vars.borderRadius.sm,
         boxShadow: vars.boxShadow.lg,
         maxHeight: "75dvh",
-        width: "75vw",
+        width: "28rem",
       },
     },
     left: "50%",

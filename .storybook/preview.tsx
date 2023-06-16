@@ -1,4 +1,4 @@
-import { ArgTypes, Decorator, Parameters } from "@storybook/react";
+import { ArgTypes, Parameters } from "@storybook/react";
 
 import "../src/styles/stylesheet.css";
 import "../src/styles/theme.css";
