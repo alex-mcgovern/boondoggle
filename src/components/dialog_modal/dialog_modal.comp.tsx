@@ -21,6 +21,29 @@ import type { ButtonProps } from "../button";
 
 /** ----------------------------------------------------------------------------- */
 
+export type DialogInfoBulletProps = {
+  slotLeft: ReactNode;
+  text: string;
+};
+
+export function DialogInfoBullet({ slotLeft, text }: DialogInfoBulletProps) {
+  return (
+    <Box
+      alignItems="center"
+      display="flex"
+      gap="spacing_2"
+      marginBottom="spacing_2"
+    >
+      <Box flexShrink="0" width="spacing_2">
+        {slotLeft}
+      </Box>
+      <Box>{text}</Box>
+    </Box>
+  );
+}
+
+/** ----------------------------------------------------------------------------- */
+
 type DialogButtonProps = Pick<
   DialogModalProps,
   | "dialogButtonOnClick"
@@ -32,7 +55,7 @@ type DialogButtonProps = Pick<
   | "dialogConfirmPromptSuffix"
 >;
 
-export function DialogButton({
+function DialogButton({
   dialogConfirmText,
   dialogButtonOnClick,
   dialogButtonProps,
@@ -101,7 +124,7 @@ type DialogModalAlertProps = Pick<
   "alertColor" | "alertDescription" | "alertSlotLeft" | "alertTitle"
 >;
 
-export function DialogModalAlert({
+function DialogModalAlert({
   alertColor = "amber",
   alertDescription,
   alertSlotLeft,
@@ -117,7 +140,9 @@ export function DialogModalAlert({
       gap="spacing_2"
       padding="spacing_2"
     >
-      {alertSlotLeft}
+      <Box flexShrink="0" width="spacing_2">
+        {alertSlotLeft}
+      </Box>
       <Box>
         {alertTitle && (
           <Box color="text_low_contrast" fontWeight="semibold">
@@ -217,8 +242,6 @@ export function DialogModal({
             </DialogModalPrimitive.Close>
           </Box>
 
-          {/** ---------------------------------------------------------------------------- */}
-
           <Box className={dialogInnerStyle}>
             <DialogModalAlert
               alertColor={alertColor}
@@ -236,8 +259,6 @@ export function DialogModal({
               {children}
             </Box>
           </Box>
-
-          {/** ---------------------------------------------------------------------------- */}
 
           {dialogButtonText && (
             <DialogButton

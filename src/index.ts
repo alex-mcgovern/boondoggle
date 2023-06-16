@@ -44,8 +44,11 @@ export type { CollapsibleProps } from "./components/collapsible";
 export { Dialog } from "./components/dialog";
 export type { DialogProps } from "./components/dialog";
 
-export { DialogModal } from "./components/dialog_modal";
-export type { DialogModalProps } from "./components/dialog_modal";
+export { DialogModal, DialogInfoBullet } from "./components/dialog_modal";
+export type {
+  DialogModalProps,
+  DialogInfoBulletProps,
+} from "./components/dialog_modal";
 
 export { Form } from "./components/form";
 export type { FormProps } from "./components/form";

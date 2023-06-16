@@ -10,9 +10,12 @@ import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
+import { DialogInfoBullet } from "../dialog_modal.comp";
 
 import type { DialogModalProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
+
+/** ----------------------------------------------------------------------------- */
 
 export default {
   component: StoryComp,
@@ -30,15 +33,10 @@ const DialogContent = () => {
     <Box>
       {Array.from({ length: 8 }).map(() => {
         return (
-          <Box
-            alignItems="center"
-            display="flex"
-            gap="spacing_2"
-            marginBottom="spacing_2"
-          >
-            <Icon icon={faShapes} />
-            <Box>{LOREM.text_lg}</Box>
-          </Box>
+          <DialogInfoBullet
+            slotLeft={<Icon icon={faShapes} />}
+            text={LOREM.text_lg}
+          />
         );
       })}
     </Box>
@@ -57,6 +55,8 @@ export const Default: StoryObj<StoryCompProps> = {
   render: Template,
 };
 
+/** ----------------------------------------------------------------------------- */
+
 export const WithButton: StoryObj<StoryCompProps> = {
   args: {
     children: <DialogContent />,
@@ -70,6 +70,8 @@ export const WithButton: StoryObj<StoryCompProps> = {
   name: "with_button",
   render: Template,
 };
+
+/** ----------------------------------------------------------------------------- */
 
 export const WithButtonAndConfirmText: StoryObj<StoryCompProps> = {
   args: {
@@ -88,6 +90,8 @@ export const WithButtonAndConfirmText: StoryObj<StoryCompProps> = {
   name: "with_button_and_confirm_text",
   render: Template,
 };
+
+/** ----------------------------------------------------------------------------- */
 
 export const WithButtonAndConfirmTextDestructive: StoryObj<StoryCompProps> = {
   args: {
@@ -110,6 +114,8 @@ export const WithButtonAndConfirmTextDestructive: StoryObj<StoryCompProps> = {
   name: "with_button_and_confirm_text_destructive",
   render: Template,
 };
+
+/** ----------------------------------------------------------------------------- */
 
 export const WithButtonAndAlertAndConfirmTextDestructive: StoryObj<StoryCompProps> =
   {
