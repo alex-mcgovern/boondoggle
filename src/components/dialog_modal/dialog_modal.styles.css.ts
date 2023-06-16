@@ -9,7 +9,7 @@ import {
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-export const dialogOverlay = style([
+export const dialogOverlayStyle = style([
   {
     background: `#00000080`,
     inset: 0,
@@ -19,10 +19,13 @@ export const dialogOverlay = style([
   animateAppear,
 ]);
 
-export const dialogContent = style([
+/** ----------------------------------------------------------------------------- */
+
+export const dialogContentStyle = style([
   getSprinkles({
     background: "tint_default",
-    display: "block",
+    display: "flex",
+    flexDirection: "column",
     isolation: "isolate",
     overflow: "hidden",
     textDecoration: "none",
@@ -60,12 +63,25 @@ export const dialogContent = style([
   animateAppear,
 ]);
 
-export const dialogInner = style([
+/** ----------------------------------------------------------------------------- */
+
+export const dialogInnerStyle = style([
   getSprinkles({
-    maxHeight: "90vh",
-    padding: "spacing_2",
+    flexGrow: "1",
   }),
   {
     overflowY: "auto",
+  },
+]);
+
+/** ----------------------------------------------------------------------------- */
+
+export const buttonConfirmTextStyle = style([
+  getSprinkles({
+    display: "inline-block",
+    marginBottom: "spacing_1",
+  }),
+  {
+    userSelect: "none",
   },
 ]);

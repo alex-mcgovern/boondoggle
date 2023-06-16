@@ -87,11 +87,11 @@ describe("<Form />", () => {
 
       await act(async () => {
         await userEvent.type(emailInput, LOREM.email());
-        await userEvent.type(descriptionTextArea, LOREM.textXxs);
+        await userEvent.type(descriptionTextArea, LOREM.text_xxs);
       });
 
       expect(emailInput).toHaveValue(LOREM.email());
-      expect(descriptionTextArea).toHaveValue(LOREM.textXxs);
+      expect(descriptionTextArea).toHaveValue(LOREM.text_xxs);
 
       await act(async () => {
         await userEvent.click(selectComponent);
@@ -110,7 +110,7 @@ describe("<Form />", () => {
         expect(handleFormSubmissionMock).toHaveBeenCalledWith(
           expect.objectContaining({
             amount: 1,
-            description: LOREM.textXxs,
+            description: LOREM.text_xxs,
             email: LOREM.email(),
             select: mockSelectItems({})[0].value,
           }),
@@ -140,7 +140,7 @@ describe("<Form />", () => {
         expect(handleFormSubmissionDefaultValuesMock).toHaveBeenCalledWith(
           expect.objectContaining({
             amount: 50,
-            description: LOREM.textXxs,
+            description: LOREM.text_xxs,
             email: LOREM.email(),
             select: mockSelectItems({})[0].value,
           }),

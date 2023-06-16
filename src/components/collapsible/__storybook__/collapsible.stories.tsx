@@ -34,7 +34,7 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 
 export const Default: StoryObj<StoryCompProps> = {
   args: {
-    children: LOREM.titleXl,
+    children: LOREM.title_xl,
   },
   name: "default",
   render: Template,

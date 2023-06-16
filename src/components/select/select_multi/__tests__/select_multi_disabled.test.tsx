@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectMulti  } from "../select_multi.comp";
+import { SelectMulti } from "../select_multi.comp";
 
 import type { SelectMultiProps } from "../select_multi.comp";
 
@@ -17,7 +17,7 @@ const PROPS: SelectMultiProps = {
   id: LOREM.id(),
   items: mockSelectItems({}),
   label: LOREM.label(),
-  name: LOREM.textXxs,
+  name: LOREM.text_xxs,
   placeholder: LOREM.select,
 };
 

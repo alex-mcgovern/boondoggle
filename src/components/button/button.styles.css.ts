@@ -144,10 +144,10 @@ export const getButtonStyles = recipe({
       display: "flex",
       gap: "spacing_1",
       textDecoration: "none",
-      width: "max-content",
+      // width: "max-content",
     }),
     createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
+      transition: `color ${vars.transitionDuration.medium} ease, background ${vars.transitionDuration.medium} ease, opacity ${vars.transitionDuration.medium} ease`,
     }),
   ],
   compoundVariants: [

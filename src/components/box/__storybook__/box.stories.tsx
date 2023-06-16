@@ -64,7 +64,7 @@ const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
 export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
   args: {
     ...BASIC_SPRINKLES_PROPS,
-    children: LOREM.textXxs,
+    children: LOREM.text_xxs,
   },
   name: "example/basic_sprinkles",
   render: Template,
@@ -93,7 +93,7 @@ export const ExampleEscapeHatchStyles: StoryObj<StoryCompProps> = {
     __color: "#BA55D3",
     __fontWeight: "bold",
     __padding: "1.5rem",
-    children: LOREM.textXxs,
+    children: LOREM.text_xxs,
   },
   name: "example/escape_hatch_styles",
   render: Template,
@@ -109,9 +109,9 @@ export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
     borderRadius: "sm",
     children: [
       <StoryComp as="h3" fontSize="body_lg" fontWeight="bold">
-        {LOREM.textXxs}
+        {LOREM.text_xxs}
       </StoryComp>,
-      <StoryComp as="p">{LOREM.textMd}</StoryComp>,
+      <StoryComp as="p">{LOREM.text_md}</StoryComp>,
     ],
     padding: "spacing_3",
   },
@@ -134,9 +134,9 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
           fontSize="body_lg"
           fontWeight="bold"
         >
-          {LOREM.textXxs}
+          {LOREM.text_xxs}
         </StoryComp>
-        <StoryComp as="p">{LOREM.textMd}</StoryComp>
+        <StoryComp as="p">{LOREM.text_md}</StoryComp>
       </StoryComp>,
     ],
     className: variantColorOverlay.red,
@@ -162,10 +162,10 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
           fontSize="body_lg"
           fontWeight="bold"
         >
-          {LOREM.textXxs}
+          {LOREM.text_xxs}
         </StoryComp>
         <StoryComp as="p" color="text_high_contrast">
-          {LOREM.textMd}
+          {LOREM.text_md}
         </StoryComp>
       </StoryComp>,
     ],

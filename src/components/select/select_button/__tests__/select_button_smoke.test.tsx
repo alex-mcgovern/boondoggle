@@ -17,7 +17,7 @@ const PROPS: SelectButtonProps = {
   buttonText: LOREM.select,
   id: LOREM.id(),
   items: mockSelectItems({}),
-  name: LOREM.textXxs,
+  name: LOREM.text_xxs,
 };
 
 const renderComponent = (props: SelectButtonProps) => {

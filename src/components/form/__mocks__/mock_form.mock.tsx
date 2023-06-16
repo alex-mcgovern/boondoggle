@@ -70,7 +70,7 @@ export const mockForm = ({
           wrapperProps={WRAPPER_PROPS}
         />
         <FormTextArea
-          defaultValue={withDefaultValues ? LOREM.textXxs : undefined}
+          defaultValue={withDefaultValues ? LOREM.text_xxs : undefined}
           errorMessage="Enter a valid description"
           id="description"
           label={LOREM.labelDescription()}

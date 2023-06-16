@@ -1,34 +1,173 @@
 import { faTimes } from "@fortawesome/pro-light-svg-icons";
 import * as DialogModalPrimitive from "@radix-ui/react-dialog";
+import { type ReactNode, useState } from "react";
 
+import {
+  type ColorOverlay,
+  variantColorOverlay,
+} from "../../styles/color_palette.css";
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import * as styles from "./dialog_modal.styles.css";
+import { Input } from "../input";
+import {
+  buttonConfirmTextStyle,
+  dialogContentStyle,
+  dialogInnerStyle,
+  dialogOverlayStyle,
+} from "./dialog_modal.styles.css";
 
-import type { ReactNode } from "react";
+import type { ButtonProps } from "../button";
+
+/** ----------------------------------------------------------------------------- */
+
+type DialogButtonProps = Pick<
+  DialogModalProps,
+  | "dialogButtonOnClick"
+  | "dialogConfirmText"
+  | "dialogButtonProps"
+  | "dialogConfirmText"
+  | "dialogButtonText"
+  | "dialogConfirmPromptPrefix"
+  | "dialogConfirmPromptSuffix"
+>;
+
+export function DialogButton({
+  dialogConfirmText,
+  dialogButtonOnClick,
+  dialogButtonProps,
+  dialogButtonText,
+  dialogConfirmPromptPrefix,
+  dialogConfirmPromptSuffix,
+}: DialogButtonProps) {
+  const [userConfirmText, setUserConfirmText] = useState("");
+
+  if (dialogConfirmText) {
+    return (
+      <Box borderTop="border_default" padding="spacing_2">
+        <Box className={buttonConfirmTextStyle}>
+          <Box as="span">{dialogConfirmPromptPrefix}</Box>{" "}
+          <Box as="span" fontWeight="bold">
+            {dialogConfirmText}
+          </Box>{" "}
+          <Box as="span">{dialogConfirmPromptSuffix}</Box>
+        </Box>
+
+        <Input
+          marginBottom="spacing_2"
+          name="dialog_confirm_text"
+          placeholder=""
+          value={userConfirmText}
+          onChange={(e) => {
+            return setUserConfirmText(e.target.value);
+          }}
+        />
+
+        <DialogModalPrimitive.Close asChild>
+          <Button
+            appearance="primary"
+            disabled={userConfirmText !== dialogConfirmText}
+            name="primary_action"
+            onClick={dialogButtonOnClick}
+            width="100%"
+            {...dialogButtonProps}
+          >
+            {dialogButtonText}
+          </Button>
+        </DialogModalPrimitive.Close>
+      </Box>
+    );
+  }
+
+  return (
+    <Box borderTop="border_default" padding="spacing_2">
+      <Button
+        appearance="primary"
+        name="primary_action"
+        onClick={dialogButtonOnClick}
+        width="100%"
+        {...dialogButtonProps}
+      >
+        {dialogButtonText}
+      </Button>
+    </Box>
+  );
+}
+
+/** ----------------------------------------------------------------------------- */
+
+type DialogModalAlertProps = Pick<
+  DialogModalProps,
+  "alertColor" | "alertDescription" | "alertSlotLeft" | "alertTitle"
+>;
+
+export function DialogModalAlert({
+  alertColor = "amber",
+  alertDescription,
+  alertSlotLeft,
+  alertTitle,
+}: DialogModalAlertProps) {
+  return (
+    <Box
+      alignItems="center"
+      background="tint_default"
+      borderBottom="border_default"
+      className={variantColorOverlay[alertColor]}
+      display="flex"
+      gap="spacing_2"
+      padding="spacing_2"
+    >
+      {alertSlotLeft}
+      <Box>
+        {alertTitle && (
+          <Box color="text_low_contrast" fontWeight="semibold">
+            {alertTitle}
+          </Box>
+        )}
+        {alertDescription}
+      </Box>
+    </Box>
+  );
+}
+
+/** ----------------------------------------------------------------------------- */
 
 export type DialogModalProps = {
+  alertColor?: ColorOverlay;
+  alertDescription?: string;
+  alertSlotLeft?: ReactNode;
+  alertTitle?: string;
   callbackOnOpenChange?: (isOpen: boolean) => void;
-  /** DialogModal content */
   children: ReactNode | Array<ReactNode>;
-  /** Accessible description for dialog */
   description?: string;
+  dialogButtonOnClick?: () => void;
+  dialogButtonProps?: Omit<ButtonProps, "onClick">;
+  dialogButtonText?: string;
+  dialogConfirmPromptPrefix?: string;
+  dialogConfirmPromptSuffix?: string;
+  dialogConfirmText?: string;
   isOpen?: boolean;
-  /** Accessible title for dialog */
   title: string;
-  /** Element to use as DialogModal trigger. Note: Must accept a ref. */
   triggerNode: ReactNode;
 };
 
-const CLOSE_BUTTON_ICON = <Icon icon={faTimes} />;
 export function DialogModal({
-  triggerNode,
-  title,
-  description,
-  children,
-  isOpen,
+  alertColor,
+  alertDescription,
+  alertSlotLeft,
+  alertTitle,
   callbackOnOpenChange,
+  children,
+  description,
+  dialogButtonOnClick,
+  dialogButtonProps,
+  dialogButtonText,
+  dialogConfirmPromptPrefix = "Please type",
+  dialogConfirmPromptSuffix = "to continue",
+  dialogConfirmText,
+  isOpen,
+  title,
+  triggerNode,
   ...rest
 }: DialogModalProps) {
   return (
@@ -37,21 +176,15 @@ export function DialogModal({
       open={isOpen}
       {...rest}
     >
-      {/**
-       * Allow custom trigger node, e.g. menu icon.
-       * ToDo: Figure out a way to require triggerNode to accept ref, or to
-       * wrap triggerNode so it is always able to accept a ref.
-       */}
       <DialogModalPrimitive.Trigger asChild>
         {triggerNode}
       </DialogModalPrimitive.Trigger>
 
+      {/** ---------------------------------------------------------------------------- */}
+
       <DialogModalPrimitive.Portal>
-        <DialogModalPrimitive.Overlay className={styles.dialogOverlay} />
-        <DialogModalPrimitive.Content className={styles.dialogContent}>
-          {/* ——
-           * DIALOG HEADER
-           * —— */}
+        <DialogModalPrimitive.Overlay className={dialogOverlayStyle} />
+        <DialogModalPrimitive.Content className={dialogContentStyle}>
           <Box
             alignItems="center"
             borderBottom="border_default"
@@ -60,7 +193,12 @@ export function DialogModal({
             padding="spacing_2"
           >
             <DialogModalPrimitive.Title asChild>
-              <Box as="h2" fontStyle="body_lg" marginY="none">
+              <Box
+                as="h2"
+                fontStyle="body_md"
+                fontWeight="semibold"
+                marginY="none"
+              >
                 {title}
               </Box>
             </DialogModalPrimitive.Title>
@@ -73,21 +211,44 @@ export function DialogModal({
                 marginLeft="auto"
                 name="close"
                 size="square"
-                slotLeft={CLOSE_BUTTON_ICON}
+                slotLeft={<Icon icon={faTimes} />}
                 type="button"
               />
             </DialogModalPrimitive.Close>
           </Box>
 
-          <Box className={styles.dialogInner}>
-            {description && (
-              <DialogModalPrimitive.Description>
-                {description}
-              </DialogModalPrimitive.Description>
-            )}
+          {/** ---------------------------------------------------------------------------- */}
 
-            {children}
+          <Box className={dialogInnerStyle}>
+            <DialogModalAlert
+              alertColor={alertColor}
+              alertDescription={alertDescription}
+              alertSlotLeft={alertSlotLeft}
+              alertTitle={alertTitle}
+            />
+
+            <Box padding="spacing_2">
+              {description && (
+                <DialogModalPrimitive.Description>
+                  {description}
+                </DialogModalPrimitive.Description>
+              )}
+              {children}
+            </Box>
           </Box>
+
+          {/** ---------------------------------------------------------------------------- */}
+
+          {dialogButtonOnClick && dialogButtonText && (
+            <DialogButton
+              dialogButtonOnClick={dialogButtonOnClick}
+              dialogButtonProps={dialogButtonProps}
+              dialogButtonText={dialogButtonText}
+              dialogConfirmPromptPrefix={dialogConfirmPromptPrefix}
+              dialogConfirmPromptSuffix={dialogConfirmPromptSuffix}
+              dialogConfirmText={dialogConfirmText}
+            />
+          )}
         </DialogModalPrimitive.Content>
       </DialogModalPrimitive.Portal>
     </DialogModalPrimitive.Root>

@@ -12,7 +12,8 @@
     "url": "https://github.com/alex-mcgovern/boondoggle.design"
   },
   "sideEffects": [
-    "*.css"
+    "*.css",
+    "*.css.ts"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",

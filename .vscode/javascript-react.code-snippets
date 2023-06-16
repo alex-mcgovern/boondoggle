@@ -97,9 +97,6 @@
     "prefix": "TS FC",
     "description": "",
     "body": [
-      "import React from \"react\";",
-      "",
-      "",
       "type ComponentProps = {",
       "\tplaceholderProp: undefined",
       "}",

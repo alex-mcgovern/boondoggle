@@ -37,10 +37,12 @@ export const LOREM = {
     return `Placeholder ipsum${suffix ? `-${suffix}` : ""}`;
   },
   select: "Select a thing",
-  textMd: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  textXxl:
+  text_lg:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl.",
+  text_md: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  text_xl:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl.",
-  textXxs: "Lorem ipsum",
-  titleXl:
+  text_xxs: "Lorem ipsum",
+  title_xl:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nisl.",
 };

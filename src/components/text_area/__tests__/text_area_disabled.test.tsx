@@ -47,7 +47,7 @@ describe("<TextArea />", () => {
     it("should not call `onChange()` when user types", async () => {
       const { getByRole } = renderComponent(PROPS);
 
-      await userEvent.type(getByRole("textbox"), LOREM.textXxs);
+      await userEvent.type(getByRole("textbox"), LOREM.text_xxs);
 
       expect(ON_CHANGE).not.toHaveBeenCalled();
     });

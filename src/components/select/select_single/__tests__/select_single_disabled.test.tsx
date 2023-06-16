@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
 import "../../../../../test/dialog.mock";
 import { mockSelectItems } from "../../__mocks__/select.mock";
-import { SelectSingle  } from "../select_single.comp";
+import { SelectSingle } from "../select_single.comp";
 
 import type { SelectSingleProps } from "../select_single.comp";
 
@@ -17,7 +17,7 @@ const PROPS: SelectSingleProps = {
   id: LOREM.id(),
   items: mockSelectItems({}),
   label: LOREM.label(),
-  name: LOREM.textXxs,
+  name: LOREM.text_xxs,
   placeholder: LOREM.select,
 };
 

@@ -19,7 +19,7 @@ const PROPS: SelectSingleProps = {
   id: LOREM.id(),
   items: mockSelectItems({}),
   label: LOREM.label(),
-  name: LOREM.textXxs,
+  name: LOREM.text_xxs,
   onChange: ON_CHANGE,
   placeholder: LOREM.select,
 };

@@ -15,13 +15,13 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 
 export const Default: StoryObj<StoryCompProps> = {
   args: {
-    tooltipText: LOREM.textXxs,
+    tooltipText: LOREM.text_xxs,
   },
   render: Template,
 };
 export const WithLongText: StoryObj<StoryCompProps> = {
   args: {
-    tooltipText: LOREM.textXxl,
+    tooltipText: LOREM.text_xl,
   },
   render: Template,
 };

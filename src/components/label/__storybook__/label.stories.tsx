@@ -15,7 +15,7 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 
 export const Default: StoryObj<StoryCompProps> = {
   args: {
-    label: LOREM.textXxs,
+    label: LOREM.text_xxs,
   },
   name: "default",
   render: Template,
