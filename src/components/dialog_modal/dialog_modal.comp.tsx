@@ -104,15 +104,17 @@ function DialogButton({
 
   return (
     <Box borderTop="border_default" padding="spacing_2">
-      <Button
-        appearance="primary"
-        name="primary_action"
-        onClick={dialogButtonOnClick}
-        width="100%"
-        {...dialogButtonProps}
-      >
-        {dialogButtonText}
-      </Button>
+      <DialogModalPrimitive.Close asChild>
+        <Button
+          appearance="primary"
+          name="primary_action"
+          onClick={dialogButtonOnClick}
+          width="100%"
+          {...dialogButtonProps}
+        >
+          {dialogButtonText}
+        </Button>
+      </DialogModalPrimitive.Close>
     </Box>
   );
 }
@@ -243,12 +245,14 @@ export function DialogModal({
           </Box>
 
           <Box className={dialogInnerStyle}>
-            <DialogModalAlert
-              alertColor={alertColor}
-              alertDescription={alertDescription}
-              alertSlotLeft={alertSlotLeft}
-              alertTitle={alertTitle}
-            />
+            {alertTitle && (
+              <DialogModalAlert
+                alertColor={alertColor}
+                alertDescription={alertDescription}
+                alertSlotLeft={alertSlotLeft}
+                alertTitle={alertTitle}
+              />
+            )}
 
             <Box padding="spacing_2">
               {description && (
