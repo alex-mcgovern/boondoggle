@@ -9,6 +9,8 @@ import {
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
+/** ----------------------------------------------------------------------------- */
+
 export const dialogOverlayStyle = style([
   {
     background: `#00000080`,
@@ -21,13 +23,14 @@ export const dialogOverlayStyle = style([
 
 /** ----------------------------------------------------------------------------- */
 
-export const dialogContentStyle = style([
+export const dialogOuterStyle = style([
+  animateAppear,
   getSprinkles({
     background: "tint_default",
-    display: "flex",
     flexDirection: "column",
     isolation: "isolate",
     overflow: "hidden",
+    padding: "none",
     textDecoration: "none",
   }),
   {
@@ -51,21 +54,44 @@ export const dialogContentStyle = style([
         width: "28rem",
       },
     },
+
     left: "50%",
     position: "fixed",
+
     selectors: {
       "&:focus": { outline: "none" },
+      "&[open]": { display: "flex" },
     },
+
     top: "50%",
     transform: "translate(-50%, -50%)",
     zIndex: 99999,
   },
-  animateAppear,
 ]);
 
 /** ----------------------------------------------------------------------------- */
 
-export const dialogInnerStyle = style([
+export const dialogHeaderStyle = style([
+  getSprinkles({
+    alignItems: "center",
+    borderBottom: "border_default",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "spacing_2",
+  }),
+]);
+
+export const dialogTitleStyle = style([
+  getSprinkles({
+    fontStyle: "body_md",
+    fontWeight: "semibold",
+    marginY: "none",
+  }),
+]);
+
+/** ----------------------------------------------------------------------------- */
+
+export const dialogContentStyle = style([
   getSprinkles({
     flexGrow: "1",
   }),

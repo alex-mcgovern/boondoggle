@@ -8,7 +8,9 @@
         "<THIRD_PARTY_TS_TYPES>",
         "<TS_TYPES>"
     ],
+    "tabWidth": 2,
     "importOrderSeparation": true,
     "importOrderSortSpecifiers": true,
+    "singleAttributePerLine": true,
     "plugins": ["prettier-plugin-jsdoc"]
 }

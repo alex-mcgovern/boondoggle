@@ -2,6 +2,8 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { a11yFocus } from "../../styles/common/a11y.css";
+import { animateAppear } from "../../styles/common/animations.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
@@ -22,7 +24,12 @@ export type DialogPlacementEnum = keyof typeof placement;
 
 export const getDialogStyles = recipe({
   base: [
-    { maxWidth: calc.subtract("100vw", vars.spacing.spacing_2) },
+    animateAppear,
+
+    a11yFocus,
+    {
+      maxWidth: calc.subtract("100vw", vars.spacing.spacing_2),
+    },
     getSprinkles({
       background: "background",
       border: "border_default",
@@ -42,6 +49,6 @@ export const getDialogStyles = recipe({
   },
 });
 
-export const dialogInnerStyles = style({
+export const dialogContentStyles = style({
   // transform: "translate3d(0, 0, 0)",
 });

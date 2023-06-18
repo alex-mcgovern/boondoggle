@@ -10,6 +10,6 @@ const appearKeyframes = keyframes({
 
 export const animateAppear = style([
   createAccessibleTransition({
-    animation: `${appearKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+    animation: `${appearKeyframes} ${vars.transitionDuration.long} ease forwards`,
   }),
 ]);

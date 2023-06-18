@@ -5,10 +5,8 @@ import { createRef, forwardRef, useCallback } from "react";
 import { useClickOutside } from "../../hooks/use_click_outside";
 import { useForwardRef } from "../../hooks/use_forward_ref";
 import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyboard";
-import { a11yFocus } from "../../styles/common/a11y.css";
-import { animateAppear } from "../../styles/common/animations.css";
 import { Box } from "../box";
-import { dialogInnerStyles, getDialogStyles } from "./dialog.styles.css";
+import { dialogContentStyles, getDialogStyles } from "./dialog.styles.css";
 
 import type { BoxProps } from "../box";
 import type { DialogPlacementEnum } from "./dialog.styles.css";
@@ -61,9 +59,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       );
     }, [dialogRef, onIsOpenChange]);
 
-    /**
-     * When input is focused and user presses enter, open the date picker.
-     */
     useOpenDialogWithKeyboard<HTMLElement>({
       callback: toggleIsOpen,
       dialogRef,
@@ -83,23 +78,24 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     });
 
     return (
-      <Box position="relative" {...wrapperProps}>
-        <Slot onClick={toggleIsOpen} ref={triggerRef}>
+      <Box
+        position="relative"
+        {...wrapperProps}
+      >
+        <Slot
+          onClick={toggleIsOpen}
+          ref={triggerRef}
+        >
           {triggerNode}
         </Slot>
         <Box
           {...rest}
           as="dialog"
+          className={clsx(userClassName, getDialogStyles({ placement }))}
           open={controlledIsOpen}
           ref={dialogRef}
-          className={clsx(
-            animateAppear,
-            userClassName,
-            a11yFocus,
-            getDialogStyles({ placement })
-          )}
         >
-          <Box className={dialogInnerStyles}>{children}</Box>
+          <Box className={dialogContentStyles}>{children}</Box>
         </Box>
       </Box>
     );
