@@ -18,6 +18,7 @@ export type DialogProps = BoxProps & {
   inert?: boolean;
   isOpen?: boolean;
   onIsOpenChange?: (isOpen?: boolean) => void;
+  openOn: "click" | "hover";
   placement?: DialogPlacementEnum;
   preventOpenOnKeydown?: boolean;
   triggerNode?: ReactNode;
@@ -33,6 +34,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       onIsOpenChange,
       preventOpenOnKeydown = false,
       triggerNode,
+      openOn = "click",
       placement,
       wrapperProps,
       ...rest
@@ -40,12 +42,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     ref
   ) => {
     const dialogRef = useForwardRef<HTMLDialogElement>(ref);
-
     const triggerRef = createRef<HTMLElement>();
 
-    /**
-     * Callback for when the input is clicked or focused.
-     */
+    /** --------------------------------------------- */
+
     const toggleIsOpen = useCallback(() => {
       if (!dialogRef.current) {
         return undefined;
@@ -59,6 +59,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       );
     }, [dialogRef, onIsOpenChange]);
 
+    /** --------------------------------------------- */
+
     useOpenDialogWithKeyboard<HTMLElement>({
       callback: toggleIsOpen,
       dialogRef,
@@ -66,9 +68,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       triggerRef,
     });
 
-    /**
-     * Handle click outside dialog
-     */
+    /** --------------------------------------------- */
+
     useClickOutside<HTMLDialogElement, HTMLElement>({
       callback: () => {
         return dialogRef.current?.close();
@@ -77,17 +78,56 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       triggerRef,
     });
 
+    /** --------------------------------------------- */
+
     return (
       <Box
         position="relative"
         {...wrapperProps}
       >
-        <Slot
-          onClick={toggleIsOpen}
-          ref={triggerRef}
-        >
-          {triggerNode}
-        </Slot>
+        <Box background="transparent">
+          <Slot
+            onClick={toggleIsOpen}
+            ref={triggerRef}
+            onMouseEnter={
+              openOn === "hover"
+                ? () => {
+                    return dialogRef.current?.show();
+                  }
+                : undefined
+            }
+            onMouseLeave={
+              openOn === "hover"
+                ? () => {
+                    return dialogRef.current?.close();
+                  }
+                : undefined
+            }
+            onPointerEnter={
+              openOn === "hover"
+                ? () => {
+                    return dialogRef.current?.show();
+                  }
+                : undefined
+            }
+            onPointerLeave={
+              openOn === "hover"
+                ? () => {
+                    return dialogRef.current?.show();
+                  }
+                : undefined
+            }
+            onPointerOver={
+              openOn === "hover"
+                ? () => {
+                    return dialogRef.current?.show();
+                  }
+                : undefined
+            }
+          >
+            {triggerNode}
+          </Slot>
+        </Box>
         <Box
           {...rest}
           as="dialog"

@@ -15,7 +15,11 @@ export const sprinklesProperties = defineProperties({
   properties: {
     alignItems: ["stretch", "start", "center", "end", "baseline"],
     aspectRatio: vars.aspectRatio,
-    background: { ...vars.color, inherit: "inherit" },
+    background: {
+      ...vars.color,
+      inherit: "inherit",
+      transparent: "transparent",
+    },
     border: {
       border_active: `1px solid ${vars.color.border_active}`,
       border_default: `1px solid ${vars.color.border_default}`,

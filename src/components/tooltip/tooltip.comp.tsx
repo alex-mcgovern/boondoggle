@@ -1,41 +1,38 @@
 import { faInfoCircle } from "@fortawesome/pro-light-svg-icons";
-import * as RadixTooltip from "@radix-ui/react-tooltip";
 
+import { Dialog } from "../dialog";
 import { Icon } from "../icon";
-import * as styles from "./tooltip.styles.css";
+import { tooltipTextStyle, tooltipTriggerStyle } from "./tooltip.styles.css";
 
+import type { DialogPlacementEnum } from "../dialog/dialog.styles.css";
 import type { ReactNode } from "react";
 
 export type TooltipProps = {
   children?: ReactNode;
-  side?: RadixTooltip.TooltipContentProps["side"];
+  placement?: DialogPlacementEnum;
   tooltipText: string;
-} & RadixTooltip.TooltipProps;
+};
 
 export function Tooltip({
   tooltipText,
+  placement,
   children = (
-    <button className={styles.tooltipTrigger} type="button">
-      <Icon icon={faInfoCircle} size="sm" />
+    <button
+      className={tooltipTriggerStyle}
+      type="button"
+    >
+      <Icon icon={faInfoCircle} />
     </button>
   ),
-  side = "bottom",
-  delayDuration = 0,
-  ...rest
 }: TooltipProps) {
   return (
-    <RadixTooltip.TooltipProvider>
-      <RadixTooltip.Root {...rest} delayDuration={delayDuration}>
-        <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
-
-        <RadixTooltip.Content
-          className={styles.tooltipText}
-          side={side}
-          sideOffset={2}
-        >
-          {tooltipText}
-        </RadixTooltip.Content>
-      </RadixTooltip.Root>
-    </RadixTooltip.TooltipProvider>
+    <Dialog
+      className={tooltipTextStyle}
+      openOn="hover"
+      placement={placement}
+      triggerNode={children}
+    >
+      {tooltipText}
+    </Dialog>
   );
 }

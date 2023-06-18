@@ -10,8 +10,9 @@ const contentShow = keyframes({
   "100%": { opacity: 1 },
 });
 
-export const tooltipTrigger = style([
+export const tooltipTriggerStyle = style([
   getSprinkles({
+    background: "transparent",
     borderRadius: "sm",
     color: "text_low_contrast",
     flexShrink: "0",
@@ -30,7 +31,7 @@ export const tooltipTrigger = style([
   a11yFocus,
 ]);
 
-export const tooltipText = style([
+export const tooltipTextStyle = style([
   getSprinkles({
     background: "text_low_contrast",
     borderRadius: "sm",

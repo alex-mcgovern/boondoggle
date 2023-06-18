@@ -26,7 +26,7 @@ export const dialogOverlayStyle = style([
 export const dialogOuterStyle = style([
   animateAppear,
   getSprinkles({
-    background: "tint_default",
+    background: "background",
     flexDirection: "column",
     isolation: "isolate",
     overflow: "hidden",

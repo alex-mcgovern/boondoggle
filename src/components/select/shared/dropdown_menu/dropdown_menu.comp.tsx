@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { Box } from "../../../box/box.comp";
 import { Dialog } from "../../../dialog";
 import { DropdownItem } from "../dropdown_item/dropdown_item.comp";
 import { getDropdownItemProps } from "../get_dropdown_item_props";
@@ -58,6 +57,7 @@ export const DropdownMenu = forwardRef(
      */
     return (
       <Dialog
+        className={clsx(styles.dropdownListWrapper, userClassName)}
         isOpen={controlledIsOpen}
         preventOpenOnKeydown
         {...rest}
@@ -65,35 +65,33 @@ export const DropdownMenu = forwardRef(
           ref: ref as LegacyRef<HTMLElement>,
         })}
       >
-        <Box className={clsx(styles.dropdownListWrapper, userClassName)}>
-          {Array.isArray(items) &&
-            items.map((item, index) => {
-              // eslint-disable-next-line @typescript-eslint/naming-convention
-              const { onClick: _unusedOnClick, ...restItem } = item;
+        {Array.isArray(items) &&
+          items.map((item, index) => {
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            const { onClick: _unusedOnClick, ...restItem } = item;
 
-              if (!item.label) {
-                return null;
-              }
-              return (
-                <DropdownItem
-                  isDropdownItemSelected={getIsItemSelected?.(item)}
-                  isHighlighted={highlightedIndex === index}
-                  isMulti={isMulti}
-                  item={restItem}
-                  key={`${item.label}-${item.value}`}
-                  size={size}
-                  {...getDropdownItemProps({
-                    getItemProps,
-                    getSelectedItemProps,
-                    index,
-                    isMulti,
-                    item: restItem,
-                    removeSelectedItem,
-                  })}
-                />
-              );
-            })}
-        </Box>
+            if (!item.label) {
+              return null;
+            }
+            return (
+              <DropdownItem
+                isDropdownItemSelected={getIsItemSelected?.(item)}
+                isHighlighted={highlightedIndex === index}
+                isMulti={isMulti}
+                item={restItem}
+                key={`${item.label}-${item.value}`}
+                size={size}
+                {...getDropdownItemProps({
+                  getItemProps,
+                  getSelectedItemProps,
+                  index,
+                  isMulti,
+                  item: restItem,
+                  removeSelectedItem,
+                })}
+              />
+            );
+          })}
       </Dialog>
     );
   }
