@@ -40,6 +40,7 @@ export const tooltipTextStyle = style([
     padding: "spacing_1",
     textAlign: "center",
     whiteSpace: "normal",
+    width: "max-content",
     zIndex: "1",
   }),
   {
