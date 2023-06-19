@@ -12,9 +12,7 @@ import { FormTextArea } from "../sub_components/form_textarea.comp";
 import type { BoxProps } from "../../box";
 import type { FormProps } from "../form.comp";
 
-/** -----------------------------------------------------------------------------
- * Form validation Zod schema
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 const mockFormSchema = z.object({
   amount: z.number().min(1),
@@ -22,19 +20,13 @@ const mockFormSchema = z.object({
   description: z.string().min(1),
   email: z.string().email().min(2),
   select: z.string().min(1),
-});
-
-/** -----------------------------------------------------------------------------
- * Common props for all form components
- * ------------------------------------------------------------------------------- */
+}); /** ----------------------------------------------------------------------------- */
 
 const WRAPPER_PROPS: BoxProps = {
   marginBottom: "spacing_3",
 };
 
-/** -----------------------------------------------------------------------------
- * Function for composing form component for testing
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 type MockFormProps = Pick<
   FormProps,

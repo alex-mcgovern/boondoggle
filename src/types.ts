@@ -7,9 +7,7 @@ import type {
   PropsWithChildren,
 } from "react";
 
-/** -----------------------------------------------------------------------------
- * Polymorphic component types
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**
@@ -42,11 +40,7 @@ export type PolymorphicComponentPropWithRef<
 };
 
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
-  ComponentPropsWithRef<TPolymorphicAs>["ref"];
-
-/** -----------------------------------------------------------------------------
- * Common types shared across multiple components
- * ------------------------------------------------------------------------------- */
+  ComponentPropsWithRef<TPolymorphicAs>["ref"]; /** ----------------------------------------------------------------------------- */
 
 // Enum of all HTML element types
 export type ElementTypeArg =

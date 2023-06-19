@@ -17,9 +17,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
-/** -----------------------------------------------------------------------------
- * Button size variants
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 const variantSize = styleVariants({
   lg: [elementFontSize.lg],
@@ -34,9 +32,7 @@ const variantSize = styleVariants({
   ],
 });
 
-/** -----------------------------------------------------------------------------
- * Common props for all appearance variants
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
   fontWeight: "normal",
@@ -44,9 +40,7 @@ const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
   whiteSpace: "nowrap",
 };
 
-/** -----------------------------------------------------------------------------
- * Button appearance variants
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 export const variantAppearance = styleVariants({
   ghost: [
@@ -114,8 +108,8 @@ export const variantAppearance = styleVariants({
         },
         [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
           background: vars.color.tint_active,
-          color: vars.color.button_active,
-          textDecoration: "underline",
+          // color: vars.color.button_active,
+          textDecoration: "none",
         },
       },
     },
@@ -124,17 +118,8 @@ export const variantAppearance = styleVariants({
 
 export type Appearance = keyof typeof variantAppearance;
 
-/** -----------------------------------------------------------------------------
- * Button recipe function
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
-/**
- * This is the main function that returns the styles for the button,
- * it exposes {@link variantColor} and {@link variantAppearance}
- * as arguments, which are then exposed as top-level props on the Button component.
- *
- * @see https://vanilla-extract.style/documentation/packages/recipes/
- */
 export const getButtonStyles = recipe({
   base: [
     a11yFocus,
@@ -145,12 +130,14 @@ export const getButtonStyles = recipe({
       display: "inline-flex",
       gap: "spacing_1",
       textDecoration: "none",
-      // width: "max-content",
     }),
     createAccessibleTransition({
       transition: `color ${vars.transitionDuration.medium} ease, background ${vars.transitionDuration.medium} ease, opacity ${vars.transitionDuration.medium} ease`,
     }),
   ],
+
+  /** --------------------------------------------- */
+
   compoundVariants: [
     {
       style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
@@ -164,6 +151,9 @@ export const getButtonStyles = recipe({
       style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
       variants: { appearance: "primary", size: "sm" },
     },
+
+    /** ------------------- */
+
     {
       style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
       variants: { appearance: "secondary", size: "lg" },
@@ -176,6 +166,9 @@ export const getButtonStyles = recipe({
       style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
       variants: { appearance: "secondary", size: "sm" },
     },
+
+    /** ------------------- */
+
     {
       style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
       variants: { appearance: "ghost", size: "lg" },

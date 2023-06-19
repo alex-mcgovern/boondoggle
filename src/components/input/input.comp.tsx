@@ -64,11 +64,10 @@ export const Input = forwardRef(
     ref: Ref<HTMLInputElement>
   ) => {
     /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
-
-    /** -----------------------------------------------------------------------------
-     * Layout for input component
-     * ------------------------------------------------------------------------------- */
+    const { atomProps, otherProps } = extractAtomsFromProps(
+      rest,
+      getSprinkles
+    ); /** ----------------------------------------------------------------------------- */
 
     return (
       <Box

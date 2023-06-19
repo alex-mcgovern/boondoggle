@@ -107,11 +107,11 @@ export const SelectMulti = forwardRef(
       }
 
       return getFilteredDropdownItems({ inputValue, items });
-    }, [items, isFilterable, inputValue]);
-
-    /** -----------------------------------------------------------------------------
-     * Util function for checking if item is selected, passed down to DropdownItemShape via DropdownMenu
-     * ------------------------------------------------------------------------------- */
+    }, [
+      items,
+      isFilterable,
+      inputValue,
+    ]); /** ----------------------------------------------------------------------------- */
 
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {

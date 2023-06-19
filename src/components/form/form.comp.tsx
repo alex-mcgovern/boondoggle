@@ -6,9 +6,7 @@ import type { BoxProps } from "../box";
 import type { KeyboardEvent, ReactNode } from "react";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
-/** -----------------------------------------------------------------------------
- * Util function to prevent misfires of the form on an enter keypress
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 const preventEnterKeySubmission = (e: KeyboardEvent<HTMLFormElement>) => {
   const target = e.target as HTMLInputElement | HTMLTextAreaElement;
@@ -17,9 +15,7 @@ const preventEnterKeySubmission = (e: KeyboardEvent<HTMLFormElement>) => {
   }
 };
 
-/** -----------------------------------------------------------------------------
- * Layout for form component
- * ------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------- */
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
   BoxProps,
