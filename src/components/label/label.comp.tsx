@@ -24,7 +24,12 @@ export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
       {...rest}
     >
       {label}
-      {labelTooltip && <Tooltip side="top" tooltipText={labelTooltip} />}
+      {labelTooltip && (
+        <Tooltip
+          placement="bottom-start"
+          tooltipText={labelTooltip}
+        />
+      )}
     </Box>
   );
 }

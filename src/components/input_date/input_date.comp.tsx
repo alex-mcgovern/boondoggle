@@ -1,4 +1,5 @@
 import { faCalendarAlt } from "@fortawesome/pro-light-svg-icons";
+import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
 import { formatDate } from "../../utils/format_date";
@@ -6,10 +7,12 @@ import { DatePicker } from "../date_picker/date_picker.comp";
 import { Dialog } from "../dialog/dialog.comp";
 import { Icon } from "../icon/icon.comp";
 import { Input } from "../input/input.comp";
-import * as styles from "./input_date.styles.css";
+import { datePickerDialogStyle, inputDateStyle } from "./input_date.styles.css";
 
 import type { InputProps } from "../input/input.comp";
 import type { MouseEvent } from "react";
+
+/** ----------------------------------------------------------------------------- */
 
 export type InputDateValue = {
   humanReadable: string;
@@ -19,9 +22,6 @@ export type InputDateValue = {
 export type InputDateProps = InputProps & {
   isOpen?: boolean;
   locale?: Intl.LocalesArgument;
-  /**
-   * On change handler designed to be used with React Hook Form's `register` method.
-   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: (...event: any[]) => void;
   rawValueTransformer?: (value: string) => string;
@@ -48,9 +48,8 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
     >(value || "");
     const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
 
-    /**
-     * Callback for when a day is clicked in the date picker.
-     */
+    /** --------------------------------------------- */
+
     const onDayClick = useCallback(
       (_: MouseEvent<HTMLElement>, date: Date) => {
         setInputValue(date.toLocaleDateString(locale));
@@ -68,15 +67,18 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
       [locale, rawValueTransformer, onChange]
     );
 
+    /** --------------------------------------------- */
+
     return (
       <Dialog
-        className={userClassName}
+        className={clsx(userClassName, datePickerDialogStyle)}
         isOpen={isOpen}
         wrapperProps={wrapperProps}
         triggerNode={
+          // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
           <Input
             {...(rest as InputProps)}
-            className={styles.inputDate}
+            className={inputDateStyle}
             defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
             readOnly
             ref={ref}

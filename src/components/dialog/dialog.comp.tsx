@@ -18,7 +18,7 @@ export type DialogProps = BoxProps & {
   inert?: boolean;
   isOpen?: boolean;
   onIsOpenChange?: (isOpen?: boolean) => void;
-  openOn: "click" | "hover";
+  openOn?: "click" | "hover";
   placement?: DialogPlacementEnum;
   preventOpenOnKeydown?: boolean;
   triggerNode?: ReactNode;
@@ -81,10 +81,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
     /** --------------------------------------------- */
 
     return (
-      <Box
-        position="relative"
-        {...wrapperProps}
-      >
+      <Box position="relative" {...wrapperProps}>
         <Box background="transparent">
           <Slot
             onClick={toggleIsOpen}

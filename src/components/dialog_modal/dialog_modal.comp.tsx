@@ -206,9 +206,7 @@ export type DialogModalProps = {
   alertDescription?: string;
   alertSlotLeft?: ReactNode;
   alertTitle?: string;
-  callbackOnOpenChange?: (isOpen: boolean) => void;
   children: ReactNode | Array<ReactNode>;
-  description?: string;
   dialogButtonOnClick?: () => void;
   dialogButtonProps?: Omit<ButtonProps, "onClick">;
   dialogButtonText?: string;
@@ -227,9 +225,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       alertDescription,
       alertSlotLeft,
       alertTitle,
-      callbackOnOpenChange,
       children,
-      description,
       dialogButtonOnClick,
       dialogButtonProps,
       dialogButtonText,
@@ -239,7 +235,6 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       isOpen,
       title,
       triggerNode,
-      ...rest
     },
     ref
   ) => {
