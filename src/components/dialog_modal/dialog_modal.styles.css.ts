@@ -1,12 +1,16 @@
 import { style } from "@vanilla-extract/css";
 
-import { animateAppear } from "../../styles/common/animations.css";
+import {
+  animateFadeIn,
+  fadeInBackdropKeyframes,
+} from "../../styles/common/animations.css";
 import {
   MEDIA_QUERY_DESKTOP,
   MEDIA_QUERY_MOBILE,
   MEDIA_QUERY_TABLET,
 } from "../../styles/common/media_queries.css";
 import { vars } from "../../styles/theme.css";
+import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 /** ----------------------------------------------------------------------------- */
@@ -18,13 +22,13 @@ export const dialogOverlayStyle = style([
     position: "fixed",
     zIndex: 99999,
   },
-  animateAppear,
+  animateFadeIn,
 ]);
 
 /** ----------------------------------------------------------------------------- */
 
 export const dialogOuterStyle = style([
-  animateAppear,
+  animateFadeIn,
   getSprinkles({
     background: "background",
     flexDirection: "column",
@@ -59,6 +63,12 @@ export const dialogOuterStyle = style([
     position: "fixed",
 
     selectors: {
+      "&::backdrop": {
+        background: vars.color.backdrop,
+        ...createAccessibleTransition({
+          animation: `${fadeInBackdropKeyframes} ${vars.transitionDuration.long} ease forwards`,
+        }),
+      },
       "&:focus": { outline: "none" },
       "&[open]": { display: "flex" },
     },

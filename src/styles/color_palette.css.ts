@@ -30,6 +30,7 @@ type MakeThemeArgs = {
 
 const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   return {
+    backdrop: slateA.slateA11,
     background: getFromPaletteByIndex(secondaryPalette, 0),
     black: slate.slate12,
     border_active: getFromPaletteByIndex(secondaryPalette, 7),
@@ -47,7 +48,7 @@ const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {
   };
 };
 
-export const color = createGlobalTheme(":root", {
+export const color = createGlobalTheme(":root, ::backdrop", {
   ...makeTheme({
     primaryPalette: blue,
     secondaryPalette: slate,

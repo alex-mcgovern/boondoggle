@@ -26,15 +26,12 @@ export function useClickOutside<
 }: UseClickOutsideArgs<TContentType, TTriggerType>) {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent): void {
-      if (
-        triggerRef?.current &&
-        triggerRef.current.contains(event.target as Node)
-      ) {
+      if (triggerRef?.current?.contains(event.target as Node)) {
         return;
       }
       if (
-        contentRef.current &&
-        !contentRef.current.contains(event.target as Node)
+        !contentRef?.current?.contains(event.target as Node) ||
+        (event?.target as HTMLDialogElement).nodeName === "DIALOG"
       ) {
         callback();
       }

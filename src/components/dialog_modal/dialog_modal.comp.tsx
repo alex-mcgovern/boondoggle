@@ -36,10 +36,7 @@ export function DialogInfoBullet({ slotLeft, text }: DialogInfoBulletProps) {
       gap="spacing_2"
       marginBottom="spacing_2"
     >
-      <Box
-        flexShrink="0"
-        width="spacing_2"
-      >
+      <Box flexShrink="0" width="spacing_2">
         {slotLeft}
       </Box>
       <Box>{text}</Box>
@@ -75,16 +72,10 @@ function DialogButton({
 
   if (dialogConfirmText) {
     return (
-      <Box
-        borderTop="border_default"
-        padding="spacing_2"
-      >
+      <Box borderTop="border_default" padding="spacing_2">
         <Box className={buttonConfirmTextStyle}>
           <Box as="span">{dialogConfirmPromptPrefix}</Box>{" "}
-          <Box
-            as="span"
-            fontWeight="bold"
-          >
+          <Box as="span" fontWeight="bold">
             {dialogConfirmText}
           </Box>{" "}
           <Box as="span">{dialogConfirmPromptSuffix}</Box>
@@ -118,10 +109,7 @@ function DialogButton({
   }
 
   return (
-    <Box
-      borderTop="border_default"
-      padding="spacing_2"
-    >
+    <Box borderTop="border_default" padding="spacing_2">
       <Button
         appearance="primary"
         name="primary_action"
@@ -162,10 +150,7 @@ function DialogModalAlert({
       gap="spacing_2"
       padding="spacing_2"
     >
-      <Box
-        flexShrink="0"
-        width="spacing_2"
-      >
+      <Box flexShrink="0" width="spacing_2">
         {alertSlotLeft}
       </Box>
       <Box color="text_low_contrast">
@@ -250,7 +235,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
 
       return dialogRef.current?.open
         ? dialogRef.current?.close()
-        : dialogRef.current?.show();
+        : dialogRef.current?.showModal();
     }, [dialogRef]);
 
     /** --------------------------------------------- */
@@ -267,10 +252,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
 
     return (
       <Box position="relative">
-        <Slot
-          onClick={toggleIsOpen}
-          ref={triggerRef}
-        >
+        <Slot onClick={toggleIsOpen} ref={triggerRef}>
           {triggerNode}
         </Slot>
 
@@ -281,10 +263,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
           ref={dialogRef}
         >
           <Box className={dialogHeaderStyle}>
-            <Box
-              as="h3"
-              className={dialogTitleStyle}
-            >
+            <Box as="h3" className={dialogTitleStyle}>
               {title}
             </Box>
 

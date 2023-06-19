@@ -31,9 +31,11 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 const DialogContent = () => {
   return (
     <Box>
-      {Array.from({ length: 8 }).map(() => {
+      {Array.from({ length: 8 }).map((_, index) => {
         return (
           <DialogInfoBullet
+            // eslint-disable-next-line react/no-array-index-key
+            key={`key-${index}`}
             slotLeft={<Icon icon={faShapes} />}
             text={LOREM.text_lg}
           />

@@ -126,9 +126,9 @@ export const rootVars = createGlobalTheme(":root", {
     spacing_6: "3rem",
   },
   transitionDuration: {
-    long: "450ms",
-    medium: "300ms",
-    short: "150ms",
+    long: "600ms",
+    medium: "400ms",
+    short: "200ms",
   },
   width: {
     "": "0",

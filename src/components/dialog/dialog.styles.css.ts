@@ -2,7 +2,7 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { animateAppear } from "../../styles/common/animations.css";
+import { animateFadeIn } from "../../styles/common/animations.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
@@ -23,7 +23,7 @@ export type DialogPlacementEnum = keyof typeof placement;
 
 export const getDialogStyles = recipe({
   base: [
-    animateAppear,
+    animateFadeIn,
     {
       maxWidth: calc.subtract("100vw", vars.spacing.spacing_2),
       selectors: {
