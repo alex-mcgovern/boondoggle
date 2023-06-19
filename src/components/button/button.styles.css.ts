@@ -9,7 +9,7 @@ import {
 } from "../../styles/common/element_size.css";
 import {
   SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
-  SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
+  SELECTOR_LINK_BUTTON_INPUT_HOVER,
 } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
@@ -57,7 +57,7 @@ export const variantAppearance = styleVariants({
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
         },
-        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
           background: vars.color.button_tint,
           color: vars.color.button_active,
         },
@@ -74,7 +74,7 @@ export const variantAppearance = styleVariants({
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: vars.color.button_default,
         },
-        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
           background: vars.color.button_active,
           color: vars.color.white,
         },
@@ -92,7 +92,7 @@ export const variantAppearance = styleVariants({
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
         },
-        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
           background: vars.color.button_tint,
           color: vars.color.button_active,
         },
@@ -103,7 +103,7 @@ export const variantAppearance = styleVariants({
   tertiary: [
     getSprinkles({
       fontWeight: "normal",
-      padding: "none",
+      paddingX: "spacing_1",
       textAlign: "left",
     }),
     {
@@ -112,7 +112,8 @@ export const variantAppearance = styleVariants({
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           color: vars.color.button_default,
         },
-        [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+          background: vars.color.tint_active,
           color: vars.color.button_active,
           textDecoration: "underline",
         },
@@ -141,7 +142,7 @@ export const getButtonStyles = recipe({
     getSprinkles({
       alignItems: "center",
       borderRadius: "sm",
-      display: "flex",
+      display: "inline-flex",
       gap: "spacing_1",
       textDecoration: "none",
       // width: "max-content",
