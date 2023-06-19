@@ -3,6 +3,7 @@ export * as stylesheet from "./styles/stylesheet.css";
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 export { getSprinkles } from "./styles/utils/get_sprinkles.css";
 export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";
+export type { ColorOverlay } from "./styles/theme.css";
 
 export { a11yDisabled } from "./styles/common/a11y.css";
 export {
