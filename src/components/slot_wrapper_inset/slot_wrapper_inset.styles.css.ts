@@ -17,7 +17,7 @@ export const slot = style([
     top: "0",
     width: "spacing_4",
   }),
-  { pointerEvents: "none" },
+  // { pointerEvents: "none" },
 ]);
 
 export const offsetSlotRight = style({
