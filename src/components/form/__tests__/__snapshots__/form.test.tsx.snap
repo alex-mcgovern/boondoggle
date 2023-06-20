@@ -5,19 +5,19 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
   name="Name ipsum"
 >
   <div
-    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_3__eiij7b45"
+    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_3__eiij7b48"
   >
     <label
-      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0_mobile__eiij7b9j get_sprinkles_marginBottom_spacing_0__eiij7b41"
+      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0.5_mobile__eiij7b9w get_sprinkles_marginBottom_spacing_0.5__eiij7b44"
       for="email"
     >
       Email label
     </label>
     <div
-      class="get_sprinkles_position_relative_mobile__eiij7bfg"
+      class="get_sprinkles_position_relative_mobile__eiij7bg8"
     >
       <input
-        class="input.styles_getInputStyles__3x32wp7 input.styles__3x32wp6 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 input.styles_getInputStyles_size_md__3x32wp9 input.styles_size_md__3x32wp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd input.styles__3x32wp1 get_sprinkles_height_spacing_5__eiij7b31"
+        class="input.styles_getInputStyles__3x32wp7 input.styles__3x32wp6 get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 input.styles_getInputStyles_size_md__3x32wp9 input.styles_size_md__3x32wp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw input.styles__3x32wp1 get_sprinkles_height_spacing_5__eiij7b32"
         id="email"
         name="email"
         placeholder="Enter your email address"
@@ -26,21 +26,21 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_3__eiij7b45"
+    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_3__eiij7b48"
   >
     <label
-      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0_mobile__eiij7b9j get_sprinkles_marginBottom_spacing_0__eiij7b41"
+      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0.5_mobile__eiij7b9w get_sprinkles_marginBottom_spacing_0.5__eiij7b44"
       for="description"
     >
       Description label
     </label>
     <div
-      class="get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+      class="get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
     >
       <textarea
         aria-invalid="false"
         aria-label="Description label"
-        class="text_area.styles_getTextAreaStyles__1l2bu6h7 text_area.styles__1l2bu6h6 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 text_area.styles_getTextAreaStyles_size_md__1l2bu6h9 text_area.styles_size_md__1l2bu6h4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd text_area.styles__1l2bu6h1 get_sprinkles_minHeight_spacing_5__eiij7b6z"
+        class="text_area.styles_getTextAreaStyles__1l2bu6h7 text_area.styles__1l2bu6h6 get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 text_area.styles_getTextAreaStyles_size_md__1l2bu6h9 text_area.styles_size_md__1l2bu6h4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw text_area.styles__1l2bu6h1 get_sprinkles_minHeight_spacing_5__eiij7b78"
         id="description"
         name="description"
         placeholder="Enter your description"
@@ -48,10 +48,10 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="get_sprinkles_marginBottom_spacing_3__eiij7b45"
+    class="get_sprinkles_marginBottom_spacing_3__eiij7b48"
   >
     <div
-      class="get_sprinkles_position_relative_mobile__eiij7bfg"
+      class="get_sprinkles_position_relative_mobile__eiij7bg8"
     >
       <div
         class="get_sprinkles_background_transparent__eiij7bp"
@@ -60,14 +60,14 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           class="get_sprinkles_color_text_low_contrast__eiij7b1k"
         >
           <label
-            class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0_mobile__eiij7b9j get_sprinkles_marginBottom_spacing_0__eiij7b41"
+            class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0.5_mobile__eiij7b9w get_sprinkles_marginBottom_spacing_0.5__eiij7b44"
             for="select"
             id="downshift-2-label"
           >
             Dropdown label
           </label>
           <div
-            class="get_sprinkles_position_relative_mobile__eiij7bfg"
+            class="get_sprinkles_position_relative_mobile__eiij7bg8"
           >
             <input
               aria-activedescendant=""
@@ -76,7 +76,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
               aria-expanded="false"
               aria-labelledby="downshift-2-label"
               autocomplete="off"
-              class="slot_wrapper_inset.styles_offsetSlotRight__1r5w8or2 input.styles_getInputStyles__3x32wp7 input.styles__3x32wp6 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 input.styles_getInputStyles_size_md__3x32wp9 input.styles_size_md__3x32wp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd input.styles__3x32wp1 get_sprinkles_height_spacing_5__eiij7b31 select_input.styles_selectInputCursorStyles__1bkra5a0"
+              class="slot_wrapper_inset.styles_offsetSlotRightStyle__1r5w8ord input.styles_getInputStyles__3x32wp7 input.styles__3x32wp6 get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 input.styles_getInputStyles_size_md__3x32wp9 input.styles_size_md__3x32wp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw input.styles__3x32wp1 get_sprinkles_height_spacing_5__eiij7b32 select_input.styles_selectInputCursorStyles__1bkra5a0"
               id="select"
               name="select"
               placeholder="Select an option from the dropdown"
@@ -85,30 +85,34 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
               value=""
             />
             <div
-              class="slot_wrapper_inset.styles_slot__1r5w8or1 slot_wrapper_inset.styles__1r5w8or0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_bottom_0__eiij7b15 get_sprinkles_color_inherit__eiij7b1o get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_flexShrink_0__eiij7b1v get_sprinkles_height_100%__eiij7b2q get_sprinkles_justifyContent_center__eiij7b37 get_sprinkles_position_absolute_mobile__eiij7bfj get_sprinkles_top_0__eiij7b85 get_sprinkles_width_spacing_4_mobile__eiij7bhs get_sprinkles_right_0__eiij7b7v"
+              class="slot_wrapper_inset.styles_slotOuterStyle__1r5w8or7 slot_wrapper_inset.styles__1r5w8or6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_bottom_0__eiij7b15 get_sprinkles_color_inherit__eiij7b1o get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_flexShrink_0__eiij7b1v get_sprinkles_height_100%__eiij7b2j get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_position_absolute_mobile__eiij7bgb get_sprinkles_top_0__eiij7b8f get_sprinkles_width_spacing_5_mobile__eiij7biq get_sprinkles_right_0__eiij7b85"
             >
-              <svg
-                aria-hidden="true"
-                class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1v"
-                data-icon="angle-down"
-                data-prefix="fal"
-                focusable="false"
-                role="img"
-                viewBox="0 0 448 512"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="slot_wrapper_inset.styles_getSlotInnerStyles__1r5w8or9 slot_wrapper_inset.styles__1r5w8or8 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 slot_wrapper_inset.styles_getSlotInnerStyles_size_md__1r5w8orb slot_wrapper_inset.styles_slotSize_md__1r5w8or4 slot_wrapper_inset.styles__1r5w8or1 get_sprinkles_maxHeight_spacing_2__eiij7b5q get_sprinkles_maxWidth_spacing_2__eiij7b6j"
               >
-                <path
-                  d="M212.7 331.3c6.2 6.2 16.4 6.2 22.6 0l160-160c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L224 297.4 75.3 148.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l160 160z"
-                  fill="currentColor"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-angle-down icon.styles_icon__15uu6ts0 get_sprinkles_flexShrink_0__eiij7b1v"
+                  data-icon="angle-down"
+                  data-prefix="fal"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M212.7 331.3c6.2 6.2 16.4 6.2 22.6 0l160-160c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L224 297.4 75.3 148.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l160 160z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <dialog
         aria-labelledby="downshift-2-label"
-        class="dropdown_menu.styles_dropdownListWrapper__ofq1dt1 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_spacing_1__eiij7b4w get_sprinkles_minWidth_100%__eiij7b74 get_sprinkles_overflow_hidden__eiij7b7t get_sprinkles_overflowY_auto__eiij7b7u get_sprinkles_width_max-content_mobile__eiij7bh4 dialog.styles_getDialogStyles__mfom5p4 animations_animateFadeIn__apgy12 dialog.styles__mfom5p3 get_sprinkles_overflow_hidden__eiij7b7t get_sprinkles_padding_none_mobile__eiij7bbd get_sprinkles_zIndex_1__eiij7b89 dialog.styles_getDialogStyles_placement_bottom-start__mfom5p7 dialog.styles_placement_bottom-start__mfom5p2 get_sprinkles_width_100%_mobile__eiij7bfy"
+        class="dropdown_menu.styles_dropdownListWrapper__ofq1dt1 a11y_a11yFocus__r8he5t2 dropdown_menu.styles__ofq1dt0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_spacing_1__eiij7b52 get_sprinkles_minWidth_100%__eiij7b7b get_sprinkles_overflow_hidden__eiij7b83 get_sprinkles_overflowY_auto__eiij7b84 get_sprinkles_width_max-content_mobile__eiij7bhw dialog.styles_getDialogStyles__mfom5p4 animations_animateFadeIn__apgy12 dialog.styles__mfom5p3 get_sprinkles_overflow_hidden__eiij7b83 get_sprinkles_padding_none_mobile__eiij7bbq get_sprinkles_zIndex_1__eiij7b8j dialog.styles_getDialogStyles_placement_bottom-start__mfom5p7 dialog.styles_placement_bottom-start__mfom5p2 get_sprinkles_width_100%_mobile__eiij7bgk"
         id="downshift-2-menu"
         role="listbox"
       >
@@ -117,7 +121,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         >
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-0"
             role="option"
             value="uk"
@@ -130,7 +134,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-1"
             role="option"
             value="fr"
@@ -143,7 +147,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-2"
             role="option"
             value="de"
@@ -156,7 +160,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-3"
             role="option"
             value="es"
@@ -169,7 +173,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-4"
             role="option"
             value="gb"
@@ -182,7 +186,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-5"
             role="option"
             value="it"
@@ -195,7 +199,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-6"
             role="option"
             value="pt"
@@ -208,7 +212,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-7"
             role="option"
             value="us"
@@ -221,7 +225,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-8"
             role="option"
             value="ca"
@@ -234,7 +238,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
           </li>
           <li
             aria-selected="false"
-            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_margin_none__eiij7b3q get_sprinkles_padding_spacing_1_mobile__eiij7bbj get_sprinkles_textAlign_left__eiij7b7x get_sprinkles_textDecoration_none__eiij7b80 get_sprinkles_width_100%_mobile__eiij7bfy a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+            class="dropdown_item.styles_getDropdownItemStyles__k59qmp7 dropdown_item.styles__k59qmp6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_margin_none__eiij7b3r get_sprinkles_padding_spacing_1_mobile__eiij7bbz get_sprinkles_textAlign_left__eiij7b87 get_sprinkles_textDecoration_none__eiij7b8a get_sprinkles_width_100%_mobile__eiij7bgk a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 dropdown_item.styles_getDropdownItemStyles_size_md__k59qmp9 dropdown_item.styles_size_md__k59qmp4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw dropdown_item.styles__k59qmp1 get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
             id="downshift-2-item-9"
             role="option"
             value="au"
@@ -250,23 +254,23 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_3__eiij7b45"
+    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_3__eiij7b48"
   >
     <label
-      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0_mobile__eiij7b9j get_sprinkles_marginBottom_spacing_0__eiij7b41"
+      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_fontSize_body_sm__eiij7b21 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_gap_spacing_0.5_mobile__eiij7b9w get_sprinkles_marginBottom_spacing_0.5__eiij7b44"
       for="amount"
       id="amount-label"
     >
       Slider label
     </label>
     <div
-      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m"
+      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z"
     >
       <span
         aria-disabled="false"
         aria-label="amount"
         aria-labelledby="amount-label"
-        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing_1__eiij7b4w get_sprinkles_marginBottom_spacing_1__eiij7b42 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_position_relative_mobile__eiij7bfg get_sprinkles_width_100%_mobile__eiij7bfy"
+        class="slider.styles_sliderRoot__1aufb7k1 slider.styles__1aufb7k0 get_sprinkles_marginTop_spacing_1__eiij7b52 get_sprinkles_marginBottom_spacing_1__eiij7b45 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_position_relative_mobile__eiij7bg8 get_sprinkles_width_100%_mobile__eiij7bgk"
         data-orientation="horizontal"
         dir="ltr"
         id="amount"
@@ -274,11 +278,11 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         style="--radix-slider-thumb-transform: translateX(-50%);"
       >
         <span
-          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_position_relative_mobile__eiij7bfg"
+          class="slider.styles_sliderTrack__1aufb7k3 slider.styles__1aufb7k2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_position_relative_mobile__eiij7bg8"
           data-orientation="horizontal"
         >
           <span
-            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_background_button_default__eiij7bf get_sprinkles_borderRadius_pill__eiij7bz get_sprinkles_height_100%__eiij7b2q get_sprinkles_position_absolute_mobile__eiij7bfj"
+            class="slider.styles_sliderRange__1aufb7k5 slider.styles__1aufb7k4 get_sprinkles_background_button_default__eiij7bf get_sprinkles_borderRadius_pill__eiij7bz get_sprinkles_height_100%__eiij7b2j get_sprinkles_position_absolute_mobile__eiij7bgb"
             data-orientation="horizontal"
             style="left: 0%; right: 100%;"
           />
@@ -291,7 +295,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="0"
-            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_background_tint_default__eiij7bm get_sprinkles_border_border_active__eiij7bq get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_display_block_mobile__eiij7b8a get_sprinkles_height_spacing_3__eiij7b2z get_sprinkles_width_spacing_3_mobile__eiij7bhp"
+            class="slider.styles_sliderThumb__1aufb7k7 slider.styles__1aufb7k6 get_sprinkles_background_tint_default__eiij7bm get_sprinkles_border_border_active__eiij7bq get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_display_block_mobile__eiij7b8k get_sprinkles_height_spacing_3__eiij7b30 get_sprinkles_width_spacing_3_mobile__eiij7bik"
             data-orientation="horizontal"
             data-radix-collection-item=""
             role="slider"
@@ -308,16 +312,16 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     </div>
   </div>
   <button
-    class="button.styles_getButtonStyles__3vuwsin a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 button.styles__3vuwsid get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7b8p get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_textDecoration_none__eiij7b80 button.styles_getButtonStyles_appearance_primary__3vuwsip button.styles_variantAppearance_primary__3vuwsia button.styles__3vuwsi6 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_justifyContent_center__eiij7b37 get_sprinkles_whiteSpace_nowrap__eiij7b86 button.styles_getButtonStyles_size_md__3vuwsit button.styles_variantSize_md__3vuwsi2 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3d button.styles_getButtonStyles_compound_1__3vuwsix element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bda get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7be4 get_sprinkles_paddingTop_spacing_1_mobile__eiij7bev get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcd button.styles__3vuwsif get_sprinkles_height_spacing_5__eiij7b31 get_sprinkles_width_100%_mobile__eiij7bfy"
+    class="button.styles_getButtonStyles__3vuwsin a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 button.styles__3vuwsid get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7b8z get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_textDecoration_none__eiij7b8a button.styles_getButtonStyles_appearance_primary__3vuwsip button.styles_variantAppearance_primary__3vuwsia button.styles__3vuwsi6 get_sprinkles_fontWeight_normal__eiij7b2g get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_whiteSpace_nowrap__eiij7b8g button.styles_getButtonStyles_size_md__3vuwsit button.styles_variantSize_md__3vuwsi2 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b20 get_sprinkles_lineHeight_body_md__eiij7b3e button.styles_getButtonStyles_compound_1__3vuwsix element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdw get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bet get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfn get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcw button.styles__3vuwsif get_sprinkles_height_spacing_5__eiij7b32 get_sprinkles_width_100%_mobile__eiij7bgk"
     name="submit"
     type="submit"
   >
     <div
-      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8d get_sprinkles_gap_spacing_1_mobile__eiij7b9m get_sprinkles_color_inherit__eiij7b1o"
+      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_color_inherit__eiij7b1o"
     >
       Submit
       <div
-        class="slot_wrapper.styles_slot_wrapper.styles__1xvz5xe0_get_sprinkles_alignItems_center__eiij7b2_get_sprinkles_display_flex_mobile__eiij7b8d_get_sprinkles_justifyContent_center__eiij7b37_get_sprinkles_maxHeight_spacing_3__eiij7b5k_get_sprinkles_maxWidth_spacing_3__eiij7b6c__1xvz5xe1 get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
+        class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_maxHeight_spacing_3__eiij7b5r get_sprinkles_maxWidth_spacing_3__eiij7b6k slot_wrapper.styles_getSlotStyles_size_md__1xvz5xe9 slot_wrapper.styles_slotSize_md__1xvz5xe4 slot_wrapper.styles__1xvz5xe1 get_sprinkles_maxHeight_spacing_2__eiij7b5q get_sprinkles_maxWidth_spacing_2__eiij7b6j get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
       >
         <svg
           aria-hidden="true"
