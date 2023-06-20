@@ -32,7 +32,6 @@ export const dialogOuterStyle = style([
   getSprinkles({
     background: "background",
     flexDirection: "column",
-    isolation: "isolate",
     overflow: "hidden",
     padding: "none",
     textDecoration: "none",
@@ -47,7 +46,10 @@ export const dialogOuterStyle = style([
         width: "28rem",
       },
       [MEDIA_QUERY_MOBILE]: {
+        border: "none",
         height: "100dvh",
+        maxHeight: "100dvh",
+        maxWidth: "100vw",
         width: "100vw",
       },
       [MEDIA_QUERY_TABLET]: {
