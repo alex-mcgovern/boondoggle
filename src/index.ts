@@ -109,6 +109,9 @@ export type { DropdownItemShape } from "./components/select";
 export { ProgressBar } from "./components/progress_bar";
 export type { ProgressBarProps } from "./components/progress_bar";
 
+export { Pill } from "./components/pill";
+export type { PillProps } from "./components/pill";
+
 export { Tag } from "./components/tag";
 export type { TagProps } from "./components/tag";
 
