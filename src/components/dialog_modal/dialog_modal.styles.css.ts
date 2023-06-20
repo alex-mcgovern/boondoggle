@@ -62,8 +62,8 @@ export const dialogOuterStyle = style([
     },
 
     left: "50%",
+    overscrollBehavior: "contain",
     position: "fixed",
-
     selectors: {
       "&::backdrop": {
         background: vars.color.backdrop,
@@ -74,7 +74,6 @@ export const dialogOuterStyle = style([
       "&:focus": { outline: "none" },
       "&[open]": { display: "flex" },
     },
-
     top: "50%",
     transform: "translate(-50%, -50%)",
     zIndex: 99999,
