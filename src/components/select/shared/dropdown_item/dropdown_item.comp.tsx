@@ -37,6 +37,7 @@ export const DropdownItem = forwardRef(
       <SlotWrapper
         as="li"
         id={label}
+        size={size}
         slotLeft={slotLeft}
         slotProps={{ width: "spacing_2" }}
         className={clsx(

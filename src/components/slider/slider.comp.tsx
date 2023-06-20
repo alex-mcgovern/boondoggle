@@ -61,7 +61,7 @@ export const Slider = forwardRef(
       errorMessage,
       id,
       wrapperProps,
-
+      size,
       invalid,
       label,
       name,
@@ -92,7 +92,7 @@ export const Slider = forwardRef(
           />
         )}
 
-        <SlotWrapper slotLeft={slotLeft} slotRight={slotRight}>
+        <SlotWrapper size={size} slotLeft={slotLeft} slotRight={slotRight}>
           <RadixSliderRoot
             aria-label={name}
             aria-labelledby={label && id ? labelId : undefined}

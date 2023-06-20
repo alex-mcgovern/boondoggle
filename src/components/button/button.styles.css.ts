@@ -98,7 +98,7 @@ export const variantAppearance = styleVariants({
     getSprinkles({
       fontWeight: "normal",
       paddingX: "spacing_1",
-      paddingY: "spacing_0",
+      paddingY: "spacing_0.5",
       textAlign: "left",
     }),
     {

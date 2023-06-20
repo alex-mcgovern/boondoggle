@@ -106,6 +106,7 @@ export const Button: ButtonComponent = forwardRef(
       >
         <SlotWrapper
           color="inherit"
+          size={size}
           slotLeft={slotLeft}
           slotProps={slotProps}
           slotRight={slotRight}

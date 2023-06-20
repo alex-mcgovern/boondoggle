@@ -3,14 +3,21 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { Box } from "../box";
-import * as styles from "./slot_wrapper_inset.styles.css";
+import {
+  getSlotInnerStyles,
+  offsetSlotLeftStyle,
+  offsetSlotRightStyle,
+  slotOuterStyle,
+} from "./slot_wrapper_inset.styles.css";
 
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { BoxProps } from "../box";
 import type { ReactNode, Ref } from "react";
 
 export type SlotWrapperProps = {
   children?: ReactNode;
   className?: string;
+  size: ElementSizeEnum;
   slotLeft?: ReactNode;
   slotProps?: BoxProps;
   slotRight?: ReactNode;
@@ -19,11 +26,12 @@ export type SlotWrapperProps = {
 export const SlotWrapperInset = forwardRef(
   (
     {
-      slotLeft,
-      slotRight,
       children,
       className: userClassName,
+      size,
+      slotLeft,
       slotProps,
+      slotRight,
       ...rest
     }: SlotWrapperProps,
     ref: Ref<HTMLDivElement>
@@ -31,23 +39,23 @@ export const SlotWrapperInset = forwardRef(
     return (
       <Box className={userClassName} position="relative" ref={ref} {...rest}>
         {slotLeft && (
-          <Box {...slotProps} className={styles.slot} left="0">
-            {slotLeft}
+          <Box {...slotProps} className={slotOuterStyle} left="0">
+            <Box className={getSlotInnerStyles({ size })}>{slotLeft}</Box>
           </Box>
         )}
 
         <Slot
           className={clsx({
-            [styles.offsetSlotLeft]: !!slotLeft,
-            [styles.offsetSlotRight]: !!slotRight,
+            [offsetSlotLeftStyle]: !!slotLeft,
+            [offsetSlotRightStyle]: !!slotRight,
           })}
         >
           {children}
         </Slot>
 
         {slotRight && (
-          <Box {...slotProps} className={styles.slot} right="0">
-            {slotRight}
+          <Box {...slotProps} className={slotOuterStyle} right="0">
+            <Box className={getSlotInnerStyles({ size })}>{slotRight}</Box>
           </Box>
         )}
       </Box>

@@ -18,17 +18,14 @@ export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
       display="flex"
       fontSize="body_sm"
       fontWeight="normal"
-      gap="spacing_0"
+      gap="spacing_0.5"
       htmlFor={htmlFor}
-      marginBottom="spacing_0"
+      marginBottom="spacing_0.5"
       {...rest}
     >
       {label}
       {labelTooltip && (
-        <Tooltip
-          placement="bottom-start"
-          tooltipText={labelTooltip}
-        />
+        <Tooltip placement="bottom-start" tooltipText={labelTooltip} />
       )}
     </Box>
   );

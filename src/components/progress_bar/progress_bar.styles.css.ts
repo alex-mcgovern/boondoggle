@@ -38,7 +38,7 @@ export const getProgressBarStyles = recipe({
       minWidth: "spacing_6",
       overflow: "hidden",
       paddingX: "spacing_1",
-      paddingY: "spacing_0",
+      paddingY: "spacing_0.5",
       position: "relative",
       whiteSpace: "nowrap",
     }),

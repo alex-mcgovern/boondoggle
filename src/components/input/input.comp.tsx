@@ -84,7 +84,7 @@ export const Input = forwardRef(
           />
         )}
 
-        <SlotWrapperInset slotLeft={slotLeft} slotRight={slotRight}>
+        <SlotWrapperInset size={size} slotLeft={slotLeft} slotRight={slotRight}>
           <input
             id={id}
             name={name}
