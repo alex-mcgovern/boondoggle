@@ -18,6 +18,7 @@ import {
 } from "./dialog_modal.styles.css";
 
 import type { ColorOverlay } from "../../styles/color_palette.css";
+import type { BoxProps } from "../box";
 import type { ButtonProps } from "../button";
 import type { ReactNode, RefObject } from "react";
 
@@ -201,6 +202,7 @@ export type DialogModalProps = {
   isOpen?: boolean;
   title: string;
   triggerNode: ReactNode;
+  wrapperProps?: BoxProps;
 };
 
 export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
@@ -220,6 +222,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       isOpen,
       title,
       triggerNode,
+      wrapperProps,
     },
     ref
   ) => {
@@ -251,7 +254,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
     /** --------------------------------------------- */
 
     return (
-      <Box position="relative">
+      <Box position="relative" {...wrapperProps}>
         <Slot onClick={toggleIsOpen} ref={triggerRef}>
           {triggerNode}
         </Slot>
