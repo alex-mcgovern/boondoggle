@@ -29,13 +29,13 @@ const Template: StoryFn<StoryCompProps> = ({
 const TemplateAllAppearances: StoryFn<StoryCompProps> = (rest) => {
   return (
     <Box display="flex" gap="spacing_3">
-      <StoryComp appearance="primary" name="primary" {...rest}>
+      <StoryComp {...rest} appearance="primary" name="primary">
         Primary
       </StoryComp>
-      <StoryComp appearance="secondary" name="secondary" {...rest}>
+      <StoryComp {...rest} appearance="secondary" name="secondary">
         Secondary
       </StoryComp>
-      <StoryComp appearance="tertiary" name="tertiary" {...rest}>
+      <StoryComp {...rest} appearance="tertiary" name="tertiary">
         Tertiary
       </StoryComp>
     </Box>

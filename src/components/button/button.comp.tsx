@@ -21,7 +21,7 @@ import type {
 import type { BoxProps } from "../box";
 import type { SlotWrapperProps } from "../slot_wrapper";
 import type {
-  ComponentPropsWithoutRef,
+  ComponentProps,
   ElementType,
   ReactElement,
   ReactNode,
@@ -56,7 +56,7 @@ type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(
   props: BaseButtonProps<TPolymorphicAs>
 ) => ReactElement | null;
 
-export type ButtonProps = ComponentPropsWithoutRef<typeof Button>;
+export type ButtonProps = ComponentProps<typeof Button>;
 
 export const Button: ButtonComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(

@@ -97,6 +97,7 @@ export const ButtonProps: StoryObj<StoryCompProps> = {
     ...PROPS,
     buttonProps: {
       appearance: "tertiary",
+      name: "select_button",
       size: "sm",
     },
   },
