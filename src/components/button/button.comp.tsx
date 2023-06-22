@@ -37,6 +37,8 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       children?: ReactNode;
       /** Use color to indicate beneficial, or potentially destructive actions. */
       colorOverlay?: ColorOverlay;
+      /** Whether the button is disabled or not. */
+      disabled: boolean;
       /** The title for the button, shown in the UI. */
       name: string;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
