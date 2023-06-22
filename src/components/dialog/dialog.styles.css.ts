@@ -17,6 +17,15 @@ export const placement = styleVariants({
     left: "auto",
   },
   "bottom-start": [],
+  "top-center": [
+    {
+      insetBlockEnd: "100%",
+      insetInlineStart: "50%",
+      transform: "translateX(-50%)",
+    },
+  ],
+  "top-end": [{ insetBlockEnd: "100%", left: "auto" }],
+  "top-start": [{ insetBlockEnd: "100%" }],
 });
 
 export type DialogPlacementEnum = keyof typeof placement;

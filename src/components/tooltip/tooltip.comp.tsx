@@ -15,12 +15,9 @@ export type TooltipProps = {
 
 export function Tooltip({
   tooltipText,
-  placement,
+  placement = "top-center",
   children = (
-    <button
-      className={tooltipTriggerStyle}
-      type="button"
-    >
+    <button className={tooltipTriggerStyle} type="button">
       <Icon icon={faInfoCircle} />
     </button>
   ),
