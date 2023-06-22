@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { forwardRef, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button } from "../../button";
@@ -9,11 +9,10 @@ import type { ButtonProps } from "../../button";
 
 export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
 
-export function FormSubmitButton({
-  children,
-  slotRight,
-  ...rest
-}: FormSubmitButtonProps) {
+export const FormSubmitButton = forwardRef<
+  HTMLButtonElement,
+  FormSubmitButtonProps
+>(({ children, slotRight, ...rest }, ref) => {
   /**
    * Initialise react-hook-form and subscribe to form state proxy
    * https://react-hook-form.com/api/useform/formstate
@@ -27,6 +26,7 @@ export function FormSubmitButton({
   return (
     <Button
       name="submit"
+      ref={ref}
       size="md"
       type="submit"
       slotRight={
@@ -40,4 +40,4 @@ export function FormSubmitButton({
       {children}
     </Button>
   );
-}
+});
