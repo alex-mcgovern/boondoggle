@@ -66,6 +66,7 @@ export const Button: ButtonComponent = forwardRef(
       appearance = "primary",
       as,
       children,
+      disabled,
       className: userClassName,
       colorOverlay,
       size = "md",
@@ -95,12 +96,14 @@ export const Button: ButtonComponent = forwardRef(
     return (
       <Component
         {...{
+          "aria-disabled": disabled,
           className: clsx(
             styles.getButtonStyles({ appearance, size }),
             getSprinkles(atomProps),
             userClassName,
             colorOverlay ? variantColorOverlay[colorOverlay] : undefined
           ),
+          disabled,
           ref,
           type,
           ...otherProps,
