@@ -30,6 +30,23 @@ import type {
 
 /** ----------------------------------------------------------------------------- */
 
+type GetLoadingSlotSideArgs = { slotLeft?: ReactNode; slotRight?: ReactNode };
+
+const getLoadingSlotSide = ({
+  slotRight,
+  slotLeft,
+}: GetLoadingSlotSideArgs): "right" | "left" => {
+  if (slotRight) {
+    return "right";
+  }
+  if (slotLeft) {
+    return "left";
+  }
+  return "right";
+};
+
+/** ----------------------------------------------------------------------------- */
+
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
@@ -127,6 +144,12 @@ export const Button: ButtonComponent = forwardRef(
 
     /** --------------------------------------------- */
 
+    const loaderSide = useMemo(() => {
+      return getLoadingSlotSide({ slotLeft, slotRight });
+    }, [slotLeft, slotRight]);
+
+    /** --------------------------------------------- */
+
     return (
       <Component
         {...{
@@ -149,9 +172,11 @@ export const Button: ButtonComponent = forwardRef(
         <SlotWrapper
           color="inherit"
           size={size}
-          slotLeft={slotLeft}
+          slotLeft={isLoading && loaderSide === "left" ? <Loader /> : slotLeft}
           slotProps={slotProps}
-          slotRight={isLoading ? <Loader /> : slotRight}
+          slotRight={
+            isLoading && loaderSide === "right" ? <Loader /> : slotRight
+          }
         >
           {children}
         </SlotWrapper>
