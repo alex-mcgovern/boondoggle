@@ -4,10 +4,11 @@
  */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { Loader } from "../loader";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./button.styles.css";
 
@@ -27,6 +28,8 @@ import type {
   ReactNode,
 } from "react";
 
+/** ----------------------------------------------------------------------------- */
+
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
@@ -39,6 +42,8 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       colorOverlay?: ColorOverlay;
       /** Whether the button is disabled or not. */
       disabled?: boolean;
+      /** Whether to show a loader on first render */
+      isLoading?: boolean;
       /** The title for the button, shown in the UI. */
       name: string;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
@@ -51,8 +56,12 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       slotRight?: ReactNode;
       /** The HTML button type, defaults to `button`. */
       type?: "button" | "submit" | "reset";
+      /** Whether to show a loader on click */
+      withLoadingState?: boolean;
     }
   >;
+
+/** ----------------------------------------------------------------------------- */
 
 type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(
   props: BaseButtonProps<TPolymorphicAs>
@@ -60,28 +69,35 @@ type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(
 
 export type ButtonProps = ComponentProps<typeof Button>;
 
+/** ----------------------------------------------------------------------------- */
+
 export const Button: ButtonComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
       appearance = "primary",
       as,
       children,
-      disabled,
       className: userClassName,
       colorOverlay,
+      disabled,
+      isLoading: initIsLoading,
       size = "md",
       slotLeft,
-      slotRight,
       slotProps: userSlotProps,
+      slotRight,
       type = "button",
+      withLoadingState,
       ...rest
     }: BaseButtonProps<TPolymorphicAs>,
     ref?: PolymorphicRef<TPolymorphicAs>
   ) => {
-    /** Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract */
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
+    /** --------------------------------------------- */
+
     const Component = as || "button";
+
+    /** --------------------------------------------- */
 
     const slotProps: BoxProps | undefined = useMemo(() => {
       if (size === "square") {
@@ -92,6 +108,24 @@ export const Button: ButtonComponent = forwardRef(
       }
       return userSlotProps;
     }, [size, userSlotProps]);
+
+    /** --------------------------------------------- */
+
+    const [isLoading, setIsLoading] = useState(initIsLoading);
+
+    const revertLoadingState = useCallback(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    }, []);
+
+    const handleClickWithLoadingState = useCallback(() => {
+      setIsLoading(true);
+      rest.onClick?.();
+      revertLoadingState();
+    }, [rest, revertLoadingState]);
+
+    /** --------------------------------------------- */
 
     return (
       <Component
@@ -104,6 +138,9 @@ export const Button: ButtonComponent = forwardRef(
             colorOverlay ? variantColorOverlay[colorOverlay] : undefined
           ),
           disabled,
+          onClick: withLoadingState
+            ? handleClickWithLoadingState
+            : rest.onClick,
           ref,
           type,
           ...otherProps,
@@ -114,7 +151,7 @@ export const Button: ButtonComponent = forwardRef(
           size={size}
           slotLeft={slotLeft}
           slotProps={slotProps}
-          slotRight={slotRight}
+          slotRight={isLoading ? <Loader /> : slotRight}
         >
           {children}
         </SlotWrapper>
