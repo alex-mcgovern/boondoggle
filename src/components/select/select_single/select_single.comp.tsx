@@ -1,7 +1,9 @@
+import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { Box } from "../../box";
+import { Icon } from "../../icon";
 import { Input } from "../../input";
 import {
   downshiftStateReducer,
@@ -72,7 +74,8 @@ export const SelectSingle = forwardRef(
 
     const [localSlotLeft, setLocalSlotLeft] = useState(slotLeft);
 
-    /** Filter dropdown items based on input if `isFilterable` is true */
+    /** --------------------------------------------- */
+
     const filteredItems = useMemo(() => {
       if (!items || !isFilterable) {
         return items;
@@ -81,7 +84,8 @@ export const SelectSingle = forwardRef(
       return getFilteredDropdownItems({ inputValue, items });
     }, [items, isFilterable, inputValue]);
 
-    /** Initialise downshift `useCombobox` hook */
+    /** --------------------------------------------- */
+
     const {
       getInputProps,
       getItemProps,
@@ -135,6 +139,8 @@ export const SelectSingle = forwardRef(
       },
     });
 
+    /** --------------------------------------------- */
+
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {
         return getIsSelected({
@@ -143,7 +149,28 @@ export const SelectSingle = forwardRef(
         });
       },
       [selectedItem]
-    ); /** ----------------------------------------------------------------------------- */
+    );
+
+    /** --------------------------------------------- */
+
+    const SlotRight = useMemo(() => {
+      if (isFilterable && inputValue.length > 0) {
+        return (
+          <button
+            type="button"
+            onClick={() => {
+              return setInputValue("");
+            }}
+          >
+            <Icon icon={faTimesCircle} />
+          </button>
+        );
+      }
+
+      return slotRight;
+    }, [inputValue.length, isFilterable, slotRight]);
+
+    /** --------------------------------------------- */
 
     return (
       <Box {...wrapperProps}>
@@ -167,7 +194,7 @@ export const SelectSingle = forwardRef(
               readOnly={!isFilterable}
               size={size}
               slotLeft={localSlotLeft}
-              slotRight={slotRight}
+              slotRight={SlotRight}
               labelProps={getLabelProps({
                 htmlFor: id,
               })}
