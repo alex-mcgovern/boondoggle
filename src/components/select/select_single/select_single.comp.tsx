@@ -1,7 +1,10 @@
 import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
+import clsx from "clsx";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
+import { a11yFocus } from "../../../styles/common/a11y.css";
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
@@ -158,6 +161,16 @@ export const SelectSingle = forwardRef(
         return (
           <button
             type="button"
+            className={clsx(
+              getSprinkles({
+                alignItems: "center",
+                display: "flex",
+                height: "spacing_3",
+                justifyContent: "center",
+                width: "spacing_3",
+              }),
+              a11yFocus
+            )}
             onClick={() => {
               return setInputValue("");
             }}
