@@ -321,7 +321,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     >
       Submit
       <div
-        class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_maxHeight_spacing_3__eiij7b5r get_sprinkles_maxWidth_spacing_3__eiij7b6k slot_wrapper.styles_getSlotStyles_size_md__1xvz5xe9 slot_wrapper.styles_slotSize_md__1xvz5xe4 slot_wrapper.styles__1xvz5xe1 get_sprinkles_maxHeight_spacing_2__eiij7b5q get_sprinkles_maxWidth_spacing_2__eiij7b6j get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
+        class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 slot_wrapper.styles_getSlotStyles_size_md__1xvz5xe9 slot_wrapper.styles_slotSize_md__1xvz5xe4 slot_wrapper.styles__1xvz5xe1 get_sprinkles_height_spacing_2__eiij7b2z get_sprinkles_width_spacing_2_mobile__eiij7bih get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
       >
         <svg
           aria-hidden="true"
