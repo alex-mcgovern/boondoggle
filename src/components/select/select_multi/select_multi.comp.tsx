@@ -1,7 +1,9 @@
+import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { Box } from "../../box";
+import { Icon } from "../../icon";
 import { Input } from "../../input";
 import {
   downshiftStateReducer,
@@ -65,9 +67,8 @@ export const SelectMulti = forwardRef(
       })
     );
 
-    /**
-     * Callback to update input value and call `onChange` (if provided) when selected items change.
-     */
+    /** --------------------------------------------- */
+
     const onSelectedItemsChange = useCallback(
       (changes: UseMultipleSelectionStateChange<DropdownItemShape>) => {
         if (onChange) {
@@ -83,10 +84,8 @@ export const SelectMulti = forwardRef(
       [onChange, placeholder]
     );
 
-    /**
-     * Downshift `useMultipleSelection` hook
-     * @see https://www.downshift-js.com/use-multiple-selection
-     */
+    /** --------------------------------------------- */
+
     const {
       getSelectedItemProps,
       getDropdownProps,
@@ -98,20 +97,17 @@ export const SelectMulti = forwardRef(
       onSelectedItemsChange,
     });
 
-    /**
-     * When `isFilterable` is true, we need to filter the items based on the input value.
-     */
+    /** --------------------------------------------- */
+
     const filteredItems = useMemo(() => {
       if (!items || !isFilterable) {
         return items;
       }
 
       return getFilteredDropdownItems({ inputValue, items });
-    }, [
-      items,
-      isFilterable,
-      inputValue,
-    ]); /** ----------------------------------------------------------------------------- */
+    }, [items, isFilterable, inputValue]);
+
+    /** --------------------------------------------- */
 
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {
@@ -124,10 +120,8 @@ export const SelectMulti = forwardRef(
       [selectedItems]
     );
 
-    /**
-     * Downshift `useCombobox` hook
-     * @see https://www.downshift-js.com/use-combobox
-     */
+    /** --------------------------------------------- */
+
     const {
       isOpen,
       toggleMenu,
@@ -187,6 +181,27 @@ export const SelectMulti = forwardRef(
       },
     });
 
+    /** --------------------------------------------- */
+
+    const SlotRight = useMemo(() => {
+      if (isFilterable && inputValue.length > 0) {
+        return (
+          <button
+            type="button"
+            onClick={() => {
+              return setInputValue("");
+            }}
+          >
+            <Icon icon={faTimesCircle} />
+          </button>
+        );
+      }
+
+      return slotRight;
+    }, [inputValue.length, isFilterable, slotRight]);
+
+    /** --------------------------------------------- */
+
     return (
       <Box {...wrapperProps}>
         <DropdownMenu
@@ -212,7 +227,7 @@ export const SelectMulti = forwardRef(
               readOnly={!isFilterable}
               size={size}
               slotLeft={slotLeft}
-              slotRight={slotRight}
+              slotRight={SlotRight}
               labelProps={getLabelProps({
                 htmlFor: id,
               })}

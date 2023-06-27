@@ -29,6 +29,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const Filterable: Story = {
+  args: {
+    isFilterable: true,
+  },
+};
+
 export const InitialSelectedItems: Story = {
   args: {
     initialSelectedItems: [ITEMS[0]],
