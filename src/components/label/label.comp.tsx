@@ -25,7 +25,7 @@ export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
     >
       {label}
       {labelTooltip && (
-        <Tooltip placement="bottom-start" tooltipText={labelTooltip} />
+        <Tooltip placement="bottom-center" tooltipText={labelTooltip} />
       )}
     </Box>
   );
