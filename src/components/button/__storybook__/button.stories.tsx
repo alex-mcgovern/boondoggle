@@ -136,9 +136,14 @@ export const SizeLg: StoryObj<StoryCompProps> = {
   name: "size/lg",
   render: Template,
 };
-export const SizeSquare: StoryObj<StoryCompProps> = {
-  args: { size: "square", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
-  name: "size/lg",
+export const SizeSquareMd: StoryObj<StoryCompProps> = {
+  args: { size: "square_md", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
+  name: "size/square_md",
+  render: Template,
+};
+export const SizeSquareSm: StoryObj<StoryCompProps> = {
+  args: { size: "square_sm", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
+  name: "size/square_sm",
   render: Template,
 };
 

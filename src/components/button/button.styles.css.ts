@@ -23,11 +23,18 @@ const variantSize = styleVariants({
   lg: [elementFontSize.lg],
   md: [elementFontSize.md],
   sm: [elementFontSize.sm],
-  square: [
+  square_md: [
     getSprinkles({
       fontStyle: "body_md",
       height: "spacing_5",
       width: "spacing_5",
+    }),
+  ],
+  square_sm: [
+    getSprinkles({
+      fontStyle: "body_sm",
+      height: "spacing_4",
+      width: "spacing_4",
     }),
   ],
 });

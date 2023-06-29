@@ -47,7 +47,7 @@ export function DatePickerDays({
             })}
             key={calendarDay.$date.toISOString()}
             name={calendarDay.$date.toISOString()}
-            size="square"
+            size="square_md"
             appearance={getDayButtonAppearance({
               now: calendarDay.now,
               selected: calendarDay.selected,
