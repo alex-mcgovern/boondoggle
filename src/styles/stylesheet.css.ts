@@ -420,7 +420,6 @@ globalStyle(`table`, {
       borderCollapse: "collapse",
       borderRadius: vars.borderRadius.sm,
       borderSpacing: 0,
-      tableLayout: "fixed",
       width: "100%",
     },
   },
