@@ -445,7 +445,7 @@ globalStyle(`th, td`, {
   },
 });
 
-globalStyle(`th:not(:last-child), td:not(:last-child)`, {
+globalStyle(`tr:not(:last-of-type) th, tr:not(:last-of-type) td`, {
   "@layer": {
     [baseLayer]: {
       borderBottom: `1px solid ${vars.color.border_default}`,
