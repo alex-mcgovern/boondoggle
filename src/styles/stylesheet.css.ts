@@ -428,8 +428,10 @@ globalStyle(`table`, {
 globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
-      color: vars.color.text_low_contrast,
+      background: vars.color.tint_default,
+      color: vars.color.text_high_contrast,
       fontSize: vars.fontSize.body_sm,
+      fontWeight: vars.fontWeight.semibold,
     },
   },
 });
