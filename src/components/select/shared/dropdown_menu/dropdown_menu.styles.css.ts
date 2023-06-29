@@ -10,8 +10,6 @@ export const dropdownListWrapper = style([
     border: "border_default",
     borderRadius: "sm",
     boxShadow: "md",
-    marginTop: "spacing_1",
-
     minWidth: "100%",
     overflow: "hidden",
     overflowY: "auto",
