@@ -85,15 +85,6 @@ globalStyle(
   }
 );
 
-globalStyle("table", {
-  "@layer": {
-    [resetLayer]: {
-      // borderCollapse: "collapse",
-      borderSpacing: 0,
-    },
-  },
-});
-
 globalStyle("button", {
   "@layer": {
     [resetLayer]: {
@@ -426,7 +417,11 @@ globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
+      borderCollapse: "collapse",
       borderRadius: vars.borderRadius.sm,
+      borderSpacing: 0,
+      tableLayout: "fixed",
+      width: "100%",
     },
   },
 });
