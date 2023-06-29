@@ -348,13 +348,23 @@ describe("<Button />", () => {
       expect(getByRole("button")).toHaveClass(elementFontSize.lg);
     });
 
-    it("should have the `square` class name when size = square", () => {
+    it("should have the `square_md` class name when size = square_md", () => {
       const { getByRole } = render(
-        <Button id="button" name="Test button" size="square" />
+        <Button id="button" name="Test button" size="square_md" />
       );
 
       expect(getByRole("button")).toHaveClass(
-        getButtonStyles({ size: "square" })
+        getButtonStyles({ size: "square_md" })
+      );
+    });
+
+    it("should have the `square_sm` class name when size = square_sm", () => {
+      const { getByRole } = render(
+        <Button id="button" name="Test button" size="square_sm" />
+      );
+
+      expect(getByRole("button")).toHaveClass(
+        getButtonStyles({ size: "square_sm" })
       );
     });
   });

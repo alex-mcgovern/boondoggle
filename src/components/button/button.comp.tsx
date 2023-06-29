@@ -64,7 +64,7 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       /** The title for the button, shown in the UI. */
       name: string;
       /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
-      size?: "square" | ElementSizeEnum;
+      size?: "square_md" | "square_sm" | ElementSizeEnum;
       /** The React node shown on the left side of the button. */
       slotLeft?: ReactNode;
       /** Props forwarded to slots */
@@ -117,7 +117,7 @@ export const Button: ButtonComponent = forwardRef(
     /** --------------------------------------------- */
 
     const slotProps: BoxProps | undefined = useMemo(() => {
-      if (size === "square") {
+      if (size === "square_md" || size === "square_sm") {
         return {
           ...userSlotProps,
           width: "spacing_3",

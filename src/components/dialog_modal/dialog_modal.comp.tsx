@@ -175,7 +175,7 @@ export function DialogCloseButton({ dialogRef }: DialogCloseButtonProps) {
       aria-label="Close"
       marginLeft="auto"
       name="close"
-      size="square"
+      size="square_md"
       slotLeft={<Icon icon={faTimes} />}
       type="button"
       onClick={() => {

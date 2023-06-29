@@ -54,7 +54,7 @@ export function DatePickerControls({
           {...(isShowingYears ? previousYearsButton() : previousMonthButton())}
           appearance="ghost"
           name="prev"
-          size="square"
+          size="square_md"
           slotLeft={<Icon icon={faAngleLeft} />}
         />
 
@@ -73,7 +73,7 @@ export function DatePickerControls({
           {...(isShowingYears ? nextYearsButton() : nextMonthButton())}
           appearance="ghost"
           name="next"
-          size="square"
+          size="square_md"
           slotLeft={<Icon icon={faAngleRight} />}
         />
       </Box>
