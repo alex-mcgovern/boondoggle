@@ -28,6 +28,8 @@ export type InputProps = Omit<
   ConditionalLabelProps & {
     /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
     errorMessage?: string;
+    /** Whether to render the input with a border */
+    hasBorder?: boolean;
     /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
     invalid?: boolean;
     /** Optional tooltip for label */
@@ -47,18 +49,19 @@ export type InputProps = Omit<
 export const Input = forwardRef(
   (
     {
-      errorMessage,
       className: userClassName,
-      slotLeft,
-      slotRight,
+      errorMessage,
+      hasBorder,
       id,
       invalid,
-      labelTooltip,
       label,
+      labelProps,
+      labelTooltip,
       name,
       size = "md",
+      slotLeft,
+      slotRight,
       wrapperProps,
-      labelProps,
       ...rest
     }: InputProps,
     ref: Ref<HTMLInputElement>
@@ -90,7 +93,7 @@ export const Input = forwardRef(
             name={name}
             ref={ref}
             className={clsx(
-              styles.getInputStyles({ size }),
+              styles.getInputStyles({ hasBorder, size }),
               getSprinkles(atomProps),
               userClassName,
               {

@@ -27,6 +27,17 @@ const size = styleVariants({
   ],
 });
 
+/** ----------------------------------------------------------------------------- */
+
+const hasBorder = styleVariants({
+  false: [{ border: "none !important", borderRadius: "0 !important" }],
+  true: [],
+});
+
+export type HasBorderEnum = keyof typeof hasBorder;
+
+/** ----------------------------------------------------------------------------- */
+
 export const getInputStyles = recipe({
   base: [
     getSprinkles({
@@ -35,9 +46,11 @@ export const getInputStyles = recipe({
     a11yDisabled,
   ],
   defaultVariants: {
+    hasBorder: true,
     size: "md",
   },
   variants: {
+    hasBorder,
     size,
   },
 });
