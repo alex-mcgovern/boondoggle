@@ -4,17 +4,27 @@ import { vars } from "../theme.css";
 
 import type { StyleRule } from "@vanilla-extract/css";
 
+/** ----------------------------------------------------------------------------- */
+
+export const a11yFocusStyleRule: StyleRule = {
+  borderColor: `${vars.color.button_default} !important`,
+  outline: `1px solid ${vars.color.focus_ring} !important`,
+};
+
+/** ----------------------------------------------------------------------------- */
+
 export const a11yError = style([
   {
     borderColor: vars.color.button_default,
     selectors: {
       [`&:is(&:focus, &:focus-visible), &:focus-within`]: {
-        boxShadow: `0 0 0 2px ${vars.color.focus_ring} !important`,
-        outline: "none !important",
+        ...a11yFocusStyleRule,
       },
     },
   },
 ]);
+
+/** ----------------------------------------------------------------------------- */
 
 export const a11yDisabled = style({
   selectors: {
@@ -27,11 +37,7 @@ export const a11yDisabled = style({
   },
 });
 
-export const a11yFocusStyleRule: StyleRule = {
-  borderColor: `${vars.color.button_default} !important`,
-  boxShadow: `0 0 0 2px ${vars.color.focus_ring} !important`,
-  outline: "none !important",
-};
+/** ----------------------------------------------------------------------------- */
 
 export const a11yFocus = style([
   {
