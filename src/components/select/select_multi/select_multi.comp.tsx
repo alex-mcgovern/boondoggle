@@ -45,6 +45,7 @@ export const SelectMulti = forwardRef(
       id,
       initialHighlightedItem,
       initialSelectedItems = [],
+      inputProps,
       invalid,
       isFilterable,
       items,
@@ -55,8 +56,8 @@ export const SelectMulti = forwardRef(
       placeholder,
       size,
       slotLeft,
-      wrapperProps,
       slotRight = DEFAULT_SLOT_RIGHT,
+      wrapperProps,
       ...rest
     }: SelectMultiProps,
     ref: Ref<HTMLInputElement>
@@ -232,6 +233,7 @@ export const SelectMulti = forwardRef(
           triggerNode={
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
+              {...inputProps}
               className={selectInputCursorStyles}
               errorMessage={errorMessage}
               invalid={invalid}

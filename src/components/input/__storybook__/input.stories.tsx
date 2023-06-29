@@ -51,6 +51,15 @@ export const Invalid: Story = {
   name: "invalid",
 };
 
+export const HasBorderFalse: Story = {
+  args: {
+    hasBorder: false,
+    id: LOREM.id(),
+    label: LOREM.label(),
+  },
+  name: "has-border/false",
+};
+
 /**
  * Size
  */

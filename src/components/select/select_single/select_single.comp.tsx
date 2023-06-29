@@ -50,14 +50,15 @@ export const SelectSingle = forwardRef(
       id,
       initialHighlightedItem,
       initialSelectedItem,
+      inputProps,
       invalid,
       isFilterable,
       items,
       itemToString = defaultItemToString,
       label,
+      labelTooltip,
       name,
       onChange,
-      labelTooltip,
       placeholder,
       size,
       slotLeft,
@@ -199,6 +200,7 @@ export const SelectSingle = forwardRef(
           triggerNode={
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
+              {...inputProps}
               className={selectInputCursorStyles}
               errorMessage={errorMessage}
               invalid={invalid}
