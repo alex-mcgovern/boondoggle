@@ -452,7 +452,7 @@ globalStyle(`th:not(:last-child), td:not(:last-child)`, {
   "@layer": {
     [baseLayer]: {
       borderRight: `1px solid ${vars.color.border_default}`,
-      padding: `${vars.spacing["spacing_1.5"]} ${vars.spacing.spacing_2}`,
+      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_3}`,
       textAlign: "left",
     },
   },
