@@ -417,7 +417,7 @@ globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
-      borderCollapse: "collapse",
+      // borderCollapse: "collapse",
       borderRadius: vars.borderRadius.sm,
       borderSpacing: 0,
       width: "100%",
