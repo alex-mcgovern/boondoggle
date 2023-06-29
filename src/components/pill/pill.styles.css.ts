@@ -42,7 +42,6 @@ export const getPillStyle = recipe({
       paddingY: "spacing_0.25",
       textDecoration: "none",
       whiteSpace: "nowrap",
-      width: "max-content",
     }),
     a11yFocus,
     createAccessibleTransition({
