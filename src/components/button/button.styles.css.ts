@@ -66,6 +66,19 @@ export const variantAppearance = styleVariants({
     },
   ],
 
+  link: [
+    getSprinkles({
+      textAlign: "left",
+    }),
+    {
+      selectors: {
+        [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+          color: vars.color.button_default,
+        },
+      },
+    },
+  ],
+
   primary: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
