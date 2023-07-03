@@ -447,7 +447,7 @@ globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      padding: `${vars.spacing.spacing_2} ${vars.spacing.spacing_3}`,
+      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
       textAlign: "left",
     },
   },
