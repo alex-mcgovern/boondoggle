@@ -445,7 +445,7 @@ globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
   },
 });
 
-globalStyle(`thead tr th:not(:last-child), tbody tr td:not(:last-child)`, {
+globalStyle(`thead tr th, tbody tr td`, {
   "@layer": {
     [baseLayer]: {
       borderRight: `1px solid ${vars.color.border_default}`,
@@ -458,6 +458,14 @@ globalStyle(`th, td`, {
     [baseLayer]: {
       padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
       textAlign: "left",
+    },
+  },
+});
+
+globalStyle(`td`, {
+  "@layer": {
+    [baseLayer]: {
+      background: vars.color.background,
     },
   },
 });
