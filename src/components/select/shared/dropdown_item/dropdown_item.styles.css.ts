@@ -73,11 +73,3 @@ export const isHighlighted = style([
     background: vars.color.tint_active,
   },
 ]);
-
-export const isSelected = style([
-  variantColorOverlay.blue,
-  {
-    // background: vars.color.tint_active,
-    // fontWeight: vars.fontWeight.semibold,
-  },
-]);

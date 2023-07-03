@@ -46,7 +46,6 @@ export const DropdownItem = forwardRef(
           }),
           {
             [styles.isHighlighted]: isHighlighted,
-            [styles.isSelected]: isDropdownItemSelected,
           }
         )}
         {...rest}
