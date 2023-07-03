@@ -436,11 +436,18 @@ globalStyle(`thead`, {
   },
 });
 
+globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
+  "@layer": {
+    [baseLayer]: {
+      borderBottom: `1px solid ${vars.color.border_default}`,
+    },
+  },
+});
+
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      border: `1px solid ${vars.color.border_default}`,
-      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
+      padding: `${vars.spacing.spacing_2} ${vars.spacing.spacing_3}`,
       textAlign: "left",
     },
   },
