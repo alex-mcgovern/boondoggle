@@ -315,6 +315,7 @@ globalStyle("input, textarea", {
       border: `1px solid ${vars.color.border_default}`,
       borderRadius: vars.borderRadius.sm,
       color: vars.color.text_high_contrast,
+      fontWeight: vars.fontWeight.normal,
       padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
       ...createAccessibleTransition({
         transition: `ease ${vars.transitionDuration.short} ease`,
