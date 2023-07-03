@@ -63,7 +63,6 @@ export const SelectMulti = forwardRef(
     }: SelectMultiProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    /** Externally controlled state for downshift and {@link Input} component */
     const [inputValue, setInputValue] = useState("");
     const [inputPlaceholder, setInputPlaceholder] = useState(
       getDisplayValue({
@@ -71,6 +70,14 @@ export const SelectMulti = forwardRef(
         originalValue: placeholder,
       })
     );
+    const [selectedItems, setSelectedItems] = useState<
+      Array<DropdownItemShape>
+    >([
+      ...initialSelectedItems,
+      ...items.filter((item) => {
+        return item.isSelected;
+      }),
+    ]);
 
     /** --------------------------------------------- */
 
@@ -91,21 +98,16 @@ export const SelectMulti = forwardRef(
 
     /** --------------------------------------------- */
 
-    const {
-      getSelectedItemProps,
-      getDropdownProps,
-      removeSelectedItem,
-      selectedItems,
-      setSelectedItems,
-    } = useMultipleSelection<DropdownItemShape>({
-      initialSelectedItems: [
-        ...initialSelectedItems,
-        ...items.filter((item) => {
-          return item.isSelected;
-        }),
-      ],
-      onSelectedItemsChange,
-    });
+    const { getSelectedItemProps, getDropdownProps, removeSelectedItem } =
+      useMultipleSelection<DropdownItemShape>({
+        initialSelectedItems: [
+          ...initialSelectedItems,
+          ...items.filter((item) => {
+            return item.isSelected;
+          }),
+        ],
+        onSelectedItemsChange,
+      });
 
     /** --------------------------------------------- */
 
