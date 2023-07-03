@@ -4,7 +4,6 @@ import { forwardRef } from "react";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./pill.styles.css";
 
@@ -94,9 +93,7 @@ export const Pill: PillComponent = forwardRef(
           slotLeft={slotLeft}
           slotRight={slotRight}
         >
-          <Box as="span" paddingX="spacing_0.5">
-            {children}
-          </Box>
+          {children}
         </SlotWrapper>
       </Component>
     );

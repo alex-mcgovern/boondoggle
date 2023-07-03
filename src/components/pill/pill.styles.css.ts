@@ -37,6 +37,7 @@ export const getPillStyle = recipe({
       color: "text_low_contrast",
       flexShrink: "0",
       fontWeight: "semibold",
+      paddingX: "spacing_0.25",
       paddingY: "spacing_0.25",
       textDecoration: "none",
       whiteSpace: "nowrap",
