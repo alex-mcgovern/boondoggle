@@ -1,7 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { variantColorOverlay } from "../../../../styles/color_palette.css";
 import { a11yDisabled, a11yFocus } from "../../../../styles/common/a11y.css";
 import {
   elementFontSize,
@@ -68,7 +67,6 @@ export const getDropdownItemStyles = recipe({
 });
 
 export const isHighlighted = style([
-  variantColorOverlay.blue,
   {
     background: vars.color.tint_active,
   },
