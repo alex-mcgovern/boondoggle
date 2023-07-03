@@ -36,15 +36,12 @@ export const getDropdownItemStyles = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
-
-      color: "text_low_contrast",
+      color: "text_high_contrast",
       display: "flex",
       gap: "spacing_1",
-
       margin: "none",
       padding: "spacing_1",
       textAlign: "left",
-
       textDecoration: "none",
       width: "100%",
     }),
