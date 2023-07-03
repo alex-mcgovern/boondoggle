@@ -45,14 +45,13 @@ export const getPillStyle = recipe({
     }),
     a11yFocus,
     createAccessibleTransition({
-      transition: `ease ${vars.transitionDuration.short} ease`,
-      transitionProperty: "color, background-color, border-color",
+      transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
     }),
     {
       selectors: {
         [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           background: vars.color.tint_active,
-          border: vars.color.border_default,
+          borderColor: vars.color.border_default,
         },
       },
     },
