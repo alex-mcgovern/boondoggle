@@ -32,7 +32,7 @@ export const getPillStyle = recipe({
     getSprinkles({
       alignItems: "center",
       background: "tint_default",
-      border: "border_active",
+      border: "border_default",
       borderRadius: "pill",
       color: "text_low_contrast",
       flexShrink: "0",
@@ -51,7 +51,7 @@ export const getPillStyle = recipe({
       selectors: {
         [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
           background: vars.color.tint_active,
-          color: vars.color.text_high_contrast,
+          border: vars.color.border_default,
         },
       },
     },
