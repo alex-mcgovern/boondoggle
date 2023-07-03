@@ -29,9 +29,6 @@ const size = styleVariants({
   ],
 });
 
-/**
- * Dropdown item styles
- */
 export const getDropdownItemStyles = recipe({
   base: [
     getSprinkles({
