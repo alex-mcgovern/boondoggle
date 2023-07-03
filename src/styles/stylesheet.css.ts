@@ -444,6 +444,14 @@ globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
   },
 });
 
+globalStyle(`thead tr th:not(:last-child), tbody tr td:not(:last-child)`, {
+  "@layer": {
+    [baseLayer]: {
+      borderRight: `1px solid ${vars.color.border_default}`,
+    },
+  },
+});
+
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
