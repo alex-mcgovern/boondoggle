@@ -78,7 +78,11 @@ export const Pill: PillComponent = forwardRef(
           className: clsx(
             userClassName,
             styles.getPillStyle({ colorOverlay, size }),
-            getSprinkles(atomProps),
+            getSprinkles({
+              ...atomProps,
+              paddingLeft: slotLeft ? "spacing_0.5" : "spacing_1",
+              paddingRight: slotRight ? "spacing_0.5" : "spacing_1",
+            }),
             a11yFocus
           ),
           id,
