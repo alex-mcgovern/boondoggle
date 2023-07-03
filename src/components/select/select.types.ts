@@ -5,6 +5,7 @@ import type { InputProps } from "../input/input.comp";
 import type { ReactNode } from "react";
 
 export type DropdownItemShape = BoxProps & {
+  isSelected?: boolean;
   label: string;
   slotLeft?: ReactNode;
   value: string;

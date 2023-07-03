@@ -29,7 +29,6 @@ export type SelectButtonProps = Omit<
     wrapperProps?: SprinklesArgs;
   };
 
-/** Accessible select component, supports multi & single modes. */
 export const SelectButton = forwardRef(
   (
     {
@@ -51,14 +50,22 @@ export const SelectButton = forwardRef(
     ref: Ref<HTMLButtonElement>
   ) => {
     const [selectedItem, setSelectedItem] = useState(
-      initialSelectedItem || null
+      initialSelectedItem ||
+        items.find((item) => {
+          return item.isSelected;
+        }) ||
+        null
     );
+
+    /** --------------------------------------------- */
+
     const [isOpen, setIsOpen] = useState(false);
 
     const { atomProps: buttonAtomProps, otherProps: buttonOtherProps } =
       extractAtomsFromProps(buttonProps, getSprinkles);
 
-    /** Initialise downshift `useSelect` hook */
+    /** --------------------------------------------- */
+
     const {
       getToggleButtonProps,
       getItemProps,
@@ -109,6 +116,8 @@ export const SelectButton = forwardRef(
       },
     });
 
+    /** --------------------------------------------- */
+
     const getIsItemSelected = useCallback(
       (item: DropdownItemShape) => {
         return getIsSelected({
@@ -117,7 +126,9 @@ export const SelectButton = forwardRef(
         });
       },
       [selectedItem]
-    ); /** ----------------------------------------------------------------------------- */
+    );
+
+    /** --------------------------------------------- */
 
     return (
       <Box {...wrapperProps}>

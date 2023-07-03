@@ -23,13 +23,13 @@ import type { DropdownItemShape, SelectCommonProps } from "../select.types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 
-/**
- * Util function for transforming a dropdown item into a string (for use as a `value` for {@link Input}).
- * Can be overridden by passing a custom `itemToString` prop to the `SelectSingle` component.
- */
+/** ----------------------------------------------------------------------------- */
+
 const defaultItemToString = (item: DropdownItemShape | null) => {
   return item?.label || "";
 };
+
+/** ----------------------------------------------------------------------------- */
 
 export type SelectSingleProps = SelectCommonProps &
   LabelledElementCustomisation & {
@@ -41,7 +41,6 @@ export type SelectSingleProps = SelectCommonProps &
     placeholder: string;
   };
 
-/** Accessible select component, supports multi & single modes. */
 export const SelectSingle = forwardRef(
   (
     {
@@ -69,7 +68,11 @@ export const SelectSingle = forwardRef(
     ref: Ref<HTMLInputElement>
   ) => {
     const [selectedItem, setSelectedItem] = useState(
-      initialSelectedItem || null
+      initialSelectedItem ||
+        items.find((item) => {
+          return item.isSelected;
+        }) ||
+        null
     );
 
     const [inputValue, setInputValue] = useState(

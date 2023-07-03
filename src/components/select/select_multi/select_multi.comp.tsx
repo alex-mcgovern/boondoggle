@@ -97,7 +97,11 @@ export const SelectMulti = forwardRef(
       selectedItems,
       setSelectedItems,
     } = useMultipleSelection<DropdownItemShape>({
-      initialSelectedItems,
+      initialSelectedItems:
+        initialSelectedItems ||
+        items.filter((item) => {
+          return item.isSelected;
+        }),
       onSelectedItemsChange,
     });
 
