@@ -18,6 +18,7 @@ import {
 import { DEFAULT_SLOT_RIGHT } from "../shared/DEFAULT_SLOT_RIGHT";
 import { DropdownMenu } from "../shared/dropdown_menu/dropdown_menu.comp";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
+import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
 import type { LabelledElementCustomisation } from "../../../types";
 import type { DropdownItemShape, SelectCommonProps } from "../select.types";
@@ -243,7 +244,6 @@ export const SelectMulti = forwardRef(
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
               {...inputProps}
-              className={selectInputCursorStyles}
               errorMessage={errorMessage}
               invalid={invalid}
               label={label}
@@ -252,6 +252,9 @@ export const SelectMulti = forwardRef(
               size={size}
               slotLeft={slotLeft}
               slotRight={SlotRight}
+              className={clsx(selectInputCursorStyles, {
+                [selectMultiInputSelectedItemsStyle]: selectedItems?.length > 0,
+              })}
               labelProps={getLabelProps({
                 htmlFor: id,
               })}
