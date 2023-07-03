@@ -430,7 +430,7 @@ globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
       background: vars.color.tint_default,
-      color: vars.color.text_high_contrast,
+      color: vars.color.text_low_contrast,
       fontSize: vars.fontSize.body_sm,
       fontWeight: vars.fontWeight.semibold,
     },
