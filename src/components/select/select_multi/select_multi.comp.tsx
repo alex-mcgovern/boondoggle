@@ -97,11 +97,12 @@ export const SelectMulti = forwardRef(
       selectedItems,
       setSelectedItems,
     } = useMultipleSelection<DropdownItemShape>({
-      initialSelectedItems:
-        initialSelectedItems ||
-        items.filter((item) => {
+      initialSelectedItems: [
+        ...initialSelectedItems,
+        ...items.filter((item) => {
           return item.isSelected;
         }),
+      ],
       onSelectedItemsChange,
     });
 
@@ -156,6 +157,10 @@ export const SelectMulti = forwardRef(
           case useCombobox.stateChangeTypes.InputBlur:
             if (!newSelectedItem) {
               break;
+            }
+
+            if (newSelectedItem.onClick) {
+              newSelectedItem.onClick();
             }
 
             if (getIsItemSelected(newSelectedItem)) {

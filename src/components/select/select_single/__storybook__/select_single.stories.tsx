@@ -91,6 +91,43 @@ export const OnChange: Story = {
   },
 };
 
+export const ItemOnClick: Story = {
+  args: {
+    items: [
+      {
+        as: "button",
+        label: "United Kingdom",
+        onClick: () => {
+          alert("clicked");
+        },
+        value: "uk",
+      },
+    ],
+  },
+};
+
+export const ItemsWithIsSelectedTrue: Story = {
+  args: {
+    items: [
+      {
+        isSelected: true,
+        label: "United Kingdom",
+        value: "uk",
+      },
+      {
+        isSelected: false,
+        label: "France",
+        value: "fr",
+      },
+      {
+        isSelected: false,
+        label: "Germany",
+        value: "de",
+      },
+    ],
+  },
+};
+
 export const PlayKeyboardNavigation: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

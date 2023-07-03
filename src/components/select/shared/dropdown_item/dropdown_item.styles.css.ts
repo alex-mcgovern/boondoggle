@@ -9,6 +9,7 @@ import {
   elementPadding,
 } from "../../../../styles/common/element_size.css";
 import { vars } from "../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
@@ -50,6 +51,9 @@ export const getDropdownItemStyles = recipe({
     }),
     a11yDisabled,
     a11yFocus,
+    createAccessibleTransition({
+      transition: `background ${vars.transitionDuration.short} ease`,
+    }),
     {
       selectors: {
         "&:hover": {
@@ -66,14 +70,14 @@ export const getDropdownItemStyles = recipe({
 export const isHighlighted = style([
   variantColorOverlay.blue,
   {
-    backgroundColor: vars.color.tint_active,
+    background: vars.color.tint_active,
   },
 ]);
 
 export const isSelected = style([
   variantColorOverlay.blue,
   {
-    backgroundColor: vars.color.tint_active,
+    background: vars.color.tint_active,
     fontWeight: vars.fontWeight.semibold,
   },
 ]);

@@ -47,6 +47,28 @@ export const Invalid: Story = {
   },
 };
 
+export const ItemsWithIsSelectedTrue: Story = {
+  args: {
+    items: [
+      {
+        isSelected: true,
+        label: "United Kingdom",
+        value: "uk",
+      },
+      {
+        isSelected: true,
+        label: "France",
+        value: "fr",
+      },
+      {
+        isSelected: true,
+        label: "Germany",
+        value: "de",
+      },
+    ],
+  },
+};
+
 export const Customisation: Story = {
   args: {
     wrapperProps: {

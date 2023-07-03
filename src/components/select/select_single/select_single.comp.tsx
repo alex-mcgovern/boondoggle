@@ -67,16 +67,20 @@ export const SelectSingle = forwardRef(
     }: SelectSingleProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    const [selectedItem, setSelectedItem] = useState(
-      initialSelectedItem ||
+    const localInitialSelectedItem = useMemo(() => {
+      return (
+        initialSelectedItem ||
         items.find((item) => {
           return item.isSelected;
         }) ||
         null
-    );
+      );
+    }, [initialSelectedItem, items]);
+
+    const [selectedItem, setSelectedItem] = useState(localInitialSelectedItem);
 
     const [inputValue, setInputValue] = useState(
-      initialSelectedItem?.label || ""
+      localInitialSelectedItem?.label || ""
     );
 
     const [localSlotLeft, setLocalSlotLeft] = useState(slotLeft);
@@ -122,6 +126,9 @@ export const SelectSingle = forwardRef(
           case useCombobox.stateChangeTypes.ItemClick:
           case useCombobox.stateChangeTypes.InputBlur:
             if (newSelectedItem) {
+              if (newSelectedItem.onClick) {
+                newSelectedItem.onClick();
+              }
               setSelectedItem(newSelectedItem);
               setInputValue(newSelectedItem.label);
               if (newSelectedItem.slotLeft) {

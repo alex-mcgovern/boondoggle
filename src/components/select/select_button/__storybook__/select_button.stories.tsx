@@ -92,6 +92,22 @@ export const PlacementBottomCenter: StoryObj<StoryCompProps> = {
   render: PlacementTemplate,
 };
 
+export const ItemOnClick: StoryObj<StoryCompProps> = {
+  args: {
+    items: [
+      {
+        as: "button",
+        label: "United Kingdom",
+        onClick: () => {
+          alert("clicked");
+        },
+        value: "uk",
+      },
+    ],
+  },
+  render: Template,
+};
+
 export const ButtonProps: StoryObj<StoryCompProps> = {
   args: {
     ...PROPS,
