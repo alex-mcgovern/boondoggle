@@ -456,6 +456,7 @@ globalStyle(`thead tr th, tbody tr td`, {
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
+      fontSize: vars.fontSize.body_sm,
       padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
       textAlign: "left",
     },
