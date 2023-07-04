@@ -60,6 +60,15 @@ export const HasBorderFalse: Story = {
   name: "has-border/false",
 };
 
+export const IsClearable: Story = {
+  args: {
+    id: LOREM.id(),
+    isClearable: true,
+    label: LOREM.label(),
+  },
+  name: "is-clearable",
+};
+
 /**
  * Size
  */

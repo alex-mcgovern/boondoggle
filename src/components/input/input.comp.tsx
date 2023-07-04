@@ -1,15 +1,17 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
+import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
+import { Icon } from "../icon";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { SlotWrapperInset } from "../slot_wrapper_inset";
-import * as styles from "./input.styles.css";
+import { getInputStyles, inputClearButtonStyle } from "./input.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
@@ -17,7 +19,12 @@ import type {
   ConditionalLabelProps,
   LabelledElementCustomisation,
 } from "../../types";
-import type { ComponentPropsWithoutRef, ReactNode, Ref } from "react";
+import type {
+  ChangeEvent,
+  ComponentPropsWithoutRef,
+  ReactNode,
+  Ref,
+} from "react";
 
 export type InputProps = Omit<
   ComponentPropsWithoutRef<"input">,
@@ -32,6 +39,8 @@ export type InputProps = Omit<
     hasBorder?: boolean;
     /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
     invalid?: boolean;
+    /** Whether to allow the user to clear the input with a button */
+    isClearable?: boolean;
     /** Optional tooltip for label */
     labelTooltip?: string;
     /** Name of the form control. Submitted with the form as part of a name/value pair */
@@ -54,24 +63,59 @@ export const Input = forwardRef(
       hasBorder,
       id,
       invalid,
+      isClearable,
       label,
       labelProps,
       labelTooltip,
       name,
       size = "md",
+      onChange,
       slotLeft,
-      slotRight,
+      slotRight: initialSlotRight,
       wrapperProps,
       ...rest
     }: InputProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    /** Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract */
-    const { atomProps, otherProps } = extractAtomsFromProps(
-      rest,
-      getSprinkles
-    ); /** ----------------------------------------------------------------------------- */
+    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
+    /** --------------------------------------------- */
+
+    const [inputValue, setInputValue] = useState<string>("");
+
+    /** --------------------------------------------- */
+
+    const slotRight = useMemo(() => {
+      if (!isClearable || !inputValue) {
+        return initialSlotRight;
+      }
+
+      return (
+        <button
+          className={inputClearButtonStyle}
+          type="button"
+          onClick={() => {
+            return setInputValue("");
+          }}
+        >
+          <Icon icon={faTimesCircle} />
+        </button>
+      );
+    }, [initialSlotRight, inputValue, isClearable]);
+
+    /** --------------------------------------------- */
+
+    const handleChange = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
+        if (onChange) {
+          onChange(e);
+        }
+        return setInputValue(e.target.value);
+      },
+      [onChange]
+    );
+
+    /** --------------------------------------------- */
     return (
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
@@ -91,9 +135,11 @@ export const Input = forwardRef(
           <input
             id={id}
             name={name}
+            onChange={handleChange}
             ref={ref}
+            value={inputValue}
             className={clsx(
-              styles.getInputStyles({ hasBorder, size }),
+              getInputStyles({ hasBorder, size }),
               getSprinkles(atomProps),
               userClassName,
               {

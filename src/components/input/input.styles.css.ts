@@ -1,12 +1,14 @@
-import { styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { a11yDisabled } from "../../styles/common/a11y.css";
+import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import {
   elementFontSize,
   elementHeight,
   elementPadding,
 } from "../../styles/common/element_size.css";
+import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../styles/common/selectors.css";
+import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
@@ -54,3 +56,26 @@ export const getInputStyles = recipe({
     size,
   },
 });
+
+/** ----------------------------------------------------------------------------- */
+
+export const inputClearButtonStyle = style([
+  a11yFocus,
+  getSprinkles({
+    alignItems: "center",
+    aspectRatio: "square",
+    color: "text_low_contrast",
+    display: "flex",
+    height: "spacing_3",
+    justifyContent: "center",
+    width: "spacing_3",
+  }),
+  {
+    selectors: {
+      [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+        color: vars.color.text_high_contrast,
+      },
+    },
+    transition: `color ${vars.transitionDuration.short} ease`,
+  },
+]);
