@@ -1,7 +1,7 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import clsx from "clsx";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
 import { getTheme } from "../../styles/theme.css";
@@ -63,6 +63,8 @@ export const Input = forwardRef(
       hasBorder,
       id,
       invalid,
+      value,
+      defaultValue,
       isClearable,
       label,
       labelProps,
@@ -81,7 +83,17 @@ export const Input = forwardRef(
 
     /** --------------------------------------------- */
 
-    const [inputValue, setInputValue] = useState<string>("");
+    const [inputValue, setInputValue] = useState<
+      typeof value | typeof defaultValue
+    >(() => {
+      return value || defaultValue || "";
+    });
+
+    useEffect(() => {
+      if (value !== undefined) {
+        setInputValue(value);
+      }
+    }, [value]);
 
     /** --------------------------------------------- */
 

@@ -6,5 +6,6 @@ exports[`<Input /> should match snapshot 1`] = `
   id="lorem-ipsum"
   name="Name ipsum"
   placeholder="Placeholder ipsum"
+  value=""
 />
 `;
