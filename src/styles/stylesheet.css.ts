@@ -448,6 +448,14 @@ globalStyle(`th, td`, {
   },
 });
 
+globalStyle(`tr`, {
+  "@layer": {
+    [baseLayer]: {
+      borderBottom: `1px solid ${vars.color.border_default}`,
+    },
+  },
+});
+
 globalStyle(`td`, {
   "@layer": {
     [baseLayer]: {
