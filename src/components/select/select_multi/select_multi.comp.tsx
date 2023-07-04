@@ -95,15 +95,20 @@ export const SelectMulti = forwardRef(
         if (onChange) {
           onChange(newItems);
         }
-        setInputPlaceholder(
-          getDisplayValue({
-            length: newItems?.length,
-            originalValue: placeholder,
-          })
-        );
       },
-      [onChange, placeholder]
+      [onChange]
     );
+
+    /** --------------------------------------------- */
+
+    useEffect(() => {
+      setInputPlaceholder(
+        getDisplayValue({
+          length: selectedItems?.length,
+          originalValue: placeholder,
+        })
+      );
+    }, [placeholder, selectedItems?.length]);
 
     /** --------------------------------------------- */
 
