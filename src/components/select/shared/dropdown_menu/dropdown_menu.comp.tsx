@@ -66,6 +66,7 @@ export const DropdownMenu = forwardRef(
         })}
       >
         {Array.isArray(items) &&
+          items.length > 0 &&
           items.map((item, index) => {
             // eslint-disable-next-line @typescript-eslint/naming-convention
             const { onClick: _unusedOnClick, ...restItem } = item;
@@ -92,6 +93,30 @@ export const DropdownMenu = forwardRef(
               />
             );
           })}
+
+        {Array.isArray(items) && items.length === 0 && (
+          <DropdownItem
+            as="button"
+            isDropdownItemSelected={false}
+            isMulti={isMulti}
+            size={size}
+            item={{
+              as: "button",
+              disabled: true,
+              label: "No results",
+              value: "",
+            }}
+            {...getDropdownItemProps({
+              disabled: true,
+              getItemProps,
+              getSelectedItemProps,
+              index: 0,
+              isMulti,
+              item: { label: "No results", value: "" },
+              removeSelectedItem,
+            })}
+          />
+        )}
       </Dialog>
     );
   }

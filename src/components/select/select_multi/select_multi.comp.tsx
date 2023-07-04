@@ -1,13 +1,10 @@
-import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
-import { a11yFocus } from "../../../styles/common/a11y.css";
-import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
-import { Icon } from "../../icon";
 import { Input } from "../../input";
+import { InputClearButton } from "../../input_clear_button/input_clear_button.comp";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -226,24 +223,11 @@ export const SelectMulti = forwardRef(
     const SlotRight = useMemo(() => {
       if (isFilterable && inputValue.length > 0) {
         return (
-          <button
-            type="button"
-            className={clsx(
-              getSprinkles({
-                alignItems: "center",
-                display: "flex",
-                height: "spacing_3",
-                justifyContent: "center",
-                width: "spacing_3",
-              }),
-              a11yFocus
-            )}
+          <InputClearButton
             onClick={() => {
               return setInputValue("");
             }}
-          >
-            <Icon icon={faTimesCircle} />
-          </button>
+          />
         );
       }
 

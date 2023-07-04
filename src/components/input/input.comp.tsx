@@ -1,5 +1,4 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
-import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import clsx from "clsx";
 import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
@@ -7,11 +6,11 @@ import { a11yError } from "../../styles/common/a11y.css";
 import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
-import { Icon } from "../icon";
+import { InputClearButton } from "../input_clear_button/input_clear_button.comp";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { SlotWrapperInset } from "../slot_wrapper_inset";
-import { getInputStyles, inputClearButtonStyle } from "./input.styles.css";
+import { getInputStyles } from "./input.styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
@@ -103,15 +102,11 @@ export const Input = forwardRef(
       }
 
       return (
-        <button
-          className={inputClearButtonStyle}
-          type="button"
+        <InputClearButton
           onClick={() => {
             return setInputValue("");
           }}
-        >
-          <Icon icon={faTimesCircle} />
-        </button>
+        />
       );
     }, [initialSlotRight, inputValue, isClearable]);
 
