@@ -31,7 +31,8 @@ export const DropdownItem = forwardRef(
     }: DropdownItemProps,
     ref: Ref<HTMLDivElement>
   ) => {
-    const { label, slotLeft, isSelected, ...restItemProps } = item || {};
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const { label, slotLeft, isSelected: _, ...restItemProps } = item || {};
 
     return (
       <SlotWrapper
@@ -56,7 +57,7 @@ export const DropdownItem = forwardRef(
         {isMulti && (
           <Box
             as="input"
-            checked={isSelected || isDropdownItemSelected}
+            checked={isDropdownItemSelected}
             marginLeft="auto"
             readOnly
             tabIndex={-1}
