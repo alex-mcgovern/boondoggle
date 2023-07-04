@@ -1,9 +1,12 @@
 import { jest } from "@storybook/jest";
+import { useState } from "react";
 
 import { SelectMulti as StoryComp } from "../..";
 import { LOREM } from "../../../../../mocks/LOREM.mock";
+import { Box } from "../../../box";
 import { mockSelectItems } from "../../__mocks__/select.mock";
 
+import type { DropdownItemShape } from "../..";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();
@@ -68,6 +71,54 @@ export const ItemsWithIsSelectedTrue: Story = {
     ],
   },
 };
+
+/** ----------------------------------------------------------------------------- */
+
+const ControlledTemplate = () => {
+  const [selectedItems, setSelectedItems] = useState<Array<DropdownItemShape>>(
+    []
+  );
+  return (
+    <Box>
+      <Box
+        alignItems="center"
+        display="flex"
+        gap="spacing_1"
+        marginBottom="spacing_2"
+      >
+        <button
+          type="button"
+          onClick={() => {
+            return setSelectedItems([]);
+          }}
+        >
+          Clear selected Items
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            return setSelectedItems([ITEMS[0]]);
+          }}
+        >
+          Set selected Items
+        </button>
+      </Box>
+      <StoryComp
+        items={ITEMS}
+        name={LOREM.name()}
+        placeholder={LOREM.placeholder()}
+        selectedItems={selectedItems}
+      />
+      {JSON.stringify(selectedItems)}
+    </Box>
+  );
+};
+
+export const Controlled: Story = {
+  render: ControlledTemplate,
+};
+
+/** ----------------------------------------------------------------------------- */
 
 export const Customisation: Story = {
   args: {
