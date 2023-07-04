@@ -17,6 +17,7 @@ export const inputClearButtonStyle = style([
     width: "spacing_3",
   }),
   {
+    pointerEvents: "all",
     selectors: {
       [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
         color: vars.color.text_high_contrast,
