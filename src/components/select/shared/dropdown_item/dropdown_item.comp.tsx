@@ -31,7 +31,7 @@ export const DropdownItem = forwardRef(
     }: DropdownItemProps,
     ref: Ref<HTMLDivElement>
   ) => {
-    const { label, slotLeft, ...restItemProps } = item || {};
+    const { label, slotLeft, isSelected, ...restItemProps } = item || {};
 
     return (
       <SlotWrapper
@@ -56,7 +56,7 @@ export const DropdownItem = forwardRef(
         {isMulti && (
           <Box
             as="input"
-            checked={isDropdownItemSelected}
+            checked={isSelected || isDropdownItemSelected}
             marginLeft="auto"
             readOnly
             tabIndex={-1}
