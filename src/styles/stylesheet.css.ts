@@ -437,28 +437,10 @@ globalStyle(`thead`, {
   },
 });
 
-globalStyle(`thead tr th, tbody tr:not(:last-child) td`, {
-  "@layer": {
-    [baseLayer]: {
-      borderBottom: `1px solid ${vars.color.border_default}`,
-    },
-  },
-});
-
-globalStyle(`thead tr th, tbody tr td`, {
-  "@layer": {
-    [baseLayer]: {
-      borderRight: `1px solid ${vars.color.border_default}`,
-    },
-  },
-});
-
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      fontSize: vars.fontSize.body_sm,
-      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
-      textAlign: "left",
+      border: `1px solid ${vars.color.border_default}`,
     },
   },
 });
