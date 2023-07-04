@@ -104,11 +104,15 @@ export const Input = forwardRef(
       return (
         <InputClearButton
           onClick={() => {
+            onChange?.({
+              target: { value: "" },
+            } as ChangeEvent<HTMLInputElement>);
+
             return setInputValue("");
           }}
         />
       );
-    }, [initialSlotRight, inputValue, isClearable]);
+    }, [initialSlotRight, inputValue, isClearable, onChange]);
 
     /** --------------------------------------------- */
 
