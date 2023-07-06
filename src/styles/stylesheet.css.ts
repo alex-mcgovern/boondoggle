@@ -443,7 +443,7 @@ globalStyle(`th, td`, {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
       fontSize: vars.fontSize.body_sm,
-      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
+      padding: vars.spacing.spacing_1,
       textAlign: "left",
     },
   },
