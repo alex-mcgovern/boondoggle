@@ -44,6 +44,7 @@ export const tooltipTextStyle = style([
     borderRadius: "sm",
     color: "white",
     fontStyle: "body_xs",
+    fontWeight: "normal",
     overflow: "hidden",
     padding: "spacing_1",
     textAlign: "center",
