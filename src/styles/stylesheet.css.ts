@@ -334,7 +334,7 @@ globalStyle("input::placeholder, textarea::placeholder", {
 });
 
 globalStyle(
-  "input:not([disabled]):is(:hover,:focus), textarea:not([disabled]):is(:hover,:focus)",
+  "input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hover)",
   {
     "@layer": {
       [baseLayer]: {
