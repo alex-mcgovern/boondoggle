@@ -56,16 +56,19 @@ export const ItemsWithIsSelectedTrue: Story = {
       {
         isSelected: true,
         label: "United Kingdom",
+        type: "clickable",
         value: "uk",
       },
       {
         isSelected: true,
         label: "France",
+        type: "clickable",
         value: "fr",
       },
       {
         isSelected: true,
         label: "Germany",
+        type: "clickable",
         value: "de",
       },
     ],

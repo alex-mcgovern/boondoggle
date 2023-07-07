@@ -100,6 +100,7 @@ export const ItemOnClick: Story = {
         onClick: () => {
           alert("clicked");
         },
+        type: "clickable",
         value: "uk",
       },
     ],
@@ -112,16 +113,47 @@ export const ItemsWithIsSelectedTrue: Story = {
       {
         isSelected: true,
         label: "United Kingdom",
+        type: "clickable",
         value: "uk",
       },
       {
         isSelected: false,
         label: "France",
+        type: "clickable",
         value: "fr",
       },
       {
         isSelected: false,
         label: "Germany",
+        type: "clickable",
+        value: "de",
+      },
+    ],
+  },
+};
+
+export const WithSeparator: Story = {
+  args: {
+    items: [
+      {
+        isSelected: true,
+        label: "United Kingdom",
+        type: "clickable",
+        value: "uk",
+      },
+      {
+        type: "separator",
+      },
+      {
+        isSelected: false,
+        label: "France",
+        type: "clickable",
+        value: "fr",
+      },
+      {
+        isSelected: false,
+        label: "Germany",
+        type: "clickable",
         value: "de",
       },
     ],

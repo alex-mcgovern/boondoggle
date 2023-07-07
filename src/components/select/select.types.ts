@@ -4,12 +4,25 @@ import type { BoxProps } from "../box";
 import type { InputProps } from "../input/input.comp";
 import type { ReactNode } from "react";
 
-export type DropdownItemShape = BoxProps & {
+type DropdownItemClickable = BoxProps & {
   isSelected?: boolean;
   label: string;
+  onClick?: () => void;
   slotLeft?: ReactNode;
+  type: "clickable";
   value: string;
 };
+
+type DropdownItemSeparator = {
+  isSelected?: never;
+  label?: never;
+  onClick?: never;
+  slotLeft?: never;
+  type: "separator";
+  value?: never;
+};
+
+export type DropdownItemShape = DropdownItemClickable | DropdownItemSeparator;
 
 export type SelectCommonProps = ConditionalLabelProps & {
   disabled?: boolean;

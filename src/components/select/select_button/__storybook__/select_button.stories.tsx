@@ -101,6 +101,7 @@ export const ItemOnClick: StoryObj<StoryCompProps> = {
         onClick: () => {
           alert("clicked");
         },
+        type: "clickable",
         value: "uk",
       },
     ],

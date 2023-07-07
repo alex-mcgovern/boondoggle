@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
+import { Box } from "../../../box";
 import { Dialog } from "../../../dialog";
 import { DropdownItem } from "../dropdown_item/dropdown_item.comp";
 import { getDropdownItemProps } from "../get_dropdown_item_props";
@@ -68,6 +69,10 @@ export const DropdownMenu = forwardRef(
         {Array.isArray(items) &&
           items.length > 0 &&
           items.map((item, index) => {
+            if (item.type === "separator") {
+              return <Box as="hr" marginY="none" />;
+            }
+
             // eslint-disable-next-line @typescript-eslint/naming-convention
             const { onClick: _unusedOnClick, ...restItem } = item;
 
@@ -112,7 +117,7 @@ export const DropdownMenu = forwardRef(
               getSelectedItemProps,
               index: 0,
               isMulti,
-              item: { label: "No results", value: "" },
+              item: { label: "No results", type: "clickable", value: "" },
               removeSelectedItem,
             })}
           />
