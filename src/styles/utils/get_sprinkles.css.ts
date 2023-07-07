@@ -31,7 +31,7 @@ export const sprinklesProperties = defineProperties({
     borderTop: vars.border,
     bottom: ["0"],
     boxShadow: vars.boxShadow,
-    color: { ...vars.color, inherit: "inherit" },
+    color: { ...vars.color, currentColor: "currentColor", inherit: "inherit" },
     flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
     flexGrow: ["0", "1"],
     flexShrink: ["0", "1"],
