@@ -21,7 +21,7 @@ exports[`<DatePicker /> Basic smoke tests should match snapshot 1`] = `
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_color_inherit__eiij7b1o"
           >
             <div
-              class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_width_spacing_3_mobile__eiij7bik get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
+              class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_width_spacing_3_mobile__eiij7bik get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
             >
               <svg
                 aria-hidden="true"
@@ -80,7 +80,7 @@ exports[`<DatePicker /> Basic smoke tests should match snapshot 1`] = `
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_gap_spacing_1_mobile__eiij7b9z get_sprinkles_color_inherit__eiij7b1o"
           >
             <div
-              class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_width_spacing_3_mobile__eiij7bik get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
+              class="slot_wrapper.styles_getSlotStyles__1xvz5xe7 slot_wrapper.styles__1xvz5xe6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8n get_sprinkles_justifyContent_center__eiij7b38 get_sprinkles_width_spacing_3_mobile__eiij7bik get_sprinkles_color_inherit__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1v"
             >
               <svg
                 aria-hidden="true"
