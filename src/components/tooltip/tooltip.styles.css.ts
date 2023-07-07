@@ -29,7 +29,6 @@ export const tooltipTriggerStyle = style([
       },
     },
     transition: `color ease`,
-
     transitionDuration: vars.transitionDuration.medium,
   },
   a11yFocus,
