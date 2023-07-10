@@ -25,6 +25,8 @@ const variantSize = styleVariants({
   sm: [elementFontSize.sm],
   square_md: [
     getSprinkles({
+      aspectRatio: "square",
+      flexShrink: "0",
       fontStyle: "body_md",
       height: "spacing_5",
       width: "spacing_5",
@@ -32,6 +34,8 @@ const variantSize = styleVariants({
   ],
   square_sm: [
     getSprinkles({
+      aspectRatio: "square",
+      flexShrink: "0",
       fontStyle: "body_sm",
       height: "spacing_4",
       width: "spacing_4",

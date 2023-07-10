@@ -1,5 +1,6 @@
 import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 
+import { Button } from "../button";
 import { Icon } from "../icon";
 import { inputClearButtonStyle } from "./input_clear_button.styles.css";
 
@@ -9,8 +10,14 @@ type InputClearButtonProps = {
 
 export function InputClearButton({ onClick }: InputClearButtonProps) {
   return (
-    <button className={inputClearButtonStyle} onClick={onClick} type="button">
-      <Icon icon={faTimesCircle} />
-    </button>
+    <Button
+      appearance="ghost"
+      className={inputClearButtonStyle}
+      name="clear"
+      onClick={onClick}
+      size="square_sm"
+      slotLeft={<Icon icon={faTimesCircle} />}
+      type="button"
+    />
   );
 }
