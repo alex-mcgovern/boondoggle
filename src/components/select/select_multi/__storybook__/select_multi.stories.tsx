@@ -128,6 +128,14 @@ export const Customisation: Story = {
   },
 };
 
+export const OnChange: Story = {
+  args: {
+    onChange: (selectedItems: Array<DropdownItemShape>) => {
+      alert(JSON.stringify({ selectedItems }));
+    },
+  },
+};
+
 export const SlotLeft: Story = {
   args: {
     items: mockSelectItems({ withIcon: true }),

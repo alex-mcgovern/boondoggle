@@ -101,6 +101,7 @@ export const SelectSingle = forwardRef(
       highlightedIndex,
 
       isOpen,
+      reset,
       toggleMenu,
     } = useCombobox({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
@@ -164,30 +165,20 @@ export const SelectSingle = forwardRef(
     /** --------------------------------------------- */
 
     const SlotRight = useMemo(() => {
-      if (isFilterable && inputValue.length > 0) {
+      if ((isFilterable && inputValue.length > 0) || selectedItem) {
         return (
           <InputClearButton
             onClick={() => {
-              setSelectedItem(null);
               setInputValue("");
-            }}
-          />
-        );
-      }
-
-      if (selectedItem) {
-        return (
-          <InputClearButton
-            onClick={() => {
-              setSelectedItem(null);
-              setInputValue("");
+              setLocalSlotLeft(null);
+              return reset();
             }}
           />
         );
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, selectedItem, slotRight]);
+    }, [inputValue.length, isFilterable, reset, selectedItem, slotRight]);
 
     /** --------------------------------------------- */
 

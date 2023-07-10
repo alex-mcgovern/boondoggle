@@ -156,6 +156,7 @@ export const SelectMulti = forwardRef(
       getInputProps,
       highlightedIndex,
       getItemProps,
+      reset,
       getLabelProps,
     } = useCombobox<DropdownItemShape>({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
@@ -221,30 +222,28 @@ export const SelectMulti = forwardRef(
     /** --------------------------------------------- */
 
     const SlotRight = useMemo(() => {
-      if (isFilterable && inputValue.length > 0) {
+      if ((isFilterable && inputValue.length > 0) || selectedItems.length > 0) {
         return (
           <InputClearButton
             onClick={() => {
-              setSelectedItems([]);
+              onSelectedItemsChange([]);
               setInputValue("");
-            }}
-          />
-        );
-      }
-
-      if (selectedItems.length > 0) {
-        return (
-          <InputClearButton
-            onClick={() => {
               setSelectedItems([]);
-              setInputValue("");
+              return reset();
             }}
           />
         );
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, selectedItems.length, slotRight]);
+    }, [
+      inputValue.length,
+      isFilterable,
+      onSelectedItemsChange,
+      reset,
+      selectedItems.length,
+      slotRight,
+    ]);
 
     /** --------------------------------------------- */
 
