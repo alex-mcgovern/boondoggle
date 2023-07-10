@@ -23,6 +23,7 @@ export function FormInput({
   name,
   required,
   validateFunction,
+  invalid,
   wrapperProps,
   ...rest
 }: FormInputProps) {
@@ -50,7 +51,7 @@ export function FormInput({
     <Input
       aria-required={required}
       errorMessage={errorMessage}
-      invalid={!!error}
+      invalid={invalid || !!error}
       name={name}
       onBlur={onBlur}
       onChange={onChange}
