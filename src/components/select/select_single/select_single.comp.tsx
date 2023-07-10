@@ -168,14 +168,26 @@ export const SelectSingle = forwardRef(
         return (
           <InputClearButton
             onClick={() => {
-              return setInputValue("");
+              setSelectedItem(null);
+              setInputValue("");
+            }}
+          />
+        );
+      }
+
+      if (selectedItem) {
+        return (
+          <InputClearButton
+            onClick={() => {
+              setSelectedItem(null);
+              setInputValue("");
             }}
           />
         );
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, slotRight]);
+    }, [inputValue.length, isFilterable, selectedItem, slotRight]);
 
     /** --------------------------------------------- */
 

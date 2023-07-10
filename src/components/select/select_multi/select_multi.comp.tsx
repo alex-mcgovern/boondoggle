@@ -225,14 +225,26 @@ export const SelectMulti = forwardRef(
         return (
           <InputClearButton
             onClick={() => {
-              return setInputValue("");
+              setSelectedItems([]);
+              setInputValue("");
+            }}
+          />
+        );
+      }
+
+      if (selectedItems.length > 0) {
+        return (
+          <InputClearButton
+            onClick={() => {
+              setSelectedItems([]);
+              setInputValue("");
             }}
           />
         );
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, slotRight]);
+    }, [inputValue.length, isFilterable, selectedItems.length, slotRight]);
 
     /** --------------------------------------------- */
 
