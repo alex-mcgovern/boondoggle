@@ -170,8 +170,9 @@ export const SelectSingle = forwardRef(
           <InputClearButton
             onClick={() => {
               setInputValue("");
+              setSelectedItem(null);
               setLocalSlotLeft(null);
-              return reset();
+              reset();
             }}
           />
         );
