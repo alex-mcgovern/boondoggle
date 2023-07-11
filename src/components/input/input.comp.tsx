@@ -168,7 +168,7 @@ export const Input = forwardRef(
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
         )}
-        {description && !!invalid && !!errorMessage && (
+        {description && !invalid && !errorMessage && (
           <InputDescription description={description} />
         )}
       </Box>
