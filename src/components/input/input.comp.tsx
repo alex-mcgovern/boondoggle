@@ -7,6 +7,7 @@ import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { InputClearButton } from "../input_clear_button/input_clear_button.comp";
+import { InputDescription } from "../input_description";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import { SlotWrapperInset } from "../slot_wrapper_inset";
@@ -32,6 +33,8 @@ export type InputProps = Omit<
   SprinklesArgs &
   LabelledElementCustomisation &
   ConditionalLabelProps & {
+    /** Description shown under the input when there is no error message  */
+    description?: string;
     /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
     errorMessage?: string;
     /** Whether to render the input with a border */
@@ -58,21 +61,22 @@ export const Input = forwardRef(
   (
     {
       className: userClassName,
+      defaultValue,
+      description,
       errorMessage,
       hasBorder,
       id,
       invalid,
-      value,
-      defaultValue,
       isClearable,
       label,
       labelProps,
       labelTooltip,
       name,
-      size = "md",
       onChange,
+      size = "md",
       slotLeft,
       slotRight: initialSlotRight,
+      value,
       wrapperProps,
       ...rest
     }: InputProps,
@@ -163,6 +167,9 @@ export const Input = forwardRef(
 
         {invalid && errorMessage && (
           <InputErrorMessage message={errorMessage} />
+        )}
+        {description && !!invalid && !!errorMessage && (
+          <InputDescription description={description} />
         )}
       </Box>
     );
