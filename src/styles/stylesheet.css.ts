@@ -325,6 +325,29 @@ globalStyle("input, textarea", {
   },
 });
 
+/** ----------------------------------------------------------------------------- */
+
+globalStyle(
+  "input::-webkit-outer-spin-button, input::-webkit-inner-spin-button",
+  {
+    "@layer": {
+      [baseLayer]: {
+        margin: 0,
+        WebkitAppearance: "none",
+      },
+    },
+  }
+);
+globalStyle("input[type=number]", {
+  "@layer": {
+    [baseLayer]: {
+      MozAppearance: "textfield",
+    },
+  },
+});
+
+/** ----------------------------------------------------------------------------- */
+
 globalStyle("input::placeholder, textarea::placeholder", {
   "@layer": {
     [baseLayer]: {
