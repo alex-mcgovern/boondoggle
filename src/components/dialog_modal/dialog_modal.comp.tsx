@@ -26,10 +26,15 @@ import type { ReactNode, RefObject } from "react";
 
 export type DialogInfoBulletProps = {
   slotLeft: ReactNode;
-  text: string;
+  text?: string;
+  title?: string;
 };
 
-export function DialogInfoBullet({ slotLeft, text }: DialogInfoBulletProps) {
+export function DialogInfoBullet({
+  slotLeft,
+  title,
+  text,
+}: DialogInfoBulletProps) {
   return (
     <Box
       alignItems="center"
@@ -40,7 +45,10 @@ export function DialogInfoBullet({ slotLeft, text }: DialogInfoBulletProps) {
       <Box flexShrink="0" width="spacing_2">
         {slotLeft}
       </Box>
-      <Box>{text}</Box>
+      <Box>
+        <Box fontWeight="semibold">{title}</Box>
+        <Box>{text}</Box>
+      </Box>
     </Box>
   );
 }
