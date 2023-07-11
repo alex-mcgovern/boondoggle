@@ -62,7 +62,7 @@ export const HasBorderFalse: Story = {
 
 export const Description: Story = {
   args: {
-    description: LOREM.text_xxs,
+    description: LOREM.text_lg,
     id: LOREM.id(),
     label: LOREM.label(),
   },
