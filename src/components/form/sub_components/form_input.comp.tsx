@@ -22,6 +22,7 @@ export function FormInput({
   errorMessage,
   name,
   required,
+  onChange,
   validateFunction,
   invalid,
   wrapperProps,
@@ -30,7 +31,12 @@ export function FormInput({
   const { control } = useFormContext();
 
   const {
-    field: { onChange, onBlur, ref, value: controlledValue = "" },
+    field: {
+      onChange: controlledOnChange,
+      onBlur,
+      ref,
+      value: controlledValue = "",
+    },
     fieldState: { error },
   } = useController({
     control,
@@ -54,10 +60,13 @@ export function FormInput({
       invalid={invalid || !!error}
       name={name}
       onBlur={onBlur}
-      onChange={onChange}
       ref={ref}
       value={controlledValue}
       wrapperProps={wrapperProps}
+      onChange={(e) => {
+        onChange?.(e);
+        controlledOnChange(e);
+      }}
       {...rest}
     />
   );
