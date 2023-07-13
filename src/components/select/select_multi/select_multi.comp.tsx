@@ -24,11 +24,11 @@ import type { Ref } from "react";
 export type SelectMultiProps = SelectCommonProps &
   LabelledElementCustomisation & {
     initialSelectedItems?: Array<DropdownItemShape>;
-    itemToString?: (item: DropdownItemShape | null) => string;
     labelTooltip?: string;
     onChange?: (changes: Array<DropdownItemShape>) => void;
     placeholder: string;
     selectedItems?: Array<DropdownItemShape>;
+    selectedItemsToString?: (selectedItems: Array<DropdownItemShape>) => string;
   };
 
 export const SelectMulti = forwardRef(
@@ -40,6 +40,7 @@ export const SelectMulti = forwardRef(
       initialHighlightedItem,
       initialSelectedItems = [],
       inputProps,
+      selectedItemsToString,
       invalid,
       isFilterable,
       items,
@@ -58,12 +59,6 @@ export const SelectMulti = forwardRef(
     ref: Ref<HTMLInputElement>
   ) => {
     const [inputValue, setInputValue] = useState("");
-    const [inputPlaceholder, setInputPlaceholder] = useState(
-      getDisplayValue({
-        length: initialSelectedItems?.length,
-        originalValue: placeholder,
-      })
-    );
 
     /** --------------------------------------------- */
 
@@ -83,7 +78,7 @@ export const SelectMulti = forwardRef(
       if (controlledSelectedItems) {
         setSelectedItems(controlledSelectedItems);
       }
-    }, [controlledSelectedItems]);
+    }, [controlledSelectedItems, setSelectedItems]);
 
     /** --------------------------------------------- */
 
@@ -98,14 +93,20 @@ export const SelectMulti = forwardRef(
 
     /** --------------------------------------------- */
 
-    useEffect(() => {
-      setInputPlaceholder(
-        getDisplayValue({
-          length: selectedItems?.length,
-          originalValue: placeholder,
-        })
-      );
-    }, [placeholder, selectedItems?.length]);
+    const inputPlaceholder = useMemo(() => {
+      if (!Array.isArray(selectedItems) || selectedItems.length < 1) {
+        return placeholder;
+      }
+
+      if (selectedItemsToString) {
+        return selectedItemsToString(selectedItems);
+      }
+
+      return getDisplayValue({
+        length: selectedItems?.length,
+        originalValue: placeholder,
+      });
+    }, [placeholder, selectedItems, selectedItemsToString]);
 
     /** --------------------------------------------- */
 
