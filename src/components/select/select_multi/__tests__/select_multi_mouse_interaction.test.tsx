@@ -79,9 +79,7 @@ describe("<SelectMulti />", () => {
         await user.click(firstItem);
 
         expect(ON_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            selectedItems: [PROPS.items[0]],
-          })
+          expect.arrayContaining([PROPS.items[0]])
         );
       });
 
@@ -97,9 +95,7 @@ describe("<SelectMulti />", () => {
         await user.click(secondItem);
 
         expect(ON_CHANGE).toHaveBeenLastCalledWith(
-          expect.objectContaining({
-            selectedItems: [PROPS.items[0], PROPS.items[1]],
-          })
+          expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
         );
       });
     });

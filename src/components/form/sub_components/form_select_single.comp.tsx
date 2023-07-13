@@ -35,9 +35,8 @@ export function FormSelectSingle({
 
   const handleChange = useCallback(
     (changes: UseComboboxStateChange<DropdownItemShape>) => {
-      return changes.selectedItem
-        ? (onChange(changes.selectedItem.value), onChangeParent?.(changes))
-        : null;
+      onChange(changes.selectedItem?.value);
+      onChangeParent?.(changes);
     },
     [onChange, onChangeParent]
   );

@@ -5,10 +5,14 @@ import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
+/** ----------------------------------------------------------------------------- */
+
 const contentShow = keyframes({
   "0%": { opacity: 0 },
   "100%": { opacity: 1 },
 });
+
+/** ----------------------------------------------------------------------------- */
 
 export const tooltipTriggerStyle = style([
   getSprinkles({
@@ -25,11 +29,12 @@ export const tooltipTriggerStyle = style([
       },
     },
     transition: `color ease`,
-
     transitionDuration: vars.transitionDuration.medium,
   },
   a11yFocus,
 ]);
+
+/** ----------------------------------------------------------------------------- */
 
 export const tooltipTextStyle = style([
   variantColorOverlay.grey,
@@ -37,7 +42,8 @@ export const tooltipTextStyle = style([
     background: "text_low_contrast",
     borderRadius: "sm",
     color: "white",
-    fontStyle: "body_sm",
+    fontStyle: "body_xs",
+    fontWeight: "normal",
     overflow: "hidden",
     padding: "spacing_1",
     textAlign: "center",
@@ -46,6 +52,7 @@ export const tooltipTextStyle = style([
     zIndex: "1",
   }),
   {
+    lineHeight: "0.875",
     maxWidth: "12rem",
   },
   createAccessibleTransition({

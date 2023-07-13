@@ -22,14 +22,21 @@ export function FormInput({
   errorMessage,
   name,
   required,
+  onChange,
   validateFunction,
+  invalid,
   wrapperProps,
   ...rest
 }: FormInputProps) {
   const { control } = useFormContext();
 
   const {
-    field: { onChange, onBlur, ref, value: controlledValue = "" },
+    field: {
+      onChange: controlledOnChange,
+      onBlur,
+      ref,
+      value: controlledValue = "",
+    },
     fieldState: { error },
   } = useController({
     control,
@@ -50,13 +57,16 @@ export function FormInput({
     <Input
       aria-required={required}
       errorMessage={errorMessage}
-      invalid={!!error}
+      invalid={invalid || !!error}
       name={name}
       onBlur={onBlur}
-      onChange={onChange}
       ref={ref}
       value={controlledValue}
       wrapperProps={wrapperProps}
+      onChange={(e) => {
+        onChange?.(e);
+        controlledOnChange(e);
+      }}
       {...rest}
     />
   );

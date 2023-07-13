@@ -24,6 +24,7 @@ export const slotOuterStyle = style([
     top: "0",
     width: "spacing_5",
   }),
+  { pointerEvents: "none" },
 ]);
 
 export const getSlotInnerStyles = recipe({

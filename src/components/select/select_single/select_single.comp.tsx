@@ -1,13 +1,9 @@
-import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
-import clsx from "clsx";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
-import { a11yFocus } from "../../../styles/common/a11y.css";
-import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
-import { Icon } from "../../icon";
 import { Input } from "../../input";
+import { InputClearButton } from "../../input_clear_button/input_clear_button.comp";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -105,6 +101,7 @@ export const SelectSingle = forwardRef(
       highlightedIndex,
 
       isOpen,
+      reset,
       toggleMenu,
     } = useCombobox({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
@@ -168,31 +165,21 @@ export const SelectSingle = forwardRef(
     /** --------------------------------------------- */
 
     const SlotRight = useMemo(() => {
-      if (isFilterable && inputValue.length > 0) {
+      if ((isFilterable && inputValue.length > 0) || selectedItem) {
         return (
-          <button
-            type="button"
-            className={clsx(
-              getSprinkles({
-                alignItems: "center",
-                display: "flex",
-                height: "spacing_3",
-                justifyContent: "center",
-                width: "spacing_3",
-              }),
-              a11yFocus
-            )}
+          <InputClearButton
             onClick={() => {
-              return setInputValue("");
+              setInputValue("");
+              setSelectedItem(null);
+              setLocalSlotLeft(null);
+              reset();
             }}
-          >
-            <Icon icon={faTimesCircle} />
-          </button>
+          />
         );
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, slotRight]);
+    }, [inputValue.length, isFilterable, reset, selectedItem, slotRight]);
 
     /** --------------------------------------------- */
 

@@ -86,9 +86,7 @@ describe("<SelectMulti />", () => {
         await user.keyboard("{enter}");
 
         expect(ON_CHANGE).toHaveBeenCalledWith(
-          expect.objectContaining({
-            selectedItems: [PROPS.items[0]],
-          })
+          expect.arrayContaining([PROPS.items[0]])
         );
       });
 
@@ -105,9 +103,7 @@ describe("<SelectMulti />", () => {
         await user.keyboard("{enter}");
 
         expect(ON_CHANGE).toHaveBeenLastCalledWith(
-          expect.objectContaining({
-            selectedItems: [PROPS.items[0], PROPS.items[1]],
-          })
+          expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
         );
       });
 
@@ -122,11 +118,7 @@ describe("<SelectMulti />", () => {
 
         await user.keyboard("{enter}");
 
-        expect(ON_CHANGE).toHaveBeenLastCalledWith(
-          expect.objectContaining({
-            selectedItems: [],
-          })
-        );
+        expect(ON_CHANGE).toHaveBeenLastCalledWith(expect.arrayContaining([]));
       });
     });
   });

@@ -16,6 +16,7 @@ export const getSlotStyles = recipe({
     },
     getSprinkles({
       alignItems: "center",
+      color: "text_low_contrast",
       display: "flex",
       justifyContent: "center",
     }),

@@ -1,13 +1,10 @@
-import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
-import { a11yFocus } from "../../../styles/common/a11y.css";
-import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
-import { Icon } from "../../icon";
 import { Input } from "../../input";
+import { InputClearButton } from "../../input_clear_button/input_clear_button.comp";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -22,20 +19,16 @@ import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
 import type { LabelledElementCustomisation } from "../../../types";
 import type { DropdownItemShape, SelectCommonProps } from "../select.types";
-import type { UseMultipleSelectionStateChange } from "downshift";
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &
   LabelledElementCustomisation & {
     initialSelectedItems?: Array<DropdownItemShape>;
-    itemToString?: (item: DropdownItemShape | null) => string;
-    /** Optional tooltip for label */
     labelTooltip?: string;
-
-    onChange?: (
-      changes: UseMultipleSelectionStateChange<DropdownItemShape>
-    ) => void;
+    onChange?: (changes: Array<DropdownItemShape>) => void;
     placeholder: string;
+    selectedItems?: Array<DropdownItemShape>;
+    selectedItemsToString?: (selectedItems: Array<DropdownItemShape>) => string;
   };
 
 export const SelectMulti = forwardRef(
@@ -47,11 +40,13 @@ export const SelectMulti = forwardRef(
       initialHighlightedItem,
       initialSelectedItems = [],
       inputProps,
+      selectedItemsToString,
       invalid,
       isFilterable,
       items,
       label,
       labelTooltip,
+      selectedItems: controlledSelectedItems,
       name,
       onChange,
       placeholder,
@@ -64,47 +59,71 @@ export const SelectMulti = forwardRef(
     ref: Ref<HTMLInputElement>
   ) => {
     const [inputValue, setInputValue] = useState("");
-    const [inputPlaceholder, setInputPlaceholder] = useState(
-      getDisplayValue({
-        length: initialSelectedItems?.length,
-        originalValue: placeholder,
-      })
+
+    /** --------------------------------------------- */
+
+    const [selectedItems, setSelectedItems] = useState<
+      Array<DropdownItemShape>
+    >(
+      controlledSelectedItems || [
+          ...initialSelectedItems,
+          ...items.filter((item) => {
+            return item.isSelected;
+          }),
+        ] ||
+        []
     );
+
+    useEffect(() => {
+      if (controlledSelectedItems) {
+        setSelectedItems(controlledSelectedItems);
+      }
+    }, [controlledSelectedItems]);
 
     /** --------------------------------------------- */
 
     const onSelectedItemsChange = useCallback(
-      (changes: UseMultipleSelectionStateChange<DropdownItemShape>) => {
+      (newItems: Array<DropdownItemShape>) => {
         if (onChange) {
-          onChange(changes);
+          onChange(newItems);
         }
-        setInputPlaceholder(
-          getDisplayValue({
-            length: changes?.selectedItems?.length,
-            originalValue: placeholder,
-          })
-        );
       },
-      [onChange, placeholder]
+      [onChange]
     );
 
     /** --------------------------------------------- */
 
-    const {
-      getSelectedItemProps,
-      getDropdownProps,
-      removeSelectedItem,
-      selectedItems,
-      setSelectedItems,
-    } = useMultipleSelection<DropdownItemShape>({
-      initialSelectedItems: [
-        ...initialSelectedItems,
-        ...items.filter((item) => {
-          return item.isSelected;
-        }),
-      ],
-      onSelectedItemsChange,
-    });
+    const inputPlaceholder = useMemo(() => {
+      if (!Array.isArray(selectedItems) || selectedItems.length < 1) {
+        return placeholder;
+      }
+
+      if (selectedItemsToString) {
+        return selectedItemsToString(selectedItems);
+      }
+
+      return getDisplayValue({
+        length: selectedItems?.length,
+        originalValue: placeholder,
+      });
+    }, [placeholder, selectedItems, selectedItemsToString]);
+
+    /** --------------------------------------------- */
+
+    const removeSelectedItem = useCallback((item: DropdownItemShape) => {
+      return setSelectedItems((prevSelectedItems) => {
+        return prevSelectedItems.filter((selectedItem) => {
+          return selectedItem.value !== item.value;
+        });
+      });
+    }, []);
+
+    /** --------------------------------------------- */
+
+    const { getSelectedItemProps, getDropdownProps } =
+      useMultipleSelection<DropdownItemShape>({
+        selectedItems,
+      });
 
     /** --------------------------------------------- */
 
@@ -138,6 +157,7 @@ export const SelectMulti = forwardRef(
       getInputProps,
       highlightedIndex,
       getItemProps,
+      reset,
       getLabelProps,
     } = useCombobox<DropdownItemShape>({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
@@ -165,11 +185,17 @@ export const SelectMulti = forwardRef(
 
             if (getIsItemSelected(newSelectedItem)) {
               removeSelectedItem(newSelectedItem);
+              onSelectedItemsChange(
+                selectedItems.filter((prevSelectedItem) => {
+                  return prevSelectedItem.value !== newSelectedItem.value;
+                })
+              );
               break;
             }
 
             if (newSelectedItem) {
               setSelectedItems([...selectedItems, newSelectedItem]);
+              onSelectedItemsChange([...selectedItems, newSelectedItem]);
               break;
             }
 
@@ -197,31 +223,28 @@ export const SelectMulti = forwardRef(
     /** --------------------------------------------- */
 
     const SlotRight = useMemo(() => {
-      if (isFilterable && inputValue.length > 0) {
+      if ((isFilterable && inputValue.length > 0) || selectedItems.length > 0) {
         return (
-          <button
-            type="button"
-            className={clsx(
-              getSprinkles({
-                alignItems: "center",
-                display: "flex",
-                height: "spacing_3",
-                justifyContent: "center",
-                width: "spacing_3",
-              }),
-              a11yFocus
-            )}
+          <InputClearButton
             onClick={() => {
-              return setInputValue("");
+              onSelectedItemsChange([]);
+              setInputValue("");
+              setSelectedItems([]);
+              return reset();
             }}
-          >
-            <Icon icon={faTimesCircle} />
-          </button>
+          />
         );
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, slotRight]);
+    }, [
+      inputValue.length,
+      isFilterable,
+      onSelectedItemsChange,
+      reset,
+      selectedItems.length,
+      slotRight,
+    ]);
 
     /** --------------------------------------------- */
 

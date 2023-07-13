@@ -83,6 +83,9 @@ export type { InputDateProps } from "./components/input_date";
 export { InputErrorMessage } from "./components/input_error_message";
 export type { InputErrorMessageProps } from "./components/input_error_message";
 
+export { InputDescription } from "./components/input_description";
+export type { InputDescriptionProps } from "./components/input_description";
+
 export { Icon } from "./components/icon";
 export type { IconProps } from "./components/icon";
 
