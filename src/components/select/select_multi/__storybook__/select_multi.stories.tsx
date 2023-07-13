@@ -128,6 +128,8 @@ export const Customisation: Story = {
   },
 };
 
+/** ----------------------------------------------------------------------------- */
+
 export const OnChange: Story = {
   args: {
     onChange: (selectedItems: Array<DropdownItemShape>) => {
@@ -135,6 +137,22 @@ export const OnChange: Story = {
     },
   },
 };
+
+/** ----------------------------------------------------------------------------- */
+
+export const SelectedItemsToString: Story = {
+  args: {
+    selectedItemsToString: (selectedItems: Array<DropdownItemShape>) => {
+      if (selectedItems.length === 1) {
+        return `${selectedItems.length} country selected`;
+      }
+
+      return `${selectedItems.length} countries selected`;
+    },
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
 
 export const SlotLeft: Story = {
   args: {
