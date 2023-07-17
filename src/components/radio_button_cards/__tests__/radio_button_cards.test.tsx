@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { RadioButtonCards } from "..";
-import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__";
+import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
 
 import type { RadioButtonCardsProps } from "..";
 

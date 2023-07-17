@@ -1,5 +1,5 @@
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__";
+import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
 import { RadioButtonCards as StoryComp } from "../radio_button_cards.comp";
 
 import type { Meta, StoryObj } from "@storybook/react";

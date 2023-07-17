@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { FormInput } from "../sub_components/form_input.comp";
 import { FormRadioButtonCards } from "../sub_components/form_radio_button_cards.comp";

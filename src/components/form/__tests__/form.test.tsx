@@ -9,7 +9,7 @@ import "../../../../test/dialog.mock";
 import "../../../../test/has_pointer_capture.mock";
 import "../../../../test/resize_observer.mock";
 import { selectFromSingleSelect } from "../../../../test/select_from_select_single";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 
