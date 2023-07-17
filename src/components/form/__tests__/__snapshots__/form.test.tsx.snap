@@ -320,7 +320,9 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
     >
       Radio buttons label
     </label>
-    <ul>
+    <ul
+      id="radio"
+    >
       <li
         class="radio_button_cards.styles_radioButtonListItemStyles__vroqf11 radio_button_cards.styles__vroqf10 get_sprinkles_marginBottom_spacing_1__eiij7b46"
       >
