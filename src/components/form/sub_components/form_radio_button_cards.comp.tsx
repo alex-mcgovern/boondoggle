@@ -1,10 +1,9 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
-import {
-  RadioButtonCards,
-  type RadioButtonCardsProps,
-} from "../../radio_button_cards";
+import { RadioButtonCards } from "../../radio_button_cards";
+
+import type { RadioButtonCardsProps } from "../../radio_button_cards";
 
 export type FormRadioButtonCardsProps = RadioButtonCardsProps & {
   /** Message to render when erroring. */

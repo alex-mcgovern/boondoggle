@@ -60,6 +60,9 @@ export type { FormSliderProps } from "./components/form";
 export { FormInput } from "./components/form";
 export { FormInputProps } from "./components/form";
 
+export { FormRadioButtonCards } from "./components/form";
+export { FormRadioButtonCardsProps } from "./components/form";
+
 export { FormSelectSingle } from "./components/form";
 export type { FormSelectSingleProps } from "./components/form";
 

@@ -4,6 +4,9 @@ export type { FormProps } from "./form.comp";
 export { FormInput } from "./sub_components/form_input.comp";
 export type { FormInputProps } from "./sub_components/form_input.comp";
 
+export { FormRadioButtonCards } from "./sub_components/form_radio_button_cards.comp";
+export type { FormRadioButtonCardsProps } from "./sub_components/form_radio_button_cards.comp";
+
 export { FormInputDate } from "./sub_components/form_input_date.comp";
 export type { FormInputDateProps } from "./sub_components/form_input_date.comp";
 
