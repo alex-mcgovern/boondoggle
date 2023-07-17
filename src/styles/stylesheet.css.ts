@@ -154,6 +154,7 @@ globalStyle(`*`, {
 globalStyle(`html`, {
   "@layer": {
     [baseLayer]: {
+      accentColor: vars.color.button_default,
       background: vars.color.background,
       fontSize: vars.fontSize.root,
     },

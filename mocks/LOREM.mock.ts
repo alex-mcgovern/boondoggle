@@ -26,6 +26,9 @@ export const LOREM = {
   labelEmail: (suffix?: string) => {
     return `Email label${suffix ? `-${suffix}` : ""}`;
   },
+  labelRadioButtons: (suffix?: string) => {
+    return `Radio buttons label${suffix ? `-${suffix}` : ""}`;
+  },
   labelSlider: (suffix?: string) => {
     return `Slider label${suffix ? `-${suffix}` : ""}`;
   },

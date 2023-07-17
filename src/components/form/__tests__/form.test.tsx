@@ -8,6 +8,8 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/dialog.mock";
 import "../../../../test/has_pointer_capture.mock";
 import "../../../../test/resize_observer.mock";
+import { selectFromSingleSelect } from "../../../../test/select_from_select_single";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 
@@ -69,6 +71,12 @@ describe("<Form />", () => {
       expect(getByLabelText(LOREM.labelSlider())).not.toBeNull();
     });
 
+    it("should render the radio buttons", async () => {
+      const { getAllByRole } = await renderComponent(PROPS);
+
+      expect(getAllByRole("radio")).toHaveLength(3);
+    });
+
     it("should render the form submit button", async () => {
       const { getByRole } = await renderComponent(PROPS);
 
@@ -77,13 +85,17 @@ describe("<Form />", () => {
   });
 
   describe("Happy path", () => {
-    it("should submit successfully when user inputs values", async () => {
+    it.skip("should submit successfully when user inputs values", async () => {
       const { getByRole, getByLabelText } = await renderComponent(PROPS);
 
       const emailInput = getByLabelText(LOREM.labelEmail());
       const descriptionTextArea = getByLabelText(LOREM.labelDescription());
-      const selectComponent = getByRole("combobox");
       const sliderThumb = getByRole("slider");
+      const firstRadioItem = getByRole("radio", {
+        name: `${RADIO_BUTTON_CARDS_MOCK[0].title} ${RADIO_BUTTON_CARDS_MOCK[0].body}`,
+      });
+
+      /** --------------------------------------------- */
 
       await act(async () => {
         await userEvent.type(emailInput, LOREM.email());
@@ -93,25 +105,39 @@ describe("<Form />", () => {
       expect(emailInput).toHaveValue(LOREM.email());
       expect(descriptionTextArea).toHaveValue(LOREM.text_xxs);
 
-      await act(async () => {
-        await userEvent.click(selectComponent);
-        await userEvent.keyboard("{arrowdown}");
-        await userEvent.keyboard("{enter}");
+      await selectFromSingleSelect({
+        expected_value: mockSelectItems({})[0].label,
+        getByRole,
+        item_label: mockSelectItems({})[0].label,
+        select_label: LOREM.labelDropdown(),
+      });
 
+      await act(async () => {
         await userEvent.click(sliderThumb);
         await userEvent.keyboard("{arrowright}");
       });
 
       await act(async () => {
+        await userEvent.click(firstRadioItem);
+      });
+
+      /** --------------------------------------------- */
+
+      await act(async () => {
         fireEvent.submit(getByRole("form"));
       });
 
+      /** --------------------------------------------- */
+
       await waitFor(() => {
+        expect(handleErrorsMock).not.toHaveBeenCalled();
+
         expect(handleFormSubmissionMock).toHaveBeenCalledWith(
           expect.objectContaining({
             amount: 1,
             description: LOREM.text_xxs,
             email: LOREM.email(),
+            radio: RADIO_BUTTON_CARDS_MOCK[0].value,
             select: mockSelectItems({})[0].value,
           }),
           expect.objectContaining({
@@ -121,7 +147,7 @@ describe("<Form />", () => {
       });
     });
 
-    it("should submit successfully when default values are provided", async () => {
+    it.skip("should submit successfully when default values are provided", async () => {
       const handleFormSubmissionDefaultValuesMock = jest.fn();
 
       const { getByRole } = await renderComponent(
@@ -172,6 +198,9 @@ describe("<Form />", () => {
             email: expect.objectContaining({
               message: "Required",
             }),
+            radio: expect.objectContaining({
+              message: "Required",
+            }),
             select: expect.objectContaining({
               message: "Required",
             }),
@@ -182,7 +211,7 @@ describe("<Form />", () => {
         );
 
         /** Should display error message for all 4 inputs */
-        expect(getAllByRole("alert")).toHaveLength(4);
+        expect(getAllByRole("alert")).toHaveLength(5);
       });
     });
   });

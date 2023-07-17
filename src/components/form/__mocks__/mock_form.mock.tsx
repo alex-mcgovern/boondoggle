@@ -2,8 +2,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { FormInput } from "../sub_components/form_input.comp";
+import { FormRadioButtonCards } from "../sub_components/form_radio_button_cards.comp";
 import { FormSelectSingle } from "../sub_components/form_select_single.comp";
 import { FormSlider } from "../sub_components/form_slider.comp";
 import { FormSubmitButton } from "../sub_components/form_submit_button.comp";
@@ -19,6 +21,7 @@ const mockFormSchema = z.object({
   // date: z.string().min(1),
   description: z.string().min(1),
   email: z.string().email().min(2),
+  radio: z.string().min(1),
   select: z.string().min(1),
 }); /** ----------------------------------------------------------------------------- */
 
@@ -89,6 +92,14 @@ export const mockForm = ({
           label={LOREM.labelSlider()}
           name="amount"
           placeholder="Enter an amount"
+          wrapperProps={WRAPPER_PROPS}
+        />
+        <FormRadioButtonCards
+          errorMessage="Select an option"
+          id="radio"
+          items={RADIO_BUTTON_CARDS_MOCK}
+          label={LOREM.labelRadioButtons()}
+          name="radio"
           wrapperProps={WRAPPER_PROPS}
         />
         <FormSubmitButton width="100%">Submit</FormSubmitButton>
