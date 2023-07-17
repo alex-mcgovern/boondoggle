@@ -171,7 +171,7 @@ export const RadioButtonCards = forwardRef(
             {...labelProps}
           />
         )}
-        <Box as="ul" {...rest}>
+        <Box as="ul" id={id} {...rest}>
           {controlledItems.map((item) => {
             return (
               <RadioButtonCard
