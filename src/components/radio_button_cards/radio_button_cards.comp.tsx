@@ -7,7 +7,6 @@ import { Box } from "../box";
 import { InputDescription } from "../input_description";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
-import { Pill } from "../pill";
 import {
   radioButtonInputStyles,
   radioButtonLabelStyles,
@@ -54,7 +53,6 @@ export function RadioButtonCard({
   radioButtonInputProps,
   required,
   onChange,
-  tag,
   title,
   checked,
   value,
@@ -64,6 +62,7 @@ export function RadioButtonCard({
       as="label"
       className={radioButtonLabelStyles}
       htmlFor={`${name}-${value}`}
+      position="relative"
     >
       <input
         className={radioButtonInputStyles}
@@ -78,11 +77,16 @@ export function RadioButtonCard({
         }}
         {...radioButtonInputProps}
       />
-      {adornment && <Box>{adornment}</Box>}
-      <Box>
+      <Box
+        alignItems="center"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        textAlign="center"
+      >
+        {adornment && <Box marginBottom="spacing_2">{adornment}</Box>}
         <Box alignItems="center" display="flex" gap="spacing_1">
           <Box color="text_high_contrast">{title}</Box>
-          {tag && <Pill size="sm">{tag}</Pill>}
         </Box>
         <Box color="text_low_contrast" fontStyle="body_sm">
           {body}
@@ -169,7 +173,15 @@ export const RadioButtonCards = forwardRef(
             {...labelProps}
           />
         )}
-        <Box aria-labelledby={`label-${id}`} as="fieldset" id={id} {...rest}>
+        <Box
+          aria-labelledby={`label-${id}`}
+          as="fieldset"
+          display="flex"
+          flexWrap="wrap"
+          gap="spacing_1"
+          id={id}
+          {...rest}
+        >
           {controlledItems.map((item) => {
             return (
               <RadioButtonCard

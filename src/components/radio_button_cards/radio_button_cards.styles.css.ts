@@ -16,11 +16,14 @@ export const radioButtonListItemStyles = style([
 /** ----------------------------------------------------------------------------- */
 
 export const radioButtonInputStyles = style({
+  position: "absolute",
+  right: vars.spacing.spacing_2,
   selectors: {
     [`&:focus, &:focus-visible`]: {
       outline: "none",
     },
   },
+  top: vars.spacing.spacing_2,
 });
 
 /** ----------------------------------------------------------------------------- */
@@ -29,6 +32,7 @@ export const radioButtonLabelStyles = style([
   a11yFocus,
   getSprinkles({
     alignItems: "center",
+    aspectRatio: "square",
     borderRadius: "sm",
     display: "flex",
     gap: "spacing_2",
@@ -37,6 +41,7 @@ export const radioButtonLabelStyles = style([
   }),
   {
     accentColor: vars.color.button_default,
+    maxWidth: "12rem",
     selectors: {
       "&:has(input:checked)": {
         background: vars.color.tint_default,
