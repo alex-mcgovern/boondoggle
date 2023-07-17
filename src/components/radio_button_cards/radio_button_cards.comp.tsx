@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { type HTMLProps, type ReactNode, forwardRef, useMemo } from "react";
+import { forwardRef, useMemo } from "react";
 
 import { getTheme } from "../../styles/color_palette.css";
 import { slugify } from "../../utils/slugify";
@@ -19,6 +19,7 @@ import type {
   ConditionalLabelProps,
   LabelledElementCustomisation,
 } from "../../types";
+import type { HTMLProps, ReactNode, Ref } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -109,24 +110,27 @@ export type RadioButtonCardsProps = SprinklesArgs &
   };
 
 export const RadioButtonCards = forwardRef(
-  ({
-    defaultValue,
-    value,
-    description,
-    errorMessage,
-    id,
-    invalid,
-    items,
-    label,
-    labelProps,
-    labelTooltip,
-    name,
-    onChange,
-    radioButtonInputProps,
-    required,
-    wrapperProps,
-    ...rest
-  }: RadioButtonCardsProps) => {
+  (
+    {
+      defaultValue,
+      value,
+      description,
+      errorMessage,
+      id,
+      invalid,
+      items,
+      label,
+      labelProps,
+      labelTooltip,
+      name,
+      onChange,
+      radioButtonInputProps,
+      required,
+      wrapperProps,
+      ...rest
+    }: RadioButtonCardsProps,
+    ref: Ref<HTMLDivElement>
+  ) => {
     const controlledItems: Array<RadioButtonCardShape> = useMemo(() => {
       if (!Array.isArray(items) || items.length < 1) {
         return [];
@@ -153,6 +157,7 @@ export const RadioButtonCards = forwardRef(
       <Box
         className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
         {...wrapperProps}
+        ref={ref}
       >
         {label && id && (
           <Label

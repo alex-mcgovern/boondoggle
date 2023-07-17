@@ -11,19 +11,19 @@ export const RADIO_BUTTON_CARDS_MOCK = [
   {
     adornment: <Icon icon={faBank} size="xl" />,
     body: LOREM.text_md,
-    title: "Item 1",
-    value: "item_1",
+    title: "Radio item 1",
+    value: "radio_item_1",
   },
   {
     adornment: <Icon icon={faArrowRightArrowLeft} size="xl" />,
     body: LOREM.text_md,
-    title: "Item 2",
-    value: "item_2",
+    title: "Radio item 2",
+    value: "radio_item_2",
   },
   {
     adornment: <Icon icon={faShapes} size="xl" />,
     body: LOREM.text_md,
-    title: "Item 3",
-    value: "item_3",
+    title: "Radio item 3",
+    value: "radio_item_3",
   },
 ];
