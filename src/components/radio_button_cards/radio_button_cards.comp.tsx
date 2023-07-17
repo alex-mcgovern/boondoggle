@@ -62,7 +62,11 @@ export function RadioButtonCard({
 }: RadioButtonCardProps) {
   return (
     <li className={radioButtonListItemStyles}>
-      <Box as="label" className={radioButtonLabelStyles} htmlFor={value}>
+      <Box
+        as="label"
+        className={radioButtonLabelStyles}
+        htmlFor={`${name}-${value}`}
+      >
         <input
           className={radioButtonInputStyles}
           defaultChecked={checked}
