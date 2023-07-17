@@ -1,0 +1,62 @@
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/blocks";
+
+import { TextArea } from "..";
+import * as stories from "./text_area.stories.tsx";
+
+<Meta of={stories} />
+
+# TextArea
+
+## Overview
+
+`TextArea` is a simple styled wrapper around the html5 `text area` element.
+
+### Customisation
+
+- TextArea allows customization through top-level props.
+- The props map to the `getSprinkles` utility for composing additional styles.
+
+<Canvas of={stories.CustomisationMargin} />
+
+### "slot" props
+
+To allow more fine-grained control over the bundling of dependencies, the
+`TextArea` component does not include any icon library. Instead, it accepts a
+`slotLeft` prop, which can be used to render any React node inside the text
+area, on the left hand side only. Unlike other components (e.g. `Button` or
+`Input`) the `TextArea` does not have a `slotRight` prop. This is to prevent the
+scrollbar position from jumping around when the `slotRight` content changes.
+
+<Canvas of={stories.SlotLeftIcon} />
+<Canvas of={stories.SlotRightIcon} />
+<Canvas of={stories.SlotRightLoader} />
+
+### Size
+
+The `TextArea` has three size variants: `"sm"`, `"md"`, and `"lg"`.
+
+- `"sm"` is for small secondary content, like nav bars or sidebars
+- `"md"` is the default size, and meets Apple's minimum tap target size
+  requirements
+- `"lg"` is for edge cases, like marketing CTAs
+
+<Canvas of={stories.SizeSm} />
+<Canvas of={stories.SizeMd} />
+<Canvas of={stories.SizeLg} />
+
+### State
+
+The `TextArea` component has state-specific styles that respective the following
+selectors
+
+- :hover
+- :focus-visible
+- \[disabled] or \[aria-disabled="true"]
+
+<Canvas of={stories.StateHover} />
+<Canvas of={stories.StateFocusVisible} />
+<Canvas of={stories.StateDisabled} />
+
+# Props
+
+<ArgTypes of={TextArea} />

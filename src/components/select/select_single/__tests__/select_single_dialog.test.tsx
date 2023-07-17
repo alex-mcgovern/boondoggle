@@ -1,0 +1,63 @@
+/** @jest-environment jsdom */
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+import { LOREM } from "../../../../../mocks/LOREM.mock";
+import "../../../../../test/dialog.mock";
+import { mockSelectItems } from "../../__mocks__/select.mock";
+import { SelectSingle } from "../select_single.comp";
+
+import type { SelectSingleProps } from "../select_single.comp";
+
+/** ----------------------------------------------------------------------------- */
+
+const ON_CHANGE = jest.fn();
+
+const PROPS: SelectSingleProps = {
+  id: LOREM.id(),
+  items: mockSelectItems({}),
+  label: LOREM.label(),
+  name: LOREM.text_xxs,
+  onChange: ON_CHANGE,
+  placeholder: LOREM.select,
+};
+
+const renderComponent = (props: SelectSingleProps) => {
+  return {
+    user: userEvent.setup(),
+    ...render(<SelectSingle {...props} />),
+  };
+};
+
+/** ----------------------------------------------------------------------------- */
+
+describe("<SelectSingle />", () => {
+  describe("dialog / dropdown menu", () => {
+    it("should not be visible on first mount", () => {
+      const { getByRole } = renderComponent(PROPS);
+
+      const menu = getByRole("listbox", { hidden: true });
+      expect(menu).not.toBeVisible();
+    });
+
+    it("should be visible after user clicks on select", async () => {
+      const { getByRole, user } = renderComponent(PROPS);
+
+      const combobox = getByRole("combobox");
+      await user.click(combobox);
+
+      const menu = getByRole("listbox");
+      expect(menu).toBeVisible();
+    });
+
+    it("should be visible after user opens select with keyboard", async () => {
+      const { getByRole, user } = renderComponent(PROPS);
+
+      await user.tab();
+      await user.keyboard("{arrowdown}");
+
+      const menu = getByRole("listbox");
+      expect(menu).toBeVisible();
+    });
+  });
+});

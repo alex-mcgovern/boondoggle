@@ -1,0 +1,134 @@
+{
+  "Helper function": {
+    "scope": "javascript,typescript",
+    "prefix": "JS Fn",
+    "body": [
+      "export function functionName({ argument }) {",
+      "\treturn argument;",
+      "}"
+    ]
+  },
+
+  "vanilla-extract style": {
+    "scope": "typescript,css",
+    "prefix": "VE Style",
+    "body": [
+      "import { style } from \"@vanilla-extract/css\";",
+      "export const className = style({",
+      "\t",
+      "})"
+    ],
+    "description": "Vanilla Extract style"
+  },
+  "vanilla-extract recipe": {
+    "scope": "typescript,css",
+    "prefix": "VE Recipe",
+    "body": [
+      "import { recipe } from \"@vanilla-extract/recipes\";",
+      "export const className = recipe({",
+      "\tbase: {",
+      "",
+      "\t},",
+      "\tvariants: {",
+      "\t\tvariantGroup: {",
+      "\t\t\tvariant1: {",
+      "\t\t\t\t",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "\t",
+      "})"
+    ]
+  },
+  "jest suite boilerplate": {
+    "scope": "javascript,typescript",
+    "prefix": "Jest",
+    "body": [
+      "test(\"XXXXX\", () => {",
+      "  expect(YYYYYY).toBe(ZZZZZ)",
+      "});",
+      ""
+    ]
+  },
+
+  "testing-library boilerplate": {
+    "scope": "typescriptreact",
+    "prefix": "rtl",
+    "body": [
+      "/** @jest-environment jsdom */",
+      "import { render } from \"@testing-library/react\";",
+      "import { LOREM } from \"../../../../mocks/LOREM.mock\";",
+      "import { ${1:Component} } from \"..\";",
+      "",
+      "import type { ${1:Component}Props } from \"..\";",
+      "",
+      "const PROPS: ${1:Component}Props = {}",
+      "",
+      "const renderComponent = ({ ...props }: ${1:Component}Props) => {",
+      "  return render(<${1:Component} {...props} />);",
+      "};",
+      "",
+      "describe(\"<${1:Component} />\", () => {",
+      "  describe(\"Basic smoke tests\", () => {",
+      "\tit(\"should render without throwing\", () => {",
+      "\t\tconst { getByRole } = renderComponent(PROPS);;",
+      "",
+      "\t\texpect(getByRole(\"button\")).not.toBeNull();",
+      "\t});",
+      "",
+      "\tit(\"should render text passed as children\", () => {",
+      "\t\tconst { getByText } = renderComponent(PROPS);",
+      "",
+      "\t\texpect(getByText(LOREM.button)).not.toBeNull();",
+      "\t});",
+      "\tit(\"should match snapshot\", () => {",
+      "\t\tconst { getByRole } = renderComponent(PROPS);",
+      "",
+      "\t\texpect(getByRole(\"combobox\")).toMatchSnapshot();",
+      "\t});",
+      "  });",
+      "});",
+      ""
+    ],
+    "description": "testing library boilerplate"
+  },
+  "React TypeScript Functional Component": {
+    "scope": "typescriptreact",
+    "prefix": "TS FC",
+    "description": "",
+    "body": [
+      "type ${1:Component}Props = {",
+      "\t${2:prop}: undefined",
+      "}",
+      "",
+      "export const ${1:Component} = ({ ${2:prop} }: ${1:Component}Props) => {",
+      "\treturn (",
+      "",
+      "\t)",
+      "}"
+    ]
+  },
+  "Storybook story": {
+    "scope": "typescriptreact",
+    "prefix": "story",
+    "description": "Simple Storybook story",
+    "body": [
+      "import { ${1:Component} as StoryComp } from \"..\";",
+      "",
+      "import type { Meta, StoryObj } from \"@storybook/react\";",
+      "",
+      "const meta = {",
+      "  title: \"Components/${1:Component}\",",
+      "  component: StoryComp,",
+      "  args: {  },",
+      "} satisfies Meta<typeof StoryComp>;",
+      "",
+      "export default meta;",
+      "type Story = StoryObj<typeof meta>;",
+      "",
+      "export const Default: Story = {",
+      "  name: \"default\",",
+      "};"
+    ]
+  }
+}

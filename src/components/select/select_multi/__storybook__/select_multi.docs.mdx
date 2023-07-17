@@ -1,0 +1,48 @@
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+import { SelectMulti } from "../select_multi.comp.tsx";
+import * as stories from "./select_multi.stories.tsx";
+
+<Meta of={stories} />
+
+# SelectMulti
+
+- Wrapper around Downshift to provide a select component with a few options for
+  styling and behavior
+
+## Default
+
+<Canvas name="default" of={stories.Default} />
+
+### `customsation`
+
+<Canvas name="customsation" of={stories.Customisation} />
+
+### `filterable`
+
+<Canvas name="invalid" of={stories.Filterable} />
+
+### `invalid`
+
+<Canvas name="invalid" of={stories.Invalid} />
+
+### Selected items to string
+
+<Canvas name="selected-items-to-string" of={stories.SelectedItemsToString} />
+
+{/* ### `Controlled` */}
+
+{/* <Canvas name="controlled" of={stories.Controlled} /> */}
+
+## `initialSelectedItems`
+
+<ArgTypes of={SelectMulti} include={["initialSelectedItems"]} />
+<Canvas name="initialSelectedItems" of={stories.InitialSelectedItems} />
+
+## Items w. `slotLeft`
+
+<Canvas name="iconsWithSlotLeft" of={stories.SlotLeft} />
+
+## Items w. `ItemsWithIsSelectedTrue`
+
+<Canvas name="ItemsWithIsSelectedTrue" of={stories.ItemsWithIsSelectedTrue} />

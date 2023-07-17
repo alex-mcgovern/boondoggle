@@ -1,0 +1,24 @@
+import { style } from "@vanilla-extract/css";
+
+import { a11yFocus } from "../../styles/common/a11y.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+
+export const datePickerDialogStyle = style([
+  a11yFocus,
+  getSprinkles({
+    background: "background",
+    border: "border_default",
+    borderRadius: "sm",
+    boxShadow: "md",
+    marginTop: "spacing_1",
+  }),
+]);
+
+export const inputDateStyle = style({
+  selectors: {
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  textAlign: "left",
+});

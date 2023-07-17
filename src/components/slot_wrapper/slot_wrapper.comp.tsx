@@ -1,0 +1,67 @@
+import { forwardRef } from "react";
+
+import { Box } from "../box";
+import { getSlotStyles } from "./slot_wrapper.styles.css";
+
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
+import type { BoxProps } from "../box";
+import type { ReactNode, Ref } from "react";
+
+export type SlotWrapperProps = {
+  children?: ReactNode;
+  className?: string;
+  size: ElementSizeEnum;
+  slotLeft?: ReactNode;
+  slotProps?: BoxProps;
+  slotRight?: ReactNode;
+} & BoxProps;
+
+export const SlotWrapper = forwardRef(
+  (
+    {
+      slotLeft,
+      slotRight,
+      children,
+      className: userClassName,
+      slotProps,
+      size,
+      ...rest
+    }: SlotWrapperProps,
+    ref: Ref<HTMLDivElement>
+  ) => {
+    return (
+      <Box
+        alignItems="center"
+        className={userClassName}
+        display="flex"
+        gap="spacing_1"
+        ref={ref}
+        {...rest}
+      >
+        {slotLeft && (
+          <Box
+            {...slotProps}
+            className={getSlotStyles({ size })}
+            color="inherit"
+            flexShrink="0"
+          >
+            {slotLeft}
+          </Box>
+        )}
+
+        {children}
+
+        {slotRight && (
+          <Box
+            {...slotProps}
+            className={getSlotStyles({ size })}
+            color="inherit"
+            flexShrink="0"
+          >
+            {slotRight}
+          </Box>
+        )}
+      </Box>
+    );
+  }
+);
