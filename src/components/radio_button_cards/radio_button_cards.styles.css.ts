@@ -48,6 +48,9 @@ export const radioButtonLabelStyles = style([
         background: vars.color.tint_default,
         cursor: "pointer",
       },
+      "&:not(:last-child)": {
+        marginBottom: vars.spacing.spacing_1,
+      },
     },
   },
 ]);

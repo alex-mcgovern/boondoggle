@@ -11,7 +11,6 @@ import { Pill } from "../pill";
 import {
   radioButtonInputStyles,
   radioButtonLabelStyles,
-  radioButtonListItemStyles,
 } from "./radio_button_cards.styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
@@ -61,37 +60,35 @@ export function RadioButtonCard({
   value,
 }: RadioButtonCardProps) {
   return (
-    <li className={radioButtonListItemStyles}>
-      <Box
-        as="label"
-        className={radioButtonLabelStyles}
-        htmlFor={`${name}-${value}`}
-      >
-        <input
-          className={radioButtonInputStyles}
-          defaultChecked={checked}
-          id={`${name}-${value}`}
-          name={name}
-          required={required}
-          type="radio"
-          value={value}
-          onChange={() => {
-            onChange?.(value);
-          }}
-          {...radioButtonInputProps}
-        />
-        {adornment && <Box>{adornment}</Box>}
-        <Box>
-          <Box alignItems="center" display="flex" gap="spacing_1">
-            <Box color="text_high_contrast">{title}</Box>
-            {tag && <Pill size="sm">{tag}</Pill>}
-          </Box>
-          <Box color="text_low_contrast" fontStyle="body_sm">
-            {body}
-          </Box>
+    <Box
+      as="label"
+      className={radioButtonLabelStyles}
+      htmlFor={`${name}-${value}`}
+    >
+      <input
+        className={radioButtonInputStyles}
+        defaultChecked={checked}
+        id={`${name}-${value}`}
+        name={name}
+        required={required}
+        type="radio"
+        value={value}
+        onChange={() => {
+          onChange?.(value);
+        }}
+        {...radioButtonInputProps}
+      />
+      {adornment && <Box>{adornment}</Box>}
+      <Box>
+        <Box alignItems="center" display="flex" gap="spacing_1">
+          <Box color="text_high_contrast">{title}</Box>
+          {tag && <Pill size="sm">{tag}</Pill>}
+        </Box>
+        <Box color="text_low_contrast" fontStyle="body_sm">
+          {body}
         </Box>
       </Box>
-    </li>
+    </Box>
   );
 }
 
@@ -166,12 +163,13 @@ export const RadioButtonCards = forwardRef(
         {label && id && (
           <Label
             htmlFor={id}
+            id={`label-${id}`}
             label={label}
             labelTooltip={labelTooltip}
             {...labelProps}
           />
         )}
-        <Box as="ul" id={id} {...rest}>
+        <Box aria-labelledby={`label-${id}`} as="fieldset" id={id} {...rest}>
           {controlledItems.map((item) => {
             return (
               <RadioButtonCard
