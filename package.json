@@ -28,7 +28,7 @@
     "ci-lint": "eslint . --quiet",
     "format": "prettier  --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
     "lint:fix": "eslint . --quiet --fix",
-    "patch": "npm run check && npm run build:prod && npm version patch && npm publish --access public",
+    "patch": "npm run check && npm run build:prod && npm version patch && npm publish --access public && git push --no-verify",
     "storybook": "storybook dev -p 6006",
     "test": "jest",
     "test:watch": "jest --watch",
