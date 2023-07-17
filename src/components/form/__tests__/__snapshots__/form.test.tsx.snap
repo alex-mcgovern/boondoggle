@@ -330,7 +330,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         >
           <input
             class="radio_button_cards.styles_radioButtonInputStyles__vroqf12"
-            id="radio_item_1"
+            id="radio-radio_item_1"
             name="radio"
             type="radio"
             value="radio_item_1"
@@ -379,7 +379,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         >
           <input
             class="radio_button_cards.styles_radioButtonInputStyles__vroqf12"
-            id="radio_item_2"
+            id="radio-radio_item_2"
             name="radio"
             type="radio"
             value="radio_item_2"
@@ -428,7 +428,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         >
           <input
             class="radio_button_cards.styles_radioButtonInputStyles__vroqf12"
-            id="radio_item_3"
+            id="radio-radio_item_3"
             name="radio"
             type="radio"
             value="radio_item_3"
