@@ -104,7 +104,6 @@ export type RadioButtonCardsProps = SprinklesArgs &
     defaultValue?: string;
     description?: string;
     errorMessage?: string;
-    id: string;
     invalid?: boolean;
     items: Array<RadioButtonCardShape>;
     labelTooltip?: string;
