@@ -66,7 +66,7 @@ export function RadioButtonCard({
         <input
           className={radioButtonInputStyles}
           defaultChecked={checked}
-          id={value}
+          id={`${name}-${value}`}
           name={name}
           required={required}
           type="radio"

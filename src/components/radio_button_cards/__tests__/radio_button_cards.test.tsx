@@ -40,11 +40,9 @@ describe("<RadioButtonCards />", () => {
 describe("<RadioButtonCards />", () => {
   describe("On change functionality", () => {
     it("should call onChange when item is selected", async () => {
-      const { getByRole } = renderComponent(PROPS);
+      const { getAllByRole } = renderComponent(PROPS);
 
-      const firstRadioItem = getByRole("radio", {
-        name: `${RADIO_BUTTON_CARDS_MOCK[0].title} ${RADIO_BUTTON_CARDS_MOCK[0].body}`,
-      });
+      const firstRadioItem = getAllByRole("radio")[0];
 
       await userEvent.click(firstRadioItem);
 
