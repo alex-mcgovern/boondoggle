@@ -19,12 +19,12 @@ export type SlotWrapperProps = {
 export const SlotWrapper = forwardRef(
   (
     {
-      slotLeft,
-      slotRight,
       children,
       className: userClassName,
-      slotProps,
       size,
+      slotLeft,
+      slotProps,
+      slotRight,
       ...rest
     }: SlotWrapperProps,
     ref: Ref<HTMLDivElement>

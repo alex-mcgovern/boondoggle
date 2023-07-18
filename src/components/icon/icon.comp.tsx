@@ -15,9 +15,9 @@ export type IconProps = FontAwesomeIconProps & {
 } & SprinklesArgs;
 
 export function Icon({
-  icon,
-  color = "currentColor",
   className: userClassName,
+  color = "currentColor",
+  icon,
   ...rest
 }: IconProps) {
   const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);

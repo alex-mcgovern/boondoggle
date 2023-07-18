@@ -6,7 +6,7 @@ type LinkProps = {
   id?: string;
 };
 
-export function Link({ href, children, ...rest }: LinkProps) {
+export function Link({ children, href, ...rest }: LinkProps) {
   return (
     <a href={href} rel="noreferrer" target="_blank" {...rest}>
       {children}

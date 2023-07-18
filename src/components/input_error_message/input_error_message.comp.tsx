@@ -12,8 +12,8 @@ export type InputErrorMessageProps = BoxProps & {
 };
 
 export function InputErrorMessage({
-  message,
   className: userClassName,
+  message,
   ...rest
 }: InputErrorMessageProps) {
   if (!message) {

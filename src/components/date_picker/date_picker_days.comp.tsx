@@ -29,8 +29,8 @@ type DatePickerDaysProps = {
 };
 
 export function DatePickerDays({
-  days,
   dayButton,
+  days,
   onDayClick,
 }: DatePickerDaysProps) {
   return (

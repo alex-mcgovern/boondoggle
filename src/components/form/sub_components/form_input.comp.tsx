@@ -20,11 +20,11 @@ export type FormInputProps = InputProps & {
 export function FormInput({
   defaultValue,
   errorMessage,
-  name,
-  required,
-  onChange,
-  validateFunction,
   invalid,
+  name,
+  onChange,
+  required,
+  validateFunction,
   wrapperProps,
   ...rest
 }: FormInputProps) {
@@ -32,8 +32,8 @@ export function FormInput({
 
   const {
     field: {
-      onChange: controlledOnChange,
       onBlur,
+      onChange: controlledOnChange,
       ref,
       value: controlledValue = "",
     },

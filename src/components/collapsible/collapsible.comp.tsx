@@ -17,10 +17,10 @@ export type CollapsibleProps = {
 };
 
 export function Collapsible({
-  triggerNode,
   children,
   isOpen,
   onOpenChange,
+  triggerNode,
 }: CollapsibleProps) {
   const [localOpenState, setLocalOpenState] = useState(isOpen);
 

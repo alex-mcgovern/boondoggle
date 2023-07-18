@@ -32,20 +32,20 @@ export type SelectButtonProps = Omit<
 export const SelectButton = forwardRef(
   (
     {
+      buttonProps,
+      buttonText,
       disabled,
       id,
       initialHighlightedItem,
-      buttonProps,
+      initialSelectedItem,
       items,
       name,
-      placement = "bottom-start",
       onChange,
-      buttonText,
+      placement = "bottom-start",
       size,
-      initialSelectedItem,
       slotLeft,
-      wrapperProps,
       slotRight = DEFAULT_SLOT_RIGHT,
+      wrapperProps,
     }: SelectButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
@@ -67,11 +67,11 @@ export const SelectButton = forwardRef(
     /** --------------------------------------------- */
 
     const {
-      getToggleButtonProps,
       getItemProps,
       getMenuProps,
-      toggleMenu,
+      getToggleButtonProps,
       highlightedIndex,
+      toggleMenu,
     } = useSelect({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
@@ -82,7 +82,7 @@ export const SelectButton = forwardRef(
       isOpen,
       items,
       onSelectedItemChange: onChange,
-      onStateChange({ type, selectedItem: newSelectedItem }) {
+      onStateChange({ selectedItem: newSelectedItem, type }) {
         switch (type) {
           case useSelect.stateChangeTypes.ToggleButtonClick:
           case useSelect.stateChangeTypes.ToggleButtonKeyDownArrowDown:

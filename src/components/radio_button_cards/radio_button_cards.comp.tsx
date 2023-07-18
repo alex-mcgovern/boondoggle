@@ -8,15 +8,13 @@ import { InputDescription } from "../input_description";
 import { InputErrorMessage } from "../input_error_message";
 import { Label } from "../label";
 import {
+  getGroupLabelStyles,
   radioButtonInputStyles,
   radioButtonLabelStyles,
 } from "./radio_button_cards.styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type {
-  ConditionalLabelProps,
-  LabelledElementCustomisation,
-} from "../../types";
+import type { LabelledElementCustomisation } from "../../types";
 import type { HTMLProps, ReactNode, Ref } from "react";
 
 /** ----------------------------------------------------------------------------- */
@@ -49,12 +47,12 @@ type RadioButtonCardProps = RadioButtonCardShape & {
 export function RadioButtonCard({
   adornment,
   body,
+  checked,
   name,
+  onChange,
   radioButtonInputProps,
   required,
-  onChange,
   title,
-  checked,
   value,
 }: RadioButtonCardProps) {
   return (
@@ -99,13 +97,15 @@ export function RadioButtonCard({
 /** ----------------------------------------------------------------------------- */
 
 export type RadioButtonCardsProps = SprinklesArgs &
-  LabelledElementCustomisation &
-  ConditionalLabelProps & {
+  LabelledElementCustomisation & {
     defaultValue?: string;
     description?: string;
     errorMessage?: string;
+    id: string;
     invalid?: boolean;
+    isLabelVisible?: boolean;
     items: Array<RadioButtonCardShape>;
+    label: string;
     labelTooltip?: string;
     name: string;
     onChange?: (value: string) => void;
@@ -118,11 +118,11 @@ export const RadioButtonCards = forwardRef(
   (
     {
       defaultValue,
-      value,
       description,
       errorMessage,
       id,
       invalid,
+      isLabelVisible,
       items,
       label,
       labelProps,
@@ -131,6 +131,7 @@ export const RadioButtonCards = forwardRef(
       onChange,
       radioButtonInputProps,
       required,
+      value,
       wrapperProps,
       ...rest
     }: RadioButtonCardsProps,
@@ -166,6 +167,7 @@ export const RadioButtonCards = forwardRef(
       >
         {label && id && (
           <Label
+            className={getGroupLabelStyles({ isLabelVisible })}
             htmlFor={id}
             id={`label-${id}`}
             label={label}

@@ -32,10 +32,10 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       className: userClassName,
       isOpen: controlledIsOpen,
       onIsOpenChange,
-      preventOpenOnKeydown = false,
-      triggerNode,
       openOn = "click",
       placement,
+      preventOpenOnKeydown = false,
+      triggerNode,
       wrapperProps,
       ...rest
     }: DialogProps,

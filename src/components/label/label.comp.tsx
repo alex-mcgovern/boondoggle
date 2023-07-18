@@ -9,7 +9,7 @@ export type LabelProps = BoxProps & {
   labelTooltip?: string;
 };
 
-export function Label({ label, labelTooltip, htmlFor, ...rest }: LabelProps) {
+export function Label({ htmlFor, label, labelTooltip, ...rest }: LabelProps) {
   return (
     <Box
       alignItems="center"

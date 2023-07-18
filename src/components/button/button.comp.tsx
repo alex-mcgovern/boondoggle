@@ -33,8 +33,8 @@ import type {
 type GetLoadingSlotSideArgs = { slotLeft?: ReactNode; slotRight?: ReactNode };
 
 const getLoadingSlotSide = ({
-  slotRight,
   slotLeft,
+  slotRight,
 }: GetLoadingSlotSideArgs): "right" | "left" => {
   if (slotRight) {
     return "right";

@@ -22,17 +22,17 @@ export type DropdownItemProps = BoxProps & {
 export const DropdownItem = forwardRef(
   (
     {
-      item,
-      size,
+      isDropdownItemSelected,
       isHighlighted,
       isMulti,
-      isDropdownItemSelected,
+      item,
+      size,
       ...rest
     }: DropdownItemProps,
     ref: Ref<HTMLDivElement>
   ) => {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { label, slotLeft, isSelected: _, ...restItemProps } = item || {};
+    const { isSelected: _, label, slotLeft, ...restItemProps } = item || {};
 
     return (
       <SlotWrapper

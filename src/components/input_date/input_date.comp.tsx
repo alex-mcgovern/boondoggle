@@ -31,14 +31,14 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
   (
     {
       className: userClassName,
-      locale,
-      rawValueTransformer,
       defaultValue,
       isOpen: controlledIsOpen,
-      wrapperProps,
+      locale,
       onChange,
-      value,
+      rawValueTransformer,
       slotLeft = <Icon icon={faCalendarAlt} />,
+      value,
+      wrapperProps,
       ...rest
     }: InputDateProps,
     ref

@@ -35,9 +35,9 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 
 export function Form<TFieldValues extends FieldValues>({
   children,
+  handleErrors,
   handleFormSubmission,
   name,
-  handleErrors,
   resolver,
 }: FormProps<TFieldValues>) {
   const formMethods = useForm<TFieldValues>({ resolver });

@@ -16,13 +16,13 @@ export type TooltipProps = {
 export const Tooltip = forwardRef<HTMLDialogElement, TooltipProps>(
   (
     {
-      tooltipText,
-      placement = "top-center",
       children = (
         <button className={tooltipTriggerStyle} type="button">
           <Icon icon={faInfoCircle} />
         </button>
       ),
+      placement = "top-center",
+      tooltipText,
     },
     ref
   ) => {

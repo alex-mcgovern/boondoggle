@@ -15,10 +15,10 @@ type UseOpenDialogWithKeyboardArgs<TTriggerType extends ElementTypeArg> = {
 };
 
 export function useOpenDialogWithKeyboard<TTriggerType extends ElementTypeArg>({
-  triggerRef,
   callback,
   dialogRef,
   preventOpenOnKeydown,
+  triggerRef,
 }: UseOpenDialogWithKeyboardArgs<TTriggerType>) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

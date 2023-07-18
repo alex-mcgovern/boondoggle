@@ -21,18 +21,18 @@ export type FormSliderProps = LabelledElementCustomisation &
   };
 
 export function FormSlider({
-  name,
+  defaultValue: defaultValueArray,
   errorMessage,
+  name,
   required,
   validateFunction,
   wrapperProps,
-  defaultValue: defaultValueArray,
   ...rest
 }: FormSliderProps) {
   const { control } = useFormContext();
 
   const {
-    field: { onChange, onBlur, ref },
+    field: { onBlur, onChange, ref },
     fieldState: { error },
   } = useController({
     control,

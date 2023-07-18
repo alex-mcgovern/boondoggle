@@ -18,18 +18,18 @@ export type FormTextAreaProps = TextAreaProps & {
 };
 
 export function FormTextArea({
-  name,
+  defaultValue,
   errorMessage,
+  name,
   required,
   validateFunction,
-  defaultValue,
   wrapperProps,
   ...rest
 }: FormTextAreaProps) {
   const { control } = useFormContext();
 
   const {
-    field: { onChange, onBlur, ref, value: controlledValue = "" },
+    field: { onBlur, onChange, ref, value: controlledValue = "" },
     fieldState: { error },
   } = useController({
     control,

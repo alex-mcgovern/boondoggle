@@ -10,7 +10,9 @@ import type { RadioButtonCardsProps } from "..";
 const onChangeMock = jest.fn();
 
 const PROPS: RadioButtonCardsProps = {
+  id: "test",
   items: RADIO_BUTTON_CARDS_MOCK,
+  label: "test",
   name: "test",
   onChange: onChangeMock,
 };

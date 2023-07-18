@@ -31,13 +31,13 @@ type DatePickerControlsProps = {
 export function DatePickerControls({
   isShowingYears,
   month,
+  nextMonthButton,
+  nextYearsButton,
+  onToggleYears,
+  previousMonthButton,
+  previousYearsButton,
   year,
   years,
-  previousYearsButton,
-  nextYearsButton,
-  previousMonthButton,
-  nextMonthButton,
-  onToggleYears,
   ...rest
 }: DatePickerControlsProps) {
   return (

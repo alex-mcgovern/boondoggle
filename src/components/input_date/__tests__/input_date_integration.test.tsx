@@ -25,11 +25,11 @@ type SelectFromInputDateArgs = {
 };
 
 export const selectFromInputDate = async ({
-  getByRole,
-  selectLabel,
-  expectedValuePretty,
   expectedValueIso,
+  expectedValuePretty,
+  getByRole,
   onChange,
+  selectLabel,
 }: SelectFromInputDateArgs) => {
   const inputDateTrigger = getByRole("textbox", { name: selectLabel });
 

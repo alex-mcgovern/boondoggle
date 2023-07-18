@@ -19,8 +19,8 @@ export type DatePickerProps = {
 export const DatePicker = forwardRef(
   (
     {
-      onDayClick,
       className: userClassName,
+      onDayClick,
 
       ...rest
     }: DatePickerProps,
@@ -33,10 +33,10 @@ export const DatePicker = forwardRef(
       data: { calendars, years },
       propGetters: {
         dayButton,
-        previousMonthButton,
         nextMonthButton,
-        previousYearsButton,
         nextYearsButton,
+        previousMonthButton,
+        previousYearsButton,
         yearButton,
       },
     } = useDatePicker({
@@ -53,7 +53,7 @@ export const DatePicker = forwardRef(
         step: 20,
       },
     });
-    const { year, month, days } = calendars[0];
+    const { days, month, year } = calendars[0];
 
     const onToggleYears = useCallback(() => {
       setIsShowingYears((prev) => {

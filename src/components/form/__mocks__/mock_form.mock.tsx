@@ -39,8 +39,8 @@ type MockFormProps = Pick<
 };
 
 export const mockForm = ({
-  handleFormSubmission = async () => {},
   handleErrors = async () => {},
+  handleFormSubmission = async () => {},
   withDefaultValues = false,
 }: MockFormProps): FormProps => {
   return {
