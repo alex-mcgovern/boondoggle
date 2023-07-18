@@ -14,10 +14,10 @@ type SelectSingleSelectItemProps = {
 };
 
 export const selectFromSingleSelect = async ({
+  expected_value,
   getByRole,
   item_label,
   select_label,
-  expected_value,
 }: SelectSingleSelectItemProps) => {
   const select = getByRole("combobox", { name: select_label });
 

@@ -60,15 +60,15 @@ export const Slider = forwardRef(
     {
       errorMessage,
       id,
-      wrapperProps,
-      size,
       invalid,
       label,
+      labelTooltip,
       name,
       required,
-      labelTooltip,
+      size,
       slotLeft,
       slotRight,
+      wrapperProps,
       ...rest
     }: SliderProps,
     ref: Ref<HTMLSpanElement>

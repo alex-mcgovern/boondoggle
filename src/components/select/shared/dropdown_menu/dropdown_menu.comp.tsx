@@ -36,16 +36,16 @@ export type DropdownMenuProps = DialogProps & {
 export const DropdownMenu = forwardRef(
   (
     {
+      className: userClassName,
       getIsItemSelected,
       getItemProps,
       getMenuProps,
-      className: userClassName,
       getSelectedItemProps,
       highlightedIndex,
-      removeSelectedItem,
       isMulti,
-      items,
       isOpen: controlledIsOpen,
+      items,
+      removeSelectedItem,
       size = "md",
       ...rest
     }: DropdownMenuProps,

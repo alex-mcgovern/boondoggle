@@ -86,7 +86,7 @@ describe("<Form />", () => {
 
   describe("Happy path", () => {
     it.skip("should submit successfully when user inputs values", async () => {
-      const { getByRole, getByLabelText } = await renderComponent(PROPS);
+      const { getByLabelText, getByRole } = await renderComponent(PROPS);
 
       const emailInput = getByLabelText(LOREM.labelEmail());
       const descriptionTextArea = getByLabelText(LOREM.labelDescription());
@@ -180,7 +180,7 @@ describe("<Form />", () => {
 
   describe("Unhappy path", () => {
     it("should call handleErrors when the form submission fails", async () => {
-      const { getByRole, getAllByRole } = await renderComponent(PROPS);
+      const { getAllByRole, getByRole } = await renderComponent(PROPS);
 
       await act(async () => {
         fireEvent.submit(getByRole("form"));

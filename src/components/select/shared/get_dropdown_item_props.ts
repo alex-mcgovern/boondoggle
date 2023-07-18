@@ -31,12 +31,12 @@ type GetDropdownItemPropsArgs = {
  */
 
 export const getDropdownItemProps = ({
-  isItemSelected,
   getItemProps,
   getSelectedItemProps,
-  removeSelectedItem,
-  item,
+  isItemSelected,
   isMulti,
+  item,
+  removeSelectedItem,
   ...rest
 }: GetDropdownItemPropsArgs): any => {
   if (!isMulti || !getSelectedItemProps) {

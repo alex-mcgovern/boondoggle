@@ -20,9 +20,9 @@ export function useClickOutside<
   TContentType extends ElementTypeArg,
   TTriggerType extends ElementTypeArg
 >({
+  callback,
   contentRef,
   triggerRef,
-  callback,
 }: UseClickOutsideArgs<TContentType, TTriggerType>) {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent): void {

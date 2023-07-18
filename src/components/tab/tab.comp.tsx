@@ -56,13 +56,13 @@ export const Tab: TabComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
       as,
-      id,
-      colorOverlay,
-      slotLeft,
-      className: userClassName,
-      slotRight,
-      size,
       children,
+      className: userClassName,
+      colorOverlay,
+      id,
+      size,
+      slotLeft,
+      slotRight,
       ...rest
     }: BaseTabProps<TPolymorphicAs>,
     ref?: PolymorphicRef<TPolymorphicAs>

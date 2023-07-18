@@ -19,10 +19,10 @@ export type GetIsItemSelectedArgs = {
 };
 
 export const getIsSelected = ({
-  item,
   isMulti,
-  selectedItems: prevSelectedItems,
+  item,
   selectedItem,
+  selectedItems: prevSelectedItems,
 }: GetIsItemSelectedArgs): boolean => {
   if (!isMulti && selectedItem) {
     return selectedItem?.value.toLowerCase() === item?.value.toLowerCase();
@@ -52,8 +52,8 @@ export type GetFilteredDropdownItemsArgs = {
 
 /** Removes items not matching `inputValue` from `items` */
 export function getFilteredDropdownItems({
-  items,
   inputValue,
+  items,
 }: GetFilteredDropdownItemsArgs) {
   if (!inputValue) {
     return items;
@@ -76,8 +76,8 @@ type GetDisplayValueArgs = {
   originalValue: string;
 };
 export const getDisplayValue = ({
-  originalValue,
   length,
+  originalValue,
 }: GetDisplayValueArgs) => {
   if (length && length > 0) {
     return `${length} selected`;
@@ -95,8 +95,8 @@ type GetDefaultHighlightedIndexArgs = {
   selectedItem?: DropdownItemShape | null;
 };
 export const getDefaultHighlightedIndex = ({
-  items,
   initialHighlightedItem,
+  items,
   selectedItem,
 }: GetDefaultHighlightedIndexArgs) => {
   if (selectedItem) {

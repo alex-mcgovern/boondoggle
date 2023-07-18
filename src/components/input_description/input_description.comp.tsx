@@ -7,8 +7,8 @@ export type InputDescriptionProps = BoxProps & {
 };
 
 export function InputDescription({
-  description,
   className: userClassName,
+  description,
   ...rest
 }: InputDescriptionProps) {
   if (!description) {

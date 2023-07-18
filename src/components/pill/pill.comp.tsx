@@ -56,13 +56,13 @@ export const Pill: PillComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
       as,
-      id,
-      colorOverlay,
+      children,
       className: userClassName,
+      colorOverlay,
+      id,
+      size,
       slotLeft,
       slotRight,
-      size,
-      children,
       ...rest
     }: BasePillProps<TPolymorphicAs>,
     ref?: PolymorphicRef<TPolymorphicAs>

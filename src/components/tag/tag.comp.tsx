@@ -56,13 +56,13 @@ export const Tag: TagComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
       as,
-      id,
-      colorOverlay,
+      children,
       className: userClassName,
+      colorOverlay,
+      id,
+      size,
       slotLeft,
       slotRight,
-      size,
-      children,
       ...rest
     }: BaseTagProps<TPolymorphicAs>,
     ref?: PolymorphicRef<TPolymorphicAs>

@@ -29,10 +29,10 @@ type SelectSingleSelectItemProps = {
 };
 
 const selectFromSingleSelect = async ({
+  expected_value,
   getByRole,
   item_label,
   select_label,
-  expected_value,
 }: SelectSingleSelectItemProps) => {
   const select = getByRole("combobox", { name: select_label });
 
@@ -84,7 +84,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   name: "default",
   play: async ({ canvasElement }) => {
-    const { getByRole, getByLabelText } = within(canvasElement);
+    const { getByLabelText, getByRole } = within(canvasElement);
 
     const emailInput = getByLabelText(LOREM.labelEmail());
     const descriptionTextArea = getByLabelText(LOREM.labelDescription());

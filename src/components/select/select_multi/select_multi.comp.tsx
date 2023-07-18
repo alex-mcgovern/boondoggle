@@ -40,16 +40,16 @@ export const SelectMulti = forwardRef(
       initialHighlightedItem,
       initialSelectedItems = [],
       inputProps,
-      selectedItemsToString,
       invalid,
       isFilterable,
       items,
       label,
       labelTooltip,
-      selectedItems: controlledSelectedItems,
       name,
       onChange,
       placeholder,
+      selectedItems: controlledSelectedItems,
+      selectedItemsToString,
       size,
       slotLeft,
       slotRight = DEFAULT_SLOT_RIGHT,
@@ -120,7 +120,7 @@ export const SelectMulti = forwardRef(
 
     /** --------------------------------------------- */
 
-    const { getSelectedItemProps, getDropdownProps } =
+    const { getDropdownProps, getSelectedItemProps } =
       useMultipleSelection<DropdownItemShape>({
         selectedItems,
       });
@@ -151,14 +151,14 @@ export const SelectMulti = forwardRef(
     /** --------------------------------------------- */
 
     const {
-      isOpen,
-      toggleMenu,
-      getMenuProps,
       getInputProps,
-      highlightedIndex,
       getItemProps,
-      reset,
       getLabelProps,
+      getMenuProps,
+      highlightedIndex,
+      isOpen,
+      reset,
+      toggleMenu,
     } = useCombobox<DropdownItemShape>({
       defaultHighlightedIndex: getDefaultHighlightedIndex({
         initialHighlightedItem,
@@ -168,8 +168,8 @@ export const SelectMulti = forwardRef(
       items: filteredItems,
       onStateChange({
         inputValue: newInputValue,
-        type,
         selectedItem: newSelectedItem,
+        type,
       }) {
         switch (type) {
           case useCombobox.stateChangeTypes.InputKeyDownEnter:

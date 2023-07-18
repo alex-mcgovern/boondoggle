@@ -9,9 +9,9 @@ type DatePickerYearsProps = {
 };
 
 export function DatePickerYears({
-  years,
-  yearButton,
   onYearClick,
+  yearButton,
+  years,
 }: DatePickerYearsProps) {
   return (
     <>

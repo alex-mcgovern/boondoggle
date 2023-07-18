@@ -32,8 +32,8 @@ export type DialogInfoBulletProps = {
 
 export function DialogInfoBullet({
   slotLeft,
-  title,
   text,
+  title,
 }: DialogInfoBulletProps) {
   return (
     <Box
@@ -69,12 +69,12 @@ type DialogButtonProps = Pick<
 };
 
 function DialogButton({
-  dialogConfirmText,
   dialogButtonOnClick,
   dialogButtonProps,
   dialogButtonText,
   dialogConfirmPromptPrefix,
   dialogConfirmPromptSuffix,
+  dialogConfirmText,
   dialogRef,
 }: DialogButtonProps) {
   const [userConfirmText, setUserConfirmText] = useState("");

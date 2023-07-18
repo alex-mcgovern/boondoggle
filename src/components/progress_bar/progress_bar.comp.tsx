@@ -16,10 +16,10 @@ export type ProgressBarProps = {
 } & BoxProps;
 
 export function ProgressBar({
-  value,
+  className: userClassName,
   isValueVisible,
   size,
-  className: userClassName,
+  value,
   ...rest
 }: ProgressBarProps) {
   if (typeof value !== "number" && typeof value !== "string") {

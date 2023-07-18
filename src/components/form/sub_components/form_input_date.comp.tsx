@@ -31,7 +31,7 @@ export function FormInputDate({
   const { control } = useFormContext();
 
   const {
-    field: { onBlur, ref, onChange, value: controlledValue },
+    field: { onBlur, onChange, ref, value: controlledValue },
     fieldState: { error },
   } = useController({
     control,

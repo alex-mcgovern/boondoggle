@@ -48,8 +48,8 @@ export const SelectSingle = forwardRef(
       inputProps,
       invalid,
       isFilterable,
-      items,
       itemToString = defaultItemToString,
+      items,
       label,
       labelTooltip,
       name,
@@ -96,8 +96,8 @@ export const SelectSingle = forwardRef(
     const {
       getInputProps,
       getItemProps,
-      getMenuProps,
       getLabelProps,
+      getMenuProps,
       highlightedIndex,
 
       isOpen,
@@ -115,8 +115,8 @@ export const SelectSingle = forwardRef(
       onSelectedItemChange: onChange,
       onStateChange({
         inputValue: newInputValue,
-        type,
         selectedItem: newSelectedItem,
+        type,
       }) {
         switch (type) {
           case useCombobox.stateChangeTypes.InputKeyDownEnter:

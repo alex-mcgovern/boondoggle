@@ -41,15 +41,15 @@ export type TextAreaProps = Omit<
 export const TextArea = forwardRef(
   (
     {
-      size = "md",
-      invalid,
       errorMessage,
+      id,
+      invalid,
+      label,
       labelTooltip,
+      name,
+      size = "md",
       slotLeft,
       slotRight,
-      name,
-      label,
-      id,
       wrapperProps,
       ...rest
     }: TextAreaProps,
