@@ -10,18 +10,6 @@
      *  Typescript
      */
     {
-      "files": ["**/*.ts", "**/*.tsx"],
-
-      "plugins": [
-        "import",
-        "jsdoc",
-        "react-perf",
-        "sonarjs",
-        "sort-keys-fix",
-        "typescript-sort-keys",
-        "unused-imports"
-      ],
-
       "extends": [
         "plugin:react/jsx-runtime",
         "airbnb",
@@ -32,24 +20,18 @@
         "prettier",
         "plugin:@typescript-eslint/recommended"
       ],
+      "files": ["**/*.ts", "**/*.tsx"],
+      "plugins": [
+        "import",
+        "jsdoc",
+        "react-perf",
+        "sonarjs",
+        "sort-destructure-keys",
+        "sort-keys-fix",
+        "typescript-sort-keys",
+        "unused-imports"
+      ],
       "rules": {
-        "typescript-sort-keys/interface": "error",
-        "typescript-sort-keys/string-enum": "error",
-        "sort-keys-fix/sort-keys-fix": [
-          "error",
-          "asc",
-          {
-            "caseSensitive": false,
-            "natural": false
-          }
-        ],
-        "react/jsx-sort-props": [
-          "error",
-          {
-            "ignoreCase": true,
-            "multiline": "last"
-          }
-        ],
         "@typescript-eslint/consistent-type-imports": [
           "error",
           {
@@ -57,10 +39,9 @@
             "prefer": "type-imports"
           }
         ],
-        "@typescript-eslint/switch-exhaustiveness-check": "error",
-
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
         "arrow-body-style": ["error", "always"],
         "curly": ["error", "all"],
         "import/no-cycle": "error",
@@ -80,7 +61,6 @@
             ]
           }
         ],
-        "import/prefer-default-export": "off",
         "import/order": [
           "error",
           {
@@ -94,6 +74,7 @@
             "newlines-between": "always"
           }
         ],
+        "import/prefer-default-export": "off",
         "no-console": [
           "error",
           {
@@ -101,8 +82,6 @@
           }
         ],
         "no-unused-vars": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-uses-react": "off",
         "react-perf/jsx-no-jsx-as-prop": "warn",
         "react-perf/jsx-no-new-array-as-prop": "warn",
         "react-perf/jsx-no-new-function-as-prop": "warn",
@@ -123,8 +102,28 @@
           }
         ],
         "react/jsx-props-no-spreading": "off",
+        "react/jsx-sort-props": [
+          "error",
+          {
+            "ignoreCase": true,
+            "multiline": "last"
+          }
+        ],
+        "react/jsx-uses-react": "off",
         "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
         "react/require-default-props": "off",
+        "sort-destructure-keys/sort-destructure-keys": "error",
+        "sort-keys-fix/sort-keys-fix": [
+          "error",
+          "asc",
+          {
+            "caseSensitive": false,
+            "natural": false
+          }
+        ],
+        "typescript-sort-keys/interface": "error",
+        "typescript-sort-keys/string-enum": "error",
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
           "error",

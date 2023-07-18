@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yFocus, a11yFocusStyleRule } from "../../styles/common/a11y.css";
 import { vars } from "../../styles/theme.css";
@@ -13,6 +14,21 @@ export const radioButtonListItemStyles = style([
     listStyle: "none",
   },
 ]);
+
+/** ----------------------------------------------------------------------------- */
+
+export const getGroupLabelStyles = recipe({
+  base: [],
+  variants: {
+    isLabelVisible: {
+      false: {
+        display: "none",
+        visibility: "hidden",
+      },
+      true: {},
+    },
+  },
+});
 
 /** ----------------------------------------------------------------------------- */
 

@@ -28,5 +28,13 @@ export const Invalid: Story = {
     invalid: true,
     items: RADIO_BUTTON_CARDS_MOCK,
   },
-  name: "default",
+  name: "invalid",
+};
+
+export const IsLabelVisibleFalse: Story = {
+  args: {
+    isLabelVisible: false,
+    items: RADIO_BUTTON_CARDS_MOCK,
+  },
+  name: "is-label-visible-false",
 };
