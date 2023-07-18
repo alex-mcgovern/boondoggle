@@ -23,7 +23,6 @@ export const getGroupLabelStyles = recipe({
     isLabelVisible: {
       false: {
         display: "none",
-        visibility: "hidden",
       },
       true: {},
     },
