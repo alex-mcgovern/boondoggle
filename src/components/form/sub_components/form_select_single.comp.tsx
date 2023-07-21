@@ -18,7 +18,7 @@ const getDefaultValueItem = ({ items, value }: GetDefaultValueItem) => {
 };
 
 export type FormSelectSingleProps = SelectSingleProps & {
-  defaultValue: string;
+  defaultValue?: string;
   errorMessage: string;
 };
 
