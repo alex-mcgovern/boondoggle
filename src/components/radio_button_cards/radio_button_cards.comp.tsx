@@ -97,7 +97,7 @@ export function RadioButtonCard({
 
 export type RadioButtonCardsProps = SprinklesArgs &
   LabelledElementCustomisation & {
-    defaultValue?: string;
+    defaultValue?: string | number;
     description?: string;
     errorMessage?: string;
     id: string;
