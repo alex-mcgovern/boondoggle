@@ -6,15 +6,25 @@ import { SelectSingle } from "../../select";
 import type { DropdownItemShape, SelectSingleProps } from "../../select";
 import type { UseComboboxStateChange } from "downshift";
 
-/**
- * React Hook Form connected version of `SelectSingle`. Uses `useFormContext`
- * to access Hook Form's methods so can be deeply nested.
- */
+type GetDefaultValueItem = {
+  items: Array<DropdownItemShape>;
+  value: string;
+};
+
+const getDefaultValueItem = ({ items, value }: GetDefaultValueItem) => {
+  return items.find((item) => {
+    return item.value === value;
+  });
+};
+
 export type FormSelectSingleProps = SelectSingleProps & {
+  defaultValue: string;
   errorMessage: string;
 };
 
 export function FormSelectSingle({
+  defaultValue,
+  items,
   name,
   onChange: onChangeParent,
   ...rest
@@ -26,11 +36,9 @@ export function FormSelectSingle({
     fieldState: { error },
   } = useController({
     control,
+    defaultValue,
     name,
     rules: { required: true },
-    ...(rest.initialSelectedItem && {
-      defaultValue: rest.initialSelectedItem.value,
-    }),
   });
 
   const handleChange = useCallback(
@@ -41,9 +49,13 @@ export function FormSelectSingle({
     [onChange, onChangeParent]
   );
 
+  const defaultItem = getDefaultValueItem({ items, value: defaultValue });
+
   return (
     <SelectSingle
+      initialSelectedItem={defaultItem}
       invalid={!!error}
+      items={items}
       name={name}
       onChange={handleChange}
       ref={ref}
