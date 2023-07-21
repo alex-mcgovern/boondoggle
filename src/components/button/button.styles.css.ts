@@ -76,6 +76,9 @@ export const variantAppearance = styleVariants({
     }),
     {
       selectors: {
+        "&[data-active]": {
+          color: vars.color.button_default,
+        },
         [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
           color: vars.color.button_default,
         },
@@ -89,6 +92,10 @@ export const variantAppearance = styleVariants({
       background: vars.color.button_default,
       color: vars.color.white,
       selectors: {
+        "&[data-active]": {
+          background: vars.color.button_active,
+          color: vars.color.white,
+        },
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: vars.color.button_default,
         },
@@ -107,6 +114,10 @@ export const variantAppearance = styleVariants({
       borderColor: vars.color.button_default,
       color: vars.color.button_default,
       selectors: {
+        "&[data-active]": {
+          background: vars.color.button_tint,
+          color: vars.color.button_active,
+        },
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
         },
@@ -128,6 +139,9 @@ export const variantAppearance = styleVariants({
     {
       color: vars.color.text_low_contrast,
       selectors: {
+        "&[data-active]": {
+          background: vars.color.tint_active,
+        },
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           color: vars.color.button_default,
         },

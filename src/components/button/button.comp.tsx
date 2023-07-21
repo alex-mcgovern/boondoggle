@@ -51,6 +51,8 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     {
+      /** Forces the button's active state */
+      active?: boolean;
       /** The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis. */
       appearance?: styles.Appearance;
       /** The React node shown in the button. */
@@ -91,6 +93,7 @@ export type ButtonProps = ComponentProps<typeof Button>;
 export const Button: ButtonComponent = forwardRef(
   <TPolymorphicAs extends ElementType = "span">(
     {
+      active,
       appearance = "primary",
       as,
       children,
@@ -160,6 +163,7 @@ export const Button: ButtonComponent = forwardRef(
             userClassName,
             colorOverlay ? variantColorOverlay[colorOverlay] : undefined
           ),
+          "data-active": active,
           disabled,
           onClick: withLoadingState
             ? handleClickWithLoadingState
