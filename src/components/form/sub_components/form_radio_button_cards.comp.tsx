@@ -5,7 +5,10 @@ import { RadioButtonCards } from "../../radio_button_cards";
 
 import type { RadioButtonCardsProps } from "../../radio_button_cards";
 
+/** ----------------------------------------------------------------------------- */
+
 export type FormRadioButtonCardsProps = RadioButtonCardsProps & {
+  defaultValue?: string | number;
   /** Message to render when erroring. */
   errorMessage: string;
   /** Callback for validation, else simply validates is non-empty. */
@@ -13,6 +16,7 @@ export type FormRadioButtonCardsProps = RadioButtonCardsProps & {
 };
 
 export function FormRadioButtonCards({
+  defaultValue,
   errorMessage,
   invalid,
   name,
@@ -52,6 +56,7 @@ export function FormRadioButtonCards({
   return (
     <RadioButtonCards
       aria-required={required}
+      defaultValue={defaultValue}
       errorMessage={errorMessage}
       invalid={invalid || !!error}
       name={name}

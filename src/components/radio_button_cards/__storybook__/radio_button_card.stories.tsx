@@ -31,6 +31,13 @@ export const Invalid: Story = {
   name: "invalid",
 };
 
+export const DefaultValue: Story = {
+  args: {
+    defaultValue: RADIO_BUTTON_CARDS_MOCK[0].value,
+    items: RADIO_BUTTON_CARDS_MOCK,
+  },
+};
+
 export const IsLabelVisibleFalse: Story = {
   args: {
     isLabelVisible: false,

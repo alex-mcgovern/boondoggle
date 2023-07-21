@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
 
 import { getTheme } from "../../styles/color_palette.css";
-import { slugify } from "../../utils/slugify";
 import { Box } from "../box";
 import { InputDescription } from "../input_description";
 import { InputErrorMessage } from "../input_error_message";
@@ -144,9 +143,7 @@ export const RadioButtonCards = forwardRef(
       return items.map((item) => {
         return {
           ...item,
-          checked:
-            defaultValue === slugify(item.title) ||
-            value === slugify(item.title),
+          checked: defaultValue === item.value || value === item.value,
         };
       });
     }, [defaultValue, items, value]);

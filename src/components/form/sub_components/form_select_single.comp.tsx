@@ -6,16 +6,20 @@ import { SelectSingle } from "../../select";
 import type { DropdownItemShape, SelectSingleProps } from "../../select";
 import type { UseComboboxStateChange } from "downshift";
 
-type GetDefaultValueItem = {
+/** ----------------------------------------------------------------------------- */
+
+type GetDefaultValueItemArgs = {
   items: Array<DropdownItemShape>;
   value?: string | number;
 };
 
-const getDefaultValueItem = ({ items, value }: GetDefaultValueItem) => {
+const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) => {
   return items.find((item) => {
     return item.value.toString() === value?.toString();
   });
 };
+
+/** ----------------------------------------------------------------------------- */
 
 export type FormSelectSingleProps = SelectSingleProps & {
   defaultValue?: string | number;
