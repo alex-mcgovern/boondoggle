@@ -8,17 +8,17 @@ import type { UseComboboxStateChange } from "downshift";
 
 type GetDefaultValueItem = {
   items: Array<DropdownItemShape>;
-  value?: string;
+  value?: string | number;
 };
 
 const getDefaultValueItem = ({ items, value }: GetDefaultValueItem) => {
   return items.find((item) => {
-    return item.value === value;
+    return item.value.toString() === value?.toString();
   });
 };
 
 export type FormSelectSingleProps = SelectSingleProps & {
-  defaultValue?: string;
+  defaultValue?: string | number;
   errorMessage: string;
 };
 
