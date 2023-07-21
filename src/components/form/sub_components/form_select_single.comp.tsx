@@ -8,7 +8,7 @@ import type { UseComboboxStateChange } from "downshift";
 
 type GetDefaultValueItem = {
   items: Array<DropdownItemShape>;
-  value: string;
+  value?: string;
 };
 
 const getDefaultValueItem = ({ items, value }: GetDefaultValueItem) => {
