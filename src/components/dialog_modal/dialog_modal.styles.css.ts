@@ -42,8 +42,7 @@ export const dialogOuterStyle = style([
         border: vars.border.border_default,
         borderRadius: vars.borderRadius.sm,
         boxShadow: vars.boxShadow.lg,
-        height: "100dvh",
-        width: "28rem",
+        width: "35rem",
       },
       [MEDIA_QUERY_MOBILE]: {
         border: "none",
