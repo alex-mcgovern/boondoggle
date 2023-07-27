@@ -38,12 +38,6 @@ export const dialogOuterStyle = style([
   }),
   {
     "@media": {
-      [MEDIA_QUERY_DESKTOP]: {
-        border: vars.border.border_default,
-        borderRadius: vars.borderRadius.sm,
-        boxShadow: vars.boxShadow.lg,
-        maxWidth: "35rem",
-      },
       [MEDIA_QUERY_MOBILE]: {
         border: "none",
         height: "100dvh",
@@ -56,7 +50,14 @@ export const dialogOuterStyle = style([
         borderRadius: vars.borderRadius.sm,
         boxShadow: vars.boxShadow.lg,
         maxHeight: "75dvh",
-        maxWidth: "28rem",
+        minWidth: "28rem",
+      },
+      // eslint-disable-next-line sort-keys-fix/sort-keys-fix
+      [MEDIA_QUERY_DESKTOP]: {
+        border: vars.border.border_default,
+        borderRadius: vars.borderRadius.sm,
+        boxShadow: vars.boxShadow.lg,
+        minWidth: "35rem",
       },
     },
 
