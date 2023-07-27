@@ -3,6 +3,7 @@ import {
   faShapes,
   faSnowflake,
 } from "@fortawesome/pro-light-svg-icons";
+import { useState } from "react";
 
 import { DialogModal as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
@@ -53,8 +54,40 @@ export const Default: StoryObj<StoryCompProps> = {
     title: LOREM.text_xxs,
     triggerNode: <Button name="DialogModal button">Open dialog</Button>,
   },
-  name: "default",
   render: Template,
+};
+
+/** ----------------------------------------------------------------------------- */
+
+const ControlledTemplate: StoryFn<StoryCompProps> = ({
+  ...rest
+}: StoryCompProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleIsOpen = () => {
+    return setIsOpen((current) => {
+      return !current;
+    });
+  };
+
+  return (
+    <Box>
+      <button onClick={toggleIsOpen} type="button">
+        toggle isOpen
+      </button>
+      <Box marginBottom="spacing_2">Is open: {isOpen.toString()}</Box>
+      <StoryComp {...rest} isOpen={isOpen} onIsOpenChange={setIsOpen} />
+    </Box>
+  );
+};
+
+export const Controlled: StoryObj<StoryCompProps> = {
+  args: {
+    children: <DialogContent />,
+    title: LOREM.text_xxs,
+    triggerNode: <Button name="DialogModal button">Open dialog</Button>,
+  },
+  render: ControlledTemplate,
 };
 
 /** ----------------------------------------------------------------------------- */
@@ -69,7 +102,6 @@ export const WithButton: StoryObj<StoryCompProps> = {
     title: LOREM.text_xxs,
     triggerNode: <Button name="DialogModal button">Open dialog</Button>,
   },
-  name: "with_button",
   render: Template,
 };
 
@@ -89,7 +121,6 @@ export const WithButtonAndConfirmText: StoryObj<StoryCompProps> = {
     title: LOREM.text_xxs,
     triggerNode: <Button name="DialogModal button">Open dialog</Button>,
   },
-  name: "with_button_and_confirm_text",
   render: Template,
 };
 
@@ -113,7 +144,6 @@ export const WithButtonAndConfirmTextDestructive: StoryObj<StoryCompProps> = {
     title: LOREM.text_xxs,
     triggerNode: <Button name="DialogModal button">Open dialog</Button>,
   },
-  name: "with_button_and_confirm_text_destructive",
   render: Template,
 };
 
@@ -144,6 +174,5 @@ export const WithButtonAndAlertAndConfirmTextDestructive: StoryObj<StoryCompProp
       title: LOREM.text_xxs,
       triggerNode: <Button name="DialogModal button">Open dialog</Button>,
     },
-    name: "with_button_and_alert_and_confirm_text_destructive",
     render: Template,
   };

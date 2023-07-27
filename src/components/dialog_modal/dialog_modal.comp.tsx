@@ -173,22 +173,20 @@ function DialogModalAlert({
 /** ----------------------------------------------------------------------------- */
 
 type DialogCloseButtonProps = {
-  dialogRef: RefObject<HTMLDialogElement>;
+  closeDialog: () => void;
 };
 
-export function DialogCloseButton({ dialogRef }: DialogCloseButtonProps) {
+export function DialogCloseButton({ closeDialog }: DialogCloseButtonProps) {
   return (
     <Button
       appearance="ghost"
       aria-label="Close"
       marginLeft="auto"
       name="close"
+      onClick={closeDialog}
       size="square_md"
       slotLeft={<Icon icon={faTimes} />}
       type="button"
-      onClick={() => {
-        return dialogRef.current?.close();
-      }}
     />
   );
 }
@@ -208,6 +206,7 @@ export type DialogModalProps = {
   dialogConfirmPromptSuffix?: string;
   dialogConfirmText?: string;
   isOpen?: boolean;
+  onIsOpenChange?: (isOpen: boolean) => void;
   title: string;
   triggerNode: ReactNode;
   wrapperProps?: BoxProps;
@@ -228,6 +227,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       dialogConfirmPromptSuffix = "to continue",
       dialogConfirmText,
       isOpen,
+      onIsOpenChange,
       title,
       triggerNode,
       wrapperProps,
@@ -239,20 +239,33 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
 
     /** --------------------------------------------- */
 
+    const openDialog = useCallback(() => {
+      onIsOpenChange?.(true);
+      return dialogRef.current?.showModal();
+    }, [dialogRef, onIsOpenChange]);
+
+    const closeDialog = useCallback(() => {
+      onIsOpenChange?.(false);
+      return dialogRef.current?.close();
+    }, [dialogRef, onIsOpenChange]);
+
+    /** --------------------------------------------- */
+
     const toggleIsOpen = useCallback(() => {
       if (!dialogRef.current) {
-        return undefined;
+        return null;
       }
 
-      return dialogRef.current?.open
-        ? dialogRef.current?.close()
-        : dialogRef.current?.showModal();
-    }, [dialogRef]);
+      return dialogRef.current?.open ? closeDialog() : openDialog();
+    }, [closeDialog, dialogRef, openDialog]);
 
     /** --------------------------------------------- */
 
     useClickOutside<HTMLDialogElement, HTMLElement>({
       callback: () => {
+        if (onIsOpenChange) {
+          onIsOpenChange?.(false);
+        }
         return dialogRef.current?.close();
       },
       contentRef: dialogRef,
@@ -278,7 +291,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
               {title}
             </Box>
 
-            <DialogCloseButton dialogRef={dialogRef} />
+            <DialogCloseButton closeDialog={closeDialog} />
           </Box>
 
           <Box className={dialogContentStyle}>
