@@ -101,6 +101,9 @@ export const mockForm = ({
           label={LOREM.labelRadioButtons()}
           name="radio"
           wrapperProps={WRAPPER_PROPS}
+          defaultValue={
+            withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined
+          }
         />
         <FormSubmitButton width="100%">Submit</FormSubmitButton>
       </>
