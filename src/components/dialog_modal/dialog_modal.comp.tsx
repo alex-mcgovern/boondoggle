@@ -205,6 +205,7 @@ export type DialogModalProps = {
   dialogConfirmPromptPrefix?: string;
   dialogConfirmPromptSuffix?: string;
   dialogConfirmText?: string;
+  dialogProps: BoxProps;
   isOpen?: boolean;
   onIsOpenChange?: (isOpen: boolean) => void;
   title: string;
@@ -226,6 +227,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       dialogConfirmPromptPrefix = "Please type",
       dialogConfirmPromptSuffix = "to continue",
       dialogConfirmText,
+      dialogProps,
       isOpen,
       onIsOpenChange,
       title,
@@ -285,6 +287,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
           className={dialogOuterStyle}
           open={isOpen}
           ref={dialogRef}
+          {...dialogProps}
         >
           <Box className={dialogHeaderStyle}>
             <Box as="h3" className={dialogTitleStyle}>
