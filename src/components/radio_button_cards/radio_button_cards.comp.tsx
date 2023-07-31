@@ -27,7 +27,7 @@ type RadioButtonInputProps = Omit<
 
 export type RadioButtonCardShape = {
   adornment: ReactNode;
-  body: string;
+  body?: string;
   checked?: boolean;
   tag?: string;
   title: string;
@@ -85,7 +85,7 @@ export function RadioButtonCard({
         <Box alignItems="center" display="flex" gap="spacing_1">
           <Box color="text_high_contrast">{title}</Box>
         </Box>
-        <Box color="text_low_contrast" fontStyle="body_sm">
+        <Box color="text_low_contrast" fontStyle="body_xs">
           {body}
         </Box>
       </Box>
