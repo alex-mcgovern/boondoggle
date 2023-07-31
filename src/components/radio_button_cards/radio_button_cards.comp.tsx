@@ -179,6 +179,7 @@ export const RadioButtonCards = forwardRef(
           flexWrap="wrap"
           gap="spacing_1"
           id={id}
+          name={name}
           {...rest}
         >
           {controlledItems.map((item) => {
