@@ -58,7 +58,7 @@ exports[`<RadioButtonCards /> Basic smoke tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3g get_sprinkles_color_text_low_contrast__eiij7b1k"
+            class="get_sprinkles_fontSize_body_xs__eiij7b24 get_sprinkles_lineHeight_body_xs__eiij7b3i get_sprinkles_color_text_low_contrast__eiij7b1k"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </div>
@@ -107,7 +107,7 @@ exports[`<RadioButtonCards /> Basic smoke tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3g get_sprinkles_color_text_low_contrast__eiij7b1k"
+            class="get_sprinkles_fontSize_body_xs__eiij7b24 get_sprinkles_lineHeight_body_xs__eiij7b3i get_sprinkles_color_text_low_contrast__eiij7b1k"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </div>
@@ -156,7 +156,7 @@ exports[`<RadioButtonCards /> Basic smoke tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3g get_sprinkles_color_text_low_contrast__eiij7b1k"
+            class="get_sprinkles_fontSize_body_xs__eiij7b24 get_sprinkles_lineHeight_body_xs__eiij7b3i get_sprinkles_color_text_low_contrast__eiij7b1k"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </div>
