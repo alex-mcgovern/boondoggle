@@ -33,6 +33,7 @@ export function FormRadioButtonCards({
     fieldState: { error },
   } = useController({
     control,
+    defaultValue,
     name,
     rules: {
       required: required && errorMessage,
