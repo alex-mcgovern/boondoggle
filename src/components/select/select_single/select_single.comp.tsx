@@ -165,7 +165,7 @@ export const SelectSingle = forwardRef(
     /** --------------------------------------------- */
 
     const SlotRight = useMemo(() => {
-      if ((isFilterable && inputValue.length > 0) || selectedItem) {
+      if (isFilterable && inputValue.length > 0) {
         return (
           <InputClearButton
             onClick={() => {
@@ -179,7 +179,7 @@ export const SelectSingle = forwardRef(
       }
 
       return slotRight;
-    }, [inputValue.length, isFilterable, reset, selectedItem, slotRight]);
+    }, [inputValue.length, isFilterable, reset, slotRight]);
 
     /** --------------------------------------------- */
 
