@@ -205,7 +205,7 @@ export type DialogModalProps = {
   dialogConfirmPromptPrefix?: string;
   dialogConfirmPromptSuffix?: string;
   dialogConfirmText?: string;
-  dialogProps: BoxProps;
+  dialogProps?: BoxProps;
   isOpen?: boolean;
   onIsOpenChange?: (isOpen: boolean) => void;
   title: string;
