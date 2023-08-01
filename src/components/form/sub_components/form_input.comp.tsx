@@ -61,6 +61,7 @@ export function FormInput({
       name={name}
       onBlur={onBlur}
       ref={ref}
+      required={required}
       value={controlledValue}
       wrapperProps={wrapperProps}
       onChange={(e) => {
