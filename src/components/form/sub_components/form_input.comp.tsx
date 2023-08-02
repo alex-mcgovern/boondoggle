@@ -25,7 +25,6 @@ export function FormInput({
   onChange,
   required,
   validateFunction,
-  value,
   wrapperProps,
   ...rest
 }: FormInputProps) {
@@ -41,13 +40,13 @@ export function FormInput({
     fieldState: { error },
   } = useController({
     control,
-    defaultValue: value || defaultValue,
+    defaultValue,
     name,
     rules: {
       required: required && errorMessage,
-      validate: (v) => {
+      validate: (value) => {
         if (validateFunction) {
-          return validateFunction(v) || errorMessage;
+          return validateFunction(value) || errorMessage;
         }
         return !!value;
       },
