@@ -41,6 +41,7 @@ export const SelectMulti = forwardRef(
       initialSelectedItems = [],
       inputProps,
       invalid,
+      isClearable,
       isFilterable,
       items,
       label,
@@ -223,7 +224,10 @@ export const SelectMulti = forwardRef(
     /** --------------------------------------------- */
 
     const SlotRight = useMemo(() => {
-      if ((isFilterable && inputValue.length > 0) || selectedItems.length > 0) {
+      if (
+        (isFilterable && inputValue.length > 0) ||
+        (isClearable && selectedItems.length > 0)
+      ) {
         return (
           <InputClearButton
             onClick={() => {
@@ -239,6 +243,7 @@ export const SelectMulti = forwardRef(
       return slotRight;
     }, [
       inputValue.length,
+      isClearable,
       isFilterable,
       onSelectedItemsChange,
       reset,

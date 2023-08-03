@@ -18,6 +18,7 @@ export type SelectCommonProps = ConditionalLabelProps & {
   initialHighlightedItem?: DropdownItemShape;
   inputProps?: Partial<InputProps>;
   invalid?: boolean;
+  isClearable?: boolean;
   isFilterable?: boolean;
   isOpen?: boolean;
   items: Array<DropdownItemShape>;
