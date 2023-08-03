@@ -34,7 +34,7 @@ export type InputProps = Omit<
   LabelledElementCustomisation &
   ConditionalLabelProps & {
     /** Description shown under the input when there is no error message  */
-    description?: string;
+    description?: ReactNode;
     /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
     errorMessage?: string;
     /** Whether to render the input with a border */

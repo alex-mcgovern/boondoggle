@@ -1,9 +1,10 @@
 import { Box } from "../box";
 
 import type { BoxProps } from "../box";
+import type { ReactNode } from "react";
 
 export type InputDescriptionProps = BoxProps & {
-  description?: string;
+  description?: ReactNode;
 };
 
 export function InputDescription({
