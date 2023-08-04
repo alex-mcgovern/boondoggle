@@ -1,4 +1,4 @@
-import { amber, blue, green, red, slate } from "@radix-ui/colors";
+import { amber, green, indigo, red, sky, slate } from "@radix-ui/colors";
 import {
   assignVars,
   createGlobalTheme,
@@ -11,7 +11,7 @@ import { makeTheme } from "./utils/make_theme";
 
 export const color = createGlobalTheme(":root, ::backdrop", {
   ...makeTheme({
-    primaryPalette: blue,
+    primaryPalette: indigo,
     secondaryPalette: slate,
   }),
 });
@@ -32,7 +32,7 @@ export const variantColorOverlay = styleVariants({
       [themeLayer]: {
         vars: assignVars(
           color,
-          makeTheme({ primaryPalette: blue, secondaryPalette: blue })
+          makeTheme({ primaryPalette: sky, secondaryPalette: sky })
         ),
       },
     },
