@@ -2,7 +2,8 @@ name: Build docs
 on:
   workflow_dispatch:
   push:
-    paths: ["src/**"]
+    branches:
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
