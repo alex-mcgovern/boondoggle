@@ -1,4 +1,4 @@
-import { DatePicker as StoryComp } from "../date_picker.comp";
+import { DatePicker as StoryComp } from "..";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

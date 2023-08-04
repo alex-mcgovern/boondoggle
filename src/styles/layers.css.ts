@@ -4,5 +4,4 @@ export const resetLayer = globalLayer("reset");
 export const baseLayer = globalLayer("base");
 export const baseOverridesLayer = globalLayer("baseOverrides");
 export const themeLayer = globalLayer("theme");
-export const varsLayer = globalLayer("vars");
 export const sprinklesLayer = globalLayer("sprinkles");

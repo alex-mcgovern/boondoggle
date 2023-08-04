@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea /> Basic smoke tests should match snapshot 1`] = `
+<textarea
+  class="styles_getTextAreaStyles__19w96q17 styles__19w96q16 get_sprinkles_width_100%_mobile__eiij7bgl a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getTextAreaStyles_size_md__19w96q19 styles_size_md__19w96q14 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdx get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7beu get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfo get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcx styles__19w96q11 get_sprinkles_minHeight_spacing_5__eiij7b79"
+  name="Name ipsum"
+  placeholder="Placeholder ipsum"
+/>
+`;

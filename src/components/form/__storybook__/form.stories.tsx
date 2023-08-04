@@ -9,9 +9,10 @@ import { act } from "react-dom/test-utils";
 
 import { Form as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../field.radio_button_card_group/__mocks__/radio_button_cards.mock";
+import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
+import { mockFormWithZodValidatedFields } from "../__mocks__/mock_form_with_zod_validated_fields.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ByRoleMatcher, ByRoleOptions } from "@testing-library/dom";
@@ -70,10 +71,6 @@ handleErrorsMock.mockImplementation(async (errors: unknown) => {
 });
 
 const meta = {
-  args: mockForm({
-    handleErrors: handleErrorsMock,
-    handleFormSubmission: handleFormSubmissionMock,
-  }),
   component: StoryComp,
   title: "React components/Form",
 } satisfies Meta<typeof StoryComp>;
@@ -84,6 +81,10 @@ type Story = StoryObj<typeof meta>;
 /** ----------------------------------------------------------------------------- */
 
 export const Default: Story = {
+  args: mockForm({
+    handleErrors: handleErrorsMock,
+    handleFormSubmission: handleFormSubmissionMock,
+  }),
   name: "default",
   play: async ({ canvasElement }) => {
     const { getByLabelText, getByRole } = within(canvasElement);
@@ -160,5 +161,12 @@ export const WithOptionalFields: Story = {
     handleErrors: handleErrorsMock,
     handleFormSubmission: handleFormSubmissionMock,
     withOptionalFields: true,
+  }),
+};
+
+export const WithZodValidatedFields: Story = {
+  args: mockFormWithZodValidatedFields({
+    handleErrors: handleErrorsMock,
+    handleFormSubmission: handleFormSubmissionMock,
   }),
 };

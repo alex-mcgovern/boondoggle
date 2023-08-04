@@ -3,10 +3,10 @@ import { userEvent } from "@storybook/testing-library";
 import { render, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
+import { DatePicker } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { DatePicker } from "../date_picker.comp";
 
-import type { DatePickerProps } from "../date_picker.comp";
+import type { DatePickerProps } from "..";
 
 const onDayClick = jest.fn();
 

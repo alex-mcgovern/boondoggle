@@ -39,6 +39,18 @@
             "prefer": "type-imports"
           }
         ],
+        "import/no-restricted-paths": [
+          "error",
+          {
+            "zones": [
+              {
+                "from": "./src/index.ts",
+                "message": "Do not import from the root index, this will cause a dependency cycle.",
+                "target": "./src/components"
+              }
+            ]
+          }
+        ],
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/switch-exhaustiveness-check": "error",
@@ -109,6 +121,7 @@
           }
         ],
         "react/jsx-uses-react": "off",
+        "react/no-multi-comp": "error",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/require-default-props": "off",
@@ -178,13 +191,15 @@
     /**
      * Storybook
      */
+
     {
       "files": ["*.stories.tsx"],
 
       "rules": {
-        "react/function-component-definition": "off",
         "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
+        "import/prefer-default-export": "error",
+        "react/function-component-definition": "off",
+        "react/no-multi-comp": "off"
       }
     },
 
