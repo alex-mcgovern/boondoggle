@@ -8,3 +8,6 @@ export { SelectMulti } from "./select_multi/select_multi.comp";
 export type { SelectMultiProps } from "./select_multi/select_multi.comp";
 
 export type { DropdownItemShape } from "./select.types";
+
+export { DropdownItem } from "./shared/dropdown_item/dropdown_item.comp";
+export type { DropdownItemProps } from "./shared/dropdown_item/dropdown_item.comp";
