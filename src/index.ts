@@ -107,6 +107,9 @@ export type { SlotWrapperProps } from "./components/support.slot_wrapper";
 export { SelectItem } from "./components/field.select.item";
 export type { SelectItemProps } from "./components/field.select.item";
 
+export { SelectItemList } from "./components/field.select.item_list";
+export type { SelectItemListProps } from "./components/field.select.item_list";
+
 export { SelectSingle } from "./components/field.select.single";
 export type { SelectSingleProps } from "./components/field.select.single";
 
