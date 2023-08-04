@@ -73,6 +73,7 @@ export const Input = forwardRef(
       labelTooltip,
       name,
       onChange,
+      required,
       size = "md",
       slotLeft,
       slotRight: initialSlotRight,
@@ -152,6 +153,7 @@ export const Input = forwardRef(
             name={name}
             onChange={handleChange}
             ref={ref}
+            required={required}
             value={inputValue}
             className={clsx(
               getInputStyles({ hasBorder, size }),
