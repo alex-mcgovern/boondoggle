@@ -25,7 +25,6 @@ export function FormInputDate({
   errorMessage,
   name,
   required,
-  validateFunction,
   ...rest
 }: FormInputDateProps) {
   const { control } = useFormContext();
@@ -39,12 +38,6 @@ export function FormInputDate({
     name,
     rules: {
       required: required && errorMessage,
-      validate: (value) => {
-        if (validateFunction) {
-          return validateFunction(value) || errorMessage;
-        }
-        return !!value;
-      },
     },
   });
 

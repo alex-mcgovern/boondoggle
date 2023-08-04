@@ -22,7 +22,6 @@ export function FormRadioButtonCards({
   name,
   onChange: onChangeParent,
   required,
-  validateFunction,
   wrapperProps,
   ...rest
 }: FormRadioButtonCardsProps) {
@@ -37,12 +36,6 @@ export function FormRadioButtonCards({
     name,
     rules: {
       required: required && errorMessage,
-      validate: (value) => {
-        if (validateFunction) {
-          return validateFunction(value) || errorMessage;
-        }
-        return !!value;
-      },
     },
   });
 
@@ -62,12 +55,13 @@ export function FormRadioButtonCards({
       invalid={invalid || !!error}
       name={name}
       onChange={handleChange}
-      ref={ref}
-      value={controlledValue}
-      wrapperProps={wrapperProps}
       radioButtonInputProps={{
         onBlur,
       }}
+      ref={ref}
+      required={required}
+      value={controlledValue}
+      wrapperProps={wrapperProps}
       {...rest}
     />
   );

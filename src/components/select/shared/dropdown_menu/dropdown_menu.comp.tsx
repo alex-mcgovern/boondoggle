@@ -99,13 +99,13 @@ export const DropdownMenu = forwardRef(
             as="button"
             isDropdownItemSelected={false}
             isMulti={isMulti}
-            size={size}
             item={{
               as: "button",
               disabled: true,
               label: "No results",
               value: "",
             }}
+            size={size}
             {...getDropdownItemProps({
               disabled: true,
               getItemProps,

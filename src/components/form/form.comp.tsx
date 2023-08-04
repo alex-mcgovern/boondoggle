@@ -30,7 +30,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     | ((fieldValues: TFieldValues) => Promise<void>)
     | ((fieldValues: TFieldValues) => void);
   name: string;
-  resolver: Resolver<TFieldValues, any>;
+  resolver?: Resolver<TFieldValues, any>;
 };
 
 export function Form<TFieldValues extends FieldValues>({

@@ -93,22 +93,22 @@ function DialogButton({
         <Input
           marginBottom="spacing_2"
           name="dialog_confirm_text"
-          placeholder=""
-          value={userConfirmText}
           onChange={(e) => {
             return setUserConfirmText(e.target.value);
           }}
+          placeholder=""
+          value={userConfirmText}
         />
 
         <Button
           appearance="primary"
           disabled={userConfirmText !== dialogConfirmText}
           name="primary_action"
-          width="100%"
           onClick={() => {
             dialogButtonOnClick?.();
             dialogRef.current?.close();
           }}
+          width="100%"
           {...dialogButtonProps}
         >
           {dialogButtonText}
@@ -122,12 +122,11 @@ function DialogButton({
       <Button
         appearance="primary"
         name="primary_action"
-        width="100%"
-        // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
         onClick={() => {
           dialogButtonOnClick?.();
           dialogRef.current?.close();
         }}
+        width="100%"
         {...dialogButtonProps}
       >
         {dialogButtonText}

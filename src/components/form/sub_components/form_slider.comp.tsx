@@ -25,7 +25,6 @@ export function FormSlider({
   errorMessage,
   name,
   required,
-  validateFunction,
   wrapperProps,
   ...rest
 }: FormSliderProps) {
@@ -39,12 +38,6 @@ export function FormSlider({
     name,
     rules: {
       required: required && errorMessage,
-      validate: (value) => {
-        if (validateFunction) {
-          return validateFunction(value) || errorMessage;
-        }
-        return !!value;
-      },
     },
     ...(defaultValueArray &&
       Array.isArray(defaultValueArray) && {

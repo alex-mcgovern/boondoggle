@@ -37,10 +37,6 @@ export const DropdownItem = forwardRef(
     return (
       <SlotWrapper
         as="li"
-        id={label}
-        size={size}
-        slotLeft={slotLeft}
-        slotProps={{ width: "spacing_2" }}
         className={clsx(
           styles.getDropdownItemStyles({
             size,
@@ -49,6 +45,10 @@ export const DropdownItem = forwardRef(
             [styles.isHighlighted]: isHighlighted,
           }
         )}
+        id={label}
+        size={size}
+        slotLeft={slotLeft}
+        slotProps={{ width: "spacing_2" }}
         {...rest}
         {...restItemProps}
         ref={ref}

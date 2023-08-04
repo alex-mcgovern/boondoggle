@@ -23,7 +23,11 @@ const mockFormSchema = z.object({
   email: z.string().email().min(2),
   radio: z.string().min(1),
   select: z.string().min(1),
-}); /** ----------------------------------------------------------------------------- */
+});
+
+const mockFormSchemaOptional = mockFormSchema.partial();
+
+/** ----------------------------------------------------------------------------- */
 
 const WRAPPER_PROPS: BoxProps = {
   marginBottom: "spacing_3",
@@ -36,12 +40,14 @@ type MockFormProps = Pick<
   "handleFormSubmission" | "handleErrors"
 > & {
   withDefaultValues?: boolean;
+  withOptionalFields?: boolean;
 };
 
 export const mockForm = ({
   handleErrors = async () => {},
   handleFormSubmission = async () => {},
   withDefaultValues = false,
+  withOptionalFields = false,
 }: MockFormProps): FormProps => {
   return {
     children: (
@@ -71,9 +77,13 @@ export const mockForm = ({
           label={LOREM.labelDescription()}
           name="description"
           placeholder="Enter your description"
+          required={false}
           wrapperProps={WRAPPER_PROPS}
         />
         <FormSelectSingle
+          defaultValue={
+            withDefaultValues ? mockSelectItems({})[0].value : undefined
+          }
           errorMessage="Select an option"
           id="select"
           items={mockSelectItems({})}
@@ -81,9 +91,6 @@ export const mockForm = ({
           name="select"
           placeholder="Select an option from the dropdown"
           wrapperProps={WRAPPER_PROPS}
-          initialSelectedItem={
-            withDefaultValues ? mockSelectItems({})[0] : null
-          }
         />
         <FormSlider
           defaultValue={withDefaultValues ? [50] : undefined}
@@ -95,15 +102,15 @@ export const mockForm = ({
           wrapperProps={WRAPPER_PROPS}
         />
         <FormRadioButtonCards
+          defaultValue={
+            withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined
+          }
           errorMessage="Select an option"
           id="radio"
           items={RADIO_BUTTON_CARDS_MOCK}
           label={LOREM.labelRadioButtons()}
           name="radio"
           wrapperProps={WRAPPER_PROPS}
-          defaultValue={
-            withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined
-          }
         />
         <FormSubmitButton width="100%">Submit</FormSubmitButton>
       </>
@@ -111,6 +118,8 @@ export const mockForm = ({
     handleErrors,
     handleFormSubmission,
     name: LOREM.name(),
-    resolver: zodResolver(mockFormSchema),
+    resolver: zodResolver(
+      withOptionalFields ? mockFormSchemaOptional : mockFormSchema
+    ),
   };
 };

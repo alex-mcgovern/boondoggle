@@ -85,7 +85,6 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         <Box background="transparent">
           <Slot
             onClick={toggleIsOpen}
-            ref={triggerRef}
             onMouseEnter={
               openOn === "hover"
                 ? () => {
@@ -121,6 +120,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                   }
                 : undefined
             }
+            ref={triggerRef}
           >
             {triggerNode}
           </Slot>

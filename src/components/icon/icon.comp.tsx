@@ -24,12 +24,12 @@ export function Icon({
 
   return (
     <FontAwesomeIcon
-      icon={icon}
       className={clsx(
         styles.icon,
         userClassName,
         getSprinkles({ ...atomProps, color, flexShrink: "0" })
       )}
+      icon={icon}
       {...otherProps}
     />
   );

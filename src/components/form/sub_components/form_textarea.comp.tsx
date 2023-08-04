@@ -22,7 +22,6 @@ export function FormTextArea({
   errorMessage,
   name,
   required,
-  validateFunction,
   wrapperProps,
   ...rest
 }: FormTextAreaProps) {
@@ -37,12 +36,6 @@ export function FormTextArea({
     name,
     rules: {
       required: required && errorMessage,
-      validate: (value) => {
-        if (validateFunction) {
-          return validateFunction(value) || errorMessage;
-        }
-        return !!value;
-      },
     },
   });
 

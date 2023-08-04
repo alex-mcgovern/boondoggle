@@ -73,7 +73,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
       <Dialog
         className={clsx(userClassName, datePickerDialogStyle)}
         isOpen={isOpen}
-        wrapperProps={wrapperProps}
         triggerNode={
           // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
           <Input
@@ -86,6 +85,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             value={inputValue}
           />
         }
+        wrapperProps={wrapperProps}
       >
         <DatePicker onDayClick={onDayClick} />
       </Dialog>

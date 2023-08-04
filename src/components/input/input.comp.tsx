@@ -73,7 +73,6 @@ export const Input = forwardRef(
       labelTooltip,
       name,
       onChange,
-      required,
       size = "md",
       slotLeft,
       slotRight: initialSlotRight,
@@ -149,12 +148,6 @@ export const Input = forwardRef(
 
         <SlotWrapperInset size={size} slotLeft={slotLeft} slotRight={slotRight}>
           <input
-            id={id}
-            name={name}
-            onChange={handleChange}
-            ref={ref}
-            required={required}
-            value={inputValue}
             className={clsx(
               getInputStyles({ hasBorder, size }),
               getSprinkles(atomProps),
@@ -163,6 +156,11 @@ export const Input = forwardRef(
                 [a11yError]: invalid,
               }
             )}
+            id={id}
+            name={name}
+            onChange={handleChange}
+            ref={ref}
+            value={inputValue}
             {...otherProps}
           />
         </SlotWrapperInset>

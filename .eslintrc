@@ -105,8 +105,7 @@
         "react/jsx-sort-props": [
           "error",
           {
-            "ignoreCase": true,
-            "multiline": "last"
+            "ignoreCase": true
           }
         ],
         "react/jsx-uses-react": "off",

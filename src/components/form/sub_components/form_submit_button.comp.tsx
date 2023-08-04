@@ -28,13 +28,13 @@ export const FormSubmitButton = forwardRef<
       name="submit"
       ref={ref}
       size="md"
-      type="submit"
       slotRight={
         slotRight ||
         (buttonIcon ? (
           <Icon icon={buttonIcon} {...buttonIconProps} />
         ) : undefined)
       }
+      type="submit"
       {...rest}
     >
       {children}

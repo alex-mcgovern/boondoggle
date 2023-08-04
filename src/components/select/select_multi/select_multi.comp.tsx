@@ -266,25 +266,24 @@ export const SelectMulti = forwardRef(
           items={filteredItems}
           removeSelectedItem={removeSelectedItem}
           size={size}
-          width="100%"
           triggerNode={
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
               {...inputProps}
+              className={clsx(selectInputCursorStyles, {
+                [selectMultiInputSelectedItemsStyle]: selectedItems?.length > 0,
+              })}
               errorMessage={errorMessage}
               invalid={invalid}
               label={label}
+              labelProps={getLabelProps({
+                htmlFor: id,
+              })}
               labelTooltip={labelTooltip}
               readOnly={!isFilterable}
               size={size}
               slotLeft={slotLeft}
               slotRight={SlotRight}
-              className={clsx(selectInputCursorStyles, {
-                [selectMultiInputSelectedItemsStyle]: selectedItems?.length > 0,
-              })}
-              labelProps={getLabelProps({
-                htmlFor: id,
-              })}
               {...getInputProps?.({
                 ...getDropdownProps({
                   preventKeyAction: isOpen,
@@ -300,6 +299,7 @@ export const SelectMulti = forwardRef(
               })}
             />
           }
+          width="100%"
         />
       </Box>
     );

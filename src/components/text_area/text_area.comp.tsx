@@ -78,9 +78,6 @@ export const TextArea = forwardRef(
           <textarea
             aria-invalid={invalid}
             aria-label={label}
-            id={id}
-            name={name}
-            ref={ref}
             className={clsx(
               styles.getTextAreaStyles({ size }),
               getSprinkles(atomProps),
@@ -89,6 +86,9 @@ export const TextArea = forwardRef(
                 [a11yError]: invalid,
               }
             )}
+            id={id}
+            name={name}
+            ref={ref}
             {...otherProps}
           />
         </SlotWrapper>

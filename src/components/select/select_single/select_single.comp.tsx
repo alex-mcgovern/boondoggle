@@ -196,7 +196,6 @@ export const SelectSingle = forwardRef(
           isOpen={isOpen}
           items={filteredItems}
           size={size}
-          width="100%"
           triggerNode={
             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
             <Input
@@ -205,14 +204,14 @@ export const SelectSingle = forwardRef(
               errorMessage={errorMessage}
               invalid={invalid}
               label={label}
+              labelProps={getLabelProps({
+                htmlFor: id,
+              })}
               labelTooltip={labelTooltip}
               readOnly={!isFilterable}
               size={size}
               slotLeft={localSlotLeft}
               slotRight={SlotRight}
-              labelProps={getLabelProps({
-                htmlFor: id,
-              })}
               {...getInputProps?.({
                 disabled,
                 id,
@@ -225,6 +224,7 @@ export const SelectSingle = forwardRef(
               })}
             />
           }
+          width="100%"
         />
       </Box>
     );

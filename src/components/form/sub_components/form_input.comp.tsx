@@ -24,7 +24,6 @@ export function FormInput({
   name,
   onChange,
   required,
-  validateFunction,
   wrapperProps,
   ...rest
 }: FormInputProps) {
@@ -43,13 +42,7 @@ export function FormInput({
     defaultValue,
     name,
     rules: {
-      required: required && errorMessage,
-      validate: (value) => {
-        if (validateFunction) {
-          return validateFunction(value) || errorMessage;
-        }
-        return !!value;
-      },
+      required: false,
     },
   });
 
@@ -60,14 +53,14 @@ export function FormInput({
       invalid={invalid || !!error}
       name={name}
       onBlur={onBlur}
-      ref={ref}
-      required={required}
-      value={controlledValue}
-      wrapperProps={wrapperProps}
       onChange={(e) => {
         onChange?.(e);
         controlledOnChange(e);
       }}
+      ref={ref}
+      required={required}
+      value={controlledValue}
+      wrapperProps={wrapperProps}
       {...rest}
     />
   );

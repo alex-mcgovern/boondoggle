@@ -87,18 +87,18 @@ const ControlledTemplate = () => {
         marginBottom="spacing_2"
       >
         <button
-          type="button"
           onClick={() => {
             return setSelectedItems([]);
           }}
+          type="button"
         >
           Clear selected Items
         </button>
         <button
-          type="button"
           onClick={() => {
             return setSelectedItems([ITEMS[0]]);
           }}
+          type="button"
         >
           Set selected Items
         </button>

@@ -60,11 +60,13 @@ const handleFormSubmissionMock = jest.fn();
 const handleErrorsMock = jest.fn();
 
 handleFormSubmissionMock.mockImplementation(async (fieldValues: unknown) => {
-  return alert(JSON.stringify(fieldValues));
+  return alert(
+    `Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`
+  );
 });
 
 handleErrorsMock.mockImplementation(async (errors: unknown) => {
-  return alert(JSON.stringify(errors));
+  return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
 });
 
 const meta = {
@@ -149,5 +151,14 @@ export const WithDefaultValues: Story = {
     handleErrors: handleErrorsMock,
     handleFormSubmission: handleFormSubmissionMock,
     withDefaultValues: true,
+    withOptionalFields: true,
+  }),
+};
+
+export const WithOptionalFields: Story = {
+  args: mockForm({
+    handleErrors: handleErrorsMock,
+    handleFormSubmission: handleFormSubmissionMock,
+    withOptionalFields: true,
   }),
 };

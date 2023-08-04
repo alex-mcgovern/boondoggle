@@ -66,12 +66,12 @@ export function RadioButtonCard({
         defaultChecked={checked}
         id={`${name}-${value}`}
         name={name}
-        required={required}
-        type="radio"
-        value={value}
         onChange={() => {
           onChange?.(value);
         }}
+        required={required}
+        type="radio"
+        value={value}
         {...radioButtonInputProps}
       />
       <Box
