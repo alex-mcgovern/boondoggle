@@ -1,11 +1,11 @@
 import { forwardRef, useMemo } from "react";
 import { useForm } from "react-hook-form";
 
+import { Button } from "../button";
 import { Icon } from "../decorative.icon";
 import { getSubmitButtonIcon } from "../form/utils/get_form_button_icon";
-import { Button } from "../interactive.button";
 
-import type { ButtonProps } from "../interactive.button";
+import type { ButtonProps } from "../button";
 
 export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
 

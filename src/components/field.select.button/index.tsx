@@ -3,6 +3,7 @@ import { useSelect } from "downshift";
 import { forwardRef, useCallback, useState } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { Button, type ButtonProps } from "../button";
 import { Box } from "../core.box";
 import { SelectItemList } from "../field.select.item_list";
 import {
@@ -10,7 +11,6 @@ import {
   getIsSelected,
 } from "../field.select/select_utils";
 import { DEFAULT_SLOT_RIGHT } from "../field.select/shared/DEFAULT_SLOT_RIGHT";
-import { Button, type ButtonProps } from "../interactive.button";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DialogPlacementEnum } from "../dialog/styles.css";

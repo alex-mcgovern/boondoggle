@@ -1,7 +1,7 @@
 import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
 
+import { Button } from "../button";
 import { Icon } from "../decorative.icon";
-import { Button } from "../interactive.button";
 import { inputClearButtonStyle } from "./styles.css";
 
 type InputClearButtonProps = {

@@ -36,8 +36,8 @@ export {
 export { Box } from "./components/core.box";
 export type { BoxProps } from "./components/core.box";
 
-export { Button } from "./components/interactive.button";
-export type { ButtonProps } from "./components/interactive.button";
+export { Button } from "./components/button";
+export type { ButtonProps } from "./components/button";
 
 export { Collapsible } from "./components/interactive.collapsible";
 export type { CollapsibleProps } from "./components/interactive.collapsible";
@@ -77,8 +77,8 @@ export { FormTestProvider } from "./components/form/form_test_provider.comp";
 export { FormSubmitButton } from "./components/form.submit_button";
 export type { FormSubmitButtonProps } from "./components/form.submit_button";
 
-export { Input } from "./components/field.input";
-export type { InputProps } from "./components/field.input";
+export { Input } from "./components/input";
+export type { InputProps } from "./components/input";
 
 export { InputDate } from "./components/field.date_picker";
 export type { InputDateProps } from "./components/field.date_picker";

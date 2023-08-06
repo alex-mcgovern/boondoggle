@@ -10,7 +10,7 @@ import { vars } from "../theme.css";
 /**
  * Util function for extracting color vars for use with a sprinkles property
  */
-const sprinklesProperties = defineProperties({
+export const sprinklesProperties = defineProperties({
   "@layer": sprinklesLayer,
   properties: {
     alignItems: ["stretch", "start", "center", "end", "baseline"],
@@ -78,7 +78,7 @@ const sprinklesProperties = defineProperties({
   },
 });
 
-const responsiveSprinklesProperties = defineProperties({
+export const responsiveSprinklesProperties = defineProperties({
   /**
    * Note, the ordering of conditions is important
    */

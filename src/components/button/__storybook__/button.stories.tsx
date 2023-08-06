@@ -1,7 +1,6 @@
 import { faTriangleCircleSquare } from "@fortawesome/pro-light-svg-icons";
 
 import { Button as StoryComp } from "..";
-import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
 import { Box } from "../../core.box";
 import { Icon } from "../../decorative.icon";
@@ -118,33 +117,56 @@ export const CustomisationMargin: StoryObj<StoryCompProps> = {
   render: Template,
 };
 
-/**
+/** -----------------------------------------------------------------------------
  * Size
- */
-export const SizeSm: StoryObj<StoryCompProps> = {
-  args: { children: LOREM.button, size: "sm" },
-  name: "size/sm",
-  render: Template,
+ * ------------------------------------------------------------------------------- */
+
+const TemplateSizes: StoryFn<StoryCompProps> = () => {
+  return (
+    <Box alignItems="center" display="flex" gap="spacing_3">
+      <StoryComp
+        id="lg"
+        name="lg"
+        size="lg"
+        slotRight={<Icon icon={faTriangleCircleSquare} />}
+      >
+        Click me
+      </StoryComp>
+      <StoryComp
+        id="md"
+        name="md"
+        size="md"
+        slotRight={<Icon icon={faTriangleCircleSquare} />}
+      >
+        Click me
+      </StoryComp>
+      <StoryComp
+        id="sm"
+        name="sm"
+        size="sm"
+        slotRight={<Icon icon={faTriangleCircleSquare} />}
+      >
+        Click me
+      </StoryComp>
+      <StoryComp
+        id="square_md"
+        name="square_md"
+        size="square_md"
+        slotRight={<Icon icon={faTriangleCircleSquare} />}
+      />
+      <StoryComp
+        id="square_sm"
+        name="square_sm"
+        size="square_sm"
+        slotRight={<Icon icon={faTriangleCircleSquare} />}
+      />
+    </Box>
+  );
 };
-export const SizeMd: StoryObj<StoryCompProps> = {
-  args: { children: LOREM.button, size: "md" },
-  name: "size/md",
-  render: Template,
-};
-export const SizeLg: StoryObj<StoryCompProps> = {
-  args: { children: LOREM.button, size: "lg" },
-  name: "size/lg",
-  render: Template,
-};
-export const SizeSquareMd: StoryObj<StoryCompProps> = {
-  args: { size: "square_md", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
-  name: "size/square_md",
-  render: Template,
-};
-export const SizeSquareSm: StoryObj<StoryCompProps> = {
-  args: { size: "square_sm", slotLeft: <Icon icon={faTriangleCircleSquare} /> },
-  name: "size/square_sm",
-  render: Template,
+
+export const Sizes: StoryObj<typeof meta> = {
+  name: "Sizes",
+  render: TemplateSizes,
 };
 
 /**

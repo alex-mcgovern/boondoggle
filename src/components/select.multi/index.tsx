@@ -5,20 +5,20 @@ import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import { Box } from "../core.box";
 import { InputClearButton } from "../field.input.clear_button";
 import { SelectItemList } from "../field.select.item_list";
+import { Input } from "../input";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
   getDisplayValue,
   getFilteredDropdownItems,
   getIsSelected,
-} from "../field.select/select_utils";
-import { DEFAULT_SLOT_RIGHT } from "../field.select/shared/DEFAULT_SLOT_RIGHT";
-import { selectInputCursorStyles } from "../field.select/shared/select_input.styles.css";
-import { Input } from "../input";
+} from "../select/select_utils";
+import { DEFAULT_SLOT_RIGHT } from "../select/shared/DEFAULT_SLOT_RIGHT";
+import { selectInputCursorStyles } from "../select/shared/select_input.styles.css";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
 import type { LabelledElementCustomisation } from "../../types";
-import type { SelectCommonProps, SelectItemShape } from "../field.select/types";
+import type { SelectCommonProps, SelectItemShape } from "../select/types";
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &

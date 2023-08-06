@@ -1,4 +1,4 @@
-import { Button } from "../../interactive.button";
+import { Button } from "../../button";
 
 import type { DPUseYearsPropGetters, DPYear } from "@rehookify/datepicker";
 

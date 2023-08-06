@@ -4,8 +4,8 @@ import {
   faAngleRight,
 } from "@fortawesome/pro-light-svg-icons";
 
+import { Button } from "../../button";
 import { Box } from "../../core.box";
-import { Button } from "../../interactive.button";
 import { Icon } from "../../decorative.icon";
 
 import type { BoxProps } from "../../core.box";

@@ -14,56 +14,56 @@
   },
   "commentBox.styles": {
     "h1": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
+      "bottomEdgeToken": "-",
+      "bottomLeftToken": "* ",
       "boxWidth": 80,
       "capitalize": false,
-      "commentEndToken": "",
+      "commentEndToken": "- */",
       "commentStartToken": "/** ",
-      "leftEdgeToken": "",
+      "leftEdgeToken": "* ",
       "rightEdgeToken": "",
       "textAlignment": "left",
       "topEdgeToken": "-",
-      "topRightToken": "- */"
+      "topRightToken": "-"
     },
     "h1_JSX": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
+      "bottomEdgeToken": "-",
+      "bottomLeftToken": "* ",
       "boxWidth": 80,
       "capitalize": false,
-      "commentEndToken": "",
+      "commentEndToken": "- */}",
       "commentStartToken": "{/** ",
-      "leftEdgeToken": "",
+      "leftEdgeToken": "* ",
       "rightEdgeToken": "",
       "textAlignment": "left",
       "topEdgeToken": "-",
-      "topRightToken": "- */}"
+      "topRightToken": "-"
     },
     "h2": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
+      "bottomEdgeToken": "-",
+      "bottomLeftToken": "* ",
       "boxWidth": 48,
       "capitalize": false,
-      "commentEndToken": "",
+      "commentEndToken": "- */",
       "commentStartToken": "/** ",
-      "leftEdgeToken": "",
+      "leftEdgeToken": "* ",
       "rightEdgeToken": "",
       "textAlignment": "left",
       "topEdgeToken": "-",
-      "topRightToken": "- */"
+      "topRightToken": "-"
     },
     "h2_JSX": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
+      "bottomEdgeToken": "-",
+      "bottomLeftToken": "* ",
       "boxWidth": 48,
       "capitalize": false,
-      "commentEndToken": "",
+      "commentEndToken": "- */}",
       "commentStartToken": "{/** ",
-      "leftEdgeToken": "",
+      "leftEdgeToken": "* ",
       "rightEdgeToken": "",
       "textAlignment": "left",
       "topEdgeToken": "-",
-      "topRightToken": "- */}"
+      "topRightToken": "-"
     }
   },
   "cSpell.language": "en-GB",

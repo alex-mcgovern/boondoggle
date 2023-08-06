@@ -1,9 +1,9 @@
 import { useState } from "react";
 
+import { Button } from "../button";
 import { Box } from "../core.box";
 import { buttonConfirmTextStyle } from "../dialog.modal/styles.css";
-import { Input } from "../field.input";
-import { Button } from "../interactive.button";
+import { Input } from "../input";
 
 import type { DialogModalProps } from "../dialog.modal";
 import type { RefObject } from "react";

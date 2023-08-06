@@ -2,8 +2,8 @@ import { faTriangleCircleSquare } from "@fortawesome/pro-light-svg-icons";
 
 import { Input as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import { Box } from "../../core.box";
 import { Icon } from "../../decorative.icon";
-import { Loader } from "../../decorative.loader";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -78,39 +78,71 @@ export const IsClearable: Story = {
   name: "is-clearable",
 };
 
-/**
+/** -----------------------------------------------------------------------------
  * Size
- */
-export const SizeSm: Story = {
-  args: { size: "sm" },
+ * ------------------------------------------------------------------------------- */
 
-  name: "size/sm",
+const TemplateSizes = () => {
+  return (
+    <Box alignItems="center" display="flex" gap="spacing_3">
+      <StoryComp
+        id="lg"
+        label="lg"
+        name="lg"
+        placeholder={LOREM.placeholder()}
+        size="lg"
+      />
+      <StoryComp
+        id="md"
+        label="md"
+        name="md"
+        placeholder={LOREM.placeholder()}
+        size="md"
+      />
+      <StoryComp
+        id="sm"
+        label="sm"
+        name="sm"
+        placeholder={LOREM.placeholder()}
+        size="sm"
+      />
+    </Box>
+  );
 };
-export const SizeMd: Story = {
-  args: { size: "md" },
 
-  name: "size/md",
-};
-export const SizeLg: Story = {
-  args: { size: "lg" },
-
-  name: "size/lg",
+export const Sizes: Story = {
+  name: "Sizes",
+  render: TemplateSizes,
 };
 
-/**
- * Slot props
- */
-export const SlotLeftIcon: Story = {
-  args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
-  name: "slotLeft/icon",
+/** -----------------------------------------------------------------------------
+ * Slot
+ * ------------------------------------------------------------------------------- */
+
+const TemplateSlot = () => {
+  return (
+    <Box alignItems="center" display="flex" gap="spacing_3">
+      <StoryComp
+        id="slotLeft"
+        label="slotLeft"
+        name="slotLeft"
+        placeholder={LOREM.placeholder()}
+        slotLeft={<Icon icon={faTriangleCircleSquare} />}
+      />
+      <StoryComp
+        id="slotRight"
+        label="slotRight"
+        name="slotRight"
+        placeholder={LOREM.placeholder()}
+        slotRight={<Icon icon={faTriangleCircleSquare} />}
+      />
+    </Box>
+  );
 };
-export const SlotRightIcon: Story = {
-  args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
-  name: "slotRight/icon",
-};
-export const SlotRightLoader: Story = {
-  args: { slotRight: <Loader /> },
-  name: "slotRight/loader",
+
+export const Slot: Story = {
+  name: "Slot",
+  render: TemplateSlot,
 };
 
 /**

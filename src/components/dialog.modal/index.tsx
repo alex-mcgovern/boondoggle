@@ -15,8 +15,8 @@ import {
 } from "./styles.css";
 
 import type { ColorOverlay } from "../../styles/color_palette.css";
+import type { ButtonProps } from "../button";
 import type { BoxProps } from "../core.box";
-import type { ButtonProps } from "../interactive.button";
 import type { ReactNode } from "react";
 
 /** ----------------------------------------------------------------------------- */

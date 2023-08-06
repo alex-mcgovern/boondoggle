@@ -1,8 +1,8 @@
 import { useController, useFormContext } from "react-hook-form";
 
-import { Input } from "../field.input";
+import { Input } from "../input";
 
-import type { InputProps } from "../field.input";
+import type { InputProps } from "../input";
 import type { RegisterOptions } from "react-hook-form";
 
 /**

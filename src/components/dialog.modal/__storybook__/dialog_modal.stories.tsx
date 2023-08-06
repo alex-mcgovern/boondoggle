@@ -8,10 +8,10 @@ import { useState } from "react";
 import { DialogModal as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
+import { Button } from "../../button";
 import { Box } from "../../core.box";
 import { Icon } from "../../decorative.icon";
 import { DialogInfoBullet } from "../../display.icon_bullet";
-import { Button } from "../../interactive.button";
 
 import type { DialogModalProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";
