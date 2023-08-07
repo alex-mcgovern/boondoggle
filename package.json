@@ -19,7 +19,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation'",
+    "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts'",
     "build:docs": "storybook build -o build",
     "build-storybook": "storybook build",
     "build:dev": "rm -rf lib && tsup --watch",
