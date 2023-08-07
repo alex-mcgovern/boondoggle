@@ -68,9 +68,13 @@ export function RadioButtonCard({
         justifyContent="center"
         textAlign="center"
       >
-        {adornment && <Box marginBottom="spacing_2">{adornment}</Box>}
+        {adornment && (
+          <Box color="text_low_contrast" marginBottom="spacing_2">
+            {adornment}
+          </Box>
+        )}
         <Box alignItems="center" display="flex" gap="spacing_1">
-          <Box color="text_high_contrast">{title}</Box>
+          <Box color="text_low_contrast">{title}</Box>
         </Box>
         <Box color="text_low_contrast" fontStyle="body_xs">
           {body}
