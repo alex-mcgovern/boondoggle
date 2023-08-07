@@ -4,6 +4,7 @@ import { formatDate } from "../../utils/format_date";
 import { InputDate } from "../InputDate";
 
 import type { InputDateProps } from "../InputDate";
+import type { RegisterOptions } from "react-hook-form";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
@@ -16,8 +17,7 @@ export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> & {
   errorMessage: string;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
+  validate?: RegisterOptions["validate"];
 };
 
 export function FormInputDate({
@@ -25,6 +25,7 @@ export function FormInputDate({
   errorMessage,
   name,
   required,
+  validate,
   ...rest
 }: FormInputDateProps) {
   const { control } = useFormContext();
@@ -38,6 +39,7 @@ export function FormInputDate({
     name,
     rules: {
       required: required && errorMessage,
+      validate,
     },
   });
 

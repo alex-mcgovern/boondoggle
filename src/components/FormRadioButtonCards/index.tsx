@@ -4,6 +4,7 @@ import { useController, useFormContext } from "react-hook-form";
 import { RadioButtonCardGroup } from "../RadioButtonCardGroup";
 
 import type { RadioButtonCardsProps } from "../RadioButtonCardGroup";
+import type { RegisterOptions } from "react-hook-form";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -11,8 +12,7 @@ export type FormRadioButtonCardsProps = RadioButtonCardsProps & {
   defaultValue?: string | number;
   /** Message to render when erroring. */
   errorMessage: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
+  validate?: RegisterOptions["validate"];
 };
 
 export function FormRadioButtonCards({
@@ -22,6 +22,7 @@ export function FormRadioButtonCards({
   name,
   onChange: onChangeParent,
   required,
+  validate,
   wrapperProps,
   ...rest
 }: FormRadioButtonCardsProps) {
@@ -36,6 +37,7 @@ export function FormRadioButtonCards({
     name,
     rules: {
       required: required && errorMessage,
+      validate,
     },
   });
 

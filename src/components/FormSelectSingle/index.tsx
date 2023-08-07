@@ -6,6 +6,7 @@ import { SelectSingle } from "../SelectSingle";
 import type { SelectItemShape } from "../Select/types";
 import type { SelectSingleProps } from "../SelectSingle";
 import type { UseComboboxStateChange } from "downshift";
+import type { RegisterOptions } from "react-hook-form";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -26,6 +27,7 @@ export type FormSelectSingleProps = SelectSingleProps & {
   defaultValue?: string | number;
   errorMessage: string;
   required?: boolean;
+  validate?: RegisterOptions["validate"];
 };
 
 export function FormSelectSingle({
@@ -34,6 +36,7 @@ export function FormSelectSingle({
   name,
   onChange: onChangeParent,
   required,
+  validate,
   ...rest
 }: FormSelectSingleProps) {
   const { control } = useFormContext();
@@ -45,7 +48,7 @@ export function FormSelectSingle({
     control,
     defaultValue,
     name,
-    rules: { required },
+    rules: { required, validate },
   });
 
   const handleChange = useCallback(

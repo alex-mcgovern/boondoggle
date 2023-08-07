@@ -5,6 +5,7 @@ import { Slider } from "../Slider";
 
 import type { LabelledElementCustomisation } from "../../types";
 import type { SliderProps } from "../Slider";
+import type { RegisterOptions } from "react-hook-form";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
@@ -17,7 +18,7 @@ export type FormSliderProps = LabelledElementCustomisation &
     /** Whether the slider is a required form element */
     required?: boolean;
     /** Callback for validation, else simply validates is non-empty. */
-    validateFunction?: (value: string) => boolean;
+    validate?: RegisterOptions["validate"];
   };
 
 export function FormSlider({
@@ -25,6 +26,7 @@ export function FormSlider({
   errorMessage,
   name,
   required,
+  validate,
   wrapperProps,
   ...rest
 }: FormSliderProps) {
@@ -38,6 +40,7 @@ export function FormSlider({
     name,
     rules: {
       required: required && errorMessage,
+      validate,
     },
     ...(defaultValueArray &&
       Array.isArray(defaultValueArray) && {

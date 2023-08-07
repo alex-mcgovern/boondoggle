@@ -3,6 +3,7 @@ import { useController, useFormContext } from "react-hook-form";
 import { TextArea } from "../TextArea";
 
 import type { TextAreaProps } from "../TextArea";
+import type { RegisterOptions } from "react-hook-form";
 
 /**
  * React Hook Form connected version of Boondoggle's `TextArea`. Uses `useFormContext`
@@ -13,8 +14,7 @@ export type FormTextAreaProps = TextAreaProps & {
   errorMessage: string;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
-  /** Callback for validation, else simply validates is non-empty. */
-  validateFunction?: (value: string) => boolean;
+  validate?: RegisterOptions["validate"];
 };
 
 export function FormTextArea({
@@ -22,6 +22,7 @@ export function FormTextArea({
   errorMessage,
   name,
   required,
+  validate,
   wrapperProps,
   ...rest
 }: FormTextAreaProps) {
@@ -36,6 +37,7 @@ export function FormTextArea({
     name,
     rules: {
       required: required && errorMessage,
+      validate,
     },
   });
 

@@ -14,7 +14,6 @@ export type FormInputProps = InputProps & {
   errorMessage: string;
   /** Placeholder text to display when input is empty. */
   placeholder: string;
-  /** Callback for validation, else simply validates is non-empty. */
   validate?: RegisterOptions["validate"];
 };
 
