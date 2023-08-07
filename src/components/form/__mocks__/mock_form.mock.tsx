@@ -3,7 +3,7 @@ import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { FormInput } from "../../FormInput";
-import { FormRadioButtonCards } from "../../FormRadioButtonCards";
+import { FormRadioButtonCardGroup } from "../../FormRadioButtonCardGroup";
 import { FormSelectSingle } from "../../FormSelectSingle";
 import { FormSlider } from "../../FormSlider";
 import { FormSubmitButton } from "../../FormSubmitButton";
@@ -101,7 +101,7 @@ export const mockForm = ({
           placeholder="Enter an amount"
           wrapperProps={WRAPPER_PROPS}
         />
-        <FormRadioButtonCards
+        <FormRadioButtonCardGroup
           defaultValue={
             withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined
           }

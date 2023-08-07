@@ -19,7 +19,7 @@ import type { Ref } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
-export type RadioButtonCardsProps = SprinklesArgs &
+export type RadioButtonCardGroupProps = SprinklesArgs &
   LabelledElementCustomisation & {
     defaultValue?: string | number;
     description?: string;
@@ -57,7 +57,7 @@ export const RadioButtonCardGroup = forwardRef(
       value,
       wrapperProps,
       ...rest
-    }: RadioButtonCardsProps,
+    }: RadioButtonCardGroupProps,
     ref: Ref<HTMLDivElement>
   ) => {
     const controlledItems: Array<RadioButtonCardShape> = useMemo(() => {

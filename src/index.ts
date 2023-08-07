@@ -60,8 +60,8 @@ export type { FormSliderProps } from "./components/FormSlider";
 export { FormInput } from "./components/FormInput";
 export { FormInputProps } from "./components/FormInput";
 
-export { FormRadioButtonCards } from "./components/FormRadioButtonCards";
-export { FormRadioButtonCardsProps } from "./components/FormRadioButtonCards";
+export { FormRadioButtonCardGroup } from "./components/FormRadioButtonCardGroup";
+export { FormRadioButtonCardGroupProps } from "./components/FormRadioButtonCardGroup";
 
 export { FormSelectSingle } from "./components/FormSelectSingle";
 export type { FormSelectSingleProps } from "./components/FormSelectSingle";
@@ -125,10 +125,13 @@ export { Pill } from "./components/Pill";
 export type { PillProps } from "./components/Pill";
 
 export { RadioButtonCard } from "./components/RadioButtonCard";
-export type { RadioButtonCardProps } from "./components/RadioButtonCard";
+export type {
+  RadioButtonCardProps,
+  RadioButtonCardShape,
+} from "./components/RadioButtonCard";
 
 export { RadioButtonCardGroup } from "./components/RadioButtonCardGroup";
-export type { RadioButtonCardsProps } from "./components/RadioButtonCardGroup";
+export type { RadioButtonCardGroupProps } from "./components/RadioButtonCardGroup";
 
 export { Tag } from "./components/Tag";
 export type { TagProps } from "./components/Tag";

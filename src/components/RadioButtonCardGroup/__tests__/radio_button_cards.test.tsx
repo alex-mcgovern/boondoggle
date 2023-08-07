@@ -5,11 +5,11 @@ import userEvent from "@testing-library/user-event";
 import { RadioButtonCardGroup } from "..";
 import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
 
-import type { RadioButtonCardsProps } from "..";
+import type { RadioButtonCardGroupProps } from "..";
 
 const onChangeMock = jest.fn();
 
-const PROPS: RadioButtonCardsProps = {
+const PROPS: RadioButtonCardGroupProps = {
   id: "test",
   items: RADIO_BUTTON_CARDS_MOCK,
   label: "test",
@@ -17,7 +17,7 @@ const PROPS: RadioButtonCardsProps = {
   onChange: onChangeMock,
 };
 
-const renderComponent = ({ ...props }: RadioButtonCardsProps) => {
+const renderComponent = ({ ...props }: RadioButtonCardGroupProps) => {
   return render(<RadioButtonCardGroup {...props} />);
 };
 
