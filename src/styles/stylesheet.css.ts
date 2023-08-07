@@ -442,6 +442,7 @@ globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
+      borderCollapse: "collapse",
       borderRadius: vars.borderRadius.sm,
       tableLayout: "auto",
       width: "100%",
