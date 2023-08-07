@@ -11,7 +11,6 @@ import type { SelectItemShape } from "../Select/types";
 import type { Ref } from "react";
 
 export type SelectItemProps = BoxProps & {
-  className?: string;
   isDropdownItemSelected?: boolean;
   isHighlighted: boolean;
   isMulti?: boolean;
@@ -23,7 +22,6 @@ export type SelectItemProps = BoxProps & {
 export const SelectItem = forwardRef(
   (
     {
-      className: userClassName,
       isDropdownItemSelected,
       isHighlighted,
       isMulti,
@@ -33,8 +31,14 @@ export const SelectItem = forwardRef(
     }: SelectItemProps,
     ref: Ref<HTMLDivElement>
   ) => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { isSelected: _, label, slotLeft, ...restItemProps } = item || {};
+    const {
+      className: userClassName,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      isSelected: _,
+      label,
+      slotLeft,
+      ...restItemProps
+    } = item || {};
 
     return (
       <SlotWrapper
