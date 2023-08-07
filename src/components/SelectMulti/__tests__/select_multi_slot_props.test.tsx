@@ -7,7 +7,7 @@ import { SelectMulti } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { Icon } from "../../Icon";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 
 import type { SelectMultiProps } from "..";
 

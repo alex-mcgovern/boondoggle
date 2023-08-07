@@ -6,7 +6,7 @@ import { SelectSingle } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { elementFontSize } from "../../../styles/common/element_size.css";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 
 import type { SelectSingleProps } from "..";
 

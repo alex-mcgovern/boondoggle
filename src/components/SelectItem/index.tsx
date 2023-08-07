@@ -7,7 +7,7 @@ import * as styles from "./styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { BoxProps } from "../Box";
-import type { SelectItemShape } from "../field.select/types";
+import type { SelectItemShape } from "../Select/types";
 import type { Ref } from "react";
 
 export type SelectItemProps = BoxProps & {

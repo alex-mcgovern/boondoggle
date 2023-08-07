@@ -5,7 +5,7 @@ import { Box } from "../../Box";
 import {
   mockSelectItems,
   mockSelectItemsAsButtons,
-} from "../../field.select/__mocks__/select.mock";
+} from "../../Select/__mocks__/select.mock";
 
 import type { SelectButtonProps as StoryCompProps } from "..";
 import type { StoryFn, StoryObj } from "@storybook/react";

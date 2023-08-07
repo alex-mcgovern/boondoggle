@@ -6,9 +6,9 @@ import { userEvent, waitFor, within } from "@storybook/testing-library";
 import { SelectSingle as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Icon } from "../../Icon";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 
-import type { SelectItemShape } from "../../field.select/types";
+import type { SelectItemShape } from "../../Select/types";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { UseComboboxStateChange } from "downshift";
 

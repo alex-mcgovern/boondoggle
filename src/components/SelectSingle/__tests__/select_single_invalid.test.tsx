@@ -6,7 +6,7 @@ import { SelectSingle } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 
 import type { SelectSingleProps } from "..";
 

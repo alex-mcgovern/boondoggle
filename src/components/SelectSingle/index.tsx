@@ -4,18 +4,18 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 import { Box } from "../Box";
 import { FieldClearButton } from "../FieldClearButton";
 import { Input } from "../Input";
-import { SelectItemList } from "../SelectItemList";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
   getFilteredDropdownItems,
   getIsSelected,
-} from "../field.select/select_utils";
-import { DEFAULT_SLOT_RIGHT } from "../field.select/shared/DEFAULT_SLOT_RIGHT";
-import { selectInputCursorStyles } from "../field.select/shared/select_input.styles.css";
+} from "../Select/select_utils";
+import { DEFAULT_SLOT_RIGHT } from "../Select/shared/DEFAULT_SLOT_RIGHT";
+import { selectInputCursorStyles } from "../Select/shared/select_input.styles.css";
+import { SelectItemList } from "../SelectItemList";
 
 import type { LabelledElementCustomisation } from "../../types";
-import type { SelectCommonProps, SelectItemShape } from "../field.select/types";
+import type { SelectCommonProps, SelectItemShape } from "../Select/types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
 

@@ -5,16 +5,16 @@ import { forwardRef, useCallback, useState } from "react";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../Box";
 import { Button, type ButtonProps } from "../Button";
-import { SelectItemList } from "../SelectItemList";
 import {
   getDefaultHighlightedIndex,
   getIsSelected,
-} from "../field.select/select_utils";
-import { DEFAULT_SLOT_RIGHT } from "../field.select/shared/DEFAULT_SLOT_RIGHT";
+} from "../Select/select_utils";
+import { DEFAULT_SLOT_RIGHT } from "../Select/shared/DEFAULT_SLOT_RIGHT";
+import { SelectItemList } from "../SelectItemList";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { DialogPlacementEnum } from "../Dialog/styles.css";
-import type { SelectCommonProps, SelectItemShape } from "../field.select/types";
+import type { SelectCommonProps, SelectItemShape } from "../Select/types";
 import type { UseSelectStateChange } from "downshift";
 import type { LegacyRef, Ref } from "react";
 

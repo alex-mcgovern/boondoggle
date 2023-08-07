@@ -10,7 +10,7 @@ import "../../../../test/mocked_dependencies/has_pointer_capture.mock";
 import "../../../../test/mocked_dependencies/resize_observer.mock";
 import { selectFromSingleSelect } from "../../../../test/select_from_select_single";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../RadioButtonCardGroup/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 
 import type { FormProps } from "..";

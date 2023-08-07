@@ -9,7 +9,7 @@ import { FormSlider } from "../../FormSlider";
 import { FormSubmitButton } from "../../FormSubmitButton";
 import { FormTextArea } from "../../FormTextArea";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../RadioButtonCardGroup/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 
 import type { FormProps } from "..";
 import type { BoxProps } from "../../Box";

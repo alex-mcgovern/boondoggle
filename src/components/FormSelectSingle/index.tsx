@@ -3,8 +3,8 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { SelectSingle } from "../SelectSingle";
 
+import type { SelectItemShape } from "../Select/types";
 import type { SelectSingleProps } from "../SelectSingle";
-import type { SelectItemShape } from "../field.select/types";
 import type { UseComboboxStateChange } from "downshift";
 
 /** ----------------------------------------------------------------------------- */

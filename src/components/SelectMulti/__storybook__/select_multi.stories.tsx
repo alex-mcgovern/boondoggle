@@ -4,9 +4,9 @@ import { useState } from "react";
 import { SelectMulti as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Box } from "../../Box";
-import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
+import { mockSelectItems } from "../../Select/__mocks__/select.mock";
 
-import type { SelectItemShape } from "../../field.select/types";
+import type { SelectItemShape } from "../../Select/types";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const ON_CHANGE = jest.fn();

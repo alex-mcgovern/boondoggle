@@ -116,7 +116,7 @@ export type { SelectSingleProps } from "./components/SelectSingle";
 export { SelectMulti } from "./components/SelectMulti";
 export type { SelectMultiProps } from "./components/SelectMulti";
 
-export type { SelectItemShape } from "./components/field.select/types";
+export type { SelectItemShape } from "./components/Select/types";
 
 export { ProgressBar } from "./components/ProgressBar";
 export type { ProgressBarProps } from "./components/ProgressBar";

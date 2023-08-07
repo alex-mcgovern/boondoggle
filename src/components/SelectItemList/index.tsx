@@ -2,13 +2,13 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { Dialog } from "../Dialog";
+import { getDropdownItemProps } from "../Select/shared/get_dropdown_item_props";
 import { SelectItem } from "../SelectItem";
-import { getDropdownItemProps } from "../field.select/shared/get_dropdown_item_props";
 import { selectItemListWrapper } from "./styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { DialogProps } from "../Dialog";
-import type { SelectItemShape } from "../field.select/types";
+import type { SelectItemShape } from "../Select/types";
 import type {
   UseComboboxPropGetters,
   UseMultipleSelectionActions,
