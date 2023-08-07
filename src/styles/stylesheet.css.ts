@@ -454,7 +454,6 @@ globalStyle(`table`, {
 globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
-      background: vars.color.tint_default,
       color: vars.color.text_low_contrast,
       fontSize: vars.fontSize.body_sm,
       fontWeight: vars.fontWeight.semibold,
@@ -467,7 +466,7 @@ globalStyle(`th, td`, {
     [baseLayer]: {
       border: `1px solid ${vars.color.border_default}`,
       fontSize: vars.fontSize.body_sm,
-      padding: vars.spacing.spacing_1,
+      padding: vars.spacing.spacing_2,
       textAlign: "left",
     },
   },
