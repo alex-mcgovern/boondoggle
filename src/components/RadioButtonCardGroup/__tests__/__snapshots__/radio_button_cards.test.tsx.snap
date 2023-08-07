@@ -31,7 +31,7 @@ exports[`<RadioButtonCardGroup /> Basic smoke tests should match snapshot 1`] = 
           class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_flexDirection_column_mobile__eiij7b9f get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_textAlign_center__eiij7b87"
         >
           <div
-            class="get_sprinkles_marginBottom_spacing_2__eiij7b48"
+            class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_2__eiij7b48"
           >
             <svg
               aria-hidden="true"
@@ -53,7 +53,7 @@ exports[`<RadioButtonCardGroup /> Basic smoke tests should match snapshot 1`] = 
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_gap_spacing_1_mobile__eiij7ba0"
           >
             <div
-              class="get_sprinkles_color_text_high_contrast__eiij7b1j"
+              class="get_sprinkles_color_text_low_contrast__eiij7b1k"
             >
               Radio item 1
             </div>
@@ -80,7 +80,7 @@ exports[`<RadioButtonCardGroup /> Basic smoke tests should match snapshot 1`] = 
           class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_flexDirection_column_mobile__eiij7b9f get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_textAlign_center__eiij7b87"
         >
           <div
-            class="get_sprinkles_marginBottom_spacing_2__eiij7b48"
+            class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_2__eiij7b48"
           >
             <svg
               aria-hidden="true"
@@ -102,7 +102,7 @@ exports[`<RadioButtonCardGroup /> Basic smoke tests should match snapshot 1`] = 
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_gap_spacing_1_mobile__eiij7ba0"
           >
             <div
-              class="get_sprinkles_color_text_high_contrast__eiij7b1j"
+              class="get_sprinkles_color_text_low_contrast__eiij7b1k"
             >
               Radio item 2
             </div>
@@ -129,7 +129,7 @@ exports[`<RadioButtonCardGroup /> Basic smoke tests should match snapshot 1`] = 
           class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_flexDirection_column_mobile__eiij7b9f get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_textAlign_center__eiij7b87"
         >
           <div
-            class="get_sprinkles_marginBottom_spacing_2__eiij7b48"
+            class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_marginBottom_spacing_2__eiij7b48"
           >
             <svg
               aria-hidden="true"
@@ -151,7 +151,7 @@ exports[`<RadioButtonCardGroup /> Basic smoke tests should match snapshot 1`] = 
             class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_gap_spacing_1_mobile__eiij7ba0"
           >
             <div
-              class="get_sprinkles_color_text_high_contrast__eiij7b1j"
+              class="get_sprinkles_color_text_low_contrast__eiij7b1k"
             >
               Radio item 3
             </div>
