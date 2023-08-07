@@ -464,10 +464,18 @@ globalStyle(`thead`, {
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      border: `1px solid ${vars.color.border_default}`,
+      borderBottom: `1px solid ${vars.color.border_default}`,
       fontSize: vars.fontSize.body_sm,
       padding: vars.spacing.spacing_2,
       textAlign: "left",
+    },
+  },
+});
+
+globalStyle(`th:not(:last-of-type), td:not(:last-of-type)`, {
+  "@layer": {
+    [baseLayer]: {
+      borderBottom: `1px solid ${vars.color.border_default}`,
     },
   },
 });
