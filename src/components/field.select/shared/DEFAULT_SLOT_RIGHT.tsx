@@ -1,6 +1,6 @@
 import { faAngleDown } from "@fortawesome/pro-light-svg-icons";
 
-import { Icon } from "../../decorative.icon";
+import { Icon } from "../../Icon";
 
 import type { ReactNode } from "react";
 

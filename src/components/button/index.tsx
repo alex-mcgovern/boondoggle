@@ -8,19 +8,19 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Loader } from "../decorative.loader";
-import { SlotWrapper } from "../support.slot_wrapper";
+import { Loader } from "../Loader";
+import { SlotWrapper } from "../SlotWrapper";
 import * as styles from "./styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { ColorOverlay } from "../../styles/theme.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
+  WithColorOverlay,
 } from "../../types";
-import type { BoxProps } from "../core.box";
-import type { SlotWrapperProps } from "../support.slot_wrapper";
+import type { BoxProps } from "../Box";
+import type { SlotWrapperProps } from "../SlotWrapper";
 import type {
   ComponentProps,
   ElementType,
@@ -57,8 +57,6 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       appearance?: styles.Appearance;
       /** The React node shown in the button. */
       children?: ReactNode;
-      /** Use color to indicate beneficial, or potentially destructive actions. */
-      colorOverlay?: ColorOverlay;
       /** Whether the button is disabled or not. */
       disabled?: boolean;
       /** Whether to show a loader on first render */
@@ -77,7 +75,7 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       type?: "button" | "submit" | "reset";
       /** Whether to show a loader on click */
       withLoadingState?: boolean;
-    }
+    } & WithColorOverlay
   >;
 
 /** ----------------------------------------------------------------------------- */

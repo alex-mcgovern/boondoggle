@@ -5,10 +5,10 @@ import { createRef, forwardRef, useCallback } from "react";
 import { useClickOutside } from "../../hooks/use_click_outside";
 import { useForwardRef } from "../../hooks/use_forward_ref";
 import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyboard";
-import { Box } from "../core.box";
+import { Box } from "../Box";
 import { dialogContentStyles, getDialogStyles } from "./styles.css";
 
-import type { BoxProps } from "../core.box";
+import type { BoxProps } from "../Box";
 import type { DialogPlacementEnum } from "./styles.css";
 import type { ReactNode } from "react";
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { faGlobe } from "@fortawesome/pro-light-svg-icons";
 
-import { Icon } from "../../decorative.icon";
+import { Icon } from "../../Icon";
 
 import type { SelectItemShape } from "../types";
 

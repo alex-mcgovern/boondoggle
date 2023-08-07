@@ -9,7 +9,7 @@ import { act } from "react-dom/test-utils";
 
 import { Form as StoryComp } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../field.radio_button_card_group/__mocks__/radio_button_cards.mock";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../RadioButtonCardGroup/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 import { mockFormWithZodValidatedFields } from "../__mocks__/mock_form_with_zod_validated_fields.mock";
@@ -85,7 +85,6 @@ export const Default: Story = {
     handleErrors: handleErrorsMock,
     handleFormSubmission: handleFormSubmissionMock,
   }),
-  name: "default",
   play: async ({ canvasElement }) => {
     const { getByLabelText, getByRole } = within(canvasElement);
 

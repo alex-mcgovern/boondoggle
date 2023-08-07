@@ -3,14 +3,14 @@ import clsx from "clsx";
 import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
-import { getTheme } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../core.box";
-import { InputDescription } from "../field.description";
-import { InputErrorMessage } from "../field.error_message";
-import { InputClearButton } from "../field.input.clear_button";
-import { Label } from "../field.label";
-import { SlotWrapperInset } from "../support.slot_wrapper_inset";
+import { Box } from "../Box";
+import { FieldClearButton } from "../FieldClearButton";
+import { FieldDescription } from "../FieldDescription";
+import { FieldErrorMessage } from "../FieldErrorMessage";
+import { FieldLabel } from "../FieldLabel";
+import { SlotWrapperInset } from "../SlotWrapperInset";
 import { getInputStyles } from "./styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
@@ -18,6 +18,7 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   ConditionalLabelProps,
   LabelledElementCustomisation,
+  WithColorOverlay,
 } from "../../types";
 import type {
   ChangeEvent,
@@ -32,7 +33,8 @@ export type InputProps = Omit<
 > &
   SprinklesArgs &
   LabelledElementCustomisation &
-  ConditionalLabelProps & {
+  ConditionalLabelProps &
+  WithColorOverlay & {
     /** Description shown under the input when there is no error message  */
     description?: ReactNode;
     /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
@@ -61,6 +63,7 @@ export const Input = forwardRef(
   (
     {
       className: userClassName,
+      colorOverlay,
       defaultValue,
       description,
       errorMessage,
@@ -106,7 +109,7 @@ export const Input = forwardRef(
       }
 
       return (
-        <InputClearButton
+        <FieldClearButton
           onClick={() => {
             onChange?.({
               target: { value: "" },
@@ -133,12 +136,15 @@ export const Input = forwardRef(
     /** --------------------------------------------- */
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx(
+          colorOverlay ? variantColorOverlay[colorOverlay] : undefined,
+          { [variantColorOverlay.red]: invalid }
+        )}
         color="text_low_contrast"
         {...wrapperProps}
       >
         {label && id && (
-          <Label
+          <FieldLabel
             htmlFor={id}
             label={label}
             labelTooltip={labelTooltip}
@@ -166,10 +172,10 @@ export const Input = forwardRef(
         </SlotWrapperInset>
 
         {invalid && errorMessage && (
-          <InputErrorMessage message={errorMessage} />
+          <FieldErrorMessage message={errorMessage} />
         )}
         {description && !invalid && (
-          <InputDescription description={description} />
+          <FieldDescription description={description} />
         )}
       </Box>
     );

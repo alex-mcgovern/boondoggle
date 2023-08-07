@@ -2,17 +2,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../field.radio_button_card_group/__mocks__/radio_button_cards.mock";
+import { FormInput } from "../../FormInput";
+import { FormRadioButtonCards } from "../../FormRadioButtonCards";
+import { FormSelectSingle } from "../../FormSelectSingle";
+import { FormSlider } from "../../FormSlider";
+import { FormSubmitButton } from "../../FormSubmitButton";
+import { FormTextArea } from "../../FormTextArea";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../RadioButtonCardGroup/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
-import { FormInput } from "../../form.input";
-import { FormRadioButtonCards } from "../../form.radio_button_cards";
-import { FormSelectSingle } from "../../form.select_single";
-import { FormSlider } from "../../form.slider";
-import { FormSubmitButton } from "../../form.submit_button";
-import { FormTextArea } from "../../form.textarea";
 
 import type { FormProps } from "..";
-import type { BoxProps } from "../../core.box";
+import type { BoxProps } from "../../Box";
 
 /** ----------------------------------------------------------------------------- */
 

@@ -1,7 +1,7 @@
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { ConditionalLabelProps } from "../../types";
-import type { BoxProps } from "../core.box";
-import type { InputProps } from "../input";
+import type { BoxProps } from "../Box";
+import type { InputProps } from "../Input";
 import type { UseComboboxStateChange } from "downshift";
 import type { ReactNode } from "react";
 

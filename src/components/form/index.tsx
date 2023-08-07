@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from "react-hook-form";
 
-import { Box } from "../core.box";
+import { Box } from "../Box";
 
-import type { BoxProps } from "../core.box";
+import type { BoxProps } from "../Box";
 import type { ReactNode } from "react";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 

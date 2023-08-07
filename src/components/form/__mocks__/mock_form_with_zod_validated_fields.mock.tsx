@@ -1,11 +1,11 @@
 import { z } from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { FormInput } from "../../form.input";
-import { FormSubmitButton } from "../../form.submit_button";
+import { FormInput } from "../../FormInput";
+import { FormSubmitButton } from "../../FormSubmitButton";
 
 import type { FormProps } from "..";
-import type { BoxProps } from "../../core.box";
+import type { BoxProps } from "../../Box";
 
 /** ----------------------------------------------------------------------------- */
 

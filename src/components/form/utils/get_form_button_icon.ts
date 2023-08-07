@@ -4,7 +4,7 @@ import {
   faSpinner,
 } from "@fortawesome/pro-light-svg-icons";
 
-import type { IconProps } from "../../decorative.icon";
+import type { IconProps } from "../../Icon";
 import type { FieldValues, FormState } from "react-hook-form";
 
 /**

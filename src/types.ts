@@ -1,11 +1,22 @@
-import type { BoxProps } from "./components/core.box";
-import type { LabelProps } from "./components/field.label";
+import type { BoxProps } from "./components/Box";
+import type { FieldLabelProps } from "./components/FieldLabel";
+import type { ColorOverlay } from "./styles/color_palette.css";
 import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
   ElementType,
   PropsWithChildren,
 } from "react";
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithColorOverlay = {
+  /**
+   * Allows setting a color to indicate semantic meaning associated with
+   * an action. Redefines color variables via CSS custom properties.
+   */
+  colorOverlay?: ColorOverlay;
+};
 
 /** ----------------------------------------------------------------------------- */
 
@@ -68,6 +79,6 @@ export type ConditionalLabelProps =
 /** ----------------------------------------------------------------------------- */
 
 export type LabelledElementCustomisation = {
-  labelProps?: LabelProps;
+  labelProps?: FieldLabelProps;
   wrapperProps?: BoxProps;
 };
