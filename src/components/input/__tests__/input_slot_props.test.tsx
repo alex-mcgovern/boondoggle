@@ -2,12 +2,12 @@
 import { faSearch } from "@fortawesome/pro-light-svg-icons";
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import "../../../../test/dialog.mock";
-import { Icon } from "../../icon";
-import { Input } from "../input.comp";
+import "../../../../test/mocked_dependencies/dialog.mock";
+import { Icon } from "../../Icon";
 
-import type { InputProps } from "../input.comp";
+import type { InputProps } from "..";
 
 /** ----------------------------------------------------------------------------- */
 

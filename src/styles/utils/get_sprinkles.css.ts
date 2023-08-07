@@ -119,36 +119,3 @@ export const getSprinkles = createSprinkles(
 );
 
 export type SprinklesArgs = Parameters<typeof getSprinkles>[0];
-
-/**
- * Export subtypes of SprinklesArgs for quickly
- * extending style customisations in components.
- */
-export type SprinklesMargin = Pick<
-  SprinklesArgs,
-  | "margin"
-  | "marginX"
-  | "marginY"
-  | "marginTop"
-  | "marginBottom"
-  | "marginLeft"
-  | "marginRight"
->;
-
-export type SprinklesPadding = Pick<
-  SprinklesArgs,
-  | "padding"
-  | "paddingX"
-  | "paddingY"
-  | "paddingTop"
-  | "paddingBottom"
-  | "paddingLeft"
-  | "paddingRight"
->;
-
-export type SprinklesColor = Pick<SprinklesArgs, "color" | "background">;
-
-export type SprinklesSize = Pick<
-  SprinklesArgs,
-  "width" | "height" | "maxWidth" | "maxHeight" | "minWidth" | "minHeight"
->;

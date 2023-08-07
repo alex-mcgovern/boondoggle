@@ -1,10 +1,10 @@
 /** @jest-environment jsdom */
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { Input } from "../input.comp";
 
-import type { InputProps } from "../input.comp";
+import type { InputProps } from "..";
 
 const PROPS: InputProps = {
   name: LOREM.name(),

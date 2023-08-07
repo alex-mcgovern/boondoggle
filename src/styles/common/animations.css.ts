@@ -12,7 +12,7 @@ export const fadeInBackdropKeyframes = keyframes({
 
 /** ----------------------------------------------------------------------------- */
 
-export const fadeInKeyframes = keyframes({
+const fadeInKeyframes = keyframes({
   "0%": { opacity: 0 },
   "100%": { opacity: 1 },
 });

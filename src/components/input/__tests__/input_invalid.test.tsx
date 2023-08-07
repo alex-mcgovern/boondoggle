@@ -1,13 +1,13 @@
 /** @jest-environment jsdom */
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import "../../../../test/dialog.mock";
+import "../../../../test/mocked_dependencies/dialog.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
-import { Input } from "../input.comp";
 
-import type { InputProps } from "../input.comp";
+import type { InputProps } from "..";
 
 /** ----------------------------------------------------------------------------- */
 

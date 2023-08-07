@@ -75,5 +75,4 @@ export const getTheme = recipe({
   },
 });
 
-export type ColorScheme = typeof color;
 export type ColorOverlay = keyof typeof variantColorOverlay;

@@ -1,12 +1,12 @@
 /** @jest-environment jsdom */
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import "../../../../test/dialog.mock";
+import "../../../../test/mocked_dependencies/dialog.mock";
 import { elementFontSize } from "../../../styles/common/element_size.css";
-import { Input } from "../input.comp";
 
-import type { InputProps } from "../input.comp";
+import type { InputProps } from "..";
 
 /** ----------------------------------------------------------------------------- */
 

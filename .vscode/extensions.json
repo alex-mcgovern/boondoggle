@@ -5,6 +5,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "unifiedjs.vscode-mdx",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "orta.vscode-twoslash-queries"
   ]
 }

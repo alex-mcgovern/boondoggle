@@ -1,5 +1,6 @@
-import type { BoxProps } from "./components/box";
-import type { LabelProps } from "./components/label";
+import type { BoxProps } from "./components/Box";
+import type { FieldLabelProps } from "./components/FieldLabel";
+import type { ColorOverlay } from "./styles/color_palette.css";
 import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
@@ -9,7 +10,17 @@ import type {
 
 /** ----------------------------------------------------------------------------- */
 
-export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
+export type WithColorOverlay = {
+  /**
+   * Allows setting a color to indicate semantic meaning associated with
+   * an action. Redefines color variables via CSS custom properties.
+   */
+  colorOverlay?: ColorOverlay;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**
    * Pass an HTML tag or custom component to this prop to merge the
    * original component props with the supplied element/component props
@@ -18,12 +29,12 @@ export type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   as?: TPolymorphicAs;
 };
 
-export type PropsToOmit<
+type PropsToOmit<
   TPolymorphicAs extends ElementType,
   P
 > = keyof (PolyMorphicAsProp<TPolymorphicAs> & P);
 
-export type PolymorphicComponentProp<
+type PolymorphicComponentProp<
   TPolymorphicAs extends ElementType,
   Props = Record<string, unknown>
 > = PropsWithChildren<Props & PolyMorphicAsProp<TPolymorphicAs>> &
@@ -47,12 +58,14 @@ export type ElementTypeArg =
   | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
   | undefined;
 
-export type LabelledElement = {
+/** ----------------------------------------------------------------------------- */
+
+type LabelledElement = {
   id: string;
   label: string;
 };
 
-export type UnlabelledElement = {
+type UnlabelledElement = {
   id?: string;
   label?: never;
 };
@@ -63,7 +76,9 @@ export type ConditionalLabelProps =
   /** When label is not defined, id may be undefined */
   | UnlabelledElement;
 
+/** ----------------------------------------------------------------------------- */
+
 export type LabelledElementCustomisation = {
-  labelProps?: LabelProps;
+  labelProps?: FieldLabelProps;
   wrapperProps?: BoxProps;
 };

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
+<div>
+  <div
+    class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+  >
+    <div
+      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_gap_spacing_1_mobile__eiij7ba0"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Name ipsum"
+        class="styles_sliderRoot__1j1mico1 styles__1j1mico0 get_sprinkles_marginTop_spacing_1__eiij7b53 get_sprinkles_marginBottom_spacing_1__eiij7b46 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8o get_sprinkles_position_relative_mobile__eiij7bg9 get_sprinkles_width_100%_mobile__eiij7bgl"
+        data-orientation="horizontal"
+        dir="ltr"
+        style="--radix-slider-thumb-transform: translateX(-50%);"
+      >
+        <span
+          class="styles_sliderTrack__1j1mico3 styles__1j1mico2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_position_relative_mobile__eiij7bg9"
+          data-orientation="horizontal"
+        >
+          <span
+            class="styles_sliderRange__1j1mico5 styles__1j1mico4 get_sprinkles_background_button_default__eiij7bf get_sprinkles_borderRadius_pill__eiij7bz get_sprinkles_height_100%__eiij7b2k get_sprinkles_position_absolute_mobile__eiij7bgc"
+            data-orientation="horizontal"
+            style="left: 0%; right: 100%;"
+          />
+        </span>
+        <span
+          style="transform: var(--radix-slider-thumb-transform); position: absolute; left: calc(0% + 0px);"
+        >
+          <span
+            aria-orientation="horizontal"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="styles_sliderThumb__1j1mico7 styles__1j1mico6 get_sprinkles_background_tint_default__eiij7bm get_sprinkles_border_border_active__eiij7bq get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_display_block_mobile__eiij7b8l get_sprinkles_height_spacing_3__eiij7b31 get_sprinkles_width_spacing_3_mobile__eiij7bil"
+            data-orientation="horizontal"
+            data-radix-collection-item=""
+            role="slider"
+            style=""
+            tabindex="0"
+          />
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;

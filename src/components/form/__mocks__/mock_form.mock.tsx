@@ -2,17 +2,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_cards/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
-import { FormInput } from "../sub_components/form_input.comp";
-import { FormRadioButtonCards } from "../sub_components/form_radio_button_cards.comp";
-import { FormSelectSingle } from "../sub_components/form_select_single.comp";
-import { FormSlider } from "../sub_components/form_slider.comp";
-import { FormSubmitButton } from "../sub_components/form_submit_button.comp";
-import { FormTextArea } from "../sub_components/form_textarea.comp";
+import { FormInput } from "../../FormInput";
+import { FormRadioButtonCards } from "../../FormRadioButtonCards";
+import { FormSelectSingle } from "../../FormSelectSingle";
+import { FormSlider } from "../../FormSlider";
+import { FormSubmitButton } from "../../FormSubmitButton";
+import { FormTextArea } from "../../FormTextArea";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../RadioButtonCardGroup/__mocks__/radio_button_cards.mock";
+import { mockSelectItems } from "../../field.select/__mocks__/select.mock";
 
-import type { BoxProps } from "../../box";
-import type { FormProps } from "../form.comp";
+import type { FormProps } from "..";
+import type { BoxProps } from "../../Box";
 
 /** ----------------------------------------------------------------------------- */
 

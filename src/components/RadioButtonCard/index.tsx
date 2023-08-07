@@ -1,0 +1,81 @@
+import { Box } from "../Box";
+import { radioButtonInputStyles, radioButtonLabelStyles } from "./styles.css";
+
+import type { HTMLProps, ReactNode } from "react";
+
+/** ----------------------------------------------------------------------------- */
+
+export type RadioButtonInputProps = Omit<
+  HTMLProps<HTMLInputElement>,
+  "className" | "id" | "name" | "required" | "type" | "value"
+>;
+
+/** ----------------------------------------------------------------------------- */
+
+export type RadioButtonCardShape = {
+  adornment: ReactNode;
+  body?: string;
+  checked?: boolean;
+  tag?: string;
+  title: string;
+  value: string;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type RadioButtonCardProps = RadioButtonCardShape & {
+  name: string;
+  onChange?: (value: string) => void;
+  radioButtonInputProps?: RadioButtonInputProps;
+  required?: boolean;
+};
+
+export function RadioButtonCard({
+  adornment,
+  body,
+  checked,
+  name,
+  onChange,
+  radioButtonInputProps,
+  required,
+  title,
+  value,
+}: RadioButtonCardProps) {
+  return (
+    <Box
+      as="label"
+      className={radioButtonLabelStyles}
+      htmlFor={`${name}-${value}`}
+      position="relative"
+    >
+      <input
+        className={radioButtonInputStyles}
+        defaultChecked={checked}
+        id={`${name}-${value}`}
+        name={name}
+        onChange={() => {
+          onChange?.(value);
+        }}
+        required={required}
+        type="radio"
+        value={value}
+        {...radioButtonInputProps}
+      />
+      <Box
+        alignItems="center"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        textAlign="center"
+      >
+        {adornment && <Box marginBottom="spacing_2">{adornment}</Box>}
+        <Box alignItems="center" display="flex" gap="spacing_1">
+          <Box color="text_high_contrast">{title}</Box>
+        </Box>
+        <Box color="text_low_contrast" fontStyle="body_xs">
+          {body}
+        </Box>
+      </Box>
+    </Box>
+  );
+}

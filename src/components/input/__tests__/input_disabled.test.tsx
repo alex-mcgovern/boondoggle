@@ -2,12 +2,12 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import "../../../../test/dialog.mock";
+import "../../../../test/mocked_dependencies/dialog.mock";
 import { a11yDisabled } from "../../../styles/common/a11y.css";
-import { Input } from "../input.comp";
 
-import type { InputProps } from "../input.comp";
+import type { InputProps } from "..";
 
 /** ----------------------------------------------------------------------------- */
 

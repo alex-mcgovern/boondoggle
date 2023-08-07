@@ -19,12 +19,13 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation'",
     "build:docs": "storybook build -o build",
     "build-storybook": "storybook build",
     "build:dev": "rm -rf lib && tsup --watch",
     "build:prod": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=8192' tsup",
     "build:watch": "tsup --watch",
-    "check": "npm run tsc && npm run ci-lint && npm run test",
+    "check": "npm run tsc && npm run ci-lint && npm run test && npm run prune",
     "ci-build-prerelease": "npm run build:prod && npm version prerelease && npm publish --access public",
     "ci-lint": "eslint . --quiet",
     "format": "prettier  --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
@@ -55,6 +56,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "ts-prune": "0.10.3",
     "@babel/core": "7.21.8",
     "@babel/preset-env": "7.21.5",
     "@babel/preset-react": "7.18.6",
