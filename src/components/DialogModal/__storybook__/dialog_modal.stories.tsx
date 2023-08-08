@@ -7,6 +7,7 @@ import { Box } from "../../Box";
 import { Button } from "../../Button";
 import { DialogInfoBullet } from "../../DialogInfoBullet";
 import { DialogModalActionConfirm } from "../../DialogModalActionConfirm";
+import { DialogModalAlert } from "../../DialogModalAlert";
 import { Icon } from "../../Icon";
 
 import type { DialogModalProps as StoryCompProps } from "..";
@@ -145,6 +146,47 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 };
 
 /** -----------------------------------------------------------------------------
+ * With alert
+ * ------------------------------------------------------------------------------- */
+
+export const WithAlert: StoryObj<StoryCompProps> = {
+  args: {
+    alert: (
+      <DialogModalAlert
+        description="This is a description for the alert"
+        title="This is an alert"
+      />
+    ),
+    children: <DialogContent />,
+    title: LOREM.text_xxs,
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
+  },
+  render: Template,
+};
+
+/** -----------------------------------------------------------------------------
+ * With alert
+ * ------------------------------------------------------------------------------- */
+
+export const WithAlertWithColorOverlay: StoryObj<StoryCompProps> = {
+  args: {
+    alert: (
+      <DialogModalAlert
+        colorOverlay="red"
+        description="This is a description for the alert"
+        title="This is an alert"
+      />
+    ),
+    children: <DialogContent />,
+    title: LOREM.text_xxs,
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
+  },
+  render: Template,
+};
+
+/** -----------------------------------------------------------------------------
  * With 1 action
  * ------------------------------------------------------------------------------- */
 
@@ -227,27 +269,28 @@ export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 };
 
 /** -----------------------------------------------------------------------------
- * With confirmation action and color overlay
+ * With confirmation action with color overlay
  * ------------------------------------------------------------------------------- */
 
-export const WithConfirmationActionAndColorOverlay: StoryObj<StoryCompProps> = {
-  args: {
-    actions: (
-      <DialogModalActionConfirm
-        buttonText="Freeze account"
-        colorOverlay="red"
-        confirmText="freeze account"
-        onClick={() => {
-          alert("Confirmed");
-        }}
-        promptPrefix="Please type"
-        promptSuffix="to continue"
-      />
-    ),
+export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
+  {
+    args: {
+      actions: (
+        <DialogModalActionConfirm
+          buttonText="Freeze account"
+          colorOverlay="red"
+          confirmText="freeze account"
+          onClick={() => {
+            alert("Confirmed");
+          }}
+          promptPrefix="Please type"
+          promptSuffix="to continue"
+        />
+      ),
 
-    children: <DialogContent />,
-    title: LOREM.text_xxs,
-    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-  },
-  render: Template,
-};
+      children: <DialogContent />,
+      title: LOREM.text_xxs,
+      triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    },
+    render: Template,
+  };

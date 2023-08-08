@@ -88,6 +88,7 @@ export const DialogModalForm = forwardRef<
                 actions={
                   <FormSubmitButton>{formSubmitButtonText}</FormSubmitButton>
                 }
+                closeDialog={closeDialog}
               />
             </DialogModalInner>
           </DialogModalOuter>
