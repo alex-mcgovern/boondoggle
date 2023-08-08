@@ -22,7 +22,7 @@ import type { DialogModalInnerWidth } from "../DialogModalInner/styles.css";
 import type { ReactNode } from "react";
 
 export type DialogModalFormProps = {
-  alert: ReactNode;
+  alert?: ReactNode;
   children: ReactNode | Array<ReactNode>;
   formSubmitButtonText: string;
   handleErrors?: (errors: FieldErrors) => void;

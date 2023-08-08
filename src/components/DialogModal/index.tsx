@@ -16,7 +16,7 @@ import type { ReactNode } from "react";
 
 export type DialogModalProps = {
   actions?: DialogModalActionsProps["actions"];
-  alert: ReactNode;
+  alert?: ReactNode;
   children: ReactNode | Array<ReactNode>;
   title: string;
   triggerNode: ReactNode;
