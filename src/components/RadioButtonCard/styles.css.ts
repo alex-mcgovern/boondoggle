@@ -7,7 +7,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 /** ----------------------------------------------------------------------------- */
 
-export const radioButtonInputStyles = style({
+export const radioButtonCardInputStyles = style({
   position: "absolute",
   right: vars.spacing.spacing_2,
   selectors: {
@@ -20,7 +20,7 @@ export const radioButtonInputStyles = style({
 
 /** ----------------------------------------------------------------------------- */
 
-export const radioButtonLabelStyles = style([
+export const radioButtonCardLabelStyles = style([
   a11yFocus,
   getSprinkles({
     alignItems: "center",

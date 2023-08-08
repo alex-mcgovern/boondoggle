@@ -1,25 +1,22 @@
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
 
-import { getTheme } from "../../styles/color_palette.css";
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../Box";
 import { FieldDescription } from "../FieldDescription";
 import { FieldErrorMessage } from "../FieldErrorMessage";
 import { FieldLabel } from "../FieldLabel";
-import { RadioButtonCard } from "../RadioButtonCard";
+import { RadioButton } from "../RadioButton";
 import { getGroupLabelStyles } from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { LabelledElementCustomisation } from "../../types";
-import type {
-  RadioButtonCardShape,
-  RadioButtonInputProps,
-} from "../RadioButtonCard";
+import type { RadioButtonInputProps, RadioButtonShape } from "../RadioButton";
 import type { Ref } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
-export type RadioButtonCardGroupProps = SprinklesArgs &
+export type RadioButtonGroupProps = SprinklesArgs &
   LabelledElementCustomisation & {
     defaultValue?: string | number;
     description?: string;
@@ -28,7 +25,7 @@ export type RadioButtonCardGroupProps = SprinklesArgs &
     inputProps?: RadioButtonInputProps;
     invalid?: boolean;
     isLabelVisible?: boolean;
-    items: Array<RadioButtonCardShape>;
+    items: Array<RadioButtonShape>;
     label: string;
     labelTooltip?: string;
     name: string;
@@ -37,7 +34,7 @@ export type RadioButtonCardGroupProps = SprinklesArgs &
     value?: string;
   };
 
-export const RadioButtonCardGroup = forwardRef(
+export const RadioButtonGroup = forwardRef(
   (
     {
       defaultValue,
@@ -57,10 +54,10 @@ export const RadioButtonCardGroup = forwardRef(
       value,
       wrapperProps,
       ...rest
-    }: RadioButtonCardGroupProps,
+    }: RadioButtonGroupProps,
     ref: Ref<HTMLDivElement>
   ) => {
-    const controlledItems: Array<RadioButtonCardShape> = useMemo(() => {
+    const controlledItems: Array<RadioButtonShape> = useMemo(() => {
       if (!Array.isArray(items) || items.length < 1) {
         return [];
       }
@@ -82,7 +79,7 @@ export const RadioButtonCardGroup = forwardRef(
 
     return (
       <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
+        className={clsx({ [variantColorOverlay.red]: invalid })}
         {...wrapperProps}
         ref={ref}
       >
@@ -100,7 +97,7 @@ export const RadioButtonCardGroup = forwardRef(
           aria-labelledby={`label-${id}`}
           as="fieldset"
           display="flex"
-          flexWrap="wrap"
+          flexDirection="column"
           gap="spacing_1"
           id={id}
           name={name}
@@ -108,10 +105,9 @@ export const RadioButtonCardGroup = forwardRef(
         >
           {controlledItems.map((item) => {
             return (
-              <RadioButtonCard
-                adornment={item.adornment}
-                body={item.body}
+              <RadioButton
                 checked={item.checked}
+                description={item.description}
                 inputProps={inputProps}
                 key={item.title}
                 name={name}

@@ -3,14 +3,14 @@ import { forwardRef } from "react";
 
 import { useDialogModalState } from "../../lib/useDialogModalState";
 import { Box } from "../Box";
-import { DialogModalActions } from "../DialogModalActionsWrapper";
+import { DialogModalActions } from "../DialogModalActions";
 import { DialogModalContent } from "../DialogModalContent";
 import { DialogModalHeader } from "../DialogModalHeader";
 import { DialogModalInner } from "../DialogModalInner";
 import { DialogModalOuter } from "../DialogModalOuter";
 
 import type { BoxProps } from "../Box";
-import type { DialogModalActionsProps } from "../DialogModalActionsWrapper";
+import type { DialogModalActionsProps } from "../DialogModalActions";
 import type { DialogModalInnerWidth } from "../DialogModalInner/styles.css";
 import type { ReactNode } from "react";
 

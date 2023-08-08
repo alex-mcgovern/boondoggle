@@ -8,7 +8,7 @@ import { confirmTextStyle } from "./styles.css";
 import type { ColorOverlay } from "../../styles/color_palette.css";
 import type { ButtonProps } from "../Button";
 
-type DialogButtonProps = {
+export type DialogModalActionConfirmProps = {
   buttonProps?: Omit<ButtonProps, "onClick">;
   buttonText: string;
   colorOverlay?: ColorOverlay;
@@ -26,7 +26,7 @@ export function DialogModalActionConfirm({
   onClick,
   promptPrefix,
   promptSuffix,
-}: DialogButtonProps) {
+}: DialogModalActionConfirmProps) {
   const [userConfirmText, setUserConfirmText] = useState("");
 
   return (

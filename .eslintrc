@@ -67,6 +67,8 @@
               "**/*.test.tsx",
               "**/*.css.ts",
               "**/*.stories.tsx",
+              "**/test.*",
+              "**/stories.tsx",
               "./test/**/*",
               "./documentation/**/*",
               "tsup.config.ts"
@@ -193,7 +195,7 @@
      */
 
     {
-      "files": ["*.stories.tsx"],
+      "files": ["*.stories.tsx", "stories.tsx"],
 
       "rules": {
         "import/no-default-export": "off",

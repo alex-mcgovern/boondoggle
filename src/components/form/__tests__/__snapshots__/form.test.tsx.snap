@@ -329,11 +329,11 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
       name="radio"
     >
       <label
-        class="styles_radioButtonLabelStyles__1qgme2h2 a11y_a11yFocus__r8he5t2 styles__1qgme2h1 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_2_mobile__eiij7ba8 get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_padding_spacing_2_mobile__eiij7bc8 get_sprinkles_width_100%_mobile__eiij7bgn get_sprinkles_position_relative_mobile__eiij7bgb"
+        class="styles_radioButtonCardLabelStyles__1qgme2h2 a11y_a11yFocus__r8he5t2 styles__1qgme2h1 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_2_mobile__eiij7ba8 get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_padding_spacing_2_mobile__eiij7bc8 get_sprinkles_width_100%_mobile__eiij7bgn get_sprinkles_position_relative_mobile__eiij7bgb"
         for="radio-radio_item_1"
       >
         <input
-          class="styles_radioButtonInputStyles__1qgme2h0"
+          class="styles_radioButtonCardInputStyles__1qgme2h0"
           id="radio-radio_item_1"
           name="radio"
           type="radio"
@@ -378,11 +378,11 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         </div>
       </label>
       <label
-        class="styles_radioButtonLabelStyles__1qgme2h2 a11y_a11yFocus__r8he5t2 styles__1qgme2h1 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_2_mobile__eiij7ba8 get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_padding_spacing_2_mobile__eiij7bc8 get_sprinkles_width_100%_mobile__eiij7bgn get_sprinkles_position_relative_mobile__eiij7bgb"
+        class="styles_radioButtonCardLabelStyles__1qgme2h2 a11y_a11yFocus__r8he5t2 styles__1qgme2h1 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_2_mobile__eiij7ba8 get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_padding_spacing_2_mobile__eiij7bc8 get_sprinkles_width_100%_mobile__eiij7bgn get_sprinkles_position_relative_mobile__eiij7bgb"
         for="radio-radio_item_2"
       >
         <input
-          class="styles_radioButtonInputStyles__1qgme2h0"
+          class="styles_radioButtonCardInputStyles__1qgme2h0"
           id="radio-radio_item_2"
           name="radio"
           type="radio"
@@ -427,11 +427,11 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
         </div>
       </label>
       <label
-        class="styles_radioButtonLabelStyles__1qgme2h2 a11y_a11yFocus__r8he5t2 styles__1qgme2h1 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_2_mobile__eiij7ba8 get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_padding_spacing_2_mobile__eiij7bc8 get_sprinkles_width_100%_mobile__eiij7bgn get_sprinkles_position_relative_mobile__eiij7bgb"
+        class="styles_radioButtonCardLabelStyles__1qgme2h2 a11y_a11yFocus__r8he5t2 styles__1qgme2h1 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_2_mobile__eiij7ba8 get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_padding_spacing_2_mobile__eiij7bc8 get_sprinkles_width_100%_mobile__eiij7bgn get_sprinkles_position_relative_mobile__eiij7bgb"
         for="radio-radio_item_3"
       >
         <input
-          class="styles_radioButtonInputStyles__1qgme2h0"
+          class="styles_radioButtonCardInputStyles__1qgme2h0"
           id="radio-radio_item_3"
           name="radio"
           type="radio"

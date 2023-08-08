@@ -10,7 +10,7 @@ import {
 import type { ColorOverlay } from "../../styles/color_palette.css";
 import type { ReactNode } from "react";
 
-type DialogModalAlertProps = {
+export type DialogModalAlertProps = {
   colorOverlay?: ColorOverlay;
   description: string;
   slotLeft?: ReactNode;

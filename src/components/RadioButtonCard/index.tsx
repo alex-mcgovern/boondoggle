@@ -1,5 +1,8 @@
 import { Box } from "../Box";
-import { radioButtonInputStyles, radioButtonLabelStyles } from "./styles.css";
+import {
+  radioButtonCardInputStyles,
+  radioButtonCardLabelStyles,
+} from "./styles.css";
 
 import type { HTMLProps, ReactNode } from "react";
 
@@ -24,9 +27,9 @@ export type RadioButtonCardShape = {
 /** ----------------------------------------------------------------------------- */
 
 export type RadioButtonCardProps = RadioButtonCardShape & {
+  inputProps?: RadioButtonInputProps;
   name: string;
   onChange?: (value: string) => void;
-  radioButtonInputProps?: RadioButtonInputProps;
   required?: boolean;
 };
 
@@ -34,9 +37,9 @@ export function RadioButtonCard({
   adornment,
   body,
   checked,
+  inputProps,
   name,
   onChange,
-  radioButtonInputProps,
   required,
   title,
   value,
@@ -44,12 +47,12 @@ export function RadioButtonCard({
   return (
     <Box
       as="label"
-      className={radioButtonLabelStyles}
+      className={radioButtonCardLabelStyles}
       htmlFor={`${name}-${value}`}
       position="relative"
     >
       <input
-        className={radioButtonInputStyles}
+        className={radioButtonCardInputStyles}
         defaultChecked={checked}
         id={`${name}-${value}`}
         name={name}
@@ -59,7 +62,7 @@ export function RadioButtonCard({
         required={required}
         type="radio"
         value={value}
-        {...radioButtonInputProps}
+        {...inputProps}
       />
       <Box
         alignItems="center"

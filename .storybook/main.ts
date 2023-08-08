@@ -20,6 +20,7 @@ const config: StorybookConfig = {
   },
   stories: [
     "../(src|documentation)/**/*.stories.tsx",
+    "../(src|documentation)/**/stories.tsx",
     "../(src|documentation)/**/*.mdx",
   ],
   typescript: {

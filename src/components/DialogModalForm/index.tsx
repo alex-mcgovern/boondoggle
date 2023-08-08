@@ -1,5 +1,5 @@
 import { Slot } from "@radix-ui/react-slot";
-import { forwardRef } from "react";
+import { forwardRef, useCallback } from "react";
 import {
   type FieldErrors,
   type FieldValues,
@@ -10,7 +10,7 @@ import {
 
 import { useDialogModalState } from "../../lib/useDialogModalState";
 import { Box } from "../Box";
-import { DialogModalActions } from "../DialogModalActionsWrapper";
+import { DialogModalActions } from "../DialogModalActions";
 import { DialogModalContent } from "../DialogModalContent";
 import { DialogModalHeader } from "../DialogModalHeader";
 import { DialogModalInner } from "../DialogModalInner";
@@ -25,12 +25,8 @@ export type DialogModalFormProps = {
   alert: ReactNode;
   children: ReactNode | Array<ReactNode>;
   formSubmitButtonText: string;
-  handleErrors?:
-    | ((errors: FieldErrors) => Promise<void>)
-    | ((errors: FieldErrors) => void);
-  handleFormSubmission:
-    | ((fieldValues: FieldValues) => Promise<void>)
-    | ((fieldValues: FieldValues) => void);
+  handleErrors?: (errors: FieldErrors) => void;
+  handleFormSubmission: (fieldValues: FieldValues) => Promise<void>;
   resolver?: Resolver<FieldValues, any>;
   title: string;
   triggerNode: ReactNode;
@@ -48,7 +44,7 @@ export const DialogModalForm = forwardRef<
       children,
       formSubmitButtonText,
       handleErrors,
-      handleFormSubmission,
+      handleFormSubmission: initialHandleFormSubmission,
       resolver,
       title,
       triggerNode,
@@ -63,6 +59,17 @@ export const DialogModalForm = forwardRef<
     /** --------------------------------------------- */
 
     const formMethods = useForm({ resolver });
+
+    /** --------------------------------------------- */
+
+    const handleFormSubmission = useCallback(
+      async (fieldValues: FieldValues) => {
+        return initialHandleFormSubmission(fieldValues).then(() => {
+          closeDialog();
+        });
+      },
+      [closeDialog, initialHandleFormSubmission]
+    );
 
     /** --------------------------------------------- */
 
@@ -89,6 +96,7 @@ export const DialogModalForm = forwardRef<
                   <FormSubmitButton>{formSubmitButtonText}</FormSubmitButton>
                 }
                 closeDialog={closeDialog}
+                shouldCloseOnAction={false}
               />
             </DialogModalInner>
           </DialogModalOuter>

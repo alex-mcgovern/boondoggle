@@ -10,11 +10,13 @@ import type { ReactNode } from "react";
 export type DialogModalActionsProps = {
   actions: ReactNode | [ReactNode?, ReactNode?];
   closeDialog: ReturnType<typeof useDialogModalState>["closeDialog"];
+  shouldCloseOnAction?: boolean;
 };
 
 export function DialogModalActions({
   actions,
   closeDialog,
+  shouldCloseOnAction = true,
 }: DialogModalActionsProps) {
   return (
     <Box
@@ -22,7 +24,18 @@ export function DialogModalActions({
       className={dialogModalActionsWrapperStyle}
     >
       {Children.map(actions, (action) => {
-        return <Slot onClick={closeDialog}>{action}</Slot>;
+        return (
+          <Slot
+            // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
+            onClick={() => {
+              if (shouldCloseOnAction) {
+                closeDialog();
+              }
+            }}
+          >
+            {action}
+          </Slot>
+        );
       })}
     </Box>
   );

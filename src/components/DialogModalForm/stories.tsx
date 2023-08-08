@@ -2,16 +2,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { jest } from "@storybook/jest";
 import { z } from "zod";
 
-import { DialogModalForm as StoryComp } from "..";
-import { LOREM } from "../../../../mocks/LOREM.mock";
-import { Button } from "../../Button";
-import { FormInput } from "../../FormInput";
-import { FormSelectSingle } from "../../FormSelectSingle";
-import { FormTextArea } from "../../FormTextArea";
-import { mockSelectItems } from "../../Select/__mocks__/select.mock";
+import { DialogModalForm as StoryComp } from ".";
+import { LOREM } from "../../../mocks/LOREM.mock";
+import { Button } from "../Button";
+import { FormInput } from "../FormInput";
+import { FormRadioButtonGroup } from "../FormRadioButtonGroup";
+import { FormSelectSingle } from "../FormSelectSingle";
+import { FormTextArea } from "../FormTextArea";
+import { RADIO_BUTTONS_MOCK } from "../RadioButtonGroup/mocks";
+import { mockSelectItems } from "../Select/__mocks__/select.mock";
 
-import type { DialogModalFormProps as StoryCompProps } from "..";
-import type { BoxProps } from "../../Box";
+import type { DialogModalFormProps as StoryCompProps } from ".";
+import type { BoxProps } from "../Box";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 /** ----------------------------------------------------------------------------- */
@@ -19,21 +21,18 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 const mockFormSchema = z.object({
   description: z.string().min(1),
   email: z.string().email().min(2),
+  radio: z.string().min(1),
   select: z.string().min(1),
 });
 
 /** ----------------------------------------------------------------------------- */
 
-const handleFormSubmissionMock = jest.fn();
-const handleErrorsMock = jest.fn();
-
-handleFormSubmissionMock.mockImplementation(async (fieldValues: unknown) => {
+const handleFormSubmissionMock = jest.fn(async (fieldValues: unknown) => {
   return alert(
     `Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`
   );
 });
-
-handleErrorsMock.mockImplementation(async (errors: unknown) => {
+const handleErrorsMock = jest.fn(async (errors: unknown) => {
   return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
 });
 
@@ -83,6 +82,14 @@ export const WidthSm: StoryObj<StoryCompProps> = {
           label={LOREM.labelDropdown()}
           name="select"
           placeholder="Select an option from the dropdown"
+          wrapperProps={FORM_FIELD_WRAPPER_PROPS}
+        />
+        <FormRadioButtonGroup
+          errorMessage="Select an option"
+          id="select"
+          items={RADIO_BUTTONS_MOCK}
+          label={LOREM.labelDropdown()}
+          name="radio"
           wrapperProps={FORM_FIELD_WRAPPER_PROPS}
         />
       </>
