@@ -23,7 +23,7 @@
     "build:docs": "storybook build -o build",
     "build-storybook": "storybook build",
     "build:dev": "rm -rf lib && tsup --watch",
-    "build:prod": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=8192' tsup",
+    "build:prod": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=16384' tsup",
     "build:watch": "tsup --watch",
     "check": "npm run tsc && npm run ci-lint && npm run test && npm run prune",
     "ci-build-prerelease": "npm run build:prod && npm version prerelease && npm publish --access public",
