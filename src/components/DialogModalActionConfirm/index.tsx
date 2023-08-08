@@ -2,88 +2,65 @@ import { useState } from "react";
 
 import { Box } from "../Box";
 import { Button } from "../Button";
-import { buttonConfirmTextStyle } from "../DialogModal/styles.css";
 import { Input } from "../Input";
+import { confirmTextStyle } from "./styles.css";
 
-import type { DialogModalProps } from "../DialogModal";
-import type { RefObject } from "react";
+import type { ColorOverlay } from "../../styles/color_palette.css";
+import type { ButtonProps } from "../Button";
 
-type DialogButtonProps = Pick<
-  DialogModalProps,
-  | "dialogButtonOnClick"
-  | "dialogConfirmText"
-  | "dialogButtonProps"
-  | "dialogConfirmText"
-  | "dialogButtonText"
-  | "dialogConfirmPromptPrefix"
-  | "dialogConfirmPromptSuffix"
-> & {
-  dialogRef: RefObject<HTMLDialogElement>;
+type DialogButtonProps = {
+  buttonProps?: Omit<ButtonProps, "onClick">;
+  buttonText: string;
+  colorOverlay?: ColorOverlay;
+  confirmText?: string;
+  onClick: ButtonProps["onClick"];
+  promptPrefix?: string;
+  promptSuffix?: string;
 };
 
 export function DialogModalActionConfirm({
-  dialogButtonOnClick,
-  dialogButtonProps,
-  dialogButtonText,
-  dialogConfirmPromptPrefix,
-  dialogConfirmPromptSuffix,
-  dialogConfirmText,
-  dialogRef,
+  buttonProps,
+  buttonText,
+  colorOverlay,
+  confirmText,
+  onClick,
+  promptPrefix,
+  promptSuffix,
 }: DialogButtonProps) {
   const [userConfirmText, setUserConfirmText] = useState("");
 
-  if (dialogConfirmText) {
-    return (
-      <Box borderTop="border_default" padding="spacing_2">
-        <Box className={buttonConfirmTextStyle}>
-          <Box as="span">{dialogConfirmPromptPrefix}</Box>{" "}
-          <Box as="span" fontWeight="bold">
-            {dialogConfirmText}
-          </Box>{" "}
-          <Box as="span">{dialogConfirmPromptSuffix}</Box>
-        </Box>
-
-        <Input
-          marginBottom="spacing_2"
-          name="dialog_confirm_text"
-          onChange={(e) => {
-            return setUserConfirmText(e.target.value);
-          }}
-          placeholder=""
-          value={userConfirmText}
-        />
-
-        <Button
-          appearance="primary"
-          disabled={userConfirmText !== dialogConfirmText}
-          name="primary_action"
-          onClick={() => {
-            dialogButtonOnClick?.();
-            dialogRef.current?.close();
-          }}
-          width="100%"
-          {...dialogButtonProps}
-        >
-          {dialogButtonText}
-        </Button>
-      </Box>
-    );
-  }
-
   return (
-    <Box borderTop="border_default" padding="spacing_2">
+    <>
+      <Box className={confirmTextStyle}>
+        <Box as="span">{promptPrefix}</Box>{" "}
+        <Box as="span" fontWeight="bold">
+          {confirmText}
+        </Box>{" "}
+        <Box as="span">{promptSuffix}</Box>
+      </Box>
+
+      <Input
+        colorOverlay={colorOverlay}
+        marginBottom="spacing_2"
+        name="dialog_confirm_text"
+        onChange={(e) => {
+          return setUserConfirmText(e.target.value);
+        }}
+        placeholder=""
+        value={userConfirmText}
+      />
+
       <Button
         appearance="primary"
+        colorOverlay={colorOverlay}
+        disabled={userConfirmText !== confirmText}
         name="primary_action"
-        onClick={() => {
-          dialogButtonOnClick?.();
-          dialogRef.current?.close();
-        }}
+        onClick={onClick}
         width="100%"
-        {...dialogButtonProps}
+        {...buttonProps}
       >
-        {dialogButtonText}
+        {buttonText}
       </Button>
-    </Box>
+    </>
   );
 }
