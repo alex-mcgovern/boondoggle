@@ -12,10 +12,10 @@ export type DialogModalActionConfirmProps = {
   buttonProps?: Omit<ButtonProps, "onClick">;
   buttonText: string;
   colorOverlay?: ColorOverlay;
-  confirmText?: string;
-  onClick: ButtonProps["onClick"];
-  promptPrefix?: string;
-  promptSuffix?: string;
+  confirmText: string;
+  onClick?: ButtonProps["onClick"];
+  promptPrefix: string;
+  promptSuffix: string;
 };
 
 export function DialogModalActionConfirm({
