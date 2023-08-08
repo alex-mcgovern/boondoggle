@@ -15,10 +15,11 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 /** ----------------------------------------------------------------------------- */
 
-export const dialogOuterStyle = style([
+export const dialogModalOuterStyle = style([
   animateFadeIn,
   getSprinkles({
     background: "background",
+    borderRadius: "lg",
     flexDirection: "column",
     overflow: "hidden",
     padding: "none",
@@ -35,7 +36,7 @@ export const dialogOuterStyle = style([
       },
       [MEDIA_QUERY_TABLET]: {
         border: vars.border.border_default,
-        borderRadius: vars.borderRadius.sm,
+        borderRadius: vars.borderRadius.lg,
         boxShadow: vars.boxShadow.lg,
         maxHeight: "75dvh",
         minWidth: "28rem",
@@ -43,7 +44,7 @@ export const dialogOuterStyle = style([
       // eslint-disable-next-line sort-keys-fix/sort-keys-fix
       [MEDIA_QUERY_DESKTOP]: {
         border: vars.border.border_default,
-        borderRadius: vars.borderRadius.sm,
+        borderRadius: vars.borderRadius.lg,
         boxShadow: vars.boxShadow.lg,
         minWidth: "35rem",
       },
@@ -65,48 +66,5 @@ export const dialogOuterStyle = style([
     top: "50%",
     transform: "translate(-50%, -50%)",
     zIndex: 99999,
-  },
-]);
-
-/** ----------------------------------------------------------------------------- */
-
-export const dialogHeaderStyle = style([
-  getSprinkles({
-    alignItems: "center",
-    borderBottom: "border_default",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "spacing_2",
-  }),
-]);
-
-export const dialogTitleStyle = style([
-  getSprinkles({
-    fontStyle: "body_md",
-    fontWeight: "semibold",
-    marginY: "none",
-  }),
-]);
-
-/** ----------------------------------------------------------------------------- */
-
-export const dialogContentStyle = style([
-  getSprinkles({
-    flexGrow: "1",
-  }),
-  {
-    overflowY: "auto",
-  },
-]);
-
-/** ----------------------------------------------------------------------------- */
-
-export const buttonConfirmTextStyle = style([
-  getSprinkles({
-    display: "inline-block",
-    marginBottom: "spacing_1",
-  }),
-  {
-    userSelect: "none",
   },
 ]);

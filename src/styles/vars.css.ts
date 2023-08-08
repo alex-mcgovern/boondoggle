@@ -134,6 +134,7 @@ export const rootVars = createGlobalTheme(":root", {
   width: {
     "": "0",
     "100%": "100%",
+    "100vw": "100vw",
     "25%": "25%",
     "50%": "50%",
     auto: "auto",

@@ -8,15 +8,6 @@ import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
 /** ----------------------------------------------------------------------------- */
 
-// const preventEnterKeySubmission = (e: KeyboardEvent<HTMLFormElement>) => {
-//   const target = e.target as HTMLInputElement | HTMLTextAreaElement;
-//   if (e.key === "Enter" && !["TEXTAREA"].includes(target.tagName)) {
-//     e.preventDefault();
-//   }
-// };
-
-/** ----------------------------------------------------------------------------- */
-
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
   BoxProps,
   "children"
@@ -47,7 +38,6 @@ export function Form<TFieldValues extends FieldValues>({
       <Box
         as="form"
         name={name}
-        // onKeyPress={preventEnterKeySubmission}
         onSubmit={formMethods.handleSubmit(handleFormSubmission, handleErrors)}
       >
         {children}

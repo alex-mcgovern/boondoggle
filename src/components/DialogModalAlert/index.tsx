@@ -1,35 +1,34 @@
-import { variantColorOverlay } from "../../styles/color_palette.css";
+import { faInfoCircle } from "@fortawesome/pro-light-svg-icons";
+
 import { Box } from "../Box";
+import { Icon } from "../Icon";
+import {
+  dialogModalAlertSlotLeftStyle,
+  getDialogModalAlertWrapperStyles,
+} from "./styles.css";
 
-import type { DialogModalProps } from "../DialogModal";
+import type { ColorOverlay } from "../../styles/color_palette.css";
+import type { ReactNode } from "react";
 
-type DialogModalAlertProps = Pick<
-  DialogModalProps,
-  "alertColor" | "alertDescription" | "alertSlotLeft" | "alertTitle"
->;
+type DialogModalAlertProps = {
+  colorOverlay?: ColorOverlay;
+  description: string;
+  slotLeft?: ReactNode;
+  title: string;
+};
 
 export function DialogModalAlert({
-  alertColor = "amber",
-  alertDescription,
-  alertSlotLeft,
-  alertTitle,
+  colorOverlay = "amber",
+  description,
+  slotLeft = <Icon icon={faInfoCircle} />,
+  title,
 }: DialogModalAlertProps) {
   return (
-    <Box
-      alignItems="center"
-      background="tint_default"
-      borderBottom="border_default"
-      className={variantColorOverlay[alertColor]}
-      display="flex"
-      gap="spacing_2"
-      padding="spacing_2"
-    >
-      <Box flexShrink="0" width="spacing_2">
-        {alertSlotLeft}
-      </Box>
+    <Box className={getDialogModalAlertWrapperStyles({ colorOverlay })}>
+      <Box className={dialogModalAlertSlotLeftStyle}>{slotLeft}</Box>
       <Box color="text_low_contrast">
-        {alertTitle && <Box fontWeight="semibold">{alertTitle}</Box>}
-        {alertDescription}
+        {title && <Box fontWeight="semibold">{title}</Box>}
+        {description}
       </Box>
     </Box>
   );
