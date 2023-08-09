@@ -1,12 +1,29 @@
 import type { BoxProps } from "./components/Box";
 import type { FieldLabelProps } from "./components/FieldLabel";
 import type { ColorOverlay } from "./styles/color_palette.css";
+import type { ElementSizeEnum } from "./styles/common/element_size.css";
 import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
   ElementType,
   PropsWithChildren,
+  ReactNode,
 } from "react";
+import type { RegisterOptions } from "react-hook-form";
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithDescription = {
+  /** Description shown under the field (when there is no error message). */
+  description?: ReactNode;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithDisabledState = {
+  /** Whether the component is disabled. */
+  disabled?: boolean;
+};
 
 /** ----------------------------------------------------------------------------- */
 
@@ -16,6 +33,67 @@ export type WithColorOverlay = {
    * an action. Redefines color variables via CSS custom properties.
    */
   colorOverlay?: ColorOverlay;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithFormFieldProps = {
+  /** Message to render when erroring. */
+  errorMessage: string;
+  /** Function to validate field value */
+  validate?: RegisterOptions["validate"];
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithStateInvalid = {
+  /** Message shown when field fails validation. */
+  errorMessage?: string;
+  /** Whether the value of the field fails validation. */
+  invalid?: boolean;
+};
+/** ----------------------------------------------------------------------------- */
+
+export type WithOptionalLabel =
+  /** When label is defined, id must also be defined */
+  | {
+      /** HTML element id */
+      id: string;
+      /** Text for HTML label element */
+      label: string;
+      /** Optional tooltip for label */
+      labelTooltip?: string;
+    }
+  /** When label is not defined, id may be undefined */
+  | {
+      /** HTML element id */
+      id?: string;
+      /** Text for HTML label element */
+      label?: never;
+      /** Optional tooltip for label */
+      labelTooltip?: never;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithPlaceholder = {
+  /** String shown in a field before it is filled/interacted with. */
+  placeholder: string;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithSize = {
+  /** Consistent size option shared across multiple components. */
+  size?: ElementSizeEnum;
+};
+/** ----------------------------------------------------------------------------- */
+
+export type WithSlots = {
+  /** React node rendered on the left-hand side. */
+  slotLeft?: ReactNode;
+  /** React node rendered on the right-hand side. */
+  slotRight?: ReactNode;
 };
 
 /** ----------------------------------------------------------------------------- */
@@ -51,30 +129,14 @@ export type PolymorphicComponentPropWithRef<
 };
 
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
-  ComponentPropsWithRef<TPolymorphicAs>["ref"]; /** ----------------------------------------------------------------------------- */
+  ComponentPropsWithRef<TPolymorphicAs>["ref"];
+
+/** ----------------------------------------------------------------------------- */
 
 // Enum of all HTML element types
 export type ElementTypeArg =
   | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
   | undefined;
-
-/** ----------------------------------------------------------------------------- */
-
-type LabelledElement = {
-  id: string;
-  label: string;
-};
-
-type UnlabelledElement = {
-  id?: string;
-  label?: never;
-};
-
-export type ConditionalLabelProps =
-  /** When label is defined, id must also be defined */
-  | LabelledElement
-  /** When label is not defined, id may be undefined */
-  | UnlabelledElement;
 
 /** ----------------------------------------------------------------------------- */
 

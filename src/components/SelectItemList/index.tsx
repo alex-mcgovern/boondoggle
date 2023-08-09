@@ -6,7 +6,7 @@ import { getDropdownItemProps } from "../Select/shared/get_dropdown_item_props";
 import { SelectItem } from "../SelectItem";
 import { selectItemListWrapper } from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
+import type { WithSize } from "../../types";
 import type { DialogProps } from "../Dialog";
 import type { SelectItemShape } from "../Select/types";
 import type {
@@ -19,19 +19,19 @@ import type { LegacyRef } from "react";
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export type SelectItemListProps = DialogProps & {
-  getIsItemSelected: (item: SelectItemShape) => boolean;
-  getItemProps: UseComboboxPropGetters<SelectItemShape>["getItemProps"];
-  getMenuProps: UseComboboxPropGetters<SelectItemShape>["getMenuProps"];
-  getSelectedItemProps?: (
-    options: UseMultipleSelectionGetSelectedItemPropsOptions<SelectItemShape>
-  ) => { [key: string]: unknown };
-  highlightedIndex?: number | undefined;
-  isMulti?: boolean;
-  items: Array<SelectItemShape>;
-  removeSelectedItem?: UseMultipleSelectionActions<SelectItemShape>["removeSelectedItem"];
-  size?: ElementSizeEnum;
-};
+export type SelectItemListProps = DialogProps &
+  WithSize & {
+    getIsItemSelected: (item: SelectItemShape) => boolean;
+    getItemProps: UseComboboxPropGetters<SelectItemShape>["getItemProps"];
+    getMenuProps: UseComboboxPropGetters<SelectItemShape>["getMenuProps"];
+    getSelectedItemProps?: (
+      options: UseMultipleSelectionGetSelectedItemPropsOptions<SelectItemShape>
+    ) => { [key: string]: unknown };
+    highlightedIndex?: number | undefined;
+    isMulti?: boolean;
+    items: Array<SelectItemShape>;
+    removeSelectedItem?: UseMultipleSelectionActions<SelectItemShape>["removeSelectedItem"];
+  };
 
 export const SelectItemList = forwardRef(
   (

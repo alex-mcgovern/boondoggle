@@ -20,7 +20,7 @@ export const getDialogModalAlertWrapperStyles = recipe({
   },
 });
 
-export const dialogModalAlertSlotLeftStyle = style([
+export const dialogModalAlertSlotStyle = style([
   getSprinkles({
     color: "text_low_contrast",
     flexShrink: "0",

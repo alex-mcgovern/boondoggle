@@ -3,10 +3,10 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { SelectSingle } from "../SelectSingle";
 
+import type { WithFormFieldProps } from "../../types";
 import type { SelectItemShape } from "../Select/types";
 import type { SelectSingleProps } from "../SelectSingle";
 import type { UseComboboxStateChange } from "downshift";
-import type { RegisterOptions } from "react-hook-form";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -23,12 +23,11 @@ const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) => {
 
 /** ----------------------------------------------------------------------------- */
 
-export type FormSelectSingleProps = SelectSingleProps & {
-  defaultValue?: string | number;
-  errorMessage: string;
-  required?: boolean;
-  validate?: RegisterOptions["validate"];
-};
+export type FormSelectSingleProps = SelectSingleProps &
+  WithFormFieldProps & {
+    defaultValue?: string | number;
+    required?: boolean;
+  };
 
 export function FormSelectSingle({
   defaultValue,

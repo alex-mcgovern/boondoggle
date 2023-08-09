@@ -17,16 +17,19 @@ import { selectInputCursorStyles } from "../Select/shared/select_input.styles.cs
 import { SelectItemList } from "../SelectItemList";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
-import type { LabelledElementCustomisation } from "../../types";
+import type {
+  LabelledElementCustomisation,
+  WithPlaceholder,
+} from "../../types";
 import type { SelectCommonProps, SelectItemShape } from "../Select/types";
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &
-  LabelledElementCustomisation & {
+  LabelledElementCustomisation &
+  WithPlaceholder & {
     initialSelectedItems?: Array<SelectItemShape>;
     labelTooltip?: string;
     onChange?: (changes: Array<SelectItemShape>) => void;
-    placeholder: string;
     selectedItems?: Array<SelectItemShape>;
     selectedItemsToString?: (selectedItems: Array<SelectItemShape>) => string;
   };

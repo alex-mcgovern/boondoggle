@@ -2,20 +2,14 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Input } from "../Input";
 
+import type { WithFormFieldProps, WithPlaceholder } from "../../types";
 import type { InputProps } from "../Input";
-import type { RegisterOptions } from "react-hook-form";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormInputProps = InputProps & {
-  /** Message to render when erroring. */
-  errorMessage: string;
-  /** Placeholder text to display when input is empty. */
-  placeholder: string;
-  validate?: RegisterOptions["validate"];
-};
+export type FormInputProps = InputProps & WithPlaceholder & WithFormFieldProps;
 
 export function FormInput({
   defaultValue,

@@ -5,19 +5,19 @@ import { Box } from "../Box";
 import { SlotWrapper } from "../SlotWrapper";
 import * as styles from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
+import type { WithSize } from "../../types";
 import type { BoxProps } from "../Box";
 import type { SelectItemShape } from "../Select/types";
 import type { Ref } from "react";
 
-export type SelectItemProps = BoxProps & {
-  isDropdownItemSelected?: boolean;
-  isHighlighted: boolean;
-  isMulti?: boolean;
-  isMultipleSelectionEnabled?: boolean;
-  item: SelectItemShape;
-  size?: ElementSizeEnum;
-};
+export type SelectItemProps = BoxProps &
+  WithSize & {
+    isDropdownItemSelected?: boolean;
+    isHighlighted: boolean;
+    isMulti?: boolean;
+    isMultipleSelectionEnabled?: boolean;
+    item: SelectItemShape;
+  };
 
 export const SelectItem = forwardRef(
   (

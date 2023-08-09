@@ -13,50 +13,38 @@ import { FieldLabel } from "../FieldLabel";
 import { SlotWrapperInset } from "../SlotWrapperInset";
 import { getInputStyles } from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  ConditionalLabelProps,
   LabelledElementCustomisation,
   WithColorOverlay,
+  WithDescription,
+  WithOptionalLabel,
+  WithPlaceholder,
+  WithSize,
+  WithSlots,
+  WithStateInvalid,
 } from "../../types";
-import type {
-  ChangeEvent,
-  ComponentPropsWithoutRef,
-  ReactNode,
-  Ref,
-} from "react";
+import type { ChangeEvent, ComponentPropsWithoutRef, Ref } from "react";
 
 export type InputProps = Omit<
   ComponentPropsWithoutRef<"input">,
   "width" | "height" | "style" | "color" | "size" | "label" | "id"
 > &
-  SprinklesArgs &
   LabelledElementCustomisation &
-  ConditionalLabelProps &
-  WithColorOverlay & {
-    /** Description shown under the input when there is no error message  */
-    description?: ReactNode;
-    /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
-    errorMessage?: string;
+  SprinklesArgs &
+  WithColorOverlay &
+  WithDescription &
+  WithOptionalLabel &
+  WithPlaceholder &
+  WithSize &
+  WithSlots &
+  WithStateInvalid & {
     /** Whether to render the input with a border */
     hasBorder?: boolean;
-    /** Will be forwarded to the native `<input>`. When using the `errorMessage` prop, will toggle visibility of the error message. */
-    invalid?: boolean;
     /** Whether to allow the user to clear the input with a button */
     isClearable?: boolean;
-    /** Optional tooltip for label */
-    labelTooltip?: string;
     /** Name of the form control. Submitted with the form as part of a name/value pair */
     name: string;
-    /** Placeholder text shown when input is empty. */
-    placeholder: string;
-    /** Common interactive element size, shared with button, select, etc */
-    size?: ElementSizeEnum;
-    /** React node shown on the left side of input. */
-    slotLeft?: ReactNode;
-    /** React node shown on the right side of input. */
-    slotRight?: ReactNode;
   };
 
 export const Input = forwardRef(

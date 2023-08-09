@@ -16,42 +16,38 @@ import { FieldLabel } from "../FieldLabel";
 import { SlotWrapper } from "../SlotWrapper";
 import * as styles from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  ConditionalLabelProps,
   LabelledElementCustomisation,
+  WithDisabledState,
+  WithOptionalLabel,
+  WithSize,
+  WithSlots,
+  WithStateInvalid,
 } from "../../types";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
-import type { AriaRole, HTMLInputTypeAttribute, ReactNode, Ref } from "react";
+import type { AriaRole, HTMLInputTypeAttribute, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
   SprinklesArgs &
   LabelledElementCustomisation &
-  ConditionalLabelProps & {
+  WithOptionalLabel &
+  WithStateInvalid &
+  WithSlots &
+  WithSize &
+  WithDisabledState & {
     autoComplete?: HTMLInputElement["autocomplete"];
-    /** Is input disabled. Mapped to html5 <input> `disabled` attribute and `aria-disabled` attribute. */
-    disabled?: boolean;
-    /** Message shown when `invalid=true`. May originate from controlling library, like `react-hook-form` */
-    errorMessage?: string;
     /** Allow controlling components to set error styles, `aria-invalid` prop and display error message. */
     invalid?: boolean;
     /** Optional tooltip for label */
     labelTooltip?: string;
     /** Name of the form control. Submitted with the form as part of a name/value pair */
     name: string;
-    /** Text shown before user has interacted with the input. */
-    placeholder?: string;
     /** Controls `aria-required` and input `required` attributes. */
     required?: boolean;
     /** Aria role to use for the input (e.g. `search`). */
     role?: AriaRole;
-    /** Common interactive element size, shared with button, select, etc */
-    size?: ElementSizeEnum;
-    /** React node shown on the left side of input. */
-    slotLeft?: ReactNode;
-    /** React node shown on the right side of input. */
-    slotRight?: ReactNode;
+
     type?: HTMLInputTypeAttribute;
   };
 
