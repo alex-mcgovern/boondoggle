@@ -1,19 +1,15 @@
-import { RadioButtonGroup as StoryComp } from ".";
+import { DialogModalAlert as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { RADIO_BUTTONS_MOCK } from "./mocks";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
   args: {
-    errorMessage: LOREM.errorMessage(),
-    id: LOREM.id(),
-    items: RADIO_BUTTONS_MOCK,
-    label: LOREM.label(),
-    name: LOREM.name(),
+    description: LOREM.text_md,
+    title: LOREM.text_xxs,
   },
   component: StoryComp,
-  title: "Components/RadioButton",
+  title: "Components/DialogModalAlert",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -26,34 +22,41 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 /** -----------------------------------------------------------------------------
- * Invalid
+ * Red
  * ------------------------------------------------------------------------------- */
 
-export const Invalid: Story = {
+export const Red: Story = {
   args: {
-    invalid: true,
-    items: RADIO_BUTTONS_MOCK,
+    colorOverlay: "red",
   },
 };
 
 /** -----------------------------------------------------------------------------
- * Default value
+ * Blue
  * ------------------------------------------------------------------------------- */
 
-export const DefaultValue: Story = {
+export const Blue: Story = {
   args: {
-    defaultValue: RADIO_BUTTONS_MOCK[0].value,
-    items: RADIO_BUTTONS_MOCK,
+    colorOverlay: "blue",
   },
 };
 
 /** -----------------------------------------------------------------------------
- * With hidden label
+ * Green
  * ------------------------------------------------------------------------------- */
 
-export const WithHiddenLabel: Story = {
+export const Green: Story = {
   args: {
-    isLabelVisible: false,
-    items: RADIO_BUTTONS_MOCK,
+    colorOverlay: "green",
+  },
+};
+
+/** -----------------------------------------------------------------------------
+ * Green
+ * ------------------------------------------------------------------------------- */
+
+export const Grey: Story = {
+  args: {
+    colorOverlay: "grey",
   },
 };
