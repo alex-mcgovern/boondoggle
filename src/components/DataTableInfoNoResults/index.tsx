@@ -3,8 +3,7 @@ import {
   faTimesCircle,
 } from "@fortawesome/pro-light-svg-icons";
 
-import { I18N } from "../../../core/constants/I18N";
-import { arrayHasLength } from "../../../core/lib/validation/array_has_length";
+import { arrayHasLength } from "../../lib/arrayHasLength";
 import { Box } from "../Box";
 import { Button } from "../Button";
 import { Icon } from "../Icon";
@@ -13,15 +12,29 @@ import type { ColumnFiltersState } from "@tanstack/react-table";
 import type { Dispatch, SetStateAction } from "react";
 
 type DataTableInfoNoResultsProps = {
-  column_filters: ColumnFiltersState;
+  /** The current column filters state */
+  columnFilters: ColumnFiltersState;
+  /** The function to set the column filters state */
   setColumnFilters: Dispatch<SetStateAction<ColumnFiltersState>>;
+  /** The text to display for the clear all filters button. */
+  strClearAllFilters: string;
+  /** The description of the no results message */
+  strNoResultsDescription: string;
+  /** The title of the no results message */
+  strNoResultsTitle: string;
 };
 
+/**
+ * Renders a message to the user when there are no results in the data table.
+ */
 export function DataTableInfoNoResults({
-  column_filters,
+  columnFilters,
   setColumnFilters,
+  strClearAllFilters,
+  strNoResultsDescription,
+  strNoResultsTitle,
 }: DataTableInfoNoResultsProps) {
-  if (!arrayHasLength(column_filters)) {
+  if (!arrayHasLength(columnFilters)) {
     return null;
   }
 
@@ -45,10 +58,10 @@ export function DataTableInfoNoResults({
       <Icon icon={faCircleExclamation} size="2xl" />
 
       <Box fontStyle="body_lg" fontWeight="semibold">
-        {I18N.data_table_no_results_title}
+        {strNoResultsTitle}
       </Box>
 
-      <Box __maxWidth="25rem">{I18N.data_table_no_results_description}</Box>
+      <Box __maxWidth="25rem">{strNoResultsDescription}</Box>
 
       <Button
         name="clear_filters"
@@ -57,7 +70,7 @@ export function DataTableInfoNoResults({
         }}
         slotRight={<Icon icon={faTimesCircle} />}
       >
-        {I18N.data_table_no_results_button_text}
+        {strClearAllFilters}
       </Button>
     </Box>
   );

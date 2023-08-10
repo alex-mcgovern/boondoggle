@@ -453,7 +453,6 @@ globalStyle(`table`, {
 globalStyle(`thead`, {
   "@layer": {
     [baseLayer]: {
-      color: vars.color.text_low_contrast,
       fontSize: vars.fontSize.body_sm,
       fontWeight: vars.fontWeight.semibold,
     },

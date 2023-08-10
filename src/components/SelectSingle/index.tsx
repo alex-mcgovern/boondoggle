@@ -35,8 +35,6 @@ export type SelectSingleProps = SelectCommonProps &
   WithPlaceholder & {
     initialSelectedItem?: SelectItemShape | null;
     itemToString?: (item: SelectItemShape | null) => string;
-    /** Optional tooltip for label */
-    labelTooltip?: string;
     onChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
   };
 

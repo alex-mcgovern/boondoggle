@@ -1,17 +1,20 @@
-import { arrayHasLength } from "../../../core/lib/validation/array_has_length";
+import { arrayHasLength } from "../../../../lib/arrayHasLength";
 
 import type { Row, RowData } from "@tanstack/react-table";
 
+/**
+ * Filter function for columns that are filtered with a `SelectMulti` component.
+ */
 export function filterDataTableMultiSelect<TRowData extends RowData>(
   row: Row<TRowData>,
   column_id: string,
-  filter_value: any
+  filterValue: any
 ) {
-  const cell_value = row.getValue(column_id);
+  const cellValue = row.getValue(column_id);
 
-  if (!arrayHasLength(filter_value)) {
+  if (!arrayHasLength(filterValue)) {
     return false;
   }
 
-  return filter_value.includes(cell_value as string);
+  return filterValue.includes(cellValue as string);
 }

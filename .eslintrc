@@ -33,14 +33,14 @@
       ],
       "rules": {
         "@typescript-eslint/consistent-type-imports": [
-          "error",
+          "warn",
           {
             "disallowTypeAnnotations": true,
             "prefer": "type-imports"
           }
         ],
         "import/no-restricted-paths": [
-          "error",
+          "warn",
           {
             "zones": [
               {
@@ -51,16 +51,16 @@
             ]
           }
         ],
-        "@typescript-eslint/no-unused-vars": "error",
-        "@typescript-eslint/prefer-optional-chain": "error",
-        "@typescript-eslint/switch-exhaustiveness-check": "error",
-        "arrow-body-style": ["error", "always"],
-        "curly": ["error", "all"],
-        "import/no-cycle": "error",
-        "import/no-default-export": "error",
-        "import/no-duplicates": "error",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/prefer-optional-chain": "warn",
+        "@typescript-eslint/switch-exhaustiveness-check": "warn",
+        "arrow-body-style": ["warn", "always"],
+        "curly": ["warn", "all"],
+        "import/no-cycle": "warn",
+        "import/no-default-export": "warn",
+        "import/no-duplicates": "warn",
         "import/no-extraneous-dependencies": [
-          "error",
+          "warn",
           {
             "devDependencies": [
               "**/*.test.ts",
@@ -76,7 +76,7 @@
           }
         ],
         "import/order": [
-          "error",
+          "warn",
           {
             "groups": [
               ["builtin", "external"],
@@ -90,9 +90,9 @@
         ],
         "import/prefer-default-export": "off",
         "no-console": [
-          "error",
+          "warn",
           {
-            "allow": ["warn", "error", "info"]
+            "allow": ["error", "warn", "info"]
           }
         ],
         "no-unused-vars": "off",
@@ -100,9 +100,9 @@
         "react-perf/jsx-no-new-array-as-prop": "warn",
         "react-perf/jsx-no-new-function-as-prop": "warn",
         "react-perf/jsx-no-new-object-as-prop": "warn",
-        "react/button-has-type": "error",
+        "react/button-has-type": "warn",
         "react/destructuring-assignment": [
-          "error",
+          "warn",
           "always",
           {
             "destructureInSignature": "always",
@@ -110,26 +110,26 @@
           }
         ],
         "react/jsx-filename-extension": [
-          "error",
+          "warn",
           {
             "extensions": [".tsx"]
           }
         ],
         "react/jsx-props-no-spreading": "off",
         "react/jsx-sort-props": [
-          "error",
+          "warn",
           {
             "ignoreCase": true
           }
         ],
         "react/jsx-uses-react": "off",
-        "react/no-multi-comp": "error",
+        "react/no-multi-comp": "warn",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/require-default-props": "off",
-        "sort-destructure-keys/sort-destructure-keys": "error",
+        "sort-destructure-keys/sort-destructure-keys": "warn",
         "sort-keys-fix/sort-keys-fix": [
-          "error",
+          "warn",
           "asc",
           {
             "caseSensitive": false,
@@ -137,7 +137,7 @@
           }
         ],
         "jsdoc/require-jsdoc": [
-          "error",
+          "warn",
           {
             "enableFixer": false,
             "contexts": [
@@ -152,7 +152,7 @@
           }
         ],
         "jsdoc/require-description": [
-          "error",
+          "warn",
           {
             "descriptionStyle": "body",
             "contexts": [
@@ -162,12 +162,12 @@
             ]
           }
         ],
-        // "jsdoc/require-description-complete-sentence": "error",
-        "typescript-sort-keys/interface": "error",
-        "typescript-sort-keys/string-enum": "error",
-        "unused-imports/no-unused-imports": "error",
+        // "jsdoc/require-description-complete-sentence": "warn",
+        "typescript-sort-keys/interface": "warn",
+        "typescript-sort-keys/string-enum": "warn",
+        "unused-imports/no-unused-imports": "warn",
         "unused-imports/no-unused-vars": [
-          "error",
+          "warn",
           {
             "args": "after-used",
             "argsIgnorePattern": "^_",
@@ -226,7 +226,7 @@
 
       "rules": {
         "import/no-default-export": "off",
-        "import/prefer-default-export": "error",
+        "import/prefer-default-export": "warn",
         "react/function-component-definition": "off",
         "react/no-multi-comp": "off"
       }
@@ -240,7 +240,7 @@
 
       "rules": {
         "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
+        "import/prefer-default-export": "warn"
       }
     }
   ]

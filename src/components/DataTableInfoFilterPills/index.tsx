@@ -1,39 +1,56 @@
 import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
+import { type Dispatch, type SetStateAction, useCallback } from "react";
 
-import { I18N } from "../../../core/constants/I18N";
-import { arrayHasLength } from "../../../core/lib/validation/array_has_length";
-import { isTruthy } from "../../../core/lib/validation/is_truthy";
+import { arrayHasLength } from "../../lib/arrayHasLength";
+import { isTruthy } from "../../lib/isTruthy";
 import { Box } from "../Box";
 import { Icon } from "../Icon";
 import { Pill } from "../Pill";
 
 import type { ColumnFiltersState } from "@tanstack/react-table";
-import type { Dispatch, SetStateAction } from "react";
 
 type DataTableInfoFilterPillsProps = {
-  column_filters: ColumnFiltersState;
-  filterToString: (value: string) => string;
+  /** The current column filters. */
+  columnFilters: ColumnFiltersState;
+  /** Converts a column ID to a human-readable string. */
+  columnIdToString: (value: string) => string;
+  /** Converts a filter value to a human-readable string. */
+  filterValueToString: (value: string) => string;
+  /** Setter for the column filters. */
   setColumnFilters: Dispatch<SetStateAction<ColumnFiltersState>>;
+  /** The text to display for the clear all filters button. */
+  strClearAllFilters: string;
 };
 
+/**
+ * Renders a list of pills for each filter that is currently applied to the DataTable.
+ */
 export function DataTableInfoFilterPills({
-  column_filters,
-  filterToString,
+  columnFilters,
+  columnIdToString,
+  filterValueToString,
   setColumnFilters,
+  strClearAllFilters,
 }: DataTableInfoFilterPillsProps) {
-  if (!arrayHasLength(column_filters)) {
-    return null;
-  }
+  /**
+   * Callback to clear filters.
+   */
+  const clearFilter = useCallback(
+    (columnFilter: ColumnFiltersState[number]) => {
+      return setColumnFilters((old) => {
+        return old.filter((oldFilter) => {
+          return oldFilter.id !== columnFilter.id;
+        });
+      });
+    },
+    [setColumnFilters]
+  );
 
   /** --------------------------------------------- */
 
-  const clearFilter = (column_filter: ColumnFiltersState[number]) => {
-    return setColumnFilters((old) => {
-      return old.filter((old_column_filter) => {
-        return old_column_filter.id !== column_filter.id;
-      });
-    });
-  };
+  if (!arrayHasLength(columnFilters)) {
+    return null;
+  }
 
   /** --------------------------------------------- */
 
@@ -48,27 +65,27 @@ export function DataTableInfoFilterPills({
         size="sm"
         slotRight={<Icon icon={faTimesCircle} />}
       >
-        {I18N.clear_all_filters}
+        {strClearAllFilters}
       </Pill>
 
       {/** -------------------------------------------- */}
 
-      {column_filters.map((column_filter) => {
-        if (Array.isArray(column_filter.value)) {
+      {columnFilters.map((columnFilter) => {
+        if (Array.isArray(columnFilter.value)) {
           return (
             <Pill
               as="button"
               onClick={() => {
-                clearFilter(column_filter);
+                clearFilter(columnFilter);
               }}
               size="sm"
               slotRight={<Icon icon={faTimesCircle} />}
             >
-              {filterToString(column_filter.id)}:{" "}
-              {column_filter.value
+              {filterValueToString(columnFilter.id)}:{" "}
+              {columnFilter.value
                 .filter(isTruthy)
                 .map((val: string) => {
-                  return filterToString(val);
+                  return filterValueToString(val);
                 })
                 .join(", ")}
             </Pill>
@@ -81,13 +98,13 @@ export function DataTableInfoFilterPills({
           <Pill
             as="button"
             onClick={() => {
-              clearFilter(column_filter);
+              clearFilter(columnFilter);
             }}
             size="sm"
             slotRight={<Icon icon={faTimesCircle} />}
           >
-            {filterToString(column_filter.id)}:{" "}
-            {filterToString(column_filter.value as string)}
+            {columnIdToString(columnFilter.id)}:{" "}
+            {filterValueToString(columnFilter.value as string)}
           </Pill>
         );
       })}

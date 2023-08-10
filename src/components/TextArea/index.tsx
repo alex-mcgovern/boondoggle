@@ -14,6 +14,7 @@ import * as styles from "./styles.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   LabelledElementCustomisation,
+  WithName,
   WithOptionalLabel,
   WithSize,
   WithSlots,
@@ -30,11 +31,8 @@ export type TextAreaProps = Omit<
   WithOptionalLabel &
   WithStateInvalid &
   WithSize &
-  WithSlots & {
-    /** Optional tooltip for label */
-    labelTooltip?: string;
-    name: string;
-  };
+  WithSlots &
+  WithName;
 
 export const TextArea = forwardRef(
   (

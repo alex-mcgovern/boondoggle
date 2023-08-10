@@ -1,23 +1,26 @@
 import { useMemo, useState } from "react";
 
-import { arrayHasLength } from "../../../core/lib/validation/array_has_length";
+import { arrayHasLength } from "../../../../lib/arrayHasLength";
 
 import type { ColumnFiltersState } from "@tanstack/react-table";
 
+/**
+ * Hook to manage the state of the DataTable column filters.
+ */
 export const useDataTableColumnFilterState = () => {
-  const [init_column_filters, setColumnFilters] = useState<ColumnFiltersState>(
+  const [initColumnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     []
   );
 
-  const column_filters: ColumnFiltersState = useMemo(() => {
-    return init_column_filters.filter(({ value }) => {
+  const columnFilters: ColumnFiltersState = useMemo(() => {
+    return initColumnFilters.filter(({ value }) => {
       if (Array.isArray(value)) {
         return arrayHasLength(value);
       }
 
       return !!value;
     });
-  }, [init_column_filters]);
+  }, [initColumnFilters]);
 
-  return { column_filters, setColumnFilters };
+  return { columnFilters, setColumnFilters };
 };

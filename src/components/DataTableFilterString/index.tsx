@@ -1,15 +1,22 @@
 import { faSearch } from "@fortawesome/pro-light-svg-icons";
 import { useMemo } from "react";
 
+import { exhaustiveSwitchGuard } from "../../lib/exhaustiveSwitchGuard";
 import { Icon } from "../Icon";
 import { Input } from "../Input";
 
+import type { WithPlaceholder } from "../../types";
 import type { InputProps } from "../Input";
 import type { FilterAppearance } from "../core.ui.data_table/types";
 import type { Column } from "@tanstack/react-table";
 
+/** ----------------------------------------------------------------------------- */
+
 type CustomizableInputProps = Partial<InputProps>;
 
+/**
+ * Returns the props for the input based on the appearance.
+ */
 const getInputProps = (
   appearance: FilterAppearance
 ): CustomizableInputProps => {
@@ -33,18 +40,26 @@ const getInputProps = (
   }
 };
 
-type DataTableFilterStringProps<TTableData> = {
-  appearance?: "TABLE_CELL" | "INPUT";
-  column?: Column<TTableData, unknown>;
-} & Partial<InputProps>;
+/** ----------------------------------------------------------------------------- */
 
+type DataTableFilterStringProps<TTableData> = Partial<InputProps> &
+  WithPlaceholder & {
+    /** The appearance of the filter. */
+    appearance?: "TABLE_CELL" | "INPUT";
+    /** The `react-table` column instance to filter. */
+    column?: Column<TTableData, unknown>;
+  };
+
+/**
+ * Renders a string filter for the DataTable.
+ */
 export function DataTableFilterString<TTableData>({
   appearance = "TABLE_CELL",
   column,
-  placeholder = I18N.placeholder_filter,
+  placeholder,
   ...rest
 }: DataTableFilterStringProps<TTableData>) {
-  const appearance_props = useMemo(() => {
+  const appearanceProps = useMemo(() => {
     return getInputProps(appearance);
   }, [appearance]);
 
@@ -54,7 +69,7 @@ export function DataTableFilterString<TTableData>({
 
   return (
     <Input
-      {...(appearance_props as InputProps)}
+      {...(appearanceProps as InputProps)}
       {...(rest as InputProps)}
       autoComplete="off"
       isClearable

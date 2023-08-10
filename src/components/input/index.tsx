@@ -18,6 +18,7 @@ import type {
   LabelledElementCustomisation,
   WithColorOverlay,
   WithDescription,
+  WithName,
   WithOptionalLabel,
   WithPlaceholder,
   WithSize,
@@ -38,13 +39,12 @@ export type InputProps = Omit<
   WithPlaceholder &
   WithSize &
   WithSlots &
-  WithStateInvalid & {
+  WithStateInvalid &
+  WithName & {
     /** Whether to render the input with a border */
     hasBorder?: boolean;
     /** Whether to allow the user to clear the input with a button */
     isClearable?: boolean;
-    /** Name of the form control. Submitted with the form as part of a name/value pair */
-    name: string;
   };
 
 export const Input = forwardRef(

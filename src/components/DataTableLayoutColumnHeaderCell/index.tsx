@@ -1,58 +1,38 @@
-import {
-  faArrowDown,
-  faArrowUp,
-  faArrowUpArrowDown,
-} from "@fortawesome/pro-light-svg-icons";
 import { flexRender } from "@tanstack/react-table";
 
-import { Button } from "../Button";
-import { Icon } from "../Icon";
+import { DataTableControlTableHeadSort } from "../data_table_control_table_head_sort";
 
 import type { Header } from "@tanstack/react-table";
 
-type DataTableSortingControlsProps<THeaderData> = {
-  header: Header<THeaderData, unknown>;
-};
-
-function DataTableSortingControls<THeaderData>({
-  header,
-}: DataTableSortingControlsProps<THeaderData>) {
-  return (
-    {
-      asc: <Icon icon={faArrowDown} />,
-      desc: <Icon icon={faArrowUp} />,
-    }[header.column.getIsSorted() as string] ?? (
-      <Icon icon={faArrowUpArrowDown} />
-    )
-  );
-}
-
 type DataTableLayoutColumnHeaderCellProps<THeaderData> = {
   header: Header<THeaderData, unknown>;
+  isSortable: boolean | undefined;
 };
 
+/**
+ * Renders a single column header cell.
+ */
 export function DataTableLayoutColumnHeaderCell<THeaderData>({
   header,
+  isSortable,
 }: DataTableLayoutColumnHeaderCellProps<THeaderData>) {
+  if (isSortable) {
+    return (
+      <th>
+        <DataTableControlTableHeadSort header={header}>
+          {header.isPlaceholder
+            ? null
+            : flexRender(header.column.columnDef.header, header.getContext())}
+        </DataTableControlTableHeadSort>
+      </th>
+    );
+  }
+
   return (
     <th>
-      <Button
-        appearance="link"
-        flexShrink="0"
-        marginLeft="auto"
-        name={`sort_${header.column.id}`}
-        onClick={header.column.getToggleSortingHandler()}
-        size="sm"
-        slotRight={
-          header.column.getCanSort() ? (
-            <DataTableSortingControls header={header} />
-          ) : null
-        }
-      >
-        {header.isPlaceholder
-          ? null
-          : flexRender(header.column.columnDef.header, header.getContext())}
-      </Button>
+      {header.isPlaceholder
+        ? null
+        : flexRender(header.column.columnDef.header, header.getContext())}
     </th>
   );
 }

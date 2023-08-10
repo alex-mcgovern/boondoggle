@@ -4,6 +4,7 @@ import { arrayHasLength } from "../../lib/arrayHasLength";
 import { exhaustiveSwitchGuard } from "../../lib/exhaustiveSwitchGuard";
 import { SelectMulti, type SelectMultiProps } from "../SelectMulti";
 
+import type { WithPlaceholder } from "../../types";
 import type { SelectItemShape } from "../Select/types";
 import type { FilterAppearance } from "../core.ui.data_table/types";
 import type { Column } from "@tanstack/react-table";
@@ -38,14 +39,15 @@ const getSelectProps = (
 
 /** ----------------------------------------------------------------------------- */
 
-type DataTableFilterSelectProps<TTableData> = {
-  /** The appearance of the filter component. */
-  appearance?: "TABLE_CELL" | "INPUT";
-  /** The `react-table` column instance to filter. */
-  column?: Column<TTableData, unknown>;
-  /** The items to display in the select. */
-  items: Array<SelectItemShape>;
-} & Partial<SelectMultiProps>;
+type DataTableFilterSelectProps<TTableData> = Partial<SelectMultiProps> &
+  WithPlaceholder & {
+    /** The appearance of the filter component. */
+    appearance?: "TABLE_CELL" | "INPUT";
+    /** The `react-table` column instance to filter. */
+    column?: Column<TTableData, unknown>;
+    /** The items to display in the select. */
+    items: Array<SelectItemShape>;
+  };
 
 /**
  * A filter component for filtering a `react-table` column by a multi-select.
@@ -91,7 +93,6 @@ export function DataTableFilterSelect<TTableData>({
       placeholder={placeholder}
       selectedItems={items.filter((item) => {
         const filterValue = column.getFilterValue() as Array<string>;
-
         return filterValue?.includes(item.value);
       })}
     />

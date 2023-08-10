@@ -19,14 +19,15 @@ import * as styles from "./styles.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   LabelledElementCustomisation,
-  WithDisabledState,
+  WithName,
   WithOptionalLabel,
   WithSize,
   WithSlots,
+  WithStateDisabled,
   WithStateInvalid,
 } from "../../types";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
-import type { AriaRole, HTMLInputTypeAttribute, Ref } from "react";
+import type { AriaRole, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
   SprinklesArgs &
@@ -35,20 +36,12 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
   WithStateInvalid &
   WithSlots &
   WithSize &
-  WithDisabledState & {
-    autoComplete?: HTMLInputElement["autocomplete"];
-    /** Allow controlling components to set error styles, `aria-invalid` prop and display error message. */
-    invalid?: boolean;
-    /** Optional tooltip for label */
-    labelTooltip?: string;
-    /** Name of the form control. Submitted with the form as part of a name/value pair */
-    name: string;
+  WithStateDisabled &
+  WithName & {
     /** Controls `aria-required` and input `required` attributes. */
     required?: boolean;
     /** Aria role to use for the input (e.g. `search`). */
     role?: AriaRole;
-
-    type?: HTMLInputTypeAttribute;
   };
 
 export const Slider = forwardRef(

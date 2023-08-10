@@ -12,9 +12,9 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
   WithColorOverlay,
-  WithDisabledState,
   WithSize,
   WithSlots,
+  WithStateDisabled,
 } from "../../types";
 import type {
   ComponentPropsWithoutRef,
@@ -29,7 +29,7 @@ type BaseTabProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
     WithColorOverlay &
       WithSlots &
       WithSize &
-      WithDisabledState & {
+      WithStateDisabled & {
         /** The react node rendered in the tab. */
         children?: ReactNode;
         /** Used as the html ID. */

@@ -12,9 +12,9 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
   WithColorOverlay,
-  WithDisabledState,
   WithSize,
   WithSlots,
+  WithStateDisabled,
 } from "../../types";
 import type {
   ComponentPropsWithoutRef,
@@ -27,7 +27,7 @@ type BasePillProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     WithColorOverlay &
-      WithDisabledState &
+      WithStateDisabled &
       WithSize &
       WithSlots & {
         /** The react node rendered in the pill. */

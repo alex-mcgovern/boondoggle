@@ -4,6 +4,7 @@ import {
   radioButtonCardLabelStyles,
 } from "./styles.css";
 
+import type { WithName } from "../../types";
 import type { HTMLProps, ReactNode } from "react";
 
 /** ----------------------------------------------------------------------------- */
@@ -26,12 +27,12 @@ export type RadioButtonCardShape = {
 
 /** ----------------------------------------------------------------------------- */
 
-export type RadioButtonCardProps = RadioButtonCardShape & {
-  inputProps?: RadioButtonInputProps;
-  name: string;
-  onChange?: (value: string) => void;
-  required?: boolean;
-};
+export type RadioButtonCardProps = RadioButtonCardShape &
+  WithName & {
+    inputProps?: RadioButtonInputProps;
+    onChange?: (value: string) => void;
+    required?: boolean;
+  };
 
 export function RadioButtonCard({
   adornment,

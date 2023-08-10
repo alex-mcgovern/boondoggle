@@ -5,7 +5,7 @@ import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../styles/common/selectors.
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-export const data_table_header_column_link_style = style([
+export const dataTableCellButtonStyle = style([
   getSprinkles({
     color: "text_high_contrast",
     fontStyle: "body_sm",
@@ -22,7 +22,7 @@ export const data_table_header_column_link_style = style([
   },
 ]);
 
-export const data_table_header_column_link_inner_style = style([
+export const dataTableCellButtonInnerStyle = style([
   {
     maxWidth: calc.subtract("100%", vars.spacing.spacing_3),
     overflow: "hidden",

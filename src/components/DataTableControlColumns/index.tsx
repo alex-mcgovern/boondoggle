@@ -10,27 +10,27 @@ import type { SelectMultiProps } from "../SelectMulti";
 import type { Table } from "@tanstack/react-table";
 
 type SelectedColumnsToStringArgs = {
-  /** Added to column count when column count is 1, e.g. "column selected". */
-  columnSelectedString: string;
-  /** Added to column count when column count is 1, e.g. "columns selected". */
-  columnsSelectedString: string;
   /** Items in the select component that are currently selected. */
   selectedItems: Array<SelectItemShape>;
+  /** Added to column count when column count is 1, e.g. "column selected". */
+  strColumnSelected: string;
+  /** Added to column count when column count is 1, e.g. "columns selected". */
+  strColumnsSelected: string;
 };
 
 /**
  * Returns a string that describes the number of columns selected.
  */
 const selectedColumnsToString = ({
-  columnSelectedString,
-  columnsSelectedString,
   selectedItems,
+  strColumnSelected,
+  strColumnsSelected,
 }: SelectedColumnsToStringArgs) => {
   if (selectedItems.length === 1) {
-    return `${selectedItems.length} ${columnSelectedString}`;
+    return `${selectedItems.length} ${strColumnSelected}`;
   }
 
-  return `${selectedItems.length} ${columnsSelectedString}`;
+  return `${selectedItems.length} ${strColumnsSelected}`;
 };
 
 /** ----------------------------------------------------------------------------- */
@@ -66,13 +66,15 @@ function getColumnSelectItems<TTableData>({
     .filter(isTruthy);
 }
 
-type DataTableControlColumnsProps<TTableData> = {
+/** ----------------------------------------------------------------------------- */
+
+export type DataTableControlColumnsProps<TTableData> = {
   /** Converts a column ID to a string to use as the label for the select item. */
   columnIdToString: (id: string) => string;
   /** Added to column count when column count is 1, e.g. "column selected". */
-  columnSelectedString: string;
+  strColumnSelected: string;
   /** Added to column count when column count is 1, e.g. "columns selected". */
-  columnsSelectedString: string;
+  strColumnsSelected: string;
   /** The `react-table` instance to control. */
   table: Table<TTableData>;
 } & Omit<SelectMultiProps, "columns" | "name" | "id" | "items" | "label">;
@@ -82,21 +84,21 @@ type DataTableControlColumnsProps<TTableData> = {
  */
 export function DataTableControlColumns<TTableData>({
   columnIdToString,
-  columnSelectedString,
-  columnsSelectedString,
   placeholder,
+  strColumnSelected,
+  strColumnsSelected,
   table,
   ...rest
 }: DataTableControlColumnsProps<TTableData>) {
   const configuredSelectedColumnsToString = useCallback(
     (selectedItems: Array<SelectItemShape>) => {
       return selectedColumnsToString({
-        columnSelectedString,
-        columnsSelectedString,
         selectedItems,
+        strColumnSelected,
+        strColumnsSelected,
       });
     },
-    [columnSelectedString, columnsSelectedString]
+    [strColumnSelected, strColumnsSelected]
   );
 
   const columnDropdownItems: Array<SelectItemShape> = useMemo(() => {
@@ -105,7 +107,6 @@ export function DataTableControlColumns<TTableData>({
 
   return (
     <SelectMulti
-      id="columns"
       items={columnDropdownItems}
       name="columns"
       placeholder={placeholder}

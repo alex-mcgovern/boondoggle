@@ -28,7 +28,6 @@ export type SelectMultiProps = SelectCommonProps &
   LabelledElementCustomisation &
   WithPlaceholder & {
     initialSelectedItems?: Array<SelectItemShape>;
-    labelTooltip?: string;
     onChange?: (changes: Array<SelectItemShape>) => void;
     selectedItems?: Array<SelectItemShape>;
     selectedItemsToString?: (selectedItems: Array<SelectItemShape>) => string;

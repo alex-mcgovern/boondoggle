@@ -20,13 +20,6 @@ export type WithDescription = {
 
 /** ----------------------------------------------------------------------------- */
 
-export type WithDisabledState = {
-  /** Whether the component is disabled. */
-  disabled?: boolean;
-};
-
-/** ----------------------------------------------------------------------------- */
-
 export type WithColorOverlay = {
   /**
    * Allows setting a color to indicate semantic meaning associated with
@@ -46,33 +39,32 @@ export type WithFormFieldProps = {
 
 /** ----------------------------------------------------------------------------- */
 
-export type WithStateInvalid = {
-  /** Message shown when field fails validation. */
-  errorMessage?: string;
-  /** Whether the value of the field fails validation. */
-  invalid?: boolean;
+export type WithName = {
+  /** Name of the component. If field is connected as a form field, will be used to key the value in the form field values. */
+  name: string;
 };
 /** ----------------------------------------------------------------------------- */
 
 export type WithOptionalLabel =
   /** When label is defined, id must also be defined */
-  | {
-      /** HTML element id */
-      id: string;
-      /** Text for HTML label element */
-      label: string;
-      /** Optional tooltip for label */
-      labelTooltip?: string;
-    }
-  /** When label is not defined, id may be undefined */
-  | {
-      /** HTML element id */
-      id?: string;
-      /** Text for HTML label element */
-      label?: never;
-      /** Optional tooltip for label */
-      labelTooltip?: never;
-    };
+  (
+    | {
+        /** HTML element id */
+        id: string;
+        /** Text for HTML label element */
+        label: string;
+      }
+    /** When label is not defined, id may be undefined */
+    | {
+        /** HTML element id */
+        id?: string;
+        /** Text for HTML label element */
+        label?: never;
+      }
+  ) & {
+    /** Optional tooltip for label */
+    labelTooltip?: never;
+  };
 
 /** ----------------------------------------------------------------------------- */
 
@@ -94,6 +86,22 @@ export type WithSlots = {
   slotLeft?: ReactNode;
   /** React node rendered on the right-hand side. */
   slotRight?: ReactNode;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithStateDisabled = {
+  /** Whether the component is disabled. */
+  disabled?: boolean;
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithStateInvalid = {
+  /** Message shown when field fails validation. */
+  errorMessage?: string;
+  /** Whether the value of the field fails validation. */
+  invalid?: boolean;
 };
 
 /** ----------------------------------------------------------------------------- */
