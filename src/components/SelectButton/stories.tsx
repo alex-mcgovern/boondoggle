@@ -4,11 +4,11 @@ import { createRef, useCallback } from "react";
 import { SelectButton as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../Box";
+import { DialogModal } from "../DialogModal";
 import {
   mockSelectItems,
   mockSelectItemsAsButtons,
 } from "../Select/__mocks__/select.mock";
-import { DialogModal } from "../dialog_modal/DialogModal";
 
 import type { SelectButtonProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";

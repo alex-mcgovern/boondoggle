@@ -46,8 +46,8 @@ export type { CollapsibleProps } from "./components/Collapsible";
 export { Dialog } from "./components/Dialog";
 export type { DialogProps } from "./components/Dialog";
 
-export { DialogModal } from "./components/dialog_modal/DialogModal";
-export type { DialogModalProps } from "./components/dialog_modal/DialogModal";
+export { DialogModal } from "./components/DialogModal";
+export type { DialogModalProps } from "./components/DialogModal";
 
 export { DialogModalForm } from "./components/DialogModalForm";
 export type { DialogModalFormProps } from "./components/DialogModalForm";
@@ -67,8 +67,8 @@ export type { DialogModalCloseButtonProps } from "./components/DialogModalCloseB
 export { DialogInfoBullet } from "./components/DialogInfoBullet";
 export type { DialogInfoBulletProps } from "./components/DialogInfoBullet";
 
-export { Form } from "./components/Form";
-export type { FormProps } from "./components/Form";
+export { Form } from "./components/FormComponent";
+export type { FormProps } from "./components/FormComponent";
 
 export { FormSlider } from "./components/FormSlider";
 export type { FormSliderProps } from "./components/FormSlider";
@@ -91,13 +91,13 @@ export type { FormTextAreaProps } from "./components/FormTextArea";
 export { FormInputDate } from "./components/FormInputDate";
 export type { FormInputDateProps } from "./components/FormInputDate";
 
-export { FormTestProvider } from "./components/Form/form_test_provider.comp";
+export { FormTestProvider } from "./components/FormComponent/form_test_provider.comp";
 
 export { FormSubmitButton } from "./components/FormSubmitButton";
 export type { FormSubmitButtonProps } from "./components/FormSubmitButton";
 
-export { Input } from "./components/Input";
-export type { InputProps } from "./components/Input";
+export { Input } from "./components/InputComp";
+export type { InputProps } from "./components/InputComp";
 
 export { InputDate } from "./components/InputDate";
 export type { InputDateProps } from "./components/InputDate";

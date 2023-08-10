@@ -4,7 +4,7 @@ import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
 import { Box } from "../Box";
 import { FieldClearButton } from "../FieldClearButton";
-import { Input } from "../Input";
+import { Input } from "../InputComp";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,

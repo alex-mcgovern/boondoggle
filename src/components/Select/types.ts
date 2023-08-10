@@ -7,7 +7,7 @@ import type {
   WithStateInvalid,
 } from "../../types";
 import type { BoxProps } from "../Box";
-import type { InputProps } from "../Input";
+import type { InputProps } from "../InputComp";
 import type { UseComboboxStateChange } from "downshift";
 
 export type SelectItemShape = BoxProps &
