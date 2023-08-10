@@ -9,15 +9,12 @@ import { type ReactNode, useState } from "react";
 
 import { dataTableFuzzyFilter } from "../../lib/data_table_fuzzy_filter";
 import { Box } from "../Box";
+import { DataTablePaginationWrapper } from "../DataTableActionsPaginationWrapper";
 import { DataTableActionsWrapper } from "../DataTableActionsWrapper";
-import { DataTableControlPageSize } from "../DataTableControlPageSize";
-import { DataTableControlPagination } from "../DataTableControlPagination";
-import { DataTableInfoPageCount } from "../DataTableInfoPageCount";
+import { DataTableFilterInput } from "../DataTableFilterString";
 import { DataTableLayoutBody } from "../DataTableLayoutBody";
 import { DataTableLayoutHead } from "../DataTableLayoutHead";
-import { Input } from "../InputComp";
-import { IsFilterable } from "./stories";
-import { dataTableStyle } from "./styles.css";
+import { getDataTableStyle } from "./styles.css";
 
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 
@@ -47,24 +44,26 @@ type WithOptionalPagination =
 
 /** ----------------------------------------------------------------------------- */
 
-type WithOptionalFiltering<TData extends RowData> =
+type WithOptionalFiltering =
+  /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder`  should not be passed. */
   | {
-      /** The column IDs to allow filtering on */
-      filterableColumns: Array<keyof TData>;
-      /** Whether to allow filtering */
-      isFilterable: true;
+      /** Whether the table should be filterable */
+      isFilterable?: boolean;
+      /** String to use for filter field placeholder */
+      strFilterPlaceholder: string;
     }
+  /** If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed. */
   | {
-      /** The column IDs to allow filtering on */
-      filterableColumns?: never;
-      /** Whether to allow filtering */
+      /** Whether the table should be filterable */
       isFilterable?: false;
+      /** String to use for filter field placeholder */
+      strFilterPlaceholder?: never;
     };
 
 /** ----------------------------------------------------------------------------- */
 
-export type DataTableProps<TData extends RowData> = WithOptionalPagination &
-  WithOptionalFiltering<TData> & {
+type DataTableProps<TData extends RowData> = WithOptionalPagination &
+  WithOptionalFiltering & {
     /** Up to 2 react nodes to render as actions for the table */
     actions?: ReactNode | [ReactNode?, ReactNode?];
     /** Column definitions for the tabular data */
@@ -85,6 +84,7 @@ export function DataTable<TData extends RowData>({
   actions,
   columns,
   data,
+  isFilterable,
   isPaginated,
   isSortable,
   strPage,
@@ -95,30 +95,21 @@ export function DataTable<TData extends RowData>({
 
   const [globalFilter, setGlobalFilter] = useState("");
 
+  const hasActionsBar = !!actions || isFilterable;
+
   const table = useReactTable({
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
-    ...(IsFilterable && {
+    ...(isFilterable && {
       getFilteredRowModel: getFilteredRowModel(),
       globalFilterFn: dataTableFuzzyFilter,
       onGlobalFilterChange: setGlobalFilter,
     }),
     ...(isPaginated && { getPaginationRowModel: getPaginationRowModel() }),
     ...(isSortable && { getSortedRowModel: getSortedRowModel() }),
-    // initialState: {
-    //   columnVisibility: {
-    //     account_details: false,
-    //     available_balance: false,
-    //     currency: false,
-    //     customer_id: false,
-    //     external_id: false,
-    //   },
-    // },
-
-    // onColumnFiltersChange: setColumnFilters,
     state: {
-      ...(IsFilterable && {
+      ...(isFilterable && {
         globalFilter,
       }),
     },
@@ -126,34 +117,32 @@ export function DataTable<TData extends RowData>({
 
   return (
     <Box width="100%">
-      {/* <DataTableInfoFilterPills
-        columnFilters={columnFilters}
-        columnIdToString={defaultToStringFn}
-        filterValueToString={defaultToStringFn}
-        setColumnFilters={setColumnFilters}
-        strClearAllFilters="clear all filters"
-      /> */}
-
       <DataTableActionsWrapper
         leftAction={
-          IsFilterable ? (
-            <Input
-              name="filter"
-              onChange={(e) => {
-                return setGlobalFilter(String(e.target.value));
-              }}
-              placeholder="Search"
-              value={globalFilter ?? ""}
+          isFilterable ? (
+            <DataTableFilterInput
+              placeholder="Filter"
+              setGlobalFilter={setGlobalFilter}
             />
           ) : null
         }
         rightActions={actions}
       />
 
-      <table className={dataTableStyle}>
+      <table className={getDataTableStyle({ hasActionsBar, isPaginated })}>
         <DataTableLayoutHead<TData> isSortable={isSortable} table={table} />
         <DataTableLayoutBody<TData> table={table} />
       </table>
+
+      {isPaginated && (
+        <DataTablePaginationWrapper
+          strPage={strPage}
+          strResults={strResults}
+          strShow={strShow}
+          table={table}
+        />
+      )}
+
       {/* 
         {table.getFilteredRowModel().rows?.length === 0 && (
           <DataTableInfoNoResults
@@ -164,33 +153,6 @@ export function DataTable<TData extends RowData>({
             strNoResultsTitle="no results title"
           />
         )} */}
-
-      <Box
-        alignItems="end"
-        display="flex"
-        gap="spacing_2"
-        justifyContent="start"
-        marginY="spacing_2"
-      >
-        {isPaginated && strPage && strResults && (
-          <DataTableInfoPageCount<TData>
-            strPage={strPage}
-            strResults={strResults}
-            table={table}
-          />
-        )}
-        {/* <DataTableControlColumns<TData>
-          columnIdToString={defaultToStringFn}
-          placeholder="placeholder"
-          strColumnSelected="column selected"
-          strColumnsSelected="columns selected"
-          table={table}
-        /> */}
-        {isPaginated && strShow && (
-          <DataTableControlPageSize<TData> strShow={strShow} table={table} />
-        )}
-        {isPaginated && <DataTableControlPagination<TData> table={table} />}
-      </Box>
     </Box>
   );
 }

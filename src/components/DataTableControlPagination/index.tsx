@@ -21,7 +21,7 @@ const PAGINATION_BUTTON_PROPS: Omit<
   "name" | "onClick" | "slotLeft"
 > = {
   appearance: "primary",
-  size: "square_sm",
+  size: "square_md",
 };
 
 /** ----------------------------------------------------------------------------- */

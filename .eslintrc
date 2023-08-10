@@ -16,7 +16,7 @@
         "airbnb/hooks",
         "airbnb-typescript",
         "eslint:recommended",
-        "plugin:react-perf/recommended",
+        // "plugin:react-perf/recommended",
         "prettier",
         "plugin:@typescript-eslint/recommended"
       ],
@@ -24,7 +24,7 @@
       "plugins": [
         "import",
         "jsdoc",
-        "react-perf",
+        // "react-perf",
         "sonarjs",
         "sort-destructure-keys",
         "sort-keys-fix",
@@ -96,10 +96,10 @@
           }
         ],
         "no-unused-vars": "off",
-        "react-perf/jsx-no-jsx-as-prop": "warn",
-        "react-perf/jsx-no-new-array-as-prop": "warn",
-        "react-perf/jsx-no-new-function-as-prop": "warn",
-        "react-perf/jsx-no-new-object-as-prop": "warn",
+        // "react-perf/jsx-no-jsx-as-prop": "warn",
+        // "react-perf/jsx-no-new-array-as-prop": "warn",
+        // "react-perf/jsx-no-new-function-as-prop": "warn",
+        // "react-perf/jsx-no-new-object-as-prop": "warn",
         "react/button-has-type": "warn",
         "react/destructuring-assignment": [
           "warn",

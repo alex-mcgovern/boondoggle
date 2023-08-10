@@ -77,7 +77,6 @@ export function DataTableControlPageSize<TTableData>({
       name="page_size"
       onChange={handleChange}
       placeholder={selectItems[0].label}
-      size="sm"
       slotLeft={<Icon icon={faTableRows} />}
       {...rest}
     />

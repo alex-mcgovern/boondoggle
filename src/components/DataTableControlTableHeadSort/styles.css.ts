@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 
-export const sortControlBase = style({});
+const sortControlBase = style({});
 
 export const getSortControlStyle = recipe({
   base: [sortControlBase],

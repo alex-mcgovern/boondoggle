@@ -1,7 +1,5 @@
 import { flexRender } from "@tanstack/react-table";
 
-import { Box } from "../Box";
-
 import type { Table } from "@tanstack/react-table";
 
 type DataTableLayoutBodyProps<TTableData> = {
@@ -16,7 +14,7 @@ export function DataTableLayoutBody<TTableData>({
     <tbody>
       {table.getRowModel().rows.map((row) => {
         return (
-          <Box as="tr" key={row.id}>
+          <tr key={row.id}>
             {row.getVisibleCells().map((cell) => {
               return (
                 <td key={cell.id}>
@@ -24,7 +22,7 @@ export function DataTableLayoutBody<TTableData>({
                 </td>
               );
             })}
-          </Box>
+          </tr>
         );
       })}
     </tbody>

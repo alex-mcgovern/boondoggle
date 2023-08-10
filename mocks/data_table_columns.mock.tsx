@@ -4,7 +4,8 @@ import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-light-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
-import { Icon } from "../src";
+import { Box, Icon } from "../src";
+import { Avatar } from "../src/components/Avatar";
 import { DataTableCellButton } from "../src/components/DataTableCellButton";
 
 const faker = new Faker({ locale: [en] });
@@ -12,7 +13,7 @@ faker.seed(42);
 
 /** ----------------------------------------------------------------------------- */
 
-export type MockAccountColumnData = {
+type MockAccountColumnData = {
   /** User's email address */
   email_address: string;
   /** User's first name */
@@ -43,6 +44,8 @@ export const generateMockAccountColumn = (): MockAccountColumnData => {
 /** ----------------------------------------------------------------------------- */
 
 const columnHelper = createColumnHelper<MockAccountColumnData>();
+
+/** ----------------------------------------------------------------------------- */
 
 export const DATA_TABLE_COLUMNS_MOCK = [
   columnHelper.accessor("first_name", {
@@ -75,6 +78,56 @@ export const DATA_TABLE_COLUMNS_MOCK = [
       return "Email address";
     },
   }),
+  columnHelper.accessor("phone_number", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "Phone number";
+    },
+  }),
+  columnHelper.accessor("id", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "User ID";
+    },
+  }),
+];
+/** ----------------------------------------------------------------------------- */
+
+export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
+  columnHelper.accessor(
+    (row) => {
+      return `${row.first_name} ${row.last_name} ${row.email_address}`;
+    },
+    {
+      cell: ({ row }) => {
+        return (
+          <Box alignItems="center" display="flex" gap="spacing_2">
+            <Avatar
+              firstName={row.original.first_name}
+              lastName={row.original.last_name}
+              size={40}
+            />
+            <Box>
+              <Box fontWeight="medium">
+                {row.original.first_name} {row.original.last_name}
+              </Box>
+              <Box color="text_low_contrast" fontStyle="body_sm">
+                {row.original.email_address}
+              </Box>
+            </Box>
+          </Box>
+        );
+      },
+      header: () => {
+        return "Team member";
+      },
+      id: "member",
+    }
+  ),
   columnHelper.accessor("phone_number", {
     cell: (info) => {
       return info.getValue();

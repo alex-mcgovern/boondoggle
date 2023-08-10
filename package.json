@@ -50,6 +50,7 @@
     "@tanstack/react-table": "8.9.3",
     "clsx": "1.2.1",
     "downshift": "7.6.0",
+    "lodash.debounce": "4.0.8",
     "react-hook-form": "7.43.9",
     "zod": "3.21.4"
   },

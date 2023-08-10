@@ -3,6 +3,7 @@ import { faPlus } from "@fortawesome/pro-light-svg-icons";
 import { DataTable as StoryComp } from ".";
 import {
   DATA_TABLE_COLUMNS_MOCK,
+  DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
   generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
 import { Button } from "../Button";
@@ -61,8 +62,17 @@ export const IsFilterable: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_MOCK,
     data: MOCK_DATA,
-    filterableColumns: ["account_name", "id"],
     isFilterable: true,
+    strFilterPlaceholder: "Filter results...",
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export const WithAggregatedCell: Story = {
+  args: {
+    columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
+    data: MOCK_DATA,
   },
 };
 
@@ -94,5 +104,29 @@ export const With2Actions: Story = {
     ],
     columns: DATA_TABLE_COLUMNS_MOCK,
     data: MOCK_DATA,
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export const KitchenSink: Story = {
+  args: {
+    actions: [
+      <Button appearance="secondary" name="secondary_action">
+        Secondary action
+      </Button>,
+      <Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+        Primary action
+      </Button>,
+    ],
+    columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
+    data: MOCK_DATA,
+    isFilterable: true,
+    isPaginated: true,
+    isSortable: true,
+    strFilterPlaceholder: "Filter results...",
+    strPage: "Page",
+    strResults: "Results",
+    strShow: "Show",
   },
 };

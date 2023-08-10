@@ -441,9 +441,10 @@ globalStyle(`p`, {
 globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
+      background: vars.color.background,
       border: `1px solid ${vars.color.border_default}`,
-      borderCollapse: "collapse",
-      borderRadius: vars.borderRadius.sm,
+      borderRadius: vars.borderRadius.md,
+      borderSpacing: 0,
       tableLayout: "auto",
       width: "100%",
     },
@@ -462,7 +463,6 @@ globalStyle(`thead`, {
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
-      borderBottom: `1px solid ${vars.color.border_default}`,
       fontSize: vars.fontSize.body_sm,
       padding: vars.spacing.spacing_2,
       textAlign: "left",
@@ -470,26 +470,10 @@ globalStyle(`th, td`, {
   },
 });
 
-globalStyle(`th:not(:last-of-type), td:not(:last-of-type)`, {
+globalStyle(`thead th, tr:not(:last-of-type) td`, {
   "@layer": {
     [baseLayer]: {
       borderBottom: `1px solid ${vars.color.border_default}`,
-    },
-  },
-});
-
-globalStyle(`tr`, {
-  "@layer": {
-    [baseLayer]: {
-      borderBottom: `1px solid ${vars.color.border_default}`,
-    },
-  },
-});
-
-globalStyle(`td`, {
-  "@layer": {
-    [baseLayer]: {
-      background: vars.color.background,
     },
   },
 });

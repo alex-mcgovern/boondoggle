@@ -1,15 +1,41 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { styleVariants } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const dataTableFilterCellStyle = style({
-  padding: "0 !important",
+import { vars } from "../../styles/theme.css";
+
+const variantHasActionsBar = styleVariants({
+  false: {
+    borderTopLeftRadius: vars.borderRadius.md,
+    borderTopRightRadius: vars.borderRadius.md,
+  },
+  true: {
+    borderTopLeftRadius: "0 !important",
+    borderTopRightRadius: "0 !important",
+  },
 });
 
-export const dataTableStyle = style({
-  width: "100%",
+/** ----------------------------------------------------------------------------- */
+
+const variantIsPaginated = styleVariants({
+  false: {
+    borderBottomLeftRadius: vars.borderRadius.md,
+    borderBottomRightRadius: vars.borderRadius.md,
+  },
+  true: {
+    borderBottomLeftRadius: "0 !important",
+    borderBottomRightRadius: "0 !important",
+  },
 });
 
-globalStyle(`${dataTableStyle} td, ${dataTableStyle} th`, {
-  // minWidth: "10rem",
-  // whiteSpace: "nowrap",
-  // width: "1px",
+/** ----------------------------------------------------------------------------- */
+
+export const getDataTableStyle = recipe({
+  base: {
+    maxWidth: "100%",
+    width: "100%",
+  },
+  variants: {
+    hasActionsBar: variantHasActionsBar,
+    isPaginated: variantIsPaginated,
+  },
 });
