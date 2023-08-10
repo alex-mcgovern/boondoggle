@@ -5,8 +5,7 @@ import { faArrowUpRight } from "@fortawesome/pro-light-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
 import { Icon } from "../src";
-import { DataTableCellButton } from "../src/components/DataTableCellButton";
-import { filterDataTableMultiSelect } from "../src/components/core.ui.data_table/lib/data_table_filter_fn_multi_select";
+import { DataTableCellButton } from "../src/components/data-table/components/data_table_cell_button";
 
 const faker = new Faker({ locale: [en] });
 faker.seed(42);
@@ -14,14 +13,16 @@ faker.seed(42);
 /** ----------------------------------------------------------------------------- */
 
 export type MockAccountColumnData = {
-  /** Mocked account name */
-  account_name: string;
-  /** Mocked balance */
-  balance: number;
-  /** Mocked currency */
-  currency: string;
-  /** Mocked account ID */
+  /** User's email address */
+  email_address: string;
+  /** User's first name */
+  first_name: string;
+  /** User ID */
   id: string;
+  /** User's last name */
+  last_name: string;
+  /** User's phone number */
+  phone_number: string;
 };
 
 /** ----------------------------------------------------------------------------- */
@@ -31,10 +32,11 @@ export type MockAccountColumnData = {
  */
 export const generateMockAccountColumn = (): MockAccountColumnData => {
   return {
-    account_name: faker.company.name(),
-    balance: faker.number.int({ max: 1000000, min: 1000 }),
-    currency: faker.finance.currencyCode(),
+    email_address: faker.internet.email(),
+    first_name: faker.person.firstName(),
     id: faker.string.uuid(),
+    last_name: faker.person.lastName(),
+    phone_number: faker.phone.number(),
   };
 };
 
@@ -43,7 +45,7 @@ export const generateMockAccountColumn = (): MockAccountColumnData => {
 const columnHelper = createColumnHelper<MockAccountColumnData>();
 
 export const DATA_TABLE_COLUMNS_MOCK = [
-  columnHelper.accessor("account_name", {
+  columnHelper.accessor("first_name", {
     cell: (info) => {
       return (
         <DataTableCellButton
@@ -54,7 +56,31 @@ export const DATA_TABLE_COLUMNS_MOCK = [
     },
     enableHiding: false,
     header: () => {
-      return "Account name";
+      return "First name";
+    },
+  }),
+  columnHelper.accessor("last_name", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "Last name";
+    },
+  }),
+  columnHelper.accessor("email_address", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "Email address";
+    },
+  }),
+  columnHelper.accessor("phone_number", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "Phone number";
     },
   }),
   columnHelper.accessor("id", {
@@ -62,24 +88,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
       return info.getValue();
     },
     header: () => {
-      return "Account ID";
-    },
-  }),
-  columnHelper.accessor("balance", {
-    cell: (info) => {
-      return info.getValue();
-    },
-    header: () => {
-      return "Balance";
-    },
-  }),
-  columnHelper.accessor("currency", {
-    cell: (info) => {
-      return info.getValue();
-    },
-    filterFn: filterDataTableMultiSelect<MockAccountColumnData>,
-    header: () => {
-      return "Currency";
+      return "User ID";
     },
   }),
 ];
