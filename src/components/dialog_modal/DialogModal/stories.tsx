@@ -2,13 +2,13 @@ import { faShapes } from "@fortawesome/pro-light-svg-icons";
 import { createRef, useCallback } from "react";
 
 import { DialogModal as StoryComp } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../Box";
-import { Button } from "../Button";
-import { DialogInfoBullet } from "../DialogInfoBullet";
+import { LOREM } from "../../../../mocks/LOREM.mock";
+import { Box } from "../../Box";
+import { Button } from "../../Button";
+import { DialogInfoBullet } from "../../DialogInfoBullet";
+import { Icon } from "../../Icon";
 import { DialogModalActionConfirm } from "../DialogModalActionConfirm";
 import { DialogModalAlert } from "../DialogModalAlert";
-import { Icon } from "../Icon";
 
 import type { DialogModalProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
