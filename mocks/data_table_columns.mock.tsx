@@ -5,7 +5,7 @@ import { faArrowUpRight } from "@fortawesome/pro-light-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
 import { Icon } from "../src";
-import { DataTableCellButton } from "../src/components/data-table/components/data_table_cell_button";
+import { DataTableCellButton } from "../src/components/data_table/components/data_table_cell_button";
 
 const faker = new Faker({ locale: [en] });
 faker.seed(42);
