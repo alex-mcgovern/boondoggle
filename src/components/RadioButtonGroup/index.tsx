@@ -10,17 +10,23 @@ import { RadioButton } from "../RadioButton";
 import { getGroupLabelStyles } from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { LabelledElementCustomisation } from "../../types";
+import type {
+  LabelledElementCustomisation,
+  WithDescription,
+  WithName,
+  WithStateInvalid,
+} from "../../types";
 import type { RadioButtonInputProps, RadioButtonShape } from "../RadioButton";
 import type { Ref } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
 export type RadioButtonGroupProps = SprinklesArgs &
-  LabelledElementCustomisation & {
+  LabelledElementCustomisation &
+  WithStateInvalid &
+  WithName &
+  WithDescription & {
     defaultValue?: string | number;
-    description?: string;
-    errorMessage?: string;
     id: string;
     inputProps?: RadioButtonInputProps;
     invalid?: boolean;
@@ -28,7 +34,6 @@ export type RadioButtonGroupProps = SprinklesArgs &
     items: Array<RadioButtonShape>;
     label: string;
     labelTooltip?: string;
-    name: string;
     onChange?: (value: string) => void;
     required?: boolean;
     value?: string;

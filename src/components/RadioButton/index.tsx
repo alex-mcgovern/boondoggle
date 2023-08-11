@@ -5,6 +5,7 @@ import {
   radioButtonWrapperStyles,
 } from "./styles.css";
 
+import type { WithName } from "../../types";
 import type { HTMLProps } from "react";
 
 /** ----------------------------------------------------------------------------- */
@@ -25,12 +26,12 @@ export type RadioButtonShape = {
 
 /** ----------------------------------------------------------------------------- */
 
-export type RadioButtonProps = RadioButtonShape & {
-  inputProps?: RadioButtonInputProps;
-  name: string;
-  onChange?: (value: string) => void;
-  required?: boolean;
-};
+export type RadioButtonProps = RadioButtonShape &
+  WithName & {
+    inputProps?: RadioButtonInputProps;
+    onChange?: (value: string) => void;
+    required?: boolean;
+  };
 
 export function RadioButton({
   checked,

@@ -12,6 +12,9 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
   WithColorOverlay,
+  WithSize,
+  WithSlots,
+  WithStateDisabled,
 } from "../../types";
 import type {
   ComponentPropsWithoutRef,
@@ -23,24 +26,17 @@ import type {
 type BasePillProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
-    WithColorOverlay & {
-      /** The react node rendered in the pill. */
-      children?: ReactNode;
-      /** If `true`, the component is disabled. */
-      disabled?: boolean;
-      /** Used as the html ID. */
-      id?: string;
-      /** Callback on click. */
-      onClick?(...args: unknown[]): unknown;
-      /** The size of the pill */
-      size?: styles.PillSizeEnum;
-      /** The React node shown on the left side of the Pill. */
-      slotLeft?: ReactNode;
-      /** The React node shown on the right side of the Pill. */
-      slotRight?: ReactNode;
-      /** The string URI to link to. Supports relative and absolute URIs. */
-      to?: string;
-    }
+    WithColorOverlay &
+      WithStateDisabled &
+      WithSize &
+      WithSlots & {
+        /** The react node rendered in the pill. */
+        children?: ReactNode;
+        /** Used as the html ID. */
+        id?: string;
+        /** Callback on click. */
+        onClick?(...args: unknown[]): unknown;
+      }
   >;
 
 type PillComponent = <TPolymorphicAs extends ElementType = "div">(

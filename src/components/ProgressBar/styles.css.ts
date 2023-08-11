@@ -22,8 +22,6 @@ const size = styleVariants({
   ],
 });
 
-export type ProgressBarSizeEnum = keyof typeof size;
-
 export const getProgressBarStyles = recipe({
   base: [
     variantColorOverlay.blue,

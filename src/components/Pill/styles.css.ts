@@ -25,8 +25,6 @@ const pillSize = styleVariants({
   ],
 });
 
-export type PillSizeEnum = keyof typeof pillSize;
-
 export const getPillStyle = recipe({
   base: [
     getSprinkles({

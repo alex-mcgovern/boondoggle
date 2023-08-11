@@ -113,7 +113,7 @@
     "prefix": "story",
     "description": "Simple Storybook story",
     "body": [
-      "import { ${1:Component} as StoryComp } from \"..\";",
+      "import { ${1:Component} as StoryComp } from \".\";",
       "",
       "import type { Meta, StoryObj } from \"@storybook/react\";",
       "",
@@ -126,9 +126,7 @@
       "export default meta;",
       "type Story = StoryObj<typeof meta>;",
       "",
-      "export const Default: Story = {",
-      "  name: \"default\",",
-      "};"
+      "export const Default: Story = {};"
     ]
   }
 }

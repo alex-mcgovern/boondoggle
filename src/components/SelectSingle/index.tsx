@@ -3,7 +3,7 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { Box } from "../Box";
 import { FieldClearButton } from "../FieldClearButton";
-import { Input } from "../Input";
+import { Input } from "../InputComp";
 import {
   downshiftStateReducer,
   getDefaultHighlightedIndex,
@@ -14,7 +14,10 @@ import { DEFAULT_SLOT_RIGHT } from "../Select/shared/DEFAULT_SLOT_RIGHT";
 import { selectInputCursorStyles } from "../Select/shared/select_input.styles.css";
 import { SelectItemList } from "../SelectItemList";
 
-import type { LabelledElementCustomisation } from "../../types";
+import type {
+  LabelledElementCustomisation,
+  WithPlaceholder,
+} from "../../types";
 import type { SelectCommonProps, SelectItemShape } from "../Select/types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
@@ -28,13 +31,11 @@ const defaultItemToString = (item: SelectItemShape | null) => {
 /** ----------------------------------------------------------------------------- */
 
 export type SelectSingleProps = SelectCommonProps &
-  LabelledElementCustomisation & {
+  LabelledElementCustomisation &
+  WithPlaceholder & {
     initialSelectedItem?: SelectItemShape | null;
     itemToString?: (item: SelectItemShape | null) => string;
-    /** Optional tooltip for label */
-    labelTooltip?: string;
     onChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
-    placeholder: string;
   };
 
 export const SelectSingle = forwardRef(

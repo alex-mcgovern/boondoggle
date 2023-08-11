@@ -19,7 +19,7 @@ export type DialogModalProps = {
   alert?: ReactNode;
   children: ReactNode | Array<ReactNode>;
   title: string;
-  triggerNode: ReactNode;
+  triggerNode?: ReactNode;
   width?: DialogModalInnerWidth;
   wrapperProps?: BoxProps;
 };

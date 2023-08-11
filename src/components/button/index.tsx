@@ -18,6 +18,7 @@ import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
   WithColorOverlay,
+  WithStateDisabled,
 } from "../../types";
 import type { BoxProps } from "../Box";
 import type { SlotWrapperProps } from "../SlotWrapper";
@@ -50,15 +51,13 @@ const getLoadingSlotSide = ({
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
-    {
+    WithStateDisabled & {
       /** Forces the button's active state */
       active?: boolean;
       /** The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis. */
       appearance?: styles.Appearance;
       /** The React node shown in the button. */
       children?: ReactNode;
-      /** Whether the button is disabled or not. */
-      disabled?: boolean;
       /** Whether to show a loader on first render */
       isLoading?: boolean;
       /** The title for the button, shown in the UI. */

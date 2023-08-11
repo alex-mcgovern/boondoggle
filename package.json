@@ -46,8 +46,11 @@
     "@radix-ui/react-slider": "1.1.1",
     "@radix-ui/react-slot": "1.0.1",
     "@rehookify/datepicker": "5.0.0",
+    "@tanstack/match-sorter-utils": "8.8.4",
+    "@tanstack/react-table": "8.9.3",
     "clsx": "1.2.1",
     "downshift": "7.6.0",
+    "lodash.debounce": "4.0.8",
     "react-hook-form": "7.43.9",
     "zod": "3.21.4"
   },
@@ -56,11 +59,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "ts-prune": "0.10.3",
     "@babel/core": "7.21.8",
     "@babel/preset-env": "7.21.5",
     "@babel/preset-react": "7.18.6",
     "@babel/preset-typescript": "7.21.5",
+    "@faker-js/faker": "8.0.2",
     "@fortawesome/fontawesome-svg-core": "6.4.0",
     "@radix-ui/colors": "0.1.8",
     "@storybook/addon-essentials": "7.0.12",
@@ -123,6 +126,7 @@
     "react-hook-form": "7.43.9",
     "storybook": "7.0.12",
     "storybook-addon-pseudo-states": "2.0.1",
+    "ts-prune": "0.10.3",
     "tsup": "6.7.0",
     "typescript": "5.0.4",
     "webpack-merge": "5.8.0"

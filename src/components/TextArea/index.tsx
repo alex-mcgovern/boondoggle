@@ -11,13 +11,16 @@ import { FieldLabel } from "../FieldLabel";
 import { SlotWrapper } from "../SlotWrapper";
 import * as styles from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  ConditionalLabelProps,
   LabelledElementCustomisation,
+  WithName,
+  WithOptionalLabel,
+  WithSize,
+  WithSlots,
+  WithStateInvalid,
 } from "../../types";
-import type { ComponentPropsWithoutRef, LegacyRef, ReactNode } from "react";
+import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 
 export type TextAreaProps = Omit<
   ComponentPropsWithoutRef<"textarea">,
@@ -25,18 +28,11 @@ export type TextAreaProps = Omit<
 > &
   SprinklesArgs &
   LabelledElementCustomisation &
-  ConditionalLabelProps & {
-    errorMessage?: string;
-    invalid?: boolean;
-    /** Optional tooltip for label */
-    labelTooltip?: string;
-    name: string;
-    size?: ElementSizeEnum;
-    /** React node shown on the left side of text area. */
-    slotLeft?: ReactNode;
-    /** React node shown on the right side of text area. */
-    slotRight?: ReactNode;
-  };
+  WithOptionalLabel &
+  WithStateInvalid &
+  WithSize &
+  WithSlots &
+  WithName;
 
 export const TextArea = forwardRef(
   (

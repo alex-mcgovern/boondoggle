@@ -6,10 +6,10 @@ import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../DatePicker";
 import { Dialog } from "../Dialog";
 import { Icon } from "../Icon";
-import { Input } from "../Input";
+import { Input } from "../InputComp";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
-import type { InputProps } from "../Input";
+import type { InputProps } from "../InputComp";
 import type { MouseEvent } from "react";
 
 /** ----------------------------------------------------------------------------- */

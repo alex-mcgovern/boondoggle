@@ -56,7 +56,6 @@ typings/
 
 # build output
 dist
-lib
 
 # Mac files
 .DS_Store

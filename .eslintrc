@@ -92,7 +92,7 @@
         "no-console": [
           "error",
           {
-            "allow": ["warn", "error", "info"]
+            "allow": ["error", "warn", "info"]
           }
         ],
         "no-unused-vars": "off",
@@ -136,6 +136,33 @@
             "natural": false
           }
         ],
+        "jsdoc/require-jsdoc": [
+          "warn",
+          {
+            "enableFixer": false,
+            "contexts": [
+              "ArrowFunctionExpression",
+              "FunctionDeclaration",
+              "FunctionExpression",
+              // "ObjectExpression",
+              "TSInterfaceDeclaration",
+              // "TSTypeAliasDeclaration",
+              "TSPropertySignature"
+            ]
+          }
+        ],
+        "jsdoc/require-description": [
+          "warn",
+          {
+            "descriptionStyle": "body",
+            "contexts": [
+              "TSInterfaceDeclaration",
+              "ObjectExpression",
+              "ArrowFunctionExpression"
+            ]
+          }
+        ],
+        // "jsdoc/require-description-complete-sentence": "error",
         "typescript-sort-keys/interface": "error",
         "typescript-sort-keys/string-enum": "error",
         "unused-imports/no-unused-imports": "error",

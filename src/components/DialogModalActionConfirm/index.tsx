@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Box } from "../Box";
 import { Button } from "../Button";
-import { Input } from "../Input";
+import { Input } from "../InputComp";
 import { confirmTextStyle } from "./styles.css";
 
 import type { ColorOverlay } from "../../styles/color_palette.css";

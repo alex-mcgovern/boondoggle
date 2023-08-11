@@ -3,17 +3,15 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { RadioButtonCardGroup } from "../RadioButtonCardGroup";
 
+import type { WithFormFieldProps } from "../../types";
 import type { RadioButtonCardGroupProps } from "../RadioButtonCardGroup";
-import type { RegisterOptions } from "react-hook-form";
 
 /** ----------------------------------------------------------------------------- */
 
-export type FormRadioButtonCardGroupProps = RadioButtonCardGroupProps & {
-  defaultValue?: string | number;
-  /** Message to render when erroring. */
-  errorMessage: string;
-  validate?: RegisterOptions["validate"];
-};
+export type FormRadioButtonCardGroupProps = RadioButtonCardGroupProps &
+  WithFormFieldProps & {
+    defaultValue?: string | number;
+  };
 
 export function FormRadioButtonCardGroup({
   defaultValue,

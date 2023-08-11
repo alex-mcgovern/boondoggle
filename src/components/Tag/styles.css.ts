@@ -25,8 +25,6 @@ const tagSize = styleVariants({
   ],
 });
 
-export type TagSizeEnum = keyof typeof tagSize;
-
 export const getTagStyle = recipe({
   base: [
     getSprinkles({

@@ -7,12 +7,14 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { SlotWrapper } from "../SlotWrapper";
 import * as styles from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
   WithColorOverlay,
+  WithSize,
+  WithSlots,
+  WithStateDisabled,
 } from "../../types";
 import type {
   ComponentPropsWithoutRef,
@@ -24,24 +26,17 @@ import type {
 type BaseTabProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
-    WithColorOverlay & {
-      /** The react node rendered in the tab. */
-      children?: ReactNode;
-      /** If `true`, the component is disabled. */
-      disabled?: boolean;
-      /** Used as the html ID. */
-      id?: string;
-      /** Callback on click. */
-      onClick?(...args: unknown[]): unknown;
-      /** The size of the tab */
-      size?: ElementSizeEnum;
-      /** The React node shown on the left side of the Tab. */
-      slotLeft?: ReactNode;
-      /** The React node shown on the right side of the Tab. */
-      slotRight?: ReactNode;
-      /** The string URI to link to. Supports relative and absolute URIs. */
-      to?: string;
-    }
+    WithColorOverlay &
+      WithSlots &
+      WithSize &
+      WithStateDisabled & {
+        /** The react node rendered in the tab. */
+        children?: ReactNode;
+        /** Used as the html ID. */
+        id?: string;
+        /** Callback on click. */
+        onClick?(...args: unknown[]): unknown;
+      }
   >;
 
 type TabComponent = <TPolymorphicAs extends ElementType = "div">(

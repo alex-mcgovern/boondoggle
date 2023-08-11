@@ -8,6 +8,7 @@ export const dialogHeaderStyle = style([
     borderBottom: "border_default",
     display: "flex",
     justifyContent: "space-between",
+    maxWidth: "100%",
     padding: "spacing_2",
   }),
 ]);

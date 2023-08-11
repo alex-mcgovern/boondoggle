@@ -3,14 +3,12 @@ import clsx from "clsx";
 import { Box } from "../Box";
 import * as styles from "./styles.css";
 
+import type { WithSize } from "../../types";
 import type { BoxProps } from "../Box";
-import type { ProgressBarSizeEnum } from "./styles.css";
 
-export type ProgressBarProps = {
+export type ProgressBarProps = WithSize & {
   /** Whether the value will be render with the component */
   isValueVisible?: boolean;
-  /** Size of the progress bar. Consistent with the `Tag` component */
-  size?: ProgressBarSizeEnum;
   /** A number within the range 0-100 */
   value: number;
 } & BoxProps;
