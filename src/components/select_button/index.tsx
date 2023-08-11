@@ -101,9 +101,9 @@ export const SelectButton = forwardRef(
 
           case useSelect.stateChangeTypes.ItemClick:
             if (newSelectedItem?.onClick) {
-              newSelectedItem.onClick();
+              newSelectedItem.onClick?.();
             } else {
-              selectedItem?.onClick();
+              selectedItem?.onClick?.();
             }
 
             if (newSelectedItem) {
