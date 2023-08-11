@@ -1,15 +1,17 @@
 import {
+  createColumnHelper,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 
 import { dataTableFuzzyFilter } from "../../lib/data_table_fuzzy_filter";
 import { Box } from "../box";
 import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
+import { DataTableCellSelectable } from "../data_table_cell_selectable";
 import { DataTableFilterInput } from "../data_table_filter_input";
 import { DataTableLayoutBody } from "../data_table_layout_body";
 import { DataTableLayoutHead } from "../data_table_layout_head";
@@ -45,14 +47,14 @@ type WithOptionalPagination =
 /** ----------------------------------------------------------------------------- */
 
 type WithOptionalFiltering =
-  /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder`  should not be passed. */
+  /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed. */
   | {
       /** Whether the table should be filterable */
-      isFilterable?: boolean;
+      isFilterable?: true;
       /** String to use for filter field placeholder */
       strFilterPlaceholder: string;
     }
-  /** If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed. */
+  /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed. */
   | {
       /** Whether the table should be filterable */
       isFilterable?: false;
@@ -62,7 +64,26 @@ type WithOptionalFiltering =
 
 /** ----------------------------------------------------------------------------- */
 
+type WithOptionalSelectableRows =
+  /** If `isSelectable` is `true`, `enableMultiRowSelection` can be passed. */
+  | {
+      /** Boolean to enable multi-row selection. */
+      enableMultiRowSelection?: boolean;
+      /** Whether the table should allow rows to be selectable */
+      isSelectable: true;
+    }
+  /** If `isSelectable` is `false` or `undefined`, `enableMultiRowSelection` should not be passed. */
+  | {
+      /** Boolean to enable multi-row selection. */
+      enableMultiRowSelection?: never;
+      /** Whether the table should allow rows to be selectable */
+      isSelectable?: false | undefined;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
 export type DataTableProps<TData extends RowData> = WithOptionalPagination &
+  WithOptionalSelectableRows &
   WithOptionalFiltering & {
     /** Up to 2 react nodes to render as actions for the table */
     actions?: ReactNode | [ReactNode?, ReactNode?];
@@ -82,10 +103,12 @@ export type DataTableProps<TData extends RowData> = WithOptionalPagination &
  */
 export function DataTable<TData extends RowData>({
   actions,
-  columns,
+  columns: initColumns,
   data,
+  enableMultiRowSelection = false,
   isFilterable,
   isPaginated,
+  isSelectable,
   isSortable,
   strPage,
   strResults,
@@ -94,8 +117,29 @@ export function DataTable<TData extends RowData>({
   //   const { columnFilters, setColumnFilters } = useDataTableColumnFilterState();
 
   const [globalFilter, setGlobalFilter] = useState("");
+  const [rowSelection, setRowSelection] = useState({});
 
   const hasActionsBar = !!actions || isFilterable;
+
+  const columnHelper = createColumnHelper<TData>();
+
+  const columns = useMemo(() => {
+    if (isSelectable) {
+      return [
+        columnHelper.display({
+          cell: DataTableCellSelectable,
+          enableSorting: false,
+          header: () => {
+            return null;
+          },
+          id: "select",
+        }),
+        ...initColumns,
+      ];
+    }
+
+    return initColumns;
+  }, [columnHelper, initColumns, isSelectable]);
 
   const table = useReactTable({
     columns,
@@ -108,9 +152,16 @@ export function DataTable<TData extends RowData>({
     }),
     ...(isPaginated && { getPaginationRowModel: getPaginationRowModel() }),
     ...(isSortable && { getSortedRowModel: getSortedRowModel() }),
+    ...(isSelectable && {
+      enableMultiRowSelection,
+      onRowSelectionChange: setRowSelection,
+    }),
     state: {
       ...(isFilterable && {
         globalFilter,
+      }),
+      ...(isSelectable && {
+        rowSelection,
       }),
     },
   });

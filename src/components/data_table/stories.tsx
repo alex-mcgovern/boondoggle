@@ -69,6 +69,27 @@ export const IsFilterable: Story = {
 
 /** ----------------------------------------------------------------------------- */
 
+export const IsSelectable: Story = {
+  args: {
+    columns: DATA_TABLE_COLUMNS_MOCK,
+    data: MOCK_DATA,
+    isSelectable: true,
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
+
+export const IsSelectableWithEnableMultiRowSelection: Story = {
+  args: {
+    columns: DATA_TABLE_COLUMNS_MOCK,
+    data: MOCK_DATA,
+    enableMultiRowSelection: true,
+    isSelectable: true,
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
+
 export const WithAggregatedCell: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
