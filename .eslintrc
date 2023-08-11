@@ -163,11 +163,11 @@
           }
         ],
         // "jsdoc/require-description-complete-sentence": "warn",
-        "typescript-sort-keys/interface": "warn",
-        "typescript-sort-keys/string-enum": "warn",
-        "unused-imports/no-unused-imports": "warn",
+        "typescript-sort-keys/interface": "error",
+        "typescript-sort-keys/string-enum": "error",
+        "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
-          "warn",
+          "error",
           {
             "args": "after-used",
             "argsIgnorePattern": "^_",
