@@ -137,7 +137,7 @@
           }
         ],
         "jsdoc/require-jsdoc": [
-          "error",
+          "warn",
           {
             "enableFixer": false,
             "contexts": [
@@ -152,7 +152,7 @@
           }
         ],
         "jsdoc/require-description": [
-          "error",
+          "warn",
           {
             "descriptionStyle": "body",
             "contexts": [

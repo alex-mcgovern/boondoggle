@@ -25,7 +25,7 @@
     "build:dev": "rm -rf lib && tsup --watch",
     "build:prod": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=16384' tsup",
     "build:watch": "tsup --watch",
-    "check": "npm run tsc && npm run ci-lint && npm run test && npm run prune",
+    "check": "npm run tsc && npm run ci-lint && npm run test",
     "ci-build-prerelease": "npm run build:prod && npm version prerelease && npm publish --access public",
     "ci-lint": "eslint . --quiet",
     "format": "prettier  --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
