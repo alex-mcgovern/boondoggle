@@ -34,6 +34,9 @@ export {
  * React components
  * ------------------------------------------------------------------------------- */
 
+export { Avatar } from "./components/avatar";
+export type { AvatarProps } from "./components/avatar";
+
 export { Box } from "./components/box";
 export type { BoxProps } from "./components/box";
 

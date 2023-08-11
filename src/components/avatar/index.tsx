@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { Box } from "../box";
 import { avatarStyle } from "./styles.css";
 
-type AvatarProps = {
+export type AvatarProps = {
   /** First name of the user. */
   firstName?: string;
   /** Last name of the user. */
