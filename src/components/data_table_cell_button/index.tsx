@@ -7,7 +7,7 @@ import {
 
 import type { ButtonProps } from "../button";
 
-type DataTableCellButtonProps = Omit<
+export type DataTableCellButtonProps = Omit<
   ButtonProps,
   "color" | "children" | "appearance" | "className" | "name"
 > & {
