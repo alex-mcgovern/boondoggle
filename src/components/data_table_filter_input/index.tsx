@@ -1,7 +1,7 @@
 import { faSearch } from "@fortawesome/pro-light-svg-icons";
 
-import { Icon } from "../icon_comp";
-import { Input } from "../input_comp";
+import { Icon } from "../icon";
+import { Input } from "../input";
 
 import type { WithPlaceholder } from "../../types";
 import type { Dispatch, SetStateAction } from "react";

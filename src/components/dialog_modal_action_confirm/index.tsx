@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import { Box } from "../box_comp";
-import { Button } from "../button_comp";
-import { Input } from "../input_comp";
+import { Box } from "../box";
+import { Button } from "../button";
+import { Input } from "../input";
 import { confirmTextStyle } from "./styles.css";
 
 import type { ColorOverlay } from "../../styles/color_palette.css";
-import type { ButtonProps } from "../button_comp";
+import type { ButtonProps } from "../button";
 
 export type DialogModalActionConfirmProps = {
   buttonProps?: Omit<ButtonProps, "onClick">;

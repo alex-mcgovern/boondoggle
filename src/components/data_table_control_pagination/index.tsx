@@ -6,12 +6,12 @@ import {
 } from "@fortawesome/pro-light-svg-icons";
 import { useCallback } from "react";
 
-import { Box } from "../box_comp";
-import { Button } from "../button_comp";
-import { Icon } from "../icon_comp";
+import { Box } from "../box";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
-import type { BoxProps } from "../box_comp";
-import type { ButtonProps } from "../button_comp";
+import type { BoxProps } from "../box";
+import type { ButtonProps } from "../button";
 import type { Table } from "@tanstack/react-table";
 
 /** ----------------------------------------------------------------------------- */

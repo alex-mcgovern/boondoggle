@@ -1,4 +1,4 @@
-import { Box } from "../box_comp";
+import { Box } from "../box";
 
 import type { Table } from "@tanstack/react-table";
 

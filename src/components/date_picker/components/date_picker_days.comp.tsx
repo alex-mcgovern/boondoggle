@@ -1,4 +1,4 @@
-import { Button } from "../../button_comp";
+import { Button } from "../../button";
 
 import type {
   DPCalendar,

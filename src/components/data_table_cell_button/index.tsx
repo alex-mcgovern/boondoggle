@@ -1,11 +1,11 @@
-import { Box } from "../box_comp";
-import { Button } from "../button_comp";
+import { Box } from "../box";
+import { Button } from "../button";
 import {
   dataTableCellButtonInnerStyle,
   dataTableCellButtonStyle,
 } from "./styles.css";
 
-import type { ButtonProps } from "../button_comp";
+import type { ButtonProps } from "../button";
 
 type DataTableCellButtonProps = Omit<
   ButtonProps,

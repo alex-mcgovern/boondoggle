@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
-import { RadioButtonCardGroup } from "../radio_button_card_group_comp";
+import { RadioButtonCardGroup } from "../radio_button_card_group";
 
 import type { WithFormFieldProps } from "../../types";
-import type { RadioButtonCardGroupProps } from "../radio_button_card_group_comp";
+import type { RadioButtonCardGroupProps } from "../radio_button_card_group";
 
 /** ----------------------------------------------------------------------------- */
 

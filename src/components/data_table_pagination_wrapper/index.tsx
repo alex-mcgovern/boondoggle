@@ -1,4 +1,4 @@
-import { Box } from "../box_comp";
+import { Box } from "../box";
 import { DataTableControlPageSize } from "../data_table_control_page_size";
 import { DataTableControlPagination } from "../data_table_control_pagination";
 import { DataTableInfoPageCount } from "../data_table_info_page_count";

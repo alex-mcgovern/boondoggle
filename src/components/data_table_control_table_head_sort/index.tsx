@@ -1,7 +1,7 @@
 import { faCaretDown, faCaretUp } from "@fortawesome/pro-light-svg-icons";
 
-import { Button } from "../button_comp";
-import { Icon } from "../icon_comp";
+import { Button } from "../button";
+import { Icon } from "../icon";
 import { getSortControlStyle, sortIconStyle } from "./styles.css";
 
 import type { Header } from "@tanstack/react-table";

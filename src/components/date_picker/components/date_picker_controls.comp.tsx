@@ -4,11 +4,11 @@ import {
   faAngleRight,
 } from "@fortawesome/pro-light-svg-icons";
 
-import { Box } from "../../box_comp";
-import { Button } from "../../button_comp";
-import { Icon } from "../../icon_comp";
+import { Box } from "../../box";
+import { Button } from "../../button";
+import { Icon } from "../../icon";
 
-import type { BoxProps } from "../../box_comp";
+import type { BoxProps } from "../../box";
 import type {
   DPCalendar,
   DPUseMonthsPropGetters,

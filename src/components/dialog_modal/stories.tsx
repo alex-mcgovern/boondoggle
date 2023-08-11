@@ -3,12 +3,12 @@ import { createRef, useCallback } from "react";
 
 import { DialogModal as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box_comp";
-import { Button } from "../button_comp";
+import { Box } from "../box";
+import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog_info_bullet";
 import { DialogModalActionConfirm } from "../dialog_modal_action_confirm";
 import { DialogModalAlert } from "../dialog_modal_alert";
-import { Icon } from "../icon_comp";
+import { Icon } from "../icon";
 
 import type { DialogModalProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";

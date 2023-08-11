@@ -1,6 +1,6 @@
-import { Box } from "../box_comp";
+import { Box } from "../box";
 
-import type { BoxProps } from "../box_comp";
+import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 
 export type FieldDescriptionProps = BoxProps & {

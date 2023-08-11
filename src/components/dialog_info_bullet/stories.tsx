@@ -2,7 +2,7 @@ import { faShapes } from "@fortawesome/pro-light-svg-icons";
 
 import { DialogInfoBullet as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../icon_comp";
+import { Icon } from "../icon";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

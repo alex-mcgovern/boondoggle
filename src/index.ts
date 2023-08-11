@@ -34,17 +34,17 @@ export {
  * React components
  * ------------------------------------------------------------------------------- */
 
-export { Box } from "./components/box_comp";
-export type { BoxProps } from "./components/box_comp";
+export { Box } from "./components/box";
+export type { BoxProps } from "./components/box";
 
-export { Button } from "./components/button_comp";
-export type { ButtonProps } from "./components/button_comp";
+export { Button } from "./components/button";
+export type { ButtonProps } from "./components/button";
 
-export { Collapsible } from "./components/collapsible_comp";
-export type { CollapsibleProps } from "./components/collapsible_comp";
+export { Collapsible } from "./components/collapsible";
+export type { CollapsibleProps } from "./components/collapsible";
 
-export { Dialog } from "./components/dialog_comp";
-export type { DialogProps } from "./components/dialog_comp";
+export { Dialog } from "./components/dialog";
+export type { DialogProps } from "./components/dialog";
 
 export { DialogModal } from "./components/dialog_modal";
 export type { DialogModalProps } from "./components/dialog_modal";
@@ -67,8 +67,8 @@ export type { DialogModalCloseButtonProps } from "./components/dialog_modal_clos
 export { DialogInfoBullet } from "./components/dialog_info_bullet";
 export type { DialogInfoBulletProps } from "./components/dialog_info_bullet";
 
-export { Form } from "./components/form_comp";
-export type { FormProps } from "./components/form_comp";
+export { Form } from "./components/form";
+export type { FormProps } from "./components/form";
 
 export { FormSlider } from "./components/form_slider";
 export type { FormSliderProps } from "./components/form_slider";
@@ -91,13 +91,13 @@ export type { FormTextAreaProps } from "./components/form_text_area";
 export { FormInputDate } from "./components/form_input_date";
 export type { FormInputDateProps } from "./components/form_input_date";
 
-export { FormTestProvider } from "./components/form_comp/form_test_provider.comp";
+export { FormTestProvider } from "./components/form/form_test_provider.comp";
 
 export { FormSubmitButton } from "./components/form_submit_button";
 export type { FormSubmitButtonProps } from "./components/form_submit_button";
 
-export { Input } from "./components/input_comp";
-export type { InputProps } from "./components/input_comp";
+export { Input } from "./components/input";
+export type { InputProps } from "./components/input";
 
 export { InputDate } from "./components/input_date";
 export type { InputDateProps } from "./components/input_date";
@@ -108,40 +108,40 @@ export type { FieldErrorMessageProps } from "./components/field_error_message";
 export { FieldDescription } from "./components/field_description";
 export type { FieldDescriptionProps } from "./components/field_description";
 
-export { Icon } from "./components/icon_comp";
-export type { IconProps } from "./components/icon_comp";
+export { Icon } from "./components/icon";
+export type { IconProps } from "./components/icon";
 
 export { FieldLabel } from "./components/field_label";
 export type { FieldLabelProps } from "./components/field_label";
 
-export { Loader } from "./components/loader_comp";
-export type { LoaderProps } from "./components/loader_comp";
+export { Loader } from "./components/loader";
+export type { LoaderProps } from "./components/loader";
 
-export { SelectButton } from "./components/select_button_comp";
-export type { SelectButtonProps } from "./components/select_button_comp";
+export { SelectButton } from "./components/select_button";
+export type { SelectButtonProps } from "./components/select_button";
 
-export { SlotWrapper } from "./components/slot_wrapper_comp";
-export type { SlotWrapperProps } from "./components/slot_wrapper_comp";
+export { SlotWrapper } from "./components/slot_wrapper";
+export type { SlotWrapperProps } from "./components/slot_wrapper";
 
-export { SelectItem } from "./components/select_item_comp";
-export type { SelectItemProps } from "./components/select_item_comp";
+export { SelectItem } from "./components/select_item";
+export type { SelectItemProps } from "./components/select_item";
 
-export { SelectItemList } from "./components/select_item_list_comp";
-export type { SelectItemListProps } from "./components/select_item_list_comp";
+export { SelectItemList } from "./components/select_item_list";
+export type { SelectItemListProps } from "./components/select_item_list";
 
-export { SelectSingle } from "./components/select_single_comp";
-export type { SelectSingleProps } from "./components/select_single_comp";
+export { SelectSingle } from "./components/select_single";
+export type { SelectSingleProps } from "./components/select_single";
 
-export { SelectMulti } from "./components/select_multi_comp";
-export type { SelectMultiProps } from "./components/select_multi_comp";
+export { SelectMulti } from "./components/select_multi";
+export type { SelectMultiProps } from "./components/select_multi";
 
-export type { SelectItemShape } from "./components/select_comp/types";
+export type { SelectItemShape } from "./components/select/types";
 
 export { ProgressBar } from "./components/progress_bar";
 export type { ProgressBarProps } from "./components/progress_bar";
 
-export { Pill } from "./components/pill_comp";
-export type { PillProps } from "./components/pill_comp";
+export { Pill } from "./components/pill";
+export type { PillProps } from "./components/pill";
 
 /** -----------------------------------------------------------------------------
  * Radio button components
@@ -153,8 +153,8 @@ export type {
   RadioButtonCardShape,
 } from "./components/radio_button_card";
 
-export { RadioButtonCardGroup } from "./components/radio_button_card_group_comp";
-export type { RadioButtonCardGroupProps } from "./components/radio_button_card_group_comp";
+export { RadioButtonCardGroup } from "./components/radio_button_card_group";
+export type { RadioButtonCardGroupProps } from "./components/radio_button_card_group";
 
 export { RadioButton } from "./components/radio_button";
 export type {
@@ -162,17 +162,17 @@ export type {
   RadioButtonShape,
 } from "./components/radio_button";
 
-export { RadioButtonGroup } from "./components/radio_button_group_comp";
-export type { RadioButtonGroupProps } from "./components/radio_button_group_comp";
+export { RadioButtonGroup } from "./components/radio_button_group";
+export type { RadioButtonGroupProps } from "./components/radio_button_group";
 
-export { Tag } from "./components/tag_comp";
-export type { TagProps } from "./components/tag_comp";
+export { Tag } from "./components/tag";
+export type { TagProps } from "./components/tag";
 
-export { Tab } from "./components/tab_comp";
-export type { TabProps } from "./components/tab_comp";
+export { Tab } from "./components/tab";
+export type { TabProps } from "./components/tab";
 
-export { Tooltip } from "./components/tooltip_comp";
-export type { TooltipProps } from "./components/tooltip_comp";
+export { Tooltip } from "./components/tooltip";
+export type { TooltipProps } from "./components/tooltip";
 
-export { TextArea } from "./components/text_area_comp";
-export type { TextAreaProps } from "./components/text_area_comp";
+export { TextArea } from "./components/text_area";
+export type { TextAreaProps } from "./components/text_area";

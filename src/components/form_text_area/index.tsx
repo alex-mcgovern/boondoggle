@@ -1,9 +1,9 @@
 import { useController, useFormContext } from "react-hook-form";
 
-import { TextArea } from "../text_area_comp";
+import { TextArea } from "../text_area";
 
 import type { WithFormFieldProps, WithPlaceholder } from "../../types";
-import type { TextAreaProps } from "../text_area_comp";
+import type { TextAreaProps } from "../text_area";
 
 /**
  * React Hook Form connected version of Boondoggle's `TextArea`. Uses `useFormContext`

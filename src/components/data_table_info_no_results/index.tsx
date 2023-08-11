@@ -3,10 +3,10 @@ import {
   faTimesCircle,
 } from "@fortawesome/pro-light-svg-icons";
 
-import { arrayHasLength } from "../../lib/arrayHasLength";
-import { Box } from "../box_comp";
-import { Button } from "../button_comp";
-import { Icon } from "../icon_comp";
+import { arrayHasLength } from "../../lib/array_has_length";
+import { Box } from "../box";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
 import type { ColumnFiltersState } from "@tanstack/react-table";
 import type { Dispatch, SetStateAction } from "react";

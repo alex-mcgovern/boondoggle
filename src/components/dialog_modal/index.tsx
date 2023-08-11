@@ -1,15 +1,15 @@
 import { Slot } from "@radix-ui/react-slot";
 import { forwardRef } from "react";
 
-import { useDialogModalState } from "../../lib/useDialogModalState";
-import { Box } from "../box_comp";
+import { useDialogModalState } from "../../lib/use_dialog_modal_state";
+import { Box } from "../box";
 import { DialogModalActions } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
 import { DialogModalHeader } from "../dialog_modal_header";
 import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
 
-import type { BoxProps } from "../box_comp";
+import type { BoxProps } from "../box";
 import type { DialogModalActionsProps } from "../dialog_modal_actions";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 import type { ReactNode } from "react";

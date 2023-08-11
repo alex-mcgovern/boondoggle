@@ -1,7 +1,7 @@
 import { faInfoCircle } from "@fortawesome/pro-light-svg-icons";
 
-import { Box } from "../box_comp";
-import { Icon } from "../icon_comp";
+import { Box } from "../box";
+import { Icon } from "../icon";
 import {
   dialogModalAlertSlotStyle,
   getDialogModalAlertWrapperStyles,

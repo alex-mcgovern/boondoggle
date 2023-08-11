@@ -1,8 +1,8 @@
-import { Box } from "../box_comp";
+import { Box } from "../box";
 import { DialogModalCloseButton } from "../dialog_modal_close_button";
 import { dialogHeaderStyle, dialogTitleStyle } from "./styles.css";
 
-import type { useDialogModalState } from "../../lib/useDialogModalState";
+import type { useDialogModalState } from "../../lib/use_dialog_modal_state";
 
 type DialogModalHeaderProps = {
   closeDialog: ReturnType<typeof useDialogModalState>["closeDialog"];

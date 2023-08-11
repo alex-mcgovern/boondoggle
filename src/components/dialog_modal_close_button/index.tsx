@@ -1,7 +1,7 @@
 import { faTimes } from "@fortawesome/pro-light-svg-icons";
 
-import { Button } from "../button_comp";
-import { Icon } from "../icon_comp";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
 export type DialogModalCloseButtonProps = {
   closeDialog: () => void;

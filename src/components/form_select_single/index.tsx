@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
-import { SelectSingle } from "../select_single_comp";
+import { SelectSingle } from "../select_single";
 
 import type { WithFormFieldProps } from "../../types";
-import type { SelectItemShape } from "../select_comp/types";
-import type { SelectSingleProps } from "../select_single_comp";
+import type { SelectItemShape } from "../select/types";
+import type { SelectSingleProps } from "../select_single";
 import type { UseComboboxStateChange } from "downshift";
 
 /** ----------------------------------------------------------------------------- */

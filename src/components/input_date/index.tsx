@@ -4,12 +4,12 @@ import { forwardRef, useCallback, useState } from "react";
 
 import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
-import { Dialog } from "../dialog_comp";
-import { Icon } from "../icon_comp";
-import { Input } from "../input_comp";
+import { Dialog } from "../dialog";
+import { Icon } from "../icon";
+import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
-import type { InputProps } from "../input_comp";
+import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
 /** ----------------------------------------------------------------------------- */

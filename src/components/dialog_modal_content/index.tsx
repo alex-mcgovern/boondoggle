@@ -1,4 +1,4 @@
-import { Box } from "../box_comp";
+import { Box } from "../box";
 import { dialogContentInnerStyle, dialogContentOuterStyle } from "./styles.css";
 
 import type { ReactNode } from "react";

@@ -4,16 +4,16 @@ import { z } from "zod";
 
 import { DialogModalForm as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Button } from "../button_comp";
+import { Button } from "../button";
 import { FormInput } from "../form_input";
 import { FormRadioButtonGroup } from "../form_radio_button_group";
 import { FormSelectSingle } from "../form_select_single";
 import { FormTextArea } from "../form_text_area";
-import { RADIO_BUTTONS_MOCK } from "../radio_button_group_comp/mocks";
-import { mockSelectItems } from "../select_comp/__mocks__/select.mock";
+import { RADIO_BUTTONS_MOCK } from "../radio_button_group/mocks";
+import { mockSelectItems } from "../select/__mocks__/select.mock";
 
 import type { DialogModalFormProps as StoryCompProps } from ".";
-import type { BoxProps } from "../box_comp";
+import type { BoxProps } from "../box";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 /** ----------------------------------------------------------------------------- */

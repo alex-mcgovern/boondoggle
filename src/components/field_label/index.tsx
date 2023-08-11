@@ -1,7 +1,7 @@
-import { Box } from "../box_comp";
-import { Tooltip } from "../tooltip_comp";
+import { Box } from "../box";
+import { Tooltip } from "../tooltip";
 
-import type { BoxProps } from "../box_comp";
+import type { BoxProps } from "../box";
 
 export type FieldLabelProps = BoxProps & {
   htmlFor: string;

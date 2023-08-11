@@ -1,10 +1,10 @@
 import { Slot } from "@radix-ui/react-slot";
 import { Children } from "react";
 
-import { Box } from "../box_comp";
+import { Box } from "../box";
 import { dialogModalActionsWrapperStyle } from "./styles.css";
 
-import type { useDialogModalState } from "../../lib/useDialogModalState";
+import type { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import type { ReactNode } from "react";
 
 export type DialogModalActionsProps = {

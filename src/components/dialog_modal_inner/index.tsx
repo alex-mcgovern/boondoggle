@@ -1,7 +1,7 @@
-import { Box } from "../box_comp";
+import { Box } from "../box";
 import { getDialogModalInnerStyle } from "./styles.css";
 
-import type { BoxProps } from "../box_comp";
+import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "./styles.css";
 import type { ReactNode } from "react";
 
