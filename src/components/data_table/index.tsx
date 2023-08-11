@@ -50,7 +50,7 @@ type WithOptionalFiltering =
   /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed. */
   | {
       /** Whether the table should be filterable */
-      isFilterable?: true;
+      isFilterable: true;
       /** String to use for filter field placeholder */
       strFilterPlaceholder: string;
     }
@@ -115,6 +115,7 @@ export function DataTable<TData extends RowData>({
   isSelectable,
   isSortable,
   onSelect,
+  strFilterPlaceholder,
   strPage,
   strResults,
   strShow,
@@ -200,7 +201,7 @@ export function DataTable<TData extends RowData>({
         leftAction={
           isFilterable ? (
             <DataTableFilterInput
-              placeholder="Filter"
+              placeholder={strFilterPlaceholder}
               setGlobalFilter={setGlobalFilter}
             />
           ) : null
