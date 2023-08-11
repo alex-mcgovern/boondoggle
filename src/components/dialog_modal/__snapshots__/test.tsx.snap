@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DialogModal /> default on initial render should match snapshot 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    Open
+  </button>
+  <div
+    class="get_sprinkles_position_relative_mobile__eiij7bgb"
+  >
+    <dialog
+      class="styles_dialogModalOuterStyle__xbhn3g1 animations_animateFadeIn__apgy12 styles__xbhn3g0 get_sprinkles_background_background__eiij7ba get_sprinkles_borderRadius_lg__eiij7bx get_sprinkles_padding_none_mobile__eiij7bbt"
+    >
+      <div
+        class="styles_getDialogModalInnerStyle__bryhpl3 styles__bryhpl2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_flexDirection_column_mobile__eiij7b9h get_sprinkles_maxWidth_100vw__eiij7b5y get_sprinkles_overflow_hidden__eiij7b86 get_sprinkles_padding_none_mobile__eiij7bbt get_sprinkles_width_100vw_mobile__eiij7bgq styles_getDialogModalInnerStyle_width_sm__bryhpl5 styles_variantWidth_sm__bryhpl1"
+      >
+        <div
+          class="styles_dialogHeaderStyle__7f53ve1 styles__7f53ve0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderBottom_border_default__eiij7bt get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_justifyContent_space-between__eiij7b3c get_sprinkles_maxWidth_100%__eiij7b5x get_sprinkles_padding_spacing_2_mobile__eiij7bc8"
+        >
+          <h3
+            class="styles_dialogTitleStyle__7f53ve3 styles__7f53ve2 get_sprinkles_marginTop_none__eiij7b50 get_sprinkles_marginBottom_none__eiij7b43 get_sprinkles_fontWeight_semibold__eiij7b2i"
+          >
+            hello
+          </h3>
+          <button
+            aria-label="Close"
+            class="styles_getButtonStyles__1yqzeadr a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadh get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7b92 get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_textDecoration_none__eiij7b8d styles_getButtonStyles_appearance_ghost__1yqzeads styles_variantAppearance_ghost__1yqzeadc styles__1yqzead7 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_whiteSpace_nowrap__eiij7b8j styles_getButtonStyles_size_square_md__1yqzead10 styles_variantSize_square_md__1yqzead5 styles__1yqzead0 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_width_spacing_5_mobile__eiij7biw get_sprinkles_marginLeft_auto__eiij7b4d"
+            name="close"
+            type="button"
+          >
+            <div
+              class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_color_inherit__eiij7b1p"
+            >
+              <div
+                class="styles_getSlotStyles__hlxmy27 styles__hlxmy26 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_width_spacing_3_mobile__eiij7biq get_sprinkles_color_inherit__eiij7b1p get_sprinkles_flexShrink_0__eiij7b1w"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-xmark styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
+                  data-icon="xmark"
+                  data-prefix="fal"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 384 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div
+          class="styles_dialogContentOuterStyle__l8uldv1 styles__l8uldv0 get_sprinkles_flexGrow_1__eiij7b1v get_sprinkles_overflowY_auto__eiij7b87"
+        >
+          <div
+            class="styles_dialogContentInnerStyle__l8uldv3 styles__l8uldv2 get_sprinkles_padding_spacing_2_mobile__eiij7bc8"
+          >
+            hello
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </div>
+</div>
+`;

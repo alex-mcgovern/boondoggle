@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
 import { Box } from "../box";
 import { Button } from "../button";
@@ -18,49 +18,57 @@ export type DialogModalActionConfirmProps = {
   promptSuffix: string;
 };
 
-export function DialogModalActionConfirm({
-  buttonProps,
-  buttonText,
-  colorOverlay,
-  confirmText,
-  onClick,
-  promptPrefix,
-  promptSuffix,
-}: DialogModalActionConfirmProps) {
-  const [userConfirmText, setUserConfirmText] = useState("");
+export const DialogModalActionConfirm = forwardRef<
+  HTMLDivElement,
+  DialogModalActionConfirmProps
+>(
+  (
+    {
+      buttonProps,
+      buttonText,
+      colorOverlay,
+      confirmText,
+      onClick,
+      promptPrefix,
+      promptSuffix,
+    }: DialogModalActionConfirmProps,
+    ref
+  ) => {
+    const [userConfirmText, setUserConfirmText] = useState("");
 
-  return (
-    <>
-      <Box className={confirmTextStyle}>
-        <Box as="span">{promptPrefix}</Box>{" "}
-        <Box as="span" fontWeight="bold">
-          {confirmText}
-        </Box>{" "}
-        <Box as="span">{promptSuffix}</Box>
+    return (
+      <Box ref={ref}>
+        <Box className={confirmTextStyle}>
+          <Box as="span">{promptPrefix}</Box>{" "}
+          <Box as="span" fontWeight="bold">
+            {confirmText}
+          </Box>{" "}
+          <Box as="span">{promptSuffix}</Box>
+        </Box>
+
+        <Input
+          colorOverlay={colorOverlay}
+          marginBottom="spacing_2"
+          name="dialog_confirm_text"
+          onChange={(e) => {
+            return setUserConfirmText(e.target.value);
+          }}
+          placeholder=""
+          value={userConfirmText}
+        />
+
+        <Button
+          appearance="primary"
+          colorOverlay={colorOverlay}
+          disabled={userConfirmText !== confirmText}
+          name="primary_action"
+          onClick={onClick}
+          width="100%"
+          {...buttonProps}
+        >
+          {buttonText}
+        </Button>
       </Box>
-
-      <Input
-        colorOverlay={colorOverlay}
-        marginBottom="spacing_2"
-        name="dialog_confirm_text"
-        onChange={(e) => {
-          return setUserConfirmText(e.target.value);
-        }}
-        placeholder=""
-        value={userConfirmText}
-      />
-
-      <Button
-        appearance="primary"
-        colorOverlay={colorOverlay}
-        disabled={userConfirmText !== confirmText}
-        name="primary_action"
-        onClick={onClick}
-        width="100%"
-        {...buttonProps}
-      >
-        {buttonText}
-      </Button>
-    </>
-  );
-}
+    );
+  }
+);

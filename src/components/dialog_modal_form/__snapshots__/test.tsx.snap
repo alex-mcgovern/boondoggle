@@ -1,0 +1,432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    Open
+  </button>
+  <div
+    class="get_sprinkles_position_relative_mobile__eiij7bgb"
+  >
+    <button
+      class="styles_getButtonStyles__1yqzeadr a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadh get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7b92 get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_textDecoration_none__eiij7b8d styles_getButtonStyles_appearance_primary__1yqzeadu styles_variantAppearance_primary__1yqzeade styles__1yqzead9 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_whiteSpace_nowrap__eiij7b8j styles_getButtonStyles_size_md__1yqzeady styles_variantSize_md__1yqzead3 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f styles_getButtonStyles_compound_1__1yqzead13 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__1yqzeadj get_sprinkles_height_spacing_5__eiij7b33"
+      name="dialog_trigger"
+      type="button"
+    >
+      <div
+        class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_color_inherit__eiij7b1p"
+      >
+        Open dialog
+      </div>
+    </button>
+    <dialog
+      class="styles_dialogModalOuterStyle__xbhn3g1 animations_animateFadeIn__apgy12 styles__xbhn3g0 get_sprinkles_background_background__eiij7ba get_sprinkles_borderRadius_lg__eiij7bx get_sprinkles_padding_none_mobile__eiij7bbt"
+    >
+      <form
+        class="styles_getDialogModalInnerStyle__bryhpl3 styles__bryhpl2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_flexDirection_column_mobile__eiij7b9h get_sprinkles_maxWidth_100vw__eiij7b5y get_sprinkles_overflow_hidden__eiij7b86 get_sprinkles_padding_none_mobile__eiij7bbt get_sprinkles_width_100vw_mobile__eiij7bgq styles_getDialogModalInnerStyle_width_sm__bryhpl5 styles_variantWidth_sm__bryhpl1"
+      >
+        <div
+          class="styles_dialogHeaderStyle__7f53ve1 styles__7f53ve0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderBottom_border_default__eiij7bt get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_justifyContent_space-between__eiij7b3c get_sprinkles_maxWidth_100%__eiij7b5x get_sprinkles_padding_spacing_2_mobile__eiij7bc8"
+        >
+          <h3
+            class="styles_dialogTitleStyle__7f53ve3 styles__7f53ve2 get_sprinkles_marginTop_none__eiij7b50 get_sprinkles_marginBottom_none__eiij7b43 get_sprinkles_fontWeight_semibold__eiij7b2i"
+          >
+            Dialog modal form
+          </h3>
+          <button
+            aria-label="Close"
+            class="styles_getButtonStyles__1yqzeadr a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadh get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7b92 get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_textDecoration_none__eiij7b8d styles_getButtonStyles_appearance_ghost__1yqzeads styles_variantAppearance_ghost__1yqzeadc styles__1yqzead7 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_whiteSpace_nowrap__eiij7b8j styles_getButtonStyles_size_square_md__1yqzead10 styles_variantSize_square_md__1yqzead5 styles__1yqzead0 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f get_sprinkles_aspectRatio_square__eiij7b6 get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_width_spacing_5_mobile__eiij7biw get_sprinkles_marginLeft_auto__eiij7b4d"
+            name="close"
+            type="button"
+          >
+            <div
+              class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_color_inherit__eiij7b1p"
+            >
+              <div
+                class="styles_getSlotStyles__hlxmy27 styles__hlxmy26 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_width_spacing_3_mobile__eiij7biq get_sprinkles_color_inherit__eiij7b1p get_sprinkles_flexShrink_0__eiij7b1w"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-xmark styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
+                  data-icon="xmark"
+                  data-prefix="fal"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 384 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div
+          class="styles_dialogContentOuterStyle__l8uldv1 styles__l8uldv0 get_sprinkles_flexGrow_1__eiij7b1v get_sprinkles_overflowY_auto__eiij7b87"
+        >
+          <div
+            class="styles_dialogContentInnerStyle__l8uldv3 styles__l8uldv2 get_sprinkles_padding_spacing_2_mobile__eiij7bc8"
+          >
+            <div
+              class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+            >
+              <label
+                class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
+                for="email"
+              >
+                Email label
+              </label>
+              <div
+                class="get_sprinkles_position_relative_mobile__eiij7bgb"
+              >
+                <input
+                  class="styles_getInputStyles__1i5hpgs9 styles__1i5hpgs8 get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 styles_getInputStyles_hasBorder_true__1i5hpgsb styles_hasBorder_true__1i5hpgs7 styles_getInputStyles_size_md__1i5hpgsd styles_size_md__1i5hpgs4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__1i5hpgs1 get_sprinkles_height_spacing_5__eiij7b33"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+            >
+              <label
+                class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
+                for="description"
+              >
+                Description label
+              </label>
+              <div
+                class="get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+              >
+                <textarea
+                  aria-invalid="false"
+                  aria-label="Description label"
+                  class="styles_getTextAreaStyles__jyp1w7 styles__jyp1w6 get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getTextAreaStyles_size_md__jyp1w9 styles_size_md__jyp1w4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__jyp1w1 get_sprinkles_minHeight_spacing_5__eiij7b7a"
+                  id="description"
+                  name="description"
+                  placeholder="Enter your description"
+                />
+              </div>
+            </div>
+            <div>
+              <div
+                class="get_sprinkles_position_relative_mobile__eiij7bgb"
+              >
+                <div
+                  class="get_sprinkles_background_transparent__eiij7bp"
+                >
+                  <div
+                    class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+                  >
+                    <label
+                      class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
+                      for="select"
+                      id="downshift-2-label"
+                    >
+                      Dropdown label
+                    </label>
+                    <div
+                      class="get_sprinkles_position_relative_mobile__eiij7bgb"
+                    >
+                      <input
+                        aria-activedescendant=""
+                        aria-autocomplete="list"
+                        aria-controls="downshift-2-menu"
+                        aria-expanded="false"
+                        aria-labelledby="downshift-2-label"
+                        autocomplete="off"
+                        class="styles_offsetSlotRightStyle__18m4u7id styles_getInputStyles__1i5hpgs9 styles__1i5hpgs8 get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 styles_getInputStyles_hasBorder_true__1i5hpgsb styles_hasBorder_true__1i5hpgs7 styles_getInputStyles_size_md__1i5hpgsd styles_size_md__1i5hpgs4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__1i5hpgs1 get_sprinkles_height_spacing_5__eiij7b33 select_input.styles_selectInputCursorStyles__1bkra5a0"
+                        id="select"
+                        name="select"
+                        placeholder="Select an option from the dropdown"
+                        readonly=""
+                        role="combobox"
+                        value=""
+                      />
+                      <div
+                        class="styles_slotOuterStyle__18m4u7i7 styles__18m4u7i6 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_bottom_0__eiij7b15 get_sprinkles_color_inherit__eiij7b1p get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_height_100%__eiij7b2k get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_position_absolute_mobile__eiij7bge get_sprinkles_top_0__eiij7b8i get_sprinkles_width_spacing_5_mobile__eiij7biw get_sprinkles_right_0__eiij7b88"
+                      >
+                        <div
+                          class="styles_getSlotInnerStyles__18m4u7i9 styles__18m4u7i8 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_justifyContent_center__eiij7b39 styles_getSlotInnerStyles_size_md__18m4u7ib styles_slotSize_md__18m4u7i4 styles__18m4u7i1 get_sprinkles_maxHeight_spacing_2__eiij7b5r get_sprinkles_maxWidth_spacing_2__eiij7b6l"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-angle-down styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
+                            data-icon="angle-down"
+                            data-prefix="fal"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 448 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M212.7 331.3c6.2 6.2 16.4 6.2 22.6 0l160-160c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L224 297.4 75.3 148.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l160 160z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <dialog
+                  aria-labelledby="downshift-2-label"
+                  class="styles_selectItemListWrapper__tx55ph1 a11y_a11yFocus__r8he5t2 styles__tx55ph0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_spacing_1__eiij7b53 get_sprinkles_minWidth_100%__eiij7b7d get_sprinkles_overflow_hidden__eiij7b86 get_sprinkles_overflowY_auto__eiij7b87 get_sprinkles_width_max-content_mobile__eiij7bi2 styles_getDialogStyles__thg74k7 animations_animateFadeIn__apgy12 styles__thg74k6 get_sprinkles_overflow_hidden__eiij7b86 get_sprinkles_padding_none_mobile__eiij7bbt get_sprinkles_zIndex_1__eiij7b8m styles_getDialogStyles_placement_bottom-start__thg74ka styles_placement_bottom-start__thg74k2 get_sprinkles_width_100%_mobile__eiij7bgn"
+                  id="downshift-2-menu"
+                  role="listbox"
+                >
+                  <div
+                    class="styles_dialogContentStyles__thg74ke"
+                  >
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-0"
+                      role="option"
+                      value="uk"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        United Kingdom
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-1"
+                      role="option"
+                      value="fr"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        France
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-2"
+                      role="option"
+                      value="de"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        Germany
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-3"
+                      role="option"
+                      value="es"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        Spain
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-4"
+                      role="option"
+                      value="gb"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        The United Kingdom of Great Britain and Northern Ireland
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-5"
+                      role="option"
+                      value="it"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        Italy
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-6"
+                      role="option"
+                      value="pt"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        Portugal
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-7"
+                      role="option"
+                      value="us"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        United States
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-8"
+                      role="option"
+                      value="ca"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        Canada
+                      </div>
+                    </li>
+                    <li
+                      aria-selected="false"
+                      class="styles_getDropdownItemStyles__bu9q427 styles__bu9q426 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_margin_none__eiij7b3s get_sprinkles_padding_spacing_1_mobile__eiij7bc2 get_sprinkles_textAlign_left__eiij7b8a get_sprinkles_textDecoration_none__eiij7b8d get_sprinkles_width_100%_mobile__eiij7bgn a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q429 styles_size_md__bu9q424 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__bu9q421 get_sprinkles_height_spacing_5__eiij7b33 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                      id="downshift-2-item-9"
+                      role="option"
+                      value="au"
+                    >
+                      <div
+                        class="get_sprinkles_flexShrink_0__eiij7b1w"
+                      >
+                        Australia
+                      </div>
+                    </li>
+                  </div>
+                </dialog>
+              </div>
+            </div>
+            <div>
+              <label
+                class="styles_getGroupLabelStyles__1h8r4ks0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
+                for="select"
+                id="label-select"
+              >
+                Dropdown label
+              </label>
+              <fieldset
+                aria-labelledby="label-select"
+                class="get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_flexDirection_column_mobile__eiij7b9h get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                id="select"
+                name="radio"
+              >
+                <div
+                  class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                >
+                  <input
+                    class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
+                    id="radio-radio_item_1"
+                    name="radio"
+                    type="radio"
+                    value="radio_item_1"
+                  />
+                  <label
+                    class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bgb"
+                    for="radio-radio_item_1"
+                  >
+                    <div>
+                      Radio item 1
+                    </div>
+                    <div
+                      class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+                    >
+                      Lorem ipsum
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                >
+                  <input
+                    class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
+                    id="radio-radio_item_2"
+                    name="radio"
+                    type="radio"
+                    value="radio_item_2"
+                  />
+                  <label
+                    class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bgb"
+                    for="radio-radio_item_2"
+                  >
+                    <div>
+                      Radio item 2
+                    </div>
+                    <div
+                      class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+                    >
+                      Lorem ipsum
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+                >
+                  <input
+                    class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
+                    id="radio-radio_item_3"
+                    name="radio"
+                    type="radio"
+                    value="radio_item_3"
+                  />
+                  <label
+                    class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bgb"
+                    for="radio-radio_item_3"
+                  >
+                    <div>
+                      Radio item 3
+                    </div>
+                    <div
+                      class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+                    >
+                      Lorem ipsum
+                    </div>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="styles_dialogModalActionsWrapperStyle__1r3dwj31 styles__1r3dwj30 get_sprinkles_borderTop_border_default__eiij7b14 get_sprinkles_display_grid_mobile__eiij7b8t get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_padding_spacing_2_mobile__eiij7bc8"
+          style="grid-template-columns: repeat(1, 1fr);"
+        >
+          <button
+            class="styles_getButtonStyles__1yqzeadr a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadh get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7b92 get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_textDecoration_none__eiij7b8d styles_getButtonStyles_appearance_primary__1yqzeadu styles_variantAppearance_primary__1yqzeade styles__1yqzead9 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b39 get_sprinkles_whiteSpace_nowrap__eiij7b8j styles_getButtonStyles_size_md__1yqzeady styles_variantSize_md__1yqzead3 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3f styles_getButtonStyles_compound_1__1yqzead13 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_spacing_1.5_mobile__eiij7bdz get_sprinkles_paddingRight_spacing_1.5_mobile__eiij7bew get_sprinkles_paddingTop_spacing_1_mobile__eiij7bfq get_sprinkles_paddingBottom_spacing_1_mobile__eiij7bcz styles__1yqzeadj get_sprinkles_height_spacing_5__eiij7b33"
+            name="submit"
+            type="submit"
+          >
+            <div
+              class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2 get_sprinkles_color_inherit__eiij7b1p"
+            >
+              Submit
+            </div>
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </div>
+</div>
+`;
