@@ -29,7 +29,7 @@ export type DialogModalFormProps = {
   handleFormSubmission: (fieldValues: FieldValues) => Promise<void>;
   resolver?: Resolver<FieldValues, any>;
   title: string;
-  triggerNode: ReactNode;
+  triggerNode?: ReactNode;
   width?: DialogModalInnerWidth;
   wrapperProps?: BoxProps;
 };
