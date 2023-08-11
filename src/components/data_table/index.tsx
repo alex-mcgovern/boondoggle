@@ -62,7 +62,7 @@ type WithOptionalFiltering =
 
 /** ----------------------------------------------------------------------------- */
 
-type DataTableProps<TData extends RowData> = WithOptionalPagination &
+export type DataTableProps<TData extends RowData> = WithOptionalPagination &
   WithOptionalFiltering & {
     /** Up to 2 react nodes to render as actions for the table */
     actions?: ReactNode | [ReactNode?, ReactNode?];

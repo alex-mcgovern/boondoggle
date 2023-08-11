@@ -43,6 +43,9 @@ export type { ButtonProps } from "./components/button";
 export { Collapsible } from "./components/collapsible";
 export type { CollapsibleProps } from "./components/collapsible";
 
+export { DataTable } from "./components/data_table";
+export type { DataTableProps } from "./components/data_table";
+
 export { Dialog } from "./components/dialog";
 export type { DialogProps } from "./components/dialog";
 
