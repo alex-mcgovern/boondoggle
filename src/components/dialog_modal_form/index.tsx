@@ -76,9 +76,11 @@ export const DialogModalForm = forwardRef<
     return (
       <FormProvider {...formMethods}>
         <Box position="relative" {...wrapperProps}>
-          <Slot onClick={toggleIsOpen} ref={triggerRef}>
-            {triggerNode}
-          </Slot>
+          {triggerNode && (
+            <Slot onClick={toggleIsOpen} ref={triggerRef}>
+              {triggerNode}
+            </Slot>
+          )}
 
           <DialogModalOuter dialogRef={dialogRef}>
             <DialogModalInner

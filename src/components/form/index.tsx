@@ -13,7 +13,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
   "children"
 > & {
   children: ReactNode | ReactNode[];
-  handleErrors?:
+  handleErrors:
     | ((errors: FieldErrors) => Promise<void>)
     | ((errors: FieldErrors) => void);
   handleFormSubmission:
