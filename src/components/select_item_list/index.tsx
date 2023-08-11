@@ -21,7 +21,7 @@ import type { LegacyRef } from "react";
  */
 export type SelectItemListProps = DialogProps &
   WithSize & {
-    getIsItemSelected: (item: SelectItemShape) => boolean;
+    getIsItemSelected?: (item: SelectItemShape) => boolean;
     getItemProps: UseComboboxPropGetters<SelectItemShape>["getItemProps"];
     getMenuProps: UseComboboxPropGetters<SelectItemShape>["getMenuProps"];
     getSelectedItemProps?: (

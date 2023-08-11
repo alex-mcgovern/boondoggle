@@ -1,14 +1,11 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import { useSelect } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
+import { forwardRef, useState } from "react";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
 import { Button, type ButtonProps } from "../button";
-import {
-  getDefaultHighlightedIndex,
-  getIsSelected,
-} from "../select/select_utils";
+import { getDefaultHighlightedIndex } from "../select/select_utils";
 import { DEFAULT_SLOT_RIGHT } from "../select/shared/DEFAULT_SLOT_RIGHT";
 import { SelectItemList } from "../select_item_list";
 
@@ -103,10 +100,13 @@ export const SelectButton = forwardRef(
             break;
 
           case useSelect.stateChangeTypes.ItemClick:
+            if (newSelectedItem?.onClick) {
+              newSelectedItem.onClick();
+            } else {
+              selectedItem?.onClick();
+            }
+
             if (newSelectedItem) {
-              if (newSelectedItem.onClick) {
-                newSelectedItem.onClick();
-              }
               setSelectedItem(newSelectedItem);
             }
             setIsOpen(false);
@@ -120,22 +120,9 @@ export const SelectButton = forwardRef(
 
     /** --------------------------------------------- */
 
-    const getIsItemSelected = useCallback(
-      (item: SelectItemShape) => {
-        return getIsSelected({
-          item,
-          selectedItem,
-        });
-      },
-      [selectedItem]
-    );
-
-    /** --------------------------------------------- */
-
     return (
       <Box {...wrapperProps}>
         <SelectItemList
-          getIsItemSelected={getIsItemSelected}
           getItemProps={getItemProps}
           getMenuProps={getMenuProps}
           highlightedIndex={highlightedIndex}
