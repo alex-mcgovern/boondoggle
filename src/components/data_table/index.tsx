@@ -85,7 +85,7 @@ type WithOptionalSelectableRows =
       /** Whether the table should allow rows to be selectable */
       isSelectable?: false | undefined;
       /** Function called on a new selection, with the current selection */
-      onSelect: never;
+      onSelect?: never;
     };
 
 /** ----------------------------------------------------------------------------- */
