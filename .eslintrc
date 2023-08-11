@@ -16,7 +16,7 @@
         "airbnb/hooks",
         "airbnb-typescript",
         "eslint:recommended",
-        // "plugin:react-perf/recommended",
+        "plugin:react-perf/recommended",
         "prettier",
         "plugin:@typescript-eslint/recommended"
       ],
@@ -24,7 +24,7 @@
       "plugins": [
         "import",
         "jsdoc",
-        // "react-perf",
+        "react-perf",
         "sonarjs",
         "sort-destructure-keys",
         "sort-keys-fix",
@@ -33,14 +33,14 @@
       ],
       "rules": {
         "@typescript-eslint/consistent-type-imports": [
-          "warn",
+          "error",
           {
             "disallowTypeAnnotations": true,
             "prefer": "type-imports"
           }
         ],
         "import/no-restricted-paths": [
-          "warn",
+          "error",
           {
             "zones": [
               {
@@ -51,16 +51,16 @@
             ]
           }
         ],
-        "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/prefer-optional-chain": "warn",
-        "@typescript-eslint/switch-exhaustiveness-check": "warn",
-        "arrow-body-style": ["warn", "always"],
-        "curly": ["warn", "all"],
-        "import/no-cycle": "warn",
-        "import/no-default-export": "warn",
-        "import/no-duplicates": "warn",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/prefer-optional-chain": "error",
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
+        "arrow-body-style": ["error", "always"],
+        "curly": ["error", "all"],
+        "import/no-cycle": "error",
+        "import/no-default-export": "error",
+        "import/no-duplicates": "error",
         "import/no-extraneous-dependencies": [
-          "warn",
+          "error",
           {
             "devDependencies": [
               "**/*.test.ts",
@@ -76,7 +76,7 @@
           }
         ],
         "import/order": [
-          "warn",
+          "error",
           {
             "groups": [
               ["builtin", "external"],
@@ -90,19 +90,19 @@
         ],
         "import/prefer-default-export": "off",
         "no-console": [
-          "warn",
+          "error",
           {
             "allow": ["error", "warn", "info"]
           }
         ],
         "no-unused-vars": "off",
-        // "react-perf/jsx-no-jsx-as-prop": "warn",
-        // "react-perf/jsx-no-new-array-as-prop": "warn",
-        // "react-perf/jsx-no-new-function-as-prop": "warn",
-        // "react-perf/jsx-no-new-object-as-prop": "warn",
-        "react/button-has-type": "warn",
+        "react-perf/jsx-no-jsx-as-prop": "warn",
+        "react-perf/jsx-no-new-array-as-prop": "warn",
+        "react-perf/jsx-no-new-function-as-prop": "warn",
+        "react-perf/jsx-no-new-object-as-prop": "warn",
+        "react/button-has-type": "error",
         "react/destructuring-assignment": [
-          "warn",
+          "error",
           "always",
           {
             "destructureInSignature": "always",
@@ -110,26 +110,26 @@
           }
         ],
         "react/jsx-filename-extension": [
-          "warn",
+          "error",
           {
             "extensions": [".tsx"]
           }
         ],
         "react/jsx-props-no-spreading": "off",
         "react/jsx-sort-props": [
-          "warn",
+          "error",
           {
             "ignoreCase": true
           }
         ],
         "react/jsx-uses-react": "off",
-        "react/no-multi-comp": "warn",
+        "react/no-multi-comp": "error",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/require-default-props": "off",
-        "sort-destructure-keys/sort-destructure-keys": "warn",
+        "sort-destructure-keys/sort-destructure-keys": "error",
         "sort-keys-fix/sort-keys-fix": [
-          "warn",
+          "error",
           "asc",
           {
             "caseSensitive": false,
@@ -162,12 +162,12 @@
             ]
           }
         ],
-        // "jsdoc/require-description-complete-sentence": "warn",
-        "typescript-sort-keys/interface": "warn",
-        "typescript-sort-keys/string-enum": "warn",
-        "unused-imports/no-unused-imports": "warn",
+        // "jsdoc/require-description-complete-sentence": "error",
+        "typescript-sort-keys/interface": "error",
+        "typescript-sort-keys/string-enum": "error",
+        "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
-          "warn",
+          "error",
           {
             "args": "after-used",
             "argsIgnorePattern": "^_",
@@ -226,7 +226,7 @@
 
       "rules": {
         "import/no-default-export": "off",
-        "import/prefer-default-export": "warn",
+        "import/prefer-default-export": "error",
         "react/function-component-definition": "off",
         "react/no-multi-comp": "off"
       }
@@ -240,7 +240,7 @@
 
       "rules": {
         "import/no-default-export": "off",
-        "import/prefer-default-export": "warn"
+        "import/prefer-default-export": "error"
       }
     }
   ]
