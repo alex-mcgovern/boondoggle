@@ -11,17 +11,17 @@ exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
       <span
         aria-disabled="false"
         aria-label="Name ipsum"
-        class="styles_sliderRoot__1j1mico1 styles__1j1mico0 get_sprinkles_marginTop_spacing_1__eiij7b53 get_sprinkles_marginBottom_spacing_1__eiij7b46 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_position_relative_mobile__eiij7bgb get_sprinkles_width_100%_mobile__eiij7bgn"
+        class="styles_sliderRoot__oapqrt1 styles__oapqrt0 get_sprinkles_marginTop_spacing_1__eiij7b53 get_sprinkles_marginBottom_spacing_1__eiij7b46 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_position_relative_mobile__eiij7bgb get_sprinkles_width_100%_mobile__eiij7bgn"
         data-orientation="horizontal"
         dir="ltr"
         style="--radix-slider-thumb-transform: translateX(-50%);"
       >
         <span
-          class="styles_sliderTrack__1j1mico3 styles__1j1mico2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_position_relative_mobile__eiij7bgb"
+          class="styles_sliderTrack__oapqrt3 styles__oapqrt2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_position_relative_mobile__eiij7bgb"
           data-orientation="horizontal"
         >
           <span
-            class="styles_sliderRange__1j1mico5 styles__1j1mico4 get_sprinkles_background_button_default__eiij7bf get_sprinkles_borderRadius_pill__eiij7bz get_sprinkles_height_100%__eiij7b2k get_sprinkles_position_absolute_mobile__eiij7bge"
+            class="styles_sliderRange__oapqrt5 styles__oapqrt4 get_sprinkles_background_button_default__eiij7bf get_sprinkles_borderRadius_pill__eiij7bz get_sprinkles_height_100%__eiij7b2k get_sprinkles_position_absolute_mobile__eiij7bge"
             data-orientation="horizontal"
             style="left: 0%; right: 100%;"
           />
@@ -34,7 +34,7 @@ exports[`<Slider /> Basic smoke tests should match snapshot 1`] = `
             aria-valuemax="100"
             aria-valuemin="0"
             aria-valuenow="0"
-            class="styles_sliderThumb__1j1mico7 styles__1j1mico6 get_sprinkles_background_tint_default__eiij7bm get_sprinkles_border_border_active__eiij7bq get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_display_block_mobile__eiij7b8n get_sprinkles_height_spacing_3__eiij7b31 get_sprinkles_width_spacing_3_mobile__eiij7biq"
+            class="styles_sliderThumb__oapqrt7 styles__oapqrt6 get_sprinkles_background_tint_default__eiij7bm get_sprinkles_border_border_active__eiij7bq get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_display_block_mobile__eiij7b8n get_sprinkles_height_spacing_3__eiij7b31 get_sprinkles_width_spacing_3_mobile__eiij7biq"
             data-orientation="horizontal"
             data-radix-collection-item=""
             role="slider"

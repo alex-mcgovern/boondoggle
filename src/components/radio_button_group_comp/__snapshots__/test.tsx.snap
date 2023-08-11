@@ -4,7 +4,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
 <div>
   <div>
     <label
-      class="styles_getGroupLabelStyles__3qsm1q0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
+      class="styles_getGroupLabelStyles__13jlf4h0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
       for="test"
       id="label-test"
     >
@@ -17,17 +17,17 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
       name="test"
     >
       <div
-        class="styles_radioButtonWrapperStyles__182l9io1 styles__182l9io0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
       >
         <input
-          class="styles_radioButtonInputStyles__182l9io3 a11y_a11yFocus__r8he5t2 styles__182l9io2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
+          class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
           id="test-radio_item_1"
           name="test"
           type="radio"
           value="radio_item_1"
         />
         <label
-          class="styles_radioButtonLabelStyles__182l9io4 get_sprinkles_position_relative_mobile__eiij7bgb"
+          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bgb"
           for="test-radio_item_1"
         >
           <div>
@@ -41,17 +41,17 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
         </label>
       </div>
       <div
-        class="styles_radioButtonWrapperStyles__182l9io1 styles__182l9io0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
       >
         <input
-          class="styles_radioButtonInputStyles__182l9io3 a11y_a11yFocus__r8he5t2 styles__182l9io2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
+          class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
           id="test-radio_item_2"
           name="test"
           type="radio"
           value="radio_item_2"
         />
         <label
-          class="styles_radioButtonLabelStyles__182l9io4 get_sprinkles_position_relative_mobile__eiij7bgb"
+          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bgb"
           for="test-radio_item_2"
         >
           <div>
@@ -65,17 +65,17 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
         </label>
       </div>
       <div
-        class="styles_radioButtonWrapperStyles__182l9io1 styles__182l9io0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
+        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_gap_spacing_1_mobile__eiij7ba2"
       >
         <input
-          class="styles_radioButtonInputStyles__182l9io3 a11y_a11yFocus__r8he5t2 styles__182l9io2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
+          class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_spacing_1__eiij7b53"
           id="test-radio_item_3"
           name="test"
           type="radio"
           value="radio_item_3"
         />
         <label
-          class="styles_radioButtonLabelStyles__182l9io4 get_sprinkles_position_relative_mobile__eiij7bgb"
+          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bgb"
           for="test-radio_item_3"
         >
           <div>
