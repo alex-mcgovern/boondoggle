@@ -6,7 +6,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { type ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useState } from "react";
 
 import { dataTableFuzzyFilter } from "../../lib/data_table_fuzzy_filter";
 import { Box } from "../box";
@@ -18,7 +18,11 @@ import { DataTableLayoutHead } from "../data_table_layout_head";
 import { DataTablePaginationWrapper } from "../data_table_pagination_wrapper";
 import { getDataTableStyle } from "./styles.css";
 
-import type { ColumnDef, RowData } from "@tanstack/react-table";
+import type {
+  ColumnDef,
+  RowData,
+  RowSelectionState,
+} from "@tanstack/react-table";
 
 type WithOptionalPagination =
   /** If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed. */
@@ -71,6 +75,8 @@ type WithOptionalSelectableRows =
       enableMultiRowSelection?: boolean;
       /** Whether the table should allow rows to be selectable */
       isSelectable: true;
+      /** Function called on a new selection, with the current selection */
+      onSelect: (selection: RowSelectionState) => unknown;
     }
   /** If `isSelectable` is `false` or `undefined`, `enableMultiRowSelection` should not be passed. */
   | {
@@ -78,6 +84,8 @@ type WithOptionalSelectableRows =
       enableMultiRowSelection?: never;
       /** Whether the table should allow rows to be selectable */
       isSelectable?: false | undefined;
+      /** Function called on a new selection, with the current selection */
+      onSelect: never;
     };
 
 /** ----------------------------------------------------------------------------- */
@@ -110,16 +118,28 @@ export function DataTable<TData extends RowData>({
   isPaginated,
   isSelectable,
   isSortable,
+  onSelect,
   strPage,
   strResults,
   strShow,
 }: DataTableProps<TData>) {
-  //   const { columnFilters, setColumnFilters } = useDataTableColumnFilterState();
-
   const [globalFilter, setGlobalFilter] = useState("");
-  const [rowSelection, setRowSelection] = useState({});
+
+  /** --------------------------------------------- */
 
   const hasActionsBar = !!actions || isFilterable;
+
+  /** --------------------------------------------- */
+
+  const [rowSelection, setRowSelection] = useState({});
+
+  useEffect(() => {
+    if (isSelectable && onSelect) {
+      onSelect(rowSelection);
+    }
+  }, [isSelectable, onSelect, rowSelection]);
+
+  /** --------------------------------------------- */
 
   const columnHelper = createColumnHelper<TData>();
 
@@ -140,6 +160,8 @@ export function DataTable<TData extends RowData>({
 
     return initColumns;
   }, [columnHelper, initColumns, isSelectable]);
+
+  /** --------------------------------------------- */
 
   const table = useReactTable({
     columns,
