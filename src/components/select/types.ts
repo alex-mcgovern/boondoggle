@@ -29,6 +29,5 @@ export type SelectCommonProps = WithOptionalLabel &
     isFilterable?: boolean;
     isOpen?: boolean;
     items: Array<SelectItemShape>;
-
     onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
   };

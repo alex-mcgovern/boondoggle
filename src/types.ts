@@ -45,6 +45,21 @@ export type WithName = {
 };
 /** ----------------------------------------------------------------------------- */
 
+// const myUnion = z.discriminatedUnion("label", [
+//   z.object({
+//     id: z.string(),
+//     label: z.string(),
+//     labelTooltip: z.string().optional(),
+//   }),
+//   z.object({
+//     id: z.string().optional(),
+//     label: z.never(),
+//     labelTooltip: z.never(),
+//   }),
+// ]);
+
+// type X = z.infer<typeof myUnion>;
+
 export type WithOptionalLabel =
   /** When label is defined, id must also be defined */
   (
@@ -63,9 +78,8 @@ export type WithOptionalLabel =
       }
   ) & {
     /** Optional tooltip for label */
-    labelTooltip?: never;
+    labelTooltip?: string;
   };
-
 /** ----------------------------------------------------------------------------- */
 
 export type WithPlaceholder = {
