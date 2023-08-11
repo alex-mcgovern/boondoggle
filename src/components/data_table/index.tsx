@@ -18,11 +18,7 @@ import { DataTableLayoutHead } from "../data_table_layout_head";
 import { DataTablePaginationWrapper } from "../data_table_pagination_wrapper";
 import { getDataTableStyle } from "./styles.css";
 
-import type {
-  ColumnDef,
-  RowData,
-  RowSelectionState,
-} from "@tanstack/react-table";
+import type { ColumnDef, RowData } from "@tanstack/react-table";
 
 type WithOptionalPagination =
   /** If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed. */
@@ -68,7 +64,7 @@ type WithOptionalFiltering =
 
 /** ----------------------------------------------------------------------------- */
 
-type WithOptionalSelectableRows =
+type WithOptionalSelectableRows<TData extends RowData> =
   /** If `isSelectable` is `true`, `enableMultiRowSelection` can be passed. */
   | {
       /** Boolean to enable multi-row selection. */
@@ -76,7 +72,7 @@ type WithOptionalSelectableRows =
       /** Whether the table should allow rows to be selectable */
       isSelectable: true;
       /** Function called on a new selection, with the current selection */
-      onSelect: (selection: RowSelectionState) => unknown;
+      onSelect: (selectedRows: Array<TData>) => unknown;
     }
   /** If `isSelectable` is `false` or `undefined`, `enableMultiRowSelection` should not be passed. */
   | {
@@ -91,12 +87,12 @@ type WithOptionalSelectableRows =
 /** ----------------------------------------------------------------------------- */
 
 export type DataTableProps<TData extends RowData> = WithOptionalPagination &
-  WithOptionalSelectableRows &
+  WithOptionalSelectableRows<TData> &
   WithOptionalFiltering & {
     /** Up to 2 react nodes to render as actions for the table */
     actions?: ReactNode | [ReactNode?, ReactNode?];
     /** Column definitions for the tabular data */
-    columns: Array<ColumnDef<any, any>>;
+    columns: Array<ColumnDef<TData, any>>;
     /** An array of objects describing each row in the table */
     data: Array<TData>;
     /** Whether the table should be paginated and show pagination controls */
@@ -133,12 +129,6 @@ export function DataTable<TData extends RowData>({
 
   const [rowSelection, setRowSelection] = useState({});
 
-  useEffect(() => {
-    if (isSelectable && onSelect) {
-      onSelect(rowSelection);
-    }
-  }, [isSelectable, onSelect, rowSelection]);
-
   /** --------------------------------------------- */
 
   const columnHelper = createColumnHelper<TData>();
@@ -163,7 +153,7 @@ export function DataTable<TData extends RowData>({
 
   /** --------------------------------------------- */
 
-  const table = useReactTable({
+  const table = useReactTable<TData>({
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
@@ -187,6 +177,22 @@ export function DataTable<TData extends RowData>({
       }),
     },
   });
+
+  /** --------------------------------------------- */
+
+  const selectedRows = table.getSelectedRowModel().rows;
+
+  useEffect(() => {
+    if (isSelectable && onSelect) {
+      onSelect(
+        selectedRows.map((row) => {
+          return row.original;
+        })
+      );
+    }
+  }, [isSelectable, onSelect, selectedRows]);
+
+  /** --------------------------------------------- */
 
   return (
     <Box width="100%">

@@ -13,7 +13,7 @@ faker.seed(42);
 
 /** ----------------------------------------------------------------------------- */
 
-type MockAccountColumnData = {
+export type MockAccountColumnData = {
   /** User's email address */
   email_address: string;
   /** User's first name */

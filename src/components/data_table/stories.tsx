@@ -9,13 +9,14 @@ import {
 import { Button } from "../button";
 import { Icon } from "../icon";
 
+import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
   args: {},
-  component: StoryComp,
+  component: StoryComp<MockAccountColumnData>,
   title: "Components/DataTable",
-} satisfies Meta<typeof StoryComp>;
+} satisfies Meta<typeof StoryComp<MockAccountColumnData>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -74,6 +75,9 @@ export const IsSelectable: Story = {
     columns: DATA_TABLE_COLUMNS_MOCK,
     data: MOCK_DATA,
     isSelectable: true,
+    onSelect: (rowSelection) => {
+      alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
+    },
   },
 };
 
@@ -85,6 +89,9 @@ export const IsSelectableWithEnableMultiRowSelection: Story = {
     data: MOCK_DATA,
     enableMultiRowSelection: true,
     isSelectable: true,
+    onSelect: (rowSelection) => {
+      alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
+    },
   },
 };
 
