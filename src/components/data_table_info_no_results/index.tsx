@@ -1,7 +1,7 @@
 import {
   faCircleExclamation,
   faTimesCircle,
-} from "@fortawesome/pro-light-svg-icons";
+} from "@fortawesome/sharp-regular-svg-icons";
 
 import { arrayHasLength } from "../../lib/array_has_length";
 import { Box } from "../box";

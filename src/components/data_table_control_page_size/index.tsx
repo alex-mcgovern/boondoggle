@@ -1,4 +1,4 @@
-import { faTableRows } from "@fortawesome/pro-light-svg-icons";
+import { faTableRows } from "@fortawesome/sharp-regular-svg-icons";
 import { useCallback, useMemo } from "react";
 
 import { Icon } from "../icon";

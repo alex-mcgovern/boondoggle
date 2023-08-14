@@ -1,7 +1,7 @@
 /** ----------------------------------------------------------------------------- */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Faker, en } from "@faker-js/faker";
-import { faArrowUpRight } from "@fortawesome/pro-light-svg-icons";
+import { faArrowUpRight } from "@fortawesome/sharp-regular-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
 import { Box, Icon } from "../src";

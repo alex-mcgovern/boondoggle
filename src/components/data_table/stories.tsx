@@ -1,4 +1,4 @@
-import { faPlus } from "@fortawesome/pro-light-svg-icons";
+import { faPlus } from "@fortawesome/sharp-regular-svg-icons";
 
 import { DataTable as StoryComp } from ".";
 import {

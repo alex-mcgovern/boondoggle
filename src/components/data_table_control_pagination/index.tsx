@@ -3,7 +3,7 @@ import {
   faArrowRight,
   faArrowToLeft,
   faArrowToRight,
-} from "@fortawesome/pro-light-svg-icons";
+} from "@fortawesome/sharp-regular-svg-icons";
 import { useCallback } from "react";
 
 import { Box } from "../box";

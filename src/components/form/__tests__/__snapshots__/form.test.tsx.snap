@@ -95,14 +95,14 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
                   aria-hidden="true"
                   class="svg-inline--fa fa-angle-down styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
                   data-icon="angle-down"
-                  data-prefix="fal"
+                  data-prefix="fasr"
                   focusable="false"
                   role="img"
                   viewBox="0 0 448 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M212.7 331.3c6.2 6.2 16.4 6.2 22.6 0l160-160c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L224 297.4 75.3 148.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l160 160z"
+                    d="M224 353.9l17-17L401 177l17-17L384 126.1l-17 17-143 143L81 143l-17-17L30.1 160l17 17L207 337l17 17z"
                     fill="currentColor"
                   />
                 </svg>
@@ -349,14 +349,14 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
               aria-hidden="true"
               class="svg-inline--fa fa-building-columns fa-xl styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
               data-icon="building-columns"
-              data-prefix="fal"
+              data-prefix="fasr"
               focusable="false"
               role="img"
               viewBox="0 0 512 512"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M263.9 2.1C259-.7 253-.7 248.1 2.1L15.8 133.7C6 139.3 0 149.6 0 160.8C0 178 14 192 31.2 192H256 480.8c17.2 0 31.2-14 31.2-31.2c0-11.2-6-21.6-15.8-27.1L263.9 2.1zM306.6 160c3.5-7.3 5.4-15.4 5.4-24c0-30.9-25.1-56-56-56s-56 25.1-56 56c0 8.6 1.9 16.7 5.4 24H34.3L256 34.4 477.7 160H306.6zM256 112a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM64 352c-8.8 0-16 7.2-16 16s7.2 16 16 16H448c8.8 0 16-7.2 16-16s-7.2-16-16-16V224H416V352H336V224H304V352H208V224H176V352H96V224H64V352zM40 416c-8.8 0-16 7.2-16 16s7.2 16 16 16H472c8.8 0 16-7.2 16-16s-7.2-16-16-16H40zM16 480c-8.8 0-16 7.2-16 16s7.2 16 16 16H496c8.8 0 16-7.2 16-16s-7.2-16-16-16H16z"
+                d="M48 192H0V144L256 0 512 144v48H464 48zm366.1-48L256 55.1 97.9 144H228.3c-2.7-4.7-4.3-10.2-4.3-16c0-17.7 14.3-32 32-32s32 14.3 32 32c0 5.8-1.6 11.3-4.3 16H414.1zM64 224h48V384h64V224h48V384h64V224h48V384h64V224h48V384h8 24v48H456 56 32V384H56h8V224zM24 464H488h24v48H488 24 0V464H24z"
                 fill="currentColor"
               />
             </svg>
@@ -398,14 +398,14 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
               aria-hidden="true"
               class="svg-inline--fa fa-arrow-right-arrow-left fa-xl styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
               data-icon="arrow-right-arrow-left"
-              data-prefix="fal"
+              data-prefix="fasr"
               focusable="false"
               role="img"
               viewBox="0 0 448 512"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M443.3 139.3c6.2-6.2 6.2-16.4 0-22.6l-96-96c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 112 16 112c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0-68.7 68.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l96-96zm-342.6 352c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L54.6 400 432 400c8.8 0 16-7.2 16-16s-7.2-16-16-16L54.6 368l68.7-68.7c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-96 96c-6.2 6.2-6.2 16.4 0 22.6l96 96z"
+                d="M18.2 402.9L111 495.7l17 17 33.9-33.9-17-17L93.1 409.9l330.9 0 24 0 0-48-24 0-330.9 0 55-55 17-17L131.2 256l-17 17-96 96-17 17 17 17zm411.5-256l17-17-17-17-96-96-17-17L282.9 33.9l17 17 55 55L24 105.9l-24 0 0 48 24 0 330.9 0-55 55-17 17 33.9 33.9 17-17 96-96z"
                 fill="currentColor"
               />
             </svg>
@@ -447,14 +447,14 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
               aria-hidden="true"
               class="svg-inline--fa fa-shapes fa-xl styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
               data-icon="shapes"
-              data-prefix="fal"
+              data-prefix="fasr"
               focusable="false"
               role="img"
               viewBox="0 0 512 512"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M411.4 175.5c5.9 9.9 6.1 22.2 .4 32.2s-16.3 16.2-27.8 16.2H192c-11.5 0-22.2-6.2-27.8-16.2s-5.5-22.3 .4-32.2l96-160C266.3 5.9 276.8 0 288 0s21.7 5.9 27.4 15.5l96 160zM288 32L192 192H384L288 32zM472 304H328c-4.4 0-8 3.6-8 8V456c0 4.4 3.6 8 8 8H472c4.4 0 8-3.6 8-8V312c0-4.4-3.6-8-8-8zM328 272H472c22.1 0 40 17.9 40 40V456c0 22.1-17.9 40-40 40H328c-22.1 0-40-17.9-40-40V312c0-22.1 17.9-40 40-40zM224 384A96 96 0 1 0 32 384a96 96 0 1 0 192 0zM0 384a128 128 0 1 1 256 0A128 128 0 1 1 0 384z"
+                d="M160 224h55.3H360.7 416l-27.4-48L315.6 48.4 288 0 260.4 48.4 187.4 176 160 224zM288 96.7L333.3 176H242.7L288 96.7zM128 304a80 80 0 1 1 0 160 80 80 0 1 1 0-160zm0 208a128 128 0 1 0 0-256 128 128 0 1 0 0 256zM464 320V448H336V320H464zM336 272H288v48V448v48h48H464h48V448 320 272H464 336z"
                 fill="currentColor"
               />
             </svg>

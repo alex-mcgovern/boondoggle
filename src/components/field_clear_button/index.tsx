@@ -1,4 +1,4 @@
-import { faTimesCircle } from "@fortawesome/pro-light-svg-icons";
+import { faTimesCircle } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Button } from "../button";
 import { Icon } from "../icon";

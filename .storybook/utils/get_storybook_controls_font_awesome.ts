@@ -5,7 +5,7 @@
 import {
   faArrowRight,
   faTriangleCircleSquare,
-} from "@fortawesome/pro-light-svg-icons";
+} from "@fortawesome/sharp-regular-svg-icons";
 
 const availableIcons = {
   "": null,

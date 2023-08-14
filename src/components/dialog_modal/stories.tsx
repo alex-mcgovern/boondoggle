@@ -1,4 +1,4 @@
-import { faShapes } from "@fortawesome/pro-light-svg-icons";
+import { faShapes } from "@fortawesome/sharp-regular-svg-icons";
 import { createRef, useCallback } from "react";
 
 import { DialogModal as StoryComp } from ".";

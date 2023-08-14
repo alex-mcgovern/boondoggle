@@ -1,4 +1,4 @@
-import { faInfoCircle } from "@fortawesome/pro-light-svg-icons";
+import { faInfoCircle } from "@fortawesome/sharp-regular-svg-icons";
 import { type ReactNode, forwardRef } from "react";
 
 import { Dialog } from "../dialog";

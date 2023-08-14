@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { faGlobeAfrica } from "@fortawesome/pro-light-svg-icons";
+import { faGlobeAfrica } from "@fortawesome/sharp-regular-svg-icons";
 import { expect, jest } from "@storybook/jest";
 import { userEvent, waitFor, within } from "@storybook/testing-library";
 

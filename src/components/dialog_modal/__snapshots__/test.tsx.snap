@@ -40,14 +40,14 @@ exports[`<DialogModal /> default on initial render should match snapshot 1`] = `
                   aria-hidden="true"
                   class="svg-inline--fa fa-xmark styles_icon__1ej8lf00 get_sprinkles_color_currentColor__eiij7b1o get_sprinkles_flexShrink_0__eiij7b1w"
                   data-icon="xmark"
-                  data-prefix="fal"
+                  data-prefix="fasr"
                   focusable="false"
                   role="img"
                   viewBox="0 0 384 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z"
+                    d="M345 137l17-17L328 86.1l-17 17-119 119L73 103l-17-17L22.1 120l17 17 119 119L39 375l-17 17L56 425.9l17-17 119-119L311 409l17 17L361.9 392l-17-17-119-119L345 137z"
                     fill="currentColor"
                   />
                 </svg>

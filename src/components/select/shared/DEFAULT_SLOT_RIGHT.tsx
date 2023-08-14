@@ -1,4 +1,4 @@
-import { faAngleDown } from "@fortawesome/pro-light-svg-icons";
+import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Icon } from "../../icon";
 

@@ -1,4 +1,4 @@
-import { faCaretDown, faCaretUp } from "@fortawesome/pro-light-svg-icons";
+import { faCaretDown, faCaretUp } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Button } from "../button";
 import { Icon } from "../icon";

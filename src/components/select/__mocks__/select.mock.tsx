@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { faGlobe } from "@fortawesome/pro-light-svg-icons";
+import { faGlobe } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Icon } from "../../icon";
 

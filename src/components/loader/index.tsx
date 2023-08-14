@@ -1,4 +1,4 @@
-import { faSpinnerThird } from "@fortawesome/pro-light-svg-icons";
+import { faSpinnerThird } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Icon } from "../icon";
 

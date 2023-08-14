@@ -1,4 +1,4 @@
-import { faCalendarAlt } from "@fortawesome/pro-light-svg-icons";
+import { faCalendarAlt } from "@fortawesome/sharp-regular-svg-icons";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 

@@ -1,4 +1,4 @@
-import { faSearch } from "@fortawesome/pro-light-svg-icons";
+import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Icon } from "../icon";
 import { Input } from "../input";
