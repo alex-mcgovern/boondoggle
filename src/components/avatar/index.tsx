@@ -1,11 +1,14 @@
 import { useMemo } from "react";
 
 import { Box } from "../box";
+import { getInitials } from "./lib/get_initials";
 import { avatarStyle } from "./styles.css";
 
 export type AvatarProps = {
   /** First name of the user. */
   firstName?: string;
+  /** Full name of the user */
+  fullName?: string;
   /** Last name of the user. */
   lastName?: string;
   /** Size of the avatar. */
@@ -17,14 +20,16 @@ export type AvatarProps = {
 /**
  * Renders an avatar. Falls back to initial letters if no image is provided.
  */
-export function Avatar({ firstName, lastName, size = 64, src }: AvatarProps) {
-  const firstLetter = useMemo(() => {
-    return firstName?.charAt(0).toUpperCase();
-  }, [firstName]);
-
-  const lastLetter = useMemo(() => {
-    return lastName?.charAt(0).toUpperCase();
-  }, [lastName]);
+export function Avatar({
+  firstName,
+  fullName,
+  lastName,
+  size = 64,
+  src,
+}: AvatarProps) {
+  const initials = useMemo(() => {
+    return getInitials({ firstName, fullName, lastName });
+  }, [firstName, fullName, lastName]);
 
   if (src) {
     return (
@@ -38,13 +43,13 @@ export function Avatar({ firstName, lastName, size = 64, src }: AvatarProps) {
     );
   }
 
-  if (!firstLetter || !lastLetter) {
+  if (!initials) {
     return <Box __height={size} __width={size} className={avatarStyle} />;
   }
 
   return (
     <Box __height={size} __width={size} className={avatarStyle}>
-      {`${firstLetter} ${lastLetter}`}
+      {initials}
     </Box>
   );
 }
