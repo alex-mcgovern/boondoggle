@@ -1,13 +1,13 @@
 import { Slot } from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import {
-  type FieldErrors,
   type FieldValues,
   FormProvider,
   type Resolver,
   useForm,
 } from "react-hook-form";
 
+import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { Box } from "../box";
 import { DialogModalActions } from "../dialog_modal_actions";
@@ -22,15 +22,23 @@ import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 import type { ReactNode } from "react";
 
 export type DialogModalFormProps = {
+  /** Alert component that will be rendered above the form. */
   alert?: ReactNode;
+  /** Form field components. They will be able to access `react-hook-form`'s form context. */
   children: ReactNode | Array<ReactNode>;
+  /** Text that will be rendered inside the form submit button. */
   formSubmitButtonText: string;
-  handleErrors?: (errors: FieldErrors) => void;
+  /** Function that will be called when the form is submitted. */
   handleFormSubmission: (fieldValues: FieldValues) => Promise<void>;
+  /** Custom resolver for `react-hook-form`. */
   resolver?: Resolver<FieldValues, any>;
+  /** Title of the dialog modal. */
   title: string;
+  /** Node that will trigger the dialog modal when clicked. */
   triggerNode?: ReactNode;
+  /** Width of the dialog modal. */
   width?: DialogModalInnerWidth;
+  /** Props that will be passed to the wrapper `Box` component. */
   wrapperProps?: BoxProps;
 };
 
@@ -43,7 +51,6 @@ export const DialogModalForm = forwardRef<
       alert,
       children,
       formSubmitButtonText,
-      handleErrors,
       handleFormSubmission: initialHandleFormSubmission,
       resolver,
       title,
@@ -87,7 +94,7 @@ export const DialogModalForm = forwardRef<
               as="form"
               onSubmit={formMethods.handleSubmit(
                 handleFormSubmission,
-                handleErrors
+                handleHookFormErrors
               )}
               width={width}
             >
