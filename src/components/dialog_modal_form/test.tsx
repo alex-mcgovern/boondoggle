@@ -50,7 +50,6 @@ const renderComponent = async (props: DialogModalFormProps) => {
 /** ----------------------------------------------------------------------------- */
 
 const handleFormSubmissionMock = jest.fn();
-const handleErrorsMock = jest.fn();
 
 const PROPS: DialogModalFormProps = {
   children: (
@@ -87,7 +86,7 @@ const PROPS: DialogModalFormProps = {
     </>
   ),
   formSubmitButtonText: "Submit",
-  handleErrors: handleErrorsMock,
+
   handleFormSubmission: handleFormSubmissionMock,
   resolver: zodResolver(mockFormSchema),
   title: "Dialog modal form",

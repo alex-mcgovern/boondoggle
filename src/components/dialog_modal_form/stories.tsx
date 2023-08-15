@@ -32,9 +32,6 @@ const handleFormSubmissionMock = jest.fn(async (fieldValues: unknown) => {
     `Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`
   );
 });
-const handleErrorsMock = jest.fn(async (errors: unknown) => {
-  return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
-});
 
 /** ----------------------------------------------------------------------------- */
 
@@ -95,7 +92,6 @@ export const WidthSm: StoryObj<StoryCompProps> = {
       </>
     ),
     formSubmitButtonText: "Submit",
-    handleErrors: handleErrorsMock,
     handleFormSubmission: handleFormSubmissionMock,
     resolver: zodResolver(mockFormSchema),
     title: "Dialog modal form",
@@ -138,7 +134,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
       </>
     ),
     formSubmitButtonText: "Submit",
-    handleErrors: handleErrorsMock,
     handleFormSubmission: handleFormSubmissionMock,
     resolver: zodResolver(mockFormSchema),
     title: "Dialog modal form",
