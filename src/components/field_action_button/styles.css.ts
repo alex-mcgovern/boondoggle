@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-export const inputClearButtonStyle = style([
+export const fieldActionButtonStyle = style([
   {
     pointerEvents: "all",
   },

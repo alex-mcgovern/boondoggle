@@ -1,16 +1,12 @@
 import { styleVariants } from "@vanilla-extract/css";
 
+import { vars } from "../theme.css";
 import { getSprinkles } from "../utils/get_sprinkles.css";
 
-import type { SprinklesArgs } from "../utils/get_sprinkles.css";
-
-export const elementHeight: Record<
-  ElementSizeEnum,
-  SprinklesArgs["height"] & SprinklesArgs["minHeight"]
-> = {
-  lg: "spacing_6",
-  md: "spacing_5",
-  sm: "spacing_4",
+export const elementHeight = {
+  lg: vars.spacing.spacing_6,
+  md: vars.spacing.spacing_5,
+  sm: vars.spacing.spacing_4,
 };
 
 export const elementFontSize = styleVariants({

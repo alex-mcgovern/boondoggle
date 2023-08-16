@@ -20,7 +20,6 @@ import type {
   WithColorOverlay,
   WithStateDisabled,
 } from "../../types";
-import type { BoxProps } from "../box";
 import type { SlotWrapperProps } from "../slot_wrapper";
 import type {
   ComponentProps,
@@ -62,8 +61,8 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
       isLoading?: boolean;
       /** The title for the button, shown in the UI. */
       name: string;
-      /** The size of the button: `sm` for small secondary content, `md` as the default size meeting tap target requirements, and `lg` for edge cases like marketing CTAs. */
-      size?: "square_md" | "square_sm" | ElementSizeEnum;
+      /** The size of the button. */
+      size?: "square_md" | "square_sm" | "square_xs" | ElementSizeEnum;
       /** The React node shown on the left side of the button. */
       slotLeft?: ReactNode;
       /** Props forwarded to slots */
@@ -100,7 +99,7 @@ export const Button: ButtonComponent = forwardRef(
       isLoading: initIsLoading,
       size = "md",
       slotLeft,
-      slotProps: userSlotProps,
+      // slotProps: userSlotProps,
       slotRight,
       type = "button",
       withLoadingState,
@@ -116,15 +115,15 @@ export const Button: ButtonComponent = forwardRef(
 
     /** --------------------------------------------- */
 
-    const slotProps: BoxProps | undefined = useMemo(() => {
-      if (size === "square_md" || size === "square_sm") {
-        return {
-          ...userSlotProps,
-          width: "spacing_3",
-        };
-      }
-      return userSlotProps;
-    }, [size, userSlotProps]);
+    // const slotProps: BoxProps | undefined = useMemo(() => {
+    //   if (size === "square_md" || size === "square_sm") {
+    //     return {
+    //       ...userSlotProps,
+    //       width: "spacing_3",
+    //     };
+    //   }
+    //   return userSlotProps;
+    // }, [size, userSlotProps]);
 
     /** --------------------------------------------- */
 
@@ -174,7 +173,7 @@ export const Button: ButtonComponent = forwardRef(
           color="inherit"
           size={size}
           slotLeft={isLoading && loaderSide === "left" ? <Loader /> : slotLeft}
-          slotProps={slotProps}
+          // slotProps={slotProps}
           slotRight={
             isLoading && loaderSide === "right" ? <Loader /> : slotRight
           }

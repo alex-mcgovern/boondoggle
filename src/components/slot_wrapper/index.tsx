@@ -12,7 +12,6 @@ export type SlotWrapperProps = WithSlots & {
   children?: ReactNode;
   className?: string;
   size: ElementSizeEnum;
-
   slotProps?: BoxProps;
 } & BoxProps;
 

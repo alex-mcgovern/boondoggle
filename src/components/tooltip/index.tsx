@@ -1,11 +1,12 @@
 import { faInfoCircle } from "@fortawesome/sharp-regular-svg-icons";
-import { type ReactNode, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { Dialog } from "../dialog";
 import { Icon } from "../icon";
 import { tooltipTextStyle, tooltipTriggerStyle } from "./styles.css";
 
 import type { DialogPlacementEnum } from "../dialog/styles.css";
+import type { ReactNode } from "react";
 
 export type TooltipProps = {
   children?: ReactNode;

@@ -8,6 +8,10 @@ import { createAccessibleTransition } from "./utils/create_accessible_transition
 
 /** ----------------------------------------------------------------------------- */
 
+globalStyle(`*`, {
+  // outline: `0.25px solid rgba(255, 0, 0, 0.25) !important`,
+});
+
 /**
  * Based on Eric Meyer's Reset CSS https://meyerweb.com/eric/tools/css/reset/
  *

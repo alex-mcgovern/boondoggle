@@ -1,13 +1,13 @@
 import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { Children, forwardRef } from "react";
 
 import { Box } from "../box";
 import {
+  getSlotContainerStyles,
   getSlotInnerStyles,
-  offsetSlotLeftStyle,
-  offsetSlotRightStyle,
-  slotOuterStyle,
+  getSlotLeftOffsetStyles,
+  getSlotRightOffsetStyles,
 } from "./styles.css";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
@@ -19,7 +19,6 @@ type SlotWrapperProps = WithSlots & {
   children?: ReactNode;
   className?: string;
   size: ElementSizeEnum;
-
   slotProps?: BoxProps;
 } & BoxProps;
 
@@ -39,23 +38,45 @@ export const SlotWrapperInset = forwardRef(
     return (
       <Box className={userClassName} position="relative" ref={ref} {...rest}>
         {slotLeft && (
-          <Box {...slotProps} className={slotOuterStyle} left="0">
-            <Box className={getSlotInnerStyles({ size })}>{slotLeft}</Box>
+          <Box
+            className={getSlotContainerStyles({
+              numSlots: slotLeft?.length,
+              size,
+            })}
+            left="0"
+          >
+            {Children.map(slotLeft, (child) => {
+              return (
+                <div className={getSlotInnerStyles({ size })}>{child}</div>
+              );
+            })}
           </Box>
         )}
 
         <Slot
           className={clsx({
-            [offsetSlotLeftStyle]: !!slotLeft,
-            [offsetSlotRightStyle]: !!slotRight,
+            [getSlotLeftOffsetStyles({ numSlots: slotLeft?.length, size })]:
+              !!slotLeft,
+            [getSlotRightOffsetStyles({ numSlots: slotRight?.length, size })]:
+              !!slotRight,
           })}
         >
           {children}
         </Slot>
 
         {slotRight && (
-          <Box {...slotProps} className={slotOuterStyle} right="0">
-            <Box className={getSlotInnerStyles({ size })}>{slotRight}</Box>
+          <Box
+            className={getSlotContainerStyles({
+              numSlots: slotRight?.length,
+              size,
+            })}
+            right="0"
+          >
+            {Children.map(slotRight, (child) => {
+              return (
+                <div className={getSlotInnerStyles({ size })}>{child}</div>
+              );
+            })}
           </Box>
         )}
       </Box>

@@ -10,21 +10,9 @@ import {
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  lg: [
-    elementFontSize.lg,
-    elementPadding.lg,
-    getSprinkles({ height: elementHeight.lg }),
-  ],
-  md: [
-    elementFontSize.md,
-    elementPadding.md,
-    getSprinkles({ height: elementHeight.md }),
-  ],
-  sm: [
-    elementFontSize.sm,
-    elementPadding.sm,
-    getSprinkles({ height: elementHeight.sm }),
-  ],
+  lg: [elementFontSize.lg, elementPadding.lg, { height: elementHeight.lg }],
+  md: [elementFontSize.md, elementPadding.md, { height: elementHeight.md }],
+  sm: [elementFontSize.sm, elementPadding.sm, { height: elementHeight.sm }],
 });
 
 /** ----------------------------------------------------------------------------- */

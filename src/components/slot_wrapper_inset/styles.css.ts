@@ -1,33 +1,189 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-const slotSize = styleVariants({
-  lg: [getSprinkles({ maxHeight: "spacing_3", maxWidth: "spacing_3" })],
-  md: [getSprinkles({ maxHeight: "spacing_2", maxWidth: "spacing_2" })],
-  sm: [getSprinkles({ maxHeight: "spacing_1.5", maxWidth: "spacing_1.5" })],
+/** ----------------------------------------------------------------------------- */
+
+export const getSlotContainerStyles = recipe({
+  base: [
+    getSprinkles({
+      alignItems: "center",
+      bottom: "0",
+      display: "flex",
+      justifyContent: "center",
+      margin: "spacing_0.5",
+      position: "absolute",
+      top: "0",
+    }),
+    { pointerEvents: "none" },
+  ],
+  compoundVariants: [
+    {
+      style: { width: vars.spacing.spacing_3 },
+      variants: { numSlots: 1, size: "sm" },
+    },
+    {
+      style: [
+        {
+          width: calc.multiply(vars.spacing.spacing_3, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "sm" },
+    },
+    {
+      style: [
+        {
+          width: calc.multiply(vars.spacing.spacing_3, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "sm" },
+    },
+    {
+      style: { width: vars.spacing.spacing_4 },
+      variants: { numSlots: 1, size: "md" },
+    },
+    {
+      style: [
+        {
+          width: calc.multiply(vars.spacing.spacing_4, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "md" },
+    },
+    {
+      style: [
+        {
+          width: calc.multiply(vars.spacing.spacing_4, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "md" },
+    },
+    {
+      style: { width: vars.spacing.spacing_5 },
+      variants: { numSlots: 1, size: "lg" },
+    },
+    {
+      style: [
+        {
+          width: calc.multiply(vars.spacing.spacing_5, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "lg" },
+    },
+    {
+      style: [
+        {
+          width: calc.multiply(vars.spacing.spacing_5, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "lg" },
+    },
+  ],
+
+  variants: {
+    numSlots: {
+      1: {},
+      2: {},
+      3: {},
+    },
+    size: {
+      lg: {},
+      md: {},
+      sm: {},
+    },
+  },
 });
 
-export const slotOuterStyle = style([
-  getSprinkles({
-    alignItems: "center",
-    bottom: "0",
-    color: "inherit",
-    display: "flex",
-    flexShrink: "0",
-    height: "100%",
-    justifyContent: "center",
+/** --------------------------------------------- */
 
-    position: "absolute",
-    top: "0",
-    width: "spacing_5",
-  }),
-  { pointerEvents: "none" },
-]);
+export const getSlotRightOffsetStyles = recipe({
+  base: [
+    getSprinkles({
+      alignItems: "center",
+      display: "flex",
+    }),
+  ],
+  compoundVariants: [
+    {
+      style: { paddingRight: vars.spacing.spacing_3 },
+      variants: { numSlots: 1, size: "sm" },
+    },
+    {
+      style: [
+        {
+          paddingRight: calc.multiply(vars.spacing.spacing_3, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "sm" },
+    },
+    {
+      style: [
+        {
+          paddingRight: calc.multiply(vars.spacing.spacing_3, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "sm" },
+    },
+    {
+      style: { paddingRight: vars.spacing.spacing_4 },
+      variants: { numSlots: 1, size: "md" },
+    },
+    {
+      style: [
+        {
+          paddingRight: calc.multiply(vars.spacing.spacing_4, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "md" },
+    },
+    {
+      style: [
+        {
+          paddingRight: calc.multiply(vars.spacing.spacing_4, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "md" },
+    },
+    {
+      style: { paddingRight: vars.spacing.spacing_5 },
+      variants: { numSlots: 1, size: "lg" },
+    },
+    {
+      style: [
+        {
+          paddingRight: calc.multiply(vars.spacing.spacing_5, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "lg" },
+    },
+    {
+      style: [
+        {
+          paddingRight: calc.multiply(vars.spacing.spacing_5, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "lg" },
+    },
+  ],
+  variants: {
+    numSlots: {
+      1: {},
+      2: {},
+      3: {},
+    },
+    size: {
+      lg: {},
+      md: {},
+      sm: {},
+    },
+  },
+});
 
-export const getSlotInnerStyles = recipe({
+/** ----------------------------------------------------------------------------- */
+
+export const getSlotLeftOffsetStyles = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
@@ -35,13 +191,120 @@ export const getSlotInnerStyles = recipe({
       justifyContent: "center",
     }),
   ],
-  variants: { size: slotSize },
+  compoundVariants: [
+    {
+      style: { paddingLeft: vars.spacing.spacing_3 },
+      variants: { numSlots: 1, size: "sm" },
+    },
+    {
+      style: [
+        {
+          paddingLeft: calc.multiply(vars.spacing.spacing_3, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "sm" },
+    },
+    {
+      style: [
+        {
+          paddingLeft: calc.multiply(vars.spacing.spacing_3, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "sm" },
+    },
+    {
+      style: { paddingLeft: vars.spacing.spacing_4 },
+      variants: { numSlots: 1, size: "md" },
+    },
+    {
+      style: [
+        {
+          paddingLeft: calc.multiply(vars.spacing.spacing_4, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "md" },
+    },
+    {
+      style: [
+        {
+          paddingLeft: calc.multiply(vars.spacing.spacing_4, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "md" },
+    },
+    {
+      style: { paddingLeft: vars.spacing.spacing_5 },
+      variants: { numSlots: 1, size: "lg" },
+    },
+    {
+      style: [
+        {
+          paddingLeft: calc.multiply(vars.spacing.spacing_5, 2),
+        },
+      ],
+      variants: { numSlots: 2, size: "lg" },
+    },
+    {
+      style: [
+        {
+          paddingLeft: calc.multiply(vars.spacing.spacing_5, 3),
+        },
+      ],
+      variants: { numSlots: 3, size: "lg" },
+    },
+  ],
+  variants: {
+    numSlots: {
+      1: {},
+      2: {},
+      3: {},
+    },
+    size: {
+      lg: {},
+      md: {},
+      sm: {},
+    },
+  },
 });
 
-export const offsetSlotRightStyle = style({
-  paddingRight: `${vars.spacing.spacing_4} !important`,
-});
+/** ----------------------------------------------------------------------------- */
 
-export const offsetSlotLeftStyle = style({
-  paddingLeft: `${vars.spacing.spacing_4} !important`,
+export const getSlotInnerStyles = recipe({
+  base: getSprinkles({
+    alignItems: "center",
+    display: "flex",
+    flexShrink: "0",
+    justifyContent: "center",
+  }),
+  variants: {
+    size: {
+      lg: [
+        {
+          height: vars.spacing.spacing_5,
+          width: vars.spacing.spacing_5,
+        },
+        getSprinkles({
+          fontStyle: "body_md",
+        }),
+      ],
+      md: [
+        {
+          height: vars.spacing.spacing_4,
+          width: vars.spacing.spacing_4,
+        },
+        getSprinkles({
+          fontStyle: "body_sm",
+        }),
+      ],
+      sm: [
+        {
+          height: vars.spacing.spacing_3,
+          width: vars.spacing.spacing_3,
+        },
+        getSprinkles({
+          fontStyle: "body_xs",
+        }),
+      ],
+    },
+  },
 });

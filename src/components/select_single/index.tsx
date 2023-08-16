@@ -2,7 +2,7 @@ import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { Box } from "../box";
-import { FieldClearButton } from "../field_clear_button";
+import { FieldActionButtonClear } from "../field_action_button";
 import { Input } from "../input";
 import {
   downshiftStateReducer,
@@ -171,7 +171,7 @@ export const SelectSingle = forwardRef(
     const SlotRight = useMemo(() => {
       if (isFilterable && inputValue.length > 0) {
         return (
-          <FieldClearButton
+          <FieldActionButtonClear
             onClick={() => {
               setInputValue("");
               setSelectedItem(null);

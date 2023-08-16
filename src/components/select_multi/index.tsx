@@ -3,7 +3,7 @@ import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
 import { Box } from "../box";
-import { FieldClearButton } from "../field_clear_button";
+import { FieldActionButtonClear } from "../field_action_button";
 import { Input } from "../input";
 import {
   downshiftStateReducer,
@@ -229,7 +229,7 @@ export const SelectMulti = forwardRef(
         (isClearable && selectedItems.length > 0)
       ) {
         return (
-          <FieldClearButton
+          <FieldActionButtonClear
             onClick={() => {
               onSelectedItemsChange([]);
               setInputValue("");

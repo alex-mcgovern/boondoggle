@@ -10,21 +10,9 @@ import {
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-  lg: [
-    elementFontSize.lg,
-    elementPadding.lg,
-    getSprinkles({ minHeight: elementHeight.lg }),
-  ],
-  md: [
-    elementFontSize.md,
-    elementPadding.md,
-    getSprinkles({ minHeight: elementHeight.md }),
-  ],
-  sm: [
-    elementFontSize.sm,
-    elementPadding.sm,
-    getSprinkles({ minHeight: elementHeight.sm }),
-  ],
+  lg: [elementFontSize.lg, elementPadding.lg, { minHeight: elementHeight.lg }],
+  md: [elementFontSize.md, elementPadding.md, { minHeight: elementHeight.md }],
+  sm: [elementFontSize.sm, elementPadding.sm, { minHeight: elementHeight.sm }],
 });
 
 export const getTextAreaStyles = recipe({

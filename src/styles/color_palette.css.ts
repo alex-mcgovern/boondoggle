@@ -1,4 +1,4 @@
-import { amber, blue, green, indigo, red, slate } from "@radix-ui/colors";
+import { amber, blue, green, red, slate } from "@radix-ui/colors";
 import {
   assignVars,
   createGlobalTheme,
@@ -11,7 +11,7 @@ import { makeTheme } from "./utils/make_theme";
 
 export const color = createGlobalTheme(":root, ::backdrop", {
   ...makeTheme({
-    primaryPalette: indigo,
+    primaryPalette: blue,
     secondaryPalette: slate,
   }),
 });

@@ -19,7 +19,7 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
 /** ----------------------------------------------------------------------------- */
 
-const variantSize = styleVariants({
+export const variantButtonSize = styleVariants({
   lg: [elementFontSize.lg],
   md: [elementFontSize.md],
   sm: [elementFontSize.sm],
@@ -41,6 +41,15 @@ const variantSize = styleVariants({
       width: "spacing_4",
     }),
   ],
+  square_xs: [
+    getSprinkles({
+      aspectRatio: "square",
+      flexShrink: "0",
+      fontStyle: "body_xs",
+      height: "spacing_3",
+      width: "spacing_3",
+    }),
+  ],
 });
 
 /** ----------------------------------------------------------------------------- */
@@ -57,7 +66,7 @@ const variantAppearance = styleVariants({
   ghost: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: vars.color.text_low_contrast,
+      color: vars.color.button_default,
       selectors: {
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
@@ -179,45 +188,45 @@ export const getButtonStyles = recipe({
 
   compoundVariants: [
     {
-      style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
+      style: [elementPadding.lg, { height: elementHeight.lg }],
       variants: { appearance: "primary", size: "lg" },
     },
     {
-      style: [elementPadding.md, getSprinkles({ height: elementHeight.md })],
+      style: [elementPadding.md, { height: elementHeight.md }],
       variants: { appearance: "primary", size: "md" },
     },
     {
-      style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
+      style: [elementPadding.sm, { height: elementHeight.sm }],
       variants: { appearance: "primary", size: "sm" },
     },
 
     /** ------------------- */
 
     {
-      style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
+      style: [elementPadding.lg, { height: elementHeight.lg }],
       variants: { appearance: "secondary", size: "lg" },
     },
     {
-      style: [elementPadding.md, getSprinkles({ height: elementHeight.md })],
+      style: [elementPadding.md, { height: elementHeight.md }],
       variants: { appearance: "secondary", size: "md" },
     },
     {
-      style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
+      style: [elementPadding.sm, { height: elementHeight.sm }],
       variants: { appearance: "secondary", size: "sm" },
     },
 
     /** ------------------- */
 
     {
-      style: [elementPadding.lg, getSprinkles({ height: elementHeight.lg })],
+      style: [elementPadding.lg, { height: elementHeight.lg }],
       variants: { appearance: "ghost", size: "lg" },
     },
     {
-      style: [elementPadding.md, getSprinkles({ height: elementHeight.md })],
+      style: [elementPadding.md, { height: elementHeight.md }],
       variants: { appearance: "ghost", size: "md" },
     },
     {
-      style: [elementPadding.sm, getSprinkles({ height: elementHeight.sm })],
+      style: [elementPadding.sm, { height: elementHeight.sm }],
       variants: { appearance: "ghost", size: "sm" },
     },
   ],
@@ -229,6 +238,6 @@ export const getButtonStyles = recipe({
 
   variants: {
     appearance: variantAppearance,
-    size: variantSize,
+    size: variantButtonSize,
   },
 });
