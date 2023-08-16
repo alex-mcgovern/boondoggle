@@ -39,6 +39,13 @@ export type WithFormFieldProps = {
 
 /** ----------------------------------------------------------------------------- */
 
+export type WithHideLastpass = {
+  /** Whether to hide the Lastpass icon or not. */
+  hideLastpass?: boolean;
+};
+
+/** ----------------------------------------------------------------------------- */
+
 export type WithIsCopyable =
   | {
       /** Whether the input is copyable or not. */
@@ -129,21 +136,6 @@ export type WithReadOnly =
     };
 
 /** ----------------------------------------------------------------------------- */
-
-// const myUnion = z.discriminatedUnion("label", [
-//   z.object({
-//     id: z.string(),
-//     label: z.string(),
-//     labelTooltip: z.string().optional(),
-//   }),
-//   z.object({
-//     id: z.string().optional(),
-//     label: z.never(),
-//     labelTooltip: z.never(),
-//   }),
-// ]);
-
-// type X = z.infer<typeof myUnion>;
 
 export type WithOptionalLabel =
   /** When label is defined, id must also be defined */

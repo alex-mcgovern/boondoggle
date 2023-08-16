@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 
 import { arrayHasLength } from "../../lib/array_has_length";
 import { a11yError } from "../../styles/common/a11y.css";
+import { hideLastpassStyle } from "../../styles/common/hide_lastpass.css";
 import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Box } from "../box";
@@ -19,6 +20,7 @@ import type {
   LabelledElementCustomisation,
   WithColorOverlay,
   WithDescription,
+  WithHideLastpass,
   WithIsClearable,
   WithIsCopyable,
   WithIsVisibilityToggleable,
@@ -43,6 +45,7 @@ export type InputProps = Omit<
   WithColorOverlay &
   WithDescription &
   WithIsClearable &
+  WithHideLastpass &
   WithIsCopyable &
   WithIsVisibilityToggleable &
   WithName &
@@ -65,6 +68,7 @@ export const Input = forwardRef(
       description,
       errorMessage,
       hasBorder,
+      hideLastpass,
       id,
       invalid,
       isClearable,
@@ -106,7 +110,10 @@ export const Input = forwardRef(
       <Box
         className={clsx(
           colorOverlay ? variantColorOverlay[colorOverlay] : undefined,
-          { [variantColorOverlay.red]: invalid }
+          {
+            [variantColorOverlay.red]: invalid,
+            [hideLastpassStyle]: hideLastpass,
+          }
         )}
         color="text_low_contrast"
         position="relative"

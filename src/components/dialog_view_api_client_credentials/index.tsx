@@ -38,6 +38,7 @@ export const DialogViewApiClientCredentials = forwardRef<
       <Box marginY="spacing_3">
         <Input
           errorMessage=""
+          hideLastpass
           id="client_id"
           isCopyable
           label="Client ID"
@@ -51,6 +52,7 @@ export const DialogViewApiClientCredentials = forwardRef<
         />
         <Input
           errorMessage=""
+          hideLastpass
           id="client_secret"
           isCopyable
           isVisibilityToggleable
