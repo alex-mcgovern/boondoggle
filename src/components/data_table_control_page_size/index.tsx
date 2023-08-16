@@ -4,6 +4,7 @@ import { useCallback, useMemo } from "react";
 import { Icon } from "../icon";
 import { SelectSingle } from "../select_single";
 
+import type { WithOptionalLabel } from "../../types";
 import type { SelectItemShape } from "../select/types";
 import type { SelectSingleProps } from "../select_single";
 import type { Table } from "@tanstack/react-table";
@@ -46,7 +47,8 @@ type DataTableControlPageSizeProps<TTableData> = {
   strShow: string;
   /** The `react-table` instance to control. */
   table: Table<TTableData>;
-} & Omit<SelectSingleProps, "items" | "name" | "placeholder">;
+} & WithOptionalLabel &
+  Omit<SelectSingleProps, "items" | "name" | "placeholder">;
 
 /**
  * A control for changing the page size of a table.

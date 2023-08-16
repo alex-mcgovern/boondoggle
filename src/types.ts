@@ -57,7 +57,7 @@ export type WithIsCopyable =
       /** Whether the input is copyable or not. */
       isCopyable?: never;
       /** Whether the input is read-only or not. */
-      readOnly?: false | undefined;
+      readOnly?: boolean;
     };
 
 /** ----------------------------------------------------------------------------- */
@@ -65,7 +65,7 @@ export type WithIsCopyable =
 export type WithIsVisibilityToggleable =
   | {
       /** Whether the input field value visibility can be toggled or not. */
-      isVisibilityToggleable: true;
+      isVisibilityToggleable?: true;
       /** Whether the input field value is visible or not. */
       isVisible?: boolean;
     }
@@ -81,7 +81,7 @@ export type WithIsVisibilityToggleable =
 export type WithIsClearable =
   | {
       /** Whether the input is clearable or not. */
-      isClearable: true;
+      isClearable?: true;
       /** Whether the input is read-only or not. */
       readOnly?: never;
     }
@@ -159,7 +159,7 @@ export type WithOptionalLabel =
   /** When label is not defined, id may be undefined */
   | {
       /** HTML element id */
-      id: string | undefined;
+      id?: string;
       /** Text for HTML label element */
       label?: never;
       /** Props for FieldLabel component */

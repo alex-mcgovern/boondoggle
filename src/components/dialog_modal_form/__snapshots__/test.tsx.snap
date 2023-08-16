@@ -73,7 +73,7 @@ exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
             class="styles_dialogContentInnerStyle__l8uldv3 styles__l8uldv2 get_sprinkles_height_100%__eiij7b2k get_sprinkles_padding_spacing_2_mobile__eiij7bc8"
           >
             <div
-              class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_position_relative_mobile__eiij7bgb"
+              class="get_sprinkles_position_relative_mobile__eiij7bgb"
             >
               <label
                 class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
@@ -94,7 +94,7 @@ exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="get_sprinkles_color_text_low_contrast__eiij7b1k"
+              class="get_sprinkles_position_relative_mobile__eiij7bgb"
             >
               <label
                 class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
@@ -123,7 +123,7 @@ exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
                   class="get_sprinkles_background_transparent__eiij7bp"
                 >
                   <div
-                    class="get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_position_relative_mobile__eiij7bgb"
+                    class="get_sprinkles_position_relative_mobile__eiij7bgb"
                   >
                     <label
                       class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7b8q get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_spacing_0.5_mobile__eiij7b9z get_sprinkles_marginBottom_spacing_0.5__eiij7b45"
@@ -178,7 +178,7 @@ exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
                 </div>
                 <dialog
                   aria-labelledby="downshift-2-label"
-                  class="styles_selectItemListWrapper__tx55ph1 a11y_a11yFocus__r8he5t2 styles__tx55ph0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_spacing_1__eiij7b53 get_sprinkles_minWidth_100%__eiij7b7d get_sprinkles_overflow_hidden__eiij7b86 get_sprinkles_overflowY_auto__eiij7b87 get_sprinkles_width_max-content_mobile__eiij7bi2 styles_getDialogStyles__thg74k8 animations_animateFadeIn__apgy12 styles__thg74k7 get_sprinkles_overflow_hidden__eiij7b86 get_sprinkles_padding_none_mobile__eiij7bbt get_sprinkles_zIndex_1__eiij7b8m styles_getDialogStyles_placement_bottom-start__thg74kb styles_placement_bottom-start__thg74k2 get_sprinkles_width_100%_mobile__eiij7bgn"
+                  class="styles_selectItemListWrapper__tx55ph1 a11y_a11yFocus__r8he5t2 styles__tx55ph0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_spacing_1__eiij7b53 get_sprinkles_minWidth_100%__eiij7b7d get_sprinkles_overflowY_auto__eiij7b87 get_sprinkles_width_max-content_mobile__eiij7bi2 styles_getDialogStyles__thg74k8 animations_animateFadeIn__apgy12 styles__thg74k7 get_sprinkles_padding_none_mobile__eiij7bbt get_sprinkles_zIndex_1__eiij7b8m styles_getDialogStyles_placement_bottom-start__thg74kb styles_placement_bottom-start__thg74k2 get_sprinkles_width_100%_mobile__eiij7bgn"
                   id="downshift-2-menu"
                   role="listbox"
                 >

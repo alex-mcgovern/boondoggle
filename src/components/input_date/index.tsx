@@ -9,18 +9,24 @@ import { Icon } from "../icon";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
+import type { WithOptionalLabel, WithPlaceholder } from "../../types";
 import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
-export type InputDateProps = InputProps & {
-  isOpen?: boolean;
-  locale?: Intl.LocalesArgument;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onChange?: (...event: any[]) => void;
-  rawValueTransformer?: (value: string) => string;
-};
+export type InputDateProps = Omit<
+  InputProps,
+  "isClearable" | "isCopyable" | "isVisibilityToggleable"
+> &
+  WithOptionalLabel &
+  WithPlaceholder & {
+    isOpen?: boolean;
+    locale?: Intl.LocalesArgument;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onChange?: (...event: any[]) => void;
+    rawValueTransformer?: (value: string) => string;
+  };
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
   (
@@ -71,7 +77,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
         triggerNode={
           // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
           <Input
-            {...(rest as InputProps)}
+            {...rest}
             className={inputDateStyle}
             defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
             readOnly

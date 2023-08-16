@@ -44,14 +44,8 @@ export const SlotWrapperInset = forwardRef(
             left="0"
           >
             {Children.map(slotLeft, (child) => {
-              console.debug("debug  child:", child?.toString());
               return (
-                <div
-                  className={getSlotInnerStyles({ size })}
-                  key={child?.valueOf()}
-                >
-                  {child}
-                </div>
+                <div className={getSlotInnerStyles({ size })}>{child}</div>
               );
             })}
           </Box>

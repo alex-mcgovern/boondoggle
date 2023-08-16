@@ -99,7 +99,7 @@ export const Button: ButtonComponent = forwardRef(
       isLoading: initIsLoading,
       size = "md",
       slotLeft,
-      // slotProps: userSlotProps,
+      slotProps,
       slotRight,
       type = "button",
       withLoadingState,
@@ -173,7 +173,7 @@ export const Button: ButtonComponent = forwardRef(
           color="inherit"
           size={size}
           slotLeft={isLoading && loaderSide === "left" ? <Loader /> : slotLeft}
-          // slotProps={slotProps}
+          slotProps={slotProps}
           slotRight={
             isLoading && loaderSide === "right" ? <Loader /> : slotRight
           }

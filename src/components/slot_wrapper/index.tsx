@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { Children, forwardRef } from "react";
 
 import { Box } from "../box";
 import { getSlotStyles } from "./styles.css";
@@ -44,7 +44,9 @@ export const SlotWrapper = forwardRef(
             color="inherit"
             flexShrink="0"
           >
-            {slotLeft}
+            {Children.map(slotLeft, (child) => {
+              return child;
+            })}
           </Box>
         )}
 
@@ -57,7 +59,9 @@ export const SlotWrapper = forwardRef(
             color="inherit"
             flexShrink="0"
           >
-            {slotRight}
+            {Children.map(slotRight, (child) => {
+              return child;
+            })}
           </Box>
         )}
       </Box>

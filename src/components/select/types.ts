@@ -17,7 +17,7 @@ export type SelectItemShape = BoxProps &
     value: string;
   };
 
-export type SelectCommonProps = WithOptionalLabel &
+export type SelectCommonProps = Partial<WithOptionalLabel> &
   WithStateInvalid &
   WithSlots &
   WithSize &

@@ -129,6 +129,7 @@ export const Input = forwardRef(
             )}
             id={id}
             onChange={handleUpdateInputValue}
+            readOnly={readOnly}
             ref={ref}
             type={isVisibilityToggleable && !isVisible ? "password" : type}
             value={inputValue}

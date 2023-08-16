@@ -13,6 +13,7 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   WithDescription,
   WithName,
+  WithOptionalLabel,
   WithStateInvalid,
   WithWrapperProps,
 } from "../../types";
@@ -28,7 +29,8 @@ export type RadioButtonCardGroupProps = SprinklesArgs &
   WithWrapperProps &
   WithStateInvalid &
   WithName &
-  WithDescription & {
+  WithDescription &
+  WithOptionalLabel & {
     defaultValue?: string | number;
     id: string;
     inputProps?: RadioButtonInputProps;
