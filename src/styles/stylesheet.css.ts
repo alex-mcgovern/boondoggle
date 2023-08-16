@@ -6,6 +6,8 @@ import { baseLayer, resetLayer } from "./layers.css";
 import { vars } from "./theme.css";
 import { createAccessibleTransition } from "./utils/create_accessible_transition";
 
+import type { StyleRule } from "@vanilla-extract/css";
+
 /** ----------------------------------------------------------------------------- */
 
 globalStyle(`*`, {
@@ -313,19 +315,23 @@ globalStyle(`hr`, {
   },
 }); /** ----------------------------------------------------------------------------- */
 
+export const textFieldStyleRule: StyleRule = {
+  background: vars.color.background,
+  border: `1px solid ${vars.color.border_default}`,
+  borderRadius: vars.borderRadius.sm,
+  color: vars.color.text_high_contrast,
+  fontWeight: vars.fontWeight.normal,
+  padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
+  ...createAccessibleTransition({
+    transition: `ease ${vars.transitionDuration.short} ease`,
+    transitionProperty: "color, background-color, border-color",
+  }),
+};
+
 globalStyle("input, textarea", {
   "@layer": {
     [baseLayer]: {
-      background: vars.color.background,
-      border: `1px solid ${vars.color.border_default}`,
-      borderRadius: vars.borderRadius.sm,
-      color: vars.color.text_high_contrast,
-      fontWeight: vars.fontWeight.normal,
-      padding: `${vars.spacing.spacing_1} ${vars.spacing.spacing_2}`,
-      ...createAccessibleTransition({
-        transition: `ease ${vars.transitionDuration.short} ease`,
-        transitionProperty: "color, background-color, border-color",
-      }),
+      ...textFieldStyleRule,
     },
   },
 });

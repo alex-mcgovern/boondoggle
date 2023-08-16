@@ -41,7 +41,7 @@ export const CustomisationMargin: Story = {
 /**
  * FieldLabel
  */
-export const FieldLabel: Story = {
+export const Default: Story = {
   args: {
     id: LOREM.id(),
     label: LOREM.label(),

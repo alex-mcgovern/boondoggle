@@ -4,15 +4,15 @@ type UseFieldCopyableStateArgs = {
   /** Whether the field is copyable. */
   isCopyable?: boolean;
   /** Whether the field is read-only. */
-  readonly?: boolean;
+  readOnly?: boolean;
 };
 
 /**
- * Hook to handle copying a value from a readonly input.
+ * Hook to handle copying a value from a readOnly input.
  */
 export function useFieldCopyableState({
   isCopyable,
-  readonly,
+  readOnly,
 }: UseFieldCopyableStateArgs) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
@@ -37,7 +37,7 @@ export function useFieldCopyableState({
     [revertIsCopied]
   );
 
-  if (!readonly || !isCopyable) {
+  if (!readOnly || !isCopyable) {
     return {};
   }
 

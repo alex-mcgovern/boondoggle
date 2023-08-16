@@ -3,22 +3,25 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yError } from "../../styles/common/a11y.css";
-import { getTheme } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
-import { FieldErrorMessage } from "../field_error_message";
-import { FieldLabel } from "../field_label";
+import { FieldWrapper } from "../field_wrapper";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  LabelledElementCustomisation,
+  WithColorOverlay,
+  WithDescription,
+  WithHideLastpass,
+  WithIsVisibilityToggleable,
   WithName,
   WithOptionalLabel,
+  WithPlaceholder,
+  WithReadOnly,
   WithSize,
   WithSlots,
   WithStateInvalid,
+  WithWrapperProps,
 } from "../../types";
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 
@@ -26,21 +29,33 @@ export type TextAreaProps = Omit<
   ComponentPropsWithoutRef<"textarea">,
   "color" | "ref"
 > &
+  // WithIsClearable &
+  // WithIsCopyable &
   SprinklesArgs &
-  LabelledElementCustomisation &
+  WithColorOverlay &
+  WithDescription &
+  WithHideLastpass &
+  WithIsVisibilityToggleable &
+  WithName &
   WithOptionalLabel &
-  WithStateInvalid &
+  WithPlaceholder &
+  WithReadOnly &
   WithSize &
   WithSlots &
-  WithName;
+  WithStateInvalid &
+  WithWrapperProps;
 
 export const TextArea = forwardRef(
   (
     {
+      colorOverlay,
+      description,
       errorMessage,
+      hideLastpass,
       id,
       invalid,
       label,
+      labelProps,
       labelTooltip,
       name,
       size = "md",
@@ -55,15 +70,18 @@ export const TextArea = forwardRef(
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
     return (
-      <Box
-        className={clsx({ [getTheme({ colorOverlay: "red" })]: invalid })}
-        color="text_low_contrast"
-        {...wrapperProps}
+      <FieldWrapper
+        colorOverlay={colorOverlay}
+        description={description}
+        errorMessage={errorMessage}
+        hideLastpass={hideLastpass}
+        id={id}
+        invalid={invalid}
+        label={label}
+        labelProps={labelProps}
+        labelTooltip={labelTooltip}
+        wrapperProps={wrapperProps}
       >
-        {label && id && (
-          <FieldLabel htmlFor={id} label={label} labelTooltip={labelTooltip} />
-        )}
-
         <SlotWrapper
           alignItems="start"
           size={size}
@@ -77,7 +95,6 @@ export const TextArea = forwardRef(
             className={clsx(
               styles.getTextAreaStyles({ size }),
               getSprinkles(atomProps),
-
               {
                 [a11yError]: invalid,
               }
@@ -88,11 +105,7 @@ export const TextArea = forwardRef(
             {...otherProps}
           />
         </SlotWrapper>
-
-        {invalid && errorMessage && (
-          <FieldErrorMessage message={errorMessage} />
-        )}
-      </Box>
+      </FieldWrapper>
     );
   }
 );

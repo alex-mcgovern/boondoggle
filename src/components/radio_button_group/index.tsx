@@ -11,10 +11,10 @@ import { getGroupLabelStyles } from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  LabelledElementCustomisation,
   WithDescription,
   WithName,
   WithStateInvalid,
+  WithWrapperProps,
 } from "../../types";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio_button";
 import type { Ref } from "react";
@@ -22,7 +22,7 @@ import type { Ref } from "react";
 /** ----------------------------------------------------------------------------- */
 
 export type RadioButtonGroupProps = SprinklesArgs &
-  LabelledElementCustomisation &
+  WithWrapperProps &
   WithStateInvalid &
   WithName &
   WithDescription & {

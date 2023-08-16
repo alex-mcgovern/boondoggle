@@ -36,7 +36,7 @@ export const a11yDisabled = style({
     [themeLayer]: {
       selectors: {
         "&[disabled], &[aria-disabled='true']": {
-          opacity: 0.3,
+          opacity: 0.5,
         },
         "&[disabled]:hover, &[aria-disabled='true']:hover": {
           cursor: "not-allowed",

@@ -33,12 +33,16 @@ const config: StorybookConfig = {
         allowSyntheticDefaultImports: false,
         esModuleInterop: false,
       },
-      shouldExtractLiteralValuesFromEnum: true,
+      shouldIncludeExpression: false,
+      shouldRemoveUndefinedFromOptional: true,
+      shouldExtractLiteralValuesFromEnum: false,
     },
   },
   webpackFinal: async (config) =>
     merge(config, {
-      plugins: [new VanillaExtractPlugin()],
+      plugins: [
+        new VanillaExtractPlugin({ identifiers: "short", outputCss: true }),
+      ],
     }),
 };
 

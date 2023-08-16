@@ -17,15 +17,12 @@ import { selectInputCursorStyles } from "../select/shared/select_input.styles.cs
 import { SelectItemList } from "../select_item_list";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
-import type {
-  LabelledElementCustomisation,
-  WithPlaceholder,
-} from "../../types";
+import type { WithPlaceholder, WithWrapperProps } from "../../types";
 import type { SelectCommonProps, SelectItemShape } from "../select/types";
 import type { Ref } from "react";
 
 export type SelectMultiProps = SelectCommonProps &
-  LabelledElementCustomisation &
+  WithWrapperProps &
   WithPlaceholder & {
     initialSelectedItems?: Array<SelectItemShape>;
     onChange?: (changes: Array<SelectItemShape>) => void;

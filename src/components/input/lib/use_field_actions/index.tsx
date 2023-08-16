@@ -23,7 +23,7 @@ type UseFieldActionsArgs = {
   /** The function to call when the input value changes. */
   onChange: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
   /** Whether the field is read-only. */
-  readonly: boolean | undefined;
+  readOnly: boolean | undefined;
   /** The size of the field. */
   size: ElementSizeEnum | undefined;
   /** The value of the input. */
@@ -40,7 +40,7 @@ export function useFieldActions({
   isVisibilityToggleable,
   isVisible: initialIsVisible,
   onChange,
-  readonly,
+  readOnly,
   size,
   value,
 }: UseFieldActionsArgs) {
@@ -80,7 +80,7 @@ export function useFieldActions({
 
   const { handleCopyValue, isCopied } = useFieldCopyableState({
     isCopyable,
-    readonly,
+    readOnly,
   });
 
   /** --------------------------------------------- */
@@ -109,7 +109,7 @@ export function useFieldActions({
       );
     }
 
-    if (isClearable && !readonly) {
+    if (isClearable && !readOnly) {
       actionNodes.push(
         <FieldActionButtonClear
           onClick={() => {
@@ -135,7 +135,7 @@ export function useFieldActions({
     isVisibilityToggleable,
     isVisible,
     onChange,
-    readonly,
+    readOnly,
     size,
   ]);
 

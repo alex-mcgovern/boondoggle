@@ -18,20 +18,20 @@ import * as styles from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  LabelledElementCustomisation,
   WithName,
   WithOptionalLabel,
   WithSize,
   WithSlots,
   WithStateDisabled,
   WithStateInvalid,
+  WithWrapperProps,
 } from "../../types";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, Ref } from "react";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
   SprinklesArgs &
-  LabelledElementCustomisation &
+  WithWrapperProps &
   WithOptionalLabel &
   WithStateInvalid &
   WithSlots &

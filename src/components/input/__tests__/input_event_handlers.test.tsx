@@ -107,7 +107,7 @@ describe("<Input />", () => {
         expect(onChange).toHaveBeenCalled();
       });
 
-      it("should not call onChange when readonly", async () => {
+      it("should not call onChange when readOnly", async () => {
         const onChange = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -153,7 +153,7 @@ describe("<Input />", () => {
         expect(onClick).toHaveBeenCalled();
       });
 
-      it("Given a readonly input,  when clicking, it should call onClick", () => {
+      it("Given a readOnly input,  when clicking, it should call onClick", () => {
         const onClick = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -199,7 +199,7 @@ describe("<Input />", () => {
         expect(onMouseOver).toHaveBeenCalled();
       });
 
-      it("Given a readonly input, when hovering, it should call onMouseOver", () => {
+      it("Given a readOnly input, when hovering, it should call onMouseOver", () => {
         const onMouseOver = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -245,7 +245,7 @@ describe("<Input />", () => {
         expect(onMouseLeave).toHaveBeenCalled();
       });
 
-      it("it should call `onMouseLeave` when `readonly`", () => {
+      it("it should call `onMouseLeave` when `readOnly`", () => {
         const onMouseLeave = jest.fn();
 
         const { getByRole } = renderComponent({
@@ -295,7 +295,7 @@ describe("<Input />", () => {
       expect(onFocus).toHaveBeenCalled();
     });
 
-    it("should call `onFocus` when `readonly`", () => {
+    it("should call `onFocus` when `readOnly`", () => {
       const onFocus = jest.fn();
 
       const { getByRole } = renderComponent({
@@ -346,7 +346,7 @@ describe("<Input />", () => {
       expect(onBlur).toHaveBeenCalled();
     });
 
-    it("it should call onBlur when readonly", () => {
+    it("it should call onBlur when readOnly", () => {
       const onBlur = jest.fn();
 
       const { getByRole } = renderComponent({

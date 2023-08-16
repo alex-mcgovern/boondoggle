@@ -14,10 +14,7 @@ import { DEFAULT_SLOT_RIGHT } from "../select/shared/DEFAULT_SLOT_RIGHT";
 import { selectInputCursorStyles } from "../select/shared/select_input.styles.css";
 import { SelectItemList } from "../select_item_list";
 
-import type {
-  LabelledElementCustomisation,
-  WithPlaceholder,
-} from "../../types";
+import type { WithPlaceholder, WithWrapperProps } from "../../types";
 import type { SelectCommonProps, SelectItemShape } from "../select/types";
 import type { UseComboboxStateChange } from "downshift";
 import type { Ref } from "react";
@@ -31,7 +28,7 @@ const defaultItemToString = (item: SelectItemShape | null) => {
 /** ----------------------------------------------------------------------------- */
 
 export type SelectSingleProps = SelectCommonProps &
-  LabelledElementCustomisation &
+  WithWrapperProps &
   WithPlaceholder & {
     initialSelectedItem?: SelectItemShape | null;
     itemToString?: (item: SelectItemShape | null) => string;

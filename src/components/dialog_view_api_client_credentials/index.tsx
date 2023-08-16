@@ -44,7 +44,7 @@ export const DialogViewApiClientCredentials = forwardRef<
           label="Client ID"
           labelTooltip="A unique string identifying you as a client. This is not editable."
           name="client_id"
-          readonly
+          readOnly
           value={client_id}
           wrapperProps={{
             marginBottom: "spacing_3",
@@ -59,7 +59,7 @@ export const DialogViewApiClientCredentials = forwardRef<
           label="Client secret"
           labelTooltip="A secret key used to authenticate you as a client."
           name="client_secret"
-          readonly
+          readOnly
           value={client_secret}
           wrapperProps={{
             marginBottom: "spacing_3",

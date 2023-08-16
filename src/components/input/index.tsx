@@ -4,20 +4,14 @@ import { forwardRef } from "react";
 
 import { arrayHasLength } from "../../lib/array_has_length";
 import { a11yError } from "../../styles/common/a11y.css";
-import { hideLastpassStyle } from "../../styles/common/hide_lastpass.css";
-import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { Box } from "../box";
-import { FieldDescription } from "../field_description";
-import { FieldErrorMessage } from "../field_error_message";
-import { FieldLabel } from "../field_label";
+import { FieldWrapper } from "../field_wrapper";
 import { SlotWrapperInset } from "../slot_wrapper_inset";
 import { useFieldActions } from "./lib/use_field_actions";
 import { getInputStyles } from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
-  LabelledElementCustomisation,
   WithColorOverlay,
   WithDescription,
   WithHideLastpass,
@@ -31,6 +25,7 @@ import type {
   WithSize,
   WithSlots,
   WithStateInvalid,
+  WithWrapperProps,
 } from "../../types";
 import type { ComponentPropsWithoutRef, Ref } from "react";
 
@@ -40,12 +35,11 @@ export type InputProps = Omit<
   ComponentPropsWithoutRef<"input">,
   "width" | "height" | "style" | "color" | "size" | "label" | "id"
 > &
-  LabelledElementCustomisation &
   SprinklesArgs &
   WithColorOverlay &
   WithDescription &
-  WithIsClearable &
   WithHideLastpass &
+  WithIsClearable &
   WithIsCopyable &
   WithIsVisibilityToggleable &
   WithName &
@@ -54,7 +48,8 @@ export type InputProps = Omit<
   WithReadOnly &
   WithSize &
   WithSlots &
-  WithStateInvalid & {
+  WithStateInvalid &
+  WithWrapperProps & {
     /** Whether to render the input with a border */
     hasBorder?: boolean;
   };
@@ -78,9 +73,8 @@ export const Input = forwardRef(
       label,
       labelProps,
       labelTooltip,
-      name,
       onChange,
-      readonly,
+      readOnly,
       size = "md",
       slotLeft,
       slotRight: initialSlotRight,
@@ -101,33 +95,24 @@ export const Input = forwardRef(
         isVisibilityToggleable,
         isVisible: initialIsVisible,
         onChange,
-        readonly,
+        readOnly,
         size,
         value,
       });
 
     return (
-      <Box
-        className={clsx(
-          colorOverlay ? variantColorOverlay[colorOverlay] : undefined,
-          {
-            [variantColorOverlay.red]: invalid,
-            [hideLastpassStyle]: hideLastpass,
-          }
-        )}
-        color="text_low_contrast"
-        position="relative"
-        {...wrapperProps}
+      <FieldWrapper
+        colorOverlay={colorOverlay}
+        description={description}
+        errorMessage={errorMessage}
+        hideLastpass={hideLastpass}
+        id={id}
+        invalid={invalid}
+        label={label}
+        labelProps={labelProps}
+        labelTooltip={labelTooltip}
+        wrapperProps={wrapperProps}
       >
-        {label && id && (
-          <FieldLabel
-            htmlFor={id}
-            label={label}
-            labelTooltip={labelTooltip}
-            {...labelProps}
-          />
-        )}
-
         <SlotWrapperInset
           size={size}
           slotLeft={slotLeft}
@@ -143,23 +128,14 @@ export const Input = forwardRef(
               }
             )}
             id={id}
-            name={name}
             onChange={handleUpdateInputValue}
-            readOnly={readonly}
             ref={ref}
             type={isVisibilityToggleable && !isVisible ? "password" : type}
             value={inputValue}
             {...otherProps}
           />
         </SlotWrapperInset>
-
-        {invalid && errorMessage && (
-          <FieldErrorMessage message={errorMessage} />
-        )}
-        {description && !invalid && (
-          <FieldDescription description={description} />
-        )}
-      </Box>
+      </FieldWrapper>
     );
   }
 );

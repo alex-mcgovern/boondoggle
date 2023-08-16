@@ -50,14 +50,14 @@ export type WithIsCopyable =
   | {
       /** Whether the input is copyable or not. */
       isCopyable: true;
-      /** Whether the input is readonly or not. */
-      readonly: true;
+      /** Whether the input is read-only or not. */
+      readOnly: true;
     }
   | {
       /** Whether the input is copyable or not. */
       isCopyable?: never;
-      /** Whether the input is readonly or not. */
-      readonly?: false | undefined;
+      /** Whether the input is read-only or not. */
+      readOnly?: false | undefined;
     };
 
 /** ----------------------------------------------------------------------------- */
@@ -82,15 +82,22 @@ export type WithIsClearable =
   | {
       /** Whether the input is clearable or not. */
       isClearable: true;
-      /** Whether the input is readonly or not. */
-      readonly?: never;
+      /** Whether the input is read-only or not. */
+      readOnly?: never;
     }
   | {
       /** Whether the input is clearable or not. */
       isClearable?: never;
-      /** Whether the input is readonly or not. */
-      readonly?: boolean;
+      /** Whether the input is read-only or not. */
+      readOnly?: boolean;
     };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithWrapperProps = {
+  /** Props for the wrapper component. */
+  wrapperProps?: BoxProps;
+};
 
 /** ----------------------------------------------------------------------------- */
 
@@ -109,8 +116,8 @@ export type WithPlaceholder =
   | {
       /** Placeholder shown on empty field. */
       placeholder?: never;
-      /** Whether the input is readonly or not. */
-      readonly: true;
+      /** Whether the input is read-only or not. */
+      readOnly: true;
     }
   | {
       /** Initial value of the field. */
@@ -125,38 +132,41 @@ export type WithReadOnly =
   | {
       /** Placeholder shown on empty field. */
       placeholder?: never;
-      /** Whether the input is readonly or not. */
-      readonly: true;
+      /** Whether the input is read-only or not. */
+      readOnly: true;
     }
   | {
       /** Placeholder shown on empty field. */
       placeholder?: string;
-      /** Whether the input is readonly or not. */
-      readonly?: boolean;
+      /** Whether the input is read-only or not. */
+      readOnly?: boolean;
     };
 
 /** ----------------------------------------------------------------------------- */
 
 export type WithOptionalLabel =
   /** When label is defined, id must also be defined */
-  (
-    | {
-        /** HTML element id */
-        id: string;
-        /** Text for HTML label element */
-        label: string;
-      }
-    /** When label is not defined, id may be undefined */
-    | {
-        /** HTML element id */
-        id?: string;
-        /** Text for HTML label element */
-        label?: never;
-      }
-  ) & {
-    /** Optional tooltip for label */
-    labelTooltip?: string;
-  };
+  | {
+      /** HTML element id */
+      id: string;
+      /** Text for HTML label element */
+      label: string;
+      /** Props for FieldLabel component */
+      labelProps?: FieldLabelProps | undefined;
+      /** Optional tooltip for label */
+      labelTooltip?: string;
+    }
+  /** When label is not defined, id may be undefined */
+  | {
+      /** HTML element id */
+      id: string | undefined;
+      /** Text for HTML label element */
+      label?: never;
+      /** Props for FieldLabel component */
+      labelProps?: never;
+      /** Optional tooltip for label */
+      labelTooltip?: never;
+    };
 
 /** ----------------------------------------------------------------------------- */
 
@@ -230,10 +240,3 @@ export type PolymorphicRef<TPolymorphicAs extends ElementType> =
 export type ElementTypeArg =
   | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
   | undefined;
-
-/** ----------------------------------------------------------------------------- */
-
-export type LabelledElementCustomisation = {
-  labelProps?: FieldLabelProps;
-  wrapperProps?: BoxProps;
-};
