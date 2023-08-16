@@ -1,8 +1,10 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { FieldActionButtonClear } from "../../../field_action_button_clear";
 import { FieldActionButtonCopy } from "../../../field_action_button_copy";
+import { FieldActionButtonVisibility } from "../../../field_action_button_visibility";
 import { useFieldCopyableState } from "../use_field_copyable_state";
+import { useFieldVisibilityState } from "../use_field_visibility_state";
 
 import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
 import type { ChangeEvent, ReactNode } from "react";
@@ -14,14 +16,16 @@ type UseFieldActionsArgs = {
   isClearable?: boolean;
   /** Whether the field is copyable. */
   isCopyable?: boolean;
+  /** Whether the field value can be optionally visible. */
+  isVisibilityToggleable?: boolean;
+  /** Whether the field value is visible. */
+  isVisible?: boolean;
   /** The function to call when the input value changes. */
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   /** Whether the field is read-only. */
   readonly?: boolean;
   /** The size of the field. */
   size?: ElementSizeEnum;
-  /** The tooltip text to indicate is copyable. */
-  strCopy?: string;
   /** The value of the input. */
   value?: string | number | readonly string[] | undefined;
 };
@@ -33,14 +37,13 @@ export function useFieldActions({
   defaultValue,
   isClearable,
   isCopyable,
+  isVisibilityToggleable,
+  isVisible: initialIsVisible,
   onChange,
   readonly,
   size,
-  strCopy,
   value,
 }: UseFieldActionsArgs) {
-  /** --------------------------------------------- */
-
   // Manage the input value with state to allow it to be cleared.
 
   const [inputValue, setInputValue] = useState<
@@ -49,15 +52,15 @@ export function useFieldActions({
     return value || defaultValue || "";
   });
 
-  // useEffect(() => {
-  //   if (value !== undefined) {
-  //     setInputValue(value);
-  //   }
-  // }, [value]);
+  useEffect(() => {
+    if (value !== undefined) {
+      setInputValue(value);
+    }
+  }, [value]);
 
   // Event handler for when the input value changes.
 
-  const handleChange = useCallback(
+  const handleUpdateInputValue = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       if (onChange) {
         onChange(e);
@@ -66,6 +69,12 @@ export function useFieldActions({
     },
     [onChange]
   );
+
+  /** --------------------------------------------- */
+
+  const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
+    initialIsVisible,
+  });
 
   /** --------------------------------------------- */
 
@@ -79,7 +88,16 @@ export function useFieldActions({
   const actions = useMemo(() => {
     const actionNodes: Array<ReactNode> = [];
 
-    if (isCopyable && strCopy) {
+    if (isVisibilityToggleable) {
+      actionNodes.push(
+        <FieldActionButtonVisibility
+          isVisible={isVisible}
+          onClick={handleToggleVisibility}
+          size={size}
+        />
+      );
+    }
+    if (isCopyable) {
       actionNodes.push(
         <FieldActionButtonCopy
           isCopied={isCopied}
@@ -87,7 +105,6 @@ export function useFieldActions({
             handleCopyValue?.(inputValue);
           }}
           size={size}
-          strCopy={strCopy}
         />
       );
     }
@@ -110,15 +127,22 @@ export function useFieldActions({
     return actionNodes;
   }, [
     handleCopyValue,
+    handleToggleVisibility,
     inputValue,
     isClearable,
     isCopied,
     isCopyable,
+    isVisibilityToggleable,
+    isVisible,
     onChange,
     readonly,
     size,
-    strCopy,
   ]);
 
-  return { actions, handleChange, inputValue };
+  return {
+    actions,
+    handleUpdateInputValue,
+    inputValue,
+    isVisible,
+  };
 }

@@ -19,7 +19,7 @@ export type DialogModalAlertProps = WithSlots & {
 export function DialogModalAlert({
   colorOverlay = "amber",
   description,
-  slotLeft = <Icon icon={faInfoCircle} />,
+  slotLeft = [<Icon icon={faInfoCircle} />],
   slotRight,
   title,
 }: DialogModalAlertProps) {

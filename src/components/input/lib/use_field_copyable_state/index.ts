@@ -27,7 +27,7 @@ export function useFieldCopyableState({
   /** --------------------------------------------- */
 
   const handleCopyValue = useCallback(
-    (value: string) => {
+    (value: string | number | readonly string[] | undefined) => {
       return navigator.clipboard.writeText(value as string).then(() => {
         setIsCopied(true);
 

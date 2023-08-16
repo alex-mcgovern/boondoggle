@@ -4,13 +4,18 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dialogContentOuterStyle = style([
   getSprinkles({
-    flexGrow: "1",
+    maxWidth: "100%",
     overflowY: "auto",
+    width: "100%",
   }),
+  {
+    overflowX: "hidden",
+  },
 ]);
 
 export const dialogContentInnerStyle = style([
   getSprinkles({
+    height: "100%",
     padding: "spacing_2",
   }),
 ]);

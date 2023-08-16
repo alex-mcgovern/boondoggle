@@ -17,6 +17,18 @@ const placement = styleVariants({
     left: "auto",
   },
   "bottom-start": [],
+
+  /** -------------------------------------------- */
+
+  "middle-start": [
+    {
+      insetBlock: "0% 50%",
+      insetInlineStart: calc.add("100%", vars.spacing.spacing_1),
+    },
+  ],
+
+  /** -------------------------------------------- */
+
   "top-center": [
     {
       insetBlockEnd: "100%",
@@ -25,6 +37,7 @@ const placement = styleVariants({
     },
   ],
   "top-end": [{ insetBlockEnd: "100%", left: "auto" }],
+
   "top-start": [{ insetBlockEnd: "100%" }],
 });
 
@@ -34,6 +47,7 @@ export const getDialogStyles = recipe({
   base: [
     animateFadeIn,
     {
+      border: "none",
       maxWidth: calc.subtract("100vw", vars.spacing.spacing_2),
       selectors: {
         "&:focus": {

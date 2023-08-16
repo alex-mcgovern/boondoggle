@@ -1,13 +1,13 @@
-import { faCheck, faCopy } from "@fortawesome/sharp-regular-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/sharp-regular-svg-icons";
 
 import { FieldActionButton } from "../field_action_button";
 import { Icon } from "../icon";
 
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 
-type FieldActionButtonCopyProps = {
-  /** Whether the user has just copied tha value of the field or not. */
-  isCopied?: boolean;
+type FieldActionButtonVisibilityProps = {
+  /** Whether the value of the field is visible or not. */
+  isVisible?: boolean;
   /** The function to call when the button is clicked. */
   onClick: () => void;
   /** The size of the field the button is embedded within. */
@@ -15,19 +15,19 @@ type FieldActionButtonCopyProps = {
 };
 
 /**
- * A button to copy the contents of a field.
+ * A button to toggle the visiblity of a field value.
  */
-export function FieldActionButtonCopy({
-  isCopied,
+export function FieldActionButtonVisibility({
+  isVisible,
   onClick,
   size,
-}: FieldActionButtonCopyProps) {
+}: FieldActionButtonVisibilityProps) {
   return (
     <FieldActionButton
-      name="copy"
+      name="visibility"
       onClick={onClick}
       size={size}
-      slot={<Icon icon={isCopied ? faCheck : faCopy} />}
+      slot={<Icon icon={isVisible ? faEyeSlash : faEye} />}
     />
   );
 }

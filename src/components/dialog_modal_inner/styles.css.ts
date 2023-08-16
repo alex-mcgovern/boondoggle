@@ -49,7 +49,6 @@ export const getDialogModalInnerStyle = recipe({
       display: "flex",
       flexDirection: "column",
       maxWidth: "100vw",
-      overflow: "hidden",
       padding: "none",
       width: "100vw",
     }),
@@ -63,6 +62,9 @@ export const getDialogModalInnerStyle = recipe({
           maxHeight: "75dvh",
         },
       },
+
+      // overflow: "clip",
+      // overflowClipMargin: "1000px",
       overscrollBehavior: "contain",
     },
   ],

@@ -19,48 +19,18 @@ import type {
   LabelledElementCustomisation,
   WithColorOverlay,
   WithDescription,
+  WithIsClearable,
+  WithIsCopyable,
+  WithIsVisibilityToggleable,
   WithName,
   WithOptionalLabel,
   WithPlaceholder,
+  WithReadOnly,
   WithSize,
   WithSlots,
   WithStateInvalid,
 } from "../../types";
 import type { ComponentPropsWithoutRef, Ref } from "react";
-
-/** ----------------------------------------------------------------------------- */
-
-type WithIsCopyable =
-  | {
-      /** Whether the input is copyable or not. */
-      isCopyable: true;
-      /** Whether the input is readonly or not. */
-      readonly: true;
-      /** The tooltip text to indicate is copyable. */
-      strCopy: string;
-    }
-  | {
-      /** Whether the input is copyable or not. */
-      isCopyable?: never;
-      /** Whether the input is readonly or not. */
-      readonly?: boolean;
-      /** The tooltip text to indicate is copyable. */
-      strCopy?: never;
-    };
-
-type WithIsClearable =
-  | {
-      /** Whether the input is clearable or not. */
-      isClearable: true;
-      /** Whether the input is readonly or not. */
-      readonly?: never;
-    }
-  | {
-      /** Whether the input is clearable or not. */
-      isClearable?: never;
-      /** Whether the input is readonly or not. */
-      readonly?: boolean;
-    };
 
 /** ----------------------------------------------------------------------------- */
 
@@ -74,9 +44,11 @@ export type InputProps = Omit<
   WithDescription &
   WithIsClearable &
   WithIsCopyable &
+  WithIsVisibilityToggleable &
   WithName &
   WithOptionalLabel &
   WithPlaceholder &
+  WithReadOnly &
   WithSize &
   WithSlots &
   WithStateInvalid & {
@@ -97,6 +69,8 @@ export const Input = forwardRef(
       invalid,
       isClearable,
       isCopyable,
+      isVisibilityToggleable,
+      isVisible: initialIsVisible,
       label,
       labelProps,
       labelTooltip,
@@ -106,7 +80,7 @@ export const Input = forwardRef(
       size = "md",
       slotLeft,
       slotRight: initialSlotRight,
-      strCopy,
+      type,
       value,
       wrapperProps,
       ...rest
@@ -115,96 +89,18 @@ export const Input = forwardRef(
   ) => {
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
-    /** --------------------------------------------- */
+    const { actions, handleUpdateInputValue, inputValue, isVisible } =
+      useFieldActions({
+        defaultValue,
+        isClearable,
+        isCopyable,
+        isVisibilityToggleable,
+        isVisible: initialIsVisible,
+        onChange,
+        size,
+        value,
+      });
 
-    // const [inputValue, setInputValue] = useState<
-    //   typeof value | typeof defaultValue
-    // >(() => {
-    //   return value || defaultValue || "";
-    // });
-
-    // useEffect(() => {
-    //   if (value !== undefined) {
-    //     setInputValue(value);
-    //   }
-    // }, [value]);
-
-    /** --------------------------------------------- */
-
-    // const { handleCopyValue, isCopied } = useFieldCopyableState({
-    //   isCopyable,
-    //   readonly,
-    // });
-
-    /** --------------------------------------------- */
-
-    // const slotRight = useMemo(() => {
-    //   if (isCopyable) {
-    //     return (
-    //       <FieldActionButtonCopy
-    //         isCopied={isCopied}
-    //         onClick={() => {
-    //           handleCopyValue?.(inputValue);
-    //         }}
-    //         size={size}
-    //         strCopy={strCopy}
-    //       />
-    //     );
-    //   }
-
-    //   if (isClearable) {
-    //     return (
-    //       <FieldActionButtonClear
-    //         onClick={() => {
-    //           onChange?.({
-    //             target: { value: "" },
-    //           } as ChangeEvent<HTMLInputElement>);
-
-    //           return setInputValue("");
-    //         }}
-    //         size={size}
-    //       />
-    //     );
-    //   }
-
-    //   return initialSlotRight;
-    // }, [
-    //   handleCopyValue,
-    //   initialSlotRight,
-    //   inputValue,
-    //   isClearable,
-    //   isCopied,
-    //   isCopyable,
-    //   onChange,
-    //   size,
-    //   strCopy,
-    // ]);
-
-    // console.debug("debug  slotRight:", slotRight);
-
-    /** --------------------------------------------- */
-
-    // const handleChange = useCallback(
-    //   (e: ChangeEvent<HTMLInputElement>) => {
-    //     if (onChange) {
-    //       onChange(e);
-    //     }
-    //     return setInputValue(e.target.value);
-    //   },
-    //   [onChange]
-    // );
-
-    const { actions, handleChange, inputValue } = useFieldActions({
-      defaultValue,
-      isClearable,
-      isCopyable,
-      onChange,
-      size,
-      strCopy,
-      value,
-    });
-
-    /** --------------------------------------------- */
     return (
       <Box
         className={clsx(
@@ -212,6 +108,7 @@ export const Input = forwardRef(
           { [variantColorOverlay.red]: invalid }
         )}
         color="text_low_contrast"
+        position="relative"
         {...wrapperProps}
       >
         {label && id && (
@@ -239,9 +136,10 @@ export const Input = forwardRef(
             )}
             id={id}
             name={name}
-            onChange={handleChange}
+            onChange={handleUpdateInputValue}
             readOnly={readonly}
             ref={ref}
+            type={isVisibilityToggleable && !isVisible ? "password" : type}
             value={inputValue}
             {...otherProps}
           />

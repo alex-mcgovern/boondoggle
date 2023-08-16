@@ -150,6 +150,6 @@ export const PlayKeyboardNavigation: Story = {
 export const SlotLeft: Story = {
   args: {
     items: mockSelectItems({ withIcon: true }),
-    slotLeft: <Icon icon={faGlobeAfrica} />,
+    slotLeft: [<Icon icon={faGlobeAfrica} />],
   },
 };

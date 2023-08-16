@@ -19,6 +19,6 @@ const fadeInKeyframes = keyframes({
 
 export const animateFadeIn = style([
   createAccessibleTransition({
-    animation: `${fadeInKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+    animation: `${fadeInKeyframes} ${vars.transitionDuration.long} ease forwards`,
   }),
 ]);

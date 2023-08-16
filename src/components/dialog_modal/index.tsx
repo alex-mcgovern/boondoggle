@@ -43,7 +43,10 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
         <DialogModalOuter dialogRef={dialogRef}>
           <DialogModalInner width={width}>
             <DialogModalHeader closeDialog={closeDialog} title={title} />
+
+            {/* Scrollable dialog modal content */}
             <DialogModalContent alert={alert}>{children}</DialogModalContent>
+
             {actions && (
               <DialogModalActions actions={actions} closeDialog={closeDialog} />
             )}

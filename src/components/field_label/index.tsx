@@ -30,7 +30,7 @@ export function FieldLabel({
     >
       {label}
       {labelTooltip && (
-        <Tooltip placement="bottom-center" tooltipText={labelTooltip} />
+        <Tooltip placement="middle-start" tooltipText={labelTooltip} />
       )}
     </Box>
   );

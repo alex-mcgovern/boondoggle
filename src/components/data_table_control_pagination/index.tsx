@@ -62,28 +62,28 @@ export function DataTableControlPagination<TTableData>({
           disabled={!table.getCanPreviousPage()}
           name="button_first_page"
           onClick={goToFirst}
-          slotLeft={<Icon icon={faArrowToLeft} />}
+          slotLeft={[<Icon icon={faArrowToLeft} />]}
         />
         <Button
           {...PAGINATION_BUTTON_PROPS}
           disabled={!table.getCanPreviousPage()}
           name="button_previous_page"
           onClick={goToPrevious}
-          slotLeft={<Icon icon={faArrowLeft} />}
+          slotLeft={[<Icon icon={faArrowLeft} />]}
         />
         <Button
           {...PAGINATION_BUTTON_PROPS}
           disabled={!table.getCanNextPage()}
           name="button_next_page"
           onClick={goToNext}
-          slotRight={<Icon icon={faArrowRight} />}
+          slotRight={[<Icon icon={faArrowRight} />]}
         />
         <Button
           {...PAGINATION_BUTTON_PROPS}
           disabled={!table.getCanNextPage()}
           name="button_last_page"
           onClick={goToLast}
-          slotLeft={<Icon icon={faArrowToRight} />}
+          slotLeft={[<Icon icon={faArrowToRight} />]}
         />
       </Box>
     </Box>

@@ -52,7 +52,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
     cell: (info) => {
       return (
         <DataTableCellButton
-          slotRight={<Icon icon={faArrowUpRight} />}
+          slotRight={[<Icon icon={faArrowUpRight} />]}
           value={info.getValue()}
         />
       );

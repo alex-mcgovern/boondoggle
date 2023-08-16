@@ -71,6 +71,5 @@ const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 /** ----------------------------------------------------------------------------- */
 
 export const Default: Story = {
-  name: "default",
   render: Template,
 };

@@ -2,7 +2,7 @@ import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { Box } from "../box";
-import { FieldActionButtonClear } from "../field_action_button";
+import { FieldActionButtonClear } from "../field_action_button_clear";
 import { Input } from "../input";
 import {
   downshiftStateReducer,
@@ -175,7 +175,7 @@ export const SelectSingle = forwardRef(
             onClick={() => {
               setInputValue("");
               setSelectedItem(null);
-              setLocalSlotLeft(null);
+              setLocalSlotLeft(undefined);
               reset();
             }}
           />

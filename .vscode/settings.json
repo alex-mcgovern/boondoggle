@@ -75,6 +75,7 @@
     "clsx",
     "combobox",
     "popover",
+    "Toggleable",
     "vars"
   ],
   "turboConsoleLog.delimiterInsideMessage": "",

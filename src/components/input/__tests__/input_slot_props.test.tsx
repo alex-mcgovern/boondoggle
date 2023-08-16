@@ -26,7 +26,7 @@ describe("<Input />", () => {
     it("should render node passed to `slotLeft`", () => {
       const { getByTestId } = renderComponent({
         ...PROPS,
-        slotLeft: <Icon data-testid="icon" icon={faSearch} />,
+        slotLeft: [<Icon data-testid="icon" icon={faSearch} />],
       });
 
       expect(getByTestId("icon")).not.toBeNull();
@@ -35,7 +35,7 @@ describe("<Input />", () => {
     it("should render node passed to `slotRight`", () => {
       const { getByTestId } = renderComponent({
         ...PROPS,
-        slotRight: <Icon data-testid="icon" icon={faSearch} />,
+        slotRight: [<Icon data-testid="icon" icon={faSearch} />],
       });
       expect(getByTestId("icon")).not.toBeNull();
     });

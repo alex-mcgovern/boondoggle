@@ -35,7 +35,7 @@ describe("<SelectSingle />", () => {
     it("should render node passed to `slotLeft`", async () => {
       const { getByTestId } = await renderComponent({
         ...PROPS,
-        slotLeft: <Icon data-testid="icon" icon={faSearch} />,
+        slotLeft: [<Icon data-testid="icon" icon={faSearch} />],
       });
 
       expect(getByTestId("icon")).not.toBeNull();
@@ -44,7 +44,7 @@ describe("<SelectSingle />", () => {
     it("should render node passed to `slotRight`", async () => {
       const { getByTestId } = await renderComponent({
         ...PROPS,
-        slotRight: <Icon data-testid="icon" icon={faSearch} />,
+        slotRight: [<Icon data-testid="icon" icon={faSearch} />],
       });
       expect(getByTestId("icon")).not.toBeNull();
     });

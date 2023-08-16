@@ -17,52 +17,52 @@ export const mockSelectItems = ({
   return [
     {
       label: "United Kingdom",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "uk",
     },
     {
       label: "France",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "fr",
     },
     {
       label: "Germany",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "de",
     },
     {
       label: "Spain",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "es",
     },
     {
       label: "The United Kingdom of Great Britain and Northern Ireland",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "gb",
     },
     {
       label: "Italy",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "it",
     },
     {
       label: "Portugal",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "pt",
     },
     {
       label: "United States",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "us",
     },
     {
       label: "Canada",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "ca",
     },
     {
       label: "Australia",
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "au",
     },
   ];
@@ -80,7 +80,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "uk",
     },
     {
@@ -89,7 +89,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "fr",
     },
     {
@@ -98,7 +98,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "de",
     },
     {
@@ -107,7 +107,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "es",
     },
     {
@@ -116,7 +116,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "gb",
     },
     {
@@ -125,7 +125,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "it",
     },
     {
@@ -134,7 +134,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "pt",
     },
     {
@@ -143,7 +143,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "us",
     },
     {
@@ -152,7 +152,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "ca",
     },
     {
@@ -161,7 +161,7 @@ export const mockSelectItemsAsButtons = ({
       onClick: () => {
         return console.log("test");
       },
-      slotLeft: withIcon ? <Icon icon={faGlobe} /> : undefined,
+      slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
       value: "au",
     },
   ];

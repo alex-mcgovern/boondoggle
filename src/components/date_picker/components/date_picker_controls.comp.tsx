@@ -55,7 +55,7 @@ export function DatePickerControls({
           appearance="ghost"
           name="prev"
           size="square_md"
-          slotLeft={<Icon icon={faAngleLeft} />}
+          slotLeft={[<Icon icon={faAngleLeft} />]}
         />
 
         <Button appearance="ghost" name="toggle_years" onClick={onToggleYears}>
@@ -74,7 +74,7 @@ export function DatePickerControls({
           appearance="ghost"
           name="next"
           size="square_md"
-          slotLeft={<Icon icon={faAngleRight} />}
+          slotLeft={[<Icon icon={faAngleRight} />]}
         />
       </Box>
     </Box>

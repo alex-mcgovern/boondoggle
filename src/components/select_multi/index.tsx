@@ -3,7 +3,7 @@ import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 
 import { Box } from "../box";
-import { FieldActionButtonClear } from "../field_action_button";
+import { FieldActionButtonClear } from "../field_action_button_clear";
 import { Input } from "../input";
 import {
   downshiftStateReducer,

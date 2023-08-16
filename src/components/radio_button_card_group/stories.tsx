@@ -26,7 +26,6 @@ export const Invalid: Story = {
     invalid: true,
     items: RADIO_BUTTON_CARDS_MOCK,
   },
-  name: "invalid",
 };
 
 export const DefaultValue: Story = {
@@ -41,5 +40,4 @@ export const IsLabelVisibleFalse: Story = {
     isLabelVisible: false,
     items: RADIO_BUTTON_CARDS_MOCK,
   },
-  name: "is-label-visible-false",
 };

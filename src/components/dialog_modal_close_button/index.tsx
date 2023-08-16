@@ -18,7 +18,7 @@ export function DialogModalCloseButton({
       name="close"
       onClick={closeDialog}
       size="square_md"
-      slotLeft={<Icon icon={faTimes} />}
+      slotLeft={[<Icon icon={faTimes} />]}
       type="button"
     />
   );

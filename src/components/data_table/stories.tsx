@@ -109,7 +109,7 @@ export const WithAggregatedCell: Story = {
 export const With1Action: Story = {
   args: {
     actions: (
-      <Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
         Primary action
       </Button>
     ),
@@ -126,7 +126,7 @@ export const With2Actions: Story = {
       <Button appearance="secondary" name="secondary_action">
         Secondary action
       </Button>,
-      <Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
         Primary action
       </Button>,
     ],
@@ -143,7 +143,7 @@ export const KitchenSink: Story = {
       <Button appearance="secondary" name="secondary_action">
         Secondary action
       </Button>,
-      <Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
         Primary action
       </Button>,
     ],

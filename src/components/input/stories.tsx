@@ -36,7 +36,6 @@ export const CustomisationMargin: Story = {
       margin: "spacing_5",
     },
   },
-  name: "customisation/margin",
 };
 
 /**
@@ -47,7 +46,6 @@ export const FieldLabel: Story = {
     id: LOREM.id(),
     label: LOREM.label(),
   },
-  name: "label",
 };
 
 export const Invalid: Story = {
@@ -56,7 +54,6 @@ export const Invalid: Story = {
     invalid: true,
     label: LOREM.label(),
   },
-  name: "invalid",
 };
 
 export const HasBorderFalse: Story = {
@@ -65,7 +62,6 @@ export const HasBorderFalse: Story = {
     id: LOREM.id(),
     label: LOREM.label(),
   },
-  name: "has-border/false",
 };
 
 export const Description: Story = {
@@ -74,7 +70,6 @@ export const Description: Story = {
     id: LOREM.id(),
     label: LOREM.label(),
   },
-  name: "description",
 };
 
 /** -----------------------------------------------------------------------------
@@ -88,38 +83,37 @@ const TemplateColors = () => {
         colorOverlay="blue"
         name="blue"
         placeholder={LOREM.placeholder()}
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
       <StoryComp
         colorOverlay="red"
         name="red"
         placeholder={LOREM.placeholder()}
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
       <StoryComp
         colorOverlay="green"
         name="green"
         placeholder={LOREM.placeholder()}
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
       <StoryComp
         colorOverlay="amber"
         name="amber"
         placeholder={LOREM.placeholder()}
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
       <StoryComp
         colorOverlay="grey"
         name="grey"
         placeholder={LOREM.placeholder()}
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
     </Box>
   );
 };
 
 export const Colors: StoryObj<StoryCompProps> = {
-  name: "Colors",
   render: TemplateColors,
 };
 
@@ -165,7 +159,6 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
 };
 
 export const Sizes: Story = {
-  name: "Sizes",
   render: TemplateSizes,
 };
 
@@ -196,8 +189,8 @@ const TemplateSlot = () => {
       <Box as="h3">Slot left (button)</Box>
 
       <TemplateSizes isClearable />
-      <TemplateSizes isClearable isCopyable strCopy="Copied" />
-      <TemplateSizes isClearable isCopyable strCopy="Copied" />
+      <TemplateSizes isClearable isCopyable />
+      <TemplateSizes isClearable isCopyable />
 
       <hr />
       <Box as="h3">Slot right (icon)</Box>
@@ -221,14 +214,13 @@ const TemplateSlot = () => {
       <Box as="h3">Slot right (button)</Box>
 
       <TemplateSizes isClearable />
-      <TemplateSizes isClearable isCopyable strCopy="Copied" />
-      <TemplateSizes isClearable isCopyable strCopy="Copied" />
+      <TemplateSizes isClearable isCopyable />
+      <TemplateSizes isClearable isCopyable />
     </>
   );
 };
 
 export const Slot: Story = {
-  name: "Slot",
   render: TemplateSlot,
 };
 
@@ -238,35 +230,11 @@ export const Slot: Story = {
 
 const TemplateIsClearable = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
-      <StoryComp
-        defaultValue={LOREM.text_xxs}
-        id="lg"
-        isClearable
-        label="lg"
-        name="lg"
-        placeholder={LOREM.placeholder()}
-        size="lg"
-      />
-      <StoryComp
-        defaultValue={LOREM.text_xxs}
-        id="md"
-        isClearable
-        label="md"
-        name="md"
-        placeholder={LOREM.placeholder()}
-        size="md"
-      />
-      <StoryComp
-        defaultValue={LOREM.text_xxs}
-        id="sm"
-        isClearable
-        label="sm"
-        name="sm"
-        placeholder={LOREM.placeholder()}
-        size="sm"
-      />
-    </Box>
+    <>
+      <Box as="h3">Is clearable</Box>
+
+      <TemplateSizes isClearable />
+    </>
   );
 };
 
@@ -280,41 +248,11 @@ export const IsClearable: Story = {
 
 const TemplateIsCopyable = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="lg"
-        isCopyable
-        label="lg"
-        name="lg"
-        placeholder={LOREM.placeholder()}
-        readonly
-        size="lg"
-        strCopy="Copy value"
-      />
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="md"
-        isCopyable
-        label="md"
-        name="md"
-        placeholder={LOREM.placeholder()}
-        readonly
-        size="md"
-        strCopy="Copy value"
-      />
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="sm"
-        isCopyable
-        label="sm"
-        name="sm"
-        placeholder={LOREM.placeholder()}
-        readonly
-        size="sm"
-        strCopy="Copy value"
-      />
-    </Box>
+    <>
+      <Box as="h3">Is copyable</Box>
+
+      <TemplateSizes isCopyable />
+    </>
   );
 };
 
@@ -326,93 +264,45 @@ export const IsCopyable: Story = {
  * Is password
  * ------------------------------------------------------------------------------- */
 
-const TemplateIsPassword = () => {
+const TemplateIsVisibilityToggleable = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="lg"
-        label="lg"
-        name="lg"
-        placeholder={LOREM.placeholder()}
-        size="lg"
-        type="password"
+    <>
+      <Box as="h3">Is visibility toggleable</Box>
+
+      <TemplateSizes
+        defaultValue={LOREM.text_xxs}
+        isVisibilityToggleable
+        isVisible={false}
       />
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="md"
-        label="md"
-        name="md"
-        placeholder={LOREM.placeholder()}
-        size="md"
-        type="password"
-      />
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="sm"
-        label="sm"
-        name="sm"
-        placeholder={LOREM.placeholder()}
-        size="sm"
-        type="password"
-      />
-    </Box>
+    </>
   );
 };
 
-export const IsPassword: Story = {
-  render: TemplateIsPassword,
+export const IsVisibilityToggleable: Story = {
+  render: TemplateIsVisibilityToggleable,
 };
 
 /** -----------------------------------------------------------------------------
- * Is clearable and is copyable
+ * Is visibility toggleable and is copyable
  * ------------------------------------------------------------------------------- */
 
-const TemplateIsClearableAndIsCopyable = () => {
+const TemplateIsVisibilityToggleableAndIsCopyable = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="lg"
-        isClearable
+    <>
+      <Box as="h3">Is visibility toggleable and is copyable</Box>
+
+      <TemplateSizes
+        defaultValue={LOREM.text_xxs}
         isCopyable
-        label="lg"
-        name="lg"
-        placeholder={LOREM.placeholder()}
-        // readonly
-        size="lg"
-        strCopy="Copy value"
+        isVisibilityToggleable
+        isVisible={false}
       />
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="md"
-        isClearable
-        isCopyable
-        label="md"
-        name="md"
-        placeholder={LOREM.placeholder()}
-        // readonly
-        size="md"
-        strCopy="Copy value"
-      />
-      <StoryComp
-        defaultValue={LOREM.placeholder()}
-        id="sm"
-        isClearable
-        isCopyable
-        label="sm"
-        name="sm"
-        placeholder={LOREM.placeholder()}
-        // readonly
-        size="sm"
-        strCopy="Copy value"
-      />
-    </Box>
+    </>
   );
 };
 
-export const IsClearableAndIsCopyable: Story = {
-  render: TemplateIsClearableAndIsCopyable,
+export const IsVisibilityToggleableAndIsCopyable: Story = {
+  render: TemplateIsVisibilityToggleableAndIsCopyable,
 };
 
 /** -----------------------------------------------------------------------------
@@ -420,18 +310,14 @@ export const IsClearableAndIsCopyable: Story = {
  * ------------------------------------------------------------------------------- */
 
 export const StateHover: Story = {
-  name: "state/hover",
   parameters: { pseudo: { hover: true } },
 };
 export const StateFocusVisible: Story = {
-  name: "state/focus-visible",
   parameters: { pseudo: { focusVisible: true } },
 };
 export const StateDisabled: Story = {
   args: { disabled: true },
-  name: "state/disabled",
 };
 export const StateReadOnly: Story = {
   args: { readOnly: true },
-  name: "state/readOnly",
 };

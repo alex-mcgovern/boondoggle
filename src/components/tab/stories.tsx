@@ -20,13 +20,13 @@ export default {
 const TemplateSizes: StoryFn<StoryCompProps> = () => {
   return (
     <Box alignItems="center" display="flex" gap="spacing_3">
-      <StoryComp size="lg" slotRight={<Icon icon={faTriangleCircleSquare} />}>
+      <StoryComp size="lg" slotRight={[<Icon icon={faTriangleCircleSquare} />]}>
         {LOREM.text_xxs}
       </StoryComp>
-      <StoryComp size="md" slotRight={<Icon icon={faTriangleCircleSquare} />}>
+      <StoryComp size="md" slotRight={[<Icon icon={faTriangleCircleSquare} />]}>
         {LOREM.text_xxs}
       </StoryComp>
-      <StoryComp size="sm" slotRight={<Icon icon={faTriangleCircleSquare} />}>
+      <StoryComp size="sm" slotRight={[<Icon icon={faTriangleCircleSquare} />]}>
         {LOREM.text_xxs}
       </StoryComp>
     </Box>
@@ -34,7 +34,6 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
 };
 
 export const Sizes: StoryObj<StoryCompProps> = {
-  name: "Sizes",
   render: TemplateSizes,
 };
 
@@ -47,31 +46,31 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
     <Box alignItems="center" display="flex" gap="spacing_3">
       <StoryComp
         colorOverlay="blue"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="red"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="green"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="amber"
-        slotLeft={<Icon icon={faTriangleCircleSquare} />}
+        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="grey"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
@@ -80,6 +79,5 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
 };
 
 export const Colors: StoryObj<StoryCompProps> = {
-  name: "Colors",
   render: TemplateColors,
 };

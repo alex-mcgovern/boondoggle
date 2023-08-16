@@ -24,7 +24,6 @@ type Story = StoryObj<typeof meta>;
  */
 export const CustomisationMargin: Story = {
   args: { wrapperProps: { margin: "spacing_5" } },
-  name: "customisation/margin",
 };
 
 /**
@@ -32,48 +31,36 @@ export const CustomisationMargin: Story = {
  */
 export const SizeSm: Story = {
   args: { size: "sm" },
-
-  name: "size/sm",
 };
 export const SizeMd: Story = {
   args: { size: "md" },
-
-  name: "size/md",
 };
 export const SizeLg: Story = {
   args: { size: "lg" },
-
-  name: "size/lg",
 };
 
 /**
  * Slot props
  */
 export const SlotLeftIcon: Story = {
-  args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
-  name: "slotLeft/icon",
+  args: { slotLeft: [<Icon icon={faTriangleCircleSquare} />] },
 };
 export const SlotRightIcon: Story = {
-  args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
-  name: "slotRight/icon",
+  args: { slotRight: [<Icon icon={faTriangleCircleSquare} />] },
 };
 export const SlotRightLoader: Story = {
-  args: { slotRight: <Loader /> },
-  name: "slotRight/loader",
+  args: { slotRight: [<Loader />] },
 };
 
 /**
  * State
  */
 export const StateHover: Story = {
-  name: "state/hover",
   parameters: { pseudo: { hover: true } },
 };
 export const StateFocusVisible: Story = {
-  name: "state/focus-visible",
   parameters: { pseudo: { focusVisible: true } },
 };
 export const StateDisabled: Story = {
   args: { disabled: true },
-  name: "state/disabled",
 };

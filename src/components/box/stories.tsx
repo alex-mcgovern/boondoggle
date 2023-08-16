@@ -37,7 +37,6 @@ export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
       <StoryComp as="li">List item 3</StoryComp>,
     ],
   },
-  name: "as/ul_li",
   render: Template,
 };
 
@@ -47,7 +46,6 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryCompProps> = {
     children: "I am a `Link` component",
     href: "https://google.com",
   },
-  name: "polymorphism/generic_react_component",
   render: Template,
 };
 
@@ -66,7 +64,7 @@ export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
     ...BASIC_SPRINKLES_PROPS,
     children: LOREM.text_xxs,
   },
-  name: "example/basic_sprinkles",
+
   render: Template,
 };
 
@@ -81,7 +79,6 @@ export const ExampleResponsiveSprinkles: StoryObj<StoryCompProps> = {
       tablet: "2x",
     },
   },
-  name: "example/responsive_sprinkles",
   render: Template,
 };
 
@@ -95,7 +92,6 @@ export const ExampleEscapeHatchStyles: StoryObj<StoryCompProps> = {
     __padding: "1.5rem",
     children: LOREM.text_xxs,
   },
-  name: "example/escape_hatch_styles",
   render: Template,
 };
 
@@ -115,7 +111,6 @@ export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
     ],
     padding: "spacing_3",
   },
-  name: "example/box_as_info_card",
   render: Template,
 };
 
@@ -144,7 +139,7 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
     gap: "spacing_3",
     padding: "spacing_3",
   },
-  name: "example/box_as_warning",
+
   render: Template,
 };
 export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
@@ -174,7 +169,6 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
     gap: "spacing_3",
     padding: "spacing_3",
   },
-  name: "example/box_as_confirmation",
   render: Template,
 };
 
@@ -195,6 +189,5 @@ export const BoxAsGridLayout: StoryObj<StoryCompProps> = {
     gap: "spacing_3",
     gridTemplateColumns: "3x",
   },
-  name: "example/box_as_grid_layout",
   render: Template,
 };

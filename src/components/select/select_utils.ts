@@ -73,7 +73,7 @@ export function getFilteredDropdownItems({
  */
 type GetDisplayValueArgs = {
   length?: number;
-  originalValue: string;
+  originalValue: string | undefined;
 };
 export const getDisplayValue = ({
   length,

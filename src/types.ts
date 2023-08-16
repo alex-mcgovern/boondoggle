@@ -39,10 +39,95 @@ export type WithFormFieldProps = {
 
 /** ----------------------------------------------------------------------------- */
 
+export type WithIsCopyable =
+  | {
+      /** Whether the input is copyable or not. */
+      isCopyable: true;
+      /** Whether the input is readonly or not. */
+      readonly: true;
+    }
+  | {
+      /** Whether the input is copyable or not. */
+      isCopyable?: never;
+      /** Whether the input is readonly or not. */
+      readonly?: false | undefined;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithIsVisibilityToggleable =
+  | {
+      /** Whether the input field value visibility can be toggled or not. */
+      isVisibilityToggleable: true;
+      /** Whether the input field value is visible or not. */
+      isVisible?: boolean;
+    }
+  | {
+      /** Whether the input field value visibility can be toggled or not. */
+      isVisibilityToggleable?: never;
+      /** Whether the input field value is visible or not. */
+      isVisible?: never;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithIsClearable =
+  | {
+      /** Whether the input is clearable or not. */
+      isClearable: true;
+      /** Whether the input is readonly or not. */
+      readonly?: never;
+    }
+  | {
+      /** Whether the input is clearable or not. */
+      isClearable?: never;
+      /** Whether the input is readonly or not. */
+      readonly?: boolean;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
 export type WithName = {
   /** Name of the component. If field is connected as a form field, will be used to key the value in the form field values. */
   name: string;
 };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithPlaceholder =
+  | {
+      /** Placeholder shown on empty field. */
+      placeholder: string;
+    }
+  | {
+      /** Placeholder shown on empty field. */
+      placeholder?: never;
+      /** Whether the input is readonly or not. */
+      readonly: true;
+    }
+  | {
+      /** Initial value of the field. */
+      defaultValue?: string;
+      /** Placeholder shown on empty field. */
+      placeholder?: never;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithReadOnly =
+  | {
+      /** Placeholder shown on empty field. */
+      placeholder?: never;
+      /** Whether the input is readonly or not. */
+      readonly: true;
+    }
+  | {
+      /** Placeholder shown on empty field. */
+      placeholder?: string;
+      /** Whether the input is readonly or not. */
+      readonly?: boolean;
+    };
+
 /** ----------------------------------------------------------------------------- */
 
 // const myUnion = z.discriminatedUnion("label", [
@@ -80,12 +165,6 @@ export type WithOptionalLabel =
     /** Optional tooltip for label */
     labelTooltip?: string;
   };
-/** ----------------------------------------------------------------------------- */
-
-export type WithPlaceholder = {
-  /** String shown in a field before it is filled/interacted with. */
-  placeholder: string;
-};
 
 /** ----------------------------------------------------------------------------- */
 

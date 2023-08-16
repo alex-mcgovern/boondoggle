@@ -34,7 +34,7 @@ const DialogContent = () => {
           <DialogInfoBullet
             // eslint-disable-next-line react/no-array-index-key
             key={`key-${index}`}
-            slotLeft={<Icon icon={faShapes} />}
+            slotLeft={[<Icon icon={faShapes} />]}
             text={LOREM.text_lg}
           />
         );

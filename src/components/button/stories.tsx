@@ -97,35 +97,35 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
       <StoryComp
         colorOverlay="blue"
         name="blue"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="red"
         name="red"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="green"
         name="green"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="amber"
         name="amber"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
       <StoryComp
         colorOverlay="grey"
         name="grey"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         {LOREM.text_xxs}
       </StoryComp>
@@ -134,7 +134,6 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
 };
 
 export const Colors: StoryObj<StoryCompProps> = {
-  name: "Colors",
   render: TemplateColors,
 };
 
@@ -149,7 +148,7 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
         id="lg"
         name="lg"
         size="lg"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         Click me
       </StoryComp>
@@ -157,7 +156,7 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
         id="md"
         name="md"
         size="md"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         Click me
       </StoryComp>
@@ -165,7 +164,7 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
         id="sm"
         name="sm"
         size="sm"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         Click me
       </StoryComp>
@@ -173,20 +172,19 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
         id="square_md"
         name="square_md"
         size="square_md"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
       <StoryComp
         id="square_sm"
         name="square_sm"
         size="square_sm"
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       />
     </Box>
   );
 };
 
 export const Sizes: StoryObj<StoryCompProps> = {
-  name: "Sizes",
   render: TemplateSizes,
 };
 
@@ -202,7 +200,7 @@ const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
         id="slotLeft"
         name="slotLeft"
         placeholder={LOREM.placeholder()}
-        slotLeft={<Icon icon={faTriangleCircleSquare} />}
+        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
       >
         Click me
       </StoryComp>
@@ -211,7 +209,7 @@ const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
         id="slotRight"
         name="slotRight"
         placeholder={LOREM.placeholder()}
-        slotRight={<Icon icon={faTriangleCircleSquare} />}
+        slotRight={[<Icon icon={faTriangleCircleSquare} />]}
       >
         Click me
       </StoryComp>
@@ -220,7 +218,6 @@ const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
 };
 
 export const Slot: StoryObj<StoryCompProps> = {
-  name: "Slot",
   render: TemplateSlot,
 };
 
@@ -229,18 +226,18 @@ export const Slot: StoryObj<StoryCompProps> = {
  */
 export const StateHover: StoryObj<StoryCompProps> = {
   args: { children: "Hovered" },
-  name: "state/hover",
+
   parameters: { pseudo: { hover: true } },
   render: Template,
 };
 export const StateFocusVisible: StoryObj<StoryCompProps> = {
   args: { children: "Focused" },
-  name: "state/focus-visible",
+
   parameters: { pseudo: { focusVisible: true } },
   render: Template,
 };
 export const StateDisabled: StoryObj<StoryCompProps> = {
   args: { children: "Disabled", disabled: true },
-  name: "state/disabled",
+
   render: Template,
 };

@@ -26,6 +26,7 @@ export const DialogViewApiClientCredentials = forwardRef<
       actions={<Button name="done">Done</Button>}
       ref={ref}
       title="Title"
+      width="lg"
     >
       <Box as="p" color="text_low_contrast">
         Copy your Client ID and Client Secret and store it in a safe place.
@@ -34,15 +35,15 @@ export const DialogViewApiClientCredentials = forwardRef<
         For security reasons we will only show you your Client Secret now.
         Should you lose it, you&apos;ll have to reset it to get a new one.
       </Box>
-
       <Box marginY="spacing_3">
         <Input
           errorMessage=""
           id="client_id"
-          // is_copyable
+          isCopyable
           label="Client ID"
+          labelTooltip="A unique string identifying you as a client. This is not editable."
           name="client_id"
-          placeholder=""
+          readonly
           value={client_id}
           wrapperProps={{
             marginBottom: "spacing_3",
@@ -51,10 +52,12 @@ export const DialogViewApiClientCredentials = forwardRef<
         <Input
           errorMessage=""
           id="client_secret"
-          // is_copyable
+          isCopyable
+          isVisibilityToggleable
           label="Client secret"
+          labelTooltip="A secret key used to authenticate you as a client."
           name="client_secret"
-          placeholder=""
+          readonly
           value={client_secret}
           wrapperProps={{
             marginBottom: "spacing_3",

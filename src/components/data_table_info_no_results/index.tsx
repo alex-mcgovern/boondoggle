@@ -68,7 +68,7 @@ export function DataTableInfoNoResults({
         onClick={() => {
           return setColumnFilters([]);
         }}
-        slotRight={<Icon icon={faTimesCircle} />}
+        slotRight={[<Icon icon={faTimesCircle} />]}
       >
         {strClearAllFilters}
       </Button>

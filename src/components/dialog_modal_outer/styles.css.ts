@@ -37,9 +37,7 @@ export const dialogModalOuterStyle = style([
         boxShadow: vars.boxShadow.lg,
       },
     },
-
     left: "50%",
-    position: "fixed",
     selectors: {
       "&::backdrop": {
         background: vars.color.backdrop,
