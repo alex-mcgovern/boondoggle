@@ -97,6 +97,7 @@ export const Input = forwardRef(
         isVisibilityToggleable,
         isVisible: initialIsVisible,
         onChange,
+        readonly,
         size,
         value,
       });

@@ -13,21 +13,21 @@ type UseFieldActionsArgs = {
   /** The default value of the input. */
   defaultValue: string | number | readonly string[] | undefined;
   /** Whether to allow the user to clear the input with a button */
-  isClearable?: boolean;
+  isClearable: boolean | undefined;
   /** Whether the field is copyable. */
-  isCopyable?: boolean;
+  isCopyable: boolean | undefined;
   /** Whether the field value can be optionally visible. */
-  isVisibilityToggleable?: boolean;
+  isVisibilityToggleable: boolean | undefined;
   /** Whether the field value is visible. */
-  isVisible?: boolean;
+  isVisible: boolean | undefined;
   /** The function to call when the input value changes. */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
   /** Whether the field is read-only. */
-  readonly?: boolean;
+  readonly: boolean | undefined;
   /** The size of the field. */
-  size?: ElementSizeEnum;
+  size: ElementSizeEnum | undefined;
   /** The value of the input. */
-  value?: string | number | readonly string[] | undefined;
+  value: string | number | readonly string[] | undefined;
 };
 
 /**
@@ -82,6 +82,7 @@ export function useFieldActions({
     isCopyable,
     readonly,
   });
+  console.debug("debug  isCopied:", isCopied);
 
   /** --------------------------------------------- */
 

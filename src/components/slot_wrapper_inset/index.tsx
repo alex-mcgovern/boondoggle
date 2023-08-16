@@ -19,7 +19,6 @@ type SlotWrapperProps = WithSlots & {
   children?: ReactNode;
   className?: string;
   size: ElementSizeEnum;
-  slotProps?: BoxProps;
 } & BoxProps;
 
 export const SlotWrapperInset = forwardRef(
@@ -29,7 +28,6 @@ export const SlotWrapperInset = forwardRef(
       className: userClassName,
       size,
       slotLeft,
-      slotProps,
       slotRight,
       ...rest
     }: SlotWrapperProps,

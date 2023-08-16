@@ -6,7 +6,7 @@ import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { ButtonProps } from "../button";
 import type { ReactNode } from "react";
 
-type FieldActionButtonProps = {
+export type FieldActionButtonProps = {
   /** The name of the button. */
   name: string;
   /** The function to call when the button is clicked. */
