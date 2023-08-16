@@ -56,7 +56,7 @@ export const getDialogStyles = recipe({
       },
     },
     getSprinkles({
-      overflow: "hidden",
+      // overflow: "hidden",
       padding: "none",
       zIndex: "1",
     }),

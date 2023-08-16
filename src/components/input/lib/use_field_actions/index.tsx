@@ -82,7 +82,6 @@ export function useFieldActions({
     isCopyable,
     readonly,
   });
-  console.debug("debug  isCopied:", isCopied);
 
   /** --------------------------------------------- */
 

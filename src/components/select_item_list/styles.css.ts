@@ -12,7 +12,7 @@ export const selectItemListWrapper = style([
     boxShadow: "md",
     marginTop: "spacing_1",
     minWidth: "100%",
-    overflow: "hidden",
+    // overflow: "hidden",
     overflowY: "auto",
     width: "max-content",
   }),

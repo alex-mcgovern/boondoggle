@@ -8,7 +8,7 @@ import type { FieldActionButtonProps } from "../field_action_button";
 type FieldActionButtonCopyProps = {
   /** Whether the user has just copied tha value of the field or not. */
   isCopied?: boolean;
-} & FieldActionButtonProps;
+} & Omit<FieldActionButtonProps, "name" | "slot">;
 
 /**
  * A button to copy the contents of a field.

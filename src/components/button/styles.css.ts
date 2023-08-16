@@ -66,7 +66,7 @@ const variantAppearance = styleVariants({
   ghost: [
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
-      color: vars.color.button_default,
+      color: vars.color.text_low_contrast,
       selectors: {
         [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
           background: "transparent",
