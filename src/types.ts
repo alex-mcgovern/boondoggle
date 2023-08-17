@@ -178,9 +178,9 @@ export type WithSize = {
 
 export type WithSlots = {
   /** React node(s) rendered on the left-hand side. */
-  slotLeft?: [ReactNode, ReactNode?, ReactNode?];
+  slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
   /** React node(s) rendered on the right-hand side. */
-  slotRight?: [ReactNode, ReactNode?, ReactNode?];
+  slotRight?: [ReactNode?, ReactNode?, ReactNode?];
 };
 
 /** ----------------------------------------------------------------------------- */
