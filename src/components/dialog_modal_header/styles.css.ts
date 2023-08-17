@@ -9,7 +9,7 @@ export const dialogHeaderStyle = style([
     display: "flex",
     justifyContent: "space-between",
     maxWidth: "100%",
-    padding: "spacing_2",
+    padding: "space_4",
   }),
 ]);
 

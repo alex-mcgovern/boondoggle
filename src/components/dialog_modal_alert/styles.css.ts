@@ -11,8 +11,8 @@ export const getDialogModalAlertWrapperStyles = recipe({
       background: "tint_default",
       borderBottom: "border_default",
       display: "flex",
-      gap: "spacing_2",
-      padding: "spacing_2",
+      gap: "space_4",
+      padding: "space_4",
     }),
   ],
   variants: {
@@ -24,6 +24,6 @@ export const dialogModalAlertSlotStyle = style([
   getSprinkles({
     color: "text_low_contrast",
     flexShrink: "0",
-    width: "spacing_2",
+    width: "space_4",
   }),
 ]);

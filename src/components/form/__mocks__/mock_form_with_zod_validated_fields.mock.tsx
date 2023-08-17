@@ -14,7 +14,7 @@ const zodSchemaEmail = z.string().email().min(2);
 /** ----------------------------------------------------------------------------- */
 
 const WRAPPER_PROPS: BoxProps = {
-  marginBottom: "spacing_3",
+  marginBottom: "space_6",
 };
 
 /** ----------------------------------------------------------------------------- */

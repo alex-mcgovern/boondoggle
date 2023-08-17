@@ -23,9 +23,9 @@ export function FieldLabel({
       display="flex"
       fontSize="body_sm"
       fontWeight="normal"
-      gap="spacing_0.5"
+      gap="space_1"
       htmlFor={htmlFor}
-      marginBottom="spacing_0.5"
+      marginBottom="space_1"
       {...rest}
     >
       {label}

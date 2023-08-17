@@ -73,8 +73,8 @@ export const Pill: PillComponent = forwardRef(
             styles.getPillStyle({ colorOverlay, size }),
             getSprinkles({
               ...atomProps,
-              paddingLeft: slotLeft ? "spacing_0.5" : "spacing_1",
-              paddingRight: slotRight ? "spacing_0.5" : "spacing_1",
+              paddingLeft: slotLeft ? "space_1" : "space_2",
+              paddingRight: slotRight ? "space_1" : "space_2",
             }),
             a11yFocus
           ),
@@ -85,7 +85,7 @@ export const Pill: PillComponent = forwardRef(
       >
         <SlotWrapper
           color="inherit"
-          gap="spacing_0.5"
+          gap="space_1"
           size={size}
           slotLeft={slotLeft}
           slotRight={slotRight}

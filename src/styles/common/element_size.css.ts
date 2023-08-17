@@ -4,9 +4,9 @@ import { vars } from "../theme.css";
 import { getSprinkles } from "../utils/get_sprinkles.css";
 
 export const elementHeight = {
-  lg: vars.spacing.spacing_6,
-  md: vars.spacing.spacing_5,
-  sm: vars.spacing.spacing_4,
+  lg: vars.spacing.space_12,
+  md: vars.spacing.space_10,
+  sm: vars.spacing.space_8,
 };
 
 export const elementFontSize = styleVariants({
@@ -28,9 +28,9 @@ export const elementFontSize = styleVariants({
 });
 
 export const elementPadding = styleVariants({
-  lg: [getSprinkles({ paddingX: "spacing_2", paddingY: "spacing_1.5" })],
-  md: [getSprinkles({ paddingX: "spacing_1.5", paddingY: "spacing_1" })],
-  sm: [getSprinkles({ paddingX: "spacing_1", paddingY: "spacing_0.5" })],
+  lg: [getSprinkles({ paddingX: "space_4", paddingY: "space_3" })],
+  md: [getSprinkles({ paddingX: "space_3", paddingY: "space_2" })],
+  sm: [getSprinkles({ paddingX: "space_2", paddingY: "space_1" })],
 });
 
 export type ElementSizeEnum = keyof typeof elementFontSize &

@@ -42,7 +42,7 @@ export const Default: StoryObj<StoryCompProps> = {
 
 const TemplateAsProp: StoryFn<StoryCompProps> = (rest) => {
   return (
-    <Box display="flex" gap="spacing_3">
+    <Box display="flex" gap="space_6">
       <StoryComp {...rest} as={Link} href="/">
         I am a `Link` component
       </StoryComp>
@@ -63,7 +63,7 @@ export const AsProp: StoryObj<StoryCompProps> = {
 
 const TemplateAppearances: StoryFn<StoryCompProps> = (rest) => {
   return (
-    <Box display="flex" gap="spacing_3">
+    <Box display="flex" gap="space_6">
       <StoryComp {...rest} appearance="primary" name="primary">
         Primary
       </StoryComp>
@@ -93,7 +93,7 @@ export const Appearances: StoryObj<StoryCompProps> = {
 
 const TemplateColors: StoryFn<StoryCompProps> = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
+    <Box alignItems="center" display="flex" gap="space_6">
       <StoryComp
         colorOverlay="blue"
         name="blue"
@@ -143,7 +143,7 @@ export const Colors: StoryObj<StoryCompProps> = {
 
 const TemplateSizes: StoryFn<StoryCompProps> = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
+    <Box alignItems="center" display="flex" gap="space_6">
       <StoryComp
         id="lg"
         name="lg"
@@ -194,7 +194,7 @@ export const Sizes: StoryObj<StoryCompProps> = {
 
 const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
+    <Box alignItems="center" display="flex" gap="space_6">
       <StoryComp
         {...rest}
         id="slotLeft"

@@ -13,18 +13,18 @@ export const sliderRoot = style([
   getSprinkles({
     alignItems: "center",
     display: "flex",
-    marginY: "spacing_1",
+    marginY: "space_2",
     position: "relative",
     width: "100%",
   }),
   {
     selectors: {
       [`&[data-orientation='horizontal']`]: {
-        height: vars.spacing.spacing_3,
+        height: vars.spacing.space_6,
       },
       [`&[data-orientation='vertical']`]: {
         flexDirection: "column",
-        width: vars.spacing.spacing_3,
+        width: vars.spacing.space_6,
       },
     },
     touchAction: "none",
@@ -42,10 +42,10 @@ export const sliderTrack = style([
     flexGrow: 1,
     selectors: {
       [`&[data-orientation='horizontal']`]: {
-        height: vars.spacing["spacing_0.5"],
+        height: vars.spacing["space_1"],
       },
       [`&[data-orientation='vertical']`]: {
-        width: vars.spacing["spacing_0.5"],
+        width: vars.spacing["space_1"],
       },
     },
   },
@@ -67,8 +67,8 @@ export const sliderThumb = style([
     borderRadius: "50%",
 
     display: "block",
-    height: "spacing_3",
-    width: "spacing_3",
+    height: "space_6",
+    width: "space_6",
   }),
   createAccessibleTransition({
     transition: `background ${vars.transitionDuration.short} ease, border-color ${vars.transitionDuration.short} ease`,

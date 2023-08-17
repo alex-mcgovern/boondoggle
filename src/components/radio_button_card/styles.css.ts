@@ -9,13 +9,13 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const radioButtonCardInputStyles = style({
   position: "absolute",
-  right: vars.spacing.spacing_2,
+  right: vars.spacing.space_4,
   selectors: {
     [`&:focus, &:focus-visible`]: {
       outline: "none",
     },
   },
-  top: vars.spacing.spacing_2,
+  top: vars.spacing.space_4,
 });
 
 /** ----------------------------------------------------------------------------- */
@@ -28,9 +28,9 @@ export const radioButtonCardLabelStyles = style([
     border: "border_default",
     borderRadius: "sm",
     display: "flex",
-    gap: "spacing_2",
+    gap: "space_4",
     justifyContent: "center",
-    padding: "spacing_2",
+    padding: "space_4",
     width: "100%",
   }),
   {

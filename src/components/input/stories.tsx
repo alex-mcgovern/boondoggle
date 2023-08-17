@@ -33,7 +33,7 @@ type Story = StoryObj<typeof meta>;
 export const CustomisationMargin: Story = {
   args: {
     wrapperProps: {
-      margin: "spacing_5",
+      margin: "space_10",
     },
   },
 };
@@ -78,7 +78,7 @@ export const Description: Story = {
 
 const TemplateColors = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
+    <Box alignItems="center" display="flex" gap="space_6">
       <StoryComp
         colorOverlay="blue"
         name="blue"
@@ -126,9 +126,9 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
     <Box
       // alignItems="center"
       display="grid"
-      gap="spacing_4"
+      gap="space_8"
       gridTemplateColumns="3x"
-      marginBottom="spacing_4"
+      marginBottom="space_8"
     >
       <StoryComp
         {...(props as StoryCompProps)}

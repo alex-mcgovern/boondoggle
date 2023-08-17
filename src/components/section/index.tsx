@@ -16,9 +16,16 @@ export type SectionProps = {
  */
 export function Section({ children, description, title }: SectionProps) {
   return (
-    <Box as="section" marginY="spacing_5" padding="spacing_5">
+    <Box
+      as="section"
+      marginY="space_5"
+      paddingBottom="space_6"
+      paddingLeft="space_5"
+      paddingRight="space_5"
+      paddingTop="space_5"
+    >
       {title && (
-        <Box as="header" marginBottom="spacing_6">
+        <Box as="header" marginBottom="space_6">
           <Box as="h3">{title}</Box>
           <Box as="p" color="text_low_contrast">
             {description}

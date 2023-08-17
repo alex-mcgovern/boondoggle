@@ -119,7 +119,7 @@ export const Button: ButtonComponent = forwardRef(
     //   if (size === "square_md" || size === "square_sm") {
     //     return {
     //       ...userSlotProps,
-    //       width: "spacing_3",
+    //       width: "space_6",
     //     };
     //   }
     //   return userSlotProps;

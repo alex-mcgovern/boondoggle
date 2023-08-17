@@ -81,7 +81,7 @@ export const Tag: TagComponent = forwardRef(
       >
         <SlotWrapper
           color="inherit"
-          gap="spacing_0.5"
+          gap="space_1"
           size={size}
           slotLeft={slotLeft}
           slotRight={slotRight}

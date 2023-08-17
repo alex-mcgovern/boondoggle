@@ -45,9 +45,9 @@ export function DatePickerControls({
       <Box
         alignItems="center"
         display="flex"
-        gap="spacing_1"
+        gap="space_2"
         justifyContent="space-between"
-        marginBottom="spacing_2"
+        marginBottom="space_4"
         width="100%"
       >
         <Button

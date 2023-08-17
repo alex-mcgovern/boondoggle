@@ -4,7 +4,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const datePickerRoot = style([
   getSprinkles({
-    padding: "spacing_2",
+    padding: "space_4",
     width: "max-content",
   }),
   {

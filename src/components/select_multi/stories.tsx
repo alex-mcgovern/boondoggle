@@ -83,8 +83,8 @@ const ControlledTemplate = () => {
       <Box
         alignItems="center"
         display="flex"
-        gap="spacing_1"
-        marginBottom="spacing_2"
+        gap="space_2"
+        marginBottom="space_4"
       >
         <button
           onClick={() => {
@@ -123,7 +123,7 @@ export const Controlled: Story = {
 export const Customisation: Story = {
   args: {
     wrapperProps: {
-      marginBottom: "spacing_3",
+      marginBottom: "space_6",
     },
   },
 };

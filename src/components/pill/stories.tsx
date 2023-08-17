@@ -19,7 +19,7 @@ export default {
 
 const TemplateSizes: StoryFn<StoryCompProps> = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
+    <Box alignItems="center" display="flex" gap="space_6">
       <StoryComp size="lg" slotLeft={[<Icon icon={faTriangleCircleSquare} />]}>
         {LOREM.text_xxs}
       </StoryComp>
@@ -43,7 +43,7 @@ export const Sizes: StoryObj<StoryCompProps> = {
 
 const TemplateColors: StoryFn<StoryCompProps> = () => {
   return (
-    <Box alignItems="center" display="flex" gap="spacing_3">
+    <Box alignItems="center" display="flex" gap="space_6">
       <StoryComp
         colorOverlay="blue"
         slotLeft={[<Icon icon={faTriangleCircleSquare} />]}

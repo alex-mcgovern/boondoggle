@@ -23,7 +23,7 @@ const placement = styleVariants({
   "middle-start": [
     {
       insetBlock: "0% 50%",
-      insetInlineStart: calc.add("100%", vars.spacing.spacing_1),
+      insetInlineStart: calc.add("100%", vars.spacing.space_2),
     },
   ],
 
@@ -48,7 +48,7 @@ export const getDialogStyles = recipe({
     animateFadeIn,
     {
       border: "none",
-      maxWidth: calc.subtract("100vw", vars.spacing.spacing_2),
+      maxWidth: calc.subtract("100vw", vars.spacing.space_4),
       selectors: {
         "&:focus": {
           outline: "none",

@@ -73,11 +73,11 @@ export function RadioButtonCard({
         textAlign="center"
       >
         {adornment && (
-          <Box color="text_low_contrast" marginBottom="spacing_2">
+          <Box color="text_low_contrast" marginBottom="space_4">
             {adornment}
           </Box>
         )}
-        <Box alignItems="center" display="flex" gap="spacing_1">
+        <Box alignItems="center" display="flex" gap="space_2">
           <Box color="text_low_contrast">{title}</Box>
         </Box>
         <Box color="text_low_contrast" fontStyle="body_xs">

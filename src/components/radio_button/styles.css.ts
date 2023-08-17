@@ -12,7 +12,7 @@ export const radioButtonWrapperStyles = style([
     alignItems: "start",
     borderRadius: "sm",
     display: "flex",
-    gap: "spacing_1",
+    gap: "space_2",
   }),
 ]);
 
@@ -20,7 +20,7 @@ export const radioButtonWrapperStyles = style([
 
 export const radioButtonInputStyles = style([
   a11yFocus,
-  getSprinkles({ borderRadius: "50%", marginTop: "spacing_1" }),
+  getSprinkles({ borderRadius: "50%", marginTop: "space_2" }),
 ]);
 
 /** ----------------------------------------------------------------------------- */

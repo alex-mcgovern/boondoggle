@@ -80,9 +80,9 @@ const ControlledTemplate: StoryFn<StoryCompProps> = ({
         background="tint_default"
         borderRadius="sm"
         display="flex"
-        gap="spacing_1"
-        marginBottom="spacing_2"
-        padding="spacing_2"
+        gap="space_2"
+        marginBottom="space_4"
+        padding="space_4"
       >
         <Box fontStyle="body_sm">Simulate programmatic control</Box>
         <Button

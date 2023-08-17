@@ -105,7 +105,7 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
     {
       cell: ({ row }) => {
         return (
-          <Box alignItems="center" display="flex" gap="spacing_2">
+          <Box alignItems="center" display="flex" gap="space_4">
             <Avatar
               firstName={row.original.first_name}
               lastName={row.original.last_name}

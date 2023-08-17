@@ -55,7 +55,7 @@ export const SelectItem = forwardRef(
         id={label}
         size={size}
         slotLeft={slotLeft}
-        slotProps={{ width: "spacing_2" }}
+        slotProps={{ width: "space_4" }}
         {...rest}
         {...restItemProps}
         ref={ref}

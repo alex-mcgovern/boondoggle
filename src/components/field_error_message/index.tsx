@@ -28,8 +28,8 @@ export function FieldErrorMessage({
         color="text_low_contrast"
         display="flex"
         fontStyle="body_sm"
-        gap="spacing_0.5"
-        marginY="spacing_0.5"
+        gap="space_1"
+        marginY="space_1"
         role="alert"
         {...rest}
       >

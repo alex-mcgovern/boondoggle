@@ -47,10 +47,10 @@ export function DataTableInfoNoResults({
       display="flex"
       flexDirection="column"
       fontStyle="body_sm"
-      gap="spacing_2"
+      gap="space_4"
       justifyContent="center"
-      paddingX="spacing_2"
-      paddingY="spacing_6"
+      paddingX="space_4"
+      paddingY="space_12"
       textAlign="center"
     >
       {}

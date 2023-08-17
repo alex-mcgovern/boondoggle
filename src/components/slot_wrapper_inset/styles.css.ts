@@ -13,7 +13,7 @@ export const getSlotContainerStyles = recipe({
       bottom: "0",
       display: "flex",
       justifyContent: "center",
-      margin: "spacing_0.5",
+      margin: "space_1",
       position: "absolute",
       top: "0",
     }),
@@ -21,13 +21,13 @@ export const getSlotContainerStyles = recipe({
   ],
   compoundVariants: [
     {
-      style: { width: vars.spacing.spacing_3 },
+      style: { width: vars.spacing.space_6 },
       variants: { numSlots: 1, size: "sm" },
     },
     {
       style: [
         {
-          width: calc.multiply(vars.spacing.spacing_3, 2),
+          width: calc.multiply(vars.spacing.space_6, 2),
         },
       ],
       variants: { numSlots: 2, size: "sm" },
@@ -35,19 +35,19 @@ export const getSlotContainerStyles = recipe({
     {
       style: [
         {
-          width: calc.multiply(vars.spacing.spacing_3, 3),
+          width: calc.multiply(vars.spacing.space_6, 3),
         },
       ],
       variants: { numSlots: 3, size: "sm" },
     },
     {
-      style: { width: vars.spacing.spacing_4 },
+      style: { width: vars.spacing.space_8 },
       variants: { numSlots: 1, size: "md" },
     },
     {
       style: [
         {
-          width: calc.multiply(vars.spacing.spacing_4, 2),
+          width: calc.multiply(vars.spacing.space_8, 2),
         },
       ],
       variants: { numSlots: 2, size: "md" },
@@ -55,19 +55,19 @@ export const getSlotContainerStyles = recipe({
     {
       style: [
         {
-          width: calc.multiply(vars.spacing.spacing_4, 3),
+          width: calc.multiply(vars.spacing.space_8, 3),
         },
       ],
       variants: { numSlots: 3, size: "md" },
     },
     {
-      style: { width: vars.spacing.spacing_5 },
+      style: { width: vars.spacing.space_10 },
       variants: { numSlots: 1, size: "lg" },
     },
     {
       style: [
         {
-          width: calc.multiply(vars.spacing.spacing_5, 2),
+          width: calc.multiply(vars.spacing.space_10, 2),
         },
       ],
       variants: { numSlots: 2, size: "lg" },
@@ -75,7 +75,7 @@ export const getSlotContainerStyles = recipe({
     {
       style: [
         {
-          width: calc.multiply(vars.spacing.spacing_5, 3),
+          width: calc.multiply(vars.spacing.space_10, 3),
         },
       ],
       variants: { numSlots: 3, size: "lg" },
@@ -107,13 +107,13 @@ export const getSlotRightOffsetStyles = recipe({
   ],
   compoundVariants: [
     {
-      style: { paddingRight: vars.spacing.spacing_3 },
+      style: { paddingRight: vars.spacing.space_6 },
       variants: { numSlots: 1, size: "sm" },
     },
     {
       style: [
         {
-          paddingRight: calc.multiply(vars.spacing.spacing_3, 2),
+          paddingRight: calc.multiply(vars.spacing.space_6, 2),
         },
       ],
       variants: { numSlots: 2, size: "sm" },
@@ -121,19 +121,19 @@ export const getSlotRightOffsetStyles = recipe({
     {
       style: [
         {
-          paddingRight: calc.multiply(vars.spacing.spacing_3, 3),
+          paddingRight: calc.multiply(vars.spacing.space_6, 3),
         },
       ],
       variants: { numSlots: 3, size: "sm" },
     },
     {
-      style: { paddingRight: vars.spacing.spacing_4 },
+      style: { paddingRight: vars.spacing.space_8 },
       variants: { numSlots: 1, size: "md" },
     },
     {
       style: [
         {
-          paddingRight: calc.multiply(vars.spacing.spacing_4, 2),
+          paddingRight: calc.multiply(vars.spacing.space_8, 2),
         },
       ],
       variants: { numSlots: 2, size: "md" },
@@ -141,19 +141,19 @@ export const getSlotRightOffsetStyles = recipe({
     {
       style: [
         {
-          paddingRight: calc.multiply(vars.spacing.spacing_4, 3),
+          paddingRight: calc.multiply(vars.spacing.space_8, 3),
         },
       ],
       variants: { numSlots: 3, size: "md" },
     },
     {
-      style: { paddingRight: vars.spacing.spacing_5 },
+      style: { paddingRight: vars.spacing.space_10 },
       variants: { numSlots: 1, size: "lg" },
     },
     {
       style: [
         {
-          paddingRight: calc.multiply(vars.spacing.spacing_5, 2),
+          paddingRight: calc.multiply(vars.spacing.space_10, 2),
         },
       ],
       variants: { numSlots: 2, size: "lg" },
@@ -161,7 +161,7 @@ export const getSlotRightOffsetStyles = recipe({
     {
       style: [
         {
-          paddingRight: calc.multiply(vars.spacing.spacing_5, 3),
+          paddingRight: calc.multiply(vars.spacing.space_10, 3),
         },
       ],
       variants: { numSlots: 3, size: "lg" },
@@ -193,13 +193,13 @@ export const getSlotLeftOffsetStyles = recipe({
   ],
   compoundVariants: [
     {
-      style: { paddingLeft: vars.spacing.spacing_3 },
+      style: { paddingLeft: vars.spacing.space_6 },
       variants: { numSlots: 1, size: "sm" },
     },
     {
       style: [
         {
-          paddingLeft: calc.multiply(vars.spacing.spacing_3, 2),
+          paddingLeft: calc.multiply(vars.spacing.space_6, 2),
         },
       ],
       variants: { numSlots: 2, size: "sm" },
@@ -207,19 +207,19 @@ export const getSlotLeftOffsetStyles = recipe({
     {
       style: [
         {
-          paddingLeft: calc.multiply(vars.spacing.spacing_3, 3),
+          paddingLeft: calc.multiply(vars.spacing.space_6, 3),
         },
       ],
       variants: { numSlots: 3, size: "sm" },
     },
     {
-      style: { paddingLeft: vars.spacing.spacing_4 },
+      style: { paddingLeft: vars.spacing.space_8 },
       variants: { numSlots: 1, size: "md" },
     },
     {
       style: [
         {
-          paddingLeft: calc.multiply(vars.spacing.spacing_4, 2),
+          paddingLeft: calc.multiply(vars.spacing.space_8, 2),
         },
       ],
       variants: { numSlots: 2, size: "md" },
@@ -227,19 +227,19 @@ export const getSlotLeftOffsetStyles = recipe({
     {
       style: [
         {
-          paddingLeft: calc.multiply(vars.spacing.spacing_4, 3),
+          paddingLeft: calc.multiply(vars.spacing.space_8, 3),
         },
       ],
       variants: { numSlots: 3, size: "md" },
     },
     {
-      style: { paddingLeft: vars.spacing.spacing_5 },
+      style: { paddingLeft: vars.spacing.space_10 },
       variants: { numSlots: 1, size: "lg" },
     },
     {
       style: [
         {
-          paddingLeft: calc.multiply(vars.spacing.spacing_5, 2),
+          paddingLeft: calc.multiply(vars.spacing.space_10, 2),
         },
       ],
       variants: { numSlots: 2, size: "lg" },
@@ -247,7 +247,7 @@ export const getSlotLeftOffsetStyles = recipe({
     {
       style: [
         {
-          paddingLeft: calc.multiply(vars.spacing.spacing_5, 3),
+          paddingLeft: calc.multiply(vars.spacing.space_10, 3),
         },
       ],
       variants: { numSlots: 3, size: "lg" },
@@ -280,8 +280,8 @@ export const getSlotInnerStyles = recipe({
     size: {
       lg: [
         {
-          height: vars.spacing.spacing_5,
-          width: vars.spacing.spacing_5,
+          height: vars.spacing.space_10,
+          width: vars.spacing.space_10,
         },
         getSprinkles({
           fontStyle: "body_md",
@@ -289,8 +289,8 @@ export const getSlotInnerStyles = recipe({
       ],
       md: [
         {
-          height: vars.spacing.spacing_4,
-          width: vars.spacing.spacing_4,
+          height: vars.spacing.space_8,
+          width: vars.spacing.space_8,
         },
         getSprinkles({
           fontStyle: "body_sm",
@@ -298,8 +298,8 @@ export const getSlotInnerStyles = recipe({
       ],
       sm: [
         {
-          height: vars.spacing.spacing_3,
-          width: vars.spacing.spacing_3,
+          height: vars.spacing.space_6,
+          width: vars.spacing.space_6,
         },
         getSprinkles({
           fontStyle: "body_xs",

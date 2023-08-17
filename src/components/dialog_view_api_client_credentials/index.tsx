@@ -35,7 +35,7 @@ export const DialogViewApiClientCredentials = forwardRef<
         For security reasons we will only show you your Client Secret now.
         Should you lose it, you&apos;ll have to reset it to get a new one.
       </Box>
-      <Box marginY="spacing_3">
+      <Box marginY="space_6">
         <Input
           errorMessage=""
           hideLastpass
@@ -47,7 +47,7 @@ export const DialogViewApiClientCredentials = forwardRef<
           readOnly
           value={client_id}
           wrapperProps={{
-            marginBottom: "spacing_3",
+            marginBottom: "space_6",
           }}
         />
         <Input
@@ -62,7 +62,7 @@ export const DialogViewApiClientCredentials = forwardRef<
           readOnly
           value={client_secret}
           wrapperProps={{
-            marginBottom: "spacing_3",
+            marginBottom: "space_6",
           }}
         />
       </Box>

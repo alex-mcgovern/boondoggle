@@ -25,9 +25,9 @@ export function DataTableInfoPageCount<TTableData>({
       as="span"
       display="flex"
       fontSize="body_md"
-      gap="spacing_0.5"
+      gap="space_1"
       marginRight="auto"
-      marginY="spacing_0.5"
+      marginY="space_1"
     >
       <Box fontWeight="semibold">
         {table.getPrePaginationRowModel().rows.length}

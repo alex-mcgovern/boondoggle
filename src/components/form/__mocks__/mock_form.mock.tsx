@@ -30,7 +30,7 @@ const mockFormSchemaOptional = mockFormSchema.partial();
 /** ----------------------------------------------------------------------------- */
 
 const WRAPPER_PROPS: BoxProps = {
-  marginBottom: "spacing_3",
+  marginBottom: "space_6",
 };
 
 /** ----------------------------------------------------------------------------- */

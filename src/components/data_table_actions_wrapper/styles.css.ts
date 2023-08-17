@@ -6,8 +6,8 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 export const dataTableActionsWrapperStyle = style([
   getSprinkles({
     display: "flex",
-    gap: "spacing_1",
-    padding: "spacing_2",
+    gap: "space_2",
+    padding: "space_4",
   }),
   {
     borderLeft: `1px solid ${vars.color.border_default}`,

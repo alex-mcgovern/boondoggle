@@ -10,7 +10,7 @@ export const selectItemListWrapper = style([
     border: "border_default",
     borderRadius: "sm",
     boxShadow: "md",
-    marginTop: "spacing_1",
+    marginTop: "space_2",
     minWidth: "100%",
     // overflow: "hidden",
     overflowY: "auto",

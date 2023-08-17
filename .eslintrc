@@ -133,7 +133,7 @@
           "asc",
           {
             "caseSensitive": false,
-            "natural": false
+            "natural": true
           }
         ],
         "jsdoc/require-jsdoc": [

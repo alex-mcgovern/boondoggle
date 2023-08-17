@@ -55,8 +55,8 @@ export function DataTableControlPagination<TTableData>({
   }, [table]);
 
   return (
-    <Box alignItems="end" display="flex" gap="spacing_2" {...rest}>
-      <Box alignItems="center" display="flex" gap="spacing_1">
+    <Box alignItems="end" display="flex" gap="space_4" {...rest}>
+      <Box alignItems="center" display="flex" gap="space_2">
         <Button
           {...PAGINATION_BUTTON_PROPS}
           disabled={!table.getCanPreviousPage()}

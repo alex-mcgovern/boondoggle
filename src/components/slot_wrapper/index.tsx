@@ -33,7 +33,7 @@ export const SlotWrapper = forwardRef(
         alignItems="center"
         className={userClassName}
         display="flex"
-        gap="spacing_1"
+        gap="space_2"
         ref={ref}
         {...rest}
       >

@@ -10,7 +10,7 @@ export const datePickerDialogStyle = style([
     border: "border_default",
     borderRadius: "sm",
     boxShadow: "md",
-    marginTop: "spacing_1",
+    marginTop: "space_2",
   }),
 ]);
 

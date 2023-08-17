@@ -16,6 +16,6 @@ export const dialogContentOuterStyle = style([
 export const dialogContentInnerStyle = style([
   getSprinkles({
     height: "100%",
-    padding: "spacing_2",
+    padding: "space_4",
   }),
 ]);

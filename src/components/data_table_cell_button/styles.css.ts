@@ -24,7 +24,7 @@ export const dataTableCellButtonStyle = style([
 
 export const dataTableCellButtonInnerStyle = style([
   {
-    maxWidth: calc.subtract("100%", vars.spacing.spacing_3),
+    maxWidth: calc.subtract("100%", vars.spacing.space_6),
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",

@@ -108,7 +108,7 @@ export const RadioButtonCardGroup = forwardRef(
           as="fieldset"
           display="flex"
           flexWrap="wrap"
-          gap="spacing_1"
+          gap="space_2"
           id={id}
           name={name}
           {...rest}

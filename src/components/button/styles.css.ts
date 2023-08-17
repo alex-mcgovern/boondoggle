@@ -28,8 +28,8 @@ export const variantButtonSize = styleVariants({
       aspectRatio: "square",
       flexShrink: "0",
       fontStyle: "body_md",
-      height: "spacing_5",
-      width: "spacing_5",
+      height: "space_10",
+      width: "space_10",
     }),
   ],
   square_sm: [
@@ -37,8 +37,8 @@ export const variantButtonSize = styleVariants({
       aspectRatio: "square",
       flexShrink: "0",
       fontStyle: "body_sm",
-      height: "spacing_4",
-      width: "spacing_4",
+      height: "space_8",
+      width: "space_8",
     }),
   ],
   square_xs: [
@@ -46,8 +46,8 @@ export const variantButtonSize = styleVariants({
       aspectRatio: "square",
       flexShrink: "0",
       fontStyle: "body_xs",
-      height: "spacing_3",
-      width: "spacing_3",
+      height: "space_6",
+      width: "space_6",
     }),
   ],
 });
@@ -141,8 +141,8 @@ const variantAppearance = styleVariants({
   tertiary: [
     getSprinkles({
       fontWeight: "normal",
-      paddingX: "spacing_1",
-      paddingY: "spacing_0.5",
+      paddingX: "space_2",
+      paddingY: "space_1",
       textAlign: "left",
     }),
     {
@@ -176,7 +176,7 @@ export const getButtonStyles = recipe({
       alignItems: "center",
       borderRadius: "sm",
       display: "inline-flex",
-      gap: "spacing_1",
+      gap: "space_2",
       textDecoration: "none",
     }),
     createAccessibleTransition({

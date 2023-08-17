@@ -4,9 +4,9 @@ import { recipe } from "@vanilla-extract/recipes";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const slotSize = styleVariants({
-  lg: [getSprinkles({ height: "spacing_3", width: "spacing_3" })],
-  md: [getSprinkles({ height: "spacing_2", width: "spacing_2" })],
-  sm: [getSprinkles({ height: "spacing_1.5", width: "spacing_1.5" })],
+  lg: [getSprinkles({ height: "space_6", width: "space_6" })],
+  md: [getSprinkles({ height: "space_4", width: "space_4" })],
+  sm: [getSprinkles({ height: "space_3", width: "space_3" })],
 });
 
 export const getSlotStyles = recipe({

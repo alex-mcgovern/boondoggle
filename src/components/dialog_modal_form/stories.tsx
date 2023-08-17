@@ -36,7 +36,7 @@ const handleFormSubmissionMock = jest.fn(async (fieldValues: unknown) => {
 /** ----------------------------------------------------------------------------- */
 
 const FORM_FIELD_WRAPPER_PROPS: BoxProps = {
-  marginBottom: "spacing_3",
+  marginBottom: "space_6",
 };
 
 /** ----------------------------------------------------------------------------- */

@@ -13,7 +13,7 @@ export const tooltipTriggerStyle = style([
     borderRadius: "sm",
     color: "text_low_contrast",
     flexShrink: "0",
-    minWidth: "spacing_1.5",
+    minWidth: "space_3",
   }),
   {
     selectors: {
@@ -39,7 +39,7 @@ export const tooltipTextStyle = style([
     fontStyle: "body_sm",
     fontWeight: "normal",
     overflow: "hidden",
-    padding: "spacing_1",
+    padding: "space_2",
     textAlign: "center",
     whiteSpace: "normal",
     width: "max-content",

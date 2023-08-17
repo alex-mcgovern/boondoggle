@@ -6,7 +6,7 @@ export const dialogModalActionsWrapperStyle = style([
   getSprinkles({
     borderTop: "border_default",
     display: "grid",
-    gap: "spacing_1",
-    padding: "spacing_2",
+    gap: "space_2",
+    padding: "space_4",
   }),
 ]);

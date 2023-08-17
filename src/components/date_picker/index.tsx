@@ -87,7 +87,7 @@ export const DatePicker = forwardRef(
 
         <Box
           display="grid"
-          gap="spacing_1"
+          gap="space_2"
           gridTemplateColumns={isShowingYears ? "4x" : "7x"}
         >
           {isShowingYears ? (

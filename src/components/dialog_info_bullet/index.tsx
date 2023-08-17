@@ -17,11 +17,11 @@ export function DialogInfoBullet({
     <Box
       alignItems="center"
       display="flex"
-      gap="spacing_2"
-      marginBottom="spacing_2"
+      gap="space_4"
+      marginBottom="space_4"
     >
       {slotLeft && (
-        <Box flexShrink="0" width="spacing_2">
+        <Box flexShrink="0" width="space_4">
           {slotLeft}
         </Box>
       )}
@@ -30,7 +30,7 @@ export function DialogInfoBullet({
         <Box>{text}</Box>
       </Box>
       {slotRight && (
-        <Box flexShrink="0" width="spacing_2">
+        <Box flexShrink="0" width="space_4">
           {slotRight}
         </Box>
       )}

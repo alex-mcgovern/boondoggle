@@ -27,7 +27,7 @@ export const getTabStyle = recipe({
       color: "text_low_contrast",
       display: "inline-flex",
       flexShrink: "0",
-      gap: "spacing_0.5",
+      gap: "space_1",
       textDecoration: "none",
       whiteSpace: "nowrap",
       width: "max-content",
