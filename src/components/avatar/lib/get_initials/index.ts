@@ -17,6 +17,9 @@ export function getInitials({
 }: GetInitialsArgs) {
   if (fullName && !firstName && !lastName) {
     const [first, last] = fullName.split(" ");
+    if (!last) {
+      return `${first[0]}`;
+    }
     return `${first[0]}${last[0]}`;
   }
 
