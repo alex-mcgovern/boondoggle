@@ -27,7 +27,7 @@ export function Avatar({
   size = 64,
   src,
 }: AvatarProps) {
-  const initials = useMemo(() => {
+  const initials: string | undefined = useMemo(() => {
     return getInitials({ firstName, fullName, lastName });
   }, [firstName, fullName, lastName]);
 
@@ -49,7 +49,7 @@ export function Avatar({
 
   return (
     <Box __height={size} __width={size} className={avatarStyle}>
-      {initials}
+      {initials.toUpperCase()}
     </Box>
   );
 }
