@@ -42,10 +42,10 @@ export const sliderTrack = style([
     flexGrow: 1,
     selectors: {
       [`&[data-orientation='horizontal']`]: {
-        height: vars.spacing["space_1"],
+        height: vars.spacing.space_1,
       },
       [`&[data-orientation='vertical']`]: {
-        width: vars.spacing["space_1"],
+        width: vars.spacing.space_1,
       },
     },
   },
