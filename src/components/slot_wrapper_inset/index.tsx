@@ -2,6 +2,7 @@ import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { Children, forwardRef } from "react";
 
+import { arrayHasLength } from "../../lib/array_has_length";
 import { Box } from "../box";
 import {
   getSlotContainerStyles,
@@ -35,10 +36,10 @@ export const SlotWrapperInset = forwardRef(
   ) => {
     return (
       <Box className={userClassName} position="relative" ref={ref} {...rest}>
-        {slotLeft && (
+        {arrayHasLength(slotLeft) && (
           <Box
             className={getSlotContainerStyles({
-              numSlots: slotLeft?.length,
+              numSlots: slotLeft?.length || 1,
               size,
             })}
             left="0"
@@ -53,19 +54,23 @@ export const SlotWrapperInset = forwardRef(
 
         <Slot
           className={clsx({
-            [getSlotLeftOffsetStyles({ numSlots: slotLeft?.length, size })]:
-              !!slotLeft,
-            [getSlotRightOffsetStyles({ numSlots: slotRight?.length, size })]:
-              !!slotRight,
+            [getSlotLeftOffsetStyles({
+              numSlots: slotLeft?.length || 1,
+              size,
+            })]: !!slotLeft,
+            [getSlotRightOffsetStyles({
+              numSlots: slotRight?.length || 1,
+              size,
+            })]: !!slotRight,
           })}
         >
           {children}
         </Slot>
 
-        {slotRight && (
+        {arrayHasLength(slotRight) && (
           <Box
             className={getSlotContainerStyles({
-              numSlots: slotRight?.length,
+              numSlots: slotRight?.length || 1,
               size,
             })}
             right="0"
