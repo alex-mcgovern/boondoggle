@@ -5,7 +5,7 @@ import { Icon } from "../icon";
 
 import type { FieldActionButtonProps } from "../field_action_button";
 
-type FieldActionButtonVisibilityProps = {
+export type FieldActionButtonVisibilityProps = {
   /** Whether the value of the field is visible or not. */
   isVisible?: boolean;
 } & Omit<FieldActionButtonProps, "name" | "slot">;

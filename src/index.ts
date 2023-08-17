@@ -76,6 +76,15 @@ export type { DialogModalCloseButtonProps } from "./components/dialog_modal_clos
 export { DialogInfoBullet } from "./components/dialog_info_bullet";
 export type { DialogInfoBulletProps } from "./components/dialog_info_bullet";
 
+export { FieldActionButton } from "./components/field_action_button";
+export type { FieldActionButtonProps } from "./components/field_action_button";
+
+export { FieldActionButtonCopy } from "./components/field_action_button_copy";
+export type { FieldActionButtonCopyProps } from "./components/field_action_button_copy";
+
+export { FieldActionButtonVisibility } from "./components/field_action_button_visibility";
+export type { FieldActionButtonVisibilityProps } from "./components/field_action_button_visibility";
+
 export { Form } from "./components/form";
 export type { FormProps } from "./components/form";
 
@@ -157,10 +166,6 @@ export type { ProgressBarProps } from "./components/progress_bar";
 
 export { Pill } from "./components/pill";
 export type { PillProps } from "./components/pill";
-
-/** -----------------------------------------------------------------------------
- * Radio button components
- * ------------------------------------------------------------------------------- */
 
 export { RadioButtonCard } from "./components/radio_button_card";
 export type {

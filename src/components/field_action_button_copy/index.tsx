@@ -5,7 +5,7 @@ import { Icon } from "../icon";
 
 import type { FieldActionButtonProps } from "../field_action_button";
 
-type FieldActionButtonCopyProps = {
+export type FieldActionButtonCopyProps = {
   /** Whether the user has just copied tha value of the field or not. */
   isCopied?: boolean;
 } & Omit<FieldActionButtonProps, "name" | "slot">;
