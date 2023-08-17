@@ -18,6 +18,8 @@ export function Section({ children, description, title }: SectionProps) {
   return (
     <Box
       as="section"
+      border="border_default"
+      borderRadius="md"
       marginY="space_5"
       paddingBottom="space_6"
       paddingLeft="space_5"
