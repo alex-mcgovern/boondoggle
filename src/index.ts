@@ -129,8 +129,14 @@ export type { LoaderProps } from "./components/loader";
 export { SelectButton } from "./components/select_button";
 export type { SelectButtonProps } from "./components/select_button";
 
+// export { SelectCountry } from "./components/select_country";
+// export type { SelectCountryProps } from "./components/select_country";
+
 export { SlotWrapper } from "./components/slot_wrapper";
 export type { SlotWrapperProps } from "./components/slot_wrapper";
+
+export { Section } from "./components/section";
+export type { SectionProps } from "./components/section";
 
 export { SelectItem } from "./components/select_item";
 export type { SelectItemProps } from "./components/select_item";
