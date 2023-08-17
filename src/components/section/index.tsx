@@ -17,12 +17,15 @@ export type SectionProps = {
 export function Section({ children, description, title }: SectionProps) {
   return (
     <Box as="section" marginY="spacing_5" padding="spacing_5">
-      <Box as="header" marginBottom="spacing_6">
-        <Box as="h3">{title}</Box>
-        <Box as="p" color="text_low_contrast">
-          {description}
+      {title && (
+        <Box as="header" marginBottom="spacing_6">
+          <Box as="h3">{title}</Box>
+          <Box as="p" color="text_low_contrast">
+            {description}
+          </Box>
         </Box>
-      </Box>
+      )}
+
       {children}
     </Box>
   );
