@@ -18,6 +18,7 @@ export type DialogModalProps = {
   actions?: DialogModalActionsProps["actions"];
   alert?: ReactNode;
   children: ReactNode | Array<ReactNode>;
+  shouldCloseOnAction?: boolean;
   title: string;
   triggerNode?: ReactNode;
   width?: DialogModalInnerWidth;
@@ -26,13 +27,20 @@ export type DialogModalProps = {
 
 export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
   (
-    { actions, alert, children, title, triggerNode, width, wrapperProps },
+    {
+      actions,
+      alert,
+      children,
+      shouldCloseOnAction,
+      title,
+      triggerNode,
+      width,
+      wrapperProps,
+    },
     ref
   ) => {
     const { closeDialog, dialogRef, toggleIsOpen, triggerRef } =
       useDialogModalState({ ref });
-
-    /** --------------------------------------------- */
 
     return (
       <Box position="relative" {...wrapperProps}>
@@ -44,11 +52,14 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
           <DialogModalInner width={width}>
             <DialogModalHeader closeDialog={closeDialog} title={title} />
 
-            {/* Scrollable dialog modal content */}
             <DialogModalContent alert={alert}>{children}</DialogModalContent>
 
             {actions && (
-              <DialogModalActions actions={actions} closeDialog={closeDialog} />
+              <DialogModalActions
+                actions={actions}
+                closeDialog={closeDialog}
+                shouldCloseOnAction={shouldCloseOnAction}
+              />
             )}
           </DialogModalInner>
         </DialogModalOuter>
