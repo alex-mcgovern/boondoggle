@@ -12,11 +12,10 @@
     "url": "https://github.com/alex-mcgovern/boondoggle.design"
   },
   "sideEffects": [
-    "*.css",
-    "*.css.ts"
+    "dist/index.css"
   ],
+  "exports": "dist/index.js",
   "type": "module",
-  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts'",
