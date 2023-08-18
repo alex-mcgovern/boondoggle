@@ -2,7 +2,7 @@
   "author": "Alex McGovern",
   "name": "@alex-mcgovern/boondoggle.design",
   "description": "Boondoggle design system component library",
-  "version": "0.10.6",
+  "version": "0.9.9",
   "license": "MIT",
   "files": [
     "dist"
@@ -12,20 +12,12 @@
     "url": "https://github.com/alex-mcgovern/boondoggle.design"
   },
   "sideEffects": [
-    "dist/index.css"
+    "*.css",
+    "*.css.ts"
   ],
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    },
-    "./dist/index.css": {
-      "import": "./dist/index.css"
-    }
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts'",
     "build:docs": "storybook build -o build",

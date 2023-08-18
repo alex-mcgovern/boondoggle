@@ -1,10 +1,8 @@
 import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { defineConfig } from "tsup";
 
-const env = process.env.NODE_ENV;
-
 export default defineConfig({
-  bundle: false,
+  bundle: true,
   clean: true,
   config: "./tsconfig.build.json",
   dts: {
@@ -19,13 +17,12 @@ export default defineConfig({
       runtime: false,
     }),
   ],
-  format: "esm",
-  minify: env === "production",
-  outDir: env === "production" ? "dist" : "lib",
-  sourcemap: env === "prod",
+  format: ["esm", "cjs"],
+  minify: true,
+  outDir: "dist",
+  sourcemap: true,
   splitting: true,
   target: "es2020",
   treeshake: true,
   tsconfig: "./tsconfig.build.json",
-  watch: env === "development",
 });
