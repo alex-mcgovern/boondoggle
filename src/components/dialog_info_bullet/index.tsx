@@ -1,3 +1,5 @@
+import { Children } from "react";
+
 import { Box } from "../box";
 
 import type { WithSlots } from "../../types";
@@ -22,7 +24,9 @@ export function DialogInfoBullet({
     >
       {slotLeft && (
         <Box flexShrink="0" width="space_4">
-          {slotLeft}
+          {Children.map(slotLeft, (child) => {
+            return child;
+          })}
         </Box>
       )}
       <Box>
@@ -31,7 +35,9 @@ export function DialogInfoBullet({
       </Box>
       {slotRight && (
         <Box flexShrink="0" width="space_4">
-          {slotRight}
+          {Children.map(slotRight, (child) => {
+            return child;
+          })}
         </Box>
       )}
     </Box>
