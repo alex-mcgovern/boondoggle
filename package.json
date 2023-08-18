@@ -14,12 +14,18 @@
   "sideEffects": [
     "dist/index.css"
   ],
-  "exports": [
-    "dist/index.js",
-    "dist/index.css"
-  ],
   "type": "module",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./dist/index.css": {
+      "import": "./dist/index.css"
+    }
+  },
   "scripts": {
     "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts'",
     "build:docs": "storybook build -o build",
