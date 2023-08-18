@@ -12,10 +12,12 @@ import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { Box } from "../box";
 import { DialogModalActions } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
+import { DialogModalErrorMessage } from "../dialog_modal_error_message";
 import { DialogModalHeader } from "../dialog_modal_header";
 import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
 import { FormSubmitButton } from "../form_submit_button";
+import { LoaderFullScreen } from "../loader_full_screen";
 
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
@@ -30,8 +32,20 @@ export type DialogModalFormProps = {
   formSubmitButtonText: string;
   /** Function that will be called when the form is submitted. */
   handleFormSubmission: (fieldValues: FieldValues) => Promise<void>;
+  /** Whether the dialog modal is in an error state. */
+  isError?: boolean;
+  /** Whether the dialog modal is loading. */
+  isLoading?: boolean;
+  /** Function to call when the "Try again" button is clicked. */
+  onClickTryAgain?: (() => unknown) | (() => Promise<unknown>) | undefined;
   /** Custom resolver for `react-hook-form`. */
   resolver?: Resolver<FieldValues, any>;
+  /** Description of the error. */
+  strErrorDescription?: string;
+  /** Title of the error. */
+  strErrorTitle?: string;
+  /** Text for the "Try again" button. */
+  strTryAgain?: string | undefined;
   /** Title of the dialog modal. */
   title: string;
   /** Node that will trigger the dialog modal when clicked. */
@@ -52,7 +66,13 @@ export const DialogModalForm = forwardRef<
       children,
       formSubmitButtonText,
       handleFormSubmission: initialHandleFormSubmission,
+      isError,
+      isLoading,
+      onClickTryAgain,
       resolver,
+      strErrorDescription,
+      strErrorTitle,
+      strTryAgain,
       title,
       triggerNode,
       width,
@@ -99,13 +119,35 @@ export const DialogModalForm = forwardRef<
               width={width}
             >
               <DialogModalHeader closeDialog={closeDialog} title={title} />
-              <DialogModalContent alert={alert}>{children}</DialogModalContent>
+
+              {!isLoading &&
+                isError &&
+                strErrorDescription &&
+                strErrorTitle && (
+                  <DialogModalErrorMessage
+                    description={strErrorDescription}
+                    title={strErrorTitle}
+                  />
+                )}
+
+              {!isError && isLoading && <LoaderFullScreen />}
+
+              {!isError && !isLoading && (
+                <DialogModalContent alert={alert}>
+                  {children}
+                </DialogModalContent>
+              )}
+
               <DialogModalActions
                 actions={
                   <FormSubmitButton>{formSubmitButtonText}</FormSubmitButton>
                 }
                 closeDialog={closeDialog}
+                isError={isError}
+                isLoading={isLoading}
+                onClickTryAgain={onClickTryAgain}
                 shouldCloseOnAction={false}
+                strTryAgain={strTryAgain}
               />
             </DialogModalInner>
           </DialogModalOuter>

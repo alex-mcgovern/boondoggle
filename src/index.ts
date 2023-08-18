@@ -73,6 +73,9 @@ export type { DialogModalActionConfirmProps } from "./components/dialog_modal_ac
 export { DialogModalCloseButton } from "./components/dialog_modal_close_button";
 export type { DialogModalCloseButtonProps } from "./components/dialog_modal_close_button";
 
+export { DialogModalErrorMessage } from "./components/dialog_modal_error_message";
+export type { DialogModalErrorMessageProps } from "./components/dialog_modal_error_message";
+
 export { DialogInfoBullet } from "./components/dialog_info_bullet";
 export type { DialogInfoBulletProps } from "./components/dialog_info_bullet";
 
@@ -134,6 +137,9 @@ export type { FieldLabelProps } from "./components/field_label";
 
 export { Loader } from "./components/loader";
 export type { LoaderProps } from "./components/loader";
+
+export { LoaderFullScreen } from "./components/loader_full_screen";
+export type { LoaderFullScreenProps } from "./components/loader_full_screen";
 
 export { SelectButton } from "./components/select_button";
 export type { SelectButtonProps } from "./components/select_button";
