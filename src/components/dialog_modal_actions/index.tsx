@@ -1,7 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { Children } from "react";
 
-import { arrayHasLength } from "../../lib/array_has_length";
 import { Box } from "../box";
 import { Button } from "../button";
 import { dialogModalActionsWrapperStyle } from "./styles.css";
@@ -38,7 +37,7 @@ export function DialogModalActions({
   shouldCloseOnAction = true,
   strTryAgain,
 }: DialogModalActionsProps) {
-  if (isLoading || !actions || !arrayHasLength(actions)) {
+  if (isLoading || !actions) {
     return null;
   }
 
