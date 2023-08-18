@@ -25,7 +25,13 @@ const meta = {
         Confirm
       </Button>,
     ],
+    isError: undefined,
+    isLoading: undefined,
+    onClickTryAgain: undefined,
+    shouldCloseOnAction: undefined,
+    strTryAgain: undefined,
   },
+
   component: StoryComp,
   title: "Components/DialogModalActions",
 } satisfies Meta<typeof StoryComp>;
