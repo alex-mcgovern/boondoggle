@@ -14,7 +14,10 @@
   "sideEffects": [
     "dist/index.css"
   ],
-  "exports": "dist/index.js",
+  "exports": [
+    "dist/index.js",
+    "dist/index.css"
+  ],
   "type": "module",
   "types": "dist/index.d.ts",
   "scripts": {
