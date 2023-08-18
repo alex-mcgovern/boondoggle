@@ -409,22 +409,6 @@ exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="styles_dialogModalActionsWrapperStyle__1r3dwj31 styles__1r3dwj30 get_sprinkles_borderTop_border_default__eiij7b14 get_sprinkles_display_grid_mobile__eiij7bb1 get_sprinkles_gap_space_2_mobile__eiij7bcg get_sprinkles_padding_space_4_mobile__eiij7bfa"
-          style="grid-template-columns: repeat(1, 1fr);"
-        >
-          <button
-            class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bba get_sprinkles_gap_space_2_mobile__eiij7bcg get_sprinkles_textDecoration_none__eiij7bal styles_getButtonStyles_appearance_primary__1yqzeadn styles_variantAppearance_primary__1yqzeadg styles__1yqzeadb get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bar styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_1__1yqzeadx element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bid get_sprinkles_paddingRight_space_3_mobile__eiij7bjy get_sprinkles_paddingTop_space_2_mobile__eiij7blg get_sprinkles_paddingBottom_space_2_mobile__eiij7bgp"
-            name="submit"
-            type="submit"
-          >
-            <div
-              class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bay get_sprinkles_gap_space_2_mobile__eiij7bcg get_sprinkles_color_inherit__eiij7b1p"
-            >
-              Submit
-            </div>
-          </button>
-        </div>
       </form>
     </dialog>
   </div>
