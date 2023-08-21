@@ -9,6 +9,7 @@ import {
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";
 import { DialogModalActions } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
@@ -102,7 +103,11 @@ export const DialogModalForm = forwardRef<
 
     return (
       <FormProvider {...formMethods}>
-        <Box position="relative" {...wrapperProps}>
+        <Box
+          className={variantColorOverlay.default}
+          position="relative"
+          {...wrapperProps}
+        >
           {triggerNode && (
             <Slot onClick={toggleIsOpen} ref={triggerRef}>
               {triggerNode}

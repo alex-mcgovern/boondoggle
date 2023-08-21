@@ -2,6 +2,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { forwardRef } from "react";
 
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";
 import { DialogModalActions } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
@@ -71,7 +72,11 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       useDialogModalState({ ref });
 
     return (
-      <Box position="relative" {...wrapperProps}>
+      <Box
+        className={variantColorOverlay.default}
+        position="relative"
+        {...wrapperProps}
+      >
         <Slot onClick={toggleIsOpen} ref={triggerRef}>
           {triggerNode}
         </Slot>

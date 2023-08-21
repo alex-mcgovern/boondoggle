@@ -37,6 +37,19 @@ export const variantColorOverlay = styleVariants({
       },
     },
   },
+  default: {
+    "@layer": {
+      [themeLayer]: {
+        vars: assignVars(
+          color,
+          makeTheme({
+            primaryPalette: blue,
+            secondaryPalette: slate,
+          })
+        ),
+      },
+    },
+  },
   green: {
     "@layer": {
       [themeLayer]: {
