@@ -60,8 +60,8 @@ export const sprinklesProperties = defineProperties({
     maxWidth: { ...vars.width, ...vars.spacing },
     minHeight: { ...vars.height, ...vars.spacing },
     minWidth: { ...vars.width, ...vars.spacing },
-    overflow: ["hidden"],
-    overflowY: ["auto"],
+    overflowX: ["hidden", "auto"],
+    overflowY: ["hidden", "auto"],
     right: ["0"],
     textAlign: ["center", "left", "right"],
     textDecoration: ["underline", "none", "line-through"],
@@ -74,6 +74,7 @@ export const sprinklesProperties = defineProperties({
     fontStyle: ["fontSize", "lineHeight"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
+    overflow: ["overflowX", "overflowY"],
     placeItems: ["alignItems", "justifyContent"],
   },
 });

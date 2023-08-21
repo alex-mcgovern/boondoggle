@@ -36,6 +36,16 @@ export const Default: Story = {
 
 /** ----------------------------------------------------------------------------- */
 
+export const IsBorderless: Story = {
+  args: {
+    columns: DATA_TABLE_COLUMNS_MOCK,
+    data: MOCK_DATA,
+    isBorderless: true,
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
+
 export const IsPaginated: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_MOCK,

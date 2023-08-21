@@ -16,7 +16,6 @@ import { DataTableFilterInput } from "../data_table_filter_input";
 import { DataTableLayoutBody } from "../data_table_layout_body";
 import { DataTableLayoutHead } from "../data_table_layout_head";
 import { DataTablePaginationWrapper } from "../data_table_pagination_wrapper";
-import { getDataTableStyle } from "./styles.css";
 
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 
@@ -95,6 +94,8 @@ export type DataTableProps<TData extends RowData> = WithOptionalPagination &
     columns: Array<ColumnDef<TData, any>>;
     /** An array of objects describing each row in the table */
     data: Array<TData>;
+    /** Whether the table should be borderless. */
+    isBorderless?: boolean;
     /** Whether the table should be paginated and show pagination controls */
     isPaginated?: boolean;
     /** Whether the table should be sortable and show sorting controls */
@@ -110,6 +111,7 @@ export function DataTable<TData extends RowData>({
   columns: initColumns,
   data,
   enableMultiRowSelection = false,
+  isBorderless,
   isFilterable,
   isPaginated,
   isSelectable,
@@ -121,10 +123,6 @@ export function DataTable<TData extends RowData>({
   strShow,
 }: DataTableProps<TData>) {
   const [globalFilter, setGlobalFilter] = useState("");
-
-  /** --------------------------------------------- */
-
-  const hasActionsBar = !!actions || isFilterable;
 
   /** --------------------------------------------- */
 
@@ -196,7 +194,7 @@ export function DataTable<TData extends RowData>({
   /** --------------------------------------------- */
 
   return (
-    <Box width="100%">
+    <>
       <DataTableActionsWrapper
         leftAction={
           isFilterable ? (
@@ -209,10 +207,28 @@ export function DataTable<TData extends RowData>({
         rightActions={actions}
       />
 
-      <table className={getDataTableStyle({ hasActionsBar, isPaginated })}>
-        <DataTableLayoutHead<TData> isSortable={isSortable} table={table} />
-        <DataTableLayoutBody<TData> table={table} />
-      </table>
+      <Box
+        border={isBorderless ? undefined : "border_default"}
+        borderRadius={isBorderless ? undefined : "md"}
+        marginY="space_5"
+      >
+        <Box overflow="auto" width="100%">
+          <Box as="table" width="100%">
+            <DataTableLayoutHead<TData> isSortable={isSortable} table={table} />
+            <DataTableLayoutBody<TData> table={table} />
+          </Box>
+          {/*
+          {table.getFilteredRowModel().rows?.length === 0 && (
+            <DataTableInfoNoResults
+            columnFilters={columnFilters}
+            setColumnFilters={setColumnFilters}
+            strClearAllFilters="clear all filters"
+            strNoResultsDescription="no results description"
+            strNoResultsTitle="no results title"
+            />
+          )} */}
+        </Box>
+      </Box>
 
       {isPaginated && (
         <DataTablePaginationWrapper
@@ -222,17 +238,6 @@ export function DataTable<TData extends RowData>({
           table={table}
         />
       )}
-
-      {/* 
-        {table.getFilteredRowModel().rows?.length === 0 && (
-          <DataTableInfoNoResults
-            columnFilters={columnFilters}
-            setColumnFilters={setColumnFilters}
-            strClearAllFilters="clear all filters"
-            strNoResultsDescription="no results description"
-            strNoResultsTitle="no results title"
-          />
-        )} */}
-    </Box>
+    </>
   );
 }

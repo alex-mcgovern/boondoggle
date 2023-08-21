@@ -461,9 +461,9 @@ globalStyle(`p`, {
 globalStyle(`table`, {
   "@layer": {
     [baseLayer]: {
-      background: vars.color.background,
-      border: `1px solid ${vars.color.border_default}`,
-      borderRadius: vars.borderRadius.md,
+      // background: vars.color.background,
+      // border: `1px solid ${vars.color.border_default}`,
+      // borderRadius: vars.borderRadius.md,
       borderSpacing: 0,
       tableLayout: "auto",
       width: "100%",
@@ -480,12 +480,21 @@ globalStyle(`thead`, {
   },
 });
 
+globalStyle(`thead th`, {
+  "@layer": {
+    [baseLayer]: {
+      whiteSpace: "nowrap",
+    },
+  },
+});
+
 globalStyle(`th, td`, {
   "@layer": {
     [baseLayer]: {
       fontSize: vars.fontSize.body_sm,
       padding: vars.spacing.space_4,
       textAlign: "left",
+      verticalAlign: "middle",
     },
   },
 });
