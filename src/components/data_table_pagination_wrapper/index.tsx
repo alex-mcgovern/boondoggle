@@ -2,7 +2,6 @@ import { Box } from "../box";
 import { DataTableControlPageSize } from "../data_table_control_page_size";
 import { DataTableControlPagination } from "../data_table_control_pagination";
 import { DataTableInfoPageCount } from "../data_table_info_page_count";
-import { dataTablePaginationWrapperStyle } from "./styles.css";
 
 import type { RowData, Table } from "@tanstack/react-table";
 
@@ -27,7 +26,11 @@ export function DataTablePaginationWrapper<TData extends RowData>({
   table,
 }: DataTablePaginationWrapperProps<TData>) {
   return (
-    <Box className={dataTablePaginationWrapperStyle}>
+    <Box
+      alignItems="center"
+      display="flex"
+      gap="space_2"
+    >
       {strPage && strResults && (
         <DataTableInfoPageCount<TData>
           strPage={strPage}

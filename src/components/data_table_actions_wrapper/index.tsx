@@ -1,5 +1,4 @@
 import { Box } from "../box";
-import { dataTableActionsWrapperStyle } from "./styles.css";
 
 import type { ReactNode } from "react";
 
@@ -22,7 +21,7 @@ export function DataTableActionsWrapper({
   }
 
   return (
-    <Box className={dataTableActionsWrapperStyle}>
+    <Box alignItems="center" display="flex" gap="space_2">
       {leftAction && <Box>{leftAction}</Box>}
       <Box alignItems="center" display="flex" gap="space_2" marginLeft="auto">
         {rightActions}
