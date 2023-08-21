@@ -53,6 +53,7 @@ export function FieldWrapper({
           [hideLastpassStyle]: hideLastpass,
         }
       )}
+      color="text_low_contrast"
       position="relative"
       {...wrapperProps}
     >

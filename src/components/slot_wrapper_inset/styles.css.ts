@@ -11,6 +11,7 @@ export const getSlotContainerStyles = recipe({
     getSprinkles({
       alignItems: "center",
       bottom: "0",
+      color: "inherit",
       display: "flex",
       justifyContent: "center",
       margin: "space_1",
@@ -272,6 +273,7 @@ export const getSlotLeftOffsetStyles = recipe({
 export const getSlotInnerStyles = recipe({
   base: getSprinkles({
     alignItems: "center",
+    color: "inherit",
     display: "flex",
     flexShrink: "0",
     justifyContent: "center",

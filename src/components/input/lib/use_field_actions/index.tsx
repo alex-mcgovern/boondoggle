@@ -109,7 +109,7 @@ export function useFieldActions({
       );
     }
 
-    if (isClearable && !readOnly) {
+    if (isClearable && !readOnly && !!inputValue) {
       actionNodes.push(
         <FieldActionButtonClear
           onClick={() => {
