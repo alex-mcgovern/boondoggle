@@ -32,7 +32,9 @@ export type DialogModalFormProps = {
   /** Text that will be rendered inside the form submit button. */
   formSubmitButtonText: string;
   /** Function that will be called when the form is submitted. */
-  handleFormSubmission: (fieldValues: FieldValues) => Promise<void>;
+  handleFormSubmission:
+    | ((fieldValues: FieldValues) => Promise<void>)
+    | ((fieldValues: FieldValues) => void);
   /** Whether the dialog modal is in an error state. */
   isError?: boolean;
   /** Whether the dialog modal is loading. */
@@ -66,7 +68,7 @@ export const DialogModalForm = forwardRef<
       alert,
       children,
       formSubmitButtonText,
-      handleFormSubmission: initialHandleFormSubmission,
+      handleFormSubmission: initHandleSubmission,
       isError,
       isLoading,
       onClickTryAgain,
@@ -92,11 +94,11 @@ export const DialogModalForm = forwardRef<
 
     const handleFormSubmission = useCallback(
       async (fieldValues: FieldValues) => {
-        return initialHandleFormSubmission(fieldValues).then(() => {
+        Promise.resolve(initHandleSubmission(fieldValues)).then(() => {
           closeDialog();
         });
       },
-      [closeDialog, initialHandleFormSubmission]
+      [closeDialog, initHandleSubmission]
     );
 
     /** --------------------------------------------- */
