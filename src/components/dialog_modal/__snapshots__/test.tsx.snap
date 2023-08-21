@@ -8,7 +8,7 @@ exports[`<DialogModal /> default on initial render should match snapshot 1`] = `
     Open
   </button>
   <div
-    class="get_sprinkles_position_relative_mobile__eiij7bml"
+    class="color_palette_variantColorOverlay_default__13r5x7fh get_sprinkles_position_relative_mobile__eiij7bml"
   >
     <dialog
       class="styles_dialogModalOuterStyle__xbhn3g1 animations_animateFadeIn__apgy12 styles__xbhn3g0 get_sprinkles_background_background__eiij7ba get_sprinkles_borderRadius_lg__eiij7bx get_sprinkles_padding_none_mobile__eiij7ber"
