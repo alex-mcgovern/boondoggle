@@ -77,9 +77,11 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
         position="relative"
         {...wrapperProps}
       >
-        <Slot onClick={toggleIsOpen} ref={triggerRef}>
-          {triggerNode}
-        </Slot>
+        {triggerNode && (
+          <Slot onClick={toggleIsOpen} ref={triggerRef}>
+            {triggerNode}
+          </Slot>
+        )}
 
         <DialogModalOuter dialogRef={dialogRef}>
           <DialogModalInner width={width}>
