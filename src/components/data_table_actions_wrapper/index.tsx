@@ -21,7 +21,12 @@ export function DataTableActionsWrapper({
   }
 
   return (
-    <Box alignItems="center" display="flex" gap="space_2">
+    <Box
+      alignItems="center"
+      display="flex"
+      gap="space_2"
+      marginBottom="space_5"
+    >
       {leftAction && <Box>{leftAction}</Box>}
       <Box alignItems="center" display="flex" gap="space_2" marginLeft="auto">
         {rightActions}

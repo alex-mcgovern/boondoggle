@@ -26,11 +26,7 @@ export function DataTablePaginationWrapper<TData extends RowData>({
   table,
 }: DataTablePaginationWrapperProps<TData>) {
   return (
-    <Box
-      alignItems="center"
-      display="flex"
-      gap="space_2"
-    >
+    <Box alignItems="center" display="flex" gap="space_2" marginTop="space_5">
       {strPage && strResults && (
         <DataTableInfoPageCount<TData>
           strPage={strPage}

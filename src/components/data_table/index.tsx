@@ -210,7 +210,6 @@ export function DataTable<TData extends RowData>({
       <Box
         border={isBorderless ? undefined : "border_default"}
         borderRadius={isBorderless ? undefined : "md"}
-        marginY="space_5"
       >
         <Box overflow="auto" width="100%">
           <Box as="table" width="100%">
