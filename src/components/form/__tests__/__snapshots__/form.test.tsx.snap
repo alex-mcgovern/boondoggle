@@ -89,7 +89,7 @@ exports[`<Form /> Basic smoke tests should match snapshot 1`] = `
               class="styles_getSlotContainerStyles__18m4u7i1 styles__18m4u7i0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_bottom_0__eiij7b15 get_sprinkles_color_inherit__eiij7b1p get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_margin_space_1__eiij7b44 get_sprinkles_position_absolute_mobile__eiij7bmo get_sprinkles_top_0__eiij7bas styles_getSlotContainerStyles_numSlots_1__18m4u7i2 styles_getSlotContainerStyles_size_md__18m4u7i6 styles_getSlotContainerStyles_compound_3__18m4u7ib get_sprinkles_right_0__eiij7bai"
             >
               <div
-                class="styles__18m4u7i1f get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_inherit__eiij7b1p get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_justifyContent_center__eiij7b3h styles_getSlotInnerStyles_size_md__18m4u7i1k styles__18m4u7i1h get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o"
+                class="styles__18m4u7i1j styles__18m4u7i1f get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_inherit__eiij7b1p get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_justifyContent_center__eiij7b3h styles_getSlotInnerStyles_size_md__18m4u7i1l styles__18m4u7i1h get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o"
               >
                 <svg
                   aria-hidden="true"
