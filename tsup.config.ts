@@ -11,16 +11,20 @@ export default defineConfig({
   },
   // dts: true,
   entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
-  format: ["esm", "cjs"],
-  minify: true,
-  outDir: "dist",
-  plugins: [
+  esbuildPlugins: [
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     vanillaExtractPlugin({
       identifiers: "short",
       outputCss: true,
       runtime: false,
     }),
   ],
+
+  format: ["esm", "cjs"],
+  minify: true,
+  outDir: "dist",
+
   sourcemap: true,
   splitting: true,
   target: "es2020",
