@@ -39,7 +39,7 @@ export type DialogModalFormProps = {
     | ((fieldValues: FieldValues) => Promise<void>)
     | ((fieldValues: FieldValues) => void);
   /** Height of the dialog modal */
-  height?: DialogModalInnerHeight;
+  height: DialogModalInnerHeight;
   /** Whether the dialog modal is in an error state. */
   isError?: boolean;
   /** Whether the dialog modal is loading. */
@@ -59,7 +59,7 @@ export type DialogModalFormProps = {
   /** Node that will trigger the dialog modal when clicked. */
   triggerNode?: ReactNode;
   /** Width of the dialog modal. */
-  width?: DialogModalInnerWidth;
+  width: DialogModalInnerWidth;
   /** Props that will be passed to the wrapper `Box` component. */
   wrapperProps?: BoxProps;
 };

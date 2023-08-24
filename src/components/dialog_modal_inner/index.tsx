@@ -10,8 +10,8 @@ import type { ReactNode } from "react";
 
 type DialogModalInnerProps = {
   children: ReactNode;
-  height?: DialogModalInnerHeight;
-  width?: DialogModalInnerWidth;
+  height: DialogModalInnerHeight;
+  width: DialogModalInnerWidth;
 } & Omit<BoxProps, "width" | "height">;
 
 export function DialogModalInner({

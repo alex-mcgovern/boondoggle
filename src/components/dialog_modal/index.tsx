@@ -28,7 +28,7 @@ export type DialogModalProps = {
   /** Content shown in the dialog modal. */
   children: ReactNode | Array<ReactNode>;
   /** Height of the dialog modal */
-  height?: DialogModalInnerHeight;
+  height: DialogModalInnerHeight;
   /** Whether the dialog modal is in an error state. */
   isError?: boolean;
   /** Whether the dialog modal is loading. */
@@ -48,7 +48,7 @@ export type DialogModalProps = {
   /** Trigger node shown to open the dialog modal. */
   triggerNode?: ReactNode;
   /** Width of the dialog modal. */
-  width?: DialogModalInnerWidth;
+  width: DialogModalInnerWidth;
   /** Props to pass to the wrapper. */
   wrapperProps?: BoxProps;
 };
