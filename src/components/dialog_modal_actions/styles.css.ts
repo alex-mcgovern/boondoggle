@@ -7,6 +7,7 @@ export const dialogModalActionsWrapperStyle = style([
     borderTop: "border_default",
     display: "grid",
     gap: "space_2",
+    marginTop: "auto",
     padding: "space_4",
   }),
 ]);
