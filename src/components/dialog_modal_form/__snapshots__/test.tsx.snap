@@ -410,7 +410,7 @@ exports[`<DialogModalForm /> Basic smoke tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="styles_dialogModalActionsWrapperStyle__1r3dwj31 styles__1r3dwj30 get_sprinkles_borderTop_border_default__eiij7b14 get_sprinkles_display_grid_mobile__eiij7bb3 get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_padding_space_4_mobile__eiij7bfc"
+          class="styles_dialogModalActionsWrapperStyle__1r3dwj31 styles__1r3dwj30 get_sprinkles_borderTop_border_default__eiij7b14 get_sprinkles_display_grid_mobile__eiij7bb3 get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_marginTop_auto__eiij7b63 get_sprinkles_padding_space_4_mobile__eiij7bfc"
           style="grid-template-columns: repeat(1, 1fr);"
         >
           <button
