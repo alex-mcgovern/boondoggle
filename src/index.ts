@@ -98,13 +98,13 @@ export { FormSlider } from "./components/form_slider";
 export type { FormSliderProps } from "./components/form_slider";
 
 export { FormInput } from "./components/form_input";
-export { FormInputProps } from "./components/form_input";
+export type { FormInputProps } from "./components/form_input";
 
 export { FormRadioButtonCardGroup } from "./components/form_radio_button_card_group";
-export { FormRadioButtonCardGroupProps } from "./components/form_radio_button_card_group";
+export type { FormRadioButtonCardGroupProps } from "./components/form_radio_button_card_group";
 
 export { FormRadioButtonGroup } from "./components/form_radio_button_group";
-export { FormRadioButtonGroupProps } from "./components/form_radio_button_group";
+export type { FormRadioButtonGroupProps } from "./components/form_radio_button_group";
 
 export { FormSelectSingle } from "./components/form_select_single";
 export type { FormSelectSingleProps } from "./components/form_select_single";
