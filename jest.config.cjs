@@ -10,7 +10,7 @@ module.exports = {
   testEnvironmentOptions: {
     url: "http://localhost",
   },
-  testMatch: ["<rootDir>/src/**/?(*.)+(spec|test).[jt]s?(x)"],
+  testMatch: ["<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)"],
   testPathIgnorePatterns: [
     "node_modules",
     "\\.cache",

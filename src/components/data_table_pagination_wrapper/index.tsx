@@ -52,7 +52,6 @@ export function DataTablePaginationWrapper<TData extends RowData>({
       )}
       <DataTableControlPagination<TData>
         strNext={strNext}
-        strPage={strPage}
         strPrev={strPrev}
         table={table}
       />

@@ -1,6 +1,6 @@
-import { Box } from "../box";
+import { Children, type ReactNode } from "react";
 
-import type { ReactNode } from "react";
+import { Box } from "../box";
 
 type DataTableActionsWrapperProps = {
   /** Action shown on the left-hand side */
@@ -29,9 +29,13 @@ export function DataTableActionsWrapper({
       padding="space_4"
     >
       {leftAction && <Box>{leftAction}</Box>}
-      <Box alignItems="center" display="flex" gap="space_2" marginLeft="auto">
-        {rightActions}
-      </Box>
+      {rightActions && (
+        <Box alignItems="center" display="flex" gap="space_2" marginLeft="auto">
+          {Children.map(rightActions, (action) => {
+            return action;
+          })}
+        </Box>
+      )}
     </Box>
   );
 }
