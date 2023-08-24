@@ -83,7 +83,9 @@ export function DialogModalDataTable<TData extends RowData>({
   strErrorDescription,
   strErrorTitle,
   strFilterPlaceholder,
+  strNext,
   strPage,
+  strPrev,
   strResults,
   strTryAgain,
   title,
@@ -133,17 +135,19 @@ export function DialogModalDataTable<TData extends RowData>({
 
           {!isError && isLoading && <LoaderFullScreen />}
 
-          <DataTableActionsWrapper
-            leftAction={
-              isFilterable ? (
-                <DataTableFilterInput
-                  placeholder={strFilterPlaceholder}
-                  setGlobalFilter={setGlobalFilter}
-                />
-              ) : null
-            }
-            rightActions={actions}
-          />
+          {!isError && !isLoading && (
+            <DataTableActionsWrapper
+              leftAction={
+                isFilterable ? (
+                  <DataTableFilterInput
+                    placeholder={strFilterPlaceholder}
+                    setGlobalFilter={setGlobalFilter}
+                  />
+                ) : null
+              }
+              rightActions={actions}
+            />
+          )}
 
           {!isError && !isLoading && (
             <DialogModalContent alert={alert} hasPadding={false}>
@@ -180,7 +184,11 @@ export function DialogModalDataTable<TData extends RowData>({
                     />
                   )}
 
-                  <DataTableControlPagination<TData> table={table} />
+                  <DataTableControlPagination<TData>
+                    strNext={strNext}
+                    strPrev={strPrev}
+                    table={table}
+                  />
                 </Box>
               ) : undefined
             }

@@ -14,7 +14,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
   args: {},
   component: StoryComp<MockAccountColumnData>,
-  title: "Components/DataTable",
+  title: "Components/DialogModalDataTable",
 } satisfies Meta<typeof StoryComp<MockAccountColumnData>>;
 
 export default meta;
@@ -45,7 +45,9 @@ export const IsPaginated: Story = {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
     isPaginated: true,
+    strNext: "Next",
     strPage: "Page",
+    strPrev: "Previous",
     strResults: "Results",
     strShow: "Show",
     title: "Dialog modal data table",
@@ -125,7 +127,9 @@ export const KitchenSink: Story = {
       alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
     },
     strFilterPlaceholder: "Filter",
+    strNext: "Next",
     strPage: "Page",
+    strPrev: "Previous",
     strResults: "Results",
     strShow: "Show",
     title: "Dialog modal data table",

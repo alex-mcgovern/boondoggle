@@ -207,8 +207,12 @@ export type WithTableOptionalPagination =
   | {
       /** Whether to show pagination */
       isPaginated: true;
+      /** String to use for the next button */
+      strNext: string;
       /** String to use for the page label */
       strPage: string;
+      /** String to use for the previous button */
+      strPrev: string;
       /** String to use for the results label */
       strResults: string;
       /** String to use for the show label */
@@ -218,8 +222,12 @@ export type WithTableOptionalPagination =
   | {
       /** Whether to show pagination */
       isPaginated?: false;
+      /** String to use for the next button */
+      strNext?: never;
       /** String to use for the page label */
       strPage?: never;
+      /** String to use for the previous button */
+      strPrev?: never;
       /** String to use for the results label */
       strResults?: never;
       /** String to use for the show label */

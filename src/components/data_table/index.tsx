@@ -28,8 +28,6 @@ export type DataTableProps<TData extends RowData> =
       columns: Array<ColumnDef<TData, any>>;
       /** An array of objects describing each row in the table */
       data: Array<TData>;
-      /** Whether the table should be paginated and show pagination controls */
-      isPaginated?: boolean;
       /** Whether the table should be sortable and show sorting controls */
       isSortable?: boolean;
     };
@@ -49,7 +47,9 @@ export function DataTable<TData extends RowData>({
   isSortable,
   onSelect,
   strFilterPlaceholder,
+  strNext,
   strPage,
+  strPrev,
   strResults,
   strShow,
 }: DataTableProps<TData>) {
@@ -102,7 +102,9 @@ export function DataTable<TData extends RowData>({
 
       {isPaginated && (
         <DataTablePaginationWrapper
+          strNext={strNext}
           strPage={strPage}
+          strPrev={strPrev}
           strResults={strResults}
           strShow={strShow}
           table={table}

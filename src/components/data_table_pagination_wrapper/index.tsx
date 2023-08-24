@@ -6,8 +6,12 @@ import { DataTableInfoPageCount } from "../data_table_info_page_count";
 import type { RowData, Table } from "@tanstack/react-table";
 
 type DataTablePaginationWrapperProps<TData extends RowData> = {
+  /** String to use for the next button */
+  strNext: string;
   /** String to use for the page label */
   strPage: string;
+  /** String to use for the previous button */
+  strPrev: string;
   /** String to use for the results label */
   strResults: string;
   /** String to use for the show label */
@@ -20,7 +24,9 @@ type DataTablePaginationWrapperProps<TData extends RowData> = {
  * Wraps actions for a data table.
  */
 export function DataTablePaginationWrapper<TData extends RowData>({
+  strNext,
   strPage,
+  strPrev,
   strResults,
   strShow,
   table,
@@ -44,7 +50,12 @@ export function DataTablePaginationWrapper<TData extends RowData>({
       {strShow && (
         <DataTableControlPageSize<TData> strShow={strShow} table={table} />
       )}
-      <DataTableControlPagination<TData> table={table} />
+      <DataTableControlPagination<TData>
+        strNext={strNext}
+        strPage={strPage}
+        strPrev={strPrev}
+        table={table}
+      />
     </Box>
   );
 }
