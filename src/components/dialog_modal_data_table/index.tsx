@@ -38,7 +38,7 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
     /** Column definitions for the tabular data */
     columns: Array<ColumnDef<TData, any>>;
     /** An array of objects describing each row in the table */
-    data: Array<TData>;
+    data: Array<TData> | undefined;
     /** React ref that will be passed to the dialog modal. */
     dialogRef?: ForwardedRef<HTMLDialogElement>;
     /** Whether the dialog modal is in an error state. */

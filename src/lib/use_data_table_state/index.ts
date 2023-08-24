@@ -20,7 +20,7 @@ import type {
 
 type UseDataTableStateProps<TData extends RowData> = {
   /** An array of objects describing each row in the table */
-  data: Array<TData>;
+  data: Array<TData> | undefined;
   /** Boolean to enable multi-row selection. */
   enableMultiRowSelection: boolean | undefined;
   /** Column definitions for the tabular data */
@@ -59,7 +59,7 @@ export function useDataTableState<TData extends RowData>({
 
       if (typeof updater === "function") {
         return onSelect?.(
-          data.reduce<TData[]>((acc, row, index) => {
+          data?.reduce<TData[]>((acc, row, index) => {
             if (updater({})[index]) {
               acc.push(row);
             }
@@ -99,7 +99,7 @@ export function useDataTableState<TData extends RowData>({
 
   const table = useReactTable<TData>({
     columns,
-    data,
+    data: data || [],
     getCoreRowModel: getCoreRowModel(),
     ...(isFilterable && {
       getFilteredRowModel: getFilteredRowModel(),

@@ -27,7 +27,7 @@ export type DataTableProps<TData extends RowData> =
       /** Column definitions for the tabular data */
       columns: Array<ColumnDef<TData, any>>;
       /** An array of objects describing each row in the table */
-      data: Array<TData>;
+      data: Array<TData> | undefined;
       /** Whether the table should be sortable and show sorting controls */
       isSortable?: boolean;
     };
@@ -78,10 +78,6 @@ export function DataTable<TData extends RowData>({
         rightActions={actions}
       />
 
-      {/* <Box
-        border={isBorderless ? undefined : "border_default"}
-        borderRadius={isBorderless ? undefined : "md"}
-      > */}
       <Box overflow="auto" width="100%">
         <Box as="table" width="100%">
           <DataTableLayoutHead<TData> isSortable={isSortable} table={table} />
@@ -98,7 +94,6 @@ export function DataTable<TData extends RowData>({
             />
           )} */}
       </Box>
-      {/* </Box> */}
 
       {isPaginated && (
         <DataTablePaginationWrapper
