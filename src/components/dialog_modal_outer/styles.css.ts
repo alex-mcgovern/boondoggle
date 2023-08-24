@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 import {
-  animateFadeIn,
+  animateSlideUp,
   fadeInBackdropKeyframes,
 } from "../../styles/common/animations.css";
 import {
@@ -14,10 +14,11 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dialogModalOuterStyle = style([
-  animateFadeIn,
+  animateSlideUp,
   getSprinkles({
     background: "background",
     borderRadius: "lg",
+    marginX: "auto",
     padding: "none",
   }),
   {
@@ -37,7 +38,9 @@ export const dialogModalOuterStyle = style([
         boxShadow: vars.boxShadow.lg,
       },
     },
-    left: "50%",
+    // left: "50%",
+    left: "0",
+    right: "0",
     selectors: {
       "&::backdrop": {
         background: vars.color.backdrop,
@@ -47,8 +50,8 @@ export const dialogModalOuterStyle = style([
       },
       "&:focus": { outline: "none" },
     },
-    top: "50%",
-    transform: "translate(-50%, -50%)",
+    top: "12.5dvh",
+    // transform: "translateX(-50%)",
     zIndex: 99999,
   },
 ]);

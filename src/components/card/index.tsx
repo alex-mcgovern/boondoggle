@@ -1,38 +1,41 @@
 import { Box } from "../box";
-import { SectionActionsWrapper } from "../section_actions_wrapper";
+import { CardActionsWrapper } from "../card_actions_wrapper";
 
 import type { ReactNode } from "react";
 
-export type SectionProps = {
-  /** Action shown on the right-hand side of a section. */
+export type CardProps = {
+  /** Action shown on the right-hand side of a card. */
   actions?: ReactNode | [ReactNode?, ReactNode?];
-  /** The components to render in the section */
+  /** The components to render in the card */
   children: ReactNode;
-  /** The description of the section */
+  /** The description of the card */
   description?: string;
-  /** The title of the section */
+  /** Whether the card has padding or not */
+  hasPadding?: boolean;
+  /** The title of the card */
   title?: string;
 };
 
 /**
- * The section component is used to group related content together.
+ * The card component is used to group related content together.
  */
-export function Section({
+export function Card({
   actions,
   children,
   description,
+  hasPadding = true,
   title,
-}: SectionProps) {
+}: CardProps) {
   return (
     <Box
       as="section"
       border="border_default"
       borderRadius="md"
       marginY="space_5"
-      paddingBottom="space_6"
-      paddingLeft="space_5"
-      paddingRight="space_5"
-      paddingTop="space_5"
+      paddingBottom={hasPadding ? "space_6" : undefined}
+      paddingLeft={hasPadding ? "space_5" : undefined}
+      paddingRight={hasPadding ? "space_5" : undefined}
+      paddingTop={hasPadding ? "space_5" : undefined}
     >
       {(title || actions) && (
         <Box
@@ -50,7 +53,7 @@ export function Section({
             </Box>
           )}
 
-          {actions && <SectionActionsWrapper actions={actions} />}
+          {actions && <CardActionsWrapper actions={actions} />}
         </Box>
       )}
 

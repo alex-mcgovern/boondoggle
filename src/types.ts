@@ -2,6 +2,7 @@ import type { BoxProps } from "./components/box";
 import type { FieldLabelProps } from "./components/field_label";
 import type { ColorOverlay } from "./styles/color_palette.css";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
+import type { RowData } from "@tanstack/react-table";
 import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
@@ -200,6 +201,70 @@ export type WithStateInvalid = {
 };
 
 /** ----------------------------------------------------------------------------- */
+
+export type WithTableOptionalPagination =
+  /** If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed. */
+  | {
+      /** Whether to show pagination */
+      isPaginated: true;
+      /** String to use for the page label */
+      strPage: string;
+      /** String to use for the results label */
+      strResults: string;
+      /** String to use for the show label */
+      strShow: string;
+    }
+  /** If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed. */
+  | {
+      /** Whether to show pagination */
+      isPaginated?: false;
+      /** String to use for the page label */
+      strPage?: never;
+      /** String to use for the results label */
+      strResults?: never;
+      /** String to use for the show label */
+      strShow?: never;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithTableOptionalFiltering =
+  /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed. */
+  | {
+      /** Whether the table should be filterable */
+      isFilterable: true;
+      /** String to use for filter field placeholder */
+      strFilterPlaceholder: string;
+    }
+  /** If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed. */
+  | {
+      /** Whether the table should be filterable */
+      isFilterable?: false;
+      /** String to use for filter field placeholder */
+      strFilterPlaceholder?: never;
+    };
+
+/** ----------------------------------------------------------------------------- */
+
+export type WithTableOptionalSelectableRows<TData extends RowData> =
+  /** If `isSelectable` is `true`, `enableMultiRowSelection` can be passed. */
+  | {
+      /** Boolean to enable multi-row selection. */
+      enableMultiRowSelection?: boolean;
+      /** Whether the table should allow rows to be selectable */
+      isSelectable: true;
+      /** Function called on a new selection, with the current selection */
+      onSelect: (selection: TData[] | undefined) => void;
+    }
+  /** If `isSelectable` is `false` or `undefined`, `enableMultiRowSelection` should not be passed. */
+  | {
+      /** Boolean to enable multi-row selection. */
+      enableMultiRowSelection?: never;
+      /** Whether the table should allow rows to be selectable */
+      isSelectable?: false | undefined;
+      /** Function called on a new selection, with the current selection */
+      onSelect?: never;
+    };
 
 type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
   /**

@@ -1,5 +1,6 @@
 import { flexRender } from "@tanstack/react-table";
 
+import { Box } from "../box";
 import { DataTableControlTableHeadSort } from "../data_table_control_table_head_sort";
 
 import type { Header } from "@tanstack/react-table";
@@ -7,6 +8,8 @@ import type { Header } from "@tanstack/react-table";
 type DataTableLayoutColumnHeaderCellProps<THeaderData> = {
   header: Header<THeaderData, unknown>;
   isSortable: boolean | undefined;
+  /** Whether the table head is sticky */
+  isSticky?: boolean;
 };
 
 /**
@@ -15,24 +18,35 @@ type DataTableLayoutColumnHeaderCellProps<THeaderData> = {
 export function DataTableLayoutColumnHeaderCell<THeaderData>({
   header,
   isSortable,
+  isSticky,
 }: DataTableLayoutColumnHeaderCellProps<THeaderData>) {
   if (isSortable) {
     return (
-      <th>
+      <Box
+        as="th"
+        background={isSticky ? "white" : undefined}
+        position={isSticky ? "sticky" : undefined}
+        top={isSticky ? "0" : undefined}
+      >
         <DataTableControlTableHeadSort header={header}>
           {header.isPlaceholder
             ? null
             : flexRender(header.column.columnDef.header, header.getContext())}
         </DataTableControlTableHeadSort>
-      </th>
+      </Box>
     );
   }
 
   return (
-    <th>
+    <Box
+      as="th"
+      background={isSticky ? "white" : undefined}
+      position={isSticky ? "sticky" : undefined}
+      top={isSticky ? "0" : undefined}
+    >
       {header.isPlaceholder
         ? null
         : flexRender(header.column.columnDef.header, header.getContext())}
-    </th>
+    </Box>
   );
 }

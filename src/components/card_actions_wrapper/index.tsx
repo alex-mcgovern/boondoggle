@@ -2,15 +2,15 @@ import { Box } from "../box";
 
 import type { ReactNode } from "react";
 
-type SectionActionsWrapperProps = {
-  /** Action shown on the right-hand side of a section. */
+type CardActionsWrapperProps = {
+  /** Action shown on the right-hand side of a card. */
   actions?: ReactNode | [ReactNode?, ReactNode?];
 };
 
 /**
- * Wraps actions for a section.
+ * Wraps actions for a card.
  */
-export function SectionActionsWrapper({ actions }: SectionActionsWrapperProps) {
+export function CardActionsWrapper({ actions }: CardActionsWrapperProps) {
   if (!actions) {
     return null;
   }

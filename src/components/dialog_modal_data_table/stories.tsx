@@ -1,16 +1,15 @@
-import { faPlus } from "@fortawesome/sharp-regular-svg-icons";
-
-import { DataTable as StoryComp } from ".";
+import { DialogModalDataTable as StoryComp } from ".";
 import {
-  DATA_TABLE_COLUMNS_MOCK,
-  DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
+  DATA_TABLE_COLUMNS_REDUCED_MOCK,
   generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
 import { Button } from "../button";
-import { Icon } from "../icon";
 
+import type { DialogModalDataTableProps as StoryCompProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 import type { Meta, StoryObj } from "@storybook/react";
+
+/** ----------------------------------------------------------------------------- */
 
 const meta = {
   args: {},
@@ -27,10 +26,15 @@ const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
 
 /** ----------------------------------------------------------------------------- */
 
-export const Default: Story = {
+export const IsFilterable: Story = {
   args: {
-    columns: DATA_TABLE_COLUMNS_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    isFilterable: true,
+    strFilterPlaceholder: "Filter",
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };
 
@@ -38,33 +42,38 @@ export const Default: Story = {
 
 export const IsPaginated: Story = {
   args: {
-    columns: DATA_TABLE_COLUMNS_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
     isPaginated: true,
     strPage: "Page",
     strResults: "Results",
     strShow: "Show",
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };
 
 /** ----------------------------------------------------------------------------- */
 
-export const IsSortable: Story = {
+export const WidthSm: Story = {
   args: {
-    columns: DATA_TABLE_COLUMNS_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
-    isSortable: true,
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
   },
 };
 
 /** ----------------------------------------------------------------------------- */
 
-export const IsFilterable: Story = {
+export const WidthLg: Story = {
   args: {
-    columns: DATA_TABLE_COLUMNS_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
-    isFilterable: true,
-    strFilterPlaceholder: "Filter results...",
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };
 
@@ -72,66 +81,33 @@ export const IsFilterable: Story = {
 
 export const IsSelectable: Story = {
   args: {
-    columns: DATA_TABLE_COLUMNS_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
     isSelectable: true,
     onSelect: (rowSelection) => {
       alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
     },
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };
-
 /** ----------------------------------------------------------------------------- */
 
-export const IsSelectableWithEnableMultiRowSelection: Story = {
+export const IsSelectableWithEnableMultiRowSelection: StoryObj<
+  StoryCompProps<MockAccountColumnData>
+> = {
   args: {
-    columns: DATA_TABLE_COLUMNS_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
     enableMultiRowSelection: true,
     isSelectable: true,
     onSelect: (rowSelection) => {
       alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
     },
-  },
-};
-
-/** ----------------------------------------------------------------------------- */
-
-export const WithAggregatedCell: Story = {
-  args: {
-    columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
-    data: MOCK_DATA,
-  },
-};
-
-/** ----------------------------------------------------------------------------- */
-
-export const With1Action: Story = {
-  args: {
-    actions: (
-      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
-        Primary action
-      </Button>
-    ),
-    columns: DATA_TABLE_COLUMNS_MOCK,
-    data: MOCK_DATA,
-  },
-};
-
-/** ----------------------------------------------------------------------------- */
-
-export const With2Actions: Story = {
-  args: {
-    actions: [
-      <Button appearance="secondary" name="secondary_action">
-        Secondary action
-      </Button>,
-      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
-        Primary action
-      </Button>,
-    ],
-    columns: DATA_TABLE_COLUMNS_MOCK,
-    data: MOCK_DATA,
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };
 
@@ -139,22 +115,21 @@ export const With2Actions: Story = {
 
 export const KitchenSink: Story = {
   args: {
-    actions: [
-      <Button appearance="secondary" name="secondary_action">
-        Secondary action
-      </Button>,
-      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
-        Primary action
-      </Button>,
-    ],
-    columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
+    columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
     isFilterable: true,
     isPaginated: true,
+    isSelectable: true,
     isSortable: true,
-    strFilterPlaceholder: "Filter results...",
+    onSelect: (rowSelection) => {
+      alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
+    },
+    strFilterPlaceholder: "Filter",
     strPage: "Page",
     strResults: "Results",
     strShow: "Show",
+    title: "Dialog modal data table",
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };

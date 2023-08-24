@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
@@ -13,9 +14,19 @@ export const dialogContentOuterStyle = style([
   },
 ]);
 
-export const dialogContentInnerStyle = style([
-  getSprinkles({
-    height: "100%",
-    padding: "space_4",
-  }),
-]);
+export const getDialogContentInnerStyle = recipe({
+  base: [
+    getSprinkles({
+      height: "100%",
+    }),
+  ],
+  defaultVariants: {
+    hasPadding: true,
+  },
+  variants: {
+    hasPadding: {
+      false: {},
+      true: [getSprinkles({ padding: "space_4" })],
+    },
+  },
+});

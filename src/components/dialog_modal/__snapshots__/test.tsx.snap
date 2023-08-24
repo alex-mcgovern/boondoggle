@@ -11,7 +11,7 @@ exports[`<DialogModal /> default on initial render should match snapshot 1`] = `
     class="color_palette_variantColorOverlay_default__13r5x7fh get_sprinkles_position_relative_mobile__eiij7bml"
   >
     <dialog
-      class="styles_dialogModalOuterStyle__xbhn3g1 animations_animateFadeIn__apgy12 styles__xbhn3g0 get_sprinkles_background_background__eiij7ba get_sprinkles_borderRadius_lg__eiij7bx get_sprinkles_padding_none_mobile__eiij7ber"
+      class="styles_dialogModalOuterStyle__xbhn3g1 animations_animateSlideUp__apgy14 styles__xbhn3g0 get_sprinkles_marginLeft_auto__eiij7b51 get_sprinkles_marginRight_auto__eiij7b5k get_sprinkles_background_background__eiij7ba get_sprinkles_borderRadius_lg__eiij7bx get_sprinkles_padding_none_mobile__eiij7ber"
     >
       <div
         class="styles_getDialogModalInnerStyle__bryhpl3 styles__bryhpl2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_flexDirection_column_mobile__eiij7bbr get_sprinkles_maxWidth_100vw__eiij7b7k get_sprinkles_padding_none_mobile__eiij7ber get_sprinkles_width_100vw_mobile__eiij7bn6 styles_getDialogModalInnerStyle_width_sm__bryhpl5 styles_variantWidth_sm__bryhpl1"
@@ -59,7 +59,7 @@ exports[`<DialogModal /> default on initial render should match snapshot 1`] = `
           class="styles_dialogContentOuterStyle__l8uldv1 styles__l8uldv0 get_sprinkles_maxWidth_100%__eiij7b7j get_sprinkles_overflowY_auto__eiij7bah get_sprinkles_width_100%_mobile__eiij7bn3"
         >
           <div
-            class="styles_dialogContentInnerStyle__l8uldv3 styles__l8uldv2 get_sprinkles_height_100%__eiij7b2r get_sprinkles_padding_space_4_mobile__eiij7bfc"
+            class="styles_getDialogContentInnerStyle__l8uldv4 styles__l8uldv2 get_sprinkles_height_100%__eiij7b2r styles_getDialogContentInnerStyle_hasPadding_true__l8uldv6 styles__l8uldv3 get_sprinkles_padding_space_4_mobile__eiij7bfc"
           >
             hello
           </div>

@@ -22,3 +22,16 @@ export const animateFadeIn = style([
     animation: `${fadeInKeyframes} ${vars.transitionDuration.long} ease forwards`,
   }),
 ]);
+
+/** ----------------------------------------------------------------------------- */
+
+const slideUpKeyframes = keyframes({
+  "0%": { opacity: 0, transform: `translateY(${vars.spacing.space_10})` },
+  "100%": { opacity: 1 },
+});
+
+export const animateSlideUp = style([
+  createAccessibleTransition({
+    animation: `${slideUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+  }),
+]);

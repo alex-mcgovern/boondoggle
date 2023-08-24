@@ -7,7 +7,7 @@ import type { ForwardedRef } from "react";
 
 type UseDialogModalStateArgs = {
   /** Ref to the HTML Dialog, used to open/close it with `.showModal()` & `.close()` */
-  ref: ForwardedRef<HTMLDialogElement>;
+  ref: ForwardedRef<HTMLDialogElement> | undefined;
 };
 
 /**

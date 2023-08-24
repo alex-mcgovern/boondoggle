@@ -97,6 +97,40 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 ];
 /** ----------------------------------------------------------------------------- */
 
+export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
+  columnHelper.accessor("first_name", {
+    cell: (info) => {
+      return (
+        <DataTableCellButton
+          slotRight={[<Icon icon={faArrowUpRight} />]}
+          value={info.getValue()}
+        />
+      );
+    },
+    enableHiding: false,
+    header: () => {
+      return "First name";
+    },
+  }),
+  columnHelper.accessor("last_name", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "Last name";
+    },
+  }),
+  columnHelper.accessor("email_address", {
+    cell: (info) => {
+      return info.getValue();
+    },
+    header: () => {
+      return "Email address";
+    },
+  }),
+];
+/** ----------------------------------------------------------------------------- */
+
 export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
   columnHelper.accessor(
     (row) => {

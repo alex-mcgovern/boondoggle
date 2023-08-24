@@ -150,8 +150,8 @@ export type { SelectButtonProps } from "./components/select_button";
 export { SlotWrapper } from "./components/slot_wrapper";
 export type { SlotWrapperProps } from "./components/slot_wrapper";
 
-export { Section } from "./components/section";
-export type { SectionProps } from "./components/section";
+export { Card } from "./components/card";
+export type { CardProps } from "./components/card";
 
 export { SelectItem } from "./components/select_item";
 export type { SelectItemProps } from "./components/select_item";
