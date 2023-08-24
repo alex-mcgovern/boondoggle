@@ -21,7 +21,10 @@ import { FormSubmitButton } from "../form_submit_button";
 import { LoaderFullScreen } from "../loader_full_screen";
 
 import type { BoxProps } from "../box";
-import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
+import type {
+  DialogModalInnerHeight,
+  DialogModalInnerWidth,
+} from "../dialog_modal_inner/styles.css";
 import type { ReactNode } from "react";
 
 export type DialogModalFormProps = {
@@ -35,6 +38,8 @@ export type DialogModalFormProps = {
   handleFormSubmission:
     | ((fieldValues: FieldValues) => Promise<void>)
     | ((fieldValues: FieldValues) => void);
+  /** Height of the dialog modal */
+  height?: DialogModalInnerHeight;
   /** Whether the dialog modal is in an error state. */
   isError?: boolean;
   /** Whether the dialog modal is loading. */
@@ -69,6 +74,7 @@ export const DialogModalForm = forwardRef<
       children,
       formSubmitButtonText,
       handleFormSubmission: initHandleSubmission,
+      height,
       isError,
       isLoading,
       onClickTryAgain,
@@ -116,9 +122,10 @@ export const DialogModalForm = forwardRef<
             </Slot>
           )}
 
-          <DialogModalOuter dialogRef={dialogRef}>
+          <DialogModalOuter dialogRef={dialogRef} height={height}>
             <DialogModalInner
               as="form"
+              height={height}
               onSubmit={formMethods.handleSubmit(
                 handleFormSubmission,
                 handleHookFormErrors

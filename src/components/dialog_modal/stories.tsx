@@ -118,6 +118,20 @@ export const ControlledElement: StoryObj<StoryCompProps> = {
 };
 
 /** -----------------------------------------------------------------------------
+ * Is loading
+ * ------------------------------------------------------------------------------- */
+
+export const IsLoading: StoryObj<StoryCompProps> = {
+  args: {
+    children: <DialogContent />,
+    isLoading: true,
+    title: LOREM.text_md,
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "sm",
+  },
+  render: Template,
+};
+/** -----------------------------------------------------------------------------
  * Width: sm
  * ------------------------------------------------------------------------------- */
 
@@ -141,6 +155,34 @@ export const WidthLg: StoryObj<StoryCompProps> = {
     title: LOREM.text_md,
     triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
     width: "lg",
+  },
+  render: Template,
+};
+
+/** -----------------------------------------------------------------------------
+ * Height: sm
+ * ------------------------------------------------------------------------------- */
+
+export const HeightSm: StoryObj<StoryCompProps> = {
+  args: {
+    children: <DialogContent />,
+    height: "sm",
+    title: LOREM.text_md,
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+  },
+  render: Template,
+};
+
+/** -----------------------------------------------------------------------------
+ * Height: lg
+ * ------------------------------------------------------------------------------- */
+
+export const HeightLg: StoryObj<StoryCompProps> = {
+  args: {
+    children: <DialogContent />,
+    height: "lg",
+    title: LOREM.text_md,
+    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
   },
   render: Template,
 };

@@ -1,5 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
+import { MEDIA_QUERY_MOBILE } from "../../styles/common/media_queries.css";
+import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dialogHeaderStyle = style([
@@ -18,4 +20,11 @@ export const dialogTitleStyle = style([
     fontWeight: "semibold",
     marginY: "none",
   }),
+  {
+    "@media": {
+      [MEDIA_QUERY_MOBILE]: {
+        fontSize: vars.fontSize.body_lg,
+      },
+    },
+  },
 ]);

@@ -14,6 +14,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
   args: {},
   component: StoryComp<MockAccountColumnData>,
+  parameters: {
+    layout: "fullscreen",
+  },
   title: "Components/DialogModalDataTable",
 } satisfies Meta<typeof StoryComp<MockAccountColumnData>>;
 

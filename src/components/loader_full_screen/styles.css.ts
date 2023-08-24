@@ -11,5 +11,8 @@ export const loaderWrapperStyle = style([
     justifyContent: "center",
     width: "100%",
   }),
-  { minHeight: "40vh" },
+  {
+    height: "100dvh",
+    minHeight: "40vh",
+  },
 ]);

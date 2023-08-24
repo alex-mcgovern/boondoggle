@@ -14,7 +14,10 @@ import { LoaderFullScreen } from "../loader_full_screen";
 
 import type { BoxProps } from "../box";
 import type { DialogModalActionsProps } from "../dialog_modal_actions";
-import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
+import type {
+  DialogModalInnerHeight,
+  DialogModalInnerWidth,
+} from "../dialog_modal_inner/styles.css";
 import type { ReactNode } from "react";
 
 export type DialogModalProps = {
@@ -24,6 +27,8 @@ export type DialogModalProps = {
   alert?: ReactNode;
   /** Content shown in the dialog modal. */
   children: ReactNode | Array<ReactNode>;
+  /** Height of the dialog modal */
+  height?: DialogModalInnerHeight;
   /** Whether the dialog modal is in an error state. */
   isError?: boolean;
   /** Whether the dialog modal is loading. */
@@ -54,6 +59,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
       actions,
       alert,
       children,
+      height,
       isError,
       isLoading,
       onClickTryAgain,
@@ -83,8 +89,8 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
           </Slot>
         )}
 
-        <DialogModalOuter dialogRef={dialogRef}>
-          <DialogModalInner width={width}>
+        <DialogModalOuter dialogRef={dialogRef} height={height}>
+          <DialogModalInner height={height} width={width}>
             <DialogModalHeader closeDialog={closeDialog} title={title} />
 
             {!isLoading && isError && strErrorDescription && strErrorTitle && (
