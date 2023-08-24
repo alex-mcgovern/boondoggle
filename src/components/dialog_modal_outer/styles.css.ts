@@ -38,7 +38,6 @@ export const dialogModalOuterStyle = style([
         boxShadow: vars.boxShadow.lg,
       },
     },
-    // left: "50%",
     left: "0",
     right: "0",
     selectors: {
@@ -51,7 +50,6 @@ export const dialogModalOuterStyle = style([
       "&:focus": { outline: "none" },
     },
     top: "12.5dvh",
-    // transform: "translateX(-50%)",
     zIndex: 99999,
   },
 ]);

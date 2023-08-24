@@ -56,15 +56,12 @@ export const getDialogModalInnerStyle = recipe({
       "@media": {
         [MEDIA_QUERY_MOBILE]: {
           height: "100dvh",
-          maxHeight: "100dvh",
         },
         [MEDIA_QUERY_TABLET]: {
-          maxHeight: "75dvh",
+          height: "75dvh",
         },
       },
 
-      // overflow: "clip",
-      // overflowClipMargin: "1000px",
       overscrollBehavior: "contain",
     },
   ],
