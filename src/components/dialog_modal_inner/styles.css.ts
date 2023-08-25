@@ -57,11 +57,12 @@ const variantHeight = styleVariants({
   },
   sm: {
     "@media": {
-      [MEDIA_QUERY_TABLET]: {
+      [MEDIA_QUERY_MOBILE]: {
         height: "100dvh",
       },
-      [MEDIA_QUERY_DESKTOP]: {
-        height: "50dvh",
+      [MEDIA_QUERY_TABLET]: {
+        maxHeight: "66dvh",
+        minHeight: "50dvh",
       },
     },
   },
@@ -84,15 +85,6 @@ export const getDialogModalInnerStyle = recipe({
       width: "100vw",
     }),
     {
-      "@media": {
-        [MEDIA_QUERY_MOBILE]: {
-          height: "100dvh",
-        },
-        [MEDIA_QUERY_TABLET]: {
-          height: "75dvh",
-        },
-      },
-
       overscrollBehavior: "contain",
     },
   ],
