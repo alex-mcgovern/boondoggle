@@ -37,7 +37,7 @@ describe("<DialogModal />", () => {
       it("should render without throwing", async () => {
         const { container } = await renderComponent({
           children: "hello",
-          height: "lg",
+
           title: "hello",
           width: "lg",
         });
@@ -48,7 +48,7 @@ describe("<DialogModal />", () => {
       it("should match snapshot", async () => {
         const { container } = await renderComponent({
           children: "hello",
-          height: "lg",
+
           title: "hello",
           width: "lg",
         });
@@ -79,7 +79,7 @@ describe("<DialogModal />", () => {
             />
           ),
           children: "hello",
-          height: "lg",
+
           title: "hello",
           width: "lg",
         });

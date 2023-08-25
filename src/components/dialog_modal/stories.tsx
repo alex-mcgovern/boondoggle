@@ -160,34 +160,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 };
 
 /** -----------------------------------------------------------------------------
- * Height: sm
- * ------------------------------------------------------------------------------- */
-
-export const HeightSm: StoryObj<StoryCompProps> = {
-  args: {
-    children: <DialogContent />,
-    height: "sm",
-    title: LOREM.text_md,
-    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-  },
-  render: Template,
-};
-
-/** -----------------------------------------------------------------------------
- * Height: lg
- * ------------------------------------------------------------------------------- */
-
-export const HeightLg: StoryObj<StoryCompProps> = {
-  args: {
-    children: <DialogContent />,
-    height: "lg",
-    title: LOREM.text_md,
-    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-  },
-  render: Template,
-};
-
-/** -----------------------------------------------------------------------------
  * With alert
  * ------------------------------------------------------------------------------- */
 
