@@ -22,7 +22,7 @@ export const rootVars = createGlobalTheme(":root", {
   },
   borderRadius: {
     "50%": "50%",
-    lg: "16px",
+    lg: "12px",
     md: "8px",
     pill: "99999px",
     sm: "4px",
