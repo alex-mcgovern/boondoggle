@@ -8,6 +8,7 @@ import {
 } from "../../../mocks/data_table_columns.mock";
 import { Button } from "../button";
 import { Icon } from "../icon";
+import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -139,6 +140,24 @@ export const With2Actions: Story = {
 
 /** ----------------------------------------------------------------------------- */
 
+export const WithRowActionItems: Story = {
+  args: {
+    actions: [
+      <Button appearance="secondary" name="secondary_action">
+        Secondary action
+      </Button>,
+      <Button name="primary_action" slotLeft={[<Icon icon={faPlus} />]}>
+        Primary action
+      </Button>,
+    ],
+    columns: DATA_TABLE_COLUMNS_MOCK,
+    data: MOCK_DATA,
+    rowActionItems: mockSelectItemsActions(),
+  },
+};
+
+/** ----------------------------------------------------------------------------- */
+
 export const KitchenSink: Story = {
   args: {
     actions: [
@@ -153,7 +172,12 @@ export const KitchenSink: Story = {
     data: MOCK_DATA,
     isFilterable: true,
     isPaginated: true,
+    isSelectable: true,
     isSortable: true,
+    onSelect: (rowSelection) => {
+      alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
+    },
+    rowActionItems: mockSelectItemsActions(),
     strFilterPlaceholder: "Filter results...",
     strNext: "Next",
     strPage: "Page",

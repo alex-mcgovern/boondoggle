@@ -47,7 +47,7 @@ export const getDialogStyles = recipe({
   base: [
     animateFadeIn,
     {
-      border: "none",
+      // border: "none",
       maxWidth: calc.subtract("100vw", vars.spacing.space_4),
       selectors: {
         "&:focus": {

@@ -34,6 +34,7 @@ export const SelectItem = forwardRef(
     const {
       className: userClassName,
       // eslint-disable-next-line @typescript-eslint/naming-convention
+      colorOverlay,
       isSelected: _,
       label,
       slotLeft,
@@ -46,6 +47,7 @@ export const SelectItem = forwardRef(
         className={clsx(
           userClassName,
           styles.getDropdownItemStyles({
+            colorOverlay,
             size,
           }),
           {

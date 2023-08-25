@@ -1,3 +1,4 @@
+import type { ColorOverlay } from "../../styles/color_palette.css";
 import type {
   WithName,
   WithOptionalLabel,
@@ -12,6 +13,7 @@ import type { UseComboboxStateChange } from "downshift";
 
 export type SelectItemShape = BoxProps &
   WithSlots & {
+    colorOverlay?: ColorOverlay;
     isSelected?: boolean;
     label: string;
     value: string;

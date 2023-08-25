@@ -7,7 +7,7 @@ import {
   elementHeight,
   elementPadding,
 } from "../../styles/common/element_size.css";
-import { vars } from "../../styles/theme.css";
+import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
@@ -21,7 +21,8 @@ export const getDropdownItemStyles = recipe({
   base: [
     getSprinkles({
       alignItems: "center",
-      color: "text_high_contrast",
+      borderRadius: "md",
+      color: "text_low_contrast",
       display: "flex",
       fontWeight: "normal",
       gap: "space_2",
@@ -45,6 +46,7 @@ export const getDropdownItemStyles = recipe({
     },
   ],
   variants: {
+    colorOverlay: variantColorOverlay,
     size,
   },
 });

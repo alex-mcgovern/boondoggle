@@ -30,7 +30,7 @@ export function Card({
     <Box
       as="section"
       border="border_default"
-      borderRadius="md"
+      borderRadius="lg"
       marginY="space_5"
       paddingBottom={hasPadding ? "space_6" : undefined}
       paddingLeft={hasPadding ? "space_5" : undefined}

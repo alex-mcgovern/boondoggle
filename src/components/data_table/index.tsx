@@ -14,6 +14,7 @@ import type {
   WithTableOptionalPagination,
   WithTableOptionalSelectableRows,
 } from "../../types";
+import type { SelectItemShape } from "../select/types";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 
 /** ----------------------------------------------------------------------------- */
@@ -30,6 +31,8 @@ export type DataTableProps<TData extends RowData> =
       data: Array<TData> | undefined;
       /** Whether the table should be sortable and show sorting controls */
       isSortable?: boolean;
+      /** Items to appear in the dropdown menu on each row */
+      rowActionItems?: Array<SelectItemShape>;
     };
 
 /**
@@ -46,6 +49,7 @@ export function DataTable<TData extends RowData>({
   isSelectable,
   isSortable,
   onSelect,
+  rowActionItems,
   strFilterPlaceholder,
   strNext,
   strPage,
@@ -62,6 +66,7 @@ export function DataTable<TData extends RowData>({
     isSelectable,
     isSortable,
     onSelect,
+    rowActionItems,
   });
 
   return (

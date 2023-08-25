@@ -318,7 +318,7 @@ globalStyle(`hr`, {
 export const textFieldStyleRule: StyleRule = {
   background: vars.color.background,
   border: `1px solid ${vars.color.border_default}`,
-  borderRadius: vars.borderRadius.sm,
+  borderRadius: vars.borderRadius.md,
   color: vars.color.text_high_contrast,
   fontWeight: vars.fontWeight.normal,
   padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
@@ -465,7 +465,7 @@ globalStyle(`table`, {
       // border: `1px solid ${vars.color.border_default}`,
       // borderRadius: vars.borderRadius.md,
       borderSpacing: 0,
-      tableLayout: "auto",
+      // tableLayout: "fixed",
       width: "100%",
     },
   },

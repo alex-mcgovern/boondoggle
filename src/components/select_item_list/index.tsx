@@ -1,10 +1,11 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
+import { Box } from "../box";
 import { Dialog } from "../dialog";
 import { getDropdownItemProps } from "../select/shared/get_dropdown_item_props";
 import { SelectItem } from "../select_item";
-import { selectItemListWrapper } from "./styles.css";
+import { selectItemListInner, selectItemListWrapper } from "./styles.css";
 
 import type { WithSize } from "../../types";
 import type { DialogProps } from "../dialog";
@@ -65,58 +66,58 @@ export const SelectItemList = forwardRef(
           ref: ref as LegacyRef<HTMLElement>,
         })}
       >
-        {Array.isArray(items) &&
-          items.length > 0 &&
-          items.map((item, index) => {
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            const { onClick: _unusedOnClick, ...restItem } = item;
-
-            if (!item.label) {
-              return null;
-            }
-            return (
-              <SelectItem
-                isDropdownItemSelected={getIsItemSelected?.(item)}
-                isHighlighted={highlightedIndex === index}
-                isMulti={isMulti}
-                item={restItem}
-                key={`${item.label}-${item.value}`}
-                size={size}
-                {...getDropdownItemProps({
-                  getItemProps,
-                  getSelectedItemProps,
-                  index,
-                  isMulti,
-                  item: restItem,
-                  removeSelectedItem,
-                })}
-              />
-            );
-          })}
-
-        {Array.isArray(items) && items.length === 0 && (
-          <SelectItem
-            as="button"
-            isDropdownItemSelected={false}
-            isMulti={isMulti}
-            item={{
-              as: "button",
-              disabled: true,
-              label: "No results",
-              value: "",
-            }}
-            size={size}
-            {...getDropdownItemProps({
-              disabled: true,
-              getItemProps,
-              getSelectedItemProps,
-              index: 0,
-              isMulti,
-              item: { label: "No results", value: "" },
-              removeSelectedItem,
+        <Box className={selectItemListInner}>
+          {Array.isArray(items) &&
+            items.length > 0 &&
+            items.map((item, index) => {
+              // eslint-disable-next-line @typescript-eslint/naming-convention
+              const { onClick: _unusedOnClick, ...restItem } = item;
+              if (!item.label) {
+                return null;
+              }
+              return (
+                <SelectItem
+                  isDropdownItemSelected={getIsItemSelected?.(item)}
+                  isHighlighted={highlightedIndex === index}
+                  isMulti={isMulti}
+                  item={restItem}
+                  key={`${item.label}-${item.value}`}
+                  size={size}
+                  {...getDropdownItemProps({
+                    getItemProps,
+                    getSelectedItemProps,
+                    index,
+                    isMulti,
+                    item: restItem,
+                    removeSelectedItem,
+                  })}
+                />
+              );
             })}
-          />
-        )}
+          {Array.isArray(items) && items.length === 0 && (
+            <SelectItem
+              as="button"
+              isDropdownItemSelected={false}
+              isMulti={isMulti}
+              item={{
+                as: "button",
+                disabled: true,
+                label: "No results",
+                value: "",
+              }}
+              size={size}
+              {...getDropdownItemProps({
+                disabled: true,
+                getItemProps,
+                getSelectedItemProps,
+                index: 0,
+                isMulti,
+                item: { label: "No results", value: "" },
+                removeSelectedItem,
+              })}
+            />
+          )}
+        </Box>
       </Dialog>
     );
   }

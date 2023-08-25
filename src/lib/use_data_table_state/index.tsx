@@ -9,8 +9,10 @@ import {
 import { useCallback, useMemo, useState } from "react";
 
 import { DataTableCellSelectable } from "../../components/data_table_cell_selectable";
+import { DataTableRowActions } from "../../components/data_table_row_actions";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
+import type { SelectItemShape } from "../../components/select/types";
 import type {
   ColumnDef,
   RowData,
@@ -35,6 +37,8 @@ type UseDataTableStateProps<TData extends RowData> = {
   isSortable: boolean | undefined;
   /** Function called on a new selection, with the current selection */
   onSelect: ((selection: TData[] | undefined) => void) | undefined;
+  /** Items to appear in the dropdown menu on each row */
+  rowActionItems?: Array<SelectItemShape>;
 };
 
 export function useDataTableState<TData extends RowData>({
@@ -46,6 +50,7 @@ export function useDataTableState<TData extends RowData>({
   isSelectable,
   isSortable,
   onSelect,
+  rowActionItems,
 }: UseDataTableStateProps<TData>) {
   const [globalFilter, setGlobalFilter] = useState("");
 
@@ -78,22 +83,39 @@ export function useDataTableState<TData extends RowData>({
   const columnHelper = createColumnHelper<TData>();
 
   const columns = useMemo(() => {
+    const newColumns = initColumns;
+
+    // If the table is selectable, add a column for
+    // the checkbox at the start of the columns array
+
     if (isSelectable) {
-      return [
+      newColumns.unshift(
         columnHelper.display({
           cell: DataTableCellSelectable,
           enableSorting: false,
-          header: () => {
-            return null;
-          },
           id: "select",
-        }),
-        ...initColumns,
-      ];
+          maxSize: 24,
+        })
+      );
     }
 
-    return initColumns;
-  }, [columnHelper, initColumns, isSelectable]);
+    // If the table has row action items, add a column for
+    // the dropdown menu at the end of the columns array
+
+    if (rowActionItems) {
+      newColumns.push(
+        columnHelper.display({
+          cell: () => {
+            return <DataTableRowActions items={rowActionItems} />;
+          },
+          id: "actions",
+          size: 300,
+        })
+      );
+    }
+
+    return newColumns;
+  }, [columnHelper, initColumns, isSelectable, rowActionItems]);
 
   /** --------------------------------------------- */
 
@@ -121,20 +143,6 @@ export function useDataTableState<TData extends RowData>({
       }),
     },
   });
-
-  /** --------------------------------------------- */
-
-  // const selectedRows = table.getSelectedRowModel().rows;
-
-  // useEffect(() => {
-  //   if (isSelectable && onSelect) {
-  //     onSelect(
-  //       selectedRows.map((row) => {
-  //         return row.original;
-  //       })
-  //     );
-  //   }
-  // }, [isSelectable, onSelect, selectedRows]);
 
   return {
     setGlobalFilter,

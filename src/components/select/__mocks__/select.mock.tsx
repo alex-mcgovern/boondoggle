@@ -166,3 +166,19 @@ export const mockSelectItemsAsButtons = ({
     },
   ];
 };
+
+/** ----------------------------------------------------------------------------- */
+
+export const mockSelectItemsActions = (): Array<SelectItemShape> => {
+  return [
+    {
+      as: "button",
+      colorOverlay: "red",
+      label: "Delete",
+      onClick: () => {
+        return console.log("test");
+      },
+      value: "delete",
+    },
+  ];
+};

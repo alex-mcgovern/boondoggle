@@ -120,8 +120,8 @@ const variantAppearance = styleVariants({
     getSprinkles(COMMON_BUTTON_SPRINKLES),
     {
       border: "1px solid",
-      borderColor: vars.color.button_default,
-      color: vars.color.button_default,
+      borderColor: vars.color.border_default,
+      color: vars.color.text_high_contrast,
       selectors: {
         "&[data-active='true']": {
           background: vars.color.button_tint,
@@ -131,8 +131,7 @@ const variantAppearance = styleVariants({
           background: "transparent",
         },
         [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-          background: vars.color.button_tint,
-          color: vars.color.button_active,
+          background: vars.color.tint_active,
         },
       },
     },
@@ -174,13 +173,13 @@ export const getButtonStyles = recipe({
     a11yDisabled,
     getSprinkles({
       alignItems: "center",
-      borderRadius: "sm",
+      borderRadius: "md",
       display: "inline-flex",
       gap: "space_2",
       textDecoration: "none",
     }),
     createAccessibleTransition({
-      transition: `color ${vars.transitionDuration.medium} ease, background ${vars.transitionDuration.medium} ease, opacity ${vars.transitionDuration.medium} ease`,
+      transition: `color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease, opacity ${vars.transitionDuration.short} ease`,
     }),
   ],
 
