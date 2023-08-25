@@ -19,10 +19,7 @@ export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
 
 export function FormInputDate({
   defaultValue,
-  errorMessage,
   name,
-  required,
-  validate,
   ...rest
 }: FormInputDateProps) {
   const { control } = useFormContext();
@@ -34,17 +31,12 @@ export function FormInputDate({
     control,
     defaultValue,
     name,
-    rules: {
-      required: required && errorMessage,
-      validate,
-    },
   });
 
   return (
     <InputDate
       {...(rest as InputDateProps)}
-      aria-required={required}
-      errorMessage={errorMessage}
+      errorMessage={error?.message}
       invalid={!!error}
       name={name}
       onBlur={onBlur}

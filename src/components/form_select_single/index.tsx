@@ -26,7 +26,6 @@ const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) => {
 export type FormSelectSingleProps = SelectSingleProps &
   WithFormFieldProps & {
     defaultValue?: string | number;
-    required?: boolean;
   };
 
 export function FormSelectSingle({
@@ -34,8 +33,6 @@ export function FormSelectSingle({
   items,
   name,
   onChange: onChangeParent,
-  required,
-  validate,
   ...rest
 }: FormSelectSingleProps) {
   const { control } = useFormContext();
@@ -47,7 +44,6 @@ export function FormSelectSingle({
     control,
     defaultValue,
     name,
-    rules: { required, validate },
   });
 
   const handleChange = useCallback(
@@ -62,6 +58,7 @@ export function FormSelectSingle({
 
   return (
     <SelectSingle
+      errorMessage={error?.message}
       initialSelectedItem={defaultItem}
       invalid={!!error}
       items={items}

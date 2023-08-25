@@ -15,12 +15,9 @@ export type FormRadioButtonGroupProps = RadioButtonGroupProps &
 
 export function FormRadioButtonGroup({
   defaultValue,
-  errorMessage,
   invalid,
   name,
   onChange: onChangeParent,
-  required,
-  validate,
   wrapperProps,
   ...rest
 }: FormRadioButtonGroupProps) {
@@ -33,10 +30,6 @@ export function FormRadioButtonGroup({
     control,
     defaultValue,
     name,
-    rules: {
-      required: required && errorMessage,
-      validate,
-    },
   });
 
   const handleChange = useCallback(
@@ -49,9 +42,8 @@ export function FormRadioButtonGroup({
 
   return (
     <RadioButtonGroup
-      aria-required={required}
       defaultValue={defaultValue}
-      errorMessage={errorMessage}
+      errorMessage={error?.message}
       inputProps={{
         onBlur,
       }}
@@ -59,7 +51,6 @@ export function FormRadioButtonGroup({
       name={name}
       onChange={handleChange}
       ref={ref}
-      required={required}
       value={controlledValue}
       wrapperProps={wrapperProps}
       {...rest}

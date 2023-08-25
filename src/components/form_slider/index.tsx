@@ -12,17 +12,11 @@ import type { SliderProps } from "../slider";
  */
 export type FormSliderProps = WithWrapperProps &
   SliderProps &
-  WithFormFieldProps & {
-    /** Whether the slider is a required form element */
-    required?: boolean;
-  };
+  WithFormFieldProps;
 
 export function FormSlider({
   defaultValue: defaultValueArray,
-  errorMessage,
   name,
-  required,
-  validate,
   wrapperProps,
   ...rest
 }: FormSliderProps) {
@@ -34,10 +28,6 @@ export function FormSlider({
   } = useController({
     control,
     name,
-    rules: {
-      required: required && errorMessage,
-      validate,
-    },
     ...(defaultValueArray &&
       Array.isArray(defaultValueArray) && {
         defaultValue: defaultValueArray[0],
@@ -58,8 +48,7 @@ export function FormSlider({
 
   return (
     <Slider
-      aria-required={required}
-      errorMessage={errorMessage}
+      errorMessage={error?.message}
       invalid={!!error}
       name={name}
       onBlur={onBlur}

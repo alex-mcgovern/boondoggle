@@ -18,8 +18,7 @@ import type { BoxProps } from "../../box";
 
 const mockFormSchema = z.object({
   amount: z.number().min(1),
-  // date: z.string().min(1),
-  description: z.string().min(1),
+  description: z.string().min(1).max(20),
   email: z.string().email().min(2),
   radio: z.string().min(1),
   select: z.string().min(1),
@@ -63,7 +62,7 @@ export const mockForm = ({
         /> */}
         <FormInput
           defaultValue={withDefaultValues ? LOREM.email() : undefined}
-          errorMessage="Enter a valid email address"
+          // errorMessage="Enter a valid email address"
           id="email"
           label={LOREM.labelEmail()}
           name="email"
@@ -72,7 +71,7 @@ export const mockForm = ({
         />
         <FormTextArea
           defaultValue={withDefaultValues ? LOREM.text_xxs : undefined}
-          errorMessage="Enter a valid description"
+          // errorMessage="Enter a valid description"
           id="description"
           label={LOREM.labelDescription()}
           name="description"
@@ -84,7 +83,7 @@ export const mockForm = ({
           defaultValue={
             withDefaultValues ? mockSelectItems({})[0].value : undefined
           }
-          errorMessage="Select an option"
+          // errorMessage="Select an option"
           id="select"
           items={mockSelectItems({})}
           label={LOREM.labelDropdown()}
@@ -94,7 +93,7 @@ export const mockForm = ({
         />
         <FormSlider
           defaultValue={withDefaultValues ? [50] : undefined}
-          errorMessage="Pick a value from the range"
+          // errorMessage="Pick a value from the range"
           id="amount"
           label={LOREM.labelSlider()}
           name="amount"

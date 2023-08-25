@@ -13,12 +13,9 @@ export type FormInputProps = InputProps & WithFormFieldProps;
 
 export function FormInput({
   defaultValue,
-  errorMessage,
   invalid,
   name,
   onChange,
-  required,
-  validate,
   wrapperProps,
   ...rest
 }: FormInputProps) {
@@ -36,16 +33,11 @@ export function FormInput({
     control,
     defaultValue,
     name,
-    rules: {
-      required,
-      validate,
-    },
   });
 
   return (
     <Input
-      aria-required={required}
-      errorMessage={errorMessage}
+      errorMessage={error?.message}
       invalid={invalid || !!error}
       name={name}
       onBlur={onBlur}
@@ -54,7 +46,6 @@ export function FormInput({
         reactHookFormOnChange(e);
       }}
       ref={ref}
-      required={required}
       value={controlledValue}
       wrapperProps={wrapperProps}
       {...rest}

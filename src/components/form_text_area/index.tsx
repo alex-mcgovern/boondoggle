@@ -15,10 +15,7 @@ export type FormTextAreaProps = TextAreaProps &
 
 export function FormTextArea({
   defaultValue,
-  errorMessage,
   name,
-  required,
-  validate,
   wrapperProps,
   ...rest
 }: FormTextAreaProps) {
@@ -31,16 +28,11 @@ export function FormTextArea({
     control,
     defaultValue,
     name,
-    rules: {
-      required: required && errorMessage,
-      validate,
-    },
   });
 
   return (
     <TextArea
-      aria-required={required}
-      errorMessage={errorMessage}
+      errorMessage={error?.message}
       invalid={!!error}
       name={name}
       onBlur={onBlur}

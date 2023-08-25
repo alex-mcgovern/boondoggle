@@ -32,8 +32,6 @@ export type WithColorOverlay = {
 /** ----------------------------------------------------------------------------- */
 
 export type WithFormFieldProps = {
-  /** Message to render when erroring. */
-  errorMessage: string;
   /** Function to validate field value */
   validate?: RegisterOptions["validate"];
 };
