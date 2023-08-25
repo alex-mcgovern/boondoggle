@@ -61,8 +61,7 @@ const variantHeight = styleVariants({
         height: "100dvh",
       },
       [MEDIA_QUERY_TABLET]: {
-        maxHeight: "66dvh",
-        minHeight: "50dvh",
+        height: "66dvh",
       },
     },
   },

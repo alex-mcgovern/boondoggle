@@ -36,7 +36,7 @@ const variantHeight = styleVariants({
         top: 0,
       },
       [MEDIA_QUERY_DESKTOP]: {
-        top: "25dvh",
+        top: "17dvh",
       },
     },
   },
