@@ -9,10 +9,9 @@ import {
 import { useCallback, useMemo, useState } from "react";
 
 import { DataTableCellSelectable } from "../../components/data_table_cell_selectable";
-import { DataTableRowActions } from "../../components/data_table_row_actions";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
-import type { SelectItemShape } from "../../components/select/types";
+import type { TDataTableRowActions } from "../../types";
 import type {
   ColumnDef,
   RowData,
@@ -21,6 +20,8 @@ import type {
 } from "@tanstack/react-table";
 
 type UseDataTableStateProps<TData extends RowData> = {
+  /** React component to render a list of actions on each row */
+  RowActions?: TDataTableRowActions<TData>;
   /** An array of objects describing each row in the table */
   data: Array<TData> | undefined;
   /** Boolean to enable multi-row selection. */
@@ -37,11 +38,10 @@ type UseDataTableStateProps<TData extends RowData> = {
   isSortable: boolean | undefined;
   /** Function called on a new selection, with the current selection */
   onSelect: ((selection: TData[] | undefined) => void) | undefined;
-  /** Items to appear in the dropdown menu on each row */
-  rowActionItems?: Array<SelectItemShape>;
 };
 
 export function useDataTableState<TData extends RowData>({
+  RowActions,
   data,
   enableMultiRowSelection,
   initColumns,
@@ -50,7 +50,6 @@ export function useDataTableState<TData extends RowData>({
   isSelectable,
   isSortable,
   onSelect,
-  rowActionItems,
 }: UseDataTableStateProps<TData>) {
   const [globalFilter, setGlobalFilter] = useState("");
 
@@ -102,11 +101,11 @@ export function useDataTableState<TData extends RowData>({
 
       // If the table has row action items, add a column for
       // the dropdown menu at the end of the columns array
-      ...(rowActionItems
+      ...(RowActions
         ? [
             columnHelper.display({
-              cell: () => {
-                return <DataTableRowActions items={rowActionItems} />;
+              cell: ({ row }) => {
+                return <RowActions row_data={row.original} />;
               },
               id: "actions",
               size: 300,
@@ -114,7 +113,7 @@ export function useDataTableState<TData extends RowData>({
           ]
         : []),
     ];
-  }, [columnHelper, initColumns, isSelectable, rowActionItems]);
+  }, [RowActions, columnHelper, initColumns, isSelectable]);
 
   /** --------------------------------------------- */
 

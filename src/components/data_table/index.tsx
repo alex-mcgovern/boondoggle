@@ -1,5 +1,3 @@
-import { type ReactNode } from "react";
-
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { Box } from "../box";
 import { Card } from "../card";
@@ -10,12 +8,13 @@ import { DataTableLayoutHead } from "../data_table_layout_head";
 import { DataTablePaginationWrapper } from "../data_table_pagination_wrapper";
 
 import type {
+  TDataTableRowActions,
   WithTableOptionalFiltering,
   WithTableOptionalPagination,
   WithTableOptionalSelectableRows,
 } from "../../types";
-import type { SelectItemShape } from "../select/types";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
+import type { ReactNode } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -23,6 +22,8 @@ export type DataTableProps<TData extends RowData> =
   WithTableOptionalPagination &
     WithTableOptionalSelectableRows<TData> &
     WithTableOptionalFiltering & {
+      /** React component to render a list of actions on each row */
+      RowActions?: TDataTableRowActions<TData>;
       /** Up to 2 react nodes to render as actions for the table */
       actions?: ReactNode | [ReactNode?, ReactNode?];
       /** Column definitions for the tabular data */
@@ -31,8 +32,6 @@ export type DataTableProps<TData extends RowData> =
       data: Array<TData> | undefined;
       /** Whether the table should be sortable and show sorting controls */
       isSortable?: boolean;
-      /** Items to appear in the dropdown menu on each row */
-      rowActionItems?: Array<SelectItemShape>;
     };
 
 /**
@@ -40,6 +39,7 @@ export type DataTableProps<TData extends RowData> =
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
 export function DataTable<TData extends RowData>({
+  RowActions,
   actions,
   columns: initColumns,
   data,
@@ -49,7 +49,6 @@ export function DataTable<TData extends RowData>({
   isSelectable,
   isSortable,
   onSelect,
-  rowActionItems,
   strFilterPlaceholder,
   strNext,
   strPage,
@@ -66,7 +65,7 @@ export function DataTable<TData extends RowData>({
     isSelectable,
     isSortable,
     onSelect,
-    rowActionItems,
+    RowActions,
   });
 
   return (

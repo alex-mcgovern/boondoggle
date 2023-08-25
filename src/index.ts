@@ -31,6 +31,12 @@ export {
 } from "./styles/common/element_size.css";
 
 /** -----------------------------------------------------------------------------
+ * Type definitions
+ * ------------------------------------------------------------------------------- */
+
+export type { TDataTableRowActions } from "./types";
+
+/** -----------------------------------------------------------------------------
  * React components
  * ------------------------------------------------------------------------------- */
 
@@ -48,6 +54,9 @@ export type { CollapsibleProps } from "./components/collapsible";
 
 export { DataTable } from "./components/data_table";
 export type { DataTableProps } from "./components/data_table";
+
+export { DataTableRowActions } from "./components/data_table_row_actions";
+export type { DataTableRowActionsProps } from "./components/data_table_row_actions";
 
 export { DataTableCellButton } from "./components/data_table_cell_button";
 export type { DataTableCellButtonProps } from "./components/data_table_cell_button";

@@ -7,10 +7,16 @@ import type {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
   ElementType,
+  JSXElementConstructor,
   PropsWithChildren,
   ReactNode,
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
+
+/** ----------------------------------------------------------------------------- */
+
+export type TDataTableRowActions<TData extends RowData> =
+  JSXElementConstructor<{ row_data: TData }>;
 
 /** ----------------------------------------------------------------------------- */
 

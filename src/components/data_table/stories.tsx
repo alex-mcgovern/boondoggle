@@ -7,10 +7,12 @@ import {
   generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
 import { Button } from "../button";
+import { DataTableRowActions } from "../data_table_row_actions";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
+import type { TDataTableRowActions } from "../../types";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -25,6 +27,14 @@ type Story = StoryObj<typeof meta>;
 /** ----------------------------------------------------------------------------- */
 
 const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
+
+/** ----------------------------------------------------------------------------- */
+
+const MockRowActionsComponent: TDataTableRowActions<
+  MockAccountColumnData
+> = () => {
+  return <DataTableRowActions items={mockSelectItemsActions()} />;
+};
 
 /** ----------------------------------------------------------------------------- */
 
@@ -152,7 +162,7 @@ export const WithRowActionItems: Story = {
     ],
     columns: DATA_TABLE_COLUMNS_MOCK,
     data: MOCK_DATA,
-    rowActionItems: mockSelectItemsActions(),
+    RowActions: MockRowActionsComponent,
   },
 };
 
@@ -177,7 +187,7 @@ export const KitchenSink: Story = {
     onSelect: (rowSelection) => {
       alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
     },
-    rowActionItems: mockSelectItemsActions(),
+    RowActions: MockRowActionsComponent,
     strFilterPlaceholder: "Filter results...",
     strNext: "Next",
     strPage: "Page",

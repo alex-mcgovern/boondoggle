@@ -6,16 +6,14 @@ import { SelectButton } from "../select_button";
 import type { SelectItemShape } from "../select/types";
 import type { SelectButtonProps } from "../select_button";
 
-type DataTableActiveUsersActionsProps = {
+export type DataTableRowActionsProps = {
   items: Array<SelectItemShape>;
 } & Omit<
   SelectButtonProps,
   "buttonProps" | "items" | "name" | "placement" | "slotRight"
 >;
 
-export function DataTableRowActions({
-  items,
-}: DataTableActiveUsersActionsProps) {
+export function DataTableRowActions({ items }: DataTableRowActionsProps) {
   return (
     <SelectButton
       buttonProps={{

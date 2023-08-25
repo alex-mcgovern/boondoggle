@@ -173,6 +173,22 @@ export const mockSelectItemsActions = (): Array<SelectItemShape> => {
   return [
     {
       as: "button",
+      label: "View details",
+      onClick: () => {
+        return console.log("test");
+      },
+      value: "view_details",
+    },
+    {
+      as: "button",
+      label: "Edit",
+      onClick: () => {
+        return console.log("test");
+      },
+      value: "edit",
+    },
+    {
+      as: "button",
       colorOverlay: "red",
       label: "Delete",
       onClick: () => {
