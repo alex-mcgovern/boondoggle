@@ -33,8 +33,8 @@ export const SelectItem = forwardRef(
   ) => {
     const {
       className: userClassName,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       colorOverlay,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       isSelected: _,
       label,
       slotLeft,
