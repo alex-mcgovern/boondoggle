@@ -3,7 +3,7 @@
 exports[`<DataTable /> when rendering should match snapshot 1`] = `
 <div>
   <section
-    class="get_sprinkles_marginTop_space_5__eiij7b6c get_sprinkles_marginBottom_space_5__eiij7b4r get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_md__eiij7by"
+    class="get_sprinkles_marginTop_space_5__eiij7b6c get_sprinkles_marginBottom_space_5__eiij7b4r get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_lg__eiij7bx"
   >
     <div
       class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderBottom_border_default__eiij7bt get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_padding_space_4_mobile__eiij7bfc"
@@ -52,7 +52,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
         class="get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_marginLeft_auto__eiij7b51"
       >
         <button
-          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_secondary__1yqzeado styles_variantAppearance_secondary__1yqzeadh styles__1yqzeadc get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_4__1yqzead10 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
+          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_secondary__1yqzeado styles_variantAppearance_secondary__1yqzeadh styles__1yqzeadc get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_4__1yqzead10 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
           name="secondary_action"
           type="button"
         >
@@ -63,7 +63,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
           </div>
         </button>
         <button
-          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_primary__1yqzeadn styles_variantAppearance_primary__1yqzeadg styles__1yqzeadb get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_1__1yqzeadx element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
+          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_primary__1yqzeadn styles_variantAppearance_primary__1yqzeadg styles__1yqzeadb get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_1__1yqzeadx element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
           name="primary_action"
           type="button"
         >
@@ -104,7 +104,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
           <tr>
             <th>
               <button
-                class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_link__1yqzeadm styles_variantAppearance_link__1yqzeadf styles__1yqzeada get_sprinkles_textAlign_left__eiij7bak styles_getButtonStyles_size_sm__1yqzeads styles_variantButtonSize_sm__1yqzead5 element_size_elementFontSize_sm__1f6zrv5 element_size__1f6zrv2 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_marginLeft_auto__eiij7b51 styles_getSortControlStyle__44vvpc1 styles_sortControlBase__44vvpc0 styles_getSortControlStyle_isSorted_false__44vvpc2"
+                class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_link__1yqzeadm styles_variantAppearance_link__1yqzeadf styles__1yqzeada get_sprinkles_textAlign_left__eiij7bak styles_getButtonStyles_size_sm__1yqzeads styles_variantButtonSize_sm__1yqzead5 element_size_elementFontSize_sm__1f6zrv5 element_size__1f6zrv2 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_marginLeft_auto__eiij7b51 styles_getSortControlStyle__44vvpc1 styles_sortControlBase__44vvpc0 styles_getSortControlStyle_isSorted_false__44vvpc2"
                 name="sort_member"
                 type="button"
               >
@@ -136,7 +136,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
             </th>
             <th>
               <button
-                class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_link__1yqzeadm styles_variantAppearance_link__1yqzeadf styles__1yqzeada get_sprinkles_textAlign_left__eiij7bak styles_getButtonStyles_size_sm__1yqzeads styles_variantButtonSize_sm__1yqzead5 element_size_elementFontSize_sm__1f6zrv5 element_size__1f6zrv2 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_marginLeft_auto__eiij7b51 styles_getSortControlStyle__44vvpc1 styles_sortControlBase__44vvpc0 styles_getSortControlStyle_isSorted_false__44vvpc2"
+                class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_link__1yqzeadm styles_variantAppearance_link__1yqzeadf styles__1yqzeada get_sprinkles_textAlign_left__eiij7bak styles_getButtonStyles_size_sm__1yqzeads styles_variantButtonSize_sm__1yqzead5 element_size_elementFontSize_sm__1f6zrv5 element_size__1f6zrv2 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_marginLeft_auto__eiij7b51 styles_getSortControlStyle__44vvpc1 styles_sortControlBase__44vvpc0 styles_getSortControlStyle_isSorted_false__44vvpc2"
                 name="sort_phone_number"
                 type="button"
               >
@@ -168,7 +168,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
             </th>
             <th>
               <button
-                class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_link__1yqzeadm styles_variantAppearance_link__1yqzeadf styles__1yqzeada get_sprinkles_textAlign_left__eiij7bak styles_getButtonStyles_size_sm__1yqzeads styles_variantButtonSize_sm__1yqzead5 element_size_elementFontSize_sm__1f6zrv5 element_size__1f6zrv2 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_marginLeft_auto__eiij7b51 styles_getSortControlStyle__44vvpc1 styles_sortControlBase__44vvpc0 styles_getSortControlStyle_isSorted_false__44vvpc2"
+                class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_link__1yqzeadm styles_variantAppearance_link__1yqzeadf styles__1yqzeada get_sprinkles_textAlign_left__eiij7bak styles_getButtonStyles_size_sm__1yqzeads styles_variantButtonSize_sm__1yqzead5 element_size_elementFontSize_sm__1f6zrv5 element_size__1f6zrv2 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_lineHeight_body_sm__eiij7b3o get_sprinkles_flexShrink_0__eiij7b1w get_sprinkles_marginLeft_auto__eiij7b51 styles_getSortControlStyle__44vvpc1 styles_sortControlBase__44vvpc0 styles_getSortControlStyle_isSorted_false__44vvpc2"
                 name="sort_id"
                 type="button"
               >
@@ -650,52 +650,56 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
           </div>
           <dialog
             aria-labelledby="downshift-2-label"
-            class="styles_selectItemListWrapper__tx55ph1 a11y_a11yFocus__r8he5t2 styles__tx55ph0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_space_2__eiij7b69 get_sprinkles_minWidth_100%__eiij7b9f get_sprinkles_overflowY_auto__eiij7bah get_sprinkles_width_max-content_mobile__eiij7boc styles_getDialogStyles__thg74k8 animations_animateFadeIn__apgy12 styles__thg74k7 get_sprinkles_padding_none_mobile__eiij7ber get_sprinkles_zIndex_1__eiij7baw styles_getDialogStyles_placement_bottom-start__thg74kb styles_placement_bottom-start__thg74k2 get_sprinkles_width_100%_mobile__eiij7bn3"
+            class="styles_selectItemListWrapper__tx55ph1 a11y_a11yFocus__r8he5t2 styles__tx55ph0 get_sprinkles_overflowX_hidden__eiij7bae get_sprinkles_overflowY_hidden__eiij7bag get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_md__eiij7by get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_marginTop_space_2__eiij7b69 get_sprinkles_minWidth_100%__eiij7b9f get_sprinkles_width_max-content_mobile__eiij7boc styles_getDialogStyles__thg74k8 animations_animateFadeIn__apgy12 styles__thg74k7 get_sprinkles_padding_none_mobile__eiij7ber get_sprinkles_zIndex_1__eiij7baw styles_getDialogStyles_placement_bottom-start__thg74kb styles_placement_bottom-start__thg74k2 get_sprinkles_width_100%_mobile__eiij7bn3"
             id="downshift-2-menu"
             role="listbox"
           >
             <div
               class="styles_dialogContentStyles__thg74kg"
             >
-              <button
-                aria-selected="true"
-                class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_margin_none__eiij7b40 get_sprinkles_padding_space_2_mobile__eiij7bf6 get_sprinkles_textAlign_left__eiij7bak get_sprinkles_textDecoration_none__eiij7ban get_sprinkles_width_100%_mobile__eiij7bn3 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q426 styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr styles_isHighlighted__bu9q428 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
-                id="downshift-2-item-0"
-                role="option"
-                value="10"
+              <div
+                class="styles_selectItemListInner__tx55ph3 styles__tx55ph2 get_sprinkles_overflowY_auto__eiij7bah get_sprinkles_padding_space_1_mobile__eiij7bf3"
               >
-                <div
-                  class="get_sprinkles_flexShrink_0__eiij7b1w"
+                <button
+                  aria-selected="true"
+                  class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_margin_none__eiij7b40 get_sprinkles_padding_space_2_mobile__eiij7bf6 get_sprinkles_textAlign_left__eiij7bak get_sprinkles_textDecoration_none__eiij7ban get_sprinkles_width_100%_mobile__eiij7bn3 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q42c styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr styles_isHighlighted__bu9q42e get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
+                  id="downshift-2-item-0"
+                  role="option"
+                  value="10"
                 >
-                  Show 10
-                </div>
-              </button>
-              <li
-                aria-selected="false"
-                class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_margin_none__eiij7b40 get_sprinkles_padding_space_2_mobile__eiij7bf6 get_sprinkles_textAlign_left__eiij7bak get_sprinkles_textDecoration_none__eiij7ban get_sprinkles_width_100%_mobile__eiij7bn3 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q426 styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
-                id="downshift-2-item-1"
-                role="option"
-                value="25"
-              >
-                <div
-                  class="get_sprinkles_flexShrink_0__eiij7b1w"
+                  <div
+                    class="get_sprinkles_flexShrink_0__eiij7b1w"
+                  >
+                    Show 10
+                  </div>
+                </button>
+                <li
+                  aria-selected="false"
+                  class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_margin_none__eiij7b40 get_sprinkles_padding_space_2_mobile__eiij7bf6 get_sprinkles_textAlign_left__eiij7bak get_sprinkles_textDecoration_none__eiij7ban get_sprinkles_width_100%_mobile__eiij7bn3 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q42c styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
+                  id="downshift-2-item-1"
+                  role="option"
+                  value="25"
                 >
-                  Show 25
-                </div>
-              </li>
-              <li
-                aria-selected="false"
-                class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_high_contrast__eiij7b1j get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_margin_none__eiij7b40 get_sprinkles_padding_space_2_mobile__eiij7bf6 get_sprinkles_textAlign_left__eiij7bak get_sprinkles_textDecoration_none__eiij7ban get_sprinkles_width_100%_mobile__eiij7bn3 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q426 styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
-                id="downshift-2-item-2"
-                role="option"
-                value="50"
-              >
-                <div
-                  class="get_sprinkles_flexShrink_0__eiij7b1w"
+                  <div
+                    class="get_sprinkles_flexShrink_0__eiij7b1w"
+                  >
+                    Show 25
+                  </div>
+                </li>
+                <li
+                  aria-selected="false"
+                  class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_margin_none__eiij7b40 get_sprinkles_padding_space_2_mobile__eiij7bf6 get_sprinkles_textAlign_left__eiij7bak get_sprinkles_textDecoration_none__eiij7ban get_sprinkles_width_100%_mobile__eiij7bn3 a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q42c styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
+                  id="downshift-2-item-2"
+                  role="option"
+                  value="50"
                 >
-                  Show 50
-                </div>
-              </li>
+                  <div
+                    class="get_sprinkles_flexShrink_0__eiij7b1w"
+                  >
+                    Show 50
+                  </div>
+                </li>
+              </div>
             </div>
           </dialog>
         </div>
@@ -705,7 +709,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
       >
         <button
           aria-disabled="true"
-          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_secondary__1yqzeado styles_variantAppearance_secondary__1yqzeadh styles__1yqzeadc get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_4__1yqzead10 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
+          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_secondary__1yqzeado styles_variantAppearance_secondary__1yqzeadh styles__1yqzeadc get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_4__1yqzead10 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
           disabled=""
           name="button_previous_page"
           type="button"
@@ -718,7 +722,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
         </button>
         <button
           aria-disabled="false"
-          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_secondary__1yqzeado styles_variantAppearance_secondary__1yqzeadh styles__1yqzeadc get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_4__1yqzead10 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
+          class="styles_getButtonStyles__1yqzeadk a11y_a11yFocus__r8he5t2 a11y_a11yDisabled__r8he5t1 styles__1yqzeadj get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_display_inline-flex_mobile__eiij7bbc get_sprinkles_gap_space_2_mobile__eiij7bci get_sprinkles_textDecoration_none__eiij7ban styles_getButtonStyles_appearance_secondary__1yqzeado styles_variantAppearance_secondary__1yqzeadh styles__1yqzeadc get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_justifyContent_center__eiij7b3h get_sprinkles_whiteSpace_nowrap__eiij7bat styles_getButtonStyles_size_md__1yqzeadr styles_variantButtonSize_md__1yqzead4 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n styles_getButtonStyles_compound_4__1yqzead10 element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bif get_sprinkles_paddingRight_space_3_mobile__eiij7bk0 get_sprinkles_paddingTop_space_2_mobile__eiij7bli get_sprinkles_paddingBottom_space_2_mobile__eiij7bgr"
           name="button_next_page"
           type="button"
         >
