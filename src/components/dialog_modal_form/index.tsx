@@ -103,10 +103,10 @@ export const DialogModalForm = forwardRef<
       async (fieldValues: FieldValues) => {
         Promise.resolve(initHandleSubmission(fieldValues)).then(() => {
           reset();
-          closeDialog();
+          // closeDialog();
         });
       },
-      [closeDialog, initHandleSubmission, reset]
+      [initHandleSubmission, reset]
     );
 
     /** --------------------------------------------- */
