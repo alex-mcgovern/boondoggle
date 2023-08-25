@@ -83,38 +83,37 @@ export function useDataTableState<TData extends RowData>({
   const columnHelper = createColumnHelper<TData>();
 
   const columns = useMemo(() => {
-    const newColumns = initColumns;
+    return [
+      // If the table is selectable, add a column for
+      // the checkbox at the start of the columns array
+      ...(isSelectable
+        ? [
+            columnHelper.display({
+              cell: DataTableCellSelectable,
+              enableSorting: false,
+              id: "select",
+              maxSize: 24,
+            }),
+          ]
+        : []),
 
-    // If the table is selectable, add a column for
-    // the checkbox at the start of the columns array
+      // The original columns array
+      ...initColumns,
 
-    if (isSelectable) {
-      newColumns.unshift(
-        columnHelper.display({
-          cell: DataTableCellSelectable,
-          enableSorting: false,
-          id: "select",
-          maxSize: 24,
-        })
-      );
-    }
-
-    // If the table has row action items, add a column for
-    // the dropdown menu at the end of the columns array
-
-    if (rowActionItems) {
-      newColumns.push(
-        columnHelper.display({
-          cell: () => {
-            return <DataTableRowActions items={rowActionItems} />;
-          },
-          id: "actions",
-          size: 300,
-        })
-      );
-    }
-
-    return newColumns;
+      // If the table has row action items, add a column for
+      // the dropdown menu at the end of the columns array
+      ...(rowActionItems
+        ? [
+            columnHelper.display({
+              cell: () => {
+                return <DataTableRowActions items={rowActionItems} />;
+              },
+              id: "actions",
+              size: 300,
+            }),
+          ]
+        : []),
+    ];
   }, [columnHelper, initColumns, isSelectable, rowActionItems]);
 
   /** --------------------------------------------- */
