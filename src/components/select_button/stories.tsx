@@ -158,7 +158,7 @@ const WithDialogTriggerNodeAsItemTemplate: StoryFn<StoryCompProps> = ({
 
   return (
     <>
-      <DialogModal ref={dialogRef} title="test">
+      <DialogModal height="lg" ref={dialogRef} title="test" width="lg">
         <Box>Hello</Box>
       </DialogModal>
       <Box marginLeft="auto">

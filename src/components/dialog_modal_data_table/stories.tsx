@@ -33,6 +33,7 @@ export const IsFilterable: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    height: "lg",
     isFilterable: true,
     strFilterPlaceholder: "Filter",
     title: "Dialog modal data table",
@@ -47,6 +48,7 @@ export const IsPaginated: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    height: "lg",
     isPaginated: true,
     strNext: "Next",
     strPage: "Page",
@@ -65,8 +67,10 @@ export const WidthSm: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    height: "lg",
     title: "Dialog modal data table",
     triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+    width: "lg",
   },
 };
 
@@ -76,6 +80,7 @@ export const WidthLg: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    height: "lg",
     title: "Dialog modal data table",
     triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
     width: "lg",
@@ -88,6 +93,7 @@ export const IsSelectable: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    height: "lg",
     isSelectable: true,
     onSelect: (rowSelection) => {
       alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
@@ -106,6 +112,7 @@ export const IsSelectableWithEnableMultiRowSelection: StoryObj<
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
     enableMultiRowSelection: true,
+    height: "lg",
     isSelectable: true,
     onSelect: (rowSelection) => {
       alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
@@ -122,6 +129,7 @@ export const KitchenSink: Story = {
   args: {
     columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
     data: MOCK_DATA,
+    height: "lg",
     isFilterable: true,
     isPaginated: true,
     isSelectable: true,

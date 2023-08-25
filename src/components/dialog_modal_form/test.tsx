@@ -86,11 +86,12 @@ const PROPS: DialogModalFormProps = {
     </>
   ),
   formSubmitButtonText: "Submit",
-
   handleFormSubmission: handleFormSubmissionMock,
+  height: "lg",
   resolver: zodResolver(mockFormSchema),
   title: "Dialog modal form",
   triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+  width: "lg",
 };
 
 /** ----------------------------------------------------------------------------- */
