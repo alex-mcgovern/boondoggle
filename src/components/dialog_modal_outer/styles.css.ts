@@ -1,4 +1,3 @@
-import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import {
@@ -14,43 +13,12 @@ import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-/** ---------------------------------------------
- * Dialog height variant
- * ----------------------------------------------- */
-
-/* eslint-disable sort-keys-fix/sort-keys-fix */
-const variantHeight = styleVariants({
-  lg: {
-    "@media": {
-      [MEDIA_QUERY_MOBILE]: {
-        top: 0,
-      },
-      [MEDIA_QUERY_TABLET]: {
-        top: "12.5dvh",
-      },
-    },
-  },
-  sm: {
-    "@media": {
-      [MEDIA_QUERY_TABLET]: {
-        top: 0,
-      },
-      [MEDIA_QUERY_DESKTOP]: {
-        top: "17dvh",
-      },
-    },
-  },
-});
-/* eslint-enable sort-keys-fix/sort-keys-fix */
-
-export type DialogModalOuterHeight = keyof typeof variantHeight;
-
 export const getDialogModalOuterStyle = recipe({
   base: [
     animateSlideUp,
     getSprinkles({
       background: "background",
-      marginX: "auto",
+      margin: "auto",
       padding: "none",
     }),
     {
@@ -73,8 +41,7 @@ export const getDialogModalOuterStyle = recipe({
           boxShadow: vars.boxShadow.lg,
         },
       },
-      left: "0",
-      right: "0",
+      inset: "0",
       selectors: {
         "&::backdrop": {
           background: vars.color.backdrop,
@@ -87,10 +54,4 @@ export const getDialogModalOuterStyle = recipe({
       zIndex: 99999,
     },
   ],
-  defaultVariants: {
-    height: "lg",
-  },
-  variants: {
-    height: variantHeight,
-  },
 });

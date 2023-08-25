@@ -24,10 +24,7 @@ import type {
   WithTableOptionalSelectableRows,
 } from "../../types";
 import type { BoxProps } from "../box";
-import type {
-  DialogModalInnerHeight,
-  DialogModalInnerWidth,
-} from "../dialog_modal_inner/styles.css";
+import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 import type { ForwardedRef, ReactNode } from "react";
 
@@ -44,8 +41,6 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
     data: Array<TData> | undefined;
     /** React ref that will be passed to the dialog modal. */
     dialogRef?: ForwardedRef<HTMLDialogElement>;
-    /** Height of the dialog modal */
-    height: DialogModalInnerHeight;
     /** Whether the dialog modal is in an error state. */
     isError?: boolean;
     /** Whether the dialog modal is loading. */
@@ -77,7 +72,6 @@ export function DialogModalDataTable<TData extends RowData>({
   data,
   dialogRef: parentDialogRef,
   enableMultiRowSelection = false,
-  height,
   isError,
   isFilterable,
   isLoading,
@@ -128,8 +122,8 @@ export function DialogModalDataTable<TData extends RowData>({
         </Slot>
       )}
 
-      <DialogModalOuter dialogRef={dialogRef} height={height}>
-        <DialogModalInner height={height} width={width}>
+      <DialogModalOuter dialogRef={dialogRef}>
+        <DialogModalInner width={width}>
           <DialogModalHeader closeDialog={closeDialog} title={title} />
 
           {!isLoading && isError && strErrorDescription && strErrorTitle && (

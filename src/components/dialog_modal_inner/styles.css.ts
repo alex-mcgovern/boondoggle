@@ -40,37 +40,6 @@ const variantWidth = styleVariants({
 export type DialogModalInnerWidth = keyof typeof variantWidth;
 
 /** ---------------------------------------------
- * Dialog height variant
- * ----------------------------------------------- */
-
-/* eslint-disable sort-keys-fix/sort-keys-fix */
-const variantHeight = styleVariants({
-  lg: {
-    "@media": {
-      [MEDIA_QUERY_MOBILE]: {
-        height: "100dvh",
-      },
-      [MEDIA_QUERY_TABLET]: {
-        height: "75dvh",
-      },
-    },
-  },
-  sm: {
-    "@media": {
-      [MEDIA_QUERY_MOBILE]: {
-        height: "100dvh",
-      },
-      [MEDIA_QUERY_TABLET]: {
-        height: "66dvh",
-      },
-    },
-  },
-});
-/* eslint-enable sort-keys-fix/sort-keys-fix */
-
-export type DialogModalInnerHeight = keyof typeof variantHeight;
-
-/** ---------------------------------------------
  * Main dialog inner styles
  * ----------------------------------------------- */
 
@@ -84,15 +53,21 @@ export const getDialogModalInnerStyle = recipe({
       width: "100vw",
     }),
     {
+      "@media": {
+        [MEDIA_QUERY_MOBILE]: {
+          height: "100dvh",
+        },
+        [MEDIA_QUERY_TABLET]: {
+          maxHeight: "75dvh",
+        },
+      },
       overscrollBehavior: "contain",
     },
   ],
   defaultVariants: {
-    height: "lg",
     width: "sm",
   },
   variants: {
-    height: variantHeight,
     width: variantWidth,
   },
 });
