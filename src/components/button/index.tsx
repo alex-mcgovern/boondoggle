@@ -12,14 +12,14 @@ import { Loader } from "../loader";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   PolymorphicComponentPropWithRef,
   PolymorphicRef,
   WithColorOverlay,
   WithStateDisabled,
-} from "../../types";
+} from "../../common-types";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { SlotWrapperProps } from "../slot_wrapper";
 import type {
   ComponentProps,

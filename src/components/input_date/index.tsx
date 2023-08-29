@@ -2,15 +2,17 @@ import { faCalendarAlt } from "@fortawesome/sharp-regular-svg-icons";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
+import {
+  type WithOptionalLabel,
+  type WithPlaceholder,
+} from "../../common-types";
 import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
 import { Icon } from "../icon";
-import { Input } from "../input";
+import { Input, type InputProps } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
-import type { WithOptionalLabel, WithPlaceholder } from "../../types";
-import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
 /** ----------------------------------------------------------------------------- */

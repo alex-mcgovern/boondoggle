@@ -36,7 +36,8 @@
           "error",
           {
             "disallowTypeAnnotations": true,
-            "prefer": "type-imports"
+            "prefer": "type-imports",
+            "fixStyle": "separate-type-imports"
           }
         ],
         "import/no-restricted-paths": [
@@ -75,6 +76,7 @@
             ]
           }
         ],
+
         "import/order": [
           "error",
           {

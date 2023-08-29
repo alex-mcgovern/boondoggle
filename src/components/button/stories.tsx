@@ -31,6 +31,9 @@ const Template: StoryFn<StoryCompProps> = ({
 export const Default: StoryObj<StoryCompProps> = {
   args: {
     children: "Click me",
+    onClick: () => {
+      alert("You clicked me!");
+    },
   },
 
   render: Template,

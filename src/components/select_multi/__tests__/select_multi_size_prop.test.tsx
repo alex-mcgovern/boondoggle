@@ -2,13 +2,13 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { SelectMulti } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { elementFontSize } from "../../../styles/common/element_size.css";
+import { SelectMulti } from "../../select/SelectMulti";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
-import type { SelectMultiProps } from "..";
+import type { SelectMultiProps } from "../../select/SelectMulti";
 
 /** ----------------------------------------------------------------------------- */
 

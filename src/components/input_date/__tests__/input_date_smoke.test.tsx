@@ -1,10 +1,8 @@
 /** @jest-environment jsdom */
 import { render, waitFor } from "@testing-library/react";
 
-import { InputDate } from "..";
+import { InputDate, type InputDateProps } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-
-import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
   name: LOREM.name(),

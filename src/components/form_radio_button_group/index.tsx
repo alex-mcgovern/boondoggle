@@ -3,7 +3,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { RadioButtonGroup } from "../radio_button_group";
 
-import type { WithFormFieldProps } from "../../types";
+import type { WithFormFieldProps } from "../../common-types";
 import type { RadioButtonGroupProps } from "../radio_button_group";
 
 /** ----------------------------------------------------------------------------- */

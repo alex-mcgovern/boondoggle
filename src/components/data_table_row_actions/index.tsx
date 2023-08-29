@@ -1,10 +1,10 @@
 import { faEllipsis } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Icon } from "../icon";
-import { SelectButton } from "../select_button";
+import { SelectButton } from "../select/SelectButton";
 
+import type { SelectButtonProps } from "../select/SelectButton";
 import type { SelectItemShape } from "../select/types";
-import type { SelectButtonProps } from "../select_button";
 
 export type DataTableRowActionsProps = {
   items: Array<SelectItemShape>;

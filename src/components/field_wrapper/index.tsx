@@ -14,7 +14,7 @@ import type {
   WithOptionalLabel,
   WithStateInvalid,
   WithWrapperProps,
-} from "../../types";
+} from "../../common-types";
 import type { ReactNode } from "react";
 
 type FieldWrapperProps = WithColorOverlay &

@@ -41,34 +41,6 @@ export const getIsSelected = ({
 };
 
 /**
- * Util to filter dropdown items based on `inputValue`
- */
-type GetFilteredDropdownItemsArgs = {
-  /** Value of controlled combobox input */
-  inputValue?: string;
-  /** An array of dropdown items */
-  items: Array<SelectItemShape>;
-};
-
-/** Removes items not matching `inputValue` from `items` */
-export function getFilteredDropdownItems({
-  inputValue,
-  items,
-}: GetFilteredDropdownItemsArgs) {
-  if (!inputValue) {
-    return items;
-  }
-
-  /** Filter out items that don't match the `inputValue` */
-  return items.filter((item) => {
-    return (
-      item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
-      item.value.toLowerCase().includes(inputValue.toLowerCase())
-    );
-  });
-}
-
-/**
  * Util to get the display value for a dropdown when we are using `useMultipleSelection`
  */
 type GetDisplayValueArgs = {
@@ -84,30 +56,6 @@ export const getDisplayValue = ({
   }
 
   return originalValue;
-};
-
-/**
- * Util to get the default highlighted index for a dropdown
- */
-type GetDefaultHighlightedIndexArgs = {
-  initialHighlightedItem?: SelectItemShape;
-  items: Array<SelectItemShape>;
-  selectedItem?: SelectItemShape | null;
-};
-export const getDefaultHighlightedIndex = ({
-  initialHighlightedItem,
-  items,
-  selectedItem,
-}: GetDefaultHighlightedIndexArgs) => {
-  if (selectedItem) {
-    return items.findIndex((item) => {
-      return item.label === selectedItem?.label;
-    });
-  }
-
-  return items.findIndex((item) => {
-    return item.label === initialHighlightedItem?.label;
-  });
 };
 
 /**

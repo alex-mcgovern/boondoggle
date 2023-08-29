@@ -8,8 +8,8 @@ import {
   getDialogModalAlertWrapperStyles,
 } from "./styles.css";
 
+import type { WithSlots } from "../../common-types";
 import type { ColorOverlay } from "../../styles/color_palette.css";
-import type { WithSlots } from "../../types";
 
 export type DialogModalAlertProps = WithSlots & {
   colorOverlay?: ColorOverlay;

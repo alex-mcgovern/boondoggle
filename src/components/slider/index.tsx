@@ -16,7 +16,6 @@ import { FieldLabel } from "../field_label";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   WithName,
   WithOptionalLabel,
@@ -25,7 +24,8 @@ import type {
   WithStateDisabled,
   WithStateInvalid,
   WithWrapperProps,
-} from "../../types";
+} from "../../common-types";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, Ref } from "react";
 

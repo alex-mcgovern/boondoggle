@@ -22,7 +22,7 @@ import type {
   WithTableOptionalFiltering,
   WithTableOptionalPagination,
   WithTableOptionalSelectableRows,
-} from "../../types";
+} from "../../common-types";
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 import type { ColumnDef, RowData } from "@tanstack/react-table";

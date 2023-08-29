@@ -3,12 +3,10 @@ import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { InputDate } from "..";
+import { InputDate, type InputDateProps } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { Icon } from "../../icon";
-
-import type { InputDateProps } from "..";
 
 /** ----------------------------------------------------------------------------- */
 

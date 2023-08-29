@@ -1,4 +1,3 @@
-import type { ColorOverlay } from "../../styles/color_palette.css";
 import type {
   WithName,
   WithOptionalLabel,
@@ -6,7 +5,8 @@ import type {
   WithSlots,
   WithStateDisabled,
   WithStateInvalid,
-} from "../../types";
+} from "../../common-types";
+import type { ColorOverlay } from "../../styles/color_palette.css";
 import type { BoxProps } from "../box";
 import type { InputProps } from "../input";
 import type { UseComboboxStateChange } from "downshift";

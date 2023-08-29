@@ -34,7 +34,7 @@ export {
  * Type definitions
  * ------------------------------------------------------------------------------- */
 
-export type { TDataTableRowActions } from "./types";
+export type { TDataTableRowActions } from "./common-types";
 
 /** -----------------------------------------------------------------------------
  * React components
@@ -153,8 +153,8 @@ export type { LoaderProps } from "./components/loader";
 export { LoaderFullScreen } from "./components/loader_full_screen";
 export type { LoaderFullScreenProps } from "./components/loader_full_screen";
 
-export { SelectButton } from "./components/select_button";
-export type { SelectButtonProps } from "./components/select_button";
+export { SelectButton } from "./components/select/SelectButton";
+export type { SelectButtonProps } from "./components/select/SelectButton";
 
 // export { SelectCountry } from "./components/select_country";
 // export type { SelectCountryProps } from "./components/select_country";
@@ -165,17 +165,17 @@ export type { SlotWrapperProps } from "./components/slot_wrapper";
 export { Card } from "./components/card";
 export type { CardProps } from "./components/card";
 
-export { SelectItem } from "./components/select_item";
-export type { SelectItemProps } from "./components/select_item";
+export { SelectItem } from "./components/select/SelectItem";
+export type { SelectItemProps } from "./components/select/SelectItem";
 
-export { SelectItemList } from "./components/select_item_list";
-export type { SelectItemListProps } from "./components/select_item_list";
+export { SelectItemList } from "./components/select/SelectItemList";
+export type { SelectItemListProps } from "./components/select/SelectItemList";
 
-export { SelectSingle } from "./components/select_single";
-export type { SelectSingleProps } from "./components/select_single";
+export { SelectSingle } from "./components/select/SelectSingle";
+export type { SelectSingleProps } from "./components/select/SelectSingle";
 
-export { SelectMulti } from "./components/select_multi";
-export type { SelectMultiProps } from "./components/select_multi";
+export { SelectMulti } from "./components/select/SelectMulti";
+export type { SelectMultiProps } from "./components/select/SelectMulti";
 
 export type { SelectItemShape } from "./components/select/types";
 

@@ -9,14 +9,14 @@ import { FieldLabel } from "../field_label";
 import { RadioButtonCard } from "../radio_button_card";
 import { getGroupLabelStyles } from "./styles.css";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   WithDescription,
   WithName,
   WithOptionalLabel,
   WithStateInvalid,
   WithWrapperProps,
-} from "../../types";
+} from "../../common-types";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   RadioButtonCardShape,
   RadioButtonInputProps,

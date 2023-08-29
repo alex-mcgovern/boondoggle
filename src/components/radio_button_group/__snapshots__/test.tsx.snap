@@ -4,7 +4,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
 <div>
   <div>
     <label
-      class="styles_getGroupLabelStyles__1h8r4ks0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_1_mobile__eiij7bcf get_sprinkles_marginBottom_space_1__eiij7b4n"
+      class="styles_getGroupLabelStyles__1h8r4ks0 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontSize_body_sm__eiij7b22 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_1_mobile__eiij7bcj get_sprinkles_marginBottom_space_1__eiij7b4n"
       for="test"
       id="label-test"
     >
@@ -12,12 +12,12 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
     </label>
     <fieldset
       aria-labelledby="label-test"
-      class="get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_flexDirection_column_mobile__eiij7bbr get_sprinkles_gap_space_2_mobile__eiij7bci"
+      class="get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_flexDirection_column_mobile__eiij7bbv get_sprinkles_gap_space_2_mobile__eiij7bcm"
       id="test"
       name="test"
     >
       <div
-        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
+        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
       >
         <input
           class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_space_2__eiij7b69"
@@ -27,7 +27,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
           value="radio_item_1"
         />
         <label
-          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bml"
+          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bmp"
           for="test-radio_item_1"
         >
           <div>
@@ -41,7 +41,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
         </label>
       </div>
       <div
-        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
+        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
       >
         <input
           class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_space_2__eiij7b69"
@@ -51,7 +51,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
           value="radio_item_2"
         />
         <label
-          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bml"
+          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bmp"
           for="test-radio_item_2"
         >
           <div>
@@ -65,7 +65,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
         </label>
       </div>
       <div
-        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7bb0 get_sprinkles_gap_space_2_mobile__eiij7bci"
+        class="styles_radioButtonWrapperStyles__153wotw1 styles__153wotw0 get_sprinkles_alignItems_start__eiij7b1 get_sprinkles_borderRadius_sm__eiij7b10 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
       >
         <input
           class="styles_radioButtonInputStyles__153wotw3 a11y_a11yFocus__r8he5t2 styles__153wotw2 get_sprinkles_borderRadius_50%__eiij7bw get_sprinkles_marginTop_space_2__eiij7b69"
@@ -75,7 +75,7 @@ exports[`<RadioButtonGroup /> Basic smoke tests should match snapshot 1`] = `
           value="radio_item_3"
         />
         <label
-          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bml"
+          class="styles_radioButtonLabelStyles__153wotw4 get_sprinkles_position_relative_mobile__eiij7bmp"
           for="test-radio_item_3"
         >
           <div>

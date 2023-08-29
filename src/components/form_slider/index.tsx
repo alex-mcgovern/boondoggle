@@ -3,7 +3,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Slider } from "../slider";
 
-import type { WithFormFieldProps, WithWrapperProps } from "../../types";
+import type { WithFormFieldProps, WithWrapperProps } from "../../common-types";
 import type { SliderProps } from "../slider";
 
 /**

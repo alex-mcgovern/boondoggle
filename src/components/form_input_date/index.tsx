@@ -3,7 +3,7 @@ import { useController, useFormContext } from "react-hook-form";
 import { formatDate } from "../../utils/format_date";
 import { InputDate } from "../input_date";
 
-import type { WithFormFieldProps, WithPlaceholder } from "../../types";
+import type { WithFormFieldProps, WithPlaceholder } from "../../common-types";
 import type { InputDateProps } from "../input_date";
 
 /**

@@ -2,11 +2,9 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { InputDate } from "..";
+import { InputDate, type InputDateProps } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-
-import type { InputDateProps } from "..";
 
 /** ----------------------------------------------------------------------------- */
 

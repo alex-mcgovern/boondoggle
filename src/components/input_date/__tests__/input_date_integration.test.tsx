@@ -1,15 +1,15 @@
 /** @jest-environment jsdom */
 import { render, waitFor, within } from "@testing-library/react";
+
+import type { ByRoleMatcher, type ByRoleOptions } from "@testing-library/react";
+
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { createRef } from "react";
 
-import { InputDate } from "..";
+import { InputDate, type InputDateProps } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-
-import type { InputDateProps } from "..";
-import type { ByRoleMatcher, ByRoleOptions } from "@testing-library/react";
 
 /** ----------------------------------------------------------------------------- */
 

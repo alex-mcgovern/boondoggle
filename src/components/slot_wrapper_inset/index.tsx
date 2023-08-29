@@ -11,8 +11,8 @@ import {
   getSlotRightOffsetStyles,
 } from "./styles.css";
 
+import type { WithSlots } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { WithSlots } from "../../types";
 import type { BoxProps } from "../box";
 import type { ReactNode, Ref } from "react";
 

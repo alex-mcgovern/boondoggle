@@ -1,7 +1,6 @@
+import { StorybookConfig } from "@storybook/react-webpack5";
 import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 import { merge } from "webpack-merge";
-
-import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
   addons: [

@@ -12,7 +12,7 @@ import type {
   WithTableOptionalFiltering,
   WithTableOptionalPagination,
   WithTableOptionalSelectableRows,
-} from "../../types";
+} from "../../common-types";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 

@@ -8,7 +8,6 @@ import { FieldWrapper } from "../field_wrapper";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   WithColorOverlay,
   WithDescription,
@@ -22,7 +21,8 @@ import type {
   WithSlots,
   WithStateInvalid,
   WithWrapperProps,
-} from "../../types";
+} from "../../common-types";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 
 export type TextAreaProps = Omit<

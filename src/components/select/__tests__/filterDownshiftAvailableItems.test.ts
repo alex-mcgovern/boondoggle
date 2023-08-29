@@ -1,8 +1,8 @@
-import { getFilteredDropdownItems } from "../select_utils";
+import { filterItems } from "../filterItems";
 
 test.skip("Given no selected items, and empty string as inputValue, returns all items", () => {
   expect(
-    getFilteredDropdownItems({
+    filterItems({
       inputValue: "",
       items: [
         { label: "foo", value: "foo" },
@@ -21,7 +21,7 @@ test.skip("Given no selected items, and empty string as inputValue, returns all 
 
 test.skip("Given no selected items, and undefined as inputValue, returns all items", () => {
   expect(
-    getFilteredDropdownItems({
+    filterItems({
       inputValue: undefined,
       items: [
         { label: "foo", value: "foo" },
@@ -40,7 +40,7 @@ test.skip("Given no selected items, and undefined as inputValue, returns all ite
 
 test.skip("Given no selected items, and inputValue, returns only items matching inputValue", () => {
   expect(
-    getFilteredDropdownItems({
+    filterItems({
       inputValue: "foo",
       items: [
         { label: "foo", value: "foo" },

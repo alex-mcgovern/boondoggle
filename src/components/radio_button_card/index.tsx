@@ -4,7 +4,7 @@ import {
   radioButtonCardLabelStyles,
 } from "./styles.css";
 
-import type { WithName } from "../../types";
+import type { WithName } from "../../common-types";
 import type { HTMLProps, ReactNode } from "react";
 
 /** ----------------------------------------------------------------------------- */

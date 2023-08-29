@@ -10,7 +10,6 @@ import { SlotWrapperInset } from "../slot_wrapper_inset";
 import { useFieldActions } from "./lib/use_field_actions";
 import { getInputStyles } from "./styles.css";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type {
   WithColorOverlay,
   WithDescription,
@@ -26,8 +25,9 @@ import type {
   WithSlots,
   WithStateInvalid,
   WithWrapperProps,
-} from "../../types";
-import type { ComponentPropsWithoutRef, Ref } from "react";
+} from "../../common-types";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { ComponentPropsWithoutRef } from "react";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -54,7 +54,7 @@ export type InputProps = Omit<
     hasBorder?: boolean;
   };
 
-export const Input = forwardRef(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className: userClassName,
@@ -82,8 +82,8 @@ export const Input = forwardRef(
       value,
       wrapperProps,
       ...rest
-    }: InputProps,
-    ref: Ref<HTMLInputElement>
+    },
+    ref
   ) => {
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 

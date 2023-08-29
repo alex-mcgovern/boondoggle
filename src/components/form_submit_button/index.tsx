@@ -1,8 +1,6 @@
 import { forwardRef } from "react";
 
-import { Button } from "../button";
-
-import type { ButtonProps } from "../button";
+import { Button, type ButtonProps } from "../button";
 
 export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
 

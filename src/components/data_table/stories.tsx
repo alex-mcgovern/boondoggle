@@ -12,7 +12,7 @@ import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
-import type { TDataTableRowActions } from "../../types";
+import type { TDataTableRowActions } from "../../common-types";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
