@@ -336,13 +336,13 @@ globalStyle("input, textarea", {
   },
 });
 
-// globalStyle("input[readonly], textarea[readonly]", {
-//   "@layer": {
-//     [baseLayer]: {
-//       background: vars.color.tint_default,
-//     },
-//   },
-// });
+globalStyle("input[readonly], textarea[readonly]", {
+  "@layer": {
+    [baseLayer]: {
+      background: vars.color.tint_default,
+    },
+  },
+});
 
 /** ----------------------------------------------------------------------------- */
 
