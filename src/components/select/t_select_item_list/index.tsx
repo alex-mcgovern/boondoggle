@@ -11,69 +11,9 @@ import type {
   UseComboboxPropGetters,
   UseMultipleSelectionActions,
   UseMultipleSelectionGetSelectedItemPropsOptions,
-  UseMultipleSelectionPropGetters,
   UseSelectPropGetters,
 } from "downshift";
 import type { CSSProperties } from "react";
-
-/**
- * Util function to get props for individual dropdown items * May conditionally call `getItemProps` or `getSelectedItemProps` depending on * whether `isMulti` is true, and whether the item is selected or not
- */
-type GetDropdownItemPropsArgs = {
-  [key: string]: unknown;
-  getIsItemSelected?: (item: SelectItemShape) => boolean;
-  /** Function provided by Downshift to get props for an individual item. */
-  getItemProps:
-    | UseComboboxPropGetters<SelectItemShape>["getItemProps"]
-    | UseSelectPropGetters<SelectItemShape>["getItemProps"];
-  getSelectedItemProps:
-    | UseMultipleSelectionPropGetters<SelectItemShape>["getSelectedItemProps"]
-    | undefined;
-  isItemSelected?: boolean;
-  item: SelectItemShape;
-  removeSelectedItem?: (item: SelectItemShape) => void;
-};
-
-/**
- * Wraps several props getters from `downshift` to conditionally call `getItemProps`
- * or `getSelectedItemProps` depending on whether `isMulti` is true, and whether the
- * item is selected or not.
- *
- * @note Is typed as returning `any` because the return type of `getItemProps` and
- * `getSelectedItemProps` are both `any` and we don't want to have to cast the return
- * type of this function to `any` every time we use it.
- */
-const getDropdownItemProps = ({
-  getItemProps,
-  getSelectedItemProps,
-  isItemSelected,
-  isMulti,
-  item,
-  removeSelectedItem,
-  ...rest
-}: GetDropdownItemPropsArgs): any => {
-  if (!isMulti || !getSelectedItemProps) {
-    return getItemProps({ item, ...rest });
-  }
-
-  return isItemSelected
-    ? {
-        ...getItemProps({
-          item,
-          ...rest,
-        }),
-        ...getSelectedItemProps({
-          onClick: (e) => {
-            e.stopPropagation();
-            if (removeSelectedItem) {
-              removeSelectedItem(item);
-            }
-          },
-          selectedItem: item,
-        }),
-      }
-    : getItemProps({ item, ...rest });
-};
 
 /** ----------------------------------------------------------------------------- */
 
@@ -145,29 +85,43 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                 return null;
               }
 
-              // Call the Downshift props getters on each item
+              const {
+                as,
+                colorOverlay,
+                isSelected: initIsSelected,
+                label,
+                slotLeft,
+                value,
+              } = item;
 
-              const itemProps = getItemProps({ index, item, ...rest });
-              console.debug("debug  itemProps:", itemProps);
+              const isHighlighted = highlightedIndex === index;
+              const isSelected = initIsSelected || getIsItemSelected?.(item);
 
               return (
                 <SelectItem
+                  as={as}
+                  colorOverlay={colorOverlay}
                   isMulti={isMulti}
+                  size={size}
                   {...getItemProps({
+                    isHighlighted,
+                    isSelected,
                     item,
+                    key: `${item.label}-${item.value}`,
+                    label,
+                    slotLeft,
+                    value,
+                    ...(isSelected &&
+                      getSelectedItemProps?.({
+                        onClick: (e) => {
+                          e.stopPropagation();
+                          if (removeSelectedItem) {
+                            removeSelectedItem(item);
+                          }
+                        },
+                        selectedItem: item,
+                      })),
                   })}
-                  // {...getDropdownItemProps({
-                  //   getItemProps,
-                  //   getSelectedItemProps,
-                  //   index,
-                  //   isHighlighted: highlightedIndex === index,
-                  //   isMulti,
-                  //   isSelected: getIsItemSelected?.(item) || item.isSelected,
-                  //   key: `${item.label}-${item.value}`,
-                  //   removeSelectedItem,
-                  //   size,
-                  //   ...item,
-                  // })}
                 />
               );
             })}
@@ -176,17 +130,11 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
 
           {Array.isArray(items) && items.length === 0 && (
             <SelectItem
-              {...getDropdownItemProps({
-                as: "button",
-                disabled: true,
-                getItemProps,
-                getSelectedItemProps,
-                index: 0,
-                isDropdownItemSelected: false,
-                label: "No results",
-                size,
-                value: "",
-              })}
+              as="button"
+              disabled
+              label="No results"
+              size={size}
+              value=""
             />
           )}
         </Box>
