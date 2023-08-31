@@ -167,7 +167,7 @@ export const SelectSingle = forwardRef(
 
     const SlotRight = useMemo(() => {
       if (isFilterable && inputValue.length > 0) {
-        return (
+        return [
           <FieldActionButtonClear
             onClick={() => {
               setInputValue("");
@@ -175,8 +175,8 @@ export const SelectSingle = forwardRef(
               setLocalSlotLeft(undefined);
               reset();
             }}
-          />
-        );
+          />,
+        ];
       }
 
       return slotRight;
