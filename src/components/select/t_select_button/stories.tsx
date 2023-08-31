@@ -1,16 +1,13 @@
-import { type StoryFn, type StoryObj } from "@storybook/react";
 import { createRef, useCallback } from "react";
 
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box";
-import { DialogModal } from "../dialog_modal";
-import {
-  SelectButton as StoryComp,
-  type SelectButtonProps as StoryCompProps,
-} from "./SelectButton";
-import { mockSelectItems } from "./__mocks__/select.mock";
+import { SelectButton as StoryComp } from ".";
+import { LOREM } from "../../../../mocks/LOREM.mock";
+import { Box } from "../../box";
+import { DialogModal } from "../../dialog_modal";
+import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { Meta } from "@storybook/react";
+import type { SelectButtonProps as StoryCompProps } from ".";
+import type { Meta, StoryFn, StoryObj } from "@storybook/react";
 
 const meta = {
   args: {

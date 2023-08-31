@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { Box } from "../box";
-import { SlotWrapper } from "../slot_wrapper";
-import * as styles from "./SelectItem.css";
+import { Box } from "../../box";
+import { SlotWrapper } from "../../slot_wrapper";
+import * as styles from "./styles.css";
 
-import type { WithSize } from "../../common-types";
-import type { SelectItemShape } from "./types";
+import type { WithSize } from "../../../common-types";
+import type { SelectItemShape } from "../types";
 import type { Ref } from "react";
 
 export type SelectItemProps = SelectItemShape &
@@ -51,7 +51,9 @@ export const SelectItem = forwardRef(
         {...rest}
         ref={ref}
       >
-        <Box flexShrink="0">{label}</Box>
+        <Box flexShrink="0">
+          {label} {isMulti?.toString()}
+        </Box>
         {isMulti && (
           <Box
             as="input"

@@ -2,10 +2,10 @@ import { faTableRows } from "@fortawesome/sharp-regular-svg-icons";
 import { useCallback, useMemo } from "react";
 
 import { Icon } from "../icon";
-import { SelectSingle } from "../select/SelectSingle";
+import { SelectSingle } from "../select/t_select_single";
 
 import type { WithOptionalLabel } from "../../common-types";
-import type { SelectSingleProps } from "../select/SelectSingle";
+import type { SelectSingleProps } from "../select/t_select_single";
 import type { SelectItemShape } from "../select/types";
 import type { Table } from "@tanstack/react-table";
 import type { UseComboboxStateChange } from "downshift";

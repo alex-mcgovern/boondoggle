@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { a11yFocus } from "../../styles/common/a11y.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { a11yFocus } from "../../../styles/common/a11y.css";
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 
 export const getSelectItemListStyles = recipe({
   base: [

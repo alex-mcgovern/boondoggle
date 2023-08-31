@@ -41,24 +41,6 @@ export const getIsSelected = ({
 };
 
 /**
- * Util to get the display value for a dropdown when we are using `useMultipleSelection`
- */
-type GetDisplayValueArgs = {
-  length?: number;
-  originalValue: string | undefined;
-};
-export const getDisplayValue = ({
-  length,
-  originalValue,
-}: GetDisplayValueArgs) => {
-  if (length && length > 0) {
-    return `${length} selected`;
-  }
-
-  return originalValue;
-};
-
-/**
  * React state reducer to determine the currently selected item.
  * Maintains the state of the corresponding `Select*` component,
  * is passed to downshift as the `stateReducer` prop.

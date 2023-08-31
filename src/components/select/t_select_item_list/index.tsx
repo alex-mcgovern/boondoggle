@@ -1,20 +1,81 @@
 import { forwardRef } from "react";
 
-import { arrayHasLength } from "../../lib/array_has_length";
-import { Box } from "../box";
-import { SelectItem } from "./SelectItem";
-import { getSelectItemListStyles } from "./SelectItemList.css";
-import { getDropdownItemProps } from "./getDropdownItemProps";
+import { arrayHasLength } from "../../../lib/array_has_length";
+import { Box } from "../../box";
+import { SelectItem } from "../t_select_item";
+import { getSelectItemListStyles, selectItemListInner } from "./styles.css";
 
-import type { WithSize } from "../../common-types";
-import type { SelectItemShape } from "./types";
+import type { WithSize } from "../../../common-types";
+import type { SelectItemShape } from "../types";
 import type {
   UseComboboxPropGetters,
   UseMultipleSelectionActions,
   UseMultipleSelectionGetSelectedItemPropsOptions,
+  UseMultipleSelectionPropGetters,
   UseSelectPropGetters,
 } from "downshift";
 import type { CSSProperties } from "react";
+
+/**
+ * Util function to get props for individual dropdown items * May conditionally call `getItemProps` or `getSelectedItemProps` depending on * whether `isMulti` is true, and whether the item is selected or not
+ */
+type GetDropdownItemPropsArgs = {
+  [key: string]: unknown;
+  getIsItemSelected?: (item: SelectItemShape) => boolean;
+  /** Function provided by Downshift to get props for an individual item. */
+  getItemProps:
+    | UseComboboxPropGetters<SelectItemShape>["getItemProps"]
+    | UseSelectPropGetters<SelectItemShape>["getItemProps"];
+  getSelectedItemProps:
+    | UseMultipleSelectionPropGetters<SelectItemShape>["getSelectedItemProps"]
+    | undefined;
+  isItemSelected?: boolean;
+  item: SelectItemShape;
+  removeSelectedItem?: (item: SelectItemShape) => void;
+};
+
+/**
+ * Wraps several props getters from `downshift` to conditionally call `getItemProps`
+ * or `getSelectedItemProps` depending on whether `isMulti` is true, and whether the
+ * item is selected or not.
+ *
+ * @note Is typed as returning `any` because the return type of `getItemProps` and
+ * `getSelectedItemProps` are both `any` and we don't want to have to cast the return
+ * type of this function to `any` every time we use it.
+ */
+const getDropdownItemProps = ({
+  getItemProps,
+  getSelectedItemProps,
+  isItemSelected,
+  isMulti,
+  item,
+  removeSelectedItem,
+  ...rest
+}: GetDropdownItemPropsArgs): any => {
+  if (!isMulti || !getSelectedItemProps) {
+    return getItemProps({ item, ...rest });
+  }
+
+  return isItemSelected
+    ? {
+        ...getItemProps({
+          item,
+          ...rest,
+        }),
+        ...getSelectedItemProps({
+          onClick: (e) => {
+            e.stopPropagation();
+            if (removeSelectedItem) {
+              removeSelectedItem(item);
+            }
+          },
+          selectedItem: item,
+        }),
+      }
+    : getItemProps({ item, ...rest });
+};
+
+/** ----------------------------------------------------------------------------- */
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
@@ -83,20 +144,30 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
               if (!item.label) {
                 return null;
               }
+
+              // Call the Downshift props getters on each item
+
+              const itemProps = getItemProps({ index, item, ...rest });
+              console.debug("debug  itemProps:", itemProps);
+
               return (
                 <SelectItem
-                  {...getDropdownItemProps({
-                    getItemProps,
-                    getSelectedItemProps,
-                    index,
-                    isHighlighted: highlightedIndex === index,
-                    isMulti,
-                    isSelected: getIsItemSelected?.(item) || item.isSelected,
-                    key: `${item.label}-${item.value}`,
-                    removeSelectedItem,
-                    size,
-                    ...item,
+                  isMulti={isMulti}
+                  {...getItemProps({
+                    item,
                   })}
+                  // {...getDropdownItemProps({
+                  //   getItemProps,
+                  //   getSelectedItemProps,
+                  //   index,
+                  //   isHighlighted: highlightedIndex === index,
+                  //   isMulti,
+                  //   isSelected: getIsItemSelected?.(item) || item.isSelected,
+                  //   key: `${item.label}-${item.value}`,
+                  //   removeSelectedItem,
+                  //   size,
+                  //   ...item,
+                  // })}
                 />
               );
             })}

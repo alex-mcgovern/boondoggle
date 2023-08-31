@@ -1,8 +1,8 @@
-import { filterItems } from "../filterItems";
+import { filterSelectItems } from "../filterSelectItems";
 
 test.skip("Given no selected items, and empty string as inputValue, returns all items", () => {
   expect(
-    filterItems({
+    filterSelectItems({
       inputValue: "",
       items: [
         { label: "foo", value: "foo" },
@@ -21,7 +21,7 @@ test.skip("Given no selected items, and empty string as inputValue, returns all 
 
 test.skip("Given no selected items, and undefined as inputValue, returns all items", () => {
   expect(
-    filterItems({
+    filterSelectItems({
       inputValue: undefined,
       items: [
         { label: "foo", value: "foo" },
@@ -40,7 +40,7 @@ test.skip("Given no selected items, and undefined as inputValue, returns all ite
 
 test.skip("Given no selected items, and inputValue, returns only items matching inputValue", () => {
   expect(
-    filterItems({
+    filterSelectItems({
       inputValue: "foo",
       items: [
         { label: "foo", value: "foo" },

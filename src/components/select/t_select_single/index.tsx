@@ -1,17 +1,17 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
+import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useState } from "react";
 
-import { useForwardRef } from "../../hooks/use_forward_ref";
-import { Box } from "../box";
-import { Input } from "../input";
-import { DEFAULT_SLOT_RIGHT } from "./DEFAULT_SLOT_RIGHT";
-import { SelectItemList } from "./SelectItemList";
-import { filterItems } from "./filterItems";
-import { getInitialItem } from "./getInitialItem";
-import { getSlotRight } from "./getSlotRight";
-import { getIsSelected } from "./select_utils";
-import { selectInputCursorStyles } from "./shared/select_input.styles.css";
+import { useForwardRef } from "../../../hooks/use_forward_ref";
+import { Box } from "../../box";
+import { Icon } from "../../icon";
+import { Input } from "../../input";
+import { filterSelectItems } from "../lib/filter_select_items";
+import { getSlotRight } from "../lib/get_slot_right";
+import { getIsSelected } from "../select_utils";
+import { selectInputCursorStyles } from "../shared/select_input.styles.css";
+import { SelectItemList } from "../t_select_item_list";
 
 import type {
   WithIsClearable,
@@ -23,9 +23,9 @@ import type {
   WithStateDisabled,
   WithStateInvalid,
   WithWrapperProps,
-} from "../../common-types";
-import type { InputProps } from "../input";
-import type { SelectItemShape } from "./types";
+} from "../../../common-types";
+import type { InputProps } from "../../input";
+import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 
 export type SelectSingleProps = Omit<WithIsClearable, "readOnly"> &
@@ -41,7 +41,7 @@ export type SelectSingleProps = Omit<WithIsClearable, "readOnly"> &
     initialSelectedItem?: SelectItemShape;
     /** Props to customise the input element. */
     inputProps?: Partial<InputProps>;
-    /** Whether the input should be filterable. */
+    /** Whether the Select should be filterable by typing. */
     isFilterable?: boolean;
     /** Prop to toggle the open state of the dropdown. */
     isOpen?: boolean;
@@ -67,7 +67,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
       itemToString = (item: SelectItemShape | null) => {
         return item?.label || "";
       },
-      items: allItems,
+      items: initialItems,
       label,
       labelTooltip,
       name,
@@ -76,20 +76,25 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
       placeholder,
       size,
       slotLeft,
-      slotRight = DEFAULT_SLOT_RIGHT,
+      slotRight = [<Icon icon={faAngleDown} />],
       wrapperProps,
       ...rest
     },
     initialRef
   ) => {
-    const [inputValue, setInputValue] = useState(
-      getInitialItem({ initialSelectedItem, items: allItems })?.label || ""
-    );
     const ref = useForwardRef(initialRef);
 
+    const initialItem =
+      initialSelectedItem ||
+      initialItems.find((item) => {
+        return item.isSelected;
+      });
+
+    const [inputValue, setInputValue] = useState(initialItem?.label || "");
+
     const items = isFilterable
-      ? filterItems({ inputValue, items: allItems })
-      : allItems;
+      ? filterSelectItems({ inputValue, items: initialItems })
+      : initialItems;
 
     /** --------------------------------------------- */
 
@@ -103,7 +108,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
       reset,
       selectedItem,
     } = useCombobox({
-      initialSelectedItem: getInitialItem({ initialSelectedItem, items }),
+      initialSelectedItem: initialItem,
       inputValue,
       isOpen: controlledIsOpen,
       items,
@@ -156,8 +161,8 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
       <Box position="relative" {...wrapperProps}>
         <Input
           {...getInputProps({
-            ...(inputProps as InputProps),
-            ...(rest as InputProps),
+            ...inputProps,
+            ...rest,
             className: selectInputCursorStyles,
             id,
             isClearable: undefined,
@@ -173,7 +178,9 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             size,
             slotLeft: selectedItem?.slotLeft || slotLeft,
             slotRight: getSlotRight({
-              canClear: (!!isFilterable && !!inputValue) || isClearable,
+              canClear:
+                (!!isFilterable && !!inputValue) ||
+                (!!isClearable && !!selectedItem),
               reset,
               slotRight,
             }),

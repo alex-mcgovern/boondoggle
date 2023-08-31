@@ -5,10 +5,10 @@ import userEvent from "@testing-library/user-event";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { elementFontSize } from "../../../styles/common/element_size.css";
-import { SelectMulti } from "../../select/SelectMulti";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { SelectMulti } from "../../select/t_select_multi";
 
-import type { SelectMultiProps } from "../../select/SelectMulti";
+import type { SelectMultiProps } from "../../select/t_select_multi";
 
 /** ----------------------------------------------------------------------------- */
 

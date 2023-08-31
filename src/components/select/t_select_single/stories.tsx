@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { faGlobeAfrica } from "@fortawesome/sharp-regular-svg-icons";
 
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../icon";
-import { SelectSingle as StoryComp } from "./SelectSingle";
-import { mockSelectItems } from "./__mocks__/select.mock";
+import { SelectSingle as StoryComp } from ".";
+import { LOREM } from "../../../../mocks/LOREM.mock";
+import { Icon } from "../../icon";
+import { mockSelectItems } from "../__mocks__/select.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

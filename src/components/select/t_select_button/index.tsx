@@ -5,13 +5,14 @@ import {
   useFloating,
   useMergeRefs,
 } from "@floating-ui/react";
+import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 import { useSelect } from "downshift";
 import * as React from "react";
 
-import { Box } from "../box";
-import { Button } from "../button";
-import { DEFAULT_SLOT_RIGHT } from "./DEFAULT_SLOT_RIGHT";
-import { SelectItemList } from "./SelectItemList";
+import { Box } from "../../box";
+import { Button } from "../../button";
+import { Icon } from "../../icon";
+import { SelectItemList } from "../t_select_item_list";
 
 import type {
   WithName,
@@ -20,10 +21,10 @@ import type {
   WithSlots,
   WithStateDisabled,
   WithStateInvalid,
-} from "../../common-types";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ButtonProps } from "../button";
-import type { SelectItemShape } from "./types";
+} from "../../../common-types";
+import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
+import type { ButtonProps } from "../../button";
+import type { SelectItemShape } from "../types";
 import type { Placement } from "@floating-ui/react";
 import type { UseComboboxStateChange, UseSelectStateChange } from "downshift";
 
@@ -71,7 +72,7 @@ export const SelectButton = React.forwardRef<
       placement,
       size,
       slotLeft,
-      slotRight,
+      slotRight = [<Icon icon={faAngleDown} />],
       wrapperProps,
     },
     ref
@@ -117,7 +118,7 @@ export const SelectButton = React.forwardRef<
         <Button
           size={size}
           slotLeft={slotLeft}
-          slotRight={slotRight || DEFAULT_SLOT_RIGHT}
+          slotRight={slotRight}
           {...getToggleButtonProps?.({
             ...buttonProps,
             disabled,

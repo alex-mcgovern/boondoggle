@@ -1,70 +1,35 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
+import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
-import { forwardRef, useCallback, useRef, useState } from "react";
+import { forwardRef, useCallback, useState } from "react";
 
-import { useForwardRef } from "../../hooks/use_forward_ref";
-import { Box } from "../box";
-import { FieldActionButtonClear } from "../field_action_button_clear";
-import { Input } from "../input";
-import { DEFAULT_SLOT_RIGHT } from "./DEFAULT_SLOT_RIGHT";
-import { SelectItemList } from "./SelectItemList";
-import { selectMultiInputSelectedItemsStyle } from "./SelectMulti.styles.css";
-import { filterItems } from "./filterItems";
-import {
-  downshiftStateReducer,
-  getDisplayValue,
-  getIsSelected,
-} from "./select_utils";
-import { selectInputCursorStyles } from "./shared/select_input.styles.css";
+import { useForwardRef } from "../../../hooks/use_forward_ref";
+import { arrayHasLength } from "../../../lib/array_has_length";
+import { Box } from "../../box";
+import { Icon } from "../../icon";
+import { Input } from "../../input";
+import { filterSelectItems } from "../lib/filter_select_items";
+import { getSlotRight } from "../lib/get_slot_right";
+import { downshiftStateReducer, getIsSelected } from "../select_utils";
+import { selectInputCursorStyles } from "../shared/select_input.styles.css";
+import { SelectItemList } from "../t_select_item_list";
+import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
-import type { WithPlaceholder, WithWrapperProps } from "../../common-types";
-import type { SelectCommonProps, SelectItemShape } from "./types";
-import type { ReactNode } from "react";
-
-/** ----------------------------------------------------------------------------- */
-
-type GetSlotRightArgs = {
-  inputValue: string | undefined;
-  isClearable: boolean | undefined;
-  isFilterable: boolean | undefined;
-  onSelectedItemsChange: (newItems: Array<SelectItemShape>) => void;
-  reset: () => void;
-  selectedItems: Array<SelectItemShape>;
-  setInputValue: (value: string) => void;
-  setSelectedItems: (newItems: Array<SelectItemShape>) => void;
-  slotRight: ReactNode;
-};
-
-const getSlotRight = ({
-  inputValue,
-  isClearable,
-  isFilterable,
-  onSelectedItemsChange,
-  reset,
-  selectedItems,
-  setInputValue,
-  setSelectedItems,
-  slotRight,
-}: GetSlotRightArgs) => {
-  if (
-    (isFilterable && inputValue?.length > 0) ||
-    (isClearable && selectedItems.length > 0)
-  ) {
-    return (
-      <FieldActionButtonClear
-        onClick={() => {
-          onSelectedItemsChange([]);
-          setInputValue("");
-          setSelectedItems([]);
-          return reset();
-        }}
-      />
-    );
-  }
-
-  return slotRight;
-};
+import type {
+  WithIsClearable,
+  WithName,
+  WithOptionalLabel,
+  WithPlaceholder,
+  WithSize,
+  WithSlots,
+  WithStateDisabled,
+  WithStateInvalid,
+  WithWrapperProps,
+} from "../../../common-types";
+import type { InputProps } from "../../input";
+import type { SelectItemShape } from "../types";
+import type { UseComboboxStateChange } from "downshift";
 
 /** ----------------------------------------------------------------------------- */
 
@@ -87,7 +52,7 @@ const getInputPlaceholder = ({
   selectedItems,
   selectedItemsToString,
 }: GetInputValueArgs) => {
-  if (!Array.isArray(selectedItems) || selectedItems.length < 1) {
+  if (!arrayHasLength(selectedItems)) {
     return placeholder;
   }
 
@@ -95,36 +60,49 @@ const getInputPlaceholder = ({
     return selectedItemsToString(selectedItems);
   }
 
-  return getDisplayValue({
-    length: selectedItems?.length,
-    originalValue: placeholder,
-  });
+  return `${selectedItems.length} selected`;
 };
 
 /** ----------------------------------------------------------------------------- */
 
-export type SelectMultiProps = SelectCommonProps &
+export type SelectMultiProps = Partial<WithOptionalLabel> &
+  WithStateInvalid &
+  Omit<WithIsClearable, "readOnly"> &
+  WithSlots &
+  WithSize &
+  WithStateDisabled &
+  WithName &
   WithWrapperProps &
   WithPlaceholder & {
+    /** Item to be preselected when the component mounts. */
     initialSelectedItems?: Array<SelectItemShape>;
-    onChange?: (changes: Array<SelectItemShape>) => void;
+    /** Props to customise the input element. */
+    inputProps?: Partial<InputProps>;
+    /** Whether the Select should be filterable by typing. */
+    isFilterable?: boolean;
+    /** Prop to toggle the open state of the dropdown. */
+    isOpen?: boolean;
+    /** The items to render in the dropdown. */
+    items: Array<SelectItemShape>;
+    /** Function called with the selected items when the selection changes. */
+    onChange?: (selection: Array<SelectItemShape> | undefined) => void;
+    /** Function called with the new open state when the dropdown is opened or closed. */
+    onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
+    /** An array of selected items, used to control the component from outside. */
     selectedItems?: Array<SelectItemShape>;
+    /** A function that returns a string representation of the selected items. */
     selectedItemsToString?: (selectedItems: Array<SelectItemShape>) => string;
   };
 
 export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
   (
     {
-      disabled,
-      errorMessage,
       id,
-      initialHighlightedItem,
       initialSelectedItems = [],
       inputProps,
-      invalid,
       isClearable,
       isFilterable,
-      items,
+      items: initialItems,
       label,
       labelTooltip,
       name,
@@ -135,45 +113,37 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
       selectedItemsToString,
       size,
       slotLeft,
-      slotRight = DEFAULT_SLOT_RIGHT,
+      slotRight = [<Icon icon={faAngleDown} />],
       wrapperProps,
       ...rest
     },
-    ref
+    initialRef
   ) => {
+    const ref = useForwardRef(initialRef);
+
     const [inputValue, setInputValue] = useState("");
     const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape>>(
       controlledSelectedItems || [
           ...initialSelectedItems,
-          ...items.filter((item) => {
+          ...initialItems.filter((item) => {
             return item.isSelected;
           }),
         ] ||
         []
     );
 
-    /** --------------------------------------------- */
-
-    // const renderCounts = useRef(0);
-
-    // useEffect(() => {
-    //   renderCounts.current += 1;
-    //   console.log(`renderCount: ${renderCounts.current}`);
-    // });
+    const items = isFilterable
+      ? filterSelectItems({ inputValue, items: initialItems })
+      : initialItems;
 
     /** --------------------------------------------- */
 
-    const inputRef = useForwardRef(ref);
-    const listRef = useRef<HTMLDivElement>();
-
-    /** --------------------------------------------- */
-
-    const onSelectedItemsChange = useCallback(
-      (newItems: Array<SelectItemShape>) => {
-        onChange?.(newItems);
-      },
-      [onChange]
-    );
+    // const onSelectedItemsChange = useCallback(
+    //   (newItems: Array<SelectItemShape>) => {
+    //     onChange?.(newItems);
+    //   },
+    //   [onChange]
+    // );
 
     /** --------------------------------------------- */
 
@@ -189,6 +159,9 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
 
     const { getDropdownProps, getSelectedItemProps } =
       useMultipleSelection<SelectItemShape>({
+        onSelectedItemsChange: (changes) => {
+          onChange?.(changes.selectedItems);
+        },
         selectedItems,
       });
 
@@ -216,7 +189,7 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
       isOpen,
       reset,
     } = useCombobox<SelectItemShape>({
-      items: filterItems({ inputValue, items }),
+      items,
       onIsOpenChange,
       onStateChange({
         inputValue: newInputValue,
@@ -237,17 +210,17 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
 
             if (getIsItemSelected(newSelectedItem)) {
               removeSelectedItem(newSelectedItem);
-              onSelectedItemsChange(
-                selectedItems.filter((prevSelectedItem) => {
-                  return prevSelectedItem.value !== newSelectedItem.value;
-                })
-              );
+              // onSelectedItemsChange(
+              //   selectedItems.filter((prevSelectedItem) => {
+              //     return prevSelectedItem.value !== newSelectedItem.value;
+              //   })
+              // );
               break;
             }
 
             if (newSelectedItem) {
               setSelectedItems([...selectedItems, newSelectedItem]);
-              onSelectedItemsChange([...selectedItems, newSelectedItem]);
+              // onSelectedItemsChange([...selectedItems, newSelectedItem]);
               break;
             }
 
@@ -274,10 +247,9 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
 
     /** --------------------------------------------- */
 
-    const { floatingStyles } = useFloating({
+    const { floatingStyles, refs } = useFloating({
       elements: {
-        floating: listRef.current,
-        reference: inputRef.current,
+        reference: ref.current,
       },
       middleware: [
         offset(4),
@@ -286,8 +258,7 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
           fallbackAxisSideDirection: "start",
         }),
       ],
-      // open: isOpen,
-      placement: "bottom",
+      placement: "bottom-start",
       whileElementsMounted: autoUpdate,
     });
 
@@ -296,44 +267,40 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
     return (
       <Box position="relative" {...wrapperProps}>
         <Input
-          {...inputProps}
-          className={clsx(selectInputCursorStyles, {
-            [selectMultiInputSelectedItemsStyle]: selectedItems?.length > 0,
-          })}
-          errorMessage={errorMessage}
-          invalid={invalid}
-          label={label}
-          labelProps={getLabelProps({
-            htmlFor: id,
-          })}
-          labelTooltip={labelTooltip}
-          readOnly={!isFilterable}
-          size={size}
-          slotLeft={slotLeft}
-          slotRight={getSlotRight({
-            inputValue,
-            isClearable,
-            isFilterable,
-            onSelectedItemsChange,
-            reset,
-            selectedItems,
-            setInputValue,
-            setSelectedItems,
-            slotRight,
-          })}
           {...getInputProps?.({
             ...getDropdownProps({
               preventKeyAction: isOpen,
-              ref: inputRef,
+              ref,
             }),
+            ...inputProps,
             ...rest,
-            disabled,
+            className: clsx(selectInputCursorStyles, {
+              [selectMultiInputSelectedItemsStyle]:
+                arrayHasLength(selectedItems),
+            }),
             id,
+            isClearable: undefined,
+            label,
+            labelProps: getLabelProps({
+              htmlFor: id,
+            }),
+            labelTooltip,
             name,
             placeholder: getInputPlaceholder({
               placeholder,
               selectedItems,
               selectedItemsToString,
+            }),
+
+            readOnly: !isFilterable,
+            size,
+            slotLeft,
+            slotRight: getSlotRight({
+              canClear:
+                (!!isFilterable && !!inputValue) ||
+                (!!isClearable && arrayHasLength(selectedItems)),
+              reset,
+              slotRight,
             }),
             value: inputValue,
           })}
@@ -346,8 +313,8 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
           highlightedIndex={highlightedIndex}
           isMulti
           isOpen={isOpen}
-          items={filterItems({ inputValue, items })}
-          ref={listRef}
+          items={filterSelectItems({ inputValue, items })}
+          ref={refs.setFloating}
           removeSelectedItem={removeSelectedItem}
           size={size}
           style={floatingStyles}

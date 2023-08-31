@@ -1,6 +1,6 @@
-import type { SelectItemShape } from "./types";
+import type { SelectItemShape } from "../../types";
 
-type GetFilteredDropdownItemsArgs = {
+type FilterSelectItemsArgs = {
   /** Value of controlled combobox input */
   inputValue?: string;
   /** An array of dropdown items */
@@ -10,10 +10,10 @@ type GetFilteredDropdownItemsArgs = {
 /**
  * Removes items not matching `inputValue` from `items`
  */
-export function filterItems({
+export function filterSelectItems({
   inputValue,
   items,
-}: GetFilteredDropdownItemsArgs) {
+}: FilterSelectItemsArgs) {
   if (!inputValue) {
     return items;
   }
