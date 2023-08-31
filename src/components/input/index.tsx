@@ -2,7 +2,6 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { arrayHasLength } from "../../lib/array_has_length";
 import { a11yError } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { FieldWrapper } from "../field_wrapper";
@@ -77,7 +76,7 @@ export const Input = forwardRef(
       readOnly,
       size = "md",
       slotLeft,
-      slotRight: initialSlotRight,
+      slotRight: initialSlotRight = [],
       type,
       value,
       wrapperProps,
@@ -116,7 +115,8 @@ export const Input = forwardRef(
         <SlotWrapperInset
           size={size}
           slotLeft={slotLeft}
-          slotRight={arrayHasLength(actions) ? actions : initialSlotRight}
+          slotRight={[...actions, ...initialSlotRight]}
+          // slotRight={arrayHasLength(actions) ? actions : initialSlotRight}
         >
           <input
             className={clsx(
