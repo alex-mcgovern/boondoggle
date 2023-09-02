@@ -4,7 +4,12 @@ import { Box } from "../box";
 
 import type { WithSlots } from "../../common-types";
 
-export type DialogInfoBulletProps = WithSlots & {
+export type DialogInfoBulletProps = {
+  /** React node(s) rendered on the left-hand side. */
+  slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
+  /** React node(s) rendered on the right-hand side. */
+  slotRight?: [ReactNode?, ReactNode?, ReactNode?];
+} & {
   text?: string;
   title?: string;
 };

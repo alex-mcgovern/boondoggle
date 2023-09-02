@@ -26,9 +26,12 @@ import type {
 type BaseTabProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
-    WithColorOverlay &
-      WithSlots &
-      WithSize &
+    WithColorOverlay & {
+      /** React node(s) rendered on the left-hand side. */
+      slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
+      /** React node(s) rendered on the right-hand side. */
+      slotRight?: [ReactNode?, ReactNode?, ReactNode?];
+    } & WithSize &
       WithStateDisabled & {
         /** The react node rendered in the tab. */
         children?: ReactNode;

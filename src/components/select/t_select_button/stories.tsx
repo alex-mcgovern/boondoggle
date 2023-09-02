@@ -1,13 +1,8 @@
-import { createRef, useCallback } from "react";
-
 import { SelectButton as StoryComp } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { Box } from "../../box";
-import { DialogModal } from "../../dialog_modal";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectButtonProps as StoryCompProps } from ".";
-import type { Meta, StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
   args: {
@@ -92,39 +87,39 @@ export const WithButtonsAsItems: Story = {
 
 /** ----------------------------------------------------------------------------- */
 
-const WithDialogTriggerNodeAsItemTemplate: StoryFn<StoryCompProps> = (
-  props: StoryCompProps
-) => {
-  const dialogRef = createRef<HTMLDialogElement>();
+// const WithDialogTriggerNodeAsItemTemplate: StoryFn<StoryCompProps> = (
+//   props: StoryCompProps
+// ) => {
+//   const dialogRef = createRef<HTMLDialogElement>();
 
-  const openDialog = useCallback(() => {
-    dialogRef.current?.showModal();
-  }, [dialogRef]);
+//   const openDialog = useCallback(() => {
+//     dialogRef.current?.showModal();
+//   }, [dialogRef]);
 
-  return (
-    <>
-      <DialogModal ref={dialogRef} title="test" width="lg">
-        <Box>Hello</Box>
-      </DialogModal>
-      <Box marginLeft="auto">
-        <StoryComp
-          {...props}
-          buttonText="Click me"
-          items={[
-            {
-              as: "button",
-              label: "test",
-              onClick: openDialog,
-              value: "test",
-            },
-          ]}
-          name="select_button"
-        />
-      </Box>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <DialogModal ref={dialogRef} title="test" width="lg">
+//         <Box>Hello</Box>
+//       </DialogModal>
+//       <Box marginLeft="auto">
+//         <StoryComp
+//           {...props}
+//           buttonText="Click me"
+//           items={[
+//             {
+//               as: "button",
+//               label: "test",
+//               onClick: openDialog,
+//               value: "test",
+//             },
+//           ]}
+//           name="select_button"
+//         />
+//       </Box>
+//     </>
+//   );
+// };
 
-export const WithDialogTriggerNodeAsItem: Story = {
-  render: WithDialogTriggerNodeAsItemTemplate,
-};
+// export const WithDialogTriggerNodeAsItem: Story = {
+//   render: WithDialogTriggerNodeAsItemTemplate,
+// };

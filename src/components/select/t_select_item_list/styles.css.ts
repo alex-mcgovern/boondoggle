@@ -13,6 +13,7 @@ export const getSelectItemListStyles = recipe({
       borderRadius: "md",
       boxShadow: "md",
       minWidth: "100%",
+      overflow: "hidden",
       width: "max-content",
       zIndex: "1",
     }),

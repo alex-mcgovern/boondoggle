@@ -8,7 +8,9 @@ import { createAccessibleTransition } from "./utils/create_accessible_transition
 
 import type { StyleRule } from "@vanilla-extract/css";
 
-/** ----------------------------------------------------------------------------- */
+/**
+ * -----------------------------------------------------------------------------
+ */
 
 globalStyle(`*`, {
   // outline: `0.25px solid rgba(255, 0, 0, 0.25) !important`,
@@ -129,6 +131,31 @@ globalStyle(`input[type="search"]`, {
   },
 });
 
+// INPUT DATE STYLES
+
+// UNUSED: Styles the background of the input date field
+// globalStyle(`input::-webkit-datetime-edit`, {});
+
+// UNUSED: Styles the background of the text within the input date field
+// globalStyle(`input::-webkit-datetime-edit-fields-wrapper `, {});
+
+// UNUSED: Styles the text within the input date field
+// globalStyle(`input::-webkit-datetime-edit-text `, {});
+
+// UNUSED: Styles the month text within the input date field
+// globalStyle(`input::-webkit-datetime-edit-month-field`, { color: "blue" });
+
+// UNUSED: Styles the day text within the input date field
+// globalStyle(`input::-webkit-datetime-edit-day-field`, {});
+
+// UNUSED: Styles the year text within the input date field
+// globalStyle(`input::-webkit-datetime-edit-year-field`, {});
+
+// UNUSED: Styles the year text within the input date field
+// globalStyle(`input::-webkit-inner-spin-button`, { display: "none" });
+
+// globalStyle(`input::-webkit-calendar-picker-indicator`, { color: "red" });
+
 globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
   "@layer": {
     [resetLayer]: {
@@ -149,7 +176,10 @@ globalStyle(":root", {
       },
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`*`, {
   "@layer": {
@@ -185,7 +215,10 @@ globalStyle(`body`, {
       WebkitFontSmoothing: `antialiased`,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`a`, {
   "@layer": {
@@ -213,7 +246,11 @@ globalStyle("a:focus-visible", {
       ...a11yFocusStyleRule,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+});
+
+/**
+ * -----------------------------------------------------------------------------
+ */
 
 globalStyle(`button`, {
   "@layer": {
@@ -224,7 +261,11 @@ globalStyle(`button`, {
       WebkitAppearance: "none",
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+});
+
+/**
+ * -----------------------------------------------------------------------------
+ */
 
 globalStyle("input[type=checkbox]", {
   "@layer": {
@@ -232,7 +273,10 @@ globalStyle("input[type=checkbox]", {
       accentColor: vars.color.button_default,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`code`, {
   "@layer": {
@@ -241,7 +285,10 @@ globalStyle(`code`, {
       fontWeight: vars.fontWeight.normal,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`h1, h2, h3, h4, h5, h6`, {
   "@layer": {
@@ -301,7 +348,10 @@ globalStyle(`h6`, {
       fontSize: vars.fontSize.h6,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`hr`, {
   "@layer": {
@@ -313,7 +363,10 @@ globalStyle(`hr`, {
       marginTop: vars.spacing.space_6,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 export const textFieldStyleRule: StyleRule = {
   background: vars.color.background,
@@ -344,7 +397,9 @@ globalStyle("input, textarea", {
 //   },
 // });
 
-/** ----------------------------------------------------------------------------- */
+/**
+ * -----------------------------------------------------------------------------
+ */
 
 globalStyle(
   "input::-webkit-outer-spin-button, input::-webkit-inner-spin-button",
@@ -365,7 +420,9 @@ globalStyle("input[type=number]", {
   },
 });
 
-/** ----------------------------------------------------------------------------- */
+/**
+ * -----------------------------------------------------------------------------
+ */
 
 globalStyle("input::placeholder, textarea::placeholder", {
   "@layer": {
@@ -407,7 +464,10 @@ globalStyle(
       },
     },
   }
-); /** ----------------------------------------------------------------------------- */
+); /**
+))) * -----------------------------------------------------------------------------
+)))
+*/
 
 globalStyle(`ul, ol`, {
   "@layer": {
@@ -435,7 +495,10 @@ globalStyle(`ul li::marker, ol li::marker`, {
       fontWeight: vars.fontWeight.semibold,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`menu`, {
   "@layer": {
@@ -445,7 +508,10 @@ globalStyle(`menu`, {
       padding: 0,
     },
   },
-}); /** ----------------------------------------------------------------------------- */
+}); /**
+}}}} * -----------------------------------------------------------------------------
+}}}}
+*/
 
 globalStyle(`p`, {
   "@layer": {
@@ -456,7 +522,9 @@ globalStyle(`p`, {
   },
 });
 
-/** ----------------------------------------------------------------------------- */
+/**
+ * -----------------------------------------------------------------------------
+ */
 
 globalStyle(`table`, {
   "@layer": {

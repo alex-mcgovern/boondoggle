@@ -27,9 +27,12 @@ type BaseTagProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
   PolymorphicComponentPropWithRef<
     TPolymorphicAs,
     WithColorOverlay &
-      WithSize &
-      WithSlots &
-      WithStateDisabled & {
+      WithSize & {
+        /** React node(s) rendered on the left-hand side. */
+        slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
+        /** React node(s) rendered on the right-hand side. */
+        slotRight?: [ReactNode?, ReactNode?, ReactNode?];
+      } & WithStateDisabled & {
         /** The react node rendered in the tag. */
         children?: ReactNode;
         /** Used as the html ID. */

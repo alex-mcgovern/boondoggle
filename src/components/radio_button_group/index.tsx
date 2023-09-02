@@ -10,11 +10,11 @@ import { RadioButton } from "../radio_button";
 import { getGroupLabelStyles } from "./styles.css";
 
 import type {
-  WithDescription,
-  WithName,
-  WithOptionalLabel,
-  WithStateInvalid,
-  WithWrapperProps,
+    WithDescription,
+    WithName,
+    WithOptionalLabel,
+    WithStateInvalid,
+    WithWrapperProps,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio_button";
@@ -23,116 +23,112 @@ import type { Ref } from "react";
 /** ----------------------------------------------------------------------------- */
 
 export type RadioButtonGroupProps = SprinklesArgs &
-  WithWrapperProps &
-  WithStateInvalid &
-  WithName &
-  WithDescription &
-  WithOptionalLabel & {
-    defaultValue?: string | number;
-    id: string;
-    inputProps?: RadioButtonInputProps;
-    invalid?: boolean;
-    isLabelVisible?: boolean;
-    items: Array<RadioButtonShape>;
-    label: string;
-    labelTooltip?: string;
-    onChange?: (value: string) => void;
-    required?: boolean;
-    value?: string;
-  };
+    WithWrapperProps &
+    WithStateInvalid &
+    WithName &
+    WithDescription &
+    WithOptionalLabel & {
+        defaultValue?: string | number;
+        id: string;
+        inputProps?: RadioButtonInputProps;
+        invalid?: boolean;
+        isLabelVisible?: boolean;
+        items: Array<RadioButtonShape>;
+        label: string;
+        labelTooltip?: string;
+        onChange?: (value: string) => void;
+        required?: boolean;
+        value?: string;
+    };
 
 export const RadioButtonGroup = forwardRef(
-  (
-    {
-      defaultValue,
-      description,
-      errorMessage,
-      id,
-      inputProps,
-      invalid,
-      isLabelVisible,
-      items,
-      label,
-      labelProps,
-      labelTooltip,
-      name,
-      onChange,
-      required,
-      value,
-      wrapperProps,
-      ...rest
-    }: RadioButtonGroupProps,
-    ref: Ref<HTMLDivElement>
-  ) => {
-    const controlledItems: Array<RadioButtonShape> = useMemo(() => {
-      if (!Array.isArray(items) || items.length < 1) {
-        return [];
-      }
-      return items.map((item) => {
-        return {
-          ...item,
-          checked: defaultValue === item.value || value === item.value,
-        };
-      });
-    }, [defaultValue, items, value]);
+    (
+        {
+            defaultValue,
+            description,
+            errorMessage,
+            id,
+            inputProps,
+            invalid,
+            isLabelVisible,
+            items,
+            label,
+            labelProps,
+            labelTooltip,
+            name,
+            onChange,
+            required,
+            value,
+            wrapperProps,
+            ...rest
+        }: RadioButtonGroupProps,
+        ref: Ref<HTMLDivElement>
+    ) => {
+        const controlledItems: Array<RadioButtonShape> = useMemo(() => {
+            if (!Array.isArray(items) || items.length < 1) {
+                return [];
+            }
+            return items.map((item) => {
+                return {
+                    ...item,
+                    checked: defaultValue === item.value || value === item.value,
+                };
+            });
+        }, [defaultValue, items, value]);
 
-    /** --------------------------------------------- */
+        /** --------------------------------------------- */
 
-    if (!Array.isArray(controlledItems) || controlledItems.length < 1) {
-      return null;
+        if (!Array.isArray(controlledItems) || controlledItems.length < 1) {
+            return null;
+        }
+
+        /** --------------------------------------------- */
+
+        return (
+            <Box
+                className={clsx({ [variantColorOverlay.red]: invalid })}
+                {...wrapperProps}
+                ref={ref}
+            >
+                {label && id && (
+                    <FieldLabel
+                        className={getGroupLabelStyles({ isLabelVisible })}
+                        htmlFor={id}
+                        id={`label-${id}`}
+                        label={label}
+                        labelTooltip={labelTooltip}
+                        {...labelProps}
+                    />
+                )}
+                <Box
+                    aria-labelledby={`label-${id}`}
+                    as="fieldset"
+                    display="flex"
+                    flexDirection="column"
+                    gap="space_2"
+                    id={id}
+                    name={name}
+                    {...rest}
+                >
+                    {controlledItems.map((item) => {
+                        return (
+                            <RadioButton
+                                checked={item.checked}
+                                description={item.description}
+                                inputProps={inputProps}
+                                key={item.title}
+                                name={name}
+                                onChange={onChange}
+                                required={required}
+                                title={item.title}
+                                value={item.value}
+                            />
+                        );
+                    })}
+                </Box>
+                {invalid && errorMessage && <FieldErrorMessage message={errorMessage} />}
+                {description && !invalid && <FieldDescription description={description} />}
+            </Box>
+        );
     }
-
-    /** --------------------------------------------- */
-
-    return (
-      <Box
-        className={clsx({ [variantColorOverlay.red]: invalid })}
-        {...wrapperProps}
-        ref={ref}
-      >
-        {label && id && (
-          <FieldLabel
-            className={getGroupLabelStyles({ isLabelVisible })}
-            htmlFor={id}
-            id={`label-${id}`}
-            label={label}
-            labelTooltip={labelTooltip}
-            {...labelProps}
-          />
-        )}
-        <Box
-          aria-labelledby={`label-${id}`}
-          as="fieldset"
-          display="flex"
-          flexDirection="column"
-          gap="space_2"
-          id={id}
-          name={name}
-          {...rest}
-        >
-          {controlledItems.map((item) => {
-            return (
-              <RadioButton
-                checked={item.checked}
-                description={item.description}
-                inputProps={inputProps}
-                key={item.title}
-                name={name}
-                onChange={onChange}
-                required={required}
-                title={item.title}
-                value={item.value}
-              />
-            );
-          })}
-        </Box>
-        {invalid && errorMessage && (
-          <FieldErrorMessage message={errorMessage} />
-        )}
-        {description && !invalid && (
-          <FieldDescription description={description} />
-        )}
-      </Box>
-    );
-  }
 );

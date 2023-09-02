@@ -54,15 +54,6 @@ export const downshiftStateReducer = (
   const { changes, type } = actionAndChanges;
 
   switch (type) {
-    /**
-     * Prevent flash of menu on first input click
-     * Should be resolved by issue here: https://github.com/downshift-js/downshift/issues/1439
-     *
-     * ToDo: [Select] Test downshift fix and report back
-     */
-    case useCombobox.stateChangeTypes.InputFocus:
-      return { ...changes, isOpen: false };
-
     /** Keep the menu open in multi-select mode */
     case useCombobox.stateChangeTypes.InputBlur:
     case useCombobox.stateChangeTypes.InputKeyDownEnter:
