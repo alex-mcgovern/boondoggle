@@ -36,16 +36,9 @@ export type TextAreaProps = Omit<ComponentPropsWithoutRef<"textarea">, "color" |
     WithOptionalLabel &
     WithOptionalPlaceholder &
     WithReadOnly &
-    WithSize & {
-        /**
-         * React node(s) rendered on the left-hand side.
-         */
-        slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
-        /**
-         * React node(s) rendered on the right-hand side.
-         */
-        slotRight?: [ReactNode?, ReactNode?, ReactNode?];
-    } & WithStateInvalid &
+    WithSize &
+    WithSlots &
+    WithStateInvalid &
     WithWrapperProps;
 
 export const TextArea = forwardRef(

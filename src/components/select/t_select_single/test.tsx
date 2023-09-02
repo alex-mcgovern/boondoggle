@@ -16,10 +16,6 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 
 import type { SelectSingleProps } from ".";
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 const ON_CHANGE = jest.fn();
 
 const PROPS: SelectSingleProps = {
@@ -39,10 +35,6 @@ const renderComponent = (props: SelectSingleProps) => {
     };
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 describe("<SelectSingle />", () => {
     describe("Basic smoke tests", () => {
         test("should render without throwing", async () => {
@@ -53,16 +45,17 @@ describe("<SelectSingle />", () => {
     });
 });
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 describe("<SelectSingle />", () => {
     describe("Slot props", () => {
         test("should render node passed to `slotLeft`", async () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
-                slotLeft: [<Icon data-testid="icon" icon={faSearch} />],
+                slotLeft: [
+                    <Icon
+                        data-testid="icon"
+                        icon={faSearch}
+                    />,
+                ],
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -71,16 +64,17 @@ describe("<SelectSingle />", () => {
         test("should render node passed to `slotRight`", async () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
-                slotRight: [<Icon data-testid="icon" icon={faSearch} />],
+                slotRight: [
+                    <Icon
+                        data-testid="icon"
+                        icon={faSearch}
+                    />,
+                ],
             });
             expect(getByTestId("icon")).not.toBeNull();
         });
     });
 });
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 describe("<SelectSingle />", () => {
     describe("Size", () => {
@@ -110,10 +104,6 @@ describe("<SelectSingle />", () => {
     });
 });
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 describe("<SelectSingle />", () => {
     test("should render placeholder", async () => {
         const { getByRole } = renderComponent(PROPS);
@@ -122,10 +112,6 @@ describe("<SelectSingle />", () => {
         expect((combobox as HTMLInputElement).placeholder).toBe(PROPS.placeholder);
     });
 });
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 describe("<SelectSingle />", () => {
     test("mouse navigation", async () => {
@@ -167,10 +153,6 @@ describe("<SelectSingle />", () => {
     });
 });
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 describe("<SelectSingle />", () => {
     test("should be labelled", async () => {
         const { container, getByRole } = renderComponent(PROPS);
@@ -191,10 +173,6 @@ describe("<SelectSingle />", () => {
         expect(getByRole("combobox")).toMatchSnapshot();
     });
 });
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 describe("<SelectSingle />", () => {
     test("keyboard navigation", async () => {
@@ -233,10 +211,6 @@ describe("<SelectSingle />", () => {
     });
 });
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 describe("<SelectSingle />", () => {
     test("should have error styling", () => {
         const { getByRole, getByText } = renderComponent({
@@ -252,10 +226,6 @@ describe("<SelectSingle />", () => {
     });
 });
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 describe("<SelectSingle />", () => {
     describe("Initial selected item", () => {
         test("should have value of initial selected item", async () => {
@@ -269,10 +239,6 @@ describe("<SelectSingle />", () => {
         });
     });
 });
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 describe("<SelectSingle />", () => {
     describe("Disabled state", () => {
@@ -297,10 +263,6 @@ describe("<SelectSingle />", () => {
         });
     });
 });
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 describe("<SelectSingle />", () => {
     describe("dialog / dropdown menu", () => {

@@ -2,16 +2,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import {
-    type WithHideLastpass,
-    type WithId,
-    type WithOptionalIsClearable,
-    type WithOptionalIsCopyable,
-    type WithOptionalLabel,
-    type WithSize,
-    type WithSlots,
-    getOptionalLabelProps,
-} from "../../common-types";
+import { getOptionalLabelProps } from "../../common-types";
 import { arrayHasLength } from "../../lib/array_has_length";
 import { a11yError } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -20,72 +11,63 @@ import { SlotWrapperInset } from "../slot_wrapper_inset";
 import { useFieldActions } from "./lib/use_field_actions";
 import { getInputStyles } from "./styles.css";
 
-import type { WithOptionalPlaceholder } from "../../common-types";
-import type { ColorOverlay } from "../../styles/color_palette.css";
+import type {
+    WithColorOverlay,
+    WithDescription,
+    WithHideLastpass,
+    WithId,
+    WithName,
+    WithOptionalIsClearable,
+    WithOptionalIsCopyable,
+    WithOptionalIsVisibilityToggleable,
+    WithOptionalLabel,
+    WithOptionalPlaceholder,
+    WithReadOnly,
+    WithSize,
+    WithSlots,
+    WithStateInvalid,
+    WithWrapperProps,
+} from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { BoxProps } from "../box";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
-
-/**
- * -----------------------------------------------------------------------------
- */
+import type { ComponentPropsWithoutRef } from "react";
 
 export type InputProps = Partial<
-    Pick<ComponentPropsWithoutRef<"input">, "defaultValue" | "value" | "onChange" | "className">
+    Pick<
+        ComponentPropsWithoutRef<"input">,
+        | "defaultValue"
+        | "value"
+        | "onChange"
+        | "onClick"
+        | "onFocus"
+        | "onMouseOver"
+        | "onMouseLeave"
+        | "className"
+        | "autoComplete"
+        | "type"
+        | "onBlur"
+        | "disabled"
+    >
 > &
     SprinklesArgs &
+    WithColorOverlay &
     WithHideLastpass &
     WithId &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
+    WithOptionalIsVisibilityToggleable &
     WithOptionalLabel &
+    WithOptionalPlaceholder &
+    WithReadOnly &
     WithSize &
     WithSlots &
-    WithOptionalPlaceholder & {
-        /**
-         * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
-         */
-        colorOverlay?: ColorOverlay;
-        /**
-         * Description shown under the field (when there is no error message).
-         */
-        description?: ReactNode;
-        /**
-         * Message shown when field fails validation.
-         */
-        errorMessage?: string;
+    WithWrapperProps &
+    WithDescription &
+    WithStateInvalid &
+    WithName & {
         /**
          * Whether to render the input with a border.
          */
         hasBorder?: boolean;
-        /**
-         * Whether the value of the field fails validation.
-         */
-        invalid?: boolean;
-        /**
-         * Whether the input field value visibility can be toggled or not.
-         */
-        isVisibilityToggleable?: boolean;
-        /**
-         * Whether the input field value is visible or not.
-         */
-        isVisible?: boolean;
-        /**
-         * Name of the component. If field is connected as a form field, will be used to key the value in the form field values.
-         */
-        name: string;
-        /**
-         * Placeholder shown on empty field.
-         */
-        placeholder?: string;
-        /**
-         * Whether the input is read-only or not.
-         */
-        readOnly?: boolean;
-        /**
-         * Props for the wrapper component.
-         */
-        wrapperProps?: BoxProps;
     };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(

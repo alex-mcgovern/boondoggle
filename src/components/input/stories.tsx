@@ -202,12 +202,12 @@ const TemplateSlot = () => {
 
             <TemplateSizes isClearable />
             <TemplateSizes
-                isCopyable
                 isClearable
+                isCopyable
             />
             <TemplateSizes
-                isCopyable
                 isClearable
+                isCopyable
             />
 
             <hr />
@@ -233,12 +233,12 @@ const TemplateSlot = () => {
 
             <TemplateSizes isClearable />
             <TemplateSizes
-                isCopyable
                 isClearable
+                isCopyable
             />
             <TemplateSizes
-                isCopyable
                 isClearable
+                isCopyable
             />
         </>
     );
@@ -294,8 +294,8 @@ const TemplateIsVisibilityToggleable = () => {
             <Box as="h3">Is visibility toggleable</Box>
 
             <TemplateSizes
-                isVisibilityToggleable
                 defaultValue={LOREM.text_xxs}
+                isVisibilityToggleable
                 isVisible={false}
             />
         </>
@@ -316,9 +316,9 @@ const TemplateIsVisibilityToggleableAndIsCopyable = () => {
             <Box as="h3">Is visibility toggleable and is copyable</Box>
 
             <TemplateSizes
+                defaultValue={LOREM.text_xxs}
                 isCopyable
                 isVisibilityToggleable
-                defaultValue={LOREM.text_xxs}
                 isVisible={false}
             />
         </>

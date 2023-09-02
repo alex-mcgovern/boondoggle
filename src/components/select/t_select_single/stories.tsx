@@ -26,25 +26,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export const Default: Story = {};
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const InitialSelectedItem: Story = {
     args: {
         initialSelectedItem: mockSelectItems({})[0],
     },
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const Invalid: Story = {
     args: {
@@ -53,29 +41,17 @@ export const Invalid: Story = {
     },
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export const IsClearable: Story = {
     args: {
         isClearable: true,
     },
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export const IsFilterable: Story = {
     args: {
         isFilterable: true,
     },
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const Customisation: Story = {
     args: {
@@ -89,47 +65,29 @@ export const Customisation: Story = {
     },
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export const Disabled: Story = {
     args: {
         disabled: true,
     },
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export const SizeSm: Story = {
     args: {
         size: "sm",
     },
 };
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const SizeMd: Story = {
     args: {
         size: "md",
     },
 };
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const SizeLg: Story = {
     args: {
         size: "lg",
     },
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const WithButtonsAsItems: Story = {
     args: {
@@ -140,10 +98,6 @@ export const WithButtonsAsItems: Story = {
         }),
     },
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const WithItemsWithSelectedTrue: Story = {
     args: {
@@ -167,19 +121,11 @@ export const WithItemsWithSelectedTrue: Story = {
     },
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export const WithItemsWithSlotLeft: Story = {
     args: {
         items: mockSelectItems({ withIcon: true }),
     },
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export const WithSlotLeft: Story = {
     args: {
@@ -187,11 +133,7 @@ export const WithSlotLeft: Story = {
     },
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
-export const WithSlotRight: Story = {
+export const WithSlots: Story = {
     args: {
         slotRight: [<Icon icon={faGlobeAfrica} />],
     },

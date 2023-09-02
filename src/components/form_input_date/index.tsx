@@ -13,7 +13,9 @@ import type { InputDateProps } from "../input_date";
 export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
     WithOptionalPlaceholder &
     WithFormFieldProps & {
-        /** Override input default value to accept a string only */
+        /**
+         * Override input default value to accept a string only
+         */
         defaultValue?: string;
     };
 

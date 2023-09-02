@@ -12,10 +12,6 @@ import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
 import type { MouseEvent } from "react";
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type InputDateProps = Omit<
     InputProps,
     "isClearable" | "isCopyable" | "isVisibilityToggleable"
@@ -85,6 +81,8 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                         {...rest}
                         className={inputDateStyle}
                         defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
+                        isVisibilityToggleable={undefined}
+                        isVisible={undefined}
                         readOnly
                         ref={ref}
                         slotLeft={slotLeft}

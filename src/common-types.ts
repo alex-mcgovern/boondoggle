@@ -13,17 +13,9 @@ import type {
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type TDataTableRowActions<TData extends RowData> = JSXElementConstructor<{
     row_data: TData;
 }>;
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithDescription = {
     /**
@@ -32,20 +24,12 @@ export type WithDescription = {
     description?: ReactNode;
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithColorOverlay = {
     /**
      * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
      */
     colorOverlay?: ColorOverlay;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithFormFieldProps = {
     /**
@@ -54,20 +38,12 @@ export type WithFormFieldProps = {
     validate?: RegisterOptions["validate"];
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithHideLastpass = {
     /**
      * Whether to hide the Lastpass icon or not.
      */
     hideLastpass?: boolean;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 type BaseIsCopyable = {
     /**
@@ -102,10 +78,6 @@ export const getOptionalIsCopyableProps = ({
 }: BaseIsCopyable): WithOptionalIsCopyable => {
     return readOnly && isCopyable ? { isCopyable, readOnly } : { isCopyable: undefined, readOnly };
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 type BaseIsVisibilityToggleable = {
     /**
@@ -147,10 +119,6 @@ export const getOptionalIsVisibilityToggleableProps = ({
     return isVisibilityToggleable ? { isVisibilityToggleable, isVisible } : {};
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 type BaseIsClearable = {
     /**
      * Whether the input is clearable or not.
@@ -191,20 +159,12 @@ export const getOptionalIsClearableProps = ({
         : { isClearable: undefined, readOnly };
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithWrapperProps = {
     /**
      * Props for the wrapper component.
      */
     wrapperProps?: BoxProps;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithName = {
     /**
@@ -213,20 +173,12 @@ export type WithName = {
     name: string;
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithOptionalPlaceholder = {
     /**
      * Placeholder shown on empty field.
      */
     placeholder?: string;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithReadOnly = {
     /**
@@ -235,20 +187,12 @@ export type WithReadOnly = {
     readOnly?: boolean;
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithId = {
     /**
      * HTML element id
      */
     id?: string;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 type BaseWithLabel = {
     /**
@@ -304,19 +248,12 @@ export const getOptionalLabelProps = ({
         : {};
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithSize = {
     /**
      * Consistent size option shared across multiple components.
      */
     size?: ElementSizeEnum;
 };
-/**
- * -----------------------------------------------------------------------------
- */
 
 type Slot = [ReactNode?, ReactNode?, ReactNode?];
 
@@ -331,20 +268,12 @@ export type WithSlots = {
     slotRight?: Slot;
 };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithStateDisabled = {
     /**
      * Whether the component is disabled.
      */
     disabled?: boolean;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithStateInvalid = {
     /**
@@ -356,10 +285,6 @@ export type WithStateInvalid = {
      */
     invalid?: boolean;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithTableOptionalPagination =
     /**
@@ -421,10 +346,6 @@ export type WithTableOptionalPagination =
           strShow?: never;
       };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type WithTableOptionalFiltering =
     /**
      * If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed.
@@ -452,10 +373,6 @@ export type WithTableOptionalFiltering =
            */
           strFilterPlaceholder?: never;
       };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type WithTableOptionalSelectableRows<TData extends RowData> =
     /**
@@ -493,10 +410,6 @@ export type WithTableOptionalSelectableRows<TData extends RowData> =
           onSelect?: never;
       };
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
     /**
      * Pass an HTML tag or custom component to this prop to merge the original component props with the supplied element/component props and change the DOM node.
@@ -522,10 +435,6 @@ export type PolymorphicComponentPropWithRef<
 
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
     ComponentPropsWithRef<TPolymorphicAs>["ref"];
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 // Enum of all HTML element types
 export type ElementTypeArg = HTMLElementTagNameMap[keyof HTMLElementTagNameMap] | undefined;

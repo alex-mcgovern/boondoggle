@@ -32,10 +32,6 @@ import type { InputProps } from "../../input";
 import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 type GetPlaceholderArgs = {
     /**
      * The placeholder text to display when no items are selected.
@@ -69,10 +65,6 @@ const getPlaceholder = ({
 
     return `${selectedItems.length} selected`;
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 export type SelectMultiProps = Partial<WithOptionalLabel> &
     WithStateInvalid &

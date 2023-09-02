@@ -6,10 +6,6 @@ import { RadioButtonCardGroup } from "../radio_button_card_group";
 import type { WithFormFieldProps } from "../../common-types";
 import type { RadioButtonCardGroupProps } from "../radio_button_card_group";
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 export type FormRadioButtonCardGroupProps = RadioButtonCardGroupProps &
     WithFormFieldProps & {
         defaultValue?: string | number;

@@ -14,17 +14,17 @@ const ON_CHANGE = jest.fn();
 const ITEMS = mockSelectItems({});
 
 const meta = {
-  args: {
-    errorMessage: LOREM.errorMessage(),
-    id: LOREM.id(),
-    items: ITEMS,
-    label: LOREM.label(),
-    name: LOREM.name(),
-    onChange: ON_CHANGE,
-    placeholder: LOREM.placeholder(),
-  },
-  component: StoryComp,
-  title: "Components/SelectMulti",
+    args: {
+        errorMessage: LOREM.errorMessage(),
+        id: LOREM.id(),
+        items: ITEMS,
+        label: LOREM.label(),
+        name: LOREM.name(),
+        onChange: ON_CHANGE,
+        placeholder: LOREM.placeholder(),
+    },
+    component: StoryComp,
+    title: "Components/SelectMulti",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -33,129 +33,117 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const Filterable: Story = {
-  args: {
-    isFilterable: true,
-  },
+    args: {
+        isFilterable: true,
+    },
 };
 
 export const InitialSelectedItems: Story = {
-  args: {
-    initialSelectedItems: [ITEMS[0]],
-  },
+    args: {
+        initialSelectedItems: [ITEMS[0]],
+    },
 };
 
 export const Invalid: Story = {
-  args: {
-    invalid: true,
-  },
+    args: {
+        invalid: true,
+    },
 };
 
 export const ItemsWithIsSelectedTrue: Story = {
-  args: {
-    items: [
-      {
-        isSelected: true,
-        label: "United Kingdom",
-        value: "uk",
-      },
-      {
-        isSelected: true,
-        label: "France",
-        value: "fr",
-      },
-      {
-        isSelected: true,
-        label: "Germany",
-        value: "de",
-      },
-    ],
-  },
+    args: {
+        items: [
+            {
+                isSelected: true,
+                label: "United Kingdom",
+                value: "uk",
+            },
+            {
+                isSelected: true,
+                label: "France",
+                value: "fr",
+            },
+            {
+                isSelected: true,
+                label: "Germany",
+                value: "de",
+            },
+        ],
+    },
 };
 
-/** ----------------------------------------------------------------------------- */
-
 const ControlledTemplate = () => {
-  const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape>>(
-    []
-  );
-  return (
-    <Box>
-      <Box
-        alignItems="center"
-        display="flex"
-        gap="space_2"
-        marginBottom="space_4"
-      >
-        <button
-          onClick={() => {
-            return setSelectedItems([]);
-          }}
-          type="button"
-        >
-          Clear selected Items
-        </button>
-        <button
-          onClick={() => {
-            return setSelectedItems([ITEMS[0]]);
-          }}
-          type="button"
-        >
-          Set selected Items
-        </button>
-      </Box>
-      <StoryComp
-        items={ITEMS}
-        name={LOREM.name()}
-        placeholder={LOREM.placeholder()}
-        selectedItems={selectedItems}
-      />
-      {JSON.stringify(selectedItems)}
-    </Box>
-  );
+    const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape>>([]);
+    return (
+        <Box>
+            <Box
+                alignItems="center"
+                display="flex"
+                gap="space_2"
+                marginBottom="space_4"
+            >
+                <button
+                    onClick={() => {
+                        return setSelectedItems([]);
+                    }}
+                    type="button"
+                >
+                    Clear selected Items
+                </button>
+                <button
+                    onClick={() => {
+                        return setSelectedItems([ITEMS[0]]);
+                    }}
+                    type="button"
+                >
+                    Set selected Items
+                </button>
+            </Box>
+            <StoryComp
+                items={ITEMS}
+                name={LOREM.name()}
+                placeholder={LOREM.placeholder()}
+                selectedItems={selectedItems}
+            />
+            {JSON.stringify(selectedItems)}
+        </Box>
+    );
 };
 
 export const Controlled: Story = {
-  render: ControlledTemplate,
+    render: ControlledTemplate,
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const Customisation: Story = {
-  args: {
-    wrapperProps: {
-      marginBottom: "space_6",
+    args: {
+        wrapperProps: {
+            marginBottom: "space_6",
+        },
     },
-  },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const OnChange: Story = {
-  args: {
-    onChange: (selectedItems: Array<SelectItemShape>) => {
-      alert(JSON.stringify({ selectedItems }));
+    args: {
+        onChange: (selectedItems: Array<SelectItemShape>) => {
+            alert(JSON.stringify({ selectedItems }));
+        },
     },
-  },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const SelectedItemsToString: Story = {
-  args: {
-    selectedItemsToString: (selectedItems: Array<SelectItemShape>) => {
-      if (selectedItems.length === 1) {
-        return `${selectedItems.length} country selected`;
-      }
+    args: {
+        selectedItemsToString: (selectedItems: Array<SelectItemShape>) => {
+            if (selectedItems.length === 1) {
+                return `${selectedItems.length} country selected`;
+            }
 
-      return `${selectedItems.length} countries selected`;
+            return `${selectedItems.length} countries selected`;
+        },
     },
-  },
 };
 
-/** ----------------------------------------------------------------------------- */
-
 export const SlotLeft: Story = {
-  args: {
-    items: mockSelectItems({ withIcon: true }),
-  },
+    args: {
+        items: mockSelectItems({ withIcon: true }),
+    },
 };

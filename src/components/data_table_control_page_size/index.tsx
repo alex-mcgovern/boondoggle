@@ -10,10 +10,6 @@ import type { SelectItemShape } from "../select/types";
 import type { Table } from "@tanstack/react-table";
 import type { UseComboboxStateChange } from "downshift";
 
-/**
- * -----------------------------------------------------------------------------
- */
-
 type GetPageSizeDropdownItemsArgs = {
     /**
      * String added to the page size for each item in the select, e.g. "Show 10".
@@ -43,10 +39,6 @@ const getPageSizeDropdownItems = ({
         },
     ];
 };
-
-/**
- * -----------------------------------------------------------------------------
- */
 
 type DataTableControlPageSizeProps<TTableData> = {
     /**

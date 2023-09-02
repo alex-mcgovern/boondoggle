@@ -3,14 +3,13 @@ import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
 import { Icon } from "../icon";
 import { Input } from "../input";
 
+import type { WithOptionalPlaceholder } from "../../common-types";
 import type { Dispatch, SetStateAction } from "react";
 
-/** ----------------------------------------------------------------------------- */
-
-type DataTableFilterInputProps = {
-    /** Placeholder shown on empty field. */
-    placeholder: string;
-    /** Function to set the `DataTable` global filter state */
+type DataTableFilterInputProps = Required<WithOptionalPlaceholder> & {
+    /**
+     * Function to set the `DataTable` global filter state
+     */
     setGlobalFilter: Dispatch<SetStateAction<string>>;
 };
 

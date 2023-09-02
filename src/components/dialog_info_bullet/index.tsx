@@ -4,47 +4,52 @@ import { Box } from "../box";
 
 import type { WithSlots } from "../../common-types";
 
-export type DialogInfoBulletProps = {
-  /** React node(s) rendered on the left-hand side. */
-  slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
-  /** React node(s) rendered on the right-hand side. */
-  slotRight?: [ReactNode?, ReactNode?, ReactNode?];
-} & {
-  text?: string;
-  title?: string;
+export type DialogInfoBulletProps = WithSlots & {
+    /**
+     * The body text shown in the bullet
+     */
+    text?: string;
+    /**
+     * The title show in the bullet
+     */
+    title?: string;
 };
 
-export function DialogInfoBullet({
-  slotLeft,
-  slotRight,
-  text,
-  title,
-}: DialogInfoBulletProps) {
-  return (
-    <Box
-      alignItems="center"
-      display="flex"
-      gap="space_4"
-      marginBottom="space_4"
-    >
-      {slotLeft && (
-        <Box flexShrink="0" width="space_4">
-          {Children.map(slotLeft, (child) => {
-            return child;
-          })}
+/**
+ * Renders a "bullet" item — comprising of an Icon and a title & body text.
+ */
+export function DialogInfoBullet({ slotLeft, slotRight, text, title }: DialogInfoBulletProps) {
+    return (
+        <Box
+            alignItems="center"
+            display="flex"
+            gap="space_4"
+            marginBottom="space_4"
+        >
+            {slotLeft && (
+                <Box
+                    flexShrink="0"
+                    width="space_4"
+                >
+                    {Children.map(slotLeft, (child) => {
+                        return child;
+                    })}
+                </Box>
+            )}
+            <Box>
+                <Box fontWeight="semibold">{title}</Box>
+                <Box>{text}</Box>
+            </Box>
+            {slotRight && (
+                <Box
+                    flexShrink="0"
+                    width="space_4"
+                >
+                    {Children.map(slotRight, (child) => {
+                        return child;
+                    })}
+                </Box>
+            )}
         </Box>
-      )}
-      <Box>
-        <Box fontWeight="semibold">{title}</Box>
-        <Box>{text}</Box>
-      </Box>
-      {slotRight && (
-        <Box flexShrink="0" width="space_4">
-          {Children.map(slotRight, (child) => {
-            return child;
-          })}
-        </Box>
-      )}
-    </Box>
-  );
+    );
 }
