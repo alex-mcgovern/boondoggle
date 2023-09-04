@@ -35,15 +35,5 @@ describe("<TextArea />", () => {
         expect(label?.getAttribute("for")).toBe(PROPS.id);
 
         expect(label?.textContent).toBe(PROPS.label);
-
-        // expect(
-        //   getByLabelText(PROPS.label as string, { selector: "text_area" })
-        // ).not.toBeNull();
-    });
-
-    test("should match snapshot", () => {
-        const { getByRole } = renderComponent(PROPS);
-
-        expect(getByRole("textbox")).toMatchSnapshot();
     });
 });

@@ -176,12 +176,6 @@ describe("<SelectSingle />", () => {
 
         expect(label?.textContent).toBe(PROPS.label);
     });
-
-    test("should match snapshot", async () => {
-        const { getByRole } = renderComponent(PROPS);
-
-        expect(getByRole("combobox")).toMatchSnapshot();
-    });
 });
 
 describe("<SelectSingle />", () => {

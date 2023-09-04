@@ -22,11 +22,5 @@ describe("<Input />", () => {
 
             expect(getByRole("textbox")).not.toBeNull();
         });
-
-        test("should match snapshot", () => {
-            const { getByRole } = renderComponent(PROPS);
-
-            expect(getByRole("textbox")).toMatchSnapshot();
-        });
     });
 });

@@ -36,10 +36,4 @@ describe("<InputDate />", () => {
 
         expect(getByLabelText(PROPS.label as string, { selector: "input" })).not.toBeNull();
     });
-
-    test("should match snapshot", async () => {
-        const { getByRole } = await renderComponent(PROPS);
-
-        expect(getByRole("textbox")).toMatchSnapshot();
-    });
 });

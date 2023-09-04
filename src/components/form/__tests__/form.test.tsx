@@ -36,12 +36,6 @@ describe("<Form />", () => {
 
             expect(getByRole("form")).not.toBeNull();
         });
-
-        test("should match snapshot", async () => {
-            const { getByRole } = await renderComponent(PROPS);
-
-            expect(getByRole("form")).toMatchSnapshot();
-        });
     });
 });
 

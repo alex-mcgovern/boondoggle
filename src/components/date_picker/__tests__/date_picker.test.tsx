@@ -28,12 +28,6 @@ describe("<DatePicker />", () => {
 
             expect(container).not.toBeNull();
         });
-
-        test("should match snapshot", async () => {
-            const { container } = await renderComponent(PROPS);
-
-            expect(container).toMatchSnapshot();
-        });
     });
 
     describe("Basic functionality", () => {

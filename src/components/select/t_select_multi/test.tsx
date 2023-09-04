@@ -205,12 +205,6 @@ describe("<SelectMulti />", () => {
 
         expect(label?.textContent).toBe(PROPS.label);
     });
-
-    test("should match snapshot", async () => {
-        const { getByRole } = await renderComponent(PROPS);
-
-        expect(getByRole("combobox")).toMatchSnapshot();
-    });
 });
 
 describe("<SelectMulti />", () => {

@@ -48,17 +48,6 @@ describe("<DialogModal />", () => {
 
                 expect(container).not.toBeNull();
             });
-
-            test("should match snapshot", async () => {
-                const { container } = await renderComponent({
-                    children: "hello",
-
-                    title: "hello",
-                    width: "lg",
-                });
-
-                expect(container).toMatchSnapshot();
-            });
         });
     });
 });

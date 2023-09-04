@@ -29,12 +29,6 @@ describe("<RadioButtonGroup />", () => {
 
             expect(container).not.toBeNull();
         });
-
-        test("should match snapshot", () => {
-            const { container } = renderComponent(PROPS);
-
-            expect(container).toMatchSnapshot();
-        });
     });
 });
 

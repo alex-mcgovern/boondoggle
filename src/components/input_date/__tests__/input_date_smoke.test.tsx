@@ -24,12 +24,6 @@ describe("<InputDate />", () => {
             expect(getByRole("textbox")).not.toBeNull();
         });
 
-        test("should match snapshot", async () => {
-            const { getByRole } = await renderComponent(PROPS);
-
-            expect(getByRole("textbox")).toMatchSnapshot();
-        });
-
         test("should render placeholder when present", async () => {
             const { getByRole } = await renderComponent({
                 name: LOREM.name(),

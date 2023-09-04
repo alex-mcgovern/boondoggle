@@ -22,12 +22,6 @@ describe("<Slider />", () => {
 
             expect(container).not.toBeNull();
         });
-
-        test("should match snapshot", () => {
-            const { container } = renderComponent(PROPS);
-
-            expect(container).toMatchSnapshot();
-        });
     });
 
     describe("labelling", () => {

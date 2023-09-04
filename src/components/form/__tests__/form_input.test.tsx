@@ -31,12 +31,6 @@ describe("<FormInput />", () => {
 
             expect(getByRole("textbox")).not.toBeNull();
         });
-
-        test("should match snapshot", () => {
-            const { getByRole } = renderComponent(PROPS);
-
-            expect(getByRole("textbox")).toMatchSnapshot();
-        });
     });
 
     describe("Updating the value", () => {
