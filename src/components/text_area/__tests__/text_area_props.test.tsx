@@ -22,7 +22,7 @@ const renderComponent = ({ ...props }: TextAreaProps) => {
 
 describe("<TextArea />", () => {
     describe("Slot props", () => {
-        it("should render node passed to `slotLeft`", () => {
+        test("should render node passed to `slotLeft`", () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
                 slotLeft: [
@@ -36,7 +36,7 @@ describe("<TextArea />", () => {
             expect(getByTestId("icon")).not.toBeNull();
         });
 
-        it("should render node passed to `slotRight`", () => {
+        test("should render node passed to `slotRight`", () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
                 slotRight: [

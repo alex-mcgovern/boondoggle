@@ -35,7 +35,7 @@ const renderComponent = ({ ...props }: InputProps) => {
 
 describe("<Input />", () => {
     describe("Disabled", () => {
-        it("should have disabled styling", () => {
+        test("should have disabled styling", () => {
             const { getByRole } = renderComponent(PROPS);
 
             const textbox = getByRole("textbox");
@@ -43,7 +43,7 @@ describe("<Input />", () => {
             expect(textbox).toHaveClass(a11yDisabled);
         });
 
-        it("should not call `onChange()` when user types", async () => {
+        test("should not call `onChange()` when user types", async () => {
             const { getByRole } = renderComponent(PROPS);
 
             await userEvent.type(getByRole("textbox"), LOREM.text_xxs);
@@ -51,7 +51,7 @@ describe("<Input />", () => {
             expect(ON_CHANGE).not.toHaveBeenCalled();
         });
 
-        it("should not call `onClick()` when user types", () => {
+        test("should not call `onClick()` when user types", () => {
             const { getByRole } = renderComponent(PROPS);
 
             getByRole("textbox").click();
@@ -59,7 +59,7 @@ describe("<Input />", () => {
             expect(ON_CLICK).not.toHaveBeenCalled();
         });
 
-        it("should not call `onFocus()` when `disabled`", async () => {
+        test("should not call `onFocus()` when `disabled`", async () => {
             renderComponent(PROPS);
 
             await userEvent.tab();

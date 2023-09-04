@@ -33,13 +33,13 @@ const renderComponent = async ({ ...props }: FormProps) => {
 
 describe("<Form />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", async () => {
+        test("should render without throwing", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("form")).not.toBeNull();
         });
 
-        it("should match snapshot", async () => {
+        test("should match snapshot", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("form")).toMatchSnapshot();
@@ -49,37 +49,37 @@ describe("<Form />", () => {
 
 describe("<Form />", () => {
     describe("Renders the correct elements", () => {
-        it("should render the email input", async () => {
+        test("should render the email input", async () => {
             const { getByLabelText } = await renderComponent(PROPS);
 
             expect(getByLabelText(LOREM.labelEmail())).not.toBeNull();
         });
 
-        it("should render the description textarea", async () => {
+        test("should render the description textarea", async () => {
             const { getByLabelText } = await renderComponent(PROPS);
 
             expect(getByLabelText(LOREM.labelDescription())).not.toBeNull();
         });
 
-        it("should render the dropdown", async () => {
+        test("should render the dropdown", async () => {
             const { getByLabelText } = await renderComponent(PROPS);
 
             expect(getByLabelText(LOREM.labelDropdown(), { selector: "input" })).not.toBeNull();
         });
 
-        it("should render the slider, and an `<input>' component to hold the value", async () => {
+        test("should render the slider, and an `<input>' component to hold the value", async () => {
             const { getByLabelText } = await renderComponent(PROPS);
 
             expect(getByLabelText(LOREM.labelSlider())).not.toBeNull();
         });
 
-        it("should render the radio buttons", async () => {
+        test("should render the radio buttons", async () => {
             const { getAllByRole } = await renderComponent(PROPS);
 
             expect(getAllByRole("radio")).toHaveLength(3);
         });
 
-        it("should render the form submit button", async () => {
+        test("should render the form submit button", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("button", { name: "Submit" })).not.toBeNull();
@@ -185,7 +185,7 @@ describe("<Form />", () => {
 
 describe("<Form />", () => {
     describe.only("Unhappy path", () => {
-        it("should call handleErrors when the form submission fails", async () => {
+        test("should call handleErrors when the form submission fails", async () => {
             jest.spyOn(console, "error").mockImplementation();
 
             const { getAllByRole, getByRole } = await renderComponent(PROPS);

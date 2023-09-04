@@ -19,7 +19,7 @@ const renderComponent = ({ ...props }: InputProps) => {
 
 describe("<Input />", () => {
     describe("class name", () => {
-        it("should have the className passed to it", () => {
+        test("should have the className passed to it", () => {
             const { getByRole } = renderComponent({
                 className: "test-class",
                 ...PROPS,

@@ -21,19 +21,19 @@ const renderComponent = async ({ ...props }: InputDateProps) => {
 
 describe("<InputDate />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", async () => {
+        test("should render without throwing", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("textbox")).not.toBeNull();
         });
 
-        it("should match snapshot", async () => {
+        test("should match snapshot", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("textbox")).toMatchSnapshot();
         });
 
-        it("should render placeholder when present", async () => {
+        test("should render placeholder when present", async () => {
             const { getByRole } = await renderComponent({
                 name: LOREM.name(),
                 placeholder: LOREM.placeholder(),

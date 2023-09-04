@@ -25,7 +25,7 @@ const renderComponent = (props: InputDateProps) => {
 };
 
 describe("<InputDate />", () => {
-    it("should be labelled", async () => {
+    test("should be labelled", async () => {
         const { container, getByLabelText } = await renderComponent(PROPS);
 
         const label = container.querySelector("label");
@@ -39,7 +39,7 @@ describe("<InputDate />", () => {
         expect(getByLabelText(PROPS.label as string, { selector: "input" })).not.toBeNull();
     });
 
-    it("should match snapshot", async () => {
+    test("should match snapshot", async () => {
         const { getByRole } = await renderComponent(PROPS);
 
         expect(getByRole("textbox")).toMatchSnapshot();

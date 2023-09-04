@@ -19,7 +19,7 @@ const renderComponent = ({ ...props }: InputProps) => {
 };
 
 describe("<Input />", () => {
-    it("should render placeholder", () => {
+    test("should render placeholder", () => {
         const { getByRole } = renderComponent(PROPS);
 
         const textbox = getByRole("textbox");

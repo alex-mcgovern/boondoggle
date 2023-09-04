@@ -23,7 +23,7 @@ describe("<TextArea />", () => {
     describe("Event handlers", () => {
         describe("handling updates to value", () => {
             describe("when uncontrolled", () => {
-                it("should update value when the user types", async () => {
+                test("should update value when the user types", async () => {
                     const { getByRole } = renderComponent({
                         name: LOREM.name(),
                         placeholder: LOREM.placeholder(),
@@ -36,7 +36,7 @@ describe("<TextArea />", () => {
                     expect(getByRole("textbox")).toHaveValue("New value");
                 });
 
-                it("should update value when the user types when there is `defaultValue`", async () => {
+                test("should update value when the user types when there is `defaultValue`", async () => {
                     const { getByRole } = renderComponent({
                         defaultValue: "Old value",
                         name: LOREM.name(),
@@ -54,7 +54,7 @@ describe("<TextArea />", () => {
             });
 
             describe("when controlled", () => {
-                it("should trigger onChange callback when user types when initialised with no value", async () => {
+                test("should trigger onChange callback when user types when initialised with no value", async () => {
                     const onChange = jest.fn();
 
                     const { getByRole } = renderComponent({
@@ -76,7 +76,7 @@ describe("<TextArea />", () => {
         });
 
         describe("onChange handling", () => {
-            it("should trigger onChange callback when user types", async () => {
+            test("should trigger onChange callback when user types", async () => {
                 const onChange = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -95,7 +95,7 @@ describe("<TextArea />", () => {
                 expect(onChange).toHaveBeenCalled();
             });
 
-            it("should trigger onChange callback when user types when initialised with a value", async () => {
+            test("should trigger onChange callback when user types when initialised with a value", async () => {
                 const onChange = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -112,7 +112,7 @@ describe("<TextArea />", () => {
                 expect(onChange).toHaveBeenCalled();
             });
 
-            it("should not call onChange when readOnly", async () => {
+            test("should not call onChange when readOnly", async () => {
                 const onChange = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -127,7 +127,7 @@ describe("<TextArea />", () => {
                 expect(onChange).not.toHaveBeenCalled();
             });
 
-            it("Given a disabled textarea, when changing, it should not call onChange", async () => {
+            test("Given a disabled textarea, when changing, it should not call onChange", async () => {
                 const onChange = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -144,7 +144,7 @@ describe("<TextArea />", () => {
         });
 
         describe("`onClick`", () => {
-            it("Given an enabled textarea, when clicking, it should call onClick", () => {
+            test("Given an enabled textarea, when clicking, it should call onClick", () => {
                 const onClick = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -158,7 +158,7 @@ describe("<TextArea />", () => {
                 expect(onClick).toHaveBeenCalled();
             });
 
-            it("Given a readOnly textarea,  when clicking, it should call onClick", () => {
+            test("Given a readOnly textarea,  when clicking, it should call onClick", () => {
                 const onClick = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -173,7 +173,7 @@ describe("<TextArea />", () => {
                 expect(onClick).toHaveBeenCalled();
             });
 
-            it("Given a disabled textarea, when clicking, it should not call onClick", () => {
+            test("Given a disabled textarea, when clicking, it should not call onClick", () => {
                 const onClick = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -190,7 +190,7 @@ describe("<TextArea />", () => {
         });
 
         describe("mouseOver", () => {
-            it("Given an enabled textarea, when hovering, it should call onMouseOver", () => {
+            test("Given an enabled textarea, when hovering, it should call onMouseOver", () => {
                 const onMouseOver = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -204,7 +204,7 @@ describe("<TextArea />", () => {
                 expect(onMouseOver).toHaveBeenCalled();
             });
 
-            it("Given a readOnly textarea, when hovering, it should call onMouseOver", () => {
+            test("Given a readOnly textarea, when hovering, it should call onMouseOver", () => {
                 const onMouseOver = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -219,7 +219,7 @@ describe("<TextArea />", () => {
                 expect(onMouseOver).toHaveBeenCalled();
             });
 
-            it("Given a disabled textarea, when hovering, it should call onMouseOver", () => {
+            test("Given a disabled textarea, when hovering, it should call onMouseOver", () => {
                 const onMouseOver = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -236,7 +236,7 @@ describe("<TextArea />", () => {
         });
 
         describe("`mouseLeave`", () => {
-            it("it should call `onMouseLeave` by default", () => {
+            test("it should call `onMouseLeave` by default", () => {
                 const onMouseLeave = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -250,7 +250,7 @@ describe("<TextArea />", () => {
                 expect(onMouseLeave).toHaveBeenCalled();
             });
 
-            it("it should call `onMouseLeave` when `readOnly`", () => {
+            test("it should call `onMouseLeave` when `readOnly`", () => {
                 const onMouseLeave = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -265,7 +265,7 @@ describe("<TextArea />", () => {
                 expect(onMouseLeave).toHaveBeenCalled();
             });
 
-            it("it should call `onMouseLeave` when `disabled`", () => {
+            test("it should call `onMouseLeave` when `disabled`", () => {
                 const onMouseLeave = jest.fn();
 
                 const { getByRole } = renderComponent({
@@ -286,7 +286,7 @@ describe("<TextArea />", () => {
      * onFocus events
      */
     describe("`onFocus`", () => {
-        it("should call `onFocus` by default", () => {
+        test("should call `onFocus` by default", () => {
             const onFocus = jest.fn();
 
             const { getByRole } = renderComponent({
@@ -300,7 +300,7 @@ describe("<TextArea />", () => {
             expect(onFocus).toHaveBeenCalled();
         });
 
-        it("should call `onFocus` when `readOnly`", () => {
+        test("should call `onFocus` when `readOnly`", () => {
             const onFocus = jest.fn();
 
             const { getByRole } = renderComponent({
@@ -315,7 +315,7 @@ describe("<TextArea />", () => {
             expect(onFocus).toHaveBeenCalled();
         });
 
-        it("should not call `onFocus` when `disabled`", () => {
+        test("should not call `onFocus` when `disabled`", () => {
             const onFocus = jest.fn();
 
             const { getByRole } = renderComponent({
@@ -335,7 +335,7 @@ describe("<TextArea />", () => {
      * onBlur events
      */
     describe("`onBlur`", () => {
-        it("it should call onBlur by default", () => {
+        test("it should call onBlur by default", () => {
             const onBlur = jest.fn();
 
             const { getByRole } = renderComponent({
@@ -351,7 +351,7 @@ describe("<TextArea />", () => {
             expect(onBlur).toHaveBeenCalled();
         });
 
-        it("it should call onBlur when readOnly", () => {
+        test("it should call onBlur when readOnly", () => {
             const onBlur = jest.fn();
 
             const { getByRole } = renderComponent({
@@ -368,7 +368,7 @@ describe("<TextArea />", () => {
             expect(onBlur).toHaveBeenCalled();
         });
 
-        it("should not call onBlur when disabled", () => {
+        test("should not call onBlur when disabled", () => {
             const onBlur = jest.fn();
 
             const { getByRole } = renderComponent({

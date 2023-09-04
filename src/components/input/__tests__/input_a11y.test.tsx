@@ -21,13 +21,13 @@ const renderComponent = ({ ...props }: InputProps) => {
 };
 
 describe("<Input />", () => {
-    it("should assign name to the element", () => {
+    test("should assign name to the element", () => {
         const { getByRole } = renderComponent(PROPS);
 
         expect((getByRole("textbox") as HTMLInputElement).name).toBe(PROPS.name);
     });
 
-    it("should be labelled", () => {
+    test("should be labelled", () => {
         const { container, getByLabelText } = renderComponent(PROPS);
 
         const label = container.querySelector("label");
@@ -41,7 +41,7 @@ describe("<Input />", () => {
         expect(getByLabelText(PROPS.label as string, { selector: "input" })).not.toBeNull();
     });
 
-    it("should match snapshot", () => {
+    test("should match snapshot", () => {
         const { getByRole } = renderComponent(PROPS);
 
         expect(getByRole("textbox")).toMatchSnapshot();

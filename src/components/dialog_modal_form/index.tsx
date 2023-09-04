@@ -156,10 +156,7 @@ export const DialogModalForm = forwardRef<HTMLDialogElement, DialogModalFormProp
                     <DialogModalOuter dialogRef={dialogRef}>
                         <DialogModalInner
                             as="form"
-                            handleSubmit={formMethods.handleSubmit(
-                                handleSubmit,
-                                handleHookFormErrors
-                            )}
+                            onSubmit={formMethods.handleSubmit(handleSubmit, handleHookFormErrors)}
                             width={width}
                         >
                             <DialogModalHeader

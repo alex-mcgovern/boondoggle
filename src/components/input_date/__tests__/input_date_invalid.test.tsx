@@ -26,7 +26,7 @@ const renderComponent = (props: InputDateProps) => {
 
 describe("<InputDate />", () => {
     describe("Invalid", () => {
-        it("should have error styling", async () => {
+        test("should have error styling", async () => {
             const { getByRole } = await renderComponent({
                 ...PROPS,
                 invalid: true,
@@ -39,7 +39,7 @@ describe("<InputDate />", () => {
             expect(textbox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
         });
 
-        it("should render error message", async () => {
+        test("should render error message", async () => {
             const { getByText } = await renderComponent({
                 ...PROPS,
                 errorMessage: LOREM.errorMessage(),

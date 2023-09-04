@@ -51,10 +51,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
 
-        /**
-         * ---------------------------------------------
-         */
-
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
                 setInputValue(date.toLocaleDateString(locale));
@@ -71,10 +67,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             },
             [locale, rawValueTransformer, onChange]
         );
-
-        /**
-         * ---------------------------------------------
-         */
 
         return (
             <Dialog

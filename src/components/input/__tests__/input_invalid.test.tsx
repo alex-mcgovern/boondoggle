@@ -22,7 +22,7 @@ const renderComponent = ({ ...props }: InputProps) => {
 
 describe("<Input />", () => {
     describe("Invalid", () => {
-        it("should have error styling", () => {
+        test("should have error styling", () => {
             const { getByRole } = renderComponent({
                 ...PROPS,
                 invalid: true,
@@ -35,7 +35,7 @@ describe("<Input />", () => {
             expect(textbox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
         });
 
-        it("should render error message", () => {
+        test("should render error message", () => {
             const { getByText } = renderComponent({
                 ...PROPS,
                 errorMessage: LOREM.errorMessage(),

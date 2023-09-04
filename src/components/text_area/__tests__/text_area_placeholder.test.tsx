@@ -19,7 +19,7 @@ const renderComponent = ({ ...props }: TextAreaProps) => {
 };
 
 describe("<TextArea />", () => {
-    it("should render placeholder", () => {
+    test("should render placeholder", () => {
         const { getByRole } = renderComponent(PROPS);
 
         const textbox = getByRole("textbox");

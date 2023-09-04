@@ -31,13 +31,13 @@ const PROPS: DialogModalAlertProps = {
 
 describe("<DialogModalAlert />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", () => {
+        test("should render without throwing", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).not.toBeNull();
         });
 
-        it("should match snapshot", () => {
+        test("should match snapshot", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).toMatchSnapshot();

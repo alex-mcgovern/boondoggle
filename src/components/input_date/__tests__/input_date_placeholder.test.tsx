@@ -23,7 +23,7 @@ const renderComponent = (props: InputDateProps) => {
 };
 
 describe("<InputDate />", () => {
-    it("should render placeholder", async () => {
+    test("should render placeholder", async () => {
         const { getByRole } = await renderComponent(PROPS);
 
         const textbox = getByRole("textbox");

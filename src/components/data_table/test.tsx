@@ -51,13 +51,13 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
 
 describe("<DataTable />", () => {
     describe("when rendering", () => {
-        it("should render without throwing", () => {
+        test("should render without throwing", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).not.toBeNull();
         });
 
-        it("should match snapshot", () => {
+        test("should match snapshot", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).toMatchSnapshot();

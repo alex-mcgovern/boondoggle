@@ -19,13 +19,13 @@ const renderComponent = ({ ...props }: SliderProps) => {
 
 describe("<Slider />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", () => {
+        test("should render without throwing", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).not.toBeNull();
         });
 
-        it("should match snapshot", () => {
+        test("should match snapshot", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe("<Slider />", () => {
             );
         });
 
-        it("should label element correctly", () => {
+        test("should label element correctly", () => {
             const { getByLabelText } = renderComponent({
                 id: LOREM.id(),
                 label: LOREM.label(),
@@ -60,7 +60,7 @@ describe("<Slider />", () => {
     });
 
     describe("setting new value", () => {
-        it("should update value when user interacts", async () => {
+        test("should update value when user interacts", async () => {
             const onValueChange = jest.fn();
 
             const { getByRole } = renderComponent({

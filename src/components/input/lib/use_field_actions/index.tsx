@@ -94,26 +94,14 @@ export function useFieldActions({
         [onChange]
     );
 
-    /**
-     * ---------------------------------------------
-     */
-
     const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
         initialIsVisible,
     });
-
-    /**
-     * ---------------------------------------------
-     */
 
     const { handleCopyValue, isCopied } = useFieldCopyableState({
         isCopyable,
         readOnly,
     });
-
-    /**
-     * ---------------------------------------------
-     */
 
     const actions = useMemo(() => {
         const actionNodes: Array<ReactNode> = [];

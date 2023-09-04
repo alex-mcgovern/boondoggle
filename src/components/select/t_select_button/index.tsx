@@ -121,10 +121,6 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
 
         const triggerRef = useMergeRefs([refs.setReference, ref]);
 
-        /**
-         * ---------------------------------------------
-         */
-
         return (
             <Box
                 position="relative"

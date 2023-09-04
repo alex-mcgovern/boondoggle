@@ -117,6 +117,7 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                                 colorOverlay,
                                 isSelected: initIsSelected,
                                 label,
+                                onClick,
                                 slotLeft,
                                 value,
                             } = item;
@@ -135,19 +136,13 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                                         isHighlighted,
                                         isSelected,
                                         item,
+                                        onClick,
                                         key: `${item.label}-${item.value}`,
                                         label,
                                         slotLeft,
                                         value,
                                         ...(isSelected &&
                                             getSelectedItemProps?.({
-                                                onClick: (e) => {
-                                                    e.stopPropagation();
-
-                                                    if (removeSelectedItem) {
-                                                        removeSelectedItem(item);
-                                                    }
-                                                },
                                                 selectedItem: item,
                                             })),
                                     })}

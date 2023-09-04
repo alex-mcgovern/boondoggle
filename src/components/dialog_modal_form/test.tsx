@@ -98,13 +98,13 @@ const PROPS: DialogModalFormProps = {
 
 describe("<DialogModalForm />", () => {
     describe.only("Basic smoke tests", () => {
-        it("should render without throwing", async () => {
+        test("should render without throwing", async () => {
             const { container } = await renderComponent(PROPS);
 
             expect(container).not.toBeNull();
         });
 
-        it("should match snapshot", async () => {
+        test("should match snapshot", async () => {
             const { container } = await renderComponent(PROPS);
 
             expect(container).toMatchSnapshot();

@@ -25,25 +25,25 @@ const renderComponent = (props: InputDateProps) => {
 
 describe("<InputDate />", () => {
     describe("Size", () => {
-        it("should have the `md` class name by default", async () => {
+        test("should have the `md` class name by default", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("textbox")).toHaveClass(elementFontSize.md);
         });
 
-        it("should have the `sm` class name when size = sm", async () => {
+        test("should have the `sm` class name when size = sm", async () => {
             const { getByRole } = await renderComponent({ ...PROPS, size: "sm" });
 
             expect(getByRole("textbox")).toHaveClass(elementFontSize.sm);
         });
 
-        it("should have the `md` class name when size = md", async () => {
+        test("should have the `md` class name when size = md", async () => {
             const { getByRole } = await renderComponent({ ...PROPS, size: "md" });
 
             expect(getByRole("textbox")).toHaveClass(elementFontSize.md);
         });
 
-        it("should have the `lg` class name when size = lg", async () => {
+        test("should have the `lg` class name when size = lg", async () => {
             const { getByRole } = await renderComponent({ ...PROPS, size: "lg" });
 
             expect(getByRole("textbox")).toHaveClass(elementFontSize.lg);

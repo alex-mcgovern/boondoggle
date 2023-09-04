@@ -18,19 +18,11 @@ type UseFieldCopyableStateArgs = {
 export function useFieldCopyableState({ isCopyable, readOnly }: UseFieldCopyableStateArgs) {
     const [isCopied, setIsCopied] = useState<boolean>(false);
 
-    /**
-     * ---------------------------------------------
-     */
-
     const revertIsCopied = useCallback(() => {
         setTimeout(() => {
             setIsCopied(false);
         }, 3000);
     }, []);
-
-    /**
-     * ---------------------------------------------
-     */
 
     const handleCopyValue = useCallback(
         (value: string | number | readonly string[] | undefined) => {
@@ -46,10 +38,6 @@ export function useFieldCopyableState({ isCopyable, readOnly }: UseFieldCopyable
     if (!readOnly || !isCopyable) {
         return {};
     }
-
-    /**
-     * ---------------------------------------------
-     */
 
     return {
         handleCopyValue,

@@ -26,7 +26,7 @@ const renderComponent = (props: InputDateProps) => {
 
 describe("<InputDate />", () => {
     describe("Slot props", () => {
-        it("should render node passed to `slotLeft`", async () => {
+        test("should render node passed to `slotLeft`", async () => {
             const { getByTestId } = await renderComponent({
                 ...PROPS,
                 slotLeft: [
@@ -40,7 +40,7 @@ describe("<InputDate />", () => {
             expect(getByTestId("icon")).not.toBeNull();
         });
 
-        it("should render node passed to `slotRight`", async () => {
+        test("should render node passed to `slotRight`", async () => {
             const { getByTestId } = await renderComponent({
                 ...PROPS,
                 slotRight: [

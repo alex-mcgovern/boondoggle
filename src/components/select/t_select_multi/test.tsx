@@ -5,7 +5,7 @@ import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { SelectSingle } from ".";
+import { SelectMulti } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
@@ -14,11 +14,11 @@ import { elementFontSize } from "../../../styles/common/element_size.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectSingleProps } from ".";
+import type { SelectMultiProps } from ".";
 
 const ON_CHANGE = jest.fn();
 
-const PROPS: SelectSingleProps = {
+const PROPS: SelectMultiProps = {
     errorMessage: LOREM.errorMessage(),
     id: LOREM.id(),
     items: mockSelectItems({}),
@@ -28,27 +28,27 @@ const PROPS: SelectSingleProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectSingleProps) => {
+const renderComponent = (props: SelectMultiProps) => {
     return {
         user: userEvent.setup(),
-        ...render(<SelectSingle {...props} />),
+        ...render(<SelectMulti {...props} />),
     };
 };
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     describe("Basic smoke tests", () => {
         test("should render without throwing", async () => {
-            const { getByRole } = renderComponent(PROPS);
+            const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("combobox")).not.toBeNull();
         });
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     describe("Slot props", () => {
         test("should render node passed to `slotLeft`", async () => {
-            const { getByTestId } = renderComponent({
+            const { getByTestId } = await renderComponent({
                 ...PROPS,
                 slotLeft: [
                     <Icon
@@ -62,7 +62,7 @@ describe("<SelectSingle />", () => {
         });
 
         test("should render node passed to `slotRight`", async () => {
-            const { getByTestId } = renderComponent({
+            const { getByTestId } = await renderComponent({
                 ...PROPS,
                 slotRight: [
                     <Icon
@@ -77,37 +77,37 @@ describe("<SelectSingle />", () => {
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     describe("Size", () => {
-        test("should have the `md` class name by default", () => {
-            const { getByRole } = renderComponent(PROPS);
+        test("should have the `md` class name by default", async () => {
+            const { getByRole } = await renderComponent(PROPS);
 
             expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
         });
 
-        test("should have the `sm` class name when size = sm", () => {
-            const { getByRole } = renderComponent({ ...PROPS, size: "sm" });
+        test("should have the `sm` class name when size = sm", async () => {
+            const { getByRole } = await renderComponent({ ...PROPS, size: "sm" });
 
             expect(getByRole("combobox")).toHaveClass(elementFontSize.sm);
         });
 
-        test("should have the `md` class name when size = md", () => {
-            const { getByRole } = renderComponent({ ...PROPS, size: "md" });
+        test("should have the `md` class name when size = md", async () => {
+            const { getByRole } = await renderComponent({ ...PROPS, size: "md" });
 
             expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
         });
 
-        test("should have the `lg` class name when size = lg", () => {
-            const { getByRole } = renderComponent({ ...PROPS, size: "lg" });
+        test("should have the `lg` class name when size = lg", async () => {
+            const { getByRole } = await renderComponent({ ...PROPS, size: "lg" });
 
             expect(getByRole("combobox")).toHaveClass(elementFontSize.lg);
         });
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     test("should render placeholder", async () => {
-        const { getByRole } = renderComponent(PROPS);
+        const { getByRole } = await renderComponent(PROPS);
 
         const combobox = getByRole("combobox");
 
@@ -115,54 +115,83 @@ describe("<SelectSingle />", () => {
     });
 });
 
-describe("<SelectSingle />", () => {
-    test.only("mouse navigation", async () => {
-        const ON_CLICK = jest.fn();
+describe("<SelectMulti />", () => {
+    describe("mouse navigation", () => {
+        describe("input value", () => {
+            test("should have placeholder with count of 1 selected items", async () => {
+                const { getByRole, getByText, user } = await renderComponent(PROPS);
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ onClick: ON_CLICK });
+                const combobox = getByRole("combobox");
 
-        const { getByRole, getByText, user } = renderComponent({
-            ...PROPS,
-            items: ITEMS_AS_BUTTONS,
+                await user.click(combobox);
+
+                const firstItem = getByText(PROPS.items[0].label);
+
+                await user.click(firstItem);
+
+                expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
+            });
+
+            test("should have placeholder with count of 2 items", async () => {
+                const { getByRole, getByText, user } = await renderComponent(PROPS);
+
+                const combobox = getByRole("combobox");
+
+                await user.click(combobox);
+
+                const firstItem = getByText(PROPS.items[0].label);
+
+                await user.click(firstItem);
+
+                const secondItem = getByText(PROPS.items[1].label);
+
+                await user.click(secondItem);
+
+                expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
+            });
         });
 
-        // Use the mouse to select the first item in the list
+        describe("onChange()", () => {
+            test("should call `onChange()` with first clicked item", async () => {
+                const { getByRole, getByText, user } = await renderComponent(PROPS);
 
-        await user.click(getByRole("combobox"));
+                const combobox = getByRole("combobox");
 
-        await user.click(getByText(ITEMS_AS_BUTTONS[0].label));
+                await user.click(combobox);
 
-        expect(ON_CHANGE).toHaveBeenCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[0],
-            })
-        );
+                const firstItem = getByText(PROPS.items[0].label);
 
-        expect(ON_CLICK).toHaveBeenCalledTimes(1);
+                await user.click(firstItem);
 
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[0].label);
+                expect(ON_CHANGE).toHaveBeenCalledWith(expect.arrayContaining([PROPS.items[0]]));
+            });
 
-        // Now use the mouse to select the second item in the list
+            test("should call `onChange()` with second clicked item", async () => {
+                const { getByRole, getByText, user } = await renderComponent(PROPS);
 
-        await user.click(getByRole("combobox"));
+                const combobox = getByRole("combobox");
 
-        await user.click(getByText(ITEMS_AS_BUTTONS[1].label));
+                await user.click(combobox);
 
-        expect(ON_CHANGE).toHaveBeenLastCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[1],
-            })
-        );
+                const firstItem = getByText(PROPS.items[0].label);
 
-        expect(ON_CLICK).toHaveBeenCalledTimes(2);
+                await user.click(firstItem);
 
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[1].label);
+                const secondItem = getByText(PROPS.items[1].label);
+
+                await user.click(secondItem);
+
+                expect(ON_CHANGE).toHaveBeenLastCalledWith(
+                    expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
+                );
+            });
+        });
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     test("should be labelled", async () => {
-        const { container, getByRole } = renderComponent(PROPS);
+        const { container, getByRole } = await renderComponent(PROPS);
 
         const combobox = getByRole("combobox");
 
@@ -180,93 +209,71 @@ describe("<SelectSingle />", () => {
     });
 
     test("should match snapshot", async () => {
-        const { getByRole } = renderComponent(PROPS);
+        const { getByRole } = await renderComponent(PROPS);
 
         expect(getByRole("combobox")).toMatchSnapshot();
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     test("keyboard navigation", async () => {
-        const ON_CLICK = jest.fn();
+        const { getByRole, user } = renderComponent(PROPS);
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ onClick: ON_CLICK });
+        const combobox = getByRole("combobox");
 
-        const { getByRole, user } = renderComponent({
-            ...PROPS,
-            items: ITEMS_AS_BUTTONS,
-        });
+        // Select first item
 
         await user.tab();
-
         await user.keyboard("{arrowdown}");
-
         await user.keyboard("{enter}");
 
-        expect(ON_CHANGE).toHaveBeenCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[0],
-            })
-        );
+        expect(ON_CHANGE).toHaveBeenCalledWith(expect.arrayContaining([PROPS.items[0]]));
+        expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
 
-        expect(ON_CLICK).toHaveBeenCalledTimes(1);
-
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[0].label);
+        // Select second item
 
         await user.keyboard("{arrowdown}");
-
-        await user.keyboard("{arrowdown}");
-
         await user.keyboard("{enter}");
 
+        expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
         expect(ON_CHANGE).toHaveBeenLastCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[1],
-            })
+            expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
         );
-
-        expect(ON_CLICK).toHaveBeenCalledTimes(2);
-
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[1].label);
     });
 });
 
-describe("<SelectSingle />", () => {
-    test("should have error styling", () => {
-        const { getByRole, getByText } = renderComponent({
-            ...PROPS,
-            invalid: true,
-        });
+describe("<SelectMulti />", () => {
+    test("should have error styling & show error message when invalid", async () => {
+        const { getByRole, getByText } = await renderComponent({ ...PROPS, invalid: true });
 
         const combobox = getByRole("combobox");
 
         expect(combobox).toHaveClass(a11yError);
 
-        expect(combobox.parentElement?.parentElement).toHaveClass(variantColorOverlay.red);
-
+        expect(combobox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     describe("Initial selected item", () => {
         test("should have value of initial selected item", async () => {
-            const { getByRole } = renderComponent({
+            const { getByRole } = await renderComponent({
                 ...PROPS,
-                initialSelectedItem: PROPS.items[0],
+                initialSelectedItems: [PROPS.items[0]],
             });
 
             const combobox = getByRole("combobox");
 
-            expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
+            expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
         });
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     describe("Disabled state", () => {
         test("should not show dropdown menu when user clicks", async () => {
-            const { getByRole } = renderComponent({ ...PROPS, disabled: true });
+            const { getByRole } = await renderComponent({ ...PROPS, disabled: true });
 
             const combobox = getByRole("combobox");
 
@@ -278,7 +285,7 @@ describe("<SelectSingle />", () => {
         });
 
         test("should not show dropdown menu when user attempts keyboard navigation", async () => {
-            const { getByRole } = renderComponent({ ...PROPS, disabled: true });
+            const { getByRole } = await renderComponent({ ...PROPS, disabled: true });
 
             await userEvent.tab();
 
@@ -291,7 +298,7 @@ describe("<SelectSingle />", () => {
     });
 });
 
-describe("<SelectSingle />", () => {
+describe("<SelectMulti />", () => {
     describe("dialog / dropdown menu", () => {
         test("should not be visible on first mount", () => {
             const { getByRole } = renderComponent(PROPS);

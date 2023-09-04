@@ -91,7 +91,7 @@ jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 describe("<InputDate />", () => {
     describe("Integration test", () => {
-        it("should have updated value when user selects a date", async () => {
+        test("should have updated value when user selects a date", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             await selectFromInputDate({
@@ -103,7 +103,7 @@ describe("<InputDate />", () => {
             });
         });
 
-        it("should have correct value when user selects date, and is passed a data transformer", async () => {
+        test("should have correct value when user selects date, and is passed a data transformer", async () => {
             const { getByRole } = await renderComponent({
                 ...PROPS,
                 rawValueTransformer: (value: string) => {

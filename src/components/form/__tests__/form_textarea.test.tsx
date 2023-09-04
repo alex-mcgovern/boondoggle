@@ -27,13 +27,13 @@ const renderComponent = ({ ...props }: FormTextAreaProps) => {
 
 describe("<FormTextArea />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", () => {
+        test("should render without throwing", () => {
             const { getByRole } = renderComponent(PROPS);
 
             expect(getByRole("textbox")).not.toBeNull();
         });
 
-        it("should match snapshot", () => {
+        test("should match snapshot", () => {
             const { getByRole } = renderComponent(PROPS);
 
             expect(getByRole("textbox")).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe("<FormTextArea />", () => {
     });
 
     describe("Updating the value", () => {
-        it("should update value when the user types", async () => {
+        test("should update value when the user types", async () => {
             const { getByRole } = renderComponent(PROPS);
 
             expect(getByRole("textbox")).toHaveValue("");

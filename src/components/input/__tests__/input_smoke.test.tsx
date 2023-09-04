@@ -19,13 +19,13 @@ const renderComponent = ({ ...props }: InputProps) => {
 
 describe("<Input />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", () => {
+        test("should render without throwing", () => {
             const { getByRole } = renderComponent(PROPS);
 
             expect(getByRole("textbox")).not.toBeNull();
         });
 
-        it("should match snapshot", () => {
+        test("should match snapshot", () => {
             const { getByRole } = renderComponent(PROPS);
 
             expect(getByRole("textbox")).toMatchSnapshot();

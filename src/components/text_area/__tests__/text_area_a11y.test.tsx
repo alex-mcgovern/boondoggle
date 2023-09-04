@@ -21,13 +21,13 @@ const renderComponent = ({ ...props }: TextAreaProps) => {
 };
 
 describe("<TextArea />", () => {
-    it("should assign name to the element", () => {
+    test("should assign name to the element", () => {
         const { getByRole } = renderComponent(PROPS);
 
         expect((getByRole("textbox") as HTMLTextAreaElement).name).toBe(PROPS.name);
     });
 
-    it("should be labelled", () => {
+    test("should be labelled", () => {
         const { container } = renderComponent(PROPS);
 
         const label = container.querySelector("label");
@@ -43,7 +43,7 @@ describe("<TextArea />", () => {
         // ).not.toBeNull();
     });
 
-    it("should match snapshot", () => {
+    test("should match snapshot", () => {
         const { getByRole } = renderComponent(PROPS);
 
         expect(getByRole("textbox")).toMatchSnapshot();

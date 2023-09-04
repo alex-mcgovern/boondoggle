@@ -25,13 +25,13 @@ const renderComponent = ({ ...props }: RadioButtonCardGroupProps) => {
 
 describe("<RadioButtonCardGroup />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", () => {
+        test("should render without throwing", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).not.toBeNull();
         });
 
-        it("should match snapshot", () => {
+        test("should match snapshot", () => {
             const { container } = renderComponent(PROPS);
 
             expect(container).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe("<RadioButtonCardGroup />", () => {
 
 describe("<RadioButtonCardGroup />", () => {
     describe("On change functionality", () => {
-        it("should call onChange when item is selected", async () => {
+        test("should call onChange when item is selected", async () => {
             const { getAllByRole } = renderComponent(PROPS);
 
             const firstRadioItem = getAllByRole("radio")[0];

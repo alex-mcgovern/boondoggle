@@ -38,7 +38,7 @@ const renderComponent = async (props: DialogModalProps) => {
 describe("<DialogModal />", () => {
     describe("default", () => {
         describe("on initial render", () => {
-            it("should render without throwing", async () => {
+            test("should render without throwing", async () => {
                 const { container } = await renderComponent({
                     children: "hello",
 
@@ -49,7 +49,7 @@ describe("<DialogModal />", () => {
                 expect(container).not.toBeNull();
             });
 
-            it("should match snapshot", async () => {
+            test("should match snapshot", async () => {
                 const { container } = await renderComponent({
                     children: "hello",
 
@@ -66,7 +66,7 @@ describe("<DialogModal />", () => {
 describe("<DialogModal />", () => {
     describe("default", () => {
         describe("on initial render", () => {
-            it("should render without throwing", async () => {
+            test("should render without throwing", async () => {
                 const { container } = await renderComponent({
                     actions: (
                         <DialogModalActionConfirm

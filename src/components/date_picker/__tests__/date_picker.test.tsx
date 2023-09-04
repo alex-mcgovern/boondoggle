@@ -26,13 +26,13 @@ const renderComponent = async ({ ...props }: DatePickerProps) => {
 
 describe("<DatePicker />", () => {
     describe("Basic smoke tests", () => {
-        it("should render without throwing", async () => {
+        test("should render without throwing", async () => {
             const { container } = await renderComponent(PROPS);
 
             expect(container).not.toBeNull();
         });
 
-        it("should match snapshot", async () => {
+        test("should match snapshot", async () => {
             const { container } = await renderComponent(PROPS);
 
             expect(container).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe("<DatePicker />", () => {
     });
 
     describe("Basic functionality", () => {
-        it("should have updated value when user selects a date by clicking", async () => {
+        test("should have updated value when user selects a date by clicking", async () => {
             const { getByRole } = await renderComponent(PROPS);
 
             const janSecondButton = getByRole("button", {

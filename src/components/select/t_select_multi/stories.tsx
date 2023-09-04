@@ -1,4 +1,3 @@
-import { jest } from "@storybook/jest";
 import { useState } from "react";
 
 import { SelectMulti as StoryComp } from ".";
@@ -9,8 +8,6 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 import type { SelectItemShape } from "../types";
 import type { Meta, StoryObj } from "@storybook/react";
 
-const ON_CHANGE = jest.fn();
-
 const ITEMS = mockSelectItems({});
 
 const meta = {
@@ -20,7 +17,9 @@ const meta = {
         items: ITEMS,
         label: LOREM.label(),
         name: LOREM.name(),
-        onChange: ON_CHANGE,
+        // onChange: (selection) => {
+        //     alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
+        // },
         placeholder: LOREM.placeholder(),
     },
     component: StoryComp,
@@ -121,6 +120,12 @@ export const Customisation: Story = {
         wrapperProps: {
             marginBottom: "space_6",
         },
+    },
+};
+
+export const Disabled: Story = {
+    args: {
+        disabled: true,
     },
 };
 

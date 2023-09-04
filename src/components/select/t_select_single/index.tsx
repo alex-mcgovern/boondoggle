@@ -98,6 +98,7 @@ export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
 export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
     (
         {
+            disabled,
             errorMessage,
             id,
             initialSelectedItem,
@@ -137,10 +138,6 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             ? filterSelectItems({ inputValue, items: initialItems })
             : initialItems;
 
-        /**
-         * ---------------------------------------------
-         */
-
         const {
             getInputProps,
             getItemProps,
@@ -169,10 +166,6 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             },
         });
 
-        /**
-         * ---------------------------------------------
-         */
-
         const getIsItemSelected = useCallback(
             (item: SelectItemShape) => {
                 return getIsSelected({
@@ -182,10 +175,6 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             },
             [selectedItem]
         );
-
-        /**
-         * ---------------------------------------------
-         */
 
         const { floatingStyles, refs } = useFloating({
             elements: {
@@ -201,10 +190,6 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             placement: "bottom-start",
             whileElementsMounted: autoUpdate,
         });
-
-        /**
-         * ---------------------------------------------
-         */
 
         return (
             <Box
@@ -223,6 +208,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                     })}
                     {...getInputProps({
                         className: selectInputCursorStyles,
+                        disabled,
                         id,
                         invalid,
                         isClearable: undefined,
