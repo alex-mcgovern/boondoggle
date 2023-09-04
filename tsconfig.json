@@ -1,7 +1,7 @@
 {
     "include": ["./**/*"],
     "compilerOptions": {
-        "incremental": true,
+        // "incremental": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,

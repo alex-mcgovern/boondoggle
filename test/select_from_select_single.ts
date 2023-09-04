@@ -4,8 +4,14 @@ import userEvent from "@testing-library/user-event";
 import type { ByRoleMatcher, ByRoleOptions } from "@testing-library/dom";
 
 type SelectSingleSelectItemProps = {
+    /**
+     * The expected value of the select after the item is selected.
+     */
     expected_value: string;
 
+    /**
+     * The `getByRole` function from `@testing-library/dom`.
+     */
     getByRole: (role: ByRoleMatcher, options?: ByRoleOptions | undefined) => HTMLElement;
 
     item_label: string;
