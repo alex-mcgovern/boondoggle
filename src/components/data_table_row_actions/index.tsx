@@ -7,9 +7,15 @@ import type { SelectButtonProps } from "../select/t_select_button";
 import type { SelectItemShape } from "../select/types";
 
 export type DataTableRowActionsProps = {
+    /**
+     * An array of Select items to render in the row actions menu.
+     */
     items: Array<SelectItemShape>;
 } & Omit<SelectButtonProps, "buttonProps" | "items" | "name" | "placement" | "slotRight">;
 
+/**
+ * Renders a `SelectButton` configured to act as a DataTable row actions menu.
+ */
 export function DataTableRowActions({ items }: DataTableRowActionsProps) {
     return (
         <SelectButton

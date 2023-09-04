@@ -27,6 +27,9 @@ export type CollapsibleProps = {
     triggerNode: ReactNode;
 };
 
+/**
+ * An unstyled, primitive component for creating a collapsible UI element.
+ */
 export function Collapsible({ children, isOpen, onOpenChange, triggerNode }: CollapsibleProps) {
     const [localOpenState, setLocalOpenState] = useState(isOpen);
 

@@ -13,25 +13,55 @@ import type {
 } from "@rehookify/datepicker";
 
 type DatePickerControlsProps = {
+    /**
+     * Whether the date picker is showing years or not.
+     */
     isShowingYears: boolean;
 
+    /**
+     * The current month being displayed/
+     */
     month: DPCalendar["month"];
 
+    /**
+     * The React node for the next month button.
+     */
     nextMonthButton: ReturnType<DPUseMonthsPropGetters>["nextMonthButton"];
 
+    /**
+     * The React node for the next years button.
+     */
     nextYearsButton: ReturnType<DPUseYearsPropGetters>["nextYearsButton"];
 
+    /**
+     * Callback when years view is toggled on/off.
+     */
     onToggleYears: () => void;
 
+    /**
+     * The React node for the previous month button.
+     */
     previousMonthButton: ReturnType<DPUseMonthsPropGetters>["previousMonthButton"];
 
+    /**
+     * The React node for the previous years button.
+     */
     previousYearsButton: ReturnType<DPUseYearsPropGetters>["previousYearsButton"];
 
+    /**
+     * The current year.
+     */
     year: DPCalendar["year"];
 
+    /**
+     * The current years in range.
+     */
     years: Array<DPYear>;
 } & BoxProps;
 
+/**
+ * Renders controls for the date picker.
+ */
 export function DatePickerControls({
     isShowingYears,
     month,

@@ -6,8 +6,14 @@ import { DataTableControlTableHeadSort } from "../data_table_control_table_head_
 import type { Header } from "@tanstack/react-table";
 
 type DataTableLayoutColumnHeaderCellProps<THeaderData> = {
+    /**
+     * the header for a DataTable column.
+     */
     header: Header<THeaderData, unknown>;
 
+    /**
+     * Whether the DataTable is sortable or not.
+     */
     isSortable: boolean | undefined;
 
     /**

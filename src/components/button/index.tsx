@@ -16,16 +16,14 @@ import type {
     PolymorphicComponentPropWithRef,
     PolymorphicRef,
     WithColorOverlay,
+    WithSlots,
     WithStateDisabled,
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { SlotWrapperProps } from "../slot_wrapper";
 import type { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
 
-type GetLoadingSlotSideArgs = { slotLeft?: ReactNode; slotRight?: ReactNode };
-
-const getLoadingSlotSide = ({ slotLeft, slotRight }: GetLoadingSlotSideArgs): "right" | "left" => {
+const getLoadingSlotSide = ({ slotLeft, slotRight }: WithSlots): "right" | "left" => {
     if (slotRight) {
         return "right";
     }
@@ -38,62 +36,48 @@ const getLoadingSlotSide = ({ slotLeft, slotRight }: GetLoadingSlotSideArgs): "r
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
     PolymorphicComponentPropWithRef<
         TPolymorphicAs,
-        WithStateDisabled & {
-            /**
-             * Forces the button's active state
-             */
-            active?: boolean;
+        WithStateDisabled &
+            WithSlots & {
+                /**
+                 * Forces the button's active state
+                 */
+                active?: boolean;
 
-            /**
-             * The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis.
-             */
-            appearance?: styles.Appearance;
+                /**
+                 * The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis.
+                 */
+                appearance?: styles.Appearance;
 
-            /**
-             * The React node shown in the button.
-             */
-            children?: ReactNode;
+                /**
+                 * The React node shown in the button.
+                 */
+                children?: ReactNode;
 
-            /**
-             * Whether to show a loader on first render
-             */
-            isLoading?: boolean;
+                /**
+                 * Whether to show a loader on first render
+                 */
+                isLoading?: boolean;
 
-            /**
-             * The title for the button, shown in the UI.
-             */
-            name: string;
+                /**
+                 * The title for the button, shown in the UI.
+                 */
+                name: string;
 
-            /**
-             * The size of the button.
-             */
-            size?: "square_md" | "square_sm" | "square_xs" | ElementSizeEnum;
+                /**
+                 * The size of the button.
+                 */
+                size?: "square_md" | "square_sm" | "square_xs" | ElementSizeEnum;
 
-            /**
-             * The React node shown on the left side of the button.
-             */
-            slotLeft?: ReactNode;
+                /**
+                 * The HTML button type, defaults to `button`.
+                 */
+                type?: "button" | "submit" | "reset";
 
-            /**
-             * Props forwarded to slots
-             */
-            slotProps?: SlotWrapperProps["slotProps"];
-
-            /**
-             * The React node shown on the right side of the button.
-             */
-            slotRight?: ReactNode;
-
-            /**
-             * The HTML button type, defaults to `button`.
-             */
-            type?: "button" | "submit" | "reset";
-
-            /**
-             * Whether to show a loader on click
-             */
-            withLoadingState?: boolean;
-        } & WithColorOverlay
+                /**
+                 * Whether to show a loader on click
+                 */
+                withLoadingState?: boolean;
+            } & WithColorOverlay
     >;
 
 type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(

@@ -9,6 +9,9 @@ type DataTableLayoutBodyProps<TTableData> = {
     table: Table<TTableData>;
 };
 
+/**
+ * The body for a DataTable, comprising of <tbody>, <tr> & <td> elements.
+ */
 export function DataTableLayoutBody<TTableData>({ table }: DataTableLayoutBodyProps<TTableData>) {
     return (
         <tbody>

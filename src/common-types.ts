@@ -14,6 +14,9 @@ import type {
 import type { RegisterOptions } from "react-hook-form";
 
 export type TDataTableRowActions<TData extends RowData> = JSXElementConstructor<{
+    /**
+     * The raw data for the DataTable row.
+     */
     row_data: TData;
 }>;
 
@@ -462,6 +465,9 @@ export type PolymorphicComponentPropWithRef<
     TPolymorphicAs extends ElementType,
     Props = Record<string, unknown>
 > = PolymorphicComponentProp<TPolymorphicAs, Props> & {
+    /**
+     * The React ref for the polymorphic component.
+     */
     ref?: PolymorphicRef<TPolymorphicAs>;
 };
 

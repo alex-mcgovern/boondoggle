@@ -15,15 +15,30 @@ const getDayButtonAppearance = ({ now, selected }: Pick<DPDay, "now" | "selected
 };
 
 type DatePickerDaysProps = {
+    /**
+     * Props getter for a day button.
+     */
     dayButton: ReturnType<typeof useDaysPropGetters>["dayButton"];
 
+    /**
+     * The currently visible days.
+     */
     days: Array<DPDay>;
 
+    /**
+     * The current month.
+     */
     month: DPCalendar["month"];
 
+    /**
+     * Callback when the suer clicks on a day.
+     */
     onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 };
 
+/**
+ * Renders a grid of day buttons for the date picker component.
+ */
 export function DatePickerDays({ dayButton, days, onDayClick }: DatePickerDaysProps) {
     return (
         <>
