@@ -39,44 +39,38 @@ export const SlotWrapper = forwardRef(
             ...rest
         }: SlotWrapperProps,
         ref: Ref<HTMLDivElement>
-    ) => {
-        return (
-            <Box
-                alignItems="center"
-                className={userClassName}
-                display="flex"
-                gap="space_2"
-                ref={ref}
-                {...rest}
-            >
-                {slotLeft && (
-                    <Box
-                        {...slotProps}
-                        className={getSlotStyles({ size })}
-                        color="inherit"
-                        flexShrink="0"
-                    >
-                        {Children.map(slotLeft, (child) => {
-                            return child;
-                        })}
-                    </Box>
-                )}
+    ) => (
+        <Box
+            alignItems="center"
+            className={userClassName}
+            display="flex"
+            gap="space_2"
+            ref={ref}
+            {...rest}
+        >
+            {slotLeft && (
+                <Box
+                    {...slotProps}
+                    className={getSlotStyles({ size })}
+                    color="inherit"
+                    flexShrink="0"
+                >
+                    {Children.map(slotLeft, (child) => child)}
+                </Box>
+            )}
 
-                {children}
+            {children}
 
-                {slotRight && (
-                    <Box
-                        {...slotProps}
-                        className={getSlotStyles({ size })}
-                        color="inherit"
-                        flexShrink="0"
-                    >
-                        {Children.map(slotRight, (child) => {
-                            return child;
-                        })}
-                    </Box>
-                )}
-            </Box>
-        );
-    }
+            {slotRight && (
+                <Box
+                    {...slotProps}
+                    className={getSlotStyles({ size })}
+                    color="inherit"
+                    flexShrink="0"
+                >
+                    {Children.map(slotRight, (child) => child)}
+                </Box>
+            )}
+        </Box>
+    )
 );

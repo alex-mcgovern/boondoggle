@@ -29,8 +29,7 @@ import {
 import { tooltipTextStyle } from "./styles.css";
 
 import type { Placement } from "@floating-ui/react";
-import type { ReactNode ,
-    HTMLProps} from "react";
+import type { HTMLProps, ReactNode } from "react";
 
 const ARROW_WIDTH = 16;
 
@@ -96,15 +95,16 @@ export function useTooltip({
 
     const interactions = useInteractions([hover, focus, dismiss, role]);
 
-    return useMemo(() => {
-        return {
+    return useMemo(
+        () => ({
             arrowRef,
             open,
             setOpen,
             ...interactions,
             ...data,
-        };
-    }, [open, setOpen, interactions, data]);
+        }),
+        [open, setOpen, interactions, data]
+    );
 }
 
 type ContextType = ReturnType<typeof useTooltip> | null;
@@ -120,6 +120,13 @@ export const useTooltipContext = () => {
 
     return context;
 };
+
+export type TooltipProps = {
+    /**
+     * Trigger & content to be rendered within the tooltip provider.
+     */
+    children: ReactNode;
+} & TooltipOptions;
 
 export function Tooltip({ children, ...options }: { children: ReactNode } & TooltipOptions) {
     // This can accept any props as options, e.g. `placement`,

@@ -189,10 +189,6 @@ export const getButtonStyles = recipe({
             variants: { appearance: "primary", size: "sm" },
         },
 
-        /**
-         * -------------------
-         */
-
         {
             style: [elementPadding.lg, { height: elementHeight.lg }],
             variants: { appearance: "secondary", size: "lg" },
@@ -205,10 +201,6 @@ export const getButtonStyles = recipe({
             style: [elementPadding.sm, { height: elementHeight.sm }],
             variants: { appearance: "secondary", size: "sm" },
         },
-
-        /**
-         * -------------------
-         */
 
         {
             style: [elementPadding.lg, { height: elementHeight.lg }],

@@ -127,18 +127,6 @@ export const Button: ButtonComponent = forwardRef(
 
         const Component = as || "button";
 
-        // const slotProps: BoxProps | undefined = useMemo(() => {
-        //   if (size === "square_md" || size === "square_sm") {
-        //     return {
-        //       ...userSlotProps,
-        //       width: "space_6",
-        //     };
-
-        //   }
-        //   return userSlotProps;
-
-        // }, [size, userSlotProps]);
-
         const [isLoading, setIsLoading] = useState(initIsLoading);
 
         const revertLoadingState = useCallback(() => {
@@ -155,9 +143,10 @@ export const Button: ButtonComponent = forwardRef(
             revertLoadingState();
         }, [rest, revertLoadingState]);
 
-        const loaderSide = useMemo(() => {
-            return getLoadingSlotSide({ slotLeft, slotRight });
-        }, [slotLeft, slotRight]);
+        const loaderSide = useMemo(
+            () => getLoadingSlotSide({ slotLeft, slotRight }),
+            [slotLeft, slotRight]
+        );
 
         return (
             <Component

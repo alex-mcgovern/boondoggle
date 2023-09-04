@@ -5,6 +5,7 @@
     "body": [
       "export function functionName({ argument }) {",
       "\treturn argument;
+
 ",
       "}"
     ]
@@ -15,6 +16,7 @@
     "prefix": "VE Style",
     "body": [
       "import { style } from \"@vanilla-extract/css\";
+
 ",
       "export const className = style({",
       "\t",
@@ -27,6 +29,7 @@
     "prefix": "VE Recipe",
     "body": [
       "import { recipe } from \"@vanilla-extract/recipes\";
+
 ",
       "export const className = recipe({",
       "\tbase: {",
@@ -50,6 +53,7 @@
       "test(\"XXXXX\", () => {",
       "  expect(YYYYYY).toBe(ZZZZZ)",
       "});
+
 ",
       ""
     ]
@@ -61,46 +65,61 @@
     "body": [
       "/** @jest-environment jsdom */",
       "import { render } from \"@testing-library/react\";
+
 ",
       "import { MOCK_VALUES } from \"../../../../mocks/MOCK_VALUES.mock\";
+
 ",
       "import { ${1:Component} } from \"..\";
+
 ",
       "",
       "import { ${1:Component}Props } from \"..\";
+
 ",
       "",
       "const PROPS: ${1:Component}Props = {}",
       "",
       "const renderComponent = ({ ...props }: ${1:Component}Props) => {",
       "  return render(<${1:Component} {...props} />);
+
 ",
       "};
+
 ",
       "",
       "describe(\"<${1:Component} />\", () => {",
       "  describe(\"when rendering\", () => {",
       "\tit(\"should render without throwing\", () => {",
       "\t\tconst { container } = renderComponent(PROPS);
+
 ;
+
 ",
       "",
       "\t\texpect(container).not.toBeNull();
+
 ",
       "\t});
+
 ",
       "",
       "\tit(\"should match snapshot\", () => {",
       "\t\tconst { container } = renderComponent(PROPS);
+
 ",
       "",
       "\t\texpect(container).toMatchSnapshot();
+
 ",
       "\t});
+
 ",
       "  });
+
 ",
       "});
+
 ",
       ""
     ],
@@ -129,9 +148,11 @@
     "description": "Simple Storybook story",
     "body": [
       "import { ${1:Component} as StoryComp } from \".\";
+
 ",
       "",
       "import { Meta, StoryObj } from \"@storybook/react\";
+
 ",
       "",
       "const meta = {",
@@ -139,14 +160,18 @@
       "  component: StoryComp,",
       "  args: {  },",
       "} satisfies Meta<typeof StoryComp>;
+
 ",
       "",
       "export default meta;
+
 ",
       "type Story = StoryObj<typeof meta>;
+
 ",
       "",
       "export const Default: Story = {};
+
 "
     ]
   }

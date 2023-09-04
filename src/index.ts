@@ -250,9 +250,9 @@ export { Tab } from "./components/tab";
 
 export type { TabProps } from "./components/tab";
 
-export { Tooltip } from "./components/tooltip";
+export { Tooltip, TooltipContent, TooltipTrigger } from "./components/tooltip_comp";
 
-export type { TooltipProps } from "./components/tooltip";
+export type { TooltipProps } from "./components/tooltip_comp";
 
 export { TextArea } from "./components/text_area";
 

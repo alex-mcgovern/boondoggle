@@ -6,15 +6,16 @@ import { mockForm } from "./__mocks__/mock_form.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const handleSubmit = jest.fn();
+
 const handleErrors = jest.fn();
 
-handleSubmit.mockImplementation(async (fieldValues: unknown) => {
-    return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`);
-});
+handleSubmit.mockImplementation(async (fieldValues: unknown) =>
+    alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`)
+);
 
-handleErrors.mockImplementation(async (errors) => {
-    return alert(`Form validation error \n ${JSON.stringify(Object.keys(errors), null, 2)}`);
-});
+handleErrors.mockImplementation(async (errors) =>
+    alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`)
+);
 
 const meta = {
     component: StoryComp,

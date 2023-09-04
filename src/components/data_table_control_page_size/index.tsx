@@ -22,23 +22,21 @@ type GetPageSizeDropdownItemsArgs = {
  */
 const getPageSizeDropdownItems = ({
     strShow,
-}: GetPageSizeDropdownItemsArgs): Array<SelectItemShape> => {
-    return [
-        {
-            as: "button",
-            label: `${strShow} ${10}`,
-            value: "10",
-        },
-        {
-            label: `${strShow} ${25}`,
-            value: "25",
-        },
-        {
-            label: `${strShow} ${50}`,
-            value: "50",
-        },
-    ];
-};
+}: GetPageSizeDropdownItemsArgs): Array<SelectItemShape> => [
+    {
+        as: "button",
+        label: `${strShow} ${10}`,
+        value: "10",
+    },
+    {
+        label: `${strShow} ${25}`,
+        value: "25",
+    },
+    {
+        label: `${strShow} ${50}`,
+        value: "50",
+    },
+];
 
 type DataTableControlPageSizeProps<TTableData> = {
     /**
@@ -61,16 +59,17 @@ export function DataTableControlPageSize<TTableData>({
     table,
     ...rest
 }: DataTableControlPageSizeProps<TTableData>) {
-    const selectItems = useMemo(() => {
-        return getPageSizeDropdownItems({
-            strShow,
-        });
-    }, [strShow]);
+    const selectItems = useMemo(
+        () =>
+            getPageSizeDropdownItems({
+                strShow,
+            }),
+        [strShow]
+    );
 
     const handleChange = useCallback(
-        (changes: UseComboboxStateChange<SelectItemShape>) => {
-            return table.setPageSize(Number(changes.selectedItem?.value));
-        },
+        (changes: UseComboboxStateChange<SelectItemShape>) =>
+            table.setPageSize(Number(changes.selectedItem?.value)),
         [table]
     );
 

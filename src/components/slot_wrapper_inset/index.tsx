@@ -44,57 +44,55 @@ export const SlotWrapperInset = forwardRef(
             ...rest
         }: SlotWrapperProps,
         ref: Ref<HTMLDivElement>
-    ) => {
-        return (
-            <Box
-                className={userClassName}
-                position="relative"
-                ref={ref}
-                {...rest}
-            >
-                {arrayHasLength(slotLeft) && (
-                    <Box
-                        className={getSlotContainerStyles({
-                            numSlots: slotLeft?.length || 1,
-                            size,
-                        })}
-                        left="0"
-                    >
-                        {Children.map(slotLeft, (child) => {
-                            return <div className={getSlotInnerStyles({ size })}>{child}</div>;
-                        })}
-                    </Box>
-                )}
-
-                <Slot
-                    className={clsx({
-                        [getSlotLeftOffsetStyles({
-                            numSlots: slotLeft?.length || 1,
-                            size,
-                        })]: !!slotLeft,
-                        [getSlotRightOffsetStyles({
-                            numSlots: slotRight?.length || 1,
-                            size,
-                        })]: !!slotRight,
+    ) => (
+        <Box
+            className={userClassName}
+            position="relative"
+            ref={ref}
+            {...rest}
+        >
+            {arrayHasLength(slotLeft) && (
+                <Box
+                    className={getSlotContainerStyles({
+                        numSlots: slotLeft?.length || 1,
+                        size,
                     })}
+                    left="0"
                 >
-                    {children}
-                </Slot>
+                    {Children.map(slotLeft, (child) => (
+                        <div className={getSlotInnerStyles({ size })}>{child}</div>
+                    ))}
+                </Box>
+            )}
 
-                {arrayHasLength(slotRight) && (
-                    <Box
-                        className={getSlotContainerStyles({
-                            numSlots: slotRight?.length || 1,
-                            size,
-                        })}
-                        right="0"
-                    >
-                        {Children.map(slotRight, (child) => {
-                            return <div className={getSlotInnerStyles({ size })}>{child}</div>;
-                        })}
-                    </Box>
-                )}
-            </Box>
-        );
-    }
+            <Slot
+                className={clsx({
+                    [getSlotLeftOffsetStyles({
+                        numSlots: slotLeft?.length || 1,
+                        size,
+                    })]: !!slotLeft,
+                    [getSlotRightOffsetStyles({
+                        numSlots: slotRight?.length || 1,
+                        size,
+                    })]: !!slotRight,
+                })}
+            >
+                {children}
+            </Slot>
+
+            {arrayHasLength(slotRight) && (
+                <Box
+                    className={getSlotContainerStyles({
+                        numSlots: slotRight?.length || 1,
+                        size,
+                    })}
+                    right="0"
+                >
+                    {Children.map(slotRight, (child) => (
+                        <div className={getSlotInnerStyles({ size })}>{child}</div>
+                    ))}
+                </Box>
+            )}
+        </Box>
+    )
 );

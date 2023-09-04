@@ -9,7 +9,6 @@ import type { WithSize } from "../../../common-types";
 import type { SelectItemShape } from "../types";
 import type {
     UseComboboxPropGetters,
-    UseMultipleSelectionActions,
     UseMultipleSelectionGetSelectedItemPropsOptions,
     UseSelectPropGetters,
 } from "downshift";
@@ -68,13 +67,6 @@ export type SelectItemListProps = WithSize & {
     items: Array<SelectItemShape>;
 
     /**
-     * Function to remove an item from the selection (when `isMulti` is true).
-     */
-    removeSelectedItem:
-        | UseMultipleSelectionActions<SelectItemShape>["removeSelectedItem"]
-        | undefined;
-
-    /**
      * The style to apply to the outer menu element. Used by floating-ui to position the menu.
      */
     style: CSSProperties;
@@ -91,78 +83,75 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
             isMulti,
             isOpen,
             items,
-            removeSelectedItem,
             size = "md",
             ...rest
         },
         ref
-    ) => {
-        return (
-            <Box
-                {...getMenuProps?.({
-                    className: getSelectItemListStyles({ isOpen }),
-                    ref,
-                    ...rest,
-                })}
-            >
-                <Box className={selectItemListInner}>
-                    {arrayHasLength(items) &&
-                        items.map((item, index) => {
-                            if (!item.label) {
-                                return null;
-                            }
+    ) => (
+        <Box
+            {...getMenuProps?.({
+                className: getSelectItemListStyles({ isOpen }),
+                ref,
+                ...rest,
+            })}
+        >
+            <Box className={selectItemListInner}>
+                {arrayHasLength(items) &&
+                    items.map((item, index) => {
+                        if (!item.label) {
+                            return null;
+                        }
 
-                            const {
-                                as,
-                                colorOverlay,
-                                isSelected: initIsSelected,
-                                label,
-                                onClick,
-                                slotLeft,
-                                value,
-                            } = item;
+                        const {
+                            as,
+                            colorOverlay,
+                            isSelected: initIsSelected,
+                            label,
+                            onClick,
+                            slotLeft,
+                            value,
+                        } = item;
 
-                            const isHighlighted = highlightedIndex === index;
+                        const isHighlighted = highlightedIndex === index;
 
-                            const isSelected = initIsSelected || getIsItemSelected?.(item);
+                        const isSelected = initIsSelected || getIsItemSelected?.(item);
 
-                            return (
-                                <SelectItem
-                                    as={as}
-                                    colorOverlay={colorOverlay}
-                                    isMulti={isMulti}
-                                    size={size}
-                                    {...getItemProps({
-                                        isHighlighted,
-                                        isSelected,
-                                        item,
-                                        onClick,
-                                        key: `${item.label}-${item.value}`,
-                                        label,
-                                        slotLeft,
-                                        value,
-                                        ...(isSelected &&
-                                            getSelectedItemProps?.({
-                                                selectedItem: item,
-                                            })),
-                                    })}
-                                />
-                            );
-                        })}
+                        return (
+                            <SelectItem
+                                as={as}
+                                colorOverlay={colorOverlay}
+                                isMulti={isMulti}
+                                size={size}
+                                {...getItemProps({
+                                    isHighlighted,
+                                    isSelected,
+                                    item,
+                                    key: `${item.label}-${item.value}`,
+                                    label,
+                                    onClick,
+                                    slotLeft,
+                                    value,
+                                    ...(isSelected &&
+                                        getSelectedItemProps?.({
+                                            selectedItem: item,
+                                        })),
+                                })}
+                            />
+                        );
+                    })}
 
-                    {/* Show a fallback list item when there are no items to display */}
+                {/* Show a fallback list item when there are no items to display */}
 
-                    {Array.isArray(items) && items.length === 0 && (
-                        <SelectItem
-                            as="button"
-                            disabled
-                            label="No results"
-                            size={size}
-                            value=""
-                        />
-                    )}
-                </Box>
+                {Array.isArray(items) && items.length === 0 && (
+                    <SelectItem
+                        as="button"
+                        disabled
+                        label="No results"
+                        size={size}
+                        value=""
+                    />
+                )}
             </Box>
-        );
-    }
+        </Box>
+    )
 );

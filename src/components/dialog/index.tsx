@@ -6,7 +6,7 @@ import { useClickOutside } from "../../hooks/use_click_outside";
 import { useForwardRef } from "../../hooks/use_forward_ref";
 import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyboard";
 import { Box } from "../box";
-import { dialogContentStyles, getDialogStyles } from "./styles.css";
+import { getDialogStyles } from "./styles.css";
 
 import type { BoxProps } from "../box";
 import type { DialogPlacementEnum } from "./styles.css";
@@ -73,9 +73,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         });
 
         useClickOutside<HTMLDialogElement, HTMLElement>({
-            callback: () => {
-                return dialogRef.current?.close();
-            },
+            callback: () => dialogRef.current?.close(),
             contentRef: dialogRef,
             triggerRef,
         });
@@ -89,39 +87,19 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                     <Slot
                         onClick={toggleIsOpen}
                         onMouseEnter={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
+                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
                         }
                         onMouseLeave={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.close();
-                                  }
-                                : undefined
+                            openOn === "hover" ? () => dialogRef.current?.close() : undefined
                         }
                         onPointerEnter={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
+                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
                         }
                         onPointerLeave={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
+                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
                         }
                         onPointerOver={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
+                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
                         }
                         ref={triggerRef}
                     >
@@ -135,7 +113,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                     open={controlledIsOpen}
                     ref={dialogRef}
                 >
-                    <Box className={dialogContentStyles}>{children}</Box>
+                    <Box>{children}</Box>
                 </Box>
             </Box>
         );

@@ -40,10 +40,6 @@ export function DataTableInfoPageCount<TTableData>({
             <Box fontWeight="semibold">{table.getPrePaginationRowModel().rows.length}</Box>
             <Box>{strResults}.</Box>
 
-            {/**
-             * --------------------------------------------
-             */}
-
             {!!table.getPageCount() && (
                 <>
                     <Box>{strPage}</Box>

@@ -10,9 +10,8 @@ import { Icon } from "../icon";
 
 import type { DialogModalAlertProps } from ".";
 
-const renderComponent = ({ ...props }: DialogModalAlertProps) => {
-    return render(<DialogModalAlert {...props} />);
-};
+const renderComponent = ({ ...props }: DialogModalAlertProps) =>
+    render(<DialogModalAlert {...props} />);
 
 const PROPS: DialogModalAlertProps = {
     description: LOREM.text_xxs,

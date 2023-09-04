@@ -18,6 +18,7 @@ import { mockForm } from "../__mocks__/mock_form.mock";
 import type { FormProps } from "..";
 
 const handleSubmit = jest.fn();
+
 const handleErrors = jest.fn();
 
 const PROPS: FormProps = mockForm({
@@ -25,11 +26,8 @@ const PROPS: FormProps = mockForm({
     handleSubmit,
 });
 
-const renderComponent = async ({ ...props }: FormProps) => {
-    return waitFor(() => {
-        return render(<Form {...props} />);
-    });
-};
+const renderComponent = async ({ ...props }: FormProps) =>
+    waitFor(() => render(<Form {...props} />));
 
 describe("<Form />", () => {
     describe("Basic smoke tests", () => {

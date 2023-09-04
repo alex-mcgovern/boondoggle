@@ -39,7 +39,7 @@
                 "@typescript-eslint/prefer-optional-chain": "error",
                 "@typescript-eslint/switch-exhaustiveness-check": "error",
                 "arrow-body-style": ["error", "as-needed"],
-                "curly": ["error", "error"],
+                "curly": ["error", "all"],
                 "import/no-cycle": "error",
                 "import/no-default-export": "error",
                 "import/no-duplicates": "error",
@@ -106,9 +106,9 @@
                     "warn",
                     {
                         "contexts": [
-                            // "FunctionDeclaration",
                             "TSInterfaceDeclaration",
                             "TSPropertySignature"
+                            // "FunctionDeclaration",
                             // "ArrowFunctionExpression",
                             // "FunctionExpression",
                             // "ObjectExpression",

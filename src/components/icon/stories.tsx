@@ -10,9 +10,7 @@ export default {
     title: "Components/Icon",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
-    return <StoryComp {...rest} />;
-};
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => <StoryComp {...rest} />;
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {

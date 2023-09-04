@@ -39,11 +39,10 @@ export const mockForm = ({
     handleSubmit = async () => {},
     withDefaultValues = false,
     withOptionalFields = false,
-}: MockFormProps): FormProps => {
-    return {
-        children: (
-            <>
-                {/* <FormInputDate
+}: MockFormProps): FormProps => ({
+    children: (
+        <>
+            {/* <FormInputDate
           defaultValue={withDefaultValues ? LOREM.dateISO : undefined}
           errorMessage="Date is required"
           id="date"
@@ -52,55 +51,54 @@ export const mockForm = ({
           placeholder="Select a date"
           wrapperProps={WRAPPER_PROPS}
         /> */}
-                <FormInput
-                    defaultValue={withDefaultValues ? LOREM.email() : undefined}
-                    id="email"
-                    label={LOREM.labelEmail()}
-                    name="email"
-                    placeholder="Enter your email address"
-                    wrapperProps={WRAPPER_PROPS}
-                />
-                <FormTextArea
-                    defaultValue={withDefaultValues ? LOREM.text_xxs : undefined}
-                    id="description"
-                    label={LOREM.labelDescription()}
-                    name="description"
-                    placeholder="Enter your description"
-                    required={false}
-                    wrapperProps={WRAPPER_PROPS}
-                />
-                <FormSelectSingle
-                    defaultValue={withDefaultValues ? mockSelectItems({})[0].value : undefined}
-                    id="select"
-                    items={mockSelectItems({})}
-                    label={LOREM.labelDropdown()}
-                    name="select"
-                    placeholder="Select an option from the dropdown"
-                    wrapperProps={WRAPPER_PROPS}
-                />
-                <FormSlider
-                    defaultValue={withDefaultValues ? [50] : undefined}
-                    id="amount"
-                    label={LOREM.labelSlider()}
-                    name="amount"
-                    placeholder="Enter an amount"
-                    wrapperProps={WRAPPER_PROPS}
-                />
-                <FormRadioButtonCardGroup
-                    defaultValue={withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined}
-                    errorMessage="Select an option"
-                    id="radio"
-                    items={RADIO_BUTTON_CARDS_MOCK}
-                    label={LOREM.labelRadioButtons()}
-                    name="radio"
-                    wrapperProps={WRAPPER_PROPS}
-                />
-                <FormSubmitButton width="100%">Submit</FormSubmitButton>
-            </>
-        ),
-        handleErrors,
-        handleSubmit,
-        name: LOREM.name(),
-        resolver: zodResolver(withOptionalFields ? mockFormSchemaOptional : mockFormSchema),
-    };
-};
+            <FormInput
+                defaultValue={withDefaultValues ? LOREM.email() : undefined}
+                id="email"
+                label={LOREM.labelEmail()}
+                name="email"
+                placeholder="Enter your email address"
+                wrapperProps={WRAPPER_PROPS}
+            />
+            <FormTextArea
+                defaultValue={withDefaultValues ? LOREM.text_xxs : undefined}
+                id="description"
+                label={LOREM.labelDescription()}
+                name="description"
+                placeholder="Enter your description"
+                required={false}
+                wrapperProps={WRAPPER_PROPS}
+            />
+            <FormSelectSingle
+                defaultValue={withDefaultValues ? mockSelectItems({})[0].value : undefined}
+                id="select"
+                items={mockSelectItems({})}
+                label={LOREM.labelDropdown()}
+                name="select"
+                placeholder="Select an option from the dropdown"
+                wrapperProps={WRAPPER_PROPS}
+            />
+            <FormSlider
+                defaultValue={withDefaultValues ? [50] : undefined}
+                id="amount"
+                label={LOREM.labelSlider()}
+                name="amount"
+                placeholder="Enter an amount"
+                wrapperProps={WRAPPER_PROPS}
+            />
+            <FormRadioButtonCardGroup
+                defaultValue={withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined}
+                errorMessage="Select an option"
+                id="radio"
+                items={RADIO_BUTTON_CARDS_MOCK}
+                label={LOREM.labelRadioButtons()}
+                name="radio"
+                wrapperProps={WRAPPER_PROPS}
+            />
+            <FormSubmitButton width="100%">Submit</FormSubmitButton>
+        </>
+    ),
+    handleErrors,
+    handleSubmit,
+    name: LOREM.name(),
+    resolver: zodResolver(withOptionalFields ? mockFormSchemaOptional : mockFormSchema),
+});

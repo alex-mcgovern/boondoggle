@@ -19,6 +19,7 @@ const meta = {
         name: LOREM.name(),
         // onChange: (selection) => {
         //     alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
+
         // },
         placeholder: LOREM.placeholder(),
     },
@@ -84,17 +85,13 @@ const ControlledTemplate = () => {
                 marginBottom="space_4"
             >
                 <button
-                    onClick={() => {
-                        return setSelectedItems([]);
-                    }}
+                    onClick={() => setSelectedItems([])}
                     type="button"
                 >
                     Clear selected Items
                 </button>
                 <button
-                    onClick={() => {
-                        return setSelectedItems([ITEMS[0]]);
-                    }}
+                    onClick={() => setSelectedItems([ITEMS[0]])}
                     type="button"
                 >
                     Set selected Items

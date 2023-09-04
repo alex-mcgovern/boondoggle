@@ -15,13 +15,10 @@ export default {
     title: "Components/Box",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ children = "Inner content", ...rest }) => {
-    return <StoryComp {...rest}>{children}</StoryComp>;
-};
+const Template: StoryFn<StoryCompProps> = ({ children = "Inner content", ...rest }) => (
+    <StoryComp {...rest}>{children}</StoryComp>
+);
 
-/**
- * Polymorphism examples
- */
 export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
     args: {
         as: "ul",
@@ -43,9 +40,6 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryCompProps> = {
     render: Template,
 };
 
-/**
- * Basic styling examples
- */
 const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
     background: "tint_default",
     border: "border_default",
@@ -89,9 +83,6 @@ export const ExampleEscapeHatchStyles: StoryObj<StoryCompProps> = {
     render: Template,
 };
 
-/**
- * Advanced usage examples
- */
 export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
     args: {
         background: "tint_default",

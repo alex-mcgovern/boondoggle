@@ -2,7 +2,7 @@ import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
-import { forwardRef, useCallback, useEffect, useState } from "react";
+import { forwardRef, useCallback, useState } from "react";
 
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
@@ -12,7 +12,7 @@ import { Icon } from "../../icon";
 import { Input } from "../../input";
 import { filterSelectItems } from "../lib/filter_select_items";
 import { getSlotRight } from "../lib/get_slot_right";
-import { downshiftStateReducer, getIsSelected } from "../select_utils";
+import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import { SelectItemList } from "../t_select_item_list";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
@@ -153,20 +153,6 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
 
         const [inputValue, setInputValue] = useState("");
 
-        // const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape>>(
-        //     controlledSelectedItems || [
-        //             ...initialSelectedItems,
-        //             ...initialItems.filter((item) => {
-        //                 return item.isSelected;
-        //             }),
-        //         ] ||
-        //         []
-        // );
-
-        // useEffect(() => {
-        //     onChange?.(selectedItems);
-        // }, [selectedItems, onChange]);
-
         const items = isFilterable
             ? filterSelectItems({
                   inputValue,
@@ -175,11 +161,11 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
             : initialItems;
 
         const {
+            addSelectedItem,
             getDropdownProps,
             getSelectedItemProps,
-            selectedItems,
             removeSelectedItem,
-            addSelectedItem,
+            selectedItems,
         } = useMultipleSelection<SelectItemShape>({
             initialSelectedItems: controlledSelectedItems || [
                 ...initialSelectedItems,
@@ -187,14 +173,6 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
             ],
             onSelectedItemsChange: (c) => onChange?.(c.selectedItems),
         });
-
-        // const removeSelectedItem = useCallback((item: SelectItemShape) => {
-        //     return setSelectedItems((prevSelectedItems) => {
-        //         return prevSelectedItems.filter((selectedItem) => {
-        //             return selectedItem.value !== item.value;
-        //         });
-        //     });
-        // }, []);
 
         const getIsItemSelected = useCallback(
             (item: SelectItemShape) =>
@@ -212,29 +190,30 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
             getLabelProps,
             getMenuProps,
             highlightedIndex,
-            openMenu,
             isOpen,
             reset,
         } = useCombobox<SelectItemShape>({
+            defaultHighlightedIndex: 0,
             items,
-            onIsOpenChange,
-            defaultHighlightedIndex: 0, // after selection, highlight the first item.
-            onStateChange({ inputValue: newInputValue, selectedItem: newSelectedItem, type }) {
+            onIsOpenChange, // after selection, highlight the first item.
+            onStateChange({ inputValue: newInputValue, selectedItem: newItem, type }) {
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
-                    case useCombobox.stateChangeTypes.ItemClick:
-                        // case useCombobox.stateChangeTypes.InputBlur:
-                        if (!newSelectedItem) {
+                    case useCombobox.stateChangeTypes.ItemClick: {
+                        if (!newItem) {
                             return;
                         }
 
-                        newSelectedItem?.onClick?.();
+                        newItem?.onClick?.();
 
-                        getIsItemSelected(newSelectedItem)
-                            ? removeSelectedItem(newSelectedItem)
-                            : addSelectedItem(newSelectedItem);
+                        if (getIsItemSelected(newItem)) {
+                            removeSelectedItem(newItem);
+                        } else {
+                            addSelectedItem(newItem);
+                        }
 
                         break;
+                    }
 
                     case useCombobox.stateChangeTypes.InputChange:
                         if (typeof newInputValue !== "undefined") {
@@ -258,9 +237,10 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
                     case useCombobox.stateChangeTypes.ItemClick:
                         return {
                             ...changes,
-                            isOpen: true, // keep the menu open after selection.
                             highlightedIndex: 0, // with the first option highlighted.
+                            isOpen: true, // keep the menu open after selection.
                         };
+
                     default:
                         return changes;
                 }
@@ -340,7 +320,6 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
                         items,
                     })}
                     ref={refs.setFloating}
-                    removeSelectedItem={removeSelectedItem}
                     size={size}
                     style={floatingStyles}
                 />

@@ -1,6 +1,5 @@
-export const slugify = (str: string): string => {
-    return str
+export const slugify = (str: string): string =>
+    str
         .toLowerCase()
         .replace(/ /g, "-")
         .replace(/[^\w-]+/g, "");
-};

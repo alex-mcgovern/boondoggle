@@ -82,9 +82,7 @@ export function DataTableInfoNoResults({
 
             <Button
                 name="clear_filters"
-                onClick={() => {
-                    return setColumnFilters([]);
-                }}
+                onClick={() => setColumnFilters([])}
                 slotRight={[<Icon icon={faTimesCircle} />]}
             >
                 {strClearAllFilters}

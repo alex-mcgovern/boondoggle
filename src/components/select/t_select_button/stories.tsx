@@ -65,9 +65,7 @@ export const WithItemsWithIcons: Story = {
 export const WithButtonsAsItems: Story = {
     args: {
         items: mockSelectItems({
-            onClick: () => {
-                return alert("clicked");
-            },
+            onClick: () => alert("clicked"),
         }),
     },
 };

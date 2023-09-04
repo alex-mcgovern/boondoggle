@@ -35,9 +35,10 @@ export type AvatarProps = {
  * Renders an avatar. Falls back to initial letters if no image is provided.
  */
 export function Avatar({ firstName, fullName, lastName, size = 64, src }: AvatarProps) {
-    const initials: string | undefined = useMemo(() => {
-        return getInitials({ firstName, fullName, lastName });
-    }, [firstName, fullName, lastName]);
+    const initials: string | undefined = useMemo(
+        () => getInitials({ firstName, fullName, lastName }),
+        [firstName, fullName, lastName]
+    );
 
     if (src) {
         return (

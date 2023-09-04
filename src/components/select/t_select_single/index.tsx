@@ -107,9 +107,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             isClearable,
             isFilterable,
             isOpen: controlledIsOpen,
-            itemToString = (item: SelectItemShape | null) => {
-                return item?.label || "";
-            },
+            itemToString = (item: SelectItemShape | null) => item?.label || "",
             items: initialItems,
             label,
             labelTooltip,
@@ -126,11 +124,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
     ) => {
         const ref = useForwardRef(initialRef);
 
-        const initialItem =
-            initialSelectedItem ||
-            initialItems.find((item) => {
-                return item.isSelected;
-            });
+        const initialItem = initialSelectedItem || initialItems.find((item) => item.isSelected);
 
         const [inputValue, setInputValue] = useState(initialItem?.label || "");
 
@@ -167,12 +161,11 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
         });
 
         const getIsItemSelected = useCallback(
-            (item: SelectItemShape) => {
-                return getIsSelected({
+            (item: SelectItemShape) =>
+                getIsSelected({
                     item,
                     selectedItem,
-                });
-            },
+                }),
             [selectedItem]
         );
 
@@ -238,7 +231,6 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                     isOpen={isOpen}
                     items={items}
                     ref={refs.setFloating}
-                    removeSelectedItem={undefined}
                     size={size}
                     style={floatingStyles}
                 />

@@ -20,16 +20,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/**
- * Customisation examples
- */
 export const CustomisationMargin: Story = {
     args: { wrapperProps: { margin: "space_10" } },
 };
 
-/**
- * Size
- */
 export const SizeSm: Story = {
     args: { size: "sm" },
 };
@@ -42,9 +36,6 @@ export const SizeLg: Story = {
     args: { size: "lg" },
 };
 
-/**
- * Slot props
- */
 export const SlotLeftIcon: Story = {
     args: { slotLeft: [<Icon icon={faTriangleCircleSquare} />] },
 };
@@ -57,9 +48,6 @@ export const SlotRightLoader: Story = {
     args: { slotRight: [<Loader />] },
 };
 
-/**
- * State
- */
 export const StateHover: Story = {
     parameters: { pseudo: { hover: true } },
 };

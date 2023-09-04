@@ -35,22 +35,18 @@ export function DataTableLayoutHead<TTableData>({
             as="thead"
             {...rest}
         >
-            {table.getHeaderGroups().map((header_group) => {
-                return (
-                    <tr key={header_group.id}>
-                        {header_group.headers.map((header) => {
-                            return (
-                                <DataTableLayoutColumnHeaderCell<TTableData>
-                                    header={header}
-                                    isSortable={isSortable}
-                                    isSticky={isSticky}
-                                    key={header.id}
-                                />
-                            );
-                        })}
-                    </tr>
-                );
-            })}
+            {table.getHeaderGroups().map((header_group) => (
+                <tr key={header_group.id}>
+                    {header_group.headers.map((header) => (
+                        <DataTableLayoutColumnHeaderCell<TTableData>
+                            header={header}
+                            isSortable={isSortable}
+                            isSticky={isSticky}
+                            key={header.id}
+                        />
+                    ))}
+                </tr>
+            ))}
         </Box>
     );
 }

@@ -43,9 +43,7 @@ const selectFromInputDate = async ({
 
     expect(inputDateTrigger).not.toBeNull();
 
-    await waitFor(() => {
-        return userEvent.click(inputDateTrigger);
-    });
+    await waitFor(() => userEvent.click(inputDateTrigger));
 
     const newDateButton = getByRoleScoped("button", {
         name: "01",
@@ -67,14 +65,14 @@ const selectFromInputDate = async ({
 const renderComponent = async ({ ...props }: InputDateProps) => {
     const ref = createRef<HTMLInputElement>();
 
-    return waitFor(() => {
-        return render(
+    return waitFor(() =>
+        render(
             <InputDate
                 {...props}
                 ref={ref}
             />
-        );
-    });
+        )
+    );
 };
 
 const ON_CHANGE = jest.fn();
@@ -106,9 +104,7 @@ describe("<InputDate />", () => {
         test("should have correct value when user selects date, and is passed a data transformer", async () => {
             const { getByRole } = await renderComponent({
                 ...PROPS,
-                rawValueTransformer: (value: string) => {
-                    return value.substring(0, 10);
-                },
+                rawValueTransformer: (value: string) => value.substring(0, 10),
             });
 
             await selectFromInputDate({

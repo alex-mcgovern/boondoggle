@@ -11,7 +11,9 @@ import type {
     PolymorphicComponentPropWithRef,
     PolymorphicRef,
     WithColorOverlay,
- WithSize, WithStateDisabled } from "../../common-types";
+    WithSize,
+    WithStateDisabled,
+} from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ComponentPropsWithoutRef, ElementType, ReactElement, ReactNode } from "react";
 

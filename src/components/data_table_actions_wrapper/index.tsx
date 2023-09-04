@@ -43,9 +43,7 @@ export function DataTableActionsWrapper({
                     gap="space_2"
                     marginLeft="auto"
                 >
-                    {Children.map(rightActions, (action) => {
-                        return action;
-                    })}
+                    {Children.map(rightActions, (action) => action)}
                 </Box>
             )}
         </Box>

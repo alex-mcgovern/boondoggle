@@ -32,13 +32,9 @@ export function DataTableControlPagination<TTableData>({
     table,
     ...rest
 }: DataTableControlPaginationProps<TTableData>) {
-    const goToPrevious = useCallback(() => {
-        return table.previousPage();
-    }, [table]);
+    const goToPrevious = useCallback(() => table.previousPage(), [table]);
 
-    const goToNext = useCallback(() => {
-        return table.nextPage();
-    }, [table]);
+    const goToNext = useCallback(() => table.nextPage(), [table]);
 
     return (
         <Box

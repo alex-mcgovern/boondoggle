@@ -22,9 +22,7 @@ export function DataTableFilterInput({ placeholder, setGlobalFilter }: DataTable
             autoComplete="off"
             isClearable
             name="filter"
-            onChange={(e) => {
-                return setGlobalFilter(e.target.value);
-            }}
+            onChange={(e) => setGlobalFilter(e.target.value)}
             placeholder={placeholder}
             slotLeft={[<Icon icon={faSearch} />]}
         />

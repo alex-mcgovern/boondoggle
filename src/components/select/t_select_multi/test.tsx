@@ -28,12 +28,10 @@ const PROPS: SelectMultiProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectMultiProps) => {
-    return {
-        user: userEvent.setup(),
-        ...render(<SelectMulti {...props} />),
-    };
-};
+const renderComponent = (props: SelectMultiProps) => ({
+    user: userEvent.setup(),
+    ...render(<SelectMulti {...props} />),
+});
 
 describe("<SelectMulti />", () => {
     describe("Basic smoke tests", () => {
@@ -224,18 +222,23 @@ describe("<SelectMulti />", () => {
         // Select first item
 
         await user.tab();
+
         await user.keyboard("{arrowdown}");
+
         await user.keyboard("{enter}");
 
         expect(ON_CHANGE).toHaveBeenCalledWith(expect.arrayContaining([PROPS.items[0]]));
+
         expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
 
         // Select second item
 
         await user.keyboard("{arrowdown}");
+
         await user.keyboard("{enter}");
 
         expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
+
         expect(ON_CHANGE).toHaveBeenLastCalledWith(
             expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
         );
@@ -251,6 +254,7 @@ describe("<SelectMulti />", () => {
         expect(combobox).toHaveClass(a11yError);
 
         expect(combobox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
+
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });
 });

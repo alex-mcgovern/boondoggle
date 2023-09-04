@@ -19,9 +19,8 @@ const PROPS: RadioButtonGroupProps = {
     onChange: onChangeMock,
 };
 
-const renderComponent = ({ ...props }: RadioButtonGroupProps) => {
-    return render(<RadioButtonGroup {...props} />);
-};
+const renderComponent = ({ ...props }: RadioButtonGroupProps) =>
+    render(<RadioButtonGroup {...props} />);
 
 describe("<RadioButtonGroup />", () => {
     describe("Basic smoke tests", () => {

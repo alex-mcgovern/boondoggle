@@ -15,12 +15,10 @@ const PROPS: InputDateProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = (props: InputDateProps) => {
-    return {
-        user: userEvent.setup(),
-        ...render(<InputDate {...props} />),
-    };
-};
+const renderComponent = (props: InputDateProps) => ({
+    user: userEvent.setup(),
+    ...render(<InputDate {...props} />),
+});
 
 describe("<InputDate />", () => {
     test("should render placeholder", async () => {

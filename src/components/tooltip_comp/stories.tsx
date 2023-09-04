@@ -15,18 +15,16 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const Template = () => {
-    return (
-        <Tooltip placement="right">
-            <TooltipTrigger asChild>
-                <button type="button">
-                    <Icon icon={faInfoCircle} />
-                </button>
-            </TooltipTrigger>
-            <TooltipContent>My tooltip</TooltipContent>
-        </Tooltip>
-    );
-};
+const Template = () => (
+    <Tooltip placement="right">
+        <TooltipTrigger asChild>
+            <button type="button">
+                <Icon icon={faInfoCircle} />
+            </button>
+        </TooltipTrigger>
+        <TooltipContent>My tooltip</TooltipContent>
+    </Tooltip>
+);
 
 // @ts-expect-error todo: fix this
 export const Default: Story = {

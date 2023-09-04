@@ -8,10 +8,6 @@ import { createAccessibleTransition } from "./utils/create_accessible_transition
 
 import type { StyleRule } from "@vanilla-extract/css";
 
-globalStyle(`*`, {
-    // outline: `0.25px solid rgba(255, 0, 0, 0.25) !important`,
-});
-
 /**
  * Based on Eric Meyer's Reset CSS https://meyerweb.com/eric/tools/css/reset/
  *
@@ -48,8 +44,7 @@ time, mark, audio, video`,
 );
 
 globalStyle(
-    `article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section`,
+    `article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section`,
     {
         "@layer": {
             [resetLayer]: {
@@ -173,10 +168,6 @@ globalStyle(":root", {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`*`, {
     "@layer": {
@@ -213,10 +204,6 @@ globalStyle(`body`, {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`a`, {
     "@layer": {
@@ -264,10 +251,6 @@ globalStyle("input[type=checkbox]", {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`code`, {
     "@layer": {
@@ -277,10 +260,6 @@ globalStyle(`code`, {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`h1, h2, h3, h4, h5, h6`, {
     "@layer": {
@@ -341,10 +320,6 @@ globalStyle(`h6`, {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`hr`, {
     "@layer": {
@@ -357,10 +332,6 @@ globalStyle(`hr`, {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 export const textFieldStyleRule: StyleRule = {
     background: vars.color.background,
@@ -446,10 +417,6 @@ globalStyle(
         },
     }
 );
-/**
-))) * -----------------------------------------------------------------------------
-)))
-*/
 
 globalStyle(`ul, ol`, {
     "@layer": {
@@ -478,10 +445,6 @@ globalStyle(`ul li::marker, ol li::marker`, {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`menu`, {
     "@layer": {
@@ -492,10 +455,6 @@ globalStyle(`menu`, {
         },
     },
 });
-/**
-}}}} * -----------------------------------------------------------------------------
-}}}}
-*/
 
 globalStyle(`p`, {
     "@layer": {

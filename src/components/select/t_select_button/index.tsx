@@ -151,7 +151,6 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                     isOpen={isOpen}
                     items={items}
                     ref={refs.setFloating}
-                    removeSelectedItem={undefined}
                     size={size}
                     style={floatingStyles}
                 />

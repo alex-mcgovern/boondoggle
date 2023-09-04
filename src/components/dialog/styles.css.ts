@@ -1,4 +1,4 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -18,20 +18,12 @@ const placement = styleVariants({
     },
     "bottom-start": [],
 
-    /**
-     * --------------------------------------------
-     */
-
     "middle-start": [
         {
             insetBlock: "0% 50%",
             insetInlineStart: calc.add("100%", vars.spacing.space_2),
         },
     ],
-
-    /**
-     * --------------------------------------------
-     */
 
     "top-center": [
         {
@@ -51,7 +43,6 @@ export const getDialogStyles = recipe({
     base: [
         animateFadeIn,
         {
-            // border: "none",
             maxWidth: calc.subtract("100vw", vars.spacing.space_4),
             selectors: {
                 "&:focus": {
@@ -60,7 +51,6 @@ export const getDialogStyles = recipe({
             },
         },
         getSprinkles({
-            // overflow: "hidden",
             padding: "none",
             zIndex: "1",
         }),
@@ -71,8 +61,4 @@ export const getDialogStyles = recipe({
     variants: {
         placement,
     },
-});
-
-export const dialogContentStyles = style({
-    // transform: "translate3d(0, 0, 0)",
 });

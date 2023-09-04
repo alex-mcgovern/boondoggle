@@ -17,13 +17,12 @@ const PROPS: FormTextAreaProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FormTextAreaProps) => {
-    return render(
+const renderComponent = ({ ...props }: FormTextAreaProps) =>
+    render(
         <FormTestProvider>
             <FormTextArea {...props} />
         </FormTestProvider>
     );
-};
 
 describe("<FormTextArea />", () => {
     describe("Basic smoke tests", () => {
