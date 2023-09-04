@@ -45,6 +45,7 @@ type DataTableControlPageSizeProps<TTableData> = {
      * String added to the page size for each item in the select, e.g. "Show 10".
      */
     strShow: string;
+
     /**
      * The `react-table` instance to control.
      */

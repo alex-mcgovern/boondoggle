@@ -37,10 +37,12 @@ type GetPlaceholderArgs = {
      * The placeholder text to display when no items are selected.
      */
     placeholder: string | undefined;
+
     /**
      * The selected items.
      */
     selectedItems: Array<SelectItemShape> | undefined;
+
     /**
      * A function that returns a string representation of the selected items.
      */
@@ -79,34 +81,42 @@ export type SelectMultiProps = Partial<WithOptionalLabel> &
          * Item to be preselected when the component mounts.
          */
         initialSelectedItems?: Array<SelectItemShape>;
+
         /**
          * Props to customise the input element.
          */
         inputProps?: Partial<InputProps>;
+
         /**
          * Whether the Select should be filterable by typing.
          */
         isFilterable?: boolean;
+
         /**
          * Prop to toggle the open state of the dropdown.
          */
         isOpen?: boolean;
+
         /**
          * The items to render in the dropdown.
          */
         items: Array<SelectItemShape>;
+
         /**
          * Function called with the selected items when the selection changes.
          */
         onChange?: (selection: Array<SelectItemShape> | undefined) => void;
+
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
         onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
+
         /**
          * An array of selected items, used to control the component from outside.
          */
         selectedItems?: Array<SelectItemShape>;
+
         /**
          * A function that returns a string representation of the selected items.
          */
@@ -224,10 +234,12 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
                     case useCombobox.stateChangeTypes.InputChange:
                         if (typeof newInputValue !== "undefined") {
                             setInputValue(newInputValue);
+
                             break;
                         }
 
                         break;
+
                     default:
                         break;
                 }

@@ -33,6 +33,7 @@ export function FormRadioButtonCardGroup({
     const handleChange = useCallback(
         (value: string) => {
             onChange(value);
+
             onChangeParent?.(value);
         },
         [onChange, onChangeParent]

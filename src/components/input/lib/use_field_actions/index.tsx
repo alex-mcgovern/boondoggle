@@ -11,37 +11,45 @@ import type { ChangeEvent, ReactNode } from "react";
 
 type UseFieldActionsArgs = {
     /**
-     * Whether the field value can be optionally visible.
-     */
-    isVisibilityToggleable: boolean | undefined;
-    /**
      * The default value of the input.
      */
     defaultValue: string | number | readonly string[] | undefined;
+
     /**
      * Whether to allow the user to clear the input with a button
      */
     isClearable: boolean | undefined;
+
     /**
      * Whether the field is copyable.
      */
     isCopyable: boolean | undefined;
+
+    /**
+     * Whether the field value can be optionally visible.
+     */
+    isVisibilityToggleable: boolean | undefined;
+
     /**
      * Whether the field value is visible.
      */
     isVisible: boolean | undefined;
+
     /**
      * The function to call when the input value changes.
      */
     onChange: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+
     /**
      * Whether the field is read-only.
      */
     readOnly: boolean | undefined;
+
     /**
      * The size of the field.
      */
     size: ElementSizeEnum | undefined;
+
     /**
      * The value of the input.
      */
@@ -52,10 +60,10 @@ type UseFieldActionsArgs = {
  * Returns an array of React nodes that represent actions that can be taken on a field.
  */
 export function useFieldActions({
-    isVisibilityToggleable,
     defaultValue,
     isClearable,
     isCopyable,
+    isVisibilityToggleable,
     isVisible: initialIsVisible,
     onChange,
     readOnly,

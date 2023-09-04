@@ -7,10 +7,12 @@ type GetSlotRightArgs = {
      * Whether the user can clear the input.
      */
     isClearable: boolean;
+
     /**
      * Callback to reset the select state.
      */
     reset: () => void;
+
     /**
      * The slotRight node.
      */

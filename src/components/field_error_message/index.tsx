@@ -8,35 +8,35 @@ import { Icon } from "../icon";
 import type { BoxProps } from "../box";
 
 export type FieldErrorMessageProps = BoxProps & {
-  message?: string;
+    message?: string;
 };
 
 export function FieldErrorMessage({
-  className: userClassName,
-  message,
-  ...rest
+    className: userClassName,
+    message,
+    ...rest
 }: FieldErrorMessageProps) {
-  if (!message) {
-    return null;
-  }
+    if (!message) {
+        return null;
+    }
 
-  if (message) {
-    return (
-      <Box
-        alignItems="center"
-        className={clsx(userClassName, variantColorOverlay.red)}
-        color="text_low_contrast"
-        display="flex"
-        fontStyle="body_sm"
-        gap="space_1"
-        marginY="space_1"
-        role="alert"
-        {...rest}
-      >
-        <Icon icon={faExclamationCircle} />
-        {message}
-      </Box>
-    );
-  }
-  return null;
+    if (message) {
+        return (
+            <Box
+                alignItems="center"
+                className={clsx(userClassName, variantColorOverlay.red)}
+                color="text_low_contrast"
+                display="flex"
+                fontStyle="body_sm"
+                gap="space_1"
+                marginY="space_1"
+                role="alert"
+                {...rest}
+            >
+                <Icon icon={faExclamationCircle} />
+                {message}
+            </Box>
+        );
+    }
+    return null;
 }

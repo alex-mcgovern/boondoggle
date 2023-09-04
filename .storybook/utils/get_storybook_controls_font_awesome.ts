@@ -2,29 +2,26 @@
  * Util to generate Storybook controls for all
  * FontAwesome related props and group them in the UI.
  */
-import {
-  faArrowRight,
-  faTriangleCircleSquare,
-} from "@fortawesome/sharp-regular-svg-icons";
+import { faArrowRight, faTriangleCircleSquare } from "@fortawesome/sharp-regular-svg-icons";
 
 const availableIcons = {
-  "": null,
-  "Triangle circle square": faTriangleCircleSquare,
-  "Arrow Right": faArrowRight,
+    "": null,
+    "Triangle circle square": faTriangleCircleSquare,
+    "Arrow Right": faArrowRight,
 };
 
 export const getFontAwesomeControls = (fontAwesomePropNames: Array<string>) => {
-  return fontAwesomePropNames.reduce((accumulator, iconPropName) => {
-    accumulator[iconPropName] = {
-      control: "select",
-      options: Object.keys(availableIcons),
-      mapping: availableIcons,
+    return fontAwesomePropNames.reduce((accumulator, iconPropName) => {
+        accumulator[iconPropName] = {
+            control: "select",
+            options: Object.keys(availableIcons),
+            mapping: availableIcons,
 
-      table: {
-        category: "FontAwesome",
-      },
-    };
+            table: {
+                category: "FontAwesome",
+            },
+        };
 
-    return accumulator;
-  }, {});
+        return accumulator;
+    }, {});
 };

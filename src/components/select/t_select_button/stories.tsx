@@ -5,87 +5,72 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  args: {
-    buttonText: LOREM.button,
-    id: LOREM.id(),
-    items: mockSelectItems({}),
-    name: LOREM.name(),
-    onChange: (changes) => {
-      alert(`onChange\n\n${JSON.stringify(changes.selectedItem, null, 2)}`);
+    args: {
+        buttonText: LOREM.button,
+        id: LOREM.id(),
+        items: mockSelectItems({}),
+        name: LOREM.name(),
+        onChange: (changes) => {
+            alert(`onChange\n\n${JSON.stringify(changes.selectedItem, null, 2)}`);
+        },
     },
-  },
-  component: StoryComp,
-  title: "Components/SelectButton",
+    component: StoryComp,
+    title: "Components/SelectButton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-/** ----------------------------------------------------------------------------- */
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-/** ----------------------------------------------------------------------------- */
-
 export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
+    args: {
+        disabled: true,
+    },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const SizeSm: Story = {
-  args: {
-    size: "sm",
-  },
+    args: {
+        size: "sm",
+    },
 };
-/** ----------------------------------------------------------------------------- */
 
 export const SizeMd: Story = {
-  args: {
-    size: "md",
-  },
+    args: {
+        size: "md",
+    },
 };
-/** ----------------------------------------------------------------------------- */
 
 export const SizeLg: Story = {
-  args: {
-    size: "lg",
-  },
+    args: {
+        size: "lg",
+    },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const WithCustomButtonProps: Story = {
-  args: {
-    buttonProps: {
-      appearance: "tertiary",
+    args: {
+        buttonProps: {
+            appearance: "tertiary",
+        },
     },
-  },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const WithItemsWithIcons: Story = {
-  args: {
-    items: mockSelectItems({ withIcon: true }),
-  },
+    args: {
+        items: mockSelectItems({ withIcon: true }),
+    },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 export const WithButtonsAsItems: Story = {
-  args: {
-    items: mockSelectItems({
-      onClick: () => {
-        return alert("clicked");
-      },
-    }),
-  },
+    args: {
+        items: mockSelectItems({
+            onClick: () => {
+                return alert("clicked");
+            },
+        }),
+    },
 };
-
-/** ----------------------------------------------------------------------------- */
 
 // const WithDialogTriggerNodeAsItemTemplate: StoryFn<StoryCompProps> = (
 //   props: StoryCompProps
@@ -94,6 +79,7 @@ export const WithButtonsAsItems: Story = {
 
 //   const openDialog = useCallback(() => {
 //     dialogRef.current?.showModal();
+
 //   }, [dialogRef]);
 
 //   return (
@@ -118,6 +104,7 @@ export const WithButtonsAsItems: Story = {
 //       </Box>
 //     </>
 //   );
+
 // };
 
 // export const WithDialogTriggerNodeAsItem: Story = {

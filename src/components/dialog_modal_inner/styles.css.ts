@@ -8,13 +8,8 @@ import {
 } from "../../styles/common/media_queries.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-/**
- * ---------------------------------------------
- * Dialog width variant
- * -----------------------------------------------
- */
-
 /* eslint-disable sort-keys-fix/sort-keys-fix */
+
 const variantWidth = styleVariants({
     lg: {
         "@media": {
@@ -37,15 +32,10 @@ const variantWidth = styleVariants({
         },
     },
 });
+
 /* eslint-enable sort-keys-fix/sort-keys-fix */
 
 export type DialogModalInnerWidth = keyof typeof variantWidth;
-
-/**
- * ---------------------------------------------
- * Main dialog inner styles
- * -----------------------------------------------
- */
 
 export const getDialogModalInnerStyle = recipe({
     base: [

@@ -6,54 +6,53 @@ import { RadioButtonGroup } from "../radio_button_group";
 import type { WithFormFieldProps } from "../../common-types";
 import type { RadioButtonGroupProps } from "../radio_button_group";
 
-/** ----------------------------------------------------------------------------- */
-
 export type FormRadioButtonGroupProps = RadioButtonGroupProps &
-  WithFormFieldProps & {
-    defaultValue?: string | number;
-  };
+    WithFormFieldProps & {
+        defaultValue?: string | number;
+    };
 
 export function FormRadioButtonGroup({
-  defaultValue,
-  invalid,
-  name,
-  onChange: onChangeParent,
-  wrapperProps,
-  ...rest
-}: FormRadioButtonGroupProps) {
-  const { control } = useFormContext();
-
-  const {
-    field: { onBlur, onChange, ref, value: controlledValue = "" },
-    fieldState: { error },
-  } = useController({
-    control,
     defaultValue,
+    invalid,
     name,
-  });
+    onChange: onChangeParent,
+    wrapperProps,
+    ...rest
+}: FormRadioButtonGroupProps) {
+    const { control } = useFormContext();
 
-  const handleChange = useCallback(
-    (value: string) => {
-      onChange(value);
-      onChangeParent?.(value);
-    },
-    [onChange, onChangeParent]
-  );
+    const {
+        field: { onBlur, onChange, ref, value: controlledValue = "" },
+        fieldState: { error },
+    } = useController({
+        control,
+        defaultValue,
+        name,
+    });
 
-  return (
-    <RadioButtonGroup
-      defaultValue={defaultValue}
-      errorMessage={error?.message}
-      inputProps={{
-        onBlur,
-      }}
-      invalid={invalid || !!error}
-      name={name}
-      onChange={handleChange}
-      ref={ref}
-      value={controlledValue}
-      wrapperProps={wrapperProps}
-      {...rest}
-    />
-  );
+    const handleChange = useCallback(
+        (value: string) => {
+            onChange(value);
+
+            onChangeParent?.(value);
+        },
+        [onChange, onChangeParent]
+    );
+
+    return (
+        <RadioButtonGroup
+            defaultValue={defaultValue}
+            errorMessage={error?.message}
+            inputProps={{
+                onBlur,
+            }}
+            invalid={invalid || !!error}
+            name={name}
+            onChange={handleChange}
+            ref={ref}
+            value={controlledValue}
+            wrapperProps={wrapperProps}
+            {...rest}
+        />
+    );
 }

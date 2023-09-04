@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -11,44 +13,39 @@ import { SelectMulti } from "../../select/t_select_multi";
 
 import type { SelectMultiProps } from "../../select/t_select_multi";
 
-/** ----------------------------------------------------------------------------- */
-
 const PROPS: SelectMultiProps = {
-  errorMessage: LOREM.errorMessage(),
-  id: LOREM.id(),
-  invalid: true,
-  items: mockSelectItems({}),
-  label: LOREM.label(),
-  name: LOREM.text_xxs,
-  placeholder: LOREM.select,
+    errorMessage: LOREM.errorMessage(),
+    id: LOREM.id(),
+    invalid: true,
+    items: mockSelectItems({}),
+    label: LOREM.label(),
+    name: LOREM.text_xxs,
+    placeholder: LOREM.select,
 };
 
 const renderComponent = (props: SelectMultiProps) => {
-  return {
-    user: userEvent.setup(),
-    ...render(<SelectMulti {...props} />),
-  };
+    return {
+        user: userEvent.setup(),
+        ...render(<SelectMulti {...props} />),
+    };
 };
 
-/** ----------------------------------------------------------------------------- */
-
 describe("<SelectMulti />", () => {
-  describe("Invalid", () => {
-    it("should have error styling", async () => {
-      const { getByRole } = await renderComponent(PROPS);
+    describe("Invalid", () => {
+        it("should have error styling", async () => {
+            const { getByRole } = await renderComponent(PROPS);
 
-      const combobox = getByRole("combobox");
+            const combobox = getByRole("combobox");
 
-      expect(combobox).toHaveClass(a11yError);
-      expect(combobox?.parentNode?.parentNode).toHaveClass(
-        variantColorOverlay.red
-      );
+            expect(combobox).toHaveClass(a11yError);
+
+            expect(combobox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
+        });
+
+        it("should render error message", async () => {
+            const { getByText } = await renderComponent(PROPS);
+
+            expect(getByText(LOREM.errorMessage())).not.toBeNull();
+        });
     });
-
-    it("should render error message", async () => {
-      const { getByText } = await renderComponent(PROPS);
-
-      expect(getByText(LOREM.errorMessage())).not.toBeNull();
-    });
-  });
 });

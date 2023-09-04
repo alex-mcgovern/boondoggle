@@ -20,24 +20,31 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio_button";
 import type { Ref } from "react";
 
-/** ----------------------------------------------------------------------------- */
-
 export type RadioButtonGroupProps = SprinklesArgs &
     WithWrapperProps &
     WithStateInvalid &
     WithName &
     WithDescription &
-    WithOptionalLabel & {
+    WithOptionalLabel &
+    WithStateInvalid & {
         defaultValue?: string | number;
+
         id: string;
+
         inputProps?: RadioButtonInputProps;
-        invalid?: boolean;
+
         isLabelVisible?: boolean;
+
         items: Array<RadioButtonShape>;
+
         label: string;
+
         labelTooltip?: string;
+
         onChange?: (value: string) => void;
+
         required?: boolean;
+
         value?: string;
     };
 
@@ -76,13 +83,9 @@ export const RadioButtonGroup = forwardRef(
             });
         }, [defaultValue, items, value]);
 
-        /** --------------------------------------------- */
-
         if (!Array.isArray(controlledItems) || controlledItems.length < 1) {
             return null;
         }
-
-        /** --------------------------------------------- */
 
         return (
             <Box

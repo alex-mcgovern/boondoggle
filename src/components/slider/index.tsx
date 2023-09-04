@@ -20,6 +20,7 @@ import type {
     WithName,
     WithOptionalLabel,
     WithSize,
+    WithSlots,
     WithStateDisabled,
     WithStateInvalid,
     WithWrapperProps,
@@ -41,6 +42,7 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
          * Controls `aria-required` and input `required` attributes.
          */
         required?: boolean;
+
         /**
          * Aria role to use for the input (e.g. `search`).
          */

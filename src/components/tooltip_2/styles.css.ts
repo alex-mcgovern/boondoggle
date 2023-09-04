@@ -5,47 +5,43 @@ import { animateFadeIn } from "../../styles/common/animations.css";
 import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-/** ----------------------------------------------------------------------------- */
-
 export const tooltipTriggerStyle = style([
-  getSprinkles({
-    background: "transparent",
-    borderRadius: "sm",
-    color: "text_low_contrast",
-    flexShrink: "0",
-    minWidth: "space_3",
-  }),
-  {
-    selectors: {
-      "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {
-        color: vars.color.text_high_contrast,
-      },
+    getSprinkles({
+        background: "transparent",
+        borderRadius: "sm",
+        color: "text_low_contrast",
+        flexShrink: "0",
+        minWidth: "space_3",
+    }),
+    {
+        selectors: {
+            "&:is(&:not([disabled]):hover, &:not([disabled]):focus)": {
+                color: vars.color.text_high_contrast,
+            },
+        },
+        transition: `color ease`,
+        transitionDuration: vars.transitionDuration.medium,
     },
-    transition: `color ease`,
-    transitionDuration: vars.transitionDuration.medium,
-  },
-  a11yFocus,
+    a11yFocus,
 ]);
 
-/** ----------------------------------------------------------------------------- */
-
 export const tooltipTextStyle = style([
-  variantColorOverlay.grey,
-  animateFadeIn,
-  getSprinkles({
-    background: "black",
-    borderRadius: "md",
-    color: "white",
-    fontStyle: "body_sm",
-    fontWeight: "normal",
-    overflow: "hidden",
-    padding: "space_2",
-    textAlign: "center",
-    whiteSpace: "normal",
-    width: "max-content",
-  }),
-  {
-    maxWidth: "12rem",
-    zIndex: "99999",
-  },
+    variantColorOverlay.grey,
+    animateFadeIn,
+    getSprinkles({
+        background: "black",
+        borderRadius: "md",
+        color: "white",
+        fontStyle: "body_sm",
+        fontWeight: "normal",
+        overflow: "hidden",
+        padding: "space_2",
+        textAlign: "center",
+        whiteSpace: "normal",
+        width: "max-content",
+    }),
+    {
+        maxWidth: "12rem",
+        zIndex: "99999",
+    },
 ]);

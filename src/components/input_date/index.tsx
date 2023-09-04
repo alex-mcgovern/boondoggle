@@ -2,14 +2,15 @@ import { faCalendarAlt } from "@fortawesome/sharp-regular-svg-icons";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
-import { type WithOptionalLabel, type WithOptionalPlaceholder } from "../../common-types";
 import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
 import { Icon } from "../icon";
-import { Input, type InputProps } from "../input";
+import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
+import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../common-types";
+import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
 export type InputDateProps = Omit<
@@ -19,9 +20,12 @@ export type InputDateProps = Omit<
     WithOptionalLabel &
     WithOptionalPlaceholder & {
         isOpen?: boolean;
+
         locale?: Intl.LocalesArgument;
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onChange?: (...event: any[]) => void;
+
         rawValueTransformer?: (value: string) => string;
     };
 
@@ -44,6 +48,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
         const [inputValue, setInputValue] = useState<string | number | readonly string[]>(
             value || ""
         );
+
         const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
 
         /**

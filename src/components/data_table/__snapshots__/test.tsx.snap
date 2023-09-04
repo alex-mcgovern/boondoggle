@@ -566,8 +566,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
           class="get_sprinkles_fontWeight_semibold__eiij7b2i get_sprinkles_whiteSpace_nowrap__eiij7bax"
         >
           1
-           of
-           
+           of 
           4
         </div>
       </span>
@@ -645,18 +644,18 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
         </div>
         <div
           aria-labelledby="downshift-:r2:-label"
-          class="styles_getSelectItemListStyles__tx55ph1 a11y_a11yFocus__r8he5t2 styles__tx55ph0 get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_md__eiij7by get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_minWidth_100%__eiij7b9f get_sprinkles_width_max-content_mobile__eiij7boj get_sprinkles_zIndex_1__eiij7bb0 styles_getSelectItemListStyles_isOpen_false__tx55ph2"
+          class="styles_getSelectItemListStyles__t2i7ah1 a11y_a11yFocus__r8he5t2 styles__t2i7ah0 get_sprinkles_overflowX_hidden__eiij7bae get_sprinkles_overflowY_hidden__eiij7bai get_sprinkles_background_background__eiij7ba get_sprinkles_border_border_default__eiij7br get_sprinkles_borderRadius_md__eiij7by get_sprinkles_boxShadow_md__eiij7b17 get_sprinkles_minWidth_100%__eiij7b9f get_sprinkles_width_max-content_mobile__eiij7boj get_sprinkles_zIndex_1__eiij7bb0 styles_getSelectItemListStyles_isOpen_false__t2i7ah2"
           id="downshift-:r2:-menu"
           role="listbox"
           style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
         >
           <div
-            class="styles_selectItemListInner__tx55ph5 styles__tx55ph4 get_sprinkles_overflowY_auto__eiij7baj get_sprinkles_padding_space_1_mobile__eiij7bf7"
+            class="styles_selectItemListInner__t2i7ah5 styles__t2i7ah4 get_sprinkles_overflowY_auto__eiij7baj get_sprinkles_padding_space_1_mobile__eiij7bf7"
           >
             <button
               aria-disabled="false"
               aria-selected="false"
-              class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bcm get_sprinkles_margin_none__eiij7b40 get_sprinkles_textAlign_left__eiij7bao get_sprinkles_textDecoration_none__eiij7bar get_sprinkles_width_100%_mobile__eiij7bna a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q42c styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bij get_sprinkles_paddingRight_space_3_mobile__eiij7bk4 get_sprinkles_paddingTop_space_2_mobile__eiij7blm get_sprinkles_paddingBottom_space_2_mobile__eiij7bgv get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
+              class="styles_getDropdownItemStyles__w5upr44 styles__w5upr43 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bcm get_sprinkles_margin_none__eiij7b40 get_sprinkles_textAlign_left__eiij7bao get_sprinkles_textDecoration_none__eiij7bar get_sprinkles_width_100%_mobile__eiij7bna a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__w5upr4c styles_size_md__w5upr41 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bij get_sprinkles_paddingRight_space_3_mobile__eiij7bk4 get_sprinkles_paddingTop_space_2_mobile__eiij7blm get_sprinkles_paddingBottom_space_2_mobile__eiij7bgv get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
               id="downshift-:r2:-item-0"
               role="option"
               value="10"
@@ -670,7 +669,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bcm get_sprinkles_margin_none__eiij7b40 get_sprinkles_textAlign_left__eiij7bao get_sprinkles_textDecoration_none__eiij7bar get_sprinkles_width_100%_mobile__eiij7bna a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q42c styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bij get_sprinkles_paddingRight_space_3_mobile__eiij7bk4 get_sprinkles_paddingTop_space_2_mobile__eiij7blm get_sprinkles_paddingBottom_space_2_mobile__eiij7bgv get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
+              class="styles_getDropdownItemStyles__w5upr44 styles__w5upr43 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bcm get_sprinkles_margin_none__eiij7b40 get_sprinkles_textAlign_left__eiij7bao get_sprinkles_textDecoration_none__eiij7bar get_sprinkles_width_100%_mobile__eiij7bna a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__w5upr4c styles_size_md__w5upr41 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bij get_sprinkles_paddingRight_space_3_mobile__eiij7bk4 get_sprinkles_paddingTop_space_2_mobile__eiij7blm get_sprinkles_paddingBottom_space_2_mobile__eiij7bgv get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
               id="downshift-:r2:-item-1"
               role="option"
               value="25"
@@ -684,7 +683,7 @@ exports[`<DataTable /> when rendering should match snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="styles_getDropdownItemStyles__bu9q424 styles__bu9q423 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bcm get_sprinkles_margin_none__eiij7b40 get_sprinkles_textAlign_left__eiij7bao get_sprinkles_textDecoration_none__eiij7bar get_sprinkles_width_100%_mobile__eiij7bna a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__bu9q42c styles_size_md__bu9q421 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bij get_sprinkles_paddingRight_space_3_mobile__eiij7bk4 get_sprinkles_paddingTop_space_2_mobile__eiij7blm get_sprinkles_paddingBottom_space_2_mobile__eiij7bgv get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
+              class="styles_getDropdownItemStyles__w5upr44 styles__w5upr43 get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_borderRadius_md__eiij7by get_sprinkles_color_text_low_contrast__eiij7b1k get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_fontWeight_normal__eiij7b2h get_sprinkles_gap_space_2_mobile__eiij7bcm get_sprinkles_margin_none__eiij7b40 get_sprinkles_textAlign_left__eiij7bao get_sprinkles_textDecoration_none__eiij7bar get_sprinkles_width_100%_mobile__eiij7bna a11y_a11yDisabled__r8he5t1 a11y_a11yFocus__r8he5t2 styles_getDropdownItemStyles_size_md__w5upr4c styles_size_md__w5upr41 element_size_elementFontSize_md__1f6zrv4 element_size__1f6zrv1 get_sprinkles_fontSize_body_md__eiij7b21 get_sprinkles_lineHeight_body_md__eiij7b3n element_size_elementPadding_md__1f6zrva element_size__1f6zrv7 get_sprinkles_paddingLeft_space_3_mobile__eiij7bij get_sprinkles_paddingRight_space_3_mobile__eiij7bk4 get_sprinkles_paddingTop_space_2_mobile__eiij7blm get_sprinkles_paddingBottom_space_2_mobile__eiij7bgv get_sprinkles_alignItems_center__eiij7b2 get_sprinkles_display_flex_mobile__eiij7bb4 get_sprinkles_gap_space_2_mobile__eiij7bcm"
               id="downshift-:r2:-item-2"
               role="option"
               value="50"

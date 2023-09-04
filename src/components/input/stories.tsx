@@ -25,6 +25,7 @@ const meta = {
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 /**
@@ -80,10 +81,6 @@ export const Description: Story = {
     },
 };
 
-/**
- * ----------------------------------------------------------------------------- Colors -------------------------------------------------------------------------------
- */
-
 const TemplateColors = () => {
     return (
         <Box
@@ -129,14 +126,9 @@ export const Colors: StoryObj<StoryCompProps> = {
     render: TemplateColors,
 };
 
-/**
- * ----------------------------------------------------------------------------- Size -------------------------------------------------------------------------------
- */
-
 const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
     return (
         <Box
-            // alignItems="center"
             display="grid"
             gap="space_8"
             gridTemplateColumns="3x"
@@ -173,10 +165,6 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
 export const Sizes: Story = {
     render: TemplateSizes,
 };
-
-/**
- * ----------------------------------------------------------------------------- Slot -------------------------------------------------------------------------------
- */
 
 const TemplateSlot = () => {
     return (
@@ -248,10 +236,6 @@ export const Slot: Story = {
     render: TemplateSlot,
 };
 
-/**
- * ----------------------------------------------------------------------------- Is clearable -------------------------------------------------------------------------------
- */
-
 const TemplateIsClearable = () => {
     return (
         <>
@@ -266,10 +250,6 @@ export const IsClearable: Story = {
     render: TemplateIsClearable,
 };
 
-/**
- * ----------------------------------------------------------------------------- Is copyable -------------------------------------------------------------------------------
- */
-
 const TemplateIsCopyable = () => {
     return (
         <>
@@ -283,10 +263,6 @@ const TemplateIsCopyable = () => {
 export const IsCopyable: Story = {
     render: TemplateIsCopyable,
 };
-
-/**
- * ----------------------------------------------------------------------------- Is password -------------------------------------------------------------------------------
- */
 
 const TemplateIsVisibilityToggleable = () => {
     return (
@@ -305,10 +281,6 @@ const TemplateIsVisibilityToggleable = () => {
 export const IsVisibilityToggleable: Story = {
     render: TemplateIsVisibilityToggleable,
 };
-
-/**
- * ----------------------------------------------------------------------------- Is visibility toggleable and is copyable -------------------------------------------------------------------------------
- */
 
 const TemplateIsVisibilityToggleableAndIsCopyable = () => {
     return (
@@ -329,19 +301,18 @@ export const IsVisibilityToggleableAndIsCopyable: Story = {
     render: TemplateIsVisibilityToggleableAndIsCopyable,
 };
 
-/**
- * ----------------------------------------------------------------------------- State -------------------------------------------------------------------------------
- */
-
 export const StateHover: Story = {
     parameters: { pseudo: { hover: true } },
 };
+
 export const StateFocusVisible: Story = {
     parameters: { pseudo: { focusVisible: true } },
 };
+
 export const StateDisabled: Story = {
     args: { disabled: true },
 };
+
 export const StateReadOnly: Story = {
     args: { readOnly: true },
 };

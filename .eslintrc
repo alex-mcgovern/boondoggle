@@ -1,13 +1,8 @@
 {
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    },
-
     "ignorePatterns": ["*.snap", "dist", "storybook-static", "docs", "build"],
-
     "overrides": [
         /**
-         *  Typescript
+         *    Typescript
          */
         {
             "extends": [
@@ -36,20 +31,8 @@
                     "error",
                     {
                         "disallowTypeAnnotations": true,
-                        "prefer": "type-imports",
-                        "fixStyle": "separate-type-imports"
-                    }
-                ],
-                "import/no-restricted-paths": [
-                    "error",
-                    {
-                        "zones": [
-                            {
-                                "from": "./src/index.ts",
-                                "message": "Do not import from the root index, this will cause a dependency cycle.",
-                                "target": "./src/components"
-                            }
-                        ]
+                        "fixStyle": "separate-type-imports",
+                        "prefer": "type-imports"
                     }
                 ],
                 "@typescript-eslint/no-unused-vars": "error",
@@ -76,7 +59,18 @@
                         ]
                     }
                 ],
-
+                "import/no-restricted-paths": [
+                    "error",
+                    {
+                        "zones": [
+                            {
+                                "from": "./src/index.ts",
+                                "message": "Do not import from the root index, this will cause a dependency cycle.",
+                                "target": "./src/components"
+                            }
+                        ]
+                    }
+                ],
                 "import/order": [
                     "error",
                     {
@@ -91,6 +85,36 @@
                     }
                 ],
                 "import/prefer-default-export": "off",
+                "jsdoc/multiline-blocks": [
+                    "error",
+                    {
+                        "noSingleLineBlocks": true
+                    }
+                ],
+                "jsdoc/require-description": [
+                    "warn",
+                    {
+                        "contexts": [
+                            "TSInterfaceDeclaration",
+                            "ObjectExpression",
+                            "ArrowFunctionExpression"
+                        ],
+                        "descriptionStyle": "body"
+                    }
+                ],
+                "jsdoc/require-jsdoc": [
+                    "warn",
+                    {
+                        "contexts": [
+                            "ArrowFunctionExpression",
+                            "FunctionDeclaration",
+                            "FunctionExpression", // "ObjectExpression",
+                            "TSInterfaceDeclaration", // "TSTypeAliasDeclaration",
+                            "TSPropertySignature"
+                        ],
+                        "enableFixer": false
+                    }
+                ],
                 "no-console": [
                     "error",
                     {
@@ -138,33 +162,6 @@
                         "natural": true
                     }
                 ],
-                "jsdoc/multiline-blocks": ["error", { "noSingleLineBlocks": true }],
-                "jsdoc/require-jsdoc": [
-                    "warn",
-                    {
-                        "enableFixer": false,
-                        "contexts": [
-                            "ArrowFunctionExpression",
-                            "FunctionDeclaration",
-                            "FunctionExpression",
-                            // "ObjectExpression",
-                            "TSInterfaceDeclaration",
-                            // "TSTypeAliasDeclaration",
-                            "TSPropertySignature"
-                        ]
-                    }
-                ],
-                "jsdoc/require-description": [
-                    "warn",
-                    {
-                        "descriptionStyle": "body",
-                        "contexts": [
-                            "TSInterfaceDeclaration",
-                            "ObjectExpression",
-                            "ArrowFunctionExpression"
-                        ]
-                    }
-                ],
                 // "jsdoc/require-description-complete-sentence": "error",
                 "typescript-sort-keys/interface": "error",
                 "typescript-sort-keys/string-enum": "error",
@@ -180,53 +177,44 @@
                 ]
             }
         },
-
         /**
          * Overrides for MDX files
          */
         {
-            "files": ["**/*.mdx"],
-
             "extends": "plugin:mdx/recommended",
+            "files": ["**/*.mdx"],
             "parser": "eslint-mdx"
         },
-
         /**
          * Overrides for vanilla extract css.ts files
          */
         {
             "files": ["**/*.css.ts"],
-
             "rules": {
                 "sonarjs/no-duplicate-string": "off"
             }
         },
-
         /**
          * Tests
          */
         {
-            "files": ["**/*.test.ts", "**/*.test.tsx"],
-
             "env": {
                 "jest": true
             },
+            "files": ["**/*.test.ts", "**/*.test.tsx"],
             "rules": {
-                "sonarjs/no-duplicate-string": "off",
                 "react-perf/jsx-no-jsx-as-prop": "off",
                 "react-perf/jsx-no-new-array-as-prop": "off",
                 "react-perf/jsx-no-new-function-as-prop": "off",
-                "react-perf/jsx-no-new-object-as-prop": "off"
+                "react-perf/jsx-no-new-object-as-prop": "off",
+                "sonarjs/no-duplicate-string": "off"
             }
         },
-
         /**
          * Storybook
          */
-
         {
             "files": ["*.stories.tsx", "stories.tsx"],
-
             "rules": {
                 "import/no-default-export": "off",
                 "import/prefer-default-export": "error",
@@ -234,17 +222,18 @@
                 "react/no-multi-comp": "off"
             }
         },
-
         /**
          * Misc
          */
         {
             "files": ["*.stories.tsx", "tsup.config.ts"],
-
             "rules": {
                 "import/no-default-export": "off",
                 "import/prefer-default-export": "error"
             }
         }
-    ]
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
 }

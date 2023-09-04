@@ -12,8 +12,11 @@ import { a11yDisabled } from "../../../styles/common/a11y.css";
 import type { InputProps } from "..";
 
 const ON_CHANGE = jest.fn();
+
 const ON_CLICK = jest.fn();
+
 const ON_MOUSE_OVER = jest.fn();
+
 const ON_FOCUS = jest.fn();
 
 const PROPS: InputProps = {
@@ -36,6 +39,7 @@ describe("<Input />", () => {
             const { getByRole } = renderComponent(PROPS);
 
             const textbox = getByRole("textbox");
+
             expect(textbox).toHaveClass(a11yDisabled);
         });
 
@@ -59,6 +63,7 @@ describe("<Input />", () => {
             renderComponent(PROPS);
 
             await userEvent.tab();
+
             expect(ON_FOCUS).not.toHaveBeenCalled();
         });
     });

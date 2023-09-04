@@ -5,25 +5,25 @@ import { variantColorOverlay } from "../../styles/color_palette.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const getDialogModalAlertWrapperStyles = recipe({
-  base: [
-    getSprinkles({
-      alignItems: "center",
-      background: "tint_default",
-      borderBottom: "border_default",
-      display: "flex",
-      gap: "space_4",
-      padding: "space_4",
-    }),
-  ],
-  variants: {
-    colorOverlay: variantColorOverlay,
-  },
+    base: [
+        getSprinkles({
+            alignItems: "center",
+            background: "tint_default",
+            borderBottom: "border_default",
+            display: "flex",
+            gap: "space_4",
+            padding: "space_4",
+        }),
+    ],
+    variants: {
+        colorOverlay: variantColorOverlay,
+    },
 });
 
 export const dialogModalAlertSlotStyle = style([
-  getSprinkles({
-    color: "text_low_contrast",
-    flexShrink: "0",
-    width: "space_4",
-  }),
+    getSprinkles({
+        color: "text_low_contrast",
+        flexShrink: "0",
+        width: "space_4",
+    }),
 ]);

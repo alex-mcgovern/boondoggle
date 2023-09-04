@@ -9,6 +9,7 @@ export type DialogInfoBulletProps = WithSlots & {
      * The body text shown in the bullet
      */
     text?: string;
+
     /**
      * The title show in the bullet
      */

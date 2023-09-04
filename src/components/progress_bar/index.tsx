@@ -7,9 +7,14 @@ import type { WithSize } from "../../common-types";
 import type { BoxProps } from "../box";
 
 export type ProgressBarProps = WithSize & {
-    /** Whether the value will be render with the component */
+    /**
+     * Whether the value will be render with the component
+     */
     isVisible?: boolean;
-    /** A number within the range 0-100 */
+
+    /**
+     * A number within the range 0-100
+     */
     value: number;
 } & BoxProps;
 
@@ -25,6 +30,7 @@ export function ProgressBar({
     }
 
     const parsedValue = typeof value === "string" ? parseFloat(value) : value;
+
     const clampedValue = Math.min(100, Math.max(0, parsedValue));
 
     return (

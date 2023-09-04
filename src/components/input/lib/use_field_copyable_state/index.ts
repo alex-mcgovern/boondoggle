@@ -5,6 +5,7 @@ type UseFieldCopyableStateArgs = {
      * Whether the field is copyable.
      */
     isCopyable?: boolean;
+
     /**
      * Whether the field is read-only.
      */

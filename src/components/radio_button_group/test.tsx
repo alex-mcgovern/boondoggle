@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -10,45 +12,43 @@ import type { RadioButtonGroupProps } from ".";
 const onChangeMock = jest.fn();
 
 const PROPS: RadioButtonGroupProps = {
-  id: "test",
-  items: RADIO_BUTTONS_MOCK,
-  label: "test",
-  name: "test",
-  onChange: onChangeMock,
+    id: "test",
+    items: RADIO_BUTTONS_MOCK,
+    label: "test",
+    name: "test",
+    onChange: onChangeMock,
 };
 
 const renderComponent = ({ ...props }: RadioButtonGroupProps) => {
-  return render(<RadioButtonGroup {...props} />);
+    return render(<RadioButtonGroup {...props} />);
 };
 
 describe("<RadioButtonGroup />", () => {
-  describe("Basic smoke tests", () => {
-    it("should render without throwing", () => {
-      const { container } = renderComponent(PROPS);
+    describe("Basic smoke tests", () => {
+        it("should render without throwing", () => {
+            const { container } = renderComponent(PROPS);
 
-      expect(container).not.toBeNull();
+            expect(container).not.toBeNull();
+        });
+
+        it("should match snapshot", () => {
+            const { container } = renderComponent(PROPS);
+
+            expect(container).toMatchSnapshot();
+        });
     });
-
-    it("should match snapshot", () => {
-      const { container } = renderComponent(PROPS);
-
-      expect(container).toMatchSnapshot();
-    });
-  });
 });
 
-/** --------------------------------------------- */
-
 describe("<RadioButtonGroup />", () => {
-  describe("On change functionality", () => {
-    it("should call onChange when item is selected", async () => {
-      const { getAllByRole } = renderComponent(PROPS);
+    describe("On change functionality", () => {
+        it("should call onChange when item is selected", async () => {
+            const { getAllByRole } = renderComponent(PROPS);
 
-      const firstRadioItem = getAllByRole("radio")[0];
+            const firstRadioItem = getAllByRole("radio")[0];
 
-      await userEvent.click(firstRadioItem);
+            await userEvent.click(firstRadioItem);
 
-      expect(onChangeMock).toBeCalledWith(RADIO_BUTTONS_MOCK[0].value);
+            expect(onChangeMock).toBeCalledWith(RADIO_BUTTONS_MOCK[0].value);
+        });
     });
-  });
 });

@@ -20,8 +20,6 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { RadioButtonCardShape, RadioButtonInputProps } from "../radio_button_card";
 import type { Ref } from "react";
 
-/** ----------------------------------------------------------------------------- */
-
 export type RadioButtonCardGroupProps = SprinklesArgs &
     WithWrapperProps &
     WithStateInvalid &
@@ -29,15 +27,25 @@ export type RadioButtonCardGroupProps = SprinklesArgs &
     WithDescription &
     WithOptionalLabel & {
         defaultValue?: string | number;
+
         id: string;
+
         inputProps?: RadioButtonInputProps;
+
         invalid?: boolean;
+
         isLabelVisible?: boolean;
+
         items: Array<RadioButtonCardShape>;
+
         label: string;
+
         labelTooltip?: string;
+
         onChange?: (value: string) => void;
+
         required?: boolean;
+
         value?: string;
     };
 
@@ -76,13 +84,9 @@ export const RadioButtonCardGroup = forwardRef(
             });
         }, [defaultValue, items, value]);
 
-        /** --------------------------------------------- */
-
         if (!Array.isArray(controlledItems) || controlledItems.length < 1) {
             return null;
         }
-
-        /** --------------------------------------------- */
 
         return (
             <Box

@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -10,49 +12,45 @@ import { SelectMulti } from "../../select/t_select_multi";
 
 import type { SelectMultiProps } from "../../select/t_select_multi";
 
-/** ----------------------------------------------------------------------------- */
-
 const PROPS: SelectMultiProps = {
-  id: LOREM.id(),
-  items: mockSelectItems({}),
-  label: LOREM.label(),
-  name: LOREM.text_xxs,
-  placeholder: LOREM.select,
+    id: LOREM.id(),
+    items: mockSelectItems({}),
+    label: LOREM.label(),
+    name: LOREM.text_xxs,
+    placeholder: LOREM.select,
 };
 
 const renderComponent = (props: SelectMultiProps) => {
-  return {
-    user: userEvent.setup(),
-    ...render(<SelectMulti {...props} />),
-  };
+    return {
+        user: userEvent.setup(),
+        ...render(<SelectMulti {...props} />),
+    };
 };
 
-/** ----------------------------------------------------------------------------- */
-
 describe("<SelectMulti />", () => {
-  describe("Size", () => {
-    it("should have the `md` class name by default", async () => {
-      const { getByRole } = await renderComponent(PROPS);
+    describe("Size", () => {
+        it("should have the `md` class name by default", async () => {
+            const { getByRole } = await renderComponent(PROPS);
 
-      expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
+            expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
+        });
+
+        it("should have the `sm` class name when size = sm", async () => {
+            const { getByRole } = await renderComponent({ ...PROPS, size: "sm" });
+
+            expect(getByRole("combobox")).toHaveClass(elementFontSize.sm);
+        });
+
+        it("should have the `md` class name when size = md", async () => {
+            const { getByRole } = await renderComponent({ ...PROPS, size: "md" });
+
+            expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
+        });
+
+        it("should have the `lg` class name when size = lg", async () => {
+            const { getByRole } = await renderComponent({ ...PROPS, size: "lg" });
+
+            expect(getByRole("combobox")).toHaveClass(elementFontSize.lg);
+        });
     });
-
-    it("should have the `sm` class name when size = sm", async () => {
-      const { getByRole } = await renderComponent({ ...PROPS, size: "sm" });
-
-      expect(getByRole("combobox")).toHaveClass(elementFontSize.sm);
-    });
-
-    it("should have the `md` class name when size = md", async () => {
-      const { getByRole } = await renderComponent({ ...PROPS, size: "md" });
-
-      expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
-    });
-
-    it("should have the `lg` class name when size = lg", async () => {
-      const { getByRole } = await renderComponent({ ...PROPS, size: "lg" });
-
-      expect(getByRole("combobox")).toHaveClass(elementFontSize.lg);
-    });
-  });
 });

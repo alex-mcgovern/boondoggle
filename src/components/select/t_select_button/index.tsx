@@ -33,34 +33,42 @@ export type SelectButtonProps = SprinklesArgs &
          * Props to customise the button trigger node.
          */
         buttonProps?: Omit<ButtonProps, "size" | "name" | "disabled" | "id">;
+
         /**
          * The text to display in the button.
          */
         buttonText?: string;
+
         /**
          * An item preselected when the component mounts.
          */
         initialSelectedItem?: SelectItemShape;
+
         /**
          * The items to render in the dropdown.
          */
         isOpen?: boolean;
+
         /**
          * The items to render in the dropdown.
          */
         items: Array<SelectItemShape>;
+
         /**
          * Function called with the new selected item when the selection changes.
          */
         onChange?: (changes: UseSelectStateChange<SelectItemShape>) => void;
+
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
         onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
+
         /**
          * The placement of the dropdown relative to the button.
          */
         placement?: Placement;
+
         /**
          * Props to customise the wrapper Box component.
          */

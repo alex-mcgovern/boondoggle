@@ -28,6 +28,7 @@ const meta = {
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
@@ -74,6 +75,7 @@ export const ItemsWithIsSelectedTrue: Story = {
 
 const ControlledTemplate = () => {
     const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape>>([]);
+
     return (
         <Box>
             <Box
@@ -124,7 +126,7 @@ export const Customisation: Story = {
 
 export const OnChange: Story = {
     args: {
-        onChange: (selectedItems: Array<SelectItemShape>) => {
+        onChange: (selectedItems) => {
             alert(JSON.stringify({ selectedItems }));
         },
     },

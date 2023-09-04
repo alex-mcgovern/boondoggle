@@ -9,66 +9,72 @@ import type { ColorOverlay } from "../../styles/color_palette.css";
 import type { ButtonProps } from "../button";
 
 export type DialogModalActionConfirmProps = {
-  buttonProps?: Omit<ButtonProps, "onClick">;
-  buttonText: string;
-  colorOverlay?: ColorOverlay;
-  confirmText: string;
-  onClick?: ButtonProps["onClick"];
-  promptPrefix: string;
-  promptSuffix: string;
+    buttonProps?: Omit<ButtonProps, "onClick">;
+
+    buttonText: string;
+
+    colorOverlay?: ColorOverlay;
+
+    confirmText: string;
+
+    onClick?: ButtonProps["onClick"];
+
+    promptPrefix: string;
+
+    promptSuffix: string;
 };
 
-export const DialogModalActionConfirm = forwardRef<
-  HTMLDivElement,
-  DialogModalActionConfirmProps
->(
-  (
-    {
-      buttonProps,
-      buttonText,
-      colorOverlay,
-      confirmText,
-      onClick,
-      promptPrefix,
-      promptSuffix,
-    }: DialogModalActionConfirmProps,
-    ref
-  ) => {
-    const [userConfirmText, setUserConfirmText] = useState("");
+export const DialogModalActionConfirm = forwardRef<HTMLDivElement, DialogModalActionConfirmProps>(
+    (
+        {
+            buttonProps,
+            buttonText,
+            colorOverlay,
+            confirmText,
+            onClick,
+            promptPrefix,
+            promptSuffix,
+        }: DialogModalActionConfirmProps,
+        ref
+    ) => {
+        const [userConfirmText, setUserConfirmText] = useState("");
 
-    return (
-      <Box ref={ref}>
-        <Box className={confirmTextStyle}>
-          <Box as="span">{promptPrefix}</Box>{" "}
-          <Box as="span" fontWeight="bold">
-            {confirmText}
-          </Box>{" "}
-          <Box as="span">{promptSuffix}</Box>
-        </Box>
+        return (
+            <Box ref={ref}>
+                <Box className={confirmTextStyle}>
+                    <Box as="span">{promptPrefix}</Box>{" "}
+                    <Box
+                        as="span"
+                        fontWeight="bold"
+                    >
+                        {confirmText}
+                    </Box>{" "}
+                    <Box as="span">{promptSuffix}</Box>
+                </Box>
 
-        <Input
-          colorOverlay={colorOverlay}
-          marginBottom="space_4"
-          name="dialog_confirm_text"
-          onChange={(e) => {
-            return setUserConfirmText(e.target.value);
-          }}
-          placeholder=""
-          value={userConfirmText}
-        />
+                <Input
+                    colorOverlay={colorOverlay}
+                    marginBottom="space_4"
+                    name="dialog_confirm_text"
+                    onChange={(e) => {
+                        return setUserConfirmText(e.target.value);
+                    }}
+                    placeholder=""
+                    value={userConfirmText}
+                />
 
-        <Button
-          appearance="primary"
-          colorOverlay={colorOverlay}
-          disabled={userConfirmText !== confirmText}
-          name="primary_action"
-          onClick={onClick}
-          width="100%"
-          {...buttonProps}
-        >
-          {buttonText}
-        </Button>
-      </Box>
-    );
-  }
+                <Button
+                    appearance="primary"
+                    colorOverlay={colorOverlay}
+                    disabled={userConfirmText !== confirmText}
+                    name="primary_action"
+                    onClick={onClick}
+                    width="100%"
+                    {...buttonProps}
+                >
+                    {buttonText}
+                </Button>
+            </Box>
+        );
+    }
 );

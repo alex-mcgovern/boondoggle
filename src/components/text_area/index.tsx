@@ -2,6 +2,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
+import { getOptionalLabelProps } from "../../common-types";
 import { a11yError } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { FieldWrapper } from "../field_wrapper";
@@ -18,6 +19,7 @@ import type {
     WithOptionalPlaceholder,
     WithReadOnly,
     WithSize,
+    WithSlots,
     WithStateInvalid,
     WithWrapperProps,
 } from "../../common-types";
@@ -75,10 +77,13 @@ export const TextArea = forwardRef(
                 hideLastpass={hideLastpass}
                 id={id}
                 invalid={invalid}
-                label={label}
-                labelProps={labelProps}
-                labelTooltip={labelTooltip}
                 wrapperProps={wrapperProps}
+                {...getOptionalLabelProps({
+                    id,
+                    label,
+                    labelProps,
+                    labelTooltip,
+                })}
             >
                 <SlotWrapper
                     alignItems="start"

@@ -44,30 +44,51 @@ export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
          * Item to be preselected when the component mounts.
          */
         initialSelectedItem?: SelectItemShape;
+
         /**
          * Props to customise the input element.
          */
-        inputProps?: Partial<InputProps>;
+        inputProps?: Partial<
+            Omit<
+                InputProps,
+                | "id"
+                | "isClearable"
+                | "isCopyable"
+                | "isVisibilityToggleable"
+                | "isVisible"
+                | "label"
+                | "labelProps"
+                | "size"
+                | "labelTooltip"
+                | "width"
+            >
+        >;
+
         /**
          * Whether the Select should be filterable by typing.
          */
         isFilterable?: boolean;
+
         /**
          * Prop to toggle the open state of the dropdown.
          */
         isOpen?: boolean;
+
         /**
          * Function to convert an item to a string.
          */
         itemToString?: (item: SelectItemShape | null) => string;
+
         /**
          * The items to render in the dropdown.
          */
         items: Array<SelectItemShape>;
+
         /**
          * Function called with the new selected item when the selection changes.
          */
         onChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
+
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
@@ -77,8 +98,11 @@ export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
 export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
     (
         {
+            errorMessage,
             id,
             initialSelectedItem,
+            inputProps,
+            invalid,
             isClearable,
             isFilterable,
             isOpen: controlledIsOpen,
@@ -188,6 +212,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                 {...wrapperProps}
             >
                 <Input
+                    errorMessage={errorMessage}
                     size={size}
                     slotLeft={selectedItem?.slotLeft || slotLeft}
                     slotRight={getSlotRight({
@@ -199,6 +224,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                     {...getInputProps({
                         className: selectInputCursorStyles,
                         id,
+                        invalid,
                         isClearable: undefined,
                         name,
                         placeholder,
@@ -213,6 +239,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                             }),
                             labelTooltip,
                         }),
+                        ...inputProps,
                     })}
                 />
                 <SelectItemList

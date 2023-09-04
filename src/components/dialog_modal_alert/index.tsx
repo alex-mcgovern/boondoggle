@@ -10,6 +10,7 @@ import type { WithColorOverlay, WithSlots } from "../../common-types";
 export type DialogModalAlertProps = WithSlots &
     WithColorOverlay & {
         description: string;
+
         title: string;
     };
 

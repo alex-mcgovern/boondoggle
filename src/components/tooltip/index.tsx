@@ -9,34 +9,39 @@ import type { DialogPlacementEnum } from "../dialog/styles.css";
 import type { ReactNode } from "react";
 
 export type TooltipProps = {
-  children?: ReactNode;
-  placement?: DialogPlacementEnum;
-  tooltipText: string;
+    children?: ReactNode;
+
+    placement?: DialogPlacementEnum;
+
+    tooltipText: string;
 };
 
 export const Tooltip = forwardRef<HTMLDialogElement, TooltipProps>(
-  (
-    {
-      children = (
-        <button className={tooltipTriggerStyle} type="button">
-          <Icon icon={faInfoCircle} />
-        </button>
-      ),
-      placement = "top-center",
-      tooltipText,
-    },
-    ref
-  ) => {
-    return (
-      <Dialog
-        className={tooltipTextStyle}
-        openOn="hover"
-        placement={placement}
-        ref={ref}
-        triggerNode={children}
-      >
-        {tooltipText}
-      </Dialog>
-    );
-  }
+    (
+        {
+            children = (
+                <button
+                    className={tooltipTriggerStyle}
+                    type="button"
+                >
+                    <Icon icon={faInfoCircle} />
+                </button>
+            ),
+            placement = "top-center",
+            tooltipText,
+        },
+        ref
+    ) => {
+        return (
+            <Dialog
+                className={tooltipTextStyle}
+                openOn="hover"
+                placement={placement}
+                ref={ref}
+                triggerNode={children}
+            >
+                {tooltipText}
+            </Dialog>
+        );
+    }
 );
