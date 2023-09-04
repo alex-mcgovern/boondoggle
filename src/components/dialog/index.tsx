@@ -13,24 +13,54 @@ import type { DialogPlacementEnum } from "./styles.css";
 import type { ReactNode } from "react";
 
 export type DialogProps = BoxProps & {
+    /**
+     * Children to render inside the dialog component.
+     */
     children?: ReactNode;
 
+    /**
+     * Optional CSS class name applied to the outer HTML dialog element.
+     */
     className?: string;
 
+    /**
+     * Whether the dialog is "inert" (can't be focused, can't be clicked.)
+     */
     inert?: boolean;
 
+    /**
+     * Controls the dialog's open state, making it a controlled element. Use alongside `onIsOpenChange`.
+     */
     isOpen?: boolean;
 
+    /**
+     * Callback when the dialog's open state is changed. Use alongside `isOpen`.
+     */
     onIsOpenChange?: (isOpen?: boolean) => void;
 
+    /**
+     * Controls the interaction mode for the dialog trigger node.
+     */
     openOn?: "click" | "hover";
 
+    /**
+     * Controls the dialog's placement relative to the trigger node.
+     */
     placement?: DialogPlacementEnum;
 
+    /**
+     * Whether to open the dialog on an enter keypress while the trigger node is focused.
+     */
     preventOpenOnKeydown?: boolean;
 
+    /**
+     * The react node to act as the trigger for the dialog.
+     */
     triggerNode?: ReactNode;
 
+    /**
+     * `BoxProps` to pass to the outer element that wraps the dialog and it's trigger.
+     */
     wrapperProps?: BoxProps;
 };
 

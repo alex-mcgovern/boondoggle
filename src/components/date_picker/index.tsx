@@ -12,8 +12,14 @@ import type { BoxProps } from "../box";
 import type { MouseEvent, Ref } from "react";
 
 export type DatePickerProps = {
+    /**
+     * Optional CSS class name.
+     */
     className?: string;
 
+    /**
+     * Callback when a day is selected.
+     */
     onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 } & BoxProps;
 
