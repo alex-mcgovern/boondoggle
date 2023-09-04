@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -10,38 +12,44 @@ import { Icon } from "../../icon";
 
 import type { InputDateProps } from "..";
 
-/** ----------------------------------------------------------------------------- */
-
 const PROPS: InputDateProps = {
-  name: LOREM.name(),
-  placeholder: LOREM.placeholder(),
+    name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = (props: InputDateProps) => {
-  return {
+const renderComponent = (props: InputDateProps) => ({
     user: userEvent.setup(),
     ...render(<InputDate {...props} />),
-  };
-};
-/** ----------------------------------------------------------------------------- */
+});
 
 describe("<InputDate />", () => {
-  describe("Slot props", () => {
-    it("should render node passed to `slotLeft`", async () => {
-      const { getByTestId } = await renderComponent({
-        ...PROPS,
-        slotLeft: [<Icon data-testid="icon" icon={faSearch} />],
-      });
+    describe("Slot props", () => {
+        test("should render node passed to `slotLeft`", async () => {
+            const { getByTestId } = await renderComponent({
+                ...PROPS,
+                slotLeft: [
+                    <Icon
+                        data-testid="icon"
+                        icon={faSearch}
+                    />,
+                ],
+            });
 
-      expect(getByTestId("icon")).not.toBeNull();
-    });
+            expect(getByTestId("icon")).not.toBeNull();
+        });
 
-    it("should render node passed to `slotRight`", async () => {
-      const { getByTestId } = await renderComponent({
-        ...PROPS,
-        slotRight: [<Icon data-testid="icon" icon={faSearch} />],
-      });
-      expect(getByTestId("icon")).not.toBeNull();
+        test("should render node passed to `slotRight`", async () => {
+            const { getByTestId } = await renderComponent({
+                ...PROPS,
+                slotRight: [
+                    <Icon
+                        data-testid="icon"
+                        icon={faSearch}
+                    />,
+                ],
+            });
+
+            expect(getByTestId("icon")).not.toBeNull();
+        });
     });
-  });
 });

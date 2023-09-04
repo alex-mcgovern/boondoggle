@@ -6,27 +6,27 @@ import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const dataTableCellButtonStyle = style([
-  getSprinkles({
-    color: "text_high_contrast",
-    fontStyle: "body_sm",
-    fontWeight: "medium",
-  }),
-  {
-    display: "block",
-    selectors: {
-      [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-        color: vars.color.button_active,
-      },
+    getSprinkles({
+        color: "text_high_contrast",
+        fontStyle: "body_sm",
+        fontWeight: "medium",
+    }),
+    {
+        display: "block",
+        selectors: {
+            [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+                color: vars.color.button_active,
+            },
+        },
+        width: "10rem",
     },
-    width: "10rem",
-  },
 ]);
 
 export const dataTableCellButtonInnerStyle = style([
-  {
-    maxWidth: calc.subtract("100%", vars.spacing.space_6),
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
-  },
+    {
+        maxWidth: calc.subtract("100%", vars.spacing.space_6),
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+    },
 ]);

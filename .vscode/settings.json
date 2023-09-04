@@ -1,90 +1,91 @@
 {
-  "search.exclude": {
-    "docs": true,
-    "build": true,
-    "**/package-lock.json": true,
-    "**/node_modules": true,
-    "**/.cache": true,
-    "**/*.snap": true,
-    ".git": true,
-    "dist": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "commentBox.styles": {
-    "h1": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
-      "boxWidth": 80,
-      "capitalize": false,
-      "commentEndToken": "",
-      "commentStartToken": "/** ",
-      "leftEdgeToken": "",
-      "rightEdgeToken": "",
-      "textAlignment": "left",
-      "topEdgeToken": "-",
-      "topRightToken": "- */"
+    "search.exclude": {
+        "docs": true,
+        "build": true,
+        "**/package-lock.json": true,
+        "**/node_modules": true,
+        "**/.cache": true,
+        "**/*.snap": true,
+        ".git": true,
+        "dist": true
     },
-    "h1_JSX": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
-      "boxWidth": 80,
-      "capitalize": false,
-      "commentEndToken": "",
-      "commentStartToken": "{/** ",
-      "leftEdgeToken": "",
-      "rightEdgeToken": "",
-      "textAlignment": "left",
-      "topEdgeToken": "-",
-      "topRightToken": "- */}"
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     },
-    "h2": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
-      "boxWidth": 48,
-      "capitalize": false,
-      "commentEndToken": "",
-      "commentStartToken": "/** ",
-      "leftEdgeToken": "",
-      "rightEdgeToken": "",
-      "textAlignment": "left",
-      "topEdgeToken": "-",
-      "topRightToken": "- */"
+    "commentBox.styles": {
+        "h1": {
+            "bottomEdgeToken": "",
+            "bottomLeftToken": "",
+            "boxWidth": 80,
+            "capitalize": false,
+            "commentEndToken": "",
+            "commentStartToken": "/** ",
+            "leftEdgeToken": "",
+            "rightEdgeToken": "",
+            "textAlignment": "left",
+            "topEdgeToken": "-",
+            "topRightToken": "- */"
+        },
+        "h1_JSX": {
+            "bottomEdgeToken": "",
+            "bottomLeftToken": "",
+            "boxWidth": 80,
+            "capitalize": false,
+            "commentEndToken": "",
+            "commentStartToken": "{/** ",
+            "leftEdgeToken": "",
+            "rightEdgeToken": "",
+            "textAlignment": "left",
+            "topEdgeToken": "-",
+            "topRightToken": "- */}"
+        },
+        "h2": {
+            "bottomEdgeToken": "",
+            "bottomLeftToken": "",
+            "boxWidth": 48,
+            "capitalize": false,
+            "commentEndToken": "",
+            "commentStartToken": "/** ",
+            "leftEdgeToken": "",
+            "rightEdgeToken": "",
+            "textAlignment": "left",
+            "topEdgeToken": "-",
+            "topRightToken": "- */"
+        },
+        "h2_JSX": {
+            "bottomEdgeToken": "",
+            "bottomLeftToken": "",
+            "boxWidth": 48,
+            "capitalize": false,
+            "commentEndToken": "",
+            "commentStartToken": "{/** ",
+            "leftEdgeToken": "",
+            "rightEdgeToken": "",
+            "textAlignment": "left",
+            "topEdgeToken": "-",
+            "topRightToken": "- */}"
+        }
     },
-    "h2_JSX": {
-      "bottomEdgeToken": "",
-      "bottomLeftToken": "",
-      "boxWidth": 48,
-      "capitalize": false,
-      "commentEndToken": "",
-      "commentStartToken": "{/** ",
-      "leftEdgeToken": "",
-      "rightEdgeToken": "",
-      "textAlignment": "left",
-      "topEdgeToken": "-",
-      "topRightToken": "- */}"
-    }
-  },
-  "cSpell.language": "en-GB",
-  "cSpell.words": [
-    "arrowdown",
-    "arrowright",
-    "boondoggle",
-    "Clearable",
-    "clsx",
-    "combobox",
-    "Lastpass",
-    "popover",
-    "Toggleable",
-    "vars"
-  ],
-  "turboConsoleLog.delimiterInsideMessage": "",
-  "turboConsoleLog.includeFileNameAndLineNum": false,
-  "turboConsoleLog.insertEnclosingClass": false,
-  "turboConsoleLog.insertEnclosingFunction": false,
-  "turboConsoleLog.logMessagePrefix": "debug",
-  "turboConsoleLog.logType": "debug",
-  "git.ignoreLimitWarning": true,
-  "mdx.experimentalLanguageServer": true
+    "cSpell.language": "en-GB",
+    "cSpell.words": [
+        "arrowdown",
+        "arrowright",
+        "boondoggle",
+        "Clearable",
+        "clsx",
+        "combobox",
+        "Hideable",
+        "Lastpass",
+        "popover",
+        "Toggleable",
+        "vars"
+    ],
+    "turboConsoleLog.delimiterInsideMessage": "",
+    "turboConsoleLog.includeFileNameAndLineNum": false,
+    "turboConsoleLog.insertEnclosingClass": false,
+    "turboConsoleLog.insertEnclosingFunction": false,
+    "turboConsoleLog.logMessagePrefix": "debug",
+    "turboConsoleLog.logType": "debug",
+    "git.ignoreLimitWarning": true,
+    "mdx.experimentalLanguageServer": true
 }

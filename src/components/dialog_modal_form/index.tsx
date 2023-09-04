@@ -1,11 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
-import {
-  type FieldValues,
-  FormProvider,
-  type Resolver,
-  useForm,
-} from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
@@ -23,145 +18,180 @@ import { LoaderFullScreen } from "../loader_full_screen";
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 import type { ReactNode } from "react";
+import type { FieldValues, Resolver } from "react-hook-form";
 
 export type DialogModalFormProps = {
-  /** Alert component that will be rendered above the form. */
-  alert?: ReactNode;
-  /** Form field components. They will be able to access `react-hook-form`'s form context. */
-  children: ReactNode | Array<ReactNode>;
-  /** Text that will be rendered inside the form submit button. */
-  formSubmitButtonText: string;
-  /** Function that will be called when the form is submitted. */
-  handleFormSubmission:
-    | ((fieldValues: FieldValues) => Promise<void>)
-    | ((fieldValues: FieldValues) => void);
-  /** Whether the dialog modal is in an error state. */
-  isError?: boolean;
-  /** Whether the dialog modal is loading. */
-  isLoading?: boolean;
-  /** Function to call when the "Try again" button is clicked. */
-  onClickTryAgain?: (() => unknown) | (() => Promise<unknown>) | undefined;
-  /** Custom resolver for `react-hook-form`. */
-  resolver?: Resolver<FieldValues, any>;
-  /** Description of the error. */
-  strErrorDescription?: string;
-  /** Title of the error. */
-  strErrorTitle?: string;
-  /** Text for the "Try again" button. */
-  strTryAgain?: string | undefined;
-  /** Title of the dialog modal. */
-  title: string;
-  /** Node that will trigger the dialog modal when clicked. */
-  triggerNode?: ReactNode;
-  /** Width of the dialog modal. */
-  width: DialogModalInnerWidth;
-  /** Props that will be passed to the wrapper `Box` component. */
-  wrapperProps?: BoxProps;
+    /**
+     * Alert component that will be rendered above the form.
+     */
+    alert?: ReactNode;
+
+    /**
+     * Form field components. They will be able to access `react-hook-form`'s form context.
+     */
+    children: ReactNode | Array<ReactNode>;
+
+    /**
+     * Text that will be rendered inside the form submit button.
+     */
+    formSubmitButtonText: string;
+
+    /**
+     * Function that will be called when the form is submitted.
+     */
+    handleSubmit:
+        | ((fieldValues: FieldValues) => Promise<void>)
+        | ((fieldValues: FieldValues) => void);
+
+    /**
+     * Whether the dialog modal is in an error state.
+     */
+    isError?: boolean;
+
+    /**
+     * Whether the dialog modal is loading.
+     */
+    isLoading?: boolean;
+
+    /**
+     * Function to call when the "Try again" button is clicked.
+     */
+    onClickTryAgain?: (() => unknown) | (() => Promise<unknown>) | undefined;
+
+    /**
+     * Custom resolver for `react-hook-form`.
+     */
+    resolver?: Resolver<FieldValues, any>;
+
+    /**
+     * Description of the error.
+     */
+    strErrorDescription?: string;
+
+    /**
+     * Title of the error.
+     */
+    strErrorTitle?: string;
+
+    /**
+     * Text for the "Try again" button.
+     */
+    strTryAgain?: string | undefined;
+
+    /**
+     * Title of the dialog modal.
+     */
+    title: string;
+
+    /**
+     * Node that will trigger the dialog modal when clicked.
+     */
+    triggerNode?: ReactNode;
+
+    /**
+     * Width of the dialog modal.
+     */
+    width: DialogModalInnerWidth;
+
+    /**
+     * Props that will be passed to the wrapper `Box` component.
+     */
+    wrapperProps?: BoxProps;
 };
 
-export const DialogModalForm = forwardRef<
-  HTMLDialogElement,
-  DialogModalFormProps
->(
-  (
-    {
-      alert,
-      children,
-      formSubmitButtonText,
-      handleFormSubmission: initHandleSubmission,
-      isError,
-      isLoading,
-      onClickTryAgain,
-      resolver,
-      strErrorDescription,
-      strErrorTitle,
-      strTryAgain,
-      title,
-      triggerNode,
-      width,
-      wrapperProps,
-    },
-    ref
-  ) => {
-    const { closeDialog, dialogRef, toggleIsOpen, triggerRef } =
-      useDialogModalState({ ref });
+export const DialogModalForm = forwardRef<HTMLDialogElement, DialogModalFormProps>(
+    (
+        {
+            alert,
+            children,
+            formSubmitButtonText,
+            handleSubmit: initHandleSubmission,
+            isError,
+            isLoading,
+            onClickTryAgain,
+            resolver,
+            strErrorDescription,
+            strErrorTitle,
+            strTryAgain,
+            title,
+            triggerNode,
+            width,
+            wrapperProps,
+        },
+        ref
+    ) => {
+        const { closeDialog, dialogRef, toggleIsOpen, triggerRef } = useDialogModalState({ ref });
 
-    /** --------------------------------------------- */
+        const formMethods = useForm({ resolver });
 
-    const formMethods = useForm({ resolver });
-    const { reset } = formMethods;
+        const { reset } = formMethods;
 
-    /** --------------------------------------------- */
+        const handleSubmit = useCallback(
+            async (fieldValues: FieldValues) => {
+                Promise.resolve(initHandleSubmission(fieldValues)).then(() => {
+                    reset();
 
-    const handleFormSubmission = useCallback(
-      async (fieldValues: FieldValues) => {
-        Promise.resolve(initHandleSubmission(fieldValues)).then(() => {
-          reset();
-          // closeDialog();
-        });
-      },
-      [initHandleSubmission, reset]
-    );
+                    // closeDialog();
+                });
+            },
+            [initHandleSubmission, reset]
+        );
 
-    /** --------------------------------------------- */
+        return (
+            <FormProvider {...formMethods}>
+                <Box
+                    className={variantColorOverlay.default}
+                    position="relative"
+                    {...wrapperProps}
+                >
+                    {triggerNode && (
+                        <Slot
+                            onClick={toggleIsOpen}
+                            ref={triggerRef}
+                        >
+                            {triggerNode}
+                        </Slot>
+                    )}
 
-    return (
-      <FormProvider {...formMethods}>
-        <Box
-          className={variantColorOverlay.default}
-          position="relative"
-          {...wrapperProps}
-        >
-          {triggerNode && (
-            <Slot onClick={toggleIsOpen} ref={triggerRef}>
-              {triggerNode}
-            </Slot>
-          )}
+                    <DialogModalOuter dialogRef={dialogRef}>
+                        <DialogModalInner
+                            as="form"
+                            onSubmit={formMethods.handleSubmit(handleSubmit, handleHookFormErrors)}
+                            width={width}
+                        >
+                            <DialogModalHeader
+                                closeDialog={closeDialog}
+                                title={title}
+                            />
 
-          <DialogModalOuter dialogRef={dialogRef}>
-            <DialogModalInner
-              as="form"
-              onSubmit={formMethods.handleSubmit(
-                handleFormSubmission,
-                handleHookFormErrors
-              )}
-              width={width}
-            >
-              <DialogModalHeader closeDialog={closeDialog} title={title} />
+                            {!isLoading && isError && strErrorDescription && strErrorTitle && (
+                                <DialogModalErrorMessage
+                                    description={strErrorDescription}
+                                    title={strErrorTitle}
+                                />
+                            )}
 
-              {!isLoading &&
-                isError &&
-                strErrorDescription &&
-                strErrorTitle && (
-                  <DialogModalErrorMessage
-                    description={strErrorDescription}
-                    title={strErrorTitle}
-                  />
-                )}
+                            {!isError && isLoading && <LoaderFullScreen />}
 
-              {!isError && isLoading && <LoaderFullScreen />}
+                            {!isError && !isLoading && (
+                                <DialogModalContent alert={alert}>{children}</DialogModalContent>
+                            )}
 
-              {!isError && !isLoading && (
-                <DialogModalContent alert={alert}>
-                  {children}
-                </DialogModalContent>
-              )}
-
-              <DialogModalActions
-                actions={
-                  <FormSubmitButton>{formSubmitButtonText}</FormSubmitButton>
-                }
-                closeDialog={closeDialog}
-                isError={isError}
-                isLoading={isLoading}
-                onClickTryAgain={onClickTryAgain}
-                shouldCloseOnAction={false}
-                strTryAgain={strTryAgain}
-              />
-            </DialogModalInner>
-          </DialogModalOuter>
-        </Box>
-      </FormProvider>
-    );
-  }
+                            <DialogModalActions
+                                actions={
+                                    <FormSubmitButton>{formSubmitButtonText}</FormSubmitButton>
+                                }
+                                closeDialog={closeDialog}
+                                isError={isError}
+                                isLoading={isLoading}
+                                onClickTryAgain={onClickTryAgain}
+                                shouldCloseOnAction={false}
+                                strTryAgain={strTryAgain}
+                            />
+                        </DialogModalInner>
+                    </DialogModalOuter>
+                </Box>
+            </FormProvider>
+        );
+    }
 );

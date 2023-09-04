@@ -2,25 +2,19 @@
 import { slate, slateA } from "@radix-ui/colors";
 
 type PaletteKey = `${string}${number}`;
+
 type PaletteShape = Record<PaletteKey, string>;
 
-const getFromPaletteByIndex = (
-  palette: Record<PaletteKey, string>,
-  index: number
-) => {
-  return palette[Object.keys(palette)[index] as PaletteKey];
-};
+const getFromPaletteByIndex = (palette: Record<PaletteKey, string>, index: number) =>
+    palette[Object.keys(palette)[index] as PaletteKey];
 
 type MakeThemeArgs = {
-  primaryPalette: PaletteShape;
-  secondaryPalette: PaletteShape;
+    primaryPalette: PaletteShape;
+
+    secondaryPalette: PaletteShape;
 };
 
-export const makeTheme = ({
-  primaryPalette,
-  secondaryPalette,
-}: MakeThemeArgs) => {
-  return {
+export const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => ({
     backdrop: slateA.slateA11,
     background: getFromPaletteByIndex(secondaryPalette, 0),
     black: slate.slate12,
@@ -36,5 +30,4 @@ export const makeTheme = ({
     tint_active: getFromPaletteByIndex(secondaryPalette, 4),
     tint_default: getFromPaletteByIndex(secondaryPalette, 2),
     white: slate.slate1,
-  };
-};
+});

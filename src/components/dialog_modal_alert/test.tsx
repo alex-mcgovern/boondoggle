@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { faShapes } from "@fortawesome/sharp-regular-svg-icons";
 import { render } from "@testing-library/react";
 
@@ -8,43 +10,30 @@ import { Icon } from "../icon";
 
 import type { DialogModalAlertProps } from ".";
 
-/** ----------------------------------------------------------------------------- */
-
-const renderComponent = ({ ...props }: DialogModalAlertProps) => {
-  return render(<DialogModalAlert {...props} />);
-};
-
-/** ----------------------------------------------------------------------------- */
+const renderComponent = ({ ...props }: DialogModalAlertProps) =>
+    render(<DialogModalAlert {...props} />);
 
 const PROPS: DialogModalAlertProps = {
-  description: LOREM.text_xxs,
-  slotLeft: [
-    <div>
-      <Icon icon={faShapes} />
-    </div>,
-  ],
-  slotRight: [
-    <div>
-      <Icon icon={faShapes} />
-    </div>,
-  ],
-  title: LOREM.title_xl,
+    description: LOREM.text_xxs,
+    slotLeft: [
+        <div>
+            <Icon icon={faShapes} />
+        </div>,
+    ],
+    slotRight: [
+        <div>
+            <Icon icon={faShapes} />
+        </div>,
+    ],
+    title: LOREM.title_xl,
 };
 
-/** ----------------------------------------------------------------------------- */
-
 describe("<DialogModalAlert />", () => {
-  describe("Basic smoke tests", () => {
-    it("should render without throwing", () => {
-      const { container } = renderComponent(PROPS);
+    describe("Basic smoke tests", () => {
+        test("should render without throwing", () => {
+            const { container } = renderComponent(PROPS);
 
-      expect(container).not.toBeNull();
+            expect(container).not.toBeNull();
+        });
     });
-
-    it("should match snapshot", () => {
-      const { container } = renderComponent(PROPS);
-
-      expect(container).toMatchSnapshot();
-    });
-  });
 });

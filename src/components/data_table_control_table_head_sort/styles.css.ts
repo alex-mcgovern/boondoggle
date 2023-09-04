@@ -7,22 +7,22 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 const sortControlBase = style({});
 
 export const getSortControlStyle = recipe({
-  base: [sortControlBase],
-  variants: {
-    isSorted: {
-      false: {},
-      true: {},
+    base: [sortControlBase],
+    variants: {
+        isSorted: {
+            false: {},
+            true: {},
+        },
     },
-  },
 });
 
 export const sortIconStyle = style({
-  opacity: 0,
-  ...createAccessibleTransition({
-    transition: `opacity ${vars.transitionDuration.short} ease`,
-  }),
+    opacity: 0,
+    ...createAccessibleTransition({
+        transition: `opacity ${vars.transitionDuration.short} ease`,
+    }),
 });
 
 globalStyle(`${sortControlBase}:hover ${sortIconStyle}`, {
-  opacity: 0.5,
+    opacity: 0.5,
 });

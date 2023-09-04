@@ -5,51 +5,47 @@ import { mockForm } from "./__mocks__/mock_form.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-/** ----------------------------------------------------------------------------- */
+const handleSubmit = jest.fn();
 
-const handleFormSubmissionMock = jest.fn();
-const handleErrorsMock = jest.fn();
+const handleErrors = jest.fn();
 
-handleFormSubmissionMock.mockImplementation(async (fieldValues: unknown) => {
-  return alert(
-    `Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`
-  );
-});
+handleSubmit.mockImplementation(async (fieldValues: unknown) =>
+    alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`)
+);
 
-handleErrorsMock.mockImplementation(async (errors: unknown) => {
-  return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
-});
+handleErrors.mockImplementation(async (errors) =>
+    alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`)
+);
 
 const meta = {
-  component: StoryComp,
-  title: "Components/Form",
+    component: StoryComp,
+    title: "Components/Form",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-/** ----------------------------------------------------------------------------- */
-
 export const Default: Story = {
-  args: mockForm({
-    handleErrors: handleErrorsMock,
-    handleFormSubmission: handleFormSubmissionMock,
-  }),
+    args: mockForm({
+        handleErrors,
+        handleSubmit,
+    }),
 };
 
 export const WithDefaultValues: Story = {
-  args: mockForm({
-    handleErrors: handleErrorsMock,
-    handleFormSubmission: handleFormSubmissionMock,
-    withDefaultValues: true,
-    withOptionalFields: true,
-  }),
+    args: mockForm({
+        handleErrors,
+        handleSubmit,
+        withDefaultValues: true,
+        withOptionalFields: true,
+    }),
 };
 
 export const WithOptionalFields: Story = {
-  args: mockForm({
-    handleErrors: handleErrorsMock,
-    handleFormSubmission: handleFormSubmissionMock,
-    withOptionalFields: true,
-  }),
+    args: mockForm({
+        handleErrors,
+        handleSubmit,
+        withOptionalFields: true,
+    }),
 };

@@ -1,247 +1,241 @@
 {
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-
-  "ignorePatterns": ["*.snap", "dist", "storybook-static", "docs", "build"],
-
-  "overrides": [
-    /**
-     *  Typescript
-     */
-    {
-      "extends": [
-        "plugin:react/jsx-runtime",
-        "airbnb",
-        "airbnb/hooks",
-        "airbnb-typescript",
-        "eslint:recommended",
-        "plugin:react-perf/recommended",
-        "prettier",
-        "plugin:@typescript-eslint/recommended"
-      ],
-      "files": ["**/*.ts", "**/*.tsx"],
-      "plugins": [
-        "import",
-        "jsdoc",
-        "react-perf",
-        "sonarjs",
-        "sort-destructure-keys",
-        "sort-keys-fix",
-        "typescript-sort-keys",
-        "unused-imports"
-      ],
-      "rules": {
-        "@typescript-eslint/consistent-type-imports": [
-          "error",
-          {
-            "disallowTypeAnnotations": true,
-            "prefer": "type-imports"
-          }
-        ],
-        "import/no-restricted-paths": [
-          "error",
-          {
-            "zones": [
-              {
-                "from": "./src/index.ts",
-                "message": "Do not import from the root index, this will cause a dependency cycle.",
-                "target": "./src/components"
-              }
-            ]
-          }
-        ],
-        "@typescript-eslint/no-unused-vars": "error",
-        "@typescript-eslint/prefer-optional-chain": "error",
-        "@typescript-eslint/switch-exhaustiveness-check": "error",
-        "arrow-body-style": ["error", "always"],
-        "curly": ["error", "all"],
-        "import/no-cycle": "error",
-        "import/no-default-export": "error",
-        "import/no-duplicates": "error",
-        "import/no-extraneous-dependencies": [
-          "error",
-          {
-            "devDependencies": [
-              "**/*.test.ts",
-              "**/*.test.tsx",
-              "**/*.css.ts",
-              "**/*.stories.tsx",
-              "**/test.*",
-              "**/stories.tsx",
-              "./test/**/*",
-              "./documentation/**/*",
-              "tsup.config.ts"
-            ]
-          }
-        ],
-        "import/order": [
-          "error",
-          {
-            "groups": [
-              ["builtin", "external"],
-              "internal",
-              ["parent", "sibling", "index"],
-              "object",
-              "type"
+    "ignorePatterns": ["*.snap", "dist", "storybook-static", "docs", "build"],
+    "overrides": [
+        /**
+         *    Typescript
+         */
+        {
+            "extends": [
+                "plugin:react/jsx-runtime",
+                "airbnb",
+                "airbnb/hooks",
+                "airbnb-typescript",
+                "eslint:recommended",
+                "plugin:react-perf/recommended",
+                "prettier",
+                "plugin:@typescript-eslint/recommended"
             ],
-            "newlines-between": "always"
-          }
-        ],
-        "import/prefer-default-export": "off",
-        "no-console": [
-          "error",
-          {
-            "allow": ["error", "warn", "info"]
-          }
-        ],
-        "no-unused-vars": "off",
-        "react-perf/jsx-no-jsx-as-prop": "warn",
-        "react-perf/jsx-no-new-array-as-prop": "warn",
-        "react-perf/jsx-no-new-function-as-prop": "warn",
-        "react-perf/jsx-no-new-object-as-prop": "warn",
-        "react/button-has-type": "error",
-        "react/destructuring-assignment": [
-          "error",
-          "always",
-          {
-            "destructureInSignature": "always",
-            "ignoreClassFields": true
-          }
-        ],
-        "react/jsx-filename-extension": [
-          "error",
-          {
-            "extensions": [".tsx"]
-          }
-        ],
-        "react/jsx-props-no-spreading": "off",
-        "react/jsx-sort-props": [
-          "error",
-          {
-            "ignoreCase": true
-          }
-        ],
-        "react/jsx-uses-react": "off",
-        "react/no-multi-comp": "error",
-        "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/require-default-props": "off",
-        "sort-destructure-keys/sort-destructure-keys": "error",
-        "sort-keys-fix/sort-keys-fix": [
-          "error",
-          "asc",
-          {
-            "caseSensitive": false,
-            "natural": true
-          }
-        ],
-        "jsdoc/require-jsdoc": [
-          "warn",
-          {
-            "enableFixer": false,
-            "contexts": [
-              "ArrowFunctionExpression",
-              "FunctionDeclaration",
-              "FunctionExpression",
-              // "ObjectExpression",
-              "TSInterfaceDeclaration",
-              // "TSTypeAliasDeclaration",
-              "TSPropertySignature"
-            ]
-          }
-        ],
-        "jsdoc/require-description": [
-          "warn",
-          {
-            "descriptionStyle": "body",
-            "contexts": [
-              "TSInterfaceDeclaration",
-              "ObjectExpression",
-              "ArrowFunctionExpression"
-            ]
-          }
-        ],
-        // "jsdoc/require-description-complete-sentence": "error",
-        "typescript-sort-keys/interface": "error",
-        "typescript-sort-keys/string-enum": "error",
-        "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": [
-          "error",
-          {
-            "args": "after-used",
-            "argsIgnorePattern": "^_",
-            "vars": "all",
-            "varsIgnorePattern": "^_"
-          }
-        ]
-      }
-    },
-
-    /**
-     * Overrides for MDX files
-     */
-    {
-      "files": ["**/*.mdx"],
-
-      "extends": "plugin:mdx/recommended",
-      "parser": "eslint-mdx"
-    },
-
-    /**
-     * Overrides for vanilla extract css.ts files
-     */
-    {
-      "files": ["**/*.css.ts"],
-
-      "rules": {
-        "sonarjs/no-duplicate-string": "off"
-      }
-    },
-
-    /**
-     * Tests
-     */
-    {
-      "files": ["**/*.test.ts", "**/*.test.tsx"],
-
-      "env": {
-        "jest": true
-      },
-      "rules": {
-        "sonarjs/no-duplicate-string": "off",
-        "react-perf/jsx-no-jsx-as-prop": "off",
-        "react-perf/jsx-no-new-array-as-prop": "off",
-        "react-perf/jsx-no-new-function-as-prop": "off",
-        "react-perf/jsx-no-new-object-as-prop": "off"
-      }
-    },
-
-    /**
-     * Storybook
-     */
-
-    {
-      "files": ["*.stories.tsx", "stories.tsx"],
-
-      "rules": {
-        "import/no-default-export": "off",
-        "import/prefer-default-export": "error",
-        "react/function-component-definition": "off",
-        "react/no-multi-comp": "off"
-      }
-    },
-
-    /**
-     * Misc
-     */
-    {
-      "files": ["*.stories.tsx", "tsup.config.ts"],
-
-      "rules": {
-        "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
-      }
+            "files": ["**/*.ts", "**/*.tsx"],
+            "plugins": [
+                "import",
+                "jsdoc",
+                "react-perf",
+                "sonarjs",
+                "sort-destructure-keys",
+                "sort-keys-fix",
+                "typescript-sort-keys",
+                "unused-imports"
+            ],
+            "rules": {
+                "@typescript-eslint/consistent-type-imports": [
+                    "error",
+                    {
+                        "disallowTypeAnnotations": true,
+                        "fixStyle": "separate-type-imports",
+                        "prefer": "type-imports"
+                    }
+                ],
+                "@typescript-eslint/no-unused-vars": "error",
+                "@typescript-eslint/prefer-optional-chain": "error",
+                "@typescript-eslint/switch-exhaustiveness-check": "error",
+                "arrow-body-style": ["error", "as-needed"],
+                "curly": ["error", "all"],
+                "import/no-cycle": "error",
+                "import/no-default-export": "error",
+                "import/no-duplicates": "error",
+                "import/no-extraneous-dependencies": [
+                    "error",
+                    {
+                        "devDependencies": [
+                            "**/*.test.ts",
+                            "**/*.test.tsx",
+                            "**/*.css.ts",
+                            "**/*.stories.tsx",
+                            "**/test.*",
+                            "**/stories.tsx",
+                            "./test/**/*",
+                            "./documentation/**/*",
+                            "tsup.config.ts"
+                        ]
+                    }
+                ],
+                "import/no-restricted-paths": [
+                    "error",
+                    {
+                        "zones": [
+                            {
+                                "from": "./src/index.ts",
+                                "message": "Do not import from the root index, this will cause a dependency cycle.",
+                                "target": "./src/components"
+                            }
+                        ]
+                    }
+                ],
+                "import/order": [
+                    "error",
+                    {
+                        "groups": [
+                            ["builtin", "external"],
+                            "internal",
+                            ["parent", "sibling", "index"],
+                            "object",
+                            "type"
+                        ],
+                        "newlines-between": "always"
+                    }
+                ],
+                "import/prefer-default-export": "off",
+                "jsdoc/multiline-blocks": [
+                    "error",
+                    {
+                        "noSingleLineBlocks": true
+                    }
+                ],
+                "jsdoc/require-description": [
+                    "warn",
+                    {
+                        "contexts": [
+                            "TSInterfaceDeclaration",
+                            "ObjectExpression"
+                            // "ArrowFunctionExpression"
+                        ],
+                        "descriptionStyle": "body"
+                    }
+                ],
+                "jsdoc/require-jsdoc": [
+                    "warn",
+                    {
+                        "contexts": [
+                            "TSInterfaceDeclaration",
+                            "TSPropertySignature"
+                            // "FunctionDeclaration",
+                            // "ArrowFunctionExpression",
+                            // "FunctionExpression",
+                            // "ObjectExpression",
+                            // "TSTypeAliasDeclaration",
+                        ],
+                        "enableFixer": false
+                    }
+                ],
+                "no-console": [
+                    "error",
+                    {
+                        "allow": ["error", "warn", "info"]
+                    }
+                ],
+                "no-unused-vars": "off",
+                "react-perf/jsx-no-jsx-as-prop": "warn",
+                "react-perf/jsx-no-new-array-as-prop": "warn",
+                "react-perf/jsx-no-new-function-as-prop": "warn",
+                "react-perf/jsx-no-new-object-as-prop": "warn",
+                "react/button-has-type": "error",
+                "react/destructuring-assignment": [
+                    "error",
+                    "always",
+                    {
+                        "destructureInSignature": "always",
+                        "ignoreClassFields": true
+                    }
+                ],
+                "react/jsx-filename-extension": [
+                    "error",
+                    {
+                        "extensions": [".tsx"]
+                    }
+                ],
+                "react/jsx-props-no-spreading": "off",
+                "react/jsx-sort-props": [
+                    "error",
+                    {
+                        "ignoreCase": true
+                    }
+                ],
+                "react/jsx-uses-react": "off",
+                // "react/no-multi-comp": "error",
+                "react/prop-types": "off",
+                "react/react-in-jsx-scope": "off",
+                "react/require-default-props": "off",
+                "sort-destructure-keys/sort-destructure-keys": "error",
+                "sort-keys-fix/sort-keys-fix": [
+                    "error",
+                    "asc",
+                    {
+                        "caseSensitive": false,
+                        "natural": true
+                    }
+                ],
+                // "jsdoc/require-description-complete-sentence": "error",
+                "typescript-sort-keys/interface": "error",
+                "typescript-sort-keys/string-enum": "error",
+                "unused-imports/no-unused-imports": "error",
+                "unused-imports/no-unused-vars": [
+                    "error",
+                    {
+                        "args": "after-used",
+                        "argsIgnorePattern": "^_",
+                        "vars": "all",
+                        "varsIgnorePattern": "^_"
+                    }
+                ]
+            }
+        },
+        /**
+         * Overrides for MDX files
+         */
+        {
+            "extends": "plugin:mdx/recommended",
+            "files": ["**/*.mdx"],
+            "parser": "eslint-mdx"
+        },
+        /**
+         * Overrides for vanilla extract css.ts files
+         */
+        {
+            "files": ["**/*.css.ts"],
+            "rules": {
+                "sonarjs/no-duplicate-string": "off"
+            }
+        },
+        /**
+         * Tests
+         */
+        {
+            "env": {
+                "jest": true
+            },
+            "files": ["**/*.test.ts", "**/*.test.tsx"],
+            "rules": {
+                "react-perf/jsx-no-jsx-as-prop": "off",
+                "react-perf/jsx-no-new-array-as-prop": "off",
+                "react-perf/jsx-no-new-function-as-prop": "off",
+                "react-perf/jsx-no-new-object-as-prop": "off",
+                "sonarjs/no-duplicate-string": "off"
+            }
+        },
+        /**
+         * Storybook
+         */
+        {
+            "files": ["*.stories.tsx", "stories.tsx"],
+            "rules": {
+                "import/no-default-export": "off",
+                "import/prefer-default-export": "error",
+                "react/function-component-definition": "off",
+                "react/no-multi-comp": "off"
+            }
+        },
+        /**
+         * Misc
+         */
+        {
+            "files": ["*.stories.tsx", "tsup.config.ts"],
+            "rules": {
+                "import/no-default-export": "off",
+                "import/prefer-default-export": "error"
+            }
+        }
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
     }
-  ]
 }

@@ -9,75 +9,80 @@ import type { PillProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
 
 export default {
-  component: StoryComp,
-  title: "Components/Pill",
+    component: StoryComp,
+    title: "Components/Pill",
 };
 
-/** -----------------------------------------------------------------------------
- * Size
- * ------------------------------------------------------------------------------- */
-
-const TemplateSizes: StoryFn<StoryCompProps> = () => {
-  return (
-    <Box alignItems="center" display="flex" gap="space_6">
-      <StoryComp size="lg" slotLeft={[<Icon icon={faTriangleCircleSquare} />]}>
-        {LOREM.text_xxs}
-      </StoryComp>
-      <StoryComp size="md" slotLeft={[<Icon icon={faTriangleCircleSquare} />]}>
-        {LOREM.text_xxs}
-      </StoryComp>
-      <StoryComp size="sm" slotLeft={[<Icon icon={faTriangleCircleSquare} />]}>
-        {LOREM.text_xxs}
-      </StoryComp>
+const TemplateSizes: StoryFn<StoryCompProps> = () => (
+    <Box
+        alignItems="center"
+        display="flex"
+        gap="space_6"
+    >
+        <StoryComp
+            size="lg"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
+        <StoryComp
+            size="md"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
+        <StoryComp
+            size="sm"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
     </Box>
-  );
-};
+);
 
 export const Sizes: StoryObj<StoryCompProps> = {
-  render: TemplateSizes,
+    render: TemplateSizes,
 };
 
-/** -----------------------------------------------------------------------------
- * Color
- * ------------------------------------------------------------------------------- */
-
-const TemplateColors: StoryFn<StoryCompProps> = () => {
-  return (
-    <Box alignItems="center" display="flex" gap="space_6">
-      <StoryComp
-        colorOverlay="blue"
-        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
-      >
-        {LOREM.text_xxs}
-      </StoryComp>
-      <StoryComp
-        colorOverlay="red"
-        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
-      >
-        {LOREM.text_xxs}
-      </StoryComp>
-      <StoryComp
-        colorOverlay="green"
-        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
-      >
-        {LOREM.text_xxs}
-      </StoryComp>
-      <StoryComp
-        colorOverlay="amber"
-        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
-      >
-        {LOREM.text_xxs}
-      </StoryComp>
-      <StoryComp
-        colorOverlay="grey"
-        slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
-      >
-        {LOREM.text_xxs}
-      </StoryComp>
+const TemplateColors: StoryFn<StoryCompProps> = () => (
+    <Box
+        alignItems="center"
+        display="flex"
+        gap="space_6"
+    >
+        <StoryComp
+            colorOverlay="blue"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
+        <StoryComp
+            colorOverlay="red"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
+        <StoryComp
+            colorOverlay="green"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
+        <StoryComp
+            colorOverlay="amber"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
+        <StoryComp
+            colorOverlay="grey"
+            slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+        >
+            {LOREM.text_xxs}
+        </StoryComp>
     </Box>
-  );
-};
+);
 
 export const Colors: StoryObj<StoryCompProps> = {
-  render: TemplateColors,
+    render: TemplateColors,
 };

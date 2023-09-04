@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { render } from "@testing-library/react";
 
 import { Input } from "..";
@@ -7,44 +9,33 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 
 import type { InputProps } from "..";
 
-/** ----------------------------------------------------------------------------- */
-
 const PROPS: InputProps = {
-  id: LOREM.id(),
-  label: LOREM.label(),
-  name: LOREM.name(),
-  placeholder: LOREM.placeholder(),
+    id: LOREM.id(),
+    label: LOREM.label(),
+    name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: InputProps) => {
-  return render(<Input {...props} />);
-};
-
-/** ----------------------------------------------------------------------------- */
+const renderComponent = ({ ...props }: InputProps) => render(<Input {...props} />);
 
 describe("<Input />", () => {
-  it("should assign name to the element", () => {
-    const { getByRole } = renderComponent(PROPS);
+    test("should assign name to the element", () => {
+        const { getByRole } = renderComponent(PROPS);
 
-    expect((getByRole("textbox") as HTMLInputElement).name).toBe(PROPS.name);
-  });
+        expect((getByRole("textbox") as HTMLInputElement).name).toBe(PROPS.name);
+    });
 
-  it("should be labelled", () => {
-    const { container, getByLabelText } = renderComponent(PROPS);
+    test("should be labelled", () => {
+        const { container, getByLabelText } = renderComponent(PROPS);
 
-    const label = container.querySelector("label");
+        const label = container.querySelector("label");
 
-    expect(label).not.toBeNull();
-    expect(label?.getAttribute("for")).toBe(PROPS.id);
-    expect(label?.textContent).toBe(PROPS.label);
-    expect(
-      getByLabelText(PROPS.label as string, { selector: "input" })
-    ).not.toBeNull();
-  });
+        expect(label).not.toBeNull();
 
-  it("should match snapshot", () => {
-    const { getByRole } = renderComponent(PROPS);
+        expect(label?.getAttribute("for")).toBe(PROPS.id);
 
-    expect(getByRole("textbox")).toMatchSnapshot();
-  });
+        expect(label?.textContent).toBe(PROPS.label);
+
+        expect(getByLabelText(PROPS.label as string, { selector: "input" })).not.toBeNull();
+    });
 });

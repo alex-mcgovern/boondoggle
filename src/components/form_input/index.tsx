@@ -2,7 +2,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Input } from "../input";
 
-import type { WithFormFieldProps } from "../../types";
+import type { WithFormFieldProps } from "../../common-types";
 import type { InputProps } from "../input";
 
 /**
@@ -12,43 +12,39 @@ import type { InputProps } from "../input";
 export type FormInputProps = InputProps & WithFormFieldProps;
 
 export function FormInput({
-  defaultValue,
-  invalid,
-  name,
-  onChange,
-  wrapperProps,
-  ...rest
-}: FormInputProps) {
-  const { control } = useFormContext();
-
-  const {
-    field: {
-      onBlur,
-      onChange: reactHookFormOnChange,
-      ref,
-      value: controlledValue = "",
-    },
-    fieldState: { error },
-  } = useController({
-    control,
     defaultValue,
+    invalid,
     name,
-  });
+    onChange,
+    wrapperProps,
+    ...rest
+}: FormInputProps) {
+    const { control } = useFormContext();
 
-  return (
-    <Input
-      errorMessage={error?.message}
-      invalid={invalid || !!error}
-      name={name}
-      onBlur={onBlur}
-      onChange={(e) => {
-        onChange?.(e);
-        reactHookFormOnChange(e);
-      }}
-      ref={ref}
-      value={controlledValue}
-      wrapperProps={wrapperProps}
-      {...rest}
-    />
-  );
+    const {
+        field: { onBlur, onChange: reactHookFormOnChange, ref, value: controlledValue = "" },
+        fieldState: { error },
+    } = useController({
+        control,
+        defaultValue,
+        name,
+    });
+
+    return (
+        <Input
+            errorMessage={error?.message}
+            invalid={invalid || !!error}
+            name={name}
+            onBlur={onBlur}
+            onChange={(e) => {
+                onChange?.(e);
+
+                reactHookFormOnChange(e);
+            }}
+            ref={ref}
+            value={controlledValue}
+            wrapperProps={wrapperProps}
+            {...rest}
+        />
+    );
 }

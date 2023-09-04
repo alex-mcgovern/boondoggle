@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -8,27 +10,22 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 
 import type { InputDateProps } from "..";
 
-/** ----------------------------------------------------------------------------- */
-
 const PROPS: InputDateProps = {
-  name: LOREM.name(),
-  placeholder: LOREM.placeholder(),
+    name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = (props: InputDateProps) => {
-  return {
+const renderComponent = (props: InputDateProps) => ({
     user: userEvent.setup(),
     ...render(<InputDate {...props} />),
-  };
-};
-
-/** ----------------------------------------------------------------------------- */
+});
 
 describe("<InputDate />", () => {
-  it("should render placeholder", async () => {
-    const { getByRole } = await renderComponent(PROPS);
+    test("should render placeholder", async () => {
+        const { getByRole } = await renderComponent(PROPS);
 
-    const textbox = getByRole("textbox");
-    expect((textbox as HTMLInputElement).placeholder).toBe(PROPS.placeholder);
-  });
+        const textbox = getByRole("textbox");
+
+        expect((textbox as HTMLInputElement).placeholder).toBe(PROPS.placeholder);
+    });
 });

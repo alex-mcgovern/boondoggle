@@ -1,4 +1,6 @@
-/** @jest-environment jsdom */
+/**
+ * @jest-environment jsdom
+ */
 import { render } from "@testing-library/react";
 
 import { TextArea } from "..";
@@ -7,26 +9,19 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 
 import type { TextAreaProps } from "..";
 
-/** ----------------------------------------------------------------------------- */
-
 const PROPS: TextAreaProps = {
-  name: LOREM.name(),
-  placeholder: LOREM.placeholder(),
+    name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: TextAreaProps) => {
-  return render(<TextArea {...props} />);
-};
-
-/** ----------------------------------------------------------------------------- */
+const renderComponent = ({ ...props }: TextAreaProps) => render(<TextArea {...props} />);
 
 describe("<TextArea />", () => {
-  it("should render placeholder", () => {
-    const { getByRole } = renderComponent(PROPS);
+    test("should render placeholder", () => {
+        const { getByRole } = renderComponent(PROPS);
 
-    const textbox = getByRole("textbox");
-    expect((textbox as HTMLTextAreaElement).placeholder).toBe(
-      PROPS.placeholder
-    );
-  });
+        const textbox = getByRole("textbox");
+
+        expect((textbox as HTMLTextAreaElement).placeholder).toBe(PROPS.placeholder);
+    });
 });

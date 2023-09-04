@@ -1,4 +1,4 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -7,68 +7,58 @@ import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const placement = styleVariants({
-  "bottom-center": [
-    {
-      insetInlineStart: "50%",
-      transform: "translateX(-50%)",
+    "bottom-center": [
+        {
+            insetInlineStart: "50%",
+            transform: "translateX(-50%)",
+        },
+    ],
+    "bottom-end": {
+        left: "auto",
     },
-  ],
-  "bottom-end": {
-    left: "auto",
-  },
-  "bottom-start": [],
+    "bottom-start": [],
 
-  /** -------------------------------------------- */
+    "middle-start": [
+        {
+            insetBlock: "0% 50%",
+            insetInlineStart: calc.add("100%", vars.spacing.space_2),
+        },
+    ],
 
-  "middle-start": [
-    {
-      insetBlock: "0% 50%",
-      insetInlineStart: calc.add("100%", vars.spacing.space_2),
-    },
-  ],
+    "top-center": [
+        {
+            insetBlockEnd: "100%",
+            insetInlineStart: "50%",
+            transform: "translateX(-50%)",
+        },
+    ],
+    "top-end": [{ insetBlockEnd: "100%", left: "auto" }],
 
-  /** -------------------------------------------- */
-
-  "top-center": [
-    {
-      insetBlockEnd: "100%",
-      insetInlineStart: "50%",
-      transform: "translateX(-50%)",
-    },
-  ],
-  "top-end": [{ insetBlockEnd: "100%", left: "auto" }],
-
-  "top-start": [{ insetBlockEnd: "100%" }],
+    "top-start": [{ insetBlockEnd: "100%" }],
 });
 
 export type DialogPlacementEnum = keyof typeof placement;
 
 export const getDialogStyles = recipe({
-  base: [
-    animateFadeIn,
-    {
-      // border: "none",
-      maxWidth: calc.subtract("100vw", vars.spacing.space_4),
-      selectors: {
-        "&:focus": {
-          outline: "none",
+    base: [
+        animateFadeIn,
+        {
+            maxWidth: calc.subtract("100vw", vars.spacing.space_4),
+            selectors: {
+                "&:focus": {
+                    outline: "none",
+                },
+            },
         },
-      },
+        getSprinkles({
+            padding: "none",
+            zIndex: "1",
+        }),
+    ],
+    defaultVariants: {
+        placement: "bottom-start",
     },
-    getSprinkles({
-      // overflow: "hidden",
-      padding: "none",
-      zIndex: "1",
-    }),
-  ],
-  defaultVariants: {
-    placement: "bottom-start",
-  },
-  variants: {
-    placement,
-  },
-});
-
-export const dialogContentStyles = style({
-  // transform: "translate3d(0, 0, 0)",
+    variants: {
+        placement,
+    },
 });
