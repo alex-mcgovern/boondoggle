@@ -112,6 +112,9 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
         wrapperProps?: BoxProps;
     };
 
+/**
+ * Combines a dialog with a data table, which has additional styling requirements, such as putting the data table controls (e.g. pagination) at the bottom of the dialog.
+ */
 export function DialogModalDataTable<TData extends RowData>({
     actions,
     alert,

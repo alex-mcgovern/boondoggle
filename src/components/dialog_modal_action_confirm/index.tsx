@@ -5,22 +5,38 @@ import { Button } from "../button";
 import { Input } from "../input";
 import { confirmTextStyle } from "./styles.css";
 
-import type { ColorOverlay } from "../../styles/color_palette.css";
+import type { WithColorOverlay } from "../../common-types";
 import type { ButtonProps } from "../button";
 
-export type DialogModalActionConfirmProps = {
+export type DialogModalActionConfirmProps = WithColorOverlay & {
+    /**
+     * Additional props to customise the confirm button.
+     */
     buttonProps?: Omit<ButtonProps, "onClick">;
 
+    /**
+     * The text for the confirm button.
+     */
     buttonText: string;
 
-    colorOverlay?: ColorOverlay;
-
+    /**
+     * The text that the suer has to type to confirm the action.
+     */
     confirmText: string;
 
+    /**
+     * The callback when the suer confirms the action.
+     */
     onClick?: ButtonProps["onClick"];
 
+    /**
+     * The text prefixed to the confirmation prompt.
+     */
     promptPrefix: string;
 
+    /**
+     * The text suffixed to the confirmation prompt.
+     */
     promptSuffix: string;
 };
 

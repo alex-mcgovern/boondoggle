@@ -4,9 +4,15 @@ import { Button } from "../button";
 import { Icon } from "../icon";
 
 export type DialogModalCloseButtonProps = {
+    /**
+     * Callback to close the dialog component.
+     */
     closeDialog: () => void;
 };
 
+/**
+ * Renders a square close button for a modal dialog.
+ */
 export function DialogModalCloseButton({ closeDialog }: DialogModalCloseButtonProps) {
     return (
         <Button

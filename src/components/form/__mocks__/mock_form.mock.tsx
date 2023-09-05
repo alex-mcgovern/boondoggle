@@ -29,6 +29,9 @@ const WRAPPER_PROPS: BoxProps = {
 };
 
 type MockFormProps = Pick<FormProps, "handleSubmit" | "handleErrors"> & {
+    /**
+     * Whether to populate the form fields with default values or not.
+     */
     withDefaultValues?: boolean;
 
     withOptionalFields?: boolean;

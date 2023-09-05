@@ -23,6 +23,9 @@ export type FieldLabelProps = BoxProps & {
     labelTooltip?: string;
 };
 
+/**
+ * HTML label element for use with a form field or other labelled element.
+ */
 export function FieldLabel({ htmlFor, label, labelTooltip, ...rest }: FieldLabelProps) {
     return (
         <Box

@@ -8,9 +8,15 @@ import { Icon } from "../icon";
 import type { BoxProps } from "../box";
 
 export type FieldErrorMessageProps = BoxProps & {
+    /**
+     * The error message shown to the user.
+     */
     message?: string;
 };
 
+/**
+ * Renders an inline error message for a form field.
+ */
 export function FieldErrorMessage({
     className: userClassName,
     message,

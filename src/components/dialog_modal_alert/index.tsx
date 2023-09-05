@@ -9,11 +9,20 @@ import type { WithColorOverlay, WithSlots } from "../../common-types";
 
 export type DialogModalAlertProps = WithSlots &
     WithColorOverlay & {
+        /**
+         * The description text of the alert.
+         */
         description: string;
 
+        /**
+         * The title text of the alert.
+         */
         title: string;
     };
 
+/**
+ * Renders an inline alert for use ina  Dialog component.
+ */
 export function DialogModalAlert({
     colorOverlay = "amber",
     description,
