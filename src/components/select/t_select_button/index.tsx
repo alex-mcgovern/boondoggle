@@ -96,6 +96,7 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
     ) => {
         const { getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex, isOpen } =
             useSelect({
+                defaultHighlightedIndex: undefined,
                 initialSelectedItem,
                 items,
                 onSelectedItemChange: onChange,
