@@ -6,7 +6,6 @@ import { SelectSingle } from "../select/select_single";
 import type { WithFormFieldProps } from "../../common-types";
 import type { SelectSingleProps } from "../select/select_single";
 import type { SelectItemShape } from "../select/types";
-import type { UseComboboxStateChange } from "downshift";
 
 type GetDefaultValueItemArgs = {
     items: Array<SelectItemShape>;
@@ -41,10 +40,9 @@ export function FormSelectSingle({
     });
 
     const handleChange = useCallback(
-        (changes: UseComboboxStateChange<SelectItemShape>) => {
-            onChange(changes.selectedItem?.value);
-
-            onChangeParent?.(changes);
+        (selection: SelectItemShape | null | undefined) => {
+            onChange(selection?.value);
+            onChangeParent?.(selection);
         },
         [onChange, onChangeParent]
     );

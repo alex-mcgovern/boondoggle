@@ -116,11 +116,7 @@ describe("<SelectButton />", () => {
 
         await user.click(getByText(ITEMS_AS_BUTTONS[0].label));
 
-        expect(ON_CHANGE).toHaveBeenCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[0],
-            })
-        );
+        expect(ON_CHANGE).toHaveBeenCalledWith(ITEMS_AS_BUTTONS[0]);
 
         expect(ON_CLICK).toHaveBeenCalledTimes(1);
 
@@ -130,11 +126,7 @@ describe("<SelectButton />", () => {
 
         await user.click(getByText(ITEMS_AS_BUTTONS[1].label));
 
-        expect(ON_CHANGE).toHaveBeenLastCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[1],
-            })
-        );
+        expect(ON_CHANGE).toHaveBeenCalledWith(ITEMS_AS_BUTTONS[1]);
 
         expect(ON_CLICK).toHaveBeenCalledTimes(2);
     });
@@ -157,11 +149,7 @@ describe("<SelectButton />", () => {
 
         await user.keyboard("{enter}");
 
-        expect(ON_CHANGE).toHaveBeenCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[0],
-            })
-        );
+        expect(ON_CHANGE).toHaveBeenCalledWith(ITEMS_AS_BUTTONS[0]);
 
         expect(ON_CLICK).toHaveBeenCalledTimes(1);
 
@@ -171,11 +159,7 @@ describe("<SelectButton />", () => {
 
         await user.keyboard("{enter}");
 
-        expect(ON_CHANGE).toHaveBeenLastCalledWith(
-            expect.objectContaining({
-                selectedItem: ITEMS_AS_BUTTONS[1],
-            })
-        );
+        expect(ON_CHANGE).toHaveBeenCalledWith(ITEMS_AS_BUTTONS[1]);
 
         expect(ON_CLICK).toHaveBeenCalledTimes(2);
     });

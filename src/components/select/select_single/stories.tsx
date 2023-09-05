@@ -14,8 +14,8 @@ const meta = {
         items: mockSelectItems({}),
         label: LOREM.label(),
         name: LOREM.name(),
-        onChange: (changes) => {
-            alert(`onChange\n\n${JSON.stringify(changes.selectedItem, null, 2)}`);
+        onChange: (selection) => {
+            alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
         },
         placeholder: LOREM.placeholder(),
     },

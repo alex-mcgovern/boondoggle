@@ -8,7 +8,6 @@ import type { WithOptionalLabel } from "../../common-types";
 import type { SelectSingleProps } from "../select/select_single";
 import type { SelectItemShape } from "../select/types";
 import type { Table } from "@tanstack/react-table";
-import type { UseComboboxStateChange } from "downshift";
 
 type GetPageSizeDropdownItemsArgs = {
     /**
@@ -68,8 +67,8 @@ export function DataTableControlPageSize<TTableData>({
     );
 
     const handleChange = useCallback(
-        (changes: UseComboboxStateChange<SelectItemShape>) =>
-            table.setPageSize(Number(changes.selectedItem?.value)),
+        (selection: SelectItemShape | null | undefined) =>
+            table.setPageSize(Number(selection?.value)),
         [table]
     );
 
