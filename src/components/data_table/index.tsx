@@ -49,7 +49,7 @@ export type DataTableProps<TData extends RowData> = WithTableOptionalPagination 
         /**
          * The title of the no results message
          */
-        strNoResultsTitle: string;
+        strNoResults: string;
     };
 
 /**
@@ -70,7 +70,7 @@ export function DataTable<TData extends RowData>({
     strClearAllFilters,
     strFilterPlaceholder,
     strNext,
-    strNoResultsTitle,
+    strNoResults,
     strPage,
     strPrev,
     strResults,
@@ -127,7 +127,7 @@ export function DataTable<TData extends RowData>({
                         globalFilter={globalFilter}
                         setGlobalFilter={setGlobalFilter}
                         strClearAllFilters={strClearAllFilters as string}
-                        strNoResultsTitle={strNoResultsTitle}
+                        strNoResults={strNoResults}
                     />
                 )}
             </Box>

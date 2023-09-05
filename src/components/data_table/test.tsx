@@ -43,7 +43,7 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
     strClearAllFilters: "Clear all filters",
     strFilterPlaceholder: "Filter results...",
     strNext: "Next",
-    strNoResultsTitle: "No results",
+    strNoResults: "No results",
     strPage: "Page",
     strPrev: "Previous",
     strResults: "Results",

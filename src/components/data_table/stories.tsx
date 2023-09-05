@@ -36,7 +36,7 @@ export const Default: Story = {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
 
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -47,7 +47,7 @@ export const IsPaginated: Story = {
         isPaginated: true,
         strNext: "Next",
 
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         strPage: "Page",
         strPrev: "Previous",
         strResults: "Results",
@@ -61,7 +61,7 @@ export const IsSortable: Story = {
         data: MOCK_DATA,
         isSortable: true,
 
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -72,7 +72,7 @@ export const IsFilterable: Story = {
         isFilterable: true,
         strClearAllFilters: "Clear all filters",
         strFilterPlaceholder: "Filter results...",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -84,7 +84,7 @@ export const IsSelectable: Story = {
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -97,7 +97,7 @@ export const IsSelectableWithEnableMultiRowSelection: Story = {
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -105,7 +105,7 @@ export const WithAggregatedCell: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
         data: MOCK_DATA,
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -116,7 +116,7 @@ export const WithNoResults: Story = {
         isFilterable: true,
         strClearAllFilters: "Clear all filters",
         strFilterPlaceholder: "Filter results...",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -133,7 +133,7 @@ export const With1Action: Story = {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
 
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -156,7 +156,7 @@ export const With2Actions: Story = {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
 
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -180,7 +180,7 @@ export const WithRowActionItems: Story = {
         data: MOCK_DATA,
         RowActions: MockRowActionsComponent,
 
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
     },
 };
 
@@ -213,7 +213,7 @@ export const KitchenSink: Story = {
         strClearAllFilters: "Clear all filters",
         strFilterPlaceholder: "Filter results...",
         strNext: "Next",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         strPage: "Page",
         strPrev: "Previous",
         strResults: "Results",

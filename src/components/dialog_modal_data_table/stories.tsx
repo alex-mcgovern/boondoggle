@@ -31,7 +31,7 @@ export const IsFilterable: Story = {
         isFilterable: true,
         strClearAllFilters: "Clear all filters",
         strFilterPlaceholder: "Filter",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         title: "Dialog modal data table",
         triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
         width: "lg",
@@ -44,7 +44,7 @@ export const IsPaginated: Story = {
         data: MOCK_DATA,
         isPaginated: true,
         strNext: "Next",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         strPage: "Page",
         strPrev: "Previous",
         strResults: "Results",
@@ -59,7 +59,7 @@ export const WidthSm: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
         data: MOCK_DATA,
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         title: "Dialog modal data table",
         triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
         width: "lg",
@@ -70,7 +70,7 @@ export const WidthLg: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
         data: MOCK_DATA,
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         title: "Dialog modal data table",
         triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
         width: "lg",
@@ -85,7 +85,7 @@ export const IsSelectable: Story = {
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         title: "Dialog modal data table",
         triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
         width: "lg",
@@ -104,7 +104,7 @@ export const IsSelectableWithEnableMultiRowSelection: StoryObj<
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },
         strClearAllFilters: "Clear all filters",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         title: "Dialog modal data table",
         triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
         width: "lg",
@@ -125,7 +125,7 @@ export const KitchenSink: Story = {
         strClearAllFilters: "Clear all filters",
         strFilterPlaceholder: "Filter",
         strNext: "Next",
-        strNoResultsTitle: "No results",
+        strNoResults: "No results",
         strPage: "Page",
         strPrev: "Previous",
         strResults: "Results",

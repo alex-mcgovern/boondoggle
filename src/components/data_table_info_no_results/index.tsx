@@ -25,7 +25,7 @@ type DataTableInfoNoResultsProps = {
     /**
      * The title of the no results message
      */
-    strNoResultsTitle: string;
+    strNoResults: string;
 };
 
 /**
@@ -36,7 +36,7 @@ export function DataTableInfoNoResults({
     setGlobalFilter,
     strClearAllFilters,
 
-    strNoResultsTitle,
+    strNoResults,
 }: DataTableInfoNoResultsProps) {
     return (
         <Box
@@ -62,7 +62,7 @@ export function DataTableInfoNoResults({
                 fontStyle="body_lg"
                 fontWeight="semibold"
             >
-                {strNoResultsTitle}
+                {strNoResults}
             </Box>
 
             {globalFilter && (

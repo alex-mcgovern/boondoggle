@@ -91,7 +91,7 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
         /**
          * The title of the no results message
          */
-        strNoResultsTitle: string;
+        strNoResults: string;
 
         /**
          * Text for the "Try again" button.
@@ -142,7 +142,7 @@ export function DialogModalDataTable<TData extends RowData>({
     strErrorTitle,
     strFilterPlaceholder,
     strNext,
-    strNoResultsTitle,
+    strNoResults,
     strPage,
     strPrev,
     strResults,
@@ -239,7 +239,7 @@ export function DialogModalDataTable<TData extends RowData>({
                                     globalFilter={globalFilter}
                                     setGlobalFilter={setGlobalFilter}
                                     strClearAllFilters={strClearAllFilters as string}
-                                    strNoResultsTitle={strNoResultsTitle}
+                                    strNoResults={strNoResults}
                                 />
                             )}
                         </DialogModalContent>
