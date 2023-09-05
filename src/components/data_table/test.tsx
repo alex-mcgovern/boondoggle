@@ -47,7 +47,6 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
     strPage: "Page",
     strPrev: "Previous",
     strResults: "Results",
-    strShow: "Show",
 };
 
 describe("<DataTable />", () => {

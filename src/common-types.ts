@@ -334,11 +334,6 @@ export type WithTableOptionalPagination =
            * String to use for the results label
            */
           strResults: string;
-
-          /**
-           * String to use for the show label
-           */
-          strShow: string;
       }
     /**
      * If `isPaginated` is `false` or `undefined`, `strPage` and `strResults` should not be passed.
@@ -368,11 +363,6 @@ export type WithTableOptionalPagination =
            * String to use for the results label
            */
           strResults?: never;
-
-          /**
-           * String to use for the show label
-           */
-          strShow?: never;
       };
 
 export type WithTableOptionalFiltering =

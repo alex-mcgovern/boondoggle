@@ -74,7 +74,6 @@ export function DataTable<TData extends RowData>({
     strPage,
     strPrev,
     strResults,
-    strShow,
 }: DataTableProps<TData>) {
     const { globalFilter, setGlobalFilter, table } = useDataTableState({
         data,
@@ -132,13 +131,12 @@ export function DataTable<TData extends RowData>({
                 )}
             </Box>
 
-            {isPaginated && (
+            {isPaginated && hasData && table.getFilteredRowModel().rows.length > 10 && (
                 <DataTablePaginationWrapper
                     strNext={strNext}
                     strPage={strPage}
                     strPrev={strPrev}
                     strResults={strResults}
-                    strShow={strShow}
                     table={table}
                 />
             )}

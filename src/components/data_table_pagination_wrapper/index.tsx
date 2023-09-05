@@ -1,5 +1,4 @@
 import { Box } from "../box";
-import { DataTableControlPageSize } from "../data_table_control_page_size";
 import { DataTableControlPagination } from "../data_table_control_pagination";
 import { DataTableInfoPageCount } from "../data_table_info_page_count";
 
@@ -27,11 +26,6 @@ type DataTablePaginationWrapperProps<TData extends RowData> = {
     strResults: string;
 
     /**
-     * String to use for the show label
-     */
-    strShow: string;
-
-    /**
      * The `react-table` instance to control.
      */
     table: Table<TData>;
@@ -45,7 +39,6 @@ export function DataTablePaginationWrapper<TData extends RowData>({
     strPage,
     strPrev,
     strResults,
-    strShow,
     table,
 }: DataTablePaginationWrapperProps<TData>) {
     return (
@@ -64,12 +57,6 @@ export function DataTablePaginationWrapper<TData extends RowData>({
                 />
             )}
 
-            {strShow && (
-                <DataTableControlPageSize<TData>
-                    strShow={strShow}
-                    table={table}
-                />
-            )}
             <DataTableControlPagination<TData>
                 strNext={strNext}
                 strPrev={strPrev}

@@ -51,7 +51,6 @@ export const IsPaginated: Story = {
         strPage: "Page",
         strPrev: "Previous",
         strResults: "Results",
-        strShow: "Show",
     },
 };
 
@@ -217,6 +216,5 @@ export const KitchenSink: Story = {
         strPage: "Page",
         strPrev: "Previous",
         strResults: "Results",
-        strShow: "Show",
     },
 };
