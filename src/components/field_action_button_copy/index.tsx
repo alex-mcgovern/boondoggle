@@ -22,7 +22,7 @@ export function FieldActionButtonCopy({ isCopied, onClick, size }: FieldActionBu
             name="copy"
             onClick={onClick}
             size={size}
-            slot={<Icon icon={isCopied ? faCheck : faCopy} />}
+            slot={[<Icon icon={isCopied ? faCheck : faCopy} />]}
         />
     );
 }

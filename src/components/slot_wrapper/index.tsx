@@ -3,29 +3,21 @@ import { Children, forwardRef } from "react";
 import { Box } from "../box";
 import { getSlotStyles } from "./styles.css";
 
+import type { WithSlots } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { BoxProps } from "../box";
 import type { ReactNode, Ref } from "react";
 
-export type SlotWrapperProps = {
-    /**
-     * React node(s) rendered on the left-hand side.
-     */
-    slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
+export type SlotWrapperProps = BoxProps &
+    WithSlots & {
+        children?: ReactNode;
 
-    /**
-     * React node(s) rendered on the right-hand side.
-     */
-    slotRight?: [ReactNode?, ReactNode?, ReactNode?];
-} & {
-    children?: ReactNode;
+        className?: string;
 
-    className?: string;
+        size: ElementSizeEnum;
 
-    size: ElementSizeEnum;
-
-    slotProps?: BoxProps;
-} & BoxProps;
+        slotProps?: BoxProps;
+    };
 
 export const SlotWrapper = forwardRef(
     (

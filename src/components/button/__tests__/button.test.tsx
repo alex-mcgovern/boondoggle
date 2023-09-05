@@ -500,12 +500,12 @@ describe("<Button />", () => {
             const { getByTestId } = render(
                 <Button
                     name="Test button"
-                    slotLeft={
+                    slotLeft={[
                         <Icon
                             data-testid="icon"
                             icon={faSearch}
-                        />
-                    }
+                        />,
+                    ]}
                 />
             );
 
@@ -516,12 +516,12 @@ describe("<Button />", () => {
             const { getByTestId } = render(
                 <Button
                     name="Test button"
-                    slotRight={
+                    slotRight={[
                         <Icon
                             data-testid="icon"
                             icon={faSearch}
-                        />
-                    }
+                        />,
+                    ]}
                 />
             );
 

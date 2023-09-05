@@ -16,7 +16,7 @@ export function FieldActionButtonClear({ onClick, size }: FieldActionButtonClear
             name="clear"
             onClick={onClick}
             size={size}
-            slot={<Icon icon={faTimesCircle} />}
+            slot={[<Icon icon={faTimesCircle} />]}
         />
     );
 }

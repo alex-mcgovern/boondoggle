@@ -272,7 +272,7 @@ export type WithSize = {
     size?: ElementSizeEnum;
 };
 
-type Slot = [ReactNode?, ReactNode?, ReactNode?];
+export type Slot = [ReactNode?, ReactNode?, ReactNode?];
 
 export type WithSlots = {
     /**

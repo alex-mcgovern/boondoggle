@@ -1,11 +1,11 @@
 import { faCaretDown, faCaretUp } from "@fortawesome/sharp-regular-svg-icons";
+import { type ReactNode, useMemo } from "react";
 
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { getSortControlStyle, sortIconStyle } from "./styles.css";
 
 import type { Header } from "@tanstack/react-table";
-import type { ReactNode } from "react";
 
 type DataTableControlTableHeadSortProps<TData> = {
     /**
@@ -30,6 +30,24 @@ export function DataTableControlTableHeadSort<TData>({
 
     const isSorted = !!header.column.getIsSorted();
 
+    const slotRight = useMemo(
+        () =>
+            canSort
+                ? [
+                      {
+                          asc: <Icon icon={faCaretUp} />,
+                          desc: <Icon icon={faCaretDown} />,
+                      }[header.column.getIsSorted() as string],
+                  ] ?? [
+                      <Icon
+                          className={sortIconStyle}
+                          icon={faCaretDown}
+                      />,
+                  ]
+                : undefined,
+        [canSort, header.column]
+    );
+
     return (
         <Button
             appearance="link"
@@ -39,19 +57,7 @@ export function DataTableControlTableHeadSort<TData>({
             name={`sort_${header.column.id}`}
             onClick={header.column.getToggleSortingHandler()}
             size="sm"
-            slotRight={
-                canSort
-                    ? {
-                          asc: <Icon icon={faCaretUp} />,
-                          desc: <Icon icon={faCaretDown} />,
-                      }[header.column.getIsSorted() as string] ?? (
-                          <Icon
-                              className={sortIconStyle}
-                              icon={faCaretDown}
-                          />
-                      )
-                    : null
-            }
+            slotRight={slotRight as [ReactNode]}
         >
             {children}
         </Button>

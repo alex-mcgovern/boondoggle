@@ -2,9 +2,9 @@ import { Button } from "../button";
 import { getActionButtonSize } from "./lib/get_action_button_size";
 import { fieldActionButtonStyle } from "./styles.css";
 
+import type { Slot } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { ButtonProps } from "../button";
-import type { ReactNode } from "react";
 
 export type FieldActionButtonProps = {
     /**
@@ -25,7 +25,7 @@ export type FieldActionButtonProps = {
     /**
      * The slot to render on the button.
      */
-    slot: ReactNode;
+    slot: Slot;
 } & Omit<ButtonProps, "appearance" | "className" | "slotLeft" | "slotRight" | "type" | "size">;
 
 /**
