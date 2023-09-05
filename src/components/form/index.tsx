@@ -19,7 +19,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     /**
      * Function that will be called when form validation errors occur.
      */
-    handleErrors: ((errors: FieldErrors) => Promise<void>) | ((errors: FieldErrors) => void);
+    handleErrors?: ((errors: FieldErrors) => Promise<void>) | ((errors: FieldErrors) => void);
 
     /**
      * Function that will be called when the form is submitted.
