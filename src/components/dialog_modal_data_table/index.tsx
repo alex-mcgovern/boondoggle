@@ -204,7 +204,7 @@ export function DialogModalDataTable<TData extends RowData>({
                     {!isError && !isLoading && (
                         <DataTableActionsWrapper
                             leftAction={
-                                isFilterable ? (
+                                isFilterable && arrayHasLength(data) ? (
                                     <DataTableFilterInput
                                         globalFilter={globalFilter}
                                         placeholder={strFilterPlaceholder}
