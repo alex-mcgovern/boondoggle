@@ -386,6 +386,11 @@ export type WithTableOptionalFiltering =
           isFilterable: true;
 
           /**
+           * The text to display for the clear all filters button.
+           */
+          strClearAllFilters: string;
+
+          /**
            * String to use for filter field placeholder
            */
           strFilterPlaceholder: string;
@@ -398,6 +403,11 @@ export type WithTableOptionalFiltering =
            * Whether the table should be filterable
            */
           isFilterable?: false;
+
+          /**
+           * The text to display for the clear all filters button.
+           */
+          strClearAllFilters?: never;
 
           /**
            * String to use for filter field placeholder

@@ -1,8 +1,10 @@
+import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { Box } from "../box";
 import { Card } from "../card";
 import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
 import { DataTableFilterInput } from "../data_table_filter_input";
+import { DataTableInfoNoResults } from "../data_table_info_no_results";
 import { DataTableLayoutBody } from "../data_table_layout_body";
 import { DataTableLayoutHead } from "../data_table_layout_head";
 import { DataTablePaginationWrapper } from "../data_table_pagination_wrapper";
@@ -43,6 +45,11 @@ export type DataTableProps<TData extends RowData> = WithTableOptionalPagination 
          * Whether the table should be sortable and show sorting controls
          */
         isSortable?: boolean;
+
+        /**
+         * The title of the no results message
+         */
+        strNoResultsTitle: string;
     };
 
 /**
@@ -60,14 +67,16 @@ export function DataTable<TData extends RowData>({
     isSelectable,
     isSortable,
     onSelect,
+    strClearAllFilters,
     strFilterPlaceholder,
     strNext,
+    strNoResultsTitle,
     strPage,
     strPrev,
     strResults,
     strShow,
 }: DataTableProps<TData>) {
-    const { setGlobalFilter, table } = useDataTableState({
+    const { globalFilter, setGlobalFilter, table } = useDataTableState({
         data,
         enableMultiRowSelection,
         initColumns,
@@ -79,12 +88,15 @@ export function DataTable<TData extends RowData>({
         RowActions,
     });
 
+    const hasData = arrayHasLength(table.getFilteredRowModel().rows);
+
     return (
         <Card hasPadding={false}>
             <DataTableActionsWrapper
                 leftAction={
-                    isFilterable ? (
+                    isFilterable && arrayHasLength(data) ? (
                         <DataTableFilterInput
+                            globalFilter={globalFilter}
                             placeholder={strFilterPlaceholder}
                             setGlobalFilter={setGlobalFilter}
                         />
@@ -97,26 +109,27 @@ export function DataTable<TData extends RowData>({
                 overflow="auto"
                 width="100%"
             >
-                <Box
-                    as="table"
-                    width="100%"
-                >
-                    <DataTableLayoutHead<TData>
-                        isSortable={isSortable}
-                        table={table}
+                {hasData && (
+                    <Box
+                        as="table"
+                        width="100%"
+                    >
+                        <DataTableLayoutHead<TData>
+                            isSortable={isSortable}
+                            table={table}
+                        />
+                        <DataTableLayoutBody<TData> table={table} />
+                    </Box>
+                )}
+
+                {!hasData && (
+                    <DataTableInfoNoResults
+                        globalFilter={globalFilter}
+                        setGlobalFilter={setGlobalFilter}
+                        strClearAllFilters={strClearAllFilters as string}
+                        strNoResultsTitle={strNoResultsTitle}
                     />
-                    <DataTableLayoutBody<TData> table={table} />
-                </Box>
-                {/*
-          {table.getFilteredRowModel().rows?.length === 0 && (
-            <DataTableInfoNoResults
-            columnFilters={columnFilters}
-            setColumnFilters={setColumnFilters}
-            strClearAllFilters="clear all filters"
-            strNoResultsDescription="no results description"
-            strNoResultsTitle="no results title"
-            />
-          )} */}
+                )}
             </Box>
 
             {isPaginated && (

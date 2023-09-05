@@ -1,33 +1,26 @@
 import { faCircleExclamation, faTimesCircle } from "@fortawesome/sharp-regular-svg-icons";
 
-import { arrayHasLength } from "../../lib/array_has_length";
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 
-import type { ColumnFiltersState } from "@tanstack/react-table";
-import type { Dispatch, SetStateAction } from "react";
+import type { useDataTableState } from "../../lib/use_data_table_state";
 
 type DataTableInfoNoResultsProps = {
     /**
-     * The current column filters state
+     * The current DataTable global filter state
      */
-    columnFilters: ColumnFiltersState;
+    globalFilter: ReturnType<typeof useDataTableState>["globalFilter"];
 
     /**
-     * The function to set the column filters state
+     * The function to set the global filter state
      */
-    setColumnFilters: Dispatch<SetStateAction<ColumnFiltersState>>;
+    setGlobalFilter: ReturnType<typeof useDataTableState>["setGlobalFilter"];
 
     /**
      * The text to display for the clear all filters button.
      */
     strClearAllFilters: string;
-
-    /**
-     * The description of the no results message
-     */
-    strNoResultsDescription: string;
 
     /**
      * The title of the no results message
@@ -39,21 +32,15 @@ type DataTableInfoNoResultsProps = {
  * Renders a message to the user when there are no results in the data table.
  */
 export function DataTableInfoNoResults({
-    columnFilters,
-    setColumnFilters,
+    globalFilter,
+    setGlobalFilter,
     strClearAllFilters,
-    strNoResultsDescription,
+
     strNoResultsTitle,
 }: DataTableInfoNoResultsProps) {
-    if (!arrayHasLength(columnFilters)) {
-        return null;
-    }
-
     return (
         <Box
             alignItems="center"
-            background="tint_default"
-            borderTop="border_default"
             color="text_low_contrast"
             display="flex"
             flexDirection="column"
@@ -68,7 +55,7 @@ export function DataTableInfoNoResults({
 
             <Icon
                 icon={faCircleExclamation}
-                size="2xl"
+                size="3x"
             />
 
             <Box
@@ -78,15 +65,15 @@ export function DataTableInfoNoResults({
                 {strNoResultsTitle}
             </Box>
 
-            <Box __maxWidth="25rem">{strNoResultsDescription}</Box>
-
-            <Button
-                name="clear_filters"
-                onClick={() => setColumnFilters([])}
-                slotRight={[<Icon icon={faTimesCircle} />]}
-            >
-                {strClearAllFilters}
-            </Button>
+            {globalFilter && (
+                <Button
+                    name="clear_filters"
+                    onClick={() => setGlobalFilter("")}
+                    slotRight={[<Icon icon={faTimesCircle} />]}
+                >
+                    {strClearAllFilters}
+                </Button>
+            )}
         </Box>
     );
 }

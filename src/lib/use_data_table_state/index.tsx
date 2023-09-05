@@ -157,6 +157,7 @@ export function useDataTableState<TData extends RowData>({
     });
 
     return {
+        globalFilter,
         setGlobalFilter,
         table,
     };
