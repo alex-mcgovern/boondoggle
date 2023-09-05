@@ -110,6 +110,7 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                             onClick,
                             slotLeft,
                             value,
+                            ...otherItemProps
                         } = item;
 
                         const isHighlighted = highlightedIndex === index;
@@ -122,6 +123,7 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                                 colorOverlay={colorOverlay}
                                 isMulti={isMulti}
                                 size={size}
+                                {...otherItemProps}
                                 {...getItemProps({
                                     isHighlighted,
                                     isSelected,
