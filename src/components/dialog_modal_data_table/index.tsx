@@ -1,5 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 
+import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../styles/color_palette.css";
@@ -7,6 +8,7 @@ import { Box } from "../box";
 import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
 import { DataTableControlPagination } from "../data_table_control_pagination";
 import { DataTableFilterInput } from "../data_table_filter_input";
+import { DataTableInfoNoResults } from "../data_table_info_no_results";
 import { DataTableInfoPageCount } from "../data_table_info_page_count";
 import { DataTableLayoutBody } from "../data_table_layout_body";
 import { DataTableLayoutHead } from "../data_table_layout_head";
@@ -87,6 +89,11 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
         strErrorTitle?: string;
 
         /**
+         * The title of the no results message
+         */
+        strNoResultsTitle: string;
+
+        /**
          * Text for the "Try again" button.
          */
         strTryAgain?: string | undefined;
@@ -130,10 +137,12 @@ export function DialogModalDataTable<TData extends RowData>({
     isSortable,
     onClickTryAgain,
     onSelect,
+    strClearAllFilters,
     strErrorDescription,
     strErrorTitle,
     strFilterPlaceholder,
     strNext,
+    strNoResultsTitle,
     strPage,
     strPrev,
     strResults,
@@ -147,7 +156,7 @@ export function DialogModalDataTable<TData extends RowData>({
         ref: parentDialogRef,
     });
 
-    const { setGlobalFilter, table } = useDataTableState({
+    const { globalFilter, setGlobalFilter, table } = useDataTableState({
         data,
         enableMultiRowSelection,
         initColumns,
@@ -158,6 +167,8 @@ export function DialogModalDataTable<TData extends RowData>({
 
         onSelect,
     });
+
+    const hasData = arrayHasLength(table.getFilteredRowModel().rows);
 
     return (
         <Box
@@ -195,6 +206,7 @@ export function DialogModalDataTable<TData extends RowData>({
                             leftAction={
                                 isFilterable ? (
                                     <DataTableFilterInput
+                                        globalFilter={globalFilter}
                                         placeholder={strFilterPlaceholder}
                                         setGlobalFilter={setGlobalFilter}
                                     />
@@ -209,27 +221,27 @@ export function DialogModalDataTable<TData extends RowData>({
                             alert={alert}
                             hasPadding={false}
                         >
-                            <Box
-                                as="table"
-                                width="100%"
-                            >
-                                <DataTableLayoutHead<TData>
-                                    isSortable={isSortable}
-                                    isSticky
-                                    table={table}
+                            {hasData && (
+                                <Box
+                                    as="table"
+                                    width="100%"
+                                >
+                                    <DataTableLayoutHead<TData>
+                                        isSortable={isSortable}
+                                        table={table}
+                                    />
+                                    <DataTableLayoutBody<TData> table={table} />
+                                </Box>
+                            )}
+
+                            {!hasData && (
+                                <DataTableInfoNoResults
+                                    globalFilter={globalFilter}
+                                    setGlobalFilter={setGlobalFilter}
+                                    strClearAllFilters={strClearAllFilters as string}
+                                    strNoResultsTitle={strNoResultsTitle}
                                 />
-                                <DataTableLayoutBody<TData> table={table} />
-                            </Box>
-                            {/*
-          {table.getFilteredRowModel().rows?.length === 0 && (
-            <DataTableInfoNoResults
-            columnFilters={columnFilters}
-            setColumnFilters={setColumnFilters}
-            strClearAllFilters="clear all filters"
-            strNoResultsDescription="no results description"
-            strNoResultsTitle="no results title"
-            />
-          )} */}
+                            )}
                         </DialogModalContent>
                     )}
 
