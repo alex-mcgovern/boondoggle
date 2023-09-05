@@ -10,9 +10,9 @@ import { Icon } from "../../icon";
 import { Input } from "../../input";
 import { filterSelectItems } from "../lib/filter_select_items";
 import { getSlotRight } from "../lib/get_slot_right";
+import { SelectItemList } from "../select_item_list";
 import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
-import { SelectItemList } from "../t_select_item_list";
 
 import type {
     WithId,
@@ -87,7 +87,7 @@ export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
         /**
          * Function called with the new selected item when the selection changes.
          */
-        onChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
+        onChange?: (selection: SelectItemShape | null | undefined) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
@@ -151,7 +151,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                 setInputValue(changes.inputValue || "");
             },
             onIsOpenChange,
-            onSelectedItemChange: onChange,
+            onSelectedItemChange: (changes) => onChange?.(changes.selectedItem),
             // Ensure that onClick is called when the user presses Enter on an item.
             onStateChange(changes) {
                 if (changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter) {

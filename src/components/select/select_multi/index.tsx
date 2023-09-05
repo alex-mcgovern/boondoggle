@@ -12,9 +12,9 @@ import { Icon } from "../../icon";
 import { Input } from "../../input";
 import { filterSelectItems } from "../lib/filter_select_items";
 import { getSlotRight } from "../lib/get_slot_right";
+import { SelectItemList } from "../select_item_list";
 import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
-import { SelectItemList } from "../t_select_item_list";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
 import type {

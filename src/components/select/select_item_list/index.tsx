@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 
 import { arrayHasLength } from "../../../lib/array_has_length";
 import { Box } from "../../box";
-import { SelectItem } from "../t_select_item";
+import { SelectItem } from "../select_item";
 import { getSelectItemListStyles, selectItemListInner } from "./styles.css";
 
 import type { WithSize } from "../../../common-types";

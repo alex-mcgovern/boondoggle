@@ -184,9 +184,9 @@ export { LoaderFullScreen } from "./components/loader_full_screen";
 
 export type { LoaderFullScreenProps } from "./components/loader_full_screen";
 
-export { SelectButton } from "./components/select/t_select_button";
+export { SelectButton } from "./components/select/select_button";
 
-export type { SelectButtonProps } from "./components/select/t_select_button";
+export type { SelectButtonProps } from "./components/select/select_button";
 
 // export { SelectCountry } from "./components/select_country";
 
@@ -200,21 +200,21 @@ export { Card } from "./components/card";
 
 export type { CardProps } from "./components/card";
 
-export { SelectItem } from "./components/select/t_select_item";
+export { SelectItem } from "./components/select/select_item";
 
-export type { SelectItemProps } from "./components/select/t_select_item";
+export type { SelectItemProps } from "./components/select/select_item";
 
-export { SelectItemList } from "./components/select/t_select_item_list";
+export { SelectItemList } from "./components/select/select_item_list";
 
-export type { SelectItemListProps } from "./components/select/t_select_item_list";
+export type { SelectItemListProps } from "./components/select/select_item_list";
 
-export { SelectSingle } from "./components/select/t_select_single";
+export { SelectSingle } from "./components/select/select_single";
 
-export type { SelectSingleProps } from "./components/select/t_select_single";
+export type { SelectSingleProps } from "./components/select/select_single";
 
-export { SelectMulti } from "./components/select/t_select_multi";
+export { SelectMulti } from "./components/select/select_multi";
 
-export type { SelectMultiProps } from "./components/select/t_select_multi";
+export type { SelectMultiProps } from "./components/select/select_multi";
 
 export type { SelectItemShape } from "./components/select/types";
 

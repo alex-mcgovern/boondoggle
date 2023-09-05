@@ -6,7 +6,7 @@ import * as React from "react";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
-import { SelectItemList } from "../t_select_item_list";
+import { SelectItemList } from "../select_item_list";
 
 import type {
     WithName,
@@ -20,7 +20,7 @@ import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../../button";
 import type { SelectItemShape } from "../types";
 import type { Placement } from "@floating-ui/react";
-import type { UseComboboxStateChange, UseSelectStateChange } from "downshift";
+import type { UseComboboxStateChange } from "downshift";
 
 export type SelectButtonProps = SprinklesArgs &
     WithName &
@@ -57,7 +57,7 @@ export type SelectButtonProps = SprinklesArgs &
         /**
          * Function called with the new selected item when the selection changes.
          */
-        onChange?: (changes: UseSelectStateChange<SelectItemShape>) => void;
+        onChange?: (selection: SelectItemShape | null | undefined) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
@@ -99,7 +99,7 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                 defaultHighlightedIndex: undefined,
                 initialSelectedItem,
                 items,
-                onSelectedItemChange: onChange,
+                onSelectedItemChange: (changes) => onChange?.(changes.selectedItem),
                 // Ensure that onClick is called when the user presses Enter on an item.
                 onStateChange(changes) {
                     if (changes.type === useSelect.stateChangeTypes.ToggleButtonKeyDownEnter) {
