@@ -247,7 +247,7 @@ export function DialogModalDataTable<TData extends RowData>({
 
                     <DialogModalActions
                         actions={
-                            isPaginated ? (
+                            !isError && isPaginated ? (
                                 <Box
                                     alignItems="center"
                                     display="flex"
