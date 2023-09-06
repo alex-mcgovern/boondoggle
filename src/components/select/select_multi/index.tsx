@@ -194,6 +194,7 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
             reset,
         } = useCombobox<SelectItemShape>({
             defaultHighlightedIndex: 0,
+            isItemDisabled: (item) => item.disabled,
             items,
             onIsOpenChange, // after selection, highlight the first item.
             onStateChange({ inputValue: newInputValue, selectedItem: newItem, type }) {

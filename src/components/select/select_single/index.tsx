@@ -144,6 +144,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
         } = useCombobox({
             initialSelectedItem: initialItem,
             inputValue,
+            isItemDisabled: (item) => item.disabled,
             isOpen: controlledIsOpen,
             items,
             itemToString,
