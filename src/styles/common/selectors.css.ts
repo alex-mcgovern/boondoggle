@@ -8,7 +8,7 @@ export const SELECTOR_IS_FOCUS = `:is(:focus-visible)`;
 
 const SELECTOR_IS_HOVER_FOCUS = `:is(:hover, :focus-visible)`;
 
-const SELECTOR_IS_ACTIVE = `is(:active, [data-active='true'])`;
+const SELECTOR_IS_ACTIVE = `:is(:active, [data-active='true'])`;
 
 /**
  * Button/link/input: hover
