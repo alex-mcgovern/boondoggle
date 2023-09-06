@@ -105,6 +105,7 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                         const {
                             as,
                             colorOverlay,
+                            // disabled,
                             isSelected: initIsSelected,
                             label,
                             onClick,
@@ -125,6 +126,7 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
                                 size={size}
                                 {...otherItemProps}
                                 {...getItemProps({
+                                    // disabled,
                                     isHighlighted,
                                     isSelected,
                                     item,

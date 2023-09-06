@@ -1,5 +1,6 @@
 import { SelectButton as StoryComp } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import { Link } from "../../../../test/link.comp.mock";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -53,6 +54,23 @@ export const WithCustomButtonProps: Story = {
         buttonProps: {
             appearance: "tertiary",
         },
+    },
+};
+
+export const WithDisabledItems: Story = {
+    args: {
+        items: mockSelectItems({
+            as: Link,
+            disabled: true,
+        }),
+    },
+};
+
+export const WithDisabledLinks: Story = {
+    args: {
+        items: mockSelectItems({
+            disabled: true,
+        }),
     },
 };
 

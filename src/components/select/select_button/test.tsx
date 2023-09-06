@@ -103,7 +103,7 @@ describe("<SelectButton />", () => {
     test("mouse navigation", async () => {
         const ON_CLICK = jest.fn();
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ onClick: ON_CLICK });
+        const ITEMS_AS_BUTTONS = mockSelectItems({ as: "button", onClick: ON_CLICK });
 
         const { getByRole, getByText, user } = renderComponent({
             ...PROPS,
@@ -136,7 +136,7 @@ describe("<SelectButton />", () => {
     test("keyboard navigation", async () => {
         const ON_CLICK = jest.fn();
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ onClick: ON_CLICK });
+        const ITEMS_AS_BUTTONS = mockSelectItems({ as: "button", onClick: ON_CLICK });
 
         const { user } = renderComponent({
             ...PROPS,

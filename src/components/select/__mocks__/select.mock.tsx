@@ -3,9 +3,20 @@ import { faGlobe } from "@fortawesome/sharp-regular-svg-icons";
 
 import { Icon } from "../../icon";
 
+import type { BoxProps } from "../../box";
 import type { SelectItemShape } from "../types";
 
 type MockSelectItemsArgs = {
+    /**
+     * The element type to render the select items as
+     */
+    as?: BoxProps["as"];
+
+    /**
+     * Whether the items are disabled
+     */
+    disabled?: boolean;
+
     /**
      * Whether to render the select items as buttons
      */
@@ -18,74 +29,86 @@ type MockSelectItemsArgs = {
 };
 
 export const mockSelectItems = ({
+    as,
+    disabled,
     onClick,
     withIcon,
 }: MockSelectItemsArgs): Array<SelectItemShape> => [
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "United Kingdom",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "uk",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "France",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "fr",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "Germany",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "de",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "Spain",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "es",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "The United Kingdom of Great Britain and Northern Ireland",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "gb",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "Italy",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "it",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "Portugal",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "pt",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "United States",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "us",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "Canada",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "ca",
     },
     {
-        as: onClick ? "button" : undefined,
+        as,
+        disabled,
         label: "Australia",
         onClick,
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,

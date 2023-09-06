@@ -33,7 +33,7 @@ export const a11yDisabled = style({
                     opacity: 0.5,
                 },
                 "&[disabled]:hover, &[aria-disabled='true']:hover": {
-                    cursor: "not-allowed",
+                    cursor: "not-allowed !important",
                 },
             },
         },
