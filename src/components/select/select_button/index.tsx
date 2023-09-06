@@ -1,4 +1,11 @@
-import { autoUpdate, flip, offset, useFloating, useMergeRefs } from "@floating-ui/react";
+import {
+    FloatingPortal,
+    autoUpdate,
+    flip,
+    offset,
+    useFloating,
+    useMergeRefs,
+} from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 import { useSelect } from "downshift";
 import * as React from "react";
@@ -142,19 +149,21 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                     {buttonText}
                 </Button>
 
-                <SelectItemList
-                    getIsItemSelected={undefined}
-                    getItemProps={getItemProps}
-                    getMenuProps={getMenuProps}
-                    getSelectedItemProps={undefined}
-                    highlightedIndex={highlightedIndex}
-                    isMulti={false}
-                    isOpen={isOpen}
-                    items={items}
-                    ref={refs.setFloating}
-                    size={size}
-                    style={floatingStyles}
-                />
+                <FloatingPortal>
+                    <SelectItemList
+                        getIsItemSelected={undefined}
+                        getItemProps={getItemProps}
+                        getMenuProps={getMenuProps}
+                        getSelectedItemProps={undefined}
+                        highlightedIndex={highlightedIndex}
+                        isMulti={false}
+                        isOpen={isOpen}
+                        items={items}
+                        ref={refs.setFloating}
+                        size={size}
+                        style={floatingStyles}
+                    />
+                </FloatingPortal>
             </Box>
         );
     }

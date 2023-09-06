@@ -183,6 +183,30 @@ export const WithRowActionItems: Story = {
     },
 };
 
+export const WithRowActionItemsShortList: Story = {
+    args: {
+        actions: [
+            <Button
+                appearance="secondary"
+                name="secondary_action"
+            >
+                Secondary action
+            </Button>,
+            <Button
+                name="primary_action"
+                slotLeft={[<Icon icon={faPlus} />]}
+            >
+                Primary action
+            </Button>,
+        ],
+        columns: DATA_TABLE_COLUMNS_MOCK,
+        data: Array.from({ length: 1 }, generateMockAccountColumn),
+        RowActions: MockRowActionsComponent,
+
+        strNoResults: "No results",
+    },
+};
+
 export const KitchenSink: Story = {
     args: {
         actions: [

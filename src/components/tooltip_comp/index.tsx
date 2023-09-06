@@ -188,6 +188,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                     style={{
                         ...context.floatingStyles,
                         ...style,
+                        zIndex: 1000,
                     }}
                     {...context.getFloatingProps(props)}
                 >
