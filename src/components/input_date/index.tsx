@@ -77,7 +77,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                     <Input
                         {...rest}
                         className={inputDateStyle}
-                        defaultValue={defaultValue ? formatDate(defaultValue) : undefined}
+                        defaultValue={defaultValue ? formatDate(defaultValue, locale) : undefined}
                         isVisibilityToggleable={undefined}
                         isVisible={undefined}
                         readOnly
