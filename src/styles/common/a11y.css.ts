@@ -29,10 +29,10 @@ export const a11yDisabled = style({
     "@layer": {
         [themeLayer]: {
             selectors: {
-                "&[disabled], &[aria-disabled='true']": {
+                "&[disabled], &[aria-disabled]": {
                     opacity: 0.5,
                 },
-                "&[disabled]:hover, &[aria-disabled='true']:hover": {
+                "&[disabled]:hover, &[aria-disabled]:hover": {
                     cursor: "not-allowed !important",
                 },
             },

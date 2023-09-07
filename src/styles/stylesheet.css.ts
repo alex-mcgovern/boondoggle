@@ -97,6 +97,22 @@ globalStyle("button", {
     },
 });
 
+globalStyle("button[disabled], button[aria-disabled]", {
+    "@layer": {
+        [resetLayer]: {
+            opacity: 0.5,
+        },
+    },
+});
+
+globalStyle("button[disabled]:hover, button[aria-disabled]:hover", {
+    "@layer": {
+        [resetLayer]: {
+            cursor: "not-allowed !important",
+        },
+    },
+});
+
 globalStyle(`img, picture, video, canvas, svg`, {
     "@layer": {
         [resetLayer]: {
