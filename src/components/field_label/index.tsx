@@ -46,7 +46,10 @@ export function FieldLabel({ htmlFor, label, labelTooltip, ...rest }: FieldLabel
                 <Tooltip placement="right">
                     <TooltipTrigger asChild>
                         <button type="button">
-                            <Icon icon={faInfoCircle} />
+                            <Icon
+                                color="text_low_contrast"
+                                icon={faInfoCircle}
+                            />
                         </button>
                     </TooltipTrigger>
                     <TooltipContent>{labelTooltip}</TooltipContent>
