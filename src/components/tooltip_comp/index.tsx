@@ -66,6 +66,7 @@ type TooltipOptions = {
  * Hook for managing the state of a tooltip.
  */
 export function useTooltip({
+    enabled = true,
     initialOpen = false,
     onOpenChange: setControlledOpen,
     open: controlledOpen,
@@ -101,12 +102,12 @@ export function useTooltip({
     const { context } = data;
 
     const hover = useHover(context, {
-        enabled: controlledOpen == null,
+        enabled: enabled && controlledOpen == null,
         move: false,
     });
 
     const focus = useFocus(context, {
-        enabled: controlledOpen == null,
+        enabled: enabled && controlledOpen == null,
     });
 
     const dismiss = useDismiss(context);
