@@ -36,15 +36,35 @@ const ARROW_WIDTH = 16;
 const ARROW_HEIGHT = 8;
 
 type TooltipOptions = {
+    /**
+     * Whether the tooltip should be enabled.
+     */
+    enabled?: boolean;
+
+    /**
+     * Whether the tooltip should be open by default.
+     */
     initialOpen?: boolean;
 
+    /**
+     * Callback for when the tooltip open state changes. Use with `open`.
+     */
     onOpenChange?: (open: boolean) => void;
 
+    /**
+     * Control the open state of the tooltip from outside the component. Use with `onOpenChange`.
+     */
     open?: boolean;
 
+    /**
+     * The placement of the tooltip relative to the trigger.
+     */
     placement?: Placement;
 };
 
+/**
+ * Hook for managing the state of a tooltip.
+ */
 export function useTooltip({
     initialOpen = false,
     onOpenChange: setControlledOpen,
@@ -128,6 +148,9 @@ export type TooltipProps = {
     children: ReactNode;
 } & TooltipOptions;
 
+/**
+ * Provider for a tooltip.
+ */
 export function Tooltip({ children, ...options }: { children: ReactNode } & TooltipOptions) {
     // This can accept any props as options, e.g. `placement`,
     // or other positioning options.
@@ -136,6 +159,9 @@ export function Tooltip({ children, ...options }: { children: ReactNode } & Tool
     return <TooltipContext.Provider value={tooltip}>{children}</TooltipContext.Provider>;
 }
 
+/**
+ * Trigger for a tooltip.
+ */
 export const TooltipTrigger = forwardRef<
     HTMLElement,
     HTMLProps<HTMLElement> & { asChild?: boolean }
@@ -171,6 +197,9 @@ export const TooltipTrigger = forwardRef<
     );
 });
 
+/**
+ * Content for a tooltip.
+ */
 export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
     ({ style, ...props }, propRef) => {
         const context = useTooltipContext();
@@ -188,7 +217,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                     style={{
                         ...context.floatingStyles,
                         ...style,
-                        zIndex: 1000,
+                        zIndex: 1000, // <- This is dumb
                     }}
                     {...context.getFloatingProps(props)}
                 >
