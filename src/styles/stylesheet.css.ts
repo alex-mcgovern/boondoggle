@@ -97,7 +97,7 @@ globalStyle("button", {
     },
 });
 
-globalStyle("button[disabled], button[aria-disabled]", {
+globalStyle("button[disabled], button[aria-disabled=true]", {
     "@layer": {
         [resetLayer]: {
             opacity: 0.5,
@@ -105,7 +105,7 @@ globalStyle("button[disabled], button[aria-disabled]", {
     },
 });
 
-globalStyle("button[disabled]:hover, button[aria-disabled]:hover", {
+globalStyle("button[disabled]:hover, button[aria-disabled=true]:hover", {
     "@layer": {
         [resetLayer]: {
             cursor: "not-allowed !important",
