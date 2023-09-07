@@ -47,9 +47,11 @@ export function Card({ actions, children, description, hasPadding = true, title 
         >
             {(title || actions) && (
                 <Box
-                    alignItems="center"
+                    alignItems="start"
                     as="header"
                     display="flex"
+                    flexWrap="wrap"
+                    gap="space_6"
                     marginBottom="space_6"
                 >
                     {title && (
