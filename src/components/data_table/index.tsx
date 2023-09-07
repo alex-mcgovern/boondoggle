@@ -105,7 +105,7 @@ export function DataTable<TData extends RowData>({
             />
 
             <Box
-                // overflow="auto"
+                overflow="auto"
                 width="100%"
             >
                 {hasData && (
