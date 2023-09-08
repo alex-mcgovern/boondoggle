@@ -25,7 +25,7 @@ type DatePickerYearsProps = {
 export function DatePickerYears({ onYearClick, yearButton, years }: DatePickerYearsProps) {
     return (
         <>
-            {years.map((calendarYear) => (
+            {years.map((calendarYear) => {return (
                 <Button
                     appearance={calendarYear.selected ? "primary" : "ghost"}
                     key={calendarYear.year.toString()}
@@ -37,7 +37,7 @@ export function DatePickerYears({ onYearClick, yearButton, years }: DatePickerYe
                 >
                     {calendarYear.year}
                 </Button>
-            ))}
+            )})}
         </>
     );
 }

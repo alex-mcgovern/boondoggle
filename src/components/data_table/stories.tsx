@@ -27,9 +27,9 @@ type Story = StoryObj<typeof meta>;
 
 const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
 
-const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> = () => (
+const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> = () => {return (
     <DataTableRowActions items={mockSelectItemsActions()} />
-);
+)};
 
 export const Default: Story = {
     args: {

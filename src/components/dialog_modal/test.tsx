@@ -18,7 +18,7 @@ const renderComponent = async (props: DialogModalProps) => {
     };
 
     return waitFor(() =>
-        render(
+        {return render(
             <>
                 <button
                     onClick={openDialog}
@@ -31,7 +31,7 @@ const renderComponent = async (props: DialogModalProps) => {
                     {...props}
                 />
             </>
-        )
+        )}
     );
 };
 

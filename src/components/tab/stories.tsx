@@ -13,7 +13,7 @@ export default {
     title: "Components/Tab",
 };
 
-const TemplateSizes: StoryFn<StoryCompProps> = () => (
+const TemplateSizes: StoryFn<StoryCompProps> = () => {return (
     <Box
         alignItems="center"
         display="flex"
@@ -38,13 +38,13 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => (
             {LOREM.text_xxs}
         </StoryComp>
     </Box>
-);
+)};
 
 export const Sizes: StoryObj<StoryCompProps> = {
     render: TemplateSizes,
 };
 
-const TemplateColors: StoryFn<StoryCompProps> = () => (
+const TemplateColors: StoryFn<StoryCompProps> = () => {return (
     <Box
         alignItems="center"
         display="flex"
@@ -81,7 +81,7 @@ const TemplateColors: StoryFn<StoryCompProps> = () => (
             {LOREM.text_xxs}
         </StoryComp>
     </Box>
-);
+)};
 
 export const Colors: StoryObj<StoryCompProps> = {
     render: TemplateColors,

@@ -44,7 +44,7 @@ export const SlotWrapperInset = forwardRef(
             ...rest
         }: SlotWrapperProps,
         ref: Ref<HTMLDivElement>
-    ) => (
+    ) => {return (
         <Box
             className={userClassName}
             position="relative"
@@ -59,9 +59,9 @@ export const SlotWrapperInset = forwardRef(
                     })}
                     left="0"
                 >
-                    {Children.map(slotLeft, (child) => (
+                    {Children.map(slotLeft, (child) => {return (
                         <div className={getSlotInnerStyles({ size })}>{child}</div>
-                    ))}
+                    )})}
                 </Box>
             )}
 
@@ -88,11 +88,11 @@ export const SlotWrapperInset = forwardRef(
                     })}
                     right="0"
                 >
-                    {Children.map(slotRight, (child) => (
+                    {Children.map(slotRight, (child) => {return (
                         <div className={getSlotInnerStyles({ size })}>{child}</div>
-                    ))}
+                    )})}
                 </Box>
             )}
         </Box>
-    )
+    )}
 );

@@ -98,9 +98,9 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
             useSelect({
                 defaultHighlightedIndex: undefined,
                 initialSelectedItem,
-                isItemDisabled: (item) => item.disabled,
+                isItemDisabled: (item) => {return item.disabled},
                 items,
-                onSelectedItemChange: (changes) => onChange?.(changes.selectedItem),
+                onSelectedItemChange: (changes) => {return onChange?.(changes.selectedItem)},
                 // Ensure that onClick is called when the user presses Enter on an item.
                 onStateChange(changes) {
                     if (changes.type === useSelect.stateChangeTypes.ToggleButtonKeyDownEnter) {

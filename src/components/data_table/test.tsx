@@ -16,7 +16,7 @@ import type { DataTableProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 
 const renderComponent = ({ ...props }: DataTableProps<MockAccountColumnData>) =>
-    render(<DataTable {...props} />);
+    {return render(<DataTable {...props} />)};
 
 const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
 

@@ -41,69 +41,69 @@ export type MockAccountColumnData = {
 /**
  * Generate a mock account column.
  */
-export const generateMockAccountColumn = (): MockAccountColumnData => ({
+export const generateMockAccountColumn = (): MockAccountColumnData => {return {
     email_address: faker.internet.email(),
     first_name: faker.person.firstName(),
     id: faker.string.uuid(),
     last_name: faker.person.lastName(),
     phone_number: faker.phone.number(),
-});
+}};
 
 const columnHelper = createColumnHelper<MockAccountColumnData>();
 
 export const DATA_TABLE_COLUMNS_MOCK = [
     columnHelper.accessor("first_name", {
-        cell: (info) => (
+        cell: (info) => {return (
             <DataTableCellButton
                 slotRight={[<Icon icon={faArrowUpRight} />]}
                 value={info.getValue()}
             />
-        ),
+        )},
         enableHiding: false,
-        header: () => "First name",
+        header: () => {return "First name"},
     }),
     columnHelper.accessor("last_name", {
-        cell: (info) => info.getValue(),
-        header: () => "Last name",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "Last name"},
     }),
     columnHelper.accessor("email_address", {
-        cell: (info) => info.getValue(),
-        header: () => "Email address",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "Email address"},
     }),
     columnHelper.accessor("phone_number", {
-        cell: (info) => info.getValue(),
-        header: () => "Phone number",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "Phone number"},
     }),
     columnHelper.accessor("id", {
-        cell: (info) => info.getValue(),
-        header: () => "User ID",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "User ID"},
     }),
 ];
 
 export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
     columnHelper.accessor("first_name", {
-        cell: (info) => (
+        cell: (info) => {return (
             <DataTableCellButton
                 slotRight={[<Icon icon={faArrowUpRight} />]}
                 value={info.getValue()}
             />
-        ),
+        )},
         enableHiding: false,
-        header: () => "First name",
+        header: () => {return "First name"},
     }),
     columnHelper.accessor("last_name", {
-        cell: (info) => info.getValue(),
-        header: () => "Last name",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "Last name"},
     }),
     columnHelper.accessor("email_address", {
-        cell: (info) => info.getValue(),
-        header: () => "Email address",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "Email address"},
     }),
 ];
 
 export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
-    columnHelper.accessor((row) => `${row.first_name} ${row.last_name} ${row.email_address}`, {
-        cell: ({ row }) => (
+    columnHelper.accessor((row) => {return `${row.first_name} ${row.last_name} ${row.email_address}`}, {
+        cell: ({ row }) => {return (
             <Box
                 alignItems="center"
                 display="flex"
@@ -126,16 +126,16 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
                     </Box>
                 </Box>
             </Box>
-        ),
-        header: () => "Team member",
+        )},
+        header: () => {return "Team member"},
         id: "member",
     }),
     columnHelper.accessor("phone_number", {
-        cell: (info) => info.getValue(),
-        header: () => "Phone number",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "Phone number"},
     }),
     columnHelper.accessor("id", {
-        cell: (info) => info.getValue(),
-        header: () => "User ID",
+        cell: (info) => {return info.getValue()},
+        header: () => {return "User ID"},
     }),
 ];

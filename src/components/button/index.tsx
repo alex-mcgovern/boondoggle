@@ -128,7 +128,7 @@ export const Button: ButtonComponent = forwardRef(
         }, [rest, revertLoadingState]);
 
         const loaderSide = useMemo(
-            () => getLoadingSlotSide({ slotLeft, slotRight }),
+            () => {return getLoadingSlotSide({ slotLeft, slotRight })},
             [slotLeft, slotRight]
         );
 

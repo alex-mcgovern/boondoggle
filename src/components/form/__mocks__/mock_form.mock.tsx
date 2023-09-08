@@ -42,7 +42,7 @@ export const mockForm = ({
     handleSubmit = async () => {},
     withDefaultValues = false,
     withOptionalFields = false,
-}: MockFormProps): FormProps => ({
+}: MockFormProps): FormProps => {return {
     children: (
         <>
             {/* <FormInputDate
@@ -104,4 +104,4 @@ export const mockForm = ({
     handleSubmit,
     name: LOREM.name(),
     resolver: zodResolver(withOptionalFields ? mockFormSchemaOptional : mockFormSchema),
-});
+}};

@@ -33,7 +33,7 @@ export const mockSelectItems = ({
     disabled,
     onClick,
     withIcon,
-}: MockSelectItemsArgs): Array<SelectItemShape> => [
+}: MockSelectItemsArgs): Array<SelectItemShape> => {return [
     {
         as,
         disabled,
@@ -114,26 +114,26 @@ export const mockSelectItems = ({
         slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
         value: "au",
     },
-];
+]};
 
-export const mockSelectItemsActions = (): Array<SelectItemShape> => [
+export const mockSelectItemsActions = (): Array<SelectItemShape> => {return [
     {
         as: "button",
         label: "View details",
-        onClick: () => alert("clicked"),
+        onClick: () => {return alert("clicked")},
         value: "view_details",
     },
     {
         as: "button",
         label: "Edit",
-        onClick: () => alert("clicked"),
+        onClick: () => {return alert("clicked")},
         value: "edit",
     },
     {
         as: "button",
         colorOverlay: "red",
         label: "Delete",
-        onClick: () => alert("clicked"),
+        onClick: () => {return alert("clicked")},
         value: "delete",
     },
-];
+]};

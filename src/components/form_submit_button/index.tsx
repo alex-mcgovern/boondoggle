@@ -7,7 +7,7 @@ import type { ButtonProps } from "../button";
 export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
 
 export const FormSubmitButton = forwardRef<HTMLButtonElement, FormSubmitButtonProps>(
-    ({ children, ...rest }, ref) => (
+    ({ children, ...rest }, ref) => {return (
         <Button
             name="submit"
             ref={ref}
@@ -17,5 +17,5 @@ export const FormSubmitButton = forwardRef<HTMLButtonElement, FormSubmitButtonPr
         >
             {children}
         </Button>
-    )
+    )}
 );

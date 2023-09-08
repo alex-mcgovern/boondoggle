@@ -66,7 +66,7 @@ export const SelectItem = forwardRef(
             ...rest
         }: SelectItemProps,
         ref: Ref<HTMLDivElement>
-    ) => (
+    ) => {return (
         <SlotWrapper
             as={as}
             className={clsx(
@@ -96,5 +96,5 @@ export const SelectItem = forwardRef(
                 />
             )}
         </SlotWrapper>
-    )
+    )}
 );

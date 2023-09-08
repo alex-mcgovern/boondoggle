@@ -68,7 +68,7 @@ export function DataTableInfoNoResults({
             {globalFilter && (
                 <Button
                     name="clear_filters"
-                    onClick={() => setGlobalFilter("")}
+                    onClick={() => {return setGlobalFilter("")}}
                     slotRight={[<Icon icon={faTimesCircle} />]}
                 >
                     {strClearAllFilters}

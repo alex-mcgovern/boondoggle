@@ -16,7 +16,7 @@ const PROPS: TextAreaProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: TextAreaProps) => render(<TextArea {...props} />);
+const renderComponent = ({ ...props }: TextAreaProps) => {return render(<TextArea {...props} />)};
 
 describe("<TextArea />", () => {
     describe("Invalid", () => {

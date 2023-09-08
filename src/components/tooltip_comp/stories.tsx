@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 // @ts-expect-error todo: fix this
 export const Default: Story = {
-    render: () => (
+    render: () => {return (
         <Tooltip placement="right">
             <TooltipTrigger asChild>
                 <button type="button">
@@ -27,12 +27,12 @@ export const Default: Story = {
             </TooltipTrigger>
             <TooltipContent>My tooltip</TooltipContent>
         </Tooltip>
-    ),
+    )},
 };
 
 // @ts-expect-error todo: fix this
 export const DisabledTrigger: Story = {
-    render: () => (
+    render: () => {return (
         <Tooltip placement="right">
             <TooltipTrigger asChild>
                 <button
@@ -44,12 +44,12 @@ export const DisabledTrigger: Story = {
             </TooltipTrigger>
             <TooltipContent>My tooltip</TooltipContent>
         </Tooltip>
-    ),
+    )},
 };
 
 // @ts-expect-error todo: fix this
 export const DisabledButtonTrigger: Story = {
-    render: () => (
+    render: () => {return (
         <Tooltip placement="right">
             <TooltipTrigger asChild>
                 <Button
@@ -62,5 +62,5 @@ export const DisabledButtonTrigger: Story = {
             </TooltipTrigger>
             <TooltipContent>My tooltip</TooltipContent>
         </Tooltip>
-    ),
+    )},
 };

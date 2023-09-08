@@ -31,7 +31,7 @@ export const SlotWrapper = forwardRef(
             ...rest
         }: SlotWrapperProps,
         ref: Ref<HTMLDivElement>
-    ) => (
+    ) => {return (
         <Box
             alignItems="center"
             className={userClassName}
@@ -47,7 +47,7 @@ export const SlotWrapper = forwardRef(
                     color="inherit"
                     flexShrink="0"
                 >
-                    {Children.map(slotLeft, (child) => child)}
+                    {Children.map(slotLeft, (child) => {return child})}
                 </Box>
             )}
 
@@ -60,9 +60,9 @@ export const SlotWrapper = forwardRef(
                     color="inherit"
                     flexShrink="0"
                 >
-                    {Children.map(slotRight, (child) => child)}
+                    {Children.map(slotRight, (child) => {return child})}
                 </Box>
             )}
         </Box>
-    )
+    )}
 );
