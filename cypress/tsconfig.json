@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "lib": ["es5", "dom"],
+        "target": "es5",
+        "types": ["cypress", "node"]
+    },
+    "include": [
+        "../cypress/**/*.ts",
+        "../mocks/LOREM.mock",
+        "../cypress.config.ts",
+        "../node_modules/cypress/**/*.ts"
+    ]
+}

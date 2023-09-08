@@ -19,5 +19,6 @@
         "rootDir": ".",
         "skipLibCheck": true,
         "strict": true
-    }
+    },
+    "exclude": ["cypress.config.ts", "cypress/**/*.ts", "node_modules/cypress*/*.ts"]
 }
