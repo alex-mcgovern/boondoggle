@@ -107,7 +107,9 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
             isClearable,
             isFilterable,
             isOpen: controlledIsOpen,
-            itemToString = (item: SelectItemShape | null) => item?.label || "",
+            itemToString = (item: SelectItemShape | null) => {
+                return item?.label || "";
+            },
             items: initialItems,
             label,
             labelTooltip,
@@ -124,7 +126,11 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
     ) => {
         const ref = useForwardRef(initialRef);
 
-        const initialItem = initialSelectedItem || initialItems.find((item) => item.isSelected);
+        const initialItem =
+            initialSelectedItem ||
+            initialItems.find((item) => {
+                return item.isSelected;
+            });
 
         const [inputValue, setInputValue] = useState(initialItem?.label || "");
 
@@ -144,7 +150,9 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
         } = useCombobox({
             initialSelectedItem: initialItem,
             inputValue,
-            isItemDisabled: (item) => item.disabled,
+            isItemDisabled: (item) => {
+                return item.disabled;
+            },
             isOpen: controlledIsOpen,
             items,
             itemToString,
@@ -152,7 +160,9 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                 setInputValue(changes.inputValue || "");
             },
             onIsOpenChange,
-            onSelectedItemChange: (changes) => onChange?.(changes.selectedItem),
+            onSelectedItemChange: (changes) => {
+                return onChange?.(changes.selectedItem);
+            },
             // Ensure that onClick is called when the user presses Enter on an item.
             onStateChange(changes) {
                 if (changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter) {
@@ -162,11 +172,12 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
         });
 
         const getIsItemSelected = useCallback(
-            (item: SelectItemShape) =>
-                getIsSelected({
+            (item: SelectItemShape) => {
+                return getIsSelected({
                     item,
                     selectedItem,
-                }),
+                });
+            },
             [selectedItem]
         );
 
@@ -181,6 +192,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                     fallbackAxisSideDirection: "start",
                 }),
             ],
+            open: isOpen,
             placement: "bottom-start",
             whileElementsMounted: autoUpdate,
         });
@@ -222,6 +234,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                         ...inputProps,
                     })}
                 />
+
                 <SelectItemList
                     getIsItemSelected={getIsItemSelected}
                     getItemProps={getItemProps}
@@ -231,9 +244,9 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                     isMulti={false}
                     isOpen={isOpen}
                     items={items}
-                    ref={refs.setFloating}
+                    ref={isOpen ? refs.setFloating : undefined}
                     size={size}
-                    style={floatingStyles}
+                    style={isOpen ? floatingStyles : {}}
                 />
             </Box>
         );

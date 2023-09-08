@@ -87,73 +87,75 @@ export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
             ...rest
         },
         ref
-    ) => (
-        <Box
-            {...getMenuProps?.({
-                className: getSelectItemListStyles({ isOpen }),
-                ref,
-                ...rest,
-            })}
-        >
-            <Box className={selectItemListInner}>
-                {arrayHasLength(items) &&
-                    items.map((item, index) => {
-                        if (!item.label) {
-                            return null;
-                        }
+    ) => {
+        return (
+            <Box
+                {...getMenuProps?.({
+                    className: getSelectItemListStyles({ isOpen }),
+                    ref,
+                    ...rest,
+                })}
+            >
+                <Box className={selectItemListInner}>
+                    {arrayHasLength(items) &&
+                        items.map((item, index) => {
+                            if (!item.label) {
+                                return null;
+                            }
 
-                        const {
-                            as,
-                            colorOverlay,
-                            isSelected: initIsSelected,
-                            label,
-                            onClick,
-                            slotLeft,
-                            value,
-                            ...otherItemProps
-                        } = item;
+                            const {
+                                as,
+                                colorOverlay,
+                                isSelected: initIsSelected,
+                                label,
+                                onClick,
+                                slotLeft,
+                                value,
+                                ...otherItemProps
+                            } = item;
 
-                        const isHighlighted = highlightedIndex === index;
+                            const isHighlighted = highlightedIndex === index;
 
-                        const isSelected = initIsSelected || getIsItemSelected?.(item);
+                            const isSelected = initIsSelected || getIsItemSelected?.(item);
 
-                        return (
-                            <SelectItem
-                                as={as}
-                                colorOverlay={colorOverlay}
-                                isMulti={isMulti}
-                                size={size}
-                                {...otherItemProps}
-                                {...getItemProps({
-                                    isHighlighted,
-                                    isSelected,
-                                    item,
-                                    key: `${item.label}-${item.value}`,
-                                    label,
-                                    onClick,
-                                    slotLeft,
-                                    value,
-                                    ...(isSelected &&
-                                        getSelectedItemProps?.({
-                                            selectedItem: item,
-                                        })),
-                                })}
-                            />
-                        );
-                    })}
+                            return (
+                                <SelectItem
+                                    as={as}
+                                    colorOverlay={colorOverlay}
+                                    isMulti={isMulti}
+                                    size={size}
+                                    {...otherItemProps}
+                                    {...getItemProps({
+                                        isHighlighted,
+                                        isSelected,
+                                        item,
+                                        key: `${item.label}-${item.value}`,
+                                        label,
+                                        onClick,
+                                        slotLeft,
+                                        value,
+                                        ...(isSelected &&
+                                            getSelectedItemProps?.({
+                                                selectedItem: item,
+                                            })),
+                                    })}
+                                />
+                            );
+                        })}
 
-                {/* Show a fallback list item when there are no items to display */}
+                    {/* Show a fallback list item when there are no items to display */}
 
-                {Array.isArray(items) && items.length === 0 && (
-                    <SelectItem
-                        as="button"
-                        disabled
-                        label="No results"
-                        size={size}
-                        value=""
-                    />
-                )}
+                    {Array.isArray(items) && items.length === 0 && (
+                        <SelectItem
+                            as="button"
+                            disabled
+                            label="No results"
+                            size={size}
+                            value=""
+                        />
+                    )}
+                </Box>
             </Box>
-        </Box>
-    )
+        );
+    }
 );
