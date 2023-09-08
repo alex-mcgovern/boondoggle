@@ -11,7 +11,7 @@ module.exports = {
         url: "http://localhost",
     },
     testMatch: ["<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)"],
-    testPathIgnorePatterns: ["node_modules", "\\.cache", "<rootDir>.*/public", "cypress"],
+    testPathIgnorePatterns: ["node_modules", "\\.cache", "<rootDir>.*/public"],
     transform: {
         "\\.css\\.ts$": "@vanilla-extract/jest-transform",
         "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",

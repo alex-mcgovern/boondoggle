@@ -16,6 +16,7 @@
                 "plugin:@typescript-eslint/recommended"
             ],
             "files": ["**/*.ts", "**/*.tsx"],
+
             "plugins": [
                 "import",
                 "jsdoc",
@@ -55,7 +56,6 @@
                             "**/*.test.tsx",
                             "**/stories.tsx",
                             "**/test.*",
-                            "cypress.config.ts",
                             "tsup.config.ts"
                         ]
                     }
