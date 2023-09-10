@@ -266,6 +266,7 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
                     fallbackAxisSideDirection: "start",
                 }),
             ],
+            open: isOpen,
             placement: "bottom-start",
             whileElementsMounted: autoUpdate,
         });

@@ -121,6 +121,7 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                     fallbackAxisSideDirection: "start",
                 }),
             ],
+            open: isOpen,
             placement: placement || "bottom-start",
             whileElementsMounted: autoUpdate,
         });
