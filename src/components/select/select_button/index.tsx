@@ -98,9 +98,13 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
             useSelect({
                 defaultHighlightedIndex: undefined,
                 initialSelectedItem,
-                isItemDisabled: (item) => {return item.disabled},
+                isItemDisabled: (item) => {
+                    return item.disabled;
+                },
                 items,
-                onSelectedItemChange: (changes) => {return onChange?.(changes.selectedItem)},
+                onSelectedItemChange: (changes) => {
+                    return onChange?.(changes.selectedItem);
+                },
                 // Ensure that onClick is called when the user presses Enter on an item.
                 onStateChange(changes) {
                     if (changes.type === useSelect.stateChangeTypes.ToggleButtonKeyDownEnter) {
@@ -152,9 +156,9 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                     isMulti={false}
                     isOpen={isOpen}
                     items={items}
-                    ref={refs.setFloating}
+                    ref={isOpen ? refs.setFloating : undefined}
                     size={size}
-                    style={floatingStyles}
+                    style={isOpen ? floatingStyles : {}}
                 />
             </Box>
         );
