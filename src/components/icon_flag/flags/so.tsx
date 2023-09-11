@@ -1,34 +1,45 @@
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
 
-import type { SVGProps } from "react";
+import type { SprinklesArgs } from "../../../../dist";
 
-function SvgSo(props: SVGProps<SVGSVGElement>) {
-  return <svg
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-    >
-        <defs>
-            <clipPath id="so_svg__a">
-                <path
-                    d="M177.2 0h708.6v708.7H177.2z"
-                    fillOpacity={0.7}
-                />
-            </clipPath>
-        </defs>
-        <g
-            clipPath="url(#so_svg__a)"
-            fillRule="evenodd"
-            transform="translate(-128) scale(.72249)"
+export function So({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
+    return (
+        <Box
+            as="svg"
+            className={getSprinkles({
+                border: "border_default",
+                borderRadius: "50%",
+                height,
+                width,
+                ...rest,
+            })}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
         >
-            <path
-                d="M0 0h1063v708.7H0z"
-                fill="#40a6ff"
-            />
-            <path
-                d="m643 527.6-114.3-74-113.6 74.8 42.3-121.5-113.5-75 140.4-1 43.5-121.1 44.5 120.8 140.3.1-112.9 75.7L643 527.6z"
-                fill="#fff"
-            />
-        </g>
-    </svg>
+            <defs>
+                <clipPath id="so_svg__a">
+                    <path
+                        d="M177.2 0h708.6v708.7H177.2z"
+                        fillOpacity={0.7}
+                    />
+                </clipPath>
+            </defs>
+            <g
+                clipPath="url(#so_svg__a)"
+                fillRule="evenodd"
+                transform="translate(-128) scale(.72249)"
+            >
+                <path
+                    d="M0 0h1063v708.7H0z"
+                    fill="#40a6ff"
+                />
+                <path
+                    d="m643 527.6-114.3-74-113.6 74.8 42.3-121.5-113.5-75 140.4-1 43.5-121.1 44.5 120.8 140.3.1-112.9 75.7L643 527.6z"
+                    fill="#fff"
+                />
+            </g>
+        </Box>
+    );
 }
-export default SvgSo;

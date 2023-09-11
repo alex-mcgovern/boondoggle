@@ -1,26 +1,37 @@
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
 
-import type { SVGProps } from "react";
+import type { SprinklesArgs } from "../../../../dist";
 
-function SvgTt(props: SVGProps<SVGSVGElement>) {
-  return <svg
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-    >
-        <path
-            d="M0 0h512v512H0z"
-            fill="#fff"
-            style={{
-                width: 0,
-            }}
-        />
-        <g fillRule="evenodd">
+export function Tt({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
+    return (
+        <Box
+            as="svg"
+            className={getSprinkles({
+                border: "border_default",
+                borderRadius: "50%",
+                height,
+                width,
+                ...rest,
+            })}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
             <path
-                d="M371 512 0 1v510.7l371 .3zM141 0l371 511V.2L141 0z"
-                fill="#e00000"
+                d="M0 0h512v512H0z"
+                fill="#fff"
+                style={{
+                    width: 0,
+                }}
             />
-            <path d="M22.2.2h94.9l374.5 511.3h-97.9L22.2.2z" />
-        </g>
-    </svg>
+            <g fillRule="evenodd">
+                <path
+                    d="M371 512 0 1v510.7l371 .3zM141 0l371 511V.2L141 0z"
+                    fill="#e00000"
+                />
+                <path d="M22.2.2h94.9l374.5 511.3h-97.9L22.2.2z" />
+            </g>
+        </Box>
+    );
 }
-export default SvgTt;

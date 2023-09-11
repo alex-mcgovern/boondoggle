@@ -1,11 +1,22 @@
-import type { SVGProps } from "react";
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
 
-function SvgSl(props: SVGProps<SVGSVGElement>) {
+import type { SprinklesArgs } from "../../../../dist";
+
+export function Sl({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
     return (
-        <svg
+        <Box
+            as="svg"
+            className={getSprinkles({
+                border: "border_default",
+                borderRadius: "50%",
+                height,
+                width,
+                ...rest,
+            })}
             viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg"
-            {...props}
+            xmlnsXlink="http://www.w3.org/1999/xlink"
         >
             <defs>
                 <clipPath id="sl_svg__a">
@@ -35,7 +46,6 @@ function SvgSl(props: SVGProps<SVGSVGElement>) {
                     fill="#00cd00"
                 />
             </g>
-        </svg>
+        </Box>
     );
 }
-export default SvgSl;

@@ -1,96 +1,106 @@
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
 
-import type { SVGProps } from "react";
+import type { SprinklesArgs } from "../../../../dist";
 
-function SvgVe(props: SVGProps<SVGSVGElement>) {
-  return <svg
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        {...props}
-    >
-        <defs>
-            <g
-                id="ve_svg__d"
-                transform="translate(0 -36)"
-            >
-                <g id="ve_svg__c">
-                    <g id="ve_svg__b">
-                        <path
-                            d="M0-5-1.5-.2l2.8.9z"
-                            fill="#fff"
-                            id="ve_svg__a"
-                        />
+export function Ve({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
+    return (
+        <Box
+            as="svg"
+            className={getSprinkles({
+                border: "border_default",
+                borderRadius: "50%",
+                height,
+                width,
+                ...rest,
+            })}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+            <defs>
+                <g
+                    id="ve_svg__d"
+                    transform="translate(0 -36)"
+                >
+                    <g id="ve_svg__c">
+                        <g id="ve_svg__b">
+                            <path
+                                d="M0-5-1.5-.2l2.8.9z"
+                                fill="#fff"
+                                id="ve_svg__a"
+                            />
+                            <use
+                                height={120}
+                                transform="scale(-1 1)"
+                                width={180}
+                                xlinkHref="#ve_svg__a"
+                            />
+                        </g>
                         <use
                             height={120}
-                            transform="scale(-1 1)"
+                            transform="rotate(72)"
                             width={180}
-                            xlinkHref="#ve_svg__a"
+                            xlinkHref="#ve_svg__b"
                         />
                     </g>
                     <use
                         height={120}
-                        transform="rotate(72)"
+                        transform="rotate(-72)"
                         width={180}
                         xlinkHref="#ve_svg__b"
+                    />
+                    <use
+                        height={120}
+                        transform="rotate(144)"
+                        width={180}
+                        xlinkHref="#ve_svg__c"
+                    />
+                </g>
+            </defs>
+            <path
+                d="M0 0h512v512H0z"
+                fill="#cf142b"
+            />
+            <path
+                d="M0 0h512v341.3H0z"
+                fill="#00247d"
+            />
+            <path
+                d="M0 0h512v170.7H0z"
+                fill="#fc0"
+            />
+            <g
+                id="ve_svg__f"
+                transform="translate(256.3 358.4) scale(4.265)"
+            >
+                <g id="ve_svg__e">
+                    <use
+                        height={120}
+                        transform="rotate(10)"
+                        width={180}
+                        xlinkHref="#ve_svg__d"
+                    />
+                    <use
+                        height={120}
+                        transform="rotate(30)"
+                        width={180}
+                        xlinkHref="#ve_svg__d"
                     />
                 </g>
                 <use
                     height={120}
-                    transform="rotate(-72)"
+                    transform="rotate(40)"
                     width={180}
-                    xlinkHref="#ve_svg__b"
-                />
-                <use
-                    height={120}
-                    transform="rotate(144)"
-                    width={180}
-                    xlinkHref="#ve_svg__c"
-                />
-            </g>
-        </defs>
-        <path
-            d="M0 0h512v512H0z"
-            fill="#cf142b"
-        />
-        <path
-            d="M0 0h512v341.3H0z"
-            fill="#00247d"
-        />
-        <path
-            d="M0 0h512v170.7H0z"
-            fill="#fc0"
-        />
-        <g
-            id="ve_svg__f"
-            transform="translate(256.3 358.4) scale(4.265)"
-        >
-            <g id="ve_svg__e">
-                <use
-                    height={120}
-                    transform="rotate(10)"
-                    width={180}
-                    xlinkHref="#ve_svg__d"
-                />
-                <use
-                    height={120}
-                    transform="rotate(30)"
-                    width={180}
-                    xlinkHref="#ve_svg__d"
+                    xlinkHref="#ve_svg__e"
                 />
             </g>
             <use
                 height={120}
-                transform="rotate(40)"
+                transform="rotate(-80 256.3 358.4)"
                 width={180}
-                xlinkHref="#ve_svg__e"
+                xlinkHref="#ve_svg__f"
             />
-        </g>
-        <use
-            height={120}
-            transform="rotate(-80 256.3 358.4)"
-            width={180}
-            xlinkHref="#ve_svg__f"
-        />
-    </svg>
+        </Box>
+    );
 }
-export default SvgVe;

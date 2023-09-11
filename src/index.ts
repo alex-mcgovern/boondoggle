@@ -172,9 +172,7 @@ export { Icon } from "./components/icon";
 
 export type { IconProps } from "./components/icon";
 
-export { IconFlag } from "./components/icon_flag";
-
-export type { IconFlagProps } from "./components/icon_flag";
+export * from "./components/icon_flag";
 
 export { FieldLabel } from "./components/field_label";
 

@@ -1,47 +1,268 @@
-import { Suspense } from "react";
-
-import { Box } from "../box";
-import * as FLAGS from "./flags";
-
-import type { BoxProps } from "../box";
-import type { JSXElementConstructor } from "react";
-
-export type IconFlagProps = {
-    code: keyof typeof FLAGS;
-} & BoxProps;
-
-export function IconFlag({
-    border = "border_default",
-    borderRadius = "50%",
-    code,
-    height = "space_8",
-    width = "space_8",
-    ...rest
-}: IconFlagProps) {
-    const Component = FLAGS[code] as JSXElementConstructor<unknown>;
-    return (
-        <Suspense
-            fallback={
-                // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-                <Box
-                    background="tint_default"
-                    border={border}
-                    borderRadius={borderRadius}
-                    height={height}
-                    width={width}
-                    {...rest}
-                />
-            }
-        >
-            <Box
-                as={Component}
-                background="tint_default"
-                border={border}
-                borderRadius={borderRadius}
-                height={height}
-                width={width}
-                {...rest}
-            />
-        </Suspense>
-    );
-}
+export { Ac } from "./flags/ac";
+export { Ad } from "./flags/ad";
+export { Ae } from "./flags/ae";
+export { Af } from "./flags/af";
+export { Ag } from "./flags/ag";
+export { Ai } from "./flags/ai";
+export { Al } from "./flags/al";
+export { Am } from "./flags/am";
+export { Ao } from "./flags/ao";
+export { Aq } from "./flags/aq";
+export { Ar } from "./flags/ar";
+export { Arab } from "./flags/arab";
+export { As } from "./flags/as";
+export { At } from "./flags/at";
+export { Au } from "./flags/au";
+export { Aw } from "./flags/aw";
+export { Ax } from "./flags/ax";
+export { Az } from "./flags/az";
+export { Ba } from "./flags/ba";
+export { Bb } from "./flags/bb";
+export { Bd } from "./flags/bd";
+export { Be } from "./flags/be";
+export { Bf } from "./flags/bf";
+export { Bg } from "./flags/bg";
+export { Bh } from "./flags/bh";
+export { Bi } from "./flags/bi";
+export { Bj } from "./flags/bj";
+export { Bl } from "./flags/bl";
+export { Bm } from "./flags/bm";
+export { Bn } from "./flags/bn";
+export { Bo } from "./flags/bo";
+export { Bq } from "./flags/bq";
+export { Br } from "./flags/br";
+export { Bs } from "./flags/bs";
+export { Bt } from "./flags/bt";
+export { Bv } from "./flags/bv";
+export { Bw } from "./flags/bw";
+export { By } from "./flags/by";
+export { Bz } from "./flags/bz";
+export { Ca } from "./flags/ca";
+export { Cc } from "./flags/cc";
+export { Cd } from "./flags/cd";
+export { Cefta } from "./flags/cefta";
+export { Cf } from "./flags/cf";
+export { Cg } from "./flags/cg";
+export { Ch } from "./flags/ch";
+export { Ci } from "./flags/ci";
+export { Ck } from "./flags/ck";
+export { Cl } from "./flags/cl";
+export { Cm } from "./flags/cm";
+export { Cn } from "./flags/cn";
+export { Co } from "./flags/co";
+export { Cp } from "./flags/cp";
+export { Cr } from "./flags/cr";
+export { Cu } from "./flags/cu";
+export { Cv } from "./flags/cv";
+export { Cw } from "./flags/cw";
+export { Cx } from "./flags/cx";
+export { Cy } from "./flags/cy";
+export { Cz } from "./flags/cz";
+export { De } from "./flags/de";
+export { Dg } from "./flags/dg";
+export { Dj } from "./flags/dj";
+export { Dk } from "./flags/dk";
+export { Dm } from "./flags/dm";
+export { Do } from "./flags/do";
+export { Dz } from "./flags/dz";
+export { Eac } from "./flags/eac";
+export { Ec } from "./flags/ec";
+export { Ee } from "./flags/ee";
+export { Eg } from "./flags/eg";
+export { Eh } from "./flags/eh";
+export { Er } from "./flags/er";
+export { Es } from "./flags/es";
+export { EsCt } from "./flags/es-ct";
+export { EsGa } from "./flags/es-ga";
+export { EsPv } from "./flags/es-pv";
+export { Et } from "./flags/et";
+export { Eu } from "./flags/eu";
+export { Fi } from "./flags/fi";
+export { Fj } from "./flags/fj";
+export { Fk } from "./flags/fk";
+export { Fm } from "./flags/fm";
+export { Fo } from "./flags/fo";
+export { Fr } from "./flags/fr";
+export { Ga } from "./flags/ga";
+export { Gb } from "./flags/gb";
+export { GbEng } from "./flags/gb-eng";
+export { GbNir } from "./flags/gb-nir";
+export { GbSct } from "./flags/gb-sct";
+export { GbWls } from "./flags/gb-wls";
+export { Gd } from "./flags/gd";
+export { Ge } from "./flags/ge";
+export { Gf } from "./flags/gf";
+export { Gg } from "./flags/gg";
+export { Gh } from "./flags/gh";
+export { Gi } from "./flags/gi";
+export { Gl } from "./flags/gl";
+export { Gm } from "./flags/gm";
+export { Gn } from "./flags/gn";
+export { Gp } from "./flags/gp";
+export { Gq } from "./flags/gq";
+export { Gr } from "./flags/gr";
+export { Gs } from "./flags/gs";
+export { Gt } from "./flags/gt";
+export { Gu } from "./flags/gu";
+export { Gw } from "./flags/gw";
+export { Gy } from "./flags/gy";
+export { Hk } from "./flags/hk";
+export { Hm } from "./flags/hm";
+export { Hn } from "./flags/hn";
+export { Hr } from "./flags/hr";
+export { Ht } from "./flags/ht";
+export { Hu } from "./flags/hu";
+export { Ic } from "./flags/ic";
+export { Id } from "./flags/id";
+export { Ie } from "./flags/ie";
+export { Il } from "./flags/il";
+export { Im } from "./flags/im";
+export { In } from "./flags/in";
+export { Io } from "./flags/io";
+export { Iq } from "./flags/iq";
+export { Ir } from "./flags/ir";
+export { Is } from "./flags/is";
+export { It } from "./flags/it";
+export { Je } from "./flags/je";
+export { Jm } from "./flags/jm";
+export { Jo } from "./flags/jo";
+export { Jp } from "./flags/jp";
+export { Ke } from "./flags/ke";
+export { Kg } from "./flags/kg";
+export { Kh } from "./flags/kh";
+export { Ki } from "./flags/ki";
+export { Km } from "./flags/km";
+export { Kn } from "./flags/kn";
+export { Kp } from "./flags/kp";
+export { Kr } from "./flags/kr";
+export { Kw } from "./flags/kw";
+export { Ky } from "./flags/ky";
+export { Kz } from "./flags/kz";
+export { La } from "./flags/la";
+export { Lb } from "./flags/lb";
+export { Lc } from "./flags/lc";
+export { Li } from "./flags/li";
+export { Lk } from "./flags/lk";
+export { Lr } from "./flags/lr";
+export { Ls } from "./flags/ls";
+export { Lt } from "./flags/lt";
+export { Lu } from "./flags/lu";
+export { Lv } from "./flags/lv";
+export { Ly } from "./flags/ly";
+export { Ma } from "./flags/ma";
+export { Mc } from "./flags/mc";
+export { Md } from "./flags/md";
+export { Me } from "./flags/me";
+export { Mf } from "./flags/mf";
+export { Mg } from "./flags/mg";
+export { Mh } from "./flags/mh";
+export { Mk } from "./flags/mk";
+export { Ml } from "./flags/ml";
+export { Mm } from "./flags/mm";
+export { Mn } from "./flags/mn";
+export { Mo } from "./flags/mo";
+export { Mp } from "./flags/mp";
+export { Mq } from "./flags/mq";
+export { Mr } from "./flags/mr";
+export { Ms } from "./flags/ms";
+export { Mt } from "./flags/mt";
+export { Mu } from "./flags/mu";
+export { Mv } from "./flags/mv";
+export { Mw } from "./flags/mw";
+export { Mx } from "./flags/mx";
+export { My } from "./flags/my";
+export { Mz } from "./flags/mz";
+export { Na } from "./flags/na";
+export { Nc } from "./flags/nc";
+export { Ne } from "./flags/ne";
+export { Nf } from "./flags/nf";
+export { Ng } from "./flags/ng";
+export { Ni } from "./flags/ni";
+export { Nl } from "./flags/nl";
+export { No } from "./flags/no";
+export { Np } from "./flags/np";
+export { Nr } from "./flags/nr";
+export { Nu } from "./flags/nu";
+export { Nz } from "./flags/nz";
+export { Om } from "./flags/om";
+export { Pa } from "./flags/pa";
+export { Pe } from "./flags/pe";
+export { Pf } from "./flags/pf";
+export { Pg } from "./flags/pg";
+export { Ph } from "./flags/ph";
+export { Pk } from "./flags/pk";
+export { Pl } from "./flags/pl";
+export { Pm } from "./flags/pm";
+export { Pn } from "./flags/pn";
+export { Pr } from "./flags/pr";
+export { Ps } from "./flags/ps";
+export { Pt } from "./flags/pt";
+export { Pw } from "./flags/pw";
+export { Py } from "./flags/py";
+export { Qa } from "./flags/qa";
+export { Re } from "./flags/re";
+export { Ro } from "./flags/ro";
+export { Rs } from "./flags/rs";
+export { Ru } from "./flags/ru";
+export { Rw } from "./flags/rw";
+export { Sa } from "./flags/sa";
+export { Sb } from "./flags/sb";
+export { Sc } from "./flags/sc";
+export { Sd } from "./flags/sd";
+export { Se } from "./flags/se";
+export { Sg } from "./flags/sg";
+export { Sh } from "./flags/sh";
+export { Si } from "./flags/si";
+export { Sj } from "./flags/sj";
+export { Sk } from "./flags/sk";
+export { Sl } from "./flags/sl";
+export { Sm } from "./flags/sm";
+export { Sn } from "./flags/sn";
+export { So } from "./flags/so";
+export { Sr } from "./flags/sr";
+export { Ss } from "./flags/ss";
+export { St } from "./flags/st";
+export { Sv } from "./flags/sv";
+export { Sx } from "./flags/sx";
+export { Sy } from "./flags/sy";
+export { Sz } from "./flags/sz";
+export { Ta } from "./flags/ta";
+export { Tc } from "./flags/tc";
+export { Td } from "./flags/td";
+export { Tf } from "./flags/tf";
+export { Tg } from "./flags/tg";
+export { Th } from "./flags/th";
+export { Tj } from "./flags/tj";
+export { Tk } from "./flags/tk";
+export { Tl } from "./flags/tl";
+export { Tm } from "./flags/tm";
+export { Tn } from "./flags/tn";
+export { To } from "./flags/to";
+export { Tr } from "./flags/tr";
+export { Tt } from "./flags/tt";
+export { Tv } from "./flags/tv";
+export { Tw } from "./flags/tw";
+export { Tz } from "./flags/tz";
+export { Ua } from "./flags/ua";
+export { Ug } from "./flags/ug";
+export { Um } from "./flags/um";
+export { Un } from "./flags/un";
+export { Us } from "./flags/us";
+export { Uy } from "./flags/uy";
+export { Uz } from "./flags/uz";
+export { Va } from "./flags/va";
+export { Vc } from "./flags/vc";
+export { Ve } from "./flags/ve";
+export { Vg } from "./flags/vg";
+export { Vi } from "./flags/vi";
+export { Vn } from "./flags/vn";
+export { Vu } from "./flags/vu";
+export { Wf } from "./flags/wf";
+export { Ws } from "./flags/ws";
+export { Xk } from "./flags/xk";
+export { Xx } from "./flags/xx";
+export { Ye } from "./flags/ye";
+export { Yt } from "./flags/yt";
+export { Za } from "./flags/za";
+export { Zm } from "./flags/zm";
+export { Zw } from "./flags/zw";

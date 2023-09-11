@@ -1,29 +1,40 @@
+import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { Box } from "../../box";
 
-import type { SVGProps } from "react";
+import type { SprinklesArgs } from "../../../../dist";
 
-function SvgCo(props: SVGProps<SVGSVGElement>) {
-  return <svg
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-    >
-        <g
-            fillRule="evenodd"
-            strokeWidth="1pt"
+export function Co({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
+    return (
+        <Box
+            as="svg"
+            className={getSprinkles({
+                border: "border_default",
+                borderRadius: "50%",
+                height,
+                width,
+                ...rest,
+            })}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
         >
-            <path
-                d="M0 0h512v512H0z"
-                fill="#ffe800"
-            />
-            <path
-                d="M0 256h512v256H0z"
-                fill="#00148e"
-            />
-            <path
-                d="M0 384h512v128H0z"
-                fill="#da0010"
-            />
-        </g>
-    </svg>
+            <g
+                fillRule="evenodd"
+                strokeWidth="1pt"
+            >
+                <path
+                    d="M0 0h512v512H0z"
+                    fill="#ffe800"
+                />
+                <path
+                    d="M0 256h512v256H0z"
+                    fill="#00148e"
+                />
+                <path
+                    d="M0 384h512v128H0z"
+                    fill="#da0010"
+                />
+            </g>
+        </Box>
+    );
 }
-export default SvgCo;
