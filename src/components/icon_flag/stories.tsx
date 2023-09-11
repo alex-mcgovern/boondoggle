@@ -1,4 +1,4 @@
-import { Ie as StoryComp } from "./flags/ie";
+import { FlagIe as StoryComp } from "./flags/ie";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
