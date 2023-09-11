@@ -40,6 +40,23 @@ export const Default: Story = {
     },
 };
 
+export const IsWholeRowClickable: Story = {
+    args: {
+        columns: DATA_TABLE_COLUMNS_MOCK,
+        data: MOCK_DATA,
+        getRowProps(row_data) {
+            return {
+                // as: "button",
+                onClick: () => {
+                    alert(`Row clicked \n ${JSON.stringify(row_data, null, 2)}`);
+                },
+            };
+        },
+        isWholeRowClickable: true,
+        strNoResults: "No results",
+    },
+};
+
 export const IsPaginated: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,

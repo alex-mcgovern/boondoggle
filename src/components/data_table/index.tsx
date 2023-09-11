@@ -15,16 +15,17 @@ import type {
     WithTableOptionalPagination,
     WithTableOptionalSelectableRows,
 } from "../../common-types";
+import type { BoxProps } from "../box";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
-export type DataTableProps<TData extends RowData> = WithTableOptionalPagination &
-    WithTableOptionalSelectableRows<TData> &
+export type DataTableProps<TRowData extends RowData> = WithTableOptionalPagination &
+    WithTableOptionalSelectableRows<TRowData> &
     WithTableOptionalFiltering & {
         /**
          * React component to render a list of actions on each row
          */
-        RowActions?: TDataTableRowActions<TData>;
+        RowActions?: TDataTableRowActions<TRowData>;
 
         /**
          * Up to 2 react nodes to render as actions for the table
@@ -34,17 +35,27 @@ export type DataTableProps<TData extends RowData> = WithTableOptionalPagination 
         /**
          * Column definitions for the tabular data
          */
-        columns: Array<ColumnDef<TData, any>>;
+        columns: Array<ColumnDef<TRowData, any>>;
 
         /**
          * An array of objects describing each row in the table
          */
-        data: Array<TData> | undefined;
+        data: Array<TRowData> | undefined;
+
+        /**
+         * A function that returns props for the row.
+         */
+        getRowProps?: (row_data: TRowData) => BoxProps;
 
         /**
          * Whether the table should be sortable and show sorting controls
          */
         isSortable?: boolean;
+
+        /**
+         * Whether the entire row should be clickable
+         */
+        isWholeRowClickable?: boolean;
 
         /**
          * The title of the no results message
@@ -56,16 +67,18 @@ export type DataTableProps<TData extends RowData> = WithTableOptionalPagination 
  * Component to render tabular data with filtering/sorting controls.
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
-export function DataTable<TData extends RowData>({
+export function DataTable<TRowData extends RowData>({
     RowActions,
     actions,
     columns: initColumns,
     data,
     enableMultiRowSelection = false,
+    getRowProps,
     isFilterable,
     isPaginated,
     isSelectable,
     isSortable,
+    isWholeRowClickable,
     onSelect,
     strClearAllFilters,
     strFilterPlaceholder,
@@ -74,7 +87,7 @@ export function DataTable<TData extends RowData>({
     strPage,
     strPrev,
     strResults,
-}: DataTableProps<TData>) {
+}: DataTableProps<TRowData>) {
     const { globalFilter, setGlobalFilter, table } = useDataTableState({
         data,
         enableMultiRowSelection,
@@ -113,11 +126,15 @@ export function DataTable<TData extends RowData>({
                         as="table"
                         width="100%"
                     >
-                        <DataTableLayoutHead<TData>
+                        <DataTableLayoutHead<TRowData>
                             isSortable={isSortable}
                             table={table}
                         />
-                        <DataTableLayoutBody<TData> table={table} />
+                        <DataTableLayoutBody<TRowData>
+                            getRowProps={getRowProps}
+                            isWholeRowClickable={isWholeRowClickable}
+                            table={table}
+                        />
                     </Box>
                 )}
 
