@@ -13,6 +13,7 @@
     },
     "sideEffects": [
         "*.css",
+        "src/components/icon_flag/flags/*.tsx",
         "*.css.ts"
     ],
     "main": "dist/index.js",
