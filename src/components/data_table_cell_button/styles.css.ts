@@ -17,7 +17,6 @@ export const dataTableCellButtonStyle = style([
                 color: vars.color.button_active,
             },
         },
-        width: "10rem",
     },
 ]);
 
