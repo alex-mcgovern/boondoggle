@@ -246,7 +246,7 @@ export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
                     items={items}
                     ref={isOpen ? refs.setFloating : undefined}
                     size={size}
-                    style={isOpen ? floatingStyles : {}}
+                    style={floatingStyles}
                 />
             </Box>
         );

@@ -5,6 +5,10 @@
          *    Typescript
          */
         {
+            "files": ["**/*.ts", "**/*.tsx"],
+            "parserOptions": {
+                "project": "./tsconfig.json"
+            },
             "extends": [
                 "plugin:react/jsx-runtime",
                 "airbnb",
@@ -15,8 +19,6 @@
                 "prettier",
                 "plugin:@typescript-eslint/recommended"
             ],
-            "files": ["**/*.ts", "**/*.tsx"],
-
             "plugins": [
                 "import",
                 "jsdoc",
@@ -56,6 +58,8 @@
                             "**/*.test.tsx",
                             "**/stories.tsx",
                             "**/test.*",
+                            "cypress.config.ts",
+                            "cypress/**/*.ts",
                             "tsup.config.ts"
                         ]
                     }
@@ -198,7 +202,7 @@
             }
         },
         /**
-         * Tests
+         * Jest & RTL
          */
         {
             "env": {
@@ -211,6 +215,18 @@
                 "react-perf/jsx-no-new-function-as-prop": "off",
                 "react-perf/jsx-no-new-object-as-prop": "off",
                 "sonarjs/no-duplicate-string": "off"
+            }
+        },
+        /**
+         * Cypress
+         */
+        {
+            "env": {
+                "jest": true
+            },
+            "files": ["cypress.config.ts", "**/*/spec.ts", "**/*/spec.tsx", "cypress/**/*.ts"],
+            "parserOptions": {
+                "project": "./cypress/tsconfig.json"
             }
         },
         /**
@@ -235,8 +251,5 @@
                 "import/prefer-default-export": "error"
             }
         }
-    ],
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    }
+    ]
 }

@@ -1,8 +1,9 @@
-import { autoUpdate, flip, offset, useFloating, useMergeRefs } from "@floating-ui/react";
+import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
 import { useSelect } from "downshift";
 import * as React from "react";
 
+import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
@@ -92,8 +93,10 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
             slotRight = [<Icon icon={faAngleDown} />],
             wrapperProps,
         },
-        ref
+        initialRef
     ) => {
+        const ref = useForwardRef(initialRef);
+
         const { getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex, isOpen } =
             useSelect({
                 defaultHighlightedIndex: undefined,
@@ -114,6 +117,9 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
             });
 
         const { floatingStyles, refs } = useFloating({
+            elements: {
+                reference: ref.current,
+            },
             middleware: [
                 offset(4),
                 flip({
@@ -125,8 +131,6 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
             placement: placement || "bottom-start",
             whileElementsMounted: autoUpdate,
         });
-
-        const triggerRef = useMergeRefs([refs.setReference, ref]);
 
         return (
             <Box
@@ -142,7 +146,7 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                         disabled,
                         id,
                         name,
-                        ref: triggerRef,
+                        ref,
                     })}
                 >
                     {buttonText}
