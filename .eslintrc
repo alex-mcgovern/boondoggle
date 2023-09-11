@@ -230,6 +230,16 @@
             }
         },
         /**
+         * Flag components
+         */
+        {
+            "files": ["src/components/icon_flag/flags/*.tsx"],
+            "rules": {
+                "import/no-default-export": "off",
+                "import/prefer-default-export": "error"
+            }
+        },
+        /**
          * Storybook
          */
         {
