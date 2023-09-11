@@ -163,7 +163,7 @@ export const SelectButton = React.forwardRef<HTMLButtonElement, SelectButtonProp
                     items={items}
                     ref={isOpen ? refs.setFloating : undefined}
                     size={size}
-                    style={floatingStyles}
+                    style={isOpen ? floatingStyles : {}}
                 />
             </Box>
         );
