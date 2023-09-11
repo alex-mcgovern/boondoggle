@@ -18,7 +18,7 @@ export function IconFlag({
     ...rest
 }: IconFlagProps) {
     const Component = lazy(() => {
-        return import(`./flags/dist/${code}.tsx`);
+        return import(`./flags/${code}.tsx`);
     });
 
     return (
