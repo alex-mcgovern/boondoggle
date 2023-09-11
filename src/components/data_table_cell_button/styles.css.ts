@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
@@ -24,7 +23,7 @@ export const dataTableCellButtonStyle = style([
 
 export const dataTableCellButtonInnerStyle = style([
     {
-        maxWidth: calc.subtract("100%", vars.spacing.space_6),
+        // maxWidth: calc.subtract("100%", vars.spacing.space_6),
         overflow: "hidden",
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
