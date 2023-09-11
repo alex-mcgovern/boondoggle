@@ -1,9 +1,10 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 
 import { Box } from "../box";
+import * as FLAGS from "./flags";
 
 import type { BoxProps } from "../box";
-import type { FLAGS } from "./flags";
+import type { JSXElementConstructor } from "react";
 
 export type IconFlagProps = {
     code: keyof typeof FLAGS;
@@ -17,10 +18,7 @@ export function IconFlag({
     code,
     ...rest
 }: IconFlagProps) {
-    const Component = lazy(() => {
-        return import(`./flags/${code}.tsx`);
-    });
-
+    const Component = FLAGS[code] as JSXElementConstructor<unknown>;
     return (
         <Suspense
             fallback={

@@ -13,7 +13,6 @@
     },
     "sideEffects": [
         "*.css",
-        "**/*/icon_flag/flags/*.*",
         "*.css.ts"
     ],
     "main": "dist/index.js",
