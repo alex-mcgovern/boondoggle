@@ -28,10 +28,10 @@ const PROPS: SelectSingleProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectSingleProps) => ({
+const renderComponent = (props: SelectSingleProps) => {return {
     user: userEvent.setup(),
     ...render(<SelectSingle {...props} />),
-});
+}};
 
 describe("<SelectSingle />", () => {
     describe("Basic smoke tests", () => {

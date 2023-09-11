@@ -36,7 +36,7 @@ export type AvatarProps = {
  */
 export function Avatar({ firstName, fullName, lastName, size = 64, src }: AvatarProps) {
     const initials: string | undefined = useMemo(
-        () => getInitials({ firstName, fullName, lastName }),
+        () => {return getInitials({ firstName, fullName, lastName })},
         [firstName, fullName, lastName]
     );
 

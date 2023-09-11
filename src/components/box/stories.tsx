@@ -15,9 +15,9 @@ export default {
     title: "Components/Box",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ children = "Inner content", ...rest }) => (
+const Template: StoryFn<StoryCompProps> = ({ children = "Inner content", ...rest }) => {return (
     <StoryComp {...rest}>{children}</StoryComp>
-);
+)};
 
 export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
     args: {

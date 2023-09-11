@@ -18,11 +18,11 @@ const PROPS: FormTextAreaProps = {
 };
 
 const renderComponent = ({ ...props }: FormTextAreaProps) =>
-    render(
+    {return render(
         <FormTestProvider>
             <FormTextArea {...props} />
         </FormTestProvider>
-    );
+    )};
 
 describe("<FormTextArea />", () => {
     describe("Basic smoke tests", () => {

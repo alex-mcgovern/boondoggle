@@ -34,7 +34,7 @@ const renderComponent = async (props: DialogModalFormProps) => {
     };
 
     return waitFor(() =>
-        render(
+        {return render(
             <>
                 <button
                     onClick={openDialogRemoveTeamMember}
@@ -47,7 +47,7 @@ const renderComponent = async (props: DialogModalFormProps) => {
                     {...props}
                 />
             </>
-        )
+        )}
     );
 };
 

@@ -73,7 +73,7 @@ export function useFieldActions({
     // Manage the input value with state to allow it to be cleared.
 
     const [inputValue, setInputValue] = useState<typeof value | typeof defaultValue>(
-        () => value || defaultValue || ""
+        () => {return value || defaultValue || ""}
     );
 
     useEffect(() => {

@@ -103,7 +103,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         });
 
         useClickOutside<HTMLDialogElement, HTMLElement>({
-            callback: () => dialogRef.current?.close(),
+            callback: () => {return dialogRef.current?.close()},
             contentRef: dialogRef,
             triggerRef,
         });
@@ -117,19 +117,19 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                     <Slot
                         onClick={toggleIsOpen}
                         onMouseEnter={
-                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
+                            openOn === "hover" ? () => {return dialogRef.current?.show()} : undefined
                         }
                         onMouseLeave={
-                            openOn === "hover" ? () => dialogRef.current?.close() : undefined
+                            openOn === "hover" ? () => {return dialogRef.current?.close()} : undefined
                         }
                         onPointerEnter={
-                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
+                            openOn === "hover" ? () => {return dialogRef.current?.show()} : undefined
                         }
                         onPointerLeave={
-                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
+                            openOn === "hover" ? () => {return dialogRef.current?.show()} : undefined
                         }
                         onPointerOver={
-                            openOn === "hover" ? () => dialogRef.current?.show() : undefined
+                            openOn === "hover" ? () => {return dialogRef.current?.show()} : undefined
                         }
                         ref={triggerRef}
                     >

@@ -20,7 +20,7 @@ const PROPS: RadioButtonGroupProps = {
 };
 
 const renderComponent = ({ ...props }: RadioButtonGroupProps) =>
-    render(<RadioButtonGroup {...props} />);
+    {return render(<RadioButtonGroup {...props} />)};
 
 describe("<RadioButtonGroup />", () => {
     describe("Basic smoke tests", () => {

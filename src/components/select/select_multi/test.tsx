@@ -28,10 +28,10 @@ const PROPS: SelectMultiProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectMultiProps) => ({
+const renderComponent = (props: SelectMultiProps) => {return {
     user: userEvent.setup(),
     ...render(<SelectMulti {...props} />),
-});
+}};
 
 describe("<SelectMulti />", () => {
     describe("Basic smoke tests", () => {

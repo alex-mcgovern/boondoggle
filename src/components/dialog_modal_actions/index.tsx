@@ -79,7 +79,7 @@ export function DialogModalActions({
             __gridTemplateColumns={`repeat(${Children.count(actions)}, 1fr)`}
             className={dialogModalActionsWrapperStyle}
         >
-            {Children.map(actions, (action) => (
+            {Children.map(actions, (action) => {return (
                 <Slot
                     onClick={() => {
                         if (shouldCloseOnAction) {
@@ -89,7 +89,7 @@ export function DialogModalActions({
                 >
                     {action}
                 </Slot>
-            ))}
+            )})}
         </Box>
     );
 }

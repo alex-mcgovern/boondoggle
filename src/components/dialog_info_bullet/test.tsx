@@ -11,7 +11,7 @@ import { Icon } from "../icon";
 import type { DialogInfoBulletProps } from ".";
 
 const renderComponent = ({ ...props }: DialogInfoBulletProps) =>
-    render(<DialogInfoBullet {...props} />);
+    {return render(<DialogInfoBullet {...props} />)};
 
 const PROPS: DialogInfoBulletProps = {
     slotLeft: [

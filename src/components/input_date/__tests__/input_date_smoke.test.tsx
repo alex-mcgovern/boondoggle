@@ -14,7 +14,7 @@ const PROPS: InputDateProps = {
 };
 
 const renderComponent = async ({ ...props }: InputDateProps) =>
-    waitFor(() => render(<InputDate {...props} />));
+    {return waitFor(() => {return render(<InputDate {...props} />)})};
 
 describe("<InputDate />", () => {
     describe("Basic smoke tests", () => {

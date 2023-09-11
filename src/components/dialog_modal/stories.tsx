@@ -18,20 +18,20 @@ export default {
     title: "Components/DialogModal",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => <StoryComp {...rest} />;
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return <StoryComp {...rest} />};
 
-const DialogContent = () => (
+const DialogContent = () => {return (
     <Box>
-        {Array.from({ length: 8 }).map((_, index) => (
+        {Array.from({ length: 8 }).map((_, index) => {return (
             <DialogInfoBullet
                 // eslint-disable-next-line react/no-array-index-key
                 key={`key-${index}`}
                 slotLeft={[<Icon icon={faShapes} />]}
                 text={LOREM.text_lg}
             />
-        ))}
+        )})}
     </Box>
-);
+)};
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {

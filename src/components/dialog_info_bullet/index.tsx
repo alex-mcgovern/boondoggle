@@ -32,7 +32,7 @@ export function DialogInfoBullet({ slotLeft, slotRight, text, title }: DialogInf
                     flexShrink="0"
                     width="space_4"
                 >
-                    {Children.map(slotLeft, (child) => child)}
+                    {Children.map(slotLeft, (child) => {return child})}
                 </Box>
             )}
             <Box>
@@ -44,7 +44,7 @@ export function DialogInfoBullet({ slotLeft, slotRight, text, title }: DialogInf
                     flexShrink="0"
                     width="space_4"
                 >
-                    {Children.map(slotRight, (child) => child)}
+                    {Children.map(slotRight, (child) => {return child})}
                 </Box>
             )}
         </Box>

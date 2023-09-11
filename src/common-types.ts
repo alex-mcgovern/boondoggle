@@ -82,7 +82,7 @@ export const getOptionalIsCopyableProps = ({
     isCopyable,
     readOnly,
 }: BaseIsCopyable): WithOptionalIsCopyable =>
-    readOnly && isCopyable ? { isCopyable, readOnly } : { isCopyable: undefined, readOnly };
+    {return readOnly && isCopyable ? { isCopyable, readOnly } : { isCopyable: undefined, readOnly }};
 
 type BaseIsVisibilityToggleable = {
     /**
@@ -124,7 +124,7 @@ export const getOptionalIsVisibilityToggleableProps = ({
     isVisibilityToggleable,
     isVisible,
 }: BaseIsVisibilityToggleable): WithOptionalIsVisibilityToggleable =>
-    isVisibilityToggleable ? { isVisibilityToggleable, isVisible } : {};
+    {return isVisibilityToggleable ? { isVisibilityToggleable, isVisible } : {}};
 
 type BaseIsClearable = {
     /**
@@ -164,9 +164,9 @@ export const getOptionalIsClearableProps = ({
     isClearable,
     readOnly,
 }: BaseIsClearable): WithOptionalIsClearable =>
-    !readOnly && isClearable
+    {return !readOnly && isClearable
         ? { isClearable, readOnly: undefined }
-        : { isClearable: undefined, readOnly };
+        : { isClearable: undefined, readOnly }};
 
 export type WithWrapperProps = {
     /**
@@ -261,9 +261,9 @@ export const getOptionalLabelProps = ({
     labelProps,
     labelTooltip,
 }: BaseWithLabel): WithOptionalLabel =>
-    typeof label !== "undefined" && typeof id !== "undefined"
+    {return typeof label !== "undefined" && typeof id !== "undefined"
         ? { id, label, labelProps, labelTooltip }
-        : {};
+        : {}};
 
 export type WithSize = {
     /**

@@ -10,11 +10,11 @@ const handleSubmit = jest.fn();
 const handleErrors = jest.fn();
 
 handleSubmit.mockImplementation(async (fieldValues: unknown) =>
-    alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`)
+    {return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`)}
 );
 
 handleErrors.mockImplementation(async (errors) =>
-    alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`)
+    {return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`)}
 );
 
 const meta = {

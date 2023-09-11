@@ -34,7 +34,7 @@ export function DialogModalAlert({
         <Box className={getDialogModalAlertWrapperStyles({ colorOverlay })}>
             {slotLeft && (
                 <Box className={dialogModalAlertSlotStyle}>
-                    {Children.map(slotLeft, (child) => child)}
+                    {Children.map(slotLeft, (child) => {return child})}
                 </Box>
             )}
 
@@ -45,7 +45,7 @@ export function DialogModalAlert({
 
             {slotLeft && (
                 <Box className={dialogModalAlertSlotStyle}>
-                    {Children.map(slotRight, (child) => child)}
+                    {Children.map(slotRight, (child) => {return child})}
                 </Box>
             )}
         </Box>

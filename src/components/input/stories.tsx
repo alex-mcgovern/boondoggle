@@ -75,7 +75,7 @@ export const Description: Story = {
     },
 };
 
-const TemplateColors = () => (
+const TemplateColors = () => {return (
     <Box
         alignItems="center"
         display="flex"
@@ -112,13 +112,13 @@ const TemplateColors = () => (
             slotRight={[<Icon icon={faTriangleCircleSquare} />]}
         />
     </Box>
-);
+)};
 
 export const Colors: StoryObj<StoryCompProps> = {
     render: TemplateColors,
 };
 
-const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => (
+const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {return (
     <Box
         display="grid"
         gap="space_8"
@@ -150,13 +150,13 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => (
             size="sm"
         />
     </Box>
-);
+)};
 
 export const Sizes: Story = {
     render: TemplateSizes,
 };
 
-const TemplateSlot = () => (
+const TemplateSlot = () => {return (
     <>
         <Box as="h3">Slot left (icon)</Box>
         <TemplateSizes slotLeft={[<Icon icon={faTriangleCircleSquare} />]} />
@@ -218,37 +218,37 @@ const TemplateSlot = () => (
             isCopyable
         />
     </>
-);
+)};
 
 export const Slot: Story = {
     render: TemplateSlot,
 };
 
-const TemplateIsClearable = () => (
+const TemplateIsClearable = () => {return (
     <>
         <Box as="h3">Is clearable</Box>
 
         <TemplateSizes isClearable />
     </>
-);
+)};
 
 export const IsClearable: Story = {
     render: TemplateIsClearable,
 };
 
-const TemplateIsCopyable = () => (
+const TemplateIsCopyable = () => {return (
     <>
         <Box as="h3">Is copyable</Box>
 
         <TemplateSizes isCopyable />
     </>
-);
+)};
 
 export const IsCopyable: Story = {
     render: TemplateIsCopyable,
 };
 
-const TemplateIsVisibilityToggleable = () => (
+const TemplateIsVisibilityToggleable = () => {return (
     <>
         <Box as="h3">Is visibility toggleable</Box>
 
@@ -258,13 +258,13 @@ const TemplateIsVisibilityToggleable = () => (
             isVisible={false}
         />
     </>
-);
+)};
 
 export const IsVisibilityToggleable: Story = {
     render: TemplateIsVisibilityToggleable,
 };
 
-const TemplateIsVisibilityToggleableAndIsCopyable = () => (
+const TemplateIsVisibilityToggleableAndIsCopyable = () => {return (
     <>
         <Box as="h3">Is visibility toggleable and is copyable</Box>
 
@@ -275,7 +275,7 @@ const TemplateIsVisibilityToggleableAndIsCopyable = () => (
             isVisible={false}
         />
     </>
-);
+)};
 
 export const IsVisibilityToggleableAndIsCopyable: Story = {
     render: TemplateIsVisibilityToggleableAndIsCopyable,

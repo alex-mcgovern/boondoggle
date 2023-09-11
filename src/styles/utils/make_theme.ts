@@ -6,7 +6,7 @@ type PaletteKey = `${string}${number}`;
 type PaletteShape = Record<PaletteKey, string>;
 
 const getFromPaletteByIndex = (palette: Record<PaletteKey, string>, index: number) =>
-    palette[Object.keys(palette)[index] as PaletteKey];
+    {return palette[Object.keys(palette)[index] as PaletteKey]};
 
 type MakeThemeArgs = {
     primaryPalette: PaletteShape;
@@ -14,7 +14,7 @@ type MakeThemeArgs = {
     secondaryPalette: PaletteShape;
 };
 
-export const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => ({
+export const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) => {return {
     backdrop: slateA.slateA11,
     background: getFromPaletteByIndex(secondaryPalette, 0),
     black: slate.slate12,
@@ -30,4 +30,4 @@ export const makeTheme = ({ primaryPalette, secondaryPalette }: MakeThemeArgs) =
     tint_active: getFromPaletteByIndex(secondaryPalette, 4),
     tint_default: getFromPaletteByIndex(secondaryPalette, 2),
     white: slate.slate1,
-});
+}};

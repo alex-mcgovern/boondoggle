@@ -18,11 +18,11 @@ const PROPS: FormInputProps = {
 };
 
 const renderComponent = ({ ...props }: FormInputProps) =>
-    render(
+    {return render(
         <FormTestProvider>
             <FormInput {...props} />
         </FormTestProvider>
-    );
+    )};
 
 describe("<FormInput />", () => {
     describe("Basic smoke tests", () => {

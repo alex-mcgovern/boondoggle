@@ -14,14 +14,14 @@ export default {
     title: "Components/Button",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ children, name, ...rest }: StoryCompProps) => (
+const Template: StoryFn<StoryCompProps> = ({ children, name, ...rest }: StoryCompProps) => {return (
     <StoryComp
         name={name}
         {...rest}
     >
         {children}
     </StoryComp>
-);
+)};
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {
@@ -34,7 +34,7 @@ export const Default: StoryObj<StoryCompProps> = {
     render: Template,
 };
 
-const TemplateAsProp: StoryFn<StoryCompProps> = (rest) => (
+const TemplateAsProp: StoryFn<StoryCompProps> = (rest) => {return (
     <Box
         display="flex"
         gap="space_6"
@@ -54,13 +54,13 @@ const TemplateAsProp: StoryFn<StoryCompProps> = (rest) => (
             I am an anchor element
         </StoryComp>
     </Box>
-);
+)};
 
 export const AsProp: StoryObj<StoryCompProps> = {
     render: TemplateAsProp,
 };
 
-const TemplateAppearances: StoryFn<StoryCompProps> = (rest) => (
+const TemplateAppearances: StoryFn<StoryCompProps> = (rest) => {return (
     <Box
         display="flex"
         gap="space_6"
@@ -101,13 +101,13 @@ const TemplateAppearances: StoryFn<StoryCompProps> = (rest) => (
             Link
         </StoryComp>
     </Box>
-);
+)};
 
 export const Appearances: StoryObj<StoryCompProps> = {
     render: TemplateAppearances,
 };
 
-const TemplateColors: StoryFn<StoryCompProps> = () => (
+const TemplateColors: StoryFn<StoryCompProps> = () => {return (
     <Box
         alignItems="center"
         display="flex"
@@ -149,7 +149,7 @@ const TemplateColors: StoryFn<StoryCompProps> = () => (
             {LOREM.text_xxs}
         </StoryComp>
     </Box>
-);
+)};
 
 export const Colors: StoryObj<StoryCompProps> = {
     render: TemplateColors,
@@ -161,7 +161,7 @@ export const IsLoading: StoryObj<StoryCompProps> = {
     },
 };
 
-const TemplateSizes: StoryFn<StoryCompProps> = () => (
+const TemplateSizes: StoryFn<StoryCompProps> = () => {return (
     <Box
         alignItems="center"
         display="flex"
@@ -204,13 +204,13 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => (
             slotRight={[<Icon icon={faTriangleCircleSquare} />]}
         />
     </Box>
-);
+)};
 
 export const Sizes: StoryObj<StoryCompProps> = {
     render: TemplateSizes,
 };
 
-const TemplateSlot: StoryFn<StoryCompProps> = (rest) => (
+const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {return (
     <Box
         alignItems="center"
         display="flex"
@@ -235,7 +235,7 @@ const TemplateSlot: StoryFn<StoryCompProps> = (rest) => (
             Click me
         </StoryComp>
     </Box>
-);
+)};
 
 export const Slot: StoryObj<StoryCompProps> = {
     render: TemplateSlot,

@@ -31,12 +31,12 @@ const TriggerNode = (
     </button>
 );
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => (
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return (
     <StoryComp
         {...rest}
         triggerNode={TriggerNode}
     />
-);
+)};
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
     args: {
-        closeDialog: () => alert("closed"),
+        closeDialog: () => {return alert("closed")},
     },
     component: StoryComp,
     title: "Components/DialogModalCloseButton",

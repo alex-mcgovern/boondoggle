@@ -14,7 +14,7 @@ type GetDefaultValueItemArgs = {
 };
 
 const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) =>
-    items.find((item) => item.value.toString() === value?.toString());
+    {return items.find((item) => {return item.value.toString() === value?.toString()})};
 
 export type FormSelectSingleProps = SelectSingleProps &
     WithFormFieldProps & {

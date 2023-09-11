@@ -10,7 +10,7 @@ module.exports = {
     testEnvironmentOptions: {
         url: "http://localhost",
     },
-    testMatch: ["<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)"],
+    testMatch: ["<rootDir>/**/?(*.)+(test).[jt]s?(x)"],
     testPathIgnorePatterns: ["node_modules", "\\.cache", "<rootDir>.*/public", "cypress"],
     transform: {
         "\\.css\\.ts$": "@vanilla-extract/jest-transform",

@@ -18,7 +18,7 @@ export function useFieldVisibilityState({ initialIsVisible }: UseFieldVisibility
     // Event handler for when the visibility is toggled.
 
     const handleToggleVisibility = useCallback(
-        () => setIsVisible((prevIsVisible) => !prevIsVisible),
+        () => {return setIsVisible((prevIsVisible) => {return !prevIsVisible})},
         []
     );
 

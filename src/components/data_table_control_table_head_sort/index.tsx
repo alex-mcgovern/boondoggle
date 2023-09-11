@@ -32,7 +32,7 @@ export function DataTableControlTableHeadSort<TData>({
 
     const slotRight = useMemo(
         () =>
-            canSort
+            {return canSort
                 ? [
                       {
                           asc: <Icon icon={faCaretUp} />,
@@ -44,7 +44,7 @@ export function DataTableControlTableHeadSort<TData>({
                           icon={faCaretDown}
                       />,
                   ]
-                : undefined,
+                : undefined},
         [canSort, header.column]
     );
 
