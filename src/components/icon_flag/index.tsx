@@ -11,11 +11,11 @@ export type IconFlagProps = {
 } & BoxProps;
 
 export function IconFlag({
-    __height = 64,
-    __width = 64,
     border = "border_default",
     borderRadius = "50%",
     code,
+    height = "space_8",
+    width = "space_8",
     ...rest
 }: IconFlagProps) {
     const Component = FLAGS[code] as JSXElementConstructor<unknown>;
@@ -24,22 +24,22 @@ export function IconFlag({
             fallback={
                 // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
                 <Box
-                    __height={__height}
-                    __width={__width}
                     background="tint_default"
                     border={border}
                     borderRadius={borderRadius}
+                    height={height}
+                    width={width}
                     {...rest}
                 />
             }
         >
             <Box
-                __height={__height}
-                __width={__width}
                 as={Component}
                 background="tint_default"
                 border={border}
                 borderRadius={borderRadius}
+                height={height}
+                width={width}
                 {...rest}
             />
         </Suspense>
