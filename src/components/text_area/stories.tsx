@@ -1,4 +1,4 @@
-import { faTriangleCircleSquare } from "@fortawesome/sharp-regular-svg-icons";
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
 
 import { TextArea as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";

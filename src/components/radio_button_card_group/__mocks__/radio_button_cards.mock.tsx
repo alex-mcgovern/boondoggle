@@ -1,4 +1,4 @@
-import { faArrowRightArrowLeft, faBank, faShapes } from "@fortawesome/sharp-regular-svg-icons";
+import { faArrowRightArrowLeft, faBank, faShapes } from "@fortawesome/pro-solid-svg-icons";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Icon } from "../../icon";

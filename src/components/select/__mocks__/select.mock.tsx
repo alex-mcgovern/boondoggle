@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { faGlobe } from "@fortawesome/sharp-regular-svg-icons";
+import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
 
 import { Icon } from "../../icon";
 
@@ -33,107 +33,117 @@ export const mockSelectItems = ({
     disabled,
     onClick,
     withIcon,
-}: MockSelectItemsArgs): Array<SelectItemShape> => {return [
-    {
-        as,
-        disabled,
-        label: "United Kingdom",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "uk",
-    },
-    {
-        as,
-        disabled,
-        label: "France",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "fr",
-    },
-    {
-        as,
-        disabled,
-        label: "Germany",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "de",
-    },
-    {
-        as,
-        disabled,
-        label: "Spain",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "es",
-    },
-    {
-        as,
-        disabled,
-        label: "The United Kingdom of Great Britain and Northern Ireland",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "gb",
-    },
-    {
-        as,
-        disabled,
-        label: "Italy",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "it",
-    },
-    {
-        as,
-        disabled,
-        label: "Portugal",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "pt",
-    },
-    {
-        as,
-        disabled,
-        label: "United States",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "us",
-    },
-    {
-        as,
-        disabled,
-        label: "Canada",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "ca",
-    },
-    {
-        as,
-        disabled,
-        label: "Australia",
-        onClick,
-        slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
-        value: "au",
-    },
-]};
+}: MockSelectItemsArgs): Array<SelectItemShape> => {
+    return [
+        {
+            as,
+            disabled,
+            label: "United Kingdom",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "uk",
+        },
+        {
+            as,
+            disabled,
+            label: "France",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "fr",
+        },
+        {
+            as,
+            disabled,
+            label: "Germany",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "de",
+        },
+        {
+            as,
+            disabled,
+            label: "Spain",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "es",
+        },
+        {
+            as,
+            disabled,
+            label: "The United Kingdom of Great Britain and Northern Ireland",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "gb",
+        },
+        {
+            as,
+            disabled,
+            label: "Italy",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "it",
+        },
+        {
+            as,
+            disabled,
+            label: "Portugal",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "pt",
+        },
+        {
+            as,
+            disabled,
+            label: "United States",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "us",
+        },
+        {
+            as,
+            disabled,
+            label: "Canada",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "ca",
+        },
+        {
+            as,
+            disabled,
+            label: "Australia",
+            onClick,
+            slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+            value: "au",
+        },
+    ];
+};
 
-export const mockSelectItemsActions = (): Array<SelectItemShape> => {return [
-    {
-        as: "button",
-        label: "View details",
-        onClick: () => {return alert("clicked")},
-        value: "view_details",
-    },
-    {
-        as: "button",
-        label: "Edit",
-        onClick: () => {return alert("clicked")},
-        value: "edit",
-    },
-    {
-        as: "button",
-        colorOverlay: "red",
-        label: "Delete",
-        onClick: () => {return alert("clicked")},
-        value: "delete",
-    },
-]};
+export const mockSelectItemsActions = (): Array<SelectItemShape> => {
+    return [
+        {
+            as: "button",
+            label: "View details",
+            onClick: () => {
+                return alert("clicked");
+            },
+            value: "view_details",
+        },
+        {
+            as: "button",
+            label: "Edit",
+            onClick: () => {
+                return alert("clicked");
+            },
+            value: "edit",
+        },
+        {
+            as: "button",
+            colorOverlay: "red",
+            label: "Delete",
+            onClick: () => {
+                return alert("clicked");
+            },
+            value: "delete",
+        },
+    ];
+};

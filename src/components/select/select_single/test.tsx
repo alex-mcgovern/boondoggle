@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -28,10 +28,12 @@ const PROPS: SelectSingleProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectSingleProps) => {return {
-    user: userEvent.setup(),
-    ...render(<SelectSingle {...props} />),
-}};
+const renderComponent = (props: SelectSingleProps) => {
+    return {
+        user: userEvent.setup(),
+        ...render(<SelectSingle {...props} />),
+    };
+};
 
 describe("<SelectSingle />", () => {
     describe("Basic smoke tests", () => {

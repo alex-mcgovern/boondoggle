@@ -1,4 +1,4 @@
-import { faPlus } from "@fortawesome/sharp-regular-svg-icons";
+import { faPlus } from "@fortawesome/pro-solid-svg-icons";
 
 import { DataTable as StoryComp } from ".";
 import {
@@ -27,9 +27,9 @@ type Story = StoryObj<typeof meta>;
 
 const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
 
-const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> = () => {return (
-    <DataTableRowActions items={mockSelectItemsActions()} />
-)};
+const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> = () => {
+    return <DataTableRowActions items={mockSelectItemsActions()} />;
+};
 
 export const Default: Story = {
     args: {

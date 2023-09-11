@@ -1,4 +1,4 @@
-import { faCheckCircle, faExclamationCircle } from "@fortawesome/sharp-regular-svg-icons";
+import { faCheckCircle, faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
 
 import { Box, Box as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
@@ -15,9 +15,9 @@ export default {
     title: "Components/Box",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ children = "Inner content", ...rest }) => {return (
-    <StoryComp {...rest}>{children}</StoryComp>
-)};
+const Template: StoryFn<StoryCompProps> = ({ children = "Inner content", ...rest }) => {
+    return <StoryComp {...rest}>{children}</StoryComp>;
+};
 
 export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
     args: {

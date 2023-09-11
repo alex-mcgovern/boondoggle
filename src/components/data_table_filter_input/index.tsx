@@ -1,4 +1,4 @@
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 
 import { Icon } from "../icon";
 import { Input } from "../input";
@@ -31,7 +31,9 @@ export function DataTableFilterInput({
             autoComplete="off"
             isClearable
             name="filter"
-            onChange={(e) => {return setGlobalFilter(e.target.value)}}
+            onChange={(e) => {
+                return setGlobalFilter(e.target.value);
+            }}
             placeholder={placeholder}
             slotLeft={[<Icon icon={faSearch} />]}
             value={globalFilter}

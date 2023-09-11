@@ -1,5 +1,5 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
-import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useState } from "react";

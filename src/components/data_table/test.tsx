@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faPlus } from "@fortawesome/sharp-regular-svg-icons";
+import { faPlus } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 
 import { DataTable } from ".";
@@ -15,8 +15,9 @@ import { Icon } from "../icon";
 import type { DataTableProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 
-const renderComponent = ({ ...props }: DataTableProps<MockAccountColumnData>) =>
-    {return render(<DataTable {...props} />)};
+const renderComponent = ({ ...props }: DataTableProps<MockAccountColumnData>) => {
+    return render(<DataTable {...props} />);
+};
 
 const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
 

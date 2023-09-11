@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 
 import { Input } from "..";
@@ -16,7 +16,9 @@ const PROPS: InputProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: InputProps) => {return render(<Input {...props} />)};
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
+};
 
 describe("<Input />", () => {
     describe("Slot props", () => {

@@ -1,4 +1,4 @@
-import { faInfoCircle } from "@fortawesome/sharp-regular-svg-icons";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
 
 import { Box } from "../box";
 import { Icon } from "../icon";

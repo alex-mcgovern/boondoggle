@@ -1,4 +1,4 @@
-import { faShapes } from "@fortawesome/sharp-regular-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons";
 import { createRef, useCallback } from "react";
 
 import { DialogModal as StoryComp } from ".";
@@ -18,20 +18,26 @@ export default {
     title: "Components/DialogModal",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return <StoryComp {...rest} />};
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+    return <StoryComp {...rest} />;
+};
 
-const DialogContent = () => {return (
-    <Box>
-        {Array.from({ length: 8 }).map((_, index) => {return (
-            <DialogInfoBullet
-                // eslint-disable-next-line react/no-array-index-key
-                key={`key-${index}`}
-                slotLeft={[<Icon icon={faShapes} />]}
-                text={LOREM.text_lg}
-            />
-        )})}
-    </Box>
-)};
+const DialogContent = () => {
+    return (
+        <Box>
+            {Array.from({ length: 8 }).map((_, index) => {
+                return (
+                    <DialogInfoBullet
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={`key-${index}`}
+                        slotLeft={[<Icon icon={faShapes} />]}
+                        text={LOREM.text_lg}
+                    />
+                );
+            })}
+        </Box>
+    );
+};
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {

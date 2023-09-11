@@ -1,4 +1,4 @@
-import { faExclamationCircle } from "@fortawesome/sharp-regular-svg-icons";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";

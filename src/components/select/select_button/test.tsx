@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -14,10 +14,12 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 
 import type { SelectButtonProps } from ".";
 
-const renderComponent = (props: SelectButtonProps) => {return {
-    user: userEvent.setup(),
-    ...render(<SelectButton {...props} />),
-}};
+const renderComponent = (props: SelectButtonProps) => {
+    return {
+        user: userEvent.setup(),
+        ...render(<SelectButton {...props} />),
+    };
+};
 
 const ON_CHANGE = jest.fn();
 

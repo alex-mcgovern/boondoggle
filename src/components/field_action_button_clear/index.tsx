@@ -1,4 +1,4 @@
-import { faTimesCircle } from "@fortawesome/sharp-regular-svg-icons";
+import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
 
 import { FieldActionButton } from "../field_action_button";
 import { Icon } from "../icon";

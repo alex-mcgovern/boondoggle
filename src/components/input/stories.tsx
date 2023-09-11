@@ -5,7 +5,7 @@
 /* eslint-disable react-perf/jsx-no-new-function-as-prop */
 
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
-import { faTriangleCircleSquare } from "@fortawesome/sharp-regular-svg-icons";
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
 
 import { Input as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
@@ -75,207 +75,221 @@ export const Description: Story = {
     },
 };
 
-const TemplateColors = () => {return (
-    <Box
-        alignItems="center"
-        display="flex"
-        gap="space_6"
-    >
-        <StoryComp
-            colorOverlay="blue"
-            name="blue"
-            placeholder={LOREM.placeholder()}
-            slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-        />
-        <StoryComp
-            colorOverlay="red"
-            name="red"
-            placeholder={LOREM.placeholder()}
-            slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-        />
-        <StoryComp
-            colorOverlay="green"
-            name="green"
-            placeholder={LOREM.placeholder()}
-            slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-        />
-        <StoryComp
-            colorOverlay="amber"
-            name="amber"
-            placeholder={LOREM.placeholder()}
-            slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-        />
-        <StoryComp
-            colorOverlay="grey"
-            name="grey"
-            placeholder={LOREM.placeholder()}
-            slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-        />
-    </Box>
-)};
+const TemplateColors = () => {
+    return (
+        <Box
+            alignItems="center"
+            display="flex"
+            gap="space_6"
+        >
+            <StoryComp
+                colorOverlay="blue"
+                name="blue"
+                placeholder={LOREM.placeholder()}
+                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+            />
+            <StoryComp
+                colorOverlay="red"
+                name="red"
+                placeholder={LOREM.placeholder()}
+                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+            />
+            <StoryComp
+                colorOverlay="green"
+                name="green"
+                placeholder={LOREM.placeholder()}
+                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+            />
+            <StoryComp
+                colorOverlay="amber"
+                name="amber"
+                placeholder={LOREM.placeholder()}
+                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+            />
+            <StoryComp
+                colorOverlay="grey"
+                name="grey"
+                placeholder={LOREM.placeholder()}
+                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+            />
+        </Box>
+    );
+};
 
 export const Colors: StoryObj<StoryCompProps> = {
     render: TemplateColors,
 };
 
-const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {return (
-    <Box
-        display="grid"
-        gap="space_8"
-        gridTemplateColumns="3x"
-        marginBottom="space_8"
-    >
-        <StoryComp
-            {...(props as StoryCompProps)}
-            id="lg"
-            label="lg"
-            name="lg"
-            placeholder={LOREM.placeholder()}
-            size="lg"
-        />
-        <StoryComp
-            {...(props as StoryCompProps)}
-            id="md"
-            label="md"
-            name="md"
-            placeholder={LOREM.placeholder()}
-            size="md"
-        />
-        <StoryComp
-            {...(props as StoryCompProps)}
-            id="sm"
-            label="sm"
-            name="sm"
-            placeholder={LOREM.placeholder()}
-            size="sm"
-        />
-    </Box>
-)};
+const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
+    return (
+        <Box
+            display="grid"
+            gap="space_8"
+            gridTemplateColumns="3x"
+            marginBottom="space_8"
+        >
+            <StoryComp
+                {...(props as StoryCompProps)}
+                id="lg"
+                label="lg"
+                name="lg"
+                placeholder={LOREM.placeholder()}
+                size="lg"
+            />
+            <StoryComp
+                {...(props as StoryCompProps)}
+                id="md"
+                label="md"
+                name="md"
+                placeholder={LOREM.placeholder()}
+                size="md"
+            />
+            <StoryComp
+                {...(props as StoryCompProps)}
+                id="sm"
+                label="sm"
+                name="sm"
+                placeholder={LOREM.placeholder()}
+                size="sm"
+            />
+        </Box>
+    );
+};
 
 export const Sizes: Story = {
     render: TemplateSizes,
 };
 
-const TemplateSlot = () => {return (
-    <>
-        <Box as="h3">Slot left (icon)</Box>
-        <TemplateSizes slotLeft={[<Icon icon={faTriangleCircleSquare} />]} />
-        <TemplateSizes
-            slotLeft={[
-                <Icon icon={faTriangleCircleSquare} />,
-                <Icon icon={faTriangleCircleSquare} />,
-            ]}
-        />
-        <TemplateSizes
-            slotLeft={[
-                <Icon icon={faTriangleCircleSquare} />,
-                <Icon icon={faTriangleCircleSquare} />,
-                <Icon icon={faTriangleCircleSquare} />,
-            ]}
-        />
+const TemplateSlot = () => {
+    return (
+        <>
+            <Box as="h3">Slot left (icon)</Box>
+            <TemplateSizes slotLeft={[<Icon icon={faTriangleCircleSquare} />]} />
+            <TemplateSizes
+                slotLeft={[
+                    <Icon icon={faTriangleCircleSquare} />,
+                    <Icon icon={faTriangleCircleSquare} />,
+                ]}
+            />
+            <TemplateSizes
+                slotLeft={[
+                    <Icon icon={faTriangleCircleSquare} />,
+                    <Icon icon={faTriangleCircleSquare} />,
+                    <Icon icon={faTriangleCircleSquare} />,
+                ]}
+            />
 
-        <hr />
-        <Box as="h3">Slot left (button)</Box>
+            <hr />
+            <Box as="h3">Slot left (button)</Box>
 
-        <TemplateSizes isClearable />
-        <TemplateSizes
-            isClearable
-            isCopyable
-        />
-        <TemplateSizes
-            isClearable
-            isCopyable
-        />
+            <TemplateSizes isClearable />
+            <TemplateSizes
+                isClearable
+                isCopyable
+            />
+            <TemplateSizes
+                isClearable
+                isCopyable
+            />
 
-        <hr />
-        <Box as="h3">Slot right (icon)</Box>
+            <hr />
+            <Box as="h3">Slot right (icon)</Box>
 
-        <TemplateSizes slotRight={[<Icon icon={faTriangleCircleSquare} />]} />
-        <TemplateSizes
-            slotRight={[
-                <Icon icon={faTriangleCircleSquare} />,
-                <Icon icon={faTriangleCircleSquare} />,
-            ]}
-        />
-        <TemplateSizes
-            slotRight={[
-                <Icon icon={faTriangleCircleSquare} />,
-                <Icon icon={faTriangleCircleSquare} />,
-                <Icon icon={faTriangleCircleSquare} />,
-            ]}
-        />
+            <TemplateSizes slotRight={[<Icon icon={faTriangleCircleSquare} />]} />
+            <TemplateSizes
+                slotRight={[
+                    <Icon icon={faTriangleCircleSquare} />,
+                    <Icon icon={faTriangleCircleSquare} />,
+                ]}
+            />
+            <TemplateSizes
+                slotRight={[
+                    <Icon icon={faTriangleCircleSquare} />,
+                    <Icon icon={faTriangleCircleSquare} />,
+                    <Icon icon={faTriangleCircleSquare} />,
+                ]}
+            />
 
-        <hr />
-        <Box as="h3">Slot right (button)</Box>
+            <hr />
+            <Box as="h3">Slot right (button)</Box>
 
-        <TemplateSizes isClearable />
-        <TemplateSizes
-            isClearable
-            isCopyable
-        />
-        <TemplateSizes
-            isClearable
-            isCopyable
-        />
-    </>
-)};
+            <TemplateSizes isClearable />
+            <TemplateSizes
+                isClearable
+                isCopyable
+            />
+            <TemplateSizes
+                isClearable
+                isCopyable
+            />
+        </>
+    );
+};
 
 export const Slot: Story = {
     render: TemplateSlot,
 };
 
-const TemplateIsClearable = () => {return (
-    <>
-        <Box as="h3">Is clearable</Box>
+const TemplateIsClearable = () => {
+    return (
+        <>
+            <Box as="h3">Is clearable</Box>
 
-        <TemplateSizes isClearable />
-    </>
-)};
+            <TemplateSizes isClearable />
+        </>
+    );
+};
 
 export const IsClearable: Story = {
     render: TemplateIsClearable,
 };
 
-const TemplateIsCopyable = () => {return (
-    <>
-        <Box as="h3">Is copyable</Box>
+const TemplateIsCopyable = () => {
+    return (
+        <>
+            <Box as="h3">Is copyable</Box>
 
-        <TemplateSizes isCopyable />
-    </>
-)};
+            <TemplateSizes isCopyable />
+        </>
+    );
+};
 
 export const IsCopyable: Story = {
     render: TemplateIsCopyable,
 };
 
-const TemplateIsVisibilityToggleable = () => {return (
-    <>
-        <Box as="h3">Is visibility toggleable</Box>
+const TemplateIsVisibilityToggleable = () => {
+    return (
+        <>
+            <Box as="h3">Is visibility toggleable</Box>
 
-        <TemplateSizes
-            defaultValue={LOREM.text_xxs}
-            isVisibilityToggleable
-            isVisible={false}
-        />
-    </>
-)};
+            <TemplateSizes
+                defaultValue={LOREM.text_xxs}
+                isVisibilityToggleable
+                isVisible={false}
+            />
+        </>
+    );
+};
 
 export const IsVisibilityToggleable: Story = {
     render: TemplateIsVisibilityToggleable,
 };
 
-const TemplateIsVisibilityToggleableAndIsCopyable = () => {return (
-    <>
-        <Box as="h3">Is visibility toggleable and is copyable</Box>
+const TemplateIsVisibilityToggleableAndIsCopyable = () => {
+    return (
+        <>
+            <Box as="h3">Is visibility toggleable and is copyable</Box>
 
-        <TemplateSizes
-            defaultValue={LOREM.text_xxs}
-            isCopyable
-            isVisibilityToggleable
-            isVisible={false}
-        />
-    </>
-)};
+            <TemplateSizes
+                defaultValue={LOREM.text_xxs}
+                isCopyable
+                isVisibilityToggleable
+                isVisible={false}
+            />
+        </>
+    );
+};
 
 export const IsVisibilityToggleableAndIsCopyable: Story = {
     render: TemplateIsVisibilityToggleableAndIsCopyable,

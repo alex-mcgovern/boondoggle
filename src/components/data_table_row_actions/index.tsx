@@ -1,4 +1,4 @@
-import { faEllipsis } from "@fortawesome/sharp-regular-svg-icons";
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons";
 
 import { Icon } from "../icon";
 import { SelectButton } from "../select/select_button";

@@ -1,4 +1,4 @@
-import { faCaretDown, faCaretUp } from "@fortawesome/sharp-regular-svg-icons";
+import { faCaretDown, faCaretUp } from "@fortawesome/pro-solid-svg-icons";
 import { type ReactNode, useMemo } from "react";
 
 import { Button } from "../button";
@@ -30,23 +30,21 @@ export function DataTableControlTableHeadSort<TData>({
 
     const isSorted = !!header.column.getIsSorted();
 
-    const slotRight = useMemo(
-        () =>
-            {return canSort
-                ? [
-                      {
-                          asc: <Icon icon={faCaretUp} />,
-                          desc: <Icon icon={faCaretDown} />,
-                      }[header.column.getIsSorted() as string],
-                  ] ?? [
-                      <Icon
-                          className={sortIconStyle}
-                          icon={faCaretDown}
-                      />,
-                  ]
-                : undefined},
-        [canSort, header.column]
-    );
+    const slotRight = useMemo(() => {
+        return canSort
+            ? [
+                  {
+                      asc: <Icon icon={faCaretUp} />,
+                      desc: <Icon icon={faCaretDown} />,
+                  }[header.column.getIsSorted() as string],
+              ] ?? [
+                  <Icon
+                      className={sortIconStyle}
+                      icon={faCaretDown}
+                  />,
+              ]
+            : undefined;
+    }, [canSort, header.column]);
 
     return (
         <Button

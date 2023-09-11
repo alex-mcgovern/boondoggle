@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -17,10 +17,12 @@ const PROPS: InputDateProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = (props: InputDateProps) => {return {
-    user: userEvent.setup(),
-    ...render(<InputDate {...props} />),
-}};
+const renderComponent = (props: InputDateProps) => {
+    return {
+        user: userEvent.setup(),
+        ...render(<InputDate {...props} />),
+    };
+};
 
 describe("<InputDate />", () => {
     describe("Slot props", () => {

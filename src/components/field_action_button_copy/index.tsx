@@ -1,4 +1,4 @@
-import { faCheck, faCopy } from "@fortawesome/sharp-regular-svg-icons";
+import { faCheck, faCopy } from "@fortawesome/pro-solid-svg-icons";
 
 import { FieldActionButton } from "../field_action_button";
 import { Icon } from "../icon";

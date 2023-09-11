@@ -1,4 +1,4 @@
-import { faShapes } from "@fortawesome/sharp-regular-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons";
 
 import { Icon as StoryComp } from ".";
 
@@ -10,7 +10,9 @@ export default {
     title: "Components/Icon",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return <StoryComp {...rest} />};
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+    return <StoryComp {...rest} />;
+};
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {

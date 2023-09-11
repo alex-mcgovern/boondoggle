@@ -1,5 +1,5 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
-import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useSelect } from "downshift";
 import * as React from "react";
 

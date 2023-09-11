@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 
 import { TextArea } from "..";
@@ -16,7 +16,9 @@ const PROPS: TextAreaProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: TextAreaProps) => {return render(<TextArea {...props} />)};
+const renderComponent = ({ ...props }: TextAreaProps) => {
+    return render(<TextArea {...props} />);
+};
 
 describe("<TextArea />", () => {
     describe("Slot props", () => {

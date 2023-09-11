@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faShapes } from "@fortawesome/sharp-regular-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 
 import { DialogModalAlert } from ".";
@@ -10,8 +10,9 @@ import { Icon } from "../icon";
 
 import type { DialogModalAlertProps } from ".";
 
-const renderComponent = ({ ...props }: DialogModalAlertProps) =>
-    {return render(<DialogModalAlert {...props} />)};
+const renderComponent = ({ ...props }: DialogModalAlertProps) => {
+    return render(<DialogModalAlert {...props} />);
+};
 
 const PROPS: DialogModalAlertProps = {
     description: LOREM.text_xxs,

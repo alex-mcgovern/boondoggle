@@ -2,7 +2,7 @@
  * Util to generate Storybook controls for all
  * FontAwesome related props and group them in the UI.
  */
-import { faArrowRight, faTriangleCircleSquare } from "@fortawesome/sharp-regular-svg-icons";
+import { faArrowRight, faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
 
 const availableIcons = {
     "": null,

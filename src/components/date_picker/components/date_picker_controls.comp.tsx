@@ -1,4 +1,4 @@
-import { faAngleDown, faAngleLeft, faAngleRight } from "@fortawesome/sharp-regular-svg-icons";
+import { faAngleDown, faAngleLeft, faAngleRight } from "@fortawesome/pro-solid-svg-icons";
 
 import { Box } from "../../box";
 import { Button } from "../../button";

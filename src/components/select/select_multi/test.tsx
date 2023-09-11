@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/sharp-regular-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -28,10 +28,12 @@ const PROPS: SelectMultiProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectMultiProps) => {return {
-    user: userEvent.setup(),
-    ...render(<SelectMulti {...props} />),
-}};
+const renderComponent = (props: SelectMultiProps) => {
+    return {
+        user: userEvent.setup(),
+        ...render(<SelectMulti {...props} />),
+    };
+};
 
 describe("<SelectMulti />", () => {
     describe("Basic smoke tests", () => {

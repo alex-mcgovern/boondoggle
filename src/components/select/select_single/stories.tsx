@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { faGlobeAfrica } from "@fortawesome/sharp-regular-svg-icons";
+import { faGlobeAfrica } from "@fortawesome/pro-solid-svg-icons";
 
 import { SelectSingle as StoryComp } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
@@ -93,7 +93,9 @@ export const SizeLg: Story = {
 export const WithButtonsAsItems: Story = {
     args: {
         items: mockSelectItems({
-            onClick: () => {return alert("clicked")},
+            onClick: () => {
+                return alert("clicked");
+            },
         }),
     },
 };

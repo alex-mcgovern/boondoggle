@@ -1,4 +1,4 @@
-import { faInfoCircle } from "@fortawesome/sharp-regular-svg-icons";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
 import { Children } from "react";
 
 import { Box } from "../box";
@@ -34,7 +34,9 @@ export function DialogModalAlert({
         <Box className={getDialogModalAlertWrapperStyles({ colorOverlay })}>
             {slotLeft && (
                 <Box className={dialogModalAlertSlotStyle}>
-                    {Children.map(slotLeft, (child) => {return child})}
+                    {Children.map(slotLeft, (child) => {
+                        return child;
+                    })}
                 </Box>
             )}
 
@@ -45,7 +47,9 @@ export function DialogModalAlert({
 
             {slotLeft && (
                 <Box className={dialogModalAlertSlotStyle}>
-                    {Children.map(slotRight, (child) => {return child})}
+                    {Children.map(slotRight, (child) => {
+                        return child;
+                    })}
                 </Box>
             )}
         </Box>

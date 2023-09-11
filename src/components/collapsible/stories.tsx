@@ -1,4 +1,4 @@
-import { faAngleDown } from "@fortawesome/sharp-regular-svg-icons";
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 
 import { Collapsible as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
@@ -31,12 +31,14 @@ const TriggerNode = (
     </button>
 );
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return (
-    <StoryComp
-        {...rest}
-        triggerNode={TriggerNode}
-    />
-)};
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+    return (
+        <StoryComp
+            {...rest}
+            triggerNode={TriggerNode}
+        />
+    );
+};
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {
