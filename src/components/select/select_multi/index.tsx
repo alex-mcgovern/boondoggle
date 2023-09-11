@@ -169,18 +169,23 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
         } = useMultipleSelection<SelectItemShape>({
             initialSelectedItems: controlledSelectedItems || [
                 ...initialSelectedItems,
-                ...initialItems.filter((i) => i.isSelected),
+                ...initialItems.filter((i) => {
+                    return i.isSelected;
+                }),
             ],
-            onSelectedItemsChange: (c) => onChange?.(c.selectedItems),
+            onSelectedItemsChange: (c) => {
+                return onChange?.(c.selectedItems);
+            },
         });
 
         const getIsItemSelected = useCallback(
-            (item: SelectItemShape) =>
-                getIsSelected({
+            (item: SelectItemShape) => {
+                return getIsSelected({
                     isMulti: true,
                     item,
                     selectedItems,
-                }),
+                });
+            },
             [selectedItems]
         );
 
@@ -194,7 +199,9 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
             reset,
         } = useCombobox<SelectItemShape>({
             defaultHighlightedIndex: 0,
-            isItemDisabled: (item) => item.disabled,
+            isItemDisabled: (item) => {
+                return item.disabled;
+            },
             items,
             onIsOpenChange, // after selection, highlight the first item.
             onStateChange({ inputValue: newInputValue, selectedItem: newItem, type }) {
@@ -320,7 +327,7 @@ export const SelectMulti = forwardRef<HTMLInputElement, SelectMultiProps>(
                         inputValue,
                         items,
                     })}
-                    ref={refs.setFloating}
+                    ref={isOpen ? refs.setFloating : undefined}
                     size={size}
                     style={floatingStyles}
                 />
