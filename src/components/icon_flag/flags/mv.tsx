@@ -1,9 +1,9 @@
 import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
 import { Box } from "../../box";
 
-import type { SprinklesArgs } from "../../../../dist";
+import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 
-export function Mv({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
+export function FlagMv({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
     return (
         <Box
             as="svg"

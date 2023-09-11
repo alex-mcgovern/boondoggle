@@ -3,7 +3,7 @@ import { Box } from "../../box";
 
 import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 
-export function Tw({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
+export function FlagTw({ height = "space_8", width = "space_8", ...rest }: SprinklesArgs) {
     return (
         <Box
             as="svg"
