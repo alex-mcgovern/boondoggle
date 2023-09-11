@@ -32,7 +32,7 @@
         "format": "prettier    --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
         "lint:fix": "eslint . --quiet --fix",
         "patch": "npm run check && npm run build:prod && npm version patch && npm publish --access public && git push --no-verify",
-        "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts'",
+        "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts|src/components/icon_flag/flags/(.*).tsx'",
         "storybook": "storybook dev -p 6006",
         "test": "jest",
         "test:watch": "jest --watch",
