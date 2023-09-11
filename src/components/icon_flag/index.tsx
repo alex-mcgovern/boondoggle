@@ -3,9 +3,10 @@ import { Suspense, lazy } from "react";
 import { Box } from "../box";
 
 import type { BoxProps } from "../box";
+import type { FLAGS } from "./flags";
 
-type IconFlagProps = {
-    code: string;
+export type IconFlagProps = {
+    code: keyof typeof FLAGS;
 } & BoxProps;
 
 export function IconFlag({
