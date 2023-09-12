@@ -6,6 +6,7 @@ import {
     DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
     generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
+import { Link } from "../../../test/link.comp.mock";
 import { Button } from "../button";
 import { DataTableRowActions } from "../data_table_row_actions";
 import { Icon } from "../icon";
@@ -47,6 +48,24 @@ export const IsWholeRowClickable: Story = {
         getRowProps(row_data) {
             return {
                 // as: "button",
+                onClick: () => {
+                    alert(`Row clicked \n ${JSON.stringify(row_data, null, 2)}`);
+                },
+            };
+        },
+        isWholeRowClickable: true,
+        strNoResults: "No results",
+    },
+};
+
+export const IsWholeRowClickableAsLink: Story = {
+    args: {
+        columns: DATA_TABLE_COLUMNS_MOCK,
+        data: MOCK_DATA,
+        getRowProps(row_data) {
+            return {
+                as: Link,
+                href: "https://google.com",
                 onClick: () => {
                     alert(`Row clicked \n ${JSON.stringify(row_data, null, 2)}`);
                 },

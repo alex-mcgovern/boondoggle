@@ -1,12 +1,19 @@
+import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { vars } from "../../../dist";
+import { getSprinkles, vars } from "../../../dist";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 
 export const getRowStyles = recipe({
-    base: {
-        display: "table-row",
-    },
+    base: [
+        getSprinkles({
+            color: "text_high_contrast",
+            textDecoration: "none",
+        }),
+        {
+            display: "table-row",
+        },
+    ],
     variants: {
         isWholeRowClickable: {
             false: {},
@@ -23,4 +30,8 @@ export const getRowStyles = recipe({
             },
         },
     },
+});
+
+export const tdStyle = style({
+    borderBottom: `1px solid ${vars.color.border_default}`,
 });
