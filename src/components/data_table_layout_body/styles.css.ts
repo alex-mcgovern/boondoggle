@@ -1,13 +1,10 @@
-import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { tRowStyles } from "../../styles/stylesheet.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-
-export const tBodyStyles = style({
-    display: "table-row-group",
-});
 
 export const variantClickable = styleVariants({
     false: {},
@@ -25,13 +22,13 @@ const baseRowStyles = style({});
 
 export const getRowStyles = recipe({
     base: [
+        tRowStyles,
         baseRowStyles,
         getSprinkles({
             color: "text_high_contrast",
             textDecoration: "none",
         }),
         {
-            display: "table-row",
             ...createAccessibleTransition({
                 transition: `background-color ${vars.transitionDuration.medium} ease`,
             }),
@@ -43,16 +40,4 @@ export const getRowStyles = recipe({
     variants: {
         isRowClickable: variantClickable,
     },
-});
-
-export const tdStyles = style({
-    display: "table-cell",
-    fontSize: vars.fontSize.body_sm,
-    padding: vars.spacing.space_4,
-    textAlign: "left",
-    verticalAlign: "middle",
-});
-
-globalStyle(`${baseRowStyles}:not(:last-child) ${tdStyles}`, {
-    borderBottom: `1px solid ${vars.color.border_default}`,
 });

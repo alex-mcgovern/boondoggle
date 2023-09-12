@@ -1,6 +1,6 @@
+import { tHeadStyles, tRowStyles } from "../../styles/stylesheet.css";
 import { Box } from "../box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
-import { tRowStyles, theadStyles } from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { Table } from "@tanstack/react-table";
@@ -33,7 +33,7 @@ export function DataTableLayoutHead<TTableData>({
 }: DataTableLayoutHeadProps<TTableData>) {
     return (
         <Box
-            className={theadStyles}
+            className={tHeadStyles}
             {...rest}
         >
             {table.getHeaderGroups().map((header_group) => {

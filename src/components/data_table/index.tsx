@@ -1,5 +1,6 @@
 import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
+import { tableStyles } from "../../styles/stylesheet.css";
 import { Box } from "../box";
 import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
 import { DataTableFilterInput } from "../data_table_filter_input";
@@ -122,10 +123,7 @@ export function DataTable<TRowData extends RowData>({
                 width="100%"
             >
                 {hasData && (
-                    <Box
-                        display="table"
-                        width="100%"
-                    >
+                    <Box className={tableStyles}>
                         <DataTableLayoutHead<TRowData>
                             isSortable={isSortable}
                             table={table}

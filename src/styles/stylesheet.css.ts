@@ -1,4 +1,4 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 import { a11yFocusStyleRule } from "./common/a11y.css";
 import { MEDIA_QUERY_MOBILE } from "./common/media_queries.css";
@@ -484,26 +484,74 @@ globalStyle(`p`, {
     },
 });
 
+// Table
+
+const tableStyleRule: StyleRule = {
+    borderCollapse: "collapse",
+    borderSpacing: 0,
+    tableLayout: "fixed",
+    width: "100%",
+};
+
 globalStyle(`table`, {
     "@layer": {
         [baseLayer]: {
-            // background: vars.color.background,
-            // border: `1px solid ${vars.color.border_default}`,
-            // borderRadius: vars.borderRadius.md,
-            borderSpacing: 0,
-            tableLayout: "fixed",
-            width: "100%",
+            ...tableStyleRule,
         },
     },
 });
 
+export const tableStyles = style({
+    display: "table",
+    ...tableStyleRule,
+});
+
+// Table head cell styles
+
+const tHeadStyleRule: StyleRule = {
+    fontSize: vars.fontSize.body_sm,
+    fontWeight: vars.fontWeight.semibold,
+};
+
 globalStyle(`thead`, {
     "@layer": {
         [baseLayer]: {
-            fontSize: vars.fontSize.body_sm,
-            fontWeight: vars.fontWeight.semibold,
+            ...tHeadStyleRule,
         },
     },
+});
+
+export const tHeadStyles = style({
+    display: "table-header-group",
+    ...tHeadStyleRule,
+});
+
+// Table cells
+
+const tableCellStyleRule: StyleRule = {
+    fontSize: vars.fontSize.body_sm,
+    padding: vars.spacing.space_4,
+    textAlign: "left",
+    verticalAlign: "middle",
+    width: "1px",
+};
+
+globalStyle(`th, td`, {
+    "@layer": {
+        [baseLayer]: {
+            ...tableCellStyleRule,
+        },
+    },
+});
+
+export const thStyles = style({
+    display: "table-cell",
+    ...tableCellStyleRule,
+});
+
+export const tdStyles = style({
+    display: "table-cell",
+    ...tableCellStyleRule,
 });
 
 globalStyle(`thead th`, {
@@ -514,22 +562,45 @@ globalStyle(`thead th`, {
     },
 });
 
-globalStyle(`th, td`, {
+globalStyle(`${tHeadStyles} ${thStyles}`, {
     "@layer": {
         [baseLayer]: {
-            fontSize: vars.fontSize.body_sm,
-            padding: vars.spacing.space_4,
-            textAlign: "left",
-            verticalAlign: "middle",
-            width: "1px",
+            whiteSpace: "nowrap",
         },
     },
 });
 
+// Display table classes
+
+export const tRowStyles = style({
+    display: "table-row",
+});
+
+export const tBodyStyles = style({
+    display: "table-row-group",
+});
+
+// Ensure that table cells have border bottom, unless they are the last row
+
+const tableCellBorderStyleRule: StyleRule = {
+    borderBottom: `1px solid ${vars.color.border_default}`,
+};
+
+globalStyle(
+    `${tHeadStyles}:not(:last-child) ${thStyles}, ${tRowStyles}:not(:last-of-type) ${tdStyles}`,
+    {
+        "@layer": {
+            [baseLayer]: {
+                ...tableCellBorderStyleRule,
+            },
+        },
+    }
+);
+
 globalStyle(`thead:not(:last-child) th, tr:not(:last-of-type) td`, {
     "@layer": {
         [baseLayer]: {
-            borderBottom: `1px solid ${vars.color.border_default}`,
+            ...tableCellBorderStyleRule,
         },
     },
 });

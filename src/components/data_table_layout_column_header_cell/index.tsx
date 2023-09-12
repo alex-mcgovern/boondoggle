@@ -1,9 +1,9 @@
 import { flexRender } from "@tanstack/react-table";
 import clsx from "clsx";
 
+import { thStyles } from "../../styles/stylesheet.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { DataTableControlTableHeadSort } from "../data_table_control_table_head_sort";
-import { thStyles } from "./styles.css";
 
 import type { Header } from "@tanstack/react-table";
 

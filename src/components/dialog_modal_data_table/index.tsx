@@ -4,6 +4,7 @@ import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../styles/color_palette.css";
+import { tableStyles } from "../../styles/stylesheet.css";
 import { Box } from "../box";
 import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
 import { DataTableControlPagination } from "../data_table_control_pagination";
@@ -228,10 +229,7 @@ export function DialogModalDataTable<TData extends RowData>({
                             hasPadding={false}
                         >
                             {hasData && (
-                                <Box
-                                    display="table"
-                                    width="100%"
-                                >
+                                <Box className={tableStyles}>
                                     <DataTableLayoutHead<TData>
                                         isSortable={isSortable}
                                         table={table}
