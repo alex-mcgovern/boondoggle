@@ -20,7 +20,7 @@ export function DataTableCellSelectable<TData extends RowData>({
             alignItems="center"
             display="flex"
             justifyContent="center"
-            minWidth="space_4"
+            width="space_4"
         >
             <input
                 checked={row.getIsSelected()}

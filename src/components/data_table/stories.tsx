@@ -258,10 +258,17 @@ export const KitchenSink: Story = {
         ],
         columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
         data: MOCK_DATA,
+        getRowProps(row_data) {
+            return {
+                as: Link,
+                href: `https://google.com/search?q=${row_data.first_name}+${row_data.last_name}`,
+            };
+        },
         isFilterable: true,
         isPaginated: true,
         isSelectable: true,
         isSortable: true,
+        isWholeRowClickable: true,
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },
