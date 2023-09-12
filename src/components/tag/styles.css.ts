@@ -30,8 +30,7 @@ export const getTagStyle = recipe({
         getSprinkles({
             alignItems: "center",
             background: "tint_default",
-            border: "border_active",
-            borderRadius: "sm",
+            borderRadius: "md",
             color: "text_low_contrast",
             display: "inline-flex",
             flexShrink: "0",
