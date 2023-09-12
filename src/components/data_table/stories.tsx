@@ -65,10 +65,7 @@ export const IsWholeRowClickableAsLink: Story = {
         getRowProps(row_data) {
             return {
                 as: Link,
-                href: "https://google.com",
-                onClick: () => {
-                    alert(`Row clicked \n ${JSON.stringify(row_data, null, 2)}`);
-                },
+                href: `https://google.com/search?q=${row_data.first_name}+${row_data.last_name}`,
             };
         },
         isWholeRowClickable: true,
