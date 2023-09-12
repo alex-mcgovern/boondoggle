@@ -15,6 +15,9 @@ export const getRowStyles = recipe({
             display: "table-row",
         },
     ],
+    defaultVariants: {
+        isWholeRowClickable: false,
+    },
     variants: {
         isWholeRowClickable: {
             false: {},
