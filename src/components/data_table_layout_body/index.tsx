@@ -15,7 +15,12 @@ type DataTableLayoutBodyProps<TRowData> = {
     /**
      * Whether the entire row should be clickable
      */
-    isWholeRowClickable: boolean | undefined;
+    isRowClickable: boolean | undefined;
+
+    /**
+     * Whether the table should allow rows to be selectable
+     */
+    isSelectable: boolean | undefined;
 
     /**
      * The `react-table` instance to control.
@@ -28,18 +33,26 @@ type DataTableLayoutBodyProps<TRowData> = {
  */
 export function DataTableLayoutBody<TRowData>({
     getRowProps,
-    isWholeRowClickable,
+    isRowClickable,
+    isSelectable,
     table,
 }: DataTableLayoutBodyProps<TRowData>) {
     return (
         <tbody>
             {table.getRowModel().rows.map((row) => {
+                const rowProps = getRowProps?.(row.original) ?? {};
+
                 return (
                     <Box
                         as="tr"
                         key={row.id}
                         {...getRowProps?.(row.original)}
-                        className={getRowStyles({ isWholeRowClickable })}
+                        className={getRowStyles({ isRowClickable })}
+                        onClick={
+                            isSelectable && isRowClickable
+                                ? row.getToggleSelectedHandler()
+                                : rowProps.onClick
+                        }
                     >
                         {row.getVisibleCells().map((cell) => {
                             return (

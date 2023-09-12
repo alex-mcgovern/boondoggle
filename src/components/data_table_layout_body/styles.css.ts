@@ -1,7 +1,6 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
@@ -11,7 +10,7 @@ export const variantClickable = styleVariants({
     true: {
         cursor: "pointer",
         selectors: {
-            [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+            [`&:hover`]: {
                 backgroundColor: vars.color.tint_default,
             },
         },
@@ -35,10 +34,10 @@ export const getRowStyles = recipe({
         },
     ],
     defaultVariants: {
-        isWholeRowClickable: false,
+        isRowClickable: false,
     },
     variants: {
-        isWholeRowClickable: variantClickable,
+        isRowClickable: variantClickable,
     },
 });
 

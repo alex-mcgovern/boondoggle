@@ -1,7 +1,6 @@
 import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { Box } from "../box";
-import { Card } from "../card";
 import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
 import { DataTableFilterInput } from "../data_table_filter_input";
 import { DataTableInfoNoResults } from "../data_table_info_no_results";
@@ -48,14 +47,14 @@ export type DataTableProps<TRowData extends RowData> = WithTableOptionalPaginati
         getRowProps?: (row_data: TRowData) => BoxProps;
 
         /**
+         * Whether the entire row should be clickable
+         */
+        isRowClickable?: boolean;
+
+        /**
          * Whether the table should be sortable and show sorting controls
          */
         isSortable?: boolean;
-
-        /**
-         * Whether the entire row should be clickable
-         */
-        isWholeRowClickable?: boolean;
 
         /**
          * The title of the no results message
@@ -76,9 +75,9 @@ export function DataTable<TRowData extends RowData>({
     getRowProps,
     isFilterable,
     isPaginated,
+    isRowClickable,
     isSelectable,
     isSortable,
-    isWholeRowClickable,
     onSelect,
     strClearAllFilters,
     strFilterPlaceholder,
@@ -103,7 +102,7 @@ export function DataTable<TRowData extends RowData>({
     const hasData = arrayHasLength(table.getFilteredRowModel().rows);
 
     return (
-        <Card hasPadding={false}>
+        <Box>
             <DataTableActionsWrapper
                 leftAction={
                     isFilterable && arrayHasLength(data) ? (
@@ -132,7 +131,8 @@ export function DataTable<TRowData extends RowData>({
                         />
                         <DataTableLayoutBody<TRowData>
                             getRowProps={getRowProps}
-                            isWholeRowClickable={isWholeRowClickable}
+                            isRowClickable={isRowClickable}
+                            isSelectable={isSelectable}
                             table={table}
                         />
                     </Box>
@@ -157,6 +157,6 @@ export function DataTable<TRowData extends RowData>({
                     table={table}
                 />
             )}
-        </Card>
+        </Box>
     );
 }

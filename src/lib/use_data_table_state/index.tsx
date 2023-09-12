@@ -98,8 +98,8 @@ export function useDataTableState<TData extends RowData>({
 
     const columnHelper = createColumnHelper<TData>();
 
-    const columns = useMemo(
-        () => {return [
+    const columns = useMemo(() => {
+        return [
             // If the table is selectable, add a column for
             // the checkbox at the start of the columns array
             ...(isSelectable
@@ -121,15 +121,16 @@ export function useDataTableState<TData extends RowData>({
             ...(RowActions
                 ? [
                       columnHelper.display({
-                          cell: ({ row }) => {return <RowActions row_data={row.original} />},
+                          cell: ({ row }) => {
+                              return <RowActions row_data={row.original} />;
+                          },
                           id: "actions",
                           size: 300,
                       }),
                   ]
                 : []),
-        ]},
-        [RowActions, columnHelper, initColumns, isSelectable]
-    );
+        ];
+    }, [RowActions, columnHelper, initColumns, isSelectable]);
 
     const table = useReactTable<TData>({
         columns,

@@ -41,7 +41,7 @@ export const Default: Story = {
     },
 };
 
-export const IsWholeRowClickable: Story = {
+export const IsRowClickable: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
@@ -53,12 +53,12 @@ export const IsWholeRowClickable: Story = {
                 },
             };
         },
-        isWholeRowClickable: true,
+        isRowClickable: true,
         strNoResults: "No results",
     },
 };
 
-export const IsWholeRowClickableAsLink: Story = {
+export const IsRowClickableAsLink: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
@@ -68,7 +68,7 @@ export const IsWholeRowClickableAsLink: Story = {
                 href: `https://google.com/search?q=${row_data.first_name}+${row_data.last_name}`,
             };
         },
-        isWholeRowClickable: true,
+        isRowClickable: true,
         strNoResults: "No results",
     },
 };
@@ -112,6 +112,19 @@ export const IsSelectable: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
+        isSelectable: true,
+        onSelect: (rowSelection) => {
+            alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
+        },
+        strNoResults: "No results",
+    },
+};
+
+export const IsSelectableWithIsRowClickable: Story = {
+    args: {
+        columns: DATA_TABLE_COLUMNS_MOCK,
+        data: MOCK_DATA,
+        isRowClickable: true,
         isSelectable: true,
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
@@ -266,9 +279,9 @@ export const KitchenSink: Story = {
         },
         isFilterable: true,
         isPaginated: true,
+        isRowClickable: true,
         isSelectable: true,
         isSortable: true,
-        isWholeRowClickable: true,
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },

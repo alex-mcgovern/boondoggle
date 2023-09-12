@@ -69,14 +69,14 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
         isLoading?: boolean;
 
         /**
+         * Whether the entire row should be clickable
+         */
+        isRowClickable?: boolean;
+
+        /**
          * Whether the table should be sortable and show sorting controls
          */
         isSortable?: boolean;
-
-        /**
-         * Whether the entire row should be clickable
-         */
-        isWholeRowClickable?: boolean;
 
         /**
          * Function to call when the "Try again" button is clicked.
@@ -138,9 +138,9 @@ export function DialogModalDataTable<TData extends RowData>({
     isFilterable,
     isLoading,
     isPaginated,
+    isRowClickable,
     isSelectable,
     isSortable,
-    isWholeRowClickable,
     onClickTryAgain,
     onSelect,
     strClearAllFilters,
@@ -237,7 +237,7 @@ export function DialogModalDataTable<TData extends RowData>({
                                         table={table}
                                     />
                                     <DataTableLayoutBody<TData>
-                                        isWholeRowClickable={isWholeRowClickable}
+                                        isRowClickable={isRowClickable}
                                         table={table}
                                     />
                                 </Box>

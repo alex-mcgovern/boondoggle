@@ -33,7 +33,7 @@ export function DataTableActionsWrapper({
             borderBottom="border_default"
             display="flex"
             gap="space_2"
-            padding="space_4"
+            paddingY="space_4"
         >
             {leftAction && <Box>{leftAction}</Box>}
             {rightActions && (
@@ -43,7 +43,9 @@ export function DataTableActionsWrapper({
                     gap="space_2"
                     marginLeft="auto"
                 >
-                    {Children.map(rightActions, (action) => {return action})}
+                    {Children.map(rightActions, (action) => {
+                        return action;
+                    })}
                 </Box>
             )}
         </Box>
