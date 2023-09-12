@@ -1,4 +1,4 @@
-import { style, styleVariants } from "@vanilla-extract/css";
+import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../styles/common/selectors.css";
@@ -18,8 +18,11 @@ export const variantClickable = styleVariants({
     },
 });
 
+const baseRowStyles = style({});
+
 export const getRowStyles = recipe({
     base: [
+        baseRowStyles,
         getSprinkles({
             color: "text_high_contrast",
             textDecoration: "none",
@@ -39,6 +42,6 @@ export const getRowStyles = recipe({
     },
 });
 
-export const tdStyle = style({
+globalStyle(`${baseRowStyles}:not(:last-child) td`, {
     borderBottom: `1px solid ${vars.color.border_default}`,
 });
