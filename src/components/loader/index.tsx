@@ -11,6 +11,7 @@ export type LoaderProps = Omit<IconProps, "icon"> & {
 export function Loader({ icon = faSpinnerThird, ...rest }: LoaderProps) {
     return (
         <Icon
+            data-testid="loader"
             icon={icon}
             spin
             {...rest}
