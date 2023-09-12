@@ -265,8 +265,8 @@ globalStyle("input[type=checkbox]", {
         [baseLayer]: {
             accentColor: vars.color.button_default,
             cursor: "pointer",
-            height: vars.spacing.space_5,
-            width: vars.spacing.space_5,
+            height: vars.spacing.space_4,
+            width: vars.spacing.space_4,
         },
     },
 });

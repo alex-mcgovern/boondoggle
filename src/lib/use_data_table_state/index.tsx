@@ -126,7 +126,7 @@ export function useDataTableState<TData extends RowData>({
                           cell: CellSelectable,
                           enableSorting: false,
                           id: "select",
-                          size: 20,
+                          size: 16,
                       }),
                   ]
                 : []),
