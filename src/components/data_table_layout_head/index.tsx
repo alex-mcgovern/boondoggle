@@ -1,5 +1,6 @@
 import { Box } from "../box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
+import { tRowStyles, theadStyles } from "./styles.css";
 
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { Table } from "@tanstack/react-table";
@@ -32,21 +33,28 @@ export function DataTableLayoutHead<TTableData>({
 }: DataTableLayoutHeadProps<TTableData>) {
     return (
         <Box
-            as="thead"
+            className={theadStyles}
             {...rest}
         >
-            {table.getHeaderGroups().map((header_group) => {return (
-                <tr key={header_group.id}>
-                    {header_group.headers.map((header) => {return (
-                        <DataTableLayoutColumnHeaderCell<TTableData>
-                            header={header}
-                            isSortable={isSortable}
-                            isSticky={isSticky}
-                            key={header.id}
-                        />
-                    )})}
-                </tr>
-            )})}
+            {table.getHeaderGroups().map((header_group) => {
+                return (
+                    <div
+                        className={tRowStyles}
+                        key={header_group.id}
+                    >
+                        {header_group.headers.map((header) => {
+                            return (
+                                <DataTableLayoutColumnHeaderCell<TTableData>
+                                    header={header}
+                                    isSortable={isSortable}
+                                    isSticky={isSticky}
+                                    key={header.id}
+                                />
+                            );
+                        })}
+                    </div>
+                );
+            })}
         </Box>
     );
 }

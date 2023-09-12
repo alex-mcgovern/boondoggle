@@ -1,7 +1,9 @@
 import { flexRender } from "@tanstack/react-table";
+import clsx from "clsx";
 
-import { Box } from "../box";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { DataTableControlTableHeadSort } from "../data_table_control_table_head_sort";
+import { thStyles } from "./styles.css";
 
 import type { Header } from "@tanstack/react-table";
 
@@ -32,31 +34,45 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 }: DataTableLayoutColumnHeaderCellProps<THeaderData>) {
     if (isSortable) {
         return (
-            <Box
-                as="th"
-                background={isSticky ? "white" : undefined}
-                position={isSticky ? "sticky" : undefined}
-                top={isSticky ? "0" : undefined}
+            <div
+                className={clsx(
+                    thStyles,
+                    getSprinkles({
+                        background: isSticky ? "white" : undefined,
+                        position: isSticky ? "sticky" : undefined,
+                        top: isSticky ? "0" : undefined,
+                    })
+                )}
+                style={{
+                    width: header.getSize(),
+                }}
             >
                 <DataTableControlTableHeadSort header={header}>
                     {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
                 </DataTableControlTableHeadSort>
-            </Box>
+            </div>
         );
     }
 
     return (
-        <Box
-            as="th"
-            background={isSticky ? "white" : undefined}
-            position={isSticky ? "sticky" : undefined}
-            top={isSticky ? "0" : undefined}
+        <div
+            className={clsx(
+                thStyles,
+                getSprinkles({
+                    background: isSticky ? "white" : undefined,
+                    position: isSticky ? "sticky" : undefined,
+                    top: isSticky ? "0" : undefined,
+                })
+            )}
+            style={{
+                width: header.getSize(),
+            }}
         >
             {header.isPlaceholder
                 ? null
                 : flexRender(header.column.columnDef.header, header.getContext())}
-        </Box>
+        </div>
     );
 }

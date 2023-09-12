@@ -229,7 +229,7 @@ export function DialogModalDataTable<TData extends RowData>({
                         >
                             {hasData && (
                                 <Box
-                                    as="table"
+                                    display="table"
                                     width="100%"
                                 >
                                     <DataTableLayoutHead<TData>
@@ -238,6 +238,7 @@ export function DialogModalDataTable<TData extends RowData>({
                                     />
                                     <DataTableLayoutBody<TData>
                                         isRowClickable={isRowClickable}
+                                        isSelectable={isSelectable}
                                         table={table}
                                     />
                                 </Box>

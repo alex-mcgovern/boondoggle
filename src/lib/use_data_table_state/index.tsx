@@ -12,7 +12,7 @@ import { DataTableCellSelectable } from "../../components/data_table_cell_select
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
 import type { TDataTableRowActions } from "../../common-types";
-import type { ColumnDef, RowData, RowSelectionState, Updater } from "@tanstack/react-table";
+import type { ColumnDef, Row, RowData, RowSelectionState, Updater } from "@tanstack/react-table";
 
 type UseDataTableStateProps<TData extends RowData> = {
     /**
@@ -46,6 +46,11 @@ type UseDataTableStateProps<TData extends RowData> = {
     isPaginated: boolean | undefined;
 
     /**
+     * Whether the entire row should be clickable
+     */
+    isRowClickable?: boolean;
+
+    /**
      * Whether the table should allow rows to be selectable
      */
     isSelectable: boolean | undefined;
@@ -68,6 +73,7 @@ export function useDataTableState<TData extends RowData>({
     initColumns,
     isFilterable,
     isPaginated,
+    isRowClickable,
     isSelectable,
     isSortable,
     onSelect,
@@ -98,6 +104,18 @@ export function useDataTableState<TData extends RowData>({
 
     const columnHelper = createColumnHelper<TData>();
 
+    const CellSelectable = useCallback(
+        ({ row }: { row: Row<TData> }) => {
+            return (
+                <DataTableCellSelectable
+                    isRowClickable={isRowClickable}
+                    row={row}
+                />
+            );
+        },
+        [isRowClickable]
+    );
+
     const columns = useMemo(() => {
         return [
             // If the table is selectable, add a column for
@@ -105,10 +123,10 @@ export function useDataTableState<TData extends RowData>({
             ...(isSelectable
                 ? [
                       columnHelper.display({
-                          cell: DataTableCellSelectable,
+                          cell: CellSelectable,
                           enableSorting: false,
                           id: "select",
-                          maxSize: 24,
+                          size: 20,
                       }),
                   ]
                 : []),
@@ -130,7 +148,7 @@ export function useDataTableState<TData extends RowData>({
                   ]
                 : []),
         ];
-    }, [RowActions, columnHelper, initColumns, isSelectable]);
+    }, [CellSelectable, RowActions, columnHelper, initColumns, isSelectable]);
 
     const table = useReactTable<TData>({
         columns,
@@ -147,6 +165,10 @@ export function useDataTableState<TData extends RowData>({
             enableMultiRowSelection,
             onRowSelectionChange,
         }),
+        // defaultColumn: {
+        //     maxSize: 10,
+        //     minSize: 0,
+        // },
         state: {
             ...(isFilterable && {
                 globalFilter,

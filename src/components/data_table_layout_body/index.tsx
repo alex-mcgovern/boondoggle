@@ -1,7 +1,7 @@
 import { flexRender } from "@tanstack/react-table";
 
 import { Box } from "../box";
-import { getRowStyles } from "./styles.css";
+import { getRowStyles, tBodyStyles, tdStyles } from "./styles.css";
 
 import type { BoxProps } from "../box";
 import type { Table } from "@tanstack/react-table";
@@ -38,13 +38,12 @@ export function DataTableLayoutBody<TRowData>({
     table,
 }: DataTableLayoutBodyProps<TRowData>) {
     return (
-        <tbody>
+        <div className={tBodyStyles}>
             {table.getRowModel().rows.map((row) => {
                 const rowProps = getRowProps?.(row.original) ?? {};
 
                 return (
                     <Box
-                        as="tr"
                         key={row.id}
                         {...getRowProps?.(row.original)}
                         className={getRowStyles({ isRowClickable })}
@@ -56,14 +55,20 @@ export function DataTableLayoutBody<TRowData>({
                     >
                         {row.getVisibleCells().map((cell) => {
                             return (
-                                <td key={cell.id}>
+                                <div
+                                    className={tdStyles}
+                                    key={cell.id}
+                                    style={{
+                                        width: cell.column.getSize(),
+                                    }}
+                                >
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                </td>
+                                </div>
                             );
                         })}
                     </Box>
                 );
             })}
-        </tbody>
+        </div>
     );
 }

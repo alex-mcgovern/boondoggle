@@ -93,6 +93,7 @@ export function DataTable<TRowData extends RowData>({
         initColumns,
         isFilterable,
         isPaginated,
+        isRowClickable,
         isSelectable,
         isSortable,
         onSelect,
@@ -122,7 +123,7 @@ export function DataTable<TRowData extends RowData>({
             >
                 {hasData && (
                     <Box
-                        as="table"
+                        display="table"
                         width="100%"
                     >
                         <DataTableLayoutHead<TRowData>

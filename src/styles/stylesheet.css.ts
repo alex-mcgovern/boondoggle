@@ -264,6 +264,9 @@ globalStyle("input[type=checkbox]", {
     "@layer": {
         [baseLayer]: {
             accentColor: vars.color.button_default,
+            cursor: "pointer",
+            height: vars.spacing.space_5,
+            width: vars.spacing.space_5,
         },
     },
 });
@@ -488,7 +491,7 @@ globalStyle(`table`, {
             // border: `1px solid ${vars.color.border_default}`,
             // borderRadius: vars.borderRadius.md,
             borderSpacing: 0,
-            // tableLayout: "fixed",
+            tableLayout: "fixed",
             width: "100%",
         },
     },
@@ -518,6 +521,7 @@ globalStyle(`th, td`, {
             padding: vars.spacing.space_4,
             textAlign: "left",
             verticalAlign: "middle",
+            width: "1px",
         },
     },
 });
