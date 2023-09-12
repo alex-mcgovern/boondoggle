@@ -15,9 +15,6 @@ export const variantClickable = styleVariants({
                 backgroundColor: vars.color.tint_default,
             },
         },
-        ...createAccessibleTransition({
-            transition: `background-color ${vars.transitionDuration.medium} ease`,
-        }),
     },
 });
 
@@ -29,6 +26,9 @@ export const getRowStyles = recipe({
         }),
         {
             display: "table-row",
+            ...createAccessibleTransition({
+                transition: `background-color ${vars.transitionDuration.medium} ease`,
+            }),
         },
     ],
     defaultVariants: {
