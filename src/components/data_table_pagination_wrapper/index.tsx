@@ -47,7 +47,9 @@ export function DataTablePaginationWrapper<TData extends RowData>({
             borderTop="border_default"
             display="flex"
             gap="space_2"
-            margin="space_4"
+            marginBottom="space_4"
+            paddingTop="space_4"
+            paddingX="space_4"
         >
             {strPage && strResults && (
                 <DataTableInfoPageCount<TData>
