@@ -100,14 +100,16 @@ const variantAppearance = styleVariants({
         {
             color: vars.color.text_high_contrast,
             selectors: {
-                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: vars.color.tint_active,
-                    fontWeight: vars.fontWeight.medium,
-                },
+                /* eslint-disable sort-keys-fix/sort-keys-fix */
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.tint_hover,
                     textDecoration: "none",
                 },
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    background: vars.color.tint_active,
+                    fontWeight: vars.fontWeight.medium,
+                },
+                /* eslint-enable sort-keys-fix/sort-keys-fix */
             },
         },
     ],
@@ -118,13 +120,15 @@ const variantAppearance = styleVariants({
             background: vars.color.button_default,
             color: vars.color.white,
             selectors: {
-                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: vars.color.button_active,
-                },
+                /* eslint-disable sort-keys-fix/sort-keys-fix */
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.button_hover,
                     color: vars.color.white,
                 },
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    background: vars.color.button_active,
+                },
+                /* eslint-enable sort-keys-fix/sort-keys-fix */
             },
         },
     ],
@@ -136,18 +140,17 @@ const variantAppearance = styleVariants({
             borderColor: vars.color.border_default,
             color: vars.color.text_high_contrast,
             selectors: {
-                "&[data-active='true']": {
-                    background: vars.color.tint_active,
-                    borderColor: vars.color.border_active,
-                    color: vars.color.button_active,
-                },
-                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: "transparent",
-                },
+                /* eslint-disable sort-keys-fix/sort-keys-fix */
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.tint_hover,
                     borderColor: vars.color.border_hover,
                 },
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    background: vars.color.tint_active,
+                    borderColor: vars.color.border_active,
+                    color: vars.color.button_active,
+                },
+                /* eslint-enable sort-keys-fix/sort-keys-fix */
             },
         },
     ],
