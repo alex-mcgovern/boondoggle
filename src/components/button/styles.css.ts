@@ -94,17 +94,12 @@ const variantAppearance = styleVariants({
             background: vars.color.button_default,
             color: vars.color.white,
             selectors: {
-                // "&[data-active='true']": {
-                //     background: vars.color.button_active,
-                //     color: vars.color.white,
-                // },
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    background: vars.color.button_active,
+                },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.button_hover,
                     color: vars.color.white,
-                },
-                // eslint-disable-next-line sort-keys-fix/sort-keys-fix
-                "&:active": {
-                    background: vars.color.button_active,
                 },
             },
         },
@@ -135,7 +130,7 @@ const variantAppearance = styleVariants({
 
     tertiary: [
         getSprinkles({
-            fontWeight: "normal",
+            fontWeight: "medium",
             paddingX: "space_2",
             paddingY: "space_1",
             textAlign: "left",
