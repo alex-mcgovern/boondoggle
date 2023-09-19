@@ -102,7 +102,7 @@ const variantAppearance = styleVariants({
             selectors: {
                 [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
                     background: vars.color.tint_active,
-                    fontWeight: "medium",
+                    fontWeight: vars.fontWeight.medium,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.tint_hover,
