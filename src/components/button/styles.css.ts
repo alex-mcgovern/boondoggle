@@ -144,12 +144,10 @@ const variantAppearance = styleVariants({
             color: vars.color.text_high_contrast,
             selectors: {
                 "&[data-active='true']": {
-                    background: vars.color.button_tint,
-                    color: vars.color.button_default,
+                    background: vars.color.tint_active,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: vars.color.button_tint,
-                    color: vars.color.button_default,
+                    background: vars.color.tint_active,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.tint_hover,
