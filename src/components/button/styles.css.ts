@@ -52,9 +52,15 @@ export const variantButtonSize = styleVariants({
 
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
     fontWeight: "medium",
-    justifyContent: "center",
     whiteSpace: "nowrap",
 };
+
+const variantAlignment = styleVariants({
+    center: [getSprinkles({ justifyContent: "center", textAlign: "center" })],
+    left: [getSprinkles({ justifyContent: "start", textAlign: "left" })],
+});
+
+export type Alignment = keyof typeof variantAlignment;
 
 const variantAppearance = styleVariants({
     ghost: [
@@ -73,9 +79,6 @@ const variantAppearance = styleVariants({
     ],
 
     link: [
-        getSprinkles({
-            textAlign: "left",
-        }),
         {
             selectors: {
                 "&[data-active='true']": {
@@ -133,7 +136,6 @@ const variantAppearance = styleVariants({
             fontWeight: "medium",
             paddingX: "space_2",
             paddingY: "space_1",
-            textAlign: "left",
         }),
         {
             color: vars.color.text_high_contrast,
@@ -213,11 +215,13 @@ export const getButtonStyles = recipe({
     ],
 
     defaultVariants: {
+        alignment: "center",
         appearance: "primary",
         size: "md",
     },
 
     variants: {
+        alignment: variantAlignment,
         appearance: variantAppearance,
         size: variantButtonSize,
     },

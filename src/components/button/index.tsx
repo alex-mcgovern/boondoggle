@@ -10,7 +10,7 @@ import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot_wrapper";
-import * as styles from "./styles.css";
+import { getButtonStyles } from "./styles.css";
 
 import type {
     PolymorphicComponentPropWithRef,
@@ -21,6 +21,7 @@ import type {
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { Alignment, Appearance } from "./styles.css";
 import type { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
 
 const getLoadingSlotSide = ({ slotLeft, slotRight }: WithSlots): "right" | "left" => {
@@ -44,9 +45,14 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
                 active?: boolean;
 
                 /**
+                 * Controls the horizontal alignment of the button's content.
+                 */
+                alignment?: Alignment;
+
+                /**
                  * Controls the button's appearance.
                  */
-                appearance?: styles.Appearance;
+                appearance?: Appearance;
 
                 /**
                  * The React node shown in the button.
@@ -90,6 +96,7 @@ export const Button: ButtonComponent = forwardRef(
     <TPolymorphicAs extends ElementType = "span">(
         {
             active,
+            alignment = "center",
             appearance = "primary",
             as,
             children,
@@ -136,7 +143,7 @@ export const Button: ButtonComponent = forwardRef(
                 {...{
                     "aria-disabled": disabled,
                     className: clsx(
-                        styles.getButtonStyles({ appearance, size }),
+                        getButtonStyles({ alignment, appearance, size }),
                         getSprinkles(atomProps),
                         userClassName,
                         colorOverlay ? variantColorOverlay[colorOverlay] : undefined
