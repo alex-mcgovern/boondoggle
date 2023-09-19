@@ -7,8 +7,8 @@ import { makeTheme } from "./utils/make_theme";
 
 export const color = createGlobalTheme(":root, ::backdrop", {
     ...makeTheme({
-        primaryPalette: blue,
-        secondaryPalette: slate,
+        primary: blue,
+        secondary: slate,
     }),
 });
 
@@ -16,20 +16,14 @@ export const variantColorOverlay = styleVariants({
     amber: {
         "@layer": {
             [themeLayer]: {
-                vars: assignVars(
-                    color,
-                    makeTheme({ primaryPalette: amber, secondaryPalette: amber })
-                ),
+                vars: assignVars(color, makeTheme({ primary: amber, secondary: amber })),
             },
         },
     },
     blue: {
         "@layer": {
             [themeLayer]: {
-                vars: assignVars(
-                    color,
-                    makeTheme({ primaryPalette: blue, secondaryPalette: blue })
-                ),
+                vars: assignVars(color, makeTheme({ primary: blue, secondary: blue })),
             },
         },
     },
@@ -39,8 +33,8 @@ export const variantColorOverlay = styleVariants({
                 vars: assignVars(
                     color,
                     makeTheme({
-                        primaryPalette: blue,
-                        secondaryPalette: slate,
+                        primary: blue,
+                        secondary: slate,
                     })
                 ),
             },
@@ -49,27 +43,21 @@ export const variantColorOverlay = styleVariants({
     green: {
         "@layer": {
             [themeLayer]: {
-                vars: assignVars(
-                    color,
-                    makeTheme({ primaryPalette: green, secondaryPalette: green })
-                ),
+                vars: assignVars(color, makeTheme({ primary: green, secondary: green })),
             },
         },
     },
     grey: {
         "@layer": {
             [themeLayer]: {
-                vars: assignVars(
-                    color,
-                    makeTheme({ primaryPalette: slate, secondaryPalette: slate })
-                ),
+                vars: assignVars(color, makeTheme({ primary: slate, secondary: slate })),
             },
         },
     },
     red: {
         "@layer": {
             [themeLayer]: {
-                vars: assignVars(color, makeTheme({ primaryPalette: red, secondaryPalette: red })),
+                vars: assignVars(color, makeTheme({ primary: red, secondary: red })),
             },
         },
     },

@@ -20,9 +20,13 @@ export function useDialogModalState({ ref }: UseDialogModalStateArgs) {
 
     const triggerRef = createRef<HTMLElement>();
 
-    const openDialog = useCallback(() => {return dialogRef.current?.showModal()}, [dialogRef]);
+    const openDialog = useCallback(() => {
+        return dialogRef.current?.showModal();
+    }, [dialogRef]);
 
-    const closeDialog = useCallback(() => {return dialogRef.current?.close()}, [dialogRef]);
+    const closeDialog = useCallback(() => {
+        return dialogRef.current?.close();
+    }, [dialogRef]);
 
     const toggleIsOpen = useCallback(() => {
         if (!dialogRef.current) {

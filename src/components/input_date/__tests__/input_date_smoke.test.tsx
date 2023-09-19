@@ -13,8 +13,11 @@ const PROPS: InputDateProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = async ({ ...props }: InputDateProps) =>
-    {return waitFor(() => {return render(<InputDate {...props} />)})};
+const renderComponent = async ({ ...props }: InputDateProps) => {
+    return waitFor(() => {
+        return render(<InputDate {...props} />);
+    });
+};
 
 describe("<InputDate />", () => {
     describe("Basic smoke tests", () => {

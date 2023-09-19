@@ -87,7 +87,7 @@ export function RadioButtonCard({
                 </Box>
                 <Box
                     color="text_low_contrast"
-                    fontStyle="body_xs"
+                    fontStyle="bodySm"
                 >
                     {body}
                 </Box>

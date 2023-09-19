@@ -13,7 +13,9 @@ import type { SliderProps } from "..";
 
 const PROPS: SliderProps = { name: LOREM.name() };
 
-const renderComponent = ({ ...props }: SliderProps) => {return render(<Slider {...props} />)};
+const renderComponent = ({ ...props }: SliderProps) => {
+    return render(<Slider {...props} />);
+};
 
 describe("<Slider />", () => {
     describe("Basic smoke tests", () => {

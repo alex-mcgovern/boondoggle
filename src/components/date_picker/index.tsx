@@ -65,7 +65,9 @@ export const DatePicker = forwardRef(
         const { days, month, year } = calendars[0];
 
         const onToggleYears = useCallback(() => {
-            setIsShowingYears((prev) => {return !prev});
+            setIsShowingYears((prev) => {
+                return !prev;
+            });
         }, []);
 
         const onYearClick = useCallback(() => {

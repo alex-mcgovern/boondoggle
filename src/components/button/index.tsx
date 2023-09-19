@@ -44,7 +44,7 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
                 active?: boolean;
 
                 /**
-                 * The appearance of the button: `primary` for important actions, `secondary` for less important actions, and `tertiary` for additional actions with the least emphasis.
+                 * Controls the button's appearance.
                  */
                 appearance?: styles.Appearance;
 
@@ -127,10 +127,9 @@ export const Button: ButtonComponent = forwardRef(
             revertLoadingState();
         }, [rest, revertLoadingState]);
 
-        const loaderSide = useMemo(
-            () => {return getLoadingSlotSide({ slotLeft, slotRight })},
-            [slotLeft, slotRight]
-        );
+        const loaderSide = useMemo(() => {
+            return getLoadingSlotSide({ slotLeft, slotRight });
+        }, [slotLeft, slotRight]);
 
         return (
             <Component

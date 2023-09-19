@@ -12,7 +12,9 @@ import type { InputProps } from "..";
 
 afterEach(cleanup);
 
-const renderComponent = (props: InputProps) => {return render(<Input {...props} />)};
+const renderComponent = (props: InputProps) => {
+    return render(<Input {...props} />);
+};
 
 describe("<Input />", () => {
     /**

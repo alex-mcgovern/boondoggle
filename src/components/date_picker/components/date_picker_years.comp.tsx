@@ -25,19 +25,21 @@ type DatePickerYearsProps = {
 export function DatePickerYears({ onYearClick, yearButton, years }: DatePickerYearsProps) {
     return (
         <>
-            {years.map((calendarYear) => {return (
-                <Button
-                    appearance={calendarYear.selected ? "primary" : "ghost"}
-                    key={calendarYear.year.toString()}
-                    name={calendarYear.year.toString()}
-                    width="100%"
-                    {...yearButton(calendarYear, {
-                        onClick: onYearClick,
-                    })}
-                >
-                    {calendarYear.year}
-                </Button>
-            )})}
+            {years.map((calendarYear) => {
+                return (
+                    <Button
+                        appearance={calendarYear.selected ? "primary" : "ghost"}
+                        key={calendarYear.year.toString()}
+                        name={calendarYear.year.toString()}
+                        width="100%"
+                        {...yearButton(calendarYear, {
+                            onClick: onYearClick,
+                        })}
+                    >
+                        {calendarYear.year}
+                    </Button>
+                );
+            })}
         </>
     );
 }

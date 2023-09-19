@@ -20,9 +20,10 @@ export function filterSelectItems({ inputValue, items }: FilterSelectItemsArgs) 
         return items;
     }
 
-    return items.filter(
-        (item) =>
-            {return item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
-            item.value.toLowerCase().includes(inputValue.toLowerCase())}
-    );
+    return items.filter((item) => {
+        return (
+            item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+            item.value.toLowerCase().includes(inputValue.toLowerCase())
+        );
+    });
 }

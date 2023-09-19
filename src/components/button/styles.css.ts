@@ -18,14 +18,14 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
 export const variantButtonSize = styleVariants({
-    lg: [elementFontSize.lg],
+    lg: [elementFontSize.md],
     md: [elementFontSize.md],
-    sm: [elementFontSize.sm],
+    sm: [elementFontSize.md],
     square_md: [
         getSprinkles({
             aspectRatio: "square",
             flexShrink: "0",
-            fontStyle: "body_md",
+            fontStyle: "bodyMd",
             height: "space_10",
             width: "space_10",
         }),
@@ -34,7 +34,7 @@ export const variantButtonSize = styleVariants({
         getSprinkles({
             aspectRatio: "square",
             flexShrink: "0",
-            fontStyle: "body_sm",
+            fontStyle: "bodySm",
             height: "space_8",
             width: "space_8",
         }),
@@ -43,7 +43,7 @@ export const variantButtonSize = styleVariants({
         getSprinkles({
             aspectRatio: "square",
             flexShrink: "0",
-            fontStyle: "body_xs",
+            fontStyle: "bodySm",
             height: "space_6",
             width: "space_6",
         }),
@@ -51,7 +51,7 @@ export const variantButtonSize = styleVariants({
 });
 
 const COMMON_BUTTON_SPRINKLES: SprinklesArgs = {
-    fontWeight: "normal",
+    fontWeight: "medium",
     justifyContent: "center",
     whiteSpace: "nowrap",
 };
@@ -60,14 +60,13 @@ const variantAppearance = styleVariants({
     ghost: [
         getSprinkles(COMMON_BUTTON_SPRINKLES),
         {
-            color: vars.color.text_low_contrast,
+            color: vars.color.text_high_contrast,
             selectors: {
                 [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: "transparent",
+                    background: vars.color.tint_active,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-                    background: vars.color.button_tint,
-                    color: vars.color.button_active,
+                    background: vars.color.tint_hover,
                 },
             },
         },
@@ -95,16 +94,17 @@ const variantAppearance = styleVariants({
             background: vars.color.button_default,
             color: vars.color.white,
             selectors: {
-                "&[data-active='true']": {
-                    background: vars.color.button_active,
-                    color: vars.color.white,
-                },
-                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: vars.color.button_default,
-                },
+                // "&[data-active='true']": {
+                //     background: vars.color.button_active,
+                //     color: vars.color.white,
+                // },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-                    background: vars.color.button_active,
+                    background: vars.color.button_hover,
                     color: vars.color.white,
+                },
+                // eslint-disable-next-line sort-keys-fix/sort-keys-fix
+                "&:active": {
+                    background: vars.color.button_active,
                 },
             },
         },
@@ -118,39 +118,16 @@ const variantAppearance = styleVariants({
             color: vars.color.text_high_contrast,
             selectors: {
                 "&[data-active='true']": {
-                    background: vars.color.button_tint,
+                    background: vars.color.tint_active,
+                    borderColor: vars.color.border_active,
                     color: vars.color.button_active,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
                     background: "transparent",
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-                    background: vars.color.tint_active,
-                },
-            },
-        },
-    ],
-
-    tertiary: [
-        getSprinkles({
-            fontWeight: "normal",
-            paddingX: "space_2",
-            paddingY: "space_1",
-            textAlign: "left",
-        }),
-        {
-            color: vars.color.text_low_contrast,
-            selectors: {
-                "&[data-active='true']": {
-                    background: vars.color.tint_active,
-                },
-                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    color: vars.color.button_default,
-                },
-                [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-                    background: vars.color.tint_active,
-                    // color: vars.color.button_active,
-                    textDecoration: "none",
+                    background: vars.color.tint_hover,
+                    borderColor: vars.color.border_hover,
                 },
             },
         },

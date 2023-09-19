@@ -32,7 +32,7 @@ export function DataTableInfoPageCount<TTableData>({
             alignItems="center"
             as="span"
             display="flex"
-            fontSize="body_md"
+            fontSize="bodyMd"
             gap="space_1"
             marginRight="auto"
             marginY="space_1"

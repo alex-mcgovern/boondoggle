@@ -10,7 +10,6 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
-import { elementFontSize } from "../../../styles/common/element_size.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
@@ -73,34 +72,6 @@ describe("<SelectSingle />", () => {
             });
 
             expect(getByTestId("icon")).not.toBeNull();
-        });
-    });
-});
-
-describe("<SelectSingle />", () => {
-    describe("Size", () => {
-        test("should have the `md` class name by default", () => {
-            const { getByRole } = renderComponent(PROPS);
-
-            expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
-        });
-
-        test("should have the `sm` class name when size = sm", () => {
-            const { getByRole } = renderComponent({ ...PROPS, size: "sm" });
-
-            expect(getByRole("combobox")).toHaveClass(elementFontSize.sm);
-        });
-
-        test("should have the `md` class name when size = md", () => {
-            const { getByRole } = renderComponent({ ...PROPS, size: "md" });
-
-            expect(getByRole("combobox")).toHaveClass(elementFontSize.md);
-        });
-
-        test("should have the `lg` class name when size = lg", () => {
-            const { getByRole } = renderComponent({ ...PROPS, size: "lg" });
-
-            expect(getByRole("combobox")).toHaveClass(elementFontSize.lg);
         });
     });
 });

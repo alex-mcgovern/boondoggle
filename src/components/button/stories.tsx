@@ -27,10 +27,7 @@ const Template: StoryFn<StoryCompProps> = ({ children, name, ...rest }: StoryCom
 
 export const Default: StoryObj<StoryCompProps> = {
     args: {
-        children: "Click me",
-        onClick: () => {
-            alert("You clicked me!");
-        },
+        children: "Button",
     },
 
     render: Template,
@@ -83,13 +80,6 @@ const TemplateAppearances: StoryFn<StoryCompProps> = (rest) => {
                 name="secondary"
             >
                 Secondary
-            </StoryComp>
-            <StoryComp
-                {...rest}
-                appearance="tertiary"
-                name="tertiary"
-            >
-                Tertiary
             </StoryComp>
             <StoryComp
                 {...rest}
@@ -169,7 +159,7 @@ export const IsLoading: StoryObj<StoryCompProps> = {
     },
 };
 
-const TemplateSizes: StoryFn<StoryCompProps> = () => {
+const TemplateSizes: StoryFn<StoryCompProps> = (args) => {
     return (
         <Box
             alignItems="center"
@@ -177,36 +167,41 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
             gap="space_6"
         >
             <StoryComp
+                {...args}
                 id="lg"
                 name="lg"
                 size="lg"
                 slotRight={[<Icon icon={faTriangleCircleSquare} />]}
             >
-                Click me
+                Button
             </StoryComp>
             <StoryComp
+                {...args}
                 id="md"
                 name="md"
                 size="md"
                 slotRight={[<Icon icon={faTriangleCircleSquare} />]}
             >
-                Click me
+                Button
             </StoryComp>
             <StoryComp
+                {...args}
                 id="sm"
                 name="sm"
                 size="sm"
                 slotRight={[<Icon icon={faTriangleCircleSquare} />]}
             >
-                Click me
+                Button
             </StoryComp>
             <StoryComp
+                {...args}
                 id="square_md"
                 name="square_md"
                 size="square_md"
                 slotRight={[<Icon icon={faTriangleCircleSquare} />]}
             />
             <StoryComp
+                {...args}
                 id="square_sm"
                 name="square_sm"
                 size="square_sm"
@@ -217,6 +212,11 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
 };
 
 export const Sizes: StoryObj<StoryCompProps> = {
+    args: {
+        onClick: () => {
+            alert("You clicked me!");
+        },
+    },
     render: TemplateSizes,
 };
 
@@ -234,7 +234,7 @@ const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
                 placeholder={LOREM.placeholder()}
                 slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
             >
-                Click me
+                Button
             </StoryComp>
             <StoryComp
                 {...rest}
@@ -243,7 +243,7 @@ const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
                 placeholder={LOREM.placeholder()}
                 slotRight={[<Icon icon={faTriangleCircleSquare} />]}
             >
-                Click me
+                Button
             </StoryComp>
         </Box>
     );

@@ -18,8 +18,8 @@ export const sprinklesProperties = defineProperties({
             transparent: "transparent",
         },
         border: {
-            border_active: `1px solid ${vars.color.border_active}`,
             border_default: `1px solid ${vars.color.border_default}`,
+            border_hover: `1px solid ${vars.color.border_hover}`,
         },
         borderBottom: vars.border,
         borderLeft: vars.border,

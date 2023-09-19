@@ -17,12 +17,13 @@ const PROPS: FormInputProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FormInputProps) =>
-    {return render(
+const renderComponent = ({ ...props }: FormInputProps) => {
+    return render(
         <FormTestProvider>
             <FormInput {...props} />
         </FormTestProvider>
-    )};
+    );
+};
 
 describe("<FormInput />", () => {
     describe("Basic smoke tests", () => {

@@ -32,7 +32,7 @@ export const tooltipTextStyle = style([
         background: "black",
         borderRadius: "md",
         color: "white",
-        fontStyle: "body_sm",
+        fontStyle: "bodySm",
         fontWeight: "normal",
         overflow: "hidden",
         padding: "space_2",

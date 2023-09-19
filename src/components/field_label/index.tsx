@@ -33,7 +33,7 @@ export function FieldLabel({ htmlFor, label, labelTooltip, ...rest }: FieldLabel
             as="label"
             color="text_low_contrast"
             display="flex"
-            fontSize="body_sm"
+            fontSize="bodyMd"
             fontWeight="normal"
             gap="space_1"
             htmlFor={htmlFor}

@@ -72,9 +72,9 @@ export function useFieldActions({
 }: UseFieldActionsArgs) {
     // Manage the input value with state to allow it to be cleared.
 
-    const [inputValue, setInputValue] = useState<typeof value | typeof defaultValue>(
-        () => {return value || defaultValue || ""}
-    );
+    const [inputValue, setInputValue] = useState<typeof value | typeof defaultValue>(() => {
+        return value || defaultValue || "";
+    });
 
     useEffect(() => {
         if (value !== undefined) {

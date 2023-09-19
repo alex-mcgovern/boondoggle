@@ -79,17 +79,19 @@ export function DialogModalActions({
             __gridTemplateColumns={`repeat(${Children.count(actions)}, 1fr)`}
             className={dialogModalActionsWrapperStyle}
         >
-            {Children.map(actions, (action) => {return (
-                <Slot
-                    onClick={() => {
-                        if (shouldCloseOnAction) {
-                            closeDialog();
-                        }
-                    }}
-                >
-                    {action}
-                </Slot>
-            )})}
+            {Children.map(actions, (action) => {
+                return (
+                    <Slot
+                        onClick={() => {
+                            if (shouldCloseOnAction) {
+                                closeDialog();
+                            }
+                        }}
+                    >
+                        {action}
+                    </Slot>
+                );
+            })}
         </Box>
     );
 }

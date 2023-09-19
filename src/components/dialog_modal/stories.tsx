@@ -70,7 +70,7 @@ const ControlledTemplate: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps
                 marginBottom="space_4"
                 padding="space_4"
             >
-                <Box fontStyle="body_sm">Simulate programmatic control</Box>
+                <Box fontStyle="bodySm">Simulate programmatic control</Box>
                 <Button
                     appearance="secondary"
                     name="open_dialog"

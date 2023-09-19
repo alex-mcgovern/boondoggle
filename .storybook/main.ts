@@ -39,7 +39,7 @@ const config: StorybookConfig = {
     },
     webpackFinal: async (config) =>
         merge(config, {
-            plugins: [new VanillaExtractPlugin({ identifiers: "short", outputCss: true })],
+            plugins: [new VanillaExtractPlugin({ identifiers: "debug", outputCss: true })],
         }),
 };
 

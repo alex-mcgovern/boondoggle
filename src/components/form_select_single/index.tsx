@@ -13,8 +13,11 @@ type GetDefaultValueItemArgs = {
     value?: string | number;
 };
 
-const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) =>
-    {return items.find((item) => {return item.value.toString() === value?.toString()})};
+const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) => {
+    return items.find((item) => {
+        return item.value.toString() === value?.toString();
+    });
+};
 
 export type FormSelectSingleProps = SelectSingleProps &
     WithFormFieldProps & {

@@ -31,7 +31,7 @@ export function LoaderFullScreen({
             {loadingText && (
                 <Box
                     color={color}
-                    fontStyle="body_sm"
+                    fontStyle="bodySm"
                 >
                     {loadingText}
                 </Box>

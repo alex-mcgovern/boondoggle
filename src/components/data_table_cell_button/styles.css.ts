@@ -7,7 +7,7 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 export const dataTableCellButtonStyle = style([
     getSprinkles({
         color: "text_high_contrast",
-        fontStyle: "body_sm",
+        fontStyle: "bodySm",
         fontWeight: "medium",
     }),
     {

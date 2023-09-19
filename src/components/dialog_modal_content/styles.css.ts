@@ -19,6 +19,9 @@ export const getDialogContentInnerStyle = recipe({
         getSprinkles({
             height: "100%",
         }),
+        {
+            transition: "max-height 100ms ease",
+        },
     ],
     defaultVariants: {
         hasPadding: true,

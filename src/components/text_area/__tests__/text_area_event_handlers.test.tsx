@@ -12,7 +12,9 @@ import type { TextAreaProps } from "..";
 
 afterEach(cleanup);
 
-const renderComponent = (props: TextAreaProps) => {return render(<TextArea {...props} />)};
+const renderComponent = (props: TextAreaProps) => {
+    return render(<TextArea {...props} />);
+};
 
 describe("<TextArea />", () => {
     /**

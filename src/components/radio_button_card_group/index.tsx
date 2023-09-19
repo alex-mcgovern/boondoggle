@@ -76,10 +76,12 @@ export const RadioButtonCardGroup = forwardRef(
             if (!Array.isArray(items) || items.length < 1) {
                 return [];
             }
-            return items.map((item) => {return {
-                ...item,
-                checked: defaultValue === item.value || value === item.value,
-            }});
+            return items.map((item) => {
+                return {
+                    ...item,
+                    checked: defaultValue === item.value || value === item.value,
+                };
+            });
         }, [defaultValue, items, value]);
 
         if (!Array.isArray(controlledItems) || controlledItems.length < 1) {
@@ -112,20 +114,22 @@ export const RadioButtonCardGroup = forwardRef(
                     name={name}
                     {...rest}
                 >
-                    {controlledItems.map((item) => {return (
-                        <RadioButtonCard
-                            adornment={item.adornment}
-                            body={item.body}
-                            checked={item.checked}
-                            inputProps={inputProps}
-                            key={item.title}
-                            name={name}
-                            onChange={onChange}
-                            required={required}
-                            title={item.title}
-                            value={item.value}
-                        />
-                    )})}
+                    {controlledItems.map((item) => {
+                        return (
+                            <RadioButtonCard
+                                adornment={item.adornment}
+                                body={item.body}
+                                checked={item.checked}
+                                inputProps={inputProps}
+                                key={item.title}
+                                name={name}
+                                onChange={onChange}
+                                required={required}
+                                title={item.title}
+                                value={item.value}
+                            />
+                        );
+                    })}
                 </Box>
                 {invalid && errorMessage && <FieldErrorMessage message={errorMessage} />}
                 {description && !invalid && <FieldDescription description={description} />}

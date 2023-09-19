@@ -278,7 +278,7 @@ export const getSlotInnerStyles = recipe({
                     width: vars.spacing.space_10,
                 },
                 getSprinkles({
-                    fontStyle: "body_md",
+                    fontStyle: "bodyMd",
                 }),
             ],
             md: [
@@ -287,7 +287,7 @@ export const getSlotInnerStyles = recipe({
                     width: vars.spacing.space_8,
                 },
                 getSprinkles({
-                    fontStyle: "body_sm",
+                    fontStyle: "bodySm",
                 }),
             ],
             sm: [
@@ -296,7 +296,7 @@ export const getSlotInnerStyles = recipe({
                     width: vars.spacing.space_6,
                 },
                 getSprinkles({
-                    fontStyle: "body_xs",
+                    fontStyle: "bodySm",
                 }),
             ],
         },
