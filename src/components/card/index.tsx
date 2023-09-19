@@ -56,7 +56,12 @@ export function Card({ actions, children, description, hasPadding = true, title 
                 >
                     {title && (
                         <Box>
-                            <Box as="h3">{title}</Box>
+                            <Box
+                                as="h3"
+                                fontStyle="h5"
+                            >
+                                {title}
+                            </Box>
                             <Box
                                 as="p"
                                 color="text_low_contrast"
