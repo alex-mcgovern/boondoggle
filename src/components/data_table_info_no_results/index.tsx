@@ -44,7 +44,7 @@ export function DataTableInfoNoResults({
             color="text_low_contrast"
             display="flex"
             flexDirection="column"
-            fontStyle="body_sm"
+            fontStyle="bodySm"
             gap="space_4"
             justifyContent="center"
             paddingX="space_4"
@@ -59,7 +59,7 @@ export function DataTableInfoNoResults({
             />
 
             <Box
-                fontStyle="body_lg"
+                fontStyle="bodyLg"
                 fontWeight="semibold"
             >
                 {strNoResults}

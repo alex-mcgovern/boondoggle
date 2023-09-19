@@ -18,8 +18,11 @@ const PROPS: DatePickerProps = {
 
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
-const renderComponent = async ({ ...props }: DatePickerProps) =>
-    {return waitFor(() => {return render(<DatePicker {...props}>{LOREM.button}</DatePicker>)})};
+const renderComponent = async ({ ...props }: DatePickerProps) => {
+    return waitFor(() => {
+        return render(<DatePicker {...props}>{LOREM.button}</DatePicker>);
+    });
+};
 
 describe("<DatePicker />", () => {
     describe("Basic smoke tests", () => {
@@ -38,7 +41,9 @@ describe("<DatePicker />", () => {
                 name: "02",
             });
 
-            await act(() => {return userEvent.click(janSecondButton)});
+            await act(() => {
+                return userEvent.click(janSecondButton);
+            });
 
             expect(onDayClick).toHaveBeenCalledWith(
                 expect.anything(),

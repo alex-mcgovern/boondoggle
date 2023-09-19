@@ -116,16 +116,15 @@ export function useTooltip({
 
     const interactions = useInteractions([hover, focus, dismiss, role]);
 
-    return useMemo(
-        () => {return {
+    return useMemo(() => {
+        return {
             arrowRef,
             open,
             setOpen,
             ...interactions,
             ...data,
-        }},
-        [open, setOpen, interactions, data]
-    );
+        };
+    }, [open, setOpen, interactions, data]);
 }
 
 type ContextType = ReturnType<typeof useTooltip> | null;

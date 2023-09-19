@@ -28,8 +28,8 @@ export function ColorPalette() {
             />
             <ColorItem
                 colors={{
-                    border_active: vars.color.border_active,
                     border_default: vars.color.border_default,
+                    border_hover: vars.color.border_hover,
                 }}
                 subtitle="Used for borders, dividers, etc. Is re-assigned by color overlay."
                 title="Border"

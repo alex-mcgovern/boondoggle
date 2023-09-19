@@ -23,9 +23,9 @@ const mockFormSchema = z.object({
     select: z.string().min(1),
 });
 
-const handleFormSubmissionMock = jest.fn(async (fieldValues: unknown) =>
-    {return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`)}
-);
+const handleFormSubmissionMock = jest.fn(async (fieldValues: unknown) => {
+    return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`);
+});
 
 const FORM_FIELD_WRAPPER_PROPS: BoxProps = {
     marginBottom: "space_6",
@@ -36,7 +36,9 @@ export default {
     title: "Components/DialogModalForm",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return <StoryComp {...rest} />};
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+    return <StoryComp {...rest} />;
+};
 
 export const WidthSm: StoryObj<StoryCompProps> = {
     args: {

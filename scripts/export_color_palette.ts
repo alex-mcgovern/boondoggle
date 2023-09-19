@@ -5,15 +5,15 @@ import fs from "fs";
 import { makeTheme } from "../src/styles/utils/make_theme";
 
 const theme = {
-    amber: makeTheme({ primaryPalette: amber, secondaryPalette: amber }),
+    amber: makeTheme({ primary: amber, secondary: amber }),
     base: makeTheme({
-        primaryPalette: blue,
-        secondaryPalette: slate,
+        primary: blue,
+        secondary: slate,
     }),
-    blue: makeTheme({ primaryPalette: blue, secondaryPalette: blue }),
-    green: makeTheme({ primaryPalette: green, secondaryPalette: green }),
-    red: makeTheme({ primaryPalette: red, secondaryPalette: red }),
-    slate: makeTheme({ primaryPalette: slate, secondaryPalette: slate }),
+    blue: makeTheme({ primary: blue, secondary: blue }),
+    green: makeTheme({ primary: green, secondary: green }),
+    red: makeTheme({ primary: red, secondary: red }),
+    slate: makeTheme({ primary: slate, secondary: slate }),
 };
 
 fs.writeFileSync("./color_tokens.json", JSON.stringify(theme, null, 2));

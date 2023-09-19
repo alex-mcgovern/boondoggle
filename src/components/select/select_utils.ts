@@ -34,7 +34,9 @@ export const getIsSelected = ({
     if (isMulti) {
         return (
             Array.isArray(prevSelectedItems) &&
-            prevSelectedItems.some((prevSelectedItem) => {return prevSelectedItem?.value === item?.value})
+            prevSelectedItems.some((prevSelectedItem) => {
+                return prevSelectedItem?.value === item?.value;
+            })
         );
     }
 

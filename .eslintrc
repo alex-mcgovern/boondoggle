@@ -1,5 +1,5 @@
 {
-    "ignorePatterns": ["*.snap", "dist", "storybook-static", "docs", "build"],
+    "ignorePatterns": ["*.snap", "dist", "storybook-static", "docs", "build", "documentation"],
     "overrides": [
         /**
          *    Typescript

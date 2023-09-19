@@ -23,7 +23,7 @@ export function FieldDescription({
             className={userClassName}
             color="text_low_contrast"
             display="flex"
-            fontStyle="body_sm"
+            fontStyle="bodySm"
             gap="space_1"
             marginY="space_1"
             {...rest}

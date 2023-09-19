@@ -7,17 +7,17 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 const size = styleVariants({
     lg: [
         getSprinkles({
-            fontStyle: "body_md",
+            fontStyle: "bodyMd",
         }),
     ],
     md: [
         getSprinkles({
-            fontStyle: "body_sm",
+            fontStyle: "bodySm",
         }),
     ],
     sm: [
         getSprinkles({
-            fontStyle: "body_xs",
+            fontStyle: "bodySm",
         }),
     ],
 });
@@ -27,7 +27,7 @@ export const getProgressBarStyles = recipe({
         variantColorOverlay.blue,
         getSprinkles({
             alignItems: "center",
-            border: "border_active",
+            border: "border_hover",
             borderRadius: "sm",
             color: "text_low_contrast",
             display: "flex",

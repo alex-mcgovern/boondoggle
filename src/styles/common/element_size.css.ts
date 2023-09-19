@@ -12,24 +12,24 @@ export const elementHeight = {
 export const elementFontSize = styleVariants({
     lg: [
         getSprinkles({
-            fontStyle: "body_lg",
+            fontStyle: "bodyLg",
         }),
     ],
     md: [
         getSprinkles({
-            fontStyle: "body_md",
+            fontStyle: "bodyMd",
         }),
     ],
     sm: [
         getSprinkles({
-            fontStyle: "body_sm",
+            fontStyle: "bodySm",
         }),
     ],
 });
 
 export const elementPadding = styleVariants({
-    lg: [getSprinkles({ paddingX: "space_4", paddingY: "space_3" })],
-    md: [getSprinkles({ paddingX: "space_3", paddingY: "space_2" })],
+    lg: [getSprinkles({ paddingX: "space_6", paddingY: "space_3" })],
+    md: [getSprinkles({ paddingX: "space_4", paddingY: "space_2" })],
     sm: [getSprinkles({ paddingX: "space_2", paddingY: "space_1" })],
 });
 

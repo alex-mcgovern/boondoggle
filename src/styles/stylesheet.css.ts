@@ -57,7 +57,7 @@ globalStyle(
 globalStyle("body", {
     "@layer": {
         [resetLayer]: {
-            lineHeight: 1,
+            lineHeight: 1.5,
         },
     },
 });
@@ -175,11 +175,12 @@ globalStyle(":root", {
     "@media": {
         [MEDIA_QUERY_MOBILE]: {
             vars: {
-                [vars.fontSize.h0]: "2.5rem",
-                [vars.fontSize.h1]: "2rem",
-                [vars.fontSize.h2]: "1.625rem",
-                [vars.fontSize.h3]: "1.375rem",
-                [vars.fontSize.h4]: "1.125rem",
+                [vars.fontSize.h1]: "2.5rem",
+                [vars.fontSize.h2]: "2rem",
+                [vars.fontSize.h3]: "1.625rem",
+                [vars.fontSize.h4]: "1.375rem",
+                [vars.fontSize.h5]: "1.125rem",
+                [vars.fontSize.h6]: "1rem",
             },
         },
     },
@@ -205,7 +206,7 @@ globalStyle(`html, body`, {
     "@layer": {
         [baseLayer]: {
             fontFamily: vars.fontFamily.body,
-            fontSize: vars.fontSize.body_md,
+            fontSize: vars.fontSize.root,
             height: `100%`,
         },
     },
@@ -215,7 +216,7 @@ globalStyle(`body`, {
     "@layer": {
         [baseLayer]: {
             color: vars.color.text_high_contrast,
-            lineHeight: vars.lineHeight.body_md,
+            lineHeight: vars.lineHeight.bodyMd,
             WebkitFontSmoothing: `antialiased`,
         },
     },
@@ -296,6 +297,7 @@ globalStyle(`h1`, {
     "@layer": {
         [baseLayer]: {
             fontSize: vars.fontSize.h1,
+            fontWeight: vars.fontWeight.bold,
         },
     },
 });
@@ -304,6 +306,7 @@ globalStyle(`h2`, {
     "@layer": {
         [baseLayer]: {
             fontSize: vars.fontSize.h2,
+            fontWeight: vars.fontWeight.semibold,
         },
     },
 });
@@ -312,6 +315,7 @@ globalStyle(`h3`, {
     "@layer": {
         [baseLayer]: {
             fontSize: vars.fontSize.h3,
+            fontWeight: vars.fontWeight.semibold,
         },
     },
 });
@@ -320,6 +324,7 @@ globalStyle(`h4`, {
     "@layer": {
         [baseLayer]: {
             fontSize: vars.fontSize.h4,
+            fontWeight: vars.fontWeight.semibold,
         },
     },
 });
@@ -328,6 +333,7 @@ globalStyle(`h5`, {
     "@layer": {
         [baseLayer]: {
             fontSize: vars.fontSize.h5,
+            fontWeight: vars.fontWeight.semibold,
         },
     },
 });
@@ -336,6 +342,7 @@ globalStyle(`h6`, {
     "@layer": {
         [baseLayer]: {
             fontSize: vars.fontSize.h6,
+            fontWeight: vars.fontWeight.semibold,
         },
     },
 });
@@ -410,7 +417,7 @@ globalStyle("input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hove
     "@layer": {
         [baseLayer]: {
             background: vars.color.tint_default,
-            borderColor: vars.color.border_active,
+            borderColor: vars.color.border_hover,
         },
     },
 });
@@ -509,7 +516,7 @@ export const tableStyles = style({
 // Table head cell styles
 
 const tHeadStyleRule: StyleRule = {
-    fontSize: vars.fontSize.body_sm,
+    fontSize: vars.fontSize.bodySm,
     fontWeight: vars.fontWeight.semibold,
 };
 
@@ -529,7 +536,7 @@ export const tHeadStyles = style({
 // Table cells
 
 const tableCellStyleRule: StyleRule = {
-    fontSize: vars.fontSize.body_sm,
+    fontSize: vars.fontSize.bodyMd,
     padding: vars.spacing.space_4,
     textAlign: "left",
     verticalAlign: "middle",

@@ -10,6 +10,7 @@ export const avatarStyle = style([
         borderRadius: "50%",
         color: "white",
         display: "flex",
+        flexShrink: "0",
         fontWeight: "bold",
         justifyContent: "center",
         overflow: "hidden",

@@ -8,10 +8,9 @@ import userEvent from "@testing-library/user-event";
 import { Button } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
-import { elementFontSize } from "../../../styles/common/element_size.css";
 import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
-import { getButtonStyles } from "../styles.css";
+import { getButtonStyles, variantButtonSize } from "../styles.css";
 
 describe("<Button />", () => {
     describe("Basic smoke tests", () => {
@@ -165,16 +164,16 @@ describe("<Button />", () => {
             expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "secondary" }));
         });
 
-        test("should have the tertiary class name when appearance = tertiary", () => {
+        test("should have the ghost class name when appearance = ghost", () => {
             const { getByRole } = render(
                 <Button
-                    appearance="tertiary"
+                    appearance="ghost"
                     id="button"
                     name="Test button"
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "tertiary" }));
+            expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "ghost" }));
         });
     });
 
@@ -431,7 +430,7 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(elementFontSize.md);
+            expect(getByRole("button")).toHaveClass(variantButtonSize.md);
         });
 
         test("should have the `sm` class name when size = sm", () => {
@@ -443,7 +442,7 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(elementFontSize.sm);
+            expect(getByRole("button")).toHaveClass(variantButtonSize.sm);
         });
 
         test("should have the `md` class name when size = md", () => {
@@ -455,7 +454,7 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(elementFontSize.md);
+            expect(getByRole("button")).toHaveClass(variantButtonSize.md);
         });
 
         test("should have the `lg` class name when size = lg", () => {
@@ -467,7 +466,7 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(elementFontSize.lg);
+            expect(getByRole("button")).toHaveClass(variantButtonSize.lg);
         });
 
         test("should have the `square_md` class name when size = square_md", () => {

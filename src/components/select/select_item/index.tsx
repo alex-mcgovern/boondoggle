@@ -66,35 +66,37 @@ export const SelectItem = forwardRef(
             ...rest
         }: SelectItemProps,
         ref: Ref<HTMLDivElement>
-    ) => {return (
-        <SlotWrapper
-            as={as}
-            className={clsx(
-                styles.getDropdownItemStyles({
-                    colorOverlay,
-                    size,
-                }),
-                {
-                    [styles.isHighlighted]: isHighlighted,
-                }
-            )}
-            id={label}
-            size={size}
-            slotLeft={slotLeft}
-            {...rest}
-            ref={ref}
-        >
-            <Box flexShrink="0">{label}</Box>
-            {isMulti && (
-                <Box
-                    as="input"
-                    checked={isSelected}
-                    marginLeft="auto"
-                    readOnly
-                    tabIndex={-1}
-                    type="checkbox"
-                />
-            )}
-        </SlotWrapper>
-    )}
+    ) => {
+        return (
+            <SlotWrapper
+                as={as}
+                className={clsx(
+                    styles.getDropdownItemStyles({
+                        colorOverlay,
+                        size,
+                    }),
+                    {
+                        [styles.isHighlighted]: isHighlighted,
+                    }
+                )}
+                id={label}
+                size={size}
+                slotLeft={slotLeft}
+                {...rest}
+                ref={ref}
+            >
+                <Box flexShrink="0">{label}</Box>
+                {isMulti && (
+                    <Box
+                        as="input"
+                        checked={isSelected}
+                        marginLeft="auto"
+                        readOnly
+                        tabIndex={-1}
+                        type="checkbox"
+                    />
+                )}
+            </SlotWrapper>
+        );
+    }
 );

@@ -9,13 +9,13 @@ const handleSubmit = jest.fn();
 
 const handleErrors = jest.fn();
 
-handleSubmit.mockImplementation(async (fieldValues: unknown) =>
-    {return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`)}
-);
+handleSubmit.mockImplementation(async (fieldValues: unknown) => {
+    return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`);
+});
 
-handleErrors.mockImplementation(async (errors) =>
-    {return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`)}
-);
+handleErrors.mockImplementation(async (errors) => {
+    return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
+});
 
 const meta = {
     component: StoryComp,

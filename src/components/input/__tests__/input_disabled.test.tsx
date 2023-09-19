@@ -29,7 +29,9 @@ const PROPS: InputProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: InputProps) => {return render(<Input {...props} />)};
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
+};
 
 describe("<Input />", () => {
     describe("Disabled", () => {

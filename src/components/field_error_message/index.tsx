@@ -33,7 +33,7 @@ export function FieldErrorMessage({
                 className={clsx(userClassName, variantColorOverlay.red)}
                 color="text_low_contrast"
                 display="flex"
-                fontStyle="body_sm"
+                fontStyle="bodySm"
                 gap="space_1"
                 marginY="space_1"
                 role="alert"

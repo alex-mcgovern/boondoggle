@@ -8,7 +8,9 @@ export default {
     title: "Components/Loader",
 };
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {return <StoryComp {...rest} />};
+const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+    return <StoryComp {...rest} />;
+};
 
 export const Default: StoryObj<StoryCompProps> = {
     render: Template,

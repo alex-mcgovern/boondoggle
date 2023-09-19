@@ -159,7 +159,7 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
                             </Box>
                             <Box
                                 color="text_low_contrast"
-                                fontStyle="body_sm"
+                                fontStyle="bodySm"
                             >
                                 {row.original.email_address}
                             </Box>

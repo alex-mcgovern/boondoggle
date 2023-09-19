@@ -10,17 +10,17 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 const pillSize = styleVariants({
     lg: [
         getSprinkles({
-            fontStyle: "body_md",
+            fontStyle: "bodyMd",
         }),
     ],
     md: [
         getSprinkles({
-            fontStyle: "body_sm",
+            fontStyle: "bodySm",
         }),
     ],
     sm: [
         getSprinkles({
-            fontStyle: "body_xs",
+            fontStyle: "bodySm",
         }),
     ],
 });

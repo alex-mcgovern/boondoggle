@@ -60,7 +60,7 @@ export const sliderRange = style([
 export const sliderThumb = style([
     getSprinkles({
         background: "tint_default",
-        border: "border_active",
+        border: "border_hover",
         borderRadius: "50%",
 
         display: "block",
@@ -74,7 +74,7 @@ export const sliderThumb = style([
         selectors: {
             [`&${SELECTOR_IS_HOVER}`]: {
                 background: vars.color.tint_active,
-                borderColor: vars.color.border_active,
+                borderColor: vars.color.border_hover,
                 cursor: "pointer",
             },
             [`&${SELECTOR_IS_FOCUS}`]: {

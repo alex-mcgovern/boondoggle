@@ -26,8 +26,11 @@ const PROPS: FormProps = mockForm({
     handleSubmit,
 });
 
-const renderComponent = async ({ ...props }: FormProps) =>
-    {return waitFor(() => {return render(<Form {...props} />)})};
+const renderComponent = async ({ ...props }: FormProps) => {
+    return waitFor(() => {
+        return render(<Form {...props} />);
+    });
+};
 
 describe("<Form />", () => {
     describe("Basic smoke tests", () => {

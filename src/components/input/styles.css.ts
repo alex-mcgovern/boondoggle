@@ -10,9 +10,9 @@ import {
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-    lg: [elementFontSize.lg, elementPadding.lg, { height: elementHeight.lg }],
+    lg: [elementFontSize.md, elementPadding.lg, { height: elementHeight.lg }],
     md: [elementFontSize.md, elementPadding.md, { height: elementHeight.md }],
-    sm: [elementFontSize.sm, elementPadding.sm, { height: elementHeight.sm }],
+    sm: [elementFontSize.md, elementPadding.sm, { height: elementHeight.sm }],
 });
 
 const hasBorder = styleVariants({

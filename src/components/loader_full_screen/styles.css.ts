@@ -9,10 +9,13 @@ export const loaderWrapperStyle = style([
         flexDirection: "column",
         gap: "space_4",
         justifyContent: "center",
+        marginY: "auto",
+        padding: "space_8",
         width: "100%",
     }),
     {
-        height: "100dvh",
+        flexGrow: 1,
+        // height: "100dvh",
         minHeight: "40vh",
     },
 ]);

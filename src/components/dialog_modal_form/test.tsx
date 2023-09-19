@@ -33,8 +33,8 @@ const renderComponent = async (props: DialogModalFormProps) => {
         dialogRef.current?.showModal();
     };
 
-    return waitFor(() =>
-        {return render(
+    return waitFor(() => {
+        return render(
             <>
                 <button
                     onClick={openDialogRemoveTeamMember}
@@ -47,8 +47,8 @@ const renderComponent = async (props: DialogModalFormProps) => {
                     {...props}
                 />
             </>
-        )}
-    );
+        );
+    });
 };
 
 const handleFormSubmissionMock = jest.fn();

@@ -91,7 +91,7 @@ export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
         children: [
             <StoryComp
                 as="h3"
-                fontSize="body_lg"
+                fontSize="bodyLg"
                 fontWeight="bold"
             >
                 {LOREM.text_xxs}
@@ -119,7 +119,7 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
                 <StoryComp
                     as="h3"
                     color="text_low_contrast"
-                    fontSize="body_lg"
+                    fontSize="bodyLg"
                     fontWeight="bold"
                 >
                     {LOREM.text_xxs}
@@ -152,7 +152,7 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
                 <StoryComp
                     as="h3"
                     color="text_low_contrast"
-                    fontSize="body_lg"
+                    fontSize="bodyLg"
                     fontWeight="bold"
                 >
                     {LOREM.text_xxs}

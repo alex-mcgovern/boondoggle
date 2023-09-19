@@ -2,6 +2,32 @@ import { createGlobalTheme } from "@vanilla-extract/css";
 
 import { color } from "./color_palette.css";
 
+export const fontSizeRaw = {
+    bodyLg: "1rem", // 16px
+    bodyMd: "0.875rem", // 14px
+    bodySm: "0.75rem", // 12px
+    h1: "2.5rem", // 40px
+    h2: "2rem", // 32 px
+    h3: "1.75rem", // 28px
+    h4: "1.5rem", // 24px
+    h5: "1.25rem", // 20px
+    h6: "1rem", // 16px
+    root: "16px",
+};
+
+export const lineHeightRaw = {
+    bodyLg: "1.5rem", // 24px
+    bodyMd: "1.5rem", // 24px
+    bodySm: "1rem", // 16px
+    h1: "3rem", // 48px
+    h2: "2.5rem", // 40px
+    h3: "2rem", // 32px
+    h4: "1.75rem", // 28px
+    h5: "1.5rem", // 24px
+    h6: "1.5rem", // 24px
+    root: "1.5rem", // 24px
+};
+
 /**
  * Global variables (css vars)
  *
@@ -17,8 +43,8 @@ export const rootVars = createGlobalTheme(":root", {
         wide: "16 / 9",
     },
     border: {
-        border_active: `1px solid ${color.border_active}`,
         border_default: `1px solid ${color.border_default}`,
+        border_hover: `1px solid ${color.border_hover}`,
     },
     borderRadius: {
         "50%": "50%",
@@ -46,21 +72,7 @@ export const rootVars = createGlobalTheme(":root", {
     fontFamily: {
         body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
     },
-    fontSize: {
-        body_lg: "1.125rem",
-        body_md: "1rem",
-        body_sm: "0.875rem",
-        body_xl: "1.5rem",
-        body_xs: "0.75rem",
-        h0: "2.5rem",
-        h1: "2rem",
-        h2: "1.5rem",
-        h3: "1.25rem",
-        h4: "1rem",
-        h5: "0.875rem",
-        h6: "0.75rem",
-        root: "16px",
-    },
+    fontSize: fontSizeRaw,
     fontWeight: {
         bold: "700",
         extrabold: "800",
@@ -98,21 +110,7 @@ export const rootVars = createGlobalTheme(":root", {
         auto: "auto",
         "min-content": "min-content",
     },
-    lineHeight: {
-        body_lg: "1.5",
-        body_md: "1.5",
-        body_sm: "1.5",
-        body_xl: "1.5",
-        body_xs: "1.25",
-        h0: "1",
-        h1: "1",
-        h2: "1",
-        h3: "1",
-        h4: "1",
-        h5: "1",
-        h6: "1",
-        root: "1.5",
-    },
+    lineHeight: lineHeightRaw,
     spacing: {
         auto: "auto",
         none: "0",

@@ -23,7 +23,7 @@ export const dialogTitleStyle = style([
     {
         "@media": {
             [MEDIA_QUERY_MOBILE]: {
-                fontSize: vars.fontSize.body_lg,
+                fontSize: vars.fontSize.bodyLg,
             },
         },
     },
