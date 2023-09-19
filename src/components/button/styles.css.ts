@@ -141,7 +141,7 @@ const variantAppearance = styleVariants({
             textAlign: "left",
         }),
         {
-            color: vars.color.text_low_contrast,
+            color: vars.color.text_high_contrast,
             selectors: {
                 "&[data-active='true']": {
                     background: vars.color.button_tint,
