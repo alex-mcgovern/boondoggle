@@ -29,7 +29,7 @@ export const getPillStyle = recipe({
     base: [
         getSprinkles({
             alignItems: "center",
-            background: "tint_default",
+            background: "tint_hover",
             borderRadius: "pill",
             color: "text_low_contrast",
             flexShrink: "0",
