@@ -81,11 +81,32 @@ const variantAppearance = styleVariants({
     link: [
         {
             selectors: {
-                "&[data-active='true']": {
-                    color: vars.color.button_default,
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    color: vars.color.button_active,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     color: vars.color.button_default,
+                },
+            },
+        },
+    ],
+
+    navigational: [
+        getSprinkles({
+            fontWeight: "normal",
+            paddingX: "space_2",
+            paddingY: "space_1",
+        }),
+        {
+            color: vars.color.text_high_contrast,
+            selectors: {
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    background: vars.color.tint_active,
+                    fontWeight: "medium",
+                },
+                [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+                    background: vars.color.tint_hover,
+                    textDecoration: "none",
                 },
             },
         },
@@ -126,29 +147,6 @@ const variantAppearance = styleVariants({
                 [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
                     background: vars.color.tint_hover,
                     borderColor: vars.color.border_hover,
-                },
-            },
-        },
-    ],
-
-    tertiary: [
-        getSprinkles({
-            fontWeight: "medium",
-            paddingX: "space_2",
-            paddingY: "space_1",
-        }),
-        {
-            color: vars.color.text_high_contrast,
-            selectors: {
-                "&[data-active='true']": {
-                    background: vars.color.tint_active,
-                },
-                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: vars.color.tint_active,
-                },
-                [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-                    background: vars.color.tint_hover,
-                    textDecoration: "none",
                 },
             },
         },
