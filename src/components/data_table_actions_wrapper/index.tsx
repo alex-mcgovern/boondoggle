@@ -2,6 +2,7 @@ import { Children } from "react";
 
 import { Box } from "../box";
 
+import type { SprinklesArgs } from "../../../dist";
 import type { ReactNode } from "react";
 
 type DataTableActionsWrapperProps = {
@@ -14,7 +15,7 @@ type DataTableActionsWrapperProps = {
      * Action shown on the right-hand side
      */
     rightActions?: ReactNode | [ReactNode?, ReactNode?];
-};
+} & SprinklesArgs;
 
 /**
  * Wraps actions for a data table.
@@ -22,6 +23,7 @@ type DataTableActionsWrapperProps = {
 export function DataTableActionsWrapper({
     leftAction,
     rightActions,
+    ...rest
 }: DataTableActionsWrapperProps) {
     if (!leftAction && !rightActions) {
         return null;
@@ -35,7 +37,7 @@ export function DataTableActionsWrapper({
             gap="space_2"
             marginTop="space_4"
             paddingBottom="space_4"
-            paddingX="space_4"
+            {...rest}
         >
             {leftAction && <Box>{leftAction}</Box>}
             {rightActions && (

@@ -219,6 +219,7 @@ export function DialogModalDataTable<TData extends RowData>({
                                     />
                                 ) : null
                             }
+                            paddingX="space_4"
                             rightActions={actions}
                         />
                     )}

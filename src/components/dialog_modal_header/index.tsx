@@ -24,6 +24,7 @@ export function DialogModalHeader({ closeDialog, title }: DialogModalHeaderProps
             <Box
                 as="h3"
                 className={dialogTitleStyle}
+                fontStyle="h5"
             >
                 {title}
             </Box>
