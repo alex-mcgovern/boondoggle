@@ -2,7 +2,7 @@ import { Children } from "react";
 
 import { Box } from "../box";
 
-import type { SprinklesArgs } from "../../../dist";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ReactNode } from "react";
 
 type DataTableActionsWrapperProps = {
