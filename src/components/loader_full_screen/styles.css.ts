@@ -15,7 +15,7 @@ export const loaderWrapperStyle = style([
     }),
     {
         flexGrow: 1,
-        // height: "100dvh",
+        height: "100dvh",
         minHeight: "40vh",
     },
 ]);
