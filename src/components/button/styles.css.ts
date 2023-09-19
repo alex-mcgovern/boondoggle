@@ -132,6 +132,32 @@ const variantAppearance = styleVariants({
             },
         },
     ],
+
+    tertiary: [
+        getSprinkles({
+            fontWeight: "normal",
+            paddingX: "space_2",
+            paddingY: "space_1",
+            textAlign: "left",
+        }),
+        {
+            color: vars.color.text_low_contrast,
+            selectors: {
+                "&[data-active='true']": {
+                    background: vars.color.button_tint,
+                    color: vars.color.button_default,
+                },
+                [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+                    background: vars.color.button_tint,
+                    color: vars.color.button_default,
+                },
+                [SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+                    background: vars.color.tint_hover,
+                    textDecoration: "none",
+                },
+            },
+        },
+    ],
 });
 
 export type Appearance = keyof typeof variantAppearance;
