@@ -11,9 +11,7 @@ import {
     selectItemListInner,
 } from "./styles.css";
 
-import type { ElementSizeEnum } from "../../../../dist";
-import type { WithSize } from "../../../common-types";
-import type { ColorOverlay } from "../../../styles/color_palette.css";
+import type { WithColorOverlay, WithSize, WithSlots } from "../../../common-types";
 import type { BoxProps } from "../../box";
 import type { SelectItemShape } from "../types";
 import type {
@@ -21,49 +19,37 @@ import type {
     UseMultipleSelectionGetSelectedItemPropsOptions,
     UseSelectPropGetters,
 } from "downshift";
-import type { CSSProperties, ForwardedRef, ReactNode, Ref } from "react";
+import type { CSSProperties, ForwardedRef, Ref } from "react";
 
-export type SelectItemProps = BoxProps & {
-    /**
-     * An optional color overlay to apply to the item.
-     */
-    colorOverlay: ColorOverlay | undefined;
+export type SelectItemProps = BoxProps &
+    WithColorOverlay &
+    WithSize &
+    Omit<WithSlots, "slotRight"> & {
+        /**
+         * Whether the item is highlighted.
+         */
+        isHighlighted: boolean | undefined;
 
-    /**
-     * Whether the item is highlighted.
-     */
-    isHighlighted: boolean | undefined;
+        /**
+         * Whether the parent component allows multiple selection or not.
+         */
+        isMulti: boolean | undefined;
 
-    /**
-     * Whether the parent component allows multiple selection or not.
-     */
-    isMulti: boolean | undefined;
+        /**
+         * Whether the item is selected.
+         */
+        isSelected?: boolean;
 
-    /**
-     * Whether the item is selected.
-     */
-    isSelected?: boolean;
+        /**
+         * The label to display for the item.
+         */
+        label: string;
 
-    /**
-     * The label to display for the item.
-     */
-    label: string;
-
-    /**
-     * Consistent size option shared across multiple components.
-     */
-    size?: ElementSizeEnum;
-
-    /**
-     * React node(s) rendered on the left-hand side.
-     */
-    slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
-
-    /**
-     * The value of the item.
-     */
-    value: string;
-};
+        /**
+         * The value of the item.
+         */
+        value: string;
+    };
 
 export const SelectItem = React.forwardRef(
     (
