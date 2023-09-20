@@ -1,11 +1,49 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { createContext, useContext } from "react";
+import { useForm } from "react-hook-form";
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { Box } from "../box";
 
 import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
-import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
+import type {
+    FieldErrors,
+    FieldValues,
+    FormProviderProps,
+    Resolver,
+    UseFormReturn,
+} from "react-hook-form";
+
+/**
+ * Re-export of `react-hook-form`'s `HookFormContext` context.
+ */
+export const HookFormContext = createContext<UseFormReturn | null>(null);
+
+/**
+ * Re-export of `react-hook-form`'s `useFormContext` hook.
+ */
+export const useFormContext = <
+    TFieldValues extends FieldValues,
+    TContext = any,
+    TransformedValues extends FieldValues | undefined = undefined
+>(): UseFormReturn<TFieldValues, TContext, TransformedValues> => {
+    return useContext(HookFormContext) as UseFormReturn<TFieldValues, TContext, TransformedValues>;
+};
+
+/**
+ * Re-export of `react-hook-form`'s `FormProvider` context provider.
+ */
+export function FormProvider<
+    TFieldValues extends FieldValues,
+    TContext = any,
+    TTransformedValues extends FieldValues | undefined = undefined
+>({ children, ...data }: FormProviderProps<TFieldValues, TContext, TTransformedValues>) {
+    return (
+        <HookFormContext.Provider value={data as unknown as UseFormReturn}>
+            {children}
+        </HookFormContext.Provider>
+    );
+}
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     BoxProps,
