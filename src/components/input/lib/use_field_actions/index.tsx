@@ -100,7 +100,7 @@ export function useFieldActions({
 
     const { handleCopyValue, isCopied } = useFieldCopyableState({
         isCopyable,
-        readOnly,
+        readOnly: true,
     });
 
     const actions = useMemo(() => {
