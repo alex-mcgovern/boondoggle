@@ -30,6 +30,18 @@
                 "unused-imports"
             ],
             "rules": {
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "paths": [
+                            {
+                                "name": "react-hook-form",
+                                "importNames": ["useFormContext", "FormProvider"],
+                                "message": "Please import from `src/components/form` instead."
+                            }
+                        ]
+                    }
+                ],
                 "@typescript-eslint/consistent-type-imports": [
                     "error",
                     {

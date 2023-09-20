@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
@@ -12,6 +12,7 @@ import { DialogModalErrorMessage } from "../dialog_modal_error_message";
 import { DialogModalHeader } from "../dialog_modal_header";
 import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
+import { FormProvider } from "../form";
 import { FormSubmitButton } from "../form_submit_button";
 import { LoaderFullScreen } from "../loader_full_screen";
 

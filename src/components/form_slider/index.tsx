@@ -1,6 +1,7 @@
 import { useCallback } from "react";
-import { useController, useFormContext } from "react-hook-form";
+import { useController } from "react-hook-form";
 
+import { useFormContext } from "../form";
 import { Slider } from "../slider";
 
 import type { WithFormFieldProps, WithWrapperProps } from "../../common-types";
