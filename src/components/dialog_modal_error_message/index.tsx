@@ -41,7 +41,14 @@ export function DialogModalErrorMessage({
                 size="3x"
             />
 
-            {title && <Box as="h3">{title}</Box>}
+            {title && (
+                <Box
+                    as="h3"
+                    fontStyle="h5"
+                >
+                    {title}
+                </Box>
+            )}
             {description && (
                 <Box
                     as="p"
