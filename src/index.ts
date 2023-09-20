@@ -118,10 +118,6 @@ export { Form } from "./components/form";
 
 export type { FormProps } from "./components/form";
 
-export { FormValuesContext, FormValuesContextProvider } from "./components/form_values_context";
-
-export type { FormValuesContextProviderProps } from "./components/form_values_context";
-
 export { FormSlider } from "./components/form_slider";
 
 export type { FormSliderProps } from "./components/form_slider";
