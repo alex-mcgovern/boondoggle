@@ -1,18 +1,18 @@
-import { FormProvider, useForm } from "@alex-mcgovern/react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { Box } from "../box";
 
 import type { BoxProps } from "../box";
-import type { FieldErrors, FieldValues, Resolver } from "@alex-mcgovern/react-hook-form";
 import type { ReactNode } from "react";
+import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     BoxProps,
     "children"
 > & {
     /**
-     * Form field components & form submit button. They will be able to access `@alex-mcgovern/react-hook-form`'s form context.
+     * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
      */
     children: ReactNode | ReactNode[];
 
@@ -34,13 +34,13 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     name: string;
 
     /**
-     * Custom resolver for `@alex-mcgovern/react-hook-form`.
+     * Custom resolver for `react-hook-form`.
      */
     resolver?: Resolver<TFieldValues, any>;
 };
 
 /**
- * Form component that wraps `@alex-mcgovern/react-hook-form`'s `FormProvider` and `useForm` hooks.
+ * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
  */
 export function Form<TFieldValues extends FieldValues>({
     children,
@@ -50,6 +50,11 @@ export function Form<TFieldValues extends FieldValues>({
     resolver,
 }: FormProps<TFieldValues>) {
     const formMethods = useForm<TFieldValues>({ resolver });
+
+    const { getValues, watch } = formMethods || {};
+
+    console.log(getValues());
+    console.log(watch());
 
     return (
         <FormProvider {...formMethods}>

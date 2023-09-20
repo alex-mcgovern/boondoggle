@@ -1,4 +1,4 @@
-import { zodResolver } from "@alex-mcgovern/hookform-resolvers/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { jest } from "@storybook/jest";
 import { z } from "zod";
 

@@ -1,4 +1,4 @@
-import { useController, useFormContext } from "@alex-mcgovern/react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
 
 import { formatDate } from "../../utils/format_date";
 import { InputDate } from "../input_date";

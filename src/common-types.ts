@@ -2,7 +2,6 @@ import type { BoxProps } from "./components/box";
 import type { FieldLabelProps } from "./components/field_label";
 import type { ColorOverlay } from "./styles/color_palette.css";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
-import type { RegisterOptions } from "@alex-mcgovern/react-hook-form";
 import type { RowData } from "@tanstack/react-table";
 import type {
     ComponentPropsWithRef,
@@ -12,6 +11,7 @@ import type {
     PropsWithChildren,
     ReactNode,
 } from "react";
+import type { RegisterOptions } from "react-hook-form";
 
 export type TDataTableRowActions<TData extends RowData> = JSXElementConstructor<{
     /**

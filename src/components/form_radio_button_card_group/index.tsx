@@ -1,5 +1,5 @@
-import { useController, useFormContext } from "@alex-mcgovern/react-hook-form";
 import { useCallback } from "react";
+import { useController, useFormContext } from "react-hook-form";
 
 import { RadioButtonCardGroup } from "../radio_button_card_group";
 

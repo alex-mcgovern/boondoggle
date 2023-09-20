@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { zodResolver } from "@alex-mcgovern/hookform-resolvers/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { render, waitFor } from "@testing-library/react";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { createRef } from "react";

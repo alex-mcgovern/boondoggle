@@ -39,14 +39,13 @@
         "tsc": "tsc"
     },
     "dependencies": {
-        "@alex-mcgovern/hookform-resolvers": "2.9.2",
-        "@alex-mcgovern/react-hook-form": "7.46.1",
         "@dessert-box/core": "0.2.0",
         "@dessert-box/react": "0.7.5",
         "@floating-ui/react": "0.25.1",
         "@fortawesome/fontawesome-svg-core": "6.4.0",
         "@fortawesome/pro-solid-svg-icons": "6.4.0",
         "@fortawesome/react-fontawesome": "0.2.0",
+        "@hookform/resolvers": "2.9.2",
         "@radix-ui/react-collapsible": "1.0.2",
         "@radix-ui/react-slider": "1.1.1",
         "@radix-ui/react-slot": "1.0.1",
@@ -56,6 +55,7 @@
         "clsx": "1.2.1",
         "downshift": "8.1.0",
         "lodash.debounce": "4.0.8",
+        "react-hook-form": "7.46.1",
         "zod": "3.21.4"
     },
     "peerDependencies": {
