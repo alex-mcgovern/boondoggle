@@ -1,6 +1,5 @@
-import { useController } from "react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
 
-import { useFormContext } from "../form";
 import { TextArea } from "../text_area";
 
 import type { WithFormFieldProps, WithOptionalPlaceholder } from "../../common-types";

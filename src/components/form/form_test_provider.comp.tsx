@@ -1,7 +1,5 @@
 import { cloneElement } from "react";
-import { useForm } from "react-hook-form";
-
-import { FormProvider } from ".";
+import { FormProvider, useForm } from "react-hook-form";
 
 import type { JSXElementConstructor, ReactElement } from "react";
 
