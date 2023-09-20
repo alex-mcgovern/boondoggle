@@ -2,6 +2,18 @@
 
 (Yet another) React component library.
 
+## Installation
+
+```shell
+npm i @alex-mcgovern/boondoggle.design
+```
+
+**Note:** You must have a valid FontAwesome Pro token exported as `FONTAWESOME_TOKEN` in order to install.
+
+## Documentation
+
+There is a Storybook deployed to https://boondoggle.design
+
 ## Tech stack
 
 -   [Downshift](https://www.downshift-js.com/) for WAI-ARIA compliant combobox and select dropdown
@@ -18,6 +30,6 @@
 -   [Vanilla Extract](https://vanilla-extract.style/) for type-safe, zero-runtime styling.
 -   [Zod](https://zod.dev/) for schema validation with static type inference.
 
-## Documentation
 
-Coming soon!
+
+
