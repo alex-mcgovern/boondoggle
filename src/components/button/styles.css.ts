@@ -2,11 +2,7 @@ import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
-import {
-    elementFontSize,
-    elementHeight,
-    elementPadding,
-} from "../../styles/common/element_size.css";
+import { elementHeight, elementPadding } from "../../styles/common/element_size.css";
 import {
     SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
     SELECTOR_LINK_BUTTON_INPUT_HOVER,
@@ -18,9 +14,21 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
 export const variantButtonSize = styleVariants({
-    lg: [elementFontSize.md],
-    md: [elementFontSize.md],
-    sm: [elementFontSize.md],
+    lg: [
+        getSprinkles({
+            fontStyle: "bodyMd",
+        }),
+    ],
+    md: [
+        getSprinkles({
+            fontStyle: "bodyMd",
+        }),
+    ],
+    sm: [
+        getSprinkles({
+            fontStyle: "bodyMd",
+        }),
+    ],
     square_md: [
         getSprinkles({
             aspectRatio: "square",

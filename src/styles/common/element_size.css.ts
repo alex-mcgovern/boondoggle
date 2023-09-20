@@ -9,6 +9,21 @@ export const elementHeight = {
     sm: vars.spacing.space_8,
 };
 
+export const elementPaddingRaw = {
+    lg: {
+        x: vars.spacing.space_6,
+        y: vars.spacing.space_3,
+    },
+    md: {
+        x: vars.spacing.space_4,
+        y: vars.spacing.space_2,
+    },
+    sm: {
+        x: vars.spacing.space_2,
+        y: vars.spacing.space_1,
+    },
+};
+
 export const elementFontSize = styleVariants({
     lg: [
         getSprinkles({
@@ -28,9 +43,15 @@ export const elementFontSize = styleVariants({
 });
 
 export const elementPadding = styleVariants({
-    lg: [getSprinkles({ paddingX: "space_6", paddingY: "space_3" })],
-    md: [getSprinkles({ paddingX: "space_4", paddingY: "space_2" })],
-    sm: [getSprinkles({ paddingX: "space_2", paddingY: "space_1" })],
+    lg: {
+        padding: `${elementPaddingRaw.lg.y} ${elementPaddingRaw.lg.x}`,
+    },
+    md: {
+        padding: `${elementPaddingRaw.md.y} ${elementPaddingRaw.md.x}`,
+    },
+    sm: {
+        padding: `${elementPaddingRaw.sm.y} ${elementPaddingRaw.sm.x}`,
+    },
 });
 
 export type ElementSizeEnum = keyof typeof elementFontSize & keyof typeof elementPadding;

@@ -202,13 +202,9 @@ export { Card } from "./components/card";
 
 export type { CardProps } from "./components/card";
 
-export { SelectItem } from "./components/select/select_item";
+export { SelectItem, SelectItemList } from "./components/select/select_item_list";
 
-export type { SelectItemProps } from "./components/select/select_item";
-
-export { SelectItemList } from "./components/select/select_item_list";
-
-export type { SelectItemListProps } from "./components/select/select_item_list";
+export type { SelectItemProps, SelectItemListProps } from "./components/select/select_item_list";
 
 export { SelectSingle } from "./components/select/select_single";
 

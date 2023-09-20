@@ -1,274 +1,174 @@
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/pro-solid-svg-icons";
 
 import { Button as StoryComp } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
-import { Box } from "../box";
 import { Icon } from "../icon";
 
-import type { ButtonProps as StoryCompProps } from ".";
-import type { StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-export default {
-    component: StoryComp,
-    title: "Components/Button",
-};
-
-const Template: StoryFn<StoryCompProps> = ({ children, name, ...rest }: StoryCompProps) => {
-    return (
-        <StoryComp
-            name={name}
-            {...rest}
-        >
-            {children}
-        </StoryComp>
-    );
-};
-
-export const Default: StoryObj<StoryCompProps> = {
+const meta = {
     args: {
         children: "Button",
     },
+    component: StoryComp,
+    title: "Components/Button",
+} satisfies Meta<typeof StoryComp>;
 
-    render: Template,
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+
+export const AsAnchorTag: Story = {
+    args: {
+        as: "a",
+        href: "/",
+    },
 };
 
-const TemplateAsProp: StoryFn<StoryCompProps> = (rest) => {
-    return (
-        <Box
-            display="flex"
-            gap="space_6"
-        >
-            <StoryComp
-                {...rest}
-                as={Link}
-                href="/"
-            >
-                I am a `Link` component
-            </StoryComp>
-            <StoryComp
-                {...rest}
-                as="a"
-                href="/"
-            >
-                I am an anchor element
-            </StoryComp>
-        </Box>
-    );
+export const AsLinkComponent: Story = {
+    args: {
+        as: Link,
+        href: "/",
+    },
 };
 
-export const AsProp: StoryObj<StoryCompProps> = {
-    render: TemplateAsProp,
+export const AppearancePrimary: Story = {
+    args: {
+        appearance: "primary",
+    },
 };
 
-const TemplateAppearances: StoryFn<StoryCompProps> = (rest) => {
-    return (
-        <Box
-            display="flex"
-            gap="space_6"
-        >
-            <StoryComp
-                {...rest}
-                appearance="primary"
-                name="primary"
-            >
-                Primary
-            </StoryComp>
-            <StoryComp
-                {...rest}
-                appearance="secondary"
-                name="secondary"
-            >
-                Secondary
-            </StoryComp>
-            <StoryComp
-                {...rest}
-                appearance="ghost"
-                name="ghost"
-            >
-                Ghost
-            </StoryComp>
-            <StoryComp
-                {...rest}
-                appearance="link"
-                name="link"
-            >
-                Link
-            </StoryComp>
-        </Box>
-    );
+export const AppearanceSecondary: Story = {
+    args: {
+        appearance: "secondary",
+    },
 };
 
-export const Appearances: StoryObj<StoryCompProps> = {
-    render: TemplateAppearances,
+export const AppearanceGhost: Story = {
+    args: {
+        appearance: "ghost",
+    },
 };
 
-const TemplateColors: StoryFn<StoryCompProps> = () => {
-    return (
-        <Box
-            alignItems="center"
-            display="flex"
-            gap="space_6"
-        >
-            <StoryComp
-                colorOverlay="blue"
-                name="blue"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                {LOREM.text_xxs}
-            </StoryComp>
-            <StoryComp
-                colorOverlay="red"
-                name="red"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                {LOREM.text_xxs}
-            </StoryComp>
-            <StoryComp
-                colorOverlay="green"
-                name="green"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                {LOREM.text_xxs}
-            </StoryComp>
-            <StoryComp
-                colorOverlay="amber"
-                name="amber"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                {LOREM.text_xxs}
-            </StoryComp>
-            <StoryComp
-                colorOverlay="grey"
-                name="grey"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                {LOREM.text_xxs}
-            </StoryComp>
-        </Box>
-    );
+export const AppearanceLink: Story = {
+    args: {
+        appearance: "link",
+    },
 };
 
-export const Colors: StoryObj<StoryCompProps> = {
-    render: TemplateColors,
+export const ColorOverlayBlue: Story = {
+    args: {
+        colorOverlay: "blue",
+    },
 };
 
-export const IsLoading: StoryObj<StoryCompProps> = {
+export const ColorOverlayRed: Story = {
+    args: {
+        colorOverlay: "red",
+    },
+};
+
+export const ColorOverlayGreen: Story = {
+    args: {
+        colorOverlay: "green",
+    },
+};
+
+export const ColorOverlayAmber: Story = {
+    args: {
+        colorOverlay: "amber",
+    },
+};
+
+export const ColorOverlayGrey: Story = {
+    args: {
+        colorOverlay: "grey",
+    },
+};
+
+export const IsLoading: Story = {
     args: {
         isLoading: true,
     },
 };
 
-const TemplateSizes: StoryFn<StoryCompProps> = (args) => {
-    return (
-        <Box
-            alignItems="center"
-            display="flex"
-            gap="space_6"
-        >
-            <StoryComp
-                {...args}
-                id="lg"
-                name="lg"
-                size="lg"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                Button
-            </StoryComp>
-            <StoryComp
-                {...args}
-                id="md"
-                name="md"
-                size="md"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                Button
-            </StoryComp>
-            <StoryComp
-                {...args}
-                id="sm"
-                name="sm"
-                size="sm"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                Button
-            </StoryComp>
-            <StoryComp
-                {...args}
-                id="square_md"
-                name="square_md"
-                size="square_md"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            />
-            <StoryComp
-                {...args}
-                id="square_sm"
-                name="square_sm"
-                size="square_sm"
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            />
-        </Box>
-    );
-};
-
-export const Sizes: StoryObj<StoryCompProps> = {
+export const SizeSm: Story = {
     args: {
-        onClick: () => {
-            alert("You clicked me!");
-        },
+        size: "sm",
     },
-    render: TemplateSizes,
 };
 
-const TemplateSlot: StoryFn<StoryCompProps> = (rest) => {
-    return (
-        <Box
-            alignItems="center"
-            display="flex"
-            gap="space_6"
-        >
-            <StoryComp
-                {...rest}
-                id="slotLeft"
-                name="slotLeft"
-                placeholder={LOREM.placeholder()}
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                Button
-            </StoryComp>
-            <StoryComp
-                {...rest}
-                id="slotRight"
-                name="slotRight"
-                placeholder={LOREM.placeholder()}
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
-            >
-                Button
-            </StoryComp>
-        </Box>
-    );
+export const SizeMd: Story = {
+    args: {
+        size: "md",
+    },
 };
 
-export const Slot: StoryObj<StoryCompProps> = {
-    render: TemplateSlot,
+export const SizeLg: Story = {
+    args: {
+        size: "lg",
+    },
 };
 
-export const StateHover: StoryObj<StoryCompProps> = {
-    args: { children: "Hovered" },
-
-    parameters: { pseudo: { hover: true } },
-    render: Template,
+export const SizeSquareSm: Story = {
+    args: {
+        size: "square_sm",
+    },
 };
 
-export const StateFocusVisible: StoryObj<StoryCompProps> = {
-    args: { children: "Focused" },
-
-    parameters: { pseudo: { focusVisible: true } },
-    render: Template,
+export const SizeSquareMd: Story = {
+    args: {
+        size: "square_md",
+    },
 };
 
-export const StateDisabled: StoryObj<StoryCompProps> = {
-    args: { children: "Disabled", disabled: true },
+export const SizeSquareLg: Story = {
+    args: {
+        size: "square_md",
+    },
+};
 
-    render: Template,
+export const With1SlotLeft: Story = {
+    args: {
+        slotLeft: [<Icon icon={faArrowLeft} />],
+    },
+};
+
+export const With2SlotLeft: Story = {
+    args: {
+        slotLeft: [<Icon icon={faArrowLeft} />, <Icon icon={faArrowLeft} />],
+    },
+};
+
+export const With3SlotLeft: Story = {
+    args: {
+        slotLeft: [
+            <Icon icon={faArrowLeft} />,
+            <Icon icon={faArrowLeft} />,
+            <Icon icon={faArrowLeft} />,
+        ],
+    },
+};
+
+export const With1SlotRight: Story = {
+    args: {
+        slotRight: [<Icon icon={faArrowRight} />],
+    },
+};
+
+export const With2SlotRight: Story = {
+    args: {
+        slotRight: [<Icon icon={faArrowRight} />, <Icon icon={faArrowRight} />],
+    },
+};
+
+export const With3SlotRight: Story = {
+    args: {
+        slotRight: [
+            <Icon icon={faArrowRight} />,
+            <Icon icon={faArrowRight} />,
+            <Icon icon={faArrowRight} />,
+        ],
+    },
 };
