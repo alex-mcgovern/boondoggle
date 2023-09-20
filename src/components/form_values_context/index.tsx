@@ -10,8 +10,10 @@ export type FormValuesContextProviderProps = {
     children: ReactNode;
 };
 
-export function FormValuesContextProvider({ children }: FormValuesContextProviderProps) {
-    const { getValues } = useFormContext();
+export function FormValuesContextProvider<TFieldValues extends FieldValues>({
+    children,
+}: FormValuesContextProviderProps) {
+    const { getValues } = useFormContext<TFieldValues>();
 
     const values = useMemo(() => {
         return getValues();
