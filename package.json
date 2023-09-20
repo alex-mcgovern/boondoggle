@@ -29,7 +29,7 @@
         "ci-lint": "eslint . --quiet",
         "cy:open": "cypress open",
         "cy:run": "cypress run --component",
-        "format": "prettier    --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
+        "format": "prettier --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
         "lint:fix": "eslint . --quiet --fix",
         "patch": "npm run check && npm run build:prod && npm version patch && npm publish --access public && git push --no-verify",
         "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts|src/components/icon_flag/flags/(.*).tsx'",
@@ -55,8 +55,8 @@
         "clsx": "1.2.1",
         "downshift": "8.1.0",
         "lodash.debounce": "4.0.8",
-        "react-hook-form": "7.46.1",
-        "zod": "3.21.4"
+        "zod": "3.21.4",
+        "@alex-mcgovern/react-hook-form": "7.46.1"
     },
     "peerDependencies": {
         "react": "18.2.0",
@@ -130,7 +130,6 @@
         "prettier": "2.8.8",
         "prettier-plugin-jsdoc": "0.4.2",
         "react": "18.2.0",
-        "react-hook-form": "7.46.1",
         "react-syntax-highlighter": "15.5.0",
         "storybook": "7.0.12",
         "storybook-addon-pseudo-states": "2.0.1",

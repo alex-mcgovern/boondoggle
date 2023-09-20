@@ -1,4 +1,4 @@
-import type { FieldErrors } from "react-hook-form";
+import type { FieldErrors } from "@alex-mcgovern/react-hook-form";
 
 /**
  * Handle hook form errors

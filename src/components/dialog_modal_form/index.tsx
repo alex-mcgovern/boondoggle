@@ -1,6 +1,6 @@
+import { FormProvider, useForm } from "@alex-mcgovern/react-hook-form";
 import { Slot } from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
-import { FormProvider, useForm } from "react-hook-form";
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
@@ -17,8 +17,8 @@ import { LoaderFullScreen } from "../loader_full_screen";
 
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
+import type { FieldValues, Resolver } from "@alex-mcgovern/react-hook-form";
 import type { ReactNode } from "react";
-import type { FieldValues, Resolver } from "react-hook-form";
 
 export type DialogModalFormProps = {
     /**
@@ -27,7 +27,7 @@ export type DialogModalFormProps = {
     alert?: ReactNode;
 
     /**
-     * Form field components. They will be able to access `react-hook-form`'s form context.
+     * Form field components. They will be able to access `@alex-mcgovern/react-hook-form`'s form context.
      */
     children: ReactNode | Array<ReactNode>;
 
@@ -59,7 +59,7 @@ export type DialogModalFormProps = {
     onClickTryAgain?: (() => unknown) | (() => Promise<unknown>) | undefined;
 
     /**
-     * Custom resolver for `react-hook-form`.
+     * Custom resolver for `@alex-mcgovern/react-hook-form`.
      */
     resolver?: Resolver<FieldValues, any>;
 

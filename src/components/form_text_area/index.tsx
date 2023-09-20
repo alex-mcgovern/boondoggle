@@ -1,4 +1,4 @@
-import { useController, useFormContext } from "react-hook-form";
+import { useController, useFormContext } from "@alex-mcgovern/react-hook-form";
 
 import { TextArea } from "../text_area";
 
