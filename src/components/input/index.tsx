@@ -109,6 +109,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             isCopyable,
             isVisibilityToggleable,
             isVisible: initialIsVisible,
+            label,
+            labelTooltip,
             onChange,
             readOnly,
             size,

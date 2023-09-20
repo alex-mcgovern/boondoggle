@@ -35,6 +35,10 @@ type UseFieldActionsArgs = {
      */
     isVisible: boolean | undefined;
 
+    label?: string;
+
+    labelTooltip?: string;
+
     /**
      * The function to call when the input value changes.
      */
@@ -65,6 +69,8 @@ export function useFieldActions({
     isCopyable,
     isVisibilityToggleable,
     isVisible: initialIsVisible,
+    label,
+    labelTooltip,
     onChange,
     readOnly,
     size,
@@ -119,6 +125,8 @@ export function useFieldActions({
             actionNodes.push(
                 <FieldActionButtonCopy
                     isCopied={isCopied}
+                    label={label}
+                    labelTooltip={labelTooltip}
                     onClick={() => {
                         handleCopyValue?.(inputValue);
                     }}
@@ -152,6 +160,8 @@ export function useFieldActions({
         isCopyable,
         isVisibilityToggleable,
         isVisible,
+        label,
+        labelTooltip,
         onChange,
         readOnly,
         size,
