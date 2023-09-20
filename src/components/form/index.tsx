@@ -51,11 +51,6 @@ export function Form<TFieldValues extends FieldValues>({
 }: FormProps<TFieldValues>) {
     const formMethods = useForm<TFieldValues>({ resolver });
 
-    const { getValues, watch } = formMethods || {};
-
-    console.log(getValues());
-    console.log(watch());
-
     return (
         <FormProvider {...formMethods}>
             <Box
