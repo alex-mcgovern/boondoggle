@@ -1,4 +1,4 @@
-import { zodResolver } from "@hookform/resolvers/zod";
+import { zodResolver } from "@alex-mcgovern/hookform-resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
