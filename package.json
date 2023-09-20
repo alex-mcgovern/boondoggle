@@ -39,7 +39,7 @@
         "tsc": "tsc"
     },
     "dependencies": {
-        "@alex-mcgovern/hookform-resolvers": "2.9.1",
+        "@alex-mcgovern/hookform-resolvers": "2.9.2",
         "@alex-mcgovern/react-hook-form": "7.46.1",
         "@dessert-box/core": "0.2.0",
         "@dessert-box/react": "0.7.5",
