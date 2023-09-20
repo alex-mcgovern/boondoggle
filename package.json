@@ -2,7 +2,7 @@
     "author": "Alex McGovern",
     "name": "@alex-mcgovern/boondoggle.design",
     "description": "Boondoggle design system component library",
-    "version": "0.12.67",
+    "version": "0.12.60",
     "license": "MIT",
     "files": [
         "dist"
@@ -29,7 +29,7 @@
         "ci-lint": "eslint . --quiet",
         "cy:open": "cypress open",
         "cy:run": "cypress run --component",
-        "format": "prettier --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
+        "format": "prettier    --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
         "lint:fix": "eslint . --quiet --fix",
         "patch": "npm run check && npm run build:prod && npm version patch && npm publish --access public && git push --no-verify",
         "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts|src/components/icon_flag/flags/(.*).tsx'",
@@ -45,7 +45,7 @@
         "@fortawesome/fontawesome-svg-core": "6.4.0",
         "@fortawesome/pro-solid-svg-icons": "6.4.0",
         "@fortawesome/react-fontawesome": "0.2.0",
-        "@hookform/resolvers": "2.9.2",
+        "@hookform/resolvers": "3.1.0",
         "@radix-ui/react-collapsible": "1.0.2",
         "@radix-ui/react-slider": "1.1.1",
         "@radix-ui/react-slot": "1.0.1",
@@ -55,7 +55,7 @@
         "clsx": "1.2.1",
         "downshift": "8.1.0",
         "lodash.debounce": "4.0.8",
-        "react-hook-form": "7.46.1",
+        "react-hook-form": "7.43.9",
         "zod": "3.21.4"
     },
     "peerDependencies": {
@@ -130,6 +130,7 @@
         "prettier": "2.8.8",
         "prettier-plugin-jsdoc": "0.4.2",
         "react": "18.2.0",
+        "react-hook-form": "7.43.9",
         "react-syntax-highlighter": "15.5.0",
         "storybook": "7.0.12",
         "storybook-addon-pseudo-states": "2.0.1",
