@@ -6,8 +6,9 @@ import { FieldActionButtonVisibility } from "../../../field_action_button_visibi
 import { useFieldCopyableState } from "../use_field_copyable_state";
 import { useFieldVisibilityState } from "../use_field_visibility_state";
 
+import type { Slot } from "../../../../common-types";
 import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
-import type { ChangeEvent, ReactNode } from "react";
+import type { ChangeEvent } from "react";
 
 type UseFieldActionsArgs = {
     /**
@@ -103,8 +104,8 @@ export function useFieldActions({
         readOnly,
     });
 
-    const actions = useMemo(() => {
-        const actionNodes: Array<ReactNode> = [];
+    const actions: Slot = useMemo(() => {
+        const actionNodes: Slot = [];
 
         if (isVisibilityToggleable) {
             actionNodes.push(

@@ -29,8 +29,12 @@ import type {
 import type { InputProps } from "../../input";
 import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
+import type { ForwardedRef } from "react";
 
-export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
+export type SelectSingleProps<TValue extends string = string> = Omit<
+    WithOptionalIsClearable,
+    "readOnly"
+> &
     WithName &
     WithOptionalPlaceholder &
     WithSize &
@@ -43,7 +47,7 @@ export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
         /**
          * Item to be preselected when the component mounts.
          */
-        initialSelectedItem?: SelectItemShape;
+        initialSelectedItem?: SelectItemShape<TValue>;
 
         /**
          * Props to customise the input element.
@@ -77,178 +81,182 @@ export type SelectSingleProps = Omit<WithOptionalIsClearable, "readOnly"> &
         /**
          * Function to convert an item to a string.
          */
-        itemToString?: (item: SelectItemShape | null) => string;
+        itemToString?: (item: SelectItemShape<TValue> | null) => string;
 
         /**
          * The items to render in the dropdown.
          */
-        items: Array<SelectItemShape>;
+        items: Array<SelectItemShape<TValue>>;
 
         /**
          * Function called with the new selected item when the selection changes.
          */
-        onChange?: (selection: SelectItemShape | null | undefined) => void;
+        onChange?: (selection: SelectItemShape<TValue> | null | undefined) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
-        onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape>) => void;
+        onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape<TValue>>) => void;
     };
 
-export const SelectSingle = forwardRef<HTMLInputElement, SelectSingleProps>(
-    (
-        {
-            disabled,
-            errorMessage,
-            id,
-            initialSelectedItem,
-            inputProps,
-            invalid,
-            isClearable,
-            isFilterable,
-            isOpen: controlledIsOpen,
-            itemToString = (item: SelectItemShape | null) => {
-                return item?.label || "";
-            },
-            items: initialItems,
-            label,
-            labelTooltip,
-            name,
-            onChange,
-            onIsOpenChange,
-            placeholder,
-            size,
-            slotLeft,
-            slotRight = [<Icon icon={faAngleDown} />],
-            wrapperProps,
+/**
+ * Renders a single-select dropdown.
+ * @note Is a base component that should be wrapped with `ForwardRef`.
+ */
+function SelectSingleBase<TValue extends string = string>(
+    {
+        disabled,
+        errorMessage,
+        id,
+        initialSelectedItem,
+        inputProps,
+        invalid,
+        isClearable,
+        isFilterable,
+        isOpen: controlledIsOpen,
+        itemToString = (item: SelectItemShape<TValue> | null) => {
+            return item?.label || "";
         },
-        initialRef
-    ) => {
-        const ref = useForwardRef(initialRef);
+        items: initialItems,
+        label,
+        labelTooltip,
+        name,
+        onChange,
+        onIsOpenChange,
+        placeholder,
+        size,
+        slotLeft,
+        slotRight = [<Icon icon={faAngleDown} />],
+        wrapperProps,
+    }: SelectSingleProps<TValue>,
+    initialRef: ForwardedRef<HTMLInputElement>
+) {
+    const ref = useForwardRef(initialRef);
 
-        const initialItem =
-            initialSelectedItem ||
-            initialItems.find((item) => {
-                return item.isSelected;
+    const initialItem =
+        initialSelectedItem ||
+        initialItems.find((item) => {
+            return item.isSelected;
+        });
+
+    const [inputValue, setInputValue] = useState(initialItem?.label || "");
+
+    const items = isFilterable
+        ? filterSelectItems({ inputValue, items: initialItems })
+        : initialItems;
+
+    const {
+        getInputProps,
+        getItemProps,
+        getLabelProps,
+        getMenuProps,
+        highlightedIndex,
+        isOpen,
+        reset,
+        selectedItem,
+    } = useCombobox({
+        initialSelectedItem: initialItem,
+        inputValue,
+        isItemDisabled: (item) => {
+            return item.disabled;
+        },
+        isOpen: controlledIsOpen,
+        items,
+        itemToString,
+        onInputValueChange: (changes) => {
+            setInputValue(changes.inputValue || "");
+        },
+        onIsOpenChange,
+        onSelectedItemChange: (changes) => {
+            return onChange?.(changes.selectedItem);
+        },
+        // Ensure that onClick is called when the user presses Enter on an item.
+        onStateChange(changes) {
+            if (changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter) {
+                changes.selectedItem?.onClick?.();
+            }
+        },
+    });
+
+    const getIsItemSelected = useCallback(
+        (item: SelectItemShape<TValue>) => {
+            return getIsSelected({
+                item,
+                selectedItem,
             });
+        },
+        [selectedItem]
+    );
 
-        const [inputValue, setInputValue] = useState(initialItem?.label || "");
+    const { floatingStyles, refs } = useFloating({
+        elements: {
+            reference: ref.current,
+        },
+        middleware: [
+            offset(4),
+            flip({
+                crossAxis: true,
+                fallbackAxisSideDirection: "start",
+            }),
+        ],
+        open: isOpen,
+        placement: "bottom-start",
+        whileElementsMounted: autoUpdate,
+    });
 
-        const items = isFilterable
-            ? filterSelectItems({ inputValue, items: initialItems })
-            : initialItems;
-
-        const {
-            getInputProps,
-            getItemProps,
-            getLabelProps,
-            getMenuProps,
-            highlightedIndex,
-            isOpen,
-            reset,
-            selectedItem,
-        } = useCombobox({
-            initialSelectedItem: initialItem,
-            inputValue,
-            isItemDisabled: (item) => {
-                return item.disabled;
-            },
-            isOpen: controlledIsOpen,
-            items,
-            itemToString,
-            onInputValueChange: (changes) => {
-                setInputValue(changes.inputValue || "");
-            },
-            onIsOpenChange,
-            onSelectedItemChange: (changes) => {
-                return onChange?.(changes.selectedItem);
-            },
-            // Ensure that onClick is called when the user presses Enter on an item.
-            onStateChange(changes) {
-                if (changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter) {
-                    changes.selectedItem?.onClick?.();
-                }
-            },
-        });
-
-        const getIsItemSelected = useCallback(
-            (item: SelectItemShape) => {
-                return getIsSelected({
-                    item,
-                    selectedItem,
-                });
-            },
-            [selectedItem]
-        );
-
-        const { floatingStyles, refs } = useFloating({
-            elements: {
-                reference: ref.current,
-            },
-            middleware: [
-                offset(4),
-                flip({
-                    crossAxis: true,
-                    fallbackAxisSideDirection: "start",
-                }),
-            ],
-            open: isOpen,
-            placement: "bottom-start",
-            whileElementsMounted: autoUpdate,
-        });
-
-        return (
-            <Box
-                position="relative"
-                {...wrapperProps}
-            >
-                <Input
-                    errorMessage={errorMessage}
-                    size={size}
-                    slotLeft={selectedItem?.slotLeft || slotLeft}
-                    slotRight={getSlotRight({
-                        isClearable:
-                            (!!isFilterable && !!inputValue) || (!!isClearable && !!selectedItem),
-                        reset,
-                        slotRight,
-                    })}
-                    {...getInputProps({
-                        className: selectInputCursorStyles,
-                        disabled,
+    return (
+        <Box
+            position="relative"
+            {...wrapperProps}
+        >
+            <Input
+                errorMessage={errorMessage}
+                size={size}
+                slotLeft={selectedItem?.slotLeft || slotLeft}
+                slotRight={getSlotRight({
+                    isClearable:
+                        (!!isFilterable && !!inputValue) || (!!isClearable && !!selectedItem),
+                    reset,
+                    slotRight,
+                })}
+                {...getInputProps({
+                    className: selectInputCursorStyles,
+                    disabled,
+                    id,
+                    invalid,
+                    isClearable: undefined,
+                    name,
+                    placeholder,
+                    readOnly: !isFilterable,
+                    ref,
+                    value: inputValue,
+                    ...getOptionalLabelProps({
                         id,
-                        invalid,
-                        isClearable: undefined,
-                        name,
-                        placeholder,
-                        readOnly: !isFilterable,
-                        ref,
-                        value: inputValue,
-                        ...getOptionalLabelProps({
-                            id,
-                            label,
-                            labelProps: getLabelProps({
-                                htmlFor: id,
-                            }),
-                            labelTooltip,
+                        label,
+                        labelProps: getLabelProps({
+                            htmlFor: id,
                         }),
-                        ...inputProps,
-                    })}
-                />
+                        labelTooltip,
+                    }),
+                    ...inputProps,
+                })}
+            />
 
-                <SelectItemList
-                    getIsItemSelected={getIsItemSelected}
-                    getItemProps={getItemProps}
-                    getMenuProps={getMenuProps}
-                    getSelectedItemProps={undefined}
-                    highlightedIndex={highlightedIndex}
-                    isMulti={false}
-                    isOpen={isOpen}
-                    items={items}
-                    ref={isOpen ? refs.setFloating : undefined}
-                    size={size}
-                    style={floatingStyles}
-                />
-            </Box>
-        );
-    }
-);
+            <SelectItemList<TValue>
+                getIsItemSelected={getIsItemSelected}
+                getItemProps={getItemProps}
+                getMenuProps={getMenuProps}
+                getSelectedItemProps={undefined}
+                highlightedIndex={highlightedIndex}
+                isMulti={false}
+                isOpen={isOpen}
+                items={items}
+                ref={isOpen ? refs.setFloating : undefined}
+                size={size}
+                style={floatingStyles}
+            />
+        </Box>
+    );
+}
+
+export const SelectSingle = forwardRef(SelectSingleBase);

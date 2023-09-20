@@ -5,7 +5,7 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 describe("<SelectSingle />", () => {
     it("mounts", () => {
         cy.mount(
-            <SelectSingle
+            <SelectSingle<string>
                 {...{
                     id: LOREM.id(),
                     items: mockSelectItems({}),

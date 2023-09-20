@@ -7,30 +7,33 @@ import type { WithFormFieldProps } from "../../common-types";
 import type { SelectSingleProps } from "../select/select_single";
 import type { SelectItemShape } from "../select/types";
 
-type GetDefaultValueItemArgs = {
-    items: Array<SelectItemShape>;
+type GetDefaultValueItemArgs<TValue extends string = string> = {
+    items: Array<SelectItemShape<TValue>>;
 
     value?: string | number;
 };
 
-const getDefaultValueItem = ({ items, value }: GetDefaultValueItemArgs) => {
+function getDefaultValueItem<TValue extends string = string>({
+    items,
+    value,
+}: GetDefaultValueItemArgs<TValue>) {
     return items.find((item) => {
         return item.value.toString() === value?.toString();
     });
-};
+}
 
-export type FormSelectSingleProps = SelectSingleProps &
+export type FormSelectSingleProps<TValue extends string = string> = SelectSingleProps<TValue> &
     WithFormFieldProps & {
         defaultValue?: string | number;
     };
 
-export function FormSelectSingle({
+export function FormSelectSingle<TValue extends string = string>({
     defaultValue,
     items,
     name,
     onChange: onChangeParent,
     ...rest
-}: FormSelectSingleProps) {
+}: FormSelectSingleProps<TValue>) {
     const { control } = useFormContext();
 
     const {
@@ -43,7 +46,7 @@ export function FormSelectSingle({
     });
 
     const handleChange = useCallback(
-        (selection: SelectItemShape | null | undefined) => {
+        (selection: SelectItemShape<TValue> | null | undefined) => {
             onChange(selection?.value);
             onChangeParent?.(selection);
         },
@@ -53,7 +56,7 @@ export function FormSelectSingle({
     const defaultItem = getDefaultValueItem({ items, value: defaultValue });
 
     return (
-        <SelectSingle
+        <SelectSingle<TValue>
             errorMessage={error?.message}
             initialSelectedItem={defaultItem}
             invalid={!!error}

@@ -74,7 +74,7 @@ export const ItemsWithIsSelectedTrue: Story = {
 };
 
 const ControlledTemplate = () => {
-    const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape>>([]);
+    const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape<string>>>([]);
 
     return (
         <Box>
@@ -140,7 +140,7 @@ export const OnChange: Story = {
 
 export const SelectedItemsToString: Story = {
     args: {
-        selectedItemsToString: (selectedItems: Array<SelectItemShape>) => {
+        selectedItemsToString: (selectedItems: Array<SelectItemShape<string>>) => {
             if (selectedItems.length === 1) {
                 return `${selectedItems.length} country selected`;
             }

@@ -6,6 +6,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
+import { exhaustiveSwitchGuard } from "../../lib/exhaustive_switch_guard";
 import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Loader } from "../loader";
@@ -23,6 +24,33 @@ import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { Alignment, Appearance } from "./styles.css";
 import type { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
+
+/**
+ * Removes square size
+ */
+export function stripSquareSizes(
+    size?: "square_md" | "square_sm" | "square_xs" | ElementSizeEnum
+): ElementSizeEnum {
+    switch (size) {
+        case "lg":
+        case "square_md": {
+            return "lg";
+        }
+
+        case undefined:
+        case "md":
+        case "square_sm": {
+            return "md";
+        }
+        case "sm":
+        case "square_xs": {
+            return "sm";
+        }
+
+        default:
+            return exhaustiveSwitchGuard(size);
+    }
+}
 
 const getLoadingSlotSide = ({ slotLeft, slotRight }: WithSlots): "right" | "left" => {
     if (slotRight) {
@@ -158,10 +186,10 @@ export const Button: ButtonComponent = forwardRef(
             >
                 <SlotWrapper
                     color="inherit"
-                    size={size}
-                    slotLeft={isLoading && loaderSide === "left" ? <Loader /> : slotLeft}
+                    size={stripSquareSizes(size)}
+                    slotLeft={isLoading && loaderSide === "left" ? [<Loader />] : slotLeft}
                     slotProps={slotProps}
-                    slotRight={isLoading && loaderSide === "right" ? <Loader /> : slotRight}
+                    slotRight={isLoading && loaderSide === "right" ? [<Loader />] : slotRight}
                 >
                     {children}
                 </SlotWrapper>

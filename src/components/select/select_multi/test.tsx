@@ -17,7 +17,7 @@ import type { SelectMultiProps } from ".";
 
 const ON_CHANGE = jest.fn();
 
-const PROPS: SelectMultiProps = {
+const PROPS: SelectMultiProps<string> = {
     errorMessage: LOREM.errorMessage(),
     id: LOREM.id(),
     items: mockSelectItems({}),
@@ -27,7 +27,7 @@ const PROPS: SelectMultiProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectMultiProps) => {
+const renderComponent = (props: SelectMultiProps<string>) => {
     return {
         user: userEvent.setup(),
         ...render(<SelectMulti {...props} />),

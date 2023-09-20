@@ -1,6 +1,6 @@
 import type { SelectItemShape } from "../../types";
 
-type FilterSelectItemsArgs = {
+type FilterSelectItemsArgs<TValue extends string = string> = {
     /**
      * Value of controlled combobox input
      */
@@ -9,13 +9,16 @@ type FilterSelectItemsArgs = {
     /**
      * An array of dropdown items
      */
-    items: Array<SelectItemShape>;
+    items: Array<SelectItemShape<TValue>>;
 };
 
 /**
  * Removes items not matching `inputValue` from `items`
  */
-export function filterSelectItems({ inputValue, items }: FilterSelectItemsArgs) {
+export function filterSelectItems<TValue extends string = string>({
+    inputValue,
+    items,
+}: FilterSelectItemsArgs<TValue>) {
     if (!inputValue) {
         return items;
     }

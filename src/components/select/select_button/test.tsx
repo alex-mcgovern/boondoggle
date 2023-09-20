@@ -13,7 +13,7 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 
 import type { SelectButtonProps } from ".";
 
-const renderComponent = (props: SelectButtonProps) => {
+const renderComponent = (props: SelectButtonProps<string>) => {
     return {
         user: userEvent.setup(),
         ...render(<SelectButton {...props} />),
@@ -22,7 +22,7 @@ const renderComponent = (props: SelectButtonProps) => {
 
 const ON_CHANGE = jest.fn();
 
-const PROPS: SelectButtonProps = {
+const PROPS: SelectButtonProps<string> = {
     buttonText: LOREM.select,
     id: LOREM.id(),
     items: mockSelectItems({}),

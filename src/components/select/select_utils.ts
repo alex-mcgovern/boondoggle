@@ -11,22 +11,34 @@ import type {
 /**
  * Util function that can be used to determine if an item is selected in a dropdown.
  */
-type GetIsItemSelectedArgs = {
+type GetIsItemSelectedArgs<TValue extends string = string> = {
+    /**
+     * Whether the select is in multi-select mode.
+     */
     isMulti?: boolean;
 
-    item: SelectItemShape | undefined | null;
+    /**
+     * The item to check.
+     */
+    item: SelectItemShape<TValue> | undefined | null;
 
-    selectedItem?: UseComboboxProps<SelectItemShape>["selectedItem"];
+    /**
+     * The currently selected item.
+     */
+    selectedItem?: UseComboboxProps<SelectItemShape<TValue>>["selectedItem"];
 
-    selectedItems?: UseMultipleSelectionProps<SelectItemShape>["selectedItems"];
+    /**
+     * The currently selected items.
+     */
+    selectedItems?: UseMultipleSelectionProps<SelectItemShape<TValue>>["selectedItems"];
 };
 
-export const getIsSelected = ({
+export function getIsSelected<TValue extends string = string>({
     isMulti,
     item,
     selectedItem,
     selectedItems: prevSelectedItems,
-}: GetIsItemSelectedArgs): boolean => {
+}: GetIsItemSelectedArgs<TValue>): boolean {
     if (!isMulti && selectedItem) {
         return selectedItem?.value.toLowerCase() === item?.value.toLowerCase();
     }
@@ -41,7 +53,7 @@ export const getIsSelected = ({
     }
 
     return false;
-};
+}
 
 /**
  * React state reducer to determine the currently selected item.
@@ -49,11 +61,11 @@ export const getIsSelected = ({
  * is passed to downshift as the `stateReducer` prop.
  * @see https://www.downshift-js.com/use-combobox/#state-reducer
  */
-export const downshiftStateReducer = (
-    state: UseComboboxState<SelectItemShape>,
-    actionAndChanges: UseComboboxStateChangeOptions<SelectItemShape>,
+export function downshiftStateReducer<TValue extends string = string>(
+    state: UseComboboxState<SelectItemShape<TValue>>,
+    actionAndChanges: UseComboboxStateChangeOptions<SelectItemShape<TValue>>,
     { isMulti }: { isMulti?: boolean }
-) => {
+) {
     const { changes, type } = actionAndChanges;
 
     switch (type) {
@@ -74,4 +86,4 @@ export const downshiftStateReducer = (
         default:
             return changes;
     }
-};
+}

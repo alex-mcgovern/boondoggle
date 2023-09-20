@@ -1,17 +1,19 @@
 import type { SelectItemShape } from "../types";
 
-export const ITEM_TO_FIND_MOCK: SelectItemShape = {
+type Value = "it" | "uk";
+
+export const ITEM_TO_FIND_MOCK: SelectItemShape<Value> = {
     label: "Italy",
-    value: "Italy",
+    value: "it",
 };
 
-export const SELECTED_ITEMS_MOCK: Array<SelectItemShape> = [
+export const SELECTED_ITEMS_MOCK: Array<SelectItemShape<Value>> = [
     {
         label: "Italy",
-        value: "Italy",
+        value: "it",
     },
     {
         label: "United Kingdom",
-        value: "United Kingdom",
+        value: "uk",
     },
 ];

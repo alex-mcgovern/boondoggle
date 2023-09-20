@@ -17,7 +17,7 @@ import type { SelectSingleProps } from ".";
 
 const ON_CHANGE = jest.fn();
 
-const PROPS: SelectSingleProps = {
+const PROPS: SelectSingleProps<string> = {
     errorMessage: LOREM.errorMessage(),
     id: LOREM.id(),
     items: mockSelectItems({}),
@@ -27,7 +27,7 @@ const PROPS: SelectSingleProps = {
     placeholder: LOREM.select,
 };
 
-const renderComponent = (props: SelectSingleProps) => {
+const renderComponent = (props: SelectSingleProps<string>) => {
     return {
         user: userEvent.setup(),
         ...render(<SelectSingle {...props} />),

@@ -14,7 +14,7 @@ export type SlotWrapperProps = BoxProps &
 
         className?: string;
 
-        size: ElementSizeEnum;
+        size: ElementSizeEnum | undefined;
 
         slotProps?: BoxProps;
     };
@@ -24,7 +24,7 @@ export const SlotWrapper = forwardRef(
         {
             children,
             className: userClassName,
-            size,
+            size = "md",
             slotLeft,
             slotProps,
             slotRight,

@@ -11,8 +11,8 @@ export type DataTableRowActionsProps = {
     /**
      * An array of Select items to render in the row actions menu.
      */
-    items: Array<SelectItemShape>;
-} & Omit<SelectButtonProps, "buttonProps" | "items" | "name" | "placement" | "slotRight">;
+    items: Array<SelectItemShape<string>>;
+} & Omit<SelectButtonProps<string>, "buttonProps" | "items" | "name" | "placement" | "slotRight">;
 
 /**
  * Renders a `SelectButton` configured to act as a DataTable row actions menu.

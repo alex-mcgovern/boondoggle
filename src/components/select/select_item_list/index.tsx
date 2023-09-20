@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { forwardRef } from "react";
+import * as React from "react";
 
 import { arrayHasLength } from "../../../lib/array_has_length";
 import { Box } from "../../box";
@@ -21,7 +21,7 @@ import type {
     UseMultipleSelectionGetSelectedItemPropsOptions,
     UseSelectPropGetters,
 } from "downshift";
-import type { CSSProperties, ReactNode, Ref } from "react";
+import type { CSSProperties, ForwardedRef, ReactNode, Ref } from "react";
 
 export type SelectItemProps = BoxProps & {
     /**
@@ -65,7 +65,7 @@ export type SelectItemProps = BoxProps & {
     value: string;
 };
 
-export const SelectItem = forwardRef(
+export const SelectItem = React.forwardRef(
     (
         {
             as = "li",
@@ -117,31 +117,31 @@ export const SelectItem = forwardRef(
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export type SelectItemListProps = WithSize & {
+export type SelectItemListProps<TValue extends string = string> = WithSize & {
     /**
      * Function provided by Downshift to check whether an item is selected
      */
-    getIsItemSelected: ((item: SelectItemShape) => boolean) | undefined;
+    getIsItemSelected: ((item: SelectItemShape<TValue>) => boolean) | undefined;
 
     /**
      * Function provided by Downshift to get props for an individual item.
      */
     getItemProps:
-        | UseComboboxPropGetters<SelectItemShape>["getItemProps"]
-        | UseSelectPropGetters<SelectItemShape>["getItemProps"];
+        | UseComboboxPropGetters<SelectItemShape<TValue>>["getItemProps"]
+        | UseSelectPropGetters<SelectItemShape<TValue>>["getItemProps"];
 
     /**
      * Function provided by Downshift to get props for the outer menu element.
      */
     getMenuProps:
-        | UseComboboxPropGetters<SelectItemShape>["getMenuProps"]
-        | UseSelectPropGetters<SelectItemShape>["getMenuProps"];
+        | UseComboboxPropGetters<SelectItemShape<TValue>>["getMenuProps"]
+        | UseSelectPropGetters<SelectItemShape<TValue>>["getMenuProps"];
 
     /**
      * Function provided by Downshift to get props for the currently selected item.
      */
     getSelectedItemProps:
-        | ((options: UseMultipleSelectionGetSelectedItemPropsOptions<SelectItemShape>) => {
+        | ((options: UseMultipleSelectionGetSelectedItemPropsOptions<SelectItemShape<TValue>>) => {
               [key: string]: unknown;
           })
         | undefined;
@@ -164,7 +164,7 @@ export type SelectItemListProps = WithSize & {
     /**
      * The items to render in the list.
      */
-    items: Array<SelectItemShape>;
+    items: Array<SelectItemShape<TValue>>;
 
     /**
      * The style to apply to the outer menu element. Used by floating-ui to position the menu.
@@ -172,90 +172,97 @@ export type SelectItemListProps = WithSize & {
     style: CSSProperties;
 };
 
-export const SelectItemList = forwardRef<HTMLDivElement, SelectItemListProps>(
-    (
-        {
-            getIsItemSelected,
-            getItemProps,
-            getMenuProps,
-            getSelectedItemProps,
-            highlightedIndex,
-            isMulti,
-            isOpen,
-            items,
-            size = "md",
-            ...rest
-        },
-        ref
-    ) => {
-        return (
-            <Box
-                {...getMenuProps?.({
-                    className: getSelectItemListStyles({ isOpen }),
-                    ref,
-                    ...rest,
-                })}
-            >
-                <Box className={selectItemListInner}>
-                    {arrayHasLength(items) &&
-                        items.map((item, index) => {
-                            if (!item.label) {
-                                return null;
-                            }
+/**
+ * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
+ * @note This is a base component that should be wrapped with `ForwardRef`.
+ */
+function SelectItemListBase<TValue extends string = string>(
+    {
+        getIsItemSelected,
+        getItemProps,
+        getMenuProps,
+        getSelectedItemProps,
+        highlightedIndex,
+        isMulti,
+        isOpen,
+        items,
+        size = "md",
+        ...rest
+    }: SelectItemListProps<TValue>,
+    ref: ForwardedRef<HTMLDivElement>
+) {
+    return (
+        <Box
+            {...getMenuProps?.({
+                className: getSelectItemListStyles({ isOpen }),
+                ref,
+                ...rest,
+            })}
+        >
+            <Box className={selectItemListInner}>
+                {arrayHasLength(items) &&
+                    items.map((item, index) => {
+                        if (!item.label) {
+                            return null;
+                        }
 
-                            const {
-                                as,
-                                colorOverlay,
-                                isSelected: initIsSelected,
-                                label,
-                                onClick,
-                                slotLeft,
-                                value,
-                                ...otherItemProps
-                            } = item;
+                        const {
+                            as,
+                            colorOverlay,
+                            isSelected: initIsSelected,
+                            label,
+                            onClick,
+                            slotLeft,
+                            value,
+                            ...otherItemProps
+                        } = item;
 
-                            const isHighlighted = highlightedIndex === index;
+                        const isHighlighted = highlightedIndex === index;
 
-                            const isSelected = initIsSelected || getIsItemSelected?.(item);
+                        const isSelected = initIsSelected || getIsItemSelected?.(item);
 
-                            return (
-                                <SelectItem
-                                    as={as}
-                                    colorOverlay={colorOverlay}
-                                    isMulti={isMulti}
-                                    size={size}
-                                    {...otherItemProps}
-                                    {...getItemProps({
-                                        isHighlighted,
-                                        isSelected,
-                                        item,
-                                        key: `${item.label}-${item.value}`,
-                                        label,
-                                        onClick,
-                                        slotLeft,
-                                        value,
-                                        ...(isSelected &&
-                                            getSelectedItemProps?.({
-                                                selectedItem: item,
-                                            })),
-                                    })}
-                                />
-                            );
-                        })}
+                        return (
+                            <SelectItem
+                                as={as}
+                                colorOverlay={colorOverlay}
+                                isMulti={isMulti}
+                                size={size}
+                                {...otherItemProps}
+                                {...getItemProps({
+                                    isHighlighted,
+                                    isSelected,
+                                    item,
+                                    key: `${item.label}-${item.value}`,
+                                    label,
+                                    onClick,
+                                    slotLeft,
+                                    value,
+                                    ...(isSelected &&
+                                        getSelectedItemProps?.({
+                                            selectedItem: item,
+                                        })),
+                                })}
+                            />
+                        );
+                    })}
 
-                    {/* Show a fallback list item when there are no items to display */}
+                {/* Show a fallback list item when there are no items to display */}
 
-                    {Array.isArray(items) && items.length === 0 && (
-                        <SelectItem
-                            as="button"
-                            disabled
-                            label="No results"
-                            size={size}
-                            value=""
-                        />
-                    )}
-                </Box>
+                {Array.isArray(items) && items.length === 0 && (
+                    <SelectItem
+                        as="button"
+                        colorOverlay={undefined}
+                        disabled
+                        isHighlighted={false}
+                        isMulti={false}
+                        label="No results"
+                        size={size}
+                        value=""
+                    />
+                )}
             </Box>
-        );
-    }
-);
+        </Box>
+    );
+}
+
+export const SelectItemList = React.forwardRef(SelectItemListBase);
