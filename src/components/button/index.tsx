@@ -4,7 +4,7 @@
  */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useMemo } from "react";
 
 import { exhaustiveSwitchGuard } from "../../lib/exhaustive_switch_guard";
 import { variantColorOverlay } from "../../styles/theme.css";
@@ -106,11 +106,6 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
                  * The HTML button type, defaults to `button`.
                  */
                 type?: "button" | "submit" | "reset";
-
-                /**
-                 * Whether to show a loader on click
-                 */
-                withLoadingState?: boolean;
             } & WithColorOverlay
     >;
 
@@ -131,13 +126,12 @@ export const Button: ButtonComponent = forwardRef(
             className: userClassName,
             colorOverlay,
             disabled,
-            isLoading: initIsLoading,
+            isLoading,
             size = "md",
             slotLeft,
             slotProps,
             slotRight,
             type = "button",
-            withLoadingState,
             ...rest
         }: BaseButtonProps<TPolymorphicAs>,
         ref?: PolymorphicRef<TPolymorphicAs>
@@ -145,22 +139,6 @@ export const Button: ButtonComponent = forwardRef(
         const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
         const Component = as || "button";
-
-        const [isLoading, setIsLoading] = useState(initIsLoading);
-
-        const revertLoadingState = useCallback(() => {
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 3000);
-        }, []);
-
-        const handleClickWithLoadingState = useCallback(() => {
-            setIsLoading(true);
-
-            rest.onClick?.();
-
-            revertLoadingState();
-        }, [rest, revertLoadingState]);
 
         const loaderSide = useMemo(() => {
             return getLoadingSlotSide({ slotLeft, slotRight });
@@ -178,7 +156,6 @@ export const Button: ButtonComponent = forwardRef(
                     ),
                     "data-active": active,
                     disabled,
-                    onClick: withLoadingState ? handleClickWithLoadingState : rest.onClick,
                     ref,
                     type,
                     ...otherProps,
