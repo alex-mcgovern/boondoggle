@@ -94,7 +94,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             size = "md",
             slotLeft,
             slotRight: initialSlotRight,
-            strCopy,
+            tooltipStr,
             type,
             value,
             wrapperProps,
@@ -113,7 +113,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             onChange,
             readOnly,
             size,
-            strCopy,
+            tooltipStr,
             value,
         });
 

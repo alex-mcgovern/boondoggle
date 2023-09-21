@@ -52,7 +52,7 @@ type UseFieldActionsArgs = {
     /**
      * A string to use as the toolip.
      */
-    strCopy?: string;
+    tooltipStr?: string;
 
     /**
      * The value of the input.
@@ -72,7 +72,7 @@ export function useFieldActions({
     onChange,
     readOnly,
     size,
-    strCopy,
+    tooltipStr,
     value,
 }: UseFieldActionsArgs) {
     // Manage the input value with state to allow it to be cleared.
@@ -128,7 +128,7 @@ export function useFieldActions({
                         handleCopyValue?.(inputValue);
                     }}
                     size={size}
-                    strCopy={strCopy}
+                    strCopy={tooltipStr}
                 />
             );
         }
@@ -161,7 +161,7 @@ export function useFieldActions({
         onChange,
         readOnly,
         size,
-        strCopy,
+        tooltipStr,
     ]);
 
     return {

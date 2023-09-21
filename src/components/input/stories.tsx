@@ -252,7 +252,7 @@ const TemplateIsCopyable = () => {
             <TemplateSizes
                 isCopyable
                 readOnly
-                strCopy="tooltip string"
+                tooltipStr="tooltip string"
             />
         </>
     );

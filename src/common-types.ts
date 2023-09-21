@@ -67,7 +67,7 @@ type IsCopyable = BaseIsCopyable & {
 
     readOnly: true;
 
-    strCopy?: string;
+    tooltipStr?: string;
 };
 
 type IsNotCopyable = BaseIsCopyable & {
@@ -75,7 +75,7 @@ type IsNotCopyable = BaseIsCopyable & {
 
     readOnly?: boolean;
 
-    strCopy?: string;
+    tooltipStr?: string;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
