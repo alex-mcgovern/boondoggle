@@ -249,7 +249,11 @@ const TemplateIsCopyable = () => {
         <>
             <Box as="h3">Is copyable</Box>
 
-            <TemplateSizes isCopyable />
+            <TemplateSizes
+                isCopyable
+                readOnly
+                strCopy="tooltip string"
+            />
         </>
     );
 };

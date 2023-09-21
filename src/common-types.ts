@@ -66,12 +66,16 @@ type IsCopyable = BaseIsCopyable & {
     isCopyable: true;
 
     readOnly: true;
+
+    strCopy?: string;
 };
 
 type IsNotCopyable = BaseIsCopyable & {
     isCopyable?: never;
 
     readOnly?: boolean;
+
+    strCopy?: string;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */

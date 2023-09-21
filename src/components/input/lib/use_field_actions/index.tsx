@@ -35,10 +35,6 @@ type UseFieldActionsArgs = {
      */
     isVisible: boolean | undefined;
 
-    label?: string;
-
-    labelTooltip?: string;
-
     /**
      * The function to call when the input value changes.
      */
@@ -53,6 +49,10 @@ type UseFieldActionsArgs = {
      * The size of the field.
      */
     size: ElementSizeEnum | undefined;
+    /**
+     * A string to use as the toolip.
+     */
+    strCopy?: string;
 
     /**
      * The value of the input.
@@ -69,11 +69,10 @@ export function useFieldActions({
     isCopyable,
     isVisibilityToggleable,
     isVisible: initialIsVisible,
-    label,
-    labelTooltip,
     onChange,
     readOnly,
     size,
+    strCopy,
     value,
 }: UseFieldActionsArgs) {
     // Manage the input value with state to allow it to be cleared.
@@ -106,7 +105,7 @@ export function useFieldActions({
 
     const { handleCopyValue, isCopied } = useFieldCopyableState({
         isCopyable,
-        readOnly: true,
+        readOnly,
     });
 
     const actions = useMemo(() => {
@@ -125,12 +124,11 @@ export function useFieldActions({
             actionNodes.push(
                 <FieldActionButtonCopy
                     isCopied={isCopied}
-                    label={label}
-                    labelTooltip={labelTooltip}
                     onClick={() => {
                         handleCopyValue?.(inputValue);
                     }}
                     size={size}
+                    strCopy={strCopy}
                 />
             );
         }
@@ -160,11 +158,10 @@ export function useFieldActions({
         isCopyable,
         isVisibilityToggleable,
         isVisible,
-        label,
-        labelTooltip,
         onChange,
         readOnly,
         size,
+        strCopy,
     ]);
 
     return {

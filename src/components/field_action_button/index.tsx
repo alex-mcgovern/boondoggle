@@ -1,4 +1,6 @@
+import { Box } from "../box";
 import { Button } from "../button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { getActionButtonSize } from "./lib/get_action_button_size";
 import { fieldActionButtonStyle } from "./styles.css";
 
@@ -26,6 +28,10 @@ export type FieldActionButtonProps = {
      * The slot to render on the button.
      */
     slot: Slot;
+    /**
+     * A string to use in for the tooltip.
+     */
+    strTooltip: string;
 } & Omit<ButtonProps, "appearance" | "className" | "slotLeft" | "slotRight" | "type" | "size">;
 
 /**
@@ -36,18 +42,39 @@ export function FieldActionButton({
     onClick,
     size = "md",
     slot,
+    strTooltip,
     ...rest
 }: FieldActionButtonProps) {
     return (
-        <Button
-            appearance="ghost"
-            className={fieldActionButtonStyle}
-            name={name}
-            onClick={onClick}
-            size={getActionButtonSize(size)}
-            slotLeft={slot}
-            type="button"
-            {...rest}
-        />
+        <Box>
+            {strTooltip ? (
+                <Tooltip placement="top">
+                    <TooltipTrigger asChild>
+                        <Button
+                            appearance="ghost"
+                            className={fieldActionButtonStyle}
+                            name={name}
+                            onClick={onClick}
+                            size={getActionButtonSize(size)}
+                            slotLeft={slot}
+                            type="button"
+                            {...rest}
+                        />
+                    </TooltipTrigger>
+                    <TooltipContent>{strTooltip}</TooltipContent>
+                </Tooltip>
+            ) : (
+                <Button
+                    appearance="ghost"
+                    className={fieldActionButtonStyle}
+                    name={name}
+                    onClick={onClick}
+                    size={getActionButtonSize(size)}
+                    slotLeft={slot}
+                    type="button"
+                    {...rest}
+                />
+            )}
+        </Box>
     );
 }
