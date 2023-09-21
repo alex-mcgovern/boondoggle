@@ -155,7 +155,7 @@ export const Button: ButtonComponent = forwardRef(
                         colorOverlay ? variantColorOverlay[colorOverlay] : undefined
                     ),
                     "data-active": active,
-                    disabled,
+                    disabled: disabled || isLoading,
                     ref,
                     type,
                     ...otherProps,
