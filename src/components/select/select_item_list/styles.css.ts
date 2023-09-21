@@ -55,25 +55,28 @@ const selectItemSize = styleVariants({
     lg: [
         { height: elementHeight.lg },
         {
-            padding: `${calc.subtract(elementPaddingRaw.lg.y, selectListPadding)} ${
-                elementPaddingRaw.lg.x
-            }`,
+            padding: `${elementPaddingRaw.lg.y} ${calc.subtract(
+                elementPaddingRaw.lg.x,
+                selectListPadding
+            )}`,
         },
     ],
     md: [
         { height: elementHeight.md },
         {
-            padding: `${calc.subtract(elementPaddingRaw.md.y, selectListPadding)} ${
-                elementPaddingRaw.md.x
-            }`,
+            padding: `${elementPaddingRaw.md.y} ${calc.subtract(
+                elementPaddingRaw.md.x,
+                selectListPadding
+            )}`,
         },
     ],
     sm: [
         { height: elementHeight.sm },
         {
-            padding: `${calc.subtract(elementPaddingRaw.sm.y, selectListPadding)} ${
-                elementPaddingRaw.sm.x
-            }`,
+            padding: `${elementPaddingRaw.sm.y} ${calc.subtract(
+                elementPaddingRaw.sm.x,
+                selectListPadding
+            )}`,
         },
     ],
 });
