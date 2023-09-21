@@ -279,7 +279,7 @@ export type WithSize = {
     /**
      * Consistent size option shared across multiple components.
      */
-    size: ElementSizeEnum | undefined;
+    size?: ElementSizeEnum;
 };
 
 export type Slot = [ReactNode?, ReactNode?, ReactNode?];
