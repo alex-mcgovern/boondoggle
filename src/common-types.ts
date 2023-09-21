@@ -107,12 +107,16 @@ type WithIsVisibilityToggleable = BaseIsVisibilityToggleable & {
     isVisibilityToggleable: true;
 
     isVisible?: boolean;
+
+    tooltipStr?: string;
 };
 
 type WithoutIsVisibilityToggleable = BaseIsVisibilityToggleable & {
     isVisibilityToggleable?: never;
 
     isVisible?: never;
+
+    tooltipStr?: string;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
@@ -150,12 +154,16 @@ type IsClearable = BaseIsClearable & {
     isClearable: true;
 
     readOnly?: never;
+
+    tooltipStr?: string;
 };
 
 type IsNotClearable = BaseIsClearable & {
     isClearable?: never;
 
     readOnly?: boolean;
+
+    tooltipStr?: string;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */

@@ -10,6 +10,11 @@ export type FieldActionButtonVisibilityProps = {
      * Whether the value of the field is visible or not.
      */
     isVisible?: boolean;
+    /**
+     * A string to use in for the tooltip.
+     */
+
+    strVisible?: string;
 } & Omit<FieldActionButtonProps, "name" | "slot">;
 
 /**
@@ -19,6 +24,7 @@ export function FieldActionButtonVisibility({
     isVisible,
     onClick,
     size,
+    strVisible,
 }: FieldActionButtonVisibilityProps) {
     return (
         <FieldActionButton
@@ -26,6 +32,7 @@ export function FieldActionButtonVisibility({
             onClick={onClick}
             size={size}
             slot={[<Icon icon={isVisible ? faEyeSlash : faEye} />]}
+            strTooltip={strVisible as string}
         />
     );
 }

@@ -235,7 +235,10 @@ const TemplateIsClearable = () => {
         <>
             <Box as="h3">Is clearable</Box>
 
-            <TemplateSizes isClearable />
+            <TemplateSizes
+                isClearable
+                tooltipStr="Clear"
+            />
         </>
     );
 };
@@ -252,7 +255,7 @@ const TemplateIsCopyable = () => {
             <TemplateSizes
                 isCopyable
                 readOnly
-                tooltipStr="tooltip string"
+                tooltipStr="Copy"
             />
         </>
     );
@@ -271,6 +274,7 @@ const TemplateIsVisibilityToggleable = () => {
                 defaultValue={LOREM.text_xxs}
                 isVisibilityToggleable
                 isVisible={false}
+                tooltipStr="Toggle visibility"
             />
         </>
     );

@@ -117,6 +117,7 @@ export function useFieldActions({
                     isVisible={isVisible}
                     onClick={handleToggleVisibility}
                     size={size}
+                    strVisible={tooltipStr}
                 />
             );
         }
@@ -144,6 +145,7 @@ export function useFieldActions({
                         return setInputValue("");
                     }}
                     size={size}
+                    strClear={tooltipStr}
                 />
             );
         }
