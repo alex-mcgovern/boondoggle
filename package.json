@@ -12,7 +12,7 @@
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
     },
     "sideEffects": [
-        "*.css"
+        "dist/index.css"
     ],
     "type": "module",
     "module": "dist/index.js",
