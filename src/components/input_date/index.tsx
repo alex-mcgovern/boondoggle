@@ -80,9 +80,10 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                         defaultValue={defaultValue ? formatDate(defaultValue, locale) : undefined}
                         isVisibilityToggleable={undefined}
                         isVisible={undefined}
-                        readOnly
+                        // readOnly
                         ref={ref}
                         slotLeft={slotLeft}
+                        // type="date"
                         value={inputValue}
                     />
                 }
