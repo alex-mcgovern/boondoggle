@@ -34,6 +34,7 @@ export default defineConfig({
     // ],
     platform: "browser",
     sourcemap: false,
+    splitting: true,
     target: "es2020",
     treeshake: true,
     tsconfig: "./tsconfig.build.json",
