@@ -13,7 +13,7 @@ export default defineConfig({
 
     esbuildPlugins: [
         vanillaExtractPlugin({
-            identifiers: "debug",
+            identifiers: "short",
             outputCss: true,
             runtime: false,
         }),
@@ -21,7 +21,7 @@ export default defineConfig({
 
     format: ["esm"],
 
-    minify: false,
+    minify: true,
 
     outDir: "dist",
     // entry: [
