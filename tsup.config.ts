@@ -9,7 +9,8 @@ export default defineConfig({
         entry: "./src/index.ts",
         resolve: false,
     },
-    entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
+    entry: ["src/index.ts"],
+
     esbuildPlugins: [
         vanillaExtractPlugin({
             identifiers: "debug",
@@ -17,11 +18,22 @@ export default defineConfig({
             runtime: false,
         }),
     ],
+
     format: ["esm"],
-    minify: true,
+
+    minify: false,
+
     outDir: "dist",
-    sourcemap: true,
-    splitting: true,
+    // entry: [
+    //     "src",
+    //     "!src/**/*.css.ts",
+    //     "!src/**/stories.*",
+    //     "!src/**/*.test.*",
+    //     "!src/**/test.*",
+    //     "!src/**/types.ts",
+    // ],
+    platform: "browser",
+    sourcemap: false,
     target: "es2020",
     treeshake: true,
     tsconfig: "./tsconfig.build.json",
