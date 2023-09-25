@@ -12,11 +12,10 @@
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
     },
     "type": "module",
-    "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "exports": {
-        ".": "./dist/index.js",
-        "./index.css": "./dist/index.css"
+        "import": "./index.js",
+        "require": "./index.cjs"
     },
     "scripts": {
         "build-storybook": "storybook build",
