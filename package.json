@@ -12,16 +12,21 @@
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
     },
     "type": "module",
+    "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "exports": {
-        "import": "./index.js",
-        "require": "./index.cjs"
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        },
+        "./index.css": "./dist/index.css"
     },
     "scripts": {
         "build-storybook": "storybook build",
         "build:dev": "rm -rf lib && tsup --watch",
         "build:docs": "storybook build -o build",
-        "build:prod": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=16384' tsup",
+        "build:prod": "NODE_ENV=production tsup",
         "build:watch": "tsup --watch",
         "check": "npm run tsc && npm run ci-lint && npm run test",
         "ci-build-prerelease": "npm run build:prod && npm version prerelease && npm publish --access public",
