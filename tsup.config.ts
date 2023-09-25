@@ -10,7 +10,6 @@ export default defineConfig({
         resolve: false,
     },
     entry: ["src/index.ts"],
-
     esbuildPlugins: [
         vanillaExtractPlugin({
             identifiers: "short",
@@ -18,20 +17,9 @@ export default defineConfig({
             runtime: false,
         }),
     ],
-
     format: ["esm"],
-
     minify: true,
-
     outDir: "dist",
-    // entry: [
-    //     "src",
-    //     "!src/**/*.css.ts",
-    //     "!src/**/stories.*",
-    //     "!src/**/*.test.*",
-    //     "!src/**/test.*",
-    //     "!src/**/types.ts",
-    // ],
     platform: "browser",
     sourcemap: false,
     splitting: true,

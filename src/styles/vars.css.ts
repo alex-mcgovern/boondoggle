@@ -127,11 +127,11 @@ export const rootVars = createGlobalTheme(":root", {
         space_8: "2rem",
         space_10: "2.5rem",
         space_12: "3rem",
-        space_14: "3.5rem",
-        space_16: "4rem",
-        space_20: "5rem",
-        space_24: "6rem",
-        space_32: "8rem",
+        // space_14: "3.5rem",
+        // space_16: "4rem",
+        // space_20: "5rem",
+        // space_24: "6rem",
+        // space_32: "8rem",
         /* eslint-enable sort-keys-fix/sort-keys-fix */
     },
     transitionDuration: {
