@@ -4,9 +4,6 @@
     "description": "Boondoggle design system component library",
     "version": "0.13.18",
     "license": "MIT",
-    "files": [
-        "dist"
-    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
