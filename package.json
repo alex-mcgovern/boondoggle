@@ -12,12 +12,8 @@
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
     },
     "type": "module",
-    "main": "dist/index.js",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
-    "exports": {
-        ".": "./dist/index.js",
-        "./index.css": "./dist/index.css"
-    },
     "scripts": {
         "build-storybook": "storybook build",
         "build:dev": "rm -rf lib && tsup --watch",
@@ -34,7 +30,7 @@
         "patch": "npm run check && npm run build:prod && npm version patch && npm publish --access public && git push --no-verify",
         "prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts|src/components/icon_flag/flags/(.*).tsx'",
         "storybook": "storybook dev -p 6006",
-        "test": "jest",
+        "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js --config src/jest.config.mjs",
         "test:watch": "jest --watch",
         "tsc": "tsc"
     },
