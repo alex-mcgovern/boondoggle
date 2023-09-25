@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { createRef, forwardRef, useCallback } from "react";
 
@@ -116,7 +116,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                 {...wrapperProps}
             >
                 <Box background="transparent">
-                    <Slot
+                    <RadixSlot.Slot
                         onClick={toggleIsOpen}
                         onMouseEnter={
                             openOn === "hover"
@@ -156,7 +156,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                         ref={triggerRef}
                     >
                         {triggerNode}
-                    </Slot>
+                    </RadixSlot.Slot>
                 </Box>
                 <Box
                     {...rest}

@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef } from "react";
 
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
@@ -118,12 +118,12 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
                 {...wrapperProps}
             >
                 {triggerNode && (
-                    <Slot
+                    <RadixSlot.Slot
                         onClick={toggleIsOpen}
                         ref={triggerRef}
                     >
                         {triggerNode}
-                    </Slot>
+                    </RadixSlot.Slot>
                 )}
 
                 <DialogModalOuter dialogRef={dialogRef}>

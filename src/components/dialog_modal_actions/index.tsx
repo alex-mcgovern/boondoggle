@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import { Children } from "react";
 
 import { Box } from "../box";
@@ -81,7 +81,7 @@ export function DialogModalActions({
         >
             {Children.map(actions, (action) => {
                 return (
-                    <Slot
+                    <RadixSlot.Slot
                         onClick={() => {
                             if (shouldCloseOnAction) {
                                 closeDialog();
@@ -89,7 +89,7 @@ export function DialogModalActions({
                         }}
                     >
                         {action}
-                    </Slot>
+                    </RadixSlot.Slot>
                 );
             })}
         </Box>
