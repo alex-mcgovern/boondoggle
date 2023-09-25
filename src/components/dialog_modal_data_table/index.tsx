@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 
 import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
@@ -184,12 +184,12 @@ export function DialogModalDataTable<TData extends RowData>({
             {...wrapperProps}
         >
             {triggerNode && (
-                <Slot
+                <RadixSlot.Slot
                     onClick={toggleIsOpen}
                     ref={triggerRef}
                 >
                     {triggerNode}
-                </Slot>
+                </RadixSlot.Slot>
             )}
 
             <DialogModalOuter dialogRef={dialogRef}>

@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { Children, forwardRef } from "react";
 
@@ -66,7 +66,7 @@ export const SlotWrapperInset = forwardRef(
                     </Box>
                 )}
 
-                <Slot
+                <RadixSlot.Slot
                     className={clsx({
                         [getSlotLeftOffsetStyles({
                             numSlots: slotLeft?.length || 1,
@@ -79,7 +79,7 @@ export const SlotWrapperInset = forwardRef(
                     })}
                 >
                     {children}
-                </Slot>
+                </RadixSlot.Slot>
 
                 {arrayHasLength(slotRight) && (
                     <Box
