@@ -12,8 +12,10 @@
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
     },
     "type": "module",
-    "module": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "exports": {
+        ".": "./index.js",
+        "./index.css": "./index.css"
+    },
     "scripts": {
         "build-storybook": "storybook build",
         "build:dev": "rm -rf lib && tsup --watch",
