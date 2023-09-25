@@ -14,10 +14,6 @@
     "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "exports": {
-        ".": "./dist/index.js",
-        "./index.css": "./dist/index.css"
-    },
     "scripts": {
         "build-storybook": "storybook build",
         "build:dev": "rm -rf lib && tsup --watch",
