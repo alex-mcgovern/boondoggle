@@ -17,7 +17,7 @@ export default defineConfig({
             runtime: false,
         }),
     ],
-    format: ["esm", "cjs"],
+    format: ["esm"],
     minify: true,
     outDir: "dist",
     platform: "browser",
