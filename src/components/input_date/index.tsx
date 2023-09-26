@@ -5,6 +5,7 @@ import { forwardRef, useCallback, useState } from "react";
 import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
+import { FieldActionButtonDate } from "../field_action_button_date";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
@@ -38,6 +39,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             locale,
             onChange,
             rawValueTransformer,
+            size,
             slotLeft = [<Icon icon={faCalendarAlt} />],
             value,
             wrapperProps,
@@ -53,7 +55,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                setInputValue(date.toLocaleDateString(locale));
+                setInputValue(date.toLocaleDateString());
 
                 if (onChange) {
                     onChange(
@@ -69,28 +71,35 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
         );
 
         return (
-            <Dialog
-                className={clsx(userClassName, datePickerDialogStyle)}
-                isOpen={isOpen}
-                triggerNode={
-                    // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-                    <Input
-                        {...rest}
-                        className={inputDateStyle}
-                        defaultValue={defaultValue ? formatDate(defaultValue, locale) : undefined}
-                        isVisibilityToggleable={undefined}
-                        isVisible={undefined}
-                        // readOnly
-                        ref={ref}
-                        slotLeft={slotLeft}
-                        // type="date"
-                        value={inputValue}
-                    />
-                }
-                wrapperProps={wrapperProps}
-            >
-                <DatePicker onDayClick={onDayClick} />
-            </Dialog>
+            <Input
+                {...rest}
+                className={inputDateStyle}
+                defaultValue={defaultValue ? formatDate(defaultValue, locale) : undefined}
+                isVisibilityToggleable={undefined}
+                isVisible={undefined}
+                ref={ref}
+                size={size}
+                slotLeft={slotLeft}
+                slotRight={[
+                    <Dialog
+                        className={clsx(userClassName, datePickerDialogStyle)}
+                        isOpen={isOpen}
+                        placement="bottom-end"
+                        triggerNode={
+                            // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
+                            <FieldActionButtonDate
+                                onClick={() => {}}
+                                size={size}
+                            />
+                        }
+                        wrapperProps={wrapperProps}
+                    >
+                        <DatePicker onDayClick={onDayClick} />
+                    </Dialog>,
+                ]}
+                type="date"
+                value={inputValue}
+            />
         );
     }
 );

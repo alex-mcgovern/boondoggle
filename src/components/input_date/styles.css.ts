@@ -12,6 +12,9 @@ export const datePickerDialogStyle = style([
         boxShadow: "md",
         marginTop: "space_2",
     }),
+    {
+        pointerEvents: "all",
+    },
 ]);
 
 export const inputDateStyle = style({
