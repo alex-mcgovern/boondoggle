@@ -64,10 +64,11 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                             : date.toISOString()
                     );
                 }
+                console.debug("debug  date:", date.toLocaleDateString());
 
                 setIsOpen(false);
             },
-            [locale, rawValueTransformer, onChange]
+            [rawValueTransformer, onChange]
         );
 
         return (

@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { FieldActionButtonClear } from "../../../field_action_button_clear";
 import { FieldActionButtonCopy } from "../../../field_action_button_copy";
-import { FieldActionButtonDate } from "../../../field_action_button_date";
 import { FieldActionButtonVisibility } from "../../../field_action_button_visibility";
 import { useFieldCopyableState } from "../use_field_copyable_state";
 import { useFieldVisibilityState } from "../use_field_visibility_state";
@@ -25,11 +24,6 @@ type UseFieldActionsArgs = {
      * Whether the field is copyable.
      */
     isCopyable: boolean | undefined;
-
-    /**
-     * Whether the field is a date type.
-     */
-    isDateType: boolean | undefined;
 
     /**
      * Whether the field value can be optionally visible.
@@ -73,7 +67,6 @@ export function useFieldActions({
     defaultValue,
     isClearable,
     isCopyable,
-    isDateType,
     isVisibilityToggleable,
     isVisible: initialIsVisible,
     onChange,
@@ -157,15 +150,6 @@ export function useFieldActions({
             );
         }
 
-        if (isDateType) {
-            actionNodes.push(
-                <FieldActionButtonDate
-                    onClick={() => {}}
-                    size={size}
-                />
-            );
-        }
-
         return actionNodes;
     }, [
         handleCopyValue,
@@ -174,7 +158,6 @@ export function useFieldActions({
         isClearable,
         isCopied,
         isCopyable,
-        isDateType,
         isVisibilityToggleable,
         isVisible,
         onChange,
