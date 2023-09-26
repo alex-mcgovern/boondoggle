@@ -55,8 +55,8 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                setInputValue(date.toLocaleDateString());
-
+                const formattedDate = new Date(date).toISOString().slice(0, 10);
+                setInputValue(formattedDate);
                 if (onChange) {
                     onChange(
                         rawValueTransformer
@@ -64,8 +64,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                             : date.toISOString()
                     );
                 }
-                console.debug("debug  date:", date.toLocaleDateString());
-
                 setIsOpen(false);
             },
             [rawValueTransformer, onChange]
@@ -81,6 +79,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                 ref={ref}
                 size={size}
                 slotLeft={slotLeft}
+                // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
                 slotRight={[
                     <Dialog
                         className={clsx(userClassName, datePickerDialogStyle)}
