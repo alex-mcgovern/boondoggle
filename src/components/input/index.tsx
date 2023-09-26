@@ -68,6 +68,11 @@ export type InputProps = Partial<
          * Whether to render the input with a border.
          */
         hasBorder?: boolean;
+
+        /**
+         * Whether the input is of type 'date'.
+         */
+        isDateType?: boolean;
     };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -84,6 +89,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             invalid,
             isClearable,
             isCopyable,
+            isDateType,
             isVisibilityToggleable,
             isVisible: initialIsVisible,
             label,
@@ -107,6 +113,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             defaultValue,
             isClearable,
             isCopyable,
+            isDateType,
             isVisibilityToggleable,
             isVisible: initialIsVisible,
             onChange,

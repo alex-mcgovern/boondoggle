@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { FieldActionButtonClear } from "../../../field_action_button_clear";
 import { FieldActionButtonCopy } from "../../../field_action_button_copy";
+import { FieldActionButtonDate } from "../../../field_action_button_date";
 import { FieldActionButtonVisibility } from "../../../field_action_button_visibility";
 import { useFieldCopyableState } from "../use_field_copyable_state";
 import { useFieldVisibilityState } from "../use_field_visibility_state";
 
-import type { Slot } from "../../../../common-types";
 import type { ElementSizeEnum } from "../../../../styles/common/element_size.css";
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, ReactNode } from "react";
 
 type UseFieldActionsArgs = {
     /**
@@ -25,6 +25,11 @@ type UseFieldActionsArgs = {
      * Whether the field is copyable.
      */
     isCopyable: boolean | undefined;
+
+    /**
+     * Whether the field is a date type.
+     */
+    isDateType: boolean | undefined;
 
     /**
      * Whether the field value can be optionally visible.
@@ -50,6 +55,10 @@ type UseFieldActionsArgs = {
      * The size of the field.
      */
     size: ElementSizeEnum | undefined;
+    /**
+     * A string to use as the toolip.
+     */
+    tooltipStr?: string;
 
     /**
      * The value of the input.
@@ -64,11 +73,13 @@ export function useFieldActions({
     defaultValue,
     isClearable,
     isCopyable,
+    isDateType,
     isVisibilityToggleable,
     isVisible: initialIsVisible,
     onChange,
     readOnly,
     size,
+    tooltipStr,
     value,
 }: UseFieldActionsArgs) {
     // Manage the input value with state to allow it to be cleared.
@@ -104,8 +115,8 @@ export function useFieldActions({
         readOnly,
     });
 
-    const actions: Slot = useMemo(() => {
-        const actionNodes: Slot = [];
+    const actions = useMemo(() => {
+        const actionNodes: Array<ReactNode> = [];
 
         if (isVisibilityToggleable) {
             actionNodes.push(
@@ -113,6 +124,7 @@ export function useFieldActions({
                     isVisible={isVisible}
                     onClick={handleToggleVisibility}
                     size={size}
+                    strVisible={tooltipStr}
                 />
             );
         }
@@ -124,6 +136,7 @@ export function useFieldActions({
                         handleCopyValue?.(inputValue);
                     }}
                     size={size}
+                    strCopy={tooltipStr}
                 />
             );
         }
@@ -139,6 +152,16 @@ export function useFieldActions({
                         return setInputValue("");
                     }}
                     size={size}
+                    strClear={tooltipStr}
+                />
+            );
+        }
+
+        if (isDateType) {
+            actionNodes.push(
+                <FieldActionButtonDate
+                    onClick={() => {}}
+                    size={size}
                 />
             );
         }
@@ -151,11 +174,13 @@ export function useFieldActions({
         isClearable,
         isCopied,
         isCopyable,
+        isDateType,
         isVisibilityToggleable,
         isVisible,
         onChange,
         readOnly,
         size,
+        tooltipStr,
     ]);
 
     return {
