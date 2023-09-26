@@ -28,6 +28,31 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
 import type { ChangeEvent, ComponentPropsWithoutRef, ForwardedRef } from "react";
 
+// type GetCurrencySymbolArgs = {
+//     currency?: string;
+//     locale?: string;
+// };
+
+// const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs) => {
+//     if (!currency || !locale) {
+//         return null;
+//     }
+
+//     const formatter = new Intl.NumberFormat(locale, {
+//         currency,
+//         style: "currency",
+//     });
+
+//     let symbol;
+//     formatter.formatToParts(0).forEach(({ type, value }) => {
+//         if (type === "currency") {
+//             symbol = value;
+//         }
+//     });
+
+//     return symbol;
+// };
+
 type IsCurrencyEditable<TCurrency extends string> = {
     currencySelectItems: Array<SelectItemShape<TCurrency>>;
     isCurrencyEditable: true;
@@ -92,7 +117,7 @@ export type InputCurrencyProps<TCurrency extends string> = Partial<
         /**
          * The locale to use in formatting.
          */
-        region?: string;
+        region: string;
     };
 
 /**
@@ -108,18 +133,19 @@ export function InputCurrencyBase<TCurrency extends string>(
         onChange,
         onCurrencyChange,
         region,
+        value: controlledValue,
         ...rest
     }: InputCurrencyProps<TCurrency>,
     ref: ForwardedRef<HTMLInputElement>
 ) {
-    const [currency, setCurrency] = useState<TCurrency | undefined>(initialCurrency);
+    const [currency, setCurrency] = useState<TCurrency>(initialCurrency);
 
     const parser = NumberParser(region, {
         currency,
     });
 
     const [inputValue, setInputValue] = useState(
-        formatNumber(parser(Number(defaultValue).toString()), {
+        formatNumber(parser(Number(controlledValue || defaultValue).toString()), {
             region,
         })
     );

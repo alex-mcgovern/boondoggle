@@ -1,18 +1,23 @@
+/* eslint-disable jsdoc/multiline-blocks */
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { FormInput } from "../../form_input";
+import { FormInputCurrency } from "../../form_input_currency";
 import { FormRadioButtonCardGroup } from "../../form_radio_button_card_group";
 import { FormSelectSingle } from "../../form_select_single";
 import { FormSlider } from "../../form_slider";
 import { FormSubmitButton } from "../../form_submit_button";
 import { FormTextArea } from "../../form_text_area";
+import { FlagAe, FlagFr, FlagUs } from "../../icon_flag";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_card_group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 import type { FormProps } from "..";
+import type { Slot } from "../../../common-types";
 import type { BoxProps } from "../../box";
+import type { SelectItemShape } from "../../select/types";
 
 const mockFormSchema = z.object({
     amount: z.number().min(1),
@@ -63,6 +68,52 @@ export const mockForm = ({
                     placeholder="Enter your email address"
                     wrapperProps={WRAPPER_PROPS}
                 />
+                {/** @ts-expect-error Props are busted */}
+                <FormInputCurrency<"AED" | "USD" | "EUR">
+                    currencySelectItems={
+                        [
+                            {
+                                label: "USD",
+                                slotLeft: [
+                                    <FlagUs
+                                        height="space_4"
+                                        width="space_4"
+                                    />,
+                                ] as Slot,
+                                value: "USD",
+                            },
+                            {
+                                label: "AED",
+                                slotLeft: [
+                                    <FlagAe
+                                        height="space_4"
+                                        width="space_4"
+                                    />,
+                                ] as Slot,
+                                value: "AED",
+                            },
+                            {
+                                label: "EUR",
+                                slotLeft: [
+                                    <FlagFr
+                                        height="space_4"
+                                        width="space_4"
+                                    />,
+                                ] as Slot,
+                                value: "EUR",
+                            },
+                        ] as Array<SelectItemShape<"USD" | "AED">>
+                    }
+                    defaultValue={withDefaultValues ? LOREM.email() : undefined}
+                    id="amount"
+                    initialCurrency="USD"
+                    isCurrencyEditable
+                    label="Amount"
+                    name="amount"
+                    placeholder="Enter an amount"
+                    region="en-US"
+                    wrapperProps={WRAPPER_PROPS}
+                />
                 <FormTextArea
                     defaultValue={withDefaultValues ? LOREM.text_xxs : undefined}
                     id="description"
@@ -81,6 +132,7 @@ export const mockForm = ({
                     placeholder="Select an option from the dropdown"
                     wrapperProps={WRAPPER_PROPS}
                 />
+
                 <FormSlider
                     defaultValue={withDefaultValues ? [50] : undefined}
                     id="amount"
