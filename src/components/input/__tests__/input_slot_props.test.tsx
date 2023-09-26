@@ -4,23 +4,23 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { Icon } from "../../icon";
-import { FieldInput } from "../FieldInput";
 
-import type { FieldInputProps } from "../FieldInput";
+import type { InputProps } from "..";
 
-const PROPS: FieldInputProps = {
+const PROPS: InputProps = {
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FieldInputProps) => {
-    return render(<FieldInput {...props} />);
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
 };
 
-describe("<FieldInput />", () => {
+describe("<Input />", () => {
     describe("Slot props", () => {
         test("should render node passed to `slotLeft`", () => {
             const { getByTestId } = renderComponent({

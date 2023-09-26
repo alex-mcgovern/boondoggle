@@ -20,7 +20,7 @@ const hasBorder = styleVariants({
     true: [],
 });
 
-export const getBaseInputStyles = recipe({
+export const getInputStyles = recipe({
     base: [
         getSprinkles({
             width: "100%",

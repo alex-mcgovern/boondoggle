@@ -220,7 +220,9 @@ describe("<SelectMulti />", () => {
 
         expect(combobox).toHaveClass(a11yError);
 
-        expect(combobox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
+        expect(combobox?.parentNode?.parentNode?.parentNode?.parentNode).toHaveClass(
+            variantColorOverlay.red
+        );
 
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });

@@ -1,15 +1,16 @@
-/* eslint-disable jsdoc/multiline-blocks */
+import { extractAtomsFromProps } from "@dessert-box/core";
+import clsx from "clsx";
 import { forwardRef } from "react";
 
-import {
-    getOptionalIsClearableProps,
-    getOptionalIsCopyableProps,
-    getOptionalIsVisibilityToggleableProps,
-    getOptionalLabelProps,
-} from "../../common-types";
+import { getOptionalLabelProps } from "../../common-types";
+import { arrayHasLength } from "../../lib/array_has_length";
+import { a11yError } from "../../styles/common/a11y.css";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { FieldAddonWrapper } from "../field_addon_wrapper";
 import { FieldWrapper } from "../field_wrapper";
-import { BaseInput } from "./BaseInput";
+import { SlotWrapperInset } from "../slot_wrapper_inset";
+import { useFieldActions } from "./lib/use_field_actions";
+import { getInputStyles } from "./styles.css";
 
 import type {
     WithColorOverlay,
@@ -32,31 +33,30 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
 import type { ComponentPropsWithoutRef } from "react";
 
-export type FieldInputProps = Partial<
+export type InputProps = Partial<
     Pick<
         ComponentPropsWithoutRef<"input">,
-        | "autoComplete"
-        | "className"
         | "defaultValue"
-        | "disabled"
-        | "onBlur"
+        | "value"
         | "onChange"
         | "onClick"
         | "onFocus"
-        | "onMouseLeave"
         | "onMouseOver"
-        | "role"
+        | "onMouseLeave"
+        | "className"
+        | "autoComplete"
         | "type"
-        | "value"
+        | "onBlur"
+        | "disabled"
     >
 > &
     SprinklesArgs &
     WithColorOverlay &
+    WithOptionalFieldAddons &
     WithHideLastpass &
     WithId &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
-    WithOptionalFieldAddons &
     WithOptionalIsVisibilityToggleable &
     WithOptionalLabel &
     WithOptionalPlaceholder &
@@ -73,7 +73,7 @@ export type FieldInputProps = Partial<
         hasBorder?: boolean;
     };
 
-export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
     (
         {
             addonLeft,
@@ -90,16 +90,15 @@ export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
             isClearable,
             isCopyable,
             isVisibilityToggleable,
-            isVisible,
+            isVisible: initialIsVisible,
             label,
             labelProps,
             labelTooltip,
-            name,
             onChange,
             readOnly,
             size = "md",
             slotLeft,
-            slotRight,
+            slotRight: initialSlotRight,
             type,
             value,
             wrapperProps,
@@ -107,6 +106,20 @@ export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
         },
         ref
     ) => {
+        const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+
+        const { actions, handleUpdateInputValue, inputValue, isVisible } = useFieldActions({
+            defaultValue,
+            isClearable,
+            isCopyable,
+            isVisibilityToggleable,
+            isVisible: initialIsVisible,
+            onChange,
+            readOnly,
+            size,
+            value,
+        });
+
         return (
             <FieldWrapper
                 colorOverlay={colorOverlay}
@@ -121,34 +134,30 @@ export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
                 <FieldAddonWrapper
                     addonLeft={addonLeft}
                     addonRight={addonRight}
-                    size={size}
                 >
-                    {/** @ts-expect-error isClearable is broken */}
-                    <BaseInput
-                        className={userClassName}
-                        colorOverlay={colorOverlay}
-                        defaultValue={defaultValue}
-                        hasBorder={hasBorder}
-                        hideLastpass={hideLastpass}
-                        id={id}
-                        invalid={invalid}
-                        name={name}
-                        onChange={onChange}
-                        readOnly={readOnly}
-                        ref={ref}
+                    <SlotWrapperInset
                         size={size}
                         slotLeft={slotLeft}
-                        slotRight={slotRight}
-                        type={type}
-                        value={value}
-                        {...rest}
-                        {...getOptionalIsClearableProps({ isClearable, readOnly })}
-                        {...getOptionalIsCopyableProps({ isCopyable, readOnly })}
-                        {...getOptionalIsVisibilityToggleableProps({
-                            isVisibilityToggleable,
-                            isVisible,
-                        })}
-                    />
+                        slotRight={arrayHasLength(actions) ? actions : initialSlotRight}
+                    >
+                        <input
+                            className={clsx(
+                                getInputStyles({ hasBorder, size }),
+                                getSprinkles(atomProps),
+                                userClassName,
+                                {
+                                    [a11yError]: invalid,
+                                }
+                            )}
+                            id={id}
+                            onChange={handleUpdateInputValue}
+                            readOnly={readOnly}
+                            ref={ref}
+                            type={isVisibilityToggleable && !isVisible ? "password" : type}
+                            value={inputValue}
+                            {...otherProps}
+                        />
+                    </SlotWrapperInset>
                 </FieldAddonWrapper>
             </FieldWrapper>
         );

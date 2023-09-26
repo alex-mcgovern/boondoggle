@@ -152,9 +152,9 @@ export { FormSubmitButton } from "./components/form_submit_button";
 
 export type { FormSubmitButtonProps } from "./components/form_submit_button";
 
-export { FieldInput } from "./components/input/FieldInput";
+export { Input } from "./components/input";
 
-export type { FieldInputProps } from "./components/input/FieldInput";
+export type { InputProps } from "./components/input";
 
 export { InputDate } from "./components/input_date";
 

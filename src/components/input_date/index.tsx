@@ -6,15 +6,15 @@ import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
 import { Icon } from "../icon";
-import { FieldInput } from "../input/FieldInput";
+import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
 import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../common-types";
-import type { FieldInputProps } from "../input/FieldInput";
+import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
 export type InputDateProps = Omit<
-    FieldInputProps,
+    InputProps,
     "isClearable" | "isCopyable" | "isVisibilityToggleable"
 > &
     WithOptionalLabel &
@@ -74,7 +74,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                 isOpen={isOpen}
                 triggerNode={
                     // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-                    <FieldInput
+                    <Input
                         {...rest}
                         className={inputDateStyle}
                         defaultValue={defaultValue ? formatDate(defaultValue, locale) : undefined}

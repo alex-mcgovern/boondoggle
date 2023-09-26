@@ -1,7 +1,7 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 
 import { Icon } from "../../../icon";
-import { FieldInput } from "../../../input/FieldInput";
+import { Input } from "../../../input";
 
 import type { WithOptionalPlaceholder } from "../../../../common-types";
 import type { useDataTableState } from "../../../../lib/use_data_table_state";
@@ -27,7 +27,7 @@ export function DataTableFilterInput({
     setGlobalFilter,
 }: DataTableFilterInputProps) {
     return (
-        <FieldInput
+        <Input
             autoComplete="off"
             isClearable
             name="filter"

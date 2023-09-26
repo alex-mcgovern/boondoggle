@@ -3,22 +3,22 @@
  */
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-import { FieldInput } from "../FieldInput";
 
-import type { FieldInputProps } from "../FieldInput";
+import type { InputProps } from "..";
 
-const PROPS: FieldInputProps = {
+const PROPS: InputProps = {
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FieldInputProps) => {
-    return render(<FieldInput {...props} />);
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
 };
 
-describe("<FieldInput />", () => {
+describe("<Input />", () => {
     test("should render placeholder", () => {
         const { getByRole } = renderComponent(PROPS);
 

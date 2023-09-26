@@ -36,8 +36,12 @@ const selectFromInputDate = async ({
 
     const { getByRole: getByRoleScoped } = within(
         (
-            ((inputDateTrigger.parentNode as HTMLElement).parentNode as HTMLElement)
-                .parentNode as HTMLElement
+            (
+                (
+                    ((inputDateTrigger.parentNode as HTMLElement).parentNode as HTMLElement)
+                        .parentNode as HTMLElement
+                ).parentNode as HTMLElement
+            ).parentNode as HTMLElement
         ).parentNode as HTMLElement
     );
 

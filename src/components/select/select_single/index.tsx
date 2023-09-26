@@ -1,13 +1,13 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
-import clsx from "clsx";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useState } from "react";
 
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
+import { Box } from "../../box";
 import { Icon } from "../../icon";
-import { BaseInput } from "../../input/BaseInput";
+import { Input } from "../../input";
 import { filterSelectItems } from "../lib/filter_select_items";
 import { getSlotRight } from "../lib/get_slot_right";
 import { SelectItemList } from "../select_item_list";
@@ -26,7 +26,7 @@ import type {
     WithStateInvalid,
     WithWrapperProps,
 } from "../../../common-types";
-import type { BaseInputProps } from "../../input/BaseInput";
+import type { InputProps } from "../../input";
 import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
@@ -54,7 +54,7 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
          */
         inputProps?: Partial<
             Omit<
-                BaseInputProps,
+                InputProps,
                 | "id"
                 | "isClearable"
                 | "isCopyable"
@@ -64,6 +64,7 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
                 | "labelProps"
                 | "size"
                 | "labelTooltip"
+                | "width"
             >
         >;
 
@@ -100,7 +101,7 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
 
 /**
  * Renders a single-select dropdown.
- * @private Is a base component that should be wrapped with `ForwardRef`.
+ * @note Is a base component that should be wrapped with `ForwardRef`.
  */
 function SelectSingleBase<TValue extends string = string>(
     {
@@ -126,6 +127,7 @@ function SelectSingleBase<TValue extends string = string>(
         size,
         slotLeft,
         slotRight = [<Icon icon={faAngleDown} />],
+        wrapperProps,
     }: SelectSingleProps<TValue>,
     initialRef: ForwardedRef<HTMLInputElement>
 ) {
@@ -203,8 +205,11 @@ function SelectSingleBase<TValue extends string = string>(
     });
 
     return (
-        <>
-            <BaseInput
+        <Box
+            position="relative"
+            {...wrapperProps}
+        >
+            <Input
                 errorMessage={errorMessage}
                 size={size}
                 slotLeft={selectedItem?.slotLeft || slotLeft}
@@ -214,9 +219,8 @@ function SelectSingleBase<TValue extends string = string>(
                     reset,
                     slotRight,
                 })}
-                {...inputProps}
                 {...getInputProps({
-                    className: clsx(inputProps?.className, selectInputCursorStyles),
+                    className: selectInputCursorStyles,
                     disabled,
                     id,
                     invalid,
@@ -234,6 +238,7 @@ function SelectSingleBase<TValue extends string = string>(
                         }),
                         labelTooltip,
                     }),
+                    ...inputProps,
                 })}
             />
 
@@ -250,7 +255,7 @@ function SelectSingleBase<TValue extends string = string>(
                 size={size}
                 style={floatingStyles}
             />
-        </>
+        </Box>
     );
 }
 

@@ -7,7 +7,7 @@ import type { WithFormFieldProps, WithOptionalPlaceholder } from "../../common-t
 import type { InputDateProps } from "../input_date";
 
 /**
- * React Hook Form connected version of Boondoggle's `FieldInput`. Uses `useFormContext`
+ * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
 export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &

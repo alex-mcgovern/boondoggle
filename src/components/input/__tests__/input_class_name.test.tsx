@@ -3,21 +3,21 @@
  */
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { FieldInput } from "../FieldInput";
 
-import type { FieldInputProps } from "../FieldInput";
+import type { InputProps } from "..";
 
-const PROPS: FieldInputProps = {
+const PROPS: InputProps = {
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FieldInputProps) => {
-    return render(<FieldInput {...props} />);
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
 };
 
-describe("<FieldInput />", () => {
+describe("<Input />", () => {
     describe("class name", () => {
         test("should have the className passed to it", () => {
             const { getByRole } = renderComponent({

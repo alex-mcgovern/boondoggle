@@ -2,7 +2,7 @@ import NumberParser from "intl-number-parser";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 
 import { formatNumber } from "../../lib/format_number";
-import { FieldInput } from "../input/FieldInput";
+import { Input } from "../input";
 import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
 
@@ -112,8 +112,10 @@ export function InputCurrencyBase<TCurrency extends string>(
     }: InputCurrencyProps<TCurrency>,
     ref: ForwardedRef<HTMLInputElement>
 ) {
+    const [currency, setCurrency] = useState<TCurrency | undefined>(initialCurrency);
+
     const parser = NumberParser(region, {
-        currency: initialCurrency,
+        currency,
     });
 
     const [inputValue, setInputValue] = useState(
@@ -121,8 +123,6 @@ export function InputCurrencyBase<TCurrency extends string>(
             region,
         })
     );
-
-    const [currency, setCurrency] = useState<TCurrency | undefined>(initialCurrency);
 
     const onChangeHandler = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
@@ -166,19 +166,10 @@ export function InputCurrencyBase<TCurrency extends string>(
     }, [currency, currencySelectItems, isCurrencyEditable, onCurrencyChange]);
 
     return (
-        <FieldInput
+        <Input
             addonRight={addonRight}
             onChange={onChangeHandler}
             ref={ref}
-            role="spinbutton"
-            // slotLeft={[
-            //     <Box
-            //         color="text_low_contrast"
-            //         fontWeight="medium"
-            //     >
-            //         {initialCurrency}
-            //     </Box>,
-            // ]}
             value={inputValue}
             {...rest}
         />

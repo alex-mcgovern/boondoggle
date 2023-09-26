@@ -5,18 +5,18 @@ import { cleanup, fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { FieldInput } from "../FieldInput";
 
-import type { FieldInputProps } from "../FieldInput";
+import type { InputProps } from "..";
 
 afterEach(cleanup);
 
-const renderComponent = (props: FieldInputProps) => {
-    return render(<FieldInput {...props} />);
+const renderComponent = (props: InputProps) => {
+    return render(<Input {...props} />);
 };
 
-describe("<FieldInput />", () => {
+describe("<Input />", () => {
     /**
      * Event handlers
      */

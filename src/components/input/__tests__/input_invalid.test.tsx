@@ -3,24 +3,24 @@
  */
 import { render } from "@testing-library/react";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
-import { FieldInput } from "../FieldInput";
 
-import type { FieldInputProps } from "../FieldInput";
+import type { InputProps } from "..";
 
-const PROPS: FieldInputProps = {
+const PROPS: InputProps = {
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FieldInputProps) => {
-    return render(<FieldInput {...props} />);
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
 };
 
-describe("<FieldInput />", () => {
+describe("<Input />", () => {
     describe("Invalid", () => {
         test("should have error styling", () => {
             const { getByRole } = renderComponent({

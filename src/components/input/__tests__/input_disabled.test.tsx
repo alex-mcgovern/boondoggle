@@ -4,12 +4,12 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { a11yDisabled } from "../../../styles/common/a11y.css";
-import { FieldInput } from "../FieldInput";
 
-import type { FieldInputProps } from "../FieldInput";
+import type { InputProps } from "..";
 
 const ON_CHANGE = jest.fn();
 
@@ -19,7 +19,7 @@ const ON_MOUSE_OVER = jest.fn();
 
 const ON_FOCUS = jest.fn();
 
-const PROPS: FieldInputProps = {
+const PROPS: InputProps = {
     disabled: true,
     name: LOREM.name(),
     onChange: ON_CHANGE,
@@ -29,11 +29,11 @@ const PROPS: FieldInputProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FieldInputProps) => {
-    return render(<FieldInput {...props} />);
+const renderComponent = ({ ...props }: InputProps) => {
+    return render(<Input {...props} />);
 };
 
-describe("<FieldInput />", () => {
+describe("<Input />", () => {
     describe("Disabled", () => {
         test("should have disabled styling", () => {
             const { getByRole } = renderComponent(PROPS);
