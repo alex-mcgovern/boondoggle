@@ -68,6 +68,7 @@ export type InputProps = Partial<
          * Whether to render the input with a border.
          */
         hasBorder?: boolean;
+        tooltipStr?: string;
     };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -94,7 +95,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             size = "md",
             slotLeft,
             slotRight: initialSlotRight,
-            // tooltipStr,
+            tooltipStr,
             type,
             value,
             wrapperProps,
@@ -113,7 +114,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             onChange,
             readOnly,
             size,
-            // tooltipStr,
+            tooltipStr,
             value,
         });
 
