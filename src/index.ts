@@ -54,13 +54,13 @@ export { DataTable } from "./components/data_table";
 
 export type { DataTableProps } from "./components/data_table";
 
-export { DataTableRowActions } from "./components/data_table_row_actions";
+export { DataTableRowActions } from "./components/data_table/_components/data_table_row_actions";
 
-export type { DataTableRowActionsProps } from "./components/data_table_row_actions";
+export type { DataTableRowActionsProps } from "./components/data_table/_components/data_table_row_actions";
 
-export { DataTableCellButton } from "./components/data_table_cell_button";
+export { DataTableCellButton } from "./components/data_table/_components/data_table_cell_button";
 
-export type { DataTableCellButtonProps } from "./components/data_table_cell_button";
+export type { DataTableCellButtonProps } from "./components/data_table/_components/data_table_cell_button";
 
 export { Dialog } from "./components/dialog";
 
@@ -152,9 +152,9 @@ export { FormSubmitButton } from "./components/form_submit_button";
 
 export type { FormSubmitButtonProps } from "./components/form_submit_button";
 
-export { Input } from "./components/input";
+export { FieldInput } from "./components/input/FieldInput";
 
-export type { InputProps } from "./components/input";
+export type { InputProps } from "./components/input/FieldInput";
 
 export { InputDate } from "./components/input_date";
 

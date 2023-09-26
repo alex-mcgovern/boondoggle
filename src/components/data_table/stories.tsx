@@ -8,9 +8,9 @@ import {
 } from "../../../mocks/data_table_columns.mock";
 import { Link } from "../../../test/link.comp.mock";
 import { Button } from "../button";
-import { DataTableRowActions } from "../data_table_row_actions";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
+import { DataTableRowActions } from "./_components/data_table_row_actions";
 
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 import type { TDataTableRowActions } from "../../common-types";

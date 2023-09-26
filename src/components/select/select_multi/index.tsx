@@ -9,7 +9,7 @@ import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { arrayHasLength } from "../../../lib/array_has_length";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
-import { Input } from "../../input";
+import { FieldInput } from "../../input/FieldInput";
 import { filterSelectItems } from "../lib/filter_select_items";
 import { getSlotRight } from "../lib/get_slot_right";
 import { SelectItemList } from "../select_item_list";
@@ -28,7 +28,7 @@ import type {
     WithStateInvalid,
     WithWrapperProps,
 } from "../../../common-types";
-import type { InputProps } from "../../input";
+import type { InputProps } from "../../input/FieldInput";
 import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
@@ -276,7 +276,7 @@ function SelectMultiBase<TValue extends string = string>(
             position="relative"
             {...wrapperProps}
         >
-            <Input
+            <FieldInput
                 errorMessage={errorMessage}
                 invalid={invalid}
                 size={size}

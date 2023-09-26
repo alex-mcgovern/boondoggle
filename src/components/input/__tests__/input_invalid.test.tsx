@@ -3,13 +3,13 @@
  */
 import { render } from "@testing-library/react";
 
-import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
+import { FieldInput } from "../FieldInput";
 
-import type { InputProps } from "..";
+import type { InputProps } from "../FieldInput";
 
 const PROPS: InputProps = {
     name: LOREM.name(),
@@ -17,10 +17,10 @@ const PROPS: InputProps = {
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+    return render(<FieldInput {...props} />);
 };
 
-describe("<Input />", () => {
+describe("<FieldInput />", () => {
     describe("Invalid", () => {
         test("should have error styling", () => {
             const { getByRole } = renderComponent({

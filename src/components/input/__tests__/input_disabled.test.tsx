@@ -4,12 +4,12 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { a11yDisabled } from "../../../styles/common/a11y.css";
+import { FieldInput } from "../FieldInput";
 
-import type { InputProps } from "..";
+import type { InputProps } from "../FieldInput";
 
 const ON_CHANGE = jest.fn();
 
@@ -30,10 +30,10 @@ const PROPS: InputProps = {
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+    return render(<FieldInput {...props} />);
 };
 
-describe("<Input />", () => {
+describe("<FieldInput />", () => {
     describe("Disabled", () => {
         test("should have disabled styling", () => {
             const { getByRole } = renderComponent(PROPS);

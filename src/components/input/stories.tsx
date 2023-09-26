@@ -7,12 +7,12 @@
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
 
-import { Input as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Icon } from "../icon";
+import { FieldInput as StoryComp } from "./FieldInput";
 
-import type { InputProps as StoryCompProps } from ".";
+import type { InputProps as StoryCompProps } from "./FieldInput";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -21,7 +21,7 @@ const meta = {
         placeholder: LOREM.placeholder(),
     },
     component: StoryComp,
-    title: "Components/Input",
+    title: "Components/FieldInput",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

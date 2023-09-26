@@ -7,7 +7,7 @@ import type { WithFormFieldProps, WithWrapperProps } from "../../common-types";
 import type { SliderProps } from "../slider";
 
 /**
- * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
+ * React Hook Form connected version of Boondoggle's `FieldInput`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
 export type FormSliderProps = WithWrapperProps & SliderProps & WithFormFieldProps;

@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 
 import { Box } from "../box";
 import { Button } from "../button";
-import { Input } from "../input";
+import { FieldInput } from "../input/FieldInput";
 import { confirmTextStyle } from "./styles.css";
 
 import type { WithColorOverlay } from "../../common-types";
@@ -68,7 +68,7 @@ export const DialogModalActionConfirm = forwardRef<HTMLDivElement, DialogModalAc
                     <Box as="span">{promptSuffix}</Box>
                 </Box>
 
-                <Input
+                <FieldInput
                     colorOverlay={colorOverlay}
                     marginBottom="space_4"
                     name="dialog_confirm_text"

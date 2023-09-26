@@ -3,11 +3,11 @@
  */
 import { render } from "@testing-library/react";
 
-import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
+import { FieldInput } from "../FieldInput";
 
-import type { InputProps } from "..";
+import type { InputProps } from "../FieldInput";
 
 const PROPS: InputProps = {
     id: LOREM.id(),
@@ -17,10 +17,10 @@ const PROPS: InputProps = {
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+    return render(<FieldInput {...props} />);
 };
 
-describe("<Input />", () => {
+describe("<FieldInput />", () => {
     test("should assign name to the element", () => {
         const { getByRole } = renderComponent(PROPS);
 

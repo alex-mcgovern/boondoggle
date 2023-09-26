@@ -8,7 +8,7 @@ import type {
     WithStateInvalid,
 } from "../../common-types";
 import type { BoxProps } from "../box";
-import type { InputProps } from "../input";
+import type { InputProps } from "../input/FieldInput";
 import type { UseComboboxStateChange } from "downshift";
 
 export type SelectItemShape<TValue extends string = string> = BoxProps &
