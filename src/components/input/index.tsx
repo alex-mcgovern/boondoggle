@@ -34,18 +34,19 @@ import type { ComponentPropsWithoutRef } from "react";
 export type InputProps = Partial<
     Pick<
         ComponentPropsWithoutRef<"input">,
+        | "autoComplete"
+        | "className"
         | "defaultValue"
-        | "value"
+        | "disabled"
+        | "onBlur"
         | "onChange"
         | "onClick"
         | "onFocus"
-        | "onMouseOver"
         | "onMouseLeave"
-        | "className"
-        | "autoComplete"
+        | "onMouseOver"
+        | "role"
         | "type"
-        | "onBlur"
-        | "disabled"
+        | "value"
     >
 > &
     SprinklesArgs &
