@@ -3,13 +3,13 @@ import { useController, useFormContext } from "react-hook-form";
 import { FieldInput } from "../input/FieldInput";
 
 import type { WithFormFieldProps } from "../../common-types";
-import type { InputProps } from "../input/FieldInput";
+import type { FieldInputProps } from "../input/FieldInput";
 
 /**
  * React Hook Form connected version of Boondoggle's `FieldInput`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormInputProps = InputProps & WithFormFieldProps;
+export type FormInputProps = FieldInputProps & WithFormFieldProps;
 
 export function FormInput({
     defaultValue,

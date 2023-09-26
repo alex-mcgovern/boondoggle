@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/multiline-blocks */
 import { forwardRef } from "react";
 
 import {
@@ -31,7 +32,7 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
 import type { ComponentPropsWithoutRef } from "react";
 
-export type InputProps = Partial<
+export type FieldInputProps = Partial<
     Pick<
         ComponentPropsWithoutRef<"input">,
         | "autoComplete"
@@ -72,7 +73,7 @@ export type InputProps = Partial<
         hasBorder?: boolean;
     };
 
-export const FieldInput = forwardRef<HTMLInputElement, InputProps>(
+export const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(
     (
         {
             addonLeft,
@@ -122,6 +123,7 @@ export const FieldInput = forwardRef<HTMLInputElement, InputProps>(
                     addonRight={addonRight}
                     size={size}
                 >
+                    {/** @ts-expect-error isClearable is broken */}
                     <BaseInput
                         className={userClassName}
                         colorOverlay={colorOverlay}
@@ -140,8 +142,8 @@ export const FieldInput = forwardRef<HTMLInputElement, InputProps>(
                         type={type}
                         value={value}
                         {...rest}
-                        {...getOptionalIsCopyableProps({ isCopyable, readOnly })}
                         {...getOptionalIsClearableProps({ isClearable, readOnly })}
+                        {...getOptionalIsCopyableProps({ isCopyable, readOnly })}
                         {...getOptionalIsVisibilityToggleableProps({
                             isVisibilityToggleable,
                             isVisible,

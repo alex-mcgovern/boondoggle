@@ -9,7 +9,7 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import { a11yDisabled } from "../../../styles/common/a11y.css";
 import { FieldInput } from "../FieldInput";
 
-import type { InputProps } from "../FieldInput";
+import type { FieldInputProps } from "../FieldInput";
 
 const ON_CHANGE = jest.fn();
 
@@ -19,7 +19,7 @@ const ON_MOUSE_OVER = jest.fn();
 
 const ON_FOCUS = jest.fn();
 
-const PROPS: InputProps = {
+const PROPS: FieldInputProps = {
     disabled: true,
     name: LOREM.name(),
     onChange: ON_CHANGE,
@@ -29,7 +29,7 @@ const PROPS: InputProps = {
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: InputProps) => {
+const renderComponent = ({ ...props }: FieldInputProps) => {
     return render(<FieldInput {...props} />);
 };
 

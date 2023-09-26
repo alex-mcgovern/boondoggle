@@ -12,7 +12,7 @@ import { Box } from "../box";
 import { Icon } from "../icon";
 import { FieldInput as StoryComp } from "./FieldInput";
 
-import type { InputProps as StoryCompProps } from "./FieldInput";
+import type { FieldInputProps as StoryCompProps } from "./FieldInput";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

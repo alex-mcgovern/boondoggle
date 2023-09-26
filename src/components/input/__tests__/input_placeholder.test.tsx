@@ -7,14 +7,14 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import { FieldInput } from "../FieldInput";
 
-import type { InputProps } from "../FieldInput";
+import type { FieldInputProps } from "../FieldInput";
 
-const PROPS: InputProps = {
+const PROPS: FieldInputProps = {
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: InputProps) => {
+const renderComponent = ({ ...props }: FieldInputProps) => {
     return render(<FieldInput {...props} />);
 };
 

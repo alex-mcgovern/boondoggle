@@ -28,7 +28,7 @@ import type {
     WithStateInvalid,
     WithWrapperProps,
 } from "../../../common-types";
-import type { InputProps } from "../../input/FieldInput";
+import type { FieldInputProps } from "../../input/FieldInput";
 import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
@@ -86,7 +86,7 @@ export type SelectMultiProps<TValue extends string = string> = Partial<WithOptio
         /**
          * Props to customise the input element.
          */
-        inputProps?: Partial<InputProps>;
+        inputProps?: Partial<FieldInputProps>;
 
         /**
          * Whether the Select should be filterable by typing.

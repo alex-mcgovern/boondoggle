@@ -32,8 +32,8 @@ type IsCurrencyEditable<TCurrency extends string> = {
     currencySelectItems: Array<SelectItemShape<TCurrency>>;
     isCurrencyEditable: true;
     onCurrencyChange:
-        | ((currency: TCurrency) => unknown)
-        | ((currency: TCurrency) => Promise<unknown>);
+        | ((currency: TCurrency | undefined) => unknown)
+        | ((currency: TCurrency | undefined) => Promise<unknown>);
 };
 
 type IsNotCurrencyEditable = {
@@ -122,6 +122,8 @@ export function InputCurrencyBase<TCurrency extends string>(
         })
     );
 
+    const [currency, setCurrency] = useState<TCurrency | undefined>(initialCurrency);
+
     const onChangeHandler = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             setInputValue(
@@ -145,19 +147,23 @@ export function InputCurrencyBase<TCurrency extends string>(
             return (
                 <SelectSingle<TCurrency>
                     initialSelectedItem={currencySelectItems.find((item) => {
-                        return item.value === initialCurrency;
+                        return item.value === currency;
                     })}
                     inputProps={{
                         className: currencySelectInputStyle,
                     }}
                     items={currencySelectItems}
                     name="change_currency"
-                    placeholder={initialCurrency}
+                    onChange={(item) => {
+                        setCurrency(item?.value);
+                        onCurrencyChange?.(item?.value);
+                    }}
+                    placeholder={currency}
                 />
             );
         }
-        return initialCurrency;
-    }, [currencySelectItems, initialCurrency, isCurrencyEditable]);
+        return currency;
+    }, [currency, currencySelectItems, isCurrencyEditable, onCurrencyChange]);
 
     return (
         <FieldInput

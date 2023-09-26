@@ -8,7 +8,7 @@ import type {
     WithStateInvalid,
 } from "../../common-types";
 import type { BoxProps } from "../box";
-import type { InputProps } from "../input/FieldInput";
+import type { FieldInputProps } from "../input/FieldInput";
 import type { UseComboboxStateChange } from "downshift";
 
 export type SelectItemShape<TValue extends string = string> = BoxProps &
@@ -38,7 +38,7 @@ export type SelectCommonProps<TValue extends string = string> = Partial<WithOpti
     WithName & {
         initialHighlightedItem?: SelectItemShape<TValue>;
 
-        inputProps?: Partial<InputProps>;
+        inputProps?: Partial<FieldInputProps>;
 
         isClearable?: boolean;
 

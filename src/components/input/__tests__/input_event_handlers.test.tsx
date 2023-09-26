@@ -8,11 +8,11 @@ import "@vanilla-extract/css/disableRuntimeStyles";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { FieldInput } from "../FieldInput";
 
-import type { InputProps } from "../FieldInput";
+import type { FieldInputProps } from "../FieldInput";
 
 afterEach(cleanup);
 
-const renderComponent = (props: InputProps) => {
+const renderComponent = (props: FieldInputProps) => {
     return render(<FieldInput {...props} />);
 };
 

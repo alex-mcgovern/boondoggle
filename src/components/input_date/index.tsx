@@ -10,11 +10,11 @@ import { FieldInput } from "../input/FieldInput";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
 import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../common-types";
-import type { InputProps } from "../input/FieldInput";
+import type { FieldInputProps } from "../input/FieldInput";
 import type { MouseEvent } from "react";
 
 export type InputDateProps = Omit<
-    InputProps,
+    FieldInputProps,
     "isClearable" | "isCopyable" | "isVisibilityToggleable"
 > &
     WithOptionalLabel &
