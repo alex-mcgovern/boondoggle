@@ -1,4 +1,3 @@
-import { faCalendarAlt } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
@@ -6,7 +5,6 @@ import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
 import { FieldActionButtonDate } from "../field_action_button_date";
-import { Icon } from "../icon";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
@@ -20,13 +18,24 @@ export type InputDateProps = Omit<
 > &
     WithOptionalLabel &
     WithOptionalPlaceholder & {
+        /**
+         * Controls whether the date picker is open or not.
+         */
         isOpen?: boolean;
 
+        /**
+         * The locale to use for formatting the date.
+         */
         locale?: Intl.LocalesArgument;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onChange?: (...event: any[]) => void;
+        /**
+         * Callback to be called when the date changes.
+         */
+        onChange?: ((date: string) => unknown) | ((date: string) => Promise<unknown>);
 
+        /**
+         * A function to transform the raw value before it is passed to the `onChange` callback.
+         */
         rawValueTransformer?: (value: string) => string;
     };
 
@@ -40,7 +49,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             onChange,
             rawValueTransformer,
             size,
-            slotLeft = [<Icon icon={faCalendarAlt} />],
+            slotLeft,
             value,
             wrapperProps,
             ...rest
@@ -87,10 +96,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                         placement="bottom-end"
                         triggerNode={
                             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-                            <FieldActionButtonDate
-                                onClick={() => {}}
-                                size={size}
-                            />
+                            <FieldActionButtonDate size={size} />
                         }
                         wrapperProps={wrapperProps}
                     >
