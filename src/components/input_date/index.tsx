@@ -64,8 +64,8 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                const formattedDate = new Date(date).toISOString().slice(0, 10);
-                setInputValue(formattedDate);
+                setInputValue(date.toISOString().substring(0, 10));
+
                 if (onChange) {
                     onChange(
                         rawValueTransformer
