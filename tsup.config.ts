@@ -9,7 +9,7 @@ export default defineConfig({
         entry: "./src/index.ts",
         resolve: false,
     },
-    entry: ["src/**/index.(ts|tsx)", "src/**/*.css.ts"],
+    entry: ["src/index.ts"],
     esbuildPlugins: [
         vanillaExtractPlugin({
             identifiers: "short",
@@ -17,10 +17,11 @@ export default defineConfig({
             runtime: false,
         }),
     ],
-    format: ["esm", "cjs"],
+    format: ["esm"],
     minify: true,
     outDir: "dist",
-    sourcemap: true,
+    platform: "browser",
+    sourcemap: false,
     splitting: true,
     target: "es2020",
     treeshake: true,

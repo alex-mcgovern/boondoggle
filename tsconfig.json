@@ -24,6 +24,7 @@
         "cypress.config.ts",
         "cypress/**/*.ts",
         "node_modules/cypress*/*.ts",
-        "**/*/spec.tsx"
+        "**/*/spec.tsx",
+        "dist"
     ]
 }

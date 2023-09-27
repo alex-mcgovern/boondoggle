@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
 
-import { DataTableCellSelectable } from "../../components/data_table_cell_selectable";
+import { DataTableCellSelectable } from "../../components/data_table/_components/data_table_cell_selectable";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
 import type { TDataTableRowActions } from "../../common-types";

@@ -2,12 +2,12 @@ import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { tableStyles } from "../../styles/stylesheet.css";
 import { Box } from "../box";
-import { DataTableActionsWrapper } from "../data_table_actions_wrapper";
-import { DataTableFilterInput } from "../data_table_filter_input";
-import { DataTableInfoNoResults } from "../data_table_info_no_results";
-import { DataTableLayoutBody } from "../data_table_layout_body";
-import { DataTableLayoutHead } from "../data_table_layout_head";
-import { DataTablePaginationWrapper } from "../data_table_pagination_wrapper";
+import { DataTableActionsWrapper } from "./_components/data_table_actions_wrapper";
+import { DataTableFilterInput } from "./_components/data_table_filter_input";
+import { DataTableInfoNoResults } from "./_components/data_table_info_no_results";
+import { DataTableLayoutBody } from "./_components/data_table_layout_body";
+import { DataTableLayoutHead } from "./_components/data_table_layout_head";
+import { DataTablePaginationWrapper } from "./_components/data_table_pagination_wrapper";
 
 import type {
     TDataTableRowActions,

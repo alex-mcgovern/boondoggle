@@ -6,6 +6,7 @@ import { getOptionalLabelProps } from "../../common-types";
 import { arrayHasLength } from "../../lib/array_has_length";
 import { a11yError } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { FieldAddonWrapper } from "../field_addon_wrapper";
 import { FieldWrapper } from "../field_wrapper";
 import { SlotWrapperInset } from "../slot_wrapper_inset";
 import { useFieldActions } from "./lib/use_field_actions";
@@ -29,6 +30,7 @@ import type {
     WithWrapperProps,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
 import type { ComponentPropsWithoutRef } from "react";
 
 export type InputProps = Partial<
@@ -50,6 +52,7 @@ export type InputProps = Partial<
 > &
     SprinklesArgs &
     WithColorOverlay &
+    WithOptionalFieldAddons &
     WithHideLastpass &
     WithId &
     WithOptionalIsClearable &
@@ -73,6 +76,8 @@ export type InputProps = Partial<
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     (
         {
+            addonLeft,
+            addonRight,
             className: userClassName,
             colorOverlay,
             defaultValue,
@@ -126,29 +131,35 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 wrapperProps={wrapperProps}
                 {...getOptionalLabelProps({ id, label, labelProps, labelTooltip })}
             >
-                <SlotWrapperInset
+                <FieldAddonWrapper
+                    addonLeft={addonLeft}
+                    addonRight={addonRight}
                     size={size}
-                    slotLeft={slotLeft}
-                    slotRight={arrayHasLength(actions) ? actions : initialSlotRight}
                 >
-                    <input
-                        className={clsx(
-                            getInputStyles({ hasBorder, size }),
-                            getSprinkles(atomProps),
-                            userClassName,
-                            {
-                                [a11yError]: invalid,
-                            }
-                        )}
-                        id={id}
-                        onChange={handleUpdateInputValue}
-                        readOnly={readOnly}
-                        ref={ref}
-                        type={isVisibilityToggleable && !isVisible ? "password" : type}
-                        value={inputValue}
-                        {...otherProps}
-                    />
-                </SlotWrapperInset>
+                    <SlotWrapperInset
+                        size={size}
+                        slotLeft={slotLeft}
+                        slotRight={arrayHasLength(actions) ? actions : initialSlotRight}
+                    >
+                        <input
+                            className={clsx(
+                                getInputStyles({ hasBorder, size }),
+                                getSprinkles(atomProps),
+                                userClassName,
+                                {
+                                    [a11yError]: invalid,
+                                }
+                            )}
+                            id={id}
+                            onChange={handleUpdateInputValue}
+                            readOnly={readOnly}
+                            ref={ref}
+                            type={isVisibilityToggleable && !isVisible ? "password" : type}
+                            value={inputValue}
+                            {...otherProps}
+                        />
+                    </SlotWrapperInset>
+                </FieldAddonWrapper>
             </FieldWrapper>
         );
     }

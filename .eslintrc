@@ -72,6 +72,11 @@
                                 "from": "./src/index.ts",
                                 "message": "Do not import from the root index, this will cause a dependency cycle.",
                                 "target": "./src/components"
+                            },
+                            {
+                                "from": "./dist",
+                                "message": "Do not import from dist. This is dumb.",
+                                "target": "."
                             }
                         ]
                     }

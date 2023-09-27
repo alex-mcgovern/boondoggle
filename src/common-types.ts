@@ -70,13 +70,11 @@ type BaseIsCopyable = {
 
 type IsCopyable = BaseIsCopyable & {
     isCopyable: true;
-
     readOnly: true;
 };
 
 type IsNotCopyable = BaseIsCopyable & {
     isCopyable?: never;
-
     readOnly?: boolean;
 };
 
@@ -150,13 +148,11 @@ type BaseIsClearable = {
 
 type IsClearable = BaseIsClearable & {
     isClearable: true;
-
     readOnly?: never;
 };
 
 type IsNotClearable = BaseIsClearable & {
     isClearable?: never;
-
     readOnly?: boolean;
 };
 

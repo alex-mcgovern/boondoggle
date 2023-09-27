@@ -8,5 +8,11 @@ export const selectInputCursorStyles = style({
             background: vars.color.background,
             cursor: "pointer",
         },
+        "&:read-only:hover": {
+            background: vars.color.tint_default,
+        },
+        "&:read-only:hover:not(:is(:focus,:focus-visible))": {
+            borderColor: vars.color.border_default,
+        },
     },
 });
