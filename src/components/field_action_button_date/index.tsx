@@ -1,4 +1,4 @@
-import { faArrowDown } from "@fortawesome/pro-solid-svg-icons";
+import { faCalendar } from "@fortawesome/pro-solid-svg-icons";
 
 import { FieldActionButton } from "../field_action_button";
 import { Icon } from "../icon";
@@ -16,7 +16,7 @@ export function FieldActionButtonDate({ onClick, size }: FieldActionButtonDatePr
             name="date"
             onClick={onClick}
             size={size}
-            slot={[<Icon icon={faArrowDown} />]}
+            slot={[<Icon icon={faCalendar} />]}
         />
     );
 }
