@@ -19,7 +19,8 @@
                 "types": "./dist/index.d.ts",
                 "default": "./dist/index.js"
             },
-            "default": "./dist/index.cjs"
+            "default": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
         },
         "./index.css": "./dist/index.css",
         "./package.json": "./package.json"
