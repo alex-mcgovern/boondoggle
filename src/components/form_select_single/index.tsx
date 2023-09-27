@@ -46,7 +46,7 @@ export function FormSelectSingle<TValue extends string = string>({
     });
 
     const handleChange = useCallback(
-        (selection: SelectItemShape<TValue> | null | undefined) => {
+        (selection: SelectItemShape<TValue>) => {
             onChange(selection?.value);
             onChangeParent?.(selection);
         },

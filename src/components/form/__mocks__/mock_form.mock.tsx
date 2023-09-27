@@ -68,6 +68,7 @@ export const mockForm = ({
                     placeholder="Enter your email address"
                     wrapperProps={WRAPPER_PROPS}
                 />
+                {/** @ts-expect-error props are busted */}
                 <FormInputCurrency<"AED" | "USD" | "EUR">
                     currencySelectItems={
                         [
