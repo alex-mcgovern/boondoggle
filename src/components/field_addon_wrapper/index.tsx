@@ -15,7 +15,7 @@ export function AddonTab({ children, side, size }: AddonTabProps) {
         return <div className={getAddonTabStyle({ hasBorder: false, side, size })}>{children}</div>;
     }
     return (
-        <div className={getAddonTabStyle({ hasBorder: true, paddingSize: size, side, size })}>
+        <div className={getAddonTabStyle({ hasBorder: true, padding: size, side, size })}>
             {children}
         </div>
     );

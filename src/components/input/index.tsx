@@ -134,6 +134,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 <FieldAddonWrapper
                     addonLeft={addonLeft}
                     addonRight={addonRight}
+                    size={size}
                 >
                     <SlotWrapperInset
                         size={size}

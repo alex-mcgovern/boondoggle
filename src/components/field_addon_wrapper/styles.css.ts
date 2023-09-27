@@ -40,12 +40,6 @@ const tabSize = styleVariants({
     sm: [{ height: elementHeight.sm }],
 });
 
-const paddingSize = styleVariants({
-    lg: [elementPadding.lg],
-    md: [elementPadding.md],
-    sm: [elementPadding.sm],
-});
-
 export const getAddonTabStyle = recipe({
     base: [
         getSprinkles({
@@ -96,7 +90,7 @@ export const getAddonTabStyle = recipe({
     },
     variants: {
         hasBorder,
-        paddingSize,
+        padding: elementPadding,
         side: tabSide,
         size: tabSize,
     },
