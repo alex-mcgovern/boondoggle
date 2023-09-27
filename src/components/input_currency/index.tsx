@@ -64,16 +64,34 @@ export const parser = (value: string, currencySymbol: string) => {
 };
 
 type IsCurrencyEditable<TCurrency extends string> = {
+    /**
+     * Available currencies to switch between.
+     */
     currencySelectItems: Array<SelectItemShape<TCurrency>>;
+    /**
+     * Whether the currency is editable or not.
+     */
     isCurrencyEditable: true;
+    /**
+     * Callback when a new currency is selected.
+     */
     onCurrencyChange:
         | ((currency: TCurrency | undefined) => unknown)
         | ((currency: TCurrency | undefined) => Promise<unknown>);
 };
 
 type IsNotCurrencyEditable = {
+    /**
+     * Available currencies to switch between.
+     */
     currencySelectItems?: never;
+    /**
+     * Whether the currency is editable or not.
+     */
     isCurrencyEditable?: never;
+    /**
+     * Callback when a new currency is selected.
+     */
     onCurrencyChange?: never;
 };
 
