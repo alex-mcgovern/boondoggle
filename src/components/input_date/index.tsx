@@ -1,7 +1,7 @@
 import clsx from "clsx";
+import { format } from "date-fns-tz";
 import { forwardRef, useCallback, useState } from "react";
 
-import { formatDate } from "../../utils/format_date";
 import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
 import { FieldActionButtonDate } from "../field_action_button_date";
@@ -45,7 +45,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             className: userClassName,
             defaultValue,
             isOpen: controlledIsOpen,
-            locale,
+            // locale,
             onChange,
             rawValueTransformer,
             size,
@@ -64,7 +64,9 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                setInputValue(date.toISOString().substring(0, 10));
+                const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
+                const formattedDate = format(date, "yyyy-MM-dd", { timeZone });
+                setInputValue(formattedDate);
 
                 if (onChange) {
                     onChange(
@@ -82,7 +84,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             <Input
                 {...rest}
                 className={inputDateStyle}
-                defaultValue={defaultValue ? formatDate(defaultValue, locale) : undefined}
+                defaultValue={defaultValue}
                 isVisibilityToggleable={undefined}
                 isVisible={undefined}
                 ref={ref}

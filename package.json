@@ -53,6 +53,7 @@
         "@tanstack/match-sorter-utils": "8.8.4",
         "@tanstack/react-table": "8.9.3",
         "clsx": "1.2.1",
+        "date-fns-tz": "^2.0.0",
         "downshift": "8.1.0",
         "lodash.debounce": "4.0.8",
         "react-hook-form": "7.46.1",
