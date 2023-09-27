@@ -1,4 +1,4 @@
-import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
+import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
 
 import { collapsibleContentAnimation } from "./styles.css";
@@ -45,7 +45,7 @@ export function Collapsible({ children, isOpen, onOpenChange, triggerNode }: Col
     );
 
     return (
-        <CollapsiblePrimitive.Root
+        <RadixCollapsible.Root
             onOpenChange={handleOpenChange}
             open={localOpenState}
         >
@@ -54,11 +54,11 @@ export function Collapsible({ children, isOpen, onOpenChange, triggerNode }: Col
              * ToDo: Figure out a tidy way to require triggerNode to accept ref,
              * or to wrap triggerNode so it is always able to accept a ref.
              */}
-            <CollapsiblePrimitive.Trigger asChild>{triggerNode}</CollapsiblePrimitive.Trigger>
+            <RadixCollapsible.Trigger asChild>{triggerNode}</RadixCollapsible.Trigger>
 
-            <CollapsiblePrimitive.Content className={collapsibleContentAnimation}>
+            <RadixCollapsible.Content className={collapsibleContentAnimation}>
                 {children}
-            </CollapsiblePrimitive.Content>
-        </CollapsiblePrimitive.Root>
+            </RadixCollapsible.Content>
+        </RadixCollapsible.Root>
     );
 }

@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -145,12 +145,12 @@ export const DialogModalForm = forwardRef<HTMLDialogElement, DialogModalFormProp
                     {...wrapperProps}
                 >
                     {triggerNode && (
-                        <Slot
+                        <RadixSlot.Slot
                             onClick={toggleIsOpen}
                             ref={triggerRef}
                         >
                             {triggerNode}
-                        </Slot>
+                        </RadixSlot.Slot>
                     )}
 
                     <DialogModalOuter dialogRef={dialogRef}>
