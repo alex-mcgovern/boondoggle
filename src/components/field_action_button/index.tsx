@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 import { Button } from "../button";
 import { getActionButtonSize } from "./lib/get_action_button_size";
 import { fieldActionButtonStyle } from "./styles.css";
@@ -31,23 +33,20 @@ export type FieldActionButtonProps = {
 /**
  * A configurable button for use within a field.
  */
-export function FieldActionButton({
-    name,
-    onClick,
-    size = "md",
-    slot,
-    ...rest
-}: FieldActionButtonProps) {
-    return (
-        <Button
-            appearance="ghost"
-            className={fieldActionButtonStyle}
-            name={name}
-            onClick={onClick}
-            size={getActionButtonSize(size)}
-            slotLeft={slot}
-            type="button"
-            {...rest}
-        />
-    );
-}
+export const FieldActionButton = forwardRef<HTMLButtonElement, FieldActionButtonProps>(
+    ({ name, onClick, size = "md", slot, ...rest }, ref) => {
+        return (
+            <Button
+                appearance="ghost"
+                className={fieldActionButtonStyle}
+                name={name}
+                onClick={onClick}
+                ref={ref}
+                size={getActionButtonSize(size)}
+                slotLeft={slot}
+                type="button"
+                {...rest}
+            />
+        );
+    }
+);

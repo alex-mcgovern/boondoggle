@@ -1,4 +1,5 @@
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons";
+import { forwardRef } from "react";
 
 import { FieldActionButton } from "../field_action_button";
 import { Icon } from "../icon";
@@ -10,13 +11,17 @@ export type FieldActionButtonDateProps = Omit<FieldActionButtonProps, "name" | "
 /**
  * A button to open a date picker.
  */
-export function FieldActionButtonDate({ onClick, size }: FieldActionButtonDateProps) {
-    return (
-        <FieldActionButton
-            name="date"
-            onClick={onClick}
-            size={size}
-            slot={[<Icon icon={faCalendar} />]}
-        />
-    );
-}
+export const FieldActionButtonDate = forwardRef<HTMLButtonElement, FieldActionButtonDateProps>(
+    ({ onClick, size }, ref) => {
+        return (
+            <FieldActionButton
+                data-testid="field-action-button-date"
+                name="date"
+                onClick={onClick}
+                ref={ref}
+                size={size}
+                slot={[<Icon icon={faCalendar} />]}
+            />
+        );
+    }
+);

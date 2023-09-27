@@ -13,6 +13,8 @@ import { a11yError } from "../../../styles/common/a11y.css";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
+    id: "date-picker",
+    label: "date picker",
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
@@ -27,12 +29,12 @@ const renderComponent = (props: InputDateProps) => {
 describe("<InputDate />", () => {
     describe("Invalid", () => {
         test("should have error styling", async () => {
-            const { getByRole } = await renderComponent({
+            const { getByLabelText } = await renderComponent({
                 ...PROPS,
                 invalid: true,
             });
 
-            const textbox = getByRole("textbox");
+            const textbox = getByLabelText(PROPS.label);
 
             expect(textbox).toHaveClass(a11yError);
 

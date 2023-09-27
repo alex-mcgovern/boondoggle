@@ -14,7 +14,7 @@ import type { MouseEvent } from "react";
 
 export type InputDateProps = Omit<
     InputProps,
-    "isClearable" | "isCopyable" | "isVisibilityToggleable"
+    "isClearable" | "isCopyable" | "isVisibilityToggleable" | "placeholder"
 > &
     WithOptionalLabel &
     WithOptionalPlaceholder & {

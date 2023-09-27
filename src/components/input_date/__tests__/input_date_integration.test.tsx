@@ -11,53 +11,64 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 
 import type { InputDateProps } from "..";
-import type { ByRoleMatcher, ByRoleOptions } from "@testing-library/react";
+import type { ByRoleMatcher, ByRoleOptions, Matcher, MatcherOptions } from "@testing-library/react";
 
 type SelectFromInputDateArgs = {
     expectedValueIso: string;
 
     expectedValuePretty: string;
 
-    getByRole: (role: ByRoleMatcher, options?: ByRoleOptions | undefined) => HTMLElement;
+    getByLabelText: (role: ByRoleMatcher, options?: ByRoleOptions | undefined) => HTMLElement;
+
+    getByTestId: (id: Matcher, options?: MatcherOptions | undefined) => HTMLElement;
+
+    labelText: string;
 
     onChange?: InputDateProps["onChange"];
-
-    selectLabel: string;
 };
 
-const selectFromInputDate = async ({
+const selectFromDatePicker = async ({
     expectedValueIso,
     expectedValuePretty,
-    getByRole,
+    getByLabelText,
+    getByTestId,
+    labelText,
     onChange,
-    selectLabel,
 }: SelectFromInputDateArgs) => {
-    const inputDateTrigger = getByRole("textbox", { name: selectLabel });
+    // Get the input element
+    const inputDate = getByLabelText(labelText);
+    expect(inputDate).not.toBeNull();
 
-    const { getByRole: getByRoleScoped } = within(
-        (
-            ((inputDateTrigger.parentNode as HTMLElement).parentNode as HTMLElement)
-                .parentNode as HTMLElement
-        ).parentNode as HTMLElement
-    );
+    // Get the parent of the input element, used to scope the getByRole function
+    const inputDateParent = inputDate.parentNode as HTMLElement;
+    expect(inputDateParent).not.toBeNull();
 
+    // Get the trigger button
+    const inputDateTrigger = getByTestId("field-action-button-date");
     expect(inputDateTrigger).not.toBeNull();
 
+    // Get a "scoped" getByRole function, that only searches within the input date parent
+    const { getByRole: getByRoleScoped } = within(inputDateParent as HTMLElement);
+
+    // Activate the date picker dialog
     await waitFor(() => {
         return userEvent.click(inputDateTrigger);
     });
 
-    const newDateButton = getByRoleScoped("button", {
-        name: "01",
+    // Select a day
+    await waitFor(async () => {
+        return userEvent.click(
+            getByRoleScoped("button", {
+                name: "01",
+            })
+        );
     });
 
     await waitFor(() => {
-        userEvent.click(newDateButton);
-    });
+        // Assert that input has the correct value
+        expect(inputDate).toHaveValue(expectedValuePretty);
 
-    await waitFor(() => {
-        expect(inputDateTrigger).toHaveValue(expectedValuePretty);
-
+        // Assert that the onChange has been called with the correct value
         if (onChange) {
             expect(onChange).toHaveBeenCalledWith(expectedValueIso);
         }
@@ -90,34 +101,33 @@ const PROPS: InputDateProps = {
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 describe("<InputDate />", () => {
-    describe("Integration test", () => {
-        test("should have updated value when user selects a date", async () => {
-            const { getByRole } = await renderComponent(PROPS);
+    test("works without `rawValueTransformer`", async () => {
+        const { getByLabelText, getByTestId } = await renderComponent(PROPS);
 
-            await selectFromInputDate({
-                expectedValueIso: "2023-01-01T00:00:00.000Z",
-                expectedValuePretty: "01/01/2023",
-                getByRole,
-                onChange: ON_CHANGE,
-                selectLabel: PROPS.label as string,
-            });
+        await selectFromDatePicker({
+            expectedValueIso: "2023-01-01T00:00:00.000Z",
+            expectedValuePretty: "2023-01-01",
+            getByLabelText,
+            getByTestId,
+            labelText: PROPS.label as string,
+            onChange: ON_CHANGE,
+        });
+    });
+
+    test("should have correct value when user selects date, and is passed a data transformer", async () => {
+        const { getByLabelText, getByTestId } = await renderComponent({
+            ...PROPS,
+            rawValueTransformer: (value: string) => {
+                return value.substring(0, 10);
+            },
         });
 
-        test("should have correct value when user selects date, and is passed a data transformer", async () => {
-            const { getByRole } = await renderComponent({
-                ...PROPS,
-                rawValueTransformer: (value: string) => {
-                    return value.substring(0, 10);
-                },
-            });
-
-            await selectFromInputDate({
-                expectedValueIso: "2023-01-01",
-                expectedValuePretty: "01/01/2023",
-                getByRole,
-                onChange: ON_CHANGE,
-                selectLabel: PROPS.label as string,
-            });
+        await selectFromDatePicker({
+            expectedValueIso: "2023-01-01",
+            expectedValuePretty: "2023-01-01",
+            getByLabelText,
+            getByTestId,
+            labelText: PROPS.label as string,
         });
     });
 });
