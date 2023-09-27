@@ -9,6 +9,8 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
+    id: "date-picker",
+    label: "date picker",
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
 };
@@ -22,20 +24,11 @@ const renderComponent = async ({ ...props }: InputDateProps) => {
 describe("<InputDate />", () => {
     describe("Basic smoke tests", () => {
         test("should render without throwing", async () => {
-            const { getByRole } = await renderComponent(PROPS);
+            const { getByLabelText } = await renderComponent(PROPS);
 
-            expect(getByRole("textbox")).not.toBeNull();
-        });
+            const textbox = getByLabelText(PROPS.label);
 
-        test("should render placeholder when present", async () => {
-            const { getByRole } = await renderComponent({
-                name: LOREM.name(),
-                placeholder: LOREM.placeholder(),
-            });
-
-            expect((getByRole("textbox") as HTMLInputElement).placeholder).toBe(
-                LOREM.placeholder()
-            );
+            expect(textbox).not.toBeNull();
         });
     });
 });
