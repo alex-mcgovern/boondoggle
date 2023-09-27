@@ -192,7 +192,7 @@ describe("<Form />", () => {
             await waitFor(() => {
                 expect(handleErrors).toHaveBeenCalled();
 
-                expect(getAllByRole("alert")).toHaveLength(5);
+                expect(getAllByRole("alert")).toHaveLength(6);
             });
         });
     });
