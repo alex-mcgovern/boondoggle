@@ -126,6 +126,10 @@ export { FormInput } from "./components/form_input";
 
 export type { FormInputProps } from "./components/form_input";
 
+export { FormInputCurrency } from "./components/form_input_currency";
+
+export type { FormInputCurrencyProps } from "./components/form_input_currency";
+
 export { FormRadioButtonCardGroup } from "./components/form_radio_button_card_group";
 
 export type { FormRadioButtonCardGroupProps } from "./components/form_radio_button_card_group";
@@ -155,6 +159,10 @@ export type { FormSubmitButtonProps } from "./components/form_submit_button";
 export { Input } from "./components/input";
 
 export type { InputProps } from "./components/input";
+
+export { InputCurrency } from "./components/input_currency";
+
+export type { InputCurrencyProps } from "./components/input_currency";
 
 export { InputDate } from "./components/input_date";
 
