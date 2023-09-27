@@ -118,34 +118,29 @@ export function DataTable<TRowData extends RowData>({
                 rightActions={actions}
             />
 
-            <Box
-                overflow="auto"
-                width="100%"
-            >
-                {hasData && (
-                    <Box className={tableStyles}>
-                        <DataTableLayoutHead<TRowData>
-                            isSortable={isSortable}
-                            table={table}
-                        />
-                        <DataTableLayoutBody<TRowData>
-                            getRowProps={getRowProps}
-                            isRowClickable={isRowClickable}
-                            isSelectable={isSelectable}
-                            table={table}
-                        />
-                    </Box>
-                )}
-
-                {!hasData && (
-                    <DataTableInfoNoResults
-                        globalFilter={globalFilter}
-                        setGlobalFilter={setGlobalFilter}
-                        strClearAllFilters={strClearAllFilters as string}
-                        strNoResults={strNoResults}
+            {hasData && (
+                <Box className={tableStyles}>
+                    <DataTableLayoutHead<TRowData>
+                        isSortable={isSortable}
+                        table={table}
                     />
-                )}
-            </Box>
+                    <DataTableLayoutBody<TRowData>
+                        getRowProps={getRowProps}
+                        isRowClickable={isRowClickable}
+                        isSelectable={isSelectable}
+                        table={table}
+                    />
+                </Box>
+            )}
+
+            {!hasData && (
+                <DataTableInfoNoResults
+                    globalFilter={globalFilter}
+                    setGlobalFilter={setGlobalFilter}
+                    strClearAllFilters={strClearAllFilters as string}
+                    strNoResults={strNoResults}
+                />
+            )}
 
             {isPaginated && hasData && table.getFilteredRowModel().rows.length > 10 && (
                 <DataTablePaginationWrapper
