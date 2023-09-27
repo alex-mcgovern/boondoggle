@@ -130,4 +130,20 @@ describe("<InputDate />", () => {
             labelText: PROPS.label as string,
         });
     });
+
+    test("should have the correct value when user enters the date manually", async () => {
+        const { getByLabelText } = await renderComponent({ ...PROPS });
+
+        const inputDate = getByLabelText(LOREM.label());
+
+        await waitFor(() => {
+            return userEvent.type(inputDate, "2023-01-01");
+        });
+
+        expect(inputDate).toHaveValue("2023-01-01");
+
+        if (ON_CHANGE) {
+            expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
+        }
+    });
 });
