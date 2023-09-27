@@ -4,6 +4,8 @@ import { FlagAe, FlagUs } from "../icon_flag";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
+type Currency = "USD" | "GBP" | "EUR";
+
 const meta = {
     args: {
         initialCurrency: "USD",
@@ -15,7 +17,7 @@ const meta = {
     },
     component: StoryComp,
     title: "Components/InputCurrency",
-} satisfies Meta<typeof StoryComp>;
+} satisfies Meta<typeof StoryComp<Currency>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

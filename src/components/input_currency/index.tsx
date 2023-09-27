@@ -174,6 +174,12 @@ export function InputCurrencyBase<TCurrency extends string>(
 ) {
     const [currency, setCurrency] = useState<TCurrency>(initialCurrency);
 
+    useEffect(() => {
+        if (initialCurrency) {
+            setCurrency(initialCurrency);
+        }
+    }, [initialCurrency]);
+
     const currencySymbol = useMemo(() => {
         return getCurrencySymbol({ currency, locale: region });
     }, [currency, region]);
