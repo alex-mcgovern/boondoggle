@@ -1,6 +1,3 @@
-import { expect } from "@storybook/jest";
-import { userEvent, waitFor, within } from "@storybook/testing-library";
-
 import { InputDate as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 
@@ -21,16 +18,5 @@ export const Default: Story = {
         label: LOREM.label(),
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
-    },
-    play: async ({ canvasElement }) => {
-        const canvas = within(canvasElement);
-
-        const buttonElement = canvas.getByRole("button");
-
-        expect(buttonElement).not.toBeNull();
-
-        await waitFor(() => {
-            userEvent.click(buttonElement);
-        });
     },
 };

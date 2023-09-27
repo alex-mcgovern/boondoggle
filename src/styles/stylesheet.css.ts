@@ -140,6 +140,10 @@ globalStyle(`input[type="search"]`, {
 
 // INPUT DATE STYLES
 
+globalStyle("input[type='date']::-webkit-calendar-picker-indicator", {
+    display: "none",
+});
+
 // UNUSED: Styles the background of the input date field
 // globalStyle(`input::-webkit-datetime-edit`, {});
 
