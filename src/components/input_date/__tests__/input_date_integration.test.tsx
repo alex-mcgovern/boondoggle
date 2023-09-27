@@ -101,7 +101,7 @@ const PROPS: InputDateProps = {
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 describe("<InputDate />", () => {
-    test("works without `rawValueTransformer`", async () => {
+    test("mouse input works without `rawValueTransformer`", async () => {
         const { getByLabelText, getByTestId } = await renderComponent(PROPS);
 
         await selectFromDatePicker({
@@ -114,7 +114,7 @@ describe("<InputDate />", () => {
         });
     });
 
-    test("should have correct value when user selects date, and is passed a data transformer", async () => {
+    test("mouse input works with `rawValueTransformer`", async () => {
         const { getByLabelText, getByTestId } = await renderComponent({
             ...PROPS,
             rawValueTransformer: (value: string) => {
@@ -131,7 +131,7 @@ describe("<InputDate />", () => {
         });
     });
 
-    test("should have the correct value when user enters the date manually", async () => {
+    test("mouse input works without `rawValueTransformer`", async () => {
         const { getByLabelText } = await renderComponent({ ...PROPS });
 
         const inputDate = getByLabelText(LOREM.label());
