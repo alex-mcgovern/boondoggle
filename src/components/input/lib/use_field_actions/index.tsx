@@ -49,10 +49,6 @@ type UseFieldActionsArgs = {
      * The size of the field.
      */
     size: ElementSizeEnum | undefined;
-    /**
-     * A string to use as the toolip.
-     */
-    tooltipStr?: string;
 
     /**
      * The value of the input.
@@ -72,7 +68,6 @@ export function useFieldActions({
     onChange,
     readOnly,
     size,
-    tooltipStr,
     value,
 }: UseFieldActionsArgs) {
     // Manage the input value with state to allow it to be cleared.
@@ -117,7 +112,6 @@ export function useFieldActions({
                     isVisible={isVisible}
                     onClick={handleToggleVisibility}
                     size={size}
-                    strVisible={tooltipStr}
                 />
             );
         }
@@ -129,7 +123,6 @@ export function useFieldActions({
                         handleCopyValue?.(inputValue);
                     }}
                     size={size}
-                    strCopy={tooltipStr}
                 />
             );
         }
@@ -145,7 +138,6 @@ export function useFieldActions({
                         return setInputValue("");
                     }}
                     size={size}
-                    strClear={tooltipStr}
                 />
             );
         }
@@ -163,7 +155,6 @@ export function useFieldActions({
         onChange,
         readOnly,
         size,
-        tooltipStr,
     ]);
 
     return {
