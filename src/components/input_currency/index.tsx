@@ -1,7 +1,9 @@
-import NumberParser from "intl-number-parser";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 
-import { formatNumber } from "../../lib/format_number";
+/* eslint-disable react-perf/jsx-no-new-object-as-prop */
+import { forwardRef, useEffect, useMemo, useState } from "react";
+
+import { useForwardRef } from "../../hooks/use_forward_ref";
 import { Input } from "../input";
 import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
@@ -26,32 +28,40 @@ import type {
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
-import type { ChangeEvent, ComponentPropsWithoutRef, ForwardedRef } from "react";
+import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 
-// type GetCurrencySymbolArgs = {
-//     currency?: string;
-//     locale?: string;
-// };
+type GetCurrencySymbolArgs = {
+    currency: string;
+    locale: string;
+};
 
-// const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs) => {
-//     if (!currency || !locale) {
-//         return null;
-//     }
+const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs): string => {
+    const formatter = new Intl.NumberFormat(locale, {
+        currency,
+        style: "currency",
+    });
 
-//     const formatter = new Intl.NumberFormat(locale, {
-//         currency,
-//         style: "currency",
-//     });
+    let symbol = "";
+    formatter.formatToParts(0).forEach(({ type, value }) => {
+        if (type === "currency") {
+            symbol = value;
+        }
+    });
 
-//     let symbol;
-//     formatter.formatToParts(0).forEach(({ type, value }) => {
-//         if (type === "currency") {
-//             symbol = value;
-//         }
-//     });
+    return symbol;
+};
 
-//     return symbol;
-// };
+export const formatter = (value: string, currencySymbol: string) => {
+    const numOnly = value.match(/(\d|\.)/g)?.join("");
+    const [preDecimal, postDecimal] = numOnly?.split(".") || [];
+    const formattedPreDecimal = preDecimal?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    return `${currencySymbol} ${formattedPreDecimal || ""}${postDecimal ? `.${postDecimal}` : ""}`;
+};
+
+export const parser = (value: string, currencySymbol: string) => {
+    return value.replace(new RegExp(`\\${currencySymbol}\\s?|(,*)`, "g"), "");
+};
 
 type IsCurrencyEditable<TCurrency extends string> = {
     currencySelectItems: Array<SelectItemShape<TCurrency>>;
@@ -74,8 +84,6 @@ type WithIsOptionalCurrencyEditable<TCurrency extends string> =
 export type InputCurrencyProps<TCurrency extends string> = Partial<
     Pick<
         ComponentPropsWithoutRef<"input">,
-        | "defaultValue"
-        | "value"
         | "onChange"
         | "onClick"
         | "onFocus"
@@ -107,6 +115,10 @@ export type InputCurrencyProps<TCurrency extends string> = Partial<
     WithIsOptionalCurrencyEditable<TCurrency> &
     WithOptionalFieldAddons & {
         /**
+         * Initial value on first render.
+         */
+        defaultValue?: number;
+        /**
          * Whether to render the input with a border.
          */
         hasBorder?: boolean;
@@ -118,6 +130,10 @@ export type InputCurrencyProps<TCurrency extends string> = Partial<
          * The locale to use in formatting.
          */
         region: string;
+        /**
+         * The value of the input.
+         */
+        value?: number;
     };
 
 /**
@@ -133,40 +149,27 @@ export function InputCurrencyBase<TCurrency extends string>(
         onChange,
         onCurrencyChange,
         region,
-        value: controlledValue,
+        value,
         ...rest
     }: InputCurrencyProps<TCurrency>,
     ref: ForwardedRef<HTMLInputElement>
 ) {
     const [currency, setCurrency] = useState<TCurrency>(initialCurrency);
 
-    const parser = NumberParser(region, {
-        currency,
-    });
+    const currencySymbol = useMemo(() => {
+        return getCurrencySymbol({ currency, locale: region });
+    }, [currency, region]);
 
-    const [inputValue, setInputValue] = useState(
-        formatNumber(parser(Number(controlledValue || defaultValue).toString()), {
-            region,
-        })
-    );
+    const inputRef = useForwardRef<HTMLInputElement>(ref);
 
-    const onChangeHandler = useCallback(
-        (e: ChangeEvent<HTMLInputElement>) => {
-            setInputValue(
-                formatNumber(parser(e.target.value), {
-                    region,
-                })
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.value = formatter(
+                parser(inputRef.current.value, currencySymbol),
+                currencySymbol
             );
-            onChange?.({
-                ...e,
-                target: {
-                    ...e.target,
-                    value: parser(e.target.value).toString(),
-                },
-            });
-        },
-        [onChange, parser, region]
-    );
+        }
+    }, [inputRef, currencySymbol]);
 
     const addonRight = useMemo(() => {
         if (isCurrencyEditable) {
@@ -194,9 +197,19 @@ export function InputCurrencyBase<TCurrency extends string>(
     return (
         <Input
             addonRight={addonRight}
-            onChange={onChangeHandler}
-            ref={ref}
-            value={inputValue}
+            autoComplete="off"
+            defaultValue={
+                defaultValue ? formatter(defaultValue?.toString(), currencySymbol) : undefined
+            }
+            onChange={(e) => {
+                onChange?.({
+                    ...e,
+                    target: { ...e.target, value: parser(e.target.value, currencySymbol) },
+                });
+                e.target.value = formatter(parser(e.target.value, currencySymbol), currencySymbol);
+            }}
+            ref={inputRef}
+            value={value ? formatter(value?.toString(), currencySymbol) : undefined}
             {...rest}
         />
     );

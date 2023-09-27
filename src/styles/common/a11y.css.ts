@@ -6,9 +6,9 @@ import { vars } from "../theme.css";
 import type { StyleRule } from "@vanilla-extract/css";
 
 export const a11yFocusStyleRule: StyleRule = {
-    borderColor: `${vars.color.button_default} `,
-    // outline: `1px solid ${vars.color.focus_ring} `,
-    outline: "none",
+    border: `1px solid ${vars.color.button_default} `,
+    outline: `1px solid ${vars.color.focus_ring} `,
+    // outline: "none",
 };
 
 export const a11yError = style([

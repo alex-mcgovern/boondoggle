@@ -20,7 +20,7 @@ import type { BoxProps } from "../../box";
 import type { SelectItemShape } from "../../select/types";
 
 const mockFormSchema = z.object({
-    amount: z.number().min(1),
+    amount: z.coerce.number().min(1),
     description: z.string().min(1).max(20),
     email: z.string().email().min(2),
     radio: z.string().min(1),
@@ -68,7 +68,6 @@ export const mockForm = ({
                     placeholder="Enter your email address"
                     wrapperProps={WRAPPER_PROPS}
                 />
-                {/** @ts-expect-error Props are busted */}
                 <FormInputCurrency<"AED" | "USD" | "EUR">
                     currencySelectItems={
                         [
@@ -104,7 +103,7 @@ export const mockForm = ({
                             },
                         ] as Array<SelectItemShape<"USD" | "AED">>
                     }
-                    defaultValue={withDefaultValues ? LOREM.email() : undefined}
+                    defaultValue={withDefaultValues ? 100 : undefined}
                     id="amount"
                     initialCurrency="USD"
                     isCurrencyEditable
