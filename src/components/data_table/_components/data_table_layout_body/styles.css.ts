@@ -1,8 +1,10 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { createAccessibleTransition, getSprinkles, vars } from "../../../../../dist";
 import { tRowStyles } from "../../../../styles/stylesheet.css";
+import { vars } from "../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
+import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 export const variantClickable = styleVariants({
     false: {},

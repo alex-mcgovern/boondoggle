@@ -1,7 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { a11yFocusStyleRule } from "../../../dist";
+import { a11yFocusStyleRule } from "../../styles/common/a11y.css";
 import { elementHeight, elementPadding } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";

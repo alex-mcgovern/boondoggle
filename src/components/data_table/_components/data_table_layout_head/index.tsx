@@ -2,7 +2,7 @@ import { tHeadStyles, tRowStyles } from "../../../../styles/stylesheet.css";
 import { Box } from "../../../box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
 
-import type { SprinklesArgs } from "../../../../../dist";
+import type { SprinklesArgs } from "../../../../styles/utils/get_sprinkles.css";
 import type { Table } from "@tanstack/react-table";
 
 type DataTableLayoutHeadProps<TTableData> = {

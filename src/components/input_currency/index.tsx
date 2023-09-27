@@ -8,7 +8,6 @@ import { Input } from "../input";
 import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
 
-import type { SelectItemShape } from "../../../dist";
 import type {
     WithColorOverlay,
     WithDescription,
@@ -28,6 +27,7 @@ import type {
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
+import type { SelectItemShape } from "../select/types";
 import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 
 type GetCurrencySymbolArgs = {

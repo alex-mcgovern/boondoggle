@@ -1,7 +1,8 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { createAccessibleTransition, vars } from "../../../../../dist";
+import { vars } from "../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 
 const sortControlBase = style({});
 

@@ -1,6 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
-import { SELECTOR_LINK_BUTTON_INPUT_HOVER, getSprinkles, vars } from "../../../../../dist";
+import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../../../styles/common/selectors.css";
+import { vars } from "../../../../styles/theme.css";
+import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
 export const dataTableCellButtonStyle = style([
     getSprinkles({
