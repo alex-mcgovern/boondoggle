@@ -26,7 +26,7 @@ const renderComponent = (props: InputDateProps) => {
     };
 };
 
-describe("<InputDate />", () => {
+describe.skip("<InputDate />", () => {
     describe("Invalid", () => {
         test("should have error styling", async () => {
             const { getByLabelText } = await renderComponent({

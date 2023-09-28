@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { format } from "date-fns-tz";
 import { forwardRef, useCallback, useState } from "react";
 
 import { DatePicker } from "../date_picker";
@@ -64,8 +63,11 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
-                const formattedDate = format(date, "yyyy-MM-dd", { timeZone });
+                const timeZoneOffsetMinutes = date.getTimezoneOffset();
+                const timeZoneOffsetHours = timeZoneOffsetMinutes / 60;
+
+                date.setHours(date.getHours() - timeZoneOffsetHours);
+                const formattedDate = date.toISOString().slice(0, 10);
                 setInputValue(formattedDate);
 
                 if (onChange) {

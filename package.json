@@ -47,6 +47,8 @@
         "tsc": "tsc"
     },
     "dependencies": {
+        "@testing-library/react": "14.0.0",
+        "@testing-library/user-event": "14.4.3",
         "intl-number-parser": "1.0.2"
     },
     "peerDependencies": {
@@ -88,8 +90,6 @@
         "@storybook/testing-library": "0.1.0",
         "@testing-library/dom": "9.3.0",
         "@testing-library/jest-dom": "5.16.5",
-        "@testing-library/react": "14.0.0",
-        "@testing-library/user-event": "14.4.3",
         "@trivago/prettier-plugin-sort-imports": "4.1.0",
         "@types/jest": "29.5.1",
         "@types/react": "18.2.6",
