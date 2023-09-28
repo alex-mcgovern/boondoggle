@@ -69,9 +69,14 @@ type IsCurrencyEditable<TCurrency extends string> = {
      */
     currencySelectItems: Array<SelectItemShape<TCurrency>>;
     /**
+     * Label for the currency select.
+     */
+    currencySelectLabel: string;
+    /**
      * Whether the currency is editable or not.
      */
     isCurrencyEditable: true;
+
     /**
      * Callback when a new currency is selected.
      */
@@ -85,6 +90,10 @@ type IsNotCurrencyEditable = {
      * Available currencies to switch between.
      */
     currencySelectItems?: never;
+    /**
+     * Label for the currency select.
+     */
+    currencySelectLabel?: never;
     /**
      * Whether the currency is editable or not.
      */
@@ -161,6 +170,7 @@ export type InputCurrencyProps<TCurrency extends string> = Partial<
 export function InputCurrencyBase<TCurrency extends string>(
     {
         currencySelectItems,
+        currencySelectLabel,
         defaultValue,
         initialCurrency,
         isCurrencyEditable,
@@ -199,13 +209,16 @@ export function InputCurrencyBase<TCurrency extends string>(
         if (isCurrencyEditable) {
             return (
                 <SelectSingle<TCurrency>
+                    id="change_currency"
                     initialSelectedItem={currencySelectItems.find((item) => {
                         return item.value === currency;
                     })}
                     inputProps={{
                         className: currencySelectInputStyle,
                     }}
+                    isLabelVisible={false}
                     items={currencySelectItems}
+                    label={currencySelectLabel}
                     name="change_currency"
                     onChange={(item) => {
                         setCurrency(item?.value);
@@ -216,7 +229,7 @@ export function InputCurrencyBase<TCurrency extends string>(
             );
         }
         return currency;
-    }, [currency, currencySelectItems, isCurrencyEditable, onCurrencyChange]);
+    }, [currency, currencySelectItems, currencySelectLabel, isCurrencyEditable, onCurrencyChange]);
 
     return (
         <Input

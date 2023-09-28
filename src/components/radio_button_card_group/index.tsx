@@ -7,7 +7,6 @@ import { FieldDescription } from "../field_description";
 import { FieldErrorMessage } from "../field_error_message";
 import { FieldLabel } from "../field_label";
 import { RadioButtonCard } from "../radio_button_card";
-import { getGroupLabelStyles } from "./styles.css";
 
 import type {
     WithDescription,
@@ -96,9 +95,9 @@ export const RadioButtonCardGroup = forwardRef(
             >
                 {label && id && (
                     <FieldLabel
-                        className={getGroupLabelStyles({ isLabelVisible })}
                         htmlFor={id}
                         id={`label-${id}`}
+                        isLabelVisible={isLabelVisible}
                         label={label}
                         labelTooltip={labelTooltip}
                         {...labelProps}

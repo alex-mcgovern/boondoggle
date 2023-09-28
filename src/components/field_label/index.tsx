@@ -13,6 +13,11 @@ export type FieldLabelProps = BoxProps & {
     htmlFor: string;
 
     /**
+     * Whether the label should be visible.
+     */
+    isLabelVisible?: boolean;
+
+    /**
      * The string to use as the label.
      */
     label: string;
@@ -26,13 +31,19 @@ export type FieldLabelProps = BoxProps & {
 /**
  * HTML label element for use with a form field or other labelled element.
  */
-export function FieldLabel({ htmlFor, label, labelTooltip, ...rest }: FieldLabelProps) {
+export function FieldLabel({
+    htmlFor,
+    isLabelVisible = true,
+    label,
+    labelTooltip,
+    ...rest
+}: FieldLabelProps) {
     return (
         <Box
             alignItems="center"
             as="label"
             color="text_low_contrast"
-            display="flex"
+            display={isLabelVisible ? "flex" : "none"}
             fontSize="bodyMd"
             fontWeight="normal"
             gap="space_1"

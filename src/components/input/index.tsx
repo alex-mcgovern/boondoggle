@@ -89,6 +89,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             invalid,
             isClearable,
             isCopyable,
+            isLabelVisible,
             isVisibilityToggleable,
             isVisible: initialIsVisible,
             label,
@@ -128,6 +129,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 hideLastpass={hideLastpass}
                 id={id}
                 invalid={invalid}
+                isLabelVisible={isLabelVisible}
                 wrapperProps={wrapperProps}
                 {...getOptionalLabelProps({ id, label, labelProps, labelTooltip })}
             >

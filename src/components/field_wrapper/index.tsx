@@ -41,6 +41,7 @@ export function FieldWrapper({
     hideLastpass,
     id,
     invalid,
+    isLabelVisible = true,
     label,
     labelProps,
     labelTooltip,
@@ -59,6 +60,7 @@ export function FieldWrapper({
             {label && id && (
                 <FieldLabel
                     htmlFor={id}
+                    isLabelVisible={isLabelVisible}
                     label={label}
                     labelTooltip={labelTooltip}
                     {...labelProps}

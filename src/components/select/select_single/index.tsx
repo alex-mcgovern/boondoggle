@@ -113,6 +113,7 @@ function SelectSingleBase<TValue extends string = string>(
         invalid,
         isClearable,
         isFilterable,
+        isLabelVisible,
         isOpen: controlledIsOpen,
         itemToString = (item: SelectItemShape<TValue> | null) => {
             return item?.label || "";
@@ -225,6 +226,7 @@ function SelectSingleBase<TValue extends string = string>(
                     id,
                     invalid,
                     isClearable: undefined,
+                    isLabelVisible,
                     name,
                     placeholder,
                     readOnly: !isFilterable,
