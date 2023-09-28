@@ -2,7 +2,7 @@
     "author": "Alex McGovern",
     "name": "@alex-mcgovern/boondoggle.design",
     "description": "Boondoggle design system component library",
-    "version": "0.14.8",
+    "version": "0.14.9",
     "license": "MIT",
     "files": [
         "dist"
@@ -69,7 +69,6 @@
         "react-hook-form": "7.46.1",
         "zod": "3.21.4"
     },
-    
     "devDependencies": {
         "@babel/core": "7.21.8",
         "@babel/preset-env": "7.21.5",
