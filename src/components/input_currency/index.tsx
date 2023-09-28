@@ -209,7 +209,7 @@ export function InputCurrencyBase<TCurrency extends string>(
         if (isCurrencyEditable) {
             return (
                 <SelectSingle<TCurrency>
-                    id="change_currency"
+                    id="currency"
                     initialSelectedItem={currencySelectItems.find((item) => {
                         return item.value === currency;
                     })}
@@ -219,7 +219,7 @@ export function InputCurrencyBase<TCurrency extends string>(
                     isLabelVisible={false}
                     items={currencySelectItems}
                     label={currencySelectLabel}
-                    name="change_currency"
+                    name="currency"
                     onChange={(item) => {
                         setCurrency(item?.value);
                         onCurrencyChange?.(item?.value);
