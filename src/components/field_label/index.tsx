@@ -43,7 +43,7 @@ export function FieldLabel({
             alignItems="center"
             as="label"
             color="text_low_contrast"
-            display={isLabelVisible ? "flex" : "none"}
+            display={isLabelVisible === true ? "flex" : "none"}
             fontSize="bodyMd"
             fontWeight="normal"
             gap="space_1"

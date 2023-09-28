@@ -129,9 +129,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 hideLastpass={hideLastpass}
                 id={id}
                 invalid={invalid}
-                isLabelVisible={isLabelVisible}
                 wrapperProps={wrapperProps}
-                {...getOptionalLabelProps({ id, label, labelProps, labelTooltip })}
+                {...getOptionalLabelProps({ id, isLabelVisible, label, labelProps, labelTooltip })}
             >
                 <FieldAddonWrapper
                     addonLeft={addonLeft}

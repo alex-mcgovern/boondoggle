@@ -226,7 +226,6 @@ function SelectSingleBase<TValue extends string = string>(
                     id,
                     invalid,
                     isClearable: undefined,
-                    isLabelVisible,
                     name,
                     placeholder,
                     readOnly: !isFilterable,
@@ -234,6 +233,7 @@ function SelectSingleBase<TValue extends string = string>(
                     value: inputValue,
                     ...getOptionalLabelProps({
                         id,
+                        isLabelVisible,
                         label,
                         labelProps: getLabelProps({
                             htmlFor: id,
