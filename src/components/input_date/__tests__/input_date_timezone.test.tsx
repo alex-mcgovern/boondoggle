@@ -35,10 +35,25 @@ const PROPS: InputDateProps = {
     placeholder: LOREM.placeholder(),
 };
 
-jest.useFakeTimers().setSystemTime(new Date("2023-01-01T23:00:00.000-02:00"));
-
 describe("<InputDate />", () => {
-    test.only("Displays correct selected date without adjusting for TZ", async () => {
+    test("input has correct value after clicking date when in timezone with negative offset", async () => {
+        jest.useFakeTimers().setSystemTime(new Date("2023-01-01T00:00:00.000-02:00"));
+
+        const { getByLabelText, getByTestId } = await renderComponent(PROPS);
+
+        await selectFromDatePicker({
+            expectedValueIso: "2023-01-01T00:00:00.000Z",
+            expectedValuePretty: "2023-01-01",
+            getByLabelText,
+            getByTestId,
+            labelText: PROPS.label as string,
+            onChange: ON_CHANGE,
+        });
+    });
+
+    test("input has correct value after clicking date when in timezone with positive offset", async () => {
+        jest.useFakeTimers().setSystemTime(new Date("2023-01-01T00:00:00.000+02:00"));
+
         const { getByLabelText, getByTestId } = await renderComponent(PROPS);
 
         await selectFromDatePicker({
