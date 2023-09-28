@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 
 import { InputDate } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
@@ -25,8 +25,6 @@ const renderComponent = async ({ ...props }: InputDateProps) => {
 describe("<InputDate />", () => {
     test("default value", async () => {
         const { getByLabelText } = await renderComponent(PROPS);
-
-        screen.debug();
 
         const textbox = getByLabelText(PROPS.label);
 
