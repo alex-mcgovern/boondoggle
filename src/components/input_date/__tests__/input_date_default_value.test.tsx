@@ -1,0 +1,35 @@
+/**
+ * @jest-environment jsdom
+ */
+import { render, screen, waitFor } from "@testing-library/react";
+
+import { InputDate } from "..";
+import { LOREM } from "../../../../mocks/LOREM.mock";
+
+import type { InputDateProps } from "..";
+
+const PROPS: InputDateProps = {
+    defaultValue: "2021-01-01",
+    id: "date-picker",
+    label: "date picker",
+    name: LOREM.name(),
+    placeholder: LOREM.placeholder(),
+};
+
+const renderComponent = async ({ ...props }: InputDateProps) => {
+    return waitFor(() => {
+        return render(<InputDate {...props} />);
+    });
+};
+
+describe("<InputDate />", () => {
+    test("default value", async () => {
+        const { getByLabelText } = await renderComponent(PROPS);
+
+        screen.debug();
+
+        const textbox = getByLabelText(PROPS.label);
+
+        expect(textbox).toHaveValue("2021-01-01");
+    });
+});

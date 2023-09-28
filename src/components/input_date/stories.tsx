@@ -20,3 +20,13 @@ export const Default: Story = {
         placeholder: LOREM.placeholder(),
     },
 };
+
+export const WithDefaultValue: Story = {
+    args: {
+        defaultValue: "2021-01-01",
+        id: LOREM.id(),
+        label: LOREM.label(),
+        name: LOREM.name(),
+        placeholder: LOREM.placeholder(),
+    },
+};
