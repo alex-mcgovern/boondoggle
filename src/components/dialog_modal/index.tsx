@@ -1,4 +1,4 @@
-import * as RadixSlot from "@radix-ui/react-slot";
+import RadixSlot from "@radix-ui/react-slot";
 import { forwardRef } from "react";
 
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";

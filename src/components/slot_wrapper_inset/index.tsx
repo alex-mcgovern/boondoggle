@@ -1,4 +1,4 @@
-import * as RadixSlot from "@radix-ui/react-slot";
+import RadixSlot from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { Children, forwardRef } from "react";
 
