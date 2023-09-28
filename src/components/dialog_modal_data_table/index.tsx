@@ -1,4 +1,4 @@
-import RadixSlot from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 
 import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";

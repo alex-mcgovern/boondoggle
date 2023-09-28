@@ -1,4 +1,4 @@
-import RadixSlot from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import { Children } from "react";
 
 import { Box } from "../box";

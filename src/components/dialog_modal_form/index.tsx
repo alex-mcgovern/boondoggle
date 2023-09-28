@@ -1,4 +1,4 @@
-import RadixSlot from "@radix-ui/react-slot";
+import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
