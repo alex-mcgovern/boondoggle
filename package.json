@@ -47,8 +47,6 @@
         "tsc": "tsc"
     },
     "dependencies": {
-        "@testing-library/react": "14.0.0",
-        "@testing-library/user-event": "14.4.3",
         "intl-number-parser": "1.0.2"
     },
     "peerDependencies": {
@@ -65,6 +63,8 @@
         "@rehookify/datepicker": "5.0.0",
         "@tanstack/match-sorter-utils": "8.8.4",
         "@tanstack/react-table": "8.9.3",
+        "@testing-library/react": "14.0.0",
+        "@testing-library/user-event": "14.4.3",
         "clsx": "1.2.1",
         "downshift": "8.1.0",
         "lodash.debounce": "4.0.8",
