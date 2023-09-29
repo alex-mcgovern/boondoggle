@@ -106,6 +106,7 @@ export const getCursorPosition = ({
     const minSelectionEnd = Math.max(selectionEndOffsetNonDigits || 0, minIndex);
 
     switch (inputType) {
+        case "deleteSoftLineBackward":
         case "deleteContentBackward":
         case "insertText": {
             return {
