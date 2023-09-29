@@ -20,3 +20,13 @@ export const Default: Story = {
         placeholder: LOREM.placeholder(),
     },
 };
+
+export const Invalid: Story = {
+    args: {
+        id: LOREM.id(),
+        invalid: true,
+        label: LOREM.label(),
+        name: LOREM.name(),
+        placeholder: LOREM.placeholder(),
+    },
+};

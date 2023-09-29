@@ -44,7 +44,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             className: userClassName,
             defaultValue,
             isOpen: controlledIsOpen,
-            // locale,
             onChange,
             rawValueTransformer,
             size,
@@ -63,19 +62,16 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                const timeZoneOffsetMinutes = date.getTimezoneOffset();
-                const timeZoneOffsetHours = timeZoneOffsetMinutes / 60;
+                const toLocalDate = new Date(date.toISOString());
 
-                date.setHours(date.getHours() - timeZoneOffsetHours);
-                const formattedDate = date.toISOString().slice(0, 10);
-                setInputValue(formattedDate);
+                const toLocalISO = new Date(
+                    toLocalDate.getTime() - toLocalDate.getTimezoneOffset() * 60000
+                ).toISOString();
+
+                setInputValue(toLocalISO.slice(0, 10));
 
                 if (onChange) {
-                    onChange(
-                        rawValueTransformer
-                            ? rawValueTransformer(date.toISOString())
-                            : date.toISOString()
-                    );
+                    onChange(rawValueTransformer ? rawValueTransformer(toLocalISO) : toLocalISO);
                 }
                 setIsOpen(false);
             },
