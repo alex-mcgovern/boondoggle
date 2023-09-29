@@ -1,7 +1,7 @@
 import { waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import type { InputDateProps } from "..";
+import type { InputDateProps } from "../src/components/input_date";
 import type { ByRoleMatcher, ByRoleOptions, Matcher, MatcherOptions } from "@testing-library/react";
 
 type SelectFromInputDateArgs = {

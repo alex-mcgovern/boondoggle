@@ -26,7 +26,7 @@ const renderComponent = (props: InputDateProps) => {
     };
 };
 
-describe.skip("<InputDate />", () => {
+describe("<InputDate />", () => {
     describe("Invalid", () => {
         test("should have error styling", async () => {
             const { getByLabelText } = await renderComponent({
@@ -38,7 +38,9 @@ describe.skip("<InputDate />", () => {
 
             expect(textbox).toHaveClass(a11yError);
 
-            expect(textbox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
+            expect(textbox?.parentNode?.parentNode?.parentNode?.parentNode).toHaveClass(
+                variantColorOverlay.red
+            );
         });
 
         test("should render error message", async () => {

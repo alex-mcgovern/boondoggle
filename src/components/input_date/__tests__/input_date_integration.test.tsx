@@ -9,7 +9,7 @@ import { createRef } from "react";
 import { InputDate } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-import { selectFromDatePicker } from "../lib";
+import { selectFromDatePicker } from "../../../../test/select_from_date_picker";
 
 import type { InputDateProps } from "..";
 
