@@ -36,13 +36,13 @@ type GetCurrencySymbolArgs = {
 };
 
 const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs): string => {
-    const formatter = new Intl.NumberFormat(locale, {
+    const fmt = new Intl.NumberFormat(locale, {
         currency,
         style: "currency",
     });
 
     let symbol = "";
-    formatter.formatToParts(0).forEach(({ type, value }) => {
+    fmt.formatToParts(0).forEach(({ type, value }) => {
         if (type === "currency") {
             symbol = value;
         }
