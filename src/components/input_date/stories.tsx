@@ -4,6 +4,12 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
+    args: {
+        id: LOREM.id(),
+        label: LOREM.label(),
+        name: LOREM.name(),
+        placeholder: LOREM.placeholder(),
+    },
     component: StoryComp,
     title: "Components/InputDate",
 } satisfies Meta<typeof StoryComp>;
@@ -12,21 +18,16 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default: Story = {};
+
+export const Invalid: Story = {
     args: {
-        id: LOREM.id(),
-        label: LOREM.label(),
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
+        errorMessage: LOREM.errorMessage(),
+        invalid: true,
     },
 };
-
 export const WithDefaultValue: Story = {
     args: {
         defaultValue: "2021-01-01",
-        id: LOREM.id(),
-        label: LOREM.label(),
-        name: LOREM.name(),
-        placeholder: LOREM.placeholder(),
     },
 };

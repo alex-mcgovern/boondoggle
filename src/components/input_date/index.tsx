@@ -11,6 +11,13 @@ import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../common-ty
 import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
+/**
+ * Converts a local date to a UTC date.
+ */
+function convertLocalToUTCDate(date: Date) {
+    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+}
+
 export type InputDateProps = Omit<
     InputProps,
     "isClearable" | "isCopyable" | "isVisibilityToggleable" | "placeholder"
@@ -62,14 +69,13 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
-                setInputValue(date.toISOString().substring(0, 10));
+                const utcDate = convertLocalToUTCDate(date);
+                const isoString = utcDate.toISOString();
+
+                setInputValue(isoString.slice(0, 10));
 
                 if (onChange) {
-                    onChange(
-                        rawValueTransformer
-                            ? rawValueTransformer(date.toISOString())
-                            : date.toISOString()
-                    );
+                    onChange(rawValueTransformer ? rawValueTransformer(isoString) : isoString);
                 }
                 setIsOpen(false);
             },
