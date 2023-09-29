@@ -96,11 +96,21 @@ export const getCursorPosition = ({
     const nonDigitsAfter = formattedValue.match(/\D/g)?.length || 0;
     const delta = nonDigitsAfter - nonDigitsBefore;
 
+    const firstDigitIndex = formattedValue.search(/\d/);
+    const minIndex = Math.min(firstDigitIndex, formattedValue.length) + 1;
+
+    const selectionStartOffsetNonDigits = selectionStart ? selectionStart + delta : null;
+    const selectionEndOffsetNonDigits = selectionEnd ? selectionEnd + delta : null;
+
+    const minSelectionStart = Math.max(selectionStartOffsetNonDigits || 0, minIndex);
+    const minSelectionEnd = Math.max(selectionEndOffsetNonDigits || 0, minIndex);
+
     switch (inputType) {
+        case "deleteContentBackward":
         case "insertText": {
             return {
-                end: selectionEnd ? selectionEnd + delta : null,
-                start: selectionStart ? selectionStart + delta : null,
+                end: minSelectionEnd,
+                start: minSelectionStart,
             };
         }
         default: {
@@ -306,7 +316,6 @@ export function InputCurrencyBase<TCurrency extends string>(
                 });
 
                 e.target.value = formattedValue;
-
                 e.target.selectionStart = newSelect.start;
                 e.target.selectionEnd = newSelect.end;
             }}
