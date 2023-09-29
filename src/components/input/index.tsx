@@ -42,6 +42,7 @@ export type InputProps = Partial<
         | "onClick"
         | "onFocus"
         | "onMouseOver"
+        | "inputMode"
         | "onMouseLeave"
         | "className"
         | "autoComplete"

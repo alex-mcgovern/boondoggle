@@ -28,7 +28,7 @@ import type {
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
 import type { SelectItemShape } from "../select/types";
-import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
+import type { ChangeEvent, ComponentPropsWithoutRef, ForwardedRef } from "react";
 
 type GetCurrencySymbolArgs = {
     currency: string;
@@ -52,15 +52,64 @@ const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs): string 
 };
 
 export const formatter = (value: string, currencySymbol: string) => {
+    // return `${currencySymbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
     const numOnly = value.match(/(\d|\.)/g)?.join("");
+    const hasDecimal = !!numOnly?.includes(".");
+
     const [preDecimal, postDecimal] = numOnly?.split(".") || [];
+
     const formattedPreDecimal = preDecimal?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-    return `${currencySymbol} ${formattedPreDecimal || ""}${postDecimal ? `.${postDecimal}` : ""}`;
+    return `${currencySymbol} ${formattedPreDecimal || ""}${hasDecimal ? `.${postDecimal}` : ""}`;
 };
 
 export const parser = (value: string, currencySymbol: string) => {
     return value.replace(new RegExp(`\\${currencySymbol}\\s?|(,*)`, "g"), "");
+};
+
+type NativeEventInputType =
+    | "input"
+    | "insertText"
+    | "deleteContentBackward"
+    | "deleteContentForward"
+    | "historyUndo"
+    | "historyRedo"
+    | "deleteSoftLineBackward";
+
+type GetCursorPositionArgs = {
+    formattedValue: string;
+    incomingValue: string;
+    inputType: NativeEventInputType;
+    selectionEnd: number | null;
+    selectionStart: number | null;
+};
+
+export const getCursorPosition = ({
+    formattedValue,
+    incomingValue,
+    inputType,
+    selectionEnd,
+    selectionStart,
+}: GetCursorPositionArgs): { end: number | null; start: number | null } => {
+    const nonDigitsBefore = incomingValue.match(/\D/g)?.length || 0;
+    const nonDigitsAfter = formattedValue.match(/\D/g)?.length || 0;
+    const delta = nonDigitsAfter - nonDigitsBefore;
+
+    switch (inputType) {
+        case "insertText": {
+            return {
+                end: selectionEnd ? selectionEnd + delta : null,
+                start: selectionStart ? selectionStart + delta : null,
+            };
+        }
+        default: {
+            return {
+                end: selectionEnd,
+                start: selectionEnd,
+            };
+        }
+    }
 };
 
 type IsCurrencyEditable<TCurrency extends string> = {
@@ -76,7 +125,6 @@ type IsCurrencyEditable<TCurrency extends string> = {
      * Whether the currency is editable or not.
      */
     isCurrencyEditable: true;
-
     /**
      * Callback when a new currency is selected.
      */
@@ -238,12 +286,29 @@ export function InputCurrencyBase<TCurrency extends string>(
             defaultValue={
                 defaultValue ? formatter(defaultValue?.toString(), currencySymbol) : undefined
             }
-            onChange={(e) => {
+            inputMode="decimal"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                const { selectionEnd, selectionStart, value: val } = e.target;
+
+                const formattedValue = formatter(parser(val, currencySymbol), currencySymbol);
+
+                const newSelect = getCursorPosition({
+                    formattedValue,
+                    incomingValue: val,
+                    inputType: (e.nativeEvent as InputEvent).inputType as NativeEventInputType,
+                    selectionEnd,
+                    selectionStart,
+                });
+
                 onChange?.({
                     ...e,
-                    target: { ...e.target, value: parser(e.target.value, currencySymbol) },
+                    target: { ...e.target, value: parser(val, currencySymbol) },
                 });
-                e.target.value = formatter(parser(e.target.value, currencySymbol), currencySymbol);
+
+                e.target.value = formattedValue;
+
+                e.target.selectionStart = newSelect.start;
+                e.target.selectionEnd = newSelect.end;
             }}
             ref={inputRef}
             value={value ? formatter(value?.toString(), currencySymbol) : undefined}
