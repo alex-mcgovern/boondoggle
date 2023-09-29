@@ -10,6 +10,7 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import "../../../../test/mocked_dependencies/has_pointer_capture.mock";
 import "../../../../test/mocked_dependencies/resize_observer.mock";
+import { selectFromDatePicker } from "../../../../test/select_from_date_picker";
 import { selectFromSingleSelect } from "../../../../test/select_from_select_single";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_card_group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
@@ -85,7 +86,7 @@ describe("<Form />", () => {
 describe("<Form />", () => {
     describe("Happy path", () => {
         it.skip("should submit successfully when user inputs values", async () => {
-            const { getByLabelText, getByRole } = await renderComponent(PROPS);
+            const { getByLabelText, getByRole, getByTestId } = await renderComponent(PROPS);
 
             const emailInput = getByLabelText(LOREM.labelEmail());
 
@@ -112,6 +113,13 @@ describe("<Form />", () => {
                 getByRole,
                 item_label: mockSelectItems({})[0].label,
                 select_label: LOREM.labelDropdown(),
+            });
+
+            await selectFromDatePicker({
+                expectedValue: "2023-01-01",
+                getByLabelText,
+                getByTestId,
+                labelText: PROPS.label as string,
             });
 
             await act(async () => {
@@ -192,7 +200,7 @@ describe("<Form />", () => {
             await waitFor(() => {
                 expect(handleErrors).toHaveBeenCalled();
 
-                expect(getAllByRole("alert")).toHaveLength(6);
+                expect(getAllByRole("alert")).toHaveLength(7);
             });
         });
     });

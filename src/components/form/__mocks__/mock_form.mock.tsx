@@ -5,6 +5,7 @@ import * as z from "zod";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { FormInput } from "../../form_input";
 import { FormInputCurrency } from "../../form_input_currency";
+import { FormInputDate } from "../../form_input_date";
 import { FormRadioButtonCardGroup } from "../../form_radio_button_card_group";
 import { FormSelectSingle } from "../../form_select_single";
 import { FormSlider } from "../../form_slider";
@@ -21,6 +22,7 @@ import type { SelectItemShape } from "../../select/types";
 
 const mockFormSchema = z.object({
     amount: z.coerce.number().min(1),
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     description: z.string().min(1).max(20),
     email: z.string().email().min(2),
     radio: z.string().min(1),
@@ -66,6 +68,12 @@ export const mockForm = ({
                     label={LOREM.labelEmail()}
                     name="email"
                     placeholder="Enter your email address"
+                    wrapperProps={WRAPPER_PROPS}
+                />
+                <FormInputDate
+                    id="date"
+                    label="Date"
+                    name="date"
                     wrapperProps={WRAPPER_PROPS}
                 />
                 {/** @ts-expect-error props are busted */}

@@ -5,9 +5,7 @@ import type { InputDateProps } from "../src/components/input_date";
 import type { ByRoleMatcher, ByRoleOptions, Matcher, MatcherOptions } from "@testing-library/react";
 
 type SelectFromInputDateArgs = {
-    expectedValueIso: string;
-
-    expectedValuePretty: string;
+    expectedValue: string;
 
     getByLabelText: (role: ByRoleMatcher, options?: ByRoleOptions | undefined) => HTMLElement;
 
@@ -19,8 +17,7 @@ type SelectFromInputDateArgs = {
 };
 
 export const selectFromDatePicker = async ({
-    expectedValueIso,
-    expectedValuePretty,
+    expectedValue,
     getByLabelText,
     getByTestId,
     labelText,
@@ -57,11 +54,11 @@ export const selectFromDatePicker = async ({
 
     await waitFor(() => {
         // Assert that input has the correct value
-        expect(inputDate).toHaveValue(expectedValuePretty);
+        expect(inputDate).toHaveValue(expectedValue);
 
         // Assert that the onChange has been called with the correct value
         if (onChange) {
-            expect(onChange).toHaveBeenCalledWith(expectedValueIso);
+            expect(onChange).toHaveBeenCalledWith(expectedValue);
         }
     });
 };

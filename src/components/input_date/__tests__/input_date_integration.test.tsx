@@ -39,12 +39,11 @@ const PROPS: InputDateProps = {
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 describe("<InputDate />", () => {
-    test("works without `rawValueTransformer`", async () => {
+    test("works with mouse input", async () => {
         const { getByLabelText, getByTestId } = await renderComponent(PROPS);
 
         await selectFromDatePicker({
-            expectedValueIso: "2023-01-01T00:00:00.000Z",
-            expectedValuePretty: "2023-01-01",
+            expectedValue: "2023-01-01",
             getByLabelText,
             getByTestId,
             labelText: PROPS.label as string,
@@ -52,24 +51,7 @@ describe("<InputDate />", () => {
         });
     });
 
-    test("should have correct value when user selects date, and is passed a data transformer", async () => {
-        const { getByLabelText, getByTestId } = await renderComponent({
-            ...PROPS,
-            rawValueTransformer: (value: string) => {
-                return value.substring(0, 10);
-            },
-        });
-
-        await selectFromDatePicker({
-            expectedValueIso: "2023-01-01",
-            expectedValuePretty: "2023-01-01",
-            getByLabelText,
-            getByTestId,
-            labelText: PROPS.label as string,
-        });
-    });
-
-    test("should have the correct value when user enters the date manually", async () => {
+    test("works with keyboard input", async () => {
         const { getByLabelText } = await renderComponent({ ...PROPS });
 
         const inputDate = getByLabelText(LOREM.label());
@@ -80,8 +62,6 @@ describe("<InputDate />", () => {
 
         expect(inputDate).toHaveValue("2023-01-01");
 
-        if (ON_CHANGE) {
-            expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
-        }
+        expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
     });
 });

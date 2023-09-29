@@ -1,3 +1,4 @@
+/* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
@@ -38,11 +39,6 @@ export type InputDateProps = Omit<
          * Callback to be called when the date changes.
          */
         onChange?: ((date: string) => unknown) | ((date: string) => Promise<unknown>);
-
-        /**
-         * A function to transform the raw value before it is passed to the `onChange` callback.
-         */
-        rawValueTransformer?: (value: string) => string;
     };
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
@@ -52,7 +48,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             defaultValue,
             isOpen: controlledIsOpen,
             onChange,
-            rawValueTransformer,
             size,
             slotLeft,
             value,
@@ -71,15 +66,16 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             (_: MouseEvent<HTMLElement>, date: Date) => {
                 const utcDate = convertLocalToUTCDate(date);
                 const isoString = utcDate.toISOString();
+                const isoDate = isoString.slice(0, 10);
 
-                setInputValue(isoString.slice(0, 10));
+                setInputValue(isoDate);
 
                 if (onChange) {
-                    onChange(rawValueTransformer ? rawValueTransformer(isoString) : isoString);
+                    onChange(isoDate);
                 }
                 setIsOpen(false);
             },
-            [rawValueTransformer, onChange]
+            [onChange]
         );
 
         return (
@@ -89,10 +85,12 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                 defaultValue={defaultValue}
                 isVisibilityToggleable={undefined}
                 isVisible={undefined}
+                onChange={(e) => {
+                    return onChange?.(e.target.value);
+                }}
                 ref={ref}
                 size={size}
                 slotLeft={slotLeft}
-                // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
                 slotRight={[
                     <Dialog
                         className={clsx(userClassName, datePickerDialogStyle)}
@@ -102,13 +100,13 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
                             <FieldActionButtonDate size={size} />
                         }
-                        wrapperProps={wrapperProps}
                     >
                         <DatePicker onDayClick={onDayClick} />
                     </Dialog>,
                 ]}
                 type="date"
                 value={inputValue}
+                wrapperProps={wrapperProps}
             />
         );
     }
