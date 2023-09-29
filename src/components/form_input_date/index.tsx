@@ -1,6 +1,5 @@
 import { useController, useFormContext } from "react-hook-form";
 
-import { formatDate } from "../../utils/format_date";
 import { InputDate } from "../input_date";
 
 import type { WithFormFieldProps, WithOptionalPlaceholder } from "../../common-types";
@@ -40,7 +39,7 @@ export function FormInputDate({ defaultValue, name, ...rest }: FormInputDateProp
             onBlur={onBlur}
             onChange={onChange}
             ref={ref}
-            value={controlledValue ? formatDate(controlledValue) : ""}
+            value={controlledValue}
         />
     );
 }

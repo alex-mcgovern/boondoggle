@@ -2,7 +2,7 @@
     "author": "Alex McGovern",
     "name": "@alex-mcgovern/boondoggle.design",
     "description": "Boondoggle design system component library",
-    "version": "0.14.3",
+    "version": "0.14.14",
     "license": "MIT",
     "files": [
         "dist"
@@ -11,21 +11,9 @@
         "type": "git",
         "url": "https://github.com/alex-mcgovern/boondoggle.design"
     },
-    "type": "module",
     "types": "dist/index.d.ts",
-    "exports": {
-        ".": {
-            "require": "./dist/index.cjs",
-            "import": {
-                "types": "./dist/index.d.ts",
-                "default": "./dist/index.js"
-            },
-            "default": "./dist/index.cjs",
-            "types": "./dist/index.d.ts"
-        },
-        "./index.css": "./dist/index.css",
-        "./package.json": "./package.json"
-    },
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
     "scripts": {
         "build-storybook": "storybook build",
         "build:dev": "rm -rf lib && tsup --watch",
@@ -47,9 +35,7 @@
         "tsc": "tsc"
     },
     "dependencies": {
-        "intl-number-parser": "1.0.2"
-    },
-    "peerDependencies": {
+        "intl-number-parser": "1.0.2",
         "@dessert-box/core": "0.2.0",
         "@dessert-box/react": "0.7.5",
         "@floating-ui/react": "0.25.1",
@@ -57,9 +43,9 @@
         "@fortawesome/pro-solid-svg-icons": "6.4.0",
         "@fortawesome/react-fontawesome": "0.2.0",
         "@hookform/resolvers": "3.3.1",
-        "@radix-ui/react-collapsible": "1.0.2",
-        "@radix-ui/react-slider": "1.1.1",
-        "@radix-ui/react-slot": "1.0.1",
+        "@radix-ui/react-collapsible": "1.0.3",
+        "@radix-ui/react-slider": "1.1.2",
+        "@radix-ui/react-slot": "1.0.2",
         "@rehookify/datepicker": "5.0.0",
         "@tanstack/match-sorter-utils": "8.8.4",
         "@tanstack/react-table": "8.9.3",

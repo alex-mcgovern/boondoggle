@@ -133,6 +133,7 @@ function SelectMultiBase<TValue extends string = string>(
         invalid,
         isClearable,
         isFilterable,
+        isLabelVisible,
         items: initialItems,
         label,
         labelTooltip,
@@ -308,6 +309,7 @@ function SelectMultiBase<TValue extends string = string>(
                     }),
                     ...getOptionalLabelProps({
                         id,
+                        isLabelVisible,
                         label,
                         labelProps: getLabelProps({
                             htmlFor: id,

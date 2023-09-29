@@ -52,6 +52,7 @@ export const TextArea = forwardRef(
             hideLastpass,
             id,
             invalid,
+            isLabelVisible,
             label,
             labelProps,
             labelTooltip,
@@ -80,6 +81,7 @@ export const TextArea = forwardRef(
                 wrapperProps={wrapperProps}
                 {...getOptionalLabelProps({
                     id,
+                    isLabelVisible,
                     label,
                     labelProps,
                     labelTooltip,

@@ -48,6 +48,7 @@ export const IsCurrencyEditable: Story = {
                 value: "AED",
             },
         ],
+        currencySelectLabel: "Currency",
         isCurrencyEditable: true,
         onCurrencyChange(currency) {
             console.info(currency);
@@ -79,6 +80,7 @@ export const KitchenSink: Story = {
                 value: "AED",
             },
         ],
+        currencySelectLabel: "Currency",
         id: "input_currency",
         isCurrencyEditable: true,
         label: "Amount",
@@ -113,6 +115,7 @@ export const KitchenSinkWithInvalidState: Story = {
                 value: "AED",
             },
         ],
+        currencySelectLabel: "Currency",
         id: "input_currency",
         invalid: true,
         isCurrencyEditable: true,

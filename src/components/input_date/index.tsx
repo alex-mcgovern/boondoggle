@@ -62,7 +62,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
         ref
     ) => {
         const [inputValue, setInputValue] = useState<string | number | readonly string[]>(
-            value || ""
+            value || defaultValue || ""
         );
 
         const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);

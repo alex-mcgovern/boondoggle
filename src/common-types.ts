@@ -215,6 +215,11 @@ type BaseWithLabel = {
     id?: string;
 
     /**
+     * Whether the label is visible or not.
+     */
+    isLabelVisible?: boolean;
+
+    /**
      * Text for HTML label element
      */
     label?: string;
@@ -235,6 +240,8 @@ type BaseWithLabel = {
 type WithLabel = BaseWithLabel & {
     id: string;
 
+    isLabelVisible?: boolean;
+
     label: string;
 
     labelProps?: Omit<FieldLabelProps, "label"> | undefined;
@@ -244,6 +251,8 @@ type WithLabel = BaseWithLabel & {
 
 type WithoutLabel = BaseWithLabel & {
     id?: string;
+
+    isLabelViaible?: never;
 
     label?: never;
 
@@ -262,12 +271,13 @@ export type WithOptionalLabel = WithLabel | WithoutLabel;
  */
 export const getOptionalLabelProps = ({
     id,
+    isLabelVisible,
     label,
     labelProps,
     labelTooltip,
 }: BaseWithLabel): WithOptionalLabel => {
     return typeof label !== "undefined" && typeof id !== "undefined"
-        ? { id, label, labelProps, labelTooltip }
+        ? { id, isLabelVisible, label, labelProps, labelTooltip }
         : {};
 };
 

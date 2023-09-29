@@ -42,6 +42,7 @@ export type InputProps = Partial<
         | "onClick"
         | "onFocus"
         | "onMouseOver"
+        | "inputMode"
         | "onMouseLeave"
         | "className"
         | "autoComplete"
@@ -89,6 +90,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             invalid,
             isClearable,
             isCopyable,
+            isLabelVisible,
             isVisibilityToggleable,
             isVisible: initialIsVisible,
             label,
@@ -129,7 +131,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 id={id}
                 invalid={invalid}
                 wrapperProps={wrapperProps}
-                {...getOptionalLabelProps({ id, label, labelProps, labelTooltip })}
+                {...getOptionalLabelProps({ id, isLabelVisible, label, labelProps, labelTooltip })}
             >
                 <FieldAddonWrapper
                     addonLeft={addonLeft}
