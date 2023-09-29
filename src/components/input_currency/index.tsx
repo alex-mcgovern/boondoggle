@@ -51,9 +51,11 @@ const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs): string 
     return symbol;
 };
 
-export const formatter = (value: string, currencySymbol: string) => {
-    // return `${currencySymbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
+/**
+ * Formats a numeric string into a currency string.
+ * @example formatter("1234.56", "$") // "$ 1,234.56"
+ */
+export function formatter(value: string, currencySymbol: string) {
     const numOnly = value.match(/(\d|\.)/g)?.join("");
     const hasDecimal = !!numOnly?.includes(".");
 
@@ -62,11 +64,15 @@ export const formatter = (value: string, currencySymbol: string) => {
     const formattedPreDecimal = preDecimal?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return `${currencySymbol} ${formattedPreDecimal || ""}${hasDecimal ? `.${postDecimal}` : ""}`;
-};
+}
 
-export const parser = (value: string, currencySymbol: string) => {
+/**
+ * Parses a currency string into a numeric string.
+ * @example parser("$ 1,234.56", "$") // "1234.56"
+ */
+export function parser(value: string, currencySymbol: string) {
     return value.replace(new RegExp(`\\${currencySymbol}\\s?|(,*)`, "g"), "");
-};
+}
 
 type NativeEventInputType =
     | "input"
