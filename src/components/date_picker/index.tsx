@@ -2,6 +2,7 @@ import { useDatePicker } from "@rehookify/datepicker";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
+import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";
 import { DatePickerControls } from "./components/date_picker_controls.comp";
 import { DatePickerDays } from "./components/date_picker_days.comp";
@@ -78,7 +79,7 @@ export const DatePicker = forwardRef(
             <Box
                 __minWidth="24rem"
                 as="section"
-                className={clsx(userClassName, styles.datePickerRoot)}
+                className={clsx(userClassName, styles.datePickerRoot, variantColorOverlay.default)}
                 ref={ref}
                 {...rest}
             >
