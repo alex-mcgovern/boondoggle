@@ -156,31 +156,31 @@ const TemplateColors = () => {
                 colorOverlay="blue"
                 name="blue"
                 placeholder={LOREM.placeholder()}
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+                slotRight={<Icon icon={faTriangleCircleSquare} />}
             />
             <StoryComp
                 colorOverlay="red"
                 name="red"
                 placeholder={LOREM.placeholder()}
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+                slotRight={<Icon icon={faTriangleCircleSquare} />}
             />
             <StoryComp
                 colorOverlay="green"
                 name="green"
                 placeholder={LOREM.placeholder()}
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+                slotRight={<Icon icon={faTriangleCircleSquare} />}
             />
             <StoryComp
                 colorOverlay="amber"
                 name="amber"
                 placeholder={LOREM.placeholder()}
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+                slotRight={<Icon icon={faTriangleCircleSquare} />}
             />
             <StoryComp
                 colorOverlay="grey"
                 name="grey"
                 placeholder={LOREM.placeholder()}
-                slotRight={[<Icon icon={faTriangleCircleSquare} />]}
+                slotRight={<Icon icon={faTriangleCircleSquare} />}
             />
         </Box>
     );
@@ -328,7 +328,7 @@ export const With1SlotRightWide: Story = {
                 appearance="ghost"
                 name="reset"
                 size="sm"
-                slotLeft={[<Icon icon={faRefresh} />]}
+                slotLeft={<Icon icon={faRefresh} />}
             >
                 Reset
             </Button>,

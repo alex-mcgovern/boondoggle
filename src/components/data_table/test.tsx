@@ -33,7 +33,7 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
         </Button>,
         <Button
             name="primary_action"
-            slotLeft={[<Icon icon={faPlus} />]}
+            slotLeft={<Icon icon={faPlus} />}
         >
             Primary action
         </Button>,

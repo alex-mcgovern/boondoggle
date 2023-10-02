@@ -1,6 +1,5 @@
 import { FieldActionButtonClear } from "../../../field_action_button_clear";
 
-import type { Slot } from "../../../../common-types";
 import type { ReactNode } from "react";
 
 type GetSlotRightArgs = {
@@ -17,7 +16,7 @@ type GetSlotRightArgs = {
     /**
      * The slotRight node.
      */
-    slotRight: Slot;
+    slotRight: ReactNode;
 
     /**
      * The tooltip text to display when the button is hovered.
@@ -33,7 +32,7 @@ export const getSlotRight = ({
     reset,
     slotRight,
     strClear,
-}: GetSlotRightArgs): [ReactNode?, ReactNode?, ReactNode?] => {
+}: GetSlotRightArgs): ReactNode => {
     if (isClearable && strClear) {
         return [
             <FieldActionButtonClear

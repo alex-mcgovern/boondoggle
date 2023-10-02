@@ -59,7 +59,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
         cell: (info) => {
             return (
                 <DataTableCellButton
-                    slotRight={[<Icon icon={faArrowUpRight} />]}
+                    slotRight={<Icon icon={faArrowUpRight} />}
                     value={info.getValue()}
                 />
             );
@@ -108,7 +108,7 @@ export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
         cell: (info) => {
             return (
                 <DataTableCellButton
-                    slotRight={[<Icon icon={faArrowUpRight} />]}
+                    slotRight={<Icon icon={faArrowUpRight} />}
                     value={info.getValue()}
                 />
             );
@@ -156,7 +156,8 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
                         />
                         <Box>
                             <Box fontWeight="medium">
-                                {row.original.first_name} {row.original.last_name}
+                                {row.original.first_name}{" "}
+                                {row.original.last_name}
                             </Box>
                             <Box
                                 color="text_low_contrast"

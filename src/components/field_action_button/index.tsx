@@ -3,8 +3,8 @@ import { forwardRef } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { fieldActionButtonStyle } from "./styles.css";
 
-import type { Slot } from "../../common-types";
 import type { ButtonProps } from "../button";
+import type { ReactNode } from "react";
 
 export type FieldActionButtonProps = {
     /**
@@ -20,7 +20,7 @@ export type FieldActionButtonProps = {
     /**
      * The slot to render on the button.
      */
-    slot: Slot;
+    slot: ReactNode;
 
     /**
      * The tooltip text to display when the button is hovered.

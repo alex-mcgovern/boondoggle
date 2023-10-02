@@ -41,7 +41,7 @@ export function DataTableFilterInput({
                 return setGlobalFilter(e.target.value);
             }}
             placeholder={placeholder}
-            slotLeft={[<Icon icon={faSearch} />]}
+            slotLeft={<Icon icon={faSearch} />}
             strClear={strClearFilterInput}
             value={globalFilter}
         />

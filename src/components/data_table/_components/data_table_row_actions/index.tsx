@@ -12,7 +12,10 @@ export type DataTableRowActionsProps = {
      * An array of Select items to render in the row actions menu.
      */
     items: Array<SelectItemShape<string>>;
-} & Omit<SelectButtonProps<string>, "buttonProps" | "items" | "name" | "placement" | "slotRight">;
+} & Omit<
+    SelectButtonProps<string>,
+    "buttonProps" | "items" | "name" | "placement" | "slotRight"
+>;
 
 /**
  * Renders a `SelectButton` configured to act as a DataTable row actions menu.
@@ -33,7 +36,7 @@ export function DataTableRowActions({ items }: DataTableRowActionsProps) {
             name="select_button_data_table_team"
             placement="bottom-end"
             // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
-            slotRight={[<Icon icon={faEllipsis} />]}
+            slotRight={<Icon icon={faEllipsis} />}
             // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
             wrapperProps={{
                 marginLeft: "auto",

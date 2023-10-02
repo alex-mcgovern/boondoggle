@@ -176,7 +176,7 @@ export const With1Action: Story = {
         actions: (
             <Button
                 name="primary_action"
-                slotLeft={[<Icon icon={faPlus} />]}
+                slotLeft={<Icon icon={faPlus} />}
             >
                 Primary action
             </Button>
@@ -199,7 +199,7 @@ export const With2Actions: Story = {
             </Button>,
             <Button
                 name="primary_action"
-                slotLeft={[<Icon icon={faPlus} />]}
+                slotLeft={<Icon icon={faPlus} />}
             >
                 Primary action
             </Button>,
@@ -222,7 +222,7 @@ export const WithRowActionItems: Story = {
             </Button>,
             <Button
                 name="primary_action"
-                slotLeft={[<Icon icon={faPlus} />]}
+                slotLeft={<Icon icon={faPlus} />}
             >
                 Primary action
             </Button>,
@@ -246,7 +246,7 @@ export const WithRowActionItemsShortList: Story = {
             </Button>,
             <Button
                 name="primary_action"
-                slotLeft={[<Icon icon={faPlus} />]}
+                slotLeft={<Icon icon={faPlus} />}
             >
                 Primary action
             </Button>,
@@ -270,7 +270,7 @@ export const KitchenSink: Story = {
             </Button>,
             <Button
                 name="primary_action"
-                slotLeft={[<Icon icon={faPlus} />]}
+                slotLeft={<Icon icon={faPlus} />}
             >
                 Primary action
             </Button>,

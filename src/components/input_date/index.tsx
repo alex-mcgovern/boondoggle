@@ -107,7 +107,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                 ref={ref}
                 size={size}
                 slotLeft={slotLeft}
-                slotRight={[
+                slotRight={
                     <Dialog
                         className={clsx(userClassName, datePickerDialogStyle)}
                         isOpen={isOpen}
@@ -118,8 +118,8 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                         }
                     >
                         <DatePicker onDayClick={onDayClick} />
-                    </Dialog>,
-                ]}
+                    </Dialog>
+                }
                 type="date"
                 value={inputValue}
                 wrapperProps={wrapperProps}

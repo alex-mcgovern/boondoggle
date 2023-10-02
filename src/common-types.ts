@@ -336,18 +336,21 @@ export type WithSize = {
     size?: ElementSizeEnum;
 };
 
-export type Slot = ReactNode | [ReactNode?, ReactNode?, ReactNode?];
+/**
+ * @deprecated Use `ReactNode` instead
+ */
+export type Slot = ReactNode;
 
 export type WithSlots = {
     /**
      * React node(s) rendered on the left-hand side.
      */
-    slotLeft?: Slot;
+    slotLeft?: ReactNode;
 
     /**
      * React node(s) rendered on the right-hand side.
      */
-    slotRight?: Slot;
+    slotRight?: ReactNode;
 };
 
 export type WithStateDisabled = {

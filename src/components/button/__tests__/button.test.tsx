@@ -59,7 +59,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect((getByRole("button") as HTMLButtonElement)?.name).toBe("Test button");
+            expect((getByRole("button") as HTMLButtonElement)?.name).toBe(
+                "Test button"
+            );
         });
 
         test("Given a button, when a tabIndex is provided, should assign it to the element", () => {
@@ -137,7 +139,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "primary" }));
+            expect(getByRole("button")).toHaveClass(
+                getButtonStyles({ appearance: "primary" })
+            );
         });
 
         test("should have the primary class name when appearance = primary", () => {
@@ -149,7 +153,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "primary" }));
+            expect(getByRole("button")).toHaveClass(
+                getButtonStyles({ appearance: "primary" })
+            );
         });
 
         test("should have the secondary class name when appearance = secondary", () => {
@@ -161,7 +167,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "secondary" }));
+            expect(getByRole("button")).toHaveClass(
+                getButtonStyles({ appearance: "secondary" })
+            );
         });
 
         test("should have the ghost class name when appearance = ghost", () => {
@@ -173,7 +181,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ appearance: "ghost" }));
+            expect(getByRole("button")).toHaveClass(
+                getButtonStyles({ appearance: "ghost" })
+            );
         });
     });
 
@@ -478,7 +488,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ size: "square_md" }));
+            expect(getByRole("button")).toHaveClass(
+                getButtonStyles({ size: "square_md" })
+            );
         });
 
         test("should have the `square_sm` class name when size = square_sm", () => {
@@ -490,7 +502,9 @@ describe("<Button />", () => {
                 />
             );
 
-            expect(getByRole("button")).toHaveClass(getButtonStyles({ size: "square_sm" }));
+            expect(getByRole("button")).toHaveClass(
+                getButtonStyles({ size: "square_sm" })
+            );
         });
     });
 
@@ -499,12 +513,12 @@ describe("<Button />", () => {
             const { getByTestId } = render(
                 <Button
                     name="Test button"
-                    slotLeft={[
+                    slotLeft={
                         <Icon
                             data-testid="icon"
                             icon={faSearch}
-                        />,
-                    ]}
+                        />
+                    }
                 />
             );
 
@@ -515,12 +529,12 @@ describe("<Button />", () => {
             const { getByTestId } = render(
                 <Button
                     name="Test button"
-                    slotRight={[
+                    slotRight={
                         <Icon
                             data-testid="icon"
                             icon={faSearch}
-                        />,
-                    ]}
+                        />
+                    }
                 />
             );
 
