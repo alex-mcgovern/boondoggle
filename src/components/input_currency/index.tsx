@@ -3,7 +3,6 @@
 /* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { forwardRef, useEffect, useMemo, useState } from "react";
 
-import { useForwardRef } from "../../hooks/use_forward_ref";
 import { Input } from "../input";
 import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
@@ -149,15 +148,13 @@ export function PureInputCurrency<TCurrency extends string = string>(
     }: InputCurrencyProps<TCurrency>,
     ref: ForwardedRef<HTMLInputElement>
 ) {
-    const inputRef = useForwardRef<HTMLInputElement>(ref);
-
     const [currency, setCurrency] = useState<TCurrency>(initialCurrency);
 
     useEffect(() => {
-        if (initialCurrency) {
+        if (initialCurrency && currency !== initialCurrency) {
             setCurrency(initialCurrency);
         }
-    }, [initialCurrency]);
+    }, [currency, initialCurrency]);
 
     const { onChange, value } = useFormattedCurrency({
         defaultValue,
@@ -165,15 +162,6 @@ export function PureInputCurrency<TCurrency extends string = string>(
         onChange: initOnChange,
         value: controlledValue,
     });
-
-    useEffect(() => {
-        if (value.selection !== undefined) {
-            inputRef?.current?.setSelectionRange(
-                value.selection.start,
-                value.selection.end
-            );
-        }
-    }, [inputRef, value.selection]);
 
     const addonRight = useMemo(() => {
         if (isCurrencyEditable) {
@@ -214,7 +202,8 @@ export function PureInputCurrency<TCurrency extends string = string>(
             data-value={value.raw}
             inputMode="decimal"
             onChange={onChange}
-            ref={inputRef}
+            ref={ref}
+            selectionRange={value.selection}
             value={value.formatted}
             {...rest}
         />

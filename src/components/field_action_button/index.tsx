@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
@@ -7,6 +8,11 @@ import type { ButtonProps } from "../button";
 import type { ReactNode } from "react";
 
 export type FieldActionButtonProps = {
+    /**
+     * Custom CSS class to apply to the button.
+     */
+    className?: string;
+
     /**
      * The name of the button.
      */
@@ -37,11 +43,11 @@ export type FieldActionButtonProps = {
 export const FieldActionButton = forwardRef<
     HTMLButtonElement,
     FieldActionButtonProps
->(({ name, onClick, slot, strTooltip, ...rest }, ref) => {
+>(({ className, name, onClick, slot, strTooltip, ...rest }, ref) => {
     if (!strTooltip) {
         return (
             <button
-                className={fieldActionButtonStyle}
+                className={clsx(fieldActionButtonStyle, className)}
                 name={name}
                 onClick={onClick}
                 ref={ref}
@@ -57,7 +63,7 @@ export const FieldActionButton = forwardRef<
         <Tooltip placement="top">
             <TooltipTrigger asChild>
                 <button
-                    className={fieldActionButtonStyle}
+                    className={clsx(fieldActionButtonStyle, className)}
                     name={name}
                     onClick={onClick}
                     ref={ref}

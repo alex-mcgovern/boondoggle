@@ -92,7 +92,17 @@ globalStyle(
         alignItems: "center",
         display: "flex",
         justifyContent: "center",
+        minHeight: vars.spacing.space_4,
         minWidth: vars.spacing.space_4,
+    }
+);
+
+export const clearButtonStyle = style({});
+
+globalStyle(
+    `${inputSlotWrapperDoNotRemoveOrYouWillBeFired}:has(input:placeholder-shown) > ${clearButtonStyle}`,
+    {
+        display: "none",
     }
 );
 

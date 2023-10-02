@@ -49,12 +49,17 @@ export const getCursorPosition = ({
     );
 
     switch (inputType) {
-        case "deleteSoftLineBackward":
         case "deleteContentBackward":
         case "insertText": {
             return {
                 end: minSelectionEnd,
                 start: minSelectionStart,
+            };
+        }
+        case "deleteSoftLineBackward": {
+            return {
+                end: 0,
+                start: 0,
             };
         }
         default: {

@@ -19,12 +19,14 @@ type FieldActionButtonClearProps = Omit<
  * A button to clear the contents of a field.
  */
 export function FieldActionButtonClear({
+    className,
     onClick,
     size,
     strClear,
 }: FieldActionButtonClearProps) {
     return (
         <FieldActionButton
+            className={className}
             name="clear"
             onClick={onClick}
             size={size}

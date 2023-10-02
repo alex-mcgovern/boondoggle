@@ -231,7 +231,6 @@ export const Sizes: Story = {
 
 export const IsClearable: Story = {
     args: {
-        defaultValue: LOREM.text_md,
         isClearable: true,
         strClear: "Clear input",
     },
@@ -290,6 +289,12 @@ export const StateDisabled: Story = {
 
 export const StateReadOnly: Story = {
     args: { readOnly: true },
+};
+
+export const WithDefaultValue: Story = {
+    args: {
+        defaultValue: LOREM.text_md,
+    },
 };
 
 export const With1SlotLeft: Story = {

@@ -5,8 +5,8 @@ import {
     forwardRef,
     isValidElement,
     useCallback,
-    useEffect,
-    useState,
+    useLayoutEffect,
+    useMemo,
 } from "react";
 
 import { getOptionalLabelProps } from "../../common-types";
@@ -22,7 +22,11 @@ import {
     getAddonWrapperStyle,
 } from "../field_addon_wrapper/styles.css";
 import { FieldWrapper } from "../field_wrapper";
-import { getSlotWrapperStyles, inputStyles } from "./styles.css";
+import {
+    clearButtonStyle,
+    getSlotWrapperStyles,
+    inputStyles,
+} from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
 
@@ -275,6 +279,11 @@ export type InputProps = Partial<
          * A ref to the outer element. (e.g. for positioning an element along with the input)
          */
         outerRef?: ForwardedRef<HTMLSpanElement>;
+
+        selectionRange?: {
+            end: number | null;
+            start: number | null;
+        };
     };
 
 /**
@@ -307,6 +316,7 @@ function PureInput(
         onClick,
         outerRef,
         readOnly,
+        selectionRange,
         size = "md",
         slotLeft,
         slotRight: initialSlotRight,
@@ -324,19 +334,22 @@ function PureInput(
 ) {
     const inputRef = useForwardRef(ref);
 
+    useLayoutEffect(() => {
+        if (selectionRange !== undefined) {
+            inputRef?.current?.setSelectionRange(
+                selectionRange.start,
+                selectionRange.end
+            );
+        }
+    }, [inputRef, selectionRange, value]);
+
     const focus = useCallback(() => {
         inputRef.current?.focus();
     }, [inputRef]);
 
-    const [inputValue, setInputValue] = useState(value || defaultValue || "");
-
-    useEffect(() => {
-        if (value !== undefined) {
-            setInputValue(value);
-        }
-    }, [value]);
-
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+    const { atomProps, otherProps } = useMemo(() => {
+        return extractAtomsFromProps(rest, getSprinkles);
+    }, [rest]);
 
     const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
         initialIsVisible,
@@ -402,33 +415,29 @@ function PureInput(
                                     strCopy={strCopy}
                                 />
                             )}
-                            {isClearable &&
-                                strClear &&
-                                inputValue &&
-                                !readOnly && (
-                                    <FieldActionButtonClear
-                                        onClick={() => {
-                                            onChange?.({
-                                                target: { value: "" },
-                                            } as ChangeEvent<HTMLInputElement>);
-                                            if (inputRef.current) {
-                                                inputRef.current.value = "";
-                                            }
-                                        }}
-                                        strClear={strClear}
-                                    />
-                                )}
+                            {isClearable && strClear && !readOnly && (
+                                <FieldActionButtonClear
+                                    className={clearButtonStyle}
+                                    onClick={() => {
+                                        onChange?.({
+                                            target: { value: "" },
+                                        } as ChangeEvent<HTMLInputElement>);
+                                        if (inputRef.current) {
+                                            inputRef.current.value = "";
+                                        }
+                                    }}
+                                    strClear={strClear}
+                                />
+                            )}
                         </>
                     }
                 >
                     <input
                         className={inputStyles}
+                        defaultValue={defaultValue}
                         disabled={disabled}
                         id={id}
-                        onChange={(e) => {
-                            setInputValue(e.target.value);
-                            onChange?.(e);
-                        }}
+                        onChange={onChange}
                         readOnly={readOnly}
                         ref={inputRef}
                         type={

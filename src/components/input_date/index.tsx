@@ -100,7 +100,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             <Input
                 {...(rest as InputProps)}
                 className={inputDateStyle}
-                defaultValue={defaultValue}
                 onChange={(e) => {
                     return onChange?.(e.target.value);
                 }}
