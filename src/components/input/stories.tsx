@@ -232,6 +232,7 @@ export const Sizes: Story = {
 
 export const IsClearable: Story = {
     args: {
+        defaultValue: LOREM.text_md,
         isClearable: true,
         strClear: "Clear input",
     },
@@ -249,6 +250,7 @@ export const IsCopyable: Story = {
 
 export const IsVisibilityToggleable: Story = {
     args: {
+        defaultValue: LOREM.text_md,
         isVisibilityToggleable: true,
         isVisible: false,
         strHide: "Hide",

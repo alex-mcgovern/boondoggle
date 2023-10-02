@@ -1,7 +1,13 @@
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { forwardRef, isValidElement, useState } from "react";
+import {
+    forwardRef,
+    isValidElement,
+    useCallback,
+    useEffect,
+    useState,
+} from "react";
 
 import { getOptionalLabelProps } from "../../common-types";
 import { useForwardRef } from "../../hooks/use_forward_ref";
@@ -143,6 +149,11 @@ type InputSlotWrapperProps = WithSlots & {
     className: string | undefined;
 
     /**
+     * Method to focus the input element.
+     */
+    focus: () => void;
+
+    /**
      * Whether the input should have a border.
      */
     hasBorder: boolean | undefined;
@@ -164,6 +175,7 @@ type InputSlotWrapperProps = WithSlots & {
 export function InputSlotWrapper({
     children,
     className,
+    focus,
     hasBorder,
     invalid,
     size,
@@ -171,6 +183,7 @@ export function InputSlotWrapper({
     slotRight,
 }: InputSlotWrapperProps) {
     return (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         <span
             className={clsx(
                 getSlotWrapperStyles({ hasBorder, size }),
@@ -179,6 +192,7 @@ export function InputSlotWrapper({
                     [a11yError]: invalid,
                 }
             )}
+            onClick={focus}
         >
             {slotLeft}
             {children}
@@ -271,7 +285,18 @@ function PureInput(
     ref: ForwardedRef<HTMLInputElement>
 ) {
     const inputRef = useForwardRef(ref);
-    const [inputValue, setInputValue] = useState(defaultValue || value || "");
+
+    const focus = useCallback(() => {
+        inputRef.current?.focus();
+    }, [inputRef]);
+
+    const [inputValue, setInputValue] = useState(value || defaultValue || "");
+
+    useEffect(() => {
+        if (value !== undefined) {
+            setInputValue(value);
+        }
+    }, [value]);
 
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
@@ -308,6 +333,7 @@ function PureInput(
             >
                 <InputSlotWrapper
                     className={clsx(getSprinkles(atomProps), userClassName)}
+                    focus={focus}
                     hasBorder={hasBorder}
                     invalid={invalid}
                     size={size}
