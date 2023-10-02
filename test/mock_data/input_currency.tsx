@@ -9,52 +9,52 @@ export const MOCK_CURRENCY_SELECT_ITEMS: Array<SelectItemShape<MockCurrency>> =
     [
         {
             label: "USD",
-            slotLeft: [
+            slotLeft: (
                 <FlagUs
                     height="space_4"
                     width="space_4"
-                />,
-            ],
+                />
+            ),
             value: "USD",
         },
         {
             label: "AED",
-            slotLeft: [
+            slotLeft: (
                 <FlagAe
                     height="space_4"
                     width="space_4"
-                />,
-            ],
+                />
+            ),
             value: "AED",
         },
         {
             label: "OMR",
-            slotLeft: [
+            slotLeft: (
                 <FlagOm
                     height="space_4"
                     width="space_4"
-                />,
-            ],
+                />
+            ),
             value: "OMR",
         },
         {
             label: "SAR",
-            slotLeft: [
+            slotLeft: (
                 <FlagSa
                     height="space_4"
                     width="space_4"
-                />,
-            ],
+                />
+            ),
             value: "SAR",
         },
         {
             label: "KWD",
-            slotLeft: [
+            slotLeft: (
                 <FlagKw
                     height="space_4"
                     width="space_4"
-                />,
-            ],
+                />
+            ),
             value: "KWD",
         },
     ];

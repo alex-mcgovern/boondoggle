@@ -154,7 +154,7 @@ function SelectMultiBase<TValue extends string = string>(
         selectedItemsToString,
         size,
         slotLeft,
-        slotRight = [<Icon icon={faAngleDown} />],
+        slotRight = <Icon icon={faAngleDown} />,
         strClear,
         wrapperProps,
     }: SelectMultiProps<TValue>,

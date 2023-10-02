@@ -6,7 +6,6 @@
 
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import {
-    faArrowLeft,
     faArrowRight,
     faLock,
     faRefresh,
@@ -295,35 +294,42 @@ export const StateReadOnly: Story = {
 
 export const With1SlotLeft: Story = {
     args: {
-        slotLeft: [<Icon icon={faArrowLeft} />],
+        slotLeft: <Icon icon={faArrowRight} />,
     },
 };
 
 export const With2SlotLeft: Story = {
     args: {
-        slotLeft: [<Icon icon={faArrowLeft} />, <Icon icon={faArrowLeft} />],
+        slotLeft: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };
 
 export const With3SlotLeft: Story = {
     args: {
-        slotLeft: [
-            <Icon icon={faArrowLeft} />,
-            <Icon icon={faArrowLeft} />,
-            <Icon icon={faArrowLeft} />,
-        ],
+        slotLeft: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };
 
 export const With1SlotRight: Story = {
     args: {
-        slotRight: [<Icon icon={faArrowRight} />],
+        slotRight: <Icon icon={faArrowRight} />,
     },
 };
 
 export const With1SlotRightWide: Story = {
     args: {
-        slotRight: [
+        slotRight: (
             <Button
                 appearance="ghost"
                 name="reset"
@@ -331,8 +337,8 @@ export const With1SlotRightWide: Story = {
                 slotLeft={<Icon icon={faRefresh} />}
             >
                 Reset
-            </Button>,
-        ],
+            </Button>
+        ),
     },
 };
 
@@ -340,7 +346,7 @@ export const With1SlotRightIsCopyable: Story = {
     args: {
         isCopyable: true,
         readOnly: true,
-        slotRight: [<Icon icon={faLock} />],
+        slotRight: <Icon icon={faLock} />,
         strCopied: "Copied",
         strCopy: "Copy",
     },
@@ -348,16 +354,23 @@ export const With1SlotRightIsCopyable: Story = {
 
 export const With2SlotRight: Story = {
     args: {
-        slotRight: [<Icon icon={faArrowRight} />, <Icon icon={faArrowRight} />],
+        slotRight: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };
 
 export const With3SlotRight: Story = {
     args: {
-        slotRight: [
-            <Icon icon={faArrowRight} />,
-            <Icon icon={faArrowRight} />,
-            <Icon icon={faArrowRight} />,
-        ],
+        slotRight: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };

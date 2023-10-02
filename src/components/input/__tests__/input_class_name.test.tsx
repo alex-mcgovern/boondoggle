@@ -25,7 +25,7 @@ describe("<Input />", () => {
                 ...PROPS,
             });
 
-            expect(getByRole("textbox")).toHaveClass("test-class");
+            expect(getByRole("textbox").parentNode).toHaveClass("test-class");
         });
     });
 });

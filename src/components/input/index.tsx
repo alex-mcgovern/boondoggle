@@ -40,6 +40,7 @@ import type {
     WithReadOnly,
     WithSize,
     WithSlots,
+    WithStateDisabled,
     WithStateInvalid,
     WithWrapperProps,
 } from "../../common-types";
@@ -139,42 +140,43 @@ export function InputAddonWrapper({
     );
 }
 
-type InputSlotWrapperProps = WithSlots & {
-    /**
-     * The children to render inside the wrapper.
-     */
-    children: ReactNode;
+type InputSlotWrapperProps = WithSlots &
+    WithStateDisabled & {
+        /**
+         * The children to render inside the wrapper.
+         */
+        children: ReactNode;
 
-    /**
-     * Any additional CSS classes to apply to the wrapper.
-     */
-    className: string | undefined;
+        /**
+         * Any additional CSS classes to apply to the wrapper.
+         */
+        className: string | undefined;
 
-    /**
-     * Method to focus the input element.
-     */
-    focus: () => void;
+        /**
+         * Method to focus the input element.
+         */
+        focus: () => void;
 
-    /**
-     * Whether the input should have a border.
-     */
-    hasBorder: boolean | undefined;
+        /**
+         * Whether the input should have a border.
+         */
+        hasBorder: boolean | undefined;
 
-    /**
-     * Whether the input is invalid.
-     */
-    invalid: boolean | undefined;
+        /**
+         * Whether the input is invalid.
+         */
+        invalid: boolean | undefined;
 
-    /**
-     * Method to call the input elements onClick handler.
-     */
-    onClick: MouseEventHandler<HTMLInputElement> | undefined;
+        /**
+         * Method to call the input elements onClick handler.
+         */
+        onClick: MouseEventHandler<HTMLInputElement> | undefined;
 
-    /**
-     * The size of the input.
-     */
-    size: ElementSizeEnum | undefined;
-};
+        /**
+         * The size of the input.
+         */
+        size: ElementSizeEnum | undefined;
+    };
 
 /**
  * Renders a wrapper around the input and its slots.
@@ -187,6 +189,7 @@ export const InputSlotWrapper = forwardRef<
         {
             children,
             className,
+            disabled,
             focus,
             hasBorder,
             invalid,
@@ -209,6 +212,7 @@ export const InputSlotWrapper = forwardRef<
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
             <span
+                aria-disabled={disabled}
                 className={clsx(
                     getSlotWrapperStyles({ hasBorder, size }),
                     className,
@@ -285,6 +289,7 @@ function PureInput(
         colorOverlay,
         defaultValue,
         description,
+        disabled,
         errorMessage,
         hasBorder,
         hideLastpass,
@@ -366,6 +371,7 @@ function PureInput(
             >
                 <InputSlotWrapper
                     className={clsx(getSprinkles(atomProps), userClassName)}
+                    disabled={disabled}
                     focus={focus}
                     hasBorder={hasBorder}
                     invalid={invalid}
@@ -415,6 +421,7 @@ function PureInput(
                 >
                     <input
                         className={inputStyles}
+                        disabled={disabled}
                         id={id}
                         onChange={(e) => {
                             onChange?.(e);

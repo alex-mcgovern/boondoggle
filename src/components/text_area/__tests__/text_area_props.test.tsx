@@ -25,12 +25,12 @@ describe("<TextArea />", () => {
         test("should render node passed to `slotLeft`", () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
-                slotLeft: [
+                slotLeft: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -39,12 +39,12 @@ describe("<TextArea />", () => {
         test("should render node passed to `slotRight`", () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
-                slotRight: [
+                slotRight: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();

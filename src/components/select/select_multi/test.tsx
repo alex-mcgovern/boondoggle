@@ -49,12 +49,12 @@ describe("<SelectMulti />", () => {
         test("should render node passed to `slotLeft`", async () => {
             const { getByTestId } = await renderComponent({
                 ...PROPS,
-                slotLeft: [
+                slotLeft: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -63,12 +63,12 @@ describe("<SelectMulti />", () => {
         test("should render node passed to `slotRight`", async () => {
             const { getByTestId } = await renderComponent({
                 ...PROPS,
-                slotRight: [
+                slotRight: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -82,7 +82,9 @@ describe("<SelectMulti />", () => {
 
         const combobox = getByRole("combobox");
 
-        expect((combobox as HTMLInputElement).placeholder).toBe(PROPS.placeholder);
+        expect((combobox as HTMLInputElement).placeholder).toBe(
+            PROPS.placeholder
+        );
     });
 });
 
@@ -90,7 +92,9 @@ describe("<SelectMulti />", () => {
     describe("mouse navigation", () => {
         describe("input value", () => {
             test("should have placeholder with count of 1 selected items", async () => {
-                const { getByRole, getByText, user } = await renderComponent(PROPS);
+                const { getByRole, getByText, user } = await renderComponent(
+                    PROPS
+                );
 
                 const combobox = getByRole("combobox");
 
@@ -100,11 +104,15 @@ describe("<SelectMulti />", () => {
 
                 await user.click(firstItem);
 
-                expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
+                expect((combobox as HTMLInputElement).placeholder).toBe(
+                    "1 selected"
+                );
             });
 
             test("should have placeholder with count of 2 items", async () => {
-                const { getByRole, getByText, user } = await renderComponent(PROPS);
+                const { getByRole, getByText, user } = await renderComponent(
+                    PROPS
+                );
 
                 const combobox = getByRole("combobox");
 
@@ -118,13 +126,17 @@ describe("<SelectMulti />", () => {
 
                 await user.click(secondItem);
 
-                expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
+                expect((combobox as HTMLInputElement).placeholder).toBe(
+                    "2 selected"
+                );
             });
         });
 
         describe("onChange()", () => {
             test("should call `onChange()` with first clicked item", async () => {
-                const { getByRole, getByText, user } = await renderComponent(PROPS);
+                const { getByRole, getByText, user } = await renderComponent(
+                    PROPS
+                );
 
                 const combobox = getByRole("combobox");
 
@@ -134,11 +146,15 @@ describe("<SelectMulti />", () => {
 
                 await user.click(firstItem);
 
-                expect(ON_CHANGE).toHaveBeenCalledWith(expect.arrayContaining([PROPS.items[0]]));
+                expect(ON_CHANGE).toHaveBeenCalledWith(
+                    expect.arrayContaining([PROPS.items[0]])
+                );
             });
 
             test("should call `onChange()` with second clicked item", async () => {
-                const { getByRole, getByText, user } = await renderComponent(PROPS);
+                const { getByRole, getByText, user } = await renderComponent(
+                    PROPS
+                );
 
                 const combobox = getByRole("combobox");
 
@@ -194,7 +210,9 @@ describe("<SelectMulti />", () => {
 
         await user.keyboard("{enter}");
 
-        expect(ON_CHANGE).toHaveBeenCalledWith(expect.arrayContaining([PROPS.items[0]]));
+        expect(ON_CHANGE).toHaveBeenCalledWith(
+            expect.arrayContaining([PROPS.items[0]])
+        );
 
         expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
 
@@ -214,15 +232,18 @@ describe("<SelectMulti />", () => {
 
 describe("<SelectMulti />", () => {
     test("should have error styling & show error message when invalid", async () => {
-        const { getByRole, getByText } = await renderComponent({ ...PROPS, invalid: true });
+        const { getByRole, getByText } = await renderComponent({
+            ...PROPS,
+            invalid: true,
+        });
 
         const combobox = getByRole("combobox");
 
-        expect(combobox).toHaveClass(a11yError);
+        expect(combobox.parentNode).toHaveClass(a11yError);
 
-        expect(combobox?.parentNode?.parentNode?.parentNode?.parentNode).toHaveClass(
-            variantColorOverlay.red
-        );
+        expect(
+            combobox?.parentNode?.parentNode?.parentNode?.parentNode
+        ).toHaveClass(variantColorOverlay.red);
 
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });
@@ -238,7 +259,9 @@ describe("<SelectMulti />", () => {
 
             const combobox = getByRole("combobox");
 
-            expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
+            expect((combobox as HTMLInputElement).placeholder).toBe(
+                "1 selected"
+            );
         });
     });
 });
@@ -246,7 +269,10 @@ describe("<SelectMulti />", () => {
 describe("<SelectMulti />", () => {
     describe("Disabled state", () => {
         test("should not show dropdown menu when user clicks", async () => {
-            const { getByRole } = await renderComponent({ ...PROPS, disabled: true });
+            const { getByRole } = await renderComponent({
+                ...PROPS,
+                disabled: true,
+            });
 
             const combobox = getByRole("combobox");
 
@@ -258,7 +284,10 @@ describe("<SelectMulti />", () => {
         });
 
         test("should not show dropdown menu when user attempts keyboard navigation", async () => {
-            const { getByRole } = await renderComponent({ ...PROPS, disabled: true });
+            const { getByRole } = await renderComponent({
+                ...PROPS,
+                disabled: true,
+            });
 
             await userEvent.tab();
 

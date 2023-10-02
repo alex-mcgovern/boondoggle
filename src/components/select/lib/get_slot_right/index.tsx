@@ -34,13 +34,13 @@ export const getSlotRight = ({
     strClear,
 }: GetSlotRightArgs): ReactNode => {
     if (isClearable && strClear) {
-        return [
+        return (
             <FieldActionButtonClear
                 onClick={reset}
                 strClear={strClear}
-            />,
-        ];
+            />
+        );
     }
 
-    return [slotRight];
+    return slotRight;
 };

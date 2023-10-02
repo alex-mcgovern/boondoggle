@@ -49,12 +49,12 @@ describe("<SelectSingle />", () => {
         test("should render node passed to `slotLeft`", async () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
-                slotLeft: [
+                slotLeft: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -63,12 +63,12 @@ describe("<SelectSingle />", () => {
         test("should render node passed to `slotRight`", async () => {
             const { getByTestId } = renderComponent({
                 ...PROPS,
-                slotRight: [
+                slotRight: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -82,7 +82,9 @@ describe("<SelectSingle />", () => {
 
         const combobox = getByRole("combobox");
 
-        expect((combobox as HTMLInputElement).placeholder).toBe(PROPS.placeholder);
+        expect((combobox as HTMLInputElement).placeholder).toBe(
+            PROPS.placeholder
+        );
     });
 });
 
@@ -90,7 +92,10 @@ describe("<SelectSingle />", () => {
     test.only("mouse navigation", async () => {
         const ON_CLICK = jest.fn();
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ as: "button", onClick: ON_CLICK });
+        const ITEMS_AS_BUTTONS = mockSelectItems({
+            as: "button",
+            onClick: ON_CLICK,
+        });
 
         const { getByRole, getByText, user } = renderComponent({
             ...PROPS,
@@ -107,7 +112,9 @@ describe("<SelectSingle />", () => {
 
         expect(ON_CLICK).toHaveBeenCalledTimes(1);
 
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[0].label);
+        expect((getByRole("combobox") as HTMLInputElement).value).toBe(
+            ITEMS_AS_BUTTONS[0].label
+        );
 
         // Now use the mouse to select the second item in the list
 
@@ -119,7 +126,9 @@ describe("<SelectSingle />", () => {
 
         expect(ON_CLICK).toHaveBeenCalledTimes(2);
 
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[1].label);
+        expect((getByRole("combobox") as HTMLInputElement).value).toBe(
+            ITEMS_AS_BUTTONS[1].label
+        );
     });
 });
 
@@ -147,7 +156,10 @@ describe("<SelectSingle />", () => {
     test("keyboard navigation", async () => {
         const ON_CLICK = jest.fn();
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ as: "button", onClick: ON_CLICK });
+        const ITEMS_AS_BUTTONS = mockSelectItems({
+            as: "button",
+            onClick: ON_CLICK,
+        });
 
         const { getByRole, user } = renderComponent({
             ...PROPS,
@@ -164,7 +176,9 @@ describe("<SelectSingle />", () => {
 
         expect(ON_CLICK).toHaveBeenCalledTimes(1);
 
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[0].label);
+        expect((getByRole("combobox") as HTMLInputElement).value).toBe(
+            ITEMS_AS_BUTTONS[0].label
+        );
 
         await user.keyboard("{arrowdown}");
 
@@ -176,7 +190,9 @@ describe("<SelectSingle />", () => {
 
         expect(ON_CLICK).toHaveBeenCalledTimes(2);
 
-        expect((getByRole("combobox") as HTMLInputElement).value).toBe(ITEMS_AS_BUTTONS[1].label);
+        expect((getByRole("combobox") as HTMLInputElement).value).toBe(
+            ITEMS_AS_BUTTONS[1].label
+        );
     });
 });
 
@@ -191,7 +207,9 @@ describe("<SelectSingle />", () => {
 
         expect(combobox).toHaveClass(a11yError);
 
-        expect(combobox.parentElement?.parentElement).toHaveClass(variantColorOverlay.red);
+        expect(combobox.parentElement?.parentElement).toHaveClass(
+            variantColorOverlay.red
+        );
 
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });
@@ -207,7 +225,9 @@ describe("<SelectSingle />", () => {
 
             const combobox = getByRole("combobox");
 
-            expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
+            expect((combobox as HTMLInputElement).value).toBe(
+                PROPS.items[0].label
+            );
         });
     });
 });

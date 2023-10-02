@@ -131,7 +131,7 @@ function SelectSingleBase<TValue extends string = string>(
         placeholder,
         size,
         slotLeft,
-        slotRight = [<Icon icon={faAngleDown} />],
+        slotRight = <Icon icon={faAngleDown} />,
         strClear,
         wrapperProps,
     }: SelectSingleProps<TValue>,

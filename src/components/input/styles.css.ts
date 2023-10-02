@@ -107,6 +107,7 @@ export const inputStyles = style([
         padding: "none",
         width: "100%",
     }),
+    a11yDisabled,
     {
         background: "transparent",
         border: "none",

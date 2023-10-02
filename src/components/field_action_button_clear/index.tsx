@@ -28,7 +28,7 @@ export function FieldActionButtonClear({
             name="clear"
             onClick={onClick}
             size={size}
-            slot={[<Icon icon={faTimesCircle} />]}
+            slot={<Icon icon={faTimesCircle} />}
             strTooltip={strClear}
         />
     );

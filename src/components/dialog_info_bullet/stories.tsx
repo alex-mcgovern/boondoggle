@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
     args: {
-        slotLeft: [<Icon icon={faShapes} />],
+        slotLeft: <Icon icon={faShapes} />,
         text: LOREM.text_md,
         title: LOREM.text_xxs,
     },

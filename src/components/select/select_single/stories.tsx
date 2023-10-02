@@ -132,12 +132,12 @@ export const WithItemsWithSlotLeft: Story = {
 
 export const WithSlotLeft: Story = {
     args: {
-        slotLeft: [<Icon icon={faGlobeAfrica} />],
+        slotLeft: <Icon icon={faGlobeAfrica} />,
     },
 };
 
 export const WithSlots: Story = {
     args: {
-        slotRight: [<Icon icon={faGlobeAfrica} />],
+        slotRight: <Icon icon={faGlobeAfrica} />,
     },
 };

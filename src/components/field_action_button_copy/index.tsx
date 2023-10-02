@@ -37,7 +37,7 @@ export function FieldActionButtonCopy({
             name="copy"
             onClick={onClick}
             size={size}
-            slot={[<Icon icon={isCopied ? faCheck : faCopy} />]}
+            slot={<Icon icon={isCopied ? faCheck : faCopy} />}
             strTooltip={isCopied ? strCopied : strCopy}
         />
     );

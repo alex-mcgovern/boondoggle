@@ -37,7 +37,7 @@ export function FieldActionButtonVisibility({
             name="visibility"
             onClick={onClick}
             size={size}
-            slot={[<Icon icon={isVisible ? faEyeSlash : faEye} />]}
+            slot={<Icon icon={isVisible ? faEyeSlash : faEye} />}
             strTooltip={isVisible ? strHide : strShow}
         />
     );
