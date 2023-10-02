@@ -26,8 +26,6 @@ export function currencyFormatter({
         const decimalSeparator = format(1.1).replace(/1/g, "");
         const [integer, decimal] = cleanValue.split(".");
 
-        // replace all non-numeric characters with ""
-
         if (Number.isNaN(Number(integer))) {
             return "";
         }
