@@ -32,7 +32,7 @@ export function currencyParser({
             parsed = Number.MAX_SAFE_INTEGER - 1;
         }
 
-        return `${parsed}.${decimal}`;
+        return `${parsed}.${decimal ? decimal.slice(0, 2) : ""}`;
     }
 
     let parsed = NumberParser(locale)(value);

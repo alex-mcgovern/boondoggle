@@ -32,7 +32,9 @@ export function currencyFormatter({
 
         const formattedInteger = format(Number(integer));
 
-        return `${formattedInteger}${decimalSeparator}${decimal ?? ""}`;
+        return `${formattedInteger}${decimalSeparator}${
+            decimal ? decimal.slice(0, 2) : ""
+        }`;
     }
 
     return Number.isNaN(Number(cleanValue)) ? "" : format(Number(cleanValue));
