@@ -411,7 +411,9 @@ function PureInput(
                                             onChange?.({
                                                 target: { value: "" },
                                             } as ChangeEvent<HTMLInputElement>);
-                                            return setInputValue("");
+                                            if (inputRef.current) {
+                                                inputRef.current.value = "";
+                                            }
                                         }}
                                         strClear={strClear}
                                     />
@@ -424,8 +426,8 @@ function PureInput(
                         disabled={disabled}
                         id={id}
                         onChange={(e) => {
+                            setInputValue(e.target.value);
                             onChange?.(e);
-                            return setInputValue(e.target.value);
                         }}
                         readOnly={readOnly}
                         ref={inputRef}
@@ -434,7 +436,7 @@ function PureInput(
                                 ? "password"
                                 : type
                         }
-                        value={inputValue}
+                        value={value}
                         {...otherProps}
                     />
                 </InputSlotWrapper>
