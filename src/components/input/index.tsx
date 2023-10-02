@@ -34,7 +34,6 @@ import type {
     WithColorOverlay,
     WithDescription,
     WithHideLastpass,
-    WithId,
     WithName,
     WithOptionalIsClearable,
     WithOptionalIsCopyable,
@@ -257,7 +256,6 @@ export type InputProps = Partial<
     WithColorOverlay &
     WithOptionalInputAddons &
     WithHideLastpass &
-    WithId &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
     WithOptionalIsVisibilityToggleable &
@@ -302,7 +300,6 @@ function PureInput(
         errorMessage,
         hasBorder,
         hideLastpass,
-        id,
         invalid,
         isClearable,
         isCopyable,
@@ -312,6 +309,7 @@ function PureInput(
         label,
         labelProps,
         labelTooltip,
+        name,
         onChange,
         onClick,
         outerRef,
@@ -366,15 +364,15 @@ function PureInput(
             description={description}
             errorMessage={errorMessage}
             hideLastpass={hideLastpass}
-            id={id}
             invalid={invalid}
+            name={name}
             wrapperProps={wrapperProps}
             {...getOptionalLabelProps({
-                id,
                 isLabelVisible,
                 label,
                 labelProps,
                 labelTooltip,
+                name,
             })}
         >
             <InputAddonWrapper
@@ -436,7 +434,8 @@ function PureInput(
                         className={inputStyles}
                         defaultValue={defaultValue}
                         disabled={disabled}
-                        id={id}
+                        id={name}
+                        name={name}
                         onChange={onChange}
                         readOnly={readOnly}
                         ref={inputRef}

@@ -39,27 +39,30 @@ export function FieldWrapper({
     description,
     errorMessage,
     hideLastpass,
-    id,
     invalid,
     isLabelVisible = true,
     label,
     labelProps,
     labelTooltip,
+    name,
     wrapperProps,
 }: FieldWrapperProps) {
     return (
         <Box
-            className={clsx(colorOverlay ? variantColorOverlay[colorOverlay] : undefined, {
-                [variantColorOverlay.red]: invalid,
-                [hideLastpassStyle]: hideLastpass,
-            })}
+            className={clsx(
+                colorOverlay ? variantColorOverlay[colorOverlay] : undefined,
+                {
+                    [variantColorOverlay.red]: invalid,
+                    [hideLastpassStyle]: hideLastpass,
+                }
+            )}
             color="text_low_contrast"
             position="relative"
             {...wrapperProps}
         >
-            {label && id && (
+            {label && name && (
                 <FieldLabel
-                    htmlFor={id}
+                    htmlFor={name}
                     isLabelVisible={isLabelVisible}
                     label={label}
                     labelTooltip={labelTooltip}
@@ -69,9 +72,13 @@ export function FieldWrapper({
 
             {children}
 
-            {invalid && errorMessage && <FieldErrorMessage message={errorMessage} />}
+            {invalid && errorMessage && (
+                <FieldErrorMessage message={errorMessage} />
+            )}
 
-            {description && !invalid && <FieldDescription description={description} />}
+            {description && !invalid && (
+                <FieldDescription description={description} />
+            )}
         </Box>
     );
 }

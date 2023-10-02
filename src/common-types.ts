@@ -230,7 +230,9 @@ export type WithWrapperProps = {
 
 export type WithName = {
     /**
-     * Name of the component. If field is connected as a form field, will be used to key the value in the form field values.
+     * Unique name for the element.
+     * @important Should be a *snake_case* string.
+     * @important This will be used as the HTML element ID.
      */
     name: string;
 };
@@ -258,11 +260,6 @@ export type WithId = {
 
 type BaseWithLabel = {
     /**
-     * HTML element id
-     */
-    id?: string;
-
-    /**
      * Whether the label is visible or not.
      */
     isLabelVisible?: boolean;
@@ -281,13 +278,16 @@ type BaseWithLabel = {
      * Optional tooltip for label
      */
     labelTooltip?: string;
+
+    /**
+     * HTML element id
+     */
+    name?: string;
 };
 
 /* eslint-disable jsdoc/require-jsdoc */
 
 type WithLabel = BaseWithLabel & {
-    id: string;
-
     isLabelVisible?: boolean;
 
     label: string;
@@ -295,11 +295,11 @@ type WithLabel = BaseWithLabel & {
     labelProps?: Omit<FieldLabelProps, "label"> | undefined;
 
     labelTooltip?: string;
+
+    name: string;
 };
 
 type WithoutLabel = BaseWithLabel & {
-    id?: string;
-
     isLabelVisible?: never;
 
     label?: never;
@@ -307,6 +307,8 @@ type WithoutLabel = BaseWithLabel & {
     labelProps?: never;
 
     labelTooltip?: never;
+
+    name?: string;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
@@ -318,14 +320,14 @@ export type WithOptionalLabel = WithLabel | WithoutLabel;
  * an element and forwards them to a component.
  */
 export const getOptionalLabelProps = ({
-    id,
     isLabelVisible,
     label,
     labelProps,
     labelTooltip,
+    name,
 }: BaseWithLabel): WithOptionalLabel => {
-    return typeof label !== "undefined" && typeof id !== "undefined"
-        ? { id, isLabelVisible, label, labelProps, labelTooltip }
+    return typeof label !== "undefined" && typeof name !== "undefined"
+        ? { isLabelVisible, label, labelProps, labelTooltip, name }
         : {};
 };
 
