@@ -1,7 +1,7 @@
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { forwardRef, isValidElement } from "react";
+import { forwardRef, isValidElement, useState } from "react";
 
 import { getOptionalLabelProps } from "../../common-types";
 import { useForwardRef } from "../../hooks/use_forward_ref";
@@ -39,7 +39,12 @@ import type {
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ComponentPropsWithoutRef, ForwardedRef, ReactNode } from "react";
+import type {
+    ChangeEvent,
+    ComponentPropsWithoutRef,
+    ForwardedRef,
+    ReactNode,
+} from "react";
 
 type AddonTabProps = WithSize & {
     children: ReactNode;
@@ -233,6 +238,7 @@ function PureInput(
         addonRight,
         className: userClassName,
         colorOverlay,
+        defaultValue,
         description,
         errorMessage,
         hasBorder,
@@ -247,6 +253,7 @@ function PureInput(
         label,
         labelProps,
         labelTooltip,
+        onChange,
         readOnly,
         size = "md",
         slotLeft,
@@ -257,12 +264,14 @@ function PureInput(
         strHide,
         strShow,
         type,
+        value,
         wrapperProps,
         ...rest
     }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
 ) {
     const inputRef = useForwardRef(ref);
+    const [inputValue, setInputValue] = useState(defaultValue || value || "");
 
     const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
 
@@ -306,17 +315,14 @@ function PureInput(
                     slotRight={
                         <>
                             {initialSlotRight}
-
                             {isVisibilityToggleable && (
                                 <FieldActionButtonVisibility
                                     isVisible={isVisible}
                                     onClick={handleToggleVisibility}
-                                    size="md"
                                     strHide={strHide}
                                     strShow={strShow}
                                 />
                             )}
-
                             {isCopyable && (
                                 <FieldActionButtonCopy
                                     isCopied={isCopied}
@@ -325,29 +331,34 @@ function PureInput(
                                             inputRef?.current?.value
                                         );
                                     }}
-                                    size="md"
                                     strCopied={strCopied}
                                     strCopy={strCopy}
                                 />
                             )}
-
-                            {isClearable && !readOnly && (
-                                <FieldActionButtonClear
-                                    onClick={() => {
-                                        if (inputRef?.current.value) {
-                                            inputRef.current.value = "";
-                                        }
-                                    }}
-                                    size="md"
-                                    strClear={strClear}
-                                />
-                            )}
+                            {isClearable &&
+                                strClear &&
+                                inputValue &&
+                                !readOnly && (
+                                    <FieldActionButtonClear
+                                        onClick={() => {
+                                            onChange?.({
+                                                target: { value: "" },
+                                            } as ChangeEvent<HTMLInputElement>);
+                                            return setInputValue("");
+                                        }}
+                                        strClear={strClear}
+                                    />
+                                )}
                         </>
                     }
                 >
                     <input
                         className={inputStyles}
                         id={id}
+                        onChange={(e) => {
+                            onChange?.(e);
+                            return setInputValue(e.target.value);
+                        }}
                         readOnly={readOnly}
                         ref={inputRef}
                         type={
@@ -355,6 +366,7 @@ function PureInput(
                                 ? "password"
                                 : type
                         }
+                        value={inputValue}
                         {...otherProps}
                     />
                 </InputSlotWrapper>

@@ -20,7 +20,7 @@ type DataTableFilterInputProps = Required<WithOptionalPlaceholder> & {
     /**
      * The string to display in a tooltip to clear the filters
      */
-    strClearFilters: string;
+    strClearFilterInput: string;
 };
 
 /**
@@ -30,7 +30,7 @@ export function DataTableFilterInput({
     globalFilter,
     placeholder,
     setGlobalFilter,
-    strClearFilters,
+    strClearFilterInput,
 }: DataTableFilterInputProps) {
     return (
         <Input
@@ -42,7 +42,7 @@ export function DataTableFilterInput({
             }}
             placeholder={placeholder}
             slotLeft={[<Icon icon={faSearch} />]}
-            strClear={strClearFilters}
+            strClear={strClearFilterInput}
             value={globalFilter}
         />
     );

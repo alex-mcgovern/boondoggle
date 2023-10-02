@@ -440,9 +440,14 @@ export type WithTableOptionalFiltering =
           isFilterable: true;
 
           /**
-           * The text to display for the clear all filters button.
+           * The text to display for the clear filters button.
            */
           strClearAllFilters: string;
+
+          /**
+           * The text to display for the clear all filters button in the search input component.
+           */
+          strClearFilterInput: string;
 
           /**
            * String to use for filter field placeholder
@@ -462,6 +467,11 @@ export type WithTableOptionalFiltering =
            * The text to display for the clear all filters button.
            */
           strClearAllFilters?: never;
+
+          /**
+           * The text to display for the clear all filters button in the search input component.
+           */
+          strClearFilterInput?: never;
 
           /**
            * String to use for filter field placeholder

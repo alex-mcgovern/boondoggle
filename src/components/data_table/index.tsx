@@ -19,49 +19,50 @@ import type { BoxProps } from "../box";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
-export type DataTableProps<TRowData extends RowData> = WithTableOptionalPagination &
-    WithTableOptionalSelectableRows<TRowData> &
-    WithTableOptionalFiltering & {
-        /**
-         * React component to render a list of actions on each row
-         */
-        RowActions?: TDataTableRowActions<TRowData>;
+export type DataTableProps<TRowData extends RowData> =
+    WithTableOptionalPagination &
+        WithTableOptionalSelectableRows<TRowData> &
+        WithTableOptionalFiltering & {
+            /**
+             * React component to render a list of actions on each row
+             */
+            RowActions?: TDataTableRowActions<TRowData>;
 
-        /**
-         * Up to 2 react nodes to render as actions for the table
-         */
-        actions?: ReactNode | [ReactNode?, ReactNode?];
+            /**
+             * Up to 2 react nodes to render as actions for the table
+             */
+            actions?: ReactNode | [ReactNode?, ReactNode?];
 
-        /**
-         * Column definitions for the tabular data
-         */
-        columns: Array<ColumnDef<TRowData, any>>;
+            /**
+             * Column definitions for the tabular data
+             */
+            columns: Array<ColumnDef<TRowData, any>>;
 
-        /**
-         * An array of objects describing each row in the table
-         */
-        data: Array<TRowData> | undefined;
+            /**
+             * An array of objects describing each row in the table
+             */
+            data: Array<TRowData> | undefined;
 
-        /**
-         * A function that returns props for the row.
-         */
-        getRowProps?: (row_data: TRowData) => BoxProps;
+            /**
+             * A function that returns props for the row.
+             */
+            getRowProps?: (row_data: TRowData) => BoxProps;
 
-        /**
-         * Whether the entire row should be clickable
-         */
-        isRowClickable?: boolean;
+            /**
+             * Whether the entire row should be clickable
+             */
+            isRowClickable?: boolean;
 
-        /**
-         * Whether the table should be sortable and show sorting controls
-         */
-        isSortable?: boolean;
+            /**
+             * Whether the table should be sortable and show sorting controls
+             */
+            isSortable?: boolean;
 
-        /**
-         * The title of the no results message
-         */
-        strNoResults: string;
-    };
+            /**
+             * The title of the no results message
+             */
+            strNoResults: string;
+        };
 
 /**
  * Component to render tabular data with filtering/sorting controls.
@@ -81,6 +82,7 @@ export function DataTable<TRowData extends RowData>({
     isSortable,
     onSelect,
     strClearAllFilters,
+    strClearFilterInput,
     strFilterPlaceholder,
     strNext,
     strNoResults,
@@ -107,11 +109,14 @@ export function DataTable<TRowData extends RowData>({
         <Box>
             <DataTableActionsWrapper
                 leftAction={
-                    isFilterable && arrayHasLength(data) ? (
+                    isFilterable &&
+                    arrayHasLength(data) &&
+                    strClearAllFilters ? (
                         <DataTableFilterInput
                             globalFilter={globalFilter}
                             placeholder={strFilterPlaceholder}
                             setGlobalFilter={setGlobalFilter}
+                            strClearFilterInput={strClearFilterInput}
                         />
                     ) : null
                 }
@@ -142,15 +147,17 @@ export function DataTable<TRowData extends RowData>({
                 />
             )}
 
-            {isPaginated && hasData && table.getFilteredRowModel().rows.length > 10 && (
-                <DataTablePaginationWrapper
-                    strNext={strNext}
-                    strPage={strPage}
-                    strPrev={strPrev}
-                    strResults={strResults}
-                    table={table}
-                />
-            )}
+            {isPaginated &&
+                hasData &&
+                table.getFilteredRowModel().rows.length > 10 && (
+                    <DataTablePaginationWrapper
+                        strNext={strNext}
+                        strPage={strPage}
+                        strPrev={strPrev}
+                        strResults={strResults}
+                        table={table}
+                    />
+                )}
         </Box>
     );
 }

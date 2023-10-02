@@ -28,7 +28,9 @@ type Story = StoryObj<typeof meta>;
 
 const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
 
-const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> = () => {
+const MockRowActionsComponent: TDataTableRowActions<
+    MockAccountColumnData
+> = () => {
     return <DataTableRowActions items={mockSelectItemsActions()} />;
 };
 
@@ -49,7 +51,9 @@ export const IsRowClickable: Story = {
             return {
                 // as: "button",
                 onClick: () => {
-                    alert(`Row clicked \n ${JSON.stringify(row_data, null, 2)}`);
+                    alert(
+                        `Row clicked \n ${JSON.stringify(row_data, null, 2)}`
+                    );
                 },
             };
         },
@@ -103,6 +107,7 @@ export const IsFilterable: Story = {
         data: MOCK_DATA,
         isFilterable: true,
         strClearAllFilters: "Clear all filters",
+        strClearFilterInput: "Clear filter input",
         strFilterPlaceholder: "Filter results...",
         strNoResults: "No results",
     },
@@ -160,6 +165,7 @@ export const WithNoResults: Story = {
         data: [],
         isFilterable: true,
         strClearAllFilters: "Clear all filters",
+        strClearFilterInput: "Clear filter input",
         strFilterPlaceholder: "Filter results...",
         strNoResults: "No results",
     },
@@ -287,6 +293,7 @@ export const KitchenSink: Story = {
         },
         RowActions: MockRowActionsComponent,
         strClearAllFilters: "Clear all filters",
+        strClearFilterInput: "Clear filter input",
         strFilterPlaceholder: "Filter results...",
         strNext: "Next",
         strNoResults: "No results",
