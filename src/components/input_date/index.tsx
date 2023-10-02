@@ -26,7 +26,16 @@ function convertLocalToUTCDate(date: Date) {
 
 export type InputDateProps = Omit<
     InputProps,
-    "isClearable" | "isCopyable" | "isVisibilityToggleable" | "placeholder"
+    | "isClearable"
+    | "isCopyable"
+    | "isVisibilityToggleable"
+    | "strClear"
+    | "placeholder"
+    | "strCopy"
+    | "strCopied"
+    | "strHide"
+    | "strShow"
+    | "isVisibilityToggleable"
 > &
     WithOptionalLabel &
     WithOptionalPlaceholder & {
@@ -89,7 +98,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         return (
             <Input
-                {...rest}
+                {...(rest as InputProps)}
                 className={inputDateStyle}
                 defaultValue={defaultValue}
                 onChange={(e) => {

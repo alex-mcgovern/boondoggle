@@ -82,7 +82,10 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
         /**
          * Function to call when the "Try again" button is clicked.
          */
-        onClickTryAgain?: (() => unknown) | (() => Promise<unknown>) | undefined;
+        onClickTryAgain?:
+            | (() => unknown)
+            | (() => Promise<unknown>)
+            | undefined;
 
         /**
          * Description of the error.
@@ -145,6 +148,7 @@ export function DialogModalDataTable<TData extends RowData>({
     onClickTryAgain,
     onSelect,
     strClearAllFilters,
+    strClearFilterInput,
     strErrorDescription,
     strErrorTitle,
     strFilterPlaceholder,
@@ -159,9 +163,10 @@ export function DialogModalDataTable<TData extends RowData>({
     width,
     wrapperProps,
 }: DialogModalDataTableProps<TData>) {
-    const { closeDialog, dialogRef, toggleIsOpen, triggerRef } = useDialogModalState({
-        ref: parentDialogRef,
-    });
+    const { closeDialog, dialogRef, toggleIsOpen, triggerRef } =
+        useDialogModalState({
+            ref: parentDialogRef,
+        });
 
     const { globalFilter, setGlobalFilter, table } = useDataTableState({
         data,
@@ -199,12 +204,15 @@ export function DialogModalDataTable<TData extends RowData>({
                         title={title}
                     />
 
-                    {!isLoading && isError && strErrorDescription && strErrorTitle && (
-                        <DialogModalErrorMessage
-                            description={strErrorDescription}
-                            title={strErrorTitle}
-                        />
-                    )}
+                    {!isLoading &&
+                        isError &&
+                        strErrorDescription &&
+                        strErrorTitle && (
+                            <DialogModalErrorMessage
+                                description={strErrorDescription}
+                                title={strErrorTitle}
+                            />
+                        )}
 
                     {!isError && isLoading && <LoaderFullScreen />}
 
@@ -216,6 +224,9 @@ export function DialogModalDataTable<TData extends RowData>({
                                         globalFilter={globalFilter}
                                         placeholder={strFilterPlaceholder}
                                         setGlobalFilter={setGlobalFilter}
+                                        strClearFilterInput={
+                                            strClearFilterInput
+                                        }
                                     />
                                 ) : null
                             }
@@ -247,7 +258,9 @@ export function DialogModalDataTable<TData extends RowData>({
                                 <DataTableInfoNoResults
                                     globalFilter={globalFilter}
                                     setGlobalFilter={setGlobalFilter}
-                                    strClearAllFilters={strClearAllFilters as string}
+                                    strClearAllFilters={
+                                        strClearAllFilters as string
+                                    }
                                     strNoResults={strNoResults}
                                 />
                             )}

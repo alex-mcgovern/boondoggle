@@ -1,15 +1,33 @@
-import type {
-    WithColorOverlay,
-    WithName,
-    WithOptionalLabel,
-    WithSize,
-    WithSlots,
-    WithStateDisabled,
-    WithStateInvalid,
-} from "../../common-types";
+import type { WithColorOverlay, WithSlots } from "../../common-types";
 import type { BoxProps } from "../box";
-import type { InputProps } from "../input";
-import type { UseComboboxStateChange } from "downshift";
+
+type IsFilterableBaseProps = {
+    /**
+     * Whether the item is filterable.
+     */
+    isFilterable?: boolean;
+
+    /**
+     * The tooltip text to show when the item is filterable.
+     */
+    strClear?: string;
+};
+
+/* eslint-disable jsdoc/require-jsdoc */
+
+type WithIsFilterable = IsFilterableBaseProps & {
+    isFilterable: true;
+    strClear: string;
+};
+
+type WithoutIsFilterable = IsFilterableBaseProps & {
+    isFilterable?: never;
+    strClear?: string;
+};
+
+/* eslint-enable jsdoc/require-jsdoc */
+
+export type WithOptionalIsFilterable = WithIsFilterable | WithoutIsFilterable;
 
 export type SelectItemShape<TValue extends string = string> = BoxProps &
     WithSlots &
@@ -28,25 +46,4 @@ export type SelectItemShape<TValue extends string = string> = BoxProps &
          * The "code" value for the item.
          */
         value: TValue;
-    };
-
-export type SelectCommonProps<TValue extends string = string> = Partial<WithOptionalLabel> &
-    WithStateInvalid &
-    WithSlots &
-    WithSize &
-    WithStateDisabled &
-    WithName & {
-        initialHighlightedItem?: SelectItemShape<TValue>;
-
-        inputProps?: Partial<InputProps>;
-
-        isClearable?: boolean;
-
-        isFilterable?: boolean;
-
-        isOpen?: boolean;
-
-        items: Array<SelectItemShape<TValue>>;
-
-        onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape<TValue>>) => void;
     };

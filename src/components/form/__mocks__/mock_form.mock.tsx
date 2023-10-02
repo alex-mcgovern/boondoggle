@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
+import { MOCK_CURRENCY_SELECT_ITEMS } from "../../../../test/mock_data/input_currency";
 import { FormInput } from "../../form_input";
 import { FormInputCurrency } from "../../form_input_currency";
 import { FormInputDate } from "../../form_input_date";
@@ -11,14 +12,12 @@ import { FormSelectSingle } from "../../form_select_single";
 import { FormSlider } from "../../form_slider";
 import { FormSubmitButton } from "../../form_submit_button";
 import { FormTextArea } from "../../form_text_area";
-import { FlagAe, FlagFr, FlagUs } from "../../icon_flag";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_card_group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 import type { FormProps } from "..";
-import type { Slot } from "../../../common-types";
+import type { MockCurrency } from "../../../../test/mock_data/input_currency";
 import type { BoxProps } from "../../box";
-import type { SelectItemShape } from "../../select/types";
 
 const mockFormSchema = z.object({
     amount: z.coerce.number().min(1),
@@ -40,7 +39,9 @@ type MockFormProps = Pick<FormProps, "handleSubmit" | "handleErrors"> & {
      * Whether to populate the form fields with default values or not.
      */
     withDefaultValues?: boolean;
-
+    /**
+     * Whether to make fields optional or required.
+     */
     withOptionalFields?: boolean;
 };
 
@@ -76,49 +77,18 @@ export const mockForm = ({
                     name="date"
                     wrapperProps={WRAPPER_PROPS}
                 />
-                <FormInputCurrency<"AED" | "USD" | "EUR">
-                    currencySelectItems={
-                        [
-                            {
-                                label: "USD",
-                                slotLeft: [
-                                    <FlagUs
-                                        height="space_4"
-                                        width="space_4"
-                                    />,
-                                ] as Slot,
-                                value: "USD",
-                            },
-                            {
-                                label: "AED",
-                                slotLeft: [
-                                    <FlagAe
-                                        height="space_4"
-                                        width="space_4"
-                                    />,
-                                ] as Slot,
-                                value: "AED",
-                            },
-                            {
-                                label: "EUR",
-                                slotLeft: [
-                                    <FlagFr
-                                        height="space_4"
-                                        width="space_4"
-                                    />,
-                                ] as Slot,
-                                value: "EUR",
-                            },
-                        ] as Array<SelectItemShape<"USD" | "AED">>
-                    }
+                {/* @ts-expect-error props are busted */}
+                <FormInputCurrency<MockCurrency>
+                    currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
+                    currencySelectLabel="Currency"
                     defaultValue={withDefaultValues ? 100 : undefined}
                     id="amount"
                     initialCurrency="USD"
                     isCurrencyEditable
                     label="Amount"
+                    locale="en-US"
                     name="amount"
                     placeholder="Enter an amount"
-                    region="en-US"
                     wrapperProps={WRAPPER_PROPS}
                 />
                 <FormTextArea

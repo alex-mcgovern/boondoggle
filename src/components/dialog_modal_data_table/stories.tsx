@@ -30,6 +30,7 @@ export const IsFilterable: Story = {
         data: MOCK_DATA,
         isFilterable: true,
         strClearAllFilters: "Clear all filters",
+        strClearFilterInput: "Clear filter input",
         strFilterPlaceholder: "Filter",
         strNoResults: "No results",
         title: "Dialog modal data table",
@@ -122,6 +123,7 @@ export const KitchenSink: Story = {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
         },
         strClearAllFilters: "Clear all filters",
+        strClearFilterInput: "Clear filter input",
         strFilterPlaceholder: "Filter",
         strNext: "Next",
         strNoResults: "No results",

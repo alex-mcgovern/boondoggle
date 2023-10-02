@@ -45,12 +45,14 @@ export const Invalid: Story = {
 export const IsClearable: Story = {
     args: {
         isClearable: true,
+        strClear: "Clear",
     },
 };
 
 export const IsFilterable: Story = {
     args: {
         isFilterable: true,
+        strClear: "Clear",
     },
 };
 
