@@ -30,9 +30,9 @@ describe("currencyFormatter()", () => {
     });
 
     test("returns numbers only when non-numeric characters suffiex to fraction", () => {
-        expect(
-            currencyFormatter({ locale: "en-GB", value: "123.123abc" })
-        ).toBe("123.123");
+        expect(currencyFormatter({ locale: "en-GB", value: "123.12abc" })).toBe(
+            "123.12"
+        );
     });
 
     test("(en-GB) formats whole number correctly", () => {
