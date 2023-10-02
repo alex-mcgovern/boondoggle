@@ -14,20 +14,28 @@ export function currencyFormatter({
     value,
 }: CurrencyFormatterArgs): string | undefined {
     const { format } = new Intl.NumberFormat(locale);
+    const cleanValue = value?.replace(/[^\d.]/g, "");
 
-    if (typeof value === "undefined") {
-        return value;
+    if (typeof cleanValue === "undefined" || cleanValue.length === 0) {
+        return "";
     }
 
-    const hasDecimal = value.includes(".");
+    const hasDecimal = cleanValue.includes(".");
 
     if (hasDecimal) {
         const decimalSeparator = format(1.1).replace(/1/g, "");
-        const [integer, decimal] = value.split(".");
+        const [integer, decimal] = cleanValue.split(".");
+
+        // replace all non-numeric characters with ""
+
+        if (Number.isNaN(Number(integer))) {
+            return "";
+        }
+
         const formattedInteger = format(Number(integer));
 
         return `${formattedInteger}${decimalSeparator}${decimal ?? ""}`;
     }
 
-    return format(Number(value));
+    return Number.isNaN(Number(cleanValue)) ? "" : format(Number(cleanValue));
 }

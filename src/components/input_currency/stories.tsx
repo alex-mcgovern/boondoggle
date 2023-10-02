@@ -103,3 +103,9 @@ export const KitchenSinkWithInvalidState: Story = {
         },
     },
 };
+
+export const WithDefaultValue: Story = {
+    args: {
+        defaultValue: 42000.69,
+    },
+};
