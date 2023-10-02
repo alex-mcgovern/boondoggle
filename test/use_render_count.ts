@@ -5,6 +5,6 @@ export const useRenderCount = () => {
 
     useEffect(() => {
         renderCount.current += 1;
-        console.debug("renderCount:", renderCount.current);
+        console.info("renderCount:", renderCount.current);
     });
 };

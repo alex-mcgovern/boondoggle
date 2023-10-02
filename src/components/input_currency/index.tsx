@@ -3,7 +3,6 @@
 /* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { forwardRef, useEffect, useMemo, useState } from "react";
 
-import { useRenderCount } from "../../../test/use_render_count";
 import { Input } from "../input";
 import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
@@ -150,8 +149,6 @@ export function PureInputCurrency<TCurrency extends string = string>(
     ref: ForwardedRef<HTMLInputElement>
 ) {
     const [currency, setCurrency] = useState<TCurrency>(initialCurrency);
-
-    useRenderCount();
 
     useEffect(() => {
         if (initialCurrency) {
