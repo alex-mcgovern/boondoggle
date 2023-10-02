@@ -29,7 +29,7 @@ describe("currencyFormatter()", () => {
         );
     });
 
-    test("returns numbers only when non-numeric characters suffiex to fraction", () => {
+    test("returns numbers only when non-numeric characters suffixed to fraction", () => {
         expect(currencyFormatter({ locale: "en-GB", value: "123.12abc" })).toBe(
             "123.12"
         );

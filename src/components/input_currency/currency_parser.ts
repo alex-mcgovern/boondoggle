@@ -16,7 +16,7 @@ export function currencyParser({
     value,
 }: CurrencyParserArgs): string | undefined {
     if (!value) {
-        return undefined;
+        return "";
     }
 
     const decimalSeparator = new Intl.NumberFormat(locale)
@@ -26,16 +26,29 @@ export function currencyParser({
 
     if (hasDecimal) {
         const [integer, decimal] = value.split(decimalSeparator);
-        let parsed = NumberParser(locale)(integer);
+        const cleanInteger = integer?.replace(/[^\d.]/g, "");
+        const cleanDecimal = decimal?.replace(/[^\d.]/g, "");
+
+        let parsed = NumberParser(locale)(cleanInteger);
+
+        if (Number.isNaN(parsed) || !parsed) {
+            return "";
+        }
 
         if (parsed > Number.MAX_SAFE_INTEGER - 1) {
             parsed = Number.MAX_SAFE_INTEGER - 1;
         }
 
-        return `${parsed}.${decimal ? decimal.slice(0, 2) : ""}`;
+        return `${parsed}.${decimal ? cleanDecimal.slice(0, 2) : ""}`;
     }
 
-    let parsed = NumberParser(locale)(value);
+    const cleanValue = value?.replace(/[^\d.]/g, "");
+
+    let parsed = NumberParser(locale)(cleanValue);
+
+    if (Number.isNaN(parsed) || !parsed) {
+        return "";
+    }
 
     if (parsed > Number.MAX_SAFE_INTEGER - 1) {
         parsed = Number.MAX_SAFE_INTEGER - 1;

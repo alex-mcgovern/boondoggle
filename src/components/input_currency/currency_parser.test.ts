@@ -1,6 +1,38 @@
 import { currencyParser } from "./currency_parser";
 
 describe("currencyParser()", () => {
+    test("returns empty string when passed empty string", () => {
+        expect(currencyParser({ locale: "en-GB", value: "" })).toBe("");
+    });
+
+    test("returns numbers only when non-numeric characters suffixed to whole number", () => {
+        expect(currencyParser({ locale: "en-GB", value: "420,000foo" })).toBe(
+            "420000"
+        );
+    });
+
+    test("returns numbers only when non-numeric characters prefixed to whole number", () => {
+        expect(currencyParser({ locale: "en-GB", value: "foo420,000" })).toBe(
+            "420000"
+        );
+    });
+
+    test("returns numbers only when non-numeric characters suffixed to fraction", () => {
+        expect(
+            currencyParser({ locale: "en-GB", value: "420,000.foo69" })
+        ).toBe("420000.69");
+    });
+
+    test("returns numbers only when non-numeric characters prefixed to fractional number", () => {
+        expect(
+            currencyParser({ locale: "en-GB", value: "foo420,000.69foo" })
+        ).toBe("420000.69");
+    });
+
+    test("returns empty string when passed non-numeric value", () => {
+        expect(currencyParser({ locale: "en-GB", value: "foo" })).toBe("");
+    });
+
     test("(en-GB) parses whole number correctly", () => {
         expect(currencyParser({ locale: "en-GB", value: "420,000" })).toBe(
             "420000"
