@@ -39,11 +39,12 @@ export function useFormattedCurrency({
     value: controlledValue,
 }: UseFormattedCurrencyArgs) {
     const [value, setValue] = useState<InputValue>({
-        formatted: currencyFormatter({
-            locale,
-            value: defaultValue?.toString() || controlledValue?.toString(),
-        }),
-        raw: defaultValue?.toString() || controlledValue?.toString(),
+        formatted:
+            currencyFormatter({
+                locale,
+                value: defaultValue?.toString() || controlledValue?.toString(),
+            }) ?? "",
+        raw: (defaultValue?.toString() || controlledValue?.toString()) ?? "",
     });
 
     useEffect(() => {
