@@ -93,11 +93,11 @@ export const KitchenSinkWithInvalidState: Story = {
     args: {
         currencySelectItems: MOCK_CURRENCY_SELECT_ITEMS,
         currencySelectLabel: "Currency",
-        id: "input_currency",
         invalid: true,
         isCurrencyEditable: true,
         label: "Amount",
         labelTooltip: LOREM.text_md,
+        name: "input_currency",
         onCurrencyChange(currency) {
             console.info(currency);
         },

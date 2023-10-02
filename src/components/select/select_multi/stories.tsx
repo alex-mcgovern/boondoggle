@@ -13,13 +13,11 @@ const ITEMS = mockSelectItems({});
 const meta = {
     args: {
         errorMessage: LOREM.errorMessage(),
-        id: LOREM.id(),
         items: ITEMS,
         label: LOREM.label(),
         name: LOREM.name(),
         // onChange: (selection) => {
-        //     alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
-
+        //     console.log(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
         // },
         placeholder: LOREM.placeholder(),
     },
@@ -74,7 +72,9 @@ export const ItemsWithIsSelectedTrue: Story = {
 };
 
 const ControlledTemplate = () => {
-    const [selectedItems, setSelectedItems] = useState<Array<SelectItemShape<string>>>([]);
+    const [selectedItems, setSelectedItems] = useState<
+        Array<SelectItemShape<string>>
+    >([]);
 
     return (
         <Box>
@@ -140,7 +140,9 @@ export const OnChange: Story = {
 
 export const SelectedItemsToString: Story = {
     args: {
-        selectedItemsToString: (selectedItems: Array<SelectItemShape<string>>) => {
+        selectedItemsToString: (
+            selectedItems: Array<SelectItemShape<string>>
+        ) => {
             if (selectedItems.length === 1) {
                 return `${selectedItems.length} country selected`;
             }

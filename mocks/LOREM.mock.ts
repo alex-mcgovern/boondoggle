@@ -34,7 +34,7 @@ export const LOREM = {
     },
     link: "Go to the thing",
     name: (suffix?: string) => {
-        return `Name ipsum${suffix ? `-${suffix}` : ""}`;
+        return `element${suffix ? `-${suffix}` : ""}`;
     },
     placeholder: (suffix?: string) => {
         return `Placeholder ipsum${suffix ? `-${suffix}` : ""}`;

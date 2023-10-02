@@ -29,7 +29,6 @@ const renderComponent = async ({ ...props }: InputDateProps) => {
 const ON_CHANGE = jest.fn();
 
 const PROPS: InputDateProps = {
-    id: LOREM.id(),
     label: LOREM.label(),
     name: LOREM.name(),
     onChange: ON_CHANGE,

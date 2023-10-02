@@ -8,7 +8,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
     args: {
         buttonText: LOREM.button,
-        id: LOREM.id(),
         items: mockSelectItems({}),
         name: LOREM.name(),
         onChange: (selection) => {

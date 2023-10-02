@@ -137,7 +137,6 @@ function SelectMultiBase<TValue extends string = string>(
     {
         disabled,
         errorMessage,
-        id,
         initialSelectedItems = [],
         invalid,
         isClearable,
@@ -310,8 +309,7 @@ function SelectMultiBase<TValue extends string = string>(
                             arrayHasLength(selectedItems),
                     }),
                     disabled,
-                    id,
-                    name,
+                    id: name,
                     placeholder: getPlaceholder({
                         placeholder,
                         selectedItems,
@@ -324,13 +322,13 @@ function SelectMultiBase<TValue extends string = string>(
                         ref,
                     }),
                     ...getOptionalLabelProps({
-                        id,
                         isLabelVisible,
                         label,
                         labelProps: getLabelProps({
-                            htmlFor: id,
+                            htmlFor: name,
                         }),
                         labelTooltip,
+                        name,
                     }),
                 })}
             />

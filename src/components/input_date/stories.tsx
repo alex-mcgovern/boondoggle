@@ -5,7 +5,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
     args: {
-        id: LOREM.id(),
         label: LOREM.label(),
         name: LOREM.name(),
         onChange: (newDate) => {

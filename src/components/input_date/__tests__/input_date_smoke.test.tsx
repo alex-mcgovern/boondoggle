@@ -9,7 +9,6 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
-    id: "date-picker",
     label: "date picker",
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),

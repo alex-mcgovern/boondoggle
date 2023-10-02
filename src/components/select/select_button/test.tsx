@@ -24,7 +24,6 @@ const ON_CHANGE = jest.fn();
 
 const PROPS: SelectButtonProps<string> = {
     buttonText: LOREM.select,
-    id: LOREM.id(),
     items: mockSelectItems({}),
     name: LOREM.text_xxs,
     onChange: ON_CHANGE,

@@ -282,7 +282,7 @@ type BaseWithLabel = {
     /**
      * HTML element id
      */
-    name?: string;
+    name: string;
 };
 
 /* eslint-disable jsdoc/require-jsdoc */
@@ -308,7 +308,7 @@ type WithoutLabel = BaseWithLabel & {
 
     labelTooltip?: never;
 
-    name?: string;
+    name: string;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
@@ -328,7 +328,7 @@ export const getOptionalLabelProps = ({
 }: BaseWithLabel): WithOptionalLabel => {
     return typeof label !== "undefined" && typeof name !== "undefined"
         ? { isLabelVisible, label, labelProps, labelTooltip, name }
-        : {};
+        : { name };
 };
 
 export type WithSize = {

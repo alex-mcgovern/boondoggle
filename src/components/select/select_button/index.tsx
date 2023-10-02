@@ -90,7 +90,6 @@ function SelectButtonBase<TValue extends string = string>(
         buttonProps,
         buttonText,
         disabled,
-        id,
         initialSelectedItem,
         items,
         name,
@@ -160,7 +159,7 @@ function SelectButtonBase<TValue extends string = string>(
                 {...getToggleButtonProps?.({
                     ...buttonProps,
                     disabled,
-                    id,
+                    id: name,
                     name,
                     ref,
                 })}

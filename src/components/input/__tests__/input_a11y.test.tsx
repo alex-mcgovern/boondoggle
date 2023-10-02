@@ -10,7 +10,6 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputProps } from "..";
 
 const PROPS: InputProps = {
-    id: LOREM.id(),
     label: LOREM.label(),
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
@@ -24,7 +23,9 @@ describe("<Input />", () => {
     test("should assign name to the element", () => {
         const { getByRole } = renderComponent(PROPS);
 
-        expect((getByRole("textbox") as HTMLInputElement).name).toBe(PROPS.name);
+        expect((getByRole("textbox") as HTMLInputElement).name).toBe(
+            PROPS.name
+        );
     });
 
     test("should be labelled", () => {
@@ -34,10 +35,12 @@ describe("<Input />", () => {
 
         expect(label).not.toBeNull();
 
-        expect(label?.getAttribute("for")).toBe(PROPS.id);
+        expect(label?.getAttribute("for")).toBe(PROPS.name);
 
         expect(label?.textContent).toBe(PROPS.label);
 
-        expect(getByLabelText(PROPS.label as string, { selector: "input" })).not.toBeNull();
+        expect(
+            getByLabelText(PROPS.label as string, { selector: "input" })
+        ).not.toBeNull();
     });
 });

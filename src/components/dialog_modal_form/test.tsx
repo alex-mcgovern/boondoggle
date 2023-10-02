@@ -58,21 +58,18 @@ const PROPS: DialogModalFormProps = {
         <>
             <FormInput
                 errorMessage="Enter a valid email address"
-                id="email"
                 label={LOREM.labelEmail()}
                 name="email"
                 placeholder="Enter your email address"
             />
             <FormTextArea
                 errorMessage="Enter a valid description"
-                id="description"
                 label={LOREM.labelDescription()}
                 name="description"
                 placeholder="Enter your description"
             />
             <FormSelectSingle
                 errorMessage="Select an option"
-                id="select"
                 items={mockSelectItems({})}
                 label={LOREM.labelDropdown()}
                 name="select"

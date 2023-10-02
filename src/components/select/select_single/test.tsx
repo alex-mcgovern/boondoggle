@@ -19,7 +19,6 @@ const ON_CHANGE = jest.fn();
 
 const PROPS: SelectSingleProps<string> = {
     errorMessage: LOREM.errorMessage(),
-    id: LOREM.id(),
     items: mockSelectItems({}),
     label: LOREM.label(),
     name: LOREM.text_xxs,
@@ -146,7 +145,7 @@ describe("<SelectSingle />", () => {
 
         expect(label).not.toBeNull();
 
-        expect(label?.getAttribute("for")).toBe(PROPS.id);
+        expect(label?.getAttribute("for")).toBe(PROPS.name);
 
         expect(label?.textContent).toBe(PROPS.label);
     });

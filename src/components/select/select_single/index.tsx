@@ -15,7 +15,6 @@ import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 
 import type {
-    WithId,
     WithName,
     WithOptionalIsClearable,
     WithOptionalLabel,
@@ -42,7 +41,6 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
     WithStateDisabled &
     WithStateInvalid &
     WithWrapperProps &
-    WithId &
     WithOptionalLabel &
     WithOptionalIsFilterable & {
         /**
@@ -111,7 +109,6 @@ function SelectSingleBase<TValue extends string = string>(
     {
         disabled,
         errorMessage,
-        id,
         initialSelectedItem,
         inputProps,
         invalid,
@@ -236,21 +233,20 @@ function SelectSingleBase<TValue extends string = string>(
                 {...getInputProps({
                     className: selectInputCursorStyles,
                     disabled,
-                    id,
+                    id: name,
                     invalid,
-                    name,
                     placeholder,
                     readOnly: !isFilterable,
                     ref,
                     value: inputValue,
                     ...getOptionalLabelProps({
-                        id,
                         isLabelVisible,
                         label,
                         labelProps: getLabelProps({
-                            htmlFor: id,
+                            htmlFor: name,
                         }),
                         labelTooltip,
+                        name,
                     }),
                     ...inputProps,
                 })}

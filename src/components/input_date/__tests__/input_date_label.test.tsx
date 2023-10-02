@@ -11,7 +11,6 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
-    id: LOREM.id(),
     label: LOREM.label(),
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),
@@ -32,10 +31,12 @@ describe("<InputDate />", () => {
 
         expect(label).not.toBeNull();
 
-        expect(label?.getAttribute("for")).toBe(PROPS.id);
+        expect(label?.getAttribute("for")).toBe(PROPS.name);
 
         expect(label?.textContent).toBe(PROPS.label);
 
-        expect(getByLabelText(PROPS.label as string, { selector: "input" })).not.toBeNull();
+        expect(
+            getByLabelText(PROPS.label as string, { selector: "input" })
+        ).not.toBeNull();
     });
 });

@@ -26,7 +26,10 @@ import type {
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 
-export type TextAreaProps = Omit<ComponentPropsWithoutRef<"textarea">, "color" | "ref"> &
+export type TextAreaProps = Omit<
+    ComponentPropsWithoutRef<"textarea">,
+    "color" | "ref" | "id"
+> &
     // WithOptionalIsClearable &
     // WithOptionalIsCopyable &
     SprinklesArgs &
@@ -50,7 +53,6 @@ export const TextArea = forwardRef(
             description,
             errorMessage,
             hideLastpass,
-            id,
             invalid,
             isLabelVisible,
             label,
@@ -68,7 +70,10 @@ export const TextArea = forwardRef(
         /**
          * Separate `SprinklesArgs` from other spread props, so we don't break Vanilla Extract
          */
-        const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+        const { atomProps, otherProps } = extractAtomsFromProps(
+            rest,
+            getSprinkles
+        );
 
         return (
             <FieldWrapper
@@ -76,15 +81,14 @@ export const TextArea = forwardRef(
                 description={description}
                 errorMessage={errorMessage}
                 hideLastpass={hideLastpass}
-                id={id}
                 invalid={invalid}
                 wrapperProps={wrapperProps}
                 {...getOptionalLabelProps({
-                    id,
                     isLabelVisible,
                     label,
                     labelProps,
                     labelTooltip,
+                    name,
                 })}
             >
                 <SlotWrapper
@@ -104,7 +108,7 @@ export const TextArea = forwardRef(
                                 [a11yError]: invalid,
                             }
                         )}
-                        id={id}
+                        id={name}
                         name={name}
                         ref={ref}
                         {...otherProps}

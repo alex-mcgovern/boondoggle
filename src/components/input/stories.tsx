@@ -107,40 +107,40 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        id: LOREM.id(),
         label: LOREM.label(),
+        name: LOREM.name(),
     },
 };
 
 export const TypeDate: Story = {
     args: {
-        id: LOREM.id(),
         label: LOREM.label(),
+        name: LOREM.name(),
         type: "date",
     },
 };
 
 export const Invalid: Story = {
     args: {
-        id: LOREM.id(),
         invalid: true,
         label: LOREM.label(),
+        name: LOREM.name(),
     },
 };
 
 export const HasBorderFalse: Story = {
     args: {
         hasBorder: false,
-        id: LOREM.id(),
         label: LOREM.label(),
+        name: LOREM.name(),
     },
 };
 
 export const Description: Story = {
     args: {
         description: LOREM.text_lg,
-        id: LOREM.id(),
         label: LOREM.label(),
+        name: LOREM.name(),
     },
 };
 
@@ -199,7 +199,6 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
         >
             <StoryComp
                 {...(props as StoryCompProps)}
-                id="lg"
                 label="lg"
                 name="lg"
                 placeholder={LOREM.placeholder()}
@@ -207,7 +206,6 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
             />
             <StoryComp
                 {...(props as StoryCompProps)}
-                id="md"
                 label="md"
                 name="md"
                 placeholder={LOREM.placeholder()}
@@ -215,7 +213,6 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
             />
             <StoryComp
                 {...(props as StoryCompProps)}
-                id="sm"
                 label="sm"
                 name="sm"
                 placeholder={LOREM.placeholder()}

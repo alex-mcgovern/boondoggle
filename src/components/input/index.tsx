@@ -365,7 +365,6 @@ function PureInput(
             errorMessage={errorMessage}
             hideLastpass={hideLastpass}
             invalid={invalid}
-            name={name}
             wrapperProps={wrapperProps}
             {...getOptionalLabelProps({
                 isLabelVisible,

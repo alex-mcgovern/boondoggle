@@ -10,7 +10,6 @@ import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
     defaultValue: "2021-01-01",
-    id: "date-picker",
     label: "date picker",
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),

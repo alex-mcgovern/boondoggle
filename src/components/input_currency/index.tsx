@@ -12,7 +12,6 @@ import type {
     WithColorOverlay,
     WithDescription,
     WithHideLastpass,
-    WithId,
     WithName,
     WithOptionalIsClearable,
     WithOptionalIsCopyable,
@@ -92,7 +91,6 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
     SprinklesArgs &
     WithColorOverlay &
     WithHideLastpass &
-    WithId &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
     WithOptionalIsVisibilityToggleable &
@@ -167,7 +165,6 @@ export function PureInputCurrency<TCurrency extends string = string>(
         if (isCurrencyEditable) {
             return (
                 <SelectSingle<TCurrency>
-                    id="currency"
                     initialSelectedItem={currencySelectItems.find((item) => {
                         return item.value === currency;
                     })}

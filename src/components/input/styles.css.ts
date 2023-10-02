@@ -3,30 +3,17 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocusStyleRule } from "../../styles/common/a11y.css";
 import {
-    elementFontSize,
     elementHeight,
-    elementPaddingRaw,
+    elementPadding,
 } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const size = styleVariants({
-    lg: [
-        elementFontSize.md,
-        { padding: elementPaddingRaw.lg.y },
-        { height: elementHeight.lg },
-    ],
-    md: [
-        elementFontSize.md,
-        { padding: elementPaddingRaw.md.y },
-        { height: elementHeight.md },
-    ],
-    sm: [
-        elementFontSize.md,
-        { padding: elementPaddingRaw.sm.y },
-        { height: elementHeight.sm },
-    ],
+    lg: [elementPadding.lg, { height: elementHeight.lg }],
+    md: [elementPadding.md, { height: elementHeight.md }],
+    sm: [elementPadding.sm, { height: elementHeight.sm }],
 });
 
 const hasBorder = styleVariants({

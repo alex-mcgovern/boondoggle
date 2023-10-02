@@ -26,6 +26,7 @@ const mockFormSchema = z.object({
     email: z.string().email().min(2),
     radio: z.string().min(1),
     select: z.string().min(1),
+    value: z.coerce.number().min(1),
 });
 
 const mockFormSchemaOptional = mockFormSchema.partial();
@@ -65,14 +66,12 @@ export const mockForm = ({
         /> */}
                 <FormInput
                     defaultValue={withDefaultValues ? LOREM.email() : undefined}
-                    id="email"
                     label={LOREM.labelEmail()}
                     name="email"
                     placeholder="Enter your email address"
                     wrapperProps={WRAPPER_PROPS}
                 />
                 <FormInputDate
-                    id="date"
                     label="Date"
                     name="date"
                     wrapperProps={WRAPPER_PROPS}
@@ -82,20 +81,18 @@ export const mockForm = ({
                     currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
                     currencySelectLabel="Currency"
                     defaultValue={withDefaultValues ? 100 : undefined}
-                    id="value"
                     initialCurrency="USD"
                     isCurrencyEditable
-                    label="Amount"
+                    label="Value"
                     locale="en-US"
-                    name="amount"
-                    placeholder="Enter an amount"
+                    name="value"
+                    placeholder="Enter a value"
                     wrapperProps={WRAPPER_PROPS}
                 />
                 <FormTextArea
                     defaultValue={
                         withDefaultValues ? LOREM.text_xxs : undefined
                     }
-                    id="description"
                     label={LOREM.labelDescription()}
                     name="description"
                     placeholder="Enter your description"
@@ -108,7 +105,6 @@ export const mockForm = ({
                             ? mockSelectItems({})[0].value
                             : undefined
                     }
-                    id="select"
                     items={mockSelectItems({})}
                     label={LOREM.labelDropdown()}
                     name="select"

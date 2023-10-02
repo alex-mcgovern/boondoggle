@@ -13,7 +13,6 @@ import { a11yError } from "../../../styles/common/a11y.css";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
-    id: "date-picker",
     label: "date picker",
     name: LOREM.name(),
     placeholder: LOREM.placeholder(),

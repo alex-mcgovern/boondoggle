@@ -24,7 +24,9 @@ const mockFormSchema = z.object({
 });
 
 const handleFormSubmissionMock = jest.fn(async (fieldValues: unknown) => {
-    return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`);
+    return alert(
+        `Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`
+    );
 });
 
 const FORM_FIELD_WRAPPER_PROPS: BoxProps = {
@@ -46,7 +48,6 @@ export const WidthSm: StoryObj<StoryCompProps> = {
             <>
                 <FormInput
                     errorMessage="Enter a valid email address"
-                    id="email"
                     label={LOREM.labelEmail()}
                     name="email"
                     placeholder="Enter your email address"
@@ -54,7 +55,6 @@ export const WidthSm: StoryObj<StoryCompProps> = {
                 />
                 <FormTextArea
                     errorMessage="Enter a valid description"
-                    id="description"
                     label={LOREM.labelDescription()}
                     name="description"
                     placeholder="Enter your description"
@@ -62,7 +62,6 @@ export const WidthSm: StoryObj<StoryCompProps> = {
                 />
                 <FormSelectSingle
                     errorMessage="Select an option"
-                    id="select"
                     items={mockSelectItems({})}
                     label={LOREM.labelDropdown()}
                     name="select"
@@ -94,7 +93,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
             <>
                 <FormInput
                     errorMessage="Enter a valid email address"
-                    id="email"
                     label={LOREM.labelEmail()}
                     name="email"
                     placeholder="Enter your email address"
@@ -102,7 +100,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
                 />
                 <FormTextArea
                     errorMessage="Enter a valid description"
-                    id="description"
                     label={LOREM.labelDescription()}
                     name="description"
                     placeholder="Enter your description"
@@ -110,7 +107,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
                 />
                 <FormSelectSingle
                     errorMessage="Select an option"
-                    id="select"
                     items={mockSelectItems({})}
                     label={LOREM.labelDropdown()}
                     name="select"
