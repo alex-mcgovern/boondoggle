@@ -1,7 +1,7 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useCombobox } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
+import { forwardRef, useCallback, useRef, useState } from "react";
 
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
@@ -138,6 +138,7 @@ function SelectSingleBase<TValue extends string = string>(
     initialRef: ForwardedRef<HTMLInputElement>
 ) {
     const ref = useForwardRef(initialRef);
+    const outerRef = useRef<HTMLSpanElement>();
 
     const initialItem =
         initialSelectedItem ||
@@ -200,7 +201,7 @@ function SelectSingleBase<TValue extends string = string>(
 
     const { floatingStyles, refs } = useFloating({
         elements: {
-            reference: ref.current,
+            reference: outerRef.current,
         },
         middleware: [
             offset(4),
@@ -221,6 +222,7 @@ function SelectSingleBase<TValue extends string = string>(
         >
             <Input
                 errorMessage={errorMessage}
+                outerRef={refs.setReference}
                 size={size}
                 slotLeft={selectedItem?.slotLeft || slotLeft}
                 slotRight={getSlotRight({

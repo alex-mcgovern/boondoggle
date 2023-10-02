@@ -49,6 +49,8 @@ import type {
     ChangeEvent,
     ComponentPropsWithoutRef,
     ForwardedRef,
+    MouseEvent,
+    MouseEventHandler,
     ReactNode,
 } from "react";
 
@@ -164,6 +166,11 @@ type InputSlotWrapperProps = WithSlots & {
     invalid: boolean | undefined;
 
     /**
+     * Method to call the input elements onClick handler.
+     */
+    onClick: MouseEventHandler<HTMLInputElement> | undefined;
+
+    /**
      * The size of the input.
      */
     size: ElementSizeEnum | undefined;
@@ -172,34 +179,53 @@ type InputSlotWrapperProps = WithSlots & {
 /**
  * Renders a wrapper around the input and its slots.
  */
-export function InputSlotWrapper({
-    children,
-    className,
-    focus,
-    hasBorder,
-    invalid,
-    size,
-    slotLeft,
-    slotRight,
-}: InputSlotWrapperProps) {
-    return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-        <span
-            className={clsx(
-                getSlotWrapperStyles({ hasBorder, size }),
-                className,
-                {
-                    [a11yError]: invalid,
-                }
-            )}
-            onClick={focus}
-        >
-            {slotLeft}
-            {children}
-            {slotRight}
-        </span>
-    );
-}
+export const InputSlotWrapper = forwardRef<
+    HTMLSpanElement,
+    InputSlotWrapperProps
+>(
+    (
+        {
+            children,
+            className,
+            focus,
+            hasBorder,
+            invalid,
+            onClick,
+            size,
+            slotLeft,
+            slotRight,
+        },
+        ref
+    ) => {
+        const handleClick = useCallback(
+            (e: MouseEvent<HTMLElement>) => {
+                focus();
+                onClick?.(e as MouseEvent<HTMLInputElement>);
+                e.stopPropagation();
+            },
+            [focus, onClick]
+        );
+
+        return (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+            <span
+                className={clsx(
+                    getSlotWrapperStyles({ hasBorder, size }),
+                    className,
+                    {
+                        [a11yError]: invalid,
+                    }
+                )}
+                onClick={handleClick}
+                ref={ref}
+            >
+                {slotLeft}
+                {children}
+                {slotRight}
+            </span>
+        );
+    }
+);
 
 export type InputProps = Partial<
     Pick<
@@ -240,6 +266,11 @@ export type InputProps = Partial<
          * Whether to render the input with a border.
          */
         hasBorder?: boolean;
+
+        /**
+         * A ref to the outer element. (e.g. for positioning an element along with the input)
+         */
+        outerRef?: ForwardedRef<HTMLSpanElement>;
     };
 
 /**
@@ -268,6 +299,8 @@ function PureInput(
         labelProps,
         labelTooltip,
         onChange,
+        onClick,
+        outerRef,
         readOnly,
         size = "md",
         slotLeft,
@@ -336,6 +369,8 @@ function PureInput(
                     focus={focus}
                     hasBorder={hasBorder}
                     invalid={invalid}
+                    onClick={onClick}
+                    ref={outerRef}
                     size={size}
                     slotLeft={slotLeft}
                     slotRight={
