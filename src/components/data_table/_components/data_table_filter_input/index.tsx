@@ -16,6 +16,11 @@ type DataTableFilterInputProps = Required<WithOptionalPlaceholder> & {
      * Function to set the `DataTable` global filter state
      */
     setGlobalFilter: ReturnType<typeof useDataTableState>["setGlobalFilter"];
+
+    /**
+     * The string to display in a tooltip to clear the filters
+     */
+    strClearFilters: string;
 };
 
 /**
@@ -25,6 +30,7 @@ export function DataTableFilterInput({
     globalFilter,
     placeholder,
     setGlobalFilter,
+    strClearFilters,
 }: DataTableFilterInputProps) {
     return (
         <Input
@@ -36,6 +42,7 @@ export function DataTableFilterInput({
             }}
             placeholder={placeholder}
             slotLeft={[<Icon icon={faSearch} />]}
+            strClear={strClearFilters}
             value={globalFilter}
         />
     );

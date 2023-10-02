@@ -8,7 +8,10 @@ import { FieldActionButtonDate } from "../field_action_button_date";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
-import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../common-types";
+import type {
+    WithOptionalLabel,
+    WithOptionalPlaceholder,
+} from "../../common-types";
 import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
@@ -16,7 +19,9 @@ import type { MouseEvent } from "react";
  * Converts a local date to a UTC date.
  */
 function convertLocalToUTCDate(date: Date) {
-    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    return new Date(
+        Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+    );
 }
 
 export type InputDateProps = Omit<
@@ -38,7 +43,9 @@ export type InputDateProps = Omit<
         /**
          * Callback to be called when the date changes.
          */
-        onChange?: ((date: string) => unknown) | ((date: string) => Promise<unknown>);
+        onChange?:
+            | ((date: string) => unknown)
+            | ((date: string) => Promise<unknown>);
     };
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
@@ -56,11 +63,13 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
         }: InputDateProps,
         ref
     ) => {
-        const [inputValue, setInputValue] = useState<string | number | readonly string[]>(
-            value || defaultValue || ""
-        );
+        const [inputValue, setInputValue] = useState<
+            string | number | readonly string[]
+        >(value || defaultValue || "");
 
-        const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
+        const [isOpen, setIsOpen] = useState<boolean | undefined>(
+            controlledIsOpen
+        );
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
@@ -83,8 +92,6 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                 {...rest}
                 className={inputDateStyle}
                 defaultValue={defaultValue}
-                isVisibilityToggleable={undefined}
-                isVisible={undefined}
                 onChange={(e) => {
                     return onChange?.(e.target.value);
                 }}

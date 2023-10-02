@@ -2,9 +2,13 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yFocusStyleRule } from "../../styles/common/a11y.css";
-import { elementHeight, elementPadding } from "../../styles/common/element_size.css";
+import {
+    elementHeight,
+    elementPadding,
+} from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { slotWrapperCls } from "../input/styles.css";
 
 const tabSide = styleVariants({
     left: {
@@ -22,13 +26,13 @@ const hasBorder = styleVariants({
     true: {},
 });
 
-globalStyle(`${tabSide.left} input`, {
+globalStyle(`${tabSide.left} ${slotWrapperCls}`, {
     borderBottomRightRadius: "0",
     borderRight: "none",
     borderTopRightRadius: "0",
 });
 
-globalStyle(`${tabSide.right} input`, {
+globalStyle(`${tabSide.right} ${slotWrapperCls}`, {
     borderBottomLeftRadius: "0",
     borderLeft: "none",
     borderTopLeftRadius: "0",
@@ -126,12 +130,12 @@ export const addonChildrenStyle = style({
     // width: "100%",
 });
 
-globalStyle(`${hasAddonLeft.true} > ${addonChildrenStyle} input`, {
+globalStyle(`${hasAddonLeft.true} > ${addonChildrenStyle} ${slotWrapperCls}`, {
     borderBottomLeftRadius: 0,
     borderTopLeftRadius: 0,
 });
 
-globalStyle(`${hasAddonRight.true} > ${addonChildrenStyle} input`, {
+globalStyle(`${hasAddonRight.true} > ${addonChildrenStyle} ${slotWrapperCls}`, {
     borderBottomRightRadius: 0,
     borderTopRightRadius: 0,
 });

@@ -8,6 +8,9 @@ const meta = {
         id: LOREM.id(),
         label: LOREM.label(),
         name: LOREM.name(),
+        onChange: (newDate) => {
+            console.info("newDate", newDate);
+        },
         placeholder: LOREM.placeholder(),
     },
     component: StoryComp,

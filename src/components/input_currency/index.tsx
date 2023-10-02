@@ -3,10 +3,11 @@
 /* eslint-disable react-perf/jsx-no-new-object-as-prop */
 import { forwardRef, useEffect, useMemo, useState } from "react";
 
-import { useForwardRef } from "../../hooks/use_forward_ref";
+import { useRenderCount } from "../../../test/use_render_count";
 import { Input } from "../input";
 import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
+import { useFormattedCurrency } from "./use_formatted_currency";
 
 import type {
     WithColorOverlay,
@@ -28,108 +29,9 @@ import type {
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
 import type { SelectItemShape } from "../select/types";
-import type { ChangeEvent, ComponentPropsWithoutRef, ForwardedRef } from "react";
+import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 
-type GetCurrencySymbolArgs = {
-    currency: string;
-    locale: string;
-};
-
-const getCurrencySymbol = ({ currency, locale }: GetCurrencySymbolArgs): string => {
-    const fmt = new Intl.NumberFormat(locale, {
-        currency,
-        style: "currency",
-    });
-
-    let symbol = "";
-    fmt.formatToParts(0).forEach(({ type, value }) => {
-        if (type === "currency") {
-            symbol = value;
-        }
-    });
-
-    return symbol;
-};
-
-/**
- * Formats a numeric string into a currency string.
- * @example formatter("1234.56", "$") // "$ 1,234.56"
- */
-export function formatter(value: string, currencySymbol: string) {
-    const numOnly = value.match(/(\d|\.)/g)?.join("");
-    const hasDecimal = !!numOnly?.includes(".");
-
-    const [preDecimal, postDecimal] = numOnly?.split(".") || [];
-
-    const formattedPreDecimal = preDecimal?.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-    return `${currencySymbol} ${formattedPreDecimal || ""}${hasDecimal ? `.${postDecimal}` : ""}`;
-}
-
-/**
- * Parses a currency string into a numeric string.
- * @example parser("$ 1,234.56", "$") // "1234.56"
- */
-export function parser(value: string, currencySymbol: string) {
-    return value.replace(new RegExp(`\\${currencySymbol}\\s?|(,*)`, "g"), "");
-}
-
-type NativeEventInputType =
-    | "input"
-    | "insertText"
-    | "deleteContentBackward"
-    | "deleteContentForward"
-    | "historyUndo"
-    | "historyRedo"
-    | "deleteSoftLineBackward";
-
-type GetCursorPositionArgs = {
-    formattedValue: string;
-    incomingValue: string;
-    inputType: NativeEventInputType;
-    selectionEnd: number | null;
-    selectionStart: number | null;
-};
-
-export const getCursorPosition = ({
-    formattedValue,
-    incomingValue,
-    inputType,
-    selectionEnd,
-    selectionStart,
-}: GetCursorPositionArgs): { end: number | null; start: number | null } => {
-    const nonDigitsBefore = incomingValue.match(/\D/g)?.length || 0;
-    const nonDigitsAfter = formattedValue.match(/\D/g)?.length || 0;
-    const delta = nonDigitsAfter - nonDigitsBefore;
-
-    const firstDigitIndex = formattedValue.search(/\d/);
-    const minIndex = Math.min(firstDigitIndex, formattedValue.length) + 1;
-
-    const selectionStartOffsetNonDigits = selectionStart ? selectionStart + delta : null;
-    const selectionEndOffsetNonDigits = selectionEnd ? selectionEnd + delta : null;
-
-    const minSelectionStart = Math.max(selectionStartOffsetNonDigits || 0, minIndex);
-    const minSelectionEnd = Math.max(selectionEndOffsetNonDigits || 0, minIndex);
-
-    switch (inputType) {
-        case "deleteSoftLineBackward":
-        case "deleteContentBackward":
-        case "insertText": {
-            return {
-                end: minSelectionEnd,
-                start: minSelectionStart,
-            };
-        }
-        default: {
-            return {
-                end: selectionEnd,
-                start: selectionEnd,
-            };
-        }
-    }
-};
-
-type IsCurrencyEditable<TCurrency extends string> = {
+type IsCurrencyEditable<TCurrency extends string = string> = {
     /**
      * Available currencies to switch between.
      */
@@ -169,11 +71,11 @@ type IsNotCurrencyEditable = {
     onCurrencyChange?: never;
 };
 
-type WithIsOptionalCurrencyEditable<TCurrency extends string> =
+type WithIsOptionalCurrencyEditable<TCurrency extends string = string> =
     | IsCurrencyEditable<TCurrency>
     | IsNotCurrencyEditable;
 
-export type InputCurrencyProps<TCurrency extends string> = Partial<
+export type InputCurrencyProps<TCurrency extends string = string> = Partial<
     Pick<
         ComponentPropsWithoutRef<"input">,
         | "onChange"
@@ -221,7 +123,7 @@ export type InputCurrencyProps<TCurrency extends string> = Partial<
         /**
          * The locale to use in formatting.
          */
-        region: string;
+        locale: string;
         /**
          * The value of the input.
          */
@@ -232,22 +134,24 @@ export type InputCurrencyProps<TCurrency extends string> = Partial<
  * A component to render a currency input.
  * @private Is a base component that should be wrapped with `ForwardRef`.
  */
-export function InputCurrencyBase<TCurrency extends string>(
+export function PureInputCurrency<TCurrency extends string = string>(
     {
         currencySelectItems,
         currencySelectLabel,
         defaultValue,
         initialCurrency,
         isCurrencyEditable,
-        onChange,
+        locale,
+        onChange: initOnChange,
         onCurrencyChange,
-        region,
-        value,
+        value: controlledValue,
         ...rest
     }: InputCurrencyProps<TCurrency>,
     ref: ForwardedRef<HTMLInputElement>
 ) {
     const [currency, setCurrency] = useState<TCurrency>(initialCurrency);
+
+    useRenderCount();
 
     useEffect(() => {
         if (initialCurrency) {
@@ -255,20 +159,12 @@ export function InputCurrencyBase<TCurrency extends string>(
         }
     }, [initialCurrency]);
 
-    const currencySymbol = useMemo(() => {
-        return getCurrencySymbol({ currency, locale: region });
-    }, [currency, region]);
-
-    const inputRef = useForwardRef<HTMLInputElement>(ref);
-
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.value = formatter(
-                parser(inputRef.current.value, currencySymbol),
-                currencySymbol
-            );
-        }
-    }, [inputRef, currencySymbol]);
+    const { onChange, value } = useFormattedCurrency({
+        defaultValue,
+        locale,
+        onChange: initOnChange,
+        value: controlledValue,
+    });
 
     const addonRight = useMemo(() => {
         if (isCurrencyEditable) {
@@ -294,43 +190,26 @@ export function InputCurrencyBase<TCurrency extends string>(
             );
         }
         return currency;
-    }, [currency, currencySelectItems, currencySelectLabel, isCurrencyEditable, onCurrencyChange]);
+    }, [
+        currency,
+        currencySelectItems,
+        currencySelectLabel,
+        isCurrencyEditable,
+        onCurrencyChange,
+    ]);
 
     return (
         <Input
             addonRight={addonRight}
             autoComplete="off"
-            defaultValue={
-                defaultValue ? formatter(defaultValue?.toString(), currencySymbol) : undefined
-            }
+            data-value={value.raw}
             inputMode="decimal"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                const { selectionEnd, selectionStart, value: val } = e.target;
-
-                const formattedValue = formatter(parser(val, currencySymbol), currencySymbol);
-
-                const newSelect = getCursorPosition({
-                    formattedValue,
-                    incomingValue: val,
-                    inputType: (e.nativeEvent as InputEvent).inputType as NativeEventInputType,
-                    selectionEnd,
-                    selectionStart,
-                });
-
-                onChange?.({
-                    ...e,
-                    target: { ...e.target, value: parser(val, currencySymbol) },
-                });
-
-                e.target.value = formattedValue;
-                e.target.selectionStart = newSelect.start;
-                e.target.selectionEnd = newSelect.end;
-            }}
-            ref={inputRef}
-            value={value ? formatter(value?.toString(), currencySymbol) : undefined}
+            onChange={onChange}
+            ref={ref}
+            value={value.formatted}
             {...rest}
         />
     );
 }
 
-export const InputCurrency = forwardRef(InputCurrencyBase);
+export const InputCurrency = forwardRef(PureInputCurrency);

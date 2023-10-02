@@ -76,7 +76,6 @@ export const mockForm = ({
                     name="date"
                     wrapperProps={WRAPPER_PROPS}
                 />
-                {/** @ts-expect-error props are busted */}
                 <FormInputCurrency<"AED" | "USD" | "EUR">
                     currencySelectItems={
                         [
@@ -123,7 +122,9 @@ export const mockForm = ({
                     wrapperProps={WRAPPER_PROPS}
                 />
                 <FormTextArea
-                    defaultValue={withDefaultValues ? LOREM.text_xxs : undefined}
+                    defaultValue={
+                        withDefaultValues ? LOREM.text_xxs : undefined
+                    }
                     id="description"
                     label={LOREM.labelDescription()}
                     name="description"
@@ -132,7 +133,11 @@ export const mockForm = ({
                     wrapperProps={WRAPPER_PROPS}
                 />
                 <FormSelectSingle
-                    defaultValue={withDefaultValues ? mockSelectItems({})[0].value : undefined}
+                    defaultValue={
+                        withDefaultValues
+                            ? mockSelectItems({})[0].value
+                            : undefined
+                    }
                     id="select"
                     items={mockSelectItems({})}
                     label={LOREM.labelDropdown()}
@@ -150,7 +155,11 @@ export const mockForm = ({
                     wrapperProps={WRAPPER_PROPS}
                 />
                 <FormRadioButtonCardGroup
-                    defaultValue={withDefaultValues ? RADIO_BUTTON_CARDS_MOCK[0].value : undefined}
+                    defaultValue={
+                        withDefaultValues
+                            ? RADIO_BUTTON_CARDS_MOCK[0].value
+                            : undefined
+                    }
                     errorMessage="Select an option"
                     id="radio"
                     items={RADIO_BUTTON_CARDS_MOCK}
@@ -164,6 +173,8 @@ export const mockForm = ({
         handleErrors,
         handleSubmit,
         name: LOREM.name(),
-        resolver: zodResolver(withOptionalFields ? mockFormSchemaOptional : mockFormSchema),
+        resolver: zodResolver(
+            withOptionalFields ? mockFormSchemaOptional : mockFormSchema
+        ),
     };
 };

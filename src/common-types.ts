@@ -19,12 +19,13 @@ declare module "react" {
     ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
 }
 
-export type TDataTableRowActions<TData extends RowData> = JSXElementConstructor<{
-    /**
-     * The raw data for the DataTable row.
-     */
-    row_data: TData;
-}>;
+export type TDataTableRowActions<TData extends RowData> =
+    JSXElementConstructor<{
+        /**
+         * The raw data for the DataTable row.
+         */
+        row_data: TData;
+    }>;
 
 export type WithDescription = {
     /**
@@ -64,6 +65,16 @@ type BaseIsCopyable = {
      * Whether the input is read-only or not.
      */
     readOnly?: boolean;
+
+    /**
+     * The tooltip text to display when the button is hovered after copying.
+     */
+    strCopied?: string;
+
+    /**
+     * The tooltip text to display when the button is hovered before copying.
+     */
+    strCopy?: string;
 };
 
 /* eslint-disable jsdoc/require-jsdoc */
@@ -71,11 +82,15 @@ type BaseIsCopyable = {
 type IsCopyable = BaseIsCopyable & {
     isCopyable: true;
     readOnly: true;
+    strCopied: string;
+    strCopy: string;
 };
 
 type IsNotCopyable = BaseIsCopyable & {
     isCopyable?: never;
     readOnly?: boolean;
+    strCopied?: never;
+    strCopy?: never;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
@@ -85,8 +100,17 @@ export type WithOptionalIsCopyable = IsCopyable | IsNotCopyable;
 export const getOptionalIsCopyableProps = ({
     isCopyable,
     readOnly,
+    strCopied,
+    strCopy,
 }: BaseIsCopyable): WithOptionalIsCopyable => {
-    return readOnly && isCopyable ? { isCopyable, readOnly } : { isCopyable: undefined, readOnly };
+    return readOnly && isCopyable && strCopy && strCopied
+        ? { isCopyable, readOnly, strCopied, strCopy }
+        : {
+              isCopyable: undefined,
+              readOnly,
+              strCopied: undefined,
+              strCopy: undefined,
+          };
 };
 
 type BaseIsVisibilityToggleable = {
@@ -99,20 +123,32 @@ type BaseIsVisibilityToggleable = {
      * Whether the input field value is visible or not.
      */
     isVisible?: boolean;
+
+    /**
+     * The tooltip text to display when the button is hovered when value is hidden.
+     */
+    strHide?: string;
+
+    /**
+     * The tooltip text to display when the button is hovered when value is visible.
+     */
+    strShow?: string;
 };
 
 /* eslint-disable jsdoc/require-jsdoc */
 
 type WithIsVisibilityToggleable = BaseIsVisibilityToggleable & {
     isVisibilityToggleable: true;
-
     isVisible?: boolean;
+    strHide: string;
+    strShow: string;
 };
 
 type WithoutIsVisibilityToggleable = BaseIsVisibilityToggleable & {
     isVisibilityToggleable?: never;
-
     isVisible?: never;
+    strHide?: never;
+    strShow?: never;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
@@ -128,8 +164,12 @@ export type WithOptionalIsVisibilityToggleable =
 export const getOptionalIsVisibilityToggleableProps = ({
     isVisibilityToggleable,
     isVisible,
+    strHide,
+    strShow,
 }: BaseIsVisibilityToggleable): WithOptionalIsVisibilityToggleable => {
-    return isVisibilityToggleable ? { isVisibilityToggleable, isVisible } : {};
+    return isVisibilityToggleable && strShow && strHide
+        ? { isVisibilityToggleable, isVisible, strHide, strShow }
+        : {};
 };
 
 type BaseIsClearable = {
@@ -142,6 +182,11 @@ type BaseIsClearable = {
      * Whether the input is read-only or not.
      */
     readOnly?: boolean;
+
+    /**
+     * The tooltip text to display when the button is hovered.
+     */
+    strClear?: string;
 };
 
 /* eslint-disable jsdoc/require-jsdoc */
@@ -149,11 +194,13 @@ type BaseIsClearable = {
 type IsClearable = BaseIsClearable & {
     isClearable: true;
     readOnly?: never;
+    strClear: string;
 };
 
 type IsNotClearable = BaseIsClearable & {
     isClearable?: never;
     readOnly?: boolean;
+    strClear?: never;
 };
 
 /* eslint-enable jsdoc/require-jsdoc */
@@ -167,10 +214,11 @@ export type WithOptionalIsClearable = IsClearable | IsNotClearable;
 export const getOptionalIsClearableProps = ({
     isClearable,
     readOnly,
+    strClear,
 }: BaseIsClearable): WithOptionalIsClearable => {
-    return !readOnly && isClearable
-        ? { isClearable, readOnly: undefined }
-        : { isClearable: undefined, readOnly };
+    return !readOnly && isClearable && strClear
+        ? { isClearable, readOnly: undefined, strClear }
+        : { isClearable: undefined, readOnly, strClear: undefined };
 };
 
 export type WithWrapperProps = {
@@ -252,7 +300,7 @@ type WithLabel = BaseWithLabel & {
 type WithoutLabel = BaseWithLabel & {
     id?: string;
 
-    isLabelViaible?: never;
+    isLabelVisible?: never;
 
     label?: never;
 
@@ -288,7 +336,7 @@ export type WithSize = {
     size?: ElementSizeEnum;
 };
 
-export type Slot = [ReactNode?, ReactNode?, ReactNode?];
+export type Slot = ReactNode | [ReactNode?, ReactNode?, ReactNode?];
 
 export type WithSlots = {
     /**
@@ -468,14 +516,19 @@ type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
     as?: TPolymorphicAs;
 };
 
-type PropsToOmit<TPolymorphicAs extends ElementType, P> = keyof (PolyMorphicAsProp<TPolymorphicAs> &
-    P);
+type PropsToOmit<
+    TPolymorphicAs extends ElementType,
+    P
+> = keyof (PolyMorphicAsProp<TPolymorphicAs> & P);
 
 type PolymorphicComponentProp<
     TPolymorphicAs extends ElementType,
     Props = Record<string, unknown>
 > = PropsWithChildren<Props & PolyMorphicAsProp<TPolymorphicAs>> &
-    Omit<ComponentPropsWithoutRef<TPolymorphicAs>, PropsToOmit<TPolymorphicAs, Props>>;
+    Omit<
+        ComponentPropsWithoutRef<TPolymorphicAs>,
+        PropsToOmit<TPolymorphicAs, Props>
+    >;
 
 export type PolymorphicComponentPropWithRef<
     TPolymorphicAs extends ElementType,
@@ -491,4 +544,6 @@ export type PolymorphicRef<TPolymorphicAs extends ElementType> =
     ComponentPropsWithRef<TPolymorphicAs>["ref"];
 
 // Enum of all HTML element types
-export type ElementTypeArg = HTMLElementTagNameMap[keyof HTMLElementTagNameMap] | undefined;
+export type ElementTypeArg =
+    | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
+    | undefined;

@@ -21,7 +21,7 @@ export default defineConfig({
     minify: true,
     outDir: "dist",
     platform: "browser",
-    sourcemap: false,
+    sourcemap: true,
     splitting: true,
     target: "es2020",
     treeshake: true,

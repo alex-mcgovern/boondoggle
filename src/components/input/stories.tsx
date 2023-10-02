@@ -5,11 +5,18 @@
 /* eslint-disable react-perf/jsx-no-new-function-as-prop */
 
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
+import {
+    faArrowLeft,
+    faArrowRight,
+    faLock,
+    faRefresh,
+    faTriangleCircleSquare,
+} from "@fortawesome/pro-solid-svg-icons";
 
 import { Input as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../box";
+import { Button } from "../button";
 import { Icon } from "../icon";
 
 import type { InputProps as StoryCompProps } from ".";
@@ -20,6 +27,69 @@ const meta = {
         name: LOREM.name(),
         placeholder: LOREM.placeholder(),
     },
+    argTypes: {
+        addonLeft: {
+            table: {
+                category: "Add-ons",
+            },
+        },
+        addonRight: {
+            table: {
+                category: "Add-ons",
+            },
+        },
+        isVisibilityToggleable: {
+            table: {
+                category: "Visibility",
+            },
+        },
+        isVisible: {
+            table: {
+                category: "Visibility",
+            },
+        },
+        onBlur: {
+            table: {
+                category: "Event handlers",
+            },
+        },
+        onChange: {
+            table: {
+                category: "Event handlers",
+            },
+        },
+        onClick: {
+            table: {
+                category: "Event handlers",
+            },
+        },
+        onFocus: {
+            table: {
+                category: "Event handlers",
+            },
+        },
+        onMouseLeave: {
+            table: {
+                category: "Event handlers",
+            },
+        },
+        onMouseOver: {
+            table: {
+                category: "Event handlers",
+            },
+        },
+        slotLeft: {
+            table: {
+                category: "Slots",
+            },
+        },
+        slotRight: {
+            table: {
+                category: "Slots",
+            },
+        },
+    },
+
     component: StoryComp,
     title: "Components/Input",
 } satisfies Meta<typeof StoryComp>;
@@ -160,120 +230,30 @@ export const Sizes: Story = {
     render: TemplateSizes,
 };
 
-const TemplateSlot = () => {
-    return (
-        <>
-            <Box as="h3">Slot left (icon)</Box>
-            <TemplateSizes slotLeft={[<Icon icon={faTriangleCircleSquare} />]} />
-            <TemplateSizes
-                slotLeft={[
-                    <Icon icon={faTriangleCircleSquare} />,
-                    <Icon icon={faTriangleCircleSquare} />,
-                ]}
-            />
-            <TemplateSizes
-                slotLeft={[
-                    <Icon icon={faTriangleCircleSquare} />,
-                    <Icon icon={faTriangleCircleSquare} />,
-                    <Icon icon={faTriangleCircleSquare} />,
-                ]}
-            />
-
-            <hr />
-            <Box as="h3">Slot left (button)</Box>
-
-            <TemplateSizes isClearable />
-            <TemplateSizes
-                isClearable
-                isCopyable
-            />
-            <TemplateSizes
-                isClearable
-                isCopyable
-            />
-
-            <hr />
-            <Box as="h3">Slot right (icon)</Box>
-
-            <TemplateSizes slotRight={[<Icon icon={faTriangleCircleSquare} />]} />
-            <TemplateSizes
-                slotRight={[
-                    <Icon icon={faTriangleCircleSquare} />,
-                    <Icon icon={faTriangleCircleSquare} />,
-                ]}
-            />
-            <TemplateSizes
-                slotRight={[
-                    <Icon icon={faTriangleCircleSquare} />,
-                    <Icon icon={faTriangleCircleSquare} />,
-                    <Icon icon={faTriangleCircleSquare} />,
-                ]}
-            />
-
-            <hr />
-            <Box as="h3">Slot right (button)</Box>
-
-            <TemplateSizes isClearable />
-            <TemplateSizes
-                isClearable
-                isCopyable
-            />
-            <TemplateSizes
-                isClearable
-                isCopyable
-            />
-        </>
-    );
-};
-
-export const Slot: Story = {
-    render: TemplateSlot,
-};
-
-const TemplateIsClearable = () => {
-    return (
-        <>
-            <Box as="h3">Is clearable</Box>
-
-            <TemplateSizes isClearable />
-        </>
-    );
-};
-
 export const IsClearable: Story = {
-    render: TemplateIsClearable,
-};
-
-const TemplateIsCopyable = () => {
-    return (
-        <>
-            <Box as="h3">Is copyable</Box>
-
-            <TemplateSizes isCopyable />
-        </>
-    );
+    args: {
+        isClearable: true,
+        strClear: "Clear input",
+    },
 };
 
 export const IsCopyable: Story = {
-    render: TemplateIsCopyable,
-};
-
-const TemplateIsVisibilityToggleable = () => {
-    return (
-        <>
-            <Box as="h3">Is visibility toggleable</Box>
-
-            <TemplateSizes
-                defaultValue={LOREM.text_xxs}
-                isVisibilityToggleable
-                isVisible={false}
-            />
-        </>
-    );
+    args: {
+        defaultValue: LOREM.text_md,
+        isCopyable: true,
+        readOnly: true,
+        strCopied: "Copied",
+        strCopy: "Copy",
+    },
 };
 
 export const IsVisibilityToggleable: Story = {
-    render: TemplateIsVisibilityToggleable,
+    args: {
+        isVisibilityToggleable: true,
+        isVisible: false,
+        strHide: "Hide",
+        strShow: "Show",
+    },
 };
 
 const TemplateIsVisibilityToggleableAndIsCopyable = () => {
@@ -309,4 +289,73 @@ export const StateDisabled: Story = {
 
 export const StateReadOnly: Story = {
     args: { readOnly: true },
+};
+
+export const With1SlotLeft: Story = {
+    args: {
+        slotLeft: [<Icon icon={faArrowLeft} />],
+    },
+};
+
+export const With2SlotLeft: Story = {
+    args: {
+        slotLeft: [<Icon icon={faArrowLeft} />, <Icon icon={faArrowLeft} />],
+    },
+};
+
+export const With3SlotLeft: Story = {
+    args: {
+        slotLeft: [
+            <Icon icon={faArrowLeft} />,
+            <Icon icon={faArrowLeft} />,
+            <Icon icon={faArrowLeft} />,
+        ],
+    },
+};
+
+export const With1SlotRight: Story = {
+    args: {
+        slotRight: [<Icon icon={faArrowRight} />],
+    },
+};
+
+export const With1SlotRightWide: Story = {
+    args: {
+        slotRight: [
+            <Button
+                appearance="ghost"
+                name="reset"
+                size="sm"
+                slotLeft={[<Icon icon={faRefresh} />]}
+            >
+                Reset
+            </Button>,
+        ],
+    },
+};
+
+export const With1SlotRightIsCopyable: Story = {
+    args: {
+        isCopyable: true,
+        readOnly: true,
+        slotRight: [<Icon icon={faLock} />],
+        strCopied: "Copied",
+        strCopy: "Copy",
+    },
+};
+
+export const With2SlotRight: Story = {
+    args: {
+        slotRight: [<Icon icon={faArrowRight} />, <Icon icon={faArrowRight} />],
+    },
+};
+
+export const With3SlotRight: Story = {
+    args: {
+        slotRight: [
+            <Icon icon={faArrowRight} />,
+            <Icon icon={faArrowRight} />,
+            <Icon icon={faArrowRight} />,
+        ],
+    },
 };
