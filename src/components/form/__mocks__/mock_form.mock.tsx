@@ -82,7 +82,7 @@ export const mockForm = ({
                     currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
                     currencySelectLabel="Currency"
                     defaultValue={withDefaultValues ? 100 : undefined}
-                    id="amount"
+                    id="value"
                     initialCurrency="USD"
                     isCurrencyEditable
                     label="Amount"

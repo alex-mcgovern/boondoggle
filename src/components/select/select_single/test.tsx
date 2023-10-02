@@ -89,7 +89,7 @@ describe("<SelectSingle />", () => {
 });
 
 describe("<SelectSingle />", () => {
-    test.only("mouse navigation", async () => {
+    test("mouse navigation", async () => {
         const ON_CLICK = jest.fn();
 
         const ITEMS_AS_BUTTONS = mockSelectItems({
@@ -205,11 +205,11 @@ describe("<SelectSingle />", () => {
 
         const combobox = getByRole("combobox");
 
-        expect(combobox).toHaveClass(a11yError);
+        expect(combobox.parentNode).toHaveClass(a11yError);
 
-        expect(combobox.parentElement?.parentElement).toHaveClass(
-            variantColorOverlay.red
-        );
+        expect(
+            combobox.parentNode?.parentNode?.parentNode?.parentNode
+        ).toHaveClass(variantColorOverlay.red);
 
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });
