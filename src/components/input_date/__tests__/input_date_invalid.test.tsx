@@ -36,11 +36,11 @@ describe("<InputDate />", () => {
 
             const textbox = getByLabelText(PROPS.label);
 
-            expect(textbox).toHaveClass(a11yError);
+            expect(textbox.parentNode).toHaveClass(a11yError);
 
-            expect(textbox?.parentNode?.parentNode?.parentNode?.parentNode).toHaveClass(
-                variantColorOverlay.red
-            );
+            expect(
+                textbox?.parentNode?.parentNode?.parentNode?.parentNode
+            ).toHaveClass(variantColorOverlay.red);
         });
 
         test("should render error message", async () => {

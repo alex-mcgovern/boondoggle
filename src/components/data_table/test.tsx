@@ -15,7 +15,9 @@ import { Icon } from "../icon";
 import type { DataTableProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 
-const renderComponent = ({ ...props }: DataTableProps<MockAccountColumnData>) => {
+const renderComponent = ({
+    ...props
+}: DataTableProps<MockAccountColumnData>) => {
     return render(<DataTable {...props} />);
 };
 
@@ -31,7 +33,7 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
         </Button>,
         <Button
             name="primary_action"
-            slotLeft={[<Icon icon={faPlus} />]}
+            slotLeft={<Icon icon={faPlus} />}
         >
             Primary action
         </Button>,
@@ -42,6 +44,7 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
     isPaginated: true,
     isSortable: true,
     strClearAllFilters: "Clear all filters",
+    strClearFilterInput: "Clear filter input",
     strFilterPlaceholder: "Filter results...",
     strNext: "Next",
     strNoResults: "No results",

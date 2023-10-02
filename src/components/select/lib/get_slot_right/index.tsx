@@ -16,7 +16,12 @@ type GetSlotRightArgs = {
     /**
      * The slotRight node.
      */
-    slotRight: [ReactNode?, ReactNode?, ReactNode?];
+    slotRight: ReactNode;
+
+    /**
+     * The tooltip text to display when the button is hovered.
+     */
+    strClear?: string;
 };
 
 /**
@@ -26,10 +31,16 @@ export const getSlotRight = ({
     isClearable,
     reset,
     slotRight,
-}: GetSlotRightArgs): [ReactNode?, ReactNode?, ReactNode?] => {
-    if (isClearable) {
-        return [<FieldActionButtonClear onClick={reset} />];
+    strClear,
+}: GetSlotRightArgs): ReactNode => {
+    if (isClearable && strClear) {
+        return (
+            <FieldActionButtonClear
+                onClick={reset}
+                strClear={strClear}
+            />
+        );
     }
 
-    return [slotRight];
+    return slotRight;
 };

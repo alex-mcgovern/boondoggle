@@ -37,15 +37,15 @@ export const SizeLg: Story = {
 };
 
 export const SlotLeftIcon: Story = {
-    args: { slotLeft: [<Icon icon={faTriangleCircleSquare} />] },
+    args: { slotLeft: <Icon icon={faTriangleCircleSquare} /> },
 };
 
 export const SlotRightIcon: Story = {
-    args: { slotRight: [<Icon icon={faTriangleCircleSquare} />] },
+    args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
 };
 
 export const SlotRightLoader: Story = {
-    args: { slotRight: [<Loader />] },
+    args: { slotRight: <Loader /> },
 };
 
 export const StateHover: Story = {

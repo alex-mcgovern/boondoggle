@@ -9,10 +9,10 @@ import type { InputCurrencyProps } from "../input_currency";
  * React Hook Form connected version of Boondoggle's `InputCurrency`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormInputCurrencyProps<TCurrency extends string> = InputCurrencyProps<TCurrency> &
-    WithFormFieldProps;
+export type FormInputCurrencyProps<TCurrency extends string = string> =
+    InputCurrencyProps<TCurrency> & WithFormFieldProps;
 
-export function FormInputCurrency<TCurrency extends string>({
+export function FormInputCurrency<TCurrency extends string = string>({
     defaultValue,
     invalid,
     name,
@@ -23,7 +23,12 @@ export function FormInputCurrency<TCurrency extends string>({
     const { control } = useFormContext();
 
     const {
-        field: { onBlur, onChange: reactHookFormOnChange, ref, value: controlledValue = "" },
+        field: {
+            onBlur,
+            onChange: reactHookFormOnChange,
+            ref,
+            value: controlledValue = "",
+        },
         fieldState: { error },
     } = useController({
         control,

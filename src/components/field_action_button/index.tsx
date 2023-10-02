@@ -1,14 +1,18 @@
+import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { Button } from "../button";
-import { getActionButtonSize } from "./lib/get_action_button_size";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { fieldActionButtonStyle } from "./styles.css";
 
-import type { Slot } from "../../common-types";
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { ButtonProps } from "../button";
+import type { ReactNode } from "react";
 
 export type FieldActionButtonProps = {
+    /**
+     * Custom CSS class to apply to the button.
+     */
+    className?: string;
+
     /**
      * The name of the button.
      */
@@ -20,33 +24,56 @@ export type FieldActionButtonProps = {
     onClick: () => void;
 
     /**
-     * The size of the field the button is embedded within.
-     */
-    size?: ElementSizeEnum;
-
-    /**
      * The slot to render on the button.
      */
-    slot: Slot;
-} & Omit<ButtonProps, "appearance" | "className" | "slotLeft" | "slotRight" | "type" | "size">;
+    slot: ReactNode;
+
+    /**
+     * The tooltip text to display when the button is hovered.
+     */
+    strTooltip?: string;
+} & Omit<
+    ButtonProps,
+    "appearance" | "className" | "slotLeft" | "slotRight" | "type" | "size"
+>;
 
 /**
  * A configurable button for use within a field.
  */
-export const FieldActionButton = forwardRef<HTMLButtonElement, FieldActionButtonProps>(
-    ({ name, onClick, size = "md", slot, ...rest }, ref) => {
+export const FieldActionButton = forwardRef<
+    HTMLButtonElement,
+    FieldActionButtonProps
+>(({ className, name, onClick, slot, strTooltip, ...rest }, ref) => {
+    if (!strTooltip) {
         return (
-            <Button
-                appearance="ghost"
-                className={fieldActionButtonStyle}
+            <button
+                className={clsx(fieldActionButtonStyle, className)}
                 name={name}
                 onClick={onClick}
                 ref={ref}
-                size={getActionButtonSize(size)}
-                slotLeft={slot}
                 type="button"
                 {...rest}
-            />
+            >
+                {slot}
+            </button>
         );
     }
-);
+
+    return (
+        <Tooltip placement="top">
+            <TooltipTrigger asChild>
+                <button
+                    className={clsx(fieldActionButtonStyle, className)}
+                    name={name}
+                    onClick={onClick}
+                    ref={ref}
+                    type="button"
+                    {...rest}
+                >
+                    {slot}
+                </button>
+            </TooltipTrigger>
+            <TooltipContent>{strTooltip}</TooltipContent>
+        </Tooltip>
+    );
+});

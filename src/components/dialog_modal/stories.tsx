@@ -30,7 +30,7 @@ const DialogContent = () => {
                     <DialogInfoBullet
                         // eslint-disable-next-line react/no-array-index-key
                         key={`key-${index}`}
-                        slotLeft={[<Icon icon={faShapes} />]}
+                        slotLeft={<Icon icon={faShapes} />}
                         text={LOREM.text_lg}
                     />
                 );
@@ -48,7 +48,9 @@ export const Default: StoryObj<StoryCompProps> = {
     render: Template,
 };
 
-const ControlledTemplate: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
+const ControlledTemplate: StoryFn<StoryCompProps> = ({
+    ...rest
+}: StoryCompProps) => {
     const dialogRef = createRef<HTMLDialogElement>();
 
     const openDialog = useCallback(() => {
@@ -240,24 +242,25 @@ export const WithConfirmationAction: StoryObj<StoryCompProps> = {
     render: Template,
 };
 
-export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> = {
-    args: {
-        actions: (
-            <DialogModalActionConfirm
-                buttonText="Freeze account"
-                colorOverlay="red"
-                confirmText="freeze account"
-                onClick={() => {
-                    alert("Confirmed");
-                }}
-                promptPrefix="Please type"
-                promptSuffix="to continue"
-            />
-        ),
+export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
+    {
+        args: {
+            actions: (
+                <DialogModalActionConfirm
+                    buttonText="Freeze account"
+                    colorOverlay="red"
+                    confirmText="freeze account"
+                    onClick={() => {
+                        alert("Confirmed");
+                    }}
+                    promptPrefix="Please type"
+                    promptSuffix="to continue"
+                />
+            ),
 
-        children: <DialogContent />,
-        title: LOREM.text_md,
-        triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-    },
-    render: Template,
-};
+            children: <DialogContent />,
+            title: LOREM.text_md,
+            triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+        },
+        render: Template,
+    };

@@ -12,25 +12,23 @@ import type {
     PolymorphicRef,
     WithColorOverlay,
     WithSize,
+    WithSlots,
     WithStateDisabled,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { ComponentPropsWithoutRef, ElementType, ReactElement, ReactNode } from "react";
+import type {
+    ComponentPropsWithoutRef,
+    ElementType,
+    ReactElement,
+    ReactNode,
+} from "react";
 
 type BaseTabProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
     PolymorphicComponentPropWithRef<
         TPolymorphicAs,
-        WithColorOverlay & {
-            /**
-             * React node(s) rendered on the left-hand side.
-             */
-            slotLeft?: [ReactNode?, ReactNode?, ReactNode?];
-
-            /**
-             * React node(s) rendered on the right-hand side.
-             */
-            slotRight?: [ReactNode?, ReactNode?, ReactNode?];
-        } & WithSize &
+        WithColorOverlay &
+            WithSlots &
+            WithSize &
             WithStateDisabled & {
                 /**
                  * The react node rendered in the tab.
@@ -73,7 +71,10 @@ export const Tab: TabComponent = forwardRef(
         /**
          * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
          */
-        const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+        const { atomProps, otherProps } = extractAtomsFromProps(
+            rest,
+            getSprinkles
+        );
 
         const Component = as || "div";
 

@@ -1,5 +1,12 @@
 {
-    "ignorePatterns": ["*.snap", "dist", "storybook-static", "docs", "build", "documentation"],
+    "ignorePatterns": [
+        "*.snap",
+        "dist",
+        "storybook-static",
+        "docs",
+        "build",
+        "documentation"
+    ],
     "overrides": [
         /**
          *    Typescript
@@ -77,6 +84,11 @@
                                 "from": "./dist",
                                 "message": "Do not import from dist. This is dumb.",
                                 "target": "."
+                            },
+                            {
+                                "from": "./test",
+                                "message": "Do not import from dist. This is dumb.",
+                                "target": "src"
                             }
                         ]
                     }
@@ -213,13 +225,23 @@
             "env": {
                 "jest": true
             },
-            "files": ["**/*.test.ts", "**/*.test.tsx"],
+            "files": [
+                "**/*.test.ts",
+                "**/*.test.tsx",
+                "**/test.ts",
+                "**/test.tsx",
+                "**/*.mock.ts",
+                "**/*.mock.tsx",
+                "**/mock.ts",
+                "**/mock.tsx"
+            ],
             "rules": {
                 "react-perf/jsx-no-jsx-as-prop": "off",
                 "react-perf/jsx-no-new-array-as-prop": "off",
                 "react-perf/jsx-no-new-function-as-prop": "off",
                 "react-perf/jsx-no-new-object-as-prop": "off",
-                "sonarjs/no-duplicate-string": "off"
+                "sonarjs/no-duplicate-string": "off",
+                "import/no-restricted-paths": "off"
             }
         },
         /**
@@ -229,7 +251,12 @@
             "env": {
                 "jest": true
             },
-            "files": ["cypress.config.ts", "**/*/spec.ts", "**/*/spec.tsx", "cypress/**/*.ts"],
+            "files": [
+                "cypress.config.ts",
+                "**/*/spec.ts",
+                "**/*/spec.tsx",
+                "cypress/**/*.ts"
+            ],
             "parserOptions": {
                 "project": "./cypress/tsconfig.json"
             }
@@ -244,7 +271,8 @@
                 "import/no-default-export": "off",
                 "import/prefer-default-export": "error",
                 "react/function-component-definition": "off",
-                "react/no-multi-comp": "off"
+                "react/no-multi-comp": "off",
+                "import/no-restricted-paths": "off"
             }
         },
         /**

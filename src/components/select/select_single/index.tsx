@@ -1,7 +1,7 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useCombobox } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
+import { forwardRef, useCallback, useRef, useState } from "react";
 
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
@@ -27,7 +27,7 @@ import type {
     WithWrapperProps,
 } from "../../../common-types";
 import type { InputProps } from "../../input";
-import type { SelectItemShape } from "../types";
+import type { SelectItemShape, WithOptionalIsFilterable } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
@@ -43,7 +43,8 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
     WithStateInvalid &
     WithWrapperProps &
     WithId &
-    WithOptionalLabel & {
+    WithOptionalLabel &
+    WithOptionalIsFilterable & {
         /**
          * Item to be preselected when the component mounts.
          */
@@ -58,20 +59,21 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
                 | "id"
                 | "isClearable"
                 | "isCopyable"
+                | "isLabelVisible"
                 | "isVisibilityToggleable"
                 | "isVisible"
                 | "label"
                 | "labelProps"
-                | "size"
                 | "labelTooltip"
+                | "size"
+                | "strClear"
+                | "strCopied"
+                | "strCopy"
+                | "strHide"
+                | "strShow"
                 | "width"
             >
         >;
-
-        /**
-         * Whether the Select should be filterable by typing.
-         */
-        isFilterable?: boolean;
 
         /**
          * Prop to toggle the open state of the dropdown.
@@ -96,7 +98,9 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
-        onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape<TValue>>) => void;
+        onIsOpenChange?: (
+            changes: UseComboboxStateChange<SelectItemShape<TValue>>
+        ) => void;
     };
 
 /**
@@ -127,12 +131,14 @@ function SelectSingleBase<TValue extends string = string>(
         placeholder,
         size,
         slotLeft,
-        slotRight = [<Icon icon={faAngleDown} />],
+        slotRight = <Icon icon={faAngleDown} />,
+        strClear,
         wrapperProps,
     }: SelectSingleProps<TValue>,
     initialRef: ForwardedRef<HTMLInputElement>
 ) {
     const ref = useForwardRef(initialRef);
+    const outerRef = useRef<HTMLSpanElement>();
 
     const initialItem =
         initialSelectedItem ||
@@ -169,11 +175,15 @@ function SelectSingleBase<TValue extends string = string>(
         },
         onIsOpenChange,
         onSelectedItemChange: (changes) => {
-            return changes.selectedItem ? onChange?.(changes.selectedItem) : undefined;
+            return changes.selectedItem
+                ? onChange?.(changes.selectedItem)
+                : undefined;
         },
         // Ensure that onClick is called when the user presses Enter on an item.
         onStateChange(changes) {
-            if (changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter) {
+            if (
+                changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter
+            ) {
                 changes.selectedItem?.onClick?.();
             }
         },
@@ -191,7 +201,7 @@ function SelectSingleBase<TValue extends string = string>(
 
     const { floatingStyles, refs } = useFloating({
         elements: {
-            reference: ref.current,
+            reference: outerRef.current,
         },
         middleware: [
             offset(4),
@@ -212,20 +222,22 @@ function SelectSingleBase<TValue extends string = string>(
         >
             <Input
                 errorMessage={errorMessage}
+                outerRef={refs.setReference}
                 size={size}
                 slotLeft={selectedItem?.slotLeft || slotLeft}
                 slotRight={getSlotRight({
                     isClearable:
-                        (!!isFilterable && !!inputValue) || (!!isClearable && !!selectedItem),
+                        (!!isFilterable && !!inputValue) ||
+                        (!!isClearable && !!selectedItem),
                     reset,
                     slotRight,
+                    strClear,
                 })}
                 {...getInputProps({
                     className: selectInputCursorStyles,
                     disabled,
                     id,
                     invalid,
-                    isClearable: undefined,
                     name,
                     placeholder,
                     readOnly: !isFilterable,

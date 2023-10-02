@@ -1,4 +1,4 @@
-import { faArrowLeft, faArrowRight } from "@fortawesome/pro-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/pro-solid-svg-icons";
 
 import { Button as StoryComp } from ".";
 import { Link } from "../../../test/link.comp.mock";
@@ -131,44 +131,58 @@ export const SizeSquareLg: Story = {
 
 export const With1SlotLeft: Story = {
     args: {
-        slotLeft: [<Icon icon={faArrowLeft} />],
+        slotLeft: <Icon icon={faArrowRight} />,
     },
 };
 
 export const With2SlotLeft: Story = {
     args: {
-        slotLeft: [<Icon icon={faArrowLeft} />, <Icon icon={faArrowLeft} />],
+        slotLeft: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };
 
 export const With3SlotLeft: Story = {
     args: {
-        slotLeft: [
-            <Icon icon={faArrowLeft} />,
-            <Icon icon={faArrowLeft} />,
-            <Icon icon={faArrowLeft} />,
-        ],
+        slotLeft: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };
 
 export const With1SlotRight: Story = {
     args: {
-        slotRight: [<Icon icon={faArrowRight} />],
+        slotRight: <Icon icon={faArrowRight} />,
     },
 };
 
 export const With2SlotRight: Story = {
     args: {
-        slotRight: [<Icon icon={faArrowRight} />, <Icon icon={faArrowRight} />],
+        slotRight: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };
 
 export const With3SlotRight: Story = {
     args: {
-        slotRight: [
-            <Icon icon={faArrowRight} />,
-            <Icon icon={faArrowRight} />,
-            <Icon icon={faArrowRight} />,
-        ],
+        slotRight: (
+            <>
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+                <Icon icon={faArrowRight} />
+            </>
+        ),
     },
 };

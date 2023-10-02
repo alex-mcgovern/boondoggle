@@ -15,16 +15,16 @@ const renderComponent = ({ ...props }: DialogInfoBulletProps) => {
 };
 
 const PROPS: DialogInfoBulletProps = {
-    slotLeft: [
+    slotLeft: (
         <div>
             <Icon icon={faShapes} />
-        </div>,
-    ],
-    slotRight: [
+        </div>
+    ),
+    slotRight: (
         <div>
             <Icon icon={faShapes} />
-        </div>,
-    ],
+        </div>
+    ),
     text: LOREM.text_xxs,
     title: LOREM.title_xl,
 };

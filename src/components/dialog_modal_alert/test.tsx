@@ -16,16 +16,16 @@ const renderComponent = ({ ...props }: DialogModalAlertProps) => {
 
 const PROPS: DialogModalAlertProps = {
     description: LOREM.text_xxs,
-    slotLeft: [
+    slotLeft: (
         <div>
             <Icon icon={faShapes} />
-        </div>,
-    ],
-    slotRight: [
+        </div>
+    ),
+    slotRight: (
         <div>
             <Icon icon={faShapes} />
-        </div>,
-    ],
+        </div>
+    ),
     title: LOREM.title_xl,
 };
 

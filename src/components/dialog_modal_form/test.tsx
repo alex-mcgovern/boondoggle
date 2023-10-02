@@ -97,7 +97,7 @@ const PROPS: DialogModalFormProps = {
 };
 
 describe("<DialogModalForm />", () => {
-    describe.only("Basic smoke tests", () => {
+    describe("Basic smoke tests", () => {
         test("should render without throwing", async () => {
             const { container } = await renderComponent(PROPS);
 

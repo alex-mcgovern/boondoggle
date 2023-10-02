@@ -377,11 +377,11 @@ export const textFieldStyleRule: StyleRule = {
 };
 
 globalStyle("input, textarea", {
-    "@layer": {
-        [baseLayer]: {
-            ...textFieldStyleRule,
-        },
-    },
+    // "@layer": {
+    //     [baseLayer]: {
+    //         ...textFieldStyleRule,
+    //     },
+    // },
 });
 
 globalStyle("input[readonly], textarea[readonly]", {
@@ -392,14 +392,17 @@ globalStyle("input[readonly], textarea[readonly]", {
     },
 });
 
-globalStyle("input::-webkit-outer-spin-button, input::-webkit-inner-spin-button", {
-    "@layer": {
-        [baseLayer]: {
-            margin: 0,
-            WebkitAppearance: "none",
+globalStyle(
+    "input::-webkit-outer-spin-button, input::-webkit-inner-spin-button",
+    {
+        "@layer": {
+            [baseLayer]: {
+                margin: 0,
+                WebkitAppearance: "none",
+            },
         },
-    },
-});
+    }
+);
 
 globalStyle("input[type=number]", {
     "@layer": {
@@ -417,21 +420,24 @@ globalStyle("input::placeholder, textarea::placeholder", {
     },
 });
 
-globalStyle("input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hover)", {
-    "@layer": {
-        [baseLayer]: {
-            background: vars.color.tint_default,
-            borderColor: vars.color.border_hover,
+globalStyle(
+    "input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hover)",
+    {
+        "@layer": {
+            [baseLayer]: {
+                // background: vars.color.tint_default,
+                // borderColor: vars.color.border_hover,
+            },
         },
-    },
-});
+    }
+);
 
 globalStyle(
     "input:not([disabled]):is(:focus-visible), textarea:not([disabled]):is(:focus-visible)",
     {
         "@layer": {
             [baseLayer]: {
-                ...a11yFocusStyleRule,
+                // ...a11yFocusStyleRule,
             },
         },
     }

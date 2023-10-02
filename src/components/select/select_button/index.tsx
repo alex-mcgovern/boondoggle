@@ -59,12 +59,16 @@ export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
         /**
          * Function called with the new selected item when the selection changes.
          */
-        onChange?: (selection: SelectItemShape<TValue> | null | undefined) => void;
+        onChange?: (
+            selection: SelectItemShape<TValue> | null | undefined
+        ) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
-        onIsOpenChange?: (changes: UseComboboxStateChange<SelectItemShape<TValue>>) => void;
+        onIsOpenChange?: (
+            changes: UseComboboxStateChange<SelectItemShape<TValue>>
+        ) => void;
 
         /**
          * The placement of the dropdown relative to the button.
@@ -94,31 +98,39 @@ function SelectButtonBase<TValue extends string = string>(
         placement,
         size,
         slotLeft,
-        slotRight = [<Icon icon={faAngleDown} />],
+        slotRight = <Icon icon={faAngleDown} />,
         wrapperProps,
     }: SelectButtonProps<TValue>,
     initialRef: ForwardedRef<HTMLButtonElement>
 ) {
     const ref = useForwardRef(initialRef);
 
-    const { getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex, isOpen } =
-        useSelect({
-            defaultHighlightedIndex: undefined,
-            initialSelectedItem,
-            isItemDisabled: (item) => {
-                return item.disabled;
-            },
-            items,
-            onSelectedItemChange: (changes) => {
-                return onChange?.(changes.selectedItem);
-            },
-            // Ensure that onClick is called when the user presses Enter on an item.
-            onStateChange(changes) {
-                if (changes.type === useSelect.stateChangeTypes.ToggleButtonKeyDownEnter) {
-                    changes.selectedItem?.onClick?.();
-                }
-            },
-        });
+    const {
+        getItemProps,
+        getMenuProps,
+        getToggleButtonProps,
+        highlightedIndex,
+        isOpen,
+    } = useSelect({
+        defaultHighlightedIndex: undefined,
+        initialSelectedItem,
+        isItemDisabled: (item) => {
+            return item.disabled;
+        },
+        items,
+        onSelectedItemChange: (changes) => {
+            return onChange?.(changes.selectedItem);
+        },
+        // Ensure that onClick is called when the user presses Enter on an item.
+        onStateChange(changes) {
+            if (
+                changes.type ===
+                useSelect.stateChangeTypes.ToggleButtonKeyDownEnter
+            ) {
+                changes.selectedItem?.onClick?.();
+            }
+        },
+    });
 
     const { floatingStyles, refs } = useFloating({
         elements: {

@@ -13,7 +13,9 @@ export type DialogModalCloseButtonProps = {
 /**
  * Renders a square close button for a modal dialog.
  */
-export function DialogModalCloseButton({ closeDialog }: DialogModalCloseButtonProps) {
+export function DialogModalCloseButton({
+    closeDialog,
+}: DialogModalCloseButtonProps) {
     return (
         <Button
             appearance="ghost"
@@ -22,7 +24,7 @@ export function DialogModalCloseButton({ closeDialog }: DialogModalCloseButtonPr
             name="close"
             onClick={closeDialog}
             size="square_md"
-            slotLeft={[<Icon icon={faTimes} />]}
+            slotLeft={<Icon icon={faTimes} />}
             type="button"
         />
     );

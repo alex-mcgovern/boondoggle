@@ -45,12 +45,14 @@ export const Invalid: Story = {
 export const IsClearable: Story = {
     args: {
         isClearable: true,
+        strClear: "Clear",
     },
 };
 
 export const IsFilterable: Story = {
     args: {
         isFilterable: true,
+        strClear: "Clear",
     },
 };
 
@@ -130,12 +132,12 @@ export const WithItemsWithSlotLeft: Story = {
 
 export const WithSlotLeft: Story = {
     args: {
-        slotLeft: [<Icon icon={faGlobeAfrica} />],
+        slotLeft: <Icon icon={faGlobeAfrica} />,
     },
 };
 
 export const WithSlots: Story = {
     args: {
-        slotRight: [<Icon icon={faGlobeAfrica} />],
+        slotRight: <Icon icon={faGlobeAfrica} />,
     },
 };

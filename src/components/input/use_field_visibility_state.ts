@@ -10,9 +10,10 @@ type UseFieldVisibilityState = {
 /**
  * Hook to manage the visibility state of a field.
  */
-export function useFieldVisibilityState({ initialIsVisible }: UseFieldVisibilityState) {
+export function useFieldVisibilityState({
+    initialIsVisible,
+}: UseFieldVisibilityState) {
     // Manage the visibility state to allow it to be toggled.
-
     const [isVisible, setIsVisible] = useState<boolean>(!!initialIsVisible);
 
     // Event handler for when the visibility is toggled.

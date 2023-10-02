@@ -1,4 +1,8 @@
-import { faAngleDown, faAngleLeft, faAngleRight } from "@fortawesome/pro-solid-svg-icons";
+import {
+    faAngleDown,
+    faAngleLeft,
+    faAngleRight,
+} from "@fortawesome/pro-solid-svg-icons";
 
 import { Box } from "../../box";
 import { Button } from "../../button";
@@ -88,11 +92,13 @@ export function DatePickerControls({
                 width="100%"
             >
                 <Button
-                    {...(isShowingYears ? previousYearsButton() : previousMonthButton())}
+                    {...(isShowingYears
+                        ? previousYearsButton()
+                        : previousMonthButton())}
                     appearance="ghost"
                     name="prev"
                     size="square_md"
-                    slotLeft={[<Icon icon={faAngleLeft} />]}
+                    slotLeft={<Icon icon={faAngleLeft} />}
                 />
 
                 <Button
@@ -101,7 +107,12 @@ export function DatePickerControls({
                     onClick={onToggleYears}
                 >
                     {isShowingYears ? (
-                        <> {`${years[0].year} - ${years[years.length - 1].year}`}</>
+                        <>
+                            {" "}
+                            {`${years[0].year} - ${
+                                years[years.length - 1].year
+                            }`}
+                        </>
                     ) : (
                         <>
                             {month} {year}
@@ -111,11 +122,13 @@ export function DatePickerControls({
                 </Button>
 
                 <Button
-                    {...(isShowingYears ? nextYearsButton() : nextMonthButton())}
+                    {...(isShowingYears
+                        ? nextYearsButton()
+                        : nextMonthButton())}
                     appearance="ghost"
                     name="next"
                     size="square_md"
-                    slotLeft={[<Icon icon={faAngleRight} />]}
+                    slotLeft={<Icon icon={faAngleRight} />}
                 />
             </Box>
         </Box>

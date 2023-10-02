@@ -60,7 +60,9 @@ describe("<Form />", () => {
         test("should render the dropdown", async () => {
             const { getByLabelText } = await renderComponent(PROPS);
 
-            expect(getByLabelText(LOREM.labelDropdown(), { selector: "input" })).not.toBeNull();
+            expect(
+                getByLabelText(LOREM.labelDropdown(), { selector: "input" })
+            ).not.toBeNull();
         });
 
         test("should render the slider, and an `<input>' component to hold the value", async () => {
@@ -86,11 +88,14 @@ describe("<Form />", () => {
 describe("<Form />", () => {
     describe("Happy path", () => {
         it.skip("should submit successfully when user inputs values", async () => {
-            const { getByLabelText, getByRole, getByTestId } = await renderComponent(PROPS);
+            const { getByLabelText, getByRole, getByTestId } =
+                await renderComponent(PROPS);
 
             const emailInput = getByLabelText(LOREM.labelEmail());
 
-            const descriptionTextArea = getByLabelText(LOREM.labelDescription());
+            const descriptionTextArea = getByLabelText(
+                LOREM.labelDescription()
+            );
 
             const sliderThumb = getByRole("slider");
 
@@ -170,7 +175,9 @@ describe("<Form />", () => {
             });
 
             await waitFor(() => {
-                expect(handleFormSubmissionDefaultValuesMock).toHaveBeenCalledWith(
+                expect(
+                    handleFormSubmissionDefaultValuesMock
+                ).toHaveBeenCalledWith(
                     expect.objectContaining({
                         amount: 50,
                         description: LOREM.text_xxs,
@@ -187,7 +194,7 @@ describe("<Form />", () => {
 });
 
 describe("<Form />", () => {
-    describe.only("Unhappy path", () => {
+    describe("Unhappy path", () => {
         test("should call handleErrors when the form submission fails", async () => {
             jest.spyOn(console, "error").mockImplementation();
 

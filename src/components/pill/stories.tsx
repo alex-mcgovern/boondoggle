@@ -22,19 +22,19 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
         >
             <StoryComp
                 size="lg"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
             <StoryComp
                 size="md"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
             <StoryComp
                 size="sm"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
@@ -55,31 +55,31 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
         >
             <StoryComp
                 colorOverlay="blue"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
             <StoryComp
                 colorOverlay="red"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
             <StoryComp
                 colorOverlay="green"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
             <StoryComp
                 colorOverlay="amber"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>
             <StoryComp
                 colorOverlay="grey"
-                slotLeft={[<Icon icon={faTriangleCircleSquare} />]}
+                slotLeft={<Icon icon={faTriangleCircleSquare} />}
             >
                 {LOREM.text_xxs}
             </StoryComp>

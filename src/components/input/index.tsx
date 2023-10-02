@@ -1,16 +1,34 @@
+/* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { forwardRef } from "react";
+import {
+    forwardRef,
+    isValidElement,
+    useCallback,
+    useLayoutEffect,
+    useMemo,
+} from "react";
 
 import { getOptionalLabelProps } from "../../common-types";
-import { arrayHasLength } from "../../lib/array_has_length";
+import { useForwardRef } from "../../hooks/use_forward_ref";
 import { a11yError } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { FieldAddonWrapper } from "../field_addon_wrapper";
+import { FieldActionButtonClear } from "../field_action_button_clear";
+import { FieldActionButtonCopy } from "../field_action_button_copy";
+import { FieldActionButtonVisibility } from "../field_action_button_visibility";
+import {
+    addonChildrenStyle,
+    getAddonTabStyle,
+    getAddonWrapperStyle,
+} from "../field_addon_wrapper/styles.css";
 import { FieldWrapper } from "../field_wrapper";
-import { SlotWrapperInset } from "../slot_wrapper_inset";
-import { useFieldActions } from "./lib/use_field_actions";
-import { getInputStyles } from "./styles.css";
+import {
+    clearButtonStyle,
+    getSlotWrapperStyles,
+    inputStyles,
+} from "./styles.css";
+import { useFieldCopyableState } from "./use_field_copyable_state";
+import { useFieldVisibilityState } from "./use_field_visibility_state";
 
 import type {
     WithColorOverlay,
@@ -26,12 +44,196 @@ import type {
     WithReadOnly,
     WithSize,
     WithSlots,
+    WithStateDisabled,
     WithStateInvalid,
     WithWrapperProps,
 } from "../../common-types";
+import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
-import type { ComponentPropsWithoutRef } from "react";
+import type {
+    ChangeEvent,
+    ComponentPropsWithoutRef,
+    ForwardedRef,
+    MouseEvent,
+    MouseEventHandler,
+    ReactNode,
+} from "react";
+
+type AddonTabProps = WithSize & {
+    children: ReactNode;
+    side: "right" | "left";
+};
+
+export function AddonTab({ children, side, size }: AddonTabProps) {
+    if (isValidElement(children)) {
+        return (
+            <div className={getAddonTabStyle({ hasBorder: false, side, size })}>
+                {children}
+            </div>
+        );
+    }
+    return (
+        <div
+            className={getAddonTabStyle({
+                hasBorder: true,
+                padding: size,
+                side,
+                size,
+            })}
+        >
+            {children}
+        </div>
+    );
+}
+
+export type WithOptionalInputAddons = {
+    /**
+     * Addon to be rendered on the left side of the field.
+     */
+    addonLeft?: ReactNode;
+    /**
+     * Addon to be rendered on the right side of the field.
+     */
+    addonRight?: ReactNode;
+};
+
+type InputAddonWrapperProps = WithOptionalInputAddons &
+    WithSize & {
+        /**
+         * The children to be rendered inside the wrapper.
+         */
+        children: ReactNode;
+    };
+
+/**
+ * Wraps the children with optional addons, left & right.
+ */
+export function InputAddonWrapper({
+    addonLeft,
+    addonRight,
+    children,
+    size,
+}: InputAddonWrapperProps) {
+    return (
+        <div
+            className={getAddonWrapperStyle({
+                hasAddonLeft: !!addonLeft,
+                hasAddonRight: !!addonRight,
+            })}
+        >
+            {addonLeft && (
+                <AddonTab
+                    side="left"
+                    size={size}
+                >
+                    {addonLeft}
+                </AddonTab>
+            )}
+
+            <div className={addonChildrenStyle}>{children}</div>
+
+            {addonRight && (
+                <AddonTab
+                    side="right"
+                    size={size}
+                >
+                    {addonRight}
+                </AddonTab>
+            )}
+        </div>
+    );
+}
+
+type InputSlotWrapperProps = WithSlots &
+    WithStateDisabled & {
+        /**
+         * The children to render inside the wrapper.
+         */
+        children: ReactNode;
+
+        /**
+         * Any additional CSS classes to apply to the wrapper.
+         */
+        className: string | undefined;
+
+        /**
+         * Method to focus the input element.
+         */
+        focus: () => void;
+
+        /**
+         * Whether the input should have a border.
+         */
+        hasBorder: boolean | undefined;
+
+        /**
+         * Whether the input is invalid.
+         */
+        invalid: boolean | undefined;
+
+        /**
+         * Method to call the input elements onClick handler.
+         */
+        onClick: MouseEventHandler<HTMLInputElement> | undefined;
+
+        /**
+         * The size of the input.
+         */
+        size: ElementSizeEnum | undefined;
+    };
+
+/**
+ * Renders a wrapper around the input and its slots.
+ */
+export const InputSlotWrapper = forwardRef<
+    HTMLSpanElement,
+    InputSlotWrapperProps
+>(
+    (
+        {
+            children,
+            className,
+            disabled,
+            focus,
+            hasBorder,
+            invalid,
+            onClick,
+            size,
+            slotLeft,
+            slotRight,
+        },
+        ref
+    ) => {
+        const handleClick = useCallback(
+            (e: MouseEvent<HTMLElement>) => {
+                focus();
+                onClick?.(e as MouseEvent<HTMLInputElement>);
+                e.stopPropagation();
+            },
+            [focus, onClick]
+        );
+
+        return (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+            <span
+                aria-disabled={disabled}
+                className={clsx(
+                    getSlotWrapperStyles({ hasBorder, size }),
+                    className,
+                    {
+                        [a11yError]: invalid,
+                    }
+                )}
+                onClick={handleClick}
+                ref={ref}
+            >
+                {slotLeft}
+                {children}
+                {slotRight}
+            </span>
+        );
+    }
+);
 
 export type InputProps = Partial<
     Pick<
@@ -53,7 +255,7 @@ export type InputProps = Partial<
 > &
     SprinklesArgs &
     WithColorOverlay &
-    WithOptionalFieldAddons &
+    WithOptionalInputAddons &
     WithHideLastpass &
     WithId &
     WithOptionalIsClearable &
@@ -72,97 +274,184 @@ export type InputProps = Partial<
          * Whether to render the input with a border.
          */
         hasBorder?: boolean;
+
+        /**
+         * A ref to the outer element. (e.g. for positioning an element along with the input)
+         */
+        outerRef?: ForwardedRef<HTMLSpanElement>;
+
+        selectionRange?: {
+            end: number | null;
+            start: number | null;
+        };
     };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-    (
-        {
-            addonLeft,
-            addonRight,
-            className: userClassName,
-            colorOverlay,
-            defaultValue,
-            description,
-            errorMessage,
-            hasBorder,
-            hideLastpass,
-            id,
-            invalid,
-            isClearable,
-            isCopyable,
-            isLabelVisible,
-            isVisibilityToggleable,
-            isVisible: initialIsVisible,
-            label,
-            labelProps,
-            labelTooltip,
-            onChange,
-            readOnly,
-            size = "md",
-            slotLeft,
-            slotRight: initialSlotRight,
-            type,
-            value,
-            wrapperProps,
-            ...rest
-        },
-        ref
-    ) => {
-        const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+/**
+ * A component to render an input.
+ * @private Is a base component that should be wrapped with `ForwardRef`.
+ */
+function PureInput(
+    {
+        addonLeft,
+        addonRight,
+        className: userClassName,
+        colorOverlay,
+        defaultValue,
+        description,
+        disabled,
+        errorMessage,
+        hasBorder,
+        hideLastpass,
+        id,
+        invalid,
+        isClearable,
+        isCopyable,
+        isLabelVisible,
+        isVisibilityToggleable,
+        isVisible: initialIsVisible,
+        label,
+        labelProps,
+        labelTooltip,
+        onChange,
+        onClick,
+        outerRef,
+        readOnly,
+        selectionRange,
+        size = "md",
+        slotLeft,
+        slotRight: initialSlotRight,
+        strClear,
+        strCopied,
+        strCopy,
+        strHide,
+        strShow,
+        type,
+        value,
+        wrapperProps,
+        ...rest
+    }: InputProps,
+    ref: ForwardedRef<HTMLInputElement>
+) {
+    const inputRef = useForwardRef(ref);
 
-        const { actions, handleUpdateInputValue, inputValue, isVisible } = useFieldActions({
-            defaultValue,
-            isClearable,
-            isCopyable,
-            isVisibilityToggleable,
-            isVisible: initialIsVisible,
-            onChange,
-            readOnly,
-            size,
-            value,
-        });
+    useLayoutEffect(() => {
+        if (selectionRange !== undefined) {
+            inputRef?.current?.setSelectionRange(
+                selectionRange.start,
+                selectionRange.end
+            );
+        }
+    }, [inputRef, selectionRange, value]);
 
-        return (
-            <FieldWrapper
-                colorOverlay={colorOverlay}
-                description={description}
-                errorMessage={errorMessage}
-                hideLastpass={hideLastpass}
-                id={id}
-                invalid={invalid}
-                wrapperProps={wrapperProps}
-                {...getOptionalLabelProps({ id, isLabelVisible, label, labelProps, labelTooltip })}
+    const focus = useCallback(() => {
+        inputRef.current?.focus();
+    }, [inputRef]);
+
+    const { atomProps, otherProps } = useMemo(() => {
+        return extractAtomsFromProps(rest, getSprinkles);
+    }, [rest]);
+
+    const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
+        initialIsVisible,
+    });
+
+    const { handleCopyValue, isCopied } = useFieldCopyableState({
+        isCopyable,
+        readOnly,
+    });
+
+    return (
+        <FieldWrapper
+            colorOverlay={colorOverlay}
+            description={description}
+            errorMessage={errorMessage}
+            hideLastpass={hideLastpass}
+            id={id}
+            invalid={invalid}
+            wrapperProps={wrapperProps}
+            {...getOptionalLabelProps({
+                id,
+                isLabelVisible,
+                label,
+                labelProps,
+                labelTooltip,
+            })}
+        >
+            <InputAddonWrapper
+                addonLeft={addonLeft}
+                addonRight={addonRight}
+                size={size}
             >
-                <FieldAddonWrapper
-                    addonLeft={addonLeft}
-                    addonRight={addonRight}
+                <InputSlotWrapper
+                    className={clsx(getSprinkles(atomProps), userClassName)}
+                    disabled={disabled}
+                    focus={focus}
+                    hasBorder={hasBorder}
+                    invalid={invalid}
+                    onClick={onClick}
+                    ref={outerRef}
                     size={size}
-                >
-                    <SlotWrapperInset
-                        size={size}
-                        slotLeft={slotLeft}
-                        slotRight={arrayHasLength(actions) ? actions : initialSlotRight}
-                    >
-                        <input
-                            className={clsx(
-                                getInputStyles({ hasBorder, size }),
-                                getSprinkles(atomProps),
-                                userClassName,
-                                {
-                                    [a11yError]: invalid,
-                                }
+                    slotLeft={slotLeft}
+                    slotRight={
+                        <>
+                            {initialSlotRight}
+                            {isVisibilityToggleable && (
+                                <FieldActionButtonVisibility
+                                    isVisible={isVisible}
+                                    onClick={handleToggleVisibility}
+                                    strHide={strHide}
+                                    strShow={strShow}
+                                />
                             )}
-                            id={id}
-                            onChange={handleUpdateInputValue}
-                            readOnly={readOnly}
-                            ref={ref}
-                            type={isVisibilityToggleable && !isVisible ? "password" : type}
-                            value={inputValue}
-                            {...otherProps}
-                        />
-                    </SlotWrapperInset>
-                </FieldAddonWrapper>
-            </FieldWrapper>
-        );
-    }
-);
+                            {isCopyable && (
+                                <FieldActionButtonCopy
+                                    isCopied={isCopied}
+                                    onClick={() => {
+                                        handleCopyValue?.(
+                                            inputRef?.current?.value
+                                        );
+                                    }}
+                                    strCopied={strCopied}
+                                    strCopy={strCopy}
+                                />
+                            )}
+                            {isClearable && strClear && !readOnly && (
+                                <FieldActionButtonClear
+                                    className={clearButtonStyle}
+                                    onClick={() => {
+                                        onChange?.({
+                                            target: { value: "" },
+                                        } as ChangeEvent<HTMLInputElement>);
+                                        if (inputRef.current) {
+                                            inputRef.current.value = "";
+                                        }
+                                    }}
+                                    strClear={strClear}
+                                />
+                            )}
+                        </>
+                    }
+                >
+                    <input
+                        className={inputStyles}
+                        defaultValue={defaultValue}
+                        disabled={disabled}
+                        id={id}
+                        onChange={onChange}
+                        readOnly={readOnly}
+                        ref={inputRef}
+                        type={
+                            isVisibilityToggleable && !isVisible
+                                ? "password"
+                                : type
+                        }
+                        value={value}
+                        {...otherProps}
+                    />
+                </InputSlotWrapper>
+            </InputAddonWrapper>
+        </FieldWrapper>
+    );
+}
+
+export const Input = forwardRef(PureInput);

@@ -1,4 +1,7 @@
-import { faCircleExclamation, faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
+import {
+    faCircleExclamation,
+    faTimesCircle,
+} from "@fortawesome/pro-solid-svg-icons";
 
 import { Box } from "../../../box";
 import { Button } from "../../../button";
@@ -69,7 +72,7 @@ export function DataTableInfoNoResults({
                     onClick={() => {
                         return setGlobalFilter("");
                     }}
-                    slotRight={[<Icon icon={faTimesCircle} />]}
+                    slotRight={<Icon icon={faTimesCircle} />}
                 >
                     {strClearAllFilters}
                 </Button>

@@ -8,7 +8,10 @@ import { FieldActionButtonDate } from "../field_action_button_date";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
-import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../common-types";
+import type {
+    WithOptionalLabel,
+    WithOptionalPlaceholder,
+} from "../../common-types";
 import type { InputProps } from "../input";
 import type { MouseEvent } from "react";
 
@@ -16,12 +19,23 @@ import type { MouseEvent } from "react";
  * Converts a local date to a UTC date.
  */
 function convertLocalToUTCDate(date: Date) {
-    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    return new Date(
+        Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+    );
 }
 
 export type InputDateProps = Omit<
     InputProps,
-    "isClearable" | "isCopyable" | "isVisibilityToggleable" | "placeholder"
+    | "isClearable"
+    | "isCopyable"
+    | "isVisibilityToggleable"
+    | "strClear"
+    | "placeholder"
+    | "strCopy"
+    | "strCopied"
+    | "strHide"
+    | "strShow"
+    | "isVisibilityToggleable"
 > &
     WithOptionalLabel &
     WithOptionalPlaceholder & {
@@ -38,7 +52,9 @@ export type InputDateProps = Omit<
         /**
          * Callback to be called when the date changes.
          */
-        onChange?: ((date: string) => unknown) | ((date: string) => Promise<unknown>);
+        onChange?:
+            | ((date: string) => unknown)
+            | ((date: string) => Promise<unknown>);
     };
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
@@ -56,11 +72,13 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
         }: InputDateProps,
         ref
     ) => {
-        const [inputValue, setInputValue] = useState<string | number | readonly string[]>(
-            value || defaultValue || ""
-        );
+        const [inputValue, setInputValue] = useState<
+            string | number | readonly string[]
+        >(value || defaultValue || "");
 
-        const [isOpen, setIsOpen] = useState<boolean | undefined>(controlledIsOpen);
+        const [isOpen, setIsOpen] = useState<boolean | undefined>(
+            controlledIsOpen
+        );
 
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
@@ -80,18 +98,16 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 
         return (
             <Input
-                {...rest}
+                {...(rest as InputProps)}
                 className={inputDateStyle}
-                defaultValue={defaultValue}
-                isVisibilityToggleable={undefined}
-                isVisible={undefined}
                 onChange={(e) => {
+                    setInputValue(e.target.value);
                     return onChange?.(e.target.value);
                 }}
                 ref={ref}
                 size={size}
                 slotLeft={slotLeft}
-                slotRight={[
+                slotRight={
                     <Dialog
                         className={clsx(userClassName, datePickerDialogStyle)}
                         isOpen={isOpen}
@@ -102,8 +118,8 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                         }
                     >
                         <DatePicker onDayClick={onDayClick} />
-                    </Dialog>,
-                ]}
+                    </Dialog>
+                }
                 type="date"
                 value={inputValue}
                 wrapperProps={wrapperProps}

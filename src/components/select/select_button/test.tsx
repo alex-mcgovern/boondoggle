@@ -45,12 +45,12 @@ describe("<SelectButton />", () => {
         test("should render node passed to `slotLeft`", async () => {
             const { getByTestId } = await renderComponent({
                 ...PROPS,
-                slotLeft: [
+                slotLeft: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -59,12 +59,12 @@ describe("<SelectButton />", () => {
         test("should render node passed to `slotRight`", async () => {
             const { getByTestId } = await renderComponent({
                 ...PROPS,
-                slotRight: [
+                slotRight: (
                     <Icon
                         data-testid="icon"
                         icon={faSearch}
-                    />,
-                ],
+                    />
+                ),
             });
 
             expect(getByTestId("icon")).not.toBeNull();
@@ -76,7 +76,10 @@ describe("<SelectButton />", () => {
     test("mouse navigation", async () => {
         const ON_CLICK = jest.fn();
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ as: "button", onClick: ON_CLICK });
+        const ITEMS_AS_BUTTONS = mockSelectItems({
+            as: "button",
+            onClick: ON_CLICK,
+        });
 
         const { getByRole, getByText, user } = renderComponent({
             ...PROPS,
@@ -109,7 +112,10 @@ describe("<SelectButton />", () => {
     test("keyboard navigation", async () => {
         const ON_CLICK = jest.fn();
 
-        const ITEMS_AS_BUTTONS = mockSelectItems({ as: "button", onClick: ON_CLICK });
+        const ITEMS_AS_BUTTONS = mockSelectItems({
+            as: "button",
+            onClick: ON_CLICK,
+        });
 
         const { user } = renderComponent({
             ...PROPS,
@@ -141,7 +147,10 @@ describe("<SelectButton />", () => {
 describe("<SelectButton />", () => {
     describe("Disabled state", () => {
         test("should not show dropdown menu when user clicks", async () => {
-            const { getByRole } = await renderComponent({ ...PROPS, disabled: true });
+            const { getByRole } = await renderComponent({
+                ...PROPS,
+                disabled: true,
+            });
 
             const combobox = getByRole("combobox");
 
@@ -153,7 +162,10 @@ describe("<SelectButton />", () => {
         });
 
         test("should not show dropdown menu when user attempts keyboard navigation", async () => {
-            const { getByRole } = await renderComponent({ ...PROPS, disabled: true });
+            const { getByRole } = await renderComponent({
+                ...PROPS,
+                disabled: true,
+            });
 
             await userEvent.tab();
 
