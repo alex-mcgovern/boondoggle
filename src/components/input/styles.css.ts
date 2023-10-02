@@ -34,7 +34,7 @@ export const getSlotWrapperStyles = recipe({
             color: "text_low_contrast",
             display: "flex",
             fontWeight: "normal",
-            gap: "space_1",
+            gap: "space_2",
             width: "100%",
         }),
         a11yDisabled,
