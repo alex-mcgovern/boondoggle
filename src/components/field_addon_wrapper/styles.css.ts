@@ -8,7 +8,7 @@ import {
 } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { slotWrapperCls } from "../input/styles.css";
+import { inputSlotWrapperDoNotRemoveOrYouWillBeFired } from "../input/styles.css";
 
 const tabSide = styleVariants({
     left: {
@@ -26,13 +26,13 @@ const hasBorder = styleVariants({
     true: {},
 });
 
-globalStyle(`${tabSide.left} ${slotWrapperCls}`, {
+globalStyle(`${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
     borderBottomRightRadius: "0",
     borderRight: "none",
     borderTopRightRadius: "0",
 });
 
-globalStyle(`${tabSide.right} ${slotWrapperCls}`, {
+globalStyle(`${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
     borderBottomLeftRadius: "0",
     borderLeft: "none",
     borderTopLeftRadius: "0",
@@ -130,12 +130,18 @@ export const addonChildrenStyle = style({
     // width: "100%",
 });
 
-globalStyle(`${hasAddonLeft.true} > ${addonChildrenStyle} ${slotWrapperCls}`, {
-    borderBottomLeftRadius: 0,
-    borderTopLeftRadius: 0,
-});
+globalStyle(
+    `${hasAddonLeft.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
+    {
+        borderBottomLeftRadius: 0,
+        borderTopLeftRadius: 0,
+    }
+);
 
-globalStyle(`${hasAddonRight.true} > ${addonChildrenStyle} ${slotWrapperCls}`, {
-    borderBottomRightRadius: 0,
-    borderTopRightRadius: 0,
-});
+globalStyle(
+    `${hasAddonRight.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
+    {
+        borderBottomRightRadius: 0,
+        borderTopRightRadius: 0,
+    }
+);

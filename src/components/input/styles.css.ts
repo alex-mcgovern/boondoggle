@@ -34,11 +34,11 @@ const hasBorder = styleVariants({
     true: [],
 });
 
-export const slotWrapperCls = style([]);
+export const inputSlotWrapperDoNotRemoveOrYouWillBeFired = style([]);
 
 export const getSlotWrapperStyles = recipe({
     base: [
-        slotWrapperCls,
+        inputSlotWrapperDoNotRemoveOrYouWillBeFired,
         getSprinkles({
             alignItems: "center",
             background: "background",
@@ -86,12 +86,15 @@ export const getSlotWrapperStyles = recipe({
     },
 });
 
-globalStyle(`${slotWrapperCls} > *:not(input):not(:empty)`, {
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "center",
-    minWidth: vars.spacing.space_4,
-});
+globalStyle(
+    `${inputSlotWrapperDoNotRemoveOrYouWillBeFired} > *:not(input):not(:empty)`,
+    {
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
+        minWidth: vars.spacing.space_4,
+    }
+);
 
 export const slotStyles = style([getSprinkles({ minWidth: "space_5" })]);
 
