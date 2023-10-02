@@ -376,15 +376,15 @@ export const textFieldStyleRule: StyleRule = {
     }),
 };
 
-globalStyle("input, textarea", {
-    // "@layer": {
-    //     [baseLayer]: {
-    //         ...textFieldStyleRule,
-    //     },
-    // },
+globalStyle("textarea", {
+    "@layer": {
+        [baseLayer]: {
+            ...textFieldStyleRule,
+        },
+    },
 });
 
-globalStyle("input[readonly], textarea[readonly]", {
+globalStyle("textarea[readonly]", {
     "@layer": {
         [baseLayer]: {
             background: vars.color.tint_default,
