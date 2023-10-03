@@ -21,7 +21,6 @@ type FieldActionButtonClearProps = Omit<
 export function FieldActionButtonClear({
     className,
     onClick,
-    size,
     strClear,
 }: FieldActionButtonClearProps) {
     return (
@@ -30,7 +29,6 @@ export function FieldActionButtonClear({
             data-testid="clear"
             name="clear"
             onClick={onClick}
-            size={size}
             slot={<Icon icon={faTimesCircle} />}
             strTooltip={strClear}
         />

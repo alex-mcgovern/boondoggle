@@ -17,14 +17,13 @@ export type FieldActionButtonDateProps = Omit<
 export const FieldActionButtonDate = forwardRef<
     HTMLButtonElement,
     FieldActionButtonDateProps
->(({ onClick, size }, ref) => {
+>(({ onClick }, ref) => {
     return (
         <FieldActionButton
             data-testid="field-action-button-date"
             name="date"
             onClick={onClick}
             ref={ref}
-            size={size}
             slot={<Icon icon={faCalendar} />}
         />
     );

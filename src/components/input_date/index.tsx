@@ -114,7 +114,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
                         placement="bottom-end"
                         triggerNode={
                             // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-                            <FieldActionButtonDate size={size} />
+                            <FieldActionButtonDate />
                         }
                     >
                         <DatePicker onDayClick={onDayClick} />

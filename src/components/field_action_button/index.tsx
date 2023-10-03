@@ -26,7 +26,7 @@ type BaseButtonProps = {
 };
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
-    ({ className, name, onClick, slot }, ref) => {
+    ({ className, name, onClick, slot, ...rest }, ref) => {
         return (
             <button
                 className={clsx(fieldActionButtonStyle, className)}
@@ -34,6 +34,7 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
                 onClick={onClick}
                 ref={ref}
                 type="button"
+                {...rest}
             >
                 {slot}
             </button>
@@ -55,7 +56,7 @@ export type FieldActionButtonProps = {
     /**
      * The function to call when the button is clicked.
      */
-    onClick: MouseEventHandler<HTMLButtonElement>;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 
     /**
      * The slot to render on the button.
@@ -74,10 +75,10 @@ export type FieldActionButtonProps = {
 export const FieldActionButton = forwardRef<
     HTMLButtonElement,
     FieldActionButtonProps
->(({ className, name, onClick, slot, strTooltip }, ref) => {
+>(({ className, name, onClick, slot, strTooltip, ...rest }, ref) => {
     const handleClick = useCallback(
         (e: MouseEvent<HTMLButtonElement>) => {
-            onClick(e);
+            onClick?.(e);
             // Prevent the click event from bubbling up to the parent element.
             e.stopPropagation();
         },
@@ -92,6 +93,7 @@ export const FieldActionButton = forwardRef<
                 onClick={handleClick}
                 ref={ref}
                 slot={slot}
+                {...rest}
             />
         );
     }
@@ -105,6 +107,7 @@ export const FieldActionButton = forwardRef<
                     onClick={handleClick}
                     ref={ref}
                     slot={slot}
+                    {...rest}
                 />
             </TooltipTrigger>
             <TooltipContent>{strTooltip}</TooltipContent>

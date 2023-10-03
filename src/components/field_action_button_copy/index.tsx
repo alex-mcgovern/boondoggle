@@ -27,16 +27,13 @@ export type FieldActionButtonCopyProps = {
 export function FieldActionButtonCopy({
     isCopied,
     onClick,
-    size,
     strCopied,
     strCopy,
 }: FieldActionButtonCopyProps) {
     return (
         <FieldActionButton
-            colorOverlay={isCopied ? "green" : undefined}
             name="copy"
             onClick={onClick}
-            size={size}
             slot={<Icon icon={isCopied ? faCheck : faCopy} />}
             strTooltip={isCopied ? strCopied : strCopy}
         />
