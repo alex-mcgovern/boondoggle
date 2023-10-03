@@ -35,6 +35,7 @@ export function DataTableFilterInput({
     return (
         <Input
             autoComplete="off"
+            hideLastpass
             isClearable
             name="filter"
             onChange={(e) => {
