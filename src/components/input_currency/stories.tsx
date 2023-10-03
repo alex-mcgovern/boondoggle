@@ -49,7 +49,7 @@ const LocalesTemplate = ({
                 items={MOCK_LOCALE_SELECT_ITEMS}
                 name="locale"
                 onChange={(item) => {
-                    setLocale(item.value);
+                    setLocale(item?.value || (initLocale as MockLocale));
                 }}
                 placeholder="Select a locale"
             />

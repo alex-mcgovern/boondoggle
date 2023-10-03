@@ -22,10 +22,11 @@ function getDefaultValueItem<TValue extends string = string>({
     });
 }
 
-export type FormSelectSingleProps<TValue extends string = string> = SelectSingleProps<TValue> &
-    WithFormFieldProps & {
-        defaultValue?: string | number;
-    };
+export type FormSelectSingleProps<TValue extends string = string> =
+    SelectSingleProps<TValue> &
+        WithFormFieldProps & {
+            defaultValue?: string | number;
+        };
 
 export function FormSelectSingle<TValue extends string = string>({
     defaultValue,
@@ -46,7 +47,7 @@ export function FormSelectSingle<TValue extends string = string>({
     });
 
     const handleChange = useCallback(
-        (selection: SelectItemShape<TValue>) => {
+        (selection: SelectItemShape<TValue> | undefined) => {
             onChange(selection?.value);
             onChangeParent?.(selection);
         },

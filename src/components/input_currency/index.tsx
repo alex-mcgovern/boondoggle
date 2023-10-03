@@ -176,7 +176,7 @@ export function PureInputCurrency<TCurrency extends string = string>(
                     label={currencySelectLabel}
                     name="currency"
                     onChange={(item) => {
-                        setCurrency(item?.value);
+                        setCurrency(item?.value || initialCurrency);
                         onCurrencyChange?.(item?.value);
                     }}
                     placeholder={currency}
@@ -188,6 +188,7 @@ export function PureInputCurrency<TCurrency extends string = string>(
         currency,
         currencySelectItems,
         currencySelectLabel,
+        initialCurrency,
         isCurrencyEditable,
         onCurrencyChange,
     ]);
