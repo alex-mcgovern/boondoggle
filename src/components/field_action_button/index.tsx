@@ -11,14 +11,22 @@ type BaseButtonProps = {
      * Custom CSS class to apply to the button.
      */
     className: string | undefined;
+
+    /**
+     * Whether the button is disabled.
+     */
+    disabled?: boolean;
+
     /**
      * The name of the button.
      */
     name: string;
+
     /**
      * The function to call when the button is clicked.
      */
     onClick: MouseEventHandler<HTMLButtonElement>;
+
     /**
      * The slot to render on the button.
      */
@@ -49,6 +57,11 @@ export type FieldActionButtonProps = {
     className?: string;
 
     /**
+     * Whether the button is disabled.
+     */
+    disabled?: boolean;
+
+    /**
      * The name of the button.
      */
     name: string;
@@ -75,10 +88,11 @@ export type FieldActionButtonProps = {
 export const FieldActionButton = forwardRef<
     HTMLButtonElement,
     FieldActionButtonProps
->(({ className, name, onClick, slot, strTooltip, ...rest }, ref) => {
+>(({ className, disabled, name, onClick, slot, strTooltip, ...rest }, ref) => {
     const handleClick = useCallback(
         (e: MouseEvent<HTMLButtonElement>) => {
             onClick?.(e);
+
             // Prevent the click event from bubbling up to the parent element.
             e.stopPropagation();
         },
@@ -89,6 +103,7 @@ export const FieldActionButton = forwardRef<
         return (
             <BaseButton
                 className={className}
+                disabled={disabled}
                 name={name}
                 onClick={handleClick}
                 ref={ref}
@@ -103,6 +118,7 @@ export const FieldActionButton = forwardRef<
             <TooltipTrigger asChild>
                 <BaseButton
                     className={className}
+                    disabled={disabled}
                     name={name}
                     onClick={handleClick}
                     ref={ref}
