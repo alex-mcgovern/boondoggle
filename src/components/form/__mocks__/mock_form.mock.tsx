@@ -76,7 +76,6 @@ export const mockForm = ({
                     name="date"
                     wrapperProps={WRAPPER_PROPS}
                 />
-                {/* @ts-expect-error props are busted */}
                 <FormInputCurrency<MockCurrency>
                     currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
                     currencySelectLabel="Currency"
@@ -86,6 +85,7 @@ export const mockForm = ({
                     label="Value"
                     locale="en-US"
                     name="value"
+                    onCurrencyChange={() => {}}
                     placeholder="Enter a value"
                     wrapperProps={WRAPPER_PROPS}
                 />

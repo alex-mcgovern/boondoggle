@@ -90,7 +90,11 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 > &
     SprinklesArgs &
     WithColorOverlay &
+    WithDescription &
     WithHideLastpass &
+    WithIsOptionalCurrencyEditable<TCurrency> &
+    WithName &
+    WithOptionalFieldAddons &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
     WithOptionalIsVisibilityToggleable &
@@ -99,12 +103,8 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
     WithReadOnly &
     WithSize &
     WithSlots &
-    WithWrapperProps &
-    WithDescription &
     WithStateInvalid &
-    WithName &
-    WithIsOptionalCurrencyEditable<TCurrency> &
-    WithOptionalFieldAddons & {
+    WithWrapperProps & {
         /**
          * Initial value on first render.
          */

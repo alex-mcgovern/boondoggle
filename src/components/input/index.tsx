@@ -254,8 +254,10 @@ export type InputProps = Partial<
 > &
     SprinklesArgs &
     WithColorOverlay &
-    WithOptionalInputAddons &
+    WithDescription &
     WithHideLastpass &
+    WithName &
+    WithOptionalInputAddons &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
     WithOptionalIsVisibilityToggleable &
@@ -264,10 +266,8 @@ export type InputProps = Partial<
     WithReadOnly &
     WithSize &
     WithSlots &
-    WithWrapperProps &
-    WithDescription &
     WithStateInvalid &
-    WithName & {
+    WithWrapperProps & {
         /**
          * Whether to render the input with a border.
          */
