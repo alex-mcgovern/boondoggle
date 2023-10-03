@@ -65,7 +65,7 @@ type TooltipOptions = {
 /**
  * Hook for managing the state of a tooltip.
  */
-export function useTooltip({
+function useTooltip({
     enabled = true,
     initialOpen = false,
     onOpenChange: setControlledOpen,
@@ -131,7 +131,7 @@ type ContextType = ReturnType<typeof useTooltip> | null;
 
 const TooltipContext = createContext<ContextType>(null);
 
-export const useTooltipContext = () => {
+const useTooltipContext = () => {
     const context = useContext(TooltipContext);
 
     if (context == null) {
@@ -151,12 +151,19 @@ export type TooltipProps = {
 /**
  * Provider for a tooltip.
  */
-export function Tooltip({ children, ...options }: { children: ReactNode } & TooltipOptions) {
+export function Tooltip({
+    children,
+    ...options
+}: { children: ReactNode } & TooltipOptions) {
     // This can accept any props as options, e.g. `placement`,
     // or other positioning options.
     const tooltip = useTooltip(options);
 
-    return <TooltipContext.Provider value={tooltip}>{children}</TooltipContext.Provider>;
+    return (
+        <TooltipContext.Provider value={tooltip}>
+            {children}
+        </TooltipContext.Provider>
+    );
 }
 
 /**
@@ -200,39 +207,40 @@ export const TooltipTrigger = forwardRef<
 /**
  * Content for a tooltip.
  */
-export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
-    ({ style, ...props }, propRef) => {
-        const context = useTooltipContext();
+export const TooltipContent = forwardRef<
+    HTMLDivElement,
+    HTMLProps<HTMLDivElement>
+>(({ style, ...props }, propRef) => {
+    const context = useTooltipContext();
 
-        const ref = useMergeRefs([context.refs.setFloating, propRef]);
+    const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
-        if (!context.open) {
-            return null;
-        }
-
-        return (
-            <FloatingPortal>
-                <div
-                    ref={ref}
-                    style={{
-                        ...context.floatingStyles,
-                        ...style,
-                        zIndex: 1000, // <- This is dumb
-                    }}
-                    {...context.getFloatingProps(props)}
-                >
-                    <div className={tooltipTextStyle}>
-                        {props.children}
-
-                        <FloatingArrow
-                            context={context.context}
-                            height={ARROW_HEIGHT}
-                            ref={context.arrowRef}
-                            width={ARROW_WIDTH}
-                        />
-                    </div>
-                </div>
-            </FloatingPortal>
-        );
+    if (!context.open) {
+        return null;
     }
-);
+
+    return (
+        <FloatingPortal>
+            <div
+                ref={ref}
+                style={{
+                    ...context.floatingStyles,
+                    ...style,
+                    zIndex: 1000, // <- This is dumb
+                }}
+                {...context.getFloatingProps(props)}
+            >
+                <div className={tooltipTextStyle}>
+                    {props.children}
+
+                    <FloatingArrow
+                        context={context.context}
+                        height={ARROW_HEIGHT}
+                        ref={context.arrowRef}
+                        width={ARROW_WIDTH}
+                    />
+                </div>
+            </div>
+        </FloatingPortal>
+    );
+});

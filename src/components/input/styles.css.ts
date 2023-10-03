@@ -35,6 +35,7 @@ export const getSlotWrapperStyles = recipe({
             display: "flex",
             fontWeight: "normal",
             gap: "space_2",
+            position: "relative",
             width: "100%",
         }),
         a11yDisabled,
@@ -93,8 +94,6 @@ globalStyle(
     }
 );
 
-export const slotStyles = style([getSprinkles({ minWidth: "space_5" })]);
-
 export const inputStyles = style([
     getSprinkles({
         flexGrow: "1",
@@ -118,3 +117,139 @@ export const inputStyles = style([
         },
     },
 ]);
+
+const tabSide = styleVariants({
+    left: {
+        borderBottomLeftRadius: vars.borderRadius.md,
+        borderTopLeftRadius: vars.borderRadius.md,
+    },
+    right: {
+        borderBottomRightRadius: vars.borderRadius.md,
+        borderTopRightRadius: vars.borderRadius.md,
+    },
+});
+
+const addonHasBorder = styleVariants({
+    false: {},
+    true: {},
+});
+
+globalStyle(`${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
+    borderBottomRightRadius: "0",
+    borderRight: "none",
+    borderTopRightRadius: "0",
+});
+
+globalStyle(`${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
+    borderBottomLeftRadius: "0",
+    borderLeft: "none",
+    borderTopLeftRadius: "0",
+});
+
+const tabSize = styleVariants({
+    lg: [{ height: elementHeight.lg }],
+    md: [{ height: elementHeight.md }],
+    sm: [{ height: elementHeight.sm }],
+});
+
+export const getAddonTabStyle = recipe({
+    base: [
+        getSprinkles({
+            alignItems: "center",
+            background: "tint_default",
+            color: "text_low_contrast",
+            display: "flex",
+            fontStyle: "bodyMd",
+            fontWeight: "medium",
+        }),
+        {
+            selectors: {
+                "&:focus-within": {
+                    ...a11yFocusStyleRule,
+                },
+            },
+        },
+    ],
+    compoundVariants: [
+        {
+            style: [
+                {
+                    borderBottom: `1px solid ${vars.color.border_default}`,
+                    borderBottomLeftRadius: vars.borderRadius.md,
+                    borderLeft: `1px solid ${vars.color.border_default}`,
+                    borderTop: `1px solid ${vars.color.border_default}`,
+                    borderTopLeftRadius: vars.borderRadius.md,
+                },
+            ],
+            variants: { hasBorder: true, side: "left" },
+        },
+        {
+            style: [
+                {
+                    borderBottom: `1px solid ${vars.color.border_default}`,
+                    borderBottomRightRadius: vars.borderRadius.md,
+                    borderRight: `1px solid ${vars.color.border_default}`,
+                    borderTop: `1px solid ${vars.color.border_default}`,
+                    borderTopRightRadius: vars.borderRadius.md,
+                },
+            ],
+            variants: { hasBorder: true, side: "right" },
+        },
+    ],
+    defaultVariants: {
+        side: "left",
+        size: "md",
+    },
+    variants: {
+        hasBorder: addonHasBorder,
+        padding: elementPadding,
+        side: tabSide,
+        size: tabSize,
+    },
+});
+
+const hasAddonLeft = styleVariants({
+    false: {},
+    true: {},
+});
+
+const hasAddonRight = styleVariants({
+    false: {},
+    true: {},
+});
+
+export const getAddonWrapperStyle = recipe({
+    base: [
+        getSprinkles({
+            alignItems: "center",
+            display: "flex",
+            width: "100%",
+        }),
+    ],
+    variants: {
+        hasAddonLeft,
+        hasAddonRight,
+    },
+});
+
+export const addonChildrenStyle = style({
+    flexGrow: 1,
+    flexShrink: 0,
+    // width: "100%",
+});
+
+globalStyle(
+    `${hasAddonLeft.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
+    {
+        borderBottomLeftRadius: 0,
+        borderTopLeftRadius: 0,
+    }
+);
+
+globalStyle(
+    `${hasAddonRight.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
+    {
+        borderBottomRightRadius: 0,
+        borderTopRightRadius: 0,
+    }
+);

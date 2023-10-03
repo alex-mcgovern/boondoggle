@@ -25,7 +25,7 @@ import type {
     WithWrapperProps,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { WithOptionalFieldAddons } from "../field_addon_wrapper";
+import type { WithOptionalInputAddons } from "../input";
 import type { SelectItemShape } from "../select/types";
 import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 
@@ -94,7 +94,7 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
     WithHideLastpass &
     WithIsOptionalCurrencyEditable<TCurrency> &
     WithName &
-    WithOptionalFieldAddons &
+    WithOptionalInputAddons &
     WithOptionalIsClearable &
     WithOptionalIsCopyable &
     WithOptionalIsVisibilityToggleable &
@@ -131,7 +131,7 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
  * A component to render a currency input.
  * @private Is a base component that should be wrapped with `ForwardRef`.
  */
-export function PureInputCurrency<TCurrency extends string = string>(
+function PureInputCurrency<TCurrency extends string = string>(
     {
         currencySelectItems,
         currencySelectLabel,

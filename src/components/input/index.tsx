@@ -16,14 +16,12 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { FieldActionButtonClear } from "../field_action_button_clear";
 import { FieldActionButtonCopy } from "../field_action_button_copy";
 import { FieldActionButtonVisibility } from "../field_action_button_visibility";
-import {
-    addonChildrenStyle,
-    getAddonTabStyle,
-    getAddonWrapperStyle,
-} from "../field_addon_wrapper/styles.css";
 import { FieldWrapper } from "../field_wrapper";
 import {
+    addonChildrenStyle,
     clearButtonStyle,
+    getAddonTabStyle,
+    getAddonWrapperStyle,
     getSlotWrapperStyles,
     inputStyles,
 } from "./styles.css";
@@ -63,7 +61,7 @@ type AddonTabProps = WithSize & {
     side: "right" | "left";
 };
 
-export function AddonTab({ children, side, size }: AddonTabProps) {
+function AddonTab({ children, side, size }: AddonTabProps) {
     if (isValidElement(children)) {
         return (
             <div className={getAddonTabStyle({ hasBorder: false, side, size })}>
@@ -107,7 +105,7 @@ type InputAddonWrapperProps = WithOptionalInputAddons &
 /**
  * Wraps the children with optional addons, left & right.
  */
-export function InputAddonWrapper({
+function InputAddonWrapper({
     addonLeft,
     addonRight,
     children,
@@ -184,10 +182,7 @@ type InputSlotWrapperProps = WithSlots &
 /**
  * Renders a wrapper around the input and its slots.
  */
-export const InputSlotWrapper = forwardRef<
-    HTMLSpanElement,
-    InputSlotWrapperProps
->(
+const InputSlotWrapper = forwardRef<HTMLSpanElement, InputSlotWrapperProps>(
     (
         {
             children,

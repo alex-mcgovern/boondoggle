@@ -6,7 +6,7 @@ import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
 
-export const variantClickable = styleVariants({
+const variantClickable = styleVariants({
     false: {},
     true: {
         cursor: "pointer",

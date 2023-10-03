@@ -33,7 +33,7 @@ type BaseButtonProps = {
     slot: ReactNode;
 };
 
-export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
+const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
     ({ className, name, onClick, slot, ...rest }, ref) => {
         return (
             <button

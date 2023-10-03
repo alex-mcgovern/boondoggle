@@ -23,12 +23,17 @@ import type {
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { Alignment, Appearance } from "./styles.css";
-import type { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
+import type {
+    ComponentProps,
+    ElementType,
+    ReactElement,
+    ReactNode,
+} from "react";
 
 /**
  * Removes square size
  */
-export function stripSquareSizes(
+function stripSquareSizes(
     size?: "square_md" | "square_sm" | "square_xs" | ElementSizeEnum
 ): ElementSizeEnum {
     switch (size) {
@@ -52,7 +57,10 @@ export function stripSquareSizes(
     }
 }
 
-const getLoadingSlotSide = ({ slotLeft, slotRight }: WithSlots): "right" | "left" => {
+const getLoadingSlotSide = ({
+    slotLeft,
+    slotRight,
+}: WithSlots): "right" | "left" => {
     if (slotRight) {
         return "right";
     }
@@ -100,7 +108,11 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
                 /**
                  * The size of the button.
                  */
-                size?: "square_md" | "square_sm" | "square_xs" | ElementSizeEnum;
+                size?:
+                    | "square_md"
+                    | "square_sm"
+                    | "square_xs"
+                    | ElementSizeEnum;
 
                 /**
                  * The HTML button type, defaults to `button`.
@@ -136,7 +148,10 @@ export const Button: ButtonComponent = forwardRef(
         }: BaseButtonProps<TPolymorphicAs>,
         ref?: PolymorphicRef<TPolymorphicAs>
     ) => {
-        const { atomProps, otherProps } = extractAtomsFromProps(rest, getSprinkles);
+        const { atomProps, otherProps } = extractAtomsFromProps(
+            rest,
+            getSprinkles
+        );
 
         const Component = as || "button";
 
@@ -152,7 +167,9 @@ export const Button: ButtonComponent = forwardRef(
                         getButtonStyles({ alignment, appearance, size }),
                         getSprinkles(atomProps),
                         userClassName,
-                        colorOverlay ? variantColorOverlay[colorOverlay] : undefined
+                        colorOverlay
+                            ? variantColorOverlay[colorOverlay]
+                            : undefined
                     ),
                     "data-active": active,
                     disabled: disabled || isLoading,
@@ -164,9 +181,17 @@ export const Button: ButtonComponent = forwardRef(
                 <SlotWrapper
                     color="inherit"
                     size={stripSquareSizes(size)}
-                    slotLeft={isLoading && loaderSide === "left" ? [<Loader />] : slotLeft}
+                    slotLeft={
+                        isLoading && loaderSide === "left"
+                            ? [<Loader />]
+                            : slotLeft
+                    }
                     slotProps={slotProps}
-                    slotRight={isLoading && loaderSide === "right" ? [<Loader />] : slotRight}
+                    slotRight={
+                        isLoading && loaderSide === "right"
+                            ? [<Loader />]
+                            : slotRight
+                    }
                 >
                     {children}
                 </SlotWrapper>

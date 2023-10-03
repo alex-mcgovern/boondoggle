@@ -6,10 +6,7 @@ import { Icon } from "../icon";
 
 import type { FieldActionButtonProps } from "../field_action_button";
 
-export type FieldActionButtonDateProps = Omit<
-    FieldActionButtonProps,
-    "name" | "slot"
->;
+type FieldActionButtonDateProps = Omit<FieldActionButtonProps, "name" | "slot">;
 
 /**
  * A button to open a date picker.

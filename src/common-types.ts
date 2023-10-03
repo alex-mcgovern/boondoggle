@@ -251,13 +251,6 @@ export type WithReadOnly = {
     readOnly?: boolean;
 };
 
-export type WithId = {
-    /**
-     * HTML element id
-     */
-    id?: string;
-};
-
 type BaseWithLabel = {
     /**
      * Whether the label is visible or not.
@@ -337,11 +330,6 @@ export type WithSize = {
      */
     size?: ElementSizeEnum;
 };
-
-/**
- * @deprecated Use `ReactNode` instead
- */
-export type Slot = ReactNode;
 
 export type WithSlots = {
     /**

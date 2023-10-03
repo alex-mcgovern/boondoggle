@@ -28,7 +28,17 @@ type MockSelectItemsArgs = {
     withIcon?: boolean;
 };
 
-export type CountryValue = "uk" | "fr" | "de" | "es" | "gb" | "it" | "pt" | "us" | "ca" | "au";
+type CountryValue =
+    | "uk"
+    | "fr"
+    | "de"
+    | "es"
+    | "gb"
+    | "it"
+    | "pt"
+    | "us"
+    | "ca"
+    | "au";
 
 export const mockSelectItems = ({
     as,
@@ -122,7 +132,9 @@ export const mockSelectItems = ({
 
 type ActionValue = "view_details" | "edit" | "delete";
 
-export const mockSelectItemsActions = (): Array<SelectItemShape<ActionValue>> => {
+export const mockSelectItemsActions = (): Array<
+    SelectItemShape<ActionValue>
+> => {
     return [
         {
             as: "button",
