@@ -8,9 +8,10 @@ export const datePickerDialogStyle = style([
     getSprinkles({
         background: "background",
         border: "border_default",
-        borderRadius: "sm",
+        borderRadius: "md",
         boxShadow: "md",
         marginTop: "space_2",
+        width: "auto",
     }),
     {
         pointerEvents: "all",

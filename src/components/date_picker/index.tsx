@@ -26,12 +26,7 @@ export type DatePickerProps = {
 
 export const DatePicker = forwardRef(
     (
-        {
-            className: userClassName,
-            onDayClick,
-
-            ...rest
-        }: DatePickerProps,
+        { className: userClassName, onDayClick, ...rest }: DatePickerProps,
         ref: Ref<HTMLElement>
     ) => {
         const [selectedDates, onDatesChange] = useState<Date[]>([]);
@@ -79,7 +74,11 @@ export const DatePicker = forwardRef(
             <Box
                 __minWidth="24rem"
                 as="section"
-                className={clsx(userClassName, styles.datePickerRoot, variantColorOverlay.default)}
+                className={clsx(
+                    userClassName,
+                    styles.datePickerRoot,
+                    variantColorOverlay.default
+                )}
                 ref={ref}
                 {...rest}
             >

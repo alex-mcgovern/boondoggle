@@ -1,9 +1,15 @@
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
-import clsx from "clsx";
+import {
+    autoUpdate,
+    flip,
+    offset,
+    useDismiss,
+    useFloating,
+    useInteractions,
+} from "@floating-ui/react";
 import { forwardRef, useCallback, useState } from "react";
 
 import { DatePicker } from "../date_picker";
-import { Dialog } from "../dialog";
 import { FieldActionButtonDate } from "../field_action_button_date";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
@@ -60,7 +66,6 @@ export type InputDateProps = Omit<
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
     (
         {
-            className: userClassName,
             defaultValue,
             isOpen: controlledIsOpen,
             onChange,
@@ -80,6 +85,12 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             controlledIsOpen
         );
 
+        const toggleIsOpen = useCallback(() => {
+            setIsOpen((prevIsOpen) => {
+                return !prevIsOpen;
+            });
+        }, []);
+
         const onDayClick = useCallback(
             (_: MouseEvent<HTMLElement>, date: Date) => {
                 const utcDate = convertLocalToUTCDate(date);
@@ -96,34 +107,56 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
             [onChange]
         );
 
+        const { context, floatingStyles, refs } = useFloating({
+            middleware: [
+                offset(4),
+                flip({
+                    crossAxis: true,
+                    fallbackAxisSideDirection: "start",
+                }),
+            ],
+            onOpenChange: setIsOpen,
+            open: isOpen,
+            placement: "bottom-end",
+            whileElementsMounted: autoUpdate,
+        });
+
+        const dismiss = useDismiss(context);
+
+        const { getFloatingProps, getReferenceProps } = useInteractions([
+            dismiss,
+        ]);
+
         return (
-            <Input
-                {...(rest as InputProps)}
-                className={inputDateStyle}
-                onChange={(e) => {
-                    setInputValue(e.target.value);
-                    return onChange?.(e.target.value);
-                }}
-                ref={ref}
-                size={size}
-                slotLeft={slotLeft}
-                slotRight={
-                    <Dialog
-                        className={clsx(userClassName, datePickerDialogStyle)}
-                        isOpen={isOpen}
-                        placement="bottom-end"
-                        triggerNode={
-                            // eslint-disable-next-line react-perf/jsx-no-jsx-as-prop
-                            <FieldActionButtonDate />
-                        }
+            <>
+                <Input
+                    {...(rest as InputProps)}
+                    className={inputDateStyle}
+                    onChange={(e) => {
+                        setInputValue(e.target.value);
+                        return onChange?.(e.target.value);
+                    }}
+                    outerRef={refs.setReference}
+                    ref={ref}
+                    size={size}
+                    slotLeft={slotLeft}
+                    slotRight={<FieldActionButtonDate onClick={toggleIsOpen} />}
+                    type="date"
+                    value={inputValue}
+                    wrapperProps={wrapperProps}
+                    {...getReferenceProps()}
+                />
+                {isOpen && (
+                    <div
+                        className={datePickerDialogStyle}
+                        ref={refs.setFloating}
+                        style={floatingStyles}
+                        {...getFloatingProps()}
                     >
                         <DatePicker onDayClick={onDayClick} />
-                    </Dialog>
-                }
-                type="date"
-                value={inputValue}
-                wrapperProps={wrapperProps}
-            />
+                    </div>
+                )}
+            </>
         );
     }
 );
