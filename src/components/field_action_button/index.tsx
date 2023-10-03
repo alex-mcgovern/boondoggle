@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { forwardRef, useCallback } from "react";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { fieldActionButtonStyle } from "./styles.css";
 
 import type { ButtonProps } from "../button";
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 export type FieldActionButtonProps = {
     /**
@@ -44,12 +44,21 @@ export const FieldActionButton = forwardRef<
     HTMLButtonElement,
     FieldActionButtonProps
 >(({ className, name, onClick, slot, strTooltip, ...rest }, ref) => {
+    const handleClick = useCallback(
+        (e: MouseEvent<HTMLButtonElement>) => {
+            onClick();
+            // Prevent the click event from bubbling up to the parent element.
+            e.stopPropagation();
+        },
+        [onClick]
+    );
+
     if (!strTooltip) {
         return (
             <button
                 className={clsx(fieldActionButtonStyle, className)}
                 name={name}
-                onClick={onClick}
+                onClick={handleClick}
                 ref={ref}
                 type="button"
                 {...rest}
@@ -65,7 +74,7 @@ export const FieldActionButton = forwardRef<
                 <button
                     className={clsx(fieldActionButtonStyle, className)}
                     name={name}
-                    onClick={onClick}
+                    onClick={handleClick}
                     ref={ref}
                     type="button"
                     {...rest}

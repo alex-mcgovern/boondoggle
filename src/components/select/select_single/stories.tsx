@@ -17,6 +17,7 @@ const meta = {
             alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
         },
         placeholder: LOREM.placeholder(),
+        strClear: "Clear",
     },
     component: StoryComp,
     title: "Components/SelectSingle",
@@ -31,6 +32,13 @@ export const Default: Story = {};
 export const InitialSelectedItem: Story = {
     args: {
         initialSelectedItem: mockSelectItems({})[0],
+    },
+};
+
+export const InitialSelectedItemWithIsClearable: Story = {
+    args: {
+        initialSelectedItem: mockSelectItems({})[0],
+        isClearable: true,
     },
 };
 

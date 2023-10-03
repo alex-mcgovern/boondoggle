@@ -27,6 +27,7 @@ export function FieldActionButtonClear({
     return (
         <FieldActionButton
             className={className}
+            data-testid="clear"
             name="clear"
             onClick={onClick}
             size={size}

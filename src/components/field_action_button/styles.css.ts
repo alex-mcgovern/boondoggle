@@ -19,5 +19,6 @@ export const fieldActionButtonStyle = style([
                 }),
             },
         },
+        zIndex: 1,
     },
 ]);

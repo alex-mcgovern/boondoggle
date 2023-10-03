@@ -41,9 +41,7 @@ describe("<SelectSingle />", () => {
             expect(getByRole("combobox")).not.toBeNull();
         });
     });
-});
 
-describe("<SelectSingle />", () => {
     describe("Slot props", () => {
         test("should render node passed to `slotLeft`", async () => {
             const { getByTestId } = renderComponent({
@@ -73,9 +71,7 @@ describe("<SelectSingle />", () => {
             expect(getByTestId("icon")).not.toBeNull();
         });
     });
-});
 
-describe("<SelectSingle />", () => {
     test("should render placeholder", async () => {
         const { getByRole } = renderComponent(PROPS);
 
@@ -85,9 +81,7 @@ describe("<SelectSingle />", () => {
             PROPS.placeholder
         );
     });
-});
 
-describe("<SelectSingle />", () => {
     test("mouse navigation", async () => {
         const ON_CLICK = jest.fn();
 
@@ -96,7 +90,7 @@ describe("<SelectSingle />", () => {
             onClick: ON_CLICK,
         });
 
-        const { getByRole, getByText, user } = renderComponent({
+        const { getByRole, getByTestId, getByText, user } = renderComponent({
             ...PROPS,
             items: ITEMS_AS_BUTTONS,
         });
@@ -128,10 +122,18 @@ describe("<SelectSingle />", () => {
         expect((getByRole("combobox") as HTMLInputElement).value).toBe(
             ITEMS_AS_BUTTONS[1].label
         );
-    });
-});
 
-describe("<SelectSingle />", () => {
+        // Now clear the input
+
+        const clearButton = getByTestId("clear");
+
+        await userEvent.click(clearButton);
+
+        expect((getByRole("combobox") as HTMLInputElement).value).toBe("");
+
+        expect(ON_CHANGE).toHaveBeenCalledWith(undefined);
+    });
+
     test("should be labelled", async () => {
         const { container, getByRole } = renderComponent(PROPS);
 
@@ -149,9 +151,7 @@ describe("<SelectSingle />", () => {
 
         expect(label?.textContent).toBe(PROPS.label);
     });
-});
 
-describe("<SelectSingle />", () => {
     test("keyboard navigation", async () => {
         const ON_CLICK = jest.fn();
 
@@ -193,9 +193,7 @@ describe("<SelectSingle />", () => {
             ITEMS_AS_BUTTONS[1].label
         );
     });
-});
 
-describe("<SelectSingle />", () => {
     test("should have error styling", () => {
         const { getByRole, getByText } = renderComponent({
             ...PROPS,
@@ -212,26 +210,38 @@ describe("<SelectSingle />", () => {
 
         expect(getByText(LOREM.errorMessage())).not.toBeNull();
     });
-});
 
-describe("<SelectSingle />", () => {
-    describe("Initial selected item", () => {
-        test("should have value of initial selected item", async () => {
-            const { getByRole } = renderComponent({
-                ...PROPS,
-                initialSelectedItem: PROPS.items[0],
-            });
-
-            const combobox = getByRole("combobox");
-
-            expect((combobox as HTMLInputElement).value).toBe(
-                PROPS.items[0].label
-            );
+    test("has value of initial selected item", async () => {
+        const { getByRole } = renderComponent({
+            ...PROPS,
+            initialSelectedItem: PROPS.items[0],
         });
-    });
-});
 
-describe("<SelectSingle />", () => {
+        const combobox = getByRole("combobox");
+
+        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
+    });
+
+    test.only("allows clear with initial selected item", async () => {
+        const { getByRole, getByTestId } = renderComponent({
+            ...PROPS,
+            initialSelectedItem: PROPS.items[0],
+            isClearable: true,
+            strClear: "Clear",
+        });
+
+        const combobox = getByRole("combobox");
+        const clearButton = getByTestId("clear");
+
+        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
+
+        await userEvent.click(clearButton);
+
+        expect((combobox as HTMLInputElement).value).toBe("");
+
+        expect(ON_CHANGE).toHaveBeenCalledWith(undefined);
+    });
+
     describe("Disabled state", () => {
         test("should not show dropdown menu when user clicks", async () => {
             const { getByRole } = renderComponent({ ...PROPS, disabled: true });
@@ -257,9 +267,7 @@ describe("<SelectSingle />", () => {
             expect(menu).not.toBeVisible();
         });
     });
-});
 
-describe("<SelectSingle />", () => {
     describe("dialog / dropdown menu", () => {
         test("should not be visible on first mount", () => {
             const { getByRole } = renderComponent(PROPS);

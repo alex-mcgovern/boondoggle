@@ -91,7 +91,7 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
         /**
          * Function called with the new selected item when the selection changes.
          */
-        onChange?: (selection: SelectItemShape<TValue>) => void;
+        onChange?: (selection: SelectItemShape<TValue> | undefined) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
@@ -172,9 +172,7 @@ function SelectSingleBase<TValue extends string = string>(
         },
         onIsOpenChange,
         onSelectedItemChange: (changes) => {
-            return changes.selectedItem
-                ? onChange?.(changes.selectedItem)
-                : undefined;
+            return onChange?.(changes.selectedItem || undefined);
         },
         // Ensure that onClick is called when the user presses Enter on an item.
         onStateChange(changes) {
@@ -225,6 +223,7 @@ function SelectSingleBase<TValue extends string = string>(
                 slotRight={getSlotRight({
                     isClearable:
                         (!!isFilterable && !!inputValue) ||
+                        (!!isClearable && !!initialItem) ||
                         (!!isClearable && !!selectedItem),
                     reset,
                     slotRight,
