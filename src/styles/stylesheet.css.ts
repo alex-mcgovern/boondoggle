@@ -138,6 +138,30 @@ globalStyle(`input[type="search"]`, {
     },
 });
 
+globalStyle(
+    `input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration`,
+    {
+        "@layer": {
+            [resetLayer]: {
+                display: "none",
+            },
+        },
+    }
+);
+
+globalStyle(`input[type=search]::-ms-clear, input[type=search]::-ms-reveal`, {
+    "@layer": {
+        [resetLayer]: {
+            display: "none",
+            height: 0,
+            width: 0,
+        },
+    },
+});
+
 // INPUT DATE STYLES
 
 globalStyle("input[type='date']::-webkit-calendar-picker-indicator", {

@@ -43,6 +43,7 @@ export function DataTableFilterInput({
             placeholder={placeholder}
             slotLeft={<Icon icon={faSearch} />}
             strClear={strClearFilterInput}
+            type="search"
             value={globalFilter}
         />
     );
