@@ -4,8 +4,42 @@ import { forwardRef, useCallback } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { fieldActionButtonStyle } from "./styles.css";
 
-import type { ButtonProps } from "../button";
-import type { MouseEvent, ReactNode } from "react";
+import type { MouseEvent, MouseEventHandler, ReactNode } from "react";
+
+type BaseButtonProps = {
+    /**
+     * Custom CSS class to apply to the button.
+     */
+    className: string | undefined;
+    /**
+     * The name of the button.
+     */
+    name: string;
+    /**
+     * The function to call when the button is clicked.
+     */
+    onClick: MouseEventHandler<HTMLButtonElement>;
+    /**
+     * The slot to render on the button.
+     */
+    slot: ReactNode;
+};
+
+export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
+    ({ className, name, onClick, slot }, ref) => {
+        return (
+            <button
+                className={clsx(fieldActionButtonStyle, className)}
+                name={name}
+                onClick={onClick}
+                ref={ref}
+                type="button"
+            >
+                {slot}
+            </button>
+        );
+    }
+);
 
 export type FieldActionButtonProps = {
     /**
@@ -21,7 +55,7 @@ export type FieldActionButtonProps = {
     /**
      * The function to call when the button is clicked.
      */
-    onClick: () => void;
+    onClick: MouseEventHandler<HTMLButtonElement>;
 
     /**
      * The slot to render on the button.
@@ -32,10 +66,7 @@ export type FieldActionButtonProps = {
      * The tooltip text to display when the button is hovered.
      */
     strTooltip?: string;
-} & Omit<
-    ButtonProps,
-    "appearance" | "className" | "slotLeft" | "slotRight" | "type" | "size"
->;
+};
 
 /**
  * A configurable button for use within a field.
@@ -43,10 +74,10 @@ export type FieldActionButtonProps = {
 export const FieldActionButton = forwardRef<
     HTMLButtonElement,
     FieldActionButtonProps
->(({ className, name, onClick, slot, strTooltip, ...rest }, ref) => {
+>(({ className, name, onClick, slot, strTooltip }, ref) => {
     const handleClick = useCallback(
         (e: MouseEvent<HTMLButtonElement>) => {
-            onClick();
+            onClick(e);
             // Prevent the click event from bubbling up to the parent element.
             e.stopPropagation();
         },
@@ -55,32 +86,26 @@ export const FieldActionButton = forwardRef<
 
     if (!strTooltip) {
         return (
-            <button
-                className={clsx(fieldActionButtonStyle, className)}
+            <BaseButton
+                className={className}
                 name={name}
                 onClick={handleClick}
                 ref={ref}
-                type="button"
-                {...rest}
-            >
-                {slot}
-            </button>
+                slot={slot}
+            />
         );
     }
 
     return (
         <Tooltip placement="top">
             <TooltipTrigger asChild>
-                <button
-                    className={clsx(fieldActionButtonStyle, className)}
+                <BaseButton
+                    className={className}
                     name={name}
                     onClick={handleClick}
                     ref={ref}
-                    type="button"
-                    {...rest}
-                >
-                    {slot}
-                </button>
+                    slot={slot}
+                />
             </TooltipTrigger>
             <TooltipContent>{strTooltip}</TooltipContent>
         </Tooltip>
