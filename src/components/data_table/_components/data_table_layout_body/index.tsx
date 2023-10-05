@@ -45,9 +45,9 @@ export function DataTableLayoutBody<TRowData>({
 
                 return (
                     <Box
-                        key={row.id}
-                        {...getRowProps?.(row.original)}
+                        {...rowProps}
                         className={getRowStyles({ isRowClickable })}
+                        key={row.id}
                         onClick={
                             isSelectable && isRowClickable
                                 ? row.getToggleSelectedHandler()
@@ -63,7 +63,10 @@ export function DataTableLayoutBody<TRowData>({
                                         width: cell.column.getSize(),
                                     }}
                                 >
-                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    {flexRender(
+                                        cell.column.columnDef.cell,
+                                        cell.getContext()
+                                    )}
                                 </div>
                             );
                         })}
