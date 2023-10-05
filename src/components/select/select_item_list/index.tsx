@@ -83,10 +83,10 @@ export const SelectItem = React.forwardRef(
                     }
                 )}
                 id={label}
+                ref={ref}
                 size={size}
                 slotLeft={slotLeft}
                 {...rest}
-                ref={ref}
             >
                 <Box flexShrink="0">{label}</Box>
                 {isMulti && (

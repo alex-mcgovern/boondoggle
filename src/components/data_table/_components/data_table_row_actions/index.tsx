@@ -28,16 +28,14 @@ export function DataTableRowActions({ items }: DataTableRowActionsProps) {
                 appearance: "secondary",
                 name: "select_button_data_table_team",
                 onClick: (e: ChangeEvent<HTMLButtonElement>) => {
-                    return e.preventDefault(); // Prevent triggering the row click event if there is one
+                    return e.stopPropagation(); // Prevent triggering the row click event if there is one
                 },
                 size: "square_md",
             }}
             items={items}
             name="select_button_data_table_team"
             placement="bottom-end"
-            // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
             slotRight={<Icon icon={faEllipsis} />}
-            // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
             wrapperProps={{
                 marginLeft: "auto",
                 width: "min-content",
