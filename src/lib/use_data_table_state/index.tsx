@@ -12,7 +12,13 @@ import { DataTableCellSelectable } from "../../components/data_table/_components
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
 import type { TDataTableRowActions } from "../../common-types";
-import type { ColumnDef, Row, RowData, RowSelectionState, Updater } from "@tanstack/react-table";
+import type {
+    ColumnDef,
+    Row,
+    RowData,
+    RowSelectionState,
+    Updater,
+} from "@tanstack/react-table";
 
 type UseDataTableStateProps<TData extends RowData> = {
     /**

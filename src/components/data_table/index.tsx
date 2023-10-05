@@ -1,3 +1,5 @@
+"use client";
+
 import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { tableStyles } from "../../styles/stylesheet.css";
