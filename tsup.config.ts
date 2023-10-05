@@ -12,13 +12,13 @@ export default defineConfig({
     entry: ["src/index.ts"],
     esbuildPlugins: [
         vanillaExtractPlugin({
-            identifiers: "short",
+            identifiers: "debug",
             outputCss: true,
             runtime: false,
         }),
     ],
     format: ["esm", "cjs"],
-    minify: true,
+    minify: false,
     outDir: "dist",
     platform: "browser",
     sourcemap: true,
