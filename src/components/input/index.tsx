@@ -212,7 +212,12 @@ const InputSlotWrapper = forwardRef<HTMLSpanElement, InputSlotWrapperProps>(
             <span
                 aria-disabled={disabled}
                 className={clsx(
-                    getSlotWrapperStyles({ hasBorder, size }),
+                    getSlotWrapperStyles({
+                        hasBorder,
+                        hasSlotLeft: !!slotLeft,
+                        hasSlotRight: !!slotRight,
+                        size,
+                    }),
                     className,
                     {
                         [a11yError]: invalid,

@@ -1,10 +1,12 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocusStyleRule } from "../../styles/common/a11y.css";
 import {
     elementHeight,
     elementPadding,
+    elementPaddingRaw,
 } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
@@ -22,6 +24,9 @@ const hasBorder = styleVariants({
 });
 
 export const inputSlotWrapperDoNotRemoveOrYouWillBeFired = style([]);
+
+const hasSlotLeft = styleVariants({ false: {}, true: {} });
+const hasSlotRight = styleVariants({ false: {}, true: {} });
 
 export const getSlotWrapperStyles = recipe({
     base: [
@@ -64,12 +69,89 @@ export const getSlotWrapperStyles = recipe({
             },
         },
     ],
+    compoundVariants: [
+        // Offset padding left for left slot
+
+        {
+            style: [
+                {
+                    paddingLeft: calc.subtract(
+                        elementPaddingRaw.sm.x,
+                        vars.spacing.space_1
+                    ),
+                },
+            ],
+            variants: { hasSlotLeft: true, size: "sm" },
+        },
+        {
+            style: [
+                {
+                    paddingLeft: calc.subtract(
+                        elementPaddingRaw.md.x,
+                        vars.spacing.space_1
+                    ),
+                },
+            ],
+            variants: { hasSlotLeft: true, size: "md" },
+        },
+        {
+            style: [
+                {
+                    paddingLeft: calc.subtract(
+                        elementPaddingRaw.lg.x,
+                        vars.spacing.space_1
+                    ),
+                },
+            ],
+            variants: { hasSlotLeft: true, size: "lg" },
+        },
+
+        // Offset padding right for right slot
+
+        {
+            style: [
+                {
+                    paddingRight: calc.subtract(
+                        elementPaddingRaw.sm.x,
+                        vars.spacing.space_1
+                    ),
+                },
+            ],
+            variants: { hasSlotRight: true, size: "sm" },
+        },
+        {
+            style: [
+                {
+                    paddingRight: calc.subtract(
+                        elementPaddingRaw.md.x,
+                        vars.spacing.space_1
+                    ),
+                },
+            ],
+            variants: { hasSlotRight: true, size: "md" },
+        },
+        {
+            style: [
+                {
+                    paddingRight: calc.subtract(
+                        elementPaddingRaw.lg.x,
+                        vars.spacing.space_1
+                    ),
+                },
+            ],
+            variants: { hasSlotRight: true, size: "lg" },
+        },
+    ],
     defaultVariants: {
         hasBorder: true,
+        hasSlotLeft: false,
+        hasSlotRight: false,
         size: "md",
     },
     variants: {
         hasBorder,
+        hasSlotLeft,
+        hasSlotRight,
         size,
     },
 });
