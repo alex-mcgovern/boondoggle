@@ -11,7 +11,11 @@ import {
     selectItemListInner,
 } from "./styles.css";
 
-import type { WithColorOverlay, WithSize, WithSlots } from "../../../common-types";
+import type {
+    WithColorOverlay,
+    WithSize,
+    WithSlots,
+} from "../../../common-types";
 import type { BoxProps } from "../../box";
 import type { SelectItemShape } from "../types";
 import type {
@@ -127,7 +131,11 @@ export type SelectItemListProps<TValue extends string = string> = WithSize & {
      * Function provided by Downshift to get props for the currently selected item.
      */
     getSelectedItemProps:
-        | ((options: UseMultipleSelectionGetSelectedItemPropsOptions<SelectItemShape<TValue>>) => {
+        | ((
+              options: UseMultipleSelectionGetSelectedItemPropsOptions<
+                  SelectItemShape<TValue>
+              >
+          ) => {
               [key: string]: unknown;
           })
         | undefined;
@@ -205,20 +213,21 @@ function SelectItemListBase<TValue extends string = string>(
 
                         const isHighlighted = highlightedIndex === index;
 
-                        const isSelected = initIsSelected || getIsItemSelected?.(item);
+                        const isSelected =
+                            initIsSelected || getIsItemSelected?.(item);
 
                         return (
                             <SelectItem
                                 as={as}
                                 colorOverlay={colorOverlay}
                                 isMulti={isMulti}
+                                key={`${item.label}-${item.value}`}
                                 size={size}
                                 {...otherItemProps}
                                 {...getItemProps({
                                     isHighlighted,
                                     isSelected,
                                     item,
-                                    key: `${item.label}-${item.value}`,
                                     label,
                                     onClick,
                                     slotLeft,
