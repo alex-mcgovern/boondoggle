@@ -1,3 +1,5 @@
+"use client";
+
 import { useDatePicker } from "@rehookify/datepicker";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";

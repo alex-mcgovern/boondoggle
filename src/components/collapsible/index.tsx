@@ -1,3 +1,5 @@
+"use client";
+
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
 
@@ -30,7 +32,12 @@ export type CollapsibleProps = {
 /**
  * An unstyled, primitive component for creating a collapsible UI element.
  */
-export function Collapsible({ children, isOpen, onOpenChange, triggerNode }: CollapsibleProps) {
+export function Collapsible({
+    children,
+    isOpen,
+    onOpenChange,
+    triggerNode,
+}: CollapsibleProps) {
     const [localOpenState, setLocalOpenState] = useState(isOpen);
 
     const handleOpenChange = useCallback(
@@ -54,7 +61,9 @@ export function Collapsible({ children, isOpen, onOpenChange, triggerNode }: Col
              * ToDo: Figure out a tidy way to require triggerNode to accept ref,
              * or to wrap triggerNode so it is always able to accept a ref.
              */}
-            <RadixCollapsible.Trigger asChild>{triggerNode}</RadixCollapsible.Trigger>
+            <RadixCollapsible.Trigger asChild>
+                {triggerNode}
+            </RadixCollapsible.Trigger>
 
             <RadixCollapsible.Content className={collapsibleContentAnimation}>
                 {children}

@@ -15,7 +15,10 @@ type UseFieldCopyableStateArgs = {
 /**
  * Hook to handle copying a value from a readOnly input.
  */
-export function useFieldCopyableState({ isCopyable, readOnly }: UseFieldCopyableStateArgs) {
+export function useFieldCopyableState({
+    isCopyable,
+    readOnly,
+}: UseFieldCopyableStateArgs) {
     const [isCopied, setIsCopied] = useState<boolean>(false);
 
     const revertIsCopied = useCallback(() => {

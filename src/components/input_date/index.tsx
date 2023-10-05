@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";

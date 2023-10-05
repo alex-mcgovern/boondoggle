@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useState } from "react";
 
 import { Box } from "../box";
@@ -40,7 +42,10 @@ export type DialogModalActionConfirmProps = WithColorOverlay & {
     promptSuffix: string;
 };
 
-export const DialogModalActionConfirm = forwardRef<HTMLDivElement, DialogModalActionConfirmProps>(
+export const DialogModalActionConfirm = forwardRef<
+    HTMLDivElement,
+    DialogModalActionConfirmProps
+>(
     (
         {
             buttonProps,
