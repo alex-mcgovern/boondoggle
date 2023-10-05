@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
