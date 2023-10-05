@@ -27,8 +27,10 @@ export function DataTableCellSelectable<TData extends RowData>({
             display="flex"
         >
             <input
-                checked={row.getIsSelected()}
-                onChange={isRowClickable ? undefined : row.getToggleSelectedHandler()}
+                defaultChecked={row.getIsSelected()}
+                onChange={
+                    isRowClickable ? undefined : row.getToggleSelectedHandler()
+                }
                 type="checkbox"
             />
         </Box>
