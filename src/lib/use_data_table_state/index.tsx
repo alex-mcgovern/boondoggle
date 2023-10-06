@@ -177,9 +177,13 @@ export function useDataTableState<TData extends RowData>({
         isSelectable,
     ]);
 
+    const tableData = useMemo(() => {
+        return isLoading ? Array(10).fill({}) : data;
+    }, [isLoading, data]);
+
     const table = useReactTable<TData>({
         columns,
-        data: data || [],
+        data: tableData || [],
         getCoreRowModel: getCoreRowModel(),
         ...(isFilterable && {
             getFilteredRowModel: getFilteredRowModel(),

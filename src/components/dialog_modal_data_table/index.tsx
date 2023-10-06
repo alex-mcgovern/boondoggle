@@ -173,10 +173,10 @@ export function DialogModalDataTable<TData extends RowData>({
         enableMultiRowSelection,
         initColumns,
         isFilterable,
+        isLoading,
         isPaginated,
         isSelectable,
         isSortable,
-
         onSelect,
     });
 
