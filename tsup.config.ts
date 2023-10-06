@@ -21,7 +21,7 @@ export default defineConfig({
         }),
     ],
     external: ["react"],
-    format: ["esm", "cjs"],
+    format: "esm",
     minify: false,
     outDir: "dist",
     platform: "browser",
