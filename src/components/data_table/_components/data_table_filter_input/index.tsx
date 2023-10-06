@@ -8,6 +8,11 @@ import type { useDataTableState } from "../../../../lib/use_data_table_state";
 
 type DataTableFilterInputProps = Required<WithOptionalPlaceholder> & {
     /**
+     * Whether the input should be disabled.
+     */
+    disabled?: boolean;
+
+    /**
      * The current DataTable global filter state
      */
     globalFilter: ReturnType<typeof useDataTableState>["globalFilter"];
@@ -27,6 +32,7 @@ type DataTableFilterInputProps = Required<WithOptionalPlaceholder> & {
  * Renders a string filter for the DataTable.
  */
 export function DataTableFilterInput({
+    disabled,
     globalFilter,
     placeholder,
     setGlobalFilter,
@@ -35,6 +41,7 @@ export function DataTableFilterInput({
     return (
         <Input
             autoComplete="off"
+            disabled={disabled}
             hideLastpass
             isClearable
             name="filter"

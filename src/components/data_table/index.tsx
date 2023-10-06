@@ -118,10 +118,9 @@ export function DataTable<TRowData extends RowData>({
         <Box>
             <DataTableActionsWrapper
                 leftAction={
-                    isFilterable &&
-                    arrayHasLength(data) &&
-                    strClearAllFilters ? (
+                    isFilterable && strClearAllFilters ? (
                         <DataTableFilterInput
+                            disabled={isLoading}
                             globalFilter={globalFilter}
                             placeholder={strFilterPlaceholder}
                             setGlobalFilter={setGlobalFilter}
@@ -156,17 +155,15 @@ export function DataTable<TRowData extends RowData>({
                 />
             )}
 
-            {isPaginated &&
-                hasData &&
-                table.getFilteredRowModel().rows.length > 10 && (
-                    <DataTablePaginationWrapper
-                        strNext={strNext}
-                        strPage={strPage}
-                        strPrev={strPrev}
-                        strResults={strResults}
-                        table={table}
-                    />
-                )}
+            {isPaginated && table.getFilteredRowModel().rows.length > 10 && (
+                <DataTablePaginationWrapper
+                    strNext={strNext}
+                    strPage={strPage}
+                    strPrev={strPrev}
+                    strResults={strResults}
+                    table={table}
+                />
+            )}
         </Box>
     );
 }
