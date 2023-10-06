@@ -184,7 +184,7 @@ type InputSlotWrapperProps = WithSlots &
 /**
  * Renders a wrapper around the input and its slots.
  */
-const InputSlotWrapper = forwardRef<HTMLSpanElement, InputSlotWrapperProps>(
+const InputSlotWrapper = forwardRef<HTMLDivElement, InputSlotWrapperProps>(
     (
         {
             children,
@@ -211,7 +211,7 @@ const InputSlotWrapper = forwardRef<HTMLSpanElement, InputSlotWrapperProps>(
 
         return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-            <span
+            <div
                 aria-disabled={disabled}
                 className={clsx(
                     getSlotWrapperStyles({
@@ -231,7 +231,7 @@ const InputSlotWrapper = forwardRef<HTMLSpanElement, InputSlotWrapperProps>(
                 {slotLeft}
                 {children}
                 {slotRight}
-            </span>
+            </div>
         );
     }
 );
@@ -278,7 +278,7 @@ export type InputProps = Partial<
         /**
          * A ref to the outer element. (e.g. for positioning an element along with the input)
          */
-        outerRef?: ForwardedRef<HTMLSpanElement>;
+        outerRef?: ForwardedRef<HTMLDivElement>;
 
         selectionRange?: {
             end: number | null;
