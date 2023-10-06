@@ -43,6 +43,15 @@ export const Default: Story = {
     },
 };
 
+export const IsLoading: Story = {
+    args: {
+        columns: DATA_TABLE_COLUMNS_MOCK,
+        data: MOCK_DATA,
+        isLoading: true,
+        strNoResults: "No results",
+    },
+};
+
 export const IsRowClickable: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,

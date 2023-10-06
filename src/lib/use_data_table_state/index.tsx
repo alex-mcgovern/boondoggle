@@ -9,6 +9,7 @@ import {
 import { useCallback, useMemo, useState } from "react";
 
 import { DataTableCellSelectable } from "../../components/data_table/_components/data_table_cell_selectable";
+import { Skeleton } from "../../components/skeleton";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
 import type { TDataTableRowActions } from "../../common-types";
@@ -47,6 +48,11 @@ type UseDataTableStateProps<TData extends RowData> = {
     isFilterable: boolean | undefined;
 
     /**
+     * Whether the data is loading or not.
+     */
+    isLoading: boolean | undefined;
+
+    /**
      * Whether to show pagination
      */
     isPaginated: boolean | undefined;
@@ -78,6 +84,7 @@ export function useDataTableState<TData extends RowData>({
     enableMultiRowSelection,
     initColumns,
     isFilterable,
+    isLoading,
     isPaginated,
     isRowClickable,
     isSelectable,
@@ -138,7 +145,14 @@ export function useDataTableState<TData extends RowData>({
                 : []),
 
             // The original columns array
-            ...initColumns,
+            ...(isLoading
+                ? initColumns.map((initColumn) => {
+                      return {
+                          ...initColumn,
+                          cell: Skeleton,
+                      };
+                  })
+                : initColumns),
 
             // If the table has row action items, add a column for
             // the dropdown menu at the end of the columns array
@@ -154,7 +168,14 @@ export function useDataTableState<TData extends RowData>({
                   ]
                 : []),
         ];
-    }, [CellSelectable, RowActions, columnHelper, initColumns, isSelectable]);
+    }, [
+        CellSelectable,
+        RowActions,
+        columnHelper,
+        initColumns,
+        isLoading,
+        isSelectable,
+    ]);
 
     const table = useReactTable<TData>({
         columns,

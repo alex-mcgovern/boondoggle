@@ -51,6 +51,11 @@ export type DataTableProps<TRowData extends RowData> =
             getRowProps?: (row_data: TRowData) => BoxProps;
 
             /**
+             * Whether the data is loading or not.
+             */
+            isLoading?: boolean;
+
+            /**
              * Whether the entire row should be clickable
              */
             isRowClickable?: boolean;
@@ -78,6 +83,7 @@ export function DataTable<TRowData extends RowData>({
     enableMultiRowSelection = false,
     getRowProps,
     isFilterable,
+    isLoading,
     isPaginated,
     isRowClickable,
     isSelectable,
@@ -97,6 +103,7 @@ export function DataTable<TRowData extends RowData>({
         enableMultiRowSelection,
         initColumns,
         isFilterable,
+        isLoading,
         isPaginated,
         isRowClickable,
         isSelectable,
