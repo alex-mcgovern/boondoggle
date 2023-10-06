@@ -12,7 +12,11 @@ export type { ColorOverlay } from "./styles/theme.css";
 
 export { a11yDisabled } from "./styles/common/a11y.css";
 
-export { a11yFocus, a11yFocusStyleRule, a11yError } from "./styles/common/a11y.css";
+export {
+    a11yFocus,
+    a11yFocusStyleRule,
+    a11yError,
+} from "./styles/common/a11y.css";
 
 export { commonBackground } from "./styles/common/background.css";
 
@@ -30,7 +34,11 @@ export {
     MEDIA_QUERY_MOBILE,
 } from "./styles/common/media_queries.css";
 
-export { elementFontSize, elementPadding, ElementSizeEnum } from "./styles/common/element_size.css";
+export {
+    elementFontSize,
+    elementPadding,
+    ElementSizeEnum,
+} from "./styles/common/element_size.css";
 
 export type { TDataTableRowActions } from "./common-types";
 
@@ -194,6 +202,10 @@ export { LoaderFullScreen } from "./components/loader_full_screen";
 
 export type { LoaderFullScreenProps } from "./components/loader_full_screen";
 
+export { Main } from "./components/main";
+
+export type { MainProps } from "./components/main";
+
 export { SelectButton } from "./components/select/select_button";
 
 export type { SelectButtonProps } from "./components/select/select_button";
@@ -210,9 +222,15 @@ export { Card } from "./components/card";
 
 export type { CardProps } from "./components/card";
 
-export { SelectItem, SelectItemList } from "./components/select/select_item_list";
+export {
+    SelectItem,
+    SelectItemList,
+} from "./components/select/select_item_list";
 
-export type { SelectItemProps, SelectItemListProps } from "./components/select/select_item_list";
+export type {
+    SelectItemProps,
+    SelectItemListProps,
+} from "./components/select/select_item_list";
 
 export { SelectSingle } from "./components/select/select_single";
 
@@ -234,7 +252,10 @@ export type { PillProps } from "./components/pill";
 
 export { RadioButtonCard } from "./components/radio_button_card";
 
-export type { RadioButtonCardProps, RadioButtonCardShape } from "./components/radio_button_card";
+export type {
+    RadioButtonCardProps,
+    RadioButtonCardShape,
+} from "./components/radio_button_card";
 
 export { RadioButtonCardGroup } from "./components/radio_button_card_group";
 
@@ -242,7 +263,10 @@ export type { RadioButtonCardGroupProps } from "./components/radio_button_card_g
 
 export { RadioButton } from "./components/radio_button";
 
-export type { RadioButtonProps, RadioButtonShape } from "./components/radio_button";
+export type {
+    RadioButtonProps,
+    RadioButtonShape,
+} from "./components/radio_button";
 
 export { RadioButtonGroup } from "./components/radio_button_group";
 
@@ -256,7 +280,11 @@ export { Tab } from "./components/tab";
 
 export type { TabProps } from "./components/tab";
 
-export { Tooltip, TooltipContent, TooltipTrigger } from "./components/tooltip_comp";
+export {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "./components/tooltip_comp";
 
 export type { TooltipProps } from "./components/tooltip_comp";
 

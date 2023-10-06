@@ -158,6 +158,7 @@ export const rootVars = createGlobalTheme(":root", {
         col_10: "83.3333333%",
         col_11: "91.66666663%",
         col_12: "100%",
+        main: "80rem",
         "max-content": "max-content",
         "min-content": "min-content",
     },
