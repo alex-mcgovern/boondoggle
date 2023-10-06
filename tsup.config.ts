@@ -5,21 +5,14 @@ export default defineConfig({
     banner: {
         js: '"use client"',
     },
-    bundle: false,
+    bundle: true,
     clean: true,
     config: "./tsconfig.build.json",
     dts: {
         entry: "./src/index.ts",
         resolve: false,
     },
-    entry: [
-        "src/**/*.{ts,tsx}",
-        "!src/**/*stories*",
-        "!src/**/*test*",
-        "!src/**/*mock*",
-        "!src/**/*.css.ts",
-        "!src/**/*.css.ts.vanilla.css*",
-    ],
+    entry: ["src/index.ts"],
     esbuildPlugins: [
         vanillaExtractPlugin({
             identifiers: "debug",
@@ -29,12 +22,12 @@ export default defineConfig({
     ],
     external: ["react"],
     format: ["esm", "cjs"],
-    injectStyle: false,
     minify: false,
     outDir: "dist",
     platform: "browser",
     sourcemap: true,
-    splitting: false,
+    splitting: true,
     target: "es2020",
+    treeshake: false,
     tsconfig: "./tsconfig.build.json",
 });
