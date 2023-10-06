@@ -27,13 +27,19 @@ export type CardProps = {
     /**
      * The title of the card
      */
-    title?: string;
+    title?: ReactNode;
 };
 
 /**
  * The card component is used to group related content together.
  */
-export function Card({ actions, children, description, hasPadding = true, title }: CardProps) {
+export function Card({
+    actions,
+    children,
+    description,
+    hasPadding = true,
+    title,
+}: CardProps) {
     return (
         <Box
             as="section"

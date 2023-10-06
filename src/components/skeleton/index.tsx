@@ -1,5 +1,15 @@
+import clsx from "clsx";
+
+import { Box } from "../box";
 import { loadingStyles } from "./styles.css";
 
-export function Skeleton() {
-    return <div className={loadingStyles} />;
+import type { BoxProps } from "../box";
+
+export function Skeleton({ className, ...rest }: BoxProps) {
+    return (
+        <Box
+            className={clsx(className, loadingStyles)}
+            {...rest}
+        />
+    );
 }

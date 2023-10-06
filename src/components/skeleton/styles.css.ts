@@ -17,6 +17,7 @@ export const loadingStyles = style({
     backgroundColor: vars.color.tint_default,
     backgroundPositionX: "180%",
     backgroundSize: "200% 100%",
-    minHeight: "1rem",
+    borderRadius: vars.borderRadius.sm,
+    minHeight: vars.lineHeight.bodyMd,
     width: "100%",
 });
