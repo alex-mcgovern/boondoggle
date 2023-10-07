@@ -17,7 +17,6 @@ import type {
     WithTableOptionalPagination,
     WithTableOptionalSelectableRows,
 } from "../../common-types";
-import type { BoxProps } from "../box";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
@@ -46,19 +45,9 @@ export type DataTableProps<TRowData extends RowData> =
             data: Array<TRowData> | undefined;
 
             /**
-             * A function that returns props for the row.
-             */
-            getRowProps?: (row_data: TRowData) => BoxProps;
-
-            /**
              * Whether the data is loading or not.
              */
             isLoading?: boolean;
-
-            /**
-             * Whether the entire row should be clickable
-             */
-            isRowClickable?: boolean;
 
             /**
              * Whether the table should be sortable and show sorting controls
@@ -81,11 +70,9 @@ export function DataTable<TRowData extends RowData>({
     columns: initColumns,
     data,
     enableMultiRowSelection = false,
-    getRowProps,
     isFilterable,
     isLoading,
     isPaginated,
-    isRowClickable,
     isSelectable,
     isSortable,
     onSelect,
@@ -105,7 +92,6 @@ export function DataTable<TRowData extends RowData>({
         isFilterable,
         isLoading,
         isPaginated,
-        isRowClickable,
         isSelectable,
         isSortable,
         onSelect,
@@ -137,12 +123,7 @@ export function DataTable<TRowData extends RowData>({
                         isSortable={isSortable}
                         table={table}
                     />
-                    <DataTableLayoutBody<TRowData>
-                        getRowProps={getRowProps}
-                        isRowClickable={isRowClickable}
-                        isSelectable={isSelectable}
-                        table={table}
-                    />
+                    <DataTableLayoutBody<TRowData> table={table} />
                 </Box>
             )}
 

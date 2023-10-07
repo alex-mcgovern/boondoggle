@@ -6,7 +6,6 @@ import {
     DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
     generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
-import { Link } from "../../../test/link.comp.mock";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
@@ -52,40 +51,6 @@ export const IsLoading: Story = {
     },
 };
 
-export const IsRowClickable: Story = {
-    args: {
-        columns: DATA_TABLE_COLUMNS_MOCK,
-        data: MOCK_DATA,
-        getRowProps(row_data) {
-            return {
-                // as: "button",
-                onClick: () => {
-                    alert(
-                        `Row clicked \n ${JSON.stringify(row_data, null, 2)}`
-                    );
-                },
-            };
-        },
-        isRowClickable: true,
-        strNoResults: "No results",
-    },
-};
-
-export const IsRowClickableAsLink: Story = {
-    args: {
-        columns: DATA_TABLE_COLUMNS_MOCK,
-        data: MOCK_DATA,
-        getRowProps(row_data) {
-            return {
-                as: Link,
-                href: `https://google.com/search?q=${row_data.first_name}+${row_data.last_name}`,
-            };
-        },
-        isRowClickable: true,
-        strNoResults: "No results",
-    },
-};
-
 export const IsPaginated: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,
@@ -126,19 +91,6 @@ export const IsSelectable: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_MOCK,
         data: MOCK_DATA,
-        isSelectable: true,
-        onSelect: (rowSelection) => {
-            alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-        },
-        strNoResults: "No results",
-    },
-};
-
-export const IsSelectableWithIsRowClickable: Story = {
-    args: {
-        columns: DATA_TABLE_COLUMNS_MOCK,
-        data: MOCK_DATA,
-        isRowClickable: true,
         isSelectable: true,
         onSelect: (rowSelection) => {
             alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
@@ -286,15 +238,8 @@ export const KitchenSink: Story = {
         ],
         columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
         data: MOCK_DATA,
-        getRowProps(row_data) {
-            return {
-                as: Link,
-                href: `https://google.com/search?q=${row_data.first_name}+${row_data.last_name}`,
-            };
-        },
         isFilterable: true,
         isPaginated: true,
-        isRowClickable: true,
         isSelectable: true,
         isSortable: true,
         onSelect: (rowSelection) => {

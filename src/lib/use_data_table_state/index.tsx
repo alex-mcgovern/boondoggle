@@ -15,7 +15,6 @@ import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 import type { TDataTableRowActions } from "../../common-types";
 import type {
     ColumnDef,
-    Row,
     RowData,
     RowSelectionState,
     Updater,
@@ -58,11 +57,6 @@ type UseDataTableStateProps<TData extends RowData> = {
     isPaginated: boolean | undefined;
 
     /**
-     * Whether the entire row should be clickable
-     */
-    isRowClickable?: boolean;
-
-    /**
      * Whether the table should allow rows to be selectable
      */
     isSelectable: boolean | undefined;
@@ -86,7 +80,6 @@ export function useDataTableState<TData extends RowData>({
     isFilterable,
     isLoading,
     isPaginated,
-    isRowClickable,
     isSelectable,
     isSortable,
     onSelect,
@@ -117,18 +110,6 @@ export function useDataTableState<TData extends RowData>({
 
     const columnHelper = createColumnHelper<TData>();
 
-    const CellSelectable = useCallback(
-        ({ row }: { row: Row<TData> }) => {
-            return (
-                <DataTableCellSelectable
-                    isRowClickable={isRowClickable}
-                    row={row}
-                />
-            );
-        },
-        [isRowClickable]
-    );
-
     const columns = useMemo(() => {
         return [
             // If the table is selectable, add a column for
@@ -136,7 +117,7 @@ export function useDataTableState<TData extends RowData>({
             ...(isSelectable
                 ? [
                       columnHelper.display({
-                          cell: CellSelectable,
+                          cell: DataTableCellSelectable,
                           enableSorting: false,
                           id: "select",
                           size: 16,
@@ -168,14 +149,7 @@ export function useDataTableState<TData extends RowData>({
                   ]
                 : []),
         ];
-    }, [
-        CellSelectable,
-        RowActions,
-        columnHelper,
-        initColumns,
-        isLoading,
-        isSelectable,
-    ]);
+    }, [RowActions, columnHelper, initColumns, isLoading, isSelectable]);
 
     const tableData = useMemo(() => {
         return isLoading ? Array(10).fill({}) : data;
