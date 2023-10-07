@@ -203,8 +203,7 @@ export { LoaderFullScreen } from "./components/loader_full_screen";
 export type { LoaderFullScreenProps } from "./components/loader_full_screen";
 
 export { Main } from "./components/main";
-
-export type { MainProps } from "./components/main";
+export { Header } from "./components/header";
 
 export { SelectButton } from "./components/select/select_button";
 
