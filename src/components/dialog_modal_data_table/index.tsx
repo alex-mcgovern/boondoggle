@@ -70,11 +70,6 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
         isLoading?: boolean;
 
         /**
-         * Whether the entire row should be clickable
-         */
-        isRowClickable?: boolean;
-
-        /**
          * Whether the table should be sortable and show sorting controls
          */
         isSortable?: boolean;
@@ -142,7 +137,6 @@ export function DialogModalDataTable<TData extends RowData>({
     isFilterable,
     isLoading,
     isPaginated,
-    isRowClickable,
     isSelectable,
     isSortable,
     onClickTryAgain,
@@ -246,11 +240,7 @@ export function DialogModalDataTable<TData extends RowData>({
                                         isSortable={isSortable}
                                         table={table}
                                     />
-                                    <DataTableLayoutBody<TData>
-                                        isRowClickable={isRowClickable}
-                                        isSelectable={isSelectable}
-                                        table={table}
-                                    />
+                                    <DataTableLayoutBody<TData> table={table} />
                                 </Box>
                             )}
 
