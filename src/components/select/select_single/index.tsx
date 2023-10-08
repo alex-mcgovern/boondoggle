@@ -32,7 +32,7 @@ import type { SelectItemShape, WithOptionalIsFilterable } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
-export type SelectSingleProps<TValue = string> = Omit<
+export type SelectSingleProps<TValue extends string = string> = Omit<
     WithOptionalIsClearable,
     "readOnly"
 > &
@@ -107,7 +107,7 @@ export type SelectSingleProps<TValue = string> = Omit<
  * Renders a single-select dropdown.
  * @note Is a base component that should be wrapped with `ForwardRef`.
  */
-function SelectSingleBase<TValue = string>(
+function SelectSingleBase<TValue extends string = string>(
     {
         disabled,
         errorMessage,

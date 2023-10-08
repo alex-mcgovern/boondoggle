@@ -7,13 +7,13 @@ import type { WithFormFieldProps } from "../../common-types";
 import type { SelectSingleProps } from "../select/select_single";
 import type { SelectItemShape } from "../select/types";
 
-type GetDefaultValueItemArgs<TValue = string> = {
+type GetDefaultValueItemArgs<TValue extends string = string> = {
     items: Array<SelectItemShape<TValue>>;
 
     value?: string | number;
 };
 
-function getDefaultValueItem<TValue = string>({
+function getDefaultValueItem<TValue extends string = string>({
     items,
     value,
 }: GetDefaultValueItemArgs<TValue>) {
@@ -22,12 +22,13 @@ function getDefaultValueItem<TValue = string>({
     });
 }
 
-export type FormSelectSingleProps<TValue = string> = SelectSingleProps<TValue> &
-    WithFormFieldProps & {
-        defaultValue?: string | number;
-    };
+export type FormSelectSingleProps<TValue extends string = string> =
+    SelectSingleProps<TValue> &
+        WithFormFieldProps & {
+            defaultValue?: string | number;
+        };
 
-export function FormSelectSingle<TValue = string>({
+export function FormSelectSingle<TValue extends string = string>({
     defaultValue,
     items,
     name,
