@@ -29,7 +29,7 @@ type WithoutIsFilterable = IsFilterableBaseProps & {
 
 export type WithOptionalIsFilterable = WithIsFilterable | WithoutIsFilterable;
 
-export type SelectItemShape<TValue extends string = string> = BoxProps &
+export type SelectItemShape<TValue = string> = BoxProps &
     WithSlots &
     WithColorOverlay & {
         /**
