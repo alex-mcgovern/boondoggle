@@ -107,7 +107,7 @@ export const SelectItem = React.forwardRef(
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export type SelectItemListProps<TValue extends string = string> = WithSize & {
+export type SelectItemListProps<TValue = string> = WithSize & {
     /**
      * Function provided by Downshift to check whether an item is selected
      */
@@ -170,7 +170,7 @@ export type SelectItemListProps<TValue extends string = string> = WithSize & {
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  * @note This is a base component that should be wrapped with `ForwardRef`.
  */
-function SelectItemListBase<TValue extends string = string>(
+function SelectItemListBase<TValue = string>(
     {
         getIsItemSelected,
         getItemProps,

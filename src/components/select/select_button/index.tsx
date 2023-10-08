@@ -26,7 +26,7 @@ import type { Placement } from "@floating-ui/react";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
-export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
+export type SelectButtonProps<TValue = string> = SprinklesArgs &
     WithName &
     WithSize &
     WithSlots &
@@ -87,7 +87,7 @@ export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
  * Renders a button that opens a dropdown menu when clicked.
  * @note This is a base component that should be wrapped with `ForwardRef`.
  */
-function SelectButtonBase<TValue extends string = string>(
+function SelectButtonBase<TValue = string>(
     {
         buttonProps,
         buttonText,

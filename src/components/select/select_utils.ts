@@ -4,7 +4,7 @@ import type { UseComboboxProps, UseMultipleSelectionProps } from "downshift";
 /**
  * Util function that can be used to determine if an item is selected in a dropdown.
  */
-type GetIsItemSelectedArgs<TValue extends string = string> = {
+type GetIsItemSelectedArgs<TValue = string> = {
     /**
      * Whether the select is in multi-select mode.
      */
@@ -28,7 +28,7 @@ type GetIsItemSelectedArgs<TValue extends string = string> = {
     >["selectedItems"];
 };
 
-export function getIsSelected<TValue extends string = string>({
+export function getIsSelected<TValue = string>({
     isMulti,
     item,
     selectedItem,

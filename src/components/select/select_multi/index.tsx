@@ -35,7 +35,7 @@ import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
-type GetPlaceholderArgs<TValue extends string = string> = {
+type GetPlaceholderArgs<TValue = string> = {
     /**
      * The placeholder text to display when no items are selected.
      */
@@ -57,7 +57,7 @@ type GetPlaceholderArgs<TValue extends string = string> = {
 /**
  * Returns the value to display in the input.
  */
-function getPlaceholder<TValue extends string = string>({
+function getPlaceholder<TValue = string>({
     placeholder,
     selectedItems,
     selectedItemsToString,
@@ -73,69 +73,68 @@ function getPlaceholder<TValue extends string = string>({
     return `${selectedItems.length} selected`;
 }
 
-export type SelectMultiProps<TValue extends string = string> =
-    Partial<WithOptionalLabel> &
-        WithStateInvalid &
-        Omit<WithOptionalIsClearable, "readOnly"> &
-        WithSlots &
-        WithSize &
-        WithStateDisabled &
-        WithName &
-        WithWrapperProps &
-        WithOptionalPlaceholder & {
-            /**
-             * Item to be preselected when the component mounts.
-             */
-            initialSelectedItems?: Array<SelectItemShape<TValue>>;
+export type SelectMultiProps<TValue = string> = Partial<WithOptionalLabel> &
+    WithStateInvalid &
+    Omit<WithOptionalIsClearable, "readOnly"> &
+    WithSlots &
+    WithSize &
+    WithStateDisabled &
+    WithName &
+    WithWrapperProps &
+    WithOptionalPlaceholder & {
+        /**
+         * Item to be preselected when the component mounts.
+         */
+        initialSelectedItems?: Array<SelectItemShape<TValue>>;
 
-            /**
-             * Props to customise the input element.
-             */
-            inputProps?: Partial<InputProps>;
+        /**
+         * Props to customise the input element.
+         */
+        inputProps?: Partial<InputProps>;
 
-            /**
-             * Whether the Select should be filterable by typing.
-             */
-            isFilterable?: boolean;
+        /**
+         * Whether the Select should be filterable by typing.
+         */
+        isFilterable?: boolean;
 
-            /**
-             * Prop to toggle the open state of the dropdown.
-             */
-            isOpen?: boolean;
+        /**
+         * Prop to toggle the open state of the dropdown.
+         */
+        isOpen?: boolean;
 
-            /**
-             * The items to render in the dropdown.
-             */
-            items: Array<SelectItemShape<TValue>>;
+        /**
+         * The items to render in the dropdown.
+         */
+        items: Array<SelectItemShape<TValue>>;
 
-            /**
-             * Function called with the selected items when the selection changes.
-             */
-            onChange?: (
-                selection: Array<SelectItemShape<TValue>> | undefined
-            ) => void;
+        /**
+         * Function called with the selected items when the selection changes.
+         */
+        onChange?: (
+            selection: Array<SelectItemShape<TValue>> | undefined
+        ) => void;
 
-            /**
-             * Function called with the new open state when the dropdown is opened or closed.
-             */
-            onIsOpenChange?: (
-                changes: UseComboboxStateChange<SelectItemShape<TValue>>
-            ) => void;
+        /**
+         * Function called with the new open state when the dropdown is opened or closed.
+         */
+        onIsOpenChange?: (
+            changes: UseComboboxStateChange<SelectItemShape<TValue>>
+        ) => void;
 
-            /**
-             * An array of selected items, used to control the component from outside.
-             */
-            selectedItems?: Array<SelectItemShape<TValue>>;
+        /**
+         * An array of selected items, used to control the component from outside.
+         */
+        selectedItems?: Array<SelectItemShape<TValue>>;
 
-            /**
-             * A function that returns a string representation of the selected items.
-             */
-            selectedItemsToString?: (
-                selectedItems: Array<SelectItemShape<TValue>>
-            ) => string;
-        };
+        /**
+         * A function that returns a string representation of the selected items.
+         */
+        selectedItemsToString?: (
+            selectedItems: Array<SelectItemShape<TValue>>
+        ) => string;
+    };
 
-function SelectMultiBase<TValue extends string = string>(
+function SelectMultiBase<TValue = string>(
     {
         disabled,
         errorMessage,
