@@ -182,6 +182,7 @@ function PureInputCurrency<TCurrency extends string = string>(
                         onCurrencyChange?.(item?.value);
                     }}
                     placeholder={currency}
+                    wrapperProps={{}}
                 />
             );
         }
