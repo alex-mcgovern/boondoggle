@@ -29,7 +29,10 @@ type WithoutIsFilterable = IsFilterableBaseProps & {
 
 export type WithOptionalIsFilterable = WithIsFilterable | WithoutIsFilterable;
 
-export type SelectItemShape<TValue extends string = string> = BoxProps &
+export type SelectItemShape<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = BoxProps &
     WithSlots &
     WithColorOverlay & {
         /**
@@ -40,7 +43,7 @@ export type SelectItemShape<TValue extends string = string> = BoxProps &
         /**
          * Additional data that can be pushed through the item.
          */
-        itemData?: Record<string, unknown>;
+        itemData?: TItemData;
 
         /**
          * The human-readable label for the item.
