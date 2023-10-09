@@ -1,7 +1,8 @@
 import clsx from "clsx";
 
-import { headerStyles } from "./styles.css";
+import { getHeaderStyles } from "./styles.css";
 
+import type { WithSize } from "../../common-types";
 import type { HTMLProps } from "react";
 
 /**
@@ -10,16 +11,18 @@ import type { HTMLProps } from "react";
 export function Header({
     children,
     className,
+    size = "lg",
     ...rest
-}: HTMLProps<HTMLElement> & {
-    /**
-     * Header content.
-     */
-    children: React.ReactNode;
-}) {
+}: Omit<HTMLProps<HTMLElement>, "size"> &
+    WithSize & {
+        /**
+         * Main content.
+         */
+        children: React.ReactNode;
+    }) {
     return (
         <header
-            className={clsx(className, headerStyles)}
+            className={clsx(className, getHeaderStyles({ size }))}
             {...rest}
         >
             {children}

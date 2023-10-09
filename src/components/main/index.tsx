@@ -1,7 +1,8 @@
 import clsx from "clsx";
 
-import { mainStyles } from "./styles.css";
+import { getMainStyles } from "./styles.css";
 
+import type { WithSize } from "../../common-types";
 import type { HTMLProps } from "react";
 
 /**
@@ -10,16 +11,18 @@ import type { HTMLProps } from "react";
 export function Main({
     children,
     className,
+    size = "lg",
     ...rest
-}: HTMLProps<HTMLElement> & {
-    /**
-     * Main content.
-     */
-    children: React.ReactNode;
-}) {
+}: Omit<HTMLProps<HTMLElement>, "size"> &
+    WithSize & {
+        /**
+         * Main content.
+         */
+        children: React.ReactNode;
+    }) {
     return (
         <main
-            className={clsx(className, mainStyles)}
+            className={clsx(className, getMainStyles({ size }))}
             {...rest}
         >
             {children}
