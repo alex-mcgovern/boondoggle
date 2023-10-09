@@ -12,6 +12,7 @@ export default defineConfig({
         entry: "./src/index.ts",
         resolve: false,
     },
+
     entry: ["src/index.ts"],
     esbuildPlugins: [
         vanillaExtractPlugin({
@@ -21,11 +22,11 @@ export default defineConfig({
         }),
     ],
     external: ["react"],
-    format: "esm",
+    format: ["esm", "cjs"],
     minify: true,
     outDir: "dist",
     platform: "browser",
-    sourcemap: true,
+    sourcemap: false,
     splitting: true,
     target: "es2020",
     treeshake: false,
