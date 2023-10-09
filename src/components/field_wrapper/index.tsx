@@ -45,7 +45,7 @@ export function FieldWrapper({
     labelProps,
     labelTooltip,
     name,
-    wrapperProps,
+    wrapperProps = { marginBottom: "space_6" },
 }: FieldWrapperProps) {
     return (
         <Box
