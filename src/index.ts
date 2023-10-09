@@ -112,6 +112,8 @@ export { DialogInfoBullet } from "./components/dialog_info_bullet";
 
 export type { DialogInfoBulletProps } from "./components/dialog_info_bullet";
 
+export { FieldsGrid } from "./components/fields_grid";
+
 export { FieldActionButton } from "./components/field_action_button";
 
 export type { FieldActionButtonProps } from "./components/field_action_button";
