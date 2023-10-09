@@ -159,7 +159,7 @@ const variantAppearance = styleVariants({
                 [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
                     background: vars.color.tint_active,
                     borderColor: vars.color.border_active,
-                    color: vars.color.button_active,
+                    color: vars.color.text_high_contrast,
                 },
                 /* eslint-enable sort-keys-fix/sort-keys-fix */
             },
