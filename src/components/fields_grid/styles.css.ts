@@ -12,6 +12,7 @@ export const fieldsGridStyle = style([
         },
     }),
     {
+        columnGap: vars.spacing.space_4,
         selectors: {
             "&:not(:last-child)": {
                 marginBottom: vars.spacing.space_4,
