@@ -17,6 +17,7 @@ import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 
 import type {
+    WithDescription,
     WithName,
     WithOptionalIsClearable,
     WithOptionalLabel,
@@ -40,6 +41,7 @@ export type SelectSingleProps<
     WithOptionalPlaceholder &
     WithSize &
     WithSlots &
+    WithDescription &
     WithStateDisabled &
     WithStateInvalid &
     WithWrapperProps &
@@ -116,6 +118,7 @@ function SelectSingleBase<
     TItemData extends Record<string, unknown> = Record<string, unknown>
 >(
     {
+        description,
         disabled,
         errorMessage,
         initialSelectedItem,
@@ -225,6 +228,7 @@ function SelectSingleBase<
             {...wrapperProps}
         >
             <Input
+                description={description}
                 errorMessage={errorMessage}
                 outerRef={refs.setReference}
                 size={size}
