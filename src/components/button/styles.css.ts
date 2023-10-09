@@ -1,8 +1,11 @@
-import { styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
-import { elementHeight, elementPadding } from "../../styles/common/element_size.css";
+import {
+    elementHeight,
+    elementPadding,
+} from "../../styles/common/element_size.css";
 import {
     SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
     SELECTOR_LINK_BUTTON_INPUT_HOVER,
@@ -166,8 +169,11 @@ const variantAppearance = styleVariants({
 
 export type Appearance = keyof typeof variantAppearance;
 
+export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
+
 export const getButtonStyles = recipe({
     base: [
+        buttonBaseClsDoNotRemoveOrYouWillBeFired,
         a11yFocus,
         a11yDisabled,
         getSprinkles({
