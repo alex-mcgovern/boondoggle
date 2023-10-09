@@ -36,6 +36,11 @@ export type SelectItemShape<
     WithSlots &
     WithColorOverlay & {
         /**
+         * The description for the item.
+         */
+        description?: string;
+
+        /**
          * Whether the item is currently selected.
          */
         isSelected?: boolean;

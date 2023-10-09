@@ -30,6 +30,11 @@ export type SelectItemProps = BoxProps &
     WithSize &
     Omit<WithSlots, "slotRight"> & {
         /**
+         * The description for the item.
+         */
+        description: string | undefined;
+
+        /**
          * Whether the item is highlighted.
          */
         isHighlighted: boolean | undefined;
@@ -60,6 +65,7 @@ export const SelectItem = React.forwardRef(
         {
             as = "li",
             colorOverlay,
+            description,
             isHighlighted,
             isMulti,
             isSelected,
@@ -88,7 +94,20 @@ export const SelectItem = React.forwardRef(
                 slotLeft={slotLeft}
                 {...rest}
             >
-                <Box flexShrink="0">{label}</Box>
+                <Box flexShrink="0">
+                    <Box
+                        color="text_high_contrast"
+                        fontStyle="bodyMd"
+                    >
+                        {label}
+                    </Box>
+                    <Box
+                        color="text_low_contrast"
+                        fontStyle="bodySm"
+                    >
+                        {description}
+                    </Box>
+                </Box>
                 {isMulti && (
                     <Box
                         as="input"
@@ -219,6 +238,7 @@ function SelectItemListBase<
                         const {
                             as,
                             colorOverlay,
+                            description,
                             isSelected: initIsSelected,
                             label,
                             onClick,
@@ -236,6 +256,7 @@ function SelectItemListBase<
                             <SelectItem
                                 as={as}
                                 colorOverlay={colorOverlay}
+                                description={description}
                                 isMulti={isMulti}
                                 key={`${item.label}-${item.value}`}
                                 size={size}
@@ -263,6 +284,7 @@ function SelectItemListBase<
                     <SelectItem
                         as="button"
                         colorOverlay={undefined}
+                        description={undefined}
                         disabled
                         isHighlighted={false}
                         isMulti={false}
