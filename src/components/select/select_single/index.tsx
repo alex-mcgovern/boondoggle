@@ -32,10 +32,10 @@ import type { SelectItemShape, WithOptionalIsFilterable } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
-export type SelectSingleProps<TValue extends string = string> = Omit<
-    WithOptionalIsClearable,
-    "readOnly"
-> &
+export type SelectSingleProps<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = Omit<WithOptionalIsClearable, "readOnly"> &
     WithName &
     WithOptionalPlaceholder &
     WithSize &
@@ -48,7 +48,7 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
         /**
          * Item to be preselected when the component mounts.
          */
-        initialSelectedItem?: SelectItemShape<TValue>;
+        initialSelectedItem?: SelectItemShape<TValue, TItemData>;
 
         /**
          * Props to customise the input element.
@@ -83,23 +83,27 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
         /**
          * Function to convert an item to a string.
          */
-        itemToString?: (item: SelectItemShape<TValue> | null) => string;
+        itemToString?: (
+            item: SelectItemShape<TValue, TItemData> | null
+        ) => string;
 
         /**
          * The items to render in the dropdown.
          */
-        items: Array<SelectItemShape<TValue>>;
+        items: Array<SelectItemShape<TValue, TItemData>>;
 
         /**
          * Function called with the new selected item when the selection changes.
          */
-        onChange?: (selection: SelectItemShape<TValue> | undefined) => void;
+        onChange?: (
+            selection: SelectItemShape<TValue, TItemData> | undefined
+        ) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
         onIsOpenChange?: (
-            changes: UseComboboxStateChange<SelectItemShape<TValue>>
+            changes: UseComboboxStateChange<SelectItemShape<TValue, TItemData>>
         ) => void;
     };
 
@@ -107,7 +111,10 @@ export type SelectSingleProps<TValue extends string = string> = Omit<
  * Renders a single-select dropdown.
  * @note Is a base component that should be wrapped with `ForwardRef`.
  */
-function SelectSingleBase<TValue extends string = string>(
+function SelectSingleBase<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>(
     {
         disabled,
         errorMessage,
@@ -118,7 +125,7 @@ function SelectSingleBase<TValue extends string = string>(
         isFilterable,
         isLabelVisible,
         isOpen: controlledIsOpen,
-        itemToString = (item: SelectItemShape<TValue> | null) => {
+        itemToString = (item: SelectItemShape<TValue, TItemData> | null) => {
             return item?.label || "";
         },
         items: initialItems,
@@ -133,7 +140,7 @@ function SelectSingleBase<TValue extends string = string>(
         slotRight = <Icon icon={faAngleDown} />,
         strClear,
         wrapperProps,
-    }: SelectSingleProps<TValue>,
+    }: SelectSingleProps<TValue, TItemData>,
     initialRef: ForwardedRef<HTMLInputElement>
 ) {
     const ref = useForwardRef(initialRef);
@@ -187,7 +194,7 @@ function SelectSingleBase<TValue extends string = string>(
     });
 
     const getIsItemSelected = useCallback(
-        (item: SelectItemShape<TValue>) => {
+        (item: SelectItemShape<TValue, TItemData>) => {
             return getIsSelected({
                 item,
                 selectedItem,
@@ -253,7 +260,7 @@ function SelectSingleBase<TValue extends string = string>(
                 })}
             />
 
-            <SelectItemList<TValue>
+            <SelectItemList<TValue, TItemData>
                 getIsItemSelected={getIsItemSelected}
                 getItemProps={getItemProps}
                 getMenuProps={getMenuProps}

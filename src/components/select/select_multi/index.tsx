@@ -35,7 +35,10 @@ import type { SelectItemShape } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
-type GetPlaceholderArgs<TValue extends string = string> = {
+type GetPlaceholderArgs<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = {
     /**
      * The placeholder text to display when no items are selected.
      */
@@ -44,24 +47,27 @@ type GetPlaceholderArgs<TValue extends string = string> = {
     /**
      * The selected items.
      */
-    selectedItems: Array<SelectItemShape<TValue>> | undefined;
+    selectedItems: Array<SelectItemShape<TValue, TItemData>> | undefined;
 
     /**
      * A function that returns a string representation of the selected items.
      */
     selectedItemsToString:
-        | ((selectedItems: Array<SelectItemShape<TValue>>) => string)
+        | ((selectedItems: Array<SelectItemShape<TValue, TItemData>>) => string)
         | undefined;
 };
 
 /**
  * Returns the value to display in the input.
  */
-function getPlaceholder<TValue extends string = string>({
+function getPlaceholder<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>({
     placeholder,
     selectedItems,
     selectedItemsToString,
-}: GetPlaceholderArgs<TValue>) {
+}: GetPlaceholderArgs<TValue, TItemData>) {
     if (!arrayHasLength(selectedItems)) {
         return placeholder;
     }
@@ -73,69 +79,74 @@ function getPlaceholder<TValue extends string = string>({
     return `${selectedItems.length} selected`;
 }
 
-export type SelectMultiProps<TValue extends string = string> =
-    Partial<WithOptionalLabel> &
-        WithStateInvalid &
-        Omit<WithOptionalIsClearable, "readOnly"> &
-        WithSlots &
-        WithSize &
-        WithStateDisabled &
-        WithName &
-        WithWrapperProps &
-        WithOptionalPlaceholder & {
-            /**
-             * Item to be preselected when the component mounts.
-             */
-            initialSelectedItems?: Array<SelectItemShape<TValue>>;
+export type SelectMultiProps<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = Partial<WithOptionalLabel> &
+    WithStateInvalid &
+    Omit<WithOptionalIsClearable, "readOnly"> &
+    WithSlots &
+    WithSize &
+    WithStateDisabled &
+    WithName &
+    WithWrapperProps &
+    WithOptionalPlaceholder & {
+        /**
+         * Item to be preselected when the component mounts.
+         */
+        initialSelectedItems?: Array<SelectItemShape<TValue, TItemData>>;
 
-            /**
-             * Props to customise the input element.
-             */
-            inputProps?: Partial<InputProps>;
+        /**
+         * Props to customise the input element.
+         */
+        inputProps?: Partial<InputProps>;
 
-            /**
-             * Whether the Select should be filterable by typing.
-             */
-            isFilterable?: boolean;
+        /**
+         * Whether the Select should be filterable by typing.
+         */
+        isFilterable?: boolean;
 
-            /**
-             * Prop to toggle the open state of the dropdown.
-             */
-            isOpen?: boolean;
+        /**
+         * Prop to toggle the open state of the dropdown.
+         */
+        isOpen?: boolean;
 
-            /**
-             * The items to render in the dropdown.
-             */
-            items: Array<SelectItemShape<TValue>>;
+        /**
+         * The items to render in the dropdown.
+         */
+        items: Array<SelectItemShape<TValue, TItemData>>;
 
-            /**
-             * Function called with the selected items when the selection changes.
-             */
-            onChange?: (
-                selection: Array<SelectItemShape<TValue>> | undefined
-            ) => void;
+        /**
+         * Function called with the selected items when the selection changes.
+         */
+        onChange?: (
+            selection: Array<SelectItemShape<TValue, TItemData>> | undefined
+        ) => void;
 
-            /**
-             * Function called with the new open state when the dropdown is opened or closed.
-             */
-            onIsOpenChange?: (
-                changes: UseComboboxStateChange<SelectItemShape<TValue>>
-            ) => void;
+        /**
+         * Function called with the new open state when the dropdown is opened or closed.
+         */
+        onIsOpenChange?: (
+            changes: UseComboboxStateChange<SelectItemShape<TValue, TItemData>>
+        ) => void;
 
-            /**
-             * An array of selected items, used to control the component from outside.
-             */
-            selectedItems?: Array<SelectItemShape<TValue>>;
+        /**
+         * An array of selected items, used to control the component from outside.
+         */
+        selectedItems?: Array<SelectItemShape<TValue, TItemData>>;
 
-            /**
-             * A function that returns a string representation of the selected items.
-             */
-            selectedItemsToString?: (
-                selectedItems: Array<SelectItemShape<TValue>>
-            ) => string;
-        };
+        /**
+         * A function that returns a string representation of the selected items.
+         */
+        selectedItemsToString?: (
+            selectedItems: Array<SelectItemShape<TValue, TItemData>>
+        ) => string;
+    };
 
-function SelectMultiBase<TValue extends string = string>(
+function SelectMultiBase<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>(
     {
         disabled,
         errorMessage,
@@ -158,7 +169,7 @@ function SelectMultiBase<TValue extends string = string>(
         slotRight = <Icon icon={faAngleDown} />,
         strClear,
         wrapperProps,
-    }: SelectMultiProps<TValue>,
+    }: SelectMultiProps<TValue, TItemData>,
     initialRef: ForwardedRef<HTMLInputElement>
 ) {
     const ref = useForwardRef(initialRef);
@@ -178,7 +189,7 @@ function SelectMultiBase<TValue extends string = string>(
         getSelectedItemProps,
         removeSelectedItem,
         selectedItems,
-    } = useMultipleSelection<SelectItemShape<TValue>>({
+    } = useMultipleSelection<SelectItemShape<TValue, TItemData>>({
         initialSelectedItems: controlledSelectedItems || [
             ...initialSelectedItems,
             ...initialItems.filter((i) => {
@@ -191,7 +202,7 @@ function SelectMultiBase<TValue extends string = string>(
     });
 
     const getIsItemSelected = useCallback(
-        (item: SelectItemShape<TValue>) => {
+        (item: SelectItemShape<TValue, TItemData>) => {
             return getIsSelected({
                 isMulti: true,
                 item,
@@ -209,7 +220,7 @@ function SelectMultiBase<TValue extends string = string>(
         highlightedIndex,
         isOpen,
         reset,
-    } = useCombobox<SelectItemShape<TValue>>({
+    } = useCombobox<SelectItemShape<TValue, TItemData>>({
         defaultHighlightedIndex: 0,
         isItemDisabled: (item) => {
             return item.disabled;
@@ -334,7 +345,7 @@ function SelectMultiBase<TValue extends string = string>(
                     }),
                 })}
             />
-            <SelectItemList<TValue>
+            <SelectItemList<TValue, TItemData>
                 getIsItemSelected={getIsItemSelected}
                 getItemProps={getItemProps}
                 getMenuProps={getMenuProps}

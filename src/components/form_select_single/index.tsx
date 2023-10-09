@@ -7,34 +7,42 @@ import type { WithFormFieldProps } from "../../common-types";
 import type { SelectSingleProps } from "../select/select_single";
 import type { SelectItemShape } from "../select/types";
 
-type GetDefaultValueItemArgs<TValue extends string = string> = {
-    items: Array<SelectItemShape<TValue>>;
+type GetDefaultValueItemArgs<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = {
+    items: Array<SelectItemShape<TValue, TItemData>>;
 
     value?: string | number;
 };
 
-function getDefaultValueItem<TValue extends string = string>({
-    items,
-    value,
-}: GetDefaultValueItemArgs<TValue>) {
+function getDefaultValueItem<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>({ items, value }: GetDefaultValueItemArgs<TValue, TItemData>) {
     return items.find((item) => {
         return item.value.toString() === value?.toString();
     });
 }
 
-export type FormSelectSingleProps<TValue extends string = string> =
-    SelectSingleProps<TValue> &
-        WithFormFieldProps & {
-            defaultValue?: string | number;
-        };
+export type FormSelectSingleProps<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = SelectSingleProps<TValue, TItemData> &
+    WithFormFieldProps & {
+        defaultValue?: string | number;
+    };
 
-export function FormSelectSingle<TValue extends string = string>({
+export function FormSelectSingle<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>({
     defaultValue,
     items,
     name,
     onChange: onChangeParent,
     ...rest
-}: FormSelectSingleProps<TValue>) {
+}: FormSelectSingleProps<TValue, TItemData>) {
     const { control } = useFormContext();
 
     const {
@@ -47,7 +55,7 @@ export function FormSelectSingle<TValue extends string = string>({
     });
 
     const handleChange = useCallback(
-        (selection: SelectItemShape<TValue> | undefined) => {
+        (selection: SelectItemShape<TValue, TItemData> | undefined) => {
             onChange(selection?.value);
             onChangeParent?.(selection);
         },
@@ -57,7 +65,7 @@ export function FormSelectSingle<TValue extends string = string>({
     const defaultItem = getDefaultValueItem({ items, value: defaultValue });
 
     return (
-        <SelectSingle<TValue>
+        <SelectSingle<TValue, TItemData>
             errorMessage={error?.message}
             initialSelectedItem={defaultItem}
             invalid={!!error}

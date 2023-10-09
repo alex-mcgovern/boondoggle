@@ -26,7 +26,10 @@ import type { Placement } from "@floating-ui/react";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
-export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
+export type SelectButtonProps<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = SprinklesArgs &
     WithName &
     WithSize &
     WithSlots &
@@ -46,7 +49,7 @@ export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
         /**
          * An item preselected when the component mounts.
          */
-        initialSelectedItem?: SelectItemShape<TValue>;
+        initialSelectedItem?: SelectItemShape<TValue, TItemData>;
 
         /**
          * The items to render in the dropdown.
@@ -56,20 +59,20 @@ export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
         /**
          * The items to render in the dropdown.
          */
-        items: Array<SelectItemShape<TValue>>;
+        items: Array<SelectItemShape<TValue, TItemData>>;
 
         /**
          * Function called with the new selected item when the selection changes.
          */
         onChange?: (
-            selection: SelectItemShape<TValue> | null | undefined
+            selection: SelectItemShape<TValue, TItemData> | null | undefined
         ) => void;
 
         /**
          * Function called with the new open state when the dropdown is opened or closed.
          */
         onIsOpenChange?: (
-            changes: UseComboboxStateChange<SelectItemShape<TValue>>
+            changes: UseComboboxStateChange<SelectItemShape<TValue, TItemData>>
         ) => void;
 
         /**
@@ -87,7 +90,10 @@ export type SelectButtonProps<TValue extends string = string> = SprinklesArgs &
  * Renders a button that opens a dropdown menu when clicked.
  * @note This is a base component that should be wrapped with `ForwardRef`.
  */
-function SelectButtonBase<TValue extends string = string>(
+function SelectButtonBase<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>(
     {
         buttonProps,
         buttonText,
@@ -101,7 +107,7 @@ function SelectButtonBase<TValue extends string = string>(
         slotLeft,
         slotRight = <Icon icon={faAngleDown} />,
         wrapperProps,
-    }: SelectButtonProps<TValue>,
+    }: SelectButtonProps<TValue, TItemData>,
     initialRef: ForwardedRef<HTMLButtonElement>
 ) {
     const ref = useForwardRef(initialRef);

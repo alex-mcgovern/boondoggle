@@ -107,25 +107,38 @@ export const SelectItem = React.forwardRef(
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  */
-export type SelectItemListProps<TValue extends string = string> = WithSize & {
+export type SelectItemListProps<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = WithSize & {
     /**
      * Function provided by Downshift to check whether an item is selected
      */
-    getIsItemSelected: ((item: SelectItemShape<TValue>) => boolean) | undefined;
+    getIsItemSelected:
+        | ((item: SelectItemShape<TValue, TItemData>) => boolean)
+        | undefined;
 
     /**
      * Function provided by Downshift to get props for an individual item.
      */
     getItemProps:
-        | UseComboboxPropGetters<SelectItemShape<TValue>>["getItemProps"]
-        | UseSelectPropGetters<SelectItemShape<TValue>>["getItemProps"];
+        | UseComboboxPropGetters<
+              SelectItemShape<TValue, TItemData>
+          >["getItemProps"]
+        | UseSelectPropGetters<
+              SelectItemShape<TValue, TItemData>
+          >["getItemProps"];
 
     /**
      * Function provided by Downshift to get props for the outer menu element.
      */
     getMenuProps:
-        | UseComboboxPropGetters<SelectItemShape<TValue>>["getMenuProps"]
-        | UseSelectPropGetters<SelectItemShape<TValue>>["getMenuProps"];
+        | UseComboboxPropGetters<
+              SelectItemShape<TValue, TItemData>
+          >["getMenuProps"]
+        | UseSelectPropGetters<
+              SelectItemShape<TValue, TItemData>
+          >["getMenuProps"];
 
     /**
      * Function provided by Downshift to get props for the currently selected item.
@@ -133,7 +146,7 @@ export type SelectItemListProps<TValue extends string = string> = WithSize & {
     getSelectedItemProps:
         | ((
               options: UseMultipleSelectionGetSelectedItemPropsOptions<
-                  SelectItemShape<TValue>
+                  SelectItemShape<TValue, TItemData>
               >
           ) => {
               [key: string]: unknown;
@@ -158,7 +171,7 @@ export type SelectItemListProps<TValue extends string = string> = WithSize & {
     /**
      * The items to render in the list.
      */
-    items: Array<SelectItemShape<TValue>>;
+    items: Array<SelectItemShape<TValue, TItemData>>;
 
     /**
      * The style to apply to the outer menu element. Used by floating-ui to position the menu.
@@ -170,7 +183,10 @@ export type SelectItemListProps<TValue extends string = string> = WithSize & {
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
  * @note This is a base component that should be wrapped with `ForwardRef`.
  */
-function SelectItemListBase<TValue extends string = string>(
+function SelectItemListBase<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+>(
     {
         getIsItemSelected,
         getItemProps,
@@ -182,7 +198,7 @@ function SelectItemListBase<TValue extends string = string>(
         items,
         size = "md",
         ...rest
-    }: SelectItemListProps<TValue>,
+    }: SelectItemListProps<TValue, TItemData>,
     ref: ForwardedRef<HTMLDivElement>
 ) {
     return (
