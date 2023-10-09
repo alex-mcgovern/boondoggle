@@ -7,20 +7,31 @@ import type { WithFormFieldProps } from "../../common-types";
 import type { SelectSingleProps } from "../select/select_single";
 import type { SelectItemShape } from "../select/types";
 
+type GetDefaultValueItemArgs<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = {
+    items: Array<SelectItemShape<TValue, TItemData>>;
+
+    value?: string | number;
+};
+
 function getDefaultValueItem<
     TValue extends string = string,
     TItemData extends Record<string, unknown> = Record<string, unknown>
->({
-    items,
-    value,
-}: {
-    items: Array<SelectItemShape<TValue, TItemData>>;
-    value?: string | number;
-}) {
+>({ items, value }: GetDefaultValueItemArgs<TValue, TItemData>) {
     return items.find((item) => {
         return item.value.toString() === value?.toString();
     });
 }
+
+export type FormSelectSingleProps<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = SelectSingleProps<TValue, TItemData> &
+    WithFormFieldProps & {
+        defaultValue?: string | number;
+    };
 
 export function FormSelectSingle<
     TValue extends string = string,
@@ -31,10 +42,7 @@ export function FormSelectSingle<
     name,
     onChange: onChangeParent,
     ...rest
-}: SelectSingleProps<TValue, TItemData> &
-    WithFormFieldProps & {
-        defaultValue?: string | number;
-    }) {
+}: FormSelectSingleProps<TValue, TItemData>) {
     const { control } = useFormContext();
 
     const {
