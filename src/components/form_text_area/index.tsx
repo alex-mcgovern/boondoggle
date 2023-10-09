@@ -2,16 +2,26 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { TextArea } from "../text_area";
 
-import type { WithFormFieldProps, WithOptionalPlaceholder } from "../../common-types";
+import type {
+    WithFormFieldProps,
+    WithOptionalPlaceholder,
+} from "../../common-types";
 import type { TextAreaProps } from "../text_area";
 
 /**
  * React Hook Form connected version of Boondoggle's `TextArea`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormTextAreaProps = TextAreaProps & WithOptionalPlaceholder & WithFormFieldProps;
+export type FormTextAreaProps = TextAreaProps &
+    WithOptionalPlaceholder &
+    WithFormFieldProps;
 
-export function FormTextArea({ defaultValue, name, wrapperProps, ...rest }: FormTextAreaProps) {
+export function FormTextArea({
+    defaultValue,
+    name,
+    wrapperProps = { marginBottom: "space_6" },
+    ...rest
+}: FormTextAreaProps) {
     const { control } = useFormContext();
 
     const {

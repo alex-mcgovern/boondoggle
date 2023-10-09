@@ -2,7 +2,10 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { InputDate } from "../input_date";
 
-import type { WithFormFieldProps, WithOptionalPlaceholder } from "../../common-types";
+import type {
+    WithFormFieldProps,
+    WithOptionalPlaceholder,
+} from "../../common-types";
 import type { InputDateProps } from "../input_date";
 
 /**
@@ -18,7 +21,12 @@ export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
         defaultValue?: string;
     };
 
-export function FormInputDate({ defaultValue, name, ...rest }: FormInputDateProps) {
+export function FormInputDate({
+    defaultValue,
+    name,
+    wrapperProps = { marginBottom: "space_6" },
+    ...rest
+}: FormInputDateProps) {
     const { control } = useFormContext();
 
     const {
@@ -32,6 +40,7 @@ export function FormInputDate({ defaultValue, name, ...rest }: FormInputDateProp
 
     return (
         <InputDate
+            wrapperProps={wrapperProps}
             {...(rest as InputDateProps)}
             errorMessage={error?.message}
             invalid={!!error}

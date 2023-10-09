@@ -16,13 +16,18 @@ export function FormInput({
     invalid,
     name,
     onChange,
-    wrapperProps,
+    wrapperProps = { marginBottom: "space_6" },
     ...rest
 }: FormInputProps) {
     const { control } = useFormContext();
 
     const {
-        field: { onBlur, onChange: reactHookFormOnChange, ref, value: controlledValue = "" },
+        field: {
+            onBlur,
+            onChange: reactHookFormOnChange,
+            ref,
+            value: controlledValue = "",
+        },
         fieldState: { error },
     } = useController({
         control,

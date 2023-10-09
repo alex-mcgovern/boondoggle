@@ -10,12 +10,14 @@ import type { SliderProps } from "../slider";
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
-export type FormSliderProps = WithWrapperProps & SliderProps & WithFormFieldProps;
+export type FormSliderProps = WithWrapperProps &
+    SliderProps &
+    WithFormFieldProps;
 
 export function FormSlider({
     defaultValue: defaultValueArray,
     name,
-    wrapperProps,
+    wrapperProps = { marginBottom: "space_6" },
     ...rest
 }: FormSliderProps) {
     const { control } = useFormContext();

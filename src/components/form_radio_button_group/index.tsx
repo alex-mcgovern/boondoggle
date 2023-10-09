@@ -16,7 +16,7 @@ export function FormRadioButtonGroup({
     invalid,
     name,
     onChange: onChangeParent,
-    wrapperProps,
+    wrapperProps = { marginBottom: "space_6" },
     ...rest
 }: FormRadioButtonGroupProps) {
     const { control } = useFormContext();

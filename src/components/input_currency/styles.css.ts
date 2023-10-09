@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
 export const currencySelectInputStyle = style({
-    width: "8rem",
+    width: "6.5rem",
 });

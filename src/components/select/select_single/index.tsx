@@ -223,10 +223,7 @@ function SelectSingleBase<
     });
 
     return (
-        <Box
-            position="relative"
-            {...wrapperProps}
-        >
+        <Box position="relative">
             <Input
                 description={description}
                 errorMessage={errorMessage}
@@ -242,6 +239,7 @@ function SelectSingleBase<
                     slotRight,
                     strClear,
                 })}
+                wrapperProps={wrapperProps}
                 {...getInputProps({
                     className: selectInputCursorStyles,
                     disabled,

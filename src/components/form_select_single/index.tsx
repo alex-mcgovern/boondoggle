@@ -41,6 +41,8 @@ export function FormSelectSingle<
     items,
     name,
     onChange: onChangeParent,
+    wrapperProps = { marginBottom: "space_6" },
+
     ...rest
 }: FormSelectSingleProps<TValue, TItemData>) {
     const { control } = useFormContext();
@@ -73,6 +75,7 @@ export function FormSelectSingle<
             name={name}
             onChange={handleChange}
             ref={ref}
+            wrapperProps={wrapperProps}
             {...rest}
         />
     );
