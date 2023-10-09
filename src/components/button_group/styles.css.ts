@@ -11,6 +11,7 @@ export const buttonGroupStyles = style([
 ]);
 
 // Subtract 1px from the border radius to prevent double borders
+
 globalStyle(
     `${buttonGroupStyles} > ${buttonBaseClsDoNotRemoveOrYouWillBeFired}:not(:last-child)`,
     {

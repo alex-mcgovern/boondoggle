@@ -54,6 +54,8 @@ export { Button } from "./components/button";
 
 export type { ButtonProps } from "./components/button";
 
+export { ButtonGroup } from "./components/button_group";
+
 export { Collapsible } from "./components/collapsible";
 
 export type { CollapsibleProps } from "./components/collapsible";
