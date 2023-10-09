@@ -298,3 +298,5 @@ export type { TooltipProps } from "./components/tooltip_comp";
 export { TextArea } from "./components/text_area";
 
 export type { TextAreaProps } from "./components/text_area";
+
+export { TopBar } from "./components/top_bar";

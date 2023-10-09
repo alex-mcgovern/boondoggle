@@ -109,6 +109,7 @@ export const rootVars = createGlobalTheme(":root", {
         "100vh": "100vh",
         auto: "auto",
         "min-content": "min-content",
+        topBar: "4rem",
     },
     lineHeight: lineHeightRaw,
     spacing: {
