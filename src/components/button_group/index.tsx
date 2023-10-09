@@ -1,5 +1,20 @@
+import clsx from "clsx";
+
+import { Box } from "../box";
 import { buttonGroupStyles } from "./styles.css";
 
-export function ButtonGroup({ children }: { children: React.ReactNode }) {
-    return <div className={buttonGroupStyles}>{children}</div>;
+import type { BoxProps } from "../box";
+
+/**
+ * Button group.
+ */
+export function ButtonGroup({ children, className, ...rest }: BoxProps) {
+    return (
+        <Box
+            className={clsx(className, buttonGroupStyles)}
+            {...rest}
+        >
+            {children}
+        </Box>
+    );
 }
