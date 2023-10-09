@@ -130,7 +130,9 @@ export function useDataTableState<TData extends RowData>({
                 ? initColumns.map((initColumn) => {
                       return {
                           ...initColumn,
-                          cell: Skeleton,
+                          cell: () => {
+                              return <Skeleton />;
+                          },
                       };
                   })
                 : initColumns),
