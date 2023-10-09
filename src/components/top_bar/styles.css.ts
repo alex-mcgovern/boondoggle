@@ -9,6 +9,7 @@ export const topBarStyle = style([
             background: "tint_default",
             borderBottom: "border_default",
             display: "flex",
+            gap: "space_4",
             height: "topBar",
             paddingX: "space_4",
             paddingY: "space_2",
