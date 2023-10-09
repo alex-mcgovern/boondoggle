@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
 
+import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Icon } from "../../icon";
 
 import type { BoxProps } from "../../box";
@@ -49,6 +50,7 @@ export const mockSelectItems = ({
     return [
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "United Kingdom",
             onClick,
@@ -57,6 +59,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "France",
             onClick,
@@ -65,6 +68,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "Germany",
             onClick,
@@ -73,6 +77,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "Spain",
             onClick,
@@ -81,6 +86,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "The United Kingdom of Great Britain and Northern Ireland",
             onClick,
@@ -89,6 +95,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "Italy",
             onClick,
@@ -97,6 +104,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "Portugal",
             onClick,
@@ -105,6 +113,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "United States",
             onClick,
@@ -113,6 +122,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "Canada",
             onClick,
@@ -121,6 +131,7 @@ export const mockSelectItems = ({
         },
         {
             as,
+            description: LOREM.text_xxs,
             disabled,
             label: "Australia",
             onClick,
@@ -138,6 +149,7 @@ export const mockSelectItemsActions = (): Array<
     return [
         {
             as: "button",
+            description: LOREM.text_xxs,
             label: "View details",
             onClick: () => {
                 return alert("clicked");
@@ -146,6 +158,7 @@ export const mockSelectItemsActions = (): Array<
         },
         {
             as: "button",
+            description: LOREM.text_xxs,
             label: "Edit",
             onClick: () => {
                 return alert("clicked");
@@ -155,6 +168,7 @@ export const mockSelectItemsActions = (): Array<
         {
             as: "button",
             colorOverlay: "red",
+            description: LOREM.text_xxs,
             label: "Delete",
             onClick: () => {
                 return alert("clicked");

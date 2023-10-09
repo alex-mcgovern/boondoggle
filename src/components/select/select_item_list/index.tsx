@@ -96,8 +96,9 @@ export const SelectItem = React.forwardRef(
             >
                 <Box flexShrink="0">
                     <Box
+                        __lineHeight="1"
                         color="text_high_contrast"
-                        fontStyle="bodyMd"
+                        fontSize="bodyMd"
                     >
                         {label}
                     </Box>
