@@ -157,9 +157,9 @@ const variantAppearance = styleVariants({
                     borderColor: vars.color.border_hover,
                 },
                 [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-                    background: vars.color.tint_active,
-                    borderColor: vars.color.border_active,
-                    color: vars.color.text_high_contrast,
+                    background: vars.color.button_tint,
+                    borderColor: vars.color.button_default,
+                    color: vars.color.button_default,
                 },
                 /* eslint-enable sort-keys-fix/sort-keys-fix */
             },
