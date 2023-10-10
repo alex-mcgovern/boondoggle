@@ -217,17 +217,25 @@ const addonHasBorder = styleVariants({
     true: {},
 });
 
-globalStyle(`${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
-    borderBottomRightRadius: "0",
-    borderRight: "none",
-    borderTopRightRadius: "0",
-});
+globalStyle(
+    `${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
+     ${tabSide.left} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
+    {
+        borderBottomRightRadius: "0",
+        borderRight: "none",
+        borderTopRightRadius: "0",
+    }
+);
 
-globalStyle(`${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
-    borderBottomLeftRadius: "0",
-    borderLeft: "none",
-    borderTopLeftRadius: "0",
-});
+globalStyle(
+    `${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
+     ${tabSide.right} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
+    {
+        borderBottomLeftRadius: "0",
+        borderLeft: "none",
+        borderTopLeftRadius: "0",
+    }
+);
 
 const tabSize = styleVariants({
     lg: [{ height: elementHeight.lg }],
@@ -322,19 +330,17 @@ export const addonChildrenStyle = style({
 });
 
 globalStyle(
-    `${hasAddonLeft.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
-     ${hasAddonLeft.true} > ${addonChildrenStyle} ${buttonBaseClsDoNotRemoveOrYouWillBeFired},`,
+    `${hasAddonLeft.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
     {
-        borderBottomLeftRadius: 0,
-        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: "0 !important",
+        borderTopLeftRadius: "0 !important",
     }
 );
 
 globalStyle(
-    `${hasAddonRight.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}\
-     ${hasAddonRight.true} > ${addonChildrenStyle} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
+    `${hasAddonRight.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
     {
-        borderBottomRightRadius: 0,
-        borderTopRightRadius: 0,
+        borderBottomRightRadius: "0 !important",
+        borderTopRightRadius: "0 !important",
     }
 );
