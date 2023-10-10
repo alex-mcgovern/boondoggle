@@ -28,7 +28,7 @@ import type {
     WithStateInvalid,
     WithWrapperProps,
 } from "../../../common-types";
-import type { InputProps } from "../../input";
+import type { InputProps, WithOptionalInputAddons } from "../../input";
 import type { SelectItemShape, WithOptionalIsFilterable } from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
@@ -43,6 +43,7 @@ export type SelectSingleProps<
     WithSlots &
     WithDescription &
     WithStateDisabled &
+    WithOptionalInputAddons &
     WithStateInvalid &
     WithWrapperProps &
     WithOptionalLabel &
@@ -118,6 +119,8 @@ function SelectSingleBase<
     TItemData extends Record<string, unknown> = Record<string, unknown>
 >(
     {
+        addonLeft,
+        addonRight,
         description,
         disabled,
         errorMessage,
@@ -225,6 +228,8 @@ function SelectSingleBase<
     return (
         <Box position="relative">
             <Input
+                addonLeft={addonLeft}
+                addonRight={addonRight}
                 description={description}
                 errorMessage={errorMessage}
                 outerRef={refs.setReference}
