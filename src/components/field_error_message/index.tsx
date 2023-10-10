@@ -11,7 +11,7 @@ export type FieldErrorMessageProps = BoxProps & {
     /**
      * The error message shown to the user.
      */
-    message?: string;
+    message?: React.ReactNode;
 };
 
 /**

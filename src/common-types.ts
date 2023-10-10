@@ -354,7 +354,7 @@ export type WithStateInvalid = {
     /**
      * Message shown when field fails validation.
      */
-    errorMessage?: string;
+    errorMessage?: React.ReactNode;
 
     /**
      * Whether the value of the field fails validation.
