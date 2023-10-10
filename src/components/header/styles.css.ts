@@ -6,6 +6,7 @@ export const getHeaderStyles = recipe({
     base: [
         getSprinkles({
             marginX: "auto",
+            marginY: "space_6",
             paddingX: "space_4",
         }),
     ],
