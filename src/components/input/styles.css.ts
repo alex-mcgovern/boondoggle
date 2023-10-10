@@ -11,6 +11,7 @@ import {
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 
 const size = styleVariants({
     lg: [elementPadding.lg, { height: elementHeight.lg }],
@@ -62,7 +63,7 @@ export const getSlotWrapperStyles = recipe({
                 "&:active": {
                     borderColor: vars.color.border_active,
                 },
-                "&:has(input:is(:focus,:focus-visible))": {
+                "&:has(input:focus-visible)": {
                     ...a11yFocusStyleRule,
                 },
                 /* eslint-enable sort-keys-fix/sort-keys-fix */
@@ -246,7 +247,7 @@ export const getAddonTabStyle = recipe({
         }),
         {
             selectors: {
-                "&:focus-within": {
+                "&:has(:focus-visible)": {
                     ...a11yFocusStyleRule,
                 },
             },
@@ -321,7 +322,8 @@ export const addonChildrenStyle = style({
 });
 
 globalStyle(
-    `${hasAddonLeft.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
+    `${hasAddonLeft.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
+     ${hasAddonLeft.true} > ${addonChildrenStyle} ${buttonBaseClsDoNotRemoveOrYouWillBeFired},`,
     {
         borderBottomLeftRadius: 0,
         borderTopLeftRadius: 0,
@@ -329,7 +331,8 @@ globalStyle(
 );
 
 globalStyle(
-    `${hasAddonRight.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`,
+    `${hasAddonRight.true} > ${addonChildrenStyle} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}\
+     ${hasAddonRight.true} > ${addonChildrenStyle} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
     {
         borderBottomRightRadius: 0,
         borderTopRightRadius: 0,
