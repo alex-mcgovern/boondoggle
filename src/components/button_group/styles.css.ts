@@ -21,7 +21,7 @@ globalStyle(
 
 globalStyle(
     `${buttonGroupStyles} > ${buttonBaseClsDoNotRemoveOrYouWillBeFired}:hover,\
-    ${buttonGroupStyles} > ${buttonBaseClsDoNotRemoveOrYouWillBeFired}[data-active='true']\
+    ${buttonGroupStyles} > ${buttonBaseClsDoNotRemoveOrYouWillBeFired}:is(:active, [data-active='true'])\
     ${buttonGroupStyles} > ${buttonBaseClsDoNotRemoveOrYouWillBeFired}:focus\
     ${buttonGroupStyles} > ${buttonBaseClsDoNotRemoveOrYouWillBeFired}:focus-visible`,
     {
