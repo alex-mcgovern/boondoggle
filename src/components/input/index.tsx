@@ -241,6 +241,7 @@ export type InputProps = Partial<
         ComponentPropsWithoutRef<"input">,
         | "defaultValue"
         | "value"
+        | "autoFocus"
         | "onChange"
         | "onClick"
         | "onFocus"

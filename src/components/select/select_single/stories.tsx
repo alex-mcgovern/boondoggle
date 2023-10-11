@@ -147,6 +147,19 @@ export const WithItemsGrouped: Story = {
     },
 };
 
+export const WithItemAsLink: Story = {
+    args: {
+        items: [
+            {
+                as: "a",
+                href: "https://www.google.com",
+                label: "Link",
+                value: "link",
+            },
+        ],
+    },
+};
+
 export const WithItemsGroupedIsFilterable: Story = {
     args: {
         isFilterable: true,
