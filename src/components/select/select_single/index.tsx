@@ -117,6 +117,11 @@ export type SelectSingleProps<
         onIsOpenChange?: (
             changes: UseComboboxStateChange<SelectItemShape<TValue, TItemData>>
         ) => void;
+
+        /**
+         * Whether the select should reset when an item is selected.
+         */
+        shouldClearFilterOnSelection?: boolean;
     };
 
 /**
@@ -150,6 +155,7 @@ function SelectSingleBase<
         onChange,
         onIsOpenChange,
         placeholder,
+        shouldClearFilterOnSelection,
         size,
         slotLeft,
         slotRight = <Icon icon={faAngleDown} />,
@@ -194,7 +200,10 @@ function SelectSingleBase<
         },
         onIsOpenChange,
         onSelectedItemChange: (changes) => {
-            return onChange?.(changes.selectedItem || undefined);
+            onChange?.(changes.selectedItem || undefined);
+            if (shouldClearFilterOnSelection) {
+                setInputValue("");
+            }
         },
         // Ensure that onClick is called when the user presses Enter on an item.
         onStateChange(changes) {
@@ -202,6 +211,23 @@ function SelectSingleBase<
                 changes.type === useCombobox.stateChangeTypes.InputKeyDownEnter
             ) {
                 changes.selectedItem?.onClick?.();
+            }
+        },
+        // If `shouldClearFilterOnSelection` is true, clear the input value when the user selects an item.
+        stateReducer: (_, { changes, type }) => {
+            switch (type) {
+                case useCombobox.stateChangeTypes.InputBlur:
+                case useCombobox.stateChangeTypes.InputKeyDownEnter:
+                case useCombobox.stateChangeTypes.ItemClick:
+                    return {
+                        ...changes,
+                        ...(shouldClearFilterOnSelection && {
+                            inputValue: "",
+                        }),
+                    };
+
+                default:
+                    return changes;
             }
         },
     });

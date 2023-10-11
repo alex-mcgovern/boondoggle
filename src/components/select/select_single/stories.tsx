@@ -112,6 +112,13 @@ export const WithButtonsAsItems: Story = {
     },
 };
 
+export const WithShouldResetOnSelection: Story = {
+    args: {
+        isFilterable: true,
+        shouldClearFilterOnSelection: true,
+    },
+};
+
 export const WithItemsWithSelectedTrue: Story = {
     args: {
         items: [
