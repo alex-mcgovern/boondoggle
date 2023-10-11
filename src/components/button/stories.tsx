@@ -158,6 +158,13 @@ export const With3SlotLeft: Story = {
     },
 };
 
+export const WithTooltip: Story = {
+    args: {
+        strTooltip: "Tooltip",
+        tooltipPlacement: "top",
+    },
+};
+
 export const With1SlotRight: Story = {
     args: {
         slotRight: <Icon icon={faArrowRight} />,

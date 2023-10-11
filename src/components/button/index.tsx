@@ -11,6 +11,7 @@ import { variantColorOverlay } from "../../styles/theme.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot_wrapper";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { getButtonStyles } from "./styles.css";
 
 import type {
@@ -23,6 +24,7 @@ import type {
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { Alignment, Appearance } from "./styles.css";
+import type { Placement } from "@floating-ui/react";
 import type {
     ComponentProps,
     ElementType,
@@ -70,11 +72,38 @@ const getLoadingSlotSide = ({
     return "right";
 };
 
+type WithTooltip = {
+    /**
+     * The tooltip to show on hover
+     */
+    strTooltip: string;
+
+    /**
+     * The placement of the tooltip relative to the trigger.
+     */
+    tooltipPlacement?: Placement;
+};
+
+type WithoutTooltip = {
+    /**
+     * The tooltip to show on hover
+     */
+    strTooltip?: never;
+
+    /**
+     * The placement of the tooltip relative to the trigger.
+     */
+    tooltipPlacement?: never;
+};
+
+type WithOptionalTooltip = WithTooltip | WithoutTooltip;
+
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
     PolymorphicComponentPropWithRef<
         TPolymorphicAs,
         WithStateDisabled &
-            WithSlots & {
+            WithSlots &
+            WithOptionalTooltip & {
                 /**
                  * Forces the button's active state
                  */
@@ -143,6 +172,8 @@ export const Button: ButtonComponent = forwardRef(
             slotLeft,
             slotProps,
             slotRight,
+            strTooltip,
+            tooltipPlacement,
             type = "button",
             ...rest
         }: BaseButtonProps<TPolymorphicAs>,
@@ -158,6 +189,56 @@ export const Button: ButtonComponent = forwardRef(
         const loaderSide = useMemo(() => {
             return getLoadingSlotSide({ slotLeft, slotRight });
         }, [slotLeft, slotRight]);
+
+        if (strTooltip && tooltipPlacement) {
+            return (
+                <Tooltip placement="top">
+                    <TooltipTrigger asChild>
+                        <Component
+                            {...{
+                                "aria-disabled": disabled,
+                                className: clsx(
+                                    getButtonStyles({
+                                        alignment,
+                                        appearance,
+                                        size,
+                                    }),
+                                    getSprinkles(atomProps),
+                                    userClassName,
+                                    colorOverlay
+                                        ? variantColorOverlay[colorOverlay]
+                                        : undefined
+                                ),
+                                "data-active": active,
+                                disabled: disabled || isLoading,
+                                ref,
+                                type,
+                                ...otherProps,
+                            }}
+                        >
+                            <SlotWrapper
+                                color="inherit"
+                                size={stripSquareSizes(size)}
+                                slotLeft={
+                                    isLoading && loaderSide === "left"
+                                        ? [<Loader />]
+                                        : slotLeft
+                                }
+                                slotProps={slotProps}
+                                slotRight={
+                                    isLoading && loaderSide === "right"
+                                        ? [<Loader />]
+                                        : slotRight
+                                }
+                            >
+                                {children}
+                            </SlotWrapper>
+                        </Component>
+                    </TooltipTrigger>
+                    <TooltipContent>{strTooltip}</TooltipContent>
+                </Tooltip>
+            );
+        }
 
         return (
             <Component
