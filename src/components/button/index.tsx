@@ -72,38 +72,11 @@ const getLoadingSlotSide = ({
     return "right";
 };
 
-type WithTooltip = {
-    /**
-     * The tooltip to show on hover
-     */
-    strTooltip: string;
-
-    /**
-     * The placement of the tooltip relative to the trigger.
-     */
-    tooltipPlacement?: Placement;
-};
-
-type WithoutTooltip = {
-    /**
-     * The tooltip to show on hover
-     */
-    strTooltip?: never;
-
-    /**
-     * The placement of the tooltip relative to the trigger.
-     */
-    tooltipPlacement?: never;
-};
-
-type WithOptionalTooltip = WithTooltip | WithoutTooltip;
-
 type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
     PolymorphicComponentPropWithRef<
         TPolymorphicAs,
         WithStateDisabled &
-            WithSlots &
-            WithOptionalTooltip & {
+            WithSlots & {
                 /**
                  * Forces the button's active state
                  */
@@ -144,6 +117,16 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
                     | ElementSizeEnum;
 
                 /**
+                 * The tooltip to show on hover
+                 */
+                strTooltip?: string;
+
+                /**
+                 * The placement of the tooltip relative to the trigger.
+                 */
+                tooltipPlacement?: Placement;
+
+                /**
                  * The HTML button type, defaults to `button`.
                  */
                 type?: "button" | "submit" | "reset";
@@ -173,7 +156,7 @@ export const Button: ButtonComponent = forwardRef(
             slotProps,
             slotRight,
             strTooltip,
-            tooltipPlacement,
+            tooltipPlacement = "top",
             type = "button",
             ...rest
         }: BaseButtonProps<TPolymorphicAs>,
