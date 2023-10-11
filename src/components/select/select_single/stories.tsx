@@ -4,7 +4,10 @@ import { faGlobeAfrica } from "@fortawesome/pro-solid-svg-icons";
 import { SelectSingle as StoryComp } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Icon } from "../../icon";
-import { mockSelectItems } from "../__mocks__/select.mock";
+import {
+    mockSelectItems,
+    mockSelectItemsGrouped,
+} from "../__mocks__/select.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -128,6 +131,33 @@ export const WithItemsWithSelectedTrue: Story = {
                 value: "de",
             },
         ],
+    },
+};
+
+export const WithItemsGrouped: Story = {
+    args: {
+        items: mockSelectItemsGrouped({}),
+    },
+};
+
+export const WithItemsGroupedIsFilterable: Story = {
+    args: {
+        isFilterable: true,
+        items: mockSelectItemsGrouped({}),
+    },
+};
+
+export const WithItemsGroupedSizeSm: Story = {
+    args: {
+        items: mockSelectItemsGrouped({}),
+        size: "sm",
+    },
+};
+
+export const WithItemsGroupedSizeLg: Story = {
+    args: {
+        items: mockSelectItemsGrouped({}),
+        size: "sm",
     },
 };
 

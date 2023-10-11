@@ -10,10 +10,12 @@ import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
-import { filterSelectItems } from "../lib/filter_select_items";
+import { SelectItemList } from "../SelectItemList";
+import { filterSelectItems } from "../filterSelectItems";
+import { flattenSelectItems } from "../flattenSelectItems";
+import { getInitialSelectedItem } from "../getInitialSelectedItem";
+import { getIsSelected } from "../getIsSelected";
 import { getSlotRight } from "../lib/get_slot_right";
-import { SelectItemList } from "../select_item_list";
-import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 
 import type {
@@ -29,7 +31,12 @@ import type {
     WithWrapperProps,
 } from "../../../common-types";
 import type { InputProps, WithOptionalInputAddons } from "../../input";
-import type { SelectItemShape, WithOptionalIsFilterable } from "../types";
+import type {
+    FlatSelectItems,
+    GroupedSelectItems,
+    SelectItemShape,
+    WithOptionalIsFilterable,
+} from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
@@ -93,7 +100,9 @@ export type SelectSingleProps<
         /**
          * The items to render in the dropdown.
          */
-        items: Array<SelectItemShape<TValue, TItemData>>;
+        items:
+            | FlatSelectItems<TValue, TItemData>
+            | GroupedSelectItems<TValue, TItemData>;
 
         /**
          * Function called with the new selected item when the selection changes.
@@ -152,11 +161,10 @@ function SelectSingleBase<
     const ref = useForwardRef(initialRef);
     const outerRef = useRef<HTMLSpanElement>();
 
-    const initialItem =
-        initialSelectedItem ||
-        initialItems.find((item) => {
-            return item.isSelected;
-        });
+    const initialItem = getInitialSelectedItem({
+        initialSelectedItem,
+        items: initialItems,
+    });
 
     const [inputValue, setInputValue] = useState(initialItem?.label || "");
 
@@ -180,7 +188,7 @@ function SelectSingleBase<
             return item.disabled;
         },
         isOpen: controlledIsOpen,
-        items,
+        items: flattenSelectItems(items),
         itemToString,
         onInputValueChange: (changes) => {
             setInputValue(changes.inputValue || "");

@@ -225,16 +225,6 @@ export { Card } from "./components/card";
 
 export type { CardProps } from "./components/card";
 
-export {
-    SelectItem,
-    SelectItemList,
-} from "./components/select/select_item_list";
-
-export type {
-    SelectItemProps,
-    SelectItemListProps,
-} from "./components/select/select_item_list";
-
 export { SelectSingle } from "./components/select/select_single";
 
 export type { SelectSingleProps } from "./components/select/select_single";

@@ -12,10 +12,11 @@ import { arrayHasLength } from "../../../lib/array_has_length";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
-import { filterSelectItems } from "../lib/filter_select_items";
+import { SelectItemList } from "../SelectItemList";
+import { filterSelectItems } from "../filterSelectItems";
+import { flattenSelectItems } from "../flattenSelectItems";
+import { getIsSelected } from "../getIsSelected";
 import { getSlotRight } from "../lib/get_slot_right";
-import { SelectItemList } from "../select_item_list";
-import { getIsSelected } from "../select_utils";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
@@ -31,7 +32,11 @@ import type {
     WithWrapperProps,
 } from "../../../common-types";
 import type { InputProps } from "../../input";
-import type { SelectItemShape } from "../types";
+import type {
+    FlatSelectItems,
+    GroupedSelectItems,
+    SelectItemShape,
+} from "../types";
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 
@@ -114,7 +119,9 @@ export type SelectMultiProps<
         /**
          * The items to render in the dropdown.
          */
-        items: Array<SelectItemShape<TValue, TItemData>>;
+        items:
+            | FlatSelectItems<TValue, TItemData>
+            | GroupedSelectItems<TValue, TItemData>;
 
         /**
          * Function called with the selected items when the selection changes.
@@ -192,7 +199,7 @@ function SelectMultiBase<
     } = useMultipleSelection<SelectItemShape<TValue, TItemData>>({
         initialSelectedItems: controlledSelectedItems || [
             ...initialSelectedItems,
-            ...initialItems.filter((i) => {
+            ...flattenSelectItems(initialItems).filter((i) => {
                 return i.isSelected;
             }),
         ],
@@ -225,7 +232,7 @@ function SelectMultiBase<
         isItemDisabled: (item) => {
             return item.disabled;
         },
-        items,
+        items: flattenSelectItems(items),
         onIsOpenChange, // after selection, highlight the first item.
         onStateChange({
             inputValue: newInputValue,

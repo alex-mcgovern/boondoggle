@@ -12,6 +12,7 @@ import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
+import { flattenSelectItems } from "../flattenSelectItems";
 
 import type { SelectMultiProps } from ".";
 
@@ -99,7 +100,9 @@ describe("<SelectMulti />", () => {
 
                 await user.click(combobox);
 
-                const firstItem = getByText(PROPS.items[0].label);
+                const firstItem = getByText(
+                    flattenSelectItems(PROPS.items)[0].label
+                );
 
                 await user.click(firstItem);
 
@@ -117,11 +120,15 @@ describe("<SelectMulti />", () => {
 
                 await user.click(combobox);
 
-                const firstItem = getByText(PROPS.items[0].label);
+                const firstItem = getByText(
+                    flattenSelectItems(PROPS.items)[0].label
+                );
 
                 await user.click(firstItem);
 
-                const secondItem = getByText(PROPS.items[1].label);
+                const secondItem = getByText(
+                    flattenSelectItems(PROPS.items)[1].label
+                );
 
                 await user.click(secondItem);
 
@@ -141,12 +148,14 @@ describe("<SelectMulti />", () => {
 
                 await user.click(combobox);
 
-                const firstItem = getByText(PROPS.items[0].label);
+                const firstItem = getByText(
+                    flattenSelectItems(PROPS.items)[0].label
+                );
 
                 await user.click(firstItem);
 
                 expect(ON_CHANGE).toHaveBeenCalledWith(
-                    expect.arrayContaining([PROPS.items[0]])
+                    expect.arrayContaining([flattenSelectItems(PROPS.items)[0]])
                 );
             });
 
@@ -159,16 +168,23 @@ describe("<SelectMulti />", () => {
 
                 await user.click(combobox);
 
-                const firstItem = getByText(PROPS.items[0].label);
+                const firstItem = getByText(
+                    flattenSelectItems(PROPS.items)[0].label
+                );
 
                 await user.click(firstItem);
 
-                const secondItem = getByText(PROPS.items[1].label);
+                const secondItem = getByText(
+                    flattenSelectItems(PROPS.items)[1].label
+                );
 
                 await user.click(secondItem);
 
                 expect(ON_CHANGE).toHaveBeenLastCalledWith(
-                    expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
+                    expect.arrayContaining([
+                        flattenSelectItems(PROPS.items)[0],
+                        flattenSelectItems(PROPS.items)[1],
+                    ])
                 );
             });
         });
@@ -210,7 +226,7 @@ describe("<SelectMulti />", () => {
         await user.keyboard("{enter}");
 
         expect(ON_CHANGE).toHaveBeenCalledWith(
-            expect.arrayContaining([PROPS.items[0]])
+            expect.arrayContaining([flattenSelectItems(PROPS.items)[0]])
         );
 
         expect((combobox as HTMLInputElement).placeholder).toBe("1 selected");
@@ -224,7 +240,10 @@ describe("<SelectMulti />", () => {
         expect((combobox as HTMLInputElement).placeholder).toBe("2 selected");
 
         expect(ON_CHANGE).toHaveBeenLastCalledWith(
-            expect.arrayContaining([PROPS.items[0], PROPS.items[1]])
+            expect.arrayContaining([
+                flattenSelectItems(PROPS.items)[0],
+                flattenSelectItems(PROPS.items)[1],
+            ])
         );
     });
 });
@@ -253,7 +272,7 @@ describe("<SelectMulti />", () => {
         test("should have value of initial selected item", async () => {
             const { getByRole } = await renderComponent({
                 ...PROPS,
-                initialSelectedItems: [PROPS.items[0]],
+                initialSelectedItems: [flattenSelectItems(PROPS.items)[0]],
             });
 
             const combobox = getByRole("combobox");

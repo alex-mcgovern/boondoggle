@@ -9,7 +9,7 @@ import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
-import { SelectItemList } from "../select_item_list";
+import { SelectItemList } from "../SelectItemList";
 
 import type {
     WithName,

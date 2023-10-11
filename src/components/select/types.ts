@@ -60,3 +60,22 @@ export type SelectItemShape<
          */
         value: TValue;
     };
+
+export type FlatSelectItems<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = Array<SelectItemShape<TValue, TItemData>>;
+
+export type GroupedSelectItems<
+    TValue extends string = string,
+    TItemData extends Record<string, unknown> = Record<string, unknown>
+> = Array<{
+    /**
+     * Items in a section
+     */
+    items: Array<SelectItemShape<TValue, TItemData>>;
+    /**
+     * Title of the section
+     */
+    title: string;
+}>;

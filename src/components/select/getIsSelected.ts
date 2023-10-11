@@ -1,13 +1,15 @@
 import type { SelectItemShape } from "./types";
 import type { UseComboboxProps, UseMultipleSelectionProps } from "downshift";
 
-/**
- * Util function that can be used to determine if an item is selected in a dropdown.
- */
-type GetIsItemSelectedArgs<
+export function getIsSelected<
     TValue extends string = string,
     TItemData extends Record<string, unknown> = Record<string, unknown>
-> = {
+>({
+    isMulti,
+    item,
+    selectedItem,
+    selectedItems: prevSelectedItems,
+}: {
     /**
      * Whether the select is in multi-select mode.
      */
@@ -31,17 +33,7 @@ type GetIsItemSelectedArgs<
     selectedItems?: UseMultipleSelectionProps<
         SelectItemShape<TValue, TItemData>
     >["selectedItems"];
-};
-
-export function getIsSelected<
-    TValue extends string = string,
-    TItemData extends Record<string, unknown> = Record<string, unknown>
->({
-    isMulti,
-    item,
-    selectedItem,
-    selectedItems: prevSelectedItems,
-}: GetIsItemSelectedArgs<TValue, TItemData>): boolean {
+}): boolean {
     if (!isMulti && selectedItem) {
         return selectedItem?.value.toLowerCase() === item?.value.toLowerCase();
     }

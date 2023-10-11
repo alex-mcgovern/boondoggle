@@ -5,7 +5,7 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Icon } from "../../icon";
 
 import type { BoxProps } from "../../box";
-import type { SelectItemShape } from "../types";
+import type { GroupedSelectItems, SelectItemShape } from "../types";
 
 type MockSelectItemsArgs = {
     /**
@@ -174,6 +174,121 @@ export const mockSelectItemsActions = (): Array<
                 return alert("clicked");
             },
             value: "delete",
+        },
+    ];
+};
+
+export const mockSelectItemsGrouped = ({
+    as,
+    disabled,
+    onClick,
+    withIcon,
+}: MockSelectItemsArgs): GroupedSelectItems<CountryValue> => {
+    return [
+        {
+            items: [
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "United Kingdom",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "uk",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "France",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "fr",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "Germany",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "de",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "Spain",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "es",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "The United Kingdom of Great Britain and Northern Ireland",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "gb",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "Italy",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "it",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "Portugal",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "pt",
+                },
+            ],
+            title: "Europe",
+        },
+        {
+            items: [
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "United States",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "us",
+                },
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "Canada",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "ca",
+                },
+            ],
+            title: "North America",
+        },
+        {
+            items: [
+                {
+                    as,
+                    description: LOREM.text_xxs,
+                    disabled,
+                    label: "Australia",
+                    onClick,
+                    slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
+                    value: "au",
+                },
+            ],
+            title: "APAC",
         },
     ];
 };

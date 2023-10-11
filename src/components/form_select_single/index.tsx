@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
+import { flattenSelectItems } from "../select/flattenSelectItems";
 import { SelectSingle } from "../select/select_single";
 
 import type { WithFormFieldProps } from "../../common-types";
@@ -64,7 +65,10 @@ export function FormSelectSingle<
         [onChange, onChangeParent]
     );
 
-    const defaultItem = getDefaultValueItem({ items, value: defaultValue });
+    const defaultItem = getDefaultValueItem({
+        items: flattenSelectItems(items),
+        value: defaultValue,
+    });
 
     return (
         <SelectSingle<TValue, TItemData>

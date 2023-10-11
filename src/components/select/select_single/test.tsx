@@ -12,6 +12,7 @@ import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
+import { flattenSelectItems } from "../flattenSelectItems";
 
 import type { SelectSingleProps } from ".";
 
@@ -214,18 +215,20 @@ describe("<SelectSingle />", () => {
     test("has value of initial selected item", async () => {
         const { getByRole } = renderComponent({
             ...PROPS,
-            initialSelectedItem: PROPS.items[0],
+            initialSelectedItem: flattenSelectItems(PROPS.items)[0],
         });
 
         const combobox = getByRole("combobox");
 
-        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
+        expect((combobox as HTMLInputElement).value).toBe(
+            flattenSelectItems(PROPS.items)[0].label
+        );
     });
 
     test.only("allows clear with initial selected item", async () => {
         const { getByRole, getByTestId } = renderComponent({
             ...PROPS,
-            initialSelectedItem: PROPS.items[0],
+            initialSelectedItem: flattenSelectItems(PROPS.items)[0],
             isClearable: true,
             strClear: "Clear",
         });
@@ -233,7 +236,9 @@ describe("<SelectSingle />", () => {
         const combobox = getByRole("combobox");
         const clearButton = getByTestId("clear");
 
-        expect((combobox as HTMLInputElement).value).toBe(PROPS.items[0].label);
+        expect((combobox as HTMLInputElement).value).toBe(
+            flattenSelectItems(PROPS.items)[0].label
+        );
 
         await userEvent.click(clearButton);
 
