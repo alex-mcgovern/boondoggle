@@ -99,30 +99,28 @@ export function SelectItemGroup<
                 const isHighlighted = highlightedIndex === offsetIndex;
                 const isSelected = initIsSelected || getIsItemSelected?.(item);
                 return (
-                    <div>
-                        <SelectItem
-                            as={as}
-                            colorOverlay={colorOverlay}
-                            description={description}
-                            isMulti={isMulti}
-                            key={`${item.label}-${item.value}`}
-                            size={size}
-                            {...otherItemProps}
-                            {...getItemProps({
-                                isHighlighted,
-                                isSelected,
-                                item,
-                                label: `${offsetIndex} ${label}`,
-                                onClick,
-                                slotLeft,
-                                value,
-                                ...(isSelected &&
-                                    getSelectedItemProps?.({
-                                        selectedItem: item,
-                                    })),
-                            })}
-                        />
-                    </div>
+                    <SelectItem
+                        as={as}
+                        colorOverlay={colorOverlay}
+                        description={description}
+                        isMulti={isMulti}
+                        key={`${item.label}-${item.value}`}
+                        size={size}
+                        {...otherItemProps}
+                        {...getItemProps({
+                            isHighlighted,
+                            isSelected,
+                            item,
+                            label: `${offsetIndex} ${label}`,
+                            onClick,
+                            slotLeft,
+                            value,
+                            ...(isSelected &&
+                                getSelectedItemProps?.({
+                                    selectedItem: item,
+                                })),
+                        })}
+                    />
                 );
             })}
         </>
