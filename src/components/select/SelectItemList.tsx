@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { arrayHasLength } from "../../lib/array_has_length";
 import { SelectItem } from "./SelectItem";
-import { SelectItemGroup } from "./SelectItemGroup";
 import * as styles from "./SelectItemList.css";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 
@@ -119,6 +118,10 @@ function SelectItemListBase<
     }: SelectItemListProps<TValue, TItemData>,
     ref: ForwardedRef<HTMLDivElement>
 ) {
+    if (!items) {
+        return null;
+    }
+
     if (isGroupedSelectItems(items)) {
         let index = 0;
 
@@ -163,7 +166,7 @@ function SelectItemListBase<
                                             ...otherItemProps
                                         } = item;
                                         const isHighlighted =
-                                            highlightedIndex === index;
+                                            highlightedIndex === index - 1;
                                         const isSelected =
                                             initIsSelected ||
                                             getIsItemSelected?.(item);
@@ -231,15 +234,50 @@ function SelectItemListBase<
             })}
         >
             <div className={styles.inner}>
-                <SelectItemGroup<TValue, TItemData>
-                    getIsItemSelected={getIsItemSelected}
-                    getItemProps={getItemProps}
-                    getSelectedItemProps={getSelectedItemProps}
-                    groupIndex={0}
-                    highlightedIndex={highlightedIndex}
-                    isMulti={isMulti}
-                    items={items}
-                />
+                {items.map((item, index) => {
+                    if (!item.label) {
+                        return null;
+                    }
+
+                    const {
+                        as,
+                        colorOverlay,
+                        description,
+                        isSelected: initIsSelected,
+                        label,
+                        onClick,
+                        slotLeft,
+                        value,
+                        ...otherItemProps
+                    } = item;
+                    const isHighlighted = highlightedIndex === index;
+                    const isSelected =
+                        initIsSelected || getIsItemSelected?.(item);
+                    return (
+                        <SelectItem
+                            as={as}
+                            colorOverlay={colorOverlay}
+                            description={description}
+                            isMulti={isMulti}
+                            key={`${item.label}-${item.value}`}
+                            size={size}
+                            {...otherItemProps}
+                            {...getItemProps({
+                                isHighlighted,
+                                isSelected,
+                                item,
+                                label,
+                                onClick,
+                                slotLeft,
+                                value,
+                                ...(isSelected &&
+                                    getSelectedItemProps?.({
+                                        selectedItem: item,
+                                    })),
+                            })}
+                        />
+                    );
+                })}
 
                 {/* Show a fallback list item when there are no items to display */}
 

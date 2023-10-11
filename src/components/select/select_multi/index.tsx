@@ -290,9 +290,6 @@ function SelectMultiBase<
     });
 
     const { floatingStyles, refs } = useFloating({
-        elements: {
-            reference: ref.current,
-        },
         middleware: [
             offset(4),
             flip({
@@ -306,13 +303,11 @@ function SelectMultiBase<
     });
 
     return (
-        <Box
-            position="relative"
-            {...wrapperProps}
-        >
+        <Box position="relative">
             <Input
                 errorMessage={errorMessage}
                 invalid={invalid}
+                outerRef={refs.setReference}
                 size={size}
                 slotLeft={slotLeft}
                 slotRight={getSlotRight({
@@ -323,6 +318,7 @@ function SelectMultiBase<
                     slotRight,
                     strClear,
                 })}
+                wrapperProps={wrapperProps}
                 {...getInputProps?.({
                     className: clsx(selectInputCursorStyles, {
                         [selectMultiInputSelectedItemsStyle]:

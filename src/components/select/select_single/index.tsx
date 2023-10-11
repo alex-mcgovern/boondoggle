@@ -3,7 +3,7 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useCombobox } from "downshift";
-import { forwardRef, useCallback, useRef, useState } from "react";
+import { forwardRef, useCallback, useState } from "react";
 
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
@@ -159,7 +159,6 @@ function SelectSingleBase<
     initialRef: ForwardedRef<HTMLInputElement>
 ) {
     const ref = useForwardRef(initialRef);
-    const outerRef = useRef<HTMLSpanElement>();
 
     const initialItem = getInitialSelectedItem({
         initialSelectedItem,
@@ -218,9 +217,6 @@ function SelectSingleBase<
     );
 
     const { floatingStyles, refs } = useFloating({
-        elements: {
-            reference: outerRef.current,
-        },
         middleware: [
             offset(4),
             flip({
