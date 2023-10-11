@@ -56,6 +56,11 @@ export type SelectItemShape<
         label: string;
 
         /**
+         * Additional data that can be used for filtering.
+         */
+        tags?: string[];
+
+        /**
          * The string value for the item.
          */
         value: TValue;

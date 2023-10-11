@@ -39,7 +39,10 @@ export function filterSelectItems<
         items.filter((item) => {
             return (
                 item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
-                item.value.toLowerCase().includes(inputValue.toLowerCase())
+                item.value.toLowerCase().includes(inputValue.toLowerCase()) ||
+                item.tags?.some((tag) => {
+                    return tag.toLowerCase().includes(inputValue.toLowerCase());
+                })
             );
         });
     }
@@ -54,7 +57,12 @@ export function filterSelectItems<
                             .includes(inputValue.toLowerCase()) ||
                         item.value
                             .toLowerCase()
-                            .includes(inputValue.toLowerCase())
+                            .includes(inputValue.toLowerCase()) ||
+                        item.tags?.some((tag) => {
+                            return tag
+                                .toLowerCase()
+                                .includes(inputValue.toLowerCase());
+                        })
                     );
                 });
 
