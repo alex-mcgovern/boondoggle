@@ -5,8 +5,9 @@ import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 export const getHeaderStyles = recipe({
     base: [
         getSprinkles({
+            marginBottom: "space_6",
+            marginTop: "space_4",
             marginX: "auto",
-            marginY: "space_6",
             paddingX: "space_4",
         }),
     ],
