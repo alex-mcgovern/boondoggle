@@ -1,4 +1,5 @@
 import {
+    SortingState,
     createColumnHelper,
     getCoreRowModel,
     getFilteredRowModel,
@@ -30,6 +31,12 @@ type UseDataTableStateProps<TData extends RowData> = {
      * An array of objects describing each row in the table
      */
     data: Array<TData> | undefined;
+
+
+    /**
+     * The initial sorting state of the table
+     */
+    initialSorting: SortingState | undefined;
 
     /**
      * Boolean to enable multi-row selection.
@@ -80,6 +87,7 @@ export function useDataTableState<TData extends RowData>({
     isFilterable,
     isLoading,
     isPaginated,
+    initialSorting,
     isSelectable,
     isSortable,
     onSelect,
@@ -176,7 +184,13 @@ export function useDataTableState<TData extends RowData>({
         //     maxSize: 10,
         //     minSize: 0,
         // },
+
+        initialState: {
+            sorting: initialSorting,
+        },
+        
         state: {
+        
             ...(isFilterable && {
                 globalFilter,
             }),

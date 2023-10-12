@@ -17,7 +17,7 @@ import type {
     WithTableOptionalPagination,
     WithTableOptionalSelectableRows,
 } from "../../common-types";
-import type { ColumnDef, RowData } from "@tanstack/react-table";
+import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 
 export type DataTableProps<TRowData extends RowData> =
@@ -28,6 +28,13 @@ export type DataTableProps<TRowData extends RowData> =
              * React component to render a list of actions on each row
              */
             RowActions?: TDataTableRowActions<TRowData>;
+
+
+
+    /**
+     * The initial sorting state of the table
+     */
+    initialSorting?: SortingState;
 
             /**
              * Up to 2 react nodes to render as actions for the table
@@ -83,12 +90,14 @@ export function DataTable<TRowData extends RowData>({
     strNoResults,
     strPage,
     strPrev,
+    initialSorting,
     strResults,
 }: DataTableProps<TRowData>) {
     const { globalFilter, setGlobalFilter, table } = useDataTableState({
         data,
         enableMultiRowSelection,
         initColumns,
+        initialSorting,
         isFilterable,
         isLoading,
         isPaginated,
