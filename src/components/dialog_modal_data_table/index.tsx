@@ -241,10 +241,15 @@ export function DialogModalDataTable<TData extends RowData>({
 								<Box className={tableStyles}>
 									<DataTableLayoutHead<TData>
 										isSortable={isSortable}
+										isSelectable={isSelectable}
+										hasRowActions={undefined}
 										table={table}
 									/>
-									<DataTableLayoutBody<TData> table={table} />
-								</Box>
+									<DataTableLayoutBody<TData>
+										isSelectable={isSelectable}
+										hasRowActions={undefined}
+										table={table}
+									/>								</Box>
 							)}
 
 							{!hasData && (

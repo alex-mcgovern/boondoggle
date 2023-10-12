@@ -1,9 +1,48 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 
-import { tRowStyles } from "../../../../styles/stylesheet.css";
+import {
+	tBodyStyles,
+	tRowStyles,
+	tdStyles,
+} from "../../../../styles/stylesheet.css";
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
+import { recipe } from "@vanilla-extract/recipes";
+
+const baseBodyStyle = style({});
+
+const isSelectable = styleVariants({
+	true: {},
+	false: {},
+});
+
+const hasRowActions = styleVariants({
+	true: {},
+	false: {},
+});
+
+export const getBodyStyle = recipe({
+	base: [baseBodyStyle, tBodyStyles],
+	variants: {
+		isSelectable,
+		hasRowActions,
+	},
+});
+
+globalStyle(
+	`${isSelectable.true} td:first-child, ${isSelectable.true} ${tdStyles}:first-child`,
+	{
+		width: vars.spacing.space_1,
+	},
+);
+
+globalStyle(
+	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${tdStyles}:last-child`,
+	{
+		width: vars.spacing.space_1,
+	},
+);
 
 const baseRowStyles = style({});
 

@@ -574,7 +574,6 @@ const tableCellStyleRule: StyleRule = {
 	padding: `${vars.spacing.space_2} ${vars.spacing.space_6}`,
 	textAlign: "left",
 	verticalAlign: "middle",
-	width: "1px",
 };
 
 globalStyle("th, td", {
@@ -595,27 +594,6 @@ export const tdStyles = style({
 	...tableCellStyleRule,
 });
 
-globalStyle(
-	`th:not(:first-child), td:not(:first-child), ${thStyles}:not(:first-child), ${tdStyles}:not(:first-child)`,
-	{
-		"@layer": {
-			[baseLayer]: {
-				width: "100%",
-			},
-		},
-	},
-);
-globalStyle(
-	`th:first-child, td:first-child, ${thStyles}:first-child, ${tdStyles}:first-child`,
-	{
-		"@layer": {
-			[baseLayer]: {
-				width: vars.spacing.space_1,
-			},
-		},
-	},
-);
-
 globalStyle("thead th", {
 	"@layer": {
 		[baseLayer]: {
@@ -634,12 +612,12 @@ globalStyle(`${tHeadStyles} ${thStyles}`, {
 
 // Display table classes
 
-export const tRowStyles = style({
-	display: "table-row",
-});
-
 export const tBodyStyles = style({
 	display: "table-row-group",
+});
+
+export const tRowStyles = style({
+	display: "table-row",
 });
 
 // Ensure that table cells have border bottom, unless they are the last row

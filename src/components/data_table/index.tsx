@@ -129,9 +129,15 @@ export function DataTable<TRowData extends RowData>({
                 <Box className={tableStyles}>
                     <DataTableLayoutHead<TRowData>
                         isSortable={isSortable}
+                        isSelectable={isSelectable}
+                        hasRowActions={!!RowActions}
                         table={table}
                     />
-                    <DataTableLayoutBody<TRowData> table={table} />
+                    <DataTableLayoutBody<TRowData>
+                        isSelectable={isSelectable}
+                        hasRowActions={!!RowActions}
+                        table={table}
+                    />
                 </Box>
             )}
 
