@@ -1,5 +1,4 @@
 import {
-    SortingState,
     createColumnHelper,
     getCoreRowModel,
     getFilteredRowModel,
@@ -19,7 +18,8 @@ import type {
     RowData,
     RowSelectionState,
     Updater,
-} from "@tanstack/react-table";
+
+    SortingState} from "@tanstack/react-table";
 
 type UseDataTableStateProps<TData extends RowData> = {
     /**
@@ -34,11 +34,6 @@ type UseDataTableStateProps<TData extends RowData> = {
 
 
     /**
-     * The initial sorting state of the table
-     */
-    initialSorting: SortingState | undefined;
-
-    /**
      * Boolean to enable multi-row selection.
      */
     enableMultiRowSelection: boolean | undefined;
@@ -47,6 +42,11 @@ type UseDataTableStateProps<TData extends RowData> = {
      * Column definitions for the tabular data
      */
     initColumns: Array<ColumnDef<TData, any>>;
+
+    /**
+     * The initial sorting state of the table
+     */
+    initialSorting: SortingState | undefined;
 
     /**
      * Whether the table should be filterable
@@ -84,10 +84,10 @@ export function useDataTableState<TData extends RowData>({
     data,
     enableMultiRowSelection,
     initColumns,
+    initialSorting,
     isFilterable,
     isLoading,
     isPaginated,
-    initialSorting,
     isSelectable,
     isSortable,
     onSelect,

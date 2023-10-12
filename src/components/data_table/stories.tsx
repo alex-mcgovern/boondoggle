@@ -136,14 +136,14 @@ export const WithInitialSorting: Story = {
     args: {
         columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
         data: MOCK_DATA,
-        isSortable: true,
         initialSorting: [
             {
-                id: "last_name",
                 desc: true,
+                id: "last_name",
             },
         ],
         isFilterable: true,
+        isSortable: true,
         strClearAllFilters: "Clear all filters",
         strClearFilterInput: "Clear filter input",
         strFilterPlaceholder: "Filter results...",

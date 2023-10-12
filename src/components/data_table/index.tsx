@@ -32,24 +32,24 @@ export type DataTableProps<TRowData extends RowData> =
 
 
     /**
-     * The initial sorting state of the table
-     */
-    initialSorting?: SortingState;
-
-            /**
              * Up to 2 react nodes to render as actions for the table
              */
             actions?: ReactNode | [ReactNode?, ReactNode?];
 
-            /**
+    /**
              * Column definitions for the tabular data
              */
             columns: Array<ColumnDef<TRowData, any>>;
 
-            /**
+    /**
              * An array of objects describing each row in the table
              */
             data: Array<TRowData> | undefined;
+
+            /**
+     * The initial sorting state of the table
+     */
+    initialSorting?: SortingState;
 
             /**
              * Whether the data is loading or not.
@@ -77,6 +77,7 @@ export function DataTable<TRowData extends RowData>({
     columns: initColumns,
     data,
     enableMultiRowSelection = false,
+    initialSorting,
     isFilterable,
     isLoading,
     isPaginated,
@@ -90,7 +91,6 @@ export function DataTable<TRowData extends RowData>({
     strNoResults,
     strPage,
     strPrev,
-    initialSorting,
     strResults,
 }: DataTableProps<TRowData>) {
     const { globalFilter, setGlobalFilter, table } = useDataTableState({

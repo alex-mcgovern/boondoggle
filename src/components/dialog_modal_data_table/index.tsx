@@ -49,20 +49,20 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
          */
         columns: Array<ColumnDef<TData, any>>;
 
-            /**
-     * The initial sorting state of the table
-     */
-    initialSorting?: SortingState;
-
-        /**
+    /**
          * An array of objects describing each row in the table
          */
         data: Array<TData> | undefined;
 
-        /**
+    /**
          * React ref that will be passed to the dialog modal.
          */
         dialogRef?: ForwardedRef<HTMLDialogElement>;
+
+        /**
+     * The initial sorting state of the table
+     */
+    initialSorting?: SortingState;
 
         /**
          * Whether the dialog modal is in an error state.
@@ -138,6 +138,7 @@ export function DialogModalDataTable<TData extends RowData>({
     data,
     dialogRef: parentDialogRef,
     enableMultiRowSelection = false,
+    initialSorting,
     isError,
     isFilterable,
     isLoading,
@@ -157,7 +158,6 @@ export function DialogModalDataTable<TData extends RowData>({
     strPrev,
     strResults,
     strTryAgain,
-    initialSorting,
     title,
     triggerNode,
     width,
@@ -172,10 +172,10 @@ export function DialogModalDataTable<TData extends RowData>({
         data,
         enableMultiRowSelection,
         initColumns,
+        initialSorting,
         isFilterable,
         isLoading,
         isPaginated,
-        initialSorting,
         isSelectable,
         isSortable,
         onSelect,
