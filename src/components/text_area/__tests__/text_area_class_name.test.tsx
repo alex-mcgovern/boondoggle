@@ -9,23 +9,23 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { TextAreaProps } from "..";
 
 const PROPS: TextAreaProps = {
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: TextAreaProps) => {
-    return render(<TextArea {...props} />);
+	return render(<TextArea {...props} />);
 };
 
 describe("<TextArea />", () => {
-    describe("class name", () => {
-        test("should have the className passed to it", () => {
-            const { getByRole } = renderComponent({
-                className: "test-class",
-                ...PROPS,
-            });
+	describe("class name", () => {
+		test("should have the className passed to it", () => {
+			const { getByRole } = renderComponent({
+				className: "test-class",
+				...PROPS,
+			});
 
-            expect(getByRole("textbox")).toHaveClass("test-class");
-        });
-    });
+			expect(getByRole("textbox")).toHaveClass("test-class");
+		});
+	});
 });

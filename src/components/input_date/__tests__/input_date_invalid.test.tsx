@@ -13,43 +13,43 @@ import { a11yError } from "../../../styles/common/a11y.css";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
-    label: "date picker",
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	label: "date picker",
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = (props: InputDateProps) => {
-    return {
-        user: userEvent.setup(),
-        ...render(<InputDate {...props} />),
-    };
+	return {
+		user: userEvent.setup(),
+		...render(<InputDate {...props} />),
+	};
 };
 
 describe("<InputDate />", () => {
-    describe("Invalid", () => {
-        test("should have error styling", async () => {
-            const { getByLabelText } = await renderComponent({
-                ...PROPS,
-                invalid: true,
-            });
+	describe("Invalid", () => {
+		test("should have error styling", async () => {
+			const { getByLabelText } = await renderComponent({
+				...PROPS,
+				invalid: true,
+			});
 
-            const textbox = getByLabelText(PROPS.label);
+			const textbox = getByLabelText(PROPS.label);
 
-            expect(textbox.parentNode).toHaveClass(a11yError);
+			expect(textbox.parentNode).toHaveClass(a11yError);
 
-            expect(
-                textbox?.parentNode?.parentNode?.parentNode?.parentNode
-            ).toHaveClass(variantColorOverlay.red);
-        });
+			expect(
+				textbox?.parentNode?.parentNode?.parentNode?.parentNode,
+			).toHaveClass(variantColorOverlay.red);
+		});
 
-        test("should render error message", async () => {
-            const { getByText } = await renderComponent({
-                ...PROPS,
-                errorMessage: LOREM.errorMessage(),
-                invalid: true,
-            });
+		test("should render error message", async () => {
+			const { getByText } = await renderComponent({
+				...PROPS,
+				errorMessage: LOREM.errorMessage(),
+				invalid: true,
+			});
 
-            expect(getByText(LOREM.errorMessage())).not.toBeNull();
-        });
-    });
+			expect(getByText(LOREM.errorMessage())).not.toBeNull();
+		});
+	});
 });

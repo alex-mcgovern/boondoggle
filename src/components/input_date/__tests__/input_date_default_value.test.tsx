@@ -9,24 +9,24 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
-    defaultValue: "2021-01-01",
-    label: "date picker",
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	defaultValue: "2021-01-01",
+	label: "date picker",
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = async ({ ...props }: InputDateProps) => {
-    return waitFor(() => {
-        return render(<InputDate {...props} />);
-    });
+	return waitFor(() => {
+		return render(<InputDate {...props} />);
+	});
 };
 
 describe("<InputDate />", () => {
-    test("default value", async () => {
-        const { getByLabelText } = await renderComponent(PROPS);
+	test("default value", async () => {
+		const { getByLabelText } = await renderComponent(PROPS);
 
-        const textbox = getByLabelText(PROPS.label);
+		const textbox = getByLabelText(PROPS.label);
 
-        expect(textbox).toHaveValue("2021-01-01");
-    });
+		expect(textbox).toHaveValue("2021-01-01");
+	});
 });

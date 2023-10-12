@@ -8,54 +8,54 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const pillSize = styleVariants({
-    lg: [
-        getSprinkles({
-            fontStyle: "bodyMd",
-        }),
-    ],
-    md: [
-        getSprinkles({
-            fontStyle: "bodySm",
-        }),
-    ],
-    sm: [
-        getSprinkles({
-            fontStyle: "bodySm",
-        }),
-    ],
+	lg: [
+		getSprinkles({
+			fontStyle: "bodyMd",
+		}),
+	],
+	md: [
+		getSprinkles({
+			fontStyle: "bodySm",
+		}),
+	],
+	sm: [
+		getSprinkles({
+			fontStyle: "bodySm",
+		}),
+	],
 });
 
 export const getPillStyle = recipe({
-    base: [
-        getSprinkles({
-            alignItems: "center",
-            background: "tint_hover",
-            borderRadius: "pill",
-            color: "text_low_contrast",
-            flexShrink: "0",
-            fontWeight: "normal",
-            paddingX: "space_2",
-            paddingY: "space_1",
-            textDecoration: "none",
-            whiteSpace: "nowrap",
-            width: "max-content",
-        }),
-        a11yFocus,
-        createAccessibleTransition({
-            transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
-        }),
-        {
-            selectors: {
-                [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-                    background: vars.color.tint_active,
-                    borderColor: vars.color.border_default,
-                },
-            },
-        },
-    ],
+	base: [
+		getSprinkles({
+			alignItems: "center",
+			background: "tint_hover",
+			borderRadius: "pill",
+			color: "text_low_contrast",
+			flexShrink: "0",
+			fontWeight: "normal",
+			paddingX: "space_2",
+			paddingY: "space_1",
+			textDecoration: "none",
+			whiteSpace: "nowrap",
+			width: "max-content",
+		}),
+		a11yFocus,
+		createAccessibleTransition({
+			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
+		}),
+		{
+			selectors: {
+				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+					background: vars.color.tint_active,
+					borderColor: vars.color.border_default,
+				},
+			},
+		},
+	],
 
-    variants: {
-        colorOverlay: variantColorOverlay,
-        size: pillSize,
-    },
+	variants: {
+		colorOverlay: variantColorOverlay,
+		size: pillSize,
+	},
 });

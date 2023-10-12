@@ -10,16 +10,22 @@ const handleSubmit = jest.fn();
 const handleErrors = jest.fn();
 
 handleSubmit.mockImplementation(async (fieldValues: unknown) => {
-    return alert(`Form submitted successfully \n ${JSON.stringify(fieldValues, null, 2)}`);
+	return alert(
+		`Form submitted successfully \n ${JSON.stringify(
+			fieldValues,
+			null,
+			2,
+		)}`,
+	);
 });
 
 handleErrors.mockImplementation(async (errors) => {
-    return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
+	return alert(`Form validation error \n ${JSON.stringify(errors, null, 2)}`);
 });
 
 const meta = {
-    component: StoryComp,
-    title: "Components/Form",
+	component: StoryComp,
+	title: "Components/Form",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -27,25 +33,25 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: mockForm({
-        handleErrors,
-        handleSubmit,
-    }),
+	args: mockForm({
+		handleErrors,
+		handleSubmit,
+	}),
 };
 
 export const WithDefaultValues: Story = {
-    args: mockForm({
-        handleErrors,
-        handleSubmit,
-        withDefaultValues: true,
-        withOptionalFields: true,
-    }),
+	args: mockForm({
+		handleErrors,
+		handleSubmit,
+		withDefaultValues: true,
+		withOptionalFields: true,
+	}),
 };
 
 export const WithOptionalFields: Story = {
-    args: mockForm({
-        handleErrors,
-        handleSubmit,
-        withOptionalFields: true,
-    }),
+	args: mockForm({
+		handleErrors,
+		handleSubmit,
+		withOptionalFields: true,
+	}),
 };

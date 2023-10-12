@@ -4,32 +4,23 @@ import { Button } from "../button";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    args: {
-        children: (
-            <>
-                <Button
-                    appearance="secondary"
-                    name="one"
-                >
-                    One
-                </Button>
-                <Button
-                    appearance="secondary"
-                    name="two"
-                >
-                    Two
-                </Button>
-                <Button
-                    appearance="secondary"
-                    name="three"
-                >
-                    Three
-                </Button>
-            </>
-        ),
-    },
-    component: StoryComp,
-    title: "Components/ButtonGroup",
+	args: {
+		children: (
+			<>
+				<Button appearance="secondary" name="one">
+					One
+				</Button>
+				<Button appearance="secondary" name="two">
+					Two
+				</Button>
+				<Button appearance="secondary" name="three">
+					Three
+				</Button>
+			</>
+		),
+	},
+	component: StoryComp,
+	title: "Components/ButtonGroup",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

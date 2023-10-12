@@ -3,13 +3,13 @@ import { DialogModalCloseButton as StoryComp } from ".";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    args: {
-        closeDialog: () => {
-            return alert("closed");
-        },
-    },
-    component: StoryComp,
-    title: "Components/DialogModalCloseButton",
+	args: {
+		closeDialog: () => {
+			return alert("closed");
+		},
+	},
+	component: StoryComp,
+	title: "Components/DialogModalCloseButton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

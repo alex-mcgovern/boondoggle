@@ -4,36 +4,36 @@ import { Button } from "../button";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    args: {
-        actions: [
-            <Button
-                appearance="secondary"
-                colorOverlay="red"
-                name="cancel"
-                onClick={() => {
-                    alert("Cancelled");
-                }}
-            >
-                Cancel
-            </Button>,
-            <Button
-                name="confirm"
-                onClick={() => {
-                    alert("Confirmed");
-                }}
-            >
-                Confirm
-            </Button>,
-        ],
-        isError: undefined,
-        isLoading: undefined,
-        onClickTryAgain: undefined,
-        shouldCloseOnAction: undefined,
-        strTryAgain: undefined,
-    },
+	args: {
+		actions: [
+			<Button
+				appearance="secondary"
+				colorOverlay="red"
+				name="cancel"
+				onClick={() => {
+					alert("Cancelled");
+				}}
+			>
+				Cancel
+			</Button>,
+			<Button
+				name="confirm"
+				onClick={() => {
+					alert("Confirmed");
+				}}
+			>
+				Confirm
+			</Button>,
+		],
+		isError: undefined,
+		isLoading: undefined,
+		onClickTryAgain: undefined,
+		shouldCloseOnAction: undefined,
+		strTryAgain: undefined,
+	},
 
-    component: StoryComp,
-    title: "Components/DialogModalActions",
+	component: StoryComp,
+	title: "Components/DialogModalActions",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

@@ -16,7 +16,7 @@ import type { StyleRule } from "@vanilla-extract/css";
  */
 
 globalStyle(
-    `html, body, div, span, applet, object, iframe,
+	`html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -29,143 +29,143 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video`,
-    {
-        "@layer": {
-            [resetLayer]: {
-                border: 0,
-                font: "inherit",
-                fontSize: "100%",
-                margin: 0,
-                padding: 0,
-                verticalAlign: "baseline",
-            },
-        },
-    }
+	{
+		"@layer": {
+			[resetLayer]: {
+				border: 0,
+				font: "inherit",
+				fontSize: "100%",
+				margin: 0,
+				padding: 0,
+				verticalAlign: "baseline",
+			},
+		},
+	},
 );
 
 globalStyle(
-    `article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section`,
-    {
-        "@layer": {
-            [resetLayer]: {
-                display: "block",
-            },
-        },
-    }
+	"article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section",
+	{
+		"@layer": {
+			[resetLayer]: {
+				display: "block",
+			},
+		},
+	},
 );
 
 globalStyle("body", {
-    "@layer": {
-        [resetLayer]: {
-            lineHeight: 1.5,
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			lineHeight: 1.5,
+		},
+	},
 });
 
 globalStyle("blockquote, q", {
-    "@layer": {
-        [resetLayer]: {
-            quotes: "none",
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			quotes: "none",
+		},
+	},
 });
 
 globalStyle(
-    `blockquote:before, blockquote:after,
+	`blockquote:before, blockquote:after,
     q:before, q:after`,
-    {
-        "@layer": {
-            [resetLayer]: {
-                // NOTE: The original also has `content: "''"` but that is not possible
-                // to have duplicate rules with vanilla-extract.
-                content: "none",
-            },
-        },
-    }
+	{
+		"@layer": {
+			[resetLayer]: {
+				// NOTE: The original also has `content: "''"` but that is not possible
+				// to have duplicate rules with vanilla-extract.
+				content: "none",
+			},
+		},
+	},
 );
 
 globalStyle("button", {
-    "@layer": {
-        [resetLayer]: {
-            appearance: "none",
-            background: "none",
-            border: "none",
-            display: "block",
-            padding: 0,
-            textDecoration: "none",
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			appearance: "none",
+			background: "none",
+			border: "none",
+			display: "block",
+			padding: 0,
+			textDecoration: "none",
+		},
+	},
 });
 
 globalStyle("button[disabled], button[aria-disabled='true']", {
-    "@layer": {
-        [resetLayer]: {
-            opacity: 0.5,
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			opacity: 0.5,
+		},
+	},
 });
 
 globalStyle("button[disabled]:hover, button[aria-disabled='true']:hover", {
-    "@layer": {
-        [resetLayer]: {
-            cursor: "not-allowed !important",
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			cursor: "not-allowed !important",
+		},
+	},
 });
 
-globalStyle(`img, picture, video, canvas, svg`, {
-    "@layer": {
-        [resetLayer]: {
-            display: `block`,
-            maxWidth: `100%`,
-        },
-    },
+globalStyle("img, picture, video, canvas, svg", {
+	"@layer": {
+		[resetLayer]: {
+			display: "block",
+			maxWidth: "100%",
+		},
+	},
 });
 
-globalStyle(`input, button, textarea, select`, {
-    "@layer": {
-        [resetLayer]: {
-            font: `inherit`,
-        },
-    },
+globalStyle("input, button, textarea, select", {
+	"@layer": {
+		[resetLayer]: {
+			font: "inherit",
+		},
+	},
 });
 
 globalStyle(`input[type="search"]`, {
-    "@layer": {
-        [resetLayer]: {
-            appearance: "none",
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			appearance: "none",
+		},
+	},
 });
 
 globalStyle(
-    `input[type="search"]::-webkit-search-decoration,
+	`input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration`,
-    {
-        "@layer": {
-            [resetLayer]: {
-                display: "none",
-            },
-        },
-    }
+	{
+		"@layer": {
+			[resetLayer]: {
+				display: "none",
+			},
+		},
+	},
 );
 
-globalStyle(`input[type=search]::-ms-clear, input[type=search]::-ms-reveal`, {
-    "@layer": {
-        [resetLayer]: {
-            display: "none",
-            height: 0,
-            width: 0,
-        },
-    },
+globalStyle("input[type=search]::-ms-clear, input[type=search]::-ms-reveal", {
+	"@layer": {
+		[resetLayer]: {
+			display: "none",
+			height: 0,
+			width: 0,
+		},
+	},
 });
 
 // INPUT DATE STYLES
 
 globalStyle("input[type='date']::-webkit-calendar-picker-indicator", {
-    display: "none",
+	display: "none",
 });
 
 // UNUSED: Styles the background of the input date field
@@ -192,456 +192,477 @@ globalStyle("input[type='date']::-webkit-calendar-picker-indicator", {
 // globalStyle(`input::-webkit-calendar-picker-indicator`, { color: "red" });
 
 globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
-    "@layer": {
-        [resetLayer]: {
-            cursor: "pointer",
-        },
-    },
+	"@layer": {
+		[resetLayer]: {
+			cursor: "pointer",
+		},
+	},
 });
 
 globalStyle(":root", {
-    "@media": {
-        [MEDIA_QUERY_MOBILE]: {
-            vars: {
-                [vars.fontSize.h1]: "2.5rem",
-                [vars.fontSize.h2]: "2rem",
-                [vars.fontSize.h3]: "1.625rem",
-                [vars.fontSize.h4]: "1.375rem",
-                [vars.fontSize.h5]: "1.125rem",
-                [vars.fontSize.h6]: "1rem",
-            },
-        },
-    },
+	"@media": {
+		[MEDIA_QUERY_MOBILE]: {
+			vars: {
+				[vars.fontSize.h1]: "2.5rem",
+				[vars.fontSize.h2]: "2rem",
+				[vars.fontSize.h3]: "1.625rem",
+				[vars.fontSize.h4]: "1.375rem",
+				[vars.fontSize.h5]: "1.125rem",
+				[vars.fontSize.h6]: "1rem",
+			},
+		},
+	},
 });
 
-globalStyle(`*`, {
-    "@layer": {
-        [baseLayer]: { boxSizing: `border-box`, margin: 0 },
-    },
+globalStyle("*", {
+	"@layer": {
+		[baseLayer]: { boxSizing: "border-box", margin: 0 },
+	},
 });
 
-globalStyle(`html`, {
-    "@layer": {
-        [baseLayer]: {
-            accentColor: vars.color.button_default,
-            background: vars.color.background,
-            fontSize: vars.fontSize.root,
-        },
-    },
+globalStyle("html", {
+	"@layer": {
+		[baseLayer]: {
+			accentColor: vars.color.button_default,
+			background: vars.color.background,
+			fontSize: vars.fontSize.root,
+		},
+	},
 });
 
-globalStyle(`html, body`, {
-    "@layer": {
-        [baseLayer]: {
-            fontFamily: vars.fontFamily.body,
-            fontSize: vars.fontSize.root,
-            height: `100%`,
-        },
-    },
+globalStyle("html, body", {
+	"@layer": {
+		[baseLayer]: {
+			fontFamily: vars.fontFamily.body,
+			fontSize: vars.fontSize.root,
+			height: "100%",
+		},
+	},
 });
 
-globalStyle(`body`, {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.text_high_contrast,
-            lineHeight: vars.lineHeight.bodyMd,
-            WebkitFontSmoothing: `antialiased`,
-        },
-    },
+globalStyle("body", {
+	"@layer": {
+		[baseLayer]: {
+			color: vars.color.text_high_contrast,
+			lineHeight: vars.lineHeight.bodyMd,
+			WebkitFontSmoothing: "antialiased",
+		},
+	},
 });
 
-globalStyle(`a`, {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.button_default,
-            margin: 0,
-            padding: 0,
-            textDecoration: "none",
-        },
-    },
+globalStyle("a", {
+	"@layer": {
+		[baseLayer]: {
+			color: vars.color.button_default,
+			margin: 0,
+			padding: 0,
+			textDecoration: "none",
+		},
+	},
 });
 
-globalStyle(`a:hover, a:focus, a:focus-visible`, {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.button_active,
-            textDecoration: "underline",
-        },
-    },
+globalStyle("a:hover, a:focus, a:focus-visible", {
+	"@layer": {
+		[baseLayer]: {
+			color: vars.color.button_active,
+			textDecoration: "underline",
+		},
+	},
 });
 
 globalStyle("a:focus-visible", {
-    "@layer": {
-        [baseLayer]: {
-            ...a11yFocusStyleRule,
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			...a11yFocusStyleRule,
+		},
+	},
 });
 
-globalStyle(`button`, {
-    "@layer": {
-        [baseLayer]: {
-            background: "none",
-            border: "none",
-            textDecoration: "none",
-            WebkitAppearance: "none",
-        },
-    },
+globalStyle("button", {
+	"@layer": {
+		[baseLayer]: {
+			background: "none",
+			border: "none",
+			textDecoration: "none",
+			WebkitAppearance: "none",
+		},
+	},
 });
 
 globalStyle("input[type=checkbox]", {
-    "@layer": {
-        [baseLayer]: {
-            accentColor: vars.color.button_default,
-            cursor: "pointer",
-            height: vars.spacing.space_4,
-            width: vars.spacing.space_4,
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			accentColor: vars.color.button_default,
+			cursor: "pointer",
+			height: vars.spacing.space_4,
+			width: vars.spacing.space_4,
+		},
+	},
 });
 
-globalStyle(`code`, {
-    "@layer": {
-        [baseLayer]: {
-            color: "inherit",
-            fontWeight: vars.fontWeight.normal,
-        },
-    },
+globalStyle("code", {
+	"@layer": {
+		[baseLayer]: {
+			color: "inherit",
+			fontWeight: vars.fontWeight.normal,
+		},
+	},
 });
 
-globalStyle(`h1, h2, h3, h4, h5, h6`, {
-    "@layer": {
-        [baseLayer]: {
-            display: "block",
-            fontWeight: vars.fontWeight.medium,
-            lineHeight: 1.4,
-            marginBottom: vars.spacing.space_2,
-            overflowWrap: `break-word`,
-        },
-    },
+globalStyle("h1, h2, h3, h4, h5, h6", {
+	"@layer": {
+		[baseLayer]: {
+			display: "block",
+			fontWeight: vars.fontWeight.medium,
+			lineHeight: 1.4,
+			marginBottom: vars.spacing.space_2,
+			overflowWrap: "break-word",
+		},
+	},
 });
 
-globalStyle(`h1`, {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h1,
-            fontWeight: vars.fontWeight.bold,
-        },
-    },
+globalStyle("h1", {
+	"@layer": {
+		[baseLayer]: {
+			fontSize: vars.fontSize.h1,
+			fontWeight: vars.fontWeight.bold,
+		},
+	},
 });
 
-globalStyle(`h2`, {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h2,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
+globalStyle("h2", {
+	"@layer": {
+		[baseLayer]: {
+			fontSize: vars.fontSize.h2,
+			fontWeight: vars.fontWeight.semibold,
+		},
+	},
 });
 
-globalStyle(`h3`, {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h3,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
+globalStyle("h3", {
+	"@layer": {
+		[baseLayer]: {
+			fontSize: vars.fontSize.h3,
+			fontWeight: vars.fontWeight.semibold,
+		},
+	},
 });
 
-globalStyle(`h4`, {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h4,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
+globalStyle("h4", {
+	"@layer": {
+		[baseLayer]: {
+			fontSize: vars.fontSize.h4,
+			fontWeight: vars.fontWeight.semibold,
+		},
+	},
 });
 
-globalStyle(`h5`, {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h5,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
+globalStyle("h5", {
+	"@layer": {
+		[baseLayer]: {
+			fontSize: vars.fontSize.h5,
+			fontWeight: vars.fontWeight.semibold,
+		},
+	},
 });
 
-globalStyle(`h6`, {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h6,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
+globalStyle("h6", {
+	"@layer": {
+		[baseLayer]: {
+			fontSize: vars.fontSize.h6,
+			fontWeight: vars.fontWeight.semibold,
+		},
+	},
 });
 
-globalStyle(`hr`, {
-    "@layer": {
-        [baseLayer]: {
-            borderBottom: "none",
-            borderColor: `${vars.color.border_default} !important`,
-            borderTop: "1px solid",
-            marginBottom: vars.spacing.space_6,
-            marginTop: vars.spacing.space_6,
-        },
-    },
+globalStyle("hr", {
+	"@layer": {
+		[baseLayer]: {
+			borderBottom: "none",
+			borderColor: `${vars.color.border_default} !important`,
+			borderTop: "1px solid",
+			marginBottom: vars.spacing.space_6,
+			marginTop: vars.spacing.space_6,
+		},
+	},
 });
 
 export const textFieldStyleRule: StyleRule = {
-    background: vars.color.background,
-    border: `1px solid ${vars.color.border_default}`,
-    borderRadius: vars.borderRadius.md,
-    color: vars.color.text_high_contrast,
-    fontWeight: vars.fontWeight.normal,
-    padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
-    ...createAccessibleTransition({
-        transition: `ease ${vars.transitionDuration.short} ease`,
-        transitionProperty: "color, background-color, border-color",
-    }),
+	background: vars.color.background,
+	border: `1px solid ${vars.color.border_default}`,
+	borderRadius: vars.borderRadius.md,
+	color: vars.color.text_high_contrast,
+	fontWeight: vars.fontWeight.normal,
+	padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
+	...createAccessibleTransition({
+		transition: `ease ${vars.transitionDuration.short} ease`,
+		transitionProperty: "color, background-color, border-color",
+	}),
 };
 
 globalStyle("textarea", {
-    "@layer": {
-        [baseLayer]: {
-            ...textFieldStyleRule,
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			...textFieldStyleRule,
+		},
+	},
 });
 
 globalStyle("textarea[readonly]", {
-    "@layer": {
-        [baseLayer]: {
-            background: vars.color.tint_default,
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			background: vars.color.tint_default,
+		},
+	},
 });
 
 globalStyle(
-    "input::-webkit-outer-spin-button, input::-webkit-inner-spin-button",
-    {
-        "@layer": {
-            [baseLayer]: {
-                margin: 0,
-                WebkitAppearance: "none",
-            },
-        },
-    }
+	"input::-webkit-outer-spin-button, input::-webkit-inner-spin-button",
+	{
+		"@layer": {
+			[baseLayer]: {
+				margin: 0,
+				WebkitAppearance: "none",
+			},
+		},
+	},
 );
 
 globalStyle("input[type=number]", {
-    "@layer": {
-        [baseLayer]: {
-            MozAppearance: "textfield",
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			MozAppearance: "textfield",
+		},
+	},
 });
 
 globalStyle("input::placeholder, textarea::placeholder", {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.text_low_contrast,
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			color: vars.color.text_low_contrast,
+		},
+	},
 });
 
 globalStyle(
-    "input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hover)",
-    {
-        "@layer": {
-            [baseLayer]: {
-                // background: vars.color.tint_default,
-                // borderColor: vars.color.border_hover,
-            },
-        },
-    }
+	"input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hover)",
+	{
+		"@layer": {
+			[baseLayer]: {
+				// background: vars.color.tint_default,
+				// borderColor: vars.color.border_hover,
+			},
+		},
+	},
 );
 
 globalStyle(
-    "input:not([disabled]):is(:focus-visible), textarea:not([disabled]):is(:focus-visible)",
-    {
-        "@layer": {
-            [baseLayer]: {
-                // ...a11yFocusStyleRule,
-            },
-        },
-    }
+	"input:not([disabled]):is(:focus-visible), textarea:not([disabled]):is(:focus-visible)",
+	{
+		"@layer": {
+			[baseLayer]: {
+				// ...a11yFocusStyleRule,
+			},
+		},
+	},
 );
 
 globalStyle(
-    "input[disabled]:is(:focus-visible, :focus), textarea[disabled]:is(:focus-visible, :focus)",
-    {
-        "@layer": {
-            [baseLayer]: {
-                outline: "none",
-            },
-        },
-    }
+	"input[disabled]:is(:focus-visible, :focus), textarea[disabled]:is(:focus-visible, :focus)",
+	{
+		"@layer": {
+			[baseLayer]: {
+				outline: "none",
+			},
+		},
+	},
 );
 
-globalStyle(`ul, ol`, {
-    "@layer": {
-        [baseLayer]: {
-            marginBlockEnd: 0,
-            marginBlockStart: 0,
-            paddingInlineStart: 0,
-        },
-    },
+globalStyle("ul, ol", {
+	"@layer": {
+		[baseLayer]: {
+			marginBlockEnd: 0,
+			marginBlockStart: 0,
+			paddingInlineStart: 0,
+		},
+	},
 });
 
-globalStyle(`ul li, ol li`, {
-    "@layer": {
-        [baseLayer]: {
-            listStylePosition: "inside",
-            marginBottom: vars.spacing.space_2,
-        },
-    },
+globalStyle("ul li, ol li", {
+	"@layer": {
+		[baseLayer]: {
+			listStylePosition: "inside",
+			marginBottom: vars.spacing.space_2,
+		},
+	},
 });
 
-globalStyle(`ul li::marker, ol li::marker`, {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.button_default,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
+globalStyle("ul li::marker, ol li::marker", {
+	"@layer": {
+		[baseLayer]: {
+			color: vars.color.button_default,
+			fontWeight: vars.fontWeight.semibold,
+		},
+	},
 });
 
-globalStyle(`menu`, {
-    "@layer": {
-        [baseLayer]: {
-            listStyleType: "none",
-            margin: 0,
-            padding: 0,
-        },
-    },
+globalStyle("menu", {
+	"@layer": {
+		[baseLayer]: {
+			listStyleType: "none",
+			margin: 0,
+			padding: 0,
+		},
+	},
 });
 
-globalStyle(`p`, {
-    "@layer": {
-        [baseLayer]: {
-            marginBottom: vars.spacing.space_2,
-            overflowWrap: `break-word`,
-        },
-    },
+globalStyle("p", {
+	"@layer": {
+		[baseLayer]: {
+			marginBottom: vars.spacing.space_2,
+			overflowWrap: "break-word",
+		},
+	},
 });
 
 // Table
 
 const tableStyleRule: StyleRule = {
-    borderCollapse: "collapse",
-    borderSpacing: 0,
-    tableLayout: "fixed",
-    width: "100%",
+	borderCollapse: "collapse",
+	borderSpacing: 0,
+	tableLayout: "auto",
+	width: "100%",
 };
 
-globalStyle(`table`, {
-    "@layer": {
-        [baseLayer]: {
-            ...tableStyleRule,
-        },
-    },
+globalStyle("table", {
+	"@layer": {
+		[baseLayer]: {
+			...tableStyleRule,
+		},
+	},
 });
 
 export const tableStyles = style({
-    display: "table",
-    ...tableStyleRule,
+	display: "table",
+	...tableStyleRule,
 });
 
 // Table head cell styles
 
 const tHeadStyleRule: StyleRule = {
-    fontSize: vars.fontSize.bodySm,
-    fontWeight: vars.fontWeight.semibold,
+	fontSize: vars.fontSize.bodySm,
+	fontWeight: vars.fontWeight.semibold,
 };
 
-globalStyle(`thead`, {
-    "@layer": {
-        [baseLayer]: {
-            ...tHeadStyleRule,
-        },
-    },
+globalStyle("thead", {
+	"@layer": {
+		[baseLayer]: {
+			...tHeadStyleRule,
+		},
+	},
 });
 
 export const tHeadStyles = style({
-    display: "table-header-group",
-    ...tHeadStyleRule,
+	display: "table-header-group",
+	...tHeadStyleRule,
 });
 
 // Table cells
 
 const tableCellStyleRule: StyleRule = {
-    fontSize: vars.fontSize.bodyMd,
-    padding: `${vars.spacing.space_2} ${vars.spacing.space_6}`,
-    textAlign: "left",
-    verticalAlign: "middle",
-    width: "1px",
+	fontSize: vars.fontSize.bodyMd,
+	padding: `${vars.spacing.space_2} ${vars.spacing.space_6}`,
+	textAlign: "left",
+	verticalAlign: "middle",
+	width: "1px",
 };
 
-globalStyle(`th, td`, {
-    "@layer": {
-        [baseLayer]: {
-            ...tableCellStyleRule,
-        },
-    },
+globalStyle("th, td", {
+	"@layer": {
+		[baseLayer]: {
+			...tableCellStyleRule,
+		},
+	},
 });
 
 export const thStyles = style({
-    display: "table-cell",
-    ...tableCellStyleRule,
+	display: "table-cell",
+	...tableCellStyleRule,
 });
 
 export const tdStyles = style({
-    display: "table-cell",
-    ...tableCellStyleRule,
+	display: "table-cell",
+	...tableCellStyleRule,
 });
 
-globalStyle(`thead th`, {
-    "@layer": {
-        [baseLayer]: {
-            whiteSpace: "nowrap",
-        },
-    },
+globalStyle(
+	`th:not(:first-child), td:not(:first-child), ${thStyles}:not(:first-child), ${tdStyles}:not(:first-child)`,
+	{
+		"@layer": {
+			[baseLayer]: {
+				width: "100%",
+			},
+		},
+	},
+);
+globalStyle(
+	`th:first-child, td:first-child, ${thStyles}:first-child, ${tdStyles}:first-child`,
+	{
+		"@layer": {
+			[baseLayer]: {
+				width: vars.spacing.space_1,
+			},
+		},
+	},
+);
+
+globalStyle("thead th", {
+	"@layer": {
+		[baseLayer]: {
+			whiteSpace: "nowrap",
+		},
+	},
 });
 
 globalStyle(`${tHeadStyles} ${thStyles}`, {
-    "@layer": {
-        [baseLayer]: {
-            whiteSpace: "nowrap",
-        },
-    },
+	"@layer": {
+		[baseLayer]: {
+			whiteSpace: "nowrap",
+		},
+	},
 });
 
 // Display table classes
 
 export const tRowStyles = style({
-    display: "table-row",
+	display: "table-row",
 });
 
 export const tBodyStyles = style({
-    display: "table-row-group",
+	display: "table-row-group",
 });
 
 // Ensure that table cells have border bottom, unless they are the last row
 
 const tableCellBorderStyleRule: StyleRule = {
-    borderBottom: `1px solid ${vars.color.border_default}`,
+	borderBottom: `1px solid ${vars.color.border_default}`,
 };
 
 globalStyle(
-    `${tHeadStyles}:not(:last-child) ${thStyles}, ${tRowStyles}:not(:last-of-type) ${tdStyles}`,
-    {
-        "@layer": {
-            [baseLayer]: {
-                ...tableCellBorderStyleRule,
-            },
-        },
-    }
+	`${tHeadStyles}:not(:last-child) ${thStyles}, ${tRowStyles}:not(:last-of-type) ${tdStyles}`,
+	{
+		"@layer": {
+			[baseLayer]: {
+				...tableCellBorderStyleRule,
+			},
+		},
+	},
 );
 
-globalStyle(`thead:not(:last-child) th, tr:not(:last-of-type) td`, {
-    "@layer": {
-        [baseLayer]: {
-            ...tableCellBorderStyleRule,
-        },
-    },
+globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
+	"@layer": {
+		[baseLayer]: {
+			...tableCellBorderStyleRule,
+		},
+	},
 });

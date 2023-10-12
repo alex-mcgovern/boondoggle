@@ -3,23 +3,25 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
 describe("<SelectMulti />", () => {
-    it("mounts", () => {
-        cy.mount(
-            <SelectMulti
-                {...{
-                    id: LOREM.id(),
-                    items: mockSelectItems({}),
-                    label: LOREM.label(),
-                    name: LOREM.name(),
-                    onChange: (selection) => {
-                        alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
-                    },
-                    placeholder: LOREM.placeholder(),
-                }}
-            />
-        );
+	it("mounts", () => {
+		cy.mount(
+			<SelectMulti
+				{...{
+					id: LOREM.id(),
+					items: mockSelectItems({}),
+					label: LOREM.label(),
+					name: LOREM.name(),
+					onChange: (selection) => {
+						alert(
+							`onChange\n\n${JSON.stringify(selection, null, 2)}`,
+						);
+					},
+					placeholder: LOREM.placeholder(),
+				}}
+			/>,
+		);
 
-        cy.get(`input[name='${LOREM.name()}']`).click();
-        cy.get(`li[value=${mockSelectItems({})[0].value}]`).click();
-    });
+		cy.get(`input[name='${LOREM.name()}']`).click();
+		cy.get(`li[value=${mockSelectItems({})[0].value}]`).click();
+	});
 });

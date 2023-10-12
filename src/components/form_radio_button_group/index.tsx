@@ -7,52 +7,52 @@ import type { WithFormFieldProps } from "../../common-types";
 import type { RadioButtonGroupProps } from "../radio_button_group";
 
 export type FormRadioButtonGroupProps = RadioButtonGroupProps &
-    WithFormFieldProps & {
-        defaultValue?: string | number;
-    };
+	WithFormFieldProps & {
+		defaultValue?: string | number;
+	};
 
 export function FormRadioButtonGroup({
-    defaultValue,
-    invalid,
-    name,
-    onChange: onChangeParent,
-    wrapperProps = { marginBottom: "space_6" },
-    ...rest
+	defaultValue,
+	invalid,
+	name,
+	onChange: onChangeParent,
+	wrapperProps = { marginBottom: "space_6" },
+	...rest
 }: FormRadioButtonGroupProps) {
-    const { control } = useFormContext();
+	const { control } = useFormContext();
 
-    const {
-        field: { onBlur, onChange, ref, value: controlledValue = "" },
-        fieldState: { error },
-    } = useController({
-        control,
-        defaultValue,
-        name,
-    });
+	const {
+		field: { onBlur, onChange, ref, value: controlledValue = "" },
+		fieldState: { error },
+	} = useController({
+		control,
+		defaultValue,
+		name,
+	});
 
-    const handleChange = useCallback(
-        (value: string) => {
-            onChange(value);
+	const handleChange = useCallback(
+		(value: string) => {
+			onChange(value);
 
-            onChangeParent?.(value);
-        },
-        [onChange, onChangeParent]
-    );
+			onChangeParent?.(value);
+		},
+		[onChange, onChangeParent],
+	);
 
-    return (
-        <RadioButtonGroup
-            defaultValue={defaultValue}
-            errorMessage={error?.message}
-            inputProps={{
-                onBlur,
-            }}
-            invalid={invalid || !!error}
-            name={name}
-            onChange={handleChange}
-            ref={ref}
-            value={controlledValue}
-            wrapperProps={wrapperProps}
-            {...rest}
-        />
-    );
+	return (
+		<RadioButtonGroup
+			defaultValue={defaultValue}
+			errorMessage={error?.message}
+			inputProps={{
+				onBlur,
+			}}
+			invalid={invalid || !!error}
+			name={name}
+			onChange={handleChange}
+			ref={ref}
+			value={controlledValue}
+			wrapperProps={wrapperProps}
+			{...rest}
+		/>
+	);
 }

@@ -12,37 +12,37 @@ import { FormTestProvider } from "../form_test_provider.comp";
 import type { FormTextAreaProps } from "../../form_text_area";
 
 const PROPS: FormTextAreaProps = {
-    errorMessage: LOREM.errorMessage(),
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	errorMessage: LOREM.errorMessage(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: FormTextAreaProps) => {
-    return render(
-        <FormTestProvider>
-            <FormTextArea {...props} />
-        </FormTestProvider>
-    );
+	return render(
+		<FormTestProvider>
+			<FormTextArea {...props} />
+		</FormTestProvider>,
+	);
 };
 
 describe("<FormTextArea />", () => {
-    describe("Basic smoke tests", () => {
-        test("should render without throwing", () => {
-            const { getByRole } = renderComponent(PROPS);
+	describe("Basic smoke tests", () => {
+		test("should render without throwing", () => {
+			const { getByRole } = renderComponent(PROPS);
 
-            expect(getByRole("textbox")).not.toBeNull();
-        });
-    });
+			expect(getByRole("textbox")).not.toBeNull();
+		});
+	});
 
-    describe("Updating the value", () => {
-        test("should update value when the user types", async () => {
-            const { getByRole } = renderComponent(PROPS);
+	describe("Updating the value", () => {
+		test("should update value when the user types", async () => {
+			const { getByRole } = renderComponent(PROPS);
 
-            expect(getByRole("textbox")).toHaveValue("");
+			expect(getByRole("textbox")).toHaveValue("");
 
-            await userEvent.type(getByRole("textbox"), "New value");
+			await userEvent.type(getByRole("textbox"), "New value");
 
-            expect(getByRole("textbox")).toHaveValue("New value");
-        });
-    });
+			expect(getByRole("textbox")).toHaveValue("New value");
+		});
+	});
 });

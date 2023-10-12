@@ -12,37 +12,39 @@ import { a11yError } from "../../../styles/common/a11y.css";
 import type { TextAreaProps } from "..";
 
 const PROPS: TextAreaProps = {
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: TextAreaProps) => {
-    return render(<TextArea {...props} />);
+	return render(<TextArea {...props} />);
 };
 
 describe("<TextArea />", () => {
-    describe("Invalid", () => {
-        test("should have error styling", () => {
-            const { getByRole } = renderComponent({
-                ...PROPS,
-                invalid: true,
-            });
+	describe("Invalid", () => {
+		test("should have error styling", () => {
+			const { getByRole } = renderComponent({
+				...PROPS,
+				invalid: true,
+			});
 
-            const textbox = getByRole("textbox");
+			const textbox = getByRole("textbox");
 
-            expect(textbox).toHaveClass(a11yError);
+			expect(textbox).toHaveClass(a11yError);
 
-            expect(textbox?.parentNode?.parentNode).toHaveClass(variantColorOverlay.red);
-        });
+			expect(textbox?.parentNode?.parentNode).toHaveClass(
+				variantColorOverlay.red,
+			);
+		});
 
-        test("should render error message", () => {
-            const { getByText } = renderComponent({
-                ...PROPS,
-                errorMessage: LOREM.errorMessage(),
-                invalid: true,
-            });
+		test("should render error message", () => {
+			const { getByText } = renderComponent({
+				...PROPS,
+				errorMessage: LOREM.errorMessage(),
+				invalid: true,
+			});
 
-            expect(getByText(LOREM.errorMessage())).not.toBeNull();
-        });
-    });
+			expect(getByText(LOREM.errorMessage())).not.toBeNull();
+		});
+	});
 });

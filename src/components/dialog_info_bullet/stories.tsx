@@ -7,13 +7,13 @@ import { Icon } from "../icon";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    args: {
-        slotLeft: <Icon icon={faShapes} />,
-        text: LOREM.text_md,
-        title: LOREM.text_xxs,
-    },
-    component: StoryComp,
-    title: "Components/DialogInfoBullet",
+	args: {
+		slotLeft: <Icon icon={faShapes} />,
+		text: LOREM.text_md,
+		title: LOREM.text_xxs,
+	},
+	component: StoryComp,
+	title: "Components/DialogInfoBullet",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

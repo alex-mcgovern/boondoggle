@@ -5,16 +5,13 @@ import type { BoxProps } from "../box";
 import type { ReactNode } from "react";
 
 export type FieldsGridProps = BoxProps & {
-    children: ReactNode;
+	children: ReactNode;
 };
 
 export function FieldsGrid({ children, ...rest }: FieldsGridProps) {
-    return (
-        <Box
-            className={fieldsGridStyle}
-            {...rest}
-        >
-            {children}
-        </Box>
-    );
+	return (
+		<Box className={fieldsGridStyle} {...rest}>
+			{children}
+		</Box>
+	);
 }

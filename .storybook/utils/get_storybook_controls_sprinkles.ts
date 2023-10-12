@@ -3,14 +3,14 @@
  * {@link SprinklesArgs} and group them in the UI.
  */
 export const getSprinklesControls = (sprinkles) => {
-    return Object.keys(sprinkles.styles).reduce((accumulator, sprinkleKey) => {
-        accumulator[sprinkleKey] = {
-            // control: "select",
-            table: {
-                category: "sprinkles",
-            },
-        };
+	return Object.keys(sprinkles.styles).reduce((accumulator, sprinkleKey) => {
+		accumulator[sprinkleKey] = {
+			// control: "select",
+			table: {
+				category: "sprinkles",
+			},
+		};
 
-        return accumulator;
-    }, {});
+		return accumulator;
+	}, {});
 };

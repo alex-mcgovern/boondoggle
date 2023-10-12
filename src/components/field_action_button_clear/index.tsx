@@ -6,31 +6,31 @@ import { Icon } from "../icon";
 import type { FieldActionButtonProps } from "../field_action_button";
 
 type FieldActionButtonClearProps = Omit<
-    FieldActionButtonProps,
-    "name" | "slot"
+	FieldActionButtonProps,
+	"name" | "slot"
 > & {
-    /**
-     * The tooltip text to display when the button is hovered.
-     */
-    strClear: string;
+	/**
+	 * The tooltip text to display when the button is hovered.
+	 */
+	strClear: string;
 };
 
 /**
  * A button to clear the contents of a field.
  */
 export function FieldActionButtonClear({
-    className,
-    onClick,
-    strClear,
+	className,
+	onClick,
+	strClear,
 }: FieldActionButtonClearProps) {
-    return (
-        <FieldActionButton
-            className={className}
-            data-testid="clear"
-            name="clear"
-            onClick={onClick}
-            slot={<Icon icon={faTimesCircle} />}
-            strTooltip={strClear}
-        />
-    );
+	return (
+		<FieldActionButton
+			className={className}
+			data-testid="clear"
+			name="clear"
+			onClick={onClick}
+			slot={<Icon icon={faTimesCircle} />}
+			strTooltip={strClear}
+		/>
+	);
 }

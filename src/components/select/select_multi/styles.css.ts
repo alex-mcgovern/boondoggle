@@ -5,5 +5,5 @@ import { vars } from "../../../styles/theme.css";
 export const selectMultiInputSelectedItemsStyle = style({});
 
 globalStyle(`${selectMultiInputSelectedItemsStyle}::placeholder`, {
-    color: vars.color.text_high_contrast,
+	color: vars.color.text_high_contrast,
 });

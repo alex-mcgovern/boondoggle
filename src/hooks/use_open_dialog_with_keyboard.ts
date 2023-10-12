@@ -4,46 +4,48 @@ import type { ElementTypeArg } from "../common-types";
 import type { MutableRefObject, RefObject } from "react";
 
 type UseOpenDialogWithKeyboardArgs<TTriggerType extends ElementTypeArg> = {
-    callback: () => void;
+	callback: () => void;
 
-    dialogRef:
-        | RefObject<HTMLDialogElement | undefined>
-        | MutableRefObject<HTMLDialogElement | undefined>;
+	dialogRef:
+		| RefObject<HTMLDialogElement | undefined>
+		| MutableRefObject<HTMLDialogElement | undefined>;
 
-    preventOpenOnKeydown?: boolean;
+	preventOpenOnKeydown?: boolean;
 
-    triggerRef: RefObject<TTriggerType | undefined> | MutableRefObject<TTriggerType | undefined>;
+	triggerRef:
+		| RefObject<TTriggerType | undefined>
+		| MutableRefObject<TTriggerType | undefined>;
 };
 
 export function useOpenDialogWithKeyboard<TTriggerType extends ElementTypeArg>({
-    callback,
-    dialogRef,
-    preventOpenOnKeydown,
-    triggerRef,
+	callback,
+	dialogRef,
+	preventOpenOnKeydown,
+	triggerRef,
 }: UseOpenDialogWithKeyboardArgs<TTriggerType>) {
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (preventOpenOnKeydown || dialogRef.current?.open) {
-                return;
-            }
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (preventOpenOnKeydown || dialogRef.current?.open) {
+				return;
+			}
 
-            if (
-                triggerRef.current === document.activeElement &&
-                (event.key === "ArrowDown" || event.key === "Enter")
-            ) {
-                /**
-                 * Avoid accidentally triggering a form submission if used within form context
-                 */
-                // event.preventDefault();
+			if (
+				triggerRef.current === document.activeElement &&
+				(event.key === "ArrowDown" || event.key === "Enter")
+			) {
+				/**
+				 * Avoid accidentally triggering a form submission if used within form context
+				 */
+				// event.preventDefault();
 
-                callback();
-            }
-        };
+				callback();
+			}
+		};
 
-        document.addEventListener("keydown", handleKeyDown);
+		document.addEventListener("keydown", handleKeyDown);
 
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-        };
-    }, [callback, dialogRef, preventOpenOnKeydown, triggerRef]);
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [callback, dialogRef, preventOpenOnKeydown, triggerRef]);
 }

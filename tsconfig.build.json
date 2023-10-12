@@ -1,6 +1,6 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": { "rootDir": "src" },
-    "include": ["./src/**/*"],
-    "exclude": ["**/*.(test|mock|stories).*"]
+	"extends": "./tsconfig.json",
+	"compilerOptions": { "rootDir": "src" },
+	"include": ["./src/**/*"],
+	"exclude": ["**/*.(test|mock|stories).*"]
 }

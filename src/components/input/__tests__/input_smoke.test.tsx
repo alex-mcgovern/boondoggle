@@ -9,20 +9,20 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { InputProps } from "..";
 
 const PROPS: InputProps = {
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+	return render(<Input {...props} />);
 };
 
 describe("<Input />", () => {
-    describe("Basic smoke tests", () => {
-        test("should render without throwing", () => {
-            const { getByRole } = renderComponent(PROPS);
+	describe("Basic smoke tests", () => {
+		test("should render without throwing", () => {
+			const { getByRole } = renderComponent(PROPS);
 
-            expect(getByRole("textbox")).not.toBeNull();
-        });
-    });
+			expect(getByRole("textbox")).not.toBeNull();
+		});
+	});
 });

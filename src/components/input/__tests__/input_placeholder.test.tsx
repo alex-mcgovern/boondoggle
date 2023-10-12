@@ -10,20 +10,22 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputProps } from "..";
 
 const PROPS: InputProps = {
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+	return render(<Input {...props} />);
 };
 
 describe("<Input />", () => {
-    test("should render placeholder", () => {
-        const { getByRole } = renderComponent(PROPS);
+	test("should render placeholder", () => {
+		const { getByRole } = renderComponent(PROPS);
 
-        const textbox = getByRole("textbox");
+		const textbox = getByRole("textbox");
 
-        expect((textbox as HTMLInputElement).placeholder).toBe(PROPS.placeholder);
-    });
+		expect((textbox as HTMLInputElement).placeholder).toBe(
+			PROPS.placeholder,
+		);
+	});
 });

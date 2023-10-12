@@ -9,23 +9,20 @@ import type { HTMLProps } from "react";
  * Main HTML element.
  */
 export function Main({
-    children,
-    className,
-    size = "lg",
-    ...rest
+	children,
+	className,
+	size = "lg",
+	...rest
 }: Omit<HTMLProps<HTMLElement>, "size"> &
-    WithSize & {
-        /**
-         * Main content.
-         */
-        children: React.ReactNode;
-    }) {
-    return (
-        <main
-            className={clsx(className, getMainStyles({ size }))}
-            {...rest}
-        >
-            {children}
-        </main>
-    );
+	WithSize & {
+		/**
+		 * Main content.
+		 */
+		children: React.ReactNode;
+	}) {
+	return (
+		<main className={clsx(className, getMainStyles({ size }))} {...rest}>
+			{children}
+		</main>
+	);
 }

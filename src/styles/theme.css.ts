@@ -4,8 +4,8 @@ import { rootVars } from "./vars.css";
 import type { ColorOverlay } from "./color_palette.css";
 
 const vars = {
-    ...rootVars,
-    color,
+	...rootVars,
+	color,
 };
 
 export { vars, getTheme, variantColorOverlay };

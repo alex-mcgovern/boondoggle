@@ -8,56 +8,56 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 const tagSize = styleVariants({
-    lg: [
-        getSprinkles({
-            fontStyle: "bodyMd",
-        }),
-    ],
-    md: [
-        getSprinkles({
-            fontStyle: "bodySm",
-        }),
-    ],
-    sm: [
-        getSprinkles({
-            fontStyle: "bodySm",
-        }),
-    ],
+	lg: [
+		getSprinkles({
+			fontStyle: "bodyMd",
+		}),
+	],
+	md: [
+		getSprinkles({
+			fontStyle: "bodySm",
+		}),
+	],
+	sm: [
+		getSprinkles({
+			fontStyle: "bodySm",
+		}),
+	],
 });
 
 export const getTagStyle = recipe({
-    base: [
-        getSprinkles({
-            alignItems: "center",
-            background: "tint_default",
-            borderRadius: "md",
-            color: "text_low_contrast",
-            display: "inline-flex",
-            flexShrink: "0",
-            gap: "space_1",
-            paddingX: "space_2",
-            paddingY: "space_1",
-            textDecoration: "none",
-            whiteSpace: "nowrap",
-            width: "max-content",
-        }),
-        a11yFocus,
-        createAccessibleTransition({
-            transition: `ease ${vars.transitionDuration.short} ease`,
-            transitionProperty: "color, background-color, border-color",
-        }),
-        {
-            selectors: {
-                [SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-                    background: vars.color.tint_active,
-                    color: vars.color.text_high_contrast,
-                },
-            },
-        },
-    ],
+	base: [
+		getSprinkles({
+			alignItems: "center",
+			background: "tint_default",
+			borderRadius: "md",
+			color: "text_low_contrast",
+			display: "inline-flex",
+			flexShrink: "0",
+			gap: "space_1",
+			paddingX: "space_2",
+			paddingY: "space_1",
+			textDecoration: "none",
+			whiteSpace: "nowrap",
+			width: "max-content",
+		}),
+		a11yFocus,
+		createAccessibleTransition({
+			transition: `ease ${vars.transitionDuration.short} ease`,
+			transitionProperty: "color, background-color, border-color",
+		}),
+		{
+			selectors: {
+				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+					background: vars.color.tint_active,
+					color: vars.color.text_high_contrast,
+				},
+			},
+		},
+	],
 
-    variants: {
-        colorOverlay: variantColorOverlay,
-        size: tagSize,
-    },
+	variants: {
+		colorOverlay: variantColorOverlay,
+		size: tagSize,
+	},
 });

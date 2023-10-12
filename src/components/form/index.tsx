@@ -8,58 +8,60 @@ import type { ReactNode } from "react";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
-    BoxProps,
-    "children"
+	BoxProps,
+	"children"
 > & {
-    /**
-     * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
-     */
-    children: ReactNode | ReactNode[];
+	/**
+	 * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
+	 */
+	children: ReactNode | ReactNode[];
 
-    /**
-     * Function that will be called when form validation errors occur.
-     */
-    handleErrors?: ((errors: FieldErrors) => Promise<void>) | ((errors: FieldErrors) => void);
+	/**
+	 * Function that will be called when form validation errors occur.
+	 */
+	handleErrors?:
+		| ((errors: FieldErrors) => Promise<void>)
+		| ((errors: FieldErrors) => void);
 
-    /**
-     * Function that will be called when the form is submitted.
-     */
-    handleSubmit:
-        | ((fieldValues: TFieldValues) => Promise<void>)
-        | ((fieldValues: TFieldValues) => void);
+	/**
+	 * Function that will be called when the form is submitted.
+	 */
+	handleSubmit:
+		| ((fieldValues: TFieldValues) => Promise<void>)
+		| ((fieldValues: TFieldValues) => void);
 
-    /**
-     * Name of the form.
-     */
-    name: string;
+	/**
+	 * Name of the form.
+	 */
+	name: string;
 
-    /**
-     * Custom resolver for `react-hook-form`.
-     */
-    resolver?: Resolver<TFieldValues, any>;
+	/**
+	 * Custom resolver for `react-hook-form`.
+	 */
+	resolver?: Resolver<TFieldValues, any>;
 };
 
 /**
  * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
  */
 export function Form<TFieldValues extends FieldValues>({
-    children,
-    handleErrors = handleHookFormErrors,
-    handleSubmit,
-    name,
-    resolver,
+	children,
+	handleErrors = handleHookFormErrors,
+	handleSubmit,
+	name,
+	resolver,
 }: FormProps<TFieldValues>) {
-    const formMethods = useForm<TFieldValues>({ resolver });
+	const formMethods = useForm<TFieldValues>({ resolver });
 
-    return (
-        <FormProvider {...formMethods}>
-            <Box
-                as="form"
-                name={name}
-                onSubmit={formMethods.handleSubmit(handleSubmit, handleErrors)}
-            >
-                {children}
-            </Box>
-        </FormProvider>
-    );
+	return (
+		<FormProvider {...formMethods}>
+			<Box
+				as="form"
+				name={name}
+				onSubmit={formMethods.handleSubmit(handleSubmit, handleErrors)}
+			>
+				{children}
+			</Box>
+		</FormProvider>
+	);
 }

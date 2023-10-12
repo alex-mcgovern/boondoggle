@@ -4,55 +4,55 @@ import { vars } from "../theme.css";
 import { getSprinkles } from "../utils/get_sprinkles.css";
 
 export const elementHeight = {
-    lg: vars.spacing.space_12,
-    md: vars.spacing.space_10,
-    sm: vars.spacing.space_8,
+	lg: vars.spacing.space_12,
+	md: vars.spacing.space_10,
+	sm: vars.spacing.space_8,
 };
 
 export const elementPaddingRaw = {
-    lg: {
-        x: vars.spacing.space_6,
-        y: vars.spacing.space_3,
-    },
-    md: {
-        x: vars.spacing.space_4,
-        y: vars.spacing.space_2,
-    },
-    sm: {
-        x: vars.spacing.space_2,
-        y: vars.spacing.space_1,
-    },
+	lg: {
+		x: vars.spacing.space_6,
+		y: vars.spacing.space_3,
+	},
+	md: {
+		x: vars.spacing.space_4,
+		y: vars.spacing.space_2,
+	},
+	sm: {
+		x: vars.spacing.space_2,
+		y: vars.spacing.space_1,
+	},
 };
 
 export const elementFontSize = styleVariants({
-    lg: [
-        getSprinkles({
-            fontStyle: "bodyLg",
-        }),
-    ],
-    md: [
-        getSprinkles({
-            fontStyle: "bodyMd",
-        }),
-    ],
-    sm: [
-        getSprinkles({
-            fontStyle: "bodySm",
-        }),
-    ],
+	lg: [
+		getSprinkles({
+			fontStyle: "bodyLg",
+		}),
+	],
+	md: [
+		getSprinkles({
+			fontStyle: "bodyMd",
+		}),
+	],
+	sm: [
+		getSprinkles({
+			fontStyle: "bodySm",
+		}),
+	],
 });
 
 export const elementPadding = styleVariants({
-    lg: {
-        padding: `${elementPaddingRaw.lg.y} ${elementPaddingRaw.lg.x}`,
-    },
-    md: {
-        padding: `${elementPaddingRaw.md.y} ${elementPaddingRaw.md.x}`,
-    },
-    sm: {
-        padding: `${elementPaddingRaw.sm.y} ${elementPaddingRaw.sm.x}`,
-    },
+	lg: {
+		padding: `${elementPaddingRaw.lg.y} ${elementPaddingRaw.lg.x}`,
+	},
+	md: {
+		padding: `${elementPaddingRaw.md.y} ${elementPaddingRaw.md.x}`,
+	},
+	sm: {
+		padding: `${elementPaddingRaw.sm.y} ${elementPaddingRaw.sm.x}`,
+	},
 });
 
 export type ElementSizeEnum = keyof typeof elementFontSize &
-    keyof typeof elementPadding;
+	keyof typeof elementPadding;

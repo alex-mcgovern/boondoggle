@@ -6,16 +6,16 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    args: {
-        buttonText: LOREM.button,
-        items: mockSelectItems({}),
-        name: LOREM.name(),
-        onChange: (selection) => {
-            alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
-        },
-    },
-    component: StoryComp,
-    title: "Components/SelectButton",
+	args: {
+		buttonText: LOREM.button,
+		items: mockSelectItems({}),
+		name: LOREM.name(),
+		onChange: (selection) => {
+			alert(`onChange\n\n${JSON.stringify(selection, null, 2)}`);
+		},
+	},
+	component: StoryComp,
+	title: "Components/SelectButton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -25,68 +25,68 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const Disabled: Story = {
-    args: {
-        disabled: true,
-    },
+	args: {
+		disabled: true,
+	},
 };
 
 export const SizeSm: Story = {
-    args: {
-        size: "sm",
-    },
+	args: {
+		size: "sm",
+	},
 };
 
 export const SizeMd: Story = {
-    args: {
-        size: "md",
-    },
+	args: {
+		size: "md",
+	},
 };
 
 export const SizeLg: Story = {
-    args: {
-        size: "lg",
-    },
+	args: {
+		size: "lg",
+	},
 };
 
 export const WithCustomButtonProps: Story = {
-    args: {
-        buttonProps: {
-            appearance: "ghost",
-        },
-    },
+	args: {
+		buttonProps: {
+			appearance: "ghost",
+		},
+	},
 };
 
 export const WithDisabledItems: Story = {
-    args: {
-        items: mockSelectItems({
-            as: Link,
-            disabled: true,
-        }),
-    },
+	args: {
+		items: mockSelectItems({
+			as: Link,
+			disabled: true,
+		}),
+	},
 };
 
 export const WithDisabledLinks: Story = {
-    args: {
-        items: mockSelectItems({
-            disabled: true,
-        }),
-    },
+	args: {
+		items: mockSelectItems({
+			disabled: true,
+		}),
+	},
 };
 
 export const WithItemsWithIcons: Story = {
-    args: {
-        items: mockSelectItems({ withIcon: true }),
-    },
+	args: {
+		items: mockSelectItems({ withIcon: true }),
+	},
 };
 
 export const WithButtonsAsItems: Story = {
-    args: {
-        items: mockSelectItems({
-            onClick: () => {
-                return alert("clicked");
-            },
-        }),
-    },
+	args: {
+		items: mockSelectItems({
+			onClick: () => {
+				return alert("clicked");
+			},
+		}),
+	},
 };
 
 // const WithDialogTriggerNodeAsItemTemplate: StoryFn<StoryCompProps> = (

@@ -10,47 +10,47 @@ import type { InputCurrencyProps } from "../input_currency";
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
 export type FormInputCurrencyProps<TCurrency extends string = string> =
-    InputCurrencyProps<TCurrency> & WithFormFieldProps;
+	InputCurrencyProps<TCurrency> & WithFormFieldProps;
 
 export function FormInputCurrency<TCurrency extends string = string>({
-    defaultValue,
-    invalid,
-    name,
-    onChange,
-    wrapperProps = { marginBottom: "space_6" },
-    ...rest
+	defaultValue,
+	invalid,
+	name,
+	onChange,
+	wrapperProps = { marginBottom: "space_6" },
+	...rest
 }: FormInputCurrencyProps<TCurrency>) {
-    const { control } = useFormContext();
+	const { control } = useFormContext();
 
-    const {
-        field: {
-            onBlur,
-            onChange: reactHookFormOnChange,
-            ref,
-            value: controlledValue = "",
-        },
-        fieldState: { error },
-    } = useController({
-        control,
-        defaultValue,
-        name,
-    });
+	const {
+		field: {
+			onBlur,
+			onChange: reactHookFormOnChange,
+			ref,
+			value: controlledValue = "",
+		},
+		fieldState: { error },
+	} = useController({
+		control,
+		defaultValue,
+		name,
+	});
 
-    return (
-        <InputCurrency
-            errorMessage={error?.message}
-            invalid={invalid || !!error}
-            name={name}
-            onBlur={onBlur}
-            onChange={(e) => {
-                onChange?.(e);
+	return (
+		<InputCurrency
+			errorMessage={error?.message}
+			invalid={invalid || !!error}
+			name={name}
+			onBlur={onBlur}
+			onChange={(e) => {
+				onChange?.(e);
 
-                reactHookFormOnChange(e);
-            }}
-            ref={ref}
-            value={controlledValue}
-            wrapperProps={wrapperProps}
-            {...rest}
-        />
-    );
+				reactHookFormOnChange(e);
+			}}
+			ref={ref}
+			value={controlledValue}
+			wrapperProps={wrapperProps}
+			{...rest}
+		/>
+	);
 }

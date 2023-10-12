@@ -13,161 +13,163 @@ import type { DialogPlacementEnum } from "./styles.css";
 import type { ReactNode } from "react";
 
 export type DialogProps = BoxProps & {
-    /**
-     * Children to render inside the dialog component.
-     */
-    children?: ReactNode;
+	/**
+	 * Children to render inside the dialog component.
+	 */
+	children?: ReactNode;
 
-    /**
-     * Optional CSS class name applied to the outer HTML dialog element.
-     */
-    className?: string;
+	/**
+	 * Optional CSS class name applied to the outer HTML dialog element.
+	 */
+	className?: string;
 
-    /**
-     * Whether the dialog is "inert" (can't be focused, can't be clicked.)
-     */
-    inert?: boolean;
+	/**
+	 * Whether the dialog is "inert" (can't be focused, can't be clicked.)
+	 */
+	inert?: boolean;
 
-    /**
-     * Controls the dialog's open state, making it a controlled element. Use alongside `onIsOpenChange`.
-     */
-    isOpen?: boolean;
+	/**
+	 * Controls the dialog's open state, making it a controlled element. Use alongside `onIsOpenChange`.
+	 */
+	isOpen?: boolean;
 
-    /**
-     * Callback when the dialog's open state is changed. Use alongside `isOpen`.
-     */
-    onIsOpenChange?: (isOpen?: boolean) => void;
+	/**
+	 * Callback when the dialog's open state is changed. Use alongside `isOpen`.
+	 */
+	onIsOpenChange?: (isOpen?: boolean) => void;
 
-    /**
-     * Controls the interaction mode for the dialog trigger node.
-     */
-    openOn?: "click" | "hover";
+	/**
+	 * Controls the interaction mode for the dialog trigger node.
+	 */
+	openOn?: "click" | "hover";
 
-    /**
-     * Controls the dialog's placement relative to the trigger node.
-     */
-    placement?: DialogPlacementEnum;
+	/**
+	 * Controls the dialog's placement relative to the trigger node.
+	 */
+	placement?: DialogPlacementEnum;
 
-    /**
-     * Whether to open the dialog on an enter keypress while the trigger node is focused.
-     */
-    preventOpenOnKeydown?: boolean;
+	/**
+	 * Whether to open the dialog on an enter keypress while the trigger node is focused.
+	 */
+	preventOpenOnKeydown?: boolean;
 
-    /**
-     * The react node to act as the trigger for the dialog.
-     */
-    triggerNode?: ReactNode;
+	/**
+	 * The react node to act as the trigger for the dialog.
+	 */
+	triggerNode?: ReactNode;
 
-    /**
-     * `BoxProps` to pass to the outer element that wraps the dialog and it's trigger.
-     */
-    wrapperProps?: BoxProps;
+	/**
+	 * `BoxProps` to pass to the outer element that wraps the dialog and it's trigger.
+	 */
+	wrapperProps?: BoxProps;
 };
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-    (
-        {
-            children,
-            className: userClassName,
-            isOpen: controlledIsOpen,
-            onIsOpenChange,
-            openOn = "click",
-            placement,
-            preventOpenOnKeydown = false,
-            triggerNode,
-            wrapperProps,
-            ...rest
-        }: DialogProps,
-        ref
-    ) => {
-        const dialogRef = useForwardRef<HTMLDialogElement>(ref);
+	(
+		{
+			children,
+			className: userClassName,
+			isOpen: controlledIsOpen,
+			onIsOpenChange,
+			openOn = "click",
+			placement,
+			preventOpenOnKeydown = false,
+			triggerNode,
+			wrapperProps,
+			...rest
+		}: DialogProps,
+		ref,
+	) => {
+		const dialogRef = useForwardRef<HTMLDialogElement>(ref);
 
-        const triggerRef = createRef<HTMLElement>();
+		const triggerRef = createRef<HTMLElement>();
 
-        const toggleIsOpen = useCallback(() => {
-            if (!dialogRef.current) {
-                return undefined;
-            }
+		const toggleIsOpen = useCallback(() => {
+			if (!dialogRef.current) {
+				return undefined;
+			}
 
-            return (
-                dialogRef.current?.open ? dialogRef.current?.close() : dialogRef.current?.show(),
-                onIsOpenChange?.(dialogRef.current?.open)
-            );
-        }, [dialogRef, onIsOpenChange]);
+			return (
+				dialogRef.current?.open
+					? dialogRef.current?.close()
+					: dialogRef.current?.show(),
+				onIsOpenChange?.(dialogRef.current?.open)
+			);
+		}, [dialogRef, onIsOpenChange]);
 
-        useOpenDialogWithKeyboard<HTMLElement>({
-            callback: toggleIsOpen,
-            dialogRef,
-            preventOpenOnKeydown,
-            triggerRef,
-        });
+		useOpenDialogWithKeyboard<HTMLElement>({
+			callback: toggleIsOpen,
+			dialogRef,
+			preventOpenOnKeydown,
+			triggerRef,
+		});
 
-        useClickOutside<HTMLDialogElement, HTMLElement>({
-            callback: () => {
-                return dialogRef.current?.close();
-            },
-            contentRef: dialogRef,
-            triggerRef,
-        });
+		useClickOutside<HTMLDialogElement, HTMLElement>({
+			callback: () => {
+				return dialogRef.current?.close();
+			},
+			contentRef: dialogRef,
+			triggerRef,
+		});
 
-        return (
-            <Box
-                position="relative"
-                {...wrapperProps}
-            >
-                <Box background="transparent">
-                    <RadixSlot.Slot
-                        onClick={toggleIsOpen}
-                        onMouseEnter={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
-                        }
-                        onMouseLeave={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.close();
-                                  }
-                                : undefined
-                        }
-                        onPointerEnter={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
-                        }
-                        onPointerLeave={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
-                        }
-                        onPointerOver={
-                            openOn === "hover"
-                                ? () => {
-                                      return dialogRef.current?.show();
-                                  }
-                                : undefined
-                        }
-                        ref={triggerRef}
-                    >
-                        {triggerNode}
-                    </RadixSlot.Slot>
-                </Box>
-                <Box
-                    {...rest}
-                    as="dialog"
-                    className={clsx(userClassName, getDialogStyles({ placement }))}
-                    open={controlledIsOpen}
-                    ref={dialogRef}
-                >
-                    <Box>{children}</Box>
-                </Box>
-            </Box>
-        );
-    }
+		return (
+			<Box position="relative" {...wrapperProps}>
+				<Box background="transparent">
+					<RadixSlot.Slot
+						onClick={toggleIsOpen}
+						onMouseEnter={
+							openOn === "hover"
+								? () => {
+										return dialogRef.current?.show();
+								  }
+								: undefined
+						}
+						onMouseLeave={
+							openOn === "hover"
+								? () => {
+										return dialogRef.current?.close();
+								  }
+								: undefined
+						}
+						onPointerEnter={
+							openOn === "hover"
+								? () => {
+										return dialogRef.current?.show();
+								  }
+								: undefined
+						}
+						onPointerLeave={
+							openOn === "hover"
+								? () => {
+										return dialogRef.current?.show();
+								  }
+								: undefined
+						}
+						onPointerOver={
+							openOn === "hover"
+								? () => {
+										return dialogRef.current?.show();
+								  }
+								: undefined
+						}
+						ref={triggerRef}
+					>
+						{triggerNode}
+					</RadixSlot.Slot>
+				</Box>
+				<Box
+					{...rest}
+					as="dialog"
+					className={clsx(
+						userClassName,
+						getDialogStyles({ placement }),
+					)}
+					open={controlledIsOpen}
+					ref={dialogRef}
+				>
+					<Box>{children}</Box>
+				</Box>
+			</Box>
+		);
+	},
 );

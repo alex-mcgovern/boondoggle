@@ -11,32 +11,32 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputDateProps } from "..";
 
 const PROPS: InputDateProps = {
-    label: LOREM.label(),
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	label: LOREM.label(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = (props: InputDateProps) => {
-    return {
-        user: userEvent.setup(),
-        ...render(<InputDate {...props} />),
-    };
+	return {
+		user: userEvent.setup(),
+		...render(<InputDate {...props} />),
+	};
 };
 
 describe("<InputDate />", () => {
-    test("should be labelled", async () => {
-        const { container, getByLabelText } = await renderComponent(PROPS);
+	test("should be labelled", async () => {
+		const { container, getByLabelText } = await renderComponent(PROPS);
 
-        const label = container.querySelector("label");
+		const label = container.querySelector("label");
 
-        expect(label).not.toBeNull();
+		expect(label).not.toBeNull();
 
-        expect(label?.getAttribute("for")).toBe(PROPS.name);
+		expect(label?.getAttribute("for")).toBe(PROPS.name);
 
-        expect(label?.textContent).toBe(PROPS.label);
+		expect(label?.textContent).toBe(PROPS.label);
 
-        expect(
-            getByLabelText(PROPS.label as string, { selector: "input" })
-        ).not.toBeNull();
-    });
+		expect(
+			getByLabelText(PROPS.label as string, { selector: "input" }),
+		).not.toBeNull();
+	});
 });

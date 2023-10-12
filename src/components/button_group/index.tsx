@@ -9,12 +9,9 @@ import type { BoxProps } from "../box";
  * Button group.
  */
 export function ButtonGroup({ children, className, ...rest }: BoxProps) {
-    return (
-        <Box
-            className={clsx(className, buttonGroupStyles)}
-            {...rest}
-        >
-            {children}
-        </Box>
-    );
+	return (
+		<Box className={clsx(className, buttonGroupStyles)} {...rest}>
+			{children}
+		</Box>
+	);
 }

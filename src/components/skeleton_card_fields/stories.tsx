@@ -3,9 +3,9 @@ import { SkeletonCardFields as StoryComp } from ".";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-    args: {},
-    component: StoryComp,
-    title: "Components/SkeletonCardFields",
+	args: {},
+	component: StoryComp,
+	title: "Components/SkeletonCardFields",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

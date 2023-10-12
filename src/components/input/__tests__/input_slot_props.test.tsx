@@ -12,42 +12,32 @@ import { Icon } from "../../icon";
 import type { InputProps } from "..";
 
 const PROPS: InputProps = {
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+	return render(<Input {...props} />);
 };
 
 describe("<Input />", () => {
-    describe("Slot props", () => {
-        test("should render node passed to `slotLeft`", () => {
-            const { getByTestId } = renderComponent({
-                ...PROPS,
-                slotLeft: (
-                    <Icon
-                        data-testid="icon"
-                        icon={faSearch}
-                    />
-                ),
-            });
+	describe("Slot props", () => {
+		test("should render node passed to `slotLeft`", () => {
+			const { getByTestId } = renderComponent({
+				...PROPS,
+				slotLeft: <Icon data-testid="icon" icon={faSearch} />,
+			});
 
-            expect(getByTestId("icon")).not.toBeNull();
-        });
+			expect(getByTestId("icon")).not.toBeNull();
+		});
 
-        test("should render node passed to `slotRight`", () => {
-            const { getByTestId } = renderComponent({
-                ...PROPS,
-                slotRight: (
-                    <Icon
-                        data-testid="icon"
-                        icon={faSearch}
-                    />
-                ),
-            });
+		test("should render node passed to `slotRight`", () => {
+			const { getByTestId } = renderComponent({
+				...PROPS,
+				slotRight: <Icon data-testid="icon" icon={faSearch} />,
+			});
 
-            expect(getByTestId("icon")).not.toBeNull();
-        });
-    });
+			expect(getByTestId("icon")).not.toBeNull();
+		});
+	});
 });

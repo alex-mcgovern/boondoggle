@@ -13,7 +13,7 @@ import type { ComponentPropsWithoutRef } from "react";
  * - https://vanilla-extract.style/documentation/packages/sprinkles/
  */
 export const Box = createBox({
-    atoms: getSprinkles,
+	atoms: getSprinkles,
 });
 
 export type BoxProps = ComponentPropsWithoutRef<typeof Box> & SprinklesArgs;

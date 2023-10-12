@@ -6,29 +6,29 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
 export const radioButtonWrapperStyles = style([
-    getSprinkles({
-        alignItems: "start",
-        borderRadius: "sm",
-        display: "flex",
-        gap: "space_2",
-    }),
+	getSprinkles({
+		alignItems: "start",
+		borderRadius: "sm",
+		display: "flex",
+		gap: "space_2",
+	}),
 ]);
 
 export const radioButtonInputStyles = style([
-    a11yFocus,
-    getSprinkles({ borderRadius: "50%", marginTop: "space_2" }),
+	a11yFocus,
+	getSprinkles({ borderRadius: "50%", marginTop: "space_2" }),
 ]);
 
 export const radioButtonLabelStyles = style([
-    {
-        ...createAccessibleTransition({
-            transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
-        }),
-        accentColor: vars.color.button_default,
-        selectors: {
-            "&:hover": {
-                cursor: "pointer",
-            },
-        },
-    },
+	{
+		...createAccessibleTransition({
+			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
+		}),
+		accentColor: vars.color.button_default,
+		selectors: {
+			"&:hover": {
+				cursor: "pointer",
+			},
+		},
+	},
 ]);

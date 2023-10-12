@@ -20,85 +20,79 @@ import { mockSelectItems } from "../select/__mocks__/select.mock";
 import type { DialogModalFormProps } from ".";
 
 const mockFormSchema = z.object({
-    description: z.string().min(1),
-    email: z.string().email().min(2),
-    radio: z.string().min(1),
-    select: z.string().min(1),
+	description: z.string().min(1),
+	email: z.string().email().min(2),
+	radio: z.string().min(1),
+	select: z.string().min(1),
 });
 
 const renderComponent = async (props: DialogModalFormProps) => {
-    const dialogRef = createRef<HTMLDialogElement>();
+	const dialogRef = createRef<HTMLDialogElement>();
 
-    const openDialogRemoveTeamMember = () => {
-        dialogRef.current?.showModal();
-    };
+	const openDialogRemoveTeamMember = () => {
+		dialogRef.current?.showModal();
+	};
 
-    return waitFor(() => {
-        return render(
-            <>
-                <button
-                    onClick={openDialogRemoveTeamMember}
-                    type="button"
-                >
-                    Open
-                </button>
-                <DialogModalForm
-                    ref={dialogRef}
-                    {...props}
-                />
-            </>
-        );
-    });
+	return waitFor(() => {
+		return render(
+			<>
+				<button onClick={openDialogRemoveTeamMember} type="button">
+					Open
+				</button>
+				<DialogModalForm ref={dialogRef} {...props} />
+			</>,
+		);
+	});
 };
 
 const handleFormSubmissionMock = jest.fn();
 
 const PROPS: DialogModalFormProps = {
-    children: (
-        <>
-            <FormInput
-                errorMessage="Enter a valid email address"
-                label={LOREM.labelEmail()}
-                name="email"
-                placeholder="Enter your email address"
-            />
-            <FormTextArea
-                errorMessage="Enter a valid description"
-                label={LOREM.labelDescription()}
-                name="description"
-                placeholder="Enter your description"
-            />
-            <FormSelectSingle
-                errorMessage="Select an option"
-                items={mockSelectItems({})}
-                label={LOREM.labelDropdown()}
-                name="select"
-                placeholder="Select an option from the dropdown"
-            />
-            <FormRadioButtonGroup
-                errorMessage="Select an option"
-                id="select"
-                items={RADIO_BUTTONS_MOCK}
-                label={LOREM.labelDropdown()}
-                name="radio"
-            />
-        </>
-    ),
-    formSubmitButtonText: "Submit",
-    handleSubmit: handleFormSubmissionMock,
+	children: (
+		<>
+			<FormInput
+				errorMessage="Enter a valid email address"
+				label={LOREM.labelEmail()}
+				name="email"
+				placeholder="Enter your email address"
+			/>
+			<FormTextArea
+				errorMessage="Enter a valid description"
+				label={LOREM.labelDescription()}
+				name="description"
+				placeholder="Enter your description"
+			/>
+			<FormSelectSingle
+				errorMessage="Select an option"
+				items={mockSelectItems({})}
+				label={LOREM.labelDropdown()}
+				name="select"
+				placeholder="Select an option from the dropdown"
+			/>
+			<FormRadioButtonGroup
+				errorMessage="Select an option"
+				id="select"
+				items={RADIO_BUTTONS_MOCK}
+				label={LOREM.labelDropdown()}
+				name="radio"
+			/>
+		</>
+	),
+	formSubmitButtonText: "Submit",
+	handleSubmit: handleFormSubmissionMock,
 
-    resolver: zodResolver(mockFormSchema),
-    title: "Dialog modal form",
-    triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-    width: "lg",
+	resolver: zodResolver(mockFormSchema),
+	title: "Dialog modal form",
+	triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+	width: "lg",
 };
 
 describe("<DialogModalForm />", () => {
-    describe("Basic smoke tests", () => {
-        test("should render without throwing", async () => {
-            const { container } = await renderComponent(PROPS);
+	describe("Basic smoke tests", () => {
+		test("should render without throwing", async () => {
+			const { container } = await renderComponent(PROPS);
 
-            expect(container).not.toBeNull();
-        });
-    });
+			expect(container).not.toBeNull();
+		});
+	});
 });

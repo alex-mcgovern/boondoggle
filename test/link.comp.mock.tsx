@@ -1,22 +1,17 @@
 import type { ReactNode } from "react";
 
 type LinkProps = {
-    children: ReactNode;
+	children: ReactNode;
 
-    href: string;
+	href: string;
 
-    id?: string;
+	id?: string;
 };
 
 export function Link({ children, href, ...rest }: LinkProps) {
-    return (
-        <a
-            href={href}
-            rel="noreferrer"
-            target="_blank"
-            {...rest}
-        >
-            {children}
-        </a>
-    );
+	return (
+		<a href={href} rel="noreferrer" target="_blank" {...rest}>
+			{children}
+		</a>
+	);
 }

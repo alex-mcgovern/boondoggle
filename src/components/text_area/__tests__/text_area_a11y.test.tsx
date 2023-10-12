@@ -10,33 +10,33 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import type { TextAreaProps } from "..";
 
 const PROPS: TextAreaProps = {
-    label: LOREM.label(),
-    name: LOREM.name(),
-    placeholder: LOREM.placeholder(),
+	label: LOREM.label(),
+	name: LOREM.name(),
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: TextAreaProps) => {
-    return render(<TextArea {...props} />);
+	return render(<TextArea {...props} />);
 };
 
 describe("<TextArea />", () => {
-    test("should assign name to the element", () => {
-        const { getByRole } = renderComponent(PROPS);
+	test("should assign name to the element", () => {
+		const { getByRole } = renderComponent(PROPS);
 
-        expect((getByRole("textbox") as HTMLTextAreaElement).name).toBe(
-            PROPS.name
-        );
-    });
+		expect((getByRole("textbox") as HTMLTextAreaElement).name).toBe(
+			PROPS.name,
+		);
+	});
 
-    test("should be labelled", () => {
-        const { container } = renderComponent(PROPS);
+	test("should be labelled", () => {
+		const { container } = renderComponent(PROPS);
 
-        const label = container.querySelector("label");
+		const label = container.querySelector("label");
 
-        expect(label).not.toBeNull();
+		expect(label).not.toBeNull();
 
-        expect(label?.getAttribute("for")).toBe(PROPS.name);
+		expect(label?.getAttribute("for")).toBe(PROPS.name);
 
-        expect(label?.textContent).toBe(PROPS.label);
-    });
+		expect(label?.textContent).toBe(PROPS.label);
+	});
 });

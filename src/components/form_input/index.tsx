@@ -12,44 +12,44 @@ import type { InputProps } from "../input";
 export type FormInputProps = InputProps & WithFormFieldProps;
 
 export function FormInput({
-    defaultValue,
-    invalid,
-    name,
-    onChange,
-    wrapperProps = { marginBottom: "space_6" },
-    ...rest
+	defaultValue,
+	invalid,
+	name,
+	onChange,
+	wrapperProps = { marginBottom: "space_6" },
+	...rest
 }: FormInputProps) {
-    const { control } = useFormContext();
+	const { control } = useFormContext();
 
-    const {
-        field: {
-            onBlur,
-            onChange: reactHookFormOnChange,
-            ref,
-            value: controlledValue = "",
-        },
-        fieldState: { error },
-    } = useController({
-        control,
-        defaultValue,
-        name,
-    });
+	const {
+		field: {
+			onBlur,
+			onChange: reactHookFormOnChange,
+			ref,
+			value: controlledValue = "",
+		},
+		fieldState: { error },
+	} = useController({
+		control,
+		defaultValue,
+		name,
+	});
 
-    return (
-        <Input
-            errorMessage={error?.message}
-            invalid={invalid || !!error}
-            name={name}
-            onBlur={onBlur}
-            onChange={(e) => {
-                onChange?.(e);
+	return (
+		<Input
+			errorMessage={error?.message}
+			invalid={invalid || !!error}
+			name={name}
+			onBlur={onBlur}
+			onChange={(e) => {
+				onChange?.(e);
 
-                reactHookFormOnChange(e);
-            }}
-            ref={ref}
-            value={controlledValue}
-            wrapperProps={wrapperProps}
-            {...rest}
-        />
-    );
+				reactHookFormOnChange(e);
+			}}
+			ref={ref}
+			value={controlledValue}
+			wrapperProps={wrapperProps}
+			{...rest}
+		/>
+	);
 }

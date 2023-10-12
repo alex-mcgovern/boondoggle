@@ -12,16 +12,16 @@ type FieldActionButtonDateProps = Omit<FieldActionButtonProps, "name" | "slot">;
  * A button to open a date picker.
  */
 export const FieldActionButtonDate = forwardRef<
-    HTMLButtonElement,
-    FieldActionButtonDateProps
+	HTMLButtonElement,
+	FieldActionButtonDateProps
 >(({ onClick }, ref) => {
-    return (
-        <FieldActionButton
-            data-testid="field-action-button-date"
-            name="date"
-            onClick={onClick}
-            ref={ref}
-            slot={<Icon icon={faCalendar} />}
-        />
-    );
+	return (
+		<FieldActionButton
+			data-testid="field-action-button-date"
+			name="date"
+			onClick={onClick}
+			ref={ref}
+			slot={<Icon icon={faCalendar} />}
+		/>
+	);
 });

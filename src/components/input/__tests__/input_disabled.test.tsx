@@ -20,51 +20,51 @@ const ON_MOUSE_OVER = jest.fn();
 const ON_FOCUS = jest.fn();
 
 const PROPS: InputProps = {
-    disabled: true,
-    name: LOREM.name(),
-    onChange: ON_CHANGE,
-    onClick: ON_CLICK,
-    onFocus: ON_FOCUS,
-    onMouseOver: ON_MOUSE_OVER,
-    placeholder: LOREM.placeholder(),
+	disabled: true,
+	name: LOREM.name(),
+	onChange: ON_CHANGE,
+	onClick: ON_CLICK,
+	onFocus: ON_FOCUS,
+	onMouseOver: ON_MOUSE_OVER,
+	placeholder: LOREM.placeholder(),
 };
 
 const renderComponent = ({ ...props }: InputProps) => {
-    return render(<Input {...props} />);
+	return render(<Input {...props} />);
 };
 
 describe("<Input />", () => {
-    describe("Disabled", () => {
-        test("should have disabled styling", () => {
-            const { getByRole } = renderComponent(PROPS);
+	describe("Disabled", () => {
+		test("should have disabled styling", () => {
+			const { getByRole } = renderComponent(PROPS);
 
-            const textbox = getByRole("textbox");
+			const textbox = getByRole("textbox");
 
-            expect(textbox).toHaveClass(a11yDisabled);
-        });
+			expect(textbox).toHaveClass(a11yDisabled);
+		});
 
-        test("should not call `onChange()` when user types", async () => {
-            const { getByRole } = renderComponent(PROPS);
+		test("should not call `onChange()` when user types", async () => {
+			const { getByRole } = renderComponent(PROPS);
 
-            await userEvent.type(getByRole("textbox"), LOREM.text_xxs);
+			await userEvent.type(getByRole("textbox"), LOREM.text_xxs);
 
-            expect(ON_CHANGE).not.toHaveBeenCalled();
-        });
+			expect(ON_CHANGE).not.toHaveBeenCalled();
+		});
 
-        test("should not call `onClick()` when user types", () => {
-            const { getByRole } = renderComponent(PROPS);
+		test("should not call `onClick()` when user types", () => {
+			const { getByRole } = renderComponent(PROPS);
 
-            getByRole("textbox").click();
+			getByRole("textbox").click();
 
-            expect(ON_CLICK).not.toHaveBeenCalled();
-        });
+			expect(ON_CLICK).not.toHaveBeenCalled();
+		});
 
-        test("should not call `onFocus()` when `disabled`", async () => {
-            renderComponent(PROPS);
+		test("should not call `onFocus()` when `disabled`", async () => {
+			renderComponent(PROPS);
 
-            await userEvent.tab();
+			await userEvent.tab();
 
-            expect(ON_FOCUS).not.toHaveBeenCalled();
-        });
-    });
+			expect(ON_FOCUS).not.toHaveBeenCalled();
+		});
+	});
 });

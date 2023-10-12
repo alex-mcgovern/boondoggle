@@ -14,53 +14,48 @@ import { selectFromDatePicker } from "../../../../test/select_from_date_picker";
 import type { InputDateProps } from "..";
 
 const renderComponent = async ({ ...props }: InputDateProps) => {
-    const ref = createRef<HTMLInputElement>();
+	const ref = createRef<HTMLInputElement>();
 
-    return waitFor(() => {
-        return render(
-            <InputDate
-                {...props}
-                ref={ref}
-            />
-        );
-    });
+	return waitFor(() => {
+		return render(<InputDate {...props} ref={ref} />);
+	});
 };
 
 const ON_CHANGE = jest.fn();
 
 const PROPS: InputDateProps = {
-    label: LOREM.label(),
-    name: LOREM.name(),
-    onChange: ON_CHANGE,
-    placeholder: LOREM.placeholder(),
+	label: LOREM.label(),
+	name: LOREM.name(),
+	onChange: ON_CHANGE,
+	placeholder: LOREM.placeholder(),
 };
 
 jest.useFakeTimers().setSystemTime(new Date("2023-01-01"));
 
 describe("<InputDate />", () => {
-    test("works with mouse input", async () => {
-        const { getByLabelText, getByTestId } = await renderComponent(PROPS);
+	test("works with mouse input", async () => {
+		const { getByLabelText, getByTestId } = await renderComponent(PROPS);
 
-        await selectFromDatePicker({
-            expectedValue: "2023-01-01",
-            getByLabelText,
-            getByTestId,
-            labelText: PROPS.label as string,
-            onChange: ON_CHANGE,
-        });
-    });
+		await selectFromDatePicker({
+			expectedValue: "2023-01-01",
+			getByLabelText,
+			getByTestId,
+			labelText: PROPS.label as string,
+			onChange: ON_CHANGE,
+		});
+	});
 
-    test("works with keyboard input", async () => {
-        const { getByLabelText } = await renderComponent({ ...PROPS });
+	test("works with keyboard input", async () => {
+		const { getByLabelText } = await renderComponent({ ...PROPS });
 
-        const inputDate = getByLabelText(LOREM.label());
+		const inputDate = getByLabelText(LOREM.label());
 
-        await waitFor(() => {
-            return userEvent.type(inputDate, "2023-01-01");
-        });
+		await waitFor(() => {
+			return userEvent.type(inputDate, "2023-01-01");
+		});
 
-        expect(inputDate).toHaveValue("2023-01-01");
+		expect(inputDate).toHaveValue("2023-01-01");
 
-        expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
-    });
+		expect(ON_CHANGE).toHaveBeenCalledWith("2023-01-01");
+	});
 });
