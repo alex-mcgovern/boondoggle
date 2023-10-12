@@ -571,7 +571,7 @@ export const tHeadStyles = style({
 
 const tableCellStyleRule: StyleRule = {
     fontSize: vars.fontSize.bodyMd,
-    padding: vars.spacing.space_4,
+    padding: `${vars.spacing.space_2} ${vars.spacing.space_6}`,
     textAlign: "left",
     verticalAlign: "middle",
     width: "1px",
