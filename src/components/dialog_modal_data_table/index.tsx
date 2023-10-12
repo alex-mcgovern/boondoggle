@@ -28,7 +28,7 @@ import type {
 } from "../../common-types";
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
-import type { ColumnDef, RowData } from "@tanstack/react-table";
+import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
 import type { ForwardedRef, ReactNode } from "react";
 
 export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
@@ -48,6 +48,11 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
          * Column definitions for the tabular data
          */
         columns: Array<ColumnDef<TData, any>>;
+
+            /**
+     * The initial sorting state of the table
+     */
+    initialSorting?: SortingState;
 
         /**
          * An array of objects describing each row in the table
@@ -152,6 +157,7 @@ export function DialogModalDataTable<TData extends RowData>({
     strPrev,
     strResults,
     strTryAgain,
+    initialSorting,
     title,
     triggerNode,
     width,
@@ -169,6 +175,7 @@ export function DialogModalDataTable<TData extends RowData>({
         isFilterable,
         isLoading,
         isPaginated,
+        initialSorting,
         isSelectable,
         isSortable,
         onSelect,
