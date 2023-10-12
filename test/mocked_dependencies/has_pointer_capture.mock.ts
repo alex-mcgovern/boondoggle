@@ -22,6 +22,7 @@ class MockPointerEvent extends Event {
 	}
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: has to be this way
 window.PointerEvent = MockPointerEvent as any;
 
 window.HTMLElement.prototype.scrollIntoView = jest.fn();

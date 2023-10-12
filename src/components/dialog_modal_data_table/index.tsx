@@ -47,6 +47,8 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 		/**
 		 * Column definitions for the tabular data
 		 */
+
+		// biome-ignore lint/suspicious/noExplicitAny: any is required here because of how React-table's types are defined
 		columns: Array<ColumnDef<TData, any>>;
 
 		/**
@@ -83,9 +85,9 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 		 * Function to call when the "Try again" button is clicked.
 		 */
 		onClickTryAgain?:
-			| (() => unknown)
-			| (() => Promise<unknown>)
-			| undefined;
+		| (() => unknown)
+		| (() => Promise<unknown>)
+		| undefined;
 
 		/**
 		 * Description of the error.

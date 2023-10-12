@@ -63,6 +63,8 @@ export type DialogModalFormProps<
 	/**
 	 * Custom resolver for `react-hook-form`.
 	 */
+
+	// biome-ignore lint/suspicious/noExplicitAny: any is needed here because of the `react-hook-form` types.
 	resolver?: Resolver<TFieldValues, any>;
 
 	/**

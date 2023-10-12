@@ -204,7 +204,8 @@ const InputSlotWrapper = forwardRef<HTMLDivElement, InputSlotWrapperProps>(
 		);
 
 		return (
-			// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+
+			// biome-ignore lint/a11y/useKeyWithClickEvents: This is a click event that is not a button.
 			<div
 				aria-disabled={disabled}
 				className={clsx(

@@ -6,7 +6,6 @@ import { SelectButton } from "../../../select/select_button";
 import type { SelectButtonProps } from "../../../select/select_button";
 import type { SelectItemShape } from "../../../select/types";
 import type { ChangeEvent } from "react";
-import { vars } from "../../../../styles/theme.css";
 
 export type DataTableRowActionsProps = {
 	/**

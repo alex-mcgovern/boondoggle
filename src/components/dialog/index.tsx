@@ -86,15 +86,19 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
 		const toggleIsOpen = useCallback(() => {
 			if (!dialogRef.current) {
-				return undefined;
+				return;
 			}
 
-			return (
-				dialogRef.current?.open
-					? dialogRef.current?.close()
-					: dialogRef.current?.show(),
-				onIsOpenChange?.(dialogRef.current?.open)
-			);
+			if (dialogRef.current?.open) {
+				dialogRef.current?.close();
+			}
+
+			if (!dialogRef.current?.open) {
+				dialogRef.current?.show();
+			}
+
+			onIsOpenChange?.(dialogRef.current?.open)
+
 		}, [dialogRef, onIsOpenChange]);
 
 		useOpenDialogWithKeyboard<HTMLElement>({
@@ -120,36 +124,36 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 						onMouseEnter={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						onMouseLeave={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.close();
-								  }
+									return dialogRef.current?.close();
+								}
 								: undefined
 						}
 						onPointerEnter={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						onPointerLeave={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						onPointerOver={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						ref={triggerRef}
