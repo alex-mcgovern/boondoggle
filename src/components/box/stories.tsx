@@ -64,7 +64,11 @@ export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
 
 export const ExampleResponsiveSprinkles: StoryObj<StoryCompProps> = {
 	args: {
-		children: [<StoryComp>Item 1</StoryComp>, <StoryComp>Item 2</StoryComp>, <StoryComp>Item 3</StoryComp>],
+		children: [
+			<StoryComp>Item 1</StoryComp>,
+			<StoryComp>Item 2</StoryComp>,
+			<StoryComp>Item 3</StoryComp>,
+		],
 		display: "grid",
 		gap: "space_6",
 		gridTemplateColumns: {
