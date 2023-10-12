@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { useEffect, useRef } from "react";
 
 /* @ts-expect-error non-prod code */

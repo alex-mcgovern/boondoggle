@@ -20,15 +20,15 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	 * Function that will be called when form validation errors occur.
 	 */
 	handleErrors?:
-		| ((errors: FieldErrors) => Promise<void>)
-		| ((errors: FieldErrors) => void);
+	| ((errors: FieldErrors) => Promise<void>)
+	| ((errors: FieldErrors) => void);
 
 	/**
 	 * Function that will be called when the form is submitted.
 	 */
 	handleSubmit:
-		| ((fieldValues: TFieldValues) => Promise<void>)
-		| ((fieldValues: TFieldValues) => void);
+	| ((fieldValues: TFieldValues) => Promise<void>)
+	| ((fieldValues: TFieldValues) => void);
 
 	/**
 	 * Name of the form.
@@ -38,6 +38,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Custom resolver for `react-hook-form`.
 	 */
+	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
 	resolver?: Resolver<TFieldValues, any>;
 };
 

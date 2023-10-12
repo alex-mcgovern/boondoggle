@@ -13,8 +13,6 @@ type IsFilterableBaseProps = {
 	strClear?: string;
 };
 
-/* eslint-disable jsdoc/require-jsdoc */
-
 type WithIsFilterable = IsFilterableBaseProps & {
 	isFilterable: true;
 	strClear: string;

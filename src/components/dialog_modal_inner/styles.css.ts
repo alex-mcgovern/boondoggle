@@ -8,8 +8,6 @@ import {
 } from "../../styles/common/media_queries.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 
-/* eslint-disable sort-keys-fix/sort-keys-fix */
-
 const variantWidth = styleVariants({
 	lg: {
 		"@media": {

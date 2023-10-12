@@ -9,9 +9,6 @@
 		".git": true,
 		"dist": true
 	},
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
-	},
 	"commentBox.styles": {
 		"h1": {
 			"bottomEdgeToken": "-",

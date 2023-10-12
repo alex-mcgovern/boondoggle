@@ -1,6 +1,6 @@
 "use client";
 
-/* eslint-disable react-perf/jsx-no-new-array-as-prop */
+
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
@@ -55,8 +55,8 @@ export type InputDateProps = Omit<
 		 * Callback to be called when the date changes.
 		 */
 		onChange?:
-			| ((date: string) => unknown)
-			| ((date: string) => Promise<unknown>);
+		| ((date: string) => unknown)
+		| ((date: string) => Promise<unknown>);
 	};
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(

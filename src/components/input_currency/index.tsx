@@ -1,8 +1,8 @@
 "use client";
 
-/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 
-/* eslint-disable react-perf/jsx-no-new-object-as-prop */
+
+
 import { forwardRef, useEffect, useMemo, useState } from "react";
 
 import { Input } from "../input";
@@ -48,8 +48,8 @@ type IsCurrencyEditable<TCurrency extends string = string> = {
 	 * Callback when a new currency is selected.
 	 */
 	onCurrencyChange:
-		| ((currency: TCurrency | undefined) => unknown)
-		| ((currency: TCurrency | undefined) => Promise<unknown>);
+	| ((currency: TCurrency | undefined) => unknown)
+	| ((currency: TCurrency | undefined) => Promise<unknown>);
 };
 
 type IsNotCurrencyEditable = {

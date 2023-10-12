@@ -53,7 +53,6 @@ export const getSlotWrapperStyles = recipe({
 				transitionProperty: "color, background-color, border-color",
 			}),
 			selectors: {
-				/* eslint-disable sort-keys-fix/sort-keys-fix */
 				"&:has(input[readonly])": {
 					background: vars.color.tint_default,
 				},

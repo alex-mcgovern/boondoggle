@@ -1,6 +1,6 @@
 "use client";
 
-/* eslint-disable react/no-multi-comp */
+
 import {
 	FloatingArrow,
 	FloatingPortal,
@@ -176,7 +176,7 @@ export const TooltipTrigger = forwardRef<
 	HTMLProps<HTMLElement> & { asChild?: boolean }
 >(({ asChild = false, children, ...props }, propRef) => {
 	const context = useTooltipContext();
-
+	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
 	const childrenRef = (children as any).ref;
 
 	const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);

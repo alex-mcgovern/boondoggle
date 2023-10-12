@@ -111,7 +111,6 @@ const variantAppearance = styleVariants({
 		{
 			color: vars.color.text_high_contrast,
 			selectors: {
-				/* eslint-disable sort-keys-fix/sort-keys-fix */
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.tint_hover,
 					textDecoration: "none",
@@ -131,7 +130,6 @@ const variantAppearance = styleVariants({
 			background: vars.color.button_default,
 			color: vars.color.white,
 			selectors: {
-				/* eslint-disable sort-keys-fix/sort-keys-fix */
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.button_hover,
 					color: vars.color.white,
@@ -151,7 +149,6 @@ const variantAppearance = styleVariants({
 			borderColor: vars.color.border_default,
 			color: vars.color.text_high_contrast,
 			selectors: {
-				/* eslint-disable sort-keys-fix/sort-keys-fix */
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.tint_hover,
 					borderColor: vars.color.border_hover,

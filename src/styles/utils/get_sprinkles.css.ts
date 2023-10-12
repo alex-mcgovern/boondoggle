@@ -88,7 +88,6 @@ export const responsiveSprinklesProperties = defineProperties({
 	 * Note, the ordering of conditions is important
 	 */
 	conditions: {
-		/* eslint-disable sort-keys-fix/sort-keys-fix */
 		mobile: {},
 		tablet: {
 			"@media": MEDIA_QUERY_TABLET,

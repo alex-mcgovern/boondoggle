@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { slate, slateA } from "@radix-ui/colors";
 
 type PaletteKey = `${string}${number}`;

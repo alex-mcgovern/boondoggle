@@ -115,7 +115,7 @@ export const rootVars = createGlobalTheme(":root", {
 	spacing: {
 		auto: "auto",
 		none: "0",
-		/* eslint-disable sort-keys-fix/sort-keys-fix */
+
 		space_0: "0",
 		"space_0.25": "0.0625rem",
 		"space_0.5": "0.125rem",

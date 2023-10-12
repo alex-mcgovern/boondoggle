@@ -1,10 +1,10 @@
-/* eslint-disable no-alert */
 
-/* eslint-disable react-perf/jsx-no-jsx-as-prop */
 
-/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 
-/* eslint-disable react-perf/jsx-no-new-array-as-prop */
+
+
+
+
 import {
 	faArrowRight,
 	faLock,

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { amber, blue, green, red, slate } from "@radix-ui/colors";
 import fs from "fs";
 

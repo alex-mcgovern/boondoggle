@@ -77,8 +77,6 @@ type BaseIsCopyable = {
 	strCopy?: string;
 };
 
-/* eslint-disable jsdoc/require-jsdoc */
-
 type IsCopyable = BaseIsCopyable & {
 	isCopyable: true;
 	readOnly: true;
@@ -135,8 +133,6 @@ type BaseIsVisibilityToggleable = {
 	strShow?: string;
 };
 
-/* eslint-disable jsdoc/require-jsdoc */
-
 type WithIsVisibilityToggleable = BaseIsVisibilityToggleable & {
 	isVisibilityToggleable: true;
 	isVisible?: boolean;
@@ -188,8 +184,6 @@ type BaseIsClearable = {
 	 */
 	strClear?: string;
 };
-
-/* eslint-disable jsdoc/require-jsdoc */
 
 type IsClearable = BaseIsClearable & {
 	isClearable: true;
@@ -277,8 +271,6 @@ type BaseWithLabel = {
 	 */
 	name: string;
 };
-
-/* eslint-disable jsdoc/require-jsdoc */
 
 type WithLabel = BaseWithLabel & {
 	isLabelVisible?: boolean;
