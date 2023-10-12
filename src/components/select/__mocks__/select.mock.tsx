@@ -18,6 +18,11 @@ type MockSelectItemsArgs = {
 	disabled?: boolean;
 
 	/**
+	 * Whether to include tags in the select items
+	 */
+	withTags?: boolean;
+
+	/**
 	 * Whether to render the select items as buttons
 	 */
 	onClick?: () => void;
@@ -44,6 +49,7 @@ export const mockSelectItems = ({
 	as,
 	disabled,
 	onClick,
+	withTags,
 	withIcon,
 }: MockSelectItemsArgs): Array<SelectItemShape<CountryValue>> => {
 	return [
@@ -53,6 +59,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "United Kingdom",
 			onClick,
+			tags: withTags ? ["UK", "GB", "Europe", "EU"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "uk",
 		},
@@ -61,6 +68,7 @@ export const mockSelectItems = ({
 			description: LOREM.text_xxs,
 			disabled,
 			label: "France",
+			tags: withTags ? ["France", "Europe", "EU"] : undefined,
 			onClick,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "fr",
@@ -71,6 +79,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "Germany",
 			onClick,
+			tags: withTags ? ["Germany", "Europe", "EU"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "de",
 		},
@@ -80,6 +89,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "Spain",
 			onClick,
+			tags: withTags ? ["Spain", "Europe", "EU"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "es",
 		},
@@ -89,6 +99,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "The United Kingdom of Great Britain and Northern Ireland",
 			onClick,
+			tags: withTags ? ["UK", "GB", "Europe", "EU"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "gb",
 		},
@@ -98,6 +109,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "Italy",
 			onClick,
+			tags: withTags ? ["Italy", "Europe", "EU"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "it",
 		},
@@ -107,6 +119,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "Portugal",
 			onClick,
+			tags: withTags ? ["Portugal", "Europe", "EU"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "pt",
 		},
@@ -116,6 +129,9 @@ export const mockSelectItems = ({
 			disabled,
 			label: "United States",
 			onClick,
+			tags: withTags
+				? ["United States", "North America", "NA"]
+				: undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "us",
 		},
@@ -125,6 +141,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "Canada",
 			onClick,
+			tags: withTags ? ["Canada", "North America", "NA"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "ca",
 		},
@@ -134,6 +151,7 @@ export const mockSelectItems = ({
 			disabled,
 			label: "Australia",
 			onClick,
+			tags: withTags ? ["Australia", "APAC"] : undefined,
 			slotLeft: withIcon ? [<Icon icon={faGlobe} />] : undefined,
 			value: "au",
 		},

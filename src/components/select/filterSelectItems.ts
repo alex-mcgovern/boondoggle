@@ -36,7 +36,7 @@ export function filterSelectItems<
 	}
 
 	if (isFlatSelectItems(items)) {
-		items.filter((item) => {
+		return items.filter((item) => {
 			return (
 				item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
 				item.value.toLowerCase().includes(inputValue.toLowerCase()) ||

@@ -186,6 +186,14 @@ export const WithItemsWithSlotLeft: Story = {
 	},
 };
 
+export const WithTags: Story = {
+	args: {
+		isFilterable: true,
+		strClear: "Clear",
+		items: mockSelectItems({ withTags: true }),
+	},
+};
+
 export const WithSlotLeft: Story = {
 	args: {
 		slotLeft: <Icon icon={faGlobeAfrica} />,
