@@ -36,7 +36,7 @@ export function DataTableActionsWrapper({
 			display="flex"
 			gap="space_2"
 			marginTop="space_4"
-			paddingBottom="space_4"
+			paddingBottom="space_6"
 			{...rest}
 		>
 			{leftAction && <Box>{leftAction}</Box>}
