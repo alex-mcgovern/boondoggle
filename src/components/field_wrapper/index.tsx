@@ -7,6 +7,7 @@ import { FieldDescription } from "../field_description";
 import { FieldErrorMessage } from "../field_error_message";
 import { FieldLabel } from "../field_label";
 
+import type { ReactNode } from "react";
 import type {
 	WithColorOverlay,
 	WithDescription,
@@ -15,7 +16,6 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { ReactNode } from "react";
 
 type FieldWrapperProps = WithColorOverlay &
 	WithOptionalLabel &

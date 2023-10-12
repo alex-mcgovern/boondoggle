@@ -8,6 +8,12 @@ import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
 import type {
+	ComponentPropsWithoutRef,
+	ElementType,
+	ReactElement,
+	ReactNode,
+} from "react";
+import type {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
 	WithColorOverlay,
@@ -16,12 +22,6 @@ import type {
 	WithStateDisabled,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type {
-	ComponentPropsWithoutRef,
-	ElementType,
-	ReactElement,
-	ReactNode,
-} from "react";
 
 type BasePillProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
 	PolymorphicComponentPropWithRef<

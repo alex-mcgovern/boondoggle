@@ -3,8 +3,8 @@ import { useCallback } from "react";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 
-import type { BoxProps } from "../../../box";
 import type { Table } from "@tanstack/react-table";
+import type { BoxProps } from "../../../box";
 
 type DataTableControlPaginationProps<TTableData> = {
 	/**

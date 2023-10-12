@@ -2,8 +2,8 @@ import { tRowStyles } from "../../../../styles/stylesheet.css";
 import { Box } from "../../../box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
 
-import type { SprinklesArgs } from "../../../../styles/utils/get_sprinkles.css";
 import type { Table } from "@tanstack/react-table";
+import type { SprinklesArgs } from "../../../../styles/utils/get_sprinkles.css";
 import { getHeadStyle } from "./styles.css";
 
 type DataTableLayoutHeadProps<TTableData> = {
@@ -18,8 +18,8 @@ type DataTableLayoutHeadProps<TTableData> = {
 	isSticky?: boolean;
 
 	/**
- * Whether the table should allow rows to be selectable
- */
+	 * Whether the table should allow rows to be selectable
+	 */
 	isSelectable: boolean | undefined;
 
 	/**
@@ -40,11 +40,15 @@ export function DataTableLayoutHead<TTableData>({
 	isSortable,
 	isSticky,
 	table,
-	isSelectable, hasRowActions,
+	isSelectable,
+	hasRowActions,
 	...rest
 }: DataTableLayoutHeadProps<TTableData>) {
 	return (
-		<Box className={getHeadStyle({ isSelectable, hasRowActions })} {...rest}>
+		<Box
+			className={getHeadStyle({ isSelectable, hasRowActions })}
+			{...rest}
+		>
 			{table.getHeaderGroups().map((header_group) => {
 				return (
 					<div className={tRowStyles} key={header_group.id}>

@@ -5,9 +5,9 @@ import { Box } from "../box";
 import { SlotWrapper } from "../slot_wrapper";
 import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css";
 
+import type { Ref } from "react";
 import type { WithColorOverlay, WithSize, WithSlots } from "../../common-types";
 import type { BoxProps } from "../box";
-import type { Ref } from "react";
 
 export type SelectItemProps = BoxProps &
 	WithColorOverlay &

@@ -5,8 +5,8 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Box } from "../../box";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
-import type { SelectItemShape } from "../types";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { SelectItemShape } from "../types";
 
 const ITEMS = mockSelectItems({});
 

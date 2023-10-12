@@ -13,7 +13,6 @@ type DataTableLayoutColumnHeaderCellProps<THeaderData> = {
 	 */
 	header: Header<THeaderData, unknown>;
 
-
 	/**
 	 * Whether the DataTable is sortable or not.
 	 */
@@ -49,9 +48,9 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 					{header.isPlaceholder
 						? null
 						: flexRender(
-							header.column.columnDef.header,
-							header.getContext(),
-						)}
+								header.column.columnDef.header,
+								header.getContext(),
+						  )}
 				</DataTableControlTableHeadSort>
 			</div>
 		);
@@ -71,9 +70,9 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 			{header.isPlaceholder
 				? null
 				: flexRender(
-					header.column.columnDef.header,
-					header.getContext(),
-				)}
+						header.column.columnDef.header,
+						header.getContext(),
+				  )}
 		</div>
 	);
 }

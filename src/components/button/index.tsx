@@ -14,6 +14,13 @@ import { SlotWrapper } from "../slot_wrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 import { getButtonStyles } from "./styles.css";
 
+import type { Placement } from "@floating-ui/react";
+import type {
+	ComponentProps,
+	ElementType,
+	ReactElement,
+	ReactNode,
+} from "react";
 import type {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
@@ -24,13 +31,6 @@ import type {
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { Alignment, Appearance } from "./styles.css";
-import type { Placement } from "@floating-ui/react";
-import type {
-	ComponentProps,
-	ElementType,
-	ReactElement,
-	ReactNode,
-} from "react";
 
 /**
  * Removes square size

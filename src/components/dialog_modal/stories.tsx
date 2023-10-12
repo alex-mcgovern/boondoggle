@@ -10,8 +10,8 @@ import { DialogModalActionConfirm } from "../dialog_modal_action_confirm";
 import { DialogModalAlert } from "../dialog_modal_alert";
 import { Icon } from "../icon";
 
-import type { DialogModalProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
+import type { DialogModalProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

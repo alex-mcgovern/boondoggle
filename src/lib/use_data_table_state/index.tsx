@@ -12,14 +12,14 @@ import { DataTableCellSelectable } from "../../components/data_table/_components
 import { Skeleton } from "../../components/skeleton";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 
-import type { TDataTableRowActions } from "../../common-types";
 import type {
 	ColumnDef,
 	RowData,
 	RowSelectionState,
-	Updater,
 	SortingState,
+	Updater,
 } from "@tanstack/react-table";
+import type { TDataTableRowActions } from "../../common-types";
 
 type UseDataTableStateProps<TData extends RowData> = {
 	/**
@@ -125,37 +125,37 @@ export function useDataTableState<TData extends RowData>({
 			// the checkbox at the start of the columns array
 			...(isSelectable
 				? [
-					columnHelper.display({
-						cell: DataTableCellSelectable,
-						enableSorting: false,
-						id: "select",
-					}),
-				]
+						columnHelper.display({
+							cell: DataTableCellSelectable,
+							enableSorting: false,
+							id: "select",
+						}),
+				  ]
 				: []),
 
 			// The original columns array
 			...(isLoading
 				? initColumns.map((initColumn) => {
-					return {
-						...initColumn,
-						cell: () => {
-							return <Skeleton />;
-						},
-					};
-				})
+						return {
+							...initColumn,
+							cell: () => {
+								return <Skeleton />;
+							},
+						};
+				  })
 				: initColumns),
 
 			// If the table has row action items, add a column for
 			// the dropdown menu at the end of the columns array
 			...(RowActions
 				? [
-					columnHelper.display({
-						cell: ({ row }) => {
-							return <RowActions row_data={row.original} />;
-						},
-						id: "actions",
-					}),
-				]
+						columnHelper.display({
+							cell: ({ row }) => {
+								return <RowActions row_data={row.original} />;
+							},
+							id: "actions",
+						}),
+				  ]
 				: []),
 		];
 	}, [RowActions, columnHelper, initColumns, isLoading, isSelectable]);

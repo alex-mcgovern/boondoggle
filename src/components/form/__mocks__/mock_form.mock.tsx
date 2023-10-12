@@ -1,4 +1,3 @@
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -47,8 +46,8 @@ type MockFormProps = Pick<FormProps, "handleSubmit" | "handleErrors"> & {
 };
 
 export const mockForm = ({
-	handleErrors = async () => { },
-	handleSubmit = async () => { },
+	handleErrors = async () => {},
+	handleSubmit = async () => {},
 	withDefaultValues = false,
 	withOptionalFields = false,
 }: MockFormProps): FormProps => {
@@ -85,7 +84,7 @@ export const mockForm = ({
 					label="Value"
 					locale="en-US"
 					name="value"
-					onCurrencyChange={() => { }}
+					onCurrencyChange={() => {}}
 					placeholder="Enter a value"
 					wrapperProps={WRAPPER_PROPS}
 				/>

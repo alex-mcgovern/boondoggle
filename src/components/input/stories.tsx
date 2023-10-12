@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import {
 	faArrowRight,
 	faLock,
@@ -18,8 +11,8 @@ import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 
-import type { InputProps as StoryCompProps } from ".";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { InputProps as StoryCompProps } from ".";
 
 const meta = {
 	args: {

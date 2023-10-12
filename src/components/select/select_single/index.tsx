@@ -18,6 +18,8 @@ import { getIsSelected } from "../getIsSelected";
 import { getSlotRight } from "../lib/get_slot_right";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 
+import type { UseComboboxStateChange } from "downshift";
+import type { ForwardedRef } from "react";
 import type {
 	WithDescription,
 	WithName,
@@ -37,8 +39,6 @@ import type {
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
-import type { UseComboboxStateChange } from "downshift";
-import type { ForwardedRef } from "react";
 
 export type SelectSingleProps<
 	TValue extends string = string,

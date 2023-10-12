@@ -5,8 +5,8 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Icon } from "../icon";
 
-import type { PillProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
+import type { PillProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

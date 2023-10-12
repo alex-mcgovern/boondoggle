@@ -2,8 +2,8 @@ import clsx from "clsx";
 
 import { getHeaderStyles } from "./styles.css";
 
-import type { WithSize } from "../../common-types";
 import type { HTMLProps } from "react";
+import type { WithSize } from "../../common-types";
 
 /**
  * Header HTML element.

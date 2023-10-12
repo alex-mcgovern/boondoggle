@@ -5,9 +5,9 @@ import {
 } from "../../../mocks/data_table_columns.mock";
 import { Button } from "../button";
 
+import type { Meta, StoryObj } from "@storybook/react";
 import type { DialogModalDataTableProps as StoryCompProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
-import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
 	args: {},

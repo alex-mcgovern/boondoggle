@@ -8,9 +8,9 @@ import { useOpenDialogWithKeyboard } from "../../hooks/use_open_dialog_with_keyb
 import { Box } from "../box";
 import { getDialogStyles } from "./styles.css";
 
+import type { ReactNode } from "react";
 import type { BoxProps } from "../box";
 import type { DialogPlacementEnum } from "./styles.css";
-import type { ReactNode } from "react";
 
 export type DialogProps = BoxProps & {
 	/**
@@ -97,8 +97,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 				dialogRef.current?.show();
 			}
 
-			onIsOpenChange?.(dialogRef.current?.open)
-
+			onIsOpenChange?.(dialogRef.current?.open);
 		}, [dialogRef, onIsOpenChange]);
 
 		useOpenDialogWithKeyboard<HTMLElement>({
@@ -124,36 +123,36 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 						onMouseEnter={
 							openOn === "hover"
 								? () => {
-									return dialogRef.current?.show();
-								}
+										return dialogRef.current?.show();
+								  }
 								: undefined
 						}
 						onMouseLeave={
 							openOn === "hover"
 								? () => {
-									return dialogRef.current?.close();
-								}
+										return dialogRef.current?.close();
+								  }
 								: undefined
 						}
 						onPointerEnter={
 							openOn === "hover"
 								? () => {
-									return dialogRef.current?.show();
-								}
+										return dialogRef.current?.show();
+								  }
 								: undefined
 						}
 						onPointerLeave={
 							openOn === "hover"
 								? () => {
-									return dialogRef.current?.show();
-								}
+										return dialogRef.current?.show();
+								  }
 								: undefined
 						}
 						onPointerOver={
 							openOn === "hover"
 								? () => {
-									return dialogRef.current?.show();
-								}
+										return dialogRef.current?.show();
+								  }
 								: undefined
 						}
 						ref={triggerRef}

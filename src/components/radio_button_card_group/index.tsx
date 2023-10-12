@@ -8,6 +8,7 @@ import { FieldErrorMessage } from "../field_error_message";
 import { FieldLabel } from "../field_label";
 import { RadioButtonCard } from "../radio_button_card";
 
+import type { Ref } from "react";
 import type {
 	WithDescription,
 	WithName,
@@ -20,7 +21,6 @@ import type {
 	RadioButtonCardShape,
 	RadioButtonInputProps,
 } from "../radio_button_card";
-import type { Ref } from "react";
 
 export type RadioButtonCardGroupProps = SprinklesArgs &
 	WithWrapperProps &

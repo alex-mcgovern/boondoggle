@@ -4,8 +4,8 @@ import { currencyFormatter } from "./currency_formatter";
 import { currencyParser } from "./currency_parser";
 import { getCursorPosition } from "./get_cursor_position";
 
-import type { NativeEventInputType } from "./get_cursor_position";
 import type { ChangeEvent, ChangeEventHandler } from "react";
+import type { NativeEventInputType } from "./get_cursor_position";
 
 type UseFormattedCurrencyArgs = {
 	/**

@@ -3,9 +3,9 @@ import { faEllipsis } from "@fortawesome/pro-solid-svg-icons";
 import { Icon } from "../../../icon";
 import { SelectButton } from "../../../select/select_button";
 
+import type { ChangeEvent } from "react";
 import type { SelectButtonProps } from "../../../select/select_button";
 import type { SelectItemShape } from "../../../select/types";
-import type { ChangeEvent } from "react";
 
 export type DataTableRowActionsProps = {
 	/**

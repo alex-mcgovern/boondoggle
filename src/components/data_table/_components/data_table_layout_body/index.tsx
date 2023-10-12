@@ -7,7 +7,6 @@ import { getBodyStyle, rowStyles } from "./styles.css";
 import type { Table } from "@tanstack/react-table";
 
 type DataTableLayoutBodyProps<TRowData> = {
-
 	/**
 	 * Whether the table should allow rows to be selectable
 	 */
@@ -38,11 +37,7 @@ export function DataTableLayoutBody<TRowData>({
 					<Box className={rowStyles} key={row.id}>
 						{row.getVisibleCells().map((cell) => {
 							return (
-								<div
-									className={tdStyles}
-									key={cell.id}
-
-								>
+								<div className={tdStyles} key={cell.id}>
 									{flexRender(
 										cell.column.columnDef.cell,
 										cell.getContext(),

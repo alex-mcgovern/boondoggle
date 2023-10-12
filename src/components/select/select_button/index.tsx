@@ -11,6 +11,9 @@ import { Button } from "../../button";
 import { Icon } from "../../icon";
 import { SelectItemList } from "../SelectItemList";
 
+import type { Placement } from "@floating-ui/react";
+import type { UseComboboxStateChange } from "downshift";
+import type { ForwardedRef } from "react";
 import type {
 	WithName,
 	WithOptionalLabel,
@@ -22,9 +25,6 @@ import type {
 import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { ButtonProps } from "../../button";
 import type { SelectItemShape } from "../types";
-import type { Placement } from "@floating-ui/react";
-import type { UseComboboxStateChange } from "downshift";
-import type { ForwardedRef } from "react";
 
 export type SelectButtonProps<
 	TValue extends string = string,

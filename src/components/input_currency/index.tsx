@@ -1,8 +1,5 @@
 "use client";
 
-
-
-
 import { forwardRef, useEffect, useMemo, useState } from "react";
 
 import { Input } from "../input";
@@ -10,6 +7,7 @@ import { SelectSingle } from "../select/select_single";
 import { currencySelectInputStyle } from "./styles.css";
 import { useFormattedCurrency } from "./use_formatted_currency";
 
+import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 import type {
 	WithColorOverlay,
 	WithDescription,
@@ -29,7 +27,6 @@ import type {
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { WithOptionalInputAddons } from "../input";
 import type { SelectItemShape } from "../select/types";
-import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**
@@ -48,8 +45,8 @@ type IsCurrencyEditable<TCurrency extends string = string> = {
 	 * Callback when a new currency is selected.
 	 */
 	onCurrencyChange:
-	| ((currency: TCurrency | undefined) => unknown)
-	| ((currency: TCurrency | undefined) => Promise<unknown>);
+		| ((currency: TCurrency | undefined) => unknown)
+		| ((currency: TCurrency | undefined) => Promise<unknown>);
 };
 
 type IsNotCurrencyEditable = {

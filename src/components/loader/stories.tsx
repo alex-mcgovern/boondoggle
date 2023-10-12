@@ -1,7 +1,7 @@
 import { Loader as StoryComp } from ".";
 
-import type { LoaderProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
+import type { LoaderProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

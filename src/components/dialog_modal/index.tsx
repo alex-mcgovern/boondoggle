@@ -12,10 +12,10 @@ import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
 import { LoaderFullScreen } from "../loader_full_screen";
 
+import type { ReactNode } from "react";
 import type { BoxProps } from "../box";
 import type { DialogModalActionsProps } from "../dialog_modal_actions";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
-import type { ReactNode } from "react";
 
 export type DialogModalProps = {
 	/**

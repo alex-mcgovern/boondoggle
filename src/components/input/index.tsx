@@ -1,6 +1,5 @@
 "use client";
 
-
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import {
@@ -31,6 +30,14 @@ import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
 
 import type {
+	ChangeEvent,
+	ComponentPropsWithoutRef,
+	ForwardedRef,
+	MouseEvent,
+	MouseEventHandler,
+	ReactNode,
+} from "react";
+import type {
 	WithColorOverlay,
 	WithDescription,
 	WithHideLastpass,
@@ -49,14 +56,6 @@ import type {
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type {
-	ChangeEvent,
-	ComponentPropsWithoutRef,
-	ForwardedRef,
-	MouseEvent,
-	MouseEventHandler,
-	ReactNode,
-} from "react";
 
 type AddonTabProps = WithSize & {
 	children: ReactNode;
@@ -204,7 +203,6 @@ const InputSlotWrapper = forwardRef<HTMLDivElement, InputSlotWrapperProps>(
 		);
 
 		return (
-
 			// biome-ignore lint/a11y/useKeyWithClickEvents: This is a click event that is not a button.
 			<div
 				aria-disabled={disabled}

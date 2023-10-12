@@ -9,6 +9,7 @@ import { FieldLabel } from "../field_label";
 import { RadioButton } from "../radio_button";
 import { getGroupLabelStyles } from "./styles.css";
 
+import type { Ref } from "react";
 import type {
 	WithDescription,
 	WithName,
@@ -18,7 +19,6 @@ import type {
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio_button";
-import type { Ref } from "react";
 
 export type RadioButtonGroupProps = SprinklesArgs &
 	WithWrapperProps &

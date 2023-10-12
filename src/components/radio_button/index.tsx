@@ -5,8 +5,8 @@ import {
 	radioButtonWrapperStyles,
 } from "./styles.css";
 
-import type { WithName } from "../../common-types";
 import type { HTMLProps } from "react";
+import type { WithName } from "../../common-types";
 
 export type RadioButtonInputProps = Omit<
 	HTMLProps<HTMLInputElement>,

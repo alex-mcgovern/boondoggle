@@ -1,4 +1,4 @@
-import { style, styleVariants, globalStyle } from "@vanilla-extract/css";
+import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { tHeadStyles, thStyles } from "../../../../styles/stylesheet.css";
 import { vars } from "../../../../styles/theme.css";

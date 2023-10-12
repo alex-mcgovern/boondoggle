@@ -12,9 +12,9 @@ import { FormTextArea } from "../form_text_area";
 import { RADIO_BUTTONS_MOCK } from "../radio_button_group/mocks";
 import { mockSelectItems } from "../select/__mocks__/select.mock";
 
+import type { StoryFn, StoryObj } from "@storybook/react";
 import type { DialogModalFormProps as StoryCompProps } from ".";
 import type { BoxProps } from "../box";
-import type { StoryFn, StoryObj } from "@storybook/react";
 
 const mockFormSchema = z.object({
 	description: z.string().min(1),

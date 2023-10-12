@@ -1,6 +1,5 @@
 "use client";
 
-
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 
@@ -10,12 +9,12 @@ import { FieldActionButtonDate } from "../field_action_button_date";
 import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
+import type { MouseEvent } from "react";
 import type {
 	WithOptionalLabel,
 	WithOptionalPlaceholder,
 } from "../../common-types";
 import type { InputProps } from "../input";
-import type { MouseEvent } from "react";
 
 /**
  * Converts a local date to a UTC date.
@@ -55,8 +54,8 @@ export type InputDateProps = Omit<
 		 * Callback to be called when the date changes.
 		 */
 		onChange?:
-		| ((date: string) => unknown)
-		| ((date: string) => Promise<unknown>);
+			| ((date: string) => unknown)
+			| ((date: string) => Promise<unknown>);
 	};
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(

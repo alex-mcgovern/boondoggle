@@ -5,9 +5,9 @@ import clsx from "clsx";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import * as styles from "./styles.css";
 
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
 export type IconProps = FontAwesomeIconProps & {
 	className?: string;

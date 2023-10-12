@@ -1,4 +1,3 @@
-
 import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";

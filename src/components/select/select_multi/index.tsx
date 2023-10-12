@@ -20,6 +20,8 @@ import { getSlotRight } from "../lib/get_slot_right";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
+import type { UseComboboxStateChange } from "downshift";
+import type { ForwardedRef } from "react";
 import type {
 	WithName,
 	WithOptionalIsClearable,
@@ -37,8 +39,6 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
-import type { UseComboboxStateChange } from "downshift";
-import type { ForwardedRef } from "react";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,

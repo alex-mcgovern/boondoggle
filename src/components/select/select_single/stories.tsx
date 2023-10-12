@@ -1,4 +1,3 @@
-
 import { faGlobeAfrica } from "@fortawesome/pro-solid-svg-icons";
 
 import { SelectSingle as StoryComp } from ".";

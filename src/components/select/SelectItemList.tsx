@@ -5,18 +5,18 @@ import { SelectItem } from "./SelectItem";
 import * as styles from "./SelectItemList.css";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 
-import type { WithSize } from "../../common-types";
-import type {
-	FlatSelectItems,
-	GroupedSelectItems,
-	SelectItemShape,
-} from "./types";
 import type {
 	UseComboboxPropGetters,
 	UseMultipleSelectionGetSelectedItemPropsOptions,
 	UseSelectPropGetters,
 } from "downshift";
 import type { CSSProperties, ForwardedRef } from "react";
+import type { WithSize } from "../../common-types";
+import type {
+	FlatSelectItems,
+	GroupedSelectItems,
+	SelectItemShape,
+} from "./types";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`

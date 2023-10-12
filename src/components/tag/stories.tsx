@@ -5,8 +5,8 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Icon } from "../icon";
 
-import type { TagProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
+import type { TagProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

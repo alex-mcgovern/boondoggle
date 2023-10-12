@@ -1,5 +1,5 @@
-import { amber, blue, green, red, slate } from "@radix-ui/colors";
 import fs from "fs";
+import { amber, blue, green, red, slate } from "@radix-ui/colors";
 
 import { makeTheme } from "../src/styles/utils/make_theme";
 

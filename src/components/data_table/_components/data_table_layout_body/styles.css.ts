@@ -1,5 +1,6 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 
+import { recipe } from "@vanilla-extract/recipes";
 import {
 	tBodyStyles,
 	tRowStyles,
@@ -8,7 +9,6 @@ import {
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
-import { recipe } from "@vanilla-extract/recipes";
 
 const baseBodyStyle = style({});
 

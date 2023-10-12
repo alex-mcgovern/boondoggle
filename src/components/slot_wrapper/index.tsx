@@ -3,10 +3,10 @@ import { Children, forwardRef } from "react";
 import { Box } from "../box";
 import { getSlotStyles } from "./styles.css";
 
+import type { ReactNode, Ref } from "react";
 import type { WithSlots } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { BoxProps } from "../box";
-import type { ReactNode, Ref } from "react";
 
 export type SlotWrapperProps = BoxProps &
 	WithSlots & {

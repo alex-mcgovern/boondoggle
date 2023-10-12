@@ -8,13 +8,13 @@ import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
 
-import type { BoxProps } from "../../box";
 import type {
 	DPCalendar,
 	DPUseMonthsPropGetters,
 	DPUseYearsPropGetters,
 	DPYear,
 } from "@rehookify/datepicker";
+import type { BoxProps } from "../../box";
 
 type DatePickerControlsProps = {
 	/**

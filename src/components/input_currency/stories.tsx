@@ -9,10 +9,10 @@ import {
 import { Box } from "../box";
 import { SelectSingle } from "../select/select_single";
 
-import type { InputCurrencyProps } from ".";
-import type { MockLocale } from "../../../test/mock_data/input_currency";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ChangeEvent } from "react";
+import type { InputCurrencyProps } from ".";
+import type { MockLocale } from "../../../test/mock_data/input_currency";
 
 const meta = {
 	args: {

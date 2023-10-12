@@ -21,6 +21,8 @@ import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
 import { LoaderFullScreen } from "../loader_full_screen";
 
+import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
+import type { ForwardedRef, ReactNode } from "react";
 import type {
 	WithTableOptionalFiltering,
 	WithTableOptionalPagination,
@@ -28,8 +30,6 @@ import type {
 } from "../../common-types";
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
-import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
-import type { ForwardedRef, ReactNode } from "react";
 
 export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 	WithTableOptionalSelectableRows<TData> &
@@ -85,9 +85,9 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 		 * Function to call when the "Try again" button is clicked.
 		 */
 		onClickTryAgain?:
-		| (() => unknown)
-		| (() => Promise<unknown>)
-		| undefined;
+			| (() => unknown)
+			| (() => Promise<unknown>)
+			| undefined;
 
 		/**
 		 * Description of the error.
@@ -249,7 +249,8 @@ export function DialogModalDataTable<TData extends RowData>({
 										isSelectable={isSelectable}
 										hasRowActions={undefined}
 										table={table}
-									/>								</Box>
+									/>{" "}
+								</Box>
 							)}
 
 							{!hasData && (

@@ -5,8 +5,8 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { Icon } from "../icon";
 
-import type { CollapsibleProps as StoryCompProps } from ".";
 import type { StoryFn, StoryObj } from "@storybook/react";
+import type { CollapsibleProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

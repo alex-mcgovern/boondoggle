@@ -11,8 +11,8 @@ import { DatePickerDays } from "./components/date_picker_days.comp";
 import { DatePickerYears } from "./components/date_picker_years.comp";
 import * as styles from "./styles.css";
 
-import type { BoxProps } from "../box";
 import type { MouseEvent, Ref } from "react";
+import type { BoxProps } from "../box";
 
 export type DatePickerProps = {
 	/**
