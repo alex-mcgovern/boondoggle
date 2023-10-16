@@ -118,9 +118,7 @@ export const Controlled: Story = {
 
 export const Customisation: Story = {
 	args: {
-		wrapperProps: {
-			marginBottom: "space_6",
-		},
+		marginBottom: "none",
 	},
 };
 

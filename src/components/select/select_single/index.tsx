@@ -32,13 +32,15 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../../common-types";
-import type { InputProps, WithOptionalInputAddons } from "../../input";
+import type { InputProps } from "../../input";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
+import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
+import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 
 export type SelectSingleProps<
 	TValue extends string = string,
@@ -52,9 +54,14 @@ export type SelectSingleProps<
 	WithStateDisabled &
 	WithOptionalInputAddons &
 	WithStateInvalid &
-	WithWrapperProps &
 	WithOptionalLabel &
 	WithOptionalIsFilterable & {
+		/**
+		 * The bottom margin applied to the input element.
+		 * @default "space_6" (1.5rem / 24px)
+		 */
+		marginBottom?: SprinklesArgs["marginBottom"];
+
 		/**
 		 * Item to be preselected when the component mounts.
 		 */
@@ -160,7 +167,7 @@ function SelectSingleBase<
 		slotLeft,
 		slotRight = <Icon icon={faAngleDown} />,
 		strClear,
-		wrapperProps,
+		marginBottom = "space_6",
 	}: SelectSingleProps<TValue, TItemData>,
 	initialRef: ForwardedRef<HTMLInputElement>,
 ) {
@@ -264,6 +271,7 @@ function SelectSingleBase<
 				errorMessage={errorMessage}
 				outerRef={refs.setReference}
 				size={size}
+				marginBottom={marginBottom}
 				slotLeft={selectedItem?.slotLeft || slotLeft}
 				slotRight={getSlotRight({
 					isClearable:
@@ -274,7 +282,6 @@ function SelectSingleBase<
 					slotRight,
 					strClear,
 				})}
-				wrapperProps={wrapperProps}
 				{...getInputProps({
 					className: selectInputCursorStyles,
 					disabled,

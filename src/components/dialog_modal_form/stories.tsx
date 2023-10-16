@@ -55,7 +55,6 @@ export const WidthSm: StoryObj<StoryCompProps> = {
 					label={LOREM.labelEmail()}
 					name="email"
 					placeholder="Enter your email address"
-					wrapperProps={FORM_FIELD_WRAPPER_PROPS}
 				/>
 				<FormTextArea
 					errorMessage="Enter a valid description"
@@ -70,7 +69,6 @@ export const WidthSm: StoryObj<StoryCompProps> = {
 					label={LOREM.labelDropdown()}
 					name="select"
 					placeholder="Select an option from the dropdown"
-					wrapperProps={FORM_FIELD_WRAPPER_PROPS}
 				/>
 				<FormRadioButtonGroup
 					errorMessage="Select an option"
@@ -100,7 +98,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 					label={LOREM.labelEmail()}
 					name="email"
 					placeholder="Enter your email address"
-					wrapperProps={FORM_FIELD_WRAPPER_PROPS}
 				/>
 				<FormTextArea
 					errorMessage="Enter a valid description"
@@ -115,7 +112,6 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 					label={LOREM.labelDropdown()}
 					name="select"
 					placeholder="Select an option from the dropdown"
-					wrapperProps={FORM_FIELD_WRAPPER_PROPS}
 				/>
 			</>
 		),

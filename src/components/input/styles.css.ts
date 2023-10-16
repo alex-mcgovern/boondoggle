@@ -242,7 +242,7 @@ const tabSize = styleVariants({
 	sm: [{ height: elementHeight.sm }],
 });
 
-export const getAddonTabStyle = recipe({
+export const getInputAddonTabStyle = recipe({
 	base: [
 		getSprinkles({
 			alignItems: "center",

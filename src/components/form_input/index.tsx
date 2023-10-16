@@ -16,7 +16,7 @@ export function FormInput({
 	invalid,
 	name,
 	onChange,
-	wrapperProps = { marginBottom: "space_6" },
+	marginBottom = "space_6",
 	...rest
 }: FormInputProps) {
 	const { control } = useFormContext();
@@ -48,7 +48,7 @@ export function FormInput({
 			}}
 			ref={ref}
 			value={controlledValue}
-			wrapperProps={wrapperProps}
+			marginBottom={marginBottom}
 			{...rest}
 		/>
 	);

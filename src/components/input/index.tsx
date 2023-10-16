@@ -1,41 +1,21 @@
 "use client";
-
+import * as React from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import {
-	forwardRef,
-	isValidElement,
-	useCallback,
-	useLayoutEffect,
-	useMemo,
-} from "react";
-
 import { getOptionalLabelProps } from "../../common-types";
 import { useForwardRef } from "../../hooks/use_forward_ref";
-import { a11yError } from "../../styles/common/a11y.css";
 import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import { FieldActionButtonClear } from "../field_action_button_clear";
 import { FieldActionButtonCopy } from "../field_action_button_copy";
 import { FieldActionButtonVisibility } from "../field_action_button_visibility";
 import { FieldWrapper } from "../field_wrapper";
-import {
-	addonChildrenStyle,
-	clearButtonStyle,
-	getAddonTabStyle,
-	getAddonWrapperStyle,
-	getSlotWrapperStyles,
-	inputStyles,
-} from "./styles.css";
+import { clearButtonStyle, inputStyles } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
-
 import type {
 	ChangeEvent,
 	ComponentPropsWithoutRef,
 	ForwardedRef,
-	MouseEvent,
-	MouseEventHandler,
-	ReactNode,
 } from "react";
 import type {
 	WithColorOverlay,
@@ -50,184 +30,14 @@ import type {
 	WithReadOnly,
 	WithSize,
 	WithSlots,
-	WithStateDisabled,
 	WithStateInvalid,
-	WithWrapperProps,
 } from "../../common-types";
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-
-type AddonTabProps = WithSize & {
-	children: ReactNode;
-	side: "right" | "left";
-};
-
-function AddonTab({ children, side, size }: AddonTabProps) {
-	if (isValidElement(children)) {
-		return (
-			<div className={getAddonTabStyle({ hasBorder: false, side, size })}>
-				{children}
-			</div>
-		);
-	}
-	return (
-		<div
-			className={getAddonTabStyle({
-				hasBorder: true,
-				padding: size,
-				side,
-				size,
-			})}
-		>
-			{children}
-		</div>
-	);
-}
-
-export type WithOptionalInputAddons = {
-	/**
-	 * Addon to be rendered on the left side of the field.
-	 */
-	addonLeft?: ReactNode;
-	/**
-	 * Addon to be rendered on the right side of the field.
-	 */
-	addonRight?: ReactNode;
-};
-
-type InputAddonWrapperProps = WithOptionalInputAddons &
-	WithSize & {
-		/**
-		 * The children to be rendered inside the wrapper.
-		 */
-		children: ReactNode;
-	};
-
-/**
- * Wraps the children with optional addons, left & right.
- */
-function InputAddonWrapper({
-	addonLeft,
-	addonRight,
-	children,
-	size,
-}: InputAddonWrapperProps) {
-	return (
-		<div
-			className={getAddonWrapperStyle({
-				hasAddonLeft: !!addonLeft,
-				hasAddonRight: !!addonRight,
-			})}
-		>
-			{addonLeft && (
-				<AddonTab side="left" size={size}>
-					{addonLeft}
-				</AddonTab>
-			)}
-
-			<div className={addonChildrenStyle}>{children}</div>
-
-			{addonRight && (
-				<AddonTab side="right" size={size}>
-					{addonRight}
-				</AddonTab>
-			)}
-		</div>
-	);
-}
-
-type InputSlotWrapperProps = WithSlots &
-	WithStateDisabled & {
-		/**
-		 * The children to render inside the wrapper.
-		 */
-		children: ReactNode;
-
-		/**
-		 * Any additional CSS classes to apply to the wrapper.
-		 */
-		className: string | undefined;
-
-		/**
-		 * Method to focus the input element.
-		 */
-		focus: () => void;
-
-		/**
-		 * Whether the input should have a border.
-		 */
-		hasBorder: boolean | undefined;
-
-		/**
-		 * Whether the input is invalid.
-		 */
-		invalid: boolean | undefined;
-
-		/**
-		 * Method to call the input elements onClick handler.
-		 */
-		onClick: MouseEventHandler<HTMLInputElement> | undefined;
-
-		/**
-		 * The size of the input.
-		 */
-		size: ElementSizeEnum | undefined;
-	};
-
-/**
- * Renders a wrapper around the input and its slots.
- */
-const InputSlotWrapper = forwardRef<HTMLDivElement, InputSlotWrapperProps>(
-	(
-		{
-			children,
-			className,
-			disabled,
-			focus,
-			hasBorder,
-			invalid,
-			onClick,
-			size,
-			slotLeft,
-			slotRight,
-		},
-		ref,
-	) => {
-		const handleClick = useCallback(
-			(e: MouseEvent<HTMLElement>) => {
-				focus();
-				onClick?.(e as MouseEvent<HTMLInputElement>);
-				e.stopPropagation();
-			},
-			[focus, onClick],
-		);
-
-		return (
-			// biome-ignore lint/a11y/useKeyWithClickEvents: This is a click event that is not a button.
-			<div
-				aria-disabled={disabled}
-				className={clsx(
-					getSlotWrapperStyles({
-						hasBorder,
-						hasSlotLeft: !!slotLeft,
-						hasSlotRight: !!slotRight,
-						size,
-					}),
-					className,
-					{
-						[a11yError]: invalid,
-					},
-				)}
-				onClick={handleClick}
-				ref={ref}
-			>
-				{slotLeft}
-				{children}
-				{slotRight}
-			</div>
-		);
-	},
-);
+import {
+	InputAddonWrapper,
+	WithOptionalInputAddons,
+} from "./InputAddonWrapper";
+import { InputSlotWrapper } from "./InputSlotWrapper";
 
 export type InputProps = Partial<
 	Pick<
@@ -248,7 +58,6 @@ export type InputProps = Partial<
 		| "disabled"
 	>
 > &
-	SprinklesArgs &
 	WithColorOverlay &
 	WithDescription &
 	WithHideLastpass &
@@ -262,8 +71,13 @@ export type InputProps = Partial<
 	WithReadOnly &
 	WithSize &
 	WithSlots &
-	WithStateInvalid &
-	WithWrapperProps & {
+	WithStateInvalid & {
+		/**
+		 * The bottom margin applied to the input element.
+		 * @default "space_6" (1.5rem / 24px)
+		 */
+		marginBottom?: SprinklesArgs["marginBottom"];
+
 		/**
 		 * Whether to render the input with a border.
 		 */
@@ -284,7 +98,7 @@ export type InputProps = Partial<
  * A component to render an input.
  * @private Is a base component that should be wrapped with `ForwardRef`.
  */
-function PureInput(
+function InputBase(
 	{
 		addonLeft,
 		addonRight,
@@ -318,17 +132,17 @@ function PureInput(
 		strCopied,
 		strCopy,
 		strHide,
+		marginBottom = "space_6",
 		strShow,
 		type,
 		value,
-		wrapperProps,
 		...rest
 	}: InputProps,
-	ref: ForwardedRef<HTMLInputElement>,
+	ref: React.ForwardedRef<HTMLInputElement>,
 ) {
 	const inputRef = useForwardRef(ref);
 
-	useLayoutEffect(() => {
+	React.useLayoutEffect(() => {
 		if (selectionRange !== undefined) {
 			inputRef?.current?.setSelectionRange(
 				selectionRange.start,
@@ -337,11 +151,11 @@ function PureInput(
 		}
 	}, [inputRef, selectionRange, value]);
 
-	const focus = useCallback(() => {
+	const focus = React.useCallback(() => {
 		inputRef.current?.focus();
 	}, [inputRef]);
 
-	const { atomProps, otherProps } = useMemo(() => {
+	const { atomProps, otherProps } = React.useMemo(() => {
 		return extractAtomsFromProps(rest, getSprinkles);
 	}, [rest]);
 
@@ -361,7 +175,7 @@ function PureInput(
 			errorMessage={errorMessage}
 			hideLastpass={hideLastpass}
 			invalid={invalid}
-			wrapperProps={wrapperProps}
+			wrapperProps={{ marginBottom }}
 			{...getOptionalLabelProps({
 				isLabelVisible,
 				label,
@@ -448,4 +262,4 @@ function PureInput(
 	);
 }
 
-export const Input = forwardRef(PureInput);
+export const Input = React.forwardRef(InputBase);

@@ -24,7 +24,7 @@ export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
 export function FormInputDate({
 	defaultValue,
 	name,
-	wrapperProps = { marginBottom: "space_6" },
+	marginBottom = "space_6",
 	...rest
 }: FormInputDateProps) {
 	const { control } = useFormContext();
@@ -40,7 +40,7 @@ export function FormInputDate({
 
 	return (
 		<InputDate
-			wrapperProps={wrapperProps}
+			marginBottom={marginBottom}
 			{...(rest as InputDateProps)}
 			errorMessage={error?.message}
 			invalid={!!error}

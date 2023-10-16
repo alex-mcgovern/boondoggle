@@ -30,6 +30,51 @@ const meta = {
 				category: "Add-ons",
 			},
 		},
+		autoComplete: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		autoFocus: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		className: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		colorOverlay: {
+			table: {
+				category: "Customization",
+			},
+		},
+		defaultValue: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		disabled: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		hideLastpass: {
+			table: {
+				category: "Customization",
+			},
+		},
+		inputMode: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		isLabelVisible: {
+			table: {
+				category: "Customization",
+			},
+		},
 		isVisibilityToggleable: {
 			table: {
 				category: "Visibility",
@@ -38,6 +83,11 @@ const meta = {
 		isVisible: {
 			table: {
 				category: "Visibility",
+			},
+		},
+		marginBottom: {
+			table: {
+				category: "Customization",
 			},
 		},
 		onBlur: {
@@ -70,6 +120,21 @@ const meta = {
 				category: "Event handlers",
 			},
 		},
+		placeholder: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		readOnly: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		size: {
+			table: {
+				category: "Customization",
+			},
+		},
 		slotLeft: {
 			table: {
 				category: "Slots",
@@ -78,6 +143,31 @@ const meta = {
 		slotRight: {
 			table: {
 				category: "Slots",
+			},
+		},
+		type: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		value: {
+			table: {
+				category: "HTML element props",
+			},
+		},
+		errorMessage: {
+			table: {
+				category: "Validation / errors",
+			},
+		},
+		invalid: {
+			table: {
+				category: "Validation / errors",
+			},
+		},
+		hasBorder: {
+			table: {
+				category: "Customisation",
 			},
 		},
 	},

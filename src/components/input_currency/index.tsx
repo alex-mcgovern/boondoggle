@@ -25,8 +25,9 @@ import type {
 	WithWrapperProps,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
-import type { WithOptionalInputAddons } from "../input";
+
 import type { SelectItemShape } from "../select/types";
+import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
 
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**
@@ -102,8 +103,7 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 	WithReadOnly &
 	WithSize &
 	WithSlots &
-	WithStateInvalid &
-	WithWrapperProps & {
+	WithStateInvalid & {
 		/**
 		 * Initial value on first render.
 		 */
@@ -179,7 +179,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 						onCurrencyChange?.(item?.value);
 					}}
 					placeholder={currency}
-					wrapperProps={{ marginBottom: "none" }}
+					marginBottom="none"
 				/>
 			);
 		}

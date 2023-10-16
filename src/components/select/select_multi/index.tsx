@@ -31,7 +31,6 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-	WithWrapperProps,
 } from "../../../common-types";
 import type { InputProps } from "../../input";
 import type {
@@ -39,6 +38,7 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
+import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,
@@ -94,8 +94,13 @@ export type SelectMultiProps<
 	WithSize &
 	WithStateDisabled &
 	WithName &
-	WithWrapperProps &
 	WithOptionalPlaceholder & {
+		/**
+		 * The bottom margin applied to the input element.
+		 * @default "space_6" (1.5rem / 24px)
+		 */
+		marginBottom?: SprinklesArgs["marginBottom"];
+
 		/**
 		 * Item to be preselected when the component mounts.
 		 */
@@ -175,7 +180,7 @@ function SelectMultiBase<
 		slotLeft,
 		slotRight = <Icon icon={faAngleDown} />,
 		strClear,
-		wrapperProps,
+		marginBottom = "space_6",
 	}: SelectMultiProps<TValue, TItemData>,
 	initialRef: ForwardedRef<HTMLInputElement>,
 ) {
@@ -310,6 +315,7 @@ function SelectMultiBase<
 				outerRef={refs.setReference}
 				size={size}
 				slotLeft={slotLeft}
+				marginBottom={marginBottom}
 				slotRight={getSlotRight({
 					isClearable:
 						(!!isFilterable && !!inputValue) ||
@@ -318,7 +324,6 @@ function SelectMultiBase<
 					slotRight,
 					strClear,
 				})}
-				wrapperProps={wrapperProps}
 				{...getInputProps?.({
 					className: clsx(selectInputCursorStyles, {
 						[selectMultiInputSelectedItemsStyle]:

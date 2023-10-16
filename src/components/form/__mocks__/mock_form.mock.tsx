@@ -68,13 +68,8 @@ export const mockForm = ({
 					label={LOREM.labelEmail()}
 					name="email"
 					placeholder="Enter your email address"
-					wrapperProps={WRAPPER_PROPS}
 				/>
-				<FormInputDate
-					label="Date"
-					name="date"
-					wrapperProps={WRAPPER_PROPS}
-				/>
+				<FormInputDate label="Date" name="date" />
 				<FormInputCurrency<MockCurrency>
 					currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
 					currencySelectLabel="Currency"
