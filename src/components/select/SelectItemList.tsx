@@ -12,12 +12,12 @@ import type {
 } from "downshift";
 import type { CSSProperties, ForwardedRef } from "react";
 import type { WithSize } from "../../common-types";
+import { SelectSeparator } from "./SelectSeparator";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 } from "./types";
-import { SelectSeparator } from "./SelectSeparator";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`

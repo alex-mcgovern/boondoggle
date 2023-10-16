@@ -1,9 +1,9 @@
 import { styleVariants } from "@vanilla-extract/css";
-import { utilCss } from "../../styles/utils/util_css.css";
 import { calc } from "@vanilla-extract/css-utils";
+import { recipe } from "@vanilla-extract/recipes";
 import { elementPaddingRaw } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
-import { recipe } from "@vanilla-extract/recipes";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 const separatorSize = styleVariants({
 	lg: [
