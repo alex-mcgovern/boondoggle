@@ -2,6 +2,7 @@ import { arrayHasLength } from "../../lib/array_has_length";
 import { isTruthy } from "../../lib/is_truthy";
 import { isFlatSelectItems } from "./isFlatSelectItems";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
+import { isNotSeparator } from "./isNotSeparator";
 
 import type { FlatSelectItems, GroupedSelectItems } from "./types";
 
@@ -38,11 +39,16 @@ export function filterSelectItems<
 	if (isFlatSelectItems(items)) {
 		return items.filter((item) => {
 			return (
-				item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
-				item.value.toLowerCase().includes(inputValue.toLowerCase()) ||
-				item.tags?.some((tag) => {
-					return tag.toLowerCase().includes(inputValue.toLowerCase());
-				})
+				isNotSeparator(item) &&
+				(item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+					item.value
+						.toLowerCase()
+						.includes(inputValue.toLowerCase()) ||
+					item.tags?.some((tag) => {
+						return tag
+							.toLowerCase()
+							.includes(inputValue.toLowerCase());
+					}))
 			);
 		});
 	}
@@ -52,17 +58,18 @@ export function filterSelectItems<
 			.map((group) => {
 				const filteredWithinGroup = group.items.filter((item) => {
 					return (
-						item.label
+						isNotSeparator(item) &&
+						(item.label
 							.toLowerCase()
 							.includes(inputValue.toLowerCase()) ||
-						item.value
-							.toLowerCase()
-							.includes(inputValue.toLowerCase()) ||
-						item.tags?.some((tag) => {
-							return tag
+							item.value
 								.toLowerCase()
-								.includes(inputValue.toLowerCase());
-						})
+								.includes(inputValue.toLowerCase()) ||
+							item.tags?.some((tag) => {
+								return tag
+									.toLowerCase()
+									.includes(inputValue.toLowerCase());
+							}))
 					);
 				});
 
