@@ -4,9 +4,7 @@
 	"description": "Boondoggle design system component library",
 	"version": "0.14.98",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/alex-mcgovern/boondoggle.design"
@@ -18,6 +16,7 @@
 	"scripts": {
 		"build-storybook": "storybook build",
 		"build:dev": "rm -rf lib && tsup --watch",
+		"fix": "biome check --apply-unsafe .",
 		"build:docs": "storybook build -o build",
 		"build:prod": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=16384' tsup",
 		"build:watch": "tsup --watch",

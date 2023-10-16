@@ -1,22 +1,13 @@
 "use client";
-import * as React from "react";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import { getOptionalLabelProps } from "../../common-types";
-import { useForwardRef } from "../../hooks/use_forward_ref";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import { FieldActionButtonClear } from "../field_action_button_clear";
-import { FieldActionButtonCopy } from "../field_action_button_copy";
-import { FieldActionButtonVisibility } from "../field_action_button_visibility";
-import { FieldWrapper } from "../field_wrapper";
-import { clearButtonStyle, inputStyles } from "./styles.css";
-import { useFieldCopyableState } from "./use_field_copyable_state";
-import { useFieldVisibilityState } from "./use_field_visibility_state";
+import * as React from "react";
 import type {
 	ChangeEvent,
 	ComponentPropsWithoutRef,
 	ForwardedRef,
 } from "react";
+import { getOptionalLabelProps } from "../../common-types";
 import type {
 	WithColorOverlay,
 	WithDescription,
@@ -32,12 +23,21 @@ import type {
 	WithSlots,
 	WithStateInvalid,
 } from "../../common-types";
+import { useForwardRef } from "../../hooks/use_forward_ref";
+import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import { FieldActionButtonClear } from "../field_action_button_clear";
+import { FieldActionButtonCopy } from "../field_action_button_copy";
+import { FieldActionButtonVisibility } from "../field_action_button_visibility";
+import { FieldWrapper } from "../field_wrapper";
 import {
 	InputAddonWrapper,
 	WithOptionalInputAddons,
 } from "./InputAddonWrapper";
 import { InputSlotWrapper } from "./InputSlotWrapper";
+import { clearButtonStyle, inputStyles } from "./styles.css";
+import { useFieldCopyableState } from "./use_field_copyable_state";
+import { useFieldVisibilityState } from "./use_field_visibility_state";
 
 export type InputProps = Partial<
 	Pick<

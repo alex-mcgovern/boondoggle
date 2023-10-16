@@ -1,6 +1,6 @@
 import { WithSize } from "../../common-types";
 import { InputAddonTab } from "./InputAddonTab";
-import { getAddonWrapperStyle, addonChildrenStyle } from "./styles.css";
+import { addonChildrenStyle, getAddonWrapperStyle } from "./styles.css";
 
 export type WithOptionalInputAddons = {
 	/**

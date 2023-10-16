@@ -81,7 +81,6 @@ export const mockForm = ({
 					name="value"
 					onCurrencyChange={() => {}}
 					placeholder="Enter a value"
-					wrapperProps={WRAPPER_PROPS}
 				/>
 				<FormTextArea
 					defaultValue={
@@ -103,7 +102,6 @@ export const mockForm = ({
 					label={LOREM.labelDropdown()}
 					name="select"
 					placeholder="Select an option from the dropdown"
-					wrapperProps={WRAPPER_PROPS}
 				/>
 
 				<FormSlider

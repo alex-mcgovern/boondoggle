@@ -65,18 +65,6 @@ export const IsFilterable: Story = {
 	},
 };
 
-export const Customisation: Story = {
-	args: {
-		wrapperProps: {
-			background: "tint_default",
-			border: "border_default",
-			borderRadius: "lg",
-			padding: "space_5",
-			// width: "100%",
-		},
-	},
-};
-
 export const Disabled: Story = {
 	args: {
 		disabled: true,

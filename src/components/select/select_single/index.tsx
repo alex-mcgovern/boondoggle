@@ -30,17 +30,16 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-	WithWrapperProps,
 } from "../../../common-types";
+import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../../input";
+import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
-import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
-import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 
 export type SelectSingleProps<
 	TValue extends string = string,

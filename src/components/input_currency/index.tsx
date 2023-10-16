@@ -22,12 +22,11 @@ import type {
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-	WithWrapperProps,
 } from "../../common-types";
 import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
 
-import type { SelectItemShape } from "../select/types";
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
+import type { SelectItemShape } from "../select/types";
 
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**
@@ -88,7 +87,6 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 		| "disabled"
 	>
 > &
-	SprinklesArgs &
 	WithColorOverlay &
 	WithDescription &
 	WithHideLastpass &
@@ -104,6 +102,11 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 	WithSize &
 	WithSlots &
 	WithStateInvalid & {
+		/**
+		 * The bottom margin applied to the input element.
+		 * @default "space_6" (1.5rem / 24px)
+		 */
+		marginBottom?: SprinklesArgs["marginBottom"];
 		/**
 		 * Initial value on first render.
 		 */
@@ -136,6 +139,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 		currencySelectLabel,
 		defaultValue,
 		initialCurrency,
+		marginBottom,
 		isCurrencyEditable,
 		locale,
 		onChange: initOnChange,
@@ -203,6 +207,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 			ref={ref}
 			selectionRange={value.selection}
 			value={value.formatted}
+			marginBottom={marginBottom}
 			{...rest}
 		/>
 	);

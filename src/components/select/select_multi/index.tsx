@@ -32,13 +32,13 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
+import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 import type { InputProps } from "../../input";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
-import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,

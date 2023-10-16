@@ -1,6 +1,6 @@
+import * as React from "react";
 import { WithSize } from "../../common-types";
 import { getInputAddonTabStyle } from "./styles.css";
-import * as React from "react";
 
 export function InputAddonTab({
 	children,
