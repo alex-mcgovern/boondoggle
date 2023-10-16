@@ -24,8 +24,8 @@ import type {
 	WithStateInvalid,
 } from "../../common-types";
 import { useForwardRef } from "../../hooks/use_forward_ref";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 import { FieldActionButtonClear } from "../field_action_button_clear";
 import { FieldActionButtonCopy } from "../field_action_button_copy";
 import { FieldActionButtonVisibility } from "../field_action_button_visibility";
@@ -76,7 +76,7 @@ export type InputProps = Partial<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: SprinklesArgs["marginBottom"];
+		marginBottom?: UtilCssArgs["marginBottom"];
 
 		/**
 		 * Whether to render the input with a border.
@@ -156,7 +156,7 @@ function InputBase(
 	}, [inputRef]);
 
 	const { atomProps, otherProps } = React.useMemo(() => {
-		return extractAtomsFromProps(rest, getSprinkles);
+		return extractAtomsFromProps(rest, utilCss);
 	}, [rest]);
 
 	const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
@@ -190,7 +190,7 @@ function InputBase(
 				size={size}
 			>
 				<InputSlotWrapper
-					className={clsx(getSprinkles(atomProps), userClassName)}
+					className={clsx(utilCss(atomProps), userClassName)}
 					disabled={disabled}
 					focus={focus}
 					hasBorder={hasBorder}

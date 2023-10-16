@@ -22,14 +22,14 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
-import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../../styles/utils/util_css";
 import type { ButtonProps } from "../../button";
 import type { SelectItemShape } from "../types";
 
 export type SelectButtonProps<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
-> = SprinklesArgs &
+> = UtilCssArgs &
 	WithName &
 	WithSize &
 	WithSlots &
@@ -83,7 +83,7 @@ export type SelectButtonProps<
 		/**
 		 * Props to customise the wrapper Box component.
 		 */
-		wrapperProps?: Omit<SprinklesArgs, "position">;
+		wrapperProps?: Omit<UtilCssArgs, "position">;
 	};
 
 /**

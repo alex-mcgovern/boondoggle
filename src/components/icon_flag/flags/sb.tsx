@@ -1,23 +1,20 @@
 import clsx from "clsx";
 
-import { getSprinkles } from "../../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../../styles/utils/util_css";
 import { Box } from "../../box";
 import { flagStyles } from "../styles.css";
 
-import type { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../../styles/utils/util_css";
 
 export function FlagSb({
 	height = "space_8",
 	width = "space_8",
 	...rest
-}: SprinklesArgs) {
+}: UtilCssArgs) {
 	return (
 		<Box
 			as="svg"
-			className={clsx(
-				flagStyles,
-				getSprinkles({ height, width, ...rest }),
-			)}
+			className={clsx(flagStyles, utilCss({ height, width, ...rest }))}
 			viewBox="0 0 512 512"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"

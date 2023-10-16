@@ -10,7 +10,7 @@ import {
 } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 
 const size = styleVariants({
@@ -32,7 +32,7 @@ const hasSlotRight = styleVariants({ false: {}, true: {} });
 export const getSlotWrapperStyles = recipe({
 	base: [
 		inputSlotWrapperDoNotRemoveOrYouWillBeFired,
-		getSprinkles({
+		utilCss({
 			alignItems: "center",
 			background: "background",
 			border: "border_default",
@@ -177,7 +177,7 @@ globalStyle(
 );
 
 export const inputStyles = style([
-	getSprinkles({
+	utilCss({
 		flexGrow: "1",
 		fontStyle: "bodyMd",
 		height: "space_6",
@@ -244,7 +244,7 @@ const tabSize = styleVariants({
 
 export const getInputAddonTabStyle = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			alignItems: "center",
 			background: "tint_default",
 			color: "text_low_contrast",
@@ -310,7 +310,7 @@ const hasAddonRight = styleVariants({
 
 export const getAddonWrapperStyle = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			alignItems: "center",
 			display: "flex",
 			width: "100%",

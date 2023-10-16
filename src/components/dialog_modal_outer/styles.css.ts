@@ -11,12 +11,12 @@ import {
 } from "../../styles/common/media_queries.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const getDialogModalOuterStyle = recipe({
 	base: [
 		animateSlideUp,
-		getSprinkles({
+		utilCss({
 			background: "background",
 			margin: "auto",
 			padding: "none",

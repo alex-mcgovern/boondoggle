@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const avatarStyle = style([
-	getSprinkles({
+	utilCss({
 		alignItems: "center",
 		background: "button_active",
 		border: "border_default",

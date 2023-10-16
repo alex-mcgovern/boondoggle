@@ -1,7 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
 
 import { vars } from "../theme.css";
-import { getSprinkles } from "../utils/get_sprinkles.css";
+import { utilCss } from "../utils/util_css";
 
 export const elementHeight = {
 	lg: vars.spacing.space_12,
@@ -26,17 +26,17 @@ export const elementPaddingRaw = {
 
 export const elementFontSize = styleVariants({
 	lg: [
-		getSprinkles({
+		utilCss({
 			fontStyle: "bodyLg",
 		}),
 	],
 	md: [
-		getSprinkles({
+		utilCss({
 			fontStyle: "bodyMd",
 		}),
 	],
 	sm: [
-		getSprinkles({
+		utilCss({
 			fontStyle: "bodySm",
 		}),
 	],

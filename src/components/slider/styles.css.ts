@@ -7,10 +7,10 @@ import {
 } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const sliderRoot = style([
-	getSprinkles({
+	utilCss({
 		alignItems: "center",
 		display: "flex",
 		marginY: "space_2",
@@ -33,7 +33,7 @@ export const sliderRoot = style([
 ]);
 
 export const sliderTrack = style([
-	getSprinkles({
+	utilCss({
 		borderRadius: "sm",
 		position: "relative",
 	}),
@@ -52,7 +52,7 @@ export const sliderTrack = style([
 ]);
 
 export const sliderRange = style([
-	getSprinkles({
+	utilCss({
 		background: "button_default",
 		borderRadius: "pill",
 		height: "100%",
@@ -61,7 +61,7 @@ export const sliderRange = style([
 ]);
 
 export const sliderThumb = style([
-	getSprinkles({
+	utilCss({
 		background: "tint_default",
 		border: "border_hover",
 		borderRadius: "50%",

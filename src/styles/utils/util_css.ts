@@ -4,14 +4,14 @@ import {
 	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_TABLET,
 } from "../common/media_queries.css";
-import { sprinklesLayer } from "../layers.css";
+import { utilCssLayer } from "../layers.css";
 import { vars } from "../theme.css";
 
 /**
  * Util function for extracting color vars for use with a sprinkles property
  */
-export const sprinklesProperties = defineProperties({
-	"@layer": sprinklesLayer,
+export const utilCssProperties = defineProperties({
+	"@layer": utilCssLayer,
 	properties: {
 		alignItems: ["stretch", "start", "center", "end", "baseline"],
 		aspectRatio: vars.aspectRatio,
@@ -83,7 +83,7 @@ export const sprinklesProperties = defineProperties({
 	},
 });
 
-export const responsiveSprinklesProperties = defineProperties({
+export const responsiveUtilCssProperties = defineProperties({
 	/**
 	 * Note, the ordering of conditions is important
 	 */
@@ -117,9 +117,9 @@ export const responsiveSprinklesProperties = defineProperties({
 	},
 });
 
-export const getSprinkles = createSprinkles(
-	sprinklesProperties,
-	responsiveSprinklesProperties,
+export const utilCss = createSprinkles(
+	utilCssProperties,
+	responsiveUtilCssProperties,
 );
 
-export type SprinklesArgs = Parameters<typeof getSprinkles>[0];
+export type UtilCssArgs = Parameters<typeof utilCss>[0];

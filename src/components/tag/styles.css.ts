@@ -5,21 +5,21 @@ import { a11yFocus } from "../../styles/common/a11y.css";
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../styles/common/selectors.css";
 import { variantColorOverlay, vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 const tagSize = styleVariants({
 	lg: [
-		getSprinkles({
+		utilCss({
 			fontStyle: "bodyMd",
 		}),
 	],
 	md: [
-		getSprinkles({
+		utilCss({
 			fontStyle: "bodySm",
 		}),
 	],
 	sm: [
-		getSprinkles({
+		utilCss({
 			fontStyle: "bodySm",
 		}),
 	],
@@ -27,7 +27,7 @@ const tagSize = styleVariants({
 
 export const getTagStyle = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			alignItems: "center",
 			background: "tint_default",
 			borderRadius: "md",

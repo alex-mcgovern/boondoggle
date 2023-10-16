@@ -2,10 +2,10 @@ import { style } from "@vanilla-extract/css";
 
 import { MEDIA_QUERY_MOBILE } from "../../styles/common/media_queries.css";
 import { vars } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const dialogHeaderStyle = style([
-	getSprinkles({
+	utilCss({
 		alignItems: "center",
 		borderBottom: "border_default",
 		display: "flex",
@@ -16,7 +16,7 @@ export const dialogHeaderStyle = style([
 ]);
 
 export const dialogTitleStyle = style([
-	getSprinkles({
+	utilCss({
 		fontWeight: "semibold",
 		marginY: "none",
 	}),

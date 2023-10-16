@@ -6,4 +6,4 @@ export const baseLayer = globalLayer("base");
 
 export const themeLayer = globalLayer("theme");
 
-export const sprinklesLayer = globalLayer("sprinkles");
+export const utilCssLayer = globalLayer("sprinkles");

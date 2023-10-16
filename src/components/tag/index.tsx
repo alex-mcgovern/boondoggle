@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
@@ -21,9 +21,9 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 } from "../../common-types";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 
-type BaseTagProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
+type BaseTagProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithColorOverlay &
@@ -71,10 +71,7 @@ export const Tag: TagComponent = forwardRef(
 		/**
 		 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(
-			rest,
-			getSprinkles,
-		);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
 
 		const Component = as || "div";
 
@@ -84,7 +81,7 @@ export const Tag: TagComponent = forwardRef(
 					className: clsx(
 						userClassName,
 						styles.getTagStyle({ colorOverlay, size }),
-						getSprinkles(atomProps),
+						utilCss(atomProps),
 						a11yFocus,
 					),
 					id,

@@ -11,7 +11,7 @@ import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { BoxProps as StoryCompProps } from ".";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 
 export default {
 	component: StoryComp,
@@ -46,7 +46,7 @@ export const ExamplePolymorphismReactComponent: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
-const BASIC_SPRINKLES_PROPS: SprinklesArgs = {
+const BASIC_SPRINKLES_PROPS: UtilCssArgs = {
 	background: "tint_default",
 	border: "border_default",
 	borderRadius: "sm",

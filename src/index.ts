@@ -4,9 +4,9 @@ export * as stylesheet from "./styles/stylesheet.css";
 
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 
-export { getSprinkles } from "./styles/utils/get_sprinkles.css";
+export { utilCss } from "./styles/utils/util_css";
 
-export type { SprinklesArgs } from "./styles/utils/get_sprinkles.css";
+export type { UtilCssArgs } from "./styles/utils/util_css";
 
 export type { ColorOverlay } from "./styles/theme.css";
 

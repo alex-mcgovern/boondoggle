@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
@@ -21,9 +21,9 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 } from "../../common-types";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 
-type BasePillProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
+type BasePillProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithColorOverlay &
@@ -71,10 +71,7 @@ export const Pill: PillComponent = forwardRef(
 		/**
 		 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(
-			rest,
-			getSprinkles,
-		);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
 
 		const Component = as || "div";
 
@@ -84,7 +81,7 @@ export const Pill: PillComponent = forwardRef(
 					className: clsx(
 						userClassName,
 						styles.getPillStyle({ colorOverlay, size }),
-						getSprinkles({
+						utilCss({
 							...atomProps,
 							paddingLeft: slotLeft ? "space_1" : "space_2",
 							paddingRight: slotRight ? "space_1" : "space_2",

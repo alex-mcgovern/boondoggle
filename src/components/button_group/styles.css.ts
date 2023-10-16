@@ -1,10 +1,10 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 
 export const buttonGroupStyles = style([
-	getSprinkles({ alignItems: "stretch", display: "flex" }),
+	utilCss({ alignItems: "stretch", display: "flex" }),
 	{
 		borderCollapse: "collapse",
 	},

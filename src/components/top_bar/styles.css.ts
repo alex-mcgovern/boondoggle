@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const topBarStyle = style([
 	style([
-		getSprinkles({
+		utilCss({
 			alignItems: "center",
 			background: "tint_default",
 			borderBottom: "border_default",

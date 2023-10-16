@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
 import { vars } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const fieldsGridStyle = style([
-	getSprinkles({
+	utilCss({
 		display: "grid",
 		gridTemplateColumns: {
 			mobile: "1x",

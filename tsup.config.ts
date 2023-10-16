@@ -15,7 +15,7 @@ export default defineConfig({
 	entry: ["src/index.ts"],
 	esbuildPlugins: [
 		vanillaExtractPlugin({
-			identifiers: "debug",
+			identifiers: "short",
 			outputCss: true,
 			runtime: false,
 		}),

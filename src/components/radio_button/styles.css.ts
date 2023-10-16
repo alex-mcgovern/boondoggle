@@ -3,10 +3,10 @@ import { style } from "@vanilla-extract/css";
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const radioButtonWrapperStyles = style([
-	getSprinkles({
+	utilCss({
 		alignItems: "start",
 		borderRadius: "sm",
 		display: "flex",
@@ -16,7 +16,7 @@ export const radioButtonWrapperStyles = style([
 
 export const radioButtonInputStyles = style([
 	a11yFocus,
-	getSprinkles({ borderRadius: "50%", marginTop: "space_2" }),
+	utilCss({ borderRadius: "50%", marginTop: "space_2" }),
 ]);
 
 export const radioButtonLabelStyles = style([

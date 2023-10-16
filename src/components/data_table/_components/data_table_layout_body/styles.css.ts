@@ -8,7 +8,7 @@ import {
 } from "../../../../styles/stylesheet.css";
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../../../styles/utils/util_css";
 
 const baseBodyStyle = style({});
 
@@ -49,7 +49,7 @@ const baseRowStyles = style({});
 export const rowStyles = style([
 	tRowStyles,
 	baseRowStyles,
-	getSprinkles({
+	utilCss({
 		color: "text_high_contrast",
 		textDecoration: "none",
 	}),

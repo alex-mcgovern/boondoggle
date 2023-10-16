@@ -2,10 +2,10 @@ import { style } from "@vanilla-extract/css";
 
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../../../styles/common/selectors.css";
 import { vars } from "../../../../styles/theme.css";
-import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../../../styles/utils/util_css";
 
 export const dataTableCellButtonStyle = style([
-	getSprinkles({
+	utilCss({
 		color: "text_high_contrast",
 		fontStyle: "bodyMd",
 		fontWeight: "medium",

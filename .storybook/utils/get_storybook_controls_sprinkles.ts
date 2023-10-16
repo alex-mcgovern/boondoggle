@@ -1,6 +1,6 @@
 /**
  * Util to generate Storybook controls for all
- * {@link SprinklesArgs} and group them in the UI.
+ * {@link UtilCssArgs} and group them in the UI.
  */
 export const getSprinklesControls = (sprinkles) => {
 	return Object.keys(sprinkles.styles).reduce((accumulator, sprinkleKey) => {

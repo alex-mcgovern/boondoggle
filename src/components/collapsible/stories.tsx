@@ -2,7 +2,7 @@ import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 
 import { Collapsible as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
@@ -15,7 +15,7 @@ export default {
 
 const TriggerNode = (
 	<button
-		className={getSprinkles({
+		className={utilCss({
 			alignItems: "center",
 			color: "text_high_contrast",
 			display: "flex",

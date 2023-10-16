@@ -17,10 +17,10 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio_button";
 
-export type RadioButtonGroupProps = SprinklesArgs &
+export type RadioButtonGroupProps = UtilCssArgs &
 	WithWrapperProps &
 	WithStateInvalid &
 	WithName &

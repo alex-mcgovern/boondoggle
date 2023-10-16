@@ -10,7 +10,7 @@ import {
 } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 const selectItemSize = styleVariants({
 	lg: [
@@ -44,7 +44,7 @@ const selectItemSize = styleVariants({
 
 export const getSelectItemStyles = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			alignItems: "center",
 			borderRadius: "md",
 			color: "text_low_contrast",

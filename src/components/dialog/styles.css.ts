@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { animateFadeIn } from "../../styles/common/animations.css";
 import { vars } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 const placement = styleVariants({
 	"bottom-center": [
@@ -50,7 +50,7 @@ export const getDialogStyles = recipe({
 				},
 			},
 		},
-		getSprinkles({
+		utilCss({
 			padding: "none",
 			zIndex: "1",
 		}),

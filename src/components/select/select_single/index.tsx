@@ -31,7 +31,7 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
-import { SprinklesArgs } from "../../../styles/utils/get_sprinkles.css";
+import { UtilCssArgs } from "../../../styles/utils/util_css";
 import type { InputProps } from "../../input";
 import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
 import type {
@@ -59,7 +59,7 @@ export type SelectSingleProps<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: SprinklesArgs["marginBottom"];
+		marginBottom?: UtilCssArgs["marginBottom"];
 
 		/**
 		 * Item to be preselected when the component mounts.

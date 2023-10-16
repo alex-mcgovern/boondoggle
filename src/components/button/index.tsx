@@ -8,7 +8,7 @@ import { forwardRef, useMemo } from "react";
 
 import { exhaustiveSwitchGuard } from "../../lib/exhaustive_switch_guard";
 import { variantColorOverlay } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot_wrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
@@ -29,7 +29,7 @@ import type {
 	WithStateDisabled,
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 import type { Alignment, Appearance } from "./styles.css";
 
 /**
@@ -72,7 +72,7 @@ const getLoadingSlotSide = ({
 	return "right";
 };
 
-type BaseButtonProps<TPolymorphicAs extends ElementType> = SprinklesArgs &
+type BaseButtonProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithStateDisabled &
@@ -162,10 +162,7 @@ export const Button: ButtonComponent = forwardRef(
 		}: BaseButtonProps<TPolymorphicAs>,
 		ref?: PolymorphicRef<TPolymorphicAs>,
 	) => {
-		const { atomProps, otherProps } = extractAtomsFromProps(
-			rest,
-			getSprinkles,
-		);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
 
 		const Component = as || "button";
 
@@ -186,7 +183,7 @@ export const Button: ButtonComponent = forwardRef(
 										appearance,
 										size,
 									}),
-									getSprinkles(atomProps),
+									utilCss(atomProps),
 									userClassName,
 									colorOverlay
 										? variantColorOverlay[colorOverlay]
@@ -229,7 +226,7 @@ export const Button: ButtonComponent = forwardRef(
 					"aria-disabled": disabled,
 					className: clsx(
 						getButtonStyles({ alignment, appearance, size }),
-						getSprinkles(atomProps),
+						utilCss(atomProps),
 						userClassName,
 						colorOverlay
 							? variantColorOverlay[colorOverlay]

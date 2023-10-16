@@ -23,7 +23,7 @@ import type {
 	WithSlots,
 	WithStateInvalid,
 } from "../../common-types";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
 import type { SelectItemShape } from "../select/types";
@@ -106,7 +106,7 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: SprinklesArgs["marginBottom"];
+		marginBottom?: UtilCssArgs["marginBottom"];
 		/**
 		 * Initial value on first render.
 		 */

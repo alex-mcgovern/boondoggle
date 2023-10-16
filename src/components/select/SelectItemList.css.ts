@@ -5,7 +5,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { elementPaddingRaw } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 const groupTitleSize = styleVariants({
 	lg: {
@@ -42,7 +42,7 @@ const groupTitleSize = styleVariants({
 
 export const getGroupTitle = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			color: "text_low_contrast",
 			fontStyle: "bodySm",
 			marginY: "space_2",
@@ -56,7 +56,7 @@ export const getGroupTitle = recipe({
 export const getOuter = recipe({
 	base: [
 		a11yFocus,
-		getSprinkles({
+		utilCss({
 			background: "background",
 			border: "border_default",
 			borderRadius: "md",
@@ -76,7 +76,7 @@ export const getOuter = recipe({
 });
 
 export const inner = style([
-	getSprinkles({
+	utilCss({
 		overflowY: "auto",
 		padding: "space_1",
 	}),

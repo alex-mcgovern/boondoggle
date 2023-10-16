@@ -2,7 +2,7 @@ import { flexRender } from "@tanstack/react-table";
 import clsx from "clsx";
 
 import { thStyles } from "../../../../styles/stylesheet.css";
-import { getSprinkles } from "../../../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../../../styles/utils/util_css";
 import { DataTableControlTableHeadSort } from "../data_table_control_table_head_sort";
 
 import type { Header } from "@tanstack/react-table";
@@ -37,7 +37,7 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 			<div
 				className={clsx(
 					thStyles,
-					getSprinkles({
+					utilCss({
 						background: isSticky ? "white" : undefined,
 						position: isSticky ? "sticky" : undefined,
 						top: isSticky ? "0" : undefined,
@@ -60,7 +60,7 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 		<div
 			className={clsx(
 				thStyles,
-				getSprinkles({
+				utilCss({
 					background: isSticky ? "white" : undefined,
 					position: isSticky ? "sticky" : undefined,
 					top: isSticky ? "0" : undefined,

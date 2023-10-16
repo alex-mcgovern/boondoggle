@@ -7,7 +7,7 @@ import {
 	elementHeight,
 	elementPadding,
 } from "../../styles/common/element_size.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 const size = styleVariants({
 	lg: [
@@ -29,7 +29,7 @@ const size = styleVariants({
 
 export const getTextAreaStyles = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			width: "100%",
 		}),
 		a11yDisabled,

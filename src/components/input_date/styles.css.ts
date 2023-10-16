@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const datePickerDialogStyle = style([
 	a11yFocus,
-	getSprinkles({
+	utilCss({
 		background: "background",
 		border: "border_default",
 		borderRadius: "md",

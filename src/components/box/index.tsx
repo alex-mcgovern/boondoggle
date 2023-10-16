@@ -1,9 +1,9 @@
 import { createBox } from "@dessert-box/react";
 
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 import type { ComponentPropsWithoutRef } from "react";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 
 /**
  * Polymorphic `Box` component that allows customisation with
@@ -13,7 +13,7 @@ import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
  * - https://vanilla-extract.style/documentation/packages/sprinkles/
  */
 export const Box = createBox({
-	atoms: getSprinkles,
+	atoms: utilCss,
 });
 
-export type BoxProps = ComponentPropsWithoutRef<typeof Box> & SprinklesArgs;
+export type BoxProps = ComponentPropsWithoutRef<typeof Box> & UtilCssArgs;

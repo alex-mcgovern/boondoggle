@@ -3,7 +3,7 @@ import { Box } from "../../../box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
 
 import type { Table } from "@tanstack/react-table";
-import type { SprinklesArgs } from "../../../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../../../styles/utils/util_css";
 import { getHeadStyle } from "./styles.css";
 
 type DataTableLayoutHeadProps<TTableData> = {
@@ -31,7 +31,7 @@ type DataTableLayoutHeadProps<TTableData> = {
 	 * The `react-table` instance to control.
 	 */
 	table: Table<TTableData>;
-} & SprinklesArgs;
+} & UtilCssArgs;
 
 /**
  * Renders the table head for the DataTable.

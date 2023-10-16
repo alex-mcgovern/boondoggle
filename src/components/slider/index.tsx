@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 import { Box } from "../box";
 import { FieldErrorMessage } from "../field_error_message";
 import { FieldLabel } from "../field_label";
@@ -22,10 +22,10 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { SprinklesArgs } from "../../styles/utils/get_sprinkles.css";
+import type { UtilCssArgs } from "../../styles/utils/util_css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
-	SprinklesArgs &
+	UtilCssArgs &
 	WithWrapperProps &
 	WithOptionalLabel &
 	WithStateInvalid &
@@ -64,10 +64,7 @@ export const Slider = forwardRef(
 	) => {
 		const labelId = id ? `${id}-label` : undefined;
 
-		const { atomProps, otherProps } = extractAtomsFromProps(
-			rest,
-			getSprinkles,
-		);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
 
 		return (
 			<Box
@@ -93,10 +90,7 @@ export const Slider = forwardRef(
 						aria-label={name}
 						aria-labelledby={label && id ? labelId : undefined}
 						aria-required={required}
-						className={clsx(
-							styles.sliderRoot,
-							getSprinkles(atomProps),
-						)}
+						className={clsx(styles.sliderRoot, utilCss(atomProps))}
 						id={id}
 						name={name}
 						ref={ref}

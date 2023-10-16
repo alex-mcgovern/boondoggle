@@ -1,10 +1,10 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { getSprinkles } from "../../styles/utils/get_sprinkles.css";
+import { utilCss } from "../../styles/utils/util_css";
 
 export const getMainStyles = recipe({
 	base: [
-		getSprinkles({
+		utilCss({
 			marginX: "auto",
 			marginY: "space_6",
 			paddingX: "space_4",
@@ -15,9 +15,9 @@ export const getMainStyles = recipe({
 	},
 	variants: {
 		size: {
-			lg: [getSprinkles({ maxWidth: "main_lg" })],
-			md: [getSprinkles({ maxWidth: "main_md" })],
-			sm: [getSprinkles({ maxWidth: "main_sm" })],
+			lg: [utilCss({ maxWidth: "main_lg" })],
+			md: [utilCss({ maxWidth: "main_md" })],
+			sm: [utilCss({ maxWidth: "main_sm" })],
 		},
 	},
 });
