@@ -64,8 +64,8 @@ export const getOuter = recipe({
 			minWidth: "100%",
 			overflow: "hidden",
 			width: "max-content",
-			zIndex: "1",
 		}),
+		{ zIndex: "999" },
 	],
 	variants: {
 		isOpen: {
