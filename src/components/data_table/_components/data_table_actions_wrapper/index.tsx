@@ -32,11 +32,12 @@ export function DataTableActionsWrapper({
 	return (
 		<Box
 			alignItems="center"
+			borderTop="border_default"
 			borderBottom="border_default"
 			display="flex"
 			gap="space_2"
-			marginTop="space_2"
-			paddingBottom="space_2"
+			marginTop="space_4"
+			paddingY="space_4"
 			{...rest}
 		>
 			{leftAction && <Box>{leftAction}</Box>}
