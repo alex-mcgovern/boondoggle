@@ -183,6 +183,8 @@ function SelectSingleBase<
 		? filterSelectItems({ inputValue, items: initialItems })
 		: initialItems;
 
+	const flatItems = flattenSelectItems(items);
+
 	const {
 		getInputProps,
 		getItemProps,

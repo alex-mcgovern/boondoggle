@@ -1,5 +1,6 @@
 import { isFlatSelectItems } from "./isFlatSelectItems";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
+import { isNotSeparator } from "./isNotSeparator";
 
 import type {
 	FlatSelectItems,
@@ -25,15 +26,15 @@ export function getInitialSelectedItem<
 		| FlatSelectItems<TValue, TItemData>
 		| GroupedSelectItems<TValue, TItemData>
 		| undefined;
-}) {
+}): SelectItemShape<TValue, TItemData> | undefined | null {
 	if (initialSelectedItem) {
 		return initialSelectedItem;
 	}
 
 	if (isFlatSelectItems(items)) {
 		return items.find((item) => {
-			return item.isSelected;
-		});
+			return isNotSeparator<TValue, TItemData>(item) && item.isSelected;
+		}) as SelectItemShape<TValue, TItemData>;
 	}
 
 	if (isGroupedSelectItems(items)) {
@@ -49,8 +50,11 @@ export function getInitialSelectedItem<
 				}
 
 				return group.items.find((item) => {
-					return item.isSelected;
-				});
+					return (
+						isNotSeparator<TValue, TItemData>(item) &&
+						item.isSelected
+					);
+				}) as SelectItemShape<TValue, TItemData>;
 			},
 			undefined,
 		);

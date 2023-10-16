@@ -64,10 +64,12 @@ export type SelectItemShape<
 		value: TValue;
 	};
 
+export type SelectSeparator = "SEPARATOR";
+
 export type FlatSelectItems<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
-> = Array<SelectItemShape<TValue, TItemData>>;
+> = Array<SelectItemShape<TValue, TItemData> | SelectSeparator>;
 
 export type GroupedSelectItems<
 	TValue extends string = string,
@@ -76,7 +78,7 @@ export type GroupedSelectItems<
 	/**
 	 * Items in a section
 	 */
-	items: Array<SelectItemShape<TValue, TItemData>>;
+	items: Array<SelectItemShape<TValue, TItemData> | SelectSeparator>;
 	/**
 	 * Title of the section
 	 */

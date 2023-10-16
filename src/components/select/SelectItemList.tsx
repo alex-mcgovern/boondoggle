@@ -17,6 +17,7 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "./types";
+import { SelectSeparator } from "./SelectSeparator";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
@@ -146,6 +147,12 @@ function SelectItemListBase<
 								</div>
 								<>
 									{group.items.map((item) => {
+										if (item === "SEPARATOR") {
+											return (
+												<SelectSeparator size={size} />
+											);
+										}
+
 										if (!item.label) {
 											return null;
 										}
@@ -220,6 +227,8 @@ function SelectItemListBase<
 		);
 	}
 
+	let index = 0;
+
 	return (
 		<div
 			{...getMenuProps?.({
@@ -229,10 +238,18 @@ function SelectItemListBase<
 			})}
 		>
 			<div className={styles.inner}>
-				{items.map((item, index) => {
+				{items.map((item) => {
+					if (item === "SEPARATOR") {
+						return <SelectSeparator size={size} />;
+					}
+
 					if (!item.label) {
 						return null;
 					}
+
+					// Increment the index for each item
+					// Note that this index is shared across the entire list
+					index += 1;
 
 					const {
 						as,
@@ -245,7 +262,7 @@ function SelectItemListBase<
 						value,
 						...otherItemProps
 					} = item;
-					const isHighlighted = highlightedIndex === index;
+					const isHighlighted = highlightedIndex === index - 1;
 					const isSelected =
 						initIsSelected || getIsItemSelected?.(item);
 					return (

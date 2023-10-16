@@ -14,18 +14,25 @@ export function flattenSelectItems<
 		| FlatSelectItems<TValue, TItemData>
 		| GroupedSelectItems<TValue, TItemData>
 		| undefined,
-) {
+): Array<SelectItemShape<TValue, TItemData>> {
 	if (!items) {
 		return [];
 	}
 
 	if (isFlatSelectItems(items)) {
-		return items;
+		return items.filter((item) => {
+			return item !== "SEPARATOR";
+		}) as Array<SelectItemShape<TValue, TItemData>>;
 	}
 
 	return items.reduce(
 		(prev: Array<SelectItemShape<TValue, TItemData>>, acc) => {
-			return [...prev, ...acc.items];
+			return [
+				...prev,
+				...(acc.items.filter((item) => {
+					return item !== "SEPARATOR";
+				}) as Array<SelectItemShape<TValue, TItemData>>),
+			];
 		},
 		[],
 	);

@@ -174,11 +174,89 @@ export const WithItemsWithSlotLeft: Story = {
 	},
 };
 
-export const WithTags: Story = {
+export const WithSeparator: Story = {
 	args: {
-		isFilterable: true,
-		strClear: "Clear",
-		items: mockSelectItems({ withTags: true }),
+		items: [
+			{
+				description: LOREM.text_xxs,
+				label: "United Kingdom",
+				value: "uk",
+			},
+			{
+				description: LOREM.text_xxs,
+				label: "France",
+				value: "fr",
+			},
+			"SEPARATOR",
+			{
+				description: LOREM.text_xxs,
+				label: "Spain",
+				value: "es",
+			},
+			{
+				description: LOREM.text_xxs,
+				label: "Germany",
+				value: "de",
+			},
+		],
+	},
+};
+
+export const WithSeparatorSizeSm: Story = {
+	args: {
+		size: "sm",
+		items: [
+			{
+				description: LOREM.text_xxs,
+				label: "United Kingdom",
+				value: "uk",
+			},
+			{
+				description: LOREM.text_xxs,
+				label: "France",
+				value: "fr",
+			},
+			"SEPARATOR",
+			{
+				description: LOREM.text_xxs,
+				label: "Spain",
+				value: "es",
+			},
+			{
+				description: LOREM.text_xxs,
+				label: "Germany",
+				value: "de",
+			},
+		],
+	},
+};
+
+export const WithSeparatorSizeLg: Story = {
+	args: {
+		size: "lg",
+		items: [
+			{
+				description: LOREM.text_xxs,
+				label: "United Kingdom",
+				value: "uk",
+			},
+			{
+				description: LOREM.text_xxs,
+				label: "France",
+				value: "fr",
+			},
+			"SEPARATOR",
+			{
+				description: LOREM.text_xxs,
+				label: "Spain",
+				value: "es",
+			},
+			{
+				description: LOREM.text_xxs,
+				label: "Germany",
+				value: "de",
+			},
+		],
 	},
 };
 
@@ -191,5 +269,13 @@ export const WithSlotLeft: Story = {
 export const WithSlots: Story = {
 	args: {
 		slotRight: <Icon icon={faGlobeAfrica} />,
+	},
+};
+
+export const WithTags: Story = {
+	args: {
+		isFilterable: true,
+		strClear: "Clear",
+		items: mockSelectItems({ withTags: true }),
 	},
 };
