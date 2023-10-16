@@ -2,9 +2,11 @@
 	"author": "Alex McGovern",
 	"name": "@alex-mcgovern/boondoggle.design",
 	"description": "Boondoggle design system component library",
-	"version": "0.14.98",
+	"version": "0.14.99",
 	"license": "MIT",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/alex-mcgovern/boondoggle.design"
