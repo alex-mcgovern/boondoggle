@@ -304,6 +304,7 @@ globalStyle("code", {
 	"@layer": {
 		[baseLayer]: {
 			color: "inherit",
+			fontFamily: "monospace",
 			fontWeight: vars.fontWeight.normal,
 		},
 	},
