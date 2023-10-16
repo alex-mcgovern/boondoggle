@@ -24,7 +24,13 @@ import type {
 } from "../../../common-types";
 import type { UtilCssArgs } from "../../../styles/utils/util_css.css";
 import type { ButtonProps } from "../../button";
-import type { SelectItemShape } from "../types";
+import type {
+	FlatSelectItems,
+	GroupedSelectItems,
+	SelectItemShape,
+} from "../types";
+import { isNotSeparator } from "../isNotSeparator";
+import { flattenSelectItems } from "../flattenSelectItems";
 
 export type SelectButtonProps<
 	TValue extends string = string,
@@ -59,7 +65,9 @@ export type SelectButtonProps<
 		/**
 		 * The items to render in the dropdown.
 		 */
-		items: Array<SelectItemShape<TValue, TItemData>>;
+		items:
+			| FlatSelectItems<TValue, TItemData>
+			| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the new selected item when the selection changes.
@@ -122,9 +130,9 @@ function SelectButtonBase<
 		defaultHighlightedIndex: undefined,
 		initialSelectedItem,
 		isItemDisabled: (item) => {
-			return item.disabled;
+			return isNotSeparator(item) && item.disabled;
 		},
-		items,
+		items: flattenSelectItems(items),
 		onSelectedItemChange: (changes) => {
 			return onChange?.(changes.selectedItem);
 		},
