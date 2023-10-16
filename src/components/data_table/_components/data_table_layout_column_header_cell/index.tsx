@@ -2,7 +2,7 @@ import { flexRender } from "@tanstack/react-table";
 import clsx from "clsx";
 
 import { thStyles } from "../../../../styles/stylesheet.css";
-import { utilCss } from "../../../../styles/utils/util_css";
+import { utilCss } from "../../../../styles/utils/util_css.css";
 import { DataTableControlTableHeadSort } from "../data_table_control_table_head_sort";
 
 import type { Header } from "@tanstack/react-table";

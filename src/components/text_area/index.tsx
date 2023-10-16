@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 
 import { getOptionalLabelProps } from "../../common-types";
 import { a11yError } from "../../styles/common/a11y.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 import { FieldWrapper } from "../field_wrapper";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
@@ -24,7 +24,7 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,

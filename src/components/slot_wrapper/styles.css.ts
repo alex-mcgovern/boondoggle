@@ -1,7 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 const slotSize = styleVariants({
 	lg: [utilCss({ height: "space_6", width: "space_6" })],

@@ -2,12 +2,12 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 import * as styles from "./styles.css";
 
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 export type IconProps = FontAwesomeIconProps & {
 	className?: string;

@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { animateFadeIn } from "../../styles/common/animations.css";
 import { variantColorOverlay } from "../../styles/theme.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 export const tooltipTextStyle = style([
 	variantColorOverlay.grey,

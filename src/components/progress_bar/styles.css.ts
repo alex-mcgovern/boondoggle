@@ -2,7 +2,7 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 const size = styleVariants({
 	lg: [

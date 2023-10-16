@@ -12,9 +12,9 @@ import {
 } from "../../styles/common/selectors.css";
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 export const variantButtonSize = styleVariants({
 	lg: [

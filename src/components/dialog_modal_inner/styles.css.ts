@@ -6,7 +6,7 @@ import {
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
 } from "../../styles/common/media_queries.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 const variantWidth = styleVariants({
 	lg: {

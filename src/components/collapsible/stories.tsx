@@ -2,7 +2,7 @@ import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 
 import { Collapsible as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";

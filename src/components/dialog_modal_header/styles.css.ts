@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { MEDIA_QUERY_MOBILE } from "../../styles/common/media_queries.css";
 import { vars } from "../../styles/theme.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 export const dialogHeaderStyle = style([
 	utilCss({

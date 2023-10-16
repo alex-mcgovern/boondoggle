@@ -11,7 +11,7 @@ import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { BoxProps as StoryCompProps } from ".";
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 export default {
 	component: StoryComp,

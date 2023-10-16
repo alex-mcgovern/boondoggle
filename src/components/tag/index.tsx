@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
 
@@ -21,7 +21,7 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 } from "../../common-types";
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 type BaseTagProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<

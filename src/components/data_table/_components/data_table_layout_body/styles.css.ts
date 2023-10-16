@@ -8,7 +8,7 @@ import {
 } from "../../../../styles/stylesheet.css";
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../styles/utils/util_css";
+import { utilCss } from "../../../../styles/utils/util_css.css";
 
 const baseBodyStyle = style({});
 

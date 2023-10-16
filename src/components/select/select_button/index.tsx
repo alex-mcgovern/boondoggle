@@ -22,7 +22,7 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
-import type { UtilCssArgs } from "../../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../../styles/utils/util_css.css";
 import type { ButtonProps } from "../../button";
 import type { SelectItemShape } from "../types";
 

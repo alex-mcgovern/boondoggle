@@ -3,7 +3,7 @@ import { Box } from "../../../box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
 
 import type { Table } from "@tanstack/react-table";
-import type { UtilCssArgs } from "../../../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
 import { getHeadStyle } from "./styles.css";
 
 type DataTableLayoutHeadProps<TTableData> = {

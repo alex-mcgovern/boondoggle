@@ -7,7 +7,7 @@ import {
 	elementHeight,
 	elementPadding,
 } from "../../styles/common/element_size.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 const size = styleVariants({
 	lg: [

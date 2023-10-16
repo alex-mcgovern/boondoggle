@@ -32,7 +32,7 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
-import { UtilCssArgs } from "../../../styles/utils/util_css";
+import { UtilCssArgs } from "../../../styles/utils/util_css.css";
 import type { InputProps } from "../../input";
 import type {
 	FlatSelectItems,

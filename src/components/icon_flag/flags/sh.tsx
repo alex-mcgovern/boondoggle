@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-import { utilCss } from "../../../styles/utils/util_css";
+import { utilCss } from "../../../styles/utils/util_css.css";
 import { Box } from "../../box";
 import { flagStyles } from "../styles.css";
 
-import type { UtilCssArgs } from "../../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../../styles/utils/util_css.css";
 
 export function FlagSh({
 	height = "space_8",

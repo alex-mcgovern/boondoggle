@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../../../styles/common/selectors.css";
 import { vars } from "../../../../styles/theme.css";
-import { utilCss } from "../../../../styles/utils/util_css";
+import { utilCss } from "../../../../styles/utils/util_css.css";
 
 export const dataTableCellButtonStyle = style([
 	utilCss({

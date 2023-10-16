@@ -5,7 +5,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { elementPaddingRaw } from "../../styles/common/element_size.css";
 import { vars } from "../../styles/theme.css";
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 const groupTitleSize = styleVariants({
 	lg: {

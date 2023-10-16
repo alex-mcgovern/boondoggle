@@ -1,7 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
 
 import { vars } from "../theme.css";
-import { utilCss } from "../utils/util_css";
+import { utilCss } from "../utils/util_css.css";
 
 export const elementHeight = {
 	lg: vars.spacing.space_12,

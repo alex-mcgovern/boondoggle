@@ -4,9 +4,9 @@ export * as stylesheet from "./styles/stylesheet.css";
 
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 
-export { utilCss } from "./styles/utils/util_css";
+export { utilCss } from "./styles/utils/util_css.css";
 
-export type { UtilCssArgs } from "./styles/utils/util_css";
+export type { UtilCssArgs } from "./styles/utils/util_css.css";
 
 export type { ColorOverlay } from "./styles/theme.css";
 

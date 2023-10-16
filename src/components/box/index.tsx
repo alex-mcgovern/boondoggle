@@ -1,9 +1,9 @@
 import { createBox } from "@dessert-box/react";
 
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 import type { ComponentPropsWithoutRef } from "react";
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 /**
  * Polymorphic `Box` component that allows customisation with

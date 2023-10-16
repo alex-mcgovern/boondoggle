@@ -3,7 +3,7 @@ import { Children } from "react";
 import { Box } from "../../../box";
 
 import type { ReactNode } from "react";
-import type { UtilCssArgs } from "../../../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
 
 type DataTableActionsWrapperProps = {
 	/**

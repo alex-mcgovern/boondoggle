@@ -23,7 +23,7 @@ import type {
 	WithSlots,
 	WithStateInvalid,
 } from "../../common-types";
-import type { UtilCssArgs } from "../../styles/utils/util_css";
+import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
 import type { SelectItemShape } from "../select/types";

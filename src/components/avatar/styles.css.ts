@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { utilCss } from "../../styles/utils/util_css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 export const avatarStyle = style([
 	utilCss({
