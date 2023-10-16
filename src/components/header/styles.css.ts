@@ -5,7 +5,7 @@ import { utilCss } from "../../styles/utils/util_css.css";
 export const getHeaderStyles = recipe({
 	base: [
 		utilCss({
-			marginBottom: "space_6",
+			marginBottom: "space_4",
 			marginTop: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
