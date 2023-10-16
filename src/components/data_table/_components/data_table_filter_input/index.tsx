@@ -53,6 +53,7 @@ export function DataTableFilterInput({
 			strClear={strClearFilterInput}
 			type="search"
 			value={globalFilter}
+			marginBottom="none"
 		/>
 	);
 }
