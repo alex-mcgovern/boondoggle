@@ -24,13 +24,13 @@ import type {
 } from "../../../common-types";
 import type { UtilCssArgs } from "../../../styles/utils/util_css.css";
 import type { ButtonProps } from "../../button";
+import { flattenSelectItems } from "../flattenSelectItems";
+import { isNotSeparator } from "../isNotSeparator";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
-import { isNotSeparator } from "../isNotSeparator";
-import { flattenSelectItems } from "../flattenSelectItems";
 
 export type SelectButtonProps<
 	TValue extends string = string,
