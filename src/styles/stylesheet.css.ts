@@ -310,6 +310,19 @@ globalStyle("code", {
 	},
 });
 
+globalStyle("pre:has(code)", {
+	"@layer": {
+		[baseLayer]: {
+			background: vars.color.tint_default,
+			borderRadius: vars.borderRadius.md,
+			marginBottom: vars.spacing.space_6,
+			marginTop: vars.spacing.space_6,
+			overflow: "auto",
+			padding: vars.spacing.space_6,
+		},
+	},
+});
+
 globalStyle("h1, h2, h3, h4, h5, h6", {
 	"@layer": {
 		[baseLayer]: {
