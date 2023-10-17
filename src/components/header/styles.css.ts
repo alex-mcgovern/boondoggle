@@ -8,10 +8,8 @@ export const header = recipe({
 		utilCss({
 			marginY: "space_4",
 			marginX: "auto",
-
 			paddingX: "space_4",
-
-			alignItems: "start",
+			alignItems: "center",
 			display: "flex",
 			gap: "space_4",
 		}),

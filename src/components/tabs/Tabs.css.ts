@@ -1,22 +1,36 @@
-import { style } from "@vanilla-extract/css";
 import { utilCss } from "../../styles/utils/util_css.css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const wrapper = style([
-	utilCss({
-		alignItems: "center",
-		borderBottom: "border_default",
-		display: "flex",
-		marginTop: "space_3",
-	}),
-	{
-		msOverflowStyle: "none",
-		overflowX: "scroll",
-		scrollbarGutter: "none",
-		scrollbarWidth: "none",
-		selectors: {
-			"&::-webkit-scrollbar": {
-				display: "none",
+export const wrapper = recipe({
+	base: [
+		utilCss({
+			alignItems: "center",
+			borderBottom: "border_default",
+			display: "flex",
+			marginY: "space_4",
+			marginX: "auto",
+			paddingX: "space_4",
+		}),
+		{
+			msOverflowStyle: "none",
+			overflowX: "scroll",
+			scrollbarGutter: "none",
+			scrollbarWidth: "none",
+			selectors: {
+				"&::-webkit-scrollbar": {
+					display: "none",
+				},
 			},
 		},
+	],
+	defaultVariants: {
+		size: "lg",
 	},
-]);
+	variants: {
+		size: {
+			lg: [utilCss({ maxWidth: "main_lg" })],
+			md: [utilCss({ maxWidth: "main_md" })],
+			sm: [utilCss({ maxWidth: "main_sm" })],
+		},
+	},
+});
