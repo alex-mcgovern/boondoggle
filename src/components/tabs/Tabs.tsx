@@ -15,14 +15,13 @@ export function Tabs({
 	justifyContent?: "start" | "space-between";
 }) {
 	return (
-		<nav
-			role="tablist"
-			className={clsx(
-				styles.wrapper({ size }),
-				utilCss({ justifyContent }),
-			)}
-		>
-			{arrayHasLength(tabs) && tabs.map(Tab)}
-		</nav>
+		<section className={styles.section({ size })}>
+			<nav
+				role="tablist"
+				className={clsx(styles.tabList, utilCss({ justifyContent }))}
+			>
+				{arrayHasLength(tabs) && tabs.map(Tab)}
+			</nav>
+		</section>
 	);
 }

@@ -1,27 +1,14 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss } from "../../styles/utils/util_css.css";
+import { style } from "@vanilla-extract/css";
 
-export const wrapper = recipe({
+export const section = recipe({
 	base: [
 		utilCss({
-			alignItems: "center",
-			borderBottom: "border_default",
-			display: "flex",
 			marginY: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
 		}),
-		{
-			msOverflowStyle: "none",
-			overflowX: "scroll",
-			scrollbarGutter: "none",
-			scrollbarWidth: "none",
-			selectors: {
-				"&::-webkit-scrollbar": {
-					display: "none",
-				},
-			},
-		},
 	],
 	defaultVariants: {
 		size: "lg",
@@ -34,3 +21,22 @@ export const wrapper = recipe({
 		},
 	},
 });
+
+export const tabList = style([
+	utilCss({
+		alignItems: "center",
+		borderBottom: "border_default",
+		display: "flex",
+	}),
+	{
+		msOverflowStyle: "none",
+		overflowX: "scroll",
+		scrollbarGutter: "none",
+		scrollbarWidth: "none",
+		selectors: {
+			"&::-webkit-scrollbar": {
+				display: "none",
+			},
+		},
+	},
+]);
