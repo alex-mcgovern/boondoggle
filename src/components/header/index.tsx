@@ -30,7 +30,7 @@ export function Header({
 		/**
 		 * Tabs to be displayed underneath the header.
 		 */
-		tabs: Array<ComponentProps<typeof Tab>>;
+		tabs?: Array<ComponentProps<typeof Tab>>;
 	}) {
 	return (
 		<>
