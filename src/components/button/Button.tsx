@@ -12,7 +12,7 @@ import { utilCss } from "../../styles/utils/util_css.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot_wrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
-import { getButtonStyles } from "./styles.css";
+import { getButtonStyles } from "./Button.css";
 
 import type { Placement } from "@floating-ui/react";
 import type {
@@ -30,7 +30,7 @@ import type {
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
 import type { UtilCssArgs } from "../../styles/utils/util_css.css";
-import type { Alignment, Appearance } from "./styles.css";
+import type { Alignment, Appearance } from "./Button.css";
 
 /**
  * Removes square size

@@ -1,6 +1,6 @@
 import { faArrowRight } from "@fortawesome/pro-solid-svg-icons";
 
-import { Button as StoryComp } from ".";
+import { Button as StoryComp } from "./Button";
 import { Link } from "../../../test/link.comp.mock";
 import { Icon } from "../icon";
 

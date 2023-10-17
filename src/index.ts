@@ -42,19 +42,19 @@ export {
 
 export type { TDataTableRowActions } from "./common-types";
 
-export { Avatar } from "./components/avatar";
+export { Avatar } from "./components/avatar/Avatar";
 
-export type { AvatarProps } from "./components/avatar";
+export type { AvatarProps } from "./components/avatar/Avatar";
 
-export { Box } from "./components/box";
+export { Box } from "./components/box/Box";
 
-export type { BoxProps } from "./components/box";
+export type { BoxProps } from "./components/box/Box";
 
-export { Button } from "./components/button";
+export { Button } from "./components/button/Button";
 
-export type { ButtonProps } from "./components/button";
+export type { ButtonProps } from "./components/button/Button";
 
-export { ButtonGroup } from "./components/button_group";
+export { ButtonGroup } from "./components/button_group/ButtonGroup";
 
 export { Collapsible } from "./components/collapsible";
 

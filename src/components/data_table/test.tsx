@@ -9,7 +9,7 @@ import {
 	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 import { Icon } from "../icon";
 
 import type { DataTableProps } from ".";

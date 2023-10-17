@@ -1,7 +1,7 @@
 import { Header as StoryComp } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 
 const meta = {
 	title: "Components/Header",

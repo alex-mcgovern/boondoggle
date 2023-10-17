@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { SelectMulti as StoryComp } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { mockSelectItems } from "../__mocks__/select.mock";
 
 import type { Meta, StoryObj } from "@storybook/react";

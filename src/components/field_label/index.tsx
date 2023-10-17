@@ -1,10 +1,10 @@
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
 
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { Icon } from "../icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
 
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 
 export type FieldLabelProps = BoxProps & {
 	/**

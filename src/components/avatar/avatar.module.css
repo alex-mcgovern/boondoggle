@@ -1,0 +1,25 @@
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    overflow: hidden;
+
+    background: var(--color-button-tint);
+    color: var(--color-button-default);
+
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+
+    &.circle {
+        border-radius: 50%;
+    }
+
+    &.square {
+        border-radius: var(--border-radius-md);
+    }
+}

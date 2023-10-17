@@ -3,8 +3,8 @@ import {
 	faTimesCircle,
 } from "@fortawesome/pro-solid-svg-icons";
 
-import { Box } from "../../../box";
-import { Button } from "../../../button";
+import { Box } from "../../../box/Box";
+import { Button } from "../../../button/Button";
 import { Icon } from "../../../icon";
 
 import type { useDataTableState } from "../../../../lib/use_data_table_state";

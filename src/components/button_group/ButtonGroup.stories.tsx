@@ -1,5 +1,5 @@
-import { ButtonGroup as StoryComp } from ".";
-import { Button } from "../button";
+import { ButtonGroup as StoryComp } from "./ButtonGroup";
+import { Button } from "../button/Button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

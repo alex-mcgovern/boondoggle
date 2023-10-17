@@ -1,4 +1,4 @@
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { getDialogModalOuterStyle } from "./styles.css";
 
 import type { ForwardedRef, ReactNode } from "react";

@@ -1,5 +1,5 @@
 import { DialogModalActions as StoryComp } from ".";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

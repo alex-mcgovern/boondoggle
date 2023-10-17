@@ -1,6 +1,6 @@
 import { Children } from "react";
 
-import { Box } from "../box";
+import { Box } from "../box/Box";
 
 import type { WithSlots } from "../../common-types";
 

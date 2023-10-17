@@ -1,11 +1,11 @@
 import { FormProvider, useForm } from "react-hook-form";
 
 import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 
 import type { ReactNode } from "react";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	BoxProps,

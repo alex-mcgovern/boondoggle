@@ -1,6 +1,6 @@
 import { Children } from "react";
 
-import { Box } from "../../../box";
+import { Box } from "../../../box/Box";
 
 import type { ReactNode } from "react";
 import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";

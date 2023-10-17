@@ -1,9 +1,9 @@
 import clsx from "clsx";
 
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { loadingStyles } from "./styles.css";
 
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 
 export function Skeleton({ className, width = "100%", ...rest }: BoxProps) {
 	return (

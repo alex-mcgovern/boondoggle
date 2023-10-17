@@ -1,4 +1,4 @@
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { CardActionsWrapper } from "../card_actions_wrapper";
 
 import type { ReactNode } from "react";

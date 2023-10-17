@@ -3,8 +3,8 @@ import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
-import { Avatar } from "../src/components/avatar";
-import { Box } from "../src/components/box";
+import { Avatar } from "../src/components/avatar/Avatar";
+import { Box } from "../src/components/box/Box";
 import { DataTableCellButton } from "../src/components/data_table/_components/data_table_cell_button";
 import { Icon } from "../src/components/icon";
 

@@ -1,7 +1,7 @@
 import { faCaretDown, faCaretUp } from "@fortawesome/pro-solid-svg-icons";
 import { type ReactNode, useMemo } from "react";
 
-import { Button } from "../../../button";
+import { Button } from "../../../button/Button";
 import { Icon } from "../../../icon";
 import { getSortControlStyle, sortIconStyle } from "./styles.css";
 

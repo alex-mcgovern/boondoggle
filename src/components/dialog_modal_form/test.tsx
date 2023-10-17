@@ -9,7 +9,7 @@ import { z } from "zod";
 
 import { DialogModalForm } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 import { FormInput } from "../form_input";
 import { FormRadioButtonGroup } from "../form_radio_button_group";
 import { FormSelectSingle } from "../form_select_single";

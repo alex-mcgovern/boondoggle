@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 
-import { Box } from "../../../box";
-import { Button } from "../../../button";
+import { Box } from "../../../box/Box";
+import { Button } from "../../../button/Button";
 
 import type { Table } from "@tanstack/react-table";
-import type { BoxProps } from "../../../box";
+import type { BoxProps } from "../../../box/Box";
 
 type DataTableControlPaginationProps<TTableData> = {
 	/**

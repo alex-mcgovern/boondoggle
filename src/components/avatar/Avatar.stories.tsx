@@ -1,4 +1,4 @@
-import { Avatar as StoryComp } from ".";
+import { Avatar as StoryComp } from "./Avatar";
 import { MOCK_AVATAR } from "../../../mocks/mock_avatar";
 
 import type { Meta, StoryObj } from "@storybook/react";

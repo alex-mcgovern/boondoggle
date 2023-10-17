@@ -7,8 +7,8 @@ import {
 
 import { Input as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box";
-import { Button } from "../button";
+import { Box } from "../box/Box";
+import { Button } from "../button/Button";
 import { Icon } from "../icon";
 
 import type { Meta, StoryObj } from "@storybook/react";

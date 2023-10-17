@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
 import { utilCss } from "../../styles/utils/util_css.css";
-import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
+import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/Button.css";
 
 export const buttonGroupStyles = style([
 	utilCss({ alignItems: "stretch", display: "flex" }),

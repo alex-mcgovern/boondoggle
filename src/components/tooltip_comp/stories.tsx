@@ -6,7 +6,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from ".";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 import { Icon } from "../icon";
 
 import type { Meta, StoryObj } from "@storybook/react";

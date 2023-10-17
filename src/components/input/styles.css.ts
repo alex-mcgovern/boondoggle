@@ -11,7 +11,7 @@ import {
 import { vars } from "../../styles/theme.css";
 import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
 import { utilCss } from "../../styles/utils/util_css.css";
-import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
+import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/Button.css";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],

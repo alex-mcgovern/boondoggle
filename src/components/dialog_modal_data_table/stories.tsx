@@ -3,7 +3,7 @@ import {
 	DATA_TABLE_COLUMNS_REDUCED_MOCK,
 	generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import type { DialogModalDataTableProps as StoryCompProps } from ".";

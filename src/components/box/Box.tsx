@@ -11,6 +11,8 @@ import type { UtilCssArgs } from "../../styles/utils/util_css.css";
  *
  * - https://github.com/TheMightyPenguin/dessert-box
  * - https://vanilla-extract.style/documentation/packages/sprinkles/
+ *
+ * @deprecated Use a html element instead.
  */
 export const Box = createBox({
 	atoms: utilCss,

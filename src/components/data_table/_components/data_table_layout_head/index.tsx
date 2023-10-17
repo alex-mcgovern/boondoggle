@@ -1,5 +1,5 @@
 import { tRowStyles } from "../../../../styles/stylesheet.css";
-import { Box } from "../../../box";
+import { Box } from "../../../box/Box";
 import { DataTableLayoutColumnHeaderCell } from "../data_table_layout_column_header_cell";
 
 import type { Table } from "@tanstack/react-table";

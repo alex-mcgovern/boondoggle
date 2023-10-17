@@ -1,4 +1,3 @@
-import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
@@ -8,25 +7,21 @@ export default defineConfig({
 	bundle: true,
 	clean: true,
 	config: "./tsconfig.build.json",
-	dts: {
-		entry: "./src/index.ts",
-		resolve: false,
+	// dts: {
+	// 	entry: "./src/index.ts",
+	// 	resolve: false,
+	// },
+	entry: ["src/components/*/index.ts"],
+	loader: {
+		".css": "local-css",
 	},
-	entry: ["src/index.ts"],
-	esbuildPlugins: [
-		vanillaExtractPlugin({
-			identifiers: "short",
-			outputCss: true,
-			runtime: false,
-		}),
-	],
 	external: ["react"],
 	format: "esm",
-	minify: true,
+	minify: false,
 	outDir: "dist",
 	platform: "browser",
-	sourcemap: true,
-	splitting: true,
+	sourcemap: false,
+	splitting: false,
 	target: "es2020",
 	treeshake: false,
 	tsconfig: "./tsconfig.build.json",

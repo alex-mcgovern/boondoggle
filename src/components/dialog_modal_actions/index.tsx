@@ -1,8 +1,8 @@
 import * as RadixSlot from "@radix-ui/react-slot";
 import { Children } from "react";
 
-import { Box } from "../box";
-import { Button } from "../button";
+import { Box } from "../box/Box";
+import { Button } from "../button/Button";
 import { dialogModalActionsWrapperStyle } from "./styles.css";
 
 import type { ReactNode } from "react";

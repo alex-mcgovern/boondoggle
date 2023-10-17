@@ -2,13 +2,13 @@
 
 import { forwardRef, useState } from "react";
 
-import { Box } from "../box";
-import { Button } from "../button";
+import { Box } from "../box/Box";
+import { Button } from "../button/Button";
 import { Input } from "../input";
 import { confirmTextStyle } from "./styles.css";
 
 import type { WithColorOverlay } from "../../common-types";
-import type { ButtonProps } from "../button";
+import type { ButtonProps } from "../button/Button";
 
 export type DialogModalActionConfirmProps = WithColorOverlay & {
 	/**

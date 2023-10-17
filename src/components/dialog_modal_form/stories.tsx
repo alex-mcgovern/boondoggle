@@ -4,7 +4,7 @@ import { z } from "zod";
 
 import { DialogModalForm as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Button } from "../button";
+import { Button } from "../button/Button";
 import { FormInput } from "../form_input";
 import { FormRadioButtonGroup } from "../form_radio_button_group";
 import { FormSelectSingle } from "../form_select_single";
@@ -14,7 +14,7 @@ import { mockSelectItems } from "../select/__mocks__/select.mock";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { DialogModalFormProps as StoryCompProps } from ".";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 
 const mockFormSchema = z.object({
 	description: z.string().min(1),

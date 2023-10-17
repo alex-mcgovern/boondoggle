@@ -1,4 +1,4 @@
-import { Box } from "../../../box";
+import { Box } from "../../../box/Box";
 
 import type { Row, RowData } from "@tanstack/react-table";
 

@@ -5,7 +5,7 @@ import { useDataTableState } from "../../lib/use_data_table_state";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { tableStyles } from "../../styles/stylesheet.css";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { DataTableActionsWrapper } from "../data_table/_components/data_table_actions_wrapper";
 import { DataTableControlPagination } from "../data_table/_components/data_table_control_pagination";
 import { DataTableFilterInput } from "../data_table/_components/data_table_filter_input";
@@ -28,7 +28,7 @@ import type {
 	WithTableOptionalPagination,
 	WithTableOptionalSelectableRows,
 } from "../../common-types";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 
 export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
