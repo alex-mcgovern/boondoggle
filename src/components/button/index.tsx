@@ -150,6 +150,7 @@ export const Button: ButtonComponent = forwardRef(
 			className: userClassName,
 			colorOverlay,
 			disabled,
+			gap,
 			isLoading,
 			size = "md",
 			slotLeft,
@@ -197,6 +198,7 @@ export const Button: ButtonComponent = forwardRef(
 							}}
 						>
 							<SlotWrapper
+								gap={gap}
 								color="inherit"
 								size={stripSquareSizes(size)}
 								slotLeft={

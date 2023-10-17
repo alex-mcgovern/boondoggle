@@ -26,6 +26,7 @@ export const SlotWrapper = forwardRef(
 			className: userClassName,
 			size = "md",
 			slotLeft,
+			gap = "space_2",
 			slotProps,
 			slotRight,
 			...rest
@@ -37,7 +38,7 @@ export const SlotWrapper = forwardRef(
 				alignItems="center"
 				className={userClassName}
 				display="flex"
-				gap="space_2"
+				gap={gap}
 				ref={ref}
 				{...rest}
 			>
