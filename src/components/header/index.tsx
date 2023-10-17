@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { getHeaderStyles } from "./styles.css";
+import * as styles from "./styles.css";
 
 import type { HTMLProps } from "react";
 import type { WithSize } from "../../common-types";
@@ -11,6 +11,7 @@ import type { WithSize } from "../../common-types";
 export function Header({
 	children,
 	className,
+	actions,
 	size = "lg",
 	...rest
 }: Omit<HTMLProps<HTMLElement>, "size"> &
@@ -19,13 +20,19 @@ export function Header({
 		 * Main content.
 		 */
 		children: React.ReactNode;
+
+		/**
+		 * Actions to be displayed on the right side of the header.
+		 */
+		actions?: React.ReactNode;
 	}) {
 	return (
 		<header
-			className={clsx(className, getHeaderStyles({ size }))}
+			className={clsx(className, styles.header({ size }))}
 			{...rest}
 		>
 			{children}
+			{actions && <div className={styles.actions}>{actions}</div>}
 		</header>
 	);
 }
