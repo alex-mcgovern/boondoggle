@@ -33,14 +33,13 @@ export function Header({
 	return (
 		<>
 			<header
-				className={clsx(
-					className,
-					styles.header({ size, hasTabs: !!tabs }),
-				)}
+				className={clsx(className, styles.header({ size }))}
 				{...rest}
 			>
-				{children}
-				{actions && <div className={styles.actions}>{actions}</div>}
+				<div className={styles.inner({ hasTabs: !!tabs })}>
+					{children}
+					{actions && <div className={styles.actions}>{actions}</div>}
+				</div>
 			</header>
 			{tabs && tabs}
 		</>

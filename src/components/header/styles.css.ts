@@ -8,9 +8,6 @@ export const header = recipe({
 			marginY: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
-			alignItems: "center",
-			display: "flex",
-			gap: "space_4",
 		}),
 	],
 	defaultVariants: {
@@ -22,6 +19,15 @@ export const header = recipe({
 			md: [utilCss({ maxWidth: "main_md" })],
 			sm: [utilCss({ maxWidth: "main_sm" })],
 		},
+	},
+});
+
+export const inner = recipe({
+	base: [utilCss({ alignItems: "center", display: "flex", gap: "space_4" })],
+	defaultVariants: {
+		hasTabs: false,
+	},
+	variants: {
 		hasTabs: {
 			false: [
 				utilCss({
