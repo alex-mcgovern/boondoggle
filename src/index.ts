@@ -271,11 +271,9 @@ export { SkeletonCardFields } from "./components/skeleton_card_fields";
 
 export { Tag } from "./components/tag";
 
+export { Tabs } from "./components/tabs/Tabs";
+
 export type { TagProps } from "./components/tag";
-
-export { Tab } from "./components/tab";
-
-export type { TabProps } from "./components/tab";
 
 export {
 	Tooltip,
