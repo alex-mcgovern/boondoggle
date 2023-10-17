@@ -142,7 +142,10 @@ function SelectItemListBase<
 
 						return (
 							<>
-								<div className={styles.getGroupTitle({ size })}>
+								<div
+									key={group.title}
+									className={styles.getGroupTitle({ size })}
+								>
 									{group.title}
 								</div>
 								<>
