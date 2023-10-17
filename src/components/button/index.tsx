@@ -243,6 +243,7 @@ export const Button: ButtonComponent = forwardRef(
 			>
 				<SlotWrapper
 					color="inherit"
+					gap={gap}
 					size={stripSquareSizes(size)}
 					slotLeft={
 						isLoading && loaderSide === "left"
