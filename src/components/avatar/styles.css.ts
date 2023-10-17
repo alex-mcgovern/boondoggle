@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss } from "../../styles/utils/util_css.css";
 import { vars } from "../../styles/theme.css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 export const avatar = recipe({
 	base: [
