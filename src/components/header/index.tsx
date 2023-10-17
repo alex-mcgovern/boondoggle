@@ -1,8 +1,6 @@
 import clsx from "clsx";
-import type { ComponentProps, HTMLProps } from "react";
+import type { HTMLProps } from "react";
 import type { WithSize } from "../../common-types";
-import { Tab } from "../tabs/Tab";
-import { Tabs } from "../tabs/Tabs";
 import * as styles from "./styles.css";
 
 /**
@@ -30,7 +28,7 @@ export function Header({
 		/**
 		 * Tabs to be displayed underneath the header.
 		 */
-		tabs?: Array<ComponentProps<typeof Tab>>;
+		tabs?: React.ReactNode;
 	}) {
 	return (
 		<>
@@ -41,7 +39,7 @@ export function Header({
 				{children}
 				{actions && <div className={styles.actions}>{actions}</div>}
 			</header>
-			{tabs && <Tabs size={size} tabs={tabs} />}
+			{tabs && tabs}
 		</>
 	);
 }
