@@ -33,7 +33,10 @@ export function Header({
 	return (
 		<>
 			<header
-				className={clsx(className, styles.header({ size }))}
+				className={clsx(
+					className,
+					styles.header({ size, hasTabs: !!tabs }),
+				)}
 				{...rest}
 			>
 				{children}

@@ -6,7 +6,7 @@ export const getMainStyles = recipe({
 	base: [
 		utilCss({
 			marginX: "auto",
-			marginY: "space_6",
+			marginY: "space_4",
 			paddingX: "space_4",
 		}),
 	],

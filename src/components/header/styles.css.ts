@@ -22,6 +22,15 @@ export const header = recipe({
 			md: [utilCss({ maxWidth: "main_md" })],
 			sm: [utilCss({ maxWidth: "main_sm" })],
 		},
+		hasTabs: {
+			false: [
+				utilCss({
+					paddingBottom: "space_4",
+					borderBottom: "border_default",
+				}),
+			],
+			true: [],
+		},
 	},
 });
 
