@@ -27,10 +27,7 @@ export function Header({
 		actions?: React.ReactNode;
 	}) {
 	return (
-		<header
-			className={clsx(className, styles.header({ size }))}
-			{...rest}
-		>
+		<header className={clsx(className, styles.header({ size }))} {...rest}>
 			{children}
 			{actions && <div className={styles.actions}>{actions}</div>}
 		</header>

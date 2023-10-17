@@ -1,7 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { utilCss } from "../../styles/utils/util_css.css";
 import { style } from "@vanilla-extract/css";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 export const header = recipe({
 	base: [
