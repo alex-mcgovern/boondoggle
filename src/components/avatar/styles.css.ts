@@ -1,5 +1,5 @@
-import { utilCss } from "../../styles/utils/util_css.css";
 import { recipe } from "@vanilla-extract/recipes";
+import { utilCss } from "../../styles/utils/util_css.css";
 
 export const avatar = recipe({
 	base: [
