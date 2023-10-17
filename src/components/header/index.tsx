@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import type { ComponentProps, HTMLProps } from "react";
 import type { WithSize } from "../../common-types";
-import * as styles from "./styles.css";
 import { Tab } from "../tabs/Tab";
 import { Tabs } from "../tabs/Tabs";
+import * as styles from "./styles.css";
 
 /**
  * Header HTML element.
