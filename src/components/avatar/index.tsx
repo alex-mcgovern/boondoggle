@@ -1,8 +1,7 @@
 import { useMemo } from "react";
-
 import { Box } from "../box";
 import { getInitials } from "./lib/get_initials";
-import { avatarStyle } from "./styles.css";
+import * as styles from "./styles.css";
 
 export type AvatarProps = {
 	/**
@@ -29,6 +28,11 @@ export type AvatarProps = {
 	 * URL of the avatar image.
 	 */
 	src?: string | null;
+
+	/**
+	 * Controls the appearance of the avatar.
+	 */
+	appearance?: "circle" | "square";
 };
 
 /**
@@ -40,6 +44,7 @@ export function Avatar({
 	lastName,
 	size = 64,
 	src,
+	appearance = "circle",
 }: AvatarProps) {
 	const initials: string | undefined = useMemo(() => {
 		return getInitials({ firstName, fullName, lastName });
@@ -49,7 +54,7 @@ export function Avatar({
 		return (
 			<img
 				alt="avatar"
-				className={avatarStyle}
+				className={styles.avatar({ appearance })}
 				height={size}
 				src={src}
 				width={size}
@@ -58,11 +63,21 @@ export function Avatar({
 	}
 
 	if (!initials) {
-		return <Box __height={size} __width={size} className={avatarStyle} />;
+		return (
+			<Box
+				__height={size}
+				__width={size}
+				className={styles.avatar({ appearance })}
+			/>
+		);
 	}
 
 	return (
-		<Box __height={size} __width={size} className={avatarStyle}>
+		<Box
+			__height={size}
+			__width={size}
+			className={styles.avatar({ appearance })}
+		>
 			{initials.toUpperCase()}
 		</Box>
 	);
