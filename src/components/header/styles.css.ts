@@ -6,12 +6,11 @@ import { utilCss } from "../../styles/utils/util_css.css";
 export const header = recipe({
 	base: [
 		utilCss({
-			marginBottom: "space_4",
-			marginTop: "space_4",
+			marginY: "space_4",
 			marginX: "auto",
-			paddingX: "space_4",
-			alignItems: "start",
+
 			display: "flex",
+			alignItems: "start",
 			gap: "space_4",
 		}),
 	],
