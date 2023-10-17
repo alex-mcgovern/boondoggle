@@ -3,21 +3,10 @@
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useCombobox } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
-import { getOptionalLabelProps } from "../../../common-types";
-import { useForwardRef } from "../../../hooks/use_forward_ref";
-import { Box } from "../../box";
-import { Icon } from "../../icon";
-import { Input } from "../../input";
-import { SelectItemList } from "../SelectItemList";
-import { filterSelectItems } from "../filterSelectItems";
-import { flattenSelectItems } from "../flattenSelectItems";
-import { getInitialSelectedItem } from "../getInitialSelectedItem";
-import { getIsSelected } from "../getIsSelected";
-import { getSlotRight } from "../lib/get_slot_right";
-import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import type { UseComboboxStateChange } from "downshift";
+import { forwardRef, useCallback, useState } from "react";
 import type { ForwardedRef } from "react";
+import { getOptionalLabelProps } from "../../../common-types";
 import type {
 	WithDescription,
 	WithName,
@@ -29,9 +18,20 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
+import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { UtilCssArgs } from "../../../styles/utils/util_css.css";
+import { Box } from "../../box";
+import { Icon } from "../../icon";
+import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
+import { SelectItemList } from "../SelectItemList";
+import { filterSelectItems } from "../filterSelectItems";
+import { flattenSelectItems } from "../flattenSelectItems";
+import { getInitialSelectedItem } from "../getInitialSelectedItem";
+import { getIsSelected } from "../getIsSelected";
+import { getSlotRight } from "../lib/get_slot_right";
+import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
