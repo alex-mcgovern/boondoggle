@@ -1,21 +1,21 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss } from "../../styles/utils/util_css.css";
+import { vars } from "../../styles/theme.css";
 
 export const avatar = recipe({
 	base: [
 		utilCss({
 			alignItems: "center",
-			background: "button_active",
-			border: "border_default",
-			color: "white",
+			background: "button_tint",
+			color: "button_default",
 			display: "flex",
 			flexShrink: "0",
-			fontWeight: "bold",
+			fontWeight: "medium",
 			justifyContent: "center",
 			overflow: "hidden",
 		}),
 		{
-			fontSize: "100%",
+			fontSize: `max(${vars.fontSize.bodySm}, 100%)`,
 		},
 	],
 	variants: {
