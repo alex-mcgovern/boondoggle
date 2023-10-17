@@ -21,7 +21,10 @@ export function Tabs({
 				role="tablist"
 				className={clsx(styles.tabList, utilCss({ justifyContent }))}
 			>
-				{arrayHasLength(tabs) && React.Children.map(tabs, Tab)}
+				{arrayHasLength(tabs) &&
+					React.Children.map(tabs, (tab) => {
+						return <Tab {...tab} />;
+					})}
 			</nav>
 		</section>
 	);
