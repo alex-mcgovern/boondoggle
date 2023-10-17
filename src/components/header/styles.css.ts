@@ -9,8 +9,10 @@ export const header = recipe({
 			marginY: "space_4",
 			marginX: "auto",
 
-			display: "flex",
+			paddingX: "space_4",
+
 			alignItems: "start",
+			display: "flex",
 			gap: "space_4",
 		}),
 	],
