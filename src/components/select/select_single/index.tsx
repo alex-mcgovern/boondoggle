@@ -4,7 +4,6 @@ import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useCombobox } from "downshift";
 import { forwardRef, useCallback, useState } from "react";
-
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { Box } from "../../box";
@@ -17,7 +16,6 @@ import { getInitialSelectedItem } from "../getInitialSelectedItem";
 import { getIsSelected } from "../getIsSelected";
 import { getSlotRight } from "../lib/get_slot_right";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
-
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 import type {
@@ -132,7 +130,7 @@ export type SelectSingleProps<
 
 /**
  * Renders a single-select dropdown.
- * @note Is a base component that should be wrapped with `ForwardRef`.
+ * @private Is a base component that should be wrapped with `ForwardRef`.
  */
 function SelectSingleBase<
 	TValue extends string = string,
@@ -178,10 +176,12 @@ function SelectSingleBase<
 	});
 
 	const [inputValue, setInputValue] = useState(initialItem?.label || "");
+	const [isTyping, setIsTyping] = useState(false);
 
-	const items = isFilterable
-		? filterSelectItems({ inputValue, items: initialItems })
-		: initialItems;
+	const items =
+		isFilterable && isTyping
+			? filterSelectItems({ inputValue, items: initialItems })
+			: initialItems;
 
 	const {
 		getInputProps,
@@ -206,6 +206,7 @@ function SelectSingleBase<
 		},
 		onIsOpenChange,
 		onSelectedItemChange: (changes) => {
+			setIsTyping(false);
 			onChange?.(changes.selectedItem || undefined);
 			if (shouldClearFilterOnSelection) {
 				setInputValue("");
@@ -222,9 +223,15 @@ function SelectSingleBase<
 		// If `shouldClearFilterOnSelection` is true, clear the input value when the user selects an item.
 		stateReducer: (_, { changes, type }) => {
 			switch (type) {
+				case useCombobox.stateChangeTypes.InputChange: {
+					setIsTyping(true);
+					return changes;
+				}
+
 				case useCombobox.stateChangeTypes.InputBlur:
 				case useCombobox.stateChangeTypes.InputKeyDownEnter:
 				case useCombobox.stateChangeTypes.ItemClick:
+					setIsTyping(false);
 					return {
 						...changes,
 						...(shouldClearFilterOnSelection && {
