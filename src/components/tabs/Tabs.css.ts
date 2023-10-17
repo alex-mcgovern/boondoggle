@@ -1,6 +1,6 @@
+import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss } from "../../styles/utils/util_css.css";
-import { style } from "@vanilla-extract/css";
 
 export const section = recipe({
 	base: [

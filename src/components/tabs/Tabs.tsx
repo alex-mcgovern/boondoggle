@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import * as React from "react";
 import { ComponentProps } from "react";
 import { WithSize } from "../../common-types";
 import { arrayHasLength } from "../../lib/array_has_length";
@@ -20,7 +21,7 @@ export function Tabs({
 				role="tablist"
 				className={clsx(styles.tabList, utilCss({ justifyContent }))}
 			>
-				{arrayHasLength(tabs) && tabs.map(Tab)}
+				{arrayHasLength(tabs) && React.Children.map(tabs, Tab)}
 			</nav>
 		</section>
 	);
