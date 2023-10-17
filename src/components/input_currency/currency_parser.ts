@@ -15,7 +15,7 @@ export function currencyParser({
 	locale,
 	value,
 }: CurrencyParserArgs): string | undefined {
-	if (!value) {
+	if (typeof value === "undefined" || value === "") {
 		return "";
 	}
 
@@ -24,14 +24,21 @@ export function currencyParser({
 		.replace(/1/g, "");
 	const hasDecimal = value.includes(decimalSeparator);
 
+	if (value === decimalSeparator) {
+		return decimalSeparator;
+	}
+
 	if (hasDecimal) {
 		const [integer, decimal] = value.split(decimalSeparator);
 		const cleanInteger = integer?.replace(/[^\d.]/g, "");
+		if (cleanInteger === "") {
+			return "";
+		}
 		const cleanDecimal = decimal?.replace(/[^\d.]/g, "");
 
 		let parsed = NumberParser(locale)(cleanInteger);
 
-		if (Number.isNaN(parsed) || !parsed) {
+		if (typeof parsed === "undefined" || Number.isNaN(parsed)) {
 			return "";
 		}
 
@@ -43,16 +50,17 @@ export function currencyParser({
 	}
 
 	const cleanValue = value?.replace(/[^\d.]/g, "");
+	if (cleanValue === "") {
+		return "";
+	}
 
 	let parsed = NumberParser(locale)(cleanValue);
-
-	if (Number.isNaN(parsed) || !parsed) {
+	if (Number.isNaN(parsed)) {
 		return "";
 	}
 
 	if (parsed > Number.MAX_SAFE_INTEGER - 1) {
 		parsed = Number.MAX_SAFE_INTEGER - 1;
 	}
-
 	return parsed.toString();
 }

@@ -5,6 +5,14 @@ describe("currencyParser()", () => {
 		expect(currencyParser({ locale: "en-GB", value: "" })).toBe("");
 	});
 
+	test("returns period when passed period", () => {
+		expect(currencyParser({ locale: "en-GB", value: "." })).toBe(".");
+	});
+
+	test("returns 0 when passed 0", () => {
+		expect(currencyParser({ locale: "en-GB", value: "0" })).toBe("0");
+	});
+
 	test("returns numbers only when non-numeric characters suffixed to whole number", () => {
 		expect(currencyParser({ locale: "en-GB", value: "420,000foo" })).toBe(
 			"420000",
