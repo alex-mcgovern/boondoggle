@@ -54,6 +54,7 @@
 		"@testing-library/user-event": "14.4.3",
 		"clsx": "1.2.1",
 		"downshift": "8.1.0",
+		"esbuild-plugin-css-module": "^0.0.1",
 		"fuzzy-search": "^3.2.1",
 		"intl-number-parser": "1.0.2",
 		"lodash.debounce": "4.0.8",

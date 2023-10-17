@@ -1,20 +1,21 @@
 import { defineConfig } from "tsup";
+import cssModulePlugin from "esbuild-plugin-css-module";
 
 export default defineConfig({
 	banner: {
-		js: '"use client"',
+		js: '"use client"\nimport "./index.css"',
 	},
 	bundle: true,
 	clean: true,
 	config: "./tsconfig.build.json",
+	loader: {
+		".css": "local-css",
+	},
 	// dts: {
 	// 	entry: "./src/index.ts",
 	// 	resolve: false,
 	// },
 	entry: ["src/components/*/index.ts"],
-	loader: {
-		".css": "local-css",
-	},
 	external: ["react"],
 	format: "esm",
 	minify: false,
