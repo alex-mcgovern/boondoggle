@@ -19,5 +19,4 @@ export const loadingStyles = style({
 	backgroundSize: "200% 100%",
 	borderRadius: vars.borderRadius.sm,
 	minHeight: vars.lineHeight.bodyMd,
-	width: "100%",
 });

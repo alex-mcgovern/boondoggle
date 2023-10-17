@@ -5,6 +5,12 @@ import { loadingStyles } from "./styles.css";
 
 import type { BoxProps } from "../box";
 
-export function Skeleton({ className, ...rest }: BoxProps) {
-	return <Box className={clsx(className, loadingStyles)} {...rest} />;
+export function Skeleton({ className, width = "100%", ...rest }: BoxProps) {
+	return (
+		<Box
+			width={width}
+			className={clsx(className, loadingStyles)}
+			{...rest}
+		/>
+	);
 }
