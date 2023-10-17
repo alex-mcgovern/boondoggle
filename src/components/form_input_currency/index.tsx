@@ -17,7 +17,7 @@ export function FormInputCurrency<TCurrency extends string = string>({
 	invalid,
 	name,
 	onChange,
-	marginBottom = "space_6",
+	marginBottom = "space_4",
 	...rest
 }: FormInputCurrencyProps<TCurrency>) {
 	const { control } = useFormContext();

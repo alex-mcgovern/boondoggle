@@ -16,7 +16,7 @@ export function FormInput({
 	invalid,
 	name,
 	onChange,
-	marginBottom = "space_6",
+	marginBottom = "space_4",
 	...rest
 }: FormInputProps) {
 	const { control } = useFormContext();

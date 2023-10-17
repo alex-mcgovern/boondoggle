@@ -68,7 +68,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
 			size,
 			slotLeft,
 			value,
-			marginBottom = "space_6",
+			marginBottom = "space_4",
 			...rest
 		}: InputDateProps,
 		ref,

@@ -42,7 +42,7 @@ export function FormSelectSingle<
 	items,
 	name,
 	onChange: onChangeParent,
-	marginBottom = "space_6",
+	marginBottom = "space_4",
 	...rest
 }: FormSelectSingleProps<TValue, TItemData>) {
 	const { control } = useFormContext();

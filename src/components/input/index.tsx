@@ -132,7 +132,7 @@ function InputBase(
 		strCopied,
 		strCopy,
 		strHide,
-		marginBottom = "space_6",
+		marginBottom = "space_4",
 		strShow,
 		type,
 		value,

@@ -24,7 +24,7 @@ export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
 export function FormInputDate({
 	defaultValue,
 	name,
-	marginBottom = "space_6",
+	marginBottom = "space_4",
 	...rest
 }: FormInputDateProps) {
 	const { control } = useFormContext();

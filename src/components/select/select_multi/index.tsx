@@ -180,7 +180,7 @@ function SelectMultiBase<
 		slotLeft,
 		slotRight = <Icon icon={faAngleDown} />,
 		strClear,
-		marginBottom = "space_6",
+		marginBottom = "space_4",
 	}: SelectMultiProps<TValue, TItemData>,
 	initialRef: ForwardedRef<HTMLInputElement>,
 ) {
