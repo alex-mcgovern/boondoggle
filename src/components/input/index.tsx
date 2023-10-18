@@ -142,7 +142,7 @@ function InputBase(
 ) {
 	const inputRef = useForwardRef(ref);
 
-	React.useLayoutEffect(() => {
+	React.useEffect(() => {
 		if (selectionRange !== undefined) {
 			inputRef?.current?.setSelectionRange(
 				selectionRange.start,
