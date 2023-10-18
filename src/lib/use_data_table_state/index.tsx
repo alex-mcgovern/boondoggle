@@ -99,6 +99,10 @@ export function useDataTableState<TData extends RowData>({
 
 	const onRowSelectionChange = useCallback(
 		(updater: Updater<RowSelectionState>) => {
+			if (!isSelectable) {
+				return null;
+			}
+
 			setRowSelection(updater);
 
 			if (typeof updater === "function") {
