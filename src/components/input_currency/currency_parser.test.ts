@@ -5,8 +5,16 @@ describe("currencyParser()", () => {
 		expect(currencyParser({ locale: "en-GB", value: "" })).toBe("");
 	});
 
-	test("returns period when passed period", () => {
+	test("returns . when passed .", () => {
 		expect(currencyParser({ locale: "en-GB", value: "." })).toBe(".");
+	});
+
+	test("returns 0.8 when passed .8", () => {
+		expect(currencyParser({ locale: "en-GB", value: ".8" })).toBe("0.8");
+	});
+
+	test("(de-DE) returns , when passed ,", () => {
+		expect(currencyParser({ locale: "de-DE", value: "," })).toBe(",");
 	});
 
 	test("returns 0 when passed 0", () => {

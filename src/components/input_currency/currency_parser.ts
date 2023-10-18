@@ -29,24 +29,30 @@ export function currencyParser({
 	}
 
 	if (hasDecimal) {
-		const [integer, decimal] = value.split(decimalSeparator);
-		const cleanInteger = integer?.replace(/[^\d.]/g, "");
-		if (cleanInteger === "") {
-			return "";
-		}
-		const cleanDecimal = decimal?.replace(/[^\d.]/g, "");
+		const [int, dec] = value.split(decimalSeparator);
 
-		let parsed = NumberParser(locale)(cleanInteger);
+		const cleanInt = int?.replace(/[^\d.]/g, "");
+		const cleanDec = dec?.replace(/[^\d.]/g, "");
 
-		if (typeof parsed === "undefined" || Number.isNaN(parsed)) {
+		if (cleanInt === "" && cleanDec === "") {
 			return "";
 		}
 
-		if (parsed > Number.MAX_SAFE_INTEGER - 1) {
-			parsed = Number.MAX_SAFE_INTEGER - 1;
+		let parsedInt = NumberParser(locale)(cleanInt);
+		const parsedDec = NumberParser(locale)(cleanDec);
+
+		if (
+			(typeof parsedInt === "undefined" || Number.isNaN(parsedInt)) &&
+			(typeof parsedDec === "undefined" || Number.isNaN(parsedDec))
+		) {
+			return "";
 		}
 
-		return `${parsed}.${decimal ? cleanDecimal.slice(0, 2) : ""}`;
+		if (parsedInt > Number.MAX_SAFE_INTEGER - 1) {
+			parsedInt = Number.MAX_SAFE_INTEGER - 1;
+		}
+
+		return `${parsedInt}.${dec ? parsedDec.toString().slice(0, 2) : ""}`;
 	}
 
 	const cleanValue = value?.replace(/[^\d.]/g, "");

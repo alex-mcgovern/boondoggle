@@ -62,6 +62,7 @@ export function useFormattedCurrency({
 
 	const onChange = useCallback(
 		(e: ChangeEvent<HTMLInputElement>) => {
+			console.debug("debug  e:", e.target);
 			const { selectionEnd, selectionStart, value: val } = e.target;
 
 			const parsed = currencyParser({ locale, value: val });

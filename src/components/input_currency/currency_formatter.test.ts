@@ -9,6 +9,10 @@ describe("currencyFormatter()", () => {
 		expect(currencyFormatter({ locale: "en-GB", value: "0" })).toBe("0");
 	});
 
+	test("returns . when passed .", () => {
+		expect(currencyFormatter({ locale: "en-GB", value: "." })).toBe(".");
+	});
+
 	test("returns empty string when passed NaN", () => {
 		expect(
 			currencyFormatter({ locale: "en-GB", value: "not a number" }),

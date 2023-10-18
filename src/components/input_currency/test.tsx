@@ -43,6 +43,7 @@ describe("<InputCurrency />", () => {
 		const input = getByRole("textbox");
 
 		expect(input).toHaveValue("42,000.69");
+		expect(input).toHaveValue("42,000.69");
 	});
 
 	test("(de-DE) Should have correct default value", async () => {
@@ -100,17 +101,34 @@ describe("<InputCurrency />", () => {
 		const input = getByRole("textbox");
 
 		await act(async () => {
-			await userEvent.type(input, "1");
+			await userEvent.click(input);
+			await userEvent.keyboard("4");
 			await userEvent.keyboard("{arrowleft}");
-			await userEvent.type(input, "1");
+			await userEvent.keyboard("3");
 			await userEvent.keyboard("{arrowleft}");
-			await userEvent.type(input, "1");
+			await userEvent.keyboard("2");
 			await userEvent.keyboard("{arrowleft}");
-			await userEvent.type(input, "1");
-			await userEvent.keyboard("{arrowleft}");
+			await userEvent.keyboard("1");
 		});
 
-		expect(input).toHaveValue("1,111");
+		expect(input).toHaveValue("1,234");
 		expect((input as HTMLInputElement).selectionStart).toBe(2);
+	});
+
+	test('cursor position should be correct after typing "."', async () => {
+		const { getByRole } = renderComponent({
+			initialCurrency: "USD",
+			locale: "en-GB",
+			name: "amount",
+		});
+
+		const input = getByRole("textbox");
+
+		await act(async () => {
+			await userEvent.type(input, ".");
+		});
+
+		expect(input).toHaveValue(".");
+		expect((input as HTMLInputElement).selectionStart).toBe(1);
 	});
 });

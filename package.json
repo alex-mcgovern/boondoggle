@@ -4,9 +4,7 @@
 	"description": "Boondoggle design system component library",
 	"version": "0.14.133",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -54,9 +52,7 @@
 		"@testing-library/user-event": "14.4.3",
 		"clsx": "1.2.1",
 		"downshift": "8.1.0",
-		"fuzzy-search": "^3.2.1",
 		"intl-number-parser": "1.0.2",
-		"lodash.debounce": "4.0.8",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-hook-form": "7.46.1",
@@ -81,7 +77,6 @@
 		"@testing-library/dom": "9.3.0",
 		"@testing-library/jest-dom": "5.16.5",
 		"@trivago/prettier-plugin-sort-imports": "4.1.0",
-		"@types/fuzzy-search": "^2.1.2",
 		"@types/jest": "29.5.1",
 		"@types/react": "18.2.6",
 		"@types/react-dom": "18.2.4",

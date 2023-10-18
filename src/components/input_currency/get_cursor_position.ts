@@ -49,8 +49,22 @@ export const getCursorPosition = ({
 	);
 
 	switch (inputType) {
-		case "deleteContentBackward":
 		case "insertText": {
+			/** If the user has just added a character at the end
+			 * of the string move the cursor to the end of the string. */
+			if (selectionStart === incomingValue?.length) {
+				return {
+					end: formattedValue?.length || selectionStart + 1,
+					start: formattedValue?.length || selectionStart + 1,
+				};
+			}
+
+			return {
+				end: minSelectionEnd,
+				start: minSelectionStart,
+			};
+		}
+		case "deleteContentBackward": {
 			return {
 				end: minSelectionEnd,
 				start: minSelectionStart,

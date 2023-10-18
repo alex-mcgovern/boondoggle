@@ -20,6 +20,10 @@ export function currencyFormatter({
 		return "";
 	}
 
+	if (cleanValue === ".") {
+		return ".";
+	}
+
 	const hasDecimal = cleanValue.includes(".");
 
 	if (hasDecimal) {

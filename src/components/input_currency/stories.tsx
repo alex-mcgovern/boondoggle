@@ -13,6 +13,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ChangeEvent } from "react";
 import type { InputCurrencyProps } from ".";
 import type { MockLocale } from "../../../test/mock_data/input_currency";
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 const meta = {
 	args: {
@@ -103,5 +105,81 @@ export const KitchenSinkWithInvalidState: Story = {
 export const WithDefaultValue: Story = {
 	args: {
 		defaultValue: 42000.69,
+	},
+};
+
+export const TestCursorPosition1: Story = {
+	name: "(Test) Cursor position 1",
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		const input = canvas.getByRole("textbox");
+
+		await userEvent.type(input, ".", {
+			delay: 100,
+		});
+
+		expect(input).toHaveValue(".");
+		expect((input as HTMLInputElement).selectionStart).toBe(1);
+	},
+};
+
+export const TestCursorPosition2: Story = {
+	name: "(Test) Cursor position 2",
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		const input = canvas.getByRole("textbox");
+
+		await userEvent.type(input, ".8", {
+			delay: 100,
+		});
+
+		expect(input).toHaveValue("0.8");
+		expect((input as HTMLInputElement).selectionStart).toBe(3);
+	},
+};
+
+export const TestCursorPosition3: Story = {
+	name: "(Test) Cursor position 3",
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		const input = canvas.getByRole("textbox");
+
+		await userEvent.click(input);
+		await userEvent.keyboard("4");
+		await userEvent.keyboard("{arrowleft}");
+		await userEvent.keyboard("3");
+		await userEvent.keyboard("{arrowleft}");
+		await userEvent.keyboard("2");
+		await userEvent.keyboard("{arrowleft}");
+		await userEvent.keyboard("1");
+
+		expect(input).toHaveValue("1,234");
+		expect((input as HTMLInputElement).selectionStart).toBe(2);
+	},
+};
+
+export const TestCursorPosition4: Story = {
+	name: "(Test) Cursor position 4",
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+
+		const input = canvas.getByRole("textbox");
+
+		await userEvent.click(input);
+		await userEvent.keyboard("1234");
+		expect(input).toHaveValue("1,234");
+		expect((input as HTMLInputElement).selectionStart).toBe(5);
+		
+		await userEvent.keyboard("{arrowleft}");
+		await userEvent.keyboard("{arrowleft}");
+		await userEvent.keyboard("{arrowleft}");
+		expect((input as HTMLInputElement).selectionStart).toBe(2);
+		
+		await userEvent.keyboard("{backspace}");
+
+		expect(input).toHaveValue("234");
 	},
 };
