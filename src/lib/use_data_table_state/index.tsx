@@ -6,20 +6,11 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from "@tanstack/react-table";
-import { useCallback, useMemo, useState } from "react";
-
-import { DataTableCellSelectable } from "../../components/data_table/_components/data_table_cell_selectable";
+import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
+import { useMemo, useState } from "react";
+import type { TDataTableRowActions } from "../../common-types";
 import { Skeleton } from "../../components/skeleton";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
-
-import type {
-	ColumnDef,
-	RowData,
-	RowSelectionState,
-	SortingState,
-	Updater,
-} from "@tanstack/react-table";
-import type { TDataTableRowActions } from "../../common-types";
 
 type UseDataTableStateProps<TData extends RowData> = {
 	/**
@@ -33,14 +24,8 @@ type UseDataTableStateProps<TData extends RowData> = {
 	data: Array<TData> | undefined;
 
 	/**
-	 * Boolean to enable multi-row selection.
-	 */
-	enableMultiRowSelection: boolean | undefined;
-
-	/**
 	 * Column definitions for the tabular data
 	 */
-
 	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
 	initColumns: Array<ColumnDef<TData, any>>;
 
@@ -65,78 +50,27 @@ type UseDataTableStateProps<TData extends RowData> = {
 	isPaginated: boolean | undefined;
 
 	/**
-	 * Whether the table should allow rows to be selectable
-	 */
-	isSelectable: boolean | undefined;
-
-	/**
 	 * Whether the table should be sortable and show sorting controls
 	 */
 	isSortable: boolean | undefined;
-
-	/**
-	 * Function called on a new selection, with the current selection
-	 */
-	onSelect: ((selection: TData[] | undefined) => void) | undefined;
 };
 
 export function useDataTableState<TData extends RowData>({
 	RowActions,
 	data,
-	enableMultiRowSelection,
 	initColumns,
 	initialSorting,
 	isFilterable,
 	isLoading,
 	isPaginated,
-	isSelectable,
 	isSortable,
-	onSelect,
 }: UseDataTableStateProps<TData>) {
 	const [globalFilter, setGlobalFilter] = useState("");
-
-	const [rowSelection, setRowSelection] = useState({});
-
-	const onRowSelectionChange = useCallback(
-		(updater: Updater<RowSelectionState>) => {
-			if (!isSelectable) {
-				return null;
-			}
-
-			setRowSelection(updater);
-
-			if (typeof updater === "function") {
-				return onSelect?.(
-					data?.reduce<TData[]>((acc, row, index) => {
-						if (updater({})[index]) {
-							acc.push(row);
-						}
-						return acc;
-					}, []),
-				);
-			}
-
-			return onSelect?.(undefined);
-		},
-		[data, onSelect],
-	);
 
 	const columnHelper = createColumnHelper<TData>();
 
 	const columns = useMemo(() => {
 		return [
-			// If the table is selectable, add a column for
-			// the checkbox at the start of the columns array
-			...(isSelectable
-				? [
-						columnHelper.display({
-							cell: DataTableCellSelectable,
-							enableSorting: false,
-							id: "select",
-						}),
-				  ]
-				: []),
-
 			// The original columns array
 			...(isLoading
 				? initColumns.map((initColumn) => {
@@ -162,7 +96,7 @@ export function useDataTableState<TData extends RowData>({
 				  ]
 				: []),
 		];
-	}, [RowActions, columnHelper, initColumns, isLoading, isSelectable]);
+	}, [RowActions, columnHelper, initColumns, isLoading]);
 
 	const tableData = useMemo(() => {
 		return isLoading ? Array(10).fill({}) : data;
@@ -179,21 +113,12 @@ export function useDataTableState<TData extends RowData>({
 		}),
 		...(isPaginated && { getPaginationRowModel: getPaginationRowModel() }),
 		...(isSortable && { getSortedRowModel: getSortedRowModel() }),
-		...(isSelectable && {
-			enableMultiRowSelection,
-			onRowSelectionChange,
-		}),
-
 		initialState: {
 			sorting: initialSorting,
 		},
-
 		state: {
 			...(isFilterable && {
 				globalFilter,
-			}),
-			...(isSelectable && {
-				rowSelection,
 			}),
 		},
 	});

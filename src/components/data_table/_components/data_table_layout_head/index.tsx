@@ -18,11 +18,6 @@ type DataTableLayoutHeadProps<TTableData> = {
 	isSticky?: boolean;
 
 	/**
-	 * Whether the table should allow rows to be selectable
-	 */
-	isSelectable: boolean | undefined;
-
-	/**
 	 * Whether the row contains an actions button.
 	 */
 	hasRowActions: boolean | undefined;
@@ -40,15 +35,11 @@ export function DataTableLayoutHead<TTableData>({
 	isSortable,
 	isSticky,
 	table,
-	isSelectable,
 	hasRowActions,
 	...rest
 }: DataTableLayoutHeadProps<TTableData>) {
 	return (
-		<Box
-			className={getHeadStyle({ isSelectable, hasRowActions })}
-			{...rest}
-		>
+		<Box className={getHeadStyle({ hasRowActions })} {...rest}>
 			{table.getHeaderGroups().map((header_group) => {
 				return (
 					<div className={tRowStyles} key={header_group.id}>

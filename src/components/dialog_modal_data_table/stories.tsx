@@ -6,7 +6,6 @@ import {
 import { Button } from "../button";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import type { DialogModalDataTableProps as StoryCompProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 
 const meta = {
@@ -77,51 +76,13 @@ export const WidthLg: Story = {
 	},
 };
 
-export const IsSelectable: Story = {
-	args: {
-		columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
-		data: MOCK_DATA,
-		isSelectable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
-		strNoResults: "No results",
-		title: "Dialog modal data table",
-		triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-		width: "lg",
-	},
-};
-
-export const IsSelectableWithEnableMultiRowSelection: StoryObj<
-	StoryCompProps<MockAccountColumnData>
-> = {
-	args: {
-		columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
-		data: MOCK_DATA,
-		enableMultiRowSelection: true,
-		isSelectable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
-		strClearAllFilters: "Clear all filters",
-		strNoResults: "No results",
-		title: "Dialog modal data table",
-		triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-		width: "lg",
-	},
-};
-
 export const KitchenSink: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_REDUCED_MOCK,
 		data: MOCK_DATA,
 		isFilterable: true,
 		isPaginated: true,
-		isSelectable: true,
 		isSortable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
 		strClearAllFilters: "Clear all filters",
 		strClearFilterInput: "Clear filter input",
 		strFilterPlaceholder: "Filter",

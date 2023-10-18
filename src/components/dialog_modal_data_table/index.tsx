@@ -26,13 +26,11 @@ import type { ForwardedRef, ReactNode } from "react";
 import type {
 	WithTableOptionalFiltering,
 	WithTableOptionalPagination,
-	WithTableOptionalSelectableRows,
 } from "../../common-types";
 import type { BoxProps } from "../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 
 export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
-	WithTableOptionalSelectableRows<TData> &
 	WithTableOptionalFiltering & {
 		/**
 		 * Up to 2 react nodes to render as actions for the table
@@ -139,16 +137,13 @@ export function DialogModalDataTable<TData extends RowData>({
 	columns: initColumns,
 	data,
 	dialogRef: parentDialogRef,
-	enableMultiRowSelection = false,
 	initialSorting,
 	isError,
 	isFilterable,
 	isLoading,
 	isPaginated,
-	isSelectable,
 	isSortable,
 	onClickTryAgain,
-	onSelect,
 	strClearAllFilters,
 	strClearFilterInput,
 	strErrorDescription,
@@ -172,15 +167,12 @@ export function DialogModalDataTable<TData extends RowData>({
 
 	const { globalFilter, setGlobalFilter, table } = useDataTableState({
 		data,
-		enableMultiRowSelection,
 		initColumns,
 		initialSorting,
 		isFilterable,
 		isLoading,
 		isPaginated,
-		isSelectable,
 		isSortable,
-		onSelect,
 	});
 
 	const hasData = arrayHasLength(table.getFilteredRowModel().rows);
@@ -241,15 +233,13 @@ export function DialogModalDataTable<TData extends RowData>({
 								<Box className={tableStyles}>
 									<DataTableLayoutHead<TData>
 										isSortable={isSortable}
-										isSelectable={isSelectable}
 										hasRowActions={undefined}
 										table={table}
 									/>
 									<DataTableLayoutBody<TData>
-										isSelectable={isSelectable}
 										hasRowActions={undefined}
 										table={table}
-									/>{" "}
+									/>
 								</Box>
 							)}
 

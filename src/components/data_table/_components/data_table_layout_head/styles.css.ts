@@ -5,11 +5,6 @@ import { vars } from "../../../../styles/theme.css";
 
 const baseHeadStyle = style({});
 
-const isSelectable = styleVariants({
-	true: {},
-	false: {},
-});
-
 const hasRowActions = styleVariants({
 	true: {},
 	false: {},
@@ -18,17 +13,9 @@ const hasRowActions = styleVariants({
 export const getHeadStyle = recipe({
 	base: [baseHeadStyle, tHeadStyles],
 	variants: {
-		isSelectable,
 		hasRowActions,
 	},
 });
-
-globalStyle(
-	`${isSelectable.true} th:first-child, ${isSelectable.true} ${thStyles}:first-child`,
-	{
-		width: vars.spacing.space_1,
-	},
-);
 
 globalStyle(
 	`${hasRowActions.true} th:last-child, ${hasRowActions.true} ${thStyles}:last-child`,

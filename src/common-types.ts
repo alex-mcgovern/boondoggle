@@ -464,46 +464,6 @@ export type WithTableOptionalFiltering =
 			strFilterPlaceholder?: never;
 	  };
 
-export type WithTableOptionalSelectableRows<TData extends RowData> =
-	/**
-	 * If `isSelectable` is `true`, `enableMultiRowSelection` can be passed.
-	 */
-	| {
-			/**
-			 * Boolean to enable multi-row selection.
-			 */
-			enableMultiRowSelection?: boolean;
-
-			/**
-			 * Whether the table should allow rows to be selectable
-			 */
-			isSelectable: true;
-
-			/**
-			 * Function called on a new selection, with the current selection
-			 */
-			onSelect: (selection: TData[] | undefined) => void;
-	  }
-	/**
-	 * If `isSelectable` is `false` or `undefined`, `enableMultiRowSelection` should not be passed.
-	 */
-	| {
-			/**
-			 * Boolean to enable multi-row selection.
-			 */
-			enableMultiRowSelection?: never;
-
-			/**
-			 * Whether the table should allow rows to be selectable
-			 */
-			isSelectable?: false | undefined;
-
-			/**
-			 * Function called on a new selection, with the current selection
-			 */
-			onSelect?: never;
-	  };
-
 type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
 	/**
 	 * Pass an HTML tag or custom component to this prop to merge the original component props with the supplied element/component props and change the DOM node.

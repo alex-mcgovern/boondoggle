@@ -17,12 +17,10 @@ import type {
 	TDataTableRowActions,
 	WithTableOptionalFiltering,
 	WithTableOptionalPagination,
-	WithTableOptionalSelectableRows,
 } from "../../common-types";
 
 export type DataTableProps<TRowData extends RowData> =
 	WithTableOptionalPagination &
-		WithTableOptionalSelectableRows<TRowData> &
 		WithTableOptionalFiltering & {
 			/**
 			 * React component to render a list of actions on each row
@@ -75,14 +73,11 @@ export function DataTable<TRowData extends RowData>({
 	actions,
 	columns: initColumns,
 	data,
-	enableMultiRowSelection = false,
 	initialSorting,
 	isFilterable,
 	isLoading,
 	isPaginated,
-	isSelectable,
 	isSortable,
-	onSelect,
 	strClearAllFilters,
 	strClearFilterInput,
 	strFilterPlaceholder,
@@ -94,15 +89,12 @@ export function DataTable<TRowData extends RowData>({
 }: DataTableProps<TRowData>) {
 	const { globalFilter, setGlobalFilter, table } = useDataTableState({
 		data,
-		enableMultiRowSelection,
 		initColumns,
 		initialSorting,
 		isFilterable,
 		isLoading,
 		isPaginated,
-		isSelectable,
 		isSortable,
-		onSelect,
 		RowActions,
 	});
 
@@ -129,12 +121,10 @@ export function DataTable<TRowData extends RowData>({
 				<Box className={tableStyles}>
 					<DataTableLayoutHead<TRowData>
 						isSortable={isSortable}
-						isSelectable={isSelectable}
 						hasRowActions={!!RowActions}
 						table={table}
 					/>
 					<DataTableLayoutBody<TRowData>
-						isSelectable={isSelectable}
 						hasRowActions={!!RowActions}
 						table={table}
 					/>

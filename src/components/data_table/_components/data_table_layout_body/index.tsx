@@ -8,11 +8,6 @@ import type { Table } from "@tanstack/react-table";
 
 type DataTableLayoutBodyProps<TRowData> = {
 	/**
-	 * Whether the table should allow rows to be selectable
-	 */
-	isSelectable: boolean | undefined;
-
-	/**
 	 * Whether the row contains an actions button.
 	 */
 	hasRowActions: boolean | undefined;
@@ -28,10 +23,10 @@ type DataTableLayoutBodyProps<TRowData> = {
  */
 export function DataTableLayoutBody<TRowData>({
 	table,
-	isSelectable,
+	hasRowActions,
 }: DataTableLayoutBodyProps<TRowData>) {
 	return (
-		<div className={getBodyStyle({ isSelectable })}>
+		<div className={getBodyStyle({ hasRowActions })}>
 			{table.getRowModel().rows.map((row) => {
 				return (
 					<Box className={rowStyles} key={row.id}>

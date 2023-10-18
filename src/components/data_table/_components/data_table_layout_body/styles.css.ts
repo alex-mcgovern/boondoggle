@@ -12,11 +12,6 @@ import { utilCss } from "../../../../styles/utils/util_css.css";
 
 const baseBodyStyle = style({});
 
-const isSelectable = styleVariants({
-	true: {},
-	false: {},
-});
-
 const hasRowActions = styleVariants({
 	true: {},
 	false: {},
@@ -25,17 +20,9 @@ const hasRowActions = styleVariants({
 export const getBodyStyle = recipe({
 	base: [baseBodyStyle, tBodyStyles],
 	variants: {
-		isSelectable,
 		hasRowActions,
 	},
 });
-
-globalStyle(
-	`${isSelectable.true} td:first-child, ${isSelectable.true} ${tdStyles}:first-child`,
-	{
-		width: vars.spacing.space_1,
-	},
-);
 
 globalStyle(
 	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${tdStyles}:last-child`,

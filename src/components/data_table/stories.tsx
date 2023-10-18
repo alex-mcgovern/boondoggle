@@ -36,7 +36,6 @@ export const Default: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
-
 		strNoResults: "No results",
 	},
 };
@@ -56,7 +55,6 @@ export const IsPaginated: Story = {
 		data: MOCK_DATA,
 		isPaginated: true,
 		strNext: "Next",
-
 		strNoResults: "No results",
 		strPage: "Page",
 		strPrev: "Previous",
@@ -69,7 +67,6 @@ export const IsSortable: Story = {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
 		isSortable: true,
-
 		strNoResults: "No results",
 	},
 };
@@ -82,31 +79,6 @@ export const IsFilterable: Story = {
 		strClearAllFilters: "Clear all filters",
 		strClearFilterInput: "Clear filter input",
 		strFilterPlaceholder: "Filter results...",
-		strNoResults: "No results",
-	},
-};
-
-export const IsSelectable: Story = {
-	args: {
-		columns: DATA_TABLE_COLUMNS_MOCK,
-		data: MOCK_DATA,
-		isSelectable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
-		strNoResults: "No results",
-	},
-};
-
-export const IsSelectableWithEnableMultiRowSelection: Story = {
-	args: {
-		columns: DATA_TABLE_COLUMNS_MOCK,
-		data: MOCK_DATA,
-		enableMultiRowSelection: true,
-		isSelectable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
 		strNoResults: "No results",
 	},
 };
@@ -159,7 +131,6 @@ export const With1Action: Story = {
 		),
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
-
 		strNoResults: "No results",
 	},
 };
@@ -176,7 +147,6 @@ export const With2Actions: Story = {
 		],
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
-
 		strNoResults: "No results",
 	},
 };
@@ -194,7 +164,6 @@ export const WithRowActionItems: Story = {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
 		RowActions: MockRowActionsComponent,
-
 		strNoResults: "No results",
 	},
 };
@@ -212,7 +181,6 @@ export const WithRowActionItemsShortList: Story = {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: Array.from({ length: 1 }, generateMockAccountColumn),
 		RowActions: MockRowActionsComponent,
-
 		strNoResults: "No results",
 	},
 };
@@ -231,11 +199,7 @@ export const KitchenSink: Story = {
 		data: MOCK_DATA,
 		isFilterable: true,
 		isPaginated: true,
-		isSelectable: true,
 		isSortable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
 		RowActions: MockRowActionsComponent,
 		strClearAllFilters: "Clear all filters",
 		strClearFilterInput: "Clear filter input",
