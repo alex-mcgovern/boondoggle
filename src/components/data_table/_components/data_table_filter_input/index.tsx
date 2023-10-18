@@ -33,7 +33,7 @@ type DataTableFilterInputProps = Required<WithOptionalPlaceholder> & {
  */
 export function DataTableFilterInput({
 	disabled,
-	globalFilter,
+	globalFilter = "",
 	placeholder,
 	setGlobalFilter,
 	strClearFilterInput,
