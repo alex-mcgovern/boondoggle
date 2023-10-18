@@ -9,12 +9,12 @@ import {
 import { Box } from "../box";
 import { SelectSingle } from "../select/select_single";
 
+import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
 import type { ChangeEvent } from "react";
 import type { InputCurrencyProps } from ".";
 import type { MockLocale } from "../../../test/mock_data/input_currency";
-import { userEvent, within } from "@storybook/testing-library";
-import { expect } from "@storybook/jest";
 
 const meta = {
 	args: {
@@ -172,12 +172,12 @@ export const TestCursorPosition4: Story = {
 		await userEvent.keyboard("1234");
 		expect(input).toHaveValue("1,234");
 		expect((input as HTMLInputElement).selectionStart).toBe(5);
-		
+
 		await userEvent.keyboard("{arrowleft}");
 		await userEvent.keyboard("{arrowleft}");
 		await userEvent.keyboard("{arrowleft}");
 		expect((input as HTMLInputElement).selectionStart).toBe(2);
-		
+
 		await userEvent.keyboard("{backspace}");
 
 		expect(input).toHaveValue("234");
