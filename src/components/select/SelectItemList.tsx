@@ -247,7 +247,12 @@ function SelectItemListBase<
 			<div className={styles.inner}>
 				{items.map((item) => {
 					if (item === "SEPARATOR") {
-						return <SelectSeparator size={size} />;
+						return (
+							<SelectSeparator
+								key={`separator-${index}`}
+								size={size}
+							/>
+						);
 					}
 
 					if (!item.label) {
