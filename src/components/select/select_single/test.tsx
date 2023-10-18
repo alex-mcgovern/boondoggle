@@ -11,7 +11,10 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import { variantColorOverlay } from "../../../styles/color_palette.css";
 import { a11yError } from "../../../styles/common/a11y.css";
 import { Icon } from "../../icon";
-import { mockSelectItems } from "../__mocks__/select.mock";
+import {
+	mockSelectItems,
+	mockSelectItemsGrouped,
+} from "../__mocks__/select.mock";
 import { flattenSelectItems } from "../flattenSelectItems";
 
 import type { SelectSingleProps } from ".";
@@ -36,8 +39,17 @@ const renderComponent = (props: SelectSingleProps<string>) => {
 
 describe("<SelectSingle />", () => {
 	describe("Basic smoke tests", () => {
-		test("should render without throwing", async () => {
+		test("should render flat items without throwing", async () => {
 			const { getByRole } = renderComponent(PROPS);
+
+			expect(getByRole("combobox")).not.toBeNull();
+		});
+
+		test.only("should render grouped items without throwing", async () => {
+			const { getByRole } = renderComponent({
+				...PROPS,
+				items: mockSelectItemsGrouped({}),
+			});
 
 			expect(getByRole("combobox")).not.toBeNull();
 		});

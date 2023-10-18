@@ -10,7 +10,7 @@ import type {
 	UseMultipleSelectionGetSelectedItemPropsOptions,
 	UseSelectPropGetters,
 } from "downshift";
-import type { CSSProperties, ForwardedRef } from "react";
+import { CSSProperties, ForwardedRef, Fragment } from "react";
 import type { WithSize } from "../../common-types";
 import { SelectSeparator } from "./SelectSeparator";
 import type {
@@ -141,7 +141,7 @@ function SelectItemListBase<
 						}
 
 						return (
-							<>
+							<Fragment key={group.title}>
 								<div
 									key={group.title}
 									className={styles.getGroupTitle({ size })}
@@ -152,7 +152,10 @@ function SelectItemListBase<
 									{group.items.map((item) => {
 										if (item === "SEPARATOR") {
 											return (
-												<SelectSeparator size={size} />
+												<SelectSeparator
+													key={`separator-${index}`}
+													size={size}
+												/>
 											);
 										}
 
@@ -180,6 +183,7 @@ function SelectItemListBase<
 										const isSelected =
 											initIsSelected ||
 											getIsItemSelected?.(item);
+
 										return (
 											<SelectItem
 												as={as}
@@ -206,7 +210,7 @@ function SelectItemListBase<
 										);
 									})}
 								</>
-							</>
+							</Fragment>
 						);
 					})}
 

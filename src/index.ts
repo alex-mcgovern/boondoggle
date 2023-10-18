@@ -37,7 +37,7 @@ export {
 export {
 	elementFontSize,
 	elementPadding,
-	ElementSizeEnum,
+	type ElementSizeEnum,
 } from "./styles/common/element_size.css";
 
 export type { TDataTableRowActions } from "./common-types";
