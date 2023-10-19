@@ -148,12 +148,11 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
 								{children}
 							</DialogModalContent>
 						)}
-						{actions && (
+						{!isLoading && actions && (
 							<DialogModalActions
 								actions={actions}
 								closeDialog={closeDialog}
 								isError={isError}
-								isLoading={isLoading}
 								onClickTryAgain={onClickTryAgain}
 								shouldCloseOnAction={shouldCloseOnAction}
 								strTryAgain={strTryAgain}

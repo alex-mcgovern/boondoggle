@@ -25,11 +25,6 @@ export type DialogModalActionsProps = {
 	isError: boolean | undefined;
 
 	/**
-	 * Whether the dialog modal is loading.
-	 */
-	isLoading: boolean | undefined;
-
-	/**
 	 * Function to call when the "Try again" button is clicked.
 	 */
 	onClickTryAgain: (() => unknown) | (() => Promise<unknown>) | undefined;
@@ -52,12 +47,11 @@ export function DialogModalActions({
 	actions,
 	closeDialog,
 	isError,
-	isLoading,
 	onClickTryAgain,
 	shouldCloseOnAction = true,
 	strTryAgain,
 }: DialogModalActionsProps) {
-	if (isLoading || !actions) {
+	if (!actions) {
 		return null;
 	}
 

@@ -266,37 +266,38 @@ export function DialogModalDataTable<TData extends RowData>({
 						</DialogModalContent>
 					)}
 
-					<DialogModalActions
-						actions={
-							!isError && isPaginated ? (
-								<Box
-									alignItems="center"
-									display="flex"
-									gap="space_2"
-								>
-									{strPage && strResults && (
-										<DataTableInfoPageCount<TData>
-											strPage={strPage}
-											strResults={strResults}
+					{!isLoading && (
+						<DialogModalActions
+							actions={
+								!isError && isPaginated ? (
+									<Box
+										alignItems="center"
+										display="flex"
+										gap="space_2"
+									>
+										{strPage && strResults && (
+											<DataTableInfoPageCount<TData>
+												strPage={strPage}
+												strResults={strResults}
+												table={table}
+											/>
+										)}
+
+										<DataTableControlPagination<TData>
+											strNext={strNext}
+											strPrev={strPrev}
 											table={table}
 										/>
-									)}
-
-									<DataTableControlPagination<TData>
-										strNext={strNext}
-										strPrev={strPrev}
-										table={table}
-									/>
-								</Box>
-							) : undefined
-						}
-						closeDialog={closeDialog}
-						isError={isError}
-						isLoading={isLoading}
-						onClickTryAgain={onClickTryAgain}
-						shouldCloseOnAction={false}
-						strTryAgain={strTryAgain}
-					/>
+									</Box>
+								) : undefined
+							}
+							closeDialog={closeDialog}
+							isError={isError}
+							onClickTryAgain={onClickTryAgain}
+							shouldCloseOnAction={false}
+							strTryAgain={strTryAgain}
+						/>
+					)}
 				</DialogModalInner>
 			</DialogModalOuter>
 		</Box>

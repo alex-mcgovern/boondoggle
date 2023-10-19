@@ -183,19 +183,20 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 							</DialogModalContent>
 						)}
 
-						<DialogModalActions
-							actions={
-								<FormSubmitButton isLoading={isLoading}>
-									{formSubmitButtonText}
-								</FormSubmitButton>
-							}
-							closeDialog={closeDialog}
-							isError={isError}
-							isLoading={isLoading}
-							onClickTryAgain={onClickTryAgain}
-							shouldCloseOnAction={false}
-							strTryAgain={strTryAgain}
-						/>
+						{!isError && (
+							<DialogModalActions
+								actions={
+									<FormSubmitButton isLoading={isLoading}>
+										{formSubmitButtonText}
+									</FormSubmitButton>
+								}
+								closeDialog={closeDialog}
+								isError={isError}
+								onClickTryAgain={onClickTryAgain}
+								shouldCloseOnAction={false}
+								strTryAgain={strTryAgain}
+							/>
+						)}
 					</DialogModalInner>
 				</DialogModalOuter>
 			</Box>
