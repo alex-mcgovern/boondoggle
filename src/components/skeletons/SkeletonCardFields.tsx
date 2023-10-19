@@ -1,4 +1,4 @@
-import { Card } from "../card";
+import { Card } from "../card/Card";
 import { FieldsGrid } from "../fields_grid";
 import { Skeleton } from "./Skeleton";
 import { SkeletonInput } from "./SkeletonInput";
@@ -6,7 +6,7 @@ import { SkeletonInput } from "./SkeletonInput";
 export function SkeletonCardFields() {
 	return (
 		<Card>
-			<Skeleton marginBottom="space_4" maxWidth="25%" />
+			<Skeleton marginBottom="space_8" __maxWidth="10rem" />
 
 			<FieldsGrid>
 				<SkeletonInput />

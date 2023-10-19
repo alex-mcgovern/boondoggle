@@ -221,9 +221,9 @@ export { SlotWrapper } from "./components/slot_wrapper";
 
 export type { SlotWrapperProps } from "./components/slot_wrapper";
 
-export { Card } from "./components/card";
+export { Card } from "./components/card/Card";
 
-export type { CardProps } from "./components/card";
+export type { CardProps } from "./components/card/Card";
 
 export { SelectSingle } from "./components/select/select_single";
 

@@ -1,5 +1,5 @@
 import { Box } from "../box";
-import { CardActionsWrapper } from "../card_actions_wrapper";
+import { CardActionsWrapper } from "./_CardActionsWrapper";
 
 import type { ReactNode } from "react";
 
@@ -60,14 +60,18 @@ export function Card({
 					gap="space_6"
 					marginBottom="space_6"
 				>
-					{title && (
+					{(title || description) && (
 						<Box>
-							<Box as="h3" fontStyle="h5">
-								{title}
-							</Box>
-							<Box as="p" color="text_low_contrast">
-								{description}
-							</Box>
+							{title && (
+								<Box as="h3" fontStyle="h5">
+									{title}
+								</Box>
+							)}
+							{description && (
+								<Box as="p" color="text_low_contrast">
+									{description}
+								</Box>
+							)}
 						</Box>
 					)}
 
