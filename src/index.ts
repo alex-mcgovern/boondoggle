@@ -265,15 +265,14 @@ export { RadioButtonGroup } from "./components/radio_button_group";
 
 export type { RadioButtonGroupProps } from "./components/radio_button_group";
 
-export { Skeleton } from "./components/skeleton";
-
-export { SkeletonCardFields } from "./components/skeleton_card_fields";
+export { Skeleton } from "./components/skeletons/Skeleton";
+export { SkeletonCardFields } from "./components/skeletons/SkeletonCardFields";
+export { SkeletonInput } from "./components/skeletons/SkeletonInput";
 
 export { Tag } from "./components/tag";
+export type { TagProps } from "./components/tag";
 
 export { Tabs } from "./components/tabs/Tabs";
-
-export type { TagProps } from "./components/tag";
 
 export {
 	Tooltip,

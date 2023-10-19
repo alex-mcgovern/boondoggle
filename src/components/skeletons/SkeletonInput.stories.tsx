@@ -1,11 +1,11 @@
-import { SkeletonCardFields as StoryComp } from ".";
+import { SkeletonInput as StoryComp } from "./SkeletonInput";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	args: {},
+	title: "Components/SkeletonInput",
 	component: StoryComp,
-	title: "Components/SkeletonCardFields",
+	args: {},
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

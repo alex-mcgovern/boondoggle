@@ -77,12 +77,11 @@
         "scope": "typescriptreact",
         "prefix": "TS FC",
         "description": "",
+
         "body": [
-            "type ${1:Component}Props = {",
+            "const ${1:Component} = ({ ${2:prop} }: {",
             "\t${2:prop}: undefined",
-            "}",
-            "",
-            "export const ${1:Component} = ({ ${2:prop} }: ${1:Component}Props) => {",
+            "}) => {",
             "\treturn (",
             "",
             "\t)",
