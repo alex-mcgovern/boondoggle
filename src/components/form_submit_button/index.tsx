@@ -4,7 +4,7 @@ import { Button } from "../button";
 
 import type { ButtonProps } from "../button";
 
-export type FormSubmitButtonProps = Omit<ButtonProps, "slotLeft">;
+export type FormSubmitButtonProps = Omit<ButtonProps, "name">;
 
 export const FormSubmitButton = forwardRef<
 	HTMLButtonElement,

@@ -13,7 +13,6 @@ import { DialogModalHeader } from "../dialog_modal_header";
 import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
 import { FormSubmitButton } from "../form_submit_button";
-import { LoaderFullScreen } from "../loader_full_screen";
 
 import type { ReactNode } from "react";
 import type { FieldValues, Resolver } from "react-hook-form";
@@ -178,9 +177,7 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 								/>
 							)}
 
-						{!isError && isLoading && <LoaderFullScreen />}
-
-						{!isError && !isLoading && (
+						{!isError && (
 							<DialogModalContent alert={alert}>
 								{children}
 							</DialogModalContent>
@@ -188,7 +185,7 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 
 						<DialogModalActions
 							actions={
-								<FormSubmitButton>
+								<FormSubmitButton isLoading={isLoading}>
 									{formSubmitButtonText}
 								</FormSubmitButton>
 							}
