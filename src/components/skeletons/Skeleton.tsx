@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Box } from "../box";
-import { loadingStyles } from "./Skeleton.styles.css";
 import type { BoxProps } from "../box";
+import { loadingStyles } from "./Skeleton.styles.css";
 
 export function Skeleton({
 	className,
