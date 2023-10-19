@@ -176,6 +176,7 @@ function SelectItemListBase<
 											onClick,
 											slotLeft,
 											value,
+											itemData: _,
 											...otherItemProps
 										} = item;
 										const isHighlighted =
@@ -272,6 +273,7 @@ function SelectItemListBase<
 						onClick,
 						slotLeft,
 						value,
+						itemData: _,
 						...otherItemProps
 					} = item;
 					const isHighlighted = highlightedIndex === index - 1;
