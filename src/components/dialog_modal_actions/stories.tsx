@@ -26,7 +26,6 @@ const meta = {
 			</Button>,
 		],
 		isError: undefined,
-		isLoading: undefined,
 		onClickTryAgain: undefined,
 		shouldCloseOnAction: undefined,
 		strTryAgain: undefined,
