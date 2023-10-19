@@ -124,3 +124,40 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
+export const IsLoading: StoryObj<StoryCompProps> = {
+	args: {
+		children: (
+			<>
+				<FormInput
+					errorMessage="Enter a valid email address"
+					label={LOREM.labelEmail()}
+					name="email"
+					placeholder="Enter your email address"
+				/>
+				<FormTextArea
+					errorMessage="Enter a valid description"
+					label={LOREM.labelDescription()}
+					name="description"
+					placeholder="Enter your description"
+					wrapperProps={FORM_FIELD_WRAPPER_PROPS}
+				/>
+				<FormSelectSingle
+					errorMessage="Select an option"
+					items={mockSelectItems({})}
+					label={LOREM.labelDropdown()}
+					name="select"
+					placeholder="Select an option from the dropdown"
+				/>
+			</>
+		),
+		formSubmitButtonText: "Submit",
+		handleSubmit: handleFormSubmissionMock,
+		resolver: zodResolver(mockFormSchema),
+		isLoading: true,
+		title: "Dialog modal form",
+		triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+		width: "lg",
+	},
+	render: Template,
+};

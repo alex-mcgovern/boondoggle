@@ -73,6 +73,7 @@ export const DialogModalActionConfirm = forwardRef<
 				<Input
 					colorOverlay={colorOverlay}
 					marginBottom="space_4"
+					autoComplete="off"
 					name="dialog_confirm_text"
 					onChange={(e) => {
 						return setUserConfirmText(e.target.value);
