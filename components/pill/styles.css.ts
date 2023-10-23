@@ -55,7 +55,7 @@ export const getPillStyle = recipe({
 	],
 
 	variants: {
-		colorOverlay: variantColorOverlay,
+		color: variantColorOverlay,
 		size: pillSize,
 	},
 });

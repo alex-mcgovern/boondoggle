@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 
 import { a11yFocus } from "../../src/styles/common/a11y.css";
 import { utilCss } from "../../src/styles/utils/util_css.css";
-import { SlotWrapper } from "../slot_wrapper";
+import { SlotWrapper } from "../_utility/slot_wrapper";
 import * as styles from "./styles.css";
 
 import type {
@@ -27,24 +27,24 @@ type BaseTagProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithColorOverlay &
-		WithSize &
-		WithSlots &
-		WithStateDisabled & {
-			/**
-			 * The react node rendered in the tag.
-			 */
-			children?: ReactNode;
+			WithSize &
+			WithSlots &
+			WithStateDisabled & {
+				/**
+				 * The react node rendered in the tag.
+				 */
+				children?: ReactNode;
 
-			/**
-			 * Used as the html ID.
-			 */
-			id?: string;
+				/**
+				 * Used as the html ID.
+				 */
+				id?: string;
 
-			/**
-			 * Callback on click.
-			 */
-			onClick?(...args: unknown[]): unknown;
-		}
+				/**
+				 * Callback on click.
+				 */
+				onClick?(...args: unknown[]): unknown;
+			}
 	>;
 
 type TagComponent = <TPolymorphicAs extends ElementType = "div">(
@@ -59,7 +59,7 @@ export const Tag: TagComponent = forwardRef(
 			as,
 			children,
 			className: userClassName,
-			colorOverlay,
+			color,
 			id,
 			size,
 			slotLeft,
@@ -80,7 +80,7 @@ export const Tag: TagComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						styles.getTagStyle({ colorOverlay, size }),
+						styles.getTagStyle({ color, size }),
 						utilCss(atomProps),
 						a11yFocus,
 					),

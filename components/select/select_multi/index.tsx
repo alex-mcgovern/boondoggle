@@ -11,7 +11,7 @@ import { useForwardRef } from "../../../src/hooks/use_forward_ref";
 import { arrayHasLength } from "../../../src/lib/array_has_length";
 import { Box } from "../../box/Box";
 import { Icon } from "../../icon";
-import { Input } from "../../input";
+import { Input } from "../../fields/input";
 import { SelectItemList } from "../SelectItemList";
 import { filterSelectItems } from "../filterSelectItems";
 import { flattenSelectItems } from "../flattenSelectItems";
@@ -33,7 +33,7 @@ import type {
 	WithStateInvalid,
 } from "../../../src/common-types";
 import { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import type { InputProps } from "../../input";
+import type { InputProps } from "../../fields/input";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,

@@ -84,7 +84,7 @@ export const variantColorOverlay = styleVariants({
 
 export const getTheme = recipe({
 	variants: {
-		colorOverlay: variantColorOverlay,
+		color: variantColorOverlay,
 	},
 });
 

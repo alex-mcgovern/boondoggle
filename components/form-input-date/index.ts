@@ -1,0 +1,1 @@
+export { FormInputDate } from "./FormInputDate";

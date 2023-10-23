@@ -6,10 +6,10 @@ import {
 } from "@fortawesome/pro-solid-svg-icons";
 
 import { Input as StoryComp } from ".";
-import { LOREM } from "../../mocks/LOREM.mock";
-import { Box } from "../box/Box";
-import { Button } from "../button/Button";
-import { Icon } from "../icon";
+import { LOREM } from "../../../mocks/LOREM.mock";
+import { Box } from "../../box/Box";
+import { Button } from "../../button/Button";
+import { Icon } from "../../icon";
 
 import type { Meta, StoryObj } from "@storybook/react";
 import type { InputProps as StoryCompProps } from ".";
@@ -45,7 +45,7 @@ const meta = {
 				category: "HTML element props",
 			},
 		},
-		colorOverlay: {
+		color: {
 			table: {
 				category: "Customization",
 			},
@@ -234,31 +234,31 @@ const TemplateColors = () => {
 	return (
 		<Box alignItems="center" display="flex" gap="space_6">
 			<StoryComp
-				colorOverlay="blue"
+				color="blue"
 				name="blue"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				colorOverlay="red"
+				color="red"
 				name="red"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				colorOverlay="green"
+				color="green"
 				name="green"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				colorOverlay="amber"
+				color="amber"
 				name="amber"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				colorOverlay="grey"
+				color="grey"
 				name="grey"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}

@@ -5,16 +5,16 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
-} from "../../src/styles/common/a11y.css";
+} from "../../../src/styles/common/a11y.css";
 import {
 	elementHeight,
 	elementPadding,
 	elementPaddingRaw,
-} from "../../src/styles/common/element_size.css";
-import { vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
-import { btn } from "../button/Button.css";
+} from "../../../src/styles/common/element_size.css";
+import { vars } from "../../../src/styles/theme.css";
+import { createAccessibleTransition } from "../../../src/styles/utils/create_accessible_transition";
+import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { btn } from "../../button/Button.css";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],

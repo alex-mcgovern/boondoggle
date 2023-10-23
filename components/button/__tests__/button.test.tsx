@@ -144,33 +144,33 @@ describe("<Button />", () => {
 	});
 
 	describe("`color` prop", () => {
-		test("should have the correct class name when colorOverlay = blue", () => {
+		test("should have the correct class name when color = blue", () => {
 			const { getByRole } = render(
-				<Button colorOverlay="blue" id="button" name="Test button" />,
+				<Button color="blue" id="button" name="Test button" />,
 			);
 
 			expect(getByRole("button")).toHaveClass(variantColorOverlay.blue);
 		});
 
-		test("should have the correct class name when colorOverlay = amber", () => {
+		test("should have the correct class name when color = amber", () => {
 			const { getByRole } = render(
-				<Button colorOverlay="amber" id="button" name="Test button" />,
+				<Button color="amber" id="button" name="Test button" />,
 			);
 
 			expect(getByRole("button")).toHaveClass(variantColorOverlay.amber);
 		});
 
-		test("should have the correct class name when colorOverlay = red", () => {
+		test("should have the correct class name when color = red", () => {
 			const { getByRole } = render(
-				<Button colorOverlay="red" id="button" name="Test button" />,
+				<Button color="red" id="button" name="Test button" />,
 			);
 
 			expect(getByRole("button")).toHaveClass(variantColorOverlay.red);
 		});
 
-		test("should have the correct class name name when colorOverlay = green", () => {
+		test("should have the correct class name name when color = green", () => {
 			const { getByRole } = render(
-				<Button colorOverlay="green" id="button" name="Test button" />,
+				<Button color="green" id="button" name="Test button" />,
 			);
 
 			expect(getByRole("button")).toHaveClass(variantColorOverlay.green);

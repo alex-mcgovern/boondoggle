@@ -49,31 +49,31 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
 	return (
 		<Box alignItems="center" display="flex" gap="space_6">
 			<StoryComp
-				colorOverlay="blue"
+				color="blue"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				colorOverlay="red"
+				color="red"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				colorOverlay="green"
+				color="green"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				colorOverlay="amber"
+				color="amber"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				colorOverlay="grey"
+				color="grey"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}

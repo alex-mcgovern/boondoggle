@@ -52,7 +52,7 @@ export const SelectItem = React.forwardRef(
 	(
 		{
 			as = "li",
-			colorOverlay,
+			color,
 			description,
 			isHighlighted,
 			isMulti,
@@ -69,7 +69,7 @@ export const SelectItem = React.forwardRef(
 				as={as}
 				className={clsx(
 					getSelectItemStyles({
-						colorOverlay,
+						color,
 						size,
 					}),
 					{

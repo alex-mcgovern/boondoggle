@@ -5,9 +5,9 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Input } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import { a11yDisabled } from "../../../src/styles/common/a11y.css";
+import { LOREM } from "../../../../mocks/LOREM.mock";
+import "../../../../test/mocked_dependencies/dialog.mock";
+import { a11yDisabled } from "../../../../src/styles/common/a11y.css";
 
 import type { InputProps } from "..";
 

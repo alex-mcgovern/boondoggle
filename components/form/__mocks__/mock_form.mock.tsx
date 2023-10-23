@@ -3,18 +3,18 @@ import * as z from "zod";
 
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { MOCK_CURRENCY_SELECT_ITEMS } from "../../../test/mock_data/input_currency";
-import { FormInput } from "../../form_input";
-import { FormInputCurrency } from "../../form_input_currency";
-import { FormInputDate } from "../../form_input_date";
-import { FormRadioButtonCardGroup } from "../../form_radio_button_card_group";
-import { FormSelectSingle } from "../../form_select_single";
-import { FormSlider } from "../../form_slider";
-import { FormSubmitButton } from "../../form_submit_button";
-import { FormTextArea } from "../../form_text_area";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_card_group/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { Input } from "../../form-input/FormInput";
+import { InputCurrency } from "../../FormInputCurrency";
+import { InputDate } from "../../form-input-date/FormInputDate";
+import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group/FormRadioButtonCardGroup";
+import { FormSelectSingle } from "../../form-select-single/FormSelectSingle";
+import { FormSlider } from "../../form-slider/FormSlider";
+import { FormSubmitButton } from "../../form-submit-button/FormSubmitButton";
+import { FormTextArea } from "../../form-text-area/FormTextArea";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../../radio_button_card_group/__mocks__/radio_button_cards.mock";
+import { mockSelectItems } from "../../../select/__mocks__/select.mock";
 
-import type { FormProps } from "..";
+import type { FormProps } from "../Form";
 import type { MockCurrency } from "../../../test/mock_data/input_currency";
 import type { BoxProps } from "../../box/Box";
 
@@ -54,7 +54,7 @@ export const mockForm = ({
 	return {
 		children: (
 			<>
-				{/* <FormInputDate
+				{/* <InputDate
           defaultValue={withDefaultValues ? LOREM.dateISO : undefined}
           errorMessage="Date is required"
           id="date"
@@ -63,14 +63,14 @@ export const mockForm = ({
           placeholder="Select a date"
           wrapperProps={WRAPPER_PROPS}
         /> */}
-				<FormInput
+				<Input
 					defaultValue={withDefaultValues ? LOREM.email() : undefined}
 					label={LOREM.labelEmail()}
 					name="email"
 					placeholder="Enter your email address"
 				/>
-				<FormInputDate label="Date" name="date" />
-				<FormInputCurrency<MockCurrency>
+				<InputDate label="Date" name="date" />
+				<InputCurrency<MockCurrency>
 					currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
 					currencySelectLabel="Currency"
 					defaultValue={withDefaultValues ? 100 : undefined}

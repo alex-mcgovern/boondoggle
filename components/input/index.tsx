@@ -7,7 +7,7 @@ import type {
 	ComponentPropsWithoutRef,
 	ForwardedRef,
 } from "react";
-import { getOptionalLabelProps } from "../../src/common-types";
+import { getOptionalLabelProps } from "../../../src/common-types";
 import type {
 	WithColorOverlay,
 	WithDescription,
@@ -22,14 +22,14 @@ import type {
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-} from "../../src/common-types";
-import { useForwardRef } from "../../src/hooks/use_forward_ref";
-import { utilCss } from "../../src/styles/utils/util_css.css";
-import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
-import { FieldActionButtonClear } from "../field_action_button_clear";
-import { FieldActionButtonCopy } from "../field_action_button_copy";
-import { FieldActionButtonVisibility } from "../field_action_button_visibility";
-import { FieldWrapper } from "../field_wrapper";
+} from "../../../src/common-types";
+import { useForwardRef } from "../../../src/hooks/use_forward_ref";
+import { utilCss } from "../../../src/styles/utils/util_css.css";
+import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
+import { FieldActionButtonClear } from "../../field_action_button_clear";
+import { FieldActionButtonCopy } from "../../field_action_button_copy";
+import { FieldActionButtonVisibility } from "../../field_action_button_visibility";
+import { FieldWrapper } from "../../field_wrapper";
 import {
 	InputAddonWrapper,
 	WithOptionalInputAddons,
@@ -103,7 +103,7 @@ function InputBase(
 		addonLeft,
 		addonRight,
 		className: userClassName,
-		colorOverlay,
+		color,
 		defaultValue,
 		description,
 		disabled,
@@ -170,7 +170,7 @@ function InputBase(
 
 	return (
 		<FieldWrapper
-			colorOverlay={colorOverlay}
+			color={color}
 			description={description}
 			errorMessage={errorMessage}
 			hideLastpass={hideLastpass}

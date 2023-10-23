@@ -71,7 +71,7 @@ export const getSelectItemStyles = recipe({
 		},
 	],
 	variants: {
-		colorOverlay: variantColorOverlay,
+		color: variantColorOverlay,
 		size: selectItemSize,
 	},
 });

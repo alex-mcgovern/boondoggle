@@ -4,8 +4,8 @@
 import { render } from "@testing-library/react";
 
 import { Input } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
+import { LOREM } from "../../../../mocks/LOREM.mock";
+import "../../../../test/mocked_dependencies/dialog.mock";
 
 import type { InputProps } from "..";
 

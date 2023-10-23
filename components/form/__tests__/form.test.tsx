@@ -5,18 +5,18 @@ import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 
-import { Form } from "..";
+import { Form } from "../Form";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
 import "../../../test/mocked_dependencies/has_pointer_capture.mock";
 import "../../../test/mocked_dependencies/resize_observer.mock";
 import { selectFromDatePicker } from "../../../test/select_from_date_picker";
 import { selectFromSingleSelect } from "../../../test/select_from_select_single";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_card_group/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../../radio_button_card_group/__mocks__/radio_button_cards.mock";
+import { mockSelectItems } from "../../../select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 
-import type { FormProps } from "..";
+import type { FormProps } from "../Form";
 
 const handleSubmit = jest.fn();
 

@@ -184,7 +184,7 @@ export const mockSelectItemsActions = (): Array<
 		},
 		{
 			as: "button",
-			colorOverlay: "red",
+			color: "red",
 			description: LOREM.text_xxs,
 			label: "Delete",
 			onClick: () => {

@@ -56,31 +56,31 @@ export const AppearanceGhost: Story = {
 
 export const ColorOverlayBlue: Story = {
 	args: {
-		colorOverlay: "blue",
+		color: "blue",
 	},
 };
 
 export const ColorOverlayRed: Story = {
 	args: {
-		colorOverlay: "red",
+		color: "red",
 	},
 };
 
 export const ColorOverlayGreen: Story = {
 	args: {
-		colorOverlay: "green",
+		color: "green",
 	},
 };
 
 export const ColorOverlayAmber: Story = {
 	args: {
-		colorOverlay: "amber",
+		color: "amber",
 	},
 };
 
 export const ColorOverlayGrey: Story = {
 	args: {
-		colorOverlay: "grey",
+		color: "grey",
 	},
 };
 

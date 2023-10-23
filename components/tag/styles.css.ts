@@ -57,7 +57,7 @@ export const getTagStyle = recipe({
 	],
 
 	variants: {
-		colorOverlay: variantColorOverlay,
+		color: variantColorOverlay,
 		size: tagSize,
 	},
 });

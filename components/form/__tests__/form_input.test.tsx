@@ -6,26 +6,26 @@ import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { FormInput } from "../../form_input";
+import { Input } from "../../form-input/FormInput";
 import { FormTestProvider } from "../form_test_provider.comp";
 
-import type { FormInputProps } from "../../form_input";
+import type { InputProps } from "../../form-input/FormInput";
 
-const PROPS: FormInputProps = {
+const PROPS: InputProps = {
 	errorMessage: LOREM.errorMessage(),
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),
 };
 
-const renderComponent = ({ ...props }: FormInputProps) => {
+const renderComponent = ({ ...props }: InputProps) => {
 	return render(
 		<FormTestProvider>
-			<FormInput {...props} />
+			<Input {...props} />
 		</FormTestProvider>,
 	);
 };
 
-describe("<FormInput />", () => {
+describe("<Input />", () => {
 	describe("Basic smoke tests", () => {
 		test("should render without throwing", () => {
 			const { getByRole } = renderComponent(PROPS);
