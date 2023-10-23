@@ -1,14 +1,11 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
-
 import { getOptionalLabelProps } from "../../src/common-types";
 import { a11yError } from "../../src/styles/common/a11y.css";
 import { utilCss } from "../../src/styles/utils/util_css.css";
 import { FieldWrapper } from "../field-wrapper";
-import { SlotWrapper } from "../slot_wrapper";
 import * as styles from "./styles.css";
-
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 import type {
 	WithColorOverlay,
@@ -25,6 +22,7 @@ import type {
 	WithWrapperProps,
 } from "../../src/common-types";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
+import { SlotWrapper } from "../_utility/slot_wrapper";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,

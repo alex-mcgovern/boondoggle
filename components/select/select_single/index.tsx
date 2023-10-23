@@ -22,9 +22,6 @@ import { useForwardRef } from "../../../src/hooks/use_forward_ref";
 import { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
 import { Box } from "../../box/Box";
 import { Icon } from "../../icon";
-import { Input } from "../../fields/input";
-import type { InputProps } from "../../fields/input";
-import { WithOptionalInputAddons } from "../../fields/input/InputAddonWrapper";
 import { SelectItemList } from "../SelectItemList";
 import { filterSelectItems } from "../filterSelectItems";
 import { flattenSelectItems } from "../flattenSelectItems";
@@ -38,6 +35,8 @@ import type {
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
+import { Input, InputProps } from "../../input";
+import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
 
 export type SelectSingleProps<
 	TValue extends string = string,

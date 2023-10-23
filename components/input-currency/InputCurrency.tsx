@@ -6,6 +6,9 @@ import { currencySelectInputStyle } from "./InputCurrency.styles.css";
 import { useFormattedCurrency } from "./_lib/useFormattedCurrency";
 import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 import type { SelectItemShape } from "../select/types";
+import { Input } from "../input";
+import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
+import { UtilCssArgs } from "../../src";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -20,10 +23,7 @@ import {
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-} from "../../../src/common-types";
-import { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import { Input } from "../input";
-import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
+} from "../../src/common-types";
 
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**

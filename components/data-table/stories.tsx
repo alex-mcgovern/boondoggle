@@ -11,7 +11,7 @@ import { DataTableRowActions } from "./_components/DataTableRowActions";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock";
 import type { TDataTableRowActions } from "../../src/common-types";
-import { mockSelectItemsActions } from "../fields/select/__mocks__/select.mock";
+import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 
 const meta = {
 	args: {},

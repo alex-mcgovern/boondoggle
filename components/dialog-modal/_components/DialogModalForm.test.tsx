@@ -6,18 +6,16 @@ import { render, waitFor } from "@testing-library/react";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { createRef } from "react";
 import { z } from "zod";
-
 import { DialogModalForm } from "./DialogModalForm";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Button } from "../../button/Button";
-import { Input } from "../../form-input/FormInput";
+import { FormInput } from "../../form-input/FormInput";
 import { FormRadioButtonGroup } from "../../form-radio-button-group/FormRadioButtonGroup";
 import { FormSelectSingle } from "../../form-select-single/FormSelectSingle";
 import { FormTextArea } from "../../form-text-area/FormTextArea";
-import { RADIO_BUTTONS_MOCK } from "../../radio_button_group/mocks";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
-
 import type { DialogModalFormProps } from "./DialogModalForm";
+import { RADIO_BUTTONS_MOCK } from "../../radio-button-group/mocks";
+import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 const mockFormSchema = z.object({
 	description: z.string().min(1),
@@ -50,7 +48,7 @@ const handleFormSubmissionMock = jest.fn();
 const PROPS: DialogModalFormProps = {
 	children: (
 		<>
-			<Input
+			<FormInput
 				errorMessage="Enter a valid email address"
 				label={LOREM.labelEmail()}
 				name="email"

@@ -1,10 +1,7 @@
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons";
 import { Icon } from "../../icon";
-import { SelectItemShape } from "../../fields/select/types";
-import {
-	SelectButton,
-	SelectButtonProps,
-} from "../../fields/select/select_button";
+import { SelectButtonProps, SelectButton } from "../../select/select_button";
+import { SelectItemShape } from "../../select/types";
 
 /**
  * Renders a `SelectButton` configured to act as a DataTable row actions menu.

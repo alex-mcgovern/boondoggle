@@ -1,9 +1,6 @@
 import { useController, useFormContext } from "react-hook-form";
 import type { WithFormFieldProps } from "../../src/common-types";
-import {
-	InputCurrency,
-	InputCurrencyProps,
-} from "../fields/input-currency/InputCurrency";
+import { InputCurrencyProps, InputCurrency } from "../../src";
 
 /**
  * React Hook Form connected version of Boondoggle's `InputCurrency`. Uses `useFormContext`

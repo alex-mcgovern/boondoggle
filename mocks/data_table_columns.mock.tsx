@@ -1,11 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Faker, en } from "@faker-js/faker";
-import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
-
 import { Avatar } from "../components/avatar/Avatar";
 import { Box } from "../components/box/Box";
-import { Icon } from "../components/icon";
 
 const faker = new Faker({ locale: [en] });
 

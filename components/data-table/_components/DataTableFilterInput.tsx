@@ -1,8 +1,8 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { Icon } from "../../icon";
-import { Input } from "../../fields/field-input";
 import type { WithOptionalPlaceholder } from "../../../src/common-types";
 import type { useDataTableState } from "../../../src/lib/use_data_table_state";
+import { Input } from "../../input";
 
 /**
  * Renders a string filter for the DataTable.

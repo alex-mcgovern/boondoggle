@@ -1,7 +1,6 @@
 import { useController, useFormContext } from "react-hook-form";
-import { Input } from "../fields/field-input";
 import type { WithFormFieldProps } from "../../src/common-types";
-import type { InputProps } from "../fields/field-input";
+import { Input, InputProps } from "../input";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`

@@ -1,22 +1,20 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { MOCK_CURRENCY_SELECT_ITEMS } from "../../../test/mock_data/input_currency";
-import { Input } from "../../form-input/FormInput";
-import { InputCurrency } from "../../FormInputCurrency";
-import { InputDate } from "../../form-input-date/FormInputDate";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group/FormRadioButtonCardGroup";
 import { FormSelectSingle } from "../../form-select-single/FormSelectSingle";
 import { FormSlider } from "../../form-slider/FormSlider";
 import { FormSubmitButton } from "../../form-submit-button/FormSubmitButton";
 import { FormTextArea } from "../../form-text-area/FormTextArea";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../../radio_button_card_group/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../../select/__mocks__/select.mock";
-
 import type { FormProps } from "../Form";
 import type { MockCurrency } from "../../../test/mock_data/input_currency";
 import type { BoxProps } from "../../box/Box";
+import { InputCurrency } from "../../../src";
+import { Input } from "../../input";
+import { InputDate } from "../../input-date";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
+import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),

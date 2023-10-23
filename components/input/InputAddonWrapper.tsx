@@ -1,4 +1,4 @@
-import { WithSize } from "../../../src/common-types";
+import { WithSize } from "../../src/common-types";
 import { InputAddonTab } from "./InputAddonTab";
 import { addonChildrenStyle, getAddonWrapperStyle } from "./styles.css";
 

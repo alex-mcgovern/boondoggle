@@ -1,10 +1,8 @@
 import clsx from "clsx";
 import { forwardRef, useCallback } from "react";
-
 import { fieldActionButtonStyle } from "./FieldActionButton.css";
-
 import type { MouseEvent, MouseEventHandler, ReactNode } from "react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "../../tooltip";
+import { Tooltip, TooltipTrigger, TooltipContent } from "../tooltip";
 
 type BaseButtonProps = {
 	/**

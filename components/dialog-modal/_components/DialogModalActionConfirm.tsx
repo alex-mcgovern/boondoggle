@@ -3,9 +3,9 @@
 import { forwardRef, useState } from "react";
 import { Box } from "../../box/Box";
 import { Button } from "../../button/Button";
-import { Input } from "../../fields/field-input";
 import { confirmTextStyle } from "./DialogModalActionConfirm.css";
 import { WithColorOverlay } from "../../../src/common-types";
+import { Input } from "../../input";
 
 export const DialogModalActionConfirm = forwardRef<
 	HTMLDivElement,

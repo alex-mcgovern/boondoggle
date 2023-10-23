@@ -23,7 +23,7 @@ import type {
 	WithStateInvalid,
 } from "../../../src/common-types";
 import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import type { ButtonProps } from "../../button/Button";
+
 import { flattenSelectItems } from "../flattenSelectItems";
 import { isNotSeparator } from "../isNotSeparator";
 import type {
@@ -31,6 +31,7 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
+import { ButtonProps } from "../../button/types";
 
 export type SelectButtonProps<
 	TValue extends string = string,

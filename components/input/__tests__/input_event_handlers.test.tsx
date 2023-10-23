@@ -4,11 +4,10 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
-
 import { Input } from "..";
-import { LOREM } from "../../../../mocks/LOREM.mock";
 
 import type { InputProps } from "..";
+import { LOREM } from "../../../mocks/LOREM.mock";
 
 afterEach(cleanup);
 

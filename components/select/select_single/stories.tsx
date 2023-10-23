@@ -7,7 +7,6 @@ import {
 	mockSelectItems,
 	mockSelectItemsGrouped,
 } from "../__mocks__/select.mock";
-
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

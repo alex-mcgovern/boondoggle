@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import { Button, ButtonProps } from "../button/Button";
+import { Button } from "../button/Button";
 import * as styles from "./Tab.css";
+import { ButtonProps } from "../button/types";
 
 export function Tab({ className, active, children, ...rest }: ButtonProps) {
 	return (

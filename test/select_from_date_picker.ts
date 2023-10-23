@@ -7,7 +7,7 @@ import type {
 	Matcher,
 	MatcherOptions,
 } from "@testing-library/react";
-import type { InputDateProps } from "../components/input_date";
+import { InputDateProps } from "../components/input-date";
 
 type SelectFromInputDateArgs = {
 	expectedValue: string;

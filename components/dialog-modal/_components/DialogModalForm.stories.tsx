@@ -1,20 +1,19 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { jest } from "@storybook/jest";
 import { z } from "zod";
-
 import { DialogModalForm as StoryComp } from "./DialogModalForm";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Button } from "../../button/Button";
-import { Input } from "../../form-input/FormInput";
 import { FormRadioButtonGroup } from "../../form-radio-button-group/FormRadioButtonGroup";
 import { FormSelectSingle } from "../../form-select-single/FormSelectSingle";
 import { FormTextArea } from "../../form-text-area/FormTextArea";
-import { RADIO_BUTTONS_MOCK } from "../../radio_button_group/mocks";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
-
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { DialogModalFormProps as StoryCompProps } from "./DialogModalForm";
 import type { BoxProps } from "../../box/Box";
+import { FormInput } from "../../form-input";
+import { Input } from "../../input";
+import { RADIO_BUTTONS_MOCK } from "../../radio-button-group/mocks";
+import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 const mockFormSchema = z.object({
 	description: z.string().min(1),
@@ -53,7 +52,7 @@ export const WidthSm: StoryObj<StoryCompProps> = {
 	args: {
 		children: (
 			<>
-				<Input
+				<FormInput
 					errorMessage="Enter a valid email address"
 					label={LOREM.labelEmail()}
 					name="email"

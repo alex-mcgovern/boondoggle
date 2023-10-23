@@ -2,19 +2,16 @@
 
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
-
-import { DatePicker } from "../date_picker";
 import { Dialog } from "../dialog";
 import { FieldActionButtonDate } from "../field-action-button-date";
-import { Input } from "../fields/input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
-
 import type { MouseEvent } from "react";
 import type {
 	WithOptionalLabel,
 	WithOptionalPlaceholder,
 } from "../../src/common-types";
-import type { InputProps } from "../fields/input";
+import { DatePicker } from "../date-picker";
+import { InputProps, Input } from "../input";
 
 /**
  * Converts a local date to a UTC date.

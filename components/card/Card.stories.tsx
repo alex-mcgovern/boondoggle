@@ -1,10 +1,9 @@
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Button } from "../button";
-import { FieldsGrid } from "../fields/fields-grid";
-import { Input } from "../fields/field-input";
+import { FieldsGrid } from "../fields-grid";
+import { Input } from "../input";
 import { SkeletonInput } from "../skeletons/SkeletonInput";
 import { Card as StoryComp } from "./Card";
-
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

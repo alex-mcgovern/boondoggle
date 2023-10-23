@@ -4,15 +4,13 @@ import {
 	faRefresh,
 	faTriangleCircleSquare,
 } from "@fortawesome/pro-solid-svg-icons";
-
 import { Input as StoryComp } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import { Icon } from "../../icon";
-
 import type { Meta, StoryObj } from "@storybook/react";
 import type { InputProps as StoryCompProps } from ".";
+import { LOREM } from "../../mocks/LOREM.mock";
+import { Box } from "../box";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
 const meta = {
 	args: {

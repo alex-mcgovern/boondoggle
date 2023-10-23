@@ -1,9 +1,8 @@
 import clsx from "clsx";
 import * as React from "react";
-import { WithSlots, WithStateDisabled } from "../../../src/common-types";
-import { a11yError } from "../../../src/styles/common/a11y.css";
-import { ElementSizeEnum } from "../../../src/styles/common/element_size.css";
 import { getSlotWrapperStyles } from "./styles.css";
+import { ElementSizeEnum, a11yError } from "../../src";
+import { WithSlots, WithStateDisabled } from "../../src/common-types";
 
 /**
  * Renders a wrapper around the input and its slots.

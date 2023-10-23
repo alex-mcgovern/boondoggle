@@ -1,13 +1,10 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
-
-import { Slider } from "../../slider";
-
 import type {
 	WithFormFieldProps,
 	WithWrapperProps,
 } from "../../src/common-types";
-import type { SliderProps } from "../../slider";
+import { Slider, SliderProps } from "../slider";
 
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`

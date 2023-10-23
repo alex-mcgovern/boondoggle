@@ -1,12 +1,9 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
-
-import { flattenSelectItems } from "../../select/flattenSelectItems";
-import { SelectSingle } from "../../select/select_single";
-
-import type { WithFormFieldProps } from "../../src/common-types";
-import type { SelectSingleProps } from "../../select/select_single";
-import type { SelectItemShape } from "../../select/types";
+import { WithFormFieldProps } from "../../src/common-types";
+import { flattenSelectItems } from "../select/flattenSelectItems";
+import { SelectSingleProps, SelectSingle } from "../select/select_single";
+import { SelectItemShape } from "../select/types";
 
 type GetDefaultValueItemArgs<
 	TValue extends string = string,

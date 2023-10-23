@@ -1,7 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus } from "../../../src/styles/common/a11y.css";
-import { vars } from "../../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../../src/styles/utils/create_accessible_transition";
+import { a11yFocus, vars, createAccessibleTransition } from "../../src";
 
 export const fieldActionButtonStyle = style([
 	a11yFocus,

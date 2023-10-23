@@ -10,7 +10,7 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
 import { variantColorOverlay } from "../../../src/styles/theme.css";
 import { Icon } from "../../icon";
-import { btn, variantButtonSize } from "../Button.css";
+import { btn } from "../Button.css";
 
 describe("<Button />", () => {
 	describe("Basic smoke tests", () => {
