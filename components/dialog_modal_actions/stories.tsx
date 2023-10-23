@@ -32,6 +32,9 @@ const meta = {
 	},
 
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DialogModalActions",
 } satisfies Meta<typeof StoryComp>;
 

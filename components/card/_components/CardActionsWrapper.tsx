@@ -1,7 +1,5 @@
-import { Box } from "../box";
-
 import type { ReactNode } from "react";
-
+import { cardActionsWrapper } from "./CardActionsWrapper.css";
 /**
  * Wraps actions for a card.
  */
@@ -17,9 +15,5 @@ export function CardActionsWrapper({
 		return null;
 	}
 
-	return (
-		<Box alignItems="center" display="flex" gap="space_2" marginLeft="auto">
-			{actions}
-		</Box>
-	);
+	return <div className={cardActionsWrapper}>{actions}</div>;
 }

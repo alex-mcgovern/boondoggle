@@ -42,19 +42,15 @@ export {
 
 export type { TDataTableRowActions } from "./common-types";
 
-export { Avatar } from "../components/avatar";
+export { Avatar } from "../components/avatar/Avatar";
 
-export type { AvatarProps } from "../components/avatar";
+export { Box } from "../components/box/Box";
 
-export { Box } from "../components/box";
-
-export type { BoxProps } from "../components/box";
+export type { BoxProps } from "../components/box/Box";
 
 export { Button } from "../components/button/Button";
 
-export type { ButtonProps } from "../components/button/Button";
-
-export { ButtonGroup } from "../components/button_group";
+export { ButtonGroup } from "../components/button-group/ButtonGroup";
 
 export { Collapsible } from "../components/collapsible";
 
@@ -66,12 +62,6 @@ export type { DataTableProps } from "../components/data_table";
 
 export { DataTableRowActions } from "../components/data_table/_components/DataTableRowActions";
 
-export type { DataTableRowActionsProps } from "../components/data_table/_components/DataTableRowActions";
-
-export { DataTableCellButton } from "../components/data_table/_components/data_table_cell_button";
-
-export type { DataTableCellButtonProps } from "../components/data_table/_components/data_table_cell_button";
-
 export { Dialog } from "../components/dialog";
 
 export type { DialogProps } from "../components/dialog";
@@ -79,10 +69,6 @@ export type { DialogProps } from "../components/dialog";
 export { DialogModal } from "../components/dialog_modal";
 
 export type { DialogModalProps } from "../components/dialog_modal";
-
-export { DialogModalDataTable } from "../components/dialog_modal_data_table";
-
-export type { DialogModalDataTableProps } from "../components/dialog_modal_data_table";
 
 export { DialogModalForm } from "../components/dialog_modal_form";
 

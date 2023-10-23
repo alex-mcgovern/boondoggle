@@ -2,7 +2,7 @@
 
 import { forwardRef, useState } from "react";
 
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { Button } from "../button/Button";
 import { Input } from "../input";
 import { confirmTextStyle } from "./styles.css";

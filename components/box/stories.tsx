@@ -3,18 +3,21 @@ import {
 	faExclamationCircle,
 } from "@fortawesome/pro-solid-svg-icons";
 
-import { Box as StoryComp } from ".";
+import { Box as StoryComp } from "./Box";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Link } from "../../test/link.comp.mock";
 import { variantColorOverlay } from "../../src/styles/theme.css";
 import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
-import type { BoxProps as StoryCompProps } from ".";
+import type { BoxProps as StoryCompProps } from "./Box";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 
 export default {
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/Box",
 };
 

@@ -22,6 +22,9 @@ const meta = {
 		strClear: "Clear",
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/SelectSingle",
 } satisfies Meta<typeof StoryComp>;
 

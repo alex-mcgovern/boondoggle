@@ -1,7 +1,7 @@
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
 
 import { variantColorOverlay } from "../../src/styles/color_palette.css";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { Icon } from "../icon";
 
 export type DialogModalErrorMessageProps = {

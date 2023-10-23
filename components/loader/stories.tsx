@@ -5,6 +5,9 @@ import type { LoaderProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/Loader",
 };
 

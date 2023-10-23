@@ -3,9 +3,8 @@ import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
-import { Avatar } from "../components/avatar";
-import { Box } from "../components/box";
-import { DataTableCellButton } from "../components/data_table/_components/data_table_cell_button";
+import { Avatar } from "../components/avatar/Avatar";
+import { Box } from "../components/box/Box";
 import { Icon } from "../components/icon";
 
 const faker = new Faker({ locale: [en] });
@@ -57,12 +56,7 @@ const columnHelper = createColumnHelper<MockAccountColumnData>();
 export const DATA_TABLE_COLUMNS_MOCK = [
 	columnHelper.accessor("first_name", {
 		cell: (info) => {
-			return (
-				<DataTableCellButton
-					slotRight={<Icon icon={faArrowUpRight} />}
-					value={info.getValue()}
-				/>
-			);
+			return info.getValue();
 		},
 		enableHiding: false,
 		header: () => {
@@ -106,12 +100,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
 	columnHelper.accessor("first_name", {
 		cell: (info) => {
-			return (
-				<DataTableCellButton
-					slotRight={<Icon icon={faArrowUpRight} />}
-					value={info.getValue()}
-				/>
-			);
+			return info.getValue();
 		},
 		enableHiding: false,
 		header: () => {

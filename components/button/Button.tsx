@@ -1,7 +1,7 @@
 import * as React from "react";
 import clsx from "clsx";
 import { Loader } from "../loader";
-import { getButtonStyles } from "./Button.css";
+import { btn } from "./Button.css";
 import { BaseButtonProps, ButtonComponent } from "./types";
 import { PolymorphicRef } from "../../src/common-types";
 
@@ -34,7 +34,7 @@ export const Button: ButtonComponent = React.forwardRef(
 				{...{
 					"aria-disabled": disabled,
 					className: clsx(
-						getButtonStyles({ alignment, variant, size, color }),
+						btn({ alignment, variant, size, color }),
 						userClassName,
 					),
 					"data-active": active,

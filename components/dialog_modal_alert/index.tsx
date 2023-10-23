@@ -1,7 +1,7 @@
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
 import { Children } from "react";
 
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { Icon } from "../icon";
 import {
 	dialogModalAlertSlotStyle,

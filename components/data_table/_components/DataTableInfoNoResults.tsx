@@ -2,7 +2,7 @@ import {
 	faCircleExclamation,
 	faTimesCircle,
 } from "@fortawesome/pro-solid-svg-icons";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { Button } from "../../button/Button";
 import { Icon } from "../../icon";
 import type { useDataTableState } from "../../../src/lib/use_data_table_state";

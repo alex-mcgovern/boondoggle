@@ -9,6 +9,9 @@ const meta = {
 		},
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DialogModalCloseButton",
 } satisfies Meta<typeof StoryComp>;
 

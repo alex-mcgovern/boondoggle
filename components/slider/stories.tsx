@@ -8,6 +8,9 @@ const meta = {
 		name: LOREM.name(),
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/Slider",
 } satisfies Meta<typeof StoryComp>;
 

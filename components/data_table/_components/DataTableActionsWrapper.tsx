@@ -1,5 +1,5 @@
 import { Children } from "react";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import type { ReactNode } from "react";
 
 /**

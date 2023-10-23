@@ -1,4 +1,4 @@
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { Button } from "../../button/Button";
 import type { Table } from "@tanstack/react-table";
 

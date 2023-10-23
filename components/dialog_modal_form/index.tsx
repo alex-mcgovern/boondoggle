@@ -5,7 +5,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { handleHookFormErrors } from "../../src/lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../src/lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../src/styles/color_palette.css";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { DialogModalActions } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
 import { DialogModalErrorMessage } from "../dialog_modal_error_message";
@@ -16,7 +16,7 @@ import { FormSubmitButton } from "../form_submit_button";
 
 import type { ReactNode } from "react";
 import type { FieldValues, Resolver } from "react-hook-form";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 
 export type DialogModalFormProps<
@@ -41,8 +41,8 @@ export type DialogModalFormProps<
 	 * Function that will be called when the form is submitted.
 	 */
 	handleSubmit:
-	| ((fieldValues: TFieldValues) => Promise<void>)
-	| ((fieldValues: TFieldValues) => void);
+		| ((fieldValues: TFieldValues) => Promise<void>)
+		| ((fieldValues: TFieldValues) => void);
 
 	/**
 	 * Whether the dialog modal is in an error state.

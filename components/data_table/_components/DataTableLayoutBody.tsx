@@ -1,6 +1,6 @@
 import { flexRender } from "@tanstack/react-table";
 import { tdStyles } from "../../../src/styles/stylesheet.css";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { getBodyStyle, rowStyles } from "./DataTableLayoutBody.css";
 import type { Table } from "@tanstack/react-table";
 

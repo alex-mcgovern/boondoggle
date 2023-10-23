@@ -20,7 +20,7 @@ import type {
 } from "../../../src/common-types";
 import { useForwardRef } from "../../../src/hooks/use_forward_ref";
 import { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
@@ -105,8 +105,8 @@ export type SelectSingleProps<
 		 * The items to render in the dropdown.
 		 */
 		items:
-		| FlatSelectItems<TValue, TItemData>
-		| GroupedSelectItems<TValue, TItemData>;
+			| FlatSelectItems<TValue, TItemData>
+			| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the new selected item when the selection changes.

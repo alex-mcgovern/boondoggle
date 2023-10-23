@@ -14,6 +14,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	args: {},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/Tooltip2",
 } satisfies Meta<typeof StoryComp>;
 

@@ -13,6 +13,9 @@ const meta = {
 		placeholder: LOREM.placeholder(),
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/InputDate",
 } satisfies Meta<typeof StoryComp>;
 

@@ -14,7 +14,7 @@ import { mockSelectItems } from "../select/__mocks__/select.mock";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { DialogModalFormProps as StoryCompProps } from ".";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 
 const mockFormSchema = z.object({
 	description: z.string().min(1),
@@ -39,6 +39,9 @@ const FORM_FIELD_WRAPPER_PROPS: BoxProps = {
 
 export default {
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DialogModalForm",
 };
 

@@ -3,7 +3,7 @@
 import { arrayHasLength } from "../../src/lib/array_has_length";
 import { useDataTableState } from "../../src/lib/use_data_table_state";
 import { tableStyles } from "../../src/styles/stylesheet.css";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { DataTableActionsWrapper } from "./_components/DataTableActionsWrapper";
 import { DataTableFilterInput } from "./_components/DataTableFilterInput";
 import { DataTableInfoNoResults } from "./_components/DataTableInfoNoResults";

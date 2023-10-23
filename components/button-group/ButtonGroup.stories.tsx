@@ -1,4 +1,4 @@
-import { ButtonGroup as StoryComp } from ".";
+import { ButtonGroup as StoryComp } from "./ButtonGroup";
 import { Button } from "../button/Button";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -20,6 +20,9 @@ const meta = {
 		),
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/ButtonGroup",
 } satisfies Meta<typeof StoryComp>;
 

@@ -9,6 +9,9 @@ const meta = {
 		title: LOREM.text_xxs,
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DialogModalAlert",
 } satisfies Meta<typeof StoryComp>;
 

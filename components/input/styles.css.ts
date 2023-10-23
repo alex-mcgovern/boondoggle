@@ -14,7 +14,7 @@ import {
 import { vars } from "../../src/styles/theme.css";
 import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
 import { utilCss } from "../../src/styles/utils/util_css.css";
-import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/Button.css";
+import { btn } from "../button/Button.css";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],
@@ -220,7 +220,7 @@ const addonHasBorder = styleVariants({
 
 globalStyle(
 	`${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
-     ${tabSide.left} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
+     ${tabSide.left} ${btn}`,
 	{
 		borderBottomRightRadius: "0",
 		borderRight: "none",
@@ -230,7 +230,7 @@ globalStyle(
 
 globalStyle(
 	`${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
-     ${tabSide.right} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
+     ${tabSide.right} ${btn}`,
 	{
 		borderBottomLeftRadius: "0",
 		borderLeft: "none",

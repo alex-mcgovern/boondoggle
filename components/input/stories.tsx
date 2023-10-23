@@ -7,7 +7,7 @@ import {
 
 import { Input as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { Button } from "../button/Button";
 import { Icon } from "../icon";
 
@@ -173,6 +173,9 @@ const meta = {
 	},
 
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/Input",
 } satisfies Meta<typeof StoryComp>;
 

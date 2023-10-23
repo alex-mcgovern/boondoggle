@@ -8,6 +8,9 @@ const meta = {
 		message: LOREM.errorMessage(),
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/FieldErrorMessage",
 } satisfies Meta<typeof StoryComp>;
 

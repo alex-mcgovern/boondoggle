@@ -9,7 +9,7 @@ import { forwardRef, useCallback, useState } from "react";
 import { getOptionalLabelProps } from "../../../src/common-types";
 import { useForwardRef } from "../../../src/hooks/use_forward_ref";
 import { arrayHasLength } from "../../../src/lib/array_has_length";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
 import { SelectItemList } from "../SelectItemList";
@@ -58,8 +58,8 @@ type GetPlaceholderArgs<
 	 * A function that returns a string representation of the selected items.
 	 */
 	selectedItemsToString:
-	| ((selectedItems: Array<SelectItemShape<TValue, TItemData>>) => string)
-	| undefined;
+		| ((selectedItems: Array<SelectItemShape<TValue, TItemData>>) => string)
+		| undefined;
 };
 
 /**
@@ -125,8 +125,8 @@ export type SelectMultiProps<
 		 * The items to render in the dropdown.
 		 */
 		items:
-		| FlatSelectItems<TValue, TItemData>
-		| GroupedSelectItems<TValue, TItemData>;
+			| FlatSelectItems<TValue, TItemData>
+			| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the selected items when the selection changes.
@@ -190,9 +190,9 @@ function SelectMultiBase<
 
 	const items = isFilterable
 		? filterSelectItems({
-			inputValue,
-			items: initialItems,
-		})
+				inputValue,
+				items: initialItems,
+		  })
 		: initialItems;
 
 	const {

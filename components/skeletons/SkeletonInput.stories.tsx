@@ -5,6 +5,9 @@ import { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	title: "Components/SkeletonInput",
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	args: {},
 } satisfies Meta<typeof StoryComp>;
 

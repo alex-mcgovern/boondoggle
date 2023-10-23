@@ -1,9 +1,18 @@
 import { useMemo } from "react";
-import { Box } from "../box";
-import { getInitials } from "./lib/get_initials";
-import * as styles from "./styles.css";
+import { getInitials } from "./_lib/getInitials";
+import * as styles from "./Avatar.css";
 
-export type AvatarProps = {
+/**
+ * Renders an avatar. Falls back to initial letters if no image is provided.
+ */
+export function Avatar({
+	firstName,
+	fullName,
+	lastName,
+	size = 64,
+	src,
+	variant = "circle",
+}: {
 	/**
 	 * First name of the user.
 	 */
@@ -33,19 +42,7 @@ export type AvatarProps = {
 	 * Controls the variant of the avatar.
 	 */
 	variant?: "circle" | "square";
-};
-
-/**
- * Renders an avatar. Falls back to initial letters if no image is provided.
- */
-export function Avatar({
-	firstName,
-	fullName,
-	lastName,
-	size = 64,
-	src,
-	variant = "circle",
-}: AvatarProps) {
+}) {
 	const initials: string | undefined = useMemo(() => {
 		return getInitials({ firstName, fullName, lastName });
 	}, [firstName, fullName, lastName]);
@@ -64,21 +61,25 @@ export function Avatar({
 
 	if (!initials) {
 		return (
-			<Box
-				__height={size}
-				__width={size}
+			<div
+				style={{
+					height: size,
+					width: size,
+				}}
 				className={styles.avatar({ variant })}
 			/>
 		);
 	}
 
 	return (
-		<Box
-			__height={size}
-			__width={size}
+		<div
+			style={{
+				height: size,
+				width: size,
+			}}
 			className={styles.avatar({ variant })}
 		>
 			{initials.toUpperCase()}
-		</Box>
+		</div>
 	);
 }

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import * as styles from "./styles.css";
 
 import type { WithSize } from "../../src/common-types";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 
 export type ProgressBarProps = WithSize & {
 	/**

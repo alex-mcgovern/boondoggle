@@ -6,7 +6,7 @@ import {
 	MOCK_CURRENCY_SELECT_ITEMS,
 	MOCK_LOCALE_SELECT_ITEMS,
 } from "../../test/mock_data/input_currency";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { SelectSingle } from "../select/select_single";
 
 import { expect } from "@storybook/jest";
@@ -26,6 +26,9 @@ const meta = {
 		},
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/InputCurrency",
 } satisfies Meta<typeof StoryComp>;
 

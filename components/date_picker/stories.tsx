@@ -5,6 +5,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	args: {},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DatePicker",
 } satisfies Meta<typeof StoryComp>;
 

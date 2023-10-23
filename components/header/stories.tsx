@@ -6,6 +6,9 @@ import { Button } from "../button/Button";
 const meta = {
 	title: "Components/Header",
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	args: {
 		children: (
 			<>

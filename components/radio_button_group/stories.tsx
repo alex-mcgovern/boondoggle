@@ -13,6 +13,9 @@ const meta = {
 		name: LOREM.name(),
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/RadioButton",
 } satisfies Meta<typeof StoryComp>;
 

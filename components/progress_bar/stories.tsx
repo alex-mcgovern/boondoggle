@@ -8,6 +8,9 @@ const meta = {
 		value: 50,
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/ProgressBar",
 } satisfies Meta<typeof StoryComp>;
 

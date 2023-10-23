@@ -6,7 +6,7 @@ import { useSelect } from "downshift";
 import { forwardRef } from "react";
 
 import { useForwardRef } from "../../../src/hooks/use_forward_ref";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { Button } from "../../button/Button";
 import { Icon } from "../../icon";
 import { SelectItemList } from "../SelectItemList";
@@ -66,8 +66,8 @@ export type SelectButtonProps<
 		 * The items to render in the dropdown.
 		 */
 		items:
-		| FlatSelectItems<TValue, TItemData>
-		| GroupedSelectItems<TValue, TItemData>;
+			| FlatSelectItems<TValue, TItemData>
+			| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the new selected item when the selection changes.

@@ -10,7 +10,7 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
 import { variantColorOverlay } from "../../../src/styles/theme.css";
 import { Icon } from "../../icon";
-import { getButtonStyles, variantButtonSize } from "../Button.css";
+import { btn, variantButtonSize } from "../Button.css";
 
 describe("<Button />", () => {
 	describe("Basic smoke tests", () => {
@@ -110,7 +110,7 @@ describe("<Button />", () => {
 			);
 
 			expect(getByRole("button")).toHaveClass(
-				getButtonStyles({ variant: "primary" }),
+				btn({ variant: "primary" }),
 			);
 		});
 
@@ -120,7 +120,7 @@ describe("<Button />", () => {
 			);
 
 			expect(getByRole("button")).toHaveClass(
-				getButtonStyles({ variant: "primary" }),
+				btn({ variant: "primary" }),
 			);
 		});
 
@@ -130,7 +130,7 @@ describe("<Button />", () => {
 			);
 
 			expect(getByRole("button")).toHaveClass(
-				getButtonStyles({ variant: "secondary" }),
+				btn({ variant: "secondary" }),
 			);
 		});
 
@@ -139,9 +139,7 @@ describe("<Button />", () => {
 				<Button variant="ghost" id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(
-				getButtonStyles({ variant: "ghost" }),
-			);
+			expect(getByRole("button")).toHaveClass(btn({ variant: "ghost" }));
 		});
 	});
 
@@ -403,9 +401,7 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" size="square_md" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(
-				getButtonStyles({ size: "square_md" }),
-			);
+			expect(getByRole("button")).toHaveClass(btn({ size: "square_md" }));
 		});
 
 		test("should have the `square_sm` class name when size = square_sm", () => {
@@ -413,9 +409,7 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" size="square_sm" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(
-				getButtonStyles({ size: "square_sm" }),
-			);
+			expect(getByRole("button")).toHaveClass(btn({ size: "square_sm" }));
 		});
 	});
 

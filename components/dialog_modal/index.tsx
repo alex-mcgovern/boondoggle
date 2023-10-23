@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 
 import { useDialogModalState } from "../../src/lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../src/styles/color_palette.css";
-import { Box } from "../box";
+import { Box } from "../box/Box";
 import { DialogModalActions } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
 import { DialogModalErrorMessage } from "../dialog_modal_error_message";
@@ -13,7 +13,7 @@ import { DialogModalOuter } from "../dialog_modal_outer";
 import { LoaderFullScreen } from "../loader_full_screen";
 
 import type { ReactNode } from "react";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/Box";
 import type { DialogModalActionsProps } from "../dialog_modal_actions";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 

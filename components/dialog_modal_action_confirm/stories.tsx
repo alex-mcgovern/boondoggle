@@ -13,6 +13,9 @@ const meta = {
 		promptSuffix: "to continue",
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DialogModalActionConfirm",
 } satisfies Meta<typeof StoryComp>;
 

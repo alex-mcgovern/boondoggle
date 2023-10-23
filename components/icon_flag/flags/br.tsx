@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { utilCss } from "../../../src/styles/utils/util_css.css";
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { flagStyles } from "../styles.css";
 
 import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";

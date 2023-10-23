@@ -15,6 +15,9 @@ const meta = {
 		},
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/SelectButton",
 } satisfies Meta<typeof StoryComp>;
 

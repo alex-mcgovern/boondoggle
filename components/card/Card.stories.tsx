@@ -1,4 +1,5 @@
 import { LOREM } from "../../mocks/LOREM.mock";
+import { Button } from "../button";
 import { FieldsGrid } from "../fields_grid";
 import { Input } from "../input";
 import { SkeletonInput } from "../skeletons/SkeletonInput";
@@ -54,5 +55,13 @@ export const WithTitleAndDescription: Story = {
 	args: {
 		title: LOREM.text_xxs,
 		description: LOREM.text_md,
+	},
+};
+
+export const WithActions: Story = {
+	args: {
+		title: LOREM.text_xxs,
+		description: LOREM.text_md,
+		actions: <Button name="primary">Primary action</Button>,
 	},
 };

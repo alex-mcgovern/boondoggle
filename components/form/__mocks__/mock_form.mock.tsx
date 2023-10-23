@@ -16,7 +16,7 @@ import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 import type { FormProps } from "..";
 import type { MockCurrency } from "../../../test/mock_data/input_currency";
-import type { BoxProps } from "../../box";
+import type { BoxProps } from "../../box/Box";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),
@@ -46,8 +46,8 @@ type MockFormProps = Pick<FormProps, "handleSubmit" | "handleErrors"> & {
 };
 
 export const mockForm = ({
-	handleErrors = async () => { },
-	handleSubmit = async () => { },
+	handleErrors = async () => {},
+	handleSubmit = async () => {},
 	withDefaultValues = false,
 	withOptionalFields = false,
 }: MockFormProps): FormProps => {
@@ -79,7 +79,7 @@ export const mockForm = ({
 					label="Value"
 					locale="en-US"
 					name="value"
-					onCurrencyChange={() => { }}
+					onCurrencyChange={() => {}}
 					placeholder="Enter a value"
 				/>
 				<FormTextArea

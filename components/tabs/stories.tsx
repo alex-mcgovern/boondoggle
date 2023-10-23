@@ -5,6 +5,9 @@ import { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	title: "Components/Tabs",
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	args: {
 		tabs: [
 			{

@@ -1,4 +1,4 @@
-import { Box } from "../../box";
+import { Box } from "../../box/Box";
 import { DataTableControlPagination } from "./DataTableControlPagination";
 import { DataTableInfoPageCount } from "./DataTableInfoPageCount";
 import type { RowData, Table } from "@tanstack/react-table";

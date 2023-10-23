@@ -1,5 +1,5 @@
-import { Box } from "../box";
-import { CardActionsWrapper } from "./_CardActionsWrapper";
+import { Box } from "../box/Box";
+import { CardActionsWrapper } from "./_components/CardActionsWrapper";
 
 import type { ReactNode } from "react";
 

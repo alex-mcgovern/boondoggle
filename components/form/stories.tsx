@@ -25,6 +25,9 @@ handleErrors.mockImplementation(async (errors) => {
 
 const meta = {
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/Form",
 } satisfies Meta<typeof StoryComp>;
 

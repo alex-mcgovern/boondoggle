@@ -13,6 +13,9 @@ const meta = {
 		title: LOREM.text_xxs,
 	},
 	component: StoryComp,
+	parameters: {
+		layout: "centered",
+	},
 	title: "Components/DialogInfoBullet",
 } satisfies Meta<typeof StoryComp>;
 

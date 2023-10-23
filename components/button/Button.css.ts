@@ -1,13 +1,10 @@
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { a11yDisabled, a11yFocus } from "../../src/styles/common/a11y.css";
 import { variantColorOverlay, vars } from "../../src/styles/theme.css";
 import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
 import { utilCss } from "../../src/styles/utils/util_css.css";
 
-export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
-
-export const getButtonStyles = recipe({
+export const btn = recipe({
 	base: [
 		utilCss({
 			alignItems: "center",
@@ -18,7 +15,6 @@ export const getButtonStyles = recipe({
 			whiteSpace: "nowrap",
 			fontWeight: "medium",
 		}),
-		buttonBaseClsDoNotRemoveOrYouWillBeFired,
 		a11yFocus,
 		a11yDisabled,
 		createAccessibleTransition({
