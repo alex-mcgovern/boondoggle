@@ -1,6 +1,6 @@
 import { LOREM } from "../../mocks/LOREM.mock";
 
-import type { RadioButtonShape } from "../field-radio-button";
+import type { RadioButtonShape } from "../radio-button";
 
 export const RADIO_BUTTONS_MOCK: Array<RadioButtonShape> = [
 	{

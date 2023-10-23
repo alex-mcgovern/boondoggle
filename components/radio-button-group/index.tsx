@@ -6,7 +6,7 @@ import { Box } from "../box/Box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-import { RadioButton } from "../field-radio-button";
+import { RadioButton } from "../radio-button";
 import { getGroupLabelStyles } from "./styles.css";
 
 import type { Ref } from "react";
@@ -18,10 +18,7 @@ import type {
 	WithWrapperProps,
 } from "../../src/common-types";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
-import type {
-	RadioButtonInputProps,
-	RadioButtonShape,
-} from "../field-radio-button";
+import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
 
 export type RadioButtonGroupProps = UtilCssArgs &
 	WithWrapperProps &

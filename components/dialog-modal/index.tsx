@@ -10,7 +10,7 @@ import { DialogModalErrorMessage } from "./_components/DialogModalErrorMessage";
 import { DialogModalHeader } from "./_components/DialogModalHeader";
 import { DialogModalInner } from "./_components/DialogModalInner";
 import { DialogModalOuter } from "./_components/DialogModalOuter";
-import { LoaderFullScreen } from "../loader_full_screen";
+import { LoaderFullScreen } from "../loader-full-screen";
 
 import type { ReactNode } from "react";
 import type { BoxProps } from "../box/Box";
