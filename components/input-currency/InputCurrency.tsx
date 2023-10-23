@@ -2,8 +2,8 @@
 
 import { forwardRef, useEffect, useMemo, useState } from "react";
 import { SelectSingle } from "../select/select_single";
-import { currencySelectInputStyle } from "./styles.css";
-import { useFormattedCurrency } from "./use_formatted_currency";
+import { currencySelectInputStyle } from "./InputCurrency.styles.css";
+import { useFormattedCurrency } from "./_lib/useFormattedCurrency";
 import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 import type { SelectItemShape } from "../select/types";
 import {

@@ -1,11 +1,11 @@
 import { useCallback, useLayoutEffect, useState } from "react";
 
-import { currencyFormatter } from "./_lib/currency_formatter";
-import { currencyParser } from "./_lib/currency_parser";
-import { getCursorPosition } from "./_lib/get_cursor_position";
+import { currencyFormatter } from "./currencyFormatter";
+import { currencyParser } from "./currencyParser";
+import { getCursorPosition } from "./getCursorPosition";
 
 import type { ChangeEvent, ChangeEventHandler } from "react";
-import type { NativeEventInputType } from "./_lib/get_cursor_position";
+import type { NativeEventInputType } from "./getCursorPosition";
 
 type UseFormattedCurrencyArgs = {
 	/**

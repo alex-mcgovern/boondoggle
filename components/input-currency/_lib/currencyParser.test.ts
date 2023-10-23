@@ -1,4 +1,4 @@
-import { currencyParser } from "./currency_parser";
+import { currencyParser } from "./currencyParser";
 
 describe("currencyParser()", () => {
 	test("returns empty string when passed empty string", () => {
