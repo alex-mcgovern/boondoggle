@@ -1,5 +1,5 @@
 import { Placement } from "@floating-ui/react";
-import { ElementSizeEnum } from "../../src";
+
 import {
 	PolymorphicComponentPropWithRef,
 	WithStateDisabled,
@@ -7,6 +7,7 @@ import {
 	WithColorOverlay,
 } from "../../src/common-types";
 import { Button } from "./Button";
+import { ElementSizeEnum } from "../../src/styles/common/element_size.css";
 
 export type BaseButtonProps<TPolymorphicAs extends React.ElementType> =
 	PolymorphicComponentPropWithRef<

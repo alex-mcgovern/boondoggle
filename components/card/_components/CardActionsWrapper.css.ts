@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../../../src";
+import { utilCss } from "../../../src/styles/utils/util_css.css";
 
 export const cardActionsWrapper = style([
 	utilCss({
