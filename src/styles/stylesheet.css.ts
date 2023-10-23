@@ -87,7 +87,7 @@ globalStyle(
 globalStyle("button", {
 	"@layer": {
 		[resetLayer]: {
-			appearance: "none",
+			variant: "none",
 			background: "none",
 			border: "none",
 			display: "block",
@@ -133,7 +133,7 @@ globalStyle("input, button, textarea, select", {
 globalStyle(`input[type="search"]`, {
 	"@layer": {
 		[resetLayer]: {
-			appearance: "none",
+			variant: "none",
 		},
 	},
 });

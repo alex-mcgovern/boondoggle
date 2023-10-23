@@ -133,7 +133,6 @@ export const rootVars = createGlobalTheme(":root", {
 		// space_20: "5rem",
 		// space_24: "6rem",
 		// space_32: "8rem",
-		/* eslint-enable sort-keys-fix/sort-keys-fix */
 	},
 	transitionDuration: {
 		long: "600ms",

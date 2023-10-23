@@ -1,12 +1,11 @@
-import { StorybookConfig } from "@storybook/react-webpack5";
-import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
-import { merge } from "webpack-merge";
+import { StorybookConfig } from "@storybook/react-vite";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
 	addons: [
 		"@storybook/addon-essentials",
 		"@storybook/addon-interactions",
-		"@storybook/addon-mdx-gfm",
 		"storybook-addon-pseudo-states",
 		"@whitespace/storybook-addon-html",
 	],
@@ -15,17 +14,17 @@ const config: StorybookConfig = {
 		defaultName: "Documentation",
 	},
 	framework: {
-		name: "@storybook/react-webpack5",
+		name: "@storybook/react-vite",
 		options: {},
 	},
-	stories: [
-		"../(src|documentation)/**/*.stories.tsx",
-		"../(src|documentation)/**/stories.tsx",
-		"../(src|documentation)/**/*.mdx",
-	],
+	// stories: [
+	// 	"../(components|documentation)/**/*.stories.tsx",
+	// 	"../(components|documentation)/**/stories.tsx",
+	// 	"../(components|documentation)/**/*.mdx",
+	// ],
+	stories: ["../components/**/*.stories.tsx"],
 	typescript: {
 		check: false,
-		checkOptions: {},
 		reactDocgen: "react-docgen-typescript",
 		reactDocgenTypescriptOptions: {
 			compilerOptions: {
@@ -37,15 +36,12 @@ const config: StorybookConfig = {
 			shouldExtractLiteralValuesFromEnum: false,
 		},
 	},
-	webpackFinal: async (config) =>
-		merge(config, {
-			plugins: [
-				new VanillaExtractPlugin({
-					identifiers: "debug",
-					outputCss: true,
-				}),
-			],
-		}),
+	async viteFinal(config) {
+		// Merge custom configuration into the default config
+		return mergeConfig(config, {
+			plugins: [vanillaExtractPlugin()],
+		});
+	},
 };
 
 export default config;

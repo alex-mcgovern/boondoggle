@@ -21,7 +21,7 @@ const hoverSelectorArray = [
 	SELECTOR_IS_HOVER,
 ];
 
-export const SELECTOR_LINK_BUTTON_INPUT_HOVER = hoverSelectorArray.join("");
+export const HOVER = hoverSelectorArray.join("");
 
 /**
  * Button/link/input: focus
@@ -45,8 +45,7 @@ const hoverFocusSelectorArray = [
 	SELECTOR_IS_HOVER_FOCUS,
 ];
 
-export const SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS =
-	hoverFocusSelectorArray.join("");
+export const HOVER_FOCUS = hoverFocusSelectorArray.join("");
 
 /**
  * Button/link/input: active
@@ -58,4 +57,4 @@ const activeSelectorArray = [
 	SELECTOR_IS_ACTIVE,
 ];
 
-export const SELECTOR_LINK_BUTTON_INPUT_ACTIVE = activeSelectorArray.join("");
+export const ACTIVE = activeSelectorArray.join("");

@@ -3,10 +3,10 @@ import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
 
-import { Avatar } from "../src/components/avatar";
-import { Box } from "../src/components/box";
-import { DataTableCellButton } from "../src/components/data_table/_components/data_table_cell_button";
-import { Icon } from "../src/components/icon";
+import { Avatar } from "../components/avatar";
+import { Box } from "../components/box";
+import { DataTableCellButton } from "../components/data_table/_components/data_table_cell_button";
+import { Icon } from "../components/icon";
 
 const faker = new Faker({ locale: [en] });
 

@@ -8,8 +8,8 @@ import type {
 	ReactNode,
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
-import type { BoxProps } from "./components/box";
-import type { FieldLabelProps } from "./components/field_label";
+import type { BoxProps } from "../components/box";
+import type { FieldLabelProps } from "../components/field_label";
 import type { ColorOverlay } from "./styles/color_palette.css";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
 
@@ -38,7 +38,7 @@ export type WithColorOverlay = {
 	/**
 	 * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
 	 */
-	colorOverlay?: ColorOverlay;
+	color?: ColorOverlay;
 };
 
 export type WithFormFieldProps = {

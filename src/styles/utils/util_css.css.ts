@@ -95,7 +95,6 @@ export const responsiveUtilCssProperties = defineProperties({
 		desktop: {
 			"@media": MEDIA_QUERY_DESKTOP,
 		},
-		/* eslint-enable sort-keys-fix/sort-keys-fix */
 	},
 	defaultCondition: "mobile",
 	properties: {
