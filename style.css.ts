@@ -205,7 +205,7 @@ export const v = createGlobalTheme(":root", {
 export function motion(styleRule: StyleRule): StyleRule {
 	return {
 		"@media": {
-			"(prefers-r	educed-motion: no-preference)": styleRule,
+			"(prefers-reduced-motion: no-preference)": styleRule,
 		},
 	};
 }
