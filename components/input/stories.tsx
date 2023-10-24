@@ -43,7 +43,7 @@ const meta = {
 				category: "HTML element props",
 			},
 		},
-		color: {
+		theme: {
 			table: {
 				category: "Customization",
 			},
@@ -232,31 +232,31 @@ const TemplateColors = () => {
 	return (
 		<Box alignItems="center" display="flex" gap="space_6">
 			<StoryComp
-				color="blue"
+				theme="blue"
 				name="blue"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				color="red"
+				theme="red"
 				name="red"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				color="green"
+				theme="green"
 				name="green"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				color="amber"
+				theme="amber"
 				name="amber"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}
 			/>
 			<StoryComp
-				color="grey"
+				theme="grey"
 				name="grey"
 				placeholder={LOREM.placeholder()}
 				slotRight={<Icon icon={faTriangleCircleSquare} />}

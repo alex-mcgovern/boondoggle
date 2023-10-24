@@ -1,7 +1,6 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { tHeadStyles, thStyles } from "../../../src/styles/stylesheet.css";
-import { vars } from "../../../src/styles/theme.css";
+import { tHead, th, v } from "../../../style.css";
 
 const baseHeadStyle = style({});
 
@@ -16,7 +15,7 @@ const hasRowActions = styleVariants({
 });
 
 export const getHeadStyle = recipe({
-	base: [baseHeadStyle, tHeadStyles],
+	base: [baseHeadStyle, tHead],
 	variants: {
 		isSelectable,
 		hasRowActions,
@@ -24,15 +23,15 @@ export const getHeadStyle = recipe({
 });
 
 globalStyle(
-	`${isSelectable.true} th:first-child, ${isSelectable.true} ${thStyles}:first-child`,
+	`${isSelectable.true} th:first-child, ${isSelectable.true} ${th}:first-child`,
 	{
-		width: vars.spacing.space_1,
+		width: v.spacing.space_1,
 	},
 );
 
 globalStyle(
-	`${hasRowActions.true} th:last-child, ${hasRowActions.true} ${thStyles}:last-child`,
+	`${hasRowActions.true} th:last-child, ${hasRowActions.true} ${th}:last-child`,
 	{
-		width: vars.spacing.space_1,
+		width: v.spacing.space_1,
 	},
 );

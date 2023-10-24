@@ -1,8 +1,7 @@
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
-
-import { variantColorOverlay } from "../../../src/styles/color_palette.css";
 import { Box } from "../../box/Box";
 import { Icon } from "../../icon";
+import { theme } from "../../../style.css";
 
 export type DialogModalErrorMessageProps = {
 	/**
@@ -34,7 +33,7 @@ export function DialogModalErrorMessage({
 			textAlign="center"
 		>
 			<Icon
-				className={variantColorOverlay.red}
+				className={theme.red}
 				color="text_low_contrast"
 				icon={faExclamationCircle}
 				// marginBottom="space_4"

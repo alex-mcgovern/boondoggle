@@ -1,9 +1,7 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
-
-import { a11yFocus } from "../../src/styles/common/a11y.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 import { SlotWrapper } from "../_utility/slot_wrapper";
 import * as styles from "./styles.css";
 
@@ -16,7 +14,7 @@ import type {
 import type {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
-	WithColorOverlay,
+	WithTheme,
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
@@ -26,7 +24,7 @@ import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 type BasePillProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
-		WithColorOverlay &
+		WithTheme &
 			WithStateDisabled &
 			WithSize &
 			WithSlots & {
@@ -59,7 +57,7 @@ export const Pill: PillComponent = forwardRef(
 			as,
 			children,
 			className: userClassName,
-			color,
+			theme,
 			id,
 			size,
 			slotLeft,
@@ -71,7 +69,7 @@ export const Pill: PillComponent = forwardRef(
 		/**
 		 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
 		const Component = as || "div";
 
@@ -80,13 +78,13 @@ export const Pill: PillComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						styles.getPillStyle({ color, size }),
-						utilCss({
+						styles.getPillStyle({ theme, size }),
+						css({
 							...atomProps,
 							paddingLeft: slotLeft ? "space_1" : "space_2",
 							paddingRight: slotRight ? "space_1" : "space_2",
 						}),
-						a11yFocus,
+						focus,
 					),
 					id,
 					ref,
@@ -94,7 +92,7 @@ export const Pill: PillComponent = forwardRef(
 				}}
 			>
 				<SlotWrapper
-					color="inherit"
+					theme="inherit"
 					gap="space_1"
 					size={size}
 					slotLeft={slotLeft}

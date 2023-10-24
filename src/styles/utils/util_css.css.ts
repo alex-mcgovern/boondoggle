@@ -1,11 +1,5 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
-
-import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_TABLET,
-} from "../common/media_queries.css";
-import { utilCssLayer } from "../layers.css";
-import { vars } from "../theme.css";
+import { DESKTOP, TABLET, utilCssLayer, v } from "../../../style.css";
 
 /**
  * Util function for extracting color vars for use with a sprinkles property
@@ -14,25 +8,25 @@ export const utilCssProperties = defineProperties({
 	"@layer": utilCssLayer,
 	properties: {
 		alignItems: ["stretch", "start", "center", "end", "baseline"],
-		aspectRatio: vars.aspectRatio,
+		aspectRatio: v.aspectRatio,
 		background: {
-			...vars.color,
+			...v.color,
 			inherit: "inherit",
 			transparent: "transparent",
 		},
 		border: {
-			border_default: `1px solid ${vars.color.border_default}`,
-			border_hover: `1px solid ${vars.color.border_hover}`,
+			border_default: `1px solid ${v.color.border_default}`,
+			border_hover: `1px solid ${v.color.border_hover}`,
 		},
-		borderBottom: vars.border,
-		borderLeft: vars.border,
-		borderRadius: vars.borderRadius,
-		borderRight: vars.border,
-		borderTop: vars.border,
+		borderBottom: v.border,
+		borderLeft: v.border,
+		borderRadius: v.radius,
+		borderRight: v.border,
+		borderTop: v.border,
 		bottom: ["0"],
-		boxShadow: vars.boxShadow,
+		boxShadow: v.boxShadow,
 		color: {
-			...vars.color,
+			...v.color,
 			currentColor: "currentColor",
 			inherit: "inherit",
 		},
@@ -40,9 +34,9 @@ export const utilCssProperties = defineProperties({
 		flexGrow: ["0", "1"],
 		flexShrink: ["0", "1"],
 		flexWrap: ["wrap", "nowrap"],
-		fontSize: vars.fontSize,
-		fontWeight: vars.fontWeight,
-		height: { ...vars.height, ...vars.spacing },
+		fontSize: v.fontSize,
+		fontWeight: v.fontWeight,
+		height: { ...v.height, ...v.spacing },
 		inset: ["0"],
 		isolation: ["isolate"],
 		justifyContent: [
@@ -54,16 +48,16 @@ export const utilCssProperties = defineProperties({
 			"space-between",
 		],
 		left: ["0"],
-		lineHeight: vars.lineHeight,
-		margin: vars.spacing,
-		marginBottom: vars.spacing,
-		marginLeft: vars.spacing,
-		marginRight: vars.spacing,
-		marginTop: vars.spacing,
-		maxHeight: { ...vars.height, ...vars.spacing },
-		maxWidth: { ...vars.width, ...vars.spacing },
-		minHeight: { ...vars.height, ...vars.spacing },
-		minWidth: { ...vars.width, ...vars.spacing },
+		lineHeight: v.lineHeight,
+		margin: v.spacing,
+		marginBottom: v.spacing,
+		marginLeft: v.spacing,
+		marginRight: v.spacing,
+		marginTop: v.spacing,
+		maxHeight: { ...v.height, ...v.spacing },
+		maxWidth: { ...v.width, ...v.spacing },
+		minHeight: { ...v.height, ...v.spacing },
+		minWidth: { ...v.width, ...v.spacing },
 		overflowX: ["hidden", "auto", "visible", "scroll"],
 		overflowY: ["hidden", "auto", "visible", "scroll"],
 		right: ["0"],
@@ -85,30 +79,30 @@ export const utilCssProperties = defineProperties({
 
 export const responsiveUtilCssProperties = defineProperties({
 	/**
-	 * Note, the ordering of conditions is important
+	 * @note The ordering of conditions is important
 	 */
 	conditions: {
 		mobile: {},
 		tablet: {
-			"@media": MEDIA_QUERY_TABLET,
+			"@media": TABLET,
 		},
 		desktop: {
-			"@media": MEDIA_QUERY_DESKTOP,
+			"@media": DESKTOP,
 		},
 	},
 	defaultCondition: "mobile",
 	properties: {
-		display: vars.display,
+		display: v.display,
 		flexDirection: ["row", "column", "row-reverse", "column-reverse"],
-		gap: vars.spacing,
-		gridTemplateColumns: vars.gridTemplateColumns,
-		padding: vars.spacing,
-		paddingBottom: vars.spacing,
-		paddingLeft: vars.spacing,
-		paddingRight: vars.spacing,
-		paddingTop: vars.spacing,
+		gap: v.spacing,
+		gridTemplateColumns: v.gridTemplateColumns,
+		padding: v.spacing,
+		paddingBottom: v.spacing,
+		paddingLeft: v.spacing,
+		paddingRight: v.spacing,
+		paddingTop: v.spacing,
 		position: ["relative", "absolute", "sticky", "static"],
-		width: { ...vars.width, ...vars.spacing },
+		width: { ...v.width, ...v.spacing },
 	},
 	shorthands: {
 		paddingX: ["paddingLeft", "paddingRight"],
@@ -116,9 +110,9 @@ export const responsiveUtilCssProperties = defineProperties({
 	},
 });
 
-export const utilCss = createSprinkles(
+export const css = createSprinkles(
 	utilCssProperties,
 	responsiveUtilCssProperties,
 );
 
-export type UtilCssArgs = Parameters<typeof utilCss>[0];
+export type UtilCssArgs = Parameters<typeof css>[0];

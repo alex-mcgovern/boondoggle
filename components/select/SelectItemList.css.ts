@@ -1,48 +1,28 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yFocus } from "../../src/styles/common/a11y.css";
 import { elementPaddingRaw } from "../../src/styles/common/element_size.css";
-import { vars } from "../../src/styles/theme.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { focus, v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 const groupTitleSize = styleVariants({
 	lg: {
-		paddingLeft: calc.subtract(
-			elementPaddingRaw.lg.x,
-			vars.spacing.space_1,
-		),
-		paddingRight: calc.subtract(
-			elementPaddingRaw.lg.x,
-			vars.spacing.space_1,
-		),
+		paddingLeft: calc.subtract(elementPaddingRaw.lg.x, v.spacing.space_1),
+		paddingRight: calc.subtract(elementPaddingRaw.lg.x, v.spacing.space_1),
 	},
 	md: {
-		paddingLeft: calc.subtract(
-			elementPaddingRaw.md.x,
-			vars.spacing.space_1,
-		),
-		paddingRight: calc.subtract(
-			elementPaddingRaw.md.x,
-			vars.spacing.space_1,
-		),
+		paddingLeft: calc.subtract(elementPaddingRaw.md.x, v.spacing.space_1),
+		paddingRight: calc.subtract(elementPaddingRaw.md.x, v.spacing.space_1),
 	},
 	sm: {
-		paddingLeft: calc.subtract(
-			elementPaddingRaw.sm.x,
-			vars.spacing.space_1,
-		),
-		paddingRight: calc.subtract(
-			elementPaddingRaw.sm.x,
-			vars.spacing.space_1,
-		),
+		paddingLeft: calc.subtract(elementPaddingRaw.sm.x, v.spacing.space_1),
+		paddingRight: calc.subtract(elementPaddingRaw.sm.x, v.spacing.space_1),
 	},
 });
 
 export const getGroupTitle = recipe({
 	base: [
-		utilCss({
+		css({
 			color: "text_low_contrast",
 			fontStyle: "bodySm",
 			marginY: "space_2",
@@ -55,8 +35,8 @@ export const getGroupTitle = recipe({
 
 export const getOuter = recipe({
 	base: [
-		a11yFocus,
-		utilCss({
+		focus,
+		css({
 			background: "background",
 			border: "border_default",
 			borderRadius: "md",
@@ -76,7 +56,7 @@ export const getOuter = recipe({
 });
 
 export const inner = style([
-	utilCss({
+	css({
 		overflowY: "auto",
 		padding: "space_1",
 	}),

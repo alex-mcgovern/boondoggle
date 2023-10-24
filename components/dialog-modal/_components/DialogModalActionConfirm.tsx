@@ -4,12 +4,12 @@ import { forwardRef, useState } from "react";
 import { Box } from "../../box/Box";
 import { Button } from "../../button/Button";
 import { confirmTextStyle } from "./DialogModalActionConfirm.css";
-import { WithColorOverlay } from "../../../src/common-types";
+import { WithTheme } from "../../../src/common-types";
 import { Input } from "../../input";
 
 export const DialogModalActionConfirm = forwardRef<
 	HTMLDivElement,
-	WithColorOverlay & {
+	WithTheme & {
 		/**
 		 * Additional props to customise the confirm button.
 		 */
@@ -45,7 +45,7 @@ export const DialogModalActionConfirm = forwardRef<
 		{
 			buttonProps,
 			buttonText,
-			color,
+			theme,
 			confirmText,
 			onClick,
 			promptPrefix,
@@ -66,7 +66,7 @@ export const DialogModalActionConfirm = forwardRef<
 				</Box>
 
 				<Input
-					color={color}
+					theme={theme}
 					marginBottom="space_4"
 					autoComplete="off"
 					name="dialog_confirm_text"
@@ -79,7 +79,7 @@ export const DialogModalActionConfirm = forwardRef<
 
 				<Button
 					variant="primary"
-					color={color}
+					theme={theme}
 					disabled={userConfirmText !== confirmText}
 					name="primary_action"
 					onClick={onClick}

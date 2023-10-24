@@ -1,7 +1,7 @@
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { Collapsible as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 import { Icon } from "../icon";
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { CollapsibleProps as StoryCompProps } from ".";
@@ -16,7 +16,7 @@ export default {
 
 const TriggerNode = (
 	<button
-		className={utilCss({
+		className={css({
 			alignItems: "center",
 			color: "text_high_contrast",
 			display: "flex",

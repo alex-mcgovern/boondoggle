@@ -1,23 +1,20 @@
 import clsx from "clsx";
-
-import { variantColorOverlay } from "../../src/styles/color_palette.css";
-import { hideLastpassStyle } from "../../src/styles/common/hide_lastpass.css";
 import { Box } from "../box/Box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-
 import type { ReactNode } from "react";
 import type {
-	WithColorOverlay,
+	WithTheme,
 	WithDescription,
 	WithHideLastpass,
 	WithOptionalLabel,
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../src/common-types";
+import { theme as themeVariant, hideLastpassStyle } from "../../style.css";
 
-type FieldWrapperProps = WithColorOverlay &
+type FieldWrapperProps = WithTheme &
 	WithOptionalLabel &
 	WithHideLastpass &
 	WithDescription &
@@ -35,7 +32,7 @@ type FieldWrapperProps = WithColorOverlay &
  */
 export function FieldWrapper({
 	children,
-	color,
+	theme,
 	description,
 	errorMessage,
 	hideLastpass,
@@ -49,8 +46,8 @@ export function FieldWrapper({
 }: FieldWrapperProps) {
 	return (
 		<Box
-			className={clsx(color ? variantColorOverlay[color] : undefined, {
-				[variantColorOverlay.red]: invalid,
+			className={clsx(theme ? themeVariant[theme] : undefined, {
+				[themeVariant.red]: invalid,
 				[hideLastpassStyle]: hideLastpass,
 			})}
 			color="text_low_contrast"

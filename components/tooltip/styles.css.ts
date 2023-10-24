@@ -1,18 +1,16 @@
 import { style } from "@vanilla-extract/css";
-
-import { animateFadeIn } from "../../src/styles/common/animations.css";
-import { variantColorOverlay } from "../../src/styles/theme.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
+import { theme, animateFadeIn } from "../../style.css";
 
 export const tooltipTextStyle = style([
-	variantColorOverlay.grey,
+	theme.grey,
 	animateFadeIn,
-	utilCss({
+	css({
 		background: "black",
 		borderRadius: "md",
 		color: "white",
 		fontStyle: "bodySm",
-		fontWeight: "normal",
+		fontWeight: "regular",
 		overflow: "hidden",
 		padding: "space_2",
 		textAlign: "center",

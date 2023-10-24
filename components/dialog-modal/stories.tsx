@@ -159,7 +159,7 @@ export const WithAlertWithColorOverlay: StoryObj<StoryCompProps> = {
 	args: {
 		alert: (
 			<DialogModalAlert
-				color="red"
+				theme="red"
 				description="This is a description for the alert"
 				title="This is an alert"
 			/>
@@ -248,7 +248,7 @@ export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
 			actions: (
 				<DialogModalActionConfirm
 					buttonText="Freeze account"
-					color="red"
+					theme="red"
 					confirmText="freeze account"
 					onClick={() => {
 						alert("Confirmed");

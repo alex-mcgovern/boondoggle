@@ -9,7 +9,7 @@ import type { SelectItemShape } from "../select/types";
 import { Input } from "../input";
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
 import {
-	WithColorOverlay,
+	WithTheme,
 	WithDescription,
 	WithHideLastpass,
 	WithName,
@@ -84,7 +84,7 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 		| "disabled"
 	>
 > &
-	WithColorOverlay &
+	WithTheme &
 	WithDescription &
 	WithHideLastpass &
 	WithIsOptionalCurrencyEditable<TCurrency> &

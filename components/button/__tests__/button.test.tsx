@@ -7,9 +7,9 @@ import userEvent from "@testing-library/user-event";
 import { Button } from "../Button";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
-import { variantColorOverlay } from "../../../src/styles/theme.css";
 import { Icon } from "../../icon";
 import { btn } from "../Button.css";
+import { theme } from "../../../style.css";
 
 describe("<Button />", () => {
 	describe("Basic smoke tests", () => {
@@ -148,7 +148,7 @@ describe("<Button />", () => {
 				<Button color="blue" id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantColorOverlay.blue);
+			expect(getByRole("button")).toHaveClass(theme.blue);
 		});
 
 		test("should have the correct class name when color = amber", () => {
@@ -156,7 +156,7 @@ describe("<Button />", () => {
 				<Button color="amber" id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantColorOverlay.amber);
+			expect(getByRole("button")).toHaveClass(theme.amber);
 		});
 
 		test("should have the correct class name when color = red", () => {
@@ -164,7 +164,7 @@ describe("<Button />", () => {
 				<Button color="red" id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantColorOverlay.red);
+			expect(getByRole("button")).toHaveClass(theme.red);
 		});
 
 		test("should have the correct class name name when color = green", () => {
@@ -172,7 +172,7 @@ describe("<Button />", () => {
 				<Button color="green" id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantColorOverlay.green);
+			expect(getByRole("button")).toHaveClass(theme.green);
 		});
 	});
 

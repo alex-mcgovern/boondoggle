@@ -1,11 +1,9 @@
 import { style } from "@vanilla-extract/css";
-
-import { MEDIA_QUERY_MOBILE } from "../../../src/styles/common/media_queries.css";
-import { vars } from "../../../src/styles/theme.css";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { MOBILE, v } from "../../../style.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 export const dialogHeaderStyle = style([
-	utilCss({
+	css({
 		alignItems: "center",
 		borderBottom: "border_default",
 		display: "flex",
@@ -16,14 +14,14 @@ export const dialogHeaderStyle = style([
 ]);
 
 export const dialogTitleStyle = style([
-	utilCss({
+	css({
 		fontWeight: "semibold",
 		marginY: "none",
 	}),
 	{
 		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
-				fontSize: vars.fontSize.bodyLg,
+			[MOBILE]: {
+				fontSize: v.fontSize.bodyLg,
 			},
 		},
 	},

@@ -1,9 +1,9 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { vars } from "../../../src/styles/theme.css";
+import { v } from "../../../style.css";
 
 export const selectMultiInputSelectedItemsStyle = style({});
 
 globalStyle(`${selectMultiInputSelectedItemsStyle}::placeholder`, {
-	color: vars.color.text_high_contrast,
+	color: v.color.text_high_contrast,
 });

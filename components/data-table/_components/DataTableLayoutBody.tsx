@@ -1,8 +1,8 @@
 import { flexRender } from "@tanstack/react-table";
-import { tdStyles } from "../../../src/styles/stylesheet.css";
 import { Box } from "../../box/Box";
 import { getBodyStyle, rowStyles } from "./DataTableLayoutBody.css";
 import type { Table } from "@tanstack/react-table";
+import { td } from "../../../style.css";
 
 /**
  * The body for a DataTable, comprising of <tbody>, <tr> & <td> elements.
@@ -33,7 +33,7 @@ export function DataTableLayoutBody<TRowData>({
 					<Box className={rowStyles} key={row.id}>
 						{row.getVisibleCells().map((cell) => {
 							return (
-								<div className={tdStyles} key={cell.id}>
+								<div className={td} key={cell.id}>
 									{flexRender(
 										cell.column.columnDef.cell,
 										cell.getContext(),

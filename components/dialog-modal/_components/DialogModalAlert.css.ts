@@ -1,12 +1,11 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { variantColorOverlay } from "../../../src/styles/color_palette.css";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
+import { theme } from "../../../style.css";
 
 export const getDialogModalAlertWrapperStyles = recipe({
 	base: [
-		utilCss({
+		css({
 			alignItems: "center",
 			background: "tint_default",
 			borderBottom: "border_default",
@@ -16,12 +15,12 @@ export const getDialogModalAlertWrapperStyles = recipe({
 		}),
 	],
 	variants: {
-		color: variantColorOverlay,
+		theme,
 	},
 });
 
 export const dialogModalAlertSlotStyle = style([
-	utilCss({
+	css({
 		color: "text_low_contrast",
 		flexShrink: "0",
 		width: "space_4",

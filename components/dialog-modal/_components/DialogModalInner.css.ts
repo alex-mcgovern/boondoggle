@@ -1,30 +1,25 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_MOBILE,
-	MEDIA_QUERY_TABLET,
-} from "../../../src/styles/common/media_queries.css";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
+import { TABLET, DESKTOP, MOBILE } from "../../../style.css";
 
 const variantWidth = styleVariants({
 	lg: {
 		"@media": {
-			[MEDIA_QUERY_TABLET]: {
+			[TABLET]: {
 				width: "40rem",
 			},
-			[MEDIA_QUERY_DESKTOP]: {
+			[DESKTOP]: {
 				width: "50rem",
 			},
 		},
 	},
 	sm: {
 		"@media": {
-			[MEDIA_QUERY_TABLET]: {
+			[TABLET]: {
 				width: "20rem",
 			},
-			[MEDIA_QUERY_DESKTOP]: {
+			[DESKTOP]: {
 				width: "30rem",
 			},
 		},
@@ -35,7 +30,7 @@ export type DialogModalInnerWidth = keyof typeof variantWidth;
 
 export const getDialogModalInnerStyle = recipe({
 	base: [
-		utilCss({
+		css({
 			display: "flex",
 			flexDirection: "column",
 			maxWidth: "100vw",
@@ -44,10 +39,10 @@ export const getDialogModalInnerStyle = recipe({
 		}),
 		{
 			"@media": {
-				[MEDIA_QUERY_MOBILE]: {
+				[MOBILE]: {
 					height: "100dvh",
 				},
-				[MEDIA_QUERY_TABLET]: {
+				[TABLET]: {
 					maxHeight: "75dvh",
 				},
 			},

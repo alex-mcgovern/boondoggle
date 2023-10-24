@@ -1,10 +1,10 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 import { btn } from "../button/Button.css";
 
 export const buttonGroupStyles = style([
-	utilCss({ alignItems: "stretch", display: "flex" }),
+	css({ alignItems: "stretch", display: "flex" }),
 	{
 		borderCollapse: "collapse",
 	},

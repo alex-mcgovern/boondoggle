@@ -8,10 +8,10 @@ import {
 	getDialogModalAlertWrapperStyles,
 } from "./DialogModalAlert.css";
 
-import type { WithColorOverlay, WithSlots } from "../../../src/common-types";
+import type { WithTheme, WithSlots } from "../../../src/common-types";
 
 export type DialogModalAlertProps = WithSlots &
-	WithColorOverlay & {
+	WithTheme & {
 		/**
 		 * The description text of the alert.
 		 */
@@ -27,14 +27,14 @@ export type DialogModalAlertProps = WithSlots &
  * Renders an inline alert for use ina  Dialog component.
  */
 export function DialogModalAlert({
-	color = "amber",
+	theme = "amber",
 	description,
 	slotLeft = [<Icon icon={faInfoCircle} />],
 	slotRight,
 	title,
 }: DialogModalAlertProps) {
 	return (
-		<Box className={getDialogModalAlertWrapperStyles({ color })}>
+		<Box className={getDialogModalAlertWrapperStyles({ theme })}>
 			{slotLeft && (
 				<Box className={dialogModalAlertSlotStyle}>
 					{Children.map(slotLeft, (child) => {

@@ -23,24 +23,24 @@ export const Default: Story = {};
 
 export const Red: Story = {
 	args: {
-		color: "red",
+		theme: "red",
 	},
 };
 
 export const Blue: Story = {
 	args: {
-		color: "blue",
+		theme: "blue",
 	},
 };
 
 export const Green: Story = {
 	args: {
-		color: "green",
+		theme: "green",
 	},
 };
 
 export const Grey: Story = {
 	args: {
-		color: "grey",
+		theme: "grey",
 	},
 };

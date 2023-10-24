@@ -1,9 +1,9 @@
-import { tRowStyles } from "../../../src/styles/stylesheet.css";
 import { Box } from "../../box/Box";
 import { DataTableLayoutColumnHeaderCell } from "./DataTableLayoutColumnHeaderCell";
 import type { Table } from "@tanstack/react-table";
 import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
 import { getHeadStyle } from "./DataTableLayoutHead.css";
+import { tRow } from "../../../style.css";
 
 /**
  * Renders the table head for the DataTable.
@@ -48,7 +48,7 @@ export function DataTableLayoutHead<TTableData>({
 		>
 			{table.getHeaderGroups().map((header_group) => {
 				return (
-					<div className={tRowStyles} key={header_group.id}>
+					<div className={tRow} key={header_group.id}>
 						{header_group.headers.map((header) => {
 							return (
 								<DataTableLayoutColumnHeaderCell<TTableData>

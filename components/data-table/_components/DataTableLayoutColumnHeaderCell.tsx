@@ -1,11 +1,9 @@
 import { flexRender } from "@tanstack/react-table";
 import clsx from "clsx";
-
-import { thStyles } from "../../../src/styles/stylesheet.css";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 import { DataTableControlTableHeadSort } from "./DataTableControlTableHeadSort";
-
 import type { Header } from "@tanstack/react-table";
+import { th } from "../../../style.css";
 
 /**
  * Renders a single column header cell.
@@ -34,8 +32,8 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 		return (
 			<div
 				className={clsx(
-					thStyles,
-					utilCss({
+					th,
+					css({
 						background: isSticky ? "white" : undefined,
 						position: isSticky ? "sticky" : undefined,
 						top: isSticky ? "0" : undefined,
@@ -57,8 +55,8 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 	return (
 		<div
 			className={clsx(
-				thStyles,
-				utilCss({
+				th,
+				css({
 					background: isSticky ? "white" : undefined,
 					position: isSticky ? "sticky" : undefined,
 					top: isSticky ? "0" : undefined,

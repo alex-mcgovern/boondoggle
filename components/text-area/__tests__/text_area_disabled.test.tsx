@@ -3,20 +3,15 @@
  */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { TextArea } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
-import { a11yDisabled } from "../../../src/styles/common/a11y.css";
-
 import type { TextAreaProps } from "..";
+import { disabled } from "../../../style.css";
 
 const ON_CHANGE = jest.fn();
-
 const ON_CLICK = jest.fn();
-
 const ON_MOUSE_OVER = jest.fn();
-
 const ON_FOCUS = jest.fn();
 
 const PROPS: TextAreaProps = {
@@ -40,7 +35,7 @@ describe("<TextArea />", () => {
 
 			const textbox = getByRole("textbox");
 
-			expect(textbox).toHaveClass(a11yDisabled);
+			expect(textbox).toHaveClass(disabled);
 		});
 
 		test("should not call `onChange()` when user types", async () => {

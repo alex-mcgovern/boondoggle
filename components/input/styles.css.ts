@@ -7,13 +7,8 @@ import {
 	elementPaddingRaw,
 } from "../../src/styles/common/element_size.css";
 import { btn } from "../button/Button.css";
-import {
-	a11yDisabled,
-	a11yFocusStyleRule,
-} from "../../src/styles/common/a11y.css";
-import { vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { disabled, focusStyleRule, motion, v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],
@@ -34,38 +29,38 @@ const hasSlotRight = styleVariants({ false: {}, true: {} });
 export const getSlotWrapperStyles = recipe({
 	base: [
 		inputSlotWrapperDoNotRemoveOrYouWillBeFired,
-		utilCss({
+		css({
 			alignItems: "center",
 			background: "background",
 			border: "border_default",
 			borderRadius: "md",
 			color: "text_low_contrast",
 			display: "flex",
-			fontWeight: "normal",
+			fontWeight: "regular",
 			gap: "space_2",
 			position: "relative",
 			width: "100%",
 		}),
-		a11yDisabled,
+		disabled,
 		{
 			cursor: "text",
-			// gridTemplateColumns: `repeat(auto-fit, minmax(${vars.spacing.space_5}, auto))`,
-			...createAccessibleTransition({
-				transition: `ease ${vars.transitionDuration.short} ease`,
+			// gridTemplateColumns: `repeat(auto-fit, minmax(${v.spacing.space_5}, auto))`,
+			...motion({
+				transition: `ease ${v.duration.short} ease`,
 				transitionProperty: "color, background-color, border-color",
 			}),
 			selectors: {
 				"&:has(input[readonly])": {
-					background: vars.color.tint_default,
+					background: v.color.tint_default,
 				},
 				"&:hover": {
-					borderColor: vars.color.border_hover,
+					borderColor: v.color.border_hover,
 				},
 				"&:active": {
-					borderColor: vars.color.border_active,
+					borderColor: v.color.border_active,
 				},
 				"&:has(input:focus-visible)": {
-					...a11yFocusStyleRule,
+					...focusStyleRule,
 				},
 			},
 		},
@@ -78,7 +73,7 @@ export const getSlotWrapperStyles = recipe({
 				{
 					paddingLeft: calc.subtract(
 						elementPaddingRaw.sm.x,
-						vars.spacing.space_1,
+						v.spacing.space_1,
 					),
 				},
 			],
@@ -89,7 +84,7 @@ export const getSlotWrapperStyles = recipe({
 				{
 					paddingLeft: calc.subtract(
 						elementPaddingRaw.md.x,
-						vars.spacing.space_1,
+						v.spacing.space_1,
 					),
 				},
 			],
@@ -100,7 +95,7 @@ export const getSlotWrapperStyles = recipe({
 				{
 					paddingLeft: calc.subtract(
 						elementPaddingRaw.lg.x,
-						vars.spacing.space_1,
+						v.spacing.space_1,
 					),
 				},
 			],
@@ -114,7 +109,7 @@ export const getSlotWrapperStyles = recipe({
 				{
 					paddingRight: calc.subtract(
 						elementPaddingRaw.sm.x,
-						vars.spacing.space_1,
+						v.spacing.space_1,
 					),
 				},
 			],
@@ -125,7 +120,7 @@ export const getSlotWrapperStyles = recipe({
 				{
 					paddingRight: calc.subtract(
 						elementPaddingRaw.md.x,
-						vars.spacing.space_1,
+						v.spacing.space_1,
 					),
 				},
 			],
@@ -136,7 +131,7 @@ export const getSlotWrapperStyles = recipe({
 				{
 					paddingRight: calc.subtract(
 						elementPaddingRaw.lg.x,
-						vars.spacing.space_1,
+						v.spacing.space_1,
 					),
 				},
 			],
@@ -163,8 +158,8 @@ globalStyle(
 		alignItems: "center",
 		display: "flex",
 		justifyContent: "center",
-		minHeight: vars.spacing.space_4,
-		minWidth: vars.spacing.space_4,
+		minHeight: v.spacing.space_4,
+		minWidth: v.spacing.space_4,
 	},
 );
 
@@ -178,7 +173,7 @@ globalStyle(
 );
 
 export const inputStyles = style([
-	utilCss({
+	css({
 		flexGrow: "1",
 		fontStyle: "bodyMd",
 		height: "space_6",
@@ -186,7 +181,7 @@ export const inputStyles = style([
 		padding: "none",
 		width: "100%",
 	}),
-	a11yDisabled,
+	disabled,
 	{
 		background: "transparent",
 		border: "none",
@@ -203,12 +198,12 @@ export const inputStyles = style([
 
 const tabSide = styleVariants({
 	left: {
-		borderBottomLeftRadius: vars.borderRadius.md,
-		borderTopLeftRadius: vars.borderRadius.md,
+		borderBottomLeftRadius: v.radius.md,
+		borderTopLeftRadius: v.radius.md,
 	},
 	right: {
-		borderBottomRightRadius: vars.borderRadius.md,
-		borderTopRightRadius: vars.borderRadius.md,
+		borderBottomRightRadius: v.radius.md,
+		borderTopRightRadius: v.radius.md,
 	},
 });
 
@@ -245,7 +240,7 @@ const tabSize = styleVariants({
 
 export const getInputAddonTabStyle = recipe({
 	base: [
-		utilCss({
+		css({
 			alignItems: "center",
 			background: "tint_default",
 			color: "text_low_contrast",
@@ -256,7 +251,7 @@ export const getInputAddonTabStyle = recipe({
 		{
 			selectors: {
 				"&:has(:focus-visible)": {
-					...a11yFocusStyleRule,
+					...focusStyleRule,
 				},
 			},
 		},
@@ -265,11 +260,11 @@ export const getInputAddonTabStyle = recipe({
 		{
 			style: [
 				{
-					borderBottom: `1px solid ${vars.color.border_default}`,
-					borderBottomLeftRadius: vars.borderRadius.md,
-					borderLeft: `1px solid ${vars.color.border_default}`,
-					borderTop: `1px solid ${vars.color.border_default}`,
-					borderTopLeftRadius: vars.borderRadius.md,
+					borderBottom: `1px solid ${v.color.border_default}`,
+					borderBottomLeftRadius: v.radius.md,
+					borderLeft: `1px solid ${v.color.border_default}`,
+					borderTop: `1px solid ${v.color.border_default}`,
+					borderTopLeftRadius: v.radius.md,
 				},
 			],
 			variants: { hasBorder: true, side: "left" },
@@ -277,11 +272,11 @@ export const getInputAddonTabStyle = recipe({
 		{
 			style: [
 				{
-					borderBottom: `1px solid ${vars.color.border_default}`,
-					borderBottomRightRadius: vars.borderRadius.md,
-					borderRight: `1px solid ${vars.color.border_default}`,
-					borderTop: `1px solid ${vars.color.border_default}`,
-					borderTopRightRadius: vars.borderRadius.md,
+					borderBottom: `1px solid ${v.color.border_default}`,
+					borderBottomRightRadius: v.radius.md,
+					borderRight: `1px solid ${v.color.border_default}`,
+					borderTop: `1px solid ${v.color.border_default}`,
+					borderTopRightRadius: v.radius.md,
 				},
 			],
 			variants: { hasBorder: true, side: "right" },
@@ -311,7 +306,7 @@ const hasAddonRight = styleVariants({
 
 export const getAddonWrapperStyle = recipe({
 	base: [
-		utilCss({
+		css({
 			alignItems: "center",
 			display: "flex",
 			width: "100%",

@@ -2,13 +2,12 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import { getOptionalLabelProps } from "../../src/common-types";
-import { a11yError } from "../../src/styles/common/a11y.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 import { FieldWrapper } from "../field-wrapper";
 import * as styles from "./styles.css";
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 import type {
-	WithColorOverlay,
+	WithTheme,
 	WithDescription,
 	WithHideLastpass,
 	WithName,
@@ -23,6 +22,7 @@ import type {
 } from "../../src/common-types";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 import { SlotWrapper } from "../_utility/slot_wrapper";
+import { a11yError } from "../../style.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,
@@ -31,7 +31,7 @@ export type TextAreaProps = Omit<
 	// WithOptionalIsClearable &
 	// WithOptionalIsCopyable &
 	UtilCssArgs &
-	WithColorOverlay &
+	WithTheme &
 	WithDescription &
 	WithHideLastpass &
 	WithOptionalIsVisibilityToggleable &
@@ -47,7 +47,7 @@ export type TextAreaProps = Omit<
 export const TextArea = forwardRef(
 	(
 		{
-			color,
+			theme,
 			description,
 			errorMessage,
 			hideLastpass,
@@ -68,11 +68,11 @@ export const TextArea = forwardRef(
 		/**
 		 * Separate `UtilCssArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
 		return (
 			<FieldWrapper
-				color={color}
+				theme={theme}
 				description={description}
 				errorMessage={errorMessage}
 				hideLastpass={hideLastpass}
@@ -98,7 +98,7 @@ export const TextArea = forwardRef(
 						aria-label={label}
 						className={clsx(
 							styles.getTextAreaStyles({ size }),
-							utilCss(atomProps),
+							css(atomProps),
 							{
 								[a11yError]: invalid,
 							},

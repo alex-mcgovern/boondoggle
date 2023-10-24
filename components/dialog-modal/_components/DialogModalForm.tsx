@@ -1,10 +1,8 @@
 import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-
 import { handleHookFormErrors } from "../../../src/lib/handle_hook_form_errors";
 import { useDialogModalState } from "../../../src/lib/use_dialog_modal_state";
-import { variantColorOverlay } from "../../../src/styles/color_palette.css";
 import { Box } from "../../box/Box";
 import { DialogModalActions } from "./DialogModalActions";
 import { DialogModalContent } from "./DialogModalContent";
@@ -13,11 +11,11 @@ import { DialogModalHeader } from "./DialogModalHeader";
 import { DialogModalInner } from "./DialogModalInner";
 import { DialogModalOuter } from "./DialogModalOuter";
 import { FormSubmitButton } from "../../form-submit-button/FormSubmitButton";
-
 import type { ReactNode } from "react";
 import type { FieldValues, Resolver } from "react-hook-form";
 import type { BoxProps } from "../../box/Box";
 import type { DialogModalInnerWidth } from "./DialogModalInner.css";
+import { theme } from "../../../style.css";
 
 export type DialogModalFormProps<
 	TFieldValues extends FieldValues = FieldValues,
@@ -143,7 +141,7 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 	return (
 		<FormProvider {...formMethods}>
 			<Box
-				className={variantColorOverlay.default}
+				className={theme.default}
 				position="relative"
 				{...wrapperProps}
 			>

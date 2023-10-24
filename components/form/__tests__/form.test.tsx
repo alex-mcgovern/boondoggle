@@ -13,8 +13,8 @@ import { selectFromDatePicker } from "../../../test/select_from_date_picker";
 import { selectFromSingleSelect } from "../../../test/select_from_select_single";
 import { mockForm } from "../__mocks__/mock_form.mock";
 import type { FormProps } from "../Form";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { RADIO_BTN_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 
 const handleSubmit = jest.fn();
 
@@ -98,7 +98,7 @@ describe("<Form />", () => {
 			const sliderThumb = getByRole("slider");
 
 			const firstRadioItem = getByRole("radio", {
-				name: `${RADIO_BUTTON_CARDS_MOCK[0].title} ${RADIO_BUTTON_CARDS_MOCK[0].body}`,
+				name: `${RADIO_BTN_CARDS_MOCK[0].title} ${RADIO_BTN_CARDS_MOCK[0].body}`,
 			});
 
 			await act(async () => {
@@ -147,7 +147,7 @@ describe("<Form />", () => {
 						amount: 1,
 						description: LOREM.text_xxs,
 						email: LOREM.email(),
-						radio: RADIO_BUTTON_CARDS_MOCK[0].value,
+						radio: RADIO_BTN_CARDS_MOCK[0].value,
 						select: mockSelectItems({})[0].value,
 					}),
 					expect.objectContaining({

@@ -3,17 +3,15 @@
  */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { RadioButtonCardGroup } from "..";
-import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
-
 import type { RadioButtonCardGroupProps } from "..";
+import { RADIO_BTN_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
 
 const onChangeMock = jest.fn();
 
 const PROPS: RadioButtonCardGroupProps = {
 	id: "test",
-	items: RADIO_BUTTON_CARDS_MOCK,
+	items: RADIO_BTN_CARDS_MOCK,
 	label: "test",
 	name: "test",
 	onChange: onChangeMock,
@@ -42,9 +40,7 @@ describe("<RadioButtonCardGroup />", () => {
 
 			await userEvent.click(firstRadioItem);
 
-			expect(onChangeMock).toBeCalledWith(
-				RADIO_BUTTON_CARDS_MOCK[0].value,
-			);
+			expect(onChangeMock).toBeCalledWith(RADIO_BTN_CARDS_MOCK[0].value);
 		});
 	});
 });

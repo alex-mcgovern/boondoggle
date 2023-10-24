@@ -1,6 +1,6 @@
 import { createBox } from "@dessert-box/react";
 
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 import type { ComponentPropsWithoutRef } from "react";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
@@ -15,7 +15,7 @@ import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
  * @deprecated Use a regular HTML element instead.
  */
 export const Box = createBox({
-	atoms: utilCss,
+	atoms: css,
 });
 
 export type BoxProps = ComponentPropsWithoutRef<typeof Box> & UtilCssArgs;

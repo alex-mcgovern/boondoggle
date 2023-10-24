@@ -4,7 +4,7 @@ import {
 	PolymorphicComponentPropWithRef,
 	WithStateDisabled,
 	WithSlots,
-	WithColorOverlay,
+	WithTheme,
 } from "../../src/common-types";
 import { Button } from "./Button";
 import { ElementSizeEnum } from "../../src/styles/common/element_size.css";
@@ -67,7 +67,7 @@ export type BaseButtonProps<TPolymorphicAs extends React.ElementType> =
 				 * The HTML button type, defaults to `button`.
 				 */
 				type?: "button" | "submit" | "reset";
-			} & WithColorOverlay
+			} & WithTheme
 	>;
 
 export type ButtonComponent = <

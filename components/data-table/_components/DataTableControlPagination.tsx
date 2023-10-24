@@ -30,7 +30,7 @@ export function DataTableControlPagination<TTableData>({
 			<Button
 				variant="secondary"
 				disabled={!table.getCanPreviousPage()}
-				name="button_previous_page"
+				name="btn_previous_page"
 				onClick={() => table.previousPage()}
 			>
 				{strPrev}
@@ -38,7 +38,7 @@ export function DataTableControlPagination<TTableData>({
 			<Button
 				variant="secondary"
 				disabled={!table.getCanNextPage()}
-				name="button_next_page"
+				name="btn_next_page"
 				onClick={() => table.nextPage()}
 			>
 				{strNext}

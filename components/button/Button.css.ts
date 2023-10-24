@@ -1,12 +1,10 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yDisabled, a11yFocus } from "../../src/styles/common/a11y.css";
-import { variantColorOverlay, vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
+import { focus, disabled, motion, v, theme } from "../../style.css";
 
 export const btn = recipe({
 	base: [
-		utilCss({
+		css({
 			alignItems: "center",
 			borderRadius: "md",
 			display: "inline-flex",
@@ -15,22 +13,22 @@ export const btn = recipe({
 			whiteSpace: "nowrap",
 			fontWeight: "medium",
 		}),
-		a11yFocus,
-		a11yDisabled,
-		createAccessibleTransition({
-			transition: `all ${vars.transitionDuration.short} ease`,
+		focus,
+		disabled,
+		motion({
+			transition: `all ${v.duration.short} ease`,
 		}),
 	],
 	variants: {
 		alignment: {
 			center: [
-				utilCss({
+				css({
 					justifyContent: "center",
 					textAlign: "center",
 				}),
 			],
 			left: [
-				utilCss({
+				css({
 					justifyContent: "start",
 					textAlign: "left",
 				}),
@@ -38,28 +36,28 @@ export const btn = recipe({
 		},
 		variant: {
 			primary: [
-				utilCss({
-					background: "button_default",
+				css({
+					background: "btn_default",
 					color: "white",
 				}),
 				{
 					selectors: {
 						// Hover state
 						"&:not(:is([disabled],[aria-disabled='true'])):hover": {
-							background: vars.color.button_hover,
-							color: vars.color.white,
+							background: v.color.btn_hover,
+							color: v.color.white,
 						},
 						// Active state
 						"&:not(:is([disabled],[aria-disabled='true'])):is(:active,[data-active='true'])":
 							{
-								background: vars.color.button_active,
+								background: v.color.btn_active,
 							},
 					},
 				},
 			],
 
 			secondary: [
-				utilCss({
+				css({
 					border: "border_default",
 					color: "text_high_contrast",
 				}),
@@ -67,33 +65,33 @@ export const btn = recipe({
 					selectors: {
 						// Hover state
 						"&:not(:is([disabled],[aria-disabled='true'])):hover": {
-							background: vars.color.tint_hover,
-							borderColor: vars.color.border_hover,
+							background: v.color.tint_hover,
+							borderColor: v.color.border_hover,
 						},
 						// Active state
 						"&:not(:is([disabled],[aria-disabled='true'])):is(:active,[data-active='true'])":
 							{
-								background: vars.color.tint_active,
-								borderColor: vars.color.border_active,
+								background: v.color.tint_active,
+								borderColor: v.color.border_active,
 							},
 					},
 				},
 			],
 
 			ghost: [
-				utilCss({
+				css({
 					color: "text_high_contrast",
 				}),
 				{
 					selectors: {
 						// Hover state
 						"&:not(:is([disabled],[aria-disabled='true'])):hover": {
-							background: vars.color.tint_hover,
+							background: v.color.tint_hover,
 						},
 						// Active state
 						"&:not(:is([disabled],[aria-disabled='true'])):is(:active,[data-active='true'])":
 							{
-								background: vars.color.tint_active,
+								background: v.color.tint_active,
 							},
 					},
 				},
@@ -102,7 +100,7 @@ export const btn = recipe({
 
 		size: {
 			lg: [
-				utilCss({
+				css({
 					height: "space_12",
 					paddingX: "space_6",
 					paddingY: "space_3",
@@ -110,7 +108,7 @@ export const btn = recipe({
 				}),
 			],
 			md: [
-				utilCss({
+				css({
 					height: "space_10",
 					paddingX: "space_4",
 					paddingY: "space_2",
@@ -118,7 +116,7 @@ export const btn = recipe({
 				}),
 			],
 			sm: [
-				utilCss({
+				css({
 					height: "space_8",
 					paddingX: "space_2",
 					paddingY: "space_1",
@@ -126,7 +124,7 @@ export const btn = recipe({
 				}),
 			],
 			square_md: [
-				utilCss({
+				css({
 					aspectRatio: "square",
 					flexShrink: "0",
 					fontStyle: "bodyMd",
@@ -135,7 +133,7 @@ export const btn = recipe({
 				}),
 			],
 			square_sm: [
-				utilCss({
+				css({
 					aspectRatio: "square",
 					flexShrink: "0",
 					fontStyle: "bodySm",
@@ -144,7 +142,7 @@ export const btn = recipe({
 				}),
 			],
 			square_xs: [
-				utilCss({
+				css({
 					aspectRatio: "square",
 					flexShrink: "0",
 					fontStyle: "bodySm",
@@ -153,7 +151,7 @@ export const btn = recipe({
 				}),
 			],
 		},
-		color: variantColorOverlay,
+		color: theme,
 	},
 	defaultVariants: {
 		alignment: "center",

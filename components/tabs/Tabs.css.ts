@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 export const section = recipe({
 	base: [
-		utilCss({
+		css({
 			marginY: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
@@ -15,15 +15,15 @@ export const section = recipe({
 	},
 	variants: {
 		size: {
-			lg: [utilCss({ maxWidth: "main_lg" })],
-			md: [utilCss({ maxWidth: "main_md" })],
-			sm: [utilCss({ maxWidth: "main_sm" })],
+			lg: [css({ maxWidth: "main_lg" })],
+			md: [css({ maxWidth: "main_md" })],
+			sm: [css({ maxWidth: "main_sm" })],
 		},
 	},
 });
 
 export const tabList = style([
-	utilCss({
+	css({
 		alignItems: "center",
 		borderBottom: "border_default",
 		display: "flex",

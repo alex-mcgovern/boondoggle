@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 export const header = recipe({
 	base: [
-		utilCss({
+		css({
 			marginY: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
@@ -15,22 +15,22 @@ export const header = recipe({
 	},
 	variants: {
 		size: {
-			lg: [utilCss({ maxWidth: "main_lg" })],
-			md: [utilCss({ maxWidth: "main_md" })],
-			sm: [utilCss({ maxWidth: "main_sm" })],
+			lg: [css({ maxWidth: "main_lg" })],
+			md: [css({ maxWidth: "main_md" })],
+			sm: [css({ maxWidth: "main_sm" })],
 		},
 	},
 });
 
 export const inner = recipe({
-	base: [utilCss({ alignItems: "center", display: "flex", gap: "space_4" })],
+	base: [css({ alignItems: "center", display: "flex", gap: "space_4" })],
 	defaultVariants: {
 		hasTabs: false,
 	},
 	variants: {
 		hasTabs: {
 			false: [
-				utilCss({
+				css({
 					paddingBottom: "space_4",
 					borderBottom: "border_default",
 				}),
@@ -40,4 +40,4 @@ export const inner = recipe({
 	},
 });
 
-export const actions = style([utilCss({ marginLeft: "auto" })]);
+export const actions = style([css({ marginLeft: "auto" })]);

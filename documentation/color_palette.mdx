@@ -1,7 +1,7 @@
 import { ColorItem, Meta } from "@storybook/blocks";
 
 import { Box } from "../src/components/box";
-import { getTheme, variantColorOverlay, vars } from "../src/styles/theme.css";
+import { getTheme, theme, vars } from "../src/styles/theme.css";
 import { ColorPalette } from "./color_palette.comp";
 
 <Meta title="Documentation/Color palette" />
@@ -14,33 +14,33 @@ import { ColorPalette } from "./color_palette.comp";
     <ColorPalette />
 </Box>
 
-## ColorOverlay: Blue
+## Theme: Blue
 
-<Box className={variantColorOverlay.blue}>
+<Box className={theme.blue}>
     <ColorPalette>
         <ColorPalette />
     </ColorPalette>
 </Box>
 
-## ColorOverlay: Amber
+## Theme: Amber
 
-<Box className={variantColorOverlay.amber}>
+<Box className={theme.amber}>
     <ColorPalette>
         <ColorPalette />
     </ColorPalette>
 </Box>
 
-## ColorOverlay: Green
+## Theme: Green
 
-<Box className={variantColorOverlay.green}>
+<Box className={theme.green}>
     <ColorPalette>
         <ColorPalette />
     </ColorPalette>
 </Box>
 
-## ColorOverlay: Red
+## Theme: Red
 
-<Box className={variantColorOverlay.red}>
+<Box className={theme.red}>
     <ColorPalette>
         <ColorPalette />
     </ColorPalette>

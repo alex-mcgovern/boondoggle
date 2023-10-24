@@ -1,11 +1,9 @@
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
-
-import { variantColorOverlay } from "../../src/styles/color_palette.css";
 import { Box } from "../box/Box";
 import { Icon } from "../icon";
-
 import type { BoxProps } from "../box/Box";
+import { theme } from "../../style.css";
 
 export type FieldErrorMessageProps = BoxProps & {
 	/**
@@ -30,7 +28,7 @@ export function FieldErrorMessage({
 		return (
 			<Box
 				alignItems="center"
-				className={clsx(userClassName, variantColorOverlay.red)}
+				className={clsx(userClassName, theme.red)}
 				color="text_low_contrast"
 				display="flex"
 				fontStyle="bodySm"

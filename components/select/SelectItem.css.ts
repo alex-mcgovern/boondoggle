@@ -1,16 +1,12 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { variantColorOverlay } from "../../src/styles/color_palette.css";
-import { a11yDisabled, a11yFocus } from "../../src/styles/common/a11y.css";
 import {
 	elementHeight,
 	elementPaddingRaw,
 } from "../../src/styles/common/element_size.css";
-import { vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { disabled, focus, motion, theme, v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 const selectItemSize = styleVariants({
 	lg: [
@@ -18,7 +14,7 @@ const selectItemSize = styleVariants({
 		{
 			padding: `${elementPaddingRaw.lg.y} ${calc.subtract(
 				elementPaddingRaw.lg.x,
-				vars.spacing.space_1,
+				v.spacing.space_1,
 			)}`,
 		},
 	],
@@ -27,7 +23,7 @@ const selectItemSize = styleVariants({
 		{
 			padding: `${elementPaddingRaw.md.y} ${calc.subtract(
 				elementPaddingRaw.md.x,
-				vars.spacing.space_1,
+				v.spacing.space_1,
 			)}`,
 		},
 	],
@@ -36,7 +32,7 @@ const selectItemSize = styleVariants({
 		{
 			padding: `${elementPaddingRaw.sm.y} ${calc.subtract(
 				elementPaddingRaw.sm.x,
-				vars.spacing.space_1,
+				v.spacing.space_1,
 			)}`,
 		},
 	],
@@ -44,23 +40,23 @@ const selectItemSize = styleVariants({
 
 export const getSelectItemStyles = recipe({
 	base: [
-		utilCss({
+		css({
 			alignItems: "center",
 			borderRadius: "md",
 			color: "text_low_contrast",
 			display: "flex",
 			fontStyle: "bodyMd",
-			fontWeight: "normal",
+			fontWeight: "regular",
 			gap: "space_2",
 			margin: "none",
 			textAlign: "left",
 			textDecoration: "none",
 			width: "100%",
 		}),
-		a11yDisabled,
-		a11yFocus,
-		createAccessibleTransition({
-			transition: `background ${vars.transitionDuration.short} ease`,
+		disabled,
+		focus,
+		motion({
+			transition: `background ${v.duration.short} ease`,
 		}),
 		{
 			selectors: {
@@ -71,13 +67,13 @@ export const getSelectItemStyles = recipe({
 		},
 	],
 	variants: {
-		color: variantColorOverlay,
+		theme,
 		size: selectItemSize,
 	},
 });
 
 export const isHighlightedStyle = style([
 	{
-		background: vars.color.tint_active,
+		background: v.color.tint_active,
 	},
 ]);

@@ -1,42 +1,41 @@
 import { styleVariants } from "@vanilla-extract/css";
-
-import { vars } from "../theme.css";
-import { utilCss } from "../utils/util_css.css";
+import { css } from "../utils/util_css.css";
+import { v } from "../../../style.css";
 
 export const elementHeight = {
-	lg: vars.spacing.space_12,
-	md: vars.spacing.space_10,
-	sm: vars.spacing.space_8,
+	lg: v.spacing.space_12,
+	md: v.spacing.space_10,
+	sm: v.spacing.space_8,
 };
 
 export const elementPaddingRaw = {
 	lg: {
-		x: vars.spacing.space_6,
-		y: vars.spacing.space_3,
+		x: v.spacing.space_6,
+		y: v.spacing.space_3,
 	},
 	md: {
-		x: vars.spacing.space_4,
-		y: vars.spacing.space_2,
+		x: v.spacing.space_4,
+		y: v.spacing.space_2,
 	},
 	sm: {
-		x: vars.spacing.space_2,
-		y: vars.spacing.space_1,
+		x: v.spacing.space_2,
+		y: v.spacing.space_1,
 	},
 };
 
 export const elementFontSize = styleVariants({
 	lg: [
-		utilCss({
+		css({
 			fontStyle: "bodyLg",
 		}),
 	],
 	md: [
-		utilCss({
+		css({
 			fontStyle: "bodyMd",
 		}),
 	],
 	sm: [
-		utilCss({
+		css({
 			fontStyle: "bodySm",
 		}),
 	],

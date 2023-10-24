@@ -1,10 +1,8 @@
 import { style } from "@vanilla-extract/css";
-
-import { vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
+import { motion, v } from "../../style.css";
 
 export const icon = style([
-	createAccessibleTransition({
-		transition: `transform ${vars.transitionDuration.short} ease`,
+	motion({
+		transition: `transform ${v.duration.short} ease`,
 	}),
 ]);

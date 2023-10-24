@@ -12,9 +12,9 @@ import type { MockCurrency } from "../../../test/mock_data/input_currency";
 import type { BoxProps } from "../../box/Box";
 import { Input } from "../../input";
 import { InputDate } from "../../input-date";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { InputCurrency } from "../../input-currency";
+import { RADIO_BTN_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),
@@ -113,12 +113,12 @@ export const mockForm = ({
 				<FormRadioButtonCardGroup
 					defaultValue={
 						withDefaultValues
-							? RADIO_BUTTON_CARDS_MOCK[0].value
+							? RADIO_BTN_CARDS_MOCK[0].value
 							: undefined
 					}
 					errorMessage="Select an option"
 					id="radio"
-					items={RADIO_BUTTON_CARDS_MOCK}
+					items={RADIO_BTN_CARDS_MOCK}
 					label={LOREM.labelRadioButtons()}
 					name="radio"
 					wrapperProps={WRAPPER_PROPS}

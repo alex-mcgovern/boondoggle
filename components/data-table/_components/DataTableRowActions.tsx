@@ -21,12 +21,12 @@ export function DataTableRowActions({
 		<SelectButton
 			buttonProps={{
 				variant: "secondary",
-				name: "select_button_data_table_team",
+				name: "select_BTN_data_table_team",
 				size: "square_md",
 				width: "min-content",
 			}}
 			items={items}
-			name="select_button_data_table_team"
+			name="select_BTN_data_table_team"
 			placement="bottom-end"
 			slotRight={<Icon icon={faEllipsis} />}
 			wrapperProps={{

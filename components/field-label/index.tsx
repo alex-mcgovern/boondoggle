@@ -43,7 +43,7 @@ export function FieldLabel({
 			color="text_low_contrast"
 			display={isLabelVisible === true ? "flex" : "none"}
 			fontSize="bodyMd"
-			fontWeight="normal"
+			fontWeight="regular"
 			gap="space_1"
 			htmlFor={htmlFor}
 			marginBottom="space_1"

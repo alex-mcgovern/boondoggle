@@ -1,12 +1,12 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { vars } from "../../../src/styles/theme.css";
+import { v } from "../../../style.css";
 import { inputSlotWrapperDoNotRemoveOrYouWillBeFired } from "../../input/styles.css";
 export const selectInputCursorStyles = style({});
 
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only`,
 	{
-		background: vars.color.background,
+		background: v.color.background,
 		cursor: "pointer",
 	},
 );
@@ -14,13 +14,13 @@ globalStyle(
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only:hover`,
 	{
-		background: vars.color.tint_default,
+		background: v.color.tint_default,
 	},
 );
 
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:is(:focus,:focus-visible)`,
 	{
-		borderColor: vars.color.border_default,
+		borderColor: v.color.border_default,
 	},
 );

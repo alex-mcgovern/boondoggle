@@ -54,7 +54,7 @@ describe("<DialogModal />", () => {
 					actions: (
 						<DialogModalActionConfirm
 							buttonText="Remove team member"
-							color="red"
+							theme="red"
 							confirmText="remove team member"
 							onClick={() => {
 								alert("clicked");

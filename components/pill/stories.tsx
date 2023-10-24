@@ -47,31 +47,31 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
 	return (
 		<Box alignItems="center" display="flex" gap="space_6">
 			<StoryComp
-				color="blue"
+				theme="blue"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				color="red"
+				theme="red"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				color="green"
+				theme="green"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				color="amber"
+				theme="amber"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
-				color="grey"
+				theme="grey"
 				slotLeft={<Icon icon={faTriangleCircleSquare} />}
 			>
 				{LOREM.text_xxs}

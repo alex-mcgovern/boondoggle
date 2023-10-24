@@ -6,8 +6,8 @@ import { Input } from "..";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { variantColorOverlay } from "../../../src/styles/color_palette.css";
-import { a11yError } from "../../../src/styles/common/a11y.css";
+import { a11yError, theme } from "../../../style.css";
+
 
 const PROPS: InputProps = {
 	name: LOREM.name(),
@@ -32,7 +32,7 @@ describe("<Input />", () => {
 
 			expect(
 				textbox?.parentNode?.parentNode?.parentNode?.parentNode,
-			).toHaveClass(variantColorOverlay.red);
+			).toHaveClass(theme.red);
 		});
 
 		test("should render error message", () => {

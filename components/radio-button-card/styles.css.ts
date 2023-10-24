@@ -1,27 +1,21 @@
 import { style } from "@vanilla-extract/css";
-
-import {
-	a11yFocus,
-	a11yFocusStyleRule,
-} from "../../src/styles/common/a11y.css";
-import { vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { focusStyleRule, focus, motion, v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 export const radioButtonCardInputStyles = style({
 	position: "absolute",
-	right: vars.spacing.space_4,
+	right: v.spacing.space_4,
 	selectors: {
 		"&:focus, &:focus-visible": {
 			outline: "none",
 		},
 	},
-	top: vars.spacing.space_4,
+	top: v.spacing.space_4,
 });
 
 export const radioButtonCardLabelStyles = style([
-	a11yFocus,
-	utilCss({
+	focus,
+	css({
 		alignItems: "center",
 		aspectRatio: "square",
 		border: "border_default",
@@ -33,23 +27,23 @@ export const radioButtonCardLabelStyles = style([
 		width: "100%",
 	}),
 	{
-		...createAccessibleTransition({
-			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
+		...motion({
+			transition: `border-color ${v.duration.short} ease, background ${v.duration.short} ease`,
 		}),
-		accentColor: vars.color.button_default,
+		accentColor: v.color.btn_default,
 		maxWidth: "12rem",
 		selectors: {
 			"&:has(input:checked)": {
-				background: vars.color.tint_default,
-				border: `1px solid ${vars.color.border_hover}`,
+				background: v.color.tint_default,
+				border: `1px solid ${v.color.border_hover}`,
 			},
 			"&:has(input:focus)": {
-				...a11yFocusStyleRule,
-				border: `1px solid ${vars.color.button_default}`,
+				...focusStyleRule,
+				border: `1px solid ${v.color.btn_default}`,
 			},
 			"&:hover": {
-				background: vars.color.tint_default,
-				border: `1px solid ${vars.color.border_hover}`,
+				background: v.color.tint_default,
+				border: `1px solid ${v.color.border_hover}`,
 				cursor: "pointer",
 			},
 		},

@@ -9,9 +9,9 @@ import type {
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
 import type { BoxProps } from "../components/box/Box";
-import type { ColorOverlay } from "./styles/color_palette.css";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
 import { FieldLabelProps } from "../components/field-label";
+import { Theme } from "../style.css";
 
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(
@@ -34,11 +34,11 @@ export type WithDescription = {
 	description?: ReactNode;
 };
 
-export type WithColorOverlay = {
+export type WithTheme = {
 	/**
 	 * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
 	 */
-	color?: ColorOverlay;
+	theme?: Theme;
 };
 
 export type WithFormFieldProps = {

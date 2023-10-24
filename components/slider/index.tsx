@@ -2,8 +2,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import * as RadixSlider from "@radix-ui/react-slider";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { variantColorOverlay } from "../../src/styles/color_palette.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 import { Box } from "../box/Box";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
@@ -21,6 +20,7 @@ import type {
 } from "../../src/common-types";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 import { SlotWrapper } from "../_utility/slot_wrapper";
+import { theme } from "../../style.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
 	UtilCssArgs &
@@ -62,11 +62,11 @@ export const Slider = forwardRef(
 	) => {
 		const labelId = id ? `${id}-label` : undefined;
 
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
 		return (
 			<Box
-				className={clsx({ [variantColorOverlay.red]: invalid })}
+				className={clsx({ [theme.red]: invalid })}
 				color="text_low_contrast"
 				{...wrapperProps}
 			>
@@ -88,7 +88,7 @@ export const Slider = forwardRef(
 						aria-label={name}
 						aria-labelledby={label && id ? labelId : undefined}
 						aria-required={required}
-						className={clsx(styles.sliderRoot, utilCss(atomProps))}
+						className={clsx(styles.sliderRoot, css(atomProps))}
 						id={id}
 						name={name}
 						ref={ref}

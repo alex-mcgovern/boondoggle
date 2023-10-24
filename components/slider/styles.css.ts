@@ -1,16 +1,13 @@
 import { style } from "@vanilla-extract/css";
-
-import { a11yFocusStyleRule } from "../../src/styles/common/a11y.css";
 import {
 	SELECTOR_IS_FOCUS,
 	SELECTOR_IS_HOVER,
 } from "../../src/styles/common/selectors.css";
-import { vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { focusStyleRule, motion, v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 export const sliderRoot = style([
-	utilCss({
+	css({
 		alignItems: "center",
 		display: "flex",
 		marginY: "space_2",
@@ -20,11 +17,11 @@ export const sliderRoot = style([
 	{
 		selectors: {
 			"&[data-orientation='horizontal']": {
-				height: vars.spacing.space_6,
+				height: v.spacing.space_6,
 			},
 			"&[data-orientation='vertical']": {
 				flexDirection: "column",
-				width: vars.spacing.space_6,
+				width: v.spacing.space_6,
 			},
 		},
 		touchAction: "none",
@@ -33,27 +30,27 @@ export const sliderRoot = style([
 ]);
 
 export const sliderTrack = style([
-	utilCss({
+	css({
 		borderRadius: "sm",
 		position: "relative",
 	}),
 	{
-		background: vars.color.border_default,
+		background: v.color.border_default,
 		flexGrow: 1,
 		selectors: {
 			"&[data-orientation='horizontal']": {
-				height: vars.spacing.space_1,
+				height: v.spacing.space_1,
 			},
 			"&[data-orientation='vertical']": {
-				width: vars.spacing.space_1,
+				width: v.spacing.space_1,
 			},
 		},
 	},
 ]);
 
 export const sliderRange = style([
-	utilCss({
-		background: "button_default",
+	css({
+		background: "btn_default",
 		borderRadius: "pill",
 		height: "100%",
 		position: "absolute",
@@ -61,7 +58,7 @@ export const sliderRange = style([
 ]);
 
 export const sliderThumb = style([
-	utilCss({
+	css({
 		background: "tint_default",
 		border: "border_hover",
 		borderRadius: "50%",
@@ -70,20 +67,20 @@ export const sliderThumb = style([
 		height: "space_6",
 		width: "space_6",
 	}),
-	createAccessibleTransition({
-		transition: `background ${vars.transitionDuration.short} ease, border-color ${vars.transitionDuration.short} ease`,
+	motion({
+		transition: `background ${v.duration.short} ease, border-color ${v.duration.short} ease`,
 	}),
 	{
 		selectors: {
 			[`&${SELECTOR_IS_HOVER}`]: {
-				background: vars.color.tint_active,
-				borderColor: vars.color.border_hover,
+				background: v.color.tint_active,
+				borderColor: v.color.border_hover,
 				cursor: "pointer",
 			},
 			[`&${SELECTOR_IS_FOCUS}`]: {
-				boxShadow: vars.boxShadow.md,
+				boxShadow: v.boxShadow.md,
 				outline: "none",
-				...a11yFocusStyleRule,
+				...focusStyleRule,
 			},
 		},
 	},

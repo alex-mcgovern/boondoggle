@@ -7,7 +7,7 @@ import {
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Icon } from "../../icon";
 
-export const RADIO_BUTTON_CARDS_MOCK = [
+export const RADIO_BTN_CARDS_MOCK = [
 	{
 		adornment: <Icon icon={faBank} size="xl" />,
 		body: LOREM.text_md,

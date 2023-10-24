@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 export const confirmTextStyle = style([
-	utilCss({
+	css({
 		display: "inline-block",
 		marginBottom: "space_2",
 	}),

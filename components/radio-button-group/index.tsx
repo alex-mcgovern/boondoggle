@@ -1,14 +1,11 @@
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
-
-import { variantColorOverlay } from "../../src/styles/color_palette.css";
 import { Box } from "../box/Box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
 import { RadioButton } from "../radio-button";
 import { getGroupLabelStyles } from "./styles.css";
-
 import type { Ref } from "react";
 import type {
 	WithDescription,
@@ -19,6 +16,7 @@ import type {
 } from "../../src/common-types";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
+import { theme } from "../../style.css";
 
 export type RadioButtonGroupProps = UtilCssArgs &
 	WithWrapperProps &
@@ -90,7 +88,7 @@ export const RadioButtonGroup = forwardRef(
 
 		return (
 			<Box
-				className={clsx({ [variantColorOverlay.red]: invalid })}
+				className={clsx({ [theme.red]: invalid })}
 				{...wrapperProps}
 				ref={ref}
 			>

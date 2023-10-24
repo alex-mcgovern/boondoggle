@@ -1,25 +1,22 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yFocus } from "../../src/styles/common/a11y.css";
 import { HOVER_FOCUS } from "../../src/styles/common/selectors.css";
-import { variantColorOverlay, vars } from "../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
+import { focus, motion, v, theme } from "../../style.css";
 
 const tagSize = styleVariants({
 	lg: [
-		utilCss({
+		css({
 			fontStyle: "bodyMd",
 		}),
 	],
 	md: [
-		utilCss({
+		css({
 			fontStyle: "bodySm",
 		}),
 	],
 	sm: [
-		utilCss({
+		css({
 			fontStyle: "bodySm",
 		}),
 	],
@@ -27,7 +24,7 @@ const tagSize = styleVariants({
 
 export const getTagStyle = recipe({
 	base: [
-		utilCss({
+		css({
 			alignItems: "center",
 			background: "tint_default",
 			borderRadius: "md",
@@ -41,23 +38,23 @@ export const getTagStyle = recipe({
 			whiteSpace: "nowrap",
 			width: "max-content",
 		}),
-		a11yFocus,
-		createAccessibleTransition({
-			transition: `ease ${vars.transitionDuration.short} ease`,
+		focus,
+		motion({
+			transition: `ease ${v.duration.short} ease`,
 			transitionProperty: "color, background-color, border-color",
 		}),
 		{
 			selectors: {
 				[HOVER_FOCUS]: {
-					background: vars.color.tint_active,
-					color: vars.color.text_high_contrast,
+					background: v.color.tint_active,
+					color: v.color.text_high_contrast,
 				},
 			},
 		},
 	],
 
 	variants: {
-		color: variantColorOverlay,
+		theme,
 		size: tagSize,
 	},
 });

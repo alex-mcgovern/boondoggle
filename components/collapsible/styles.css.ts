@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 
-import { vars } from "../../src/styles/theme.css";
+import { v } from "../../style.css";
 
 /**
  * Shared styles used for collapsible open/close state
@@ -20,10 +20,10 @@ export const collapsibleContentAnimation = style({
 	overflow: "hidden",
 	selectors: {
 		'&[data-state="closed"]': {
-			animation: `${close} ${vars.transitionDuration.medium} ease forwards`,
+			animation: `${close} ${v.duration.medium} ease forwards`,
 		},
 		'&[data-state="open"]': {
-			animation: `${open} ${vars.transitionDuration.medium} ease forwards`,
+			animation: `${open} ${v.duration.medium} ease forwards`,
 		},
 	},
 });

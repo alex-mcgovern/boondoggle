@@ -1,4 +1,4 @@
-import type { WithColorOverlay, WithSlots } from "../../src/common-types";
+import type { WithTheme, WithSlots } from "../../src/common-types";
 import type { BoxProps } from "../box/Box";
 
 type IsFilterableBaseProps = {
@@ -32,7 +32,7 @@ export type SelectItemShape<
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
 > = BoxProps &
 	WithSlots &
-	WithColorOverlay & {
+	WithTheme & {
 		/**
 		 * The description for the item.
 		 */

@@ -1,9 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { vars } from "../../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../../src/styles/utils/create_accessible_transition";
-
+import { v, motion } from "../../../style.css";
 const sortControlBase = style({});
 
 export const getSortControlStyle = recipe({
@@ -18,8 +15,8 @@ export const getSortControlStyle = recipe({
 
 export const sortIconStyle = style({
 	opacity: 0,
-	...createAccessibleTransition({
-		transition: `opacity ${vars.transitionDuration.short} ease`,
+	...motion({
+		transition: `opacity ${v.duration.short} ease`,
 	}),
 });
 

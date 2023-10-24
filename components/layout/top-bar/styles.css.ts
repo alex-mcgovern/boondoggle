@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 export const topBarStyle = style([
 	style([
-		utilCss({
+		css({
 			alignItems: "center",
 			background: "tint_default",
 			borderBottom: "border_default",

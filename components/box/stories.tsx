@@ -2,16 +2,14 @@ import {
 	faCheckCircle,
 	faExclamationCircle,
 } from "@fortawesome/pro-solid-svg-icons";
-
 import { Box as StoryComp } from "./Box";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Link } from "../../test/link.comp.mock";
-import { variantColorOverlay } from "../../src/styles/theme.css";
 import { Icon } from "../icon";
-
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { BoxProps as StoryCompProps } from "./Box";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
+import { theme } from "../../style.css";
 
 export default {
 	component: StoryComp,
@@ -136,7 +134,7 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
 				<StoryComp as="p">{LOREM.text_md}</StoryComp>
 			</StoryComp>,
 		],
-		className: variantColorOverlay.red,
+		className: theme.red,
 		display: "flex",
 		gap: "space_6",
 		padding: "space_6",
@@ -167,7 +165,7 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
 				</StoryComp>
 			</StoryComp>,
 		],
-		className: variantColorOverlay.green,
+		className: theme.green,
 		display: "flex",
 		gap: "space_6",
 		padding: "space_6",

@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 export const dialogContentOuterStyle = style([
-	utilCss({
+	css({
 		maxWidth: "100%",
 		overflowY: "auto",
 		width: "100%",
@@ -16,7 +16,7 @@ export const dialogContentOuterStyle = style([
 
 export const getDialogContentInnerStyle = recipe({
 	base: [
-		utilCss({
+		css({
 			height: "100%",
 		}),
 		{
@@ -29,7 +29,7 @@ export const getDialogContentInnerStyle = recipe({
 	variants: {
 		hasPadding: {
 			false: {},
-			true: [utilCss({ padding: "space_4" })],
+			true: [css({ padding: "space_4" })],
 		},
 	},
 });

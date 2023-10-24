@@ -3,16 +3,12 @@ import React from "react";
 import { Box } from "../box/Box";
 import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css";
 import type { Ref } from "react";
-import type {
-	WithColorOverlay,
-	WithSize,
-	WithSlots,
-} from "../../src/common-types";
+import type { WithTheme, WithSize, WithSlots } from "../../src/common-types";
 import type { BoxProps } from "../box/Box";
 import { SlotWrapper } from "../_utility/slot_wrapper";
 
 export type SelectItemProps = BoxProps &
-	WithColorOverlay &
+	WithTheme &
 	WithSize &
 	Omit<WithSlots, "slotRight"> & {
 		/**
@@ -50,7 +46,7 @@ export const SelectItem = React.forwardRef(
 	(
 		{
 			as = "li",
-			color,
+			theme,
 			description,
 			isHighlighted,
 			isMulti,
@@ -67,7 +63,7 @@ export const SelectItem = React.forwardRef(
 				as={as}
 				className={clsx(
 					getSelectItemStyles({
-						color,
+						theme,
 						size,
 					}),
 					{

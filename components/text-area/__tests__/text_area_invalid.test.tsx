@@ -2,14 +2,11 @@
  * @jest-environment jsdom
  */
 import { render } from "@testing-library/react";
-
 import { TextArea } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
-import { variantColorOverlay } from "../../../src/styles/color_palette.css";
-import { a11yError } from "../../../src/styles/common/a11y.css";
-
 import type { TextAreaProps } from "..";
+import { a11yError, theme } from "../../../style.css";
 
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),
@@ -32,9 +29,7 @@ describe("<TextArea />", () => {
 
 			expect(textbox).toHaveClass(a11yError);
 
-			expect(textbox?.parentNode?.parentNode).toHaveClass(
-				variantColorOverlay.red,
-			);
+			expect(textbox?.parentNode?.parentNode).toHaveClass(theme.red);
 		});
 
 		test("should render error message", () => {

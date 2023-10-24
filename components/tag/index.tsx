@@ -1,9 +1,7 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
-
-import { a11yFocus } from "../../src/styles/common/a11y.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
 import { SlotWrapper } from "../_utility/slot_wrapper";
 import * as styles from "./styles.css";
 
@@ -16,17 +14,18 @@ import type {
 import type {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
-	WithColorOverlay,
+	WithTheme,
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
 } from "../../src/common-types";
 import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
+import { focus } from "../../style.css";
 
 type BaseTagProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
-		WithColorOverlay &
+		WithTheme &
 			WithSize &
 			WithSlots &
 			WithStateDisabled & {
@@ -59,7 +58,7 @@ export const Tag: TagComponent = forwardRef(
 			as,
 			children,
 			className: userClassName,
-			color,
+			theme,
 			id,
 			size,
 			slotLeft,
@@ -71,7 +70,7 @@ export const Tag: TagComponent = forwardRef(
 		/**
 		 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
 		const Component = as || "div";
 
@@ -80,9 +79,9 @@ export const Tag: TagComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						styles.getTagStyle({ color, size }),
-						utilCss(atomProps),
-						a11yFocus,
+						styles.getTagStyle({ theme, size }),
+						css(atomProps),
+						focus,
 					),
 					id,
 					ref,

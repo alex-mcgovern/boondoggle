@@ -1,10 +1,8 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { animateFadeIn } from "../../src/styles/common/animations.css";
-import { vars } from "../../src/styles/theme.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { animateFadeIn, v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 const placement = styleVariants({
 	"bottom-center": [
@@ -17,14 +15,12 @@ const placement = styleVariants({
 		left: "auto",
 	},
 	"bottom-start": [],
-
 	"middle-start": [
 		{
 			insetBlock: "0% 50%",
-			insetInlineStart: calc.add("100%", vars.spacing.space_2),
+			insetInlineStart: calc.add("100%", v.spacing.space_2),
 		},
 	],
-
 	"top-center": [
 		{
 			insetBlockEnd: "100%",
@@ -33,7 +29,6 @@ const placement = styleVariants({
 		},
 	],
 	"top-end": [{ insetBlockEnd: "100%", left: "auto" }],
-
 	"top-start": [{ insetBlockEnd: "100%" }],
 });
 
@@ -43,14 +38,14 @@ export const getDialogStyles = recipe({
 	base: [
 		animateFadeIn,
 		{
-			maxWidth: calc.subtract("100vw", vars.spacing.space_4),
+			maxWidth: calc.subtract("100vw", v.spacing.space_4),
 			selectors: {
 				"&:focus": {
 					outline: "none",
 				},
 			},
 		},
-		utilCss({
+		css({
 			padding: "none",
 			zIndex: "1",
 		}),

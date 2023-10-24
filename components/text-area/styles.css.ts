@@ -1,13 +1,12 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yDisabled, a11yFocus } from "../../src/styles/common/a11y.css";
 import {
 	elementFontSize,
 	elementHeight,
 	elementPadding,
 } from "../../src/styles/common/element_size.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { css } from "../../src/styles/utils/util_css.css";
+import { disabled, focus } from "../../style.css";
 
 const size = styleVariants({
 	lg: [
@@ -29,11 +28,11 @@ const size = styleVariants({
 
 export const getTextAreaStyles = recipe({
 	base: [
-		utilCss({
+		css({
 			width: "100%",
 		}),
-		a11yDisabled,
-		a11yFocus,
+		disabled,
+		focus,
 		{ resize: "none" },
 	],
 	defaultVariants: {

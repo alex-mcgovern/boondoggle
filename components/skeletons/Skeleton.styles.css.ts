@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 
-import { vars } from "../../src/styles/theme.css";
+import { v } from "../../style.css";
 
 const animationLoading = keyframes({
 	to: { backgroundPositionX: "-20%" },
@@ -13,8 +13,8 @@ export const loadingStyles = style({
       rgba(255, 255, 255, 0) 40%,
       rgba(255, 255, 255, .5) 50%,
       rgba(255, 255, 255, 0) 60%
-    ) ${vars.color.tint_active}`,
-	backgroundColor: vars.color.tint_default,
+    ) ${v.color.tint_active}`,
+	backgroundColor: v.color.tint_default,
 	backgroundPositionX: "180%",
 	backgroundSize: "200% 100%",
 });

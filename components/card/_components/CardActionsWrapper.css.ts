@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 export const cardActionsWrapper = style([
-	utilCss({
+	css({
 		alignItems: "center",
 		display: "flex",
 		gap: "space_2",

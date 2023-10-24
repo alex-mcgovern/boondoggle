@@ -7,7 +7,7 @@ import { Input } from "..";
 import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { a11yDisabled } from "../../../src/styles/common/a11y.css";
+import { disabled } from "../../../style.css";
 
 const ON_CHANGE = jest.fn();
 const ON_CLICK = jest.fn();
@@ -35,7 +35,7 @@ describe("<Input />", () => {
 
 			const textbox = getByRole("textbox");
 
-			expect(textbox).toHaveClass(a11yDisabled);
+			expect(textbox).toHaveClass(disabled);
 		});
 
 		test("should not call `onChange()` when user types", async () => {

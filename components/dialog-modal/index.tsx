@@ -1,8 +1,6 @@
 import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef } from "react";
-
 import { useDialogModalState } from "../../src/lib/use_dialog_modal_state";
-import { variantColorOverlay } from "../../src/styles/color_palette.css";
 import { Box } from "../box/Box";
 import { DialogModalActions } from "./_components/DialogModalActions";
 import { DialogModalContent } from "./_components/DialogModalContent";
@@ -11,11 +9,11 @@ import { DialogModalHeader } from "./_components/DialogModalHeader";
 import { DialogModalInner } from "./_components/DialogModalInner";
 import { DialogModalOuter } from "./_components/DialogModalOuter";
 import { LoaderFullScreen } from "../loader-full-screen";
-
 import type { ReactNode } from "react";
 import type { BoxProps } from "../box/Box";
 import type { DialogModalActionsProps } from "./_components/DialogModalActions";
 import type { DialogModalInnerWidth } from "./_components/DialogModalInner.css";
+import { theme } from "../../style.css";
 
 export type DialogModalProps = {
 	/**
@@ -114,7 +112,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
 
 		return (
 			<Box
-				className={variantColorOverlay.default}
+				className={theme.default}
 				position="relative"
 				{...wrapperProps}
 			>

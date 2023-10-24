@@ -3,31 +3,31 @@
 // });
 
 import { recipe } from "@vanilla-extract/recipes";
-import { vars } from "../../src/styles/theme.css";
-import { utilCss } from "../../src/styles/utils/util_css.css";
+import { v } from "../../style.css";
+import { css } from "../../src/styles/utils/util_css.css";
 
 // globalStyle(`${wrapper} > *:first-child`, {
 // 	"@media": {
-// 		[MEDIA_QUERY_MOBILE]: {
-// 			marginLeft: vars.spacing.space_4,
+// 		[MOBILE]: {
+// 			marginLeft: v.spacing.space_4,
 // 		},
-// 		[MEDIA_QUERY_TABLET]: {
-// 			marginLeft: vars.spacing.none,
+// 		[TABLET]: {
+// 			marginLeft: v.spacing.none,
 // 		},
 // 	},
 // });
 
 // globalStyle(`${wrapper} > *:last-child`, {
 // 	"@media": {
-// 		[MEDIA_QUERY_MOBILE]: {
-// 			marginRight: vars.spacing.space_4,
+// 		[MOBILE]: {
+// 			marginRight: v.spacing.space_4,
 // 		},
 // 	},
 // });
 
 export const tab = recipe({
 	base: [
-		utilCss({
+		css({
 			flexShrink: "0",
 			paddingBottom: "space_1",
 		}),
@@ -39,12 +39,12 @@ export const tab = recipe({
 		active: {
 			false: [
 				{
-					borderBottom: `${vars.spacing["space_0.5"]} solid transparent`,
+					borderBottom: `${v.spacing["space_0.5"]} solid transparent`,
 				},
 			],
 			true: [
 				{
-					borderBottom: `${vars.spacing["space_0.5"]} solid ${vars.color.button_default}`,
+					borderBottom: `${v.spacing["space_0.5"]} solid ${v.color.btn_default}`,
 				},
 			],
 		},

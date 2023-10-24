@@ -1,4 +1,4 @@
-const SELECTOR_IS_LINK_BUTTON_INPUT = ":is(a,button,input)";
+const SELECTOR_IS_LINK_BTN_INPUT = ":is(a,button,input)";
 
 const SELECTOR_IS_NOT_DISABLED =
 	":not(:is([disabled], [aria-disabled='true']))";
@@ -16,7 +16,7 @@ const SELECTOR_IS_ACTIVE = `:is(:active, [data-active='true'])`;
  */
 const hoverSelectorArray = [
 	"&",
-	SELECTOR_IS_LINK_BUTTON_INPUT,
+	SELECTOR_IS_LINK_BTN_INPUT,
 	SELECTOR_IS_NOT_DISABLED,
 	SELECTOR_IS_HOVER,
 ];
@@ -28,19 +28,19 @@ export const HOVER = hoverSelectorArray.join("");
  */
 const focusSelectorArray = [
 	"&",
-	SELECTOR_IS_LINK_BUTTON_INPUT,
+	SELECTOR_IS_LINK_BTN_INPUT,
 	SELECTOR_IS_NOT_DISABLED,
 	SELECTOR_IS_FOCUS,
 ];
 
-export const SELECTOR_LINK_BUTTON_INPUT_FOCUS = focusSelectorArray.join("");
+export const SELECTOR_LINK_BTN_INPUT_FOCUS = focusSelectorArray.join("");
 
 /**
  * Button/link/input: hover/focus
  */
 const hoverFocusSelectorArray = [
 	"&",
-	SELECTOR_IS_LINK_BUTTON_INPUT,
+	SELECTOR_IS_LINK_BTN_INPUT,
 	SELECTOR_IS_NOT_DISABLED,
 	SELECTOR_IS_HOVER_FOCUS,
 ];
@@ -52,7 +52,7 @@ export const HOVER_FOCUS = hoverFocusSelectorArray.join("");
  */
 const activeSelectorArray = [
 	"&",
-	SELECTOR_IS_LINK_BUTTON_INPUT,
+	SELECTOR_IS_LINK_BTN_INPUT,
 	SELECTOR_IS_NOT_DISABLED,
 	SELECTOR_IS_ACTIVE,
 ];

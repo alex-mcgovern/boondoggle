@@ -4,17 +4,15 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { SelectMulti } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
-import { variantColorOverlay } from "../../../src/styles/color_palette.css";
-import { a11yError } from "../../../src/styles/common/a11y.css";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 import { flattenSelectItems } from "../flattenSelectItems";
 
 import type { SelectMultiProps } from ".";
+import { a11yError, theme } from "../../../style.css";
 
 const ON_CHANGE = jest.fn();
 
@@ -253,7 +251,7 @@ describe("<SelectMulti />", () => {
 
 		expect(
 			combobox?.parentNode?.parentNode?.parentNode?.parentNode,
-		).toHaveClass(variantColorOverlay.red);
+		).toHaveClass(theme.red);
 
 		expect(getByText(LOREM.errorMessage())).not.toBeNull();
 	});

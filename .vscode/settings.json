@@ -7,7 +7,7 @@
 		"**/.cache": true,
 		"**/*.snap": true,
 		".git": true,
-		"dist": true
+		"dist/**/*": true
 	},
 	"commentBox.styles": {
 		"h1": {

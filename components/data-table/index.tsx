@@ -2,7 +2,6 @@
 
 import { arrayHasLength } from "../../src/lib/array_has_length";
 import { useDataTableState } from "../../src/lib/use_data_table_state";
-import { tableStyles } from "../../src/styles/stylesheet.css";
 import { Box } from "../box/Box";
 import { DataTableActionsWrapper } from "./_components/DataTableActionsWrapper";
 import { DataTableFilterInput } from "./_components/DataTableFilterInput";
@@ -10,7 +9,6 @@ import { DataTableInfoNoResults } from "./_components/DataTableInfoNoResults";
 import { DataTableLayoutBody } from "./_components/DataTableLayoutBody";
 import { DataTableLayoutHead } from "./_components/DataTableLayoutHead";
 import { DataTablePaginationWrapper } from "./_components/DataTablePaginationWrapper";
-
 import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import type {
@@ -19,6 +17,7 @@ import type {
 	WithTableOptionalPagination,
 	WithTableOptionalSelectableRows,
 } from "../../src/common-types";
+import { table as tableCss } from "../../style.css";
 
 export type DataTableProps<TRowData extends RowData> =
 	WithTableOptionalPagination &
@@ -126,7 +125,7 @@ export function DataTable<TRowData extends RowData>({
 			/>
 
 			{hasData && (
-				<Box className={tableStyles}>
+				<Box className={tableCss}>
 					<DataTableLayoutHead<TRowData>
 						isSortable={isSortable}
 						isSelectable={isSelectable}

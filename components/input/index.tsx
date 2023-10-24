@@ -16,7 +16,7 @@ import { clearButtonStyle, inputStyles } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
 import {
-	WithColorOverlay,
+	WithTheme,
 	WithDescription,
 	WithHideLastpass,
 	WithName,
@@ -36,7 +36,7 @@ import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";
 import { FieldActionButtonVisibility } from "../field-action-button-visibility";
 import { FieldWrapper } from "../field-wrapper";
-import { UtilCssArgs, utilCss } from "../../src/styles/utils/util_css.css";
+import { UtilCssArgs, css } from "../../src/styles/utils/util_css.css";
 
 export type InputProps = Partial<
 	Pick<
@@ -57,7 +57,7 @@ export type InputProps = Partial<
 		| "disabled"
 	>
 > &
-	WithColorOverlay &
+	WithTheme &
 	WithDescription &
 	WithHideLastpass &
 	WithName &
@@ -102,7 +102,7 @@ function InputBase(
 		addonLeft,
 		addonRight,
 		className: userClassName,
-		color,
+		theme,
 		defaultValue,
 		description,
 		disabled,
@@ -155,7 +155,7 @@ function InputBase(
 	}, [inputRef]);
 
 	const { atomProps, otherProps } = React.useMemo(() => {
-		return extractAtomsFromProps(rest, utilCss);
+		return extractAtomsFromProps(rest, css);
 	}, [rest]);
 
 	const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
@@ -169,7 +169,7 @@ function InputBase(
 
 	return (
 		<FieldWrapper
-			color={color}
+			theme={theme}
 			description={description}
 			errorMessage={errorMessage}
 			hideLastpass={hideLastpass}
@@ -189,7 +189,7 @@ function InputBase(
 				size={size}
 			>
 				<InputSlotWrapper
-					className={clsx(utilCss(atomProps), userClassName)}
+					className={clsx(css(atomProps), userClassName)}
 					disabled={disabled}
 					focus={focus}
 					hasBorder={hasBorder}

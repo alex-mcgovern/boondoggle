@@ -1,14 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
-
 import { recipe } from "@vanilla-extract/recipes";
-import {
-	tBodyStyles,
-	tRowStyles,
-	tdStyles,
-} from "../../../src/styles/stylesheet.css";
-import { vars } from "../../../src/styles/theme.css";
-import { createAccessibleTransition } from "../../../src/styles/utils/create_accessible_transition";
-import { utilCss } from "../../../src/styles/utils/util_css.css";
+import { motion, tBody, tRow, td, v } from "../../../style.css";
+import { css } from "../../../src/styles/utils/util_css.css";
 
 const baseBodyStyle = style({});
 
@@ -23,7 +16,7 @@ const hasRowActions = styleVariants({
 });
 
 export const getBodyStyle = recipe({
-	base: [baseBodyStyle, tBodyStyles],
+	base: [baseBodyStyle, tBody],
 	variants: {
 		isSelectable,
 		hasRowActions,
@@ -31,36 +24,36 @@ export const getBodyStyle = recipe({
 });
 
 globalStyle(
-	`${isSelectable.true} td:first-child, ${isSelectable.true} ${tdStyles}:first-child`,
+	`${isSelectable.true} td:first-child, ${isSelectable.true} ${td}:first-child`,
 	{
-		width: vars.spacing.space_1,
+		width: v.spacing.space_1,
 	},
 );
 
 globalStyle(
-	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${tdStyles}:last-child`,
+	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${td}:last-child`,
 	{
-		width: vars.spacing.space_1,
+		width: v.spacing.space_1,
 	},
 );
 
 const baseRowStyles = style({});
 
 export const rowStyles = style([
-	tRowStyles,
+	tRow,
 	baseRowStyles,
-	utilCss({
+	css({
 		color: "text_high_contrast",
 		textDecoration: "none",
 	}),
 	{
 		selectors: {
 			"&:hover": {
-				backgroundColor: vars.color.tint_default,
+				backgroundColor: v.color.tint_default,
 			},
 		},
-		...createAccessibleTransition({
-			transition: `background-color ${vars.transitionDuration.medium} ease`,
+		...motion({
+			transition: `background-color ${v.duration.medium} ease`,
 		}),
 	},
 ]);

@@ -1,13 +1,10 @@
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
-
-import { getTheme } from "../../src/styles/color_palette.css";
 import { Box } from "../box/Box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
 import { RadioButtonCard } from "../radio-button-card";
-
 import type { Ref } from "react";
 import type {
 	WithDescription,
@@ -21,6 +18,7 @@ import type {
 	RadioButtonCardShape,
 	RadioButtonInputProps,
 } from "../radio-button-card";
+import { theme } from "../../style.css";
 
 export type RadioButtonCardGroupProps = UtilCssArgs &
 	WithWrapperProps &
@@ -94,7 +92,7 @@ export const RadioButtonCardGroup = forwardRef(
 		return (
 			<Box
 				className={clsx({
-					[getTheme({ color: "red" })]: invalid,
+					[theme.red]: invalid,
 				})}
 				{...wrapperProps}
 				ref={ref}
