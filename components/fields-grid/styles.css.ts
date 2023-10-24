@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss, vars } from "../../src";
+import { vars } from "../../src/styles/theme.css";
+import { utilCss } from "../../src/styles/utils/util_css.css";
 
 export const fieldsGridStyle = style([
 	utilCss({

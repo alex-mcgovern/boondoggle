@@ -8,7 +8,6 @@ import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
 import type { SelectItemShape } from "../select/types";
 import { Input } from "../input";
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
-import { UtilCssArgs } from "../../src";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -24,6 +23,7 @@ import {
 	WithSlots,
 	WithStateInvalid,
 } from "../../src/common-types";
+import { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**

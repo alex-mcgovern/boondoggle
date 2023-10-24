@@ -25,7 +25,13 @@ const TriggerNode = (
 		type="button"
 	>
 		Open collapsible
-		<Icon icon={faAngleDown} marginLeft="auto" />
+		<Icon
+			icon={faAngleDown}
+			/**
+			 * @todo Fix margin left in Collapsible
+			 */
+			// marginLeft="auto"
+		/>
 	</button>
 );
 

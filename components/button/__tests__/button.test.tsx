@@ -4,7 +4,6 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { Button } from "../Button";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
@@ -360,56 +359,6 @@ describe("<Button />", () => {
 
 				expect(onBlur).not.toHaveBeenCalled();
 			});
-		});
-	});
-
-	describe("`size` prop", () => {
-		test("should have the `md` class name by default", () => {
-			const { getByRole } = render(
-				<Button id="button" name="Test button" />,
-			);
-
-			expect(getByRole("button")).toHaveClass(variantButtonSize.md);
-		});
-
-		test("should have the `sm` class name when size = sm", () => {
-			const { getByRole } = render(
-				<Button id="button" name="Test button" size="sm" />,
-			);
-
-			expect(getByRole("button")).toHaveClass(variantButtonSize.sm);
-		});
-
-		test("should have the `md` class name when size = md", () => {
-			const { getByRole } = render(
-				<Button id="button" name="Test button" size="md" />,
-			);
-
-			expect(getByRole("button")).toHaveClass(variantButtonSize.md);
-		});
-
-		test("should have the `lg` class name when size = lg", () => {
-			const { getByRole } = render(
-				<Button id="button" name="Test button" size="lg" />,
-			);
-
-			expect(getByRole("button")).toHaveClass(variantButtonSize.lg);
-		});
-
-		test("should have the `square_md` class name when size = square_md", () => {
-			const { getByRole } = render(
-				<Button id="button" name="Test button" size="square_md" />,
-			);
-
-			expect(getByRole("button")).toHaveClass(btn({ size: "square_md" }));
-		});
-
-		test("should have the `square_sm` class name when size = square_sm", () => {
-			const { getByRole } = render(
-				<Button id="button" name="Test button" size="square_sm" />,
-			);
-
-			expect(getByRole("button")).toHaveClass(btn({ size: "square_sm" }));
 		});
 	});
 

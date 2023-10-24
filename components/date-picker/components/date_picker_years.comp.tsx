@@ -35,7 +35,10 @@ export function DatePickerYears({
 						variant={calendarYear.selected ? "primary" : "ghost"}
 						key={calendarYear.year.toString()}
 						name={calendarYear.year.toString()}
-						width="100%"
+						/**
+						 * @todo Remove this when the date picker is refactored to use the new button component.
+						 */
+						// width="100%"
 						{...yearButton(calendarYear, {
 							onClick: onYearClick,
 						})}

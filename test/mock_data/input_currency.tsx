@@ -1,6 +1,11 @@
-import { FlagAe, FlagKw, FlagOm, FlagSa, FlagUs } from "../../src";
-
-import type { SelectItemShape } from "../../src";
+import {
+	FlagUs,
+	FlagAe,
+	FlagOm,
+	FlagSa,
+	FlagKw,
+} from "../../components/icon-flag";
+import { SelectItemShape } from "../../components/select/types";
 
 export type MockCurrency = "USD" | "AED" | "OMR" | "SAR" | "KWD";
 export type MockLocale = "en-US" | "en-GB" | "de-DE" | "fr-FR" | "ar-AE";

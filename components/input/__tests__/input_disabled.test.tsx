@@ -5,17 +5,13 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Input } from "..";
 import "../../../../test/mocked_dependencies/dialog.mock";
-
 import type { InputProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { a11yDisabled } from "../../../src";
+import { a11yDisabled } from "../../../src/styles/common/a11y.css";
 
 const ON_CHANGE = jest.fn();
-
 const ON_CLICK = jest.fn();
-
 const ON_MOUSE_OVER = jest.fn();
-
 const ON_FOCUS = jest.fn();
 
 const PROPS: InputProps = {

@@ -15,7 +15,6 @@ import { InputSlotWrapper } from "./InputSlotWrapper";
 import { clearButtonStyle, inputStyles } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
-import { UtilCssArgs, utilCss } from "../../src";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -37,6 +36,7 @@ import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";
 import { FieldActionButtonVisibility } from "../field-action-button-visibility";
 import { FieldWrapper } from "../field-wrapper";
+import { UtilCssArgs, utilCss } from "../../src/styles/utils/util_css.css";
 
 export type InputProps = Partial<
 	Pick<
