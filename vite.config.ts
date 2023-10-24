@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-// import dts from "vite-plugin-dts";
+import dts from "vite-plugin-dts";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 export default defineConfig({
@@ -12,7 +12,7 @@ export default defineConfig({
 			identifiers:
 				process.env.NODE_ENV === "production" ? "short" : "debug",
 		}),
-		// dts({ rollupTypes: true }),
+		dts({ rollupTypes: true }),
 	],
 	build: {
 		minify: false,
