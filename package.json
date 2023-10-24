@@ -2,10 +2,12 @@
 	"author": "Alex McGovern",
 	"name": "@alex-mcgovern/boondoggle.design",
 	"description": "Boondoggle design system component library",
-	"version": "0.14.145",
+	"version": "0.14.146-0",
 	"license": "MIT",
 	"type": "module",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"exports": {
 		"./*": "./dist/*/index.ts"
 	},
@@ -34,7 +36,6 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"tsc": "tsc",
-
 		"version": "npm run build",
 		"postversion": "git push && git push --tags && npm publish --access public"
 	},
