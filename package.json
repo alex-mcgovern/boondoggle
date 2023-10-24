@@ -33,7 +33,11 @@
 		"storybook": "storybook dev -p 6006",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"tsc": "tsc"
+		"tsc": "tsc",
+
+		"preversion": "npm test",
+		"version": "npm run build",
+		"postversion": "git push && git push --tags && npm publish --access public"
 	},
 	"dependencies": {
 		"@dessert-box/core": "0.2.0",
