@@ -5,9 +5,8 @@
 	"version": "0.14.152-2",
 	"license": "MIT",
 	"type": "module",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
+	"types": "dist/index.d.ts",
 	"exports": {
 		"./style.css": "./dist/style.css",
 		"./*": "./dist/components/*"
