@@ -5,11 +5,9 @@
 	"version": "0.14.150-0",
 	"license": "MIT",
 	"type": "module",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"exports": {
-		"./styles.css": "./dist/styles.css",
+		"./style.css": "./dist/style.css",
 		"./*": "./dist/components/*"
 	},
 	"repository": {
