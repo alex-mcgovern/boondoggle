@@ -41,8 +41,8 @@ export type DialogModalFormProps<
 	 * Function that will be called when the form is submitted.
 	 */
 	handleSubmit:
-		| ((fieldValues: TFieldValues) => Promise<void>)
-		| ((fieldValues: TFieldValues) => void);
+	| ((fieldValues: TFieldValues) => Promise<void>)
+	| ((fieldValues: TFieldValues) => void);
 
 	/**
 	 * Whether the dialog modal is in an error state.
@@ -100,6 +100,11 @@ export type DialogModalFormProps<
 	 * Props that will be passed to the wrapper `Box` component.
 	 */
 	wrapperProps?: BoxProps;
+
+	/**
+	 * Whether the dialog modal is open or not.
+	 */
+	isOpen?: boolean;
 };
 
 function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
@@ -117,6 +122,7 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 		strTryAgain,
 		title,
 		triggerNode,
+		isOpen,
 		width,
 		wrapperProps,
 	}: DialogModalFormProps<TFieldValues>,
@@ -153,7 +159,7 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 					</RadixSlot.Slot>
 				)}
 
-				<DialogModalOuter dialogRef={dialogRef}>
+				<DialogModalOuter isOpen={isOpen} dialogRef={dialogRef}>
 					<DialogModalInner
 						as="form"
 						onSubmit={formMethods.handleSubmit(
