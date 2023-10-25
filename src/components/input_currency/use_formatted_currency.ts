@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { currencyFormatter } from "./currency_formatter";
 import { currencyParser } from "./currency_parser";
