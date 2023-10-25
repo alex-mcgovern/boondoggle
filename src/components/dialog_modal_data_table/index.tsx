@@ -85,9 +85,9 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 		 * Function to call when the "Try again" button is clicked.
 		 */
 		onClickTryAgain?:
-			| (() => unknown)
-			| (() => Promise<unknown>)
-			| undefined;
+		| (() => unknown)
+		| (() => Promise<unknown>)
+		| undefined;
 
 		/**
 		 * Description of the error.
@@ -128,6 +128,11 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 		 * Props that will be passed to the wrapper `Box` component.
 		 */
 		wrapperProps?: BoxProps;
+
+		/**
+		 * Whether the dialog modal is open or not.
+		 */
+		isOpen?: boolean;
 	};
 
 /**
@@ -148,6 +153,7 @@ export function DialogModalDataTable<TData extends RowData>({
 	isSelectable,
 	isSortable,
 	onClickTryAgain,
+	isOpen,
 	onSelect,
 	strClearAllFilters,
 	strClearFilterInput,
@@ -197,7 +203,7 @@ export function DialogModalDataTable<TData extends RowData>({
 				</RadixSlot.Slot>
 			)}
 
-			<DialogModalOuter dialogRef={dialogRef}>
+			<DialogModalOuter isOpen={isOpen} dialogRef={dialogRef}>
 				<DialogModalInner width={width}>
 					<DialogModalHeader
 						closeDialog={closeDialog}
