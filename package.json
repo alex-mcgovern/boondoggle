@@ -6,9 +6,9 @@
 	"license": "MIT",
 	"type": "module",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"main": "dist",
+	"module": "dist",
+	"files": ["dist"],
 	"exports": {
 		"./*": {
 			"import": "./dist/*",
