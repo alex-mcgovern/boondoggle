@@ -17,7 +17,7 @@ type DialogModalOuterProps = {
 	/**
 	 * Whether the dialog is open or not.
 	 */
-	isOpen?: boolean;
+	isOpen: boolean | undefined;
 };
 
 /**
