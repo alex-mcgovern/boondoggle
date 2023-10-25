@@ -1,5 +1,4 @@
 import type { SelectItemShape } from "../types";
-
 type Value = "it" | "uk";
 
 export const ITEM_TO_FIND_MOCK: SelectItemShape<Value> = {

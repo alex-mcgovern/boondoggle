@@ -1,25 +1,5 @@
 "use client";
-
-import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
-import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
-import clsx from "clsx";
-import { useCombobox, useMultipleSelection } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
-import { getOptionalLabelProps } from "../../../src/common-types";
-import { useForwardRef } from "../../../src/hooks/use_forward_ref";
-import { arrayHasLength } from "../../../src/lib/array_has_length";
-import { Box } from "../../box/Box";
-import { Icon } from "../../icon";
-import { SelectItemList } from "../SelectItemList";
-import { filterSelectItems } from "../filterSelectItems";
-import { flattenSelectItems } from "../flattenSelectItems";
-import { getIsSelected } from "../getIsSelected";
-import { getSlotRight } from "../lib/get_slot_right";
-import { selectInputCursorStyles } from "../shared/select_input.styles.css";
-import { selectMultiInputSelectedItemsStyle } from "./styles.css";
-import type { UseComboboxStateChange } from "downshift";
-import type { ForwardedRef } from "react";
-import type {
+import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react"; import { faAngleDown } from "@fortawesome/pro-solid-svg-icons"; import clsx from "clsx"; import { useCombobox, useMultipleSelection } from "downshift"; import { forwardRef, useCallback, useState } from "react"; import { getOptionalLabelProps } from "../../../src/common-types"; import { useForwardRef } from "../../../src/hooks/use_forward_ref"; import { arrayHasLength } from "../../../src/lib/array_has_length"; import { Box } from "../../box/Box"; import { Icon } from "../../icon"; import { SelectItemList } from "../SelectItemList"; import { filterSelectItems } from "../filterSelectItems"; import { flattenSelectItems } from "../flattenSelectItems"; import { getIsSelected } from "../getIsSelected"; import { getSlotRight } from "../lib/get_slot_right"; import { selectInputCursorStyles } from "../shared/select_input.styles.css"; import { selectMultiInputSelectedItemsStyle } from "./styles.css"; import type { UseComboboxStateChange } from "downshift"; import type { ForwardedRef } from "react"; import type {
 	WithName,
 	WithOptionalIsClearable,
 	WithOptionalLabel,
@@ -28,15 +8,11 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-} from "../../../src/common-types";
-import { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import type {
+} from "../../../src/common-types"; import { UtilCssArgs } from "../../../src/styles/utils/util_css.css"; import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
-} from "../types";
-import { Input, InputProps } from "../../input";
-
+} from "../types"; import { Input, InputProps } from "../../input";
 type GetPlaceholderArgs<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
@@ -55,8 +31,8 @@ type GetPlaceholderArgs<
 	 * A function that returns a string representation of the selected items.
 	 */
 	selectedItemsToString:
-		| ((selectedItems: Array<SelectItemShape<TValue, TItemData>>) => string)
-		| undefined;
+	| ((selectedItems: Array<SelectItemShape<TValue, TItemData>>) => string)
+	| undefined;
 };
 
 /**
@@ -80,6 +56,7 @@ function getPlaceholder<
 
 	return `${selectedItems.length} selected`;
 }
+
 
 export type SelectMultiProps<
 	TValue extends string = string,
@@ -122,8 +99,8 @@ export type SelectMultiProps<
 		 * The items to render in the dropdown.
 		 */
 		items:
-			| FlatSelectItems<TValue, TItemData>
-			| GroupedSelectItems<TValue, TItemData>;
+		| FlatSelectItems<TValue, TItemData>
+		| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the selected items when the selection changes.
@@ -187,9 +164,9 @@ function SelectMultiBase<
 
 	const items = isFilterable
 		? filterSelectItems({
-				inputValue,
-				items: initialItems,
-		  })
+			inputValue,
+			items: initialItems,
+		})
 		: initialItems;
 
 	const {
@@ -369,5 +346,6 @@ function SelectMultiBase<
 		</Box>
 	);
 }
+
 
 export const SelectMulti = forwardRef(SelectMultiBase);

@@ -1,10 +1,8 @@
-import { useMemo } from "react";
-import { getInitials } from "./_lib/getInitials";
-import * as styles from "./Avatar.css";
-
+import { useMemo } from "react"; import { getInitials } from "./_lib/getInitials"; import * as styles from "./Avatar.css";
 /**
  * Renders an avatar. Falls back to initial letters if no image is provided.
  */
+
 export function Avatar({
 	firstName,
 	fullName,

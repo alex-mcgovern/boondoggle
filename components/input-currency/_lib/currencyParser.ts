@@ -1,5 +1,4 @@
 import NumberParser from "intl-number-parser";
-
 type CurrencyParserArgs = {
 	/**
 	 * The locale to use.

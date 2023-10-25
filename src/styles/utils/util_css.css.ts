@@ -1,9 +1,9 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { DESKTOP, TABLET, utilCssLayer, v } from "../../../style.css";
-
 /**
  * Util function for extracting color vars for use with a sprinkles property
  */
+
 export const utilCssProperties = defineProperties({
 	"@layer": utilCssLayer,
 	properties: {

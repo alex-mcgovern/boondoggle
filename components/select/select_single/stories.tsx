@@ -1,14 +1,8 @@
 import { faGlobeAfrica } from "@fortawesome/pro-solid-svg-icons";
-
-import { SelectSingle as StoryComp } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
-import {
+import { SelectSingle as StoryComp } from "."; import { LOREM } from "../../../mocks/LOREM.mock"; import { Icon } from "../../icon"; import {
 	mockSelectItems,
 	mockSelectItemsGrouped,
-} from "../__mocks__/select.mock";
-import type { Meta, StoryObj } from "@storybook/react";
-
+} from "../__mocks__/select.mock"; import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	args: {
 		items: mockSelectItems({}),
@@ -27,17 +21,21 @@ const meta = {
 	title: "Components/SelectSingle",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const InitialSelectedItem: Story = {
 	args: {
 		initialSelectedItem: mockSelectItems({})[0],
 	},
 };
+
 
 export const InitialSelectedItemWithIsClearable: Story = {
 	args: {
@@ -46,12 +44,14 @@ export const InitialSelectedItemWithIsClearable: Story = {
 	},
 };
 
+
 export const Invalid: Story = {
 	args: {
 		errorMessage: LOREM.errorMessage(),
 		invalid: true,
 	},
 };
+
 
 export const IsClearable: Story = {
 	args: {
@@ -60,6 +60,7 @@ export const IsClearable: Story = {
 	},
 };
 
+
 export const IsFilterable: Story = {
 	args: {
 		isFilterable: true,
@@ -67,11 +68,13 @@ export const IsFilterable: Story = {
 	},
 };
 
+
 export const Disabled: Story = {
 	args: {
 		disabled: true,
 	},
 };
+
 
 export const SizeSm: Story = {
 	args: {
@@ -79,17 +82,20 @@ export const SizeSm: Story = {
 	},
 };
 
+
 export const SizeMd: Story = {
 	args: {
 		size: "md",
 	},
 };
 
+
 export const SizeLg: Story = {
 	args: {
 		size: "lg",
 	},
 };
+
 
 export const WithButtonsAsItems: Story = {
 	args: {
@@ -101,12 +107,14 @@ export const WithButtonsAsItems: Story = {
 	},
 };
 
+
 export const WithShouldResetOnSelection: Story = {
 	args: {
 		isFilterable: true,
 		shouldClearFilterOnSelection: true,
 	},
 };
+
 
 export const WithItemsWithSelectedTrue: Story = {
 	args: {
@@ -130,11 +138,13 @@ export const WithItemsWithSelectedTrue: Story = {
 	},
 };
 
+
 export const WithItemsGrouped: Story = {
 	args: {
 		items: mockSelectItemsGrouped({}),
 	},
 };
+
 
 export const WithItemAsLink: Story = {
 	args: {
@@ -149,12 +159,14 @@ export const WithItemAsLink: Story = {
 	},
 };
 
+
 export const WithItemsGroupedIsFilterable: Story = {
 	args: {
 		isFilterable: true,
 		items: mockSelectItemsGrouped({}),
 	},
 };
+
 
 export const WithItemsGroupedSizeSm: Story = {
 	args: {
@@ -163,6 +175,7 @@ export const WithItemsGroupedSizeSm: Story = {
 	},
 };
 
+
 export const WithItemsGroupedSizeLg: Story = {
 	args: {
 		items: mockSelectItemsGrouped({}),
@@ -170,11 +183,13 @@ export const WithItemsGroupedSizeLg: Story = {
 	},
 };
 
+
 export const WithItemsWithSlotLeft: Story = {
 	args: {
 		items: mockSelectItems({ withIcon: true }),
 	},
 };
+
 
 export const WithSeparator: Story = {
 	args: {
@@ -203,6 +218,7 @@ export const WithSeparator: Story = {
 		],
 	},
 };
+
 
 export const WithSeparatorSizeSm: Story = {
 	args: {
@@ -233,6 +249,7 @@ export const WithSeparatorSizeSm: Story = {
 	},
 };
 
+
 export const WithSeparatorSizeLg: Story = {
 	args: {
 		size: "lg",
@@ -262,17 +279,20 @@ export const WithSeparatorSizeLg: Story = {
 	},
 };
 
+
 export const WithSlotLeft: Story = {
 	args: {
 		slotLeft: <Icon icon={faGlobeAfrica} />,
 	},
 };
 
+
 export const WithSlots: Story = {
 	args: {
 		slotRight: <Icon icon={faGlobeAfrica} />,
 	},
 };
+
 
 export const WithTags: Story = {
 	args: {

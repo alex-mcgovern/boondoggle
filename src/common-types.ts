@@ -12,7 +12,6 @@ import type { BoxProps } from "../components/box/Box";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
 import { FieldLabelProps } from "../components/field-label";
 import { Theme } from "../style.css";
-
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(
 		render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
@@ -157,6 +156,7 @@ export type WithOptionalIsVisibilityToggleable =
  * Validates that the correct required props are present to label
  * an element and forwards them to a component.
  */
+
 export const getOptionalIsVisibilityToggleableProps = ({
 	isVisibilityToggleable,
 	isVisible,
@@ -205,6 +205,7 @@ export type WithOptionalIsClearable = IsClearable | IsNotClearable;
  * Validates that the correct required props are present to label
  * an element and forwards them to a component.
  */
+
 export const getOptionalIsClearableProps = ({
 	isClearable,
 	readOnly,
@@ -304,6 +305,7 @@ export type WithOptionalLabel = WithLabel | WithoutLabel;
  * Validates that the correct required props are present to label
  * an element and forwards them to a component.
  */
+
 export const getOptionalLabelProps = ({
 	isLabelVisible,
 	label,
@@ -539,6 +541,7 @@ export type PolymorphicRef<TPolymorphicAs extends ElementType> =
 	ComponentPropsWithRef<TPolymorphicAs>["ref"];
 
 // Enum of all HTML element types
+
 export type ElementTypeArg =
 	| HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
 	| undefined;

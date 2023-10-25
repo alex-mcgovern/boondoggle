@@ -1,11 +1,8 @@
-import { Faker, en } from "@faker-js/faker";
-import { createColumnHelper } from "@tanstack/react-table";
-import { Avatar } from "../components/avatar/Avatar";
-import { Box } from "../components/box/Box";
-
+import { Faker, en } from "@faker-js/faker"; import { createColumnHelper } from "@tanstack/react-table"; import { Avatar } from "../components/avatar/Avatar"; import { Box } from "../components/box/Box";
 const faker = new Faker({ locale: [en] });
 
 faker.seed(42);
+
 
 export type MockAccountColumnData = {
 	/**
@@ -37,6 +34,7 @@ export type MockAccountColumnData = {
 /**
  * Generate a mock account column.
  */
+
 export const generateMockAccountColumn = (): MockAccountColumnData => {
 	return {
 		email_address: faker.internet.email(),
@@ -48,6 +46,7 @@ export const generateMockAccountColumn = (): MockAccountColumnData => {
 };
 
 const columnHelper = createColumnHelper<MockAccountColumnData>();
+
 
 export const DATA_TABLE_COLUMNS_MOCK = [
 	columnHelper.accessor("first_name", {
@@ -93,6 +92,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 	}),
 ];
 
+
 export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
 	columnHelper.accessor("first_name", {
 		cell: (info) => {
@@ -120,6 +120,7 @@ export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
 		},
 	}),
 ];
+
 
 export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
 	columnHelper.accessor(

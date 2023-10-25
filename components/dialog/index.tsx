@@ -1,16 +1,6 @@
-import * as RadixSlot from "@radix-ui/react-slot";
-import clsx from "clsx";
-import { createRef, forwardRef, useCallback } from "react";
-
-import { useClickOutside } from "../../src/hooks/use_click_outside";
-import { useForwardRef } from "../../src/hooks/use_forward_ref";
-import { useOpenDialogWithKeyboard } from "../../src/hooks/use_open_dialog_with_keyboard";
-import { Box } from "../box/Box";
-import { getDialogStyles } from "./styles.css";
-
-import type { ReactNode } from "react";
-import type { BoxProps } from "../box/Box";
-import type { DialogPlacementEnum } from "./styles.css";
+import * as RadixSlot from "@radix-ui/react-slot"; import clsx from "clsx"; import { createRef, forwardRef, useCallback } from "react";
+import { useClickOutside } from "../../src/hooks/use_click_outside"; import { useForwardRef } from "../../src/hooks/use_forward_ref"; import { useOpenDialogWithKeyboard } from "../../src/hooks/use_open_dialog_with_keyboard"; import { Box } from "../box/Box"; import { getDialogStyles } from "./styles.css";
+import type { ReactNode } from "react"; import type { BoxProps } from "../box/Box"; import type { DialogPlacementEnum } from "./styles.css";
 
 export type DialogProps = BoxProps & {
 	/**
@@ -42,7 +32,6 @@ export type DialogProps = BoxProps & {
 	 * Controls the interaction mode for the dialog trigger node.
 	 */
 	openOn?: "click" | "hover";
-
 	/**
 	 * Controls the dialog's placement relative to the trigger node.
 	 */
@@ -63,6 +52,7 @@ export type DialogProps = BoxProps & {
 	 */
 	wrapperProps?: BoxProps;
 };
+
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 	(
@@ -123,36 +113,36 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 						onMouseEnter={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						onMouseLeave={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.close();
-								  }
+									return dialogRef.current?.close();
+								}
 								: undefined
 						}
 						onPointerEnter={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						onPointerLeave={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						onPointerOver={
 							openOn === "hover"
 								? () => {
-										return dialogRef.current?.show();
-								  }
+									return dialogRef.current?.show();
+								}
 								: undefined
 						}
 						ref={triggerRef}

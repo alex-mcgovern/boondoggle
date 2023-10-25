@@ -1,7 +1,6 @@
 import { StorybookConfig } from "@storybook/react-vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { mergeConfig } from "vite";
-
 const config: StorybookConfig = {
 	addons: [
 		"@storybook/addon-essentials",

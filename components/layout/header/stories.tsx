@@ -1,8 +1,5 @@
 import { Header as StoryComp } from ".";
-
-import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../../button/Button";
-
+import { Meta, StoryObj } from "@storybook/react"; import { Button } from "../../button";
 const meta = {
 	title: "Components/Header",
 	component: StoryComp,
@@ -18,10 +15,13 @@ const meta = {
 	},
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const WithActions: Story = {
 	args: {

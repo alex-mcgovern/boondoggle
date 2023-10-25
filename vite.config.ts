@@ -10,12 +10,15 @@ export default defineConfig({
 		vanillaExtractPlugin({
 			identifiers: "debug",
 		}),
-		dts({ rollupTypes: true }),
+		dts({
+			entryRoot: "components",
+			include: "components/*/index.tsx",
+		}),
 	],
 	build: {
 		minify: false,
 		lib: {
-			entry: [path.resolve(__dirname, "components/index.ts")],
+			entry: [path.resolve(__dirname, "components/button/index.tsx")],
 			name: "boondoggle.design",
 			formats: ["es"],
 		},
@@ -35,6 +38,7 @@ export default defineConfig({
 				"prop-types",
 			],
 			output: {
+				hoistTransitiveImports: true,
 				preserveModules: true,
 				preserveModulesRoot: "components",
 			},

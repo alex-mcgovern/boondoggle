@@ -1,16 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
-import { fireEvent, render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Button } from "../Button";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Link } from "../../../test/link.comp.mock";
-import { Icon } from "../../icon";
-import { btn } from "../Button.css";
-import { theme } from "../../../style.css";
-
+import { faSearch } from "@fortawesome/pro-solid-svg-icons"; import { fireEvent, render } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import { Button } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import { Link } from "../../../test/link.comp.mock"; import { Icon } from "../../icon"; import { btn } from "../styles.css"; import { theme } from "../../../style.css";
 describe("<Button />", () => {
 	describe("Basic smoke tests", () => {
 		test("should render without throwing", () => {

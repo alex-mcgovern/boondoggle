@@ -1,13 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import "@vanilla-extract/css/disableRuntimeStyles";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { FormTestProvider } from "../form_test_provider.comp";
-import { InputProps, Input } from "../../input";
-
+import { render } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import "@vanilla-extract/css/disableRuntimeStyles"; import { LOREM } from "../../../mocks/LOREM.mock"; import { FormTestProvider } from "../form_test_provider.comp"; import { InputProps, Input } from "../../input";
 const PROPS: InputProps = {
 	errorMessage: LOREM.errorMessage(),
 	name: LOREM.name(),

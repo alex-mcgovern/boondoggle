@@ -1,5 +1,4 @@
 import { filterSelectItems } from "./filterSelectItems";
-
 test.skip("Given no selected items, and empty string as inputValue, returns all items", () => {
 	expect(
 		filterSelectItems({

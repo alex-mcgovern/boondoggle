@@ -1,13 +1,8 @@
-import { Box } from "../../box/Box";
-import { DataTableLayoutColumnHeaderCell } from "./DataTableLayoutColumnHeaderCell";
-import type { Table } from "@tanstack/react-table";
-import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import { getHeadStyle } from "./DataTableLayoutHead.css";
-import { tRow } from "../../../style.css";
-
+import { Box } from "../../box/Box"; import { DataTableLayoutColumnHeaderCell } from "./DataTableLayoutColumnHeaderCell"; import type { Table } from "@tanstack/react-table"; import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css"; import { getHeadStyle } from "./DataTableLayoutHead.css"; import { tRow } from "../../../style.css";
 /**
  * Renders the table head for the DataTable.
  */
+
 export function DataTableLayoutHead<TTableData>({
 	isSortable,
 	isSticky,

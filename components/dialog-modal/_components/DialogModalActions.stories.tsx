@@ -1,8 +1,5 @@
-import { DialogModalActions as StoryComp } from "./DialogModalActions";
-import { Button } from "../../button/Button";
-
+import { DialogModalActions as StoryComp } from "./DialogModalActions"; import { Button } from "../../button";
 import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {
 		actions: [
@@ -38,8 +35,10 @@ const meta = {
 	title: "Components/DialogModalActions",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
 
 export const Default: Story = {};

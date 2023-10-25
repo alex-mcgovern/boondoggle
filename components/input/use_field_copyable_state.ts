@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-
 type UseFieldCopyableStateArgs = {
 	/**
 	 * Whether the field is copyable.
@@ -15,6 +14,7 @@ type UseFieldCopyableStateArgs = {
 /**
  * Hook to handle copying a value from a readOnly input.
  */
+
 export function useFieldCopyableState({
 	isCopyable,
 	readOnly,

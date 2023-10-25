@@ -1,8 +1,6 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
 import { css } from "../../../src/styles/utils/util_css.css";
-
 const slotSize = styleVariants({
 	lg: [css({ height: "space_6", width: "space_6" })],
 	md: [css({ height: "space_4", width: "space_4" })],

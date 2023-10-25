@@ -1,22 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { SelectSingle } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import { Icon } from "../../icon";
-import {
+import { faSearch } from "@fortawesome/pro-solid-svg-icons"; import { render } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import { SelectSingle } from "."; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/dialog.mock"; import { Icon } from "../../icon"; import {
 	mockSelectItems,
 	mockSelectItemsGrouped,
-} from "../__mocks__/select.mock";
-import { flattenSelectItems } from "../flattenSelectItems";
-
-import type { SelectSingleProps } from ".";
-import { a11yError, theme } from "../../../style.css";
-
+} from "../__mocks__/select.mock"; import { flattenSelectItems } from "../flattenSelectItems";
+import type { SelectSingleProps } from "."; import { a11yError, theme } from "../../../style.css";
 const ON_CHANGE = jest.fn();
 
 const PROPS: SelectSingleProps<string> = {

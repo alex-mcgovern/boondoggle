@@ -1,12 +1,4 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
-import clsx from "clsx";
-import { forwardRef } from "react";
-import { getOptionalLabelProps } from "../../src/common-types";
-import { css } from "../../src/styles/utils/util_css.css";
-import { FieldWrapper } from "../field-wrapper";
-import * as styles from "./styles.css";
-import type { ComponentPropsWithoutRef, LegacyRef } from "react";
-import type {
+import { extractAtomsFromProps } from "@dessert-box/core"; import clsx from "clsx"; import { forwardRef } from "react"; import { getOptionalLabelProps } from "../../src/common-types"; import { css } from "../../src/styles/utils/util_css.css"; import { FieldWrapper } from "../field-wrapper"; import * as styles from "./styles.css"; import type { ComponentPropsWithoutRef, LegacyRef } from "react"; import type {
 	WithTheme,
 	WithDescription,
 	WithHideLastpass,
@@ -19,10 +11,7 @@ import type {
 	WithSlots,
 	WithStateInvalid,
 	WithWrapperProps,
-} from "../../src/common-types";
-import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
-import { SlotWrapper } from "../_utility/slot_wrapper";
-import { a11yError } from "../../style.css";
+} from "../../src/common-types"; import type { UtilCssArgs } from "../../src/styles/utils/util_css.css"; import { SlotWrapper } from "../_utility/slot_wrapper"; import { a11yError } from "../../style.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,
@@ -43,6 +32,7 @@ export type TextAreaProps = Omit<
 	WithSlots &
 	WithStateInvalid &
 	WithWrapperProps;
+
 
 export const TextArea = forwardRef(
 	(

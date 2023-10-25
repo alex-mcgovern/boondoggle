@@ -1,8 +1,5 @@
-import { DialogModalAlert as StoryComp } from "./DialogModalAlert";
-import { LOREM } from "../../../mocks/LOREM.mock";
-
+import { DialogModalAlert as StoryComp } from "./DialogModalAlert"; import { LOREM } from "../../../mocks/LOREM.mock";
 import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {
 		description: LOREM.text_md,
@@ -15,11 +12,14 @@ const meta = {
 	title: "Components/DialogModalAlert",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const Red: Story = {
 	args: {
@@ -27,17 +27,20 @@ export const Red: Story = {
 	},
 };
 
+
 export const Blue: Story = {
 	args: {
 		theme: "blue",
 	},
 };
 
+
 export const Green: Story = {
 	args: {
 		theme: "green",
 	},
 };
+
 
 export const Grey: Story = {
 	args: {

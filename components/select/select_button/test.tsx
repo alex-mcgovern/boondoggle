@@ -4,15 +4,8 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
-import { SelectButton } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import { Icon } from "../../icon";
-import { mockSelectItems } from "../__mocks__/select.mock";
-
+import { SelectButton } from "."; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/dialog.mock"; import { Icon } from "../../icon"; import { mockSelectItems } from "../__mocks__/select.mock";
 import type { SelectButtonProps } from ".";
-
 const renderComponent = (props: SelectButtonProps<string>) => {
 	return {
 		user: userEvent.setup(),

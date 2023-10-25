@@ -1,15 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { render, waitFor } from "@testing-library/react";
-import { createRef } from "react";
-
-import { DialogModal } from ".";
-import "../../test/mocked_dependencies/dialog.mock";
-import { DialogModalActionConfirm } from "./_components/DialogModalActionConfirm";
-
+import { render, waitFor } from "@testing-library/react"; import { createRef } from "react";
+import { DialogModal } from "."; import "../../test/mocked_dependencies/dialog.mock"; import { DialogModalActionConfirm } from "./_components/DialogModalActionConfirm";
 import type { DialogModalProps } from ".";
-
 const renderComponent = async (props: DialogModalProps) => {
 	const dialogRef = createRef<HTMLDialogElement>();
 

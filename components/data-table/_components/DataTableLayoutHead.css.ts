@@ -1,7 +1,6 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { tHead, th, v } from "../../../style.css";
-
 const baseHeadStyle = style({});
 
 const isSelectable = styleVariants({

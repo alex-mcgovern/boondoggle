@@ -5,7 +5,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { v } from "../../style.css";
 import { css } from "../../src/styles/utils/util_css.css";
-
 // globalStyle(`${wrapper} > *:first-child`, {
 // 	"@media": {
 // 		[MOBILE]: {

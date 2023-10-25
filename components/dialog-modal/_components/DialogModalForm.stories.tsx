@@ -3,7 +3,7 @@ import { jest } from "@storybook/jest";
 import { z } from "zod";
 import { DialogModalForm as StoryComp } from "./DialogModalForm";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Button } from "../../button/Button";
+import { Button } from "../../button";
 import { FormRadioButtonGroup } from "../../form-radio-button-group/FormRadioButtonGroup";
 import { FormSelectSingle } from "../../form-select-single/FormSelectSingle";
 import { FormTextArea } from "../../form-text-area/FormTextArea";
@@ -14,7 +14,6 @@ import { FormInput } from "../../form-input";
 import { Input } from "../../input";
 import { RADIO_BUTTONS_MOCK } from "../../radio-button-group/mocks";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
-
 const mockFormSchema = z.object({
 	description: z.string().min(1),
 	email: z.string().email().min(2),
@@ -36,6 +35,7 @@ const FORM_FIELD_WRAPPER_PROPS: BoxProps = {
 	marginBottom: "space_6",
 };
 
+
 export default {
 	component: StoryComp,
 	parameters: {
@@ -47,6 +47,7 @@ export default {
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
 	return <StoryComp {...rest} />;
 };
+
 
 export const WidthSm: StoryObj<StoryCompProps> = {
 	args: {
@@ -91,6 +92,7 @@ export const WidthSm: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const WidthLg: StoryObj<StoryCompProps> = {
 	args: {
 		children: (
@@ -126,6 +128,7 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const IsLoading: StoryObj<StoryCompProps> = {
 	args: {

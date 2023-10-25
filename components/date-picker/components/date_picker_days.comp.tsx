@@ -1,12 +1,9 @@
-import { Button } from "../../button/Button";
-
+import { Button } from "../../button";
 import type {
 	DPCalendar,
 	DPDay,
 	useDaysPropGetters,
-} from "@rehookify/datepicker";
-import type { MouseEvent } from "react";
-
+} from "@rehookify/datepicker"; import type { MouseEvent } from "react";
 const getDayButtonAppearance = ({
 	now,
 	selected,
@@ -46,6 +43,7 @@ type DatePickerDaysProps = {
 /**
  * Renders a grid of day buttons for the date picker component.
  */
+
 export function DatePickerDays({
 	dayButton,
 	days,

@@ -1,6 +1,5 @@
 import type { WithTheme, WithSlots } from "../../src/common-types";
 import type { BoxProps } from "../box/Box";
-
 type IsFilterableBaseProps = {
 	/**
 	 * Whether the item is filterable.

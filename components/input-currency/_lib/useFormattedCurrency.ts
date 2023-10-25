@@ -1,12 +1,9 @@
 import { useCallback, useLayoutEffect, useState } from "react";
-
 import { currencyFormatter } from "./currencyFormatter";
 import { currencyParser } from "./currencyParser";
 import { getCursorPosition } from "./getCursorPosition";
-
 import type { ChangeEvent, ChangeEventHandler } from "react";
 import type { NativeEventInputType } from "./getCursorPosition";
-
 type UseFormattedCurrencyArgs = {
 	/**
 	 * The initial value passed to the `InputCurrency` component.

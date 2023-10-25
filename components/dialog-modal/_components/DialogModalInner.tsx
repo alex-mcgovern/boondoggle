@@ -1,10 +1,5 @@
-import { Box } from "../../box/Box";
-import { getDialogModalInnerStyle } from "./DialogModalInner.css";
-
-import type { ReactNode } from "react";
-import type { BoxProps } from "../../box/Box";
-import type { DialogModalInnerWidth } from "./DialogModalInner.css";
-
+import { Box } from "../../box/Box"; import { getDialogModalInnerStyle } from "./DialogModalInner.css";
+import type { ReactNode } from "react"; import type { BoxProps } from "../../box/Box"; import type { DialogModalInnerWidth } from "./DialogModalInner.css";
 type DialogModalInnerProps = {
 	/**
 	 * Elements rendered in the dialog; the header, alert, content, and any actions components.
@@ -19,6 +14,7 @@ type DialogModalInnerProps = {
 /**
  * Wraps the inner content of a dialog, and allows customisation, e.g. returning a form element instead of a div.
  */
+
 export function DialogModalInner({
 	children,
 	width,

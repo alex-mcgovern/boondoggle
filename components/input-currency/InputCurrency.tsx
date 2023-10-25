@@ -1,14 +1,5 @@
 "use client";
-
-import { forwardRef, useEffect, useMemo, useState } from "react";
-import { SelectSingle } from "../select/select_single";
-import { currencySelectInputStyle } from "./InputCurrency.styles.css";
-import { useFormattedCurrency } from "./_lib/useFormattedCurrency";
-import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
-import type { SelectItemShape } from "../select/types";
-import { Input } from "../input";
-import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
-import {
+import { forwardRef, useEffect, useMemo, useState } from "react"; import { SelectSingle } from "../select/select_single"; import { currencySelectInputStyle } from "./InputCurrency.styles.css"; import { useFormattedCurrency } from "./_lib/useFormattedCurrency"; import type { ComponentPropsWithoutRef, ForwardedRef } from "react"; import type { SelectItemShape } from "../select/types"; import { Input } from "../input"; import { WithOptionalInputAddons } from "../input/InputAddonWrapper"; import {
 	WithTheme,
 	WithDescription,
 	WithHideLastpass,
@@ -22,9 +13,7 @@ import {
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-} from "../../src/common-types";
-import { UtilCssArgs } from "../../src/styles/utils/util_css.css";
-
+} from "../../src/common-types"; import { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**
 	 * Available currencies to switch between.
@@ -42,8 +31,8 @@ type IsCurrencyEditable<TCurrency extends string = string> = {
 	 * Callback when a new currency is selected.
 	 */
 	onCurrencyChange:
-		| ((currency: TCurrency | undefined) => unknown)
-		| ((currency: TCurrency | undefined) => Promise<unknown>);
+	| ((currency: TCurrency | undefined) => unknown)
+	| ((currency: TCurrency | undefined) => Promise<unknown>);
 };
 
 type IsNotCurrencyEditable = {
@@ -68,6 +57,7 @@ type IsNotCurrencyEditable = {
 type WithIsOptionalCurrencyEditable<TCurrency extends string = string> =
 	| IsCurrencyEditable<TCurrency>
 	| IsNotCurrencyEditable;
+
 
 export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 	Pick<
@@ -209,5 +199,6 @@ function PureInputCurrency<TCurrency extends string = string>(
 		/>
 	);
 }
+
 
 export const InputCurrency = forwardRef(PureInputCurrency);

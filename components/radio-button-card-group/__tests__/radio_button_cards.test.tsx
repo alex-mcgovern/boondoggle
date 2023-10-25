@@ -1,12 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { RadioButtonCardGroup } from "..";
-import type { RadioButtonCardGroupProps } from "..";
-import { RADIO_BTN_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
-
+import { render } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import { RadioButtonCardGroup } from ".."; import type { RadioButtonCardGroupProps } from ".."; import { RADIO_BTN_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
 const onChangeMock = jest.fn();
 
 const PROPS: RadioButtonCardGroupProps = {

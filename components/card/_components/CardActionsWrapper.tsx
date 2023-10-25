@@ -1,8 +1,7 @@
-import type { ReactNode } from "react";
-import { cardActionsWrapper } from "./CardActionsWrapper.css";
-/**
+import type { ReactNode } from "react"; import { cardActionsWrapper } from "./CardActionsWrapper.css";/**
  * Wraps actions for a card.
  */
+
 export function CardActionsWrapper({
 	actions,
 }: {

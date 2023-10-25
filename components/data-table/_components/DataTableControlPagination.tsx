@@ -1,10 +1,8 @@
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import type { Table } from "@tanstack/react-table";
-
+import { Box } from "../../box/Box"; import { Button } from "../../button"; import type { Table } from "@tanstack/react-table";
 /**
  * A control for navigating a table's pages.
  */
+
 export function DataTableControlPagination<TTableData>({
 	strNext,
 	strPrev,

@@ -1,14 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { userEvent } from "@storybook/testing-library";
-import { act, cleanup, render } from "@testing-library/react";
-import "@vanilla-extract/css/disableRuntimeStyles";
-
+import { userEvent } from "@storybook/testing-library"; import { act, cleanup, render } from "@testing-library/react"; import "@vanilla-extract/css/disableRuntimeStyles";
 import { InputCurrency } from "./InputCurrency";
-
 import type { InputCurrencyProps } from "./InputCurrency";
-
 afterEach(cleanup);
 
 const renderComponent = (props: InputCurrencyProps) => {

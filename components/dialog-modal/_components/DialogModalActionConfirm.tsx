@@ -1,11 +1,5 @@
 "use client";
-
-import { forwardRef, useState } from "react";
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import { confirmTextStyle } from "./DialogModalActionConfirm.css";
-import { WithTheme } from "../../../src/common-types";
-import { Input } from "../../input";
+import { forwardRef, useState } from "react"; import { Box } from "../../box/Box"; import { Button } from "../../button"; import { confirmTextStyle } from "./DialogModalActionConfirm.css"; import { WithTheme } from "../../../src/common-types"; import { Input } from "../../input";
 
 export const DialogModalActionConfirm = forwardRef<
 	HTMLDivElement,

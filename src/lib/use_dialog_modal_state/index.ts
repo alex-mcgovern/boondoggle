@@ -1,10 +1,7 @@
 import { createRef, useCallback } from "react";
-
 import { useClickOutside } from "../../hooks/use_click_outside";
 import { useForwardRef } from "../../hooks/use_forward_ref";
-
 import type { ForwardedRef } from "react";
-
 type UseDialogModalStateArgs = {
 	/**
 	 * Ref to the HTML Dialog, used to open/close it with `.showModal()` & `.close()`
@@ -15,6 +12,7 @@ type UseDialogModalStateArgs = {
 /**
  * Manages the state of a dialog modal.
  */
+
 export function useDialogModalState({ ref }: UseDialogModalStateArgs) {
 	const dialogRef = useForwardRef<HTMLDialogElement>(ref);
 

@@ -15,7 +15,6 @@ import { InputDate } from "../../input-date";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { InputCurrency } from "../../input-currency";
 import { RADIO_BTN_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
-
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),
 	date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
@@ -43,9 +42,10 @@ type MockFormProps = Pick<FormProps, "handleSubmit" | "handleErrors"> & {
 	withOptionalFields?: boolean;
 };
 
+
 export const mockForm = ({
-	handleErrors = async () => {},
-	handleSubmit = async () => {},
+	handleErrors = async () => { },
+	handleSubmit = async () => { },
 	withDefaultValues = false,
 	withOptionalFields = false,
 }: MockFormProps): FormProps => {
@@ -77,7 +77,7 @@ export const mockForm = ({
 					label="Value"
 					locale="en-US"
 					name="value"
-					onCurrencyChange={() => {}}
+					onCurrencyChange={() => { }}
 					placeholder="Enter a value"
 				/>
 				<FormTextArea

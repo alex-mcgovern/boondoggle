@@ -1,18 +1,16 @@
-import { useCallback } from "react";
-import { useController, useFormContext } from "react-hook-form";
-import type {
+import { useCallback } from "react"; import { useController, useFormContext } from "react-hook-form"; import type {
 	WithFormFieldProps,
 	WithWrapperProps,
-} from "../../src/common-types";
-import { Slider, SliderProps } from "../slider";
-
+} from "../../src/common-types"; import { Slider, SliderProps } from "../slider";
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
+
 export type FormSliderProps = WithWrapperProps &
 	SliderProps &
 	WithFormFieldProps;
+
 
 export function FormSlider({
 	defaultValue: defaultValueArray,
@@ -30,8 +28,8 @@ export function FormSlider({
 		name,
 		...(defaultValueArray &&
 			Array.isArray(defaultValueArray) && {
-				defaultValue: defaultValueArray[0],
-			}),
+			defaultValue: defaultValueArray[0],
+		}),
 	});
 
 	/**

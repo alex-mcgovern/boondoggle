@@ -1,5 +1,4 @@
 import { isTruthy } from ".";
-
 test("isTruthy()", () => {
 	expect(isTruthy(1)).toBe(true);
 

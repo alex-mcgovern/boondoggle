@@ -3,15 +3,7 @@ import {
 	faLock,
 	faRefresh,
 	faTriangleCircleSquare,
-} from "@fortawesome/pro-solid-svg-icons";
-import { Input as StoryComp } from ".";
-import type { Meta, StoryObj } from "@storybook/react";
-import type { InputProps as StoryCompProps } from ".";
-import { LOREM } from "../../mocks/LOREM.mock";
-import { Box } from "../box";
-import { Button } from "../button";
-import { Icon } from "../icon";
-
+} from "@fortawesome/pro-solid-svg-icons"; import { Input as StoryComp } from "."; import type { Meta, StoryObj } from "@storybook/react"; import type { InputProps as StoryCompProps } from "."; import { LOREM } from "../../mocks/LOREM.mock"; import { Box } from "../box"; import { Button } from "../button"; import { Icon } from "../icon";
 const meta = {
 	args: {
 		name: LOREM.name(),
@@ -177,97 +169,105 @@ const meta = {
 	title: "Components/Input",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-// export const CustomisationMargin: Story = {
-//   args: {
-//     wrapperProps: {
-//       margin: "space_10",
-//     },
-//   },
-// };
+// 
+export const CustomisationMargin: Story = {
+	//   args: {
+	//     wrapperProps: {
+	//       margin: "space_10",
+	//     },
+	//   },
+	// };
 
-export const Default: Story = {
-	args: {
-		label: LOREM.label(),
-		name: LOREM.name(),
-	},
-};
 
-export const TypeDate: Story = {
-	args: {
-		label: LOREM.label(),
-		name: LOREM.name(),
-		type: "date",
-	},
-};
+	export const Default: Story = {
+		args: {
+			label: LOREM.label(),
+			name: LOREM.name(),
+		},
+	};
 
-export const Invalid: Story = {
-	args: {
-		invalid: true,
-		label: LOREM.label(),
-		name: LOREM.name(),
-	},
-};
 
-export const HasBorderFalse: Story = {
-	args: {
-		hasBorder: false,
-		label: LOREM.label(),
-		name: LOREM.name(),
-	},
-};
+	export const TypeDate: Story = {
+		args: {
+			label: LOREM.label(),
+			name: LOREM.name(),
+			type: "date",
+		},
+	};
 
-export const Description: Story = {
-	args: {
-		description: LOREM.text_lg,
-		label: LOREM.label(),
-		name: LOREM.name(),
-	},
-};
 
-const TemplateColors = () => {
-	return (
-		<Box alignItems="center" display="flex" gap="space_6">
-			<StoryComp
-				theme="blue"
-				name="blue"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				theme="red"
-				name="red"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				theme="green"
-				name="green"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				theme="amber"
-				name="amber"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				theme="grey"
-				name="grey"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-		</Box>
-	);
-};
+	export const Invalid: Story = {
+		args: {
+			invalid: true,
+			label: LOREM.label(),
+			name: LOREM.name(),
+		},
+	};
 
-export const Colors: StoryObj<StoryCompProps> = {
-	render: TemplateColors,
-};
+
+	export const HasBorderFalse: Story = {
+		args: {
+			hasBorder: false,
+			label: LOREM.label(),
+			name: LOREM.name(),
+		},
+	};
+
+
+	export const Description: Story = {
+		args: {
+			description: LOREM.text_lg,
+			label: LOREM.label(),
+			name: LOREM.name(),
+		},
+	};
+
+	const TemplateColors = () => {
+		return (
+			<Box alignItems="center" display="flex" gap="space_6">
+				<StoryComp
+					theme="blue"
+					name="blue"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					theme="red"
+					name="red"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					theme="green"
+					name="green"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					theme="amber"
+					name="amber"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					theme="grey"
+					name="grey"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+			</Box>
+		);
+	};
+
+
+	export const Colors: StoryObj<StoryCompProps> = {
+		render: TemplateColors,
+	};
 
 const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
 	return (
@@ -302,9 +302,11 @@ const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
 	);
 };
 
+
 export const Sizes: Story = {
 	render: TemplateSizes,
 };
+
 
 export const IsClearable: Story = {
 	args: {
@@ -312,6 +314,7 @@ export const IsClearable: Story = {
 		strClear: "Clear input",
 	},
 };
+
 
 export const IsCopyable: Story = {
 	args: {
@@ -322,6 +325,7 @@ export const IsCopyable: Story = {
 		strCopy: "Copy",
 	},
 };
+
 
 export const IsVisibilityToggleable: Story = {
 	args: {
@@ -348,25 +352,31 @@ const TemplateIsVisibilityToggleableAndIsCopyable = () => {
 	);
 };
 
+
 export const IsVisibilityToggleableAndIsCopyable: Story = {
 	render: TemplateIsVisibilityToggleableAndIsCopyable,
 };
+
 
 export const StateHover: Story = {
 	parameters: { pseudo: { hover: true } },
 };
 
+
 export const StateFocusVisible: Story = {
 	parameters: { pseudo: { focusVisible: true } },
 };
+
 
 export const StateDisabled: Story = {
 	args: { disabled: true },
 };
 
+
 export const StateReadOnly: Story = {
 	args: { readOnly: true },
 };
+
 
 export const WithDefaultValue: Story = {
 	args: {
@@ -374,11 +384,13 @@ export const WithDefaultValue: Story = {
 	},
 };
 
+
 export const With1SlotLeft: Story = {
 	args: {
 		slotLeft: <Icon icon={faArrowRight} />,
 	},
 };
+
 
 export const With2SlotLeft: Story = {
 	args: {
@@ -390,6 +402,7 @@ export const With2SlotLeft: Story = {
 		),
 	},
 };
+
 
 export const With3SlotLeft: Story = {
 	args: {
@@ -403,11 +416,13 @@ export const With3SlotLeft: Story = {
 	},
 };
 
+
 export const With1SlotRight: Story = {
 	args: {
 		slotRight: <Icon icon={faArrowRight} />,
 	},
 };
+
 
 export const With1SlotRightWide: Story = {
 	args: {
@@ -424,6 +439,7 @@ export const With1SlotRightWide: Story = {
 	},
 };
 
+
 export const With1SlotRightIsCopyable: Story = {
 	args: {
 		isCopyable: true,
@@ -433,6 +449,7 @@ export const With1SlotRightIsCopyable: Story = {
 		strCopy: "Copy",
 	},
 };
+
 
 export const With2SlotRight: Story = {
 	args: {
@@ -444,6 +461,7 @@ export const With2SlotRight: Story = {
 		),
 	},
 };
+
 
 export const With3SlotRight: Story = {
 	args: {

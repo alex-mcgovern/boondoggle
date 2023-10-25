@@ -1,9 +1,8 @@
-import { Box } from "../../box/Box";
-import type { Row, RowData } from "@tanstack/react-table";
-
+import { Box } from "../../box/Box"; import type { Row, RowData } from "@tanstack/react-table";
 /**
  * Renders a checkbox for use in a DataTable cell.
  */
+
 export function DataTableCellSelectable<TData extends RowData>({
 	row,
 }: {

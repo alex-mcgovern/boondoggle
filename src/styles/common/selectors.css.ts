@@ -1,14 +1,11 @@
 const SELECTOR_IS_LINK_BTN_INPUT = ":is(a,button,input)";
-
 const SELECTOR_IS_NOT_DISABLED =
 	":not(:is([disabled], [aria-disabled='true']))";
 
 export const SELECTOR_IS_HOVER = ":is(:hover)";
 
 export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
-
 const SELECTOR_IS_HOVER_FOCUS = ":is(:hover, :focus-visible)";
-
 const SELECTOR_IS_ACTIVE = `:is(:active, [data-active='true'])`;
 
 /**

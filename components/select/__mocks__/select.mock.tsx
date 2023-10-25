@@ -1,11 +1,6 @@
 import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
-
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
-
-import type { BoxProps } from "../../box/Box";
-import type { GroupedSelectItems, SelectItemShape } from "../types";
-
+import { LOREM } from "../../../mocks/LOREM.mock"; import { Icon } from "../../icon";
+import type { BoxProps } from "../../box/Box"; import type { GroupedSelectItems, SelectItemShape } from "../types";
 type MockSelectItemsArgs = {
 	/**
 	 * The element type to render the select items as
@@ -194,6 +189,7 @@ export const mockSelectItemsActions = (): Array<
 		},
 	];
 };
+
 
 export const mockSelectItemsGrouped = ({
 	as,

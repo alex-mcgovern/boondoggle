@@ -1,7 +1,5 @@
 import { Children } from "react";
-
 import { Box } from "../../box/Box";
-
 import type { WithSlots } from "../../../src/common-types";
 
 export type DialogInfoBulletProps = WithSlots & {
@@ -19,6 +17,7 @@ export type DialogInfoBulletProps = WithSlots & {
 /**
  * Renders a "bullet" item — comprising of an Icon and a title & body text.
  */
+
 export function DialogInfoBullet({
 	slotLeft,
 	slotRight,

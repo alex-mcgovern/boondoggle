@@ -5,14 +5,8 @@ import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { createRef } from "react";
-
-import { InputDate } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import { selectFromDatePicker } from "../../../test/select_from_date_picker";
-
+import { InputDate } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/dialog.mock"; import { selectFromDatePicker } from "../../../test/select_from_date_picker";
 import type { InputDateProps } from "..";
-
 const renderComponent = async ({ ...props }: InputDateProps) => {
 	const ref = createRef<HTMLInputElement>();
 

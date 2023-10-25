@@ -1,13 +1,8 @@
-import { flexRender } from "@tanstack/react-table";
-import clsx from "clsx";
-import { css } from "../../../src/styles/utils/util_css.css";
-import { DataTableControlTableHeadSort } from "./DataTableControlTableHeadSort";
-import type { Header } from "@tanstack/react-table";
-import { th } from "../../../style.css";
-
+import { flexRender } from "@tanstack/react-table"; import clsx from "clsx"; import { css } from "../../../src/styles/utils/util_css.css"; import { DataTableControlTableHeadSort } from "./DataTableControlTableHeadSort"; import type { Header } from "@tanstack/react-table"; import { th } from "../../../style.css";
 /**
  * Renders a single column header cell.
  */
+
 export function DataTableLayoutColumnHeaderCell<THeaderData>({
 	header,
 	isSortable,
@@ -44,9 +39,9 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 					{header.isPlaceholder
 						? null
 						: flexRender(
-								header.column.columnDef.header,
-								header.getContext(),
-						  )}
+							header.column.columnDef.header,
+							header.getContext(),
+						)}
 				</DataTableControlTableHeadSort>
 			</div>
 		);
@@ -66,9 +61,9 @@ export function DataTableLayoutColumnHeaderCell<THeaderData>({
 			{header.isPlaceholder
 				? null
 				: flexRender(
-						header.column.columnDef.header,
-						header.getContext(),
-				  )}
+					header.column.columnDef.header,
+					header.getContext(),
+				)}
 		</div>
 	);
 }

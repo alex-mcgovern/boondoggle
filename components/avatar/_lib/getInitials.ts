@@ -18,6 +18,7 @@ type GetInitialsArgs = {
 /**
  * Get's a user's initials for their avatar
  */
+
 export function getInitials({
 	firstName,
 	fullName,

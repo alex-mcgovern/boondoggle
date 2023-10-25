@@ -1,5 +1,4 @@
 import { recipe } from "@vanilla-extract/recipes";
-
 import { css } from "../../../src/styles/utils/util_css.css";
 
 export const getMainStyles = recipe({

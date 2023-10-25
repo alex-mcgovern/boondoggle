@@ -1,10 +1,4 @@
-import { Box } from "../../box/Box";
-import { dialogHeaderStyle, dialogTitleStyle } from "./DialogModalHeader.css";
-import type { useDialogModalState } from "../../../src/lib/use_dialog_modal_state";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons";
-import { Button } from "../../button";
-import { Icon } from "../../icon";
-
+import { Box } from "../../box/Box"; import { dialogHeaderStyle, dialogTitleStyle } from "./DialogModalHeader.css"; import type { useDialogModalState } from "../../../src/lib/use_dialog_modal_state"; import { faTimes } from "@fortawesome/pro-solid-svg-icons"; import { Button } from "../../button"; import { Icon } from "../../icon";
 type DialogModalHeaderProps = {
 	/**
 	 * Callback to close the dialog.
@@ -19,6 +13,7 @@ type DialogModalHeaderProps = {
 /**
  * Renders the header for a dialog, consisting of the title & dialog close button.
  */
+
 export function DialogModalHeader({
 	closeDialog,
 	title,

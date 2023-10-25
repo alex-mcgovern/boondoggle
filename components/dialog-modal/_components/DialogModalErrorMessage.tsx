@@ -1,7 +1,4 @@
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
-import { Box } from "../../box/Box";
-import { Icon } from "../../icon";
-import { theme } from "../../../style.css";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons"; import { Box } from "../../box/Box"; import { Icon } from "../../icon"; import { theme } from "../../../style.css";
 
 export type DialogModalErrorMessageProps = {
 	/**
@@ -18,6 +15,7 @@ export type DialogModalErrorMessageProps = {
 /**
  * Renders an error message inside a dialog modal.
  */
+
 export function DialogModalErrorMessage({
 	description,
 

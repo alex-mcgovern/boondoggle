@@ -4,7 +4,6 @@ import { recipe } from "@vanilla-extract/recipes";
 import { elementPaddingRaw } from "../../src/styles/common/element_size.css";
 import { focus, v } from "../../style.css";
 import { css } from "../../src/styles/utils/util_css.css";
-
 const groupTitleSize = styleVariants({
 	lg: {
 		paddingLeft: calc.subtract(elementPaddingRaw.lg.x, v.spacing.space_1),

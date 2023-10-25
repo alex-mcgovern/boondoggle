@@ -1,9 +1,5 @@
 import clsx from "clsx";
-
-import { css } from "../../../src/styles/utils/util_css.css";
-import { Box } from "../../box/Box";
-import { flagStyles } from "../styles.css";
-
+import { css } from "../../../src/styles/utils/util_css.css"; import { Box } from "../../box/Box"; import { flagStyles } from "../styles.css";
 import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
 
 export function FlagIe({

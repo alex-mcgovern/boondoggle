@@ -1,10 +1,6 @@
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
-
-import { FieldActionButton } from "../field-action-button/FieldActionButton";
-import { Icon } from "../icon";
-
+import { FieldActionButton } from "../field-action-button/FieldActionButton"; import { Icon } from "../icon";
 import type { FieldActionButtonProps } from "../field-action-button/FieldActionButton";
-
 type FieldActionButtonClearProps = Omit<
 	FieldActionButtonProps,
 	"name" | "slot"
@@ -18,6 +14,7 @@ type FieldActionButtonClearProps = Omit<
 /**
  * A button to clear the contents of a field.
  */
+
 export function FieldActionButtonClear({
 	className,
 	onClick,

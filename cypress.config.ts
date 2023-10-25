@@ -1,8 +1,9 @@
 import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 import { defineConfig } from "cypress";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+// eslint-disable-next-line import/no-default-
+export
 
-// eslint-disable-next-line import/no-default-export
 export default defineConfig({
 	component: {
 		devServer: {

@@ -7,7 +7,6 @@ import {
 } from "../../src/styles/common/element_size.css";
 import { disabled, focus, motion, theme, v } from "../../style.css";
 import { css } from "../../src/styles/utils/util_css.css";
-
 const selectItemSize = styleVariants({
 	lg: [
 		{ minHeight: elementHeight.lg },

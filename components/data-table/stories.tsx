@@ -4,20 +4,13 @@ import {
 	DATA_TABLE_COLUMNS_MOCK,
 	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	generateMockAccountColumn,
-} from "../../mocks/data_table_columns.mock";
-import { Button } from "../button/Button";
-import { Icon } from "../icon";
-import { DataTableRowActions } from "./_components/DataTableRowActions";
-import type { Meta, StoryObj } from "@storybook/react";
-import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock";
-import type { TDataTableRowActions } from "../../src/common-types";
-import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
-
+} from "../../mocks/data_table_columns.mock"; import { Button } from "../button"; import { Icon } from "../icon"; import { DataTableRowActions } from "./_components/DataTableRowActions"; import type { Meta, StoryObj } from "@storybook/react"; import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock"; import type { TDataTableRowActions } from "../../src/common-types"; import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 const meta = {
 	args: {},
 	component: StoryComp<MockAccountColumnData>,
 	title: "Components/DataTable",
 } satisfies Meta<typeof StoryComp<MockAccountColumnData>>;
+
 
 export default meta;
 
@@ -30,6 +23,7 @@ const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> =
 		return <DataTableRowActions items={mockSelectItemsActions()} />;
 	};
 
+
 export const Default: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
@@ -39,6 +33,7 @@ export const Default: Story = {
 	},
 };
 
+
 export const IsLoading: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
@@ -47,6 +42,7 @@ export const IsLoading: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const IsPaginated: Story = {
 	args: {
@@ -62,6 +58,7 @@ export const IsPaginated: Story = {
 	},
 };
 
+
 export const IsSortable: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
@@ -71,6 +68,7 @@ export const IsSortable: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const IsFilterable: Story = {
 	args: {
@@ -84,6 +82,7 @@ export const IsFilterable: Story = {
 	},
 };
 
+
 export const IsSelectable: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
@@ -95,6 +94,7 @@ export const IsSelectable: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const IsSelectableWithEnableMultiRowSelection: Story = {
 	args: {
@@ -109,6 +109,7 @@ export const IsSelectableWithEnableMultiRowSelection: Story = {
 	},
 };
 
+
 export const WithAggregatedCell: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
@@ -116,6 +117,7 @@ export const WithAggregatedCell: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const WithNoResults: Story = {
 	args: {
@@ -128,6 +130,7 @@ export const WithNoResults: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const WithInitialSorting: Story = {
 	args: {
@@ -148,6 +151,7 @@ export const WithInitialSorting: Story = {
 	},
 };
 
+
 export const With1Action: Story = {
 	args: {
 		actions: (
@@ -161,6 +165,7 @@ export const With1Action: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const With2Actions: Story = {
 	args: {
@@ -178,6 +183,7 @@ export const With2Actions: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const WithRowActionItems: Story = {
 	args: {
@@ -197,6 +203,7 @@ export const WithRowActionItems: Story = {
 	},
 };
 
+
 export const WithRowActionItemsShortList: Story = {
 	args: {
 		actions: [
@@ -214,6 +221,7 @@ export const WithRowActionItemsShortList: Story = {
 		strNoResults: "No results",
 	},
 };
+
 
 export const KitchenSink: Story = {
 	args: {

@@ -1,21 +1,9 @@
 import { useState } from "react";
-
-import { InputCurrency as StoryComp } from "./InputCurrency";
-import { LOREM } from "../../mocks/LOREM.mock";
-import {
+import { InputCurrency as StoryComp } from "./InputCurrency"; import { LOREM } from "../../mocks/LOREM.mock"; import {
 	MOCK_CURRENCY_SELECT_ITEMS,
 	MOCK_LOCALE_SELECT_ITEMS,
-} from "../../test/mock_data/input_currency";
-import { Box } from "../box/Box";
-import { SelectSingle } from "../select/select_single";
-
-import { expect } from "@storybook/jest";
-import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/testing-library";
-import type { ChangeEvent } from "react";
-import type { InputCurrencyProps } from "./InputCurrency";
-import type { MockLocale } from "../../test/mock_data/input_currency";
-
+} from "../../test/mock_data/input_currency"; import { Box } from "../box/Box"; import { SelectSingle } from "../select/select_single";
+import { expect } from "@storybook/jest"; import type { Meta, StoryObj } from "@storybook/react"; import { userEvent, within } from "@storybook/testing-library"; import type { ChangeEvent } from "react"; import type { InputCurrencyProps } from "./InputCurrency"; import type { MockLocale } from "../../test/mock_data/input_currency";
 const meta = {
 	args: {
 		initialCurrency: "USD",
@@ -32,8 +20,10 @@ const meta = {
 	title: "Components/InputCurrency",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 type Story = StoryObj<typeof meta>;
+
 
 export const Default: Story = {};
 
@@ -67,6 +57,7 @@ const LocalesTemplate = ({
 	);
 };
 
+
 export const KitchenSink: Story = {
 	args: {
 		currencySelectItems: MOCK_CURRENCY_SELECT_ITEMS,
@@ -79,6 +70,7 @@ export const KitchenSink: Story = {
 	render: LocalesTemplate,
 };
 
+
 export const IsCurrencyEditable: Story = {
 	args: {
 		currencySelectItems: MOCK_CURRENCY_SELECT_ITEMS,
@@ -89,6 +81,7 @@ export const IsCurrencyEditable: Story = {
 		},
 	},
 };
+
 
 export const KitchenSinkWithInvalidState: Story = {
 	args: {
@@ -105,11 +98,13 @@ export const KitchenSinkWithInvalidState: Story = {
 	},
 };
 
+
 export const WithDefaultValue: Story = {
 	args: {
 		defaultValue: 42000.69,
 	},
 };
+
 
 export const TestCursorPosition1: Story = {
 	name: "(Test) Cursor position 1",
@@ -127,6 +122,7 @@ export const TestCursorPosition1: Story = {
 	},
 };
 
+
 export const TestCursorPosition2: Story = {
 	name: "(Test) Cursor position 2",
 	play: async ({ canvasElement }) => {
@@ -142,6 +138,7 @@ export const TestCursorPosition2: Story = {
 		expect((input as HTMLInputElement).selectionStart).toBe(3);
 	},
 };
+
 
 export const TestCursorPosition3: Story = {
 	name: "(Test) Cursor position 3",
@@ -163,6 +160,7 @@ export const TestCursorPosition3: Story = {
 		expect((input as HTMLInputElement).selectionStart).toBe(2);
 	},
 };
+
 
 export const TestCursorPosition4: Story = {
 	name: "(Test) Cursor position 4",

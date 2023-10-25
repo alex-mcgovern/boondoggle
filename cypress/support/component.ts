@@ -1,8 +1,6 @@
 import { mount } from "cypress/react18";
-
 import "../../src/styles/stylesheet.css";
 import "./commands";
-
 declare global {
 	namespace Cypress {
 		interface Chainable {

@@ -1,37 +1,19 @@
 "use client";
-
-import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
-import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
-import { useSelect } from "downshift";
-import { forwardRef } from "react";
-
-import { useForwardRef } from "../../../src/hooks/use_forward_ref";
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import { Icon } from "../../icon";
-import { SelectItemList } from "../SelectItemList";
-
-import type { Placement } from "@floating-ui/react";
-import type { UseComboboxStateChange } from "downshift";
-import type { ForwardedRef } from "react";
-import type {
+import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react"; import { faAngleDown } from "@fortawesome/pro-solid-svg-icons"; import { useSelect } from "downshift"; import { forwardRef } from "react";
+import { useForwardRef } from "../../../src/hooks/use_forward_ref"; import { Box } from "../../box/Box"; import { Button } from "../../button"; import { Icon } from "../../icon"; import { SelectItemList } from "../SelectItemList";
+import type { Placement } from "@floating-ui/react"; import type { UseComboboxStateChange } from "downshift"; import type { ForwardedRef } from "react"; import type {
 	WithName,
 	WithOptionalLabel,
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-} from "../../../src/common-types";
-import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-
-import { flattenSelectItems } from "../flattenSelectItems";
-import { isNotSeparator } from "../isNotSeparator";
-import type {
+} from "../../../src/common-types"; import type { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
+import { flattenSelectItems } from "../flattenSelectItems"; import { isNotSeparator } from "../isNotSeparator"; import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
-} from "../types";
-import { ButtonProps } from "../../button/types";
+} from "../types"; import { ButtonProps } from "../../button";
 
 export type SelectButtonProps<
 	TValue extends string = string,
@@ -67,8 +49,8 @@ export type SelectButtonProps<
 		 * The items to render in the dropdown.
 		 */
 		items:
-			| FlatSelectItems<TValue, TItemData>
-			| GroupedSelectItems<TValue, TItemData>;
+		| FlatSelectItems<TValue, TItemData>
+		| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the new selected item when the selection changes.
@@ -197,5 +179,6 @@ function SelectButtonBase<
 		</Box>
 	);
 }
+
 
 export const SelectButton = forwardRef(SelectButtonBase);

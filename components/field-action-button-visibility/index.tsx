@@ -1,8 +1,5 @@
 import { faEye, faEyeSlash } from "@fortawesome/pro-solid-svg-icons";
-
-import { FieldActionButton } from "../field-action-button/FieldActionButton";
-import { Icon } from "../icon";
-
+import { FieldActionButton } from "../field-action-button/FieldActionButton"; import { Icon } from "../icon";
 import type { FieldActionButtonProps } from "../field-action-button/FieldActionButton";
 
 export type FieldActionButtonVisibilityProps = {
@@ -25,6 +22,7 @@ export type FieldActionButtonVisibilityProps = {
 /**
  * A button to toggle the visiblity of a field value.
  */
+
 export function FieldActionButtonVisibility({
 	isVisible,
 	onClick,

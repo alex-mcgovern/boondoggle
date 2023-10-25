@@ -1,10 +1,9 @@
 import { Box } from "../../box/Box";
-
 import type { Table } from "@tanstack/react-table";
-
 /**
  * Renders the current page and results count for the DataTable.
  */
+
 export function DataTableInfoPageCount<TTableData>({
 	strPage,
 	strResults,

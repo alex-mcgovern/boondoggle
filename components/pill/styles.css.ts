@@ -3,7 +3,6 @@ import { recipe } from "@vanilla-extract/recipes";
 import { HOVER_FOCUS } from "../../src/styles/common/selectors.css";
 import { css } from "../../src/styles/utils/util_css.css";
 import { focus, motion, theme, v } from "../../style.css";
-
 const pillSize = styleVariants({
 	lg: [
 		css({

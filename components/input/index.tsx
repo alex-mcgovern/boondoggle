@@ -1,21 +1,11 @@
-"use client";
-import { extractAtomsFromProps } from "@dessert-box/core";
-import clsx from "clsx";
-import * as React from "react";
-import type {
+"use client"; import { extractAtomsFromProps } from "@dessert-box/core"; import clsx from "clsx"; import * as React from "react"; import type {
 	ChangeEvent,
 	ComponentPropsWithoutRef,
 	ForwardedRef,
-} from "react";
-import {
+} from "react"; import {
 	InputAddonWrapper,
 	WithOptionalInputAddons,
-} from "./InputAddonWrapper";
-import { InputSlotWrapper } from "./InputSlotWrapper";
-import { clearButtonStyle, inputStyles } from "./styles.css";
-import { useFieldCopyableState } from "./use_field_copyable_state";
-import { useFieldVisibilityState } from "./use_field_visibility_state";
-import {
+} from "./InputAddonWrapper"; import { InputSlotWrapper } from "./InputSlotWrapper"; import { clearButtonStyle, inputStyles } from "./styles.css"; import { useFieldCopyableState } from "./use_field_copyable_state"; import { useFieldVisibilityState } from "./use_field_visibility_state"; import {
 	WithTheme,
 	WithDescription,
 	WithHideLastpass,
@@ -30,13 +20,7 @@ import {
 	WithSlots,
 	WithStateInvalid,
 	getOptionalLabelProps,
-} from "../../src/common-types";
-import { useForwardRef } from "../../src/hooks/use_forward_ref";
-import { FieldActionButtonClear } from "../field-action-button-clear";
-import { FieldActionButtonCopy } from "../field-action-button-copy";
-import { FieldActionButtonVisibility } from "../field-action-button-visibility";
-import { FieldWrapper } from "../field-wrapper";
-import { UtilCssArgs, css } from "../../src/styles/utils/util_css.css";
+} from "../../src/common-types"; import { useForwardRef } from "../../src/hooks/use_forward_ref"; import { FieldActionButtonClear } from "../field-action-button-clear"; import { FieldActionButtonCopy } from "../field-action-button-copy"; import { FieldActionButtonVisibility } from "../field-action-button-visibility"; import { FieldWrapper } from "../field-wrapper"; import { UtilCssArgs, css } from "../../src/styles/utils/util_css.css";
 
 export type InputProps = Partial<
 	Pick<
@@ -260,5 +244,6 @@ function InputBase(
 		</FieldWrapper>
 	);
 }
+
 
 export const Input = React.forwardRef(InputBase);

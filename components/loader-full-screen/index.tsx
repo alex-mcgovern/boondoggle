@@ -1,7 +1,4 @@
-import { Box } from "../box/Box";
-import { Loader } from "../loader";
-import { loaderWrapperStyle } from "./styles.css";
-
+import { Box } from "../box/Box"; import { Loader } from "../loader"; import { loaderWrapperStyle } from "./styles.css";
 import type { BoxProps } from "../box/Box";
 
 export type LoaderFullScreenProps = {
@@ -14,6 +11,7 @@ export type LoaderFullScreenProps = {
 /**
  * Full-screen version of the loader component.
  */
+
 export function LoaderFullScreen({
 	color = "text_low_contrast",
 	loadingText,

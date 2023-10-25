@@ -1,15 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
-import { render } from "@testing-library/react";
-
-import { DialogInfoBullet } from "./DialogInfoBullet";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
-
+import { faShapes } from "@fortawesome/pro-solid-svg-icons"; import { render } from "@testing-library/react";
+import { DialogInfoBullet } from "./DialogInfoBullet"; import { LOREM } from "../../../mocks/LOREM.mock"; import { Icon } from "../../icon";
 import type { DialogInfoBulletProps } from "./DialogInfoBullet";
-
 const renderComponent = ({ ...props }: DialogInfoBulletProps) => {
 	return render(<DialogInfoBullet {...props} />);
 };

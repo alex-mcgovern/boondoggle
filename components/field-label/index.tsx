@@ -1,8 +1,4 @@
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
-import { Box } from "../box/Box";
-import { Icon } from "../icon";
-import type { BoxProps } from "../box/Box";
-import { Tooltip, TooltipTrigger, TooltipContent } from "../tooltip";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons"; import { Box } from "../box/Box"; import { Icon } from "../icon"; import type { BoxProps } from "../box/Box"; import { Tooltip, TooltipTrigger, TooltipContent } from "../tooltip";
 
 export type FieldLabelProps = BoxProps & {
 	/**
@@ -29,6 +25,7 @@ export type FieldLabelProps = BoxProps & {
 /**
  * HTML label element for use with a form field or other labelled element.
  */
+
 export function FieldLabel({
 	htmlFor,
 	isLabelVisible = true,

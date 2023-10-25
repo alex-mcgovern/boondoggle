@@ -1,10 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import { css } from "../../src/styles/utils/util_css.css";
-import * as styles from "./styles.css";
-import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; import clsx from "clsx"; import { css } from "../../src/styles/utils/util_css.css"; import * as styles from "./styles.css"; import type { IconProp } from "@fortawesome/fontawesome-svg-core"; import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome"; import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
 
 export type IconProps = FontAwesomeIconProps & {
 	className?: string;
@@ -13,6 +7,7 @@ export type IconProps = FontAwesomeIconProps & {
 	height?: UtilCssArgs["height"];
 	width?: UtilCssArgs["width"];
 };
+
 
 export function Icon({
 	className: userClassName,

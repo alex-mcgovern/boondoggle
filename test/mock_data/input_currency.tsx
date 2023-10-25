@@ -4,8 +4,7 @@ import {
 	FlagOm,
 	FlagSa,
 	FlagKw,
-} from "../../components/icon-flag";
-import { SelectItemShape } from "../../components/select/types";
+} from "../../components/icon-flag"; import { SelectItemShape } from "../../components/select/types";
 
 export type MockCurrency = "USD" | "AED" | "OMR" | "SAR" | "KWD";
 export type MockLocale = "en-US" | "en-GB" | "de-DE" | "fr-FR" | "ar-AE";
@@ -38,6 +37,7 @@ export const MOCK_CURRENCY_SELECT_ITEMS: Array<SelectItemShape<MockCurrency>> =
 			value: "KWD",
 		},
 	];
+
 
 export const MOCK_LOCALE_SELECT_ITEMS: Array<SelectItemShape<MockLocale>> = [
 	{

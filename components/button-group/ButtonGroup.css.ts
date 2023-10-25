@@ -1,7 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-
 import { css } from "../../src/styles/utils/util_css.css";
-import { btn } from "../button/Button.css";
+import { btn } from "../button/styles.css";
 
 export const buttonGroupStyles = style([
 	css({ alignItems: "stretch", display: "flex" }),

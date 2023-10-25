@@ -1,10 +1,6 @@
 "use client";
-
-import * as RadixCollapsible from "@radix-ui/react-collapsible";
-import { useCallback, useState } from "react";
-
+import * as RadixCollapsible from "@radix-ui/react-collapsible"; import { useCallback, useState } from "react";
 import { collapsibleContentAnimation } from "./styles.css";
-
 import type { ReactNode } from "react";
 
 export type CollapsibleProps = {
@@ -32,6 +28,7 @@ export type CollapsibleProps = {
 /**
  * An unstyled, primitive component for creating a collapsible UI element.
  */
+
 export function Collapsible({
 	children,
 	isOpen,

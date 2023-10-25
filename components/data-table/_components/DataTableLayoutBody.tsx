@@ -1,12 +1,8 @@
-import { flexRender } from "@tanstack/react-table";
-import { Box } from "../../box/Box";
-import { getBodyStyle, rowStyles } from "./DataTableLayoutBody.css";
-import type { Table } from "@tanstack/react-table";
-import { td } from "../../../style.css";
-
+import { flexRender } from "@tanstack/react-table"; import { Box } from "../../box/Box"; import { getBodyStyle, rowStyles } from "./DataTableLayoutBody.css"; import type { Table } from "@tanstack/react-table"; import { td } from "../../../style.css";
 /**
  * The body for a DataTable, comprising of <tbody>, <tr> & <td> elements.
  */
+
 export function DataTableLayoutBody<TRowData>({
 	table,
 	isSelectable,

@@ -1,8 +1,4 @@
-import { RadioButtonCardGroup as StoryComp } from ".";
-import { LOREM } from "../../mocks/LOREM.mock";
-import type { Meta, StoryObj } from "@storybook/react";
-import { RADIO_BTN_CARDS_MOCK } from "./__mocks__/radio_button_cards.mock";
-
+import { RadioButtonCardGroup as StoryComp } from "."; import { LOREM } from "../../mocks/LOREM.mock"; import type { Meta, StoryObj } from "@storybook/react"; import { RADIO_BTN_CARDS_MOCK } from "./__mocks__/radio_button_cards.mock";
 const meta = {
 	args: {
 		errorMessage: LOREM.errorMessage(),
@@ -18,11 +14,14 @@ const meta = {
 	title: "Components/RadioButtonCard",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const Invalid: Story = {
 	args: {
@@ -31,12 +30,14 @@ export const Invalid: Story = {
 	},
 };
 
+
 export const DefaultValue: Story = {
 	args: {
 		defaultValue: RADIO_BTN_CARDS_MOCK[0].value,
 		items: RADIO_BTN_CARDS_MOCK,
 	},
 };
+
 
 export const IsLabelVisibleFalse: Story = {
 	args: {

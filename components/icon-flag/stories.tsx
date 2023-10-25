@@ -1,7 +1,5 @@
 import { FlagIe as StoryComp } from "./flags/ie";
-
 import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {},
 	component: StoryComp,
@@ -11,8 +9,10 @@ const meta = {
 	title: "Components/IconFlag",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 type Story = StoryObj<typeof meta>;
+
 
 export const Default: Story = {
 	args: {

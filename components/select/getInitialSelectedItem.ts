@@ -1,7 +1,6 @@
 import { isFlatSelectItems } from "./isFlatSelectItems";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 import { isNotSeparator } from "./isNotSeparator";
-
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,

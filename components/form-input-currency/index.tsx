@@ -1,16 +1,15 @@
-import { useController, useFormContext } from "react-hook-form";
-import type { WithFormFieldProps } from "../../src/common-types";
-import {
+import { useController, useFormContext } from "react-hook-form"; import type { WithFormFieldProps } from "../../src/common-types"; import {
 	InputCurrencyProps,
 	InputCurrency,
 } from "../input-currency/InputCurrency";
-
 /**
  * React Hook Form connected version of Boondoggle's `InputCurrency`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
+
 export type FormInputCurrencyProps<TCurrency extends string = string> =
 	InputCurrencyProps<TCurrency> & WithFormFieldProps;
+
 
 export function FormInputCurrency<TCurrency extends string = string>({
 	defaultValue,

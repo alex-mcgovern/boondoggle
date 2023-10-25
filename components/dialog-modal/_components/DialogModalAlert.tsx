@@ -1,13 +1,8 @@
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
-import { Children } from "react";
-
-import { Box } from "../../box/Box";
-import { Icon } from "../../icon";
-import {
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons"; import { Children } from "react";
+import { Box } from "../../box/Box"; import { Icon } from "../../icon"; import {
 	dialogModalAlertSlotStyle,
 	getDialogModalAlertWrapperStyles,
 } from "./DialogModalAlert.css";
-
 import type { WithTheme, WithSlots } from "../../../src/common-types";
 
 export type DialogModalAlertProps = WithSlots &
@@ -26,6 +21,7 @@ export type DialogModalAlertProps = WithSlots &
 /**
  * Renders an inline alert for use ina  Dialog component.
  */
+
 export function DialogModalAlert({
 	theme = "amber",
 	description,

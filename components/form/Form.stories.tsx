@@ -1,10 +1,6 @@
 import { jest } from "@storybook/jest";
-
-import { Form as StoryComp } from "./Form";
-import { mockForm } from "./__mocks__/mock_form.mock";
-
+import { Form as StoryComp } from "./Form"; import { mockForm } from "./__mocks__/mock_form.mock";
 import type { Meta, StoryObj } from "@storybook/react";
-
 const handleSubmit = jest.fn();
 
 const handleErrors = jest.fn();
@@ -31,9 +27,11 @@ const meta = {
 	title: "Components/Form",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
 
 export const Default: Story = {
 	args: mockForm({
@@ -41,6 +39,7 @@ export const Default: Story = {
 		handleSubmit,
 	}),
 };
+
 
 export const WithDefaultValues: Story = {
 	args: mockForm({
@@ -50,6 +49,7 @@ export const WithDefaultValues: Story = {
 		withOptionalFields: true,
 	}),
 };
+
 
 export const WithOptionalFields: Story = {
 	args: mockForm({

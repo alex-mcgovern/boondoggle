@@ -1,8 +1,5 @@
 import { faCheck, faCopy } from "@fortawesome/pro-solid-svg-icons";
-
-import { FieldActionButton } from "../field-action-button/FieldActionButton";
-import { Icon } from "../icon";
-
+import { FieldActionButton } from "../field-action-button/FieldActionButton"; import { Icon } from "../icon";
 import type { FieldActionButtonProps } from "../field-action-button/FieldActionButton";
 
 export type FieldActionButtonCopyProps = {
@@ -24,6 +21,7 @@ export type FieldActionButtonCopyProps = {
 /**
  * A button to copy the contents of a field.
  */
+
 export function FieldActionButtonCopy({
 	isCopied,
 	onClick,

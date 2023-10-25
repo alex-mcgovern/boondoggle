@@ -1,6 +1,7 @@
 /**
  * A function that can be used to ensure that a switch statement is exhaustive.
  */
+
 export const exhaustiveSwitchGuard = (
 	/**
 	 * The type of the switch case that is being guarded.

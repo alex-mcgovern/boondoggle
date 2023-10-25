@@ -1,8 +1,6 @@
 import { within } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
-
 import type { ByRoleMatcher, ByRoleOptions } from "@testing-library/dom";
-
 type SelectSingleSelectItemProps = {
 	/**
 	 * The expected value of the select after the item is selected.

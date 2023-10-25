@@ -1,15 +1,11 @@
 import {
 	faCircleExclamation,
 	faTimesCircle,
-} from "@fortawesome/pro-solid-svg-icons";
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import { Icon } from "../../icon";
-import type { useDataTableState } from "../../../src/lib/use_data_table_state";
-
+} from "@fortawesome/pro-solid-svg-icons"; import { Box } from "../../box/Box"; import { Button } from "../../button"; import { Icon } from "../../icon"; import type { useDataTableState } from "../../../src/lib/use_data_table_state";
 /**
  * Renders a message to the user when there are no results in the data table.
  */
+
 export function DataTableInfoNoResults({
 	globalFilter,
 	setGlobalFilter,

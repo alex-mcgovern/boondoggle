@@ -1,7 +1,5 @@
 import { Tabs as StoryComp } from "./Tabs";
-
 import { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	title: "Components/Tabs",
 	component: StoryComp,
@@ -24,7 +22,9 @@ const meta = {
 	},
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 type Story = StoryObj<typeof meta>;
+
 
 export const Default: Story = {};

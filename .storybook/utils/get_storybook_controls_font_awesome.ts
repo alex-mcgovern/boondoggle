@@ -6,7 +6,6 @@ import {
 	faArrowRight,
 	faTriangleCircleSquare,
 } from "@fortawesome/pro-solid-svg-icons";
-
 const availableIcons = {
 	"": null,
 	"Triangle circle square": faTriangleCircleSquare,

@@ -1,5 +1,4 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-
 import { v } from "../../../style.css";
 
 export const selectMultiInputSelectedItemsStyle = style({});

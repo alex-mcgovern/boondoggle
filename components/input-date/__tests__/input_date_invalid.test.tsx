@@ -1,14 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { InputDate } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import type { InputDateProps } from "..";
-import { a11yError, theme } from "../../../style.css";
-
+import { render } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import { InputDate } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/dialog.mock"; import type { InputDateProps } from ".."; import { a11yError, theme } from "../../../style.css";
 const PROPS: InputDateProps = {
 	label: "date picker",
 	name: LOREM.name(),

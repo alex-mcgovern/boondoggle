@@ -1,13 +1,10 @@
 import clsx from "clsx";
-
 import { getMainStyles } from "./styles.css";
-
-import type { HTMLProps } from "react";
-import type { WithSize } from "../../../src/common-types";
-
+import type { HTMLProps } from "react"; import type { WithSize } from "../../../src/common-types";
 /**
  * Main HTML element.
  */
+
 export function Main({
 	children,
 	className,

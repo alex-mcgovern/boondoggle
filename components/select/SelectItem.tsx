@@ -1,11 +1,4 @@
-import clsx from "clsx";
-import React from "react";
-import { Box } from "../box/Box";
-import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css";
-import type { Ref } from "react";
-import type { WithTheme, WithSize, WithSlots } from "../../src/common-types";
-import type { BoxProps } from "../box/Box";
-import { SlotWrapper } from "../_utility/slot_wrapper";
+import clsx from "clsx"; import React from "react"; import { Box } from "../box/Box"; import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css"; import type { Ref } from "react"; import type { WithTheme, WithSize, WithSlots } from "../../src/common-types"; import type { BoxProps } from "../box/Box"; import { SlotWrapper } from "../_utility/slot_wrapper";
 
 export type SelectItemProps = BoxProps &
 	WithTheme &
@@ -41,6 +34,7 @@ export type SelectItemProps = BoxProps &
 		 */
 		value: string;
 	};
+
 
 export const SelectItem = React.forwardRef(
 	(

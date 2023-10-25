@@ -1,12 +1,6 @@
-import * as RadixSlot from "@radix-ui/react-slot";
-import { Children } from "react";
-
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import { dialogModalActionsWrapperStyle } from "./DialogModalActions.css";
-
-import type { ReactNode } from "react";
-import type { useDialogModalState } from "../../../src/lib/use_dialog_modal_state";
+import * as RadixSlot from "@radix-ui/react-slot"; import { Children } from "react";
+import { Box } from "../../box/Box"; import { Button } from "../../button"; import { dialogModalActionsWrapperStyle } from "./DialogModalActions.css";
+import type { ReactNode } from "react"; import type { useDialogModalState } from "../../../src/lib/use_dialog_modal_state";
 
 export type DialogModalActionsProps = {
 	/**
@@ -43,6 +37,7 @@ export type DialogModalActionsProps = {
 /**
  * Wraps actions for a dialog modal.
  */
+
 export function DialogModalActions({
 	actions,
 	closeDialog,

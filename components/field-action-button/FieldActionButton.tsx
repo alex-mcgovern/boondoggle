@@ -3,7 +3,6 @@ import { forwardRef, useCallback } from "react";
 import { fieldActionButtonStyle } from "./FieldActionButton.css";
 import type { MouseEvent, MouseEventHandler, ReactNode } from "react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../tooltip";
-
 type BaseButtonProps = {
 	/**
 	 * Custom CSS class to apply to the button.
@@ -48,6 +47,7 @@ const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
 	},
 );
 
+
 export type FieldActionButtonProps = {
 	/**
 	 * Custom CSS class to apply to the button.
@@ -83,6 +83,7 @@ export type FieldActionButtonProps = {
 /**
  * A configurable button for use within a field.
  */
+
 export const FieldActionButton = forwardRef<
 	HTMLButtonElement,
 	FieldActionButtonProps

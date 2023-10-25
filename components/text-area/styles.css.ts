@@ -7,7 +7,6 @@ import {
 } from "../../src/styles/common/element_size.css";
 import { css } from "../../src/styles/utils/util_css.css";
 import { disabled, focus } from "../../style.css";
-
 const size = styleVariants({
 	lg: [
 		elementFontSize.lg,

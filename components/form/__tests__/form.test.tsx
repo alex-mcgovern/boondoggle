@@ -1,21 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import "@vanilla-extract/css/disableRuntimeStyles";
-import { Form } from "../Form";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import "../../../test/mocked_dependencies/has_pointer_capture.mock";
-import "../../../test/mocked_dependencies/resize_observer.mock";
-import { selectFromDatePicker } from "../../../test/select_from_date_picker";
-import { selectFromSingleSelect } from "../../../test/select_from_select_single";
-import { mockForm } from "../__mocks__/mock_form.mock";
-import type { FormProps } from "../Form";
-import { mockSelectItems } from "../../select/__mocks__/select.mock";
-import { RADIO_BTN_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
-
+import { act, fireEvent, render, waitFor } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import "@vanilla-extract/css/disableRuntimeStyles"; import { Form } from "../Form"; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/dialog.mock"; import "../../../test/mocked_dependencies/has_pointer_capture.mock"; import "../../../test/mocked_dependencies/resize_observer.mock"; import { selectFromDatePicker } from "../../../test/select_from_date_picker"; import { selectFromSingleSelect } from "../../../test/select_from_select_single"; import { mockForm } from "../__mocks__/mock_form.mock"; import type { FormProps } from "../Form"; import { mockSelectItems } from "../../select/__mocks__/select.mock"; import { RADIO_BTN_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 const handleSubmit = jest.fn();
 
 const handleErrors = jest.fn();

@@ -1,10 +1,8 @@
-import { Children } from "react";
-import { Box } from "../../box/Box";
-import type { ReactNode } from "react";
-
+import { Children } from "react"; import { Box } from "../../box/Box"; import type { ReactNode } from "react";
 /**
  * Wraps actions for a data table.
  */
+
 export function DataTableActionsWrapper({
 	leftAction,
 	rightActions,

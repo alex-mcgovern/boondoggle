@@ -1,5 +1,4 @@
 import { currencyParser } from "./currencyParser";
-
 describe("currencyParser()", () => {
 	test("returns empty string when passed empty string", () => {
 		expect(currencyParser({ locale: "en-GB", value: "" })).toBe("");

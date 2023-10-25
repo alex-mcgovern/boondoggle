@@ -1,19 +1,11 @@
-import clsx from "clsx";
-import { Box } from "../box/Box";
-import { FieldDescription } from "../field-description";
-import { FieldErrorMessage } from "../field-error-message";
-import { FieldLabel } from "../field-label";
-import type { ReactNode } from "react";
-import type {
+import clsx from "clsx"; import { Box } from "../box/Box"; import { FieldDescription } from "../field-description"; import { FieldErrorMessage } from "../field-error-message"; import { FieldLabel } from "../field-label"; import type { ReactNode } from "react"; import type {
 	WithTheme,
 	WithDescription,
 	WithHideLastpass,
 	WithOptionalLabel,
 	WithStateInvalid,
 	WithWrapperProps,
-} from "../../src/common-types";
-import { theme as themeVariant, hideLastpassStyle } from "../../style.css";
-
+} from "../../src/common-types"; import { theme as themeVariant, hideLastpassStyle } from "../../style.css";
 type FieldWrapperProps = WithTheme &
 	WithOptionalLabel &
 	WithHideLastpass &
@@ -30,6 +22,7 @@ type FieldWrapperProps = WithTheme &
 /**
  * A wrapper for a field.
  */
+
 export function FieldWrapper({
 	children,
 	theme,

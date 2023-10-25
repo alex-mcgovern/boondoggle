@@ -20,22 +20,25 @@ import {
 	slate,
 	slateA,
 } from "@radix-ui/colors";
-
 /** -----------------------------------------------------------------------------
  * BREAKPOINTS
  * ------------------------------------------------------------------------------- */
 
 export const DESKTOP = "only screen and (min-width: 1024px)";
-export const TABLET = "only screen and (min-width: 768px)";
-export const MOBILE = "only screen and (max-width: 767px)";
 
+export const TABLET = "only screen and (min-width: 768px)";
+
+export const MOBILE = "only screen and (max-width: 767px)";
 /** -----------------------------------------------------------------------------
  * CSS LAYERS
  * ------------------------------------------------------------------------------- */
 
 export const resetLayer = globalLayer("reset");
+
 export const baseLayer = globalLayer("base");
+
 export const themeLayer = globalLayer("theme");
+
 export const utilCssLayer = globalLayer("sprinkles");
 
 /** -----------------------------------------------------------------------------

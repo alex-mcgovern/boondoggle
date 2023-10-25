@@ -1,11 +1,8 @@
 import { faArrowRight } from "@fortawesome/pro-solid-svg-icons";
-
-import { Button as StoryComp } from "./Button";
+import { Button as StoryComp } from ".";
 import { Link } from "../../test/link.comp.mock";
 import { Icon } from "../icon";
-
 import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {
 		children: "Button",
@@ -17,10 +14,13 @@ const meta = {
 	title: "Components/Button",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const AsAnchorTag: Story = {
 	args: {
@@ -29,6 +29,7 @@ export const AsAnchorTag: Story = {
 	},
 };
 
+
 export const AsLinkComponent: Story = {
 	args: {
 		as: Link,
@@ -36,11 +37,13 @@ export const AsLinkComponent: Story = {
 	},
 };
 
+
 export const AppearancePrimary: Story = {
 	args: {
 		variant: "primary",
 	},
 };
+
 
 export const AppearanceSecondary: Story = {
 	args: {
@@ -48,11 +51,13 @@ export const AppearanceSecondary: Story = {
 	},
 };
 
+
 export const AppearanceGhost: Story = {
 	args: {
 		variant: "ghost",
 	},
 };
+
 
 export const ColorOverlayBlue: Story = {
 	args: {
@@ -60,11 +65,13 @@ export const ColorOverlayBlue: Story = {
 	},
 };
 
+
 export const ColorOverlayRed: Story = {
 	args: {
 		color: "red",
 	},
 };
+
 
 export const ColorOverlayGreen: Story = {
 	args: {
@@ -72,11 +79,13 @@ export const ColorOverlayGreen: Story = {
 	},
 };
 
+
 export const ColorOverlayAmber: Story = {
 	args: {
 		color: "amber",
 	},
 };
+
 
 export const ColorOverlayGrey: Story = {
 	args: {
@@ -84,11 +93,13 @@ export const ColorOverlayGrey: Story = {
 	},
 };
 
+
 export const IsLoading: Story = {
 	args: {
 		isLoading: true,
 	},
 };
+
 
 export const SizeSm: Story = {
 	args: {
@@ -96,11 +107,13 @@ export const SizeSm: Story = {
 	},
 };
 
+
 export const SizeMd: Story = {
 	args: {
 		size: "md",
 	},
 };
+
 
 export const SizeLg: Story = {
 	args: {
@@ -108,11 +121,13 @@ export const SizeLg: Story = {
 	},
 };
 
+
 export const SizeSquareSm: Story = {
 	args: {
 		size: "square_sm",
 	},
 };
+
 
 export const SizeSquareMd: Story = {
 	args: {
@@ -120,17 +135,20 @@ export const SizeSquareMd: Story = {
 	},
 };
 
+
 export const SizeSquareLg: Story = {
 	args: {
 		size: "square_md",
 	},
 };
 
+
 export const With1SlotLeft: Story = {
 	args: {
 		slotLeft: <Icon icon={faArrowRight} />,
 	},
 };
+
 
 export const With2SlotLeft: Story = {
 	args: {
@@ -142,6 +160,7 @@ export const With2SlotLeft: Story = {
 		),
 	},
 };
+
 
 export const With3SlotLeft: Story = {
 	args: {
@@ -155,6 +174,7 @@ export const With3SlotLeft: Story = {
 	},
 };
 
+
 export const WithTooltip: Story = {
 	args: {
 		strTooltip: "Tooltip",
@@ -162,11 +182,13 @@ export const WithTooltip: Story = {
 	},
 };
 
+
 export const With1SlotRight: Story = {
 	args: {
 		slotRight: <Icon icon={faArrowRight} />,
 	},
 };
+
 
 export const With2SlotRight: Story = {
 	args: {
@@ -178,6 +200,7 @@ export const With2SlotRight: Story = {
 		),
 	},
 };
+
 
 export const With3SlotRight: Story = {
 	args: {

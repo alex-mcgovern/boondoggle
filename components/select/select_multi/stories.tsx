@@ -1,13 +1,6 @@
 import { useState } from "react";
-
-import { SelectMulti as StoryComp } from ".";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../../box/Box";
-import { mockSelectItems } from "../__mocks__/select.mock";
-
-import type { Meta, StoryObj } from "@storybook/react";
-import type { SelectItemShape } from "../types";
-
+import { SelectMulti as StoryComp } from "."; import { LOREM } from "../../../mocks/LOREM.mock"; import { Box } from "../../box/Box"; import { mockSelectItems } from "../__mocks__/select.mock";
+import type { Meta, StoryObj } from "@storybook/react"; import type { SelectItemShape } from "../types";
 const ITEMS = mockSelectItems({});
 
 const meta = {
@@ -28,11 +21,14 @@ const meta = {
 	title: "Components/SelectMulti",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const Filterable: Story = {
 	args: {
@@ -40,17 +36,20 @@ export const Filterable: Story = {
 	},
 };
 
+
 export const InitialSelectedItems: Story = {
 	args: {
 		initialSelectedItems: [ITEMS[0]],
 	},
 };
 
+
 export const Invalid: Story = {
 	args: {
 		invalid: true,
 	},
 };
+
 
 export const ItemsWithIsSelectedTrue: Story = {
 	args: {
@@ -115,9 +114,11 @@ const ControlledTemplate = () => {
 	);
 };
 
+
 export const Controlled: Story = {
 	render: ControlledTemplate,
 };
+
 
 export const Customisation: Story = {
 	args: {
@@ -125,11 +126,13 @@ export const Customisation: Story = {
 	},
 };
 
+
 export const Disabled: Story = {
 	args: {
 		disabled: true,
 	},
 };
+
 
 export const OnChange: Story = {
 	args: {
@@ -138,6 +141,7 @@ export const OnChange: Story = {
 		},
 	},
 };
+
 
 export const SelectedItemsToString: Story = {
 	args: {
@@ -152,6 +156,7 @@ export const SelectedItemsToString: Story = {
 		},
 	},
 };
+
 
 export const SlotLeft: Story = {
 	args: {

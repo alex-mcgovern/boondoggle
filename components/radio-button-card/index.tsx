@@ -3,14 +3,13 @@ import {
 	radioButtonCardInputStyles,
 	radioButtonCardLabelStyles,
 } from "./styles.css";
-
-import type { HTMLProps, ReactNode } from "react";
-import type { WithName } from "../../src/common-types";
+import type { HTMLProps, ReactNode } from "react"; import type { WithName } from "../../src/common-types";
 
 export type RadioButtonInputProps = Omit<
 	HTMLProps<HTMLInputElement>,
 	"className" | "id" | "name" | "required" | "type" | "value"
 >;
+
 
 export type RadioButtonCardShape = {
 	adornment: ReactNode;
@@ -26,6 +25,7 @@ export type RadioButtonCardShape = {
 	value: string;
 };
 
+
 export type RadioButtonCardProps = RadioButtonCardShape &
 	WithName & {
 		inputProps?: RadioButtonInputProps;
@@ -34,6 +34,7 @@ export type RadioButtonCardProps = RadioButtonCardShape &
 
 		required?: boolean;
 	};
+
 
 export function RadioButtonCard({
 	adornment,

@@ -1,15 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
-import { render } from "@testing-library/react";
-
-import { DialogModalAlert } from "./DialogModalAlert";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
-
+import { faShapes } from "@fortawesome/pro-solid-svg-icons"; import { render } from "@testing-library/react";
+import { DialogModalAlert } from "./DialogModalAlert"; import { LOREM } from "../../../mocks/LOREM.mock"; import { Icon } from "../../icon";
 import type { DialogModalAlertProps } from "./DialogModalAlert";
-
 const renderComponent = ({ ...props }: DialogModalAlertProps) => {
 	return render(<DialogModalAlert {...props} />);
 };

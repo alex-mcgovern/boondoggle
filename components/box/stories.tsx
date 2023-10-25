@@ -1,15 +1,7 @@
 import {
 	faCheckCircle,
 	faExclamationCircle,
-} from "@fortawesome/pro-solid-svg-icons";
-import { Box as StoryComp } from "./Box";
-import { LOREM } from "../../mocks/LOREM.mock";
-import { Link } from "../../test/link.comp.mock";
-import { Icon } from "../icon";
-import type { StoryFn, StoryObj } from "@storybook/react";
-import type { BoxProps as StoryCompProps } from "./Box";
-import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
-import { theme } from "../../style.css";
+} from "@fortawesome/pro-solid-svg-icons"; import { Box as StoryComp } from "./Box"; import { LOREM } from "../../mocks/LOREM.mock"; import { Link } from "../../test/link.comp.mock"; import { Icon } from "../icon"; import type { StoryFn, StoryObj } from "@storybook/react"; import type { BoxProps as StoryCompProps } from "./Box"; import type { UtilCssArgs } from "../../src/styles/utils/util_css.css"; import { theme } from "../../style.css";
 
 export default {
 	component: StoryComp,
@@ -26,6 +18,7 @@ const Template: StoryFn<StoryCompProps> = ({
 	return <StoryComp {...rest}>{children}</StoryComp>;
 };
 
+
 export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
 	args: {
 		as: "ul",
@@ -37,6 +30,7 @@ export const ExamplePolymorphismListItems: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const ExamplePolymorphismReactComponent: StoryObj<StoryCompProps> = {
 	args: {
@@ -54,6 +48,7 @@ const BASIC_SPRINKLES_PROPS: UtilCssArgs = {
 	padding: "space_6",
 };
 
+
 export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
 	args: {
 		...BASIC_SPRINKLES_PROPS,
@@ -62,6 +57,7 @@ export const ExampleBasicSprinkles: StoryObj<StoryCompProps> = {
 
 	render: Template,
 };
+
 
 export const ExampleResponsiveSprinkles: StoryObj<StoryCompProps> = {
 	args: {
@@ -81,6 +77,7 @@ export const ExampleResponsiveSprinkles: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const ExampleEscapeHatchStyles: StoryObj<StoryCompProps> = {
 	args: {
 		__background: "#BA55D330",
@@ -93,6 +90,7 @@ export const ExampleEscapeHatchStyles: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
 	args: {
@@ -109,6 +107,7 @@ export const BoxAsInfoCard: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const BoxAsWarning: StoryObj<StoryCompProps> = {
 	args: {
@@ -143,6 +142,7 @@ export const BoxAsWarning: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
 	args: {
 		alignItems: "start",
@@ -172,6 +172,7 @@ export const BoxAsConfirmation: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const BoxAsGridLayout: StoryObj<StoryCompProps> = {
 	args: {

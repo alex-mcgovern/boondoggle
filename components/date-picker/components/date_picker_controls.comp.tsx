@@ -3,19 +3,13 @@ import {
 	faAngleLeft,
 	faAngleRight,
 } from "@fortawesome/pro-solid-svg-icons";
-
-import { Box } from "../../box/Box";
-import { Button } from "../../button/Button";
-import { Icon } from "../../icon";
-
+import { Box } from "../../box/Box"; import { Button } from "../../button"; import { Icon } from "../../icon";
 import type {
 	DPCalendar,
 	DPUseMonthsPropGetters,
 	DPUseYearsPropGetters,
 	DPYear,
-} from "@rehookify/datepicker";
-import type { BoxProps } from "../../box/Box";
-
+} from "@rehookify/datepicker"; import type { BoxProps } from "../../box/Box";
 type DatePickerControlsProps = {
 	/**
 	 * Whether the date picker is showing years or not.
@@ -66,6 +60,7 @@ type DatePickerControlsProps = {
 /**
  * Renders controls for the date picker.
  */
+
 export function DatePickerControls({
 	isShowingYears,
 	month,
@@ -106,9 +101,8 @@ export function DatePickerControls({
 					{isShowingYears ? (
 						<>
 							{" "}
-							{`${years[0].year} - ${
-								years[years.length - 1].year
-							}`}
+							{`${years[0].year} - ${years[years.length - 1].year
+								}`}
 						</>
 					) : (
 						<>

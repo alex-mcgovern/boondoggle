@@ -2,7 +2,6 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { motion, tBody, tRow, td, v } from "../../../style.css";
 import { css } from "../../../src/styles/utils/util_css.css";
-
 const baseBodyStyle = style({});
 
 const isSelectable = styleVariants({

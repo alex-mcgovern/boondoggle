@@ -1,17 +1,15 @@
-import { Box } from "../box/Box";
-import {
+import { Box } from "../box/Box"; import {
 	radioButtonInputStyles,
 	radioButtonLabelStyles,
 	radioButtonWrapperStyles,
 } from "./styles.css";
-
-import type { HTMLProps } from "react";
-import type { WithName } from "../../src/common-types";
+import type { HTMLProps } from "react"; import type { WithName } from "../../src/common-types";
 
 export type RadioButtonInputProps = Omit<
 	HTMLProps<HTMLInputElement>,
 	"className" | "id" | "name" | "required" | "type" | "value"
 >;
+
 
 export type RadioButtonShape = {
 	checked?: boolean;
@@ -23,6 +21,7 @@ export type RadioButtonShape = {
 	value: string;
 };
 
+
 export type RadioButtonProps = RadioButtonShape &
 	WithName & {
 		inputProps?: RadioButtonInputProps;
@@ -31,6 +30,7 @@ export type RadioButtonProps = RadioButtonShape &
 
 		required?: boolean;
 	};
+
 
 export function RadioButton({
 	checked,

@@ -1,11 +1,8 @@
-import { Box } from "../../box/Box";
-import { DataTableControlPagination } from "./DataTableControlPagination";
-import { DataTableInfoPageCount } from "./DataTableInfoPageCount";
-import type { RowData, Table } from "@tanstack/react-table";
-
+import { Box } from "../../box/Box"; import { DataTableControlPagination } from "./DataTableControlPagination"; import { DataTableInfoPageCount } from "./DataTableInfoPageCount"; import type { RowData, Table } from "@tanstack/react-table";
 /**
  * Wraps actions for a data table.
  */
+
 export function DataTablePaginationWrapper<TData extends RowData>({
 	strNext,
 	strPage,

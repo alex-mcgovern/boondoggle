@@ -1,7 +1,5 @@
 import { FieldActionButtonClear } from "../../../field-action-button-clear";
-
 import type { ReactNode } from "react";
-
 type GetSlotRightArgs = {
 	/**
 	 * Whether the user can clear the input.
@@ -27,6 +25,7 @@ type GetSlotRightArgs = {
 /**
  * Get the slotRight node.
  */
+
 export const getSlotRight = ({
 	isClearable,
 	reset,

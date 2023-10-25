@@ -1,5 +1,4 @@
-import { css } from "../../src/styles/utils/util_css.css";
-import { Skeleton } from "./Skeleton";
+import { css } from "../../src/styles/utils/util_css.css"; import { Skeleton } from "./Skeleton";
 
 export const SkeletonInput = () => {
 	return (

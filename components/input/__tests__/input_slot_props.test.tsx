@@ -1,14 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
-import { render } from "@testing-library/react";
-import { Input } from "..";
-import "../../../../test/mocked_dependencies/dialog.mock";
-import type { InputProps } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
-
+import { faSearch } from "@fortawesome/pro-solid-svg-icons"; import { render } from "@testing-library/react"; import { Input } from ".."; import "../../../../test/mocked_dependencies/dialog.mock"; import type { InputProps } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import { Icon } from "../../icon";
 const PROPS: InputProps = {
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),

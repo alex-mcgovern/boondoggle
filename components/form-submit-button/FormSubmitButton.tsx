@@ -1,9 +1,8 @@
 import { forwardRef } from "react";
-
-import { Button } from "../button/Button";
-import { ButtonProps } from "../button/types";
+import { Button } from "../button"; import { ButtonProps } from "../button";
 
 export type FormSubmitButtonProps = Omit<ButtonProps, "name">;
+
 
 export const FormSubmitButton = forwardRef<
 	HTMLButtonElement,

@@ -3,12 +3,11 @@ import { isTruthy } from "../../src/lib/is_truthy";
 import { isFlatSelectItems } from "./isFlatSelectItems";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 import { isNotSeparator } from "./isNotSeparator";
-
 import type { FlatSelectItems, GroupedSelectItems } from "./types";
-
 /**
  * Removes items not matching `inputValue` from `items`
  */
+
 export function filterSelectItems<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,

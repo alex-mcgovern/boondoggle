@@ -1,7 +1,5 @@
-import { Button } from "../../button/Button";
-
+import { Button } from "../../button";
 import type { DPUseYearsPropGetters, DPYear } from "@rehookify/datepicker";
-
 type DatePickerYearsProps = {
 	/**
 	 * Callback when a year is selected.
@@ -22,6 +20,7 @@ type DatePickerYearsProps = {
 /**
  * Renders a grid of year buttons for the date picker.
  */
+
 export function DatePickerYears({
 	onYearClick,
 	yearButton,

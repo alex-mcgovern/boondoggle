@@ -1,6 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { v } from "../../../style.css";
 import { inputSlotWrapperDoNotRemoveOrYouWillBeFired } from "../../input/styles.css";
+
 export const selectInputCursorStyles = style({});
 
 globalStyle(

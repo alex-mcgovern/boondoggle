@@ -1,13 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render } from "@testing-library/react";
-import { Input } from "..";
-import "../../../../test/mocked_dependencies/dialog.mock";
-import type { InputProps } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import { a11yError, theme } from "../../../style.css";
-
+import { render } from "@testing-library/react"; import { Input } from ".."; import "../../../../test/mocked_dependencies/dialog.mock"; import type { InputProps } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import { a11yError, theme } from "../../../style.css";
 
 const PROPS: InputProps = {
 	name: LOREM.name(),

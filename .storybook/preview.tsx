@@ -1,7 +1,5 @@
 import { Parameters } from "@storybook/react";
-
-import "../src/styles/stylesheet.css";
-import "../src/styles/theme.css";
+import "../src/styles/stylesheet.css"; import "../src/styles/theme.css";
 
 export const parameters: Parameters = {
 	actions: { argTypesRegex: "^on[A-Z].*" },

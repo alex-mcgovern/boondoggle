@@ -1,5 +1,4 @@
 import { currencyFormatter } from "./currencyFormatter";
-
 describe("currencyFormatter()", () => {
 	test("returns empty string when passed empty string", () => {
 		expect(currencyFormatter({ locale: "en-GB", value: "" })).toBe("");

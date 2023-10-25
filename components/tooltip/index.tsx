@@ -1,5 +1,4 @@
 "use client";
-
 import {
 	FloatingArrow,
 	FloatingPortal,
@@ -15,8 +14,7 @@ import {
 	useInteractions,
 	useMergeRefs,
 	useRole,
-} from "@floating-ui/react";
-import {
+} from "@floating-ui/react"; import {
 	cloneElement,
 	createContext,
 	forwardRef,
@@ -26,12 +24,8 @@ import {
 	useRef,
 	useState,
 } from "react";
-
 import { tooltipTextStyle } from "./styles.css";
-
-import type { Placement } from "@floating-ui/react";
-import type { HTMLProps, ReactNode } from "react";
-
+import type { Placement } from "@floating-ui/react"; import type { HTMLProps, ReactNode } from "react";
 const ARROW_WIDTH = 16;
 
 const ARROW_HEIGHT = 8;
@@ -142,6 +136,7 @@ const useTooltipContext = () => {
 	return context;
 };
 
+
 export type TooltipProps = {
 	/**
 	 * Trigger & content to be rendered within the tooltip provider.
@@ -152,6 +147,7 @@ export type TooltipProps = {
 /**
  * Provider for a tooltip.
  */
+
 export function Tooltip({
 	children,
 	...options
@@ -170,6 +166,7 @@ export function Tooltip({
 /**
  * Trigger for a tooltip.
  */
+
 export const TooltipTrigger = forwardRef<
 	HTMLElement,
 	HTMLProps<HTMLElement> & { asChild?: boolean }
@@ -208,6 +205,7 @@ export const TooltipTrigger = forwardRef<
 /**
  * Content for a tooltip.
  */
+
 export const TooltipContent = forwardRef<
 	HTMLDivElement,
 	HTMLProps<HTMLDivElement>

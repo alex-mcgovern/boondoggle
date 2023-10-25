@@ -1,13 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { render } from "@testing-library/react";
-import { TextArea } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/dialog.mock";
-import type { TextAreaProps } from "..";
-import { a11yError, theme } from "../../../style.css";
-
+import { render } from "@testing-library/react"; import { TextArea } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/dialog.mock"; import type { TextAreaProps } from ".."; import { a11yError, theme } from "../../../style.css";
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),

@@ -1,11 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
-
-import { handleHookFormErrors } from "../../src/lib/handle_hook_form_errors";
-import { Box } from "../box/Box";
-
-import type { ReactNode } from "react";
-import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-import type { BoxProps } from "../box/Box";
+import { handleHookFormErrors } from "../../src/lib/handle_hook_form_errors"; import { Box } from "../box/Box";
+import type { ReactNode } from "react"; import type { FieldErrors, FieldValues, Resolver } from "react-hook-form"; import type { BoxProps } from "../box/Box";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	BoxProps,
@@ -20,15 +15,15 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	 * Function that will be called when form validation errors occur.
 	 */
 	handleErrors?:
-		| ((errors: FieldErrors) => Promise<void>)
-		| ((errors: FieldErrors) => void);
+	| ((errors: FieldErrors) => Promise<void>)
+	| ((errors: FieldErrors) => void);
 
 	/**
 	 * Function that will be called when the form is submitted.
 	 */
 	handleSubmit:
-		| ((fieldValues: TFieldValues) => Promise<void>)
-		| ((fieldValues: TFieldValues) => void);
+	| ((fieldValues: TFieldValues) => Promise<void>)
+	| ((fieldValues: TFieldValues) => void);
 
 	/**
 	 * Name of the form.
@@ -45,6 +40,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 /**
  * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
  */
+
 export function Form<TFieldValues extends FieldValues>({
 	children,
 	handleErrors = handleHookFormErrors,

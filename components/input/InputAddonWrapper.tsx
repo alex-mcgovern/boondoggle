@@ -1,6 +1,4 @@
-import { WithSize } from "../../src/common-types";
-import { InputAddonTab } from "./InputAddonTab";
-import { addonChildrenStyle, getAddonWrapperStyle } from "./styles.css";
+import { WithSize } from "../../src/common-types"; import { InputAddonTab } from "./InputAddonTab"; import { addonChildrenStyle, getAddonWrapperStyle } from "./styles.css";
 
 export type WithOptionalInputAddons = {
 	/**
@@ -16,6 +14,7 @@ export type WithOptionalInputAddons = {
 /**
  * Wraps the children with optional addons, left & right.
  */
+
 export function InputAddonWrapper({
 	addonLeft,
 	addonRight,

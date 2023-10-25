@@ -1,16 +1,11 @@
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
-
 import {
 	Tooltip as StoryComp,
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from ".";
-import { Button } from "../button/Button";
-import { Icon } from "../icon";
-
+} from "."; import { Button } from "../button"; import { Icon } from "../icon";
 import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {},
 	component: StoryComp,
@@ -20,11 +15,13 @@ const meta = {
 	title: "Components/Tooltip2",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 // @ts-expect-error todo: fix this
+
 export const Default: Story = {
 	render: () => {
 		return (
@@ -41,6 +38,7 @@ export const Default: Story = {
 };
 
 // @ts-expect-error todo: fix this
+
 export const DisabledTrigger: Story = {
 	render: () => {
 		return (
@@ -57,6 +55,7 @@ export const DisabledTrigger: Story = {
 };
 
 // @ts-expect-error todo: fix this
+
 export const DisabledButtonTrigger: Story = {
 	render: () => {
 		return (

@@ -6,10 +6,9 @@ import {
 	elementPadding,
 	elementPaddingRaw,
 } from "../../src/styles/common/element_size.css";
-import { btn } from "../button/Button.css";
+import { btn } from "../button/styles.css";
 import { disabled, focusStyleRule, motion, v } from "../../style.css";
 import { css } from "../../src/styles/utils/util_css.css";
-
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],
 	md: [elementPadding.md, { height: elementHeight.md }],

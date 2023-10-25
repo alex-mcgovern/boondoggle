@@ -3,7 +3,6 @@ import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { animateFadeIn, v } from "../../style.css";
 import { css } from "../../src/styles/utils/util_css.css";
-
 const placement = styleVariants({
 	"bottom-center": [
 		{

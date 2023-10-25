@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-
 type UseFieldVisibilityState = {
 	/**
 	 * Whether the input field value is visible or not.
@@ -10,6 +9,7 @@ type UseFieldVisibilityState = {
 /**
  * Hook to manage the visibility state of a field.
  */
+
 export function useFieldVisibilityState({
 	initialIsVisible,
 }: UseFieldVisibilityState) {

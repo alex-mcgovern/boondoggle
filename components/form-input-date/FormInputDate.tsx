@@ -1,15 +1,13 @@
 import { useController, useFormContext } from "react-hook-form";
-
 import type {
 	WithFormFieldProps,
 	WithOptionalPlaceholder,
-} from "../../src/common-types";
-import { InputDateProps, InputDate } from "../input-date";
-
+} from "../../src/common-types"; import { InputDateProps, InputDate } from "../input-date";
 /**
  * React Hook Form connected version of Boondoggle's `Input`. Uses `useFormContext`
  * to access Hook Form's methods so can be nested in markup. Must be a descendant of `FormProvider`
  */
+
 export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
 	WithOptionalPlaceholder &
 	WithFormFieldProps & {
@@ -18,6 +16,7 @@ export type FormInputDateProps = Omit<InputDateProps, "defaultValue"> &
 		 */
 		defaultValue?: string;
 	};
+
 
 export function FormInputDate({
 	defaultValue,

@@ -1,5 +1,4 @@
 import { isFlatSelectItems } from "./isFlatSelectItems";
-
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,

@@ -1,8 +1,5 @@
-import { Box } from "../../box/Box";
-import { getDialogModalOuterStyle } from "./DialogModalOuter.css";
-
+import { Box } from "../../box/Box"; import { getDialogModalOuterStyle } from "./DialogModalOuter.css";
 import type { ForwardedRef, ReactNode } from "react";
-
 type DialogModalOuterProps = {
 	/**
 	 * Children of the dialog element. Intended to accept only `DialogModalInner` component.
@@ -23,6 +20,7 @@ type DialogModalOuterProps = {
 /**
  * Renders a html dialog element and allows toggling the dialog's open state.
  */
+
 export function DialogModalOuter({
 	children,
 	dialogRef,

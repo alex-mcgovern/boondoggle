@@ -1,9 +1,7 @@
 import { RadioButtonGroup as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { RADIO_BUTTONS_MOCK } from "./mocks";
-
 import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {
 		errorMessage: LOREM.errorMessage(),
@@ -19,11 +17,14 @@ const meta = {
 	title: "Components/RadioButton",
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const Invalid: Story = {
 	args: {
@@ -32,12 +33,14 @@ export const Invalid: Story = {
 	},
 };
 
+
 export const DefaultValue: Story = {
 	args: {
 		defaultValue: RADIO_BUTTONS_MOCK[0].value,
 		items: RADIO_BUTTONS_MOCK,
 	},
 };
+
 
 export const WithHiddenLabel: Story = {
 	args: {

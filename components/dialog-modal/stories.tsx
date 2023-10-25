@@ -1,17 +1,6 @@
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
-import { createRef, useCallback } from "react";
-
-import { DialogModal as StoryComp } from ".";
-import { LOREM } from "../../mocks/LOREM.mock";
-import { Box } from "../box/Box";
-import { Button } from "../button/Button";
-import { DialogInfoBullet } from "./_components/DialogInfoBullet";
-import { DialogModalActionConfirm } from "./_components/DialogModalActionConfirm";
-import { DialogModalAlert } from "./_components/DialogModalAlert";
-import { Icon } from "../icon";
-
-import type { StoryFn, StoryObj } from "@storybook/react";
-import type { DialogModalProps as StoryCompProps } from ".";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons"; import { createRef, useCallback } from "react";
+import { DialogModal as StoryComp } from "."; import { LOREM } from "../../mocks/LOREM.mock"; import { Box } from "../box/Box"; import { Button } from "../button"; import { DialogInfoBullet } from "./_components/DialogInfoBullet"; import { DialogModalActionConfirm } from "./_components/DialogModalActionConfirm"; import { DialogModalAlert } from "./_components/DialogModalAlert"; import { Icon } from "../icon";
+import type { StoryFn, StoryObj } from "@storybook/react"; import type { DialogModalProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,
@@ -41,6 +30,7 @@ const DialogContent = () => {
 		</Box>
 	);
 };
+
 
 export const Default: StoryObj<StoryCompProps> = {
 	args: {
@@ -100,6 +90,7 @@ const ControlledTemplate: StoryFn<StoryCompProps> = ({
 	);
 };
 
+
 export const ControlledElement: StoryObj<StoryCompProps> = {
 	args: {
 		children: <DialogContent />,
@@ -107,6 +98,7 @@ export const ControlledElement: StoryObj<StoryCompProps> = {
 	},
 	render: ControlledTemplate,
 };
+
 
 export const IsLoading: StoryObj<StoryCompProps> = {
 	args: {
@@ -119,6 +111,7 @@ export const IsLoading: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const WidthSm: StoryObj<StoryCompProps> = {
 	args: {
 		children: <DialogContent />,
@@ -129,6 +122,7 @@ export const WidthSm: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const WidthLg: StoryObj<StoryCompProps> = {
 	args: {
 		children: <DialogContent />,
@@ -138,6 +132,7 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const WithAlert: StoryObj<StoryCompProps> = {
 	args: {
@@ -155,6 +150,7 @@ export const WithAlert: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const WithAlertWithColorOverlay: StoryObj<StoryCompProps> = {
 	args: {
 		alert: (
@@ -171,6 +167,7 @@ export const WithAlertWithColorOverlay: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const With1Action: StoryObj<StoryCompProps> = {
 	args: {
@@ -190,6 +187,7 @@ export const With1Action: StoryObj<StoryCompProps> = {
 	},
 	render: Template,
 };
+
 
 export const With2Actions: StoryObj<StoryCompProps> = {
 	args: {
@@ -221,6 +219,7 @@ export const With2Actions: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
+
 export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 	args: {
 		actions: (
@@ -242,25 +241,26 @@ export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 	render: Template,
 };
 
-export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
-	{
-		args: {
-			actions: (
-				<DialogModalActionConfirm
-					buttonText="Freeze account"
-					theme="red"
-					confirmText="freeze account"
-					onClick={() => {
-						alert("Confirmed");
-					}}
-					promptPrefix="Please type"
-					promptSuffix="to continue"
-				/>
-			),
 
-			children: <DialogContent />,
-			title: LOREM.text_md,
-			triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
-		},
-		render: Template,
-	};
+export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
+{
+	args: {
+		actions: (
+			<DialogModalActionConfirm
+				buttonText="Freeze account"
+				theme="red"
+				confirmText="freeze account"
+				onClick={() => {
+					alert("Confirmed");
+				}}
+				promptPrefix="Please type"
+				promptSuffix="to continue"
+			/>
+		),
+
+		children: <DialogContent />,
+		title: LOREM.text_md,
+		triggerNode: <Button name="dialog_trigger">Open dialog</Button>,
+	},
+	render: Template,
+};

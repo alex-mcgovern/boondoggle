@@ -3,14 +3,8 @@
  */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
-import { Slider } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-import "../../../test/mocked_dependencies/has_pointer_capture.mock";
-import "../../../test/mocked_dependencies/resize_observer.mock";
-
+import { Slider } from ".."; import { LOREM } from "../../../mocks/LOREM.mock"; import "../../../test/mocked_dependencies/has_pointer_capture.mock"; import "../../../test/mocked_dependencies/resize_observer.mock";
 import type { SliderProps } from "..";
-
 const PROPS: SliderProps = { name: LOREM.name() };
 
 const renderComponent = ({ ...props }: SliderProps) => {

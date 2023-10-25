@@ -1,10 +1,4 @@
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
-import { Pill as StoryComp } from ".";
-import { LOREM } from "../../mocks/LOREM.mock";
-import { Box } from "../box/Box";
-import { Icon } from "../icon";
-import type { StoryFn, StoryObj } from "@storybook/react";
-import type { PillProps as StoryCompProps } from ".";
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons"; import { Pill as StoryComp } from "."; import { LOREM } from "../../mocks/LOREM.mock"; import { Box } from "../box/Box"; import { Icon } from "../icon"; import type { StoryFn, StoryObj } from "@storybook/react"; import type { PillProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,
@@ -38,6 +32,7 @@ const TemplateSizes: StoryFn<StoryCompProps> = () => {
 		</Box>
 	);
 };
+
 
 export const Sizes: StoryObj<StoryCompProps> = {
 	render: TemplateSizes,
@@ -79,6 +74,7 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
 		</Box>
 	);
 };
+
 
 export const Colors: StoryObj<StoryCompProps> = {
 	render: TemplateColors,

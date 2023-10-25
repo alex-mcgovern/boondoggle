@@ -6,7 +6,6 @@ export type NativeEventInputType =
 	| "historyUndo"
 	| "historyRedo"
 	| "deleteSoftLineBackward";
-
 type GetCursorPositionArgs = {
 	formattedValue: string | undefined;
 	incomingValue: string | undefined;

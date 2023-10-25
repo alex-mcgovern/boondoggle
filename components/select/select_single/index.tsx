@@ -1,13 +1,5 @@
 "use client";
-
-import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
-import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
-import { useCombobox } from "downshift";
-import type { UseComboboxStateChange } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
-import type { ForwardedRef } from "react";
-import { getOptionalLabelProps } from "../../../src/common-types";
-import type {
+import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react"; import { faAngleDown } from "@fortawesome/pro-solid-svg-icons"; import { useCombobox } from "downshift"; import type { UseComboboxStateChange } from "downshift"; import { forwardRef, useCallback, useState } from "react"; import type { ForwardedRef } from "react"; import { getOptionalLabelProps } from "../../../src/common-types"; import type {
 	WithDescription,
 	WithName,
 	WithOptionalIsClearable,
@@ -17,26 +9,12 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-} from "../../../src/common-types";
-import { useForwardRef } from "../../../src/hooks/use_forward_ref";
-import { UtilCssArgs } from "../../../src/styles/utils/util_css.css";
-import { Box } from "../../box/Box";
-import { Icon } from "../../icon";
-import { SelectItemList } from "../SelectItemList";
-import { filterSelectItems } from "../filterSelectItems";
-import { flattenSelectItems } from "../flattenSelectItems";
-import { getInitialSelectedItem } from "../getInitialSelectedItem";
-import { getIsSelected } from "../getIsSelected";
-import { getSlotRight } from "../lib/get_slot_right";
-import { selectInputCursorStyles } from "../shared/select_input.styles.css";
-import type {
+} from "../../../src/common-types"; import { useForwardRef } from "../../../src/hooks/use_forward_ref"; import { UtilCssArgs } from "../../../src/styles/utils/util_css.css"; import { Box } from "../../box/Box"; import { Icon } from "../../icon"; import { SelectItemList } from "../SelectItemList"; import { filterSelectItems } from "../filterSelectItems"; import { flattenSelectItems } from "../flattenSelectItems"; import { getInitialSelectedItem } from "../getInitialSelectedItem"; import { getIsSelected } from "../getIsSelected"; import { getSlotRight } from "../lib/get_slot_right"; import { selectInputCursorStyles } from "../shared/select_input.styles.css"; import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 	WithOptionalIsFilterable,
-} from "../types";
-import { Input, InputProps } from "../../input";
-import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
+} from "../types"; import { Input, InputProps } from "../../input"; import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
 
 export type SelectSingleProps<
 	TValue extends string = string,
@@ -104,8 +82,8 @@ export type SelectSingleProps<
 		 * The items to render in the dropdown.
 		 */
 		items:
-			| FlatSelectItems<TValue, TItemData>
-			| GroupedSelectItems<TValue, TItemData>;
+		| FlatSelectItems<TValue, TItemData>
+		| GroupedSelectItems<TValue, TItemData>;
 
 		/**
 		 * Function called with the new selected item when the selection changes.
@@ -325,5 +303,6 @@ function SelectSingleBase<
 		</Box>
 	);
 }
+
 
 export const SelectSingle = forwardRef(SelectSingleBase);

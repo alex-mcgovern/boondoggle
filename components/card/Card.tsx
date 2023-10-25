@@ -1,6 +1,4 @@
-import { Box } from "../box/Box";
-import { CardActionsWrapper } from "./_components/CardActionsWrapper";
-
+import { Box } from "../box/Box"; import { CardActionsWrapper } from "./_components/CardActionsWrapper";
 import type { ReactNode } from "react";
 
 export type CardProps = {
@@ -33,6 +31,7 @@ export type CardProps = {
 /**
  * The card component is used to group related content together.
  */
+
 export function Card({
 	actions,
 	children,

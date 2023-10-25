@@ -1,11 +1,8 @@
-import { Box } from "../../box/Box";
-import {
+import { Box } from "../../box/Box"; import {
 	dialogContentOuterStyle,
 	getDialogContentInnerStyle,
 } from "./DialogModalContent.css";
-
 import type { ReactNode } from "react";
-
 type DialogModalContentProps = {
 	/**
 	 * An Alert shown at the top of the dialog modal component.
@@ -26,6 +23,7 @@ type DialogModalContentProps = {
 /**
  * Renders a scrollable container for dialog content.
  */
+
 export function DialogModalContent({
 	alert,
 	children,

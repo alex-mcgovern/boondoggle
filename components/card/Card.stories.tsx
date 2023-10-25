@@ -5,7 +5,6 @@ import { Input } from "../input";
 import { SkeletonInput } from "../skeletons/SkeletonInput";
 import { Card as StoryComp } from "./Card";
 import { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	title: "Components/Card",
 	component: StoryComp,
@@ -23,16 +22,20 @@ const meta = {
 	},
 } satisfies Meta<typeof StoryComp>;
 
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {};
+
 
 export const WithTitle: Story = {
 	args: {
 		title: LOREM.text_xxs,
 	},
 };
+
 
 export const WithTitleAndInputs: Story = {
 	args: {
@@ -50,12 +53,14 @@ export const WithTitleAndInputs: Story = {
 	},
 };
 
+
 export const WithTitleAndDescription: Story = {
 	args: {
 		title: LOREM.text_xxs,
 		description: LOREM.text_md,
 	},
 };
+
 
 export const WithActions: Story = {
 	args: {

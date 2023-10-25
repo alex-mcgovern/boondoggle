@@ -1,15 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { userEvent } from "@storybook/testing-library";
-import { render, waitFor } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
-
-import { DatePicker } from "../DatePicker";
-import { LOREM } from "../../../mocks/LOREM.mock";
-
+import { userEvent } from "@storybook/testing-library"; import { render, waitFor } from "@testing-library/react"; import { act } from "react-dom/test-utils";
+import { DatePicker } from "../DatePicker"; import { LOREM } from "../../../mocks/LOREM.mock";
 import type { DatePickerProps } from "../DatePicker";
-
 const onDayClick = jest.fn();
 
 const PROPS: DatePickerProps = {

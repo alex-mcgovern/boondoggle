@@ -1,16 +1,5 @@
 "use client";
-
-import { useDatePicker } from "@rehookify/datepicker";
-import clsx from "clsx";
-import { forwardRef, useCallback, useState } from "react";
-import { Box } from "../box/Box";
-import { DatePickerControls } from "./components/date_picker_controls.comp";
-import { DatePickerDays } from "./components/date_picker_days.comp";
-import { DatePickerYears } from "./components/date_picker_years.comp";
-import * as styles from "./DatePicker.css";
-import type { MouseEvent, Ref } from "react";
-import type { BoxProps } from "../box/Box";
-import { theme } from "../../style.css";
+import { useDatePicker } from "@rehookify/datepicker"; import clsx from "clsx"; import { forwardRef, useCallback, useState } from "react"; import { Box } from "../box/Box"; import { DatePickerControls } from "./components/date_picker_controls.comp"; import { DatePickerDays } from "./components/date_picker_days.comp"; import { DatePickerYears } from "./components/date_picker_years.comp"; import * as styles from "./DatePicker.css"; import type { MouseEvent, Ref } from "react"; import type { BoxProps } from "../box/Box"; import { theme } from "../../style.css";
 
 export type DatePickerProps = {
 	/**
@@ -23,6 +12,7 @@ export type DatePickerProps = {
 	 */
 	onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
 } & BoxProps;
+
 
 export const DatePicker = forwardRef(
 	(

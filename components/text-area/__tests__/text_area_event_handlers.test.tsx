@@ -4,12 +4,8 @@
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
-
-import { TextArea } from "..";
-import { LOREM } from "../../../mocks/LOREM.mock";
-
+import { TextArea } from ".."; import { LOREM } from "../../../mocks/LOREM.mock";
 import type { TextAreaProps } from "..";
-
 afterEach(cleanup);
 
 const renderComponent = (props: TextAreaProps) => {

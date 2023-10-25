@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-
 /* @ts-expect-error non-prod code */
+
 export function useTraceUpdate(props) {
 	const prev = useRef(props);
 	useEffect(() => {

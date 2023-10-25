@@ -1,7 +1,4 @@
-import { SelectSingle } from ".";
-import { LOREM } from "../../../../mocks/LOREM.mock";
-import { mockSelectItems } from "../__mocks__/select.mock";
-
+import { SelectSingle } from "."; import { LOREM } from "../../../../mocks/LOREM.mock"; import { mockSelectItems } from "../__mocks__/select.mock";
 describe("<SelectSingle />", () => {
 	it("mounts", () => {
 		cy.mount(

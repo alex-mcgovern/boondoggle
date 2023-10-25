@@ -1,5 +1,4 @@
 import { getInitials } from "./getInitials";
-
 test("getInitials", () => {
 	expect(getInitials({ fullName: "Alex McGovern Smith" })).toBe("AM");
 

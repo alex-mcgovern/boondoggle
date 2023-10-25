@@ -1,7 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
-
 import { v } from "../../style.css";
-
 const animationLoading = keyframes({
 	to: { backgroundPositionX: "-20%" },
 });

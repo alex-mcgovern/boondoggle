@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-
 type LinkProps = {
 	children: ReactNode;
 
@@ -7,6 +6,7 @@ type LinkProps = {
 
 	id?: string;
 };
+
 
 export function Link({ children, href, ...rest }: LinkProps) {
 	return (

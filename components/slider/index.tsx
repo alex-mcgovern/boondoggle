@@ -1,15 +1,4 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
-import * as RadixSlider from "@radix-ui/react-slider";
-import clsx from "clsx";
-import { forwardRef } from "react";
-import { css } from "../../src/styles/utils/util_css.css";
-import { Box } from "../box/Box";
-import { FieldErrorMessage } from "../field-error-message";
-import { FieldLabel } from "../field-label";
-import * as styles from "./styles.css";
-import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
-import type { AriaRole, Ref } from "react";
-import type {
+import { extractAtomsFromProps } from "@dessert-box/core"; import * as RadixSlider from "@radix-ui/react-slider"; import clsx from "clsx"; import { forwardRef } from "react"; import { css } from "../../src/styles/utils/util_css.css"; import { Box } from "../box/Box"; import { FieldErrorMessage } from "../field-error-message"; import { FieldLabel } from "../field-label"; import * as styles from "./styles.css"; import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider"; import type { AriaRole, Ref } from "react"; import type {
 	WithName,
 	WithOptionalLabel,
 	WithSize,
@@ -17,10 +6,7 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 	WithWrapperProps,
-} from "../../src/common-types";
-import type { UtilCssArgs } from "../../src/styles/utils/util_css.css";
-import { SlotWrapper } from "../_utility/slot_wrapper";
-import { theme } from "../../style.css";
+} from "../../src/common-types"; import type { UtilCssArgs } from "../../src/styles/utils/util_css.css"; import { SlotWrapper } from "../_utility/slot_wrapper"; import { theme } from "../../style.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
 	UtilCssArgs &
@@ -41,6 +27,7 @@ export type SliderProps = Omit<RadixSliderProps, "color"> &
 		 */
 		role?: AriaRole;
 	};
+
 
 export const Slider = forwardRef(
 	(
