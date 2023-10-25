@@ -6,14 +6,12 @@
 	"license": "MIT",
 	"type": "module",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"exports": {
 		"./*": {
 			"import": "./dist/*",
 			"require": "./dist/*",
-			"types": "./dist/index.ts"
+			"types": "./dist/index.d.ts"
 		}
 	},
 	"sideEffects": false,
