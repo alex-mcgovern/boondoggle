@@ -8,7 +8,6 @@ export default defineConfig({
 	plugins: [
 		react(),
 		vanillaExtractPlugin({
-			emitCssInSsr: true,
 			identifiers:
 				process.env.NODE_ENV === "production" ? "short" : "debug",
 		}),
@@ -38,6 +37,7 @@ export default defineConfig({
 			],
 			output: {
 				preserveModules: true,
+				preserveModulesRoot: "components",
 			},
 		},
 	},
