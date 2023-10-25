@@ -15,7 +15,7 @@ export default defineConfig({
 	build: {
 		minify: false,
 		lib: {
-			entry: [path.resolve(__dirname, "components/button/index.ts")],
+			entry: [path.resolve(__dirname, "components/index.ts")],
 			name: "boondoggle.design",
 			formats: ["es"],
 		},

@@ -6,9 +6,10 @@
 	"license": "MIT",
 	"type": "module",
 	"types": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"sideEffects": false,
 	"exports": {
 		"./*": {
 			"import": "./dist/*",
