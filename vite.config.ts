@@ -11,8 +11,7 @@ export default defineConfig({
 			identifiers: "debug",
 		}),
 		dts({
-			entryRoot: "components",
-			include: "components/*/index.tsx",
+			rollupTypes: true,
 		}),
 	],
 	build: {
