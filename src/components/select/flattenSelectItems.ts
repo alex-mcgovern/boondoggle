@@ -28,6 +28,7 @@ export function flattenSelectItems<
 	return items.reduce(
 		(prev: Array<SelectItemShape<TValue, TItemData>>, acc) => {
 			return [
+				// biome-ignore lint/performance/noAccumulatingSpread: ToDo: remove accumulating spread
 				...prev,
 				...(acc.items.filter((item) => {
 					return item !== "SEPARATOR";

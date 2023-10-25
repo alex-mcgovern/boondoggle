@@ -118,7 +118,7 @@ export function useDataTableState<TData extends RowData>({
 
 			return onSelect?.(undefined);
 		},
-		[data, onSelect],
+		[data, onSelect, isSelectable],
 	);
 
 	const columnHelper = createColumnHelper<TData>();

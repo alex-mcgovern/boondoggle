@@ -59,5 +59,5 @@ export function useClickOutside<
 
 			document.removeEventListener("keydown", handleEscape);
 		};
-	});
+	}, [triggerRef, callback, contentRef]);
 }

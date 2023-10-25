@@ -41,8 +41,8 @@ export type DialogModalFormProps<
 	 * Function that will be called when the form is submitted.
 	 */
 	handleSubmit:
-	| ((fieldValues: TFieldValues) => Promise<void>)
-	| ((fieldValues: TFieldValues) => void);
+		| ((fieldValues: TFieldValues) => Promise<void>)
+		| ((fieldValues: TFieldValues) => void);
 
 	/**
 	 * Whether the dialog modal is in an error state.

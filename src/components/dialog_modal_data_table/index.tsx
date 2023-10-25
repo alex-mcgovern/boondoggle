@@ -85,9 +85,9 @@ export type DialogModalDataTableProps<TData> = WithTableOptionalPagination &
 		 * Function to call when the "Try again" button is clicked.
 		 */
 		onClickTryAgain?:
-		| (() => unknown)
-		| (() => Promise<unknown>)
-		| undefined;
+			| (() => unknown)
+			| (() => Promise<unknown>)
+			| undefined;
 
 		/**
 		 * Description of the error.

@@ -15,5 +15,5 @@ export function useTraceUpdate(props) {
 			console.info("Changed props:", changedProps);
 		}
 		prev.current = props;
-	});
+	}, [props]);
 }

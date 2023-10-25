@@ -149,7 +149,7 @@ function InputBase(
 				selectionRange.end,
 			);
 		}
-	}, [inputRef, selectionRange, value]);
+	}, [inputRef, selectionRange]);
 
 	const focus = React.useCallback(() => {
 		inputRef.current?.focus();

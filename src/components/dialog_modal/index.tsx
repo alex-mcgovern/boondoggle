@@ -1,19 +1,19 @@
 import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef } from "react";
+import type { ReactNode } from "react";
 import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";
+import type { BoxProps } from "../box";
 import { DialogModalActions } from "../dialog_modal_actions";
+import type { DialogModalActionsProps } from "../dialog_modal_actions";
 import { DialogModalContent } from "../dialog_modal_content";
 import { DialogModalErrorMessage } from "../dialog_modal_error_message";
 import { DialogModalHeader } from "../dialog_modal_header";
 import { DialogModalInner } from "../dialog_modal_inner";
+import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "../dialog_modal_outer";
 import { LoaderFullScreen } from "../loader_full_screen";
-import type { ReactNode } from "react";
-import type { BoxProps } from "../box";
-import type { DialogModalActionsProps } from "../dialog_modal_actions";
-import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
 
 export type DialogModalProps = {
 	/**
@@ -128,9 +128,7 @@ export const DialogModal = forwardRef<HTMLDialogElement, DialogModalProps>(
 					</RadixSlot.Slot>
 				)}
 
-				<DialogModalOuter
-					isOpen={isOpen}
-					dialogRef={dialogRef}>
+				<DialogModalOuter isOpen={isOpen} dialogRef={dialogRef}>
 					<DialogModalInner width={width}>
 						<DialogModalHeader
 							closeDialog={closeDialog}

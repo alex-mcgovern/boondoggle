@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 import { currencyFormatter } from "./currency_formatter";
 import { currencyParser } from "./currency_parser";
@@ -47,7 +47,7 @@ export function useFormattedCurrency({
 		raw: (defaultValue?.toString() || controlledValue?.toString()) ?? "",
 	});
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		setValue((old) => {
 			return {
 				formatted: currencyFormatter({
@@ -58,7 +58,7 @@ export function useFormattedCurrency({
 				selection: old.selection,
 			};
 		});
-	}, [controlledValue, defaultValue, locale]);
+	}, [locale]);
 
 	const onChange = useCallback(
 		(e: ChangeEvent<HTMLInputElement>) => {
