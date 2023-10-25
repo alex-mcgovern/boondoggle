@@ -9,60 +9,6 @@
 		".git": true,
 		"dist/**/*": true
 	},
-	"commentBox.styles": {
-		"h1": {
-			"bottomEdgeToken": "-",
-			"bottomLeftToken": "* ",
-			"boxWidth": 80,
-			"capitalize": true,
-			"commentEndToken": "- */",
-			"commentStartToken": "/** ",
-			"leftEdgeToken": "* ",
-			"rightEdgeToken": "",
-			"textAlignment": "left",
-			"topEdgeToken": "-",
-			"topRightToken": "-"
-		},
-		"h1_JSX": {
-			"bottomEdgeToken": "-",
-			"bottomLeftToken": "* ",
-			"boxWidth": 80,
-			"capitalize": true,
-			"commentEndToken": "- */}",
-			"commentStartToken": "{/** ",
-			"leftEdgeToken": "* ",
-			"rightEdgeToken": "",
-			"textAlignment": "left",
-			"topEdgeToken": "-",
-			"topRightToken": "-"
-		},
-		"h2": {
-			"bottomEdgeToken": "-",
-			"bottomLeftToken": "* ",
-			"boxWidth": 48,
-			"capitalize": true,
-			"commentEndToken": "- */",
-			"commentStartToken": "/** ",
-			"leftEdgeToken": "* ",
-			"rightEdgeToken": "",
-			"textAlignment": "left",
-			"topEdgeToken": "-",
-			"topRightToken": "-"
-		},
-		"h2_JSX": {
-			"bottomEdgeToken": "-",
-			"bottomLeftToken": "* ",
-			"boxWidth": 48,
-			"capitalize": true,
-			"commentEndToken": "- */}",
-			"commentStartToken": "{/** ",
-			"leftEdgeToken": "* ",
-			"rightEdgeToken": "",
-			"textAlignment": "left",
-			"topEdgeToken": "-",
-			"topRightToken": "-"
-		}
-	},
 	"cSpell.language": "en-GB",
 	"cSpell.words": [
 		"arrowdown",

@@ -8,8 +8,7 @@ export default defineConfig({
 	plugins: [
 		react(),
 		vanillaExtractPlugin({
-			identifiers:
-				process.env.NODE_ENV === "production" ? "short" : "debug",
+			identifiers: "debug",
 		}),
 		dts({ rollupTypes: true }),
 	],
