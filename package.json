@@ -5,17 +5,9 @@
 	"version": "0.14.152-12",
 	"license": "MIT",
 	"type": "module",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"sideEffects": false,
-	"exports": {
-		"./*": {
-			"import": "./*",
-			"require": "./*",
-			"types": "./*"
-		}
-	},
+
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
