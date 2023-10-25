@@ -2,13 +2,15 @@
 	"author": "Alex McGovern",
 	"name": "boondoggle",
 	"description": "Boondoggle design system component library",
-	"version": "0.14.152-18",
+	"version": "0.14.152-19",
 	"license": "MIT",
 	"type": "module",
 	"types": "dist/index.d.ts",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"sideEffects": false,
 	"repository": {
 		"type": "git",
