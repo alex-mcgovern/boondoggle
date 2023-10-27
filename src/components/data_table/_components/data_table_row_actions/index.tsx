@@ -26,7 +26,7 @@ export function DataTableRowActions({ items }: DataTableRowActionsProps) {
 			// eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
 			buttonProps={{
 				appearance: "secondary",
-				name: "select_button_data_table_team",
+				name: "row_actions",
 				onClick: (e: ChangeEvent<HTMLButtonElement>) => {
 					return e.stopPropagation(); // Prevent triggering the row click event if there is one
 				},
