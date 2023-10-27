@@ -21,7 +21,7 @@ export function Tab({
 						</Pill>
 					) : undefined
 				}
-				appearance="ghost"
+				appearance="link"
 			>
 				{children}
 			</Button>

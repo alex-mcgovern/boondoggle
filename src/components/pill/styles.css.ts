@@ -7,9 +7,28 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { utilCss } from "../../styles/utils/util_css.css";
 
 const pillSize = styleVariants({
-	lg: [utilCss({ height: "space_10", minWidth: "space_10" })],
-	md: [utilCss({ height: "space_8", minWidth: "space_8" })],
-	sm: [utilCss({ height: "space_6", minWidth: "space_6" })],
+	lg: [
+		utilCss({
+			height: "space_8",
+			minWidth: "space_8",
+			paddingX: "space_3",
+			paddingY: "space_2",
+		}),
+	],
+	md: [
+		utilCss({
+			height: "space_6",
+			minWidth: "space_6",
+			paddingX: "space_2",
+			paddingY: "space_1",
+		}),
+	],
+	sm: [
+		utilCss({
+			height: "space_4",
+			minWidth: "space_4",
+		}),
+	],
 });
 
 export const getPillStyle = recipe({
@@ -23,11 +42,8 @@ export const getPillStyle = recipe({
 			color: "text_low_contrast",
 			flexShrink: "0",
 			fontWeight: "medium",
-			paddingX: "space_2",
-			paddingY: "space_1",
 			textDecoration: "none",
 			whiteSpace: "nowrap",
-			width: "max-content",
 		}),
 		{
 			verticalAlign: "middle",

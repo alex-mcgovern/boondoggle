@@ -30,6 +30,7 @@ export const tab = recipe({
 		utilCss({
 			flexShrink: "0",
 			paddingBottom: "space_1",
+			paddingX: "space_4",
 		}),
 	],
 	defaultVariants: {
