@@ -33,7 +33,7 @@ export const getPillStyle = recipe({
 			display: "inline-flex",
 			fontSize: "bodySm",
 			alignItems: "center",
-			background: "tint_hover",
+			background: "tint_active",
 			borderRadius: "pill",
 			color: "text_low_contrast",
 			flexShrink: "0",
@@ -52,7 +52,6 @@ export const getPillStyle = recipe({
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
 					background: vars.color.tint_active,
-					borderColor: vars.color.border_default,
 				},
 			},
 		},

@@ -80,10 +80,10 @@ const variantAppearance = styleVariants({
 			color: vars.color.text_high_contrast,
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_active,
+					background: vars.color.tint_hover,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_hover,
+					background: vars.color.tint_default,
 				},
 			},
 		},
@@ -111,15 +111,14 @@ const variantAppearance = styleVariants({
 		{
 			color: vars.color.text_high_contrast,
 			selectors: {
-				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_hover,
-					textDecoration: "none",
+				selectors: {
+					[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+						background: vars.color.tint_hover,
+					},
+					[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
+						background: vars.color.tint_default,
+					},
 				},
-				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_active,
-					fontWeight: vars.fontWeight.medium,
-				},
-				/* eslint-enable sort-keys-fix/sort-keys-fix */
 			},
 		},
 	],
