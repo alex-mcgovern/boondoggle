@@ -3,10 +3,10 @@ import { FieldsGrid } from "../fields_grid";
 import { Skeleton } from "./Skeleton";
 import { SkeletonInput } from "./SkeletonInput";
 
-export function SkeletonCardFields() {
+export function SkeletonCardFields({ withTitle = true }: { withTitle?: boolean }) {
 	return (
 		<Card>
-			<Skeleton marginBottom="space_8" __maxWidth="10rem" />
+			{withTitle ? <Skeleton marginBottom="space_8" __maxWidth="10rem" /> : null}
 
 			<FieldsGrid>
 				<SkeletonInput />
