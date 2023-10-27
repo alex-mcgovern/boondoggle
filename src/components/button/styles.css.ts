@@ -79,11 +79,11 @@ const variantAppearance = styleVariants({
 		{
 			color: vars.color.text_high_contrast,
 			selectors: {
-				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_hover,
-				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.tint_default,
+				},
+				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+					background: vars.color.tint_hover,
 				},
 			},
 		},
@@ -92,11 +92,11 @@ const variantAppearance = styleVariants({
 	link: [
 		{
 			selectors: {
-				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					color: vars.color.button_active,
-				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					color: vars.color.button_default,
+				},
+				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+					color: vars.color.button_active,
 				},
 			},
 		},
@@ -112,11 +112,11 @@ const variantAppearance = styleVariants({
 			color: vars.color.text_high_contrast,
 			selectors: {
 				selectors: {
-					[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-						background: vars.color.tint_hover,
-					},
 					[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 						background: vars.color.tint_default,
+					},
+					[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
+						background: vars.color.tint_hover,
 					},
 				},
 			},
@@ -136,7 +136,6 @@ const variantAppearance = styleVariants({
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
 					background: vars.color.button_active,
 				},
-				/* eslint-enable sort-keys-fix/sort-keys-fix */
 			},
 		},
 	],
@@ -157,7 +156,6 @@ const variantAppearance = styleVariants({
 					borderColor: vars.color.button_default,
 					color: vars.color.button_default,
 				},
-				/* eslint-enable sort-keys-fix/sort-keys-fix */
 			},
 		},
 	],
