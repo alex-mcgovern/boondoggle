@@ -5,7 +5,6 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
-import { exhaustiveSwitchGuard } from "../../lib/exhaustive_switch_guard";
 import { variantColorOverlay } from "../../styles/theme.css";
 import { utilCss } from "../../styles/utils/util_css.css";
 import { Loader } from "../loader";
