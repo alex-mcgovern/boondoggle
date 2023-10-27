@@ -3,15 +3,9 @@
  * https://blog.logrocket.com/build-strongly-typed-polymorphic-components-react-typescript/
  */
 import { extractAtomsFromProps } from "@dessert-box/core";
+import type { Placement } from "@floating-ui/react";
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
-import { variantColorOverlay } from "../../styles/theme.css";
-import { utilCss } from "../../styles/utils/util_css.css";
-import { Loader } from "../loader";
-import { SlotWrapper } from "../slot_wrapper";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
-import { getButtonStyles } from "./styles.css";
-import type { Placement } from "@floating-ui/react";
 import type {
 	ComponentProps,
 	ElementType,
@@ -26,9 +20,14 @@ import type {
 	WithStateDisabled,
 } from "../../common-types";
 import type { ElementSizeEnum } from "../../styles/common/element_size.css";
+import { variantColorOverlay } from "../../styles/theme.css";
+import { utilCss } from "../../styles/utils/util_css.css";
 import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+import { Loader } from "../loader";
+import { SlotWrapper } from "../slot_wrapper";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
+import { getButtonStyles } from "./styles.css";
 import type { Alignment, Appearance } from "./styles.css";
-
 
 const getLoadingSlotSide = ({
 	slotLeft,
@@ -47,61 +46,61 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithStateDisabled &
-		WithSlots & {
-			/**
-			 * Forces the button's active state
-			 */
-			active?: boolean;
+			WithSlots & {
+				/**
+				 * Forces the button's active state
+				 */
+				active?: boolean;
 
-			/**
-			 * Controls the horizontal alignment of the button's content.
-			 */
-			alignment?: Alignment;
+				/**
+				 * Controls the horizontal alignment of the button's content.
+				 */
+				alignment?: Alignment;
 
-			/**
-			 * Controls the button's appearance.
-			 */
-			appearance?: Appearance;
+				/**
+				 * Controls the button's appearance.
+				 */
+				appearance?: Appearance;
 
-			/**
-			 * The React node shown in the button.
-			 */
-			children?: ReactNode;
+				/**
+				 * The React node shown in the button.
+				 */
+				children?: ReactNode;
 
-			/**
-			 * Whether to show a loader on first render
-			 */
-			isLoading?: boolean;
+				/**
+				 * Whether to show a loader on first render
+				 */
+				isLoading?: boolean;
 
-			/**
-			 * The title for the button, shown in the UI.
-			 */
-			name: string;
+				/**
+				 * The title for the button, shown in the UI.
+				 */
+				name: string;
 
-			/**
-			 * The size of the button.
-			 */
-			size?:
-			| "square_md"
-			| "square_sm"
-			| "square_xs"
-			| ElementSizeEnum;
+				/**
+				 * The size of the button.
+				 */
+				size?:
+					| "square_md"
+					| "square_sm"
+					| "square_xs"
+					| ElementSizeEnum;
 
-			/**
-			 * The tooltip to show on hover
-			 */
-			strTooltip?: string;
+				/**
+				 * The tooltip to show on hover
+				 */
+				strTooltip?: string;
 
-			/**
-			 * The placement of the tooltip relative to the trigger.
-			 */
-			tooltipPlacement?: Placement;
+				/**
+				 * The placement of the tooltip relative to the trigger.
+				 */
+				tooltipPlacement?: Placement;
 
-			/**
-			 * The HTML button type, defaults to `button`.
-			 */
-			type?: "button" | "submit" | "reset";
-		} & WithColorOverlay
+				/**
+				 * The HTML button type, defaults to `button`.
+				 */
+				type?: "button" | "submit" | "reset";
+			} & WithColorOverlay
 	>;
 
 type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(

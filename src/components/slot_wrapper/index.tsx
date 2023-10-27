@@ -1,9 +1,9 @@
 import { Children, forwardRef } from "react";
-import { Box } from "../box";
-import * as styles from "./styles.css";
 import type { ReactNode, Ref } from "react";
 import type { WithSlots } from "../../common-types";
+import { Box } from "../box";
 import type { BoxProps } from "../box";
+import * as styles from "./styles.css";
 
 export type SlotWrapperProps = BoxProps &
 	WithSlots & {
