@@ -11,16 +11,12 @@ const pillSize = styleVariants({
 		utilCss({
 			height: "space_8",
 			minWidth: "space_8",
-			paddingX: "space_3",
-			paddingY: "space_2",
 		}),
 	],
 	md: [
 		utilCss({
 			height: "space_6",
 			minWidth: "space_6",
-			paddingX: "space_2",
-			paddingY: "space_1",
 		}),
 	],
 	sm: [
