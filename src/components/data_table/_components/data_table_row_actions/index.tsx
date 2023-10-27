@@ -34,7 +34,7 @@ export function DataTableRowActions({ items }: DataTableRowActionsProps) {
 				width: "min-content",
 			}}
 			items={items}
-			name="select_button_data_table_team"
+			name="row_actions"
 			placement="bottom-end"
 			slotRight={<Icon icon={faEllipsis} />}
 			wrapperProps={{
