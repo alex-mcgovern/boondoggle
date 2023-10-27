@@ -9,20 +9,20 @@ import { utilCss } from "../../styles/utils/util_css.css";
 const pillSize = styleVariants({
 	lg: [
 		utilCss({
-			height: "space_8",
-			minWidth: "space_8",
+			height: "space_10",
+			minWidth: "space_10",
 		}),
 	],
 	md: [
 		utilCss({
-			height: "space_6",
-			minWidth: "space_6",
+			height: "space_8",
+			minWidth: "space_8",
 		}),
 	],
 	sm: [
 		utilCss({
-			height: "space_4",
-			minWidth: "space_4",
+			height: "space_6",
+			minWidth: "space_6",
 		}),
 	],
 });
