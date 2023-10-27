@@ -25,3 +25,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const WithCount: Story = {
+	args: {
+		tabs: [
+			{
+				name: "tab_1",
+				children: "Tab 1",
+				active: true,
+				count: 1,
+			},
+			{
+				name: "tab_1",
+				children: "Tab 1",
+				active: false,
+				count: 23,
+			},
+		],
+	},
+};

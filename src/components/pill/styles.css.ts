@@ -1,6 +1,5 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../styles/common/selectors.css";
 import { variantColorOverlay, vars } from "../../styles/theme.css";
@@ -8,38 +7,31 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 import { utilCss } from "../../styles/utils/util_css.css";
 
 const pillSize = styleVariants({
-	lg: [
-		utilCss({
-			fontStyle: "bodyMd",
-		}),
-	],
-	md: [
-		utilCss({
-			fontStyle: "bodySm",
-		}),
-	],
-	sm: [
-		utilCss({
-			fontStyle: "bodySm",
-		}),
-	],
+	lg: [utilCss({ height: "space_10", minWidth: "space_10" })],
+	md: [utilCss({ height: "space_8", minWidth: "space_8" })],
+	sm: [utilCss({ height: "space_6", minWidth: "space_6" })],
 });
 
 export const getPillStyle = recipe({
 	base: [
 		utilCss({
+			display: "inline-flex",
+			fontSize: "bodySm",
 			alignItems: "center",
 			background: "tint_hover",
 			borderRadius: "pill",
 			color: "text_low_contrast",
 			flexShrink: "0",
-			fontWeight: "normal",
+			fontWeight: "medium",
 			paddingX: "space_2",
 			paddingY: "space_1",
 			textDecoration: "none",
 			whiteSpace: "nowrap",
 			width: "max-content",
 		}),
+		{
+			verticalAlign: "middle",
+		},
 		a11yFocus,
 		createAccessibleTransition({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
