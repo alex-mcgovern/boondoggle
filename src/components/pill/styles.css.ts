@@ -33,6 +33,7 @@ export const getPillStyle = recipe({
 			display: "inline-flex",
 			fontSize: "bodySm",
 			alignItems: "center",
+			justifyContent: "center",
 			background: "tint_active",
 			borderRadius: "pill",
 			color: "text_low_contrast",
@@ -40,6 +41,8 @@ export const getPillStyle = recipe({
 			fontWeight: "medium",
 			textDecoration: "none",
 			whiteSpace: "nowrap",
+			paddingX: "space_2",
+			paddingY: "space_1",
 		}),
 		{
 			verticalAlign: "middle",

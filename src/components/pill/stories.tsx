@@ -82,3 +82,9 @@ const TemplateColors: StoryFn<StoryCompProps> = () => {
 export const Colors: StoryObj<StoryCompProps> = {
 	render: TemplateColors,
 };
+
+export const WithNumber: StoryObj<StoryCompProps> = {
+	args: {
+		children: 1,
+	},
+};
