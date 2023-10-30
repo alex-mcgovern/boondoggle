@@ -15,7 +15,7 @@ export function Tab({
 			<Button
 				{...rest}
 				slotRight={
-					count ? (
+					typeof count === "number" ? (
 						<Pill colorOverlay="blue" size="sm">
 							{count}
 						</Pill>
