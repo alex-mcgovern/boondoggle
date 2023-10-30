@@ -20,7 +20,7 @@ export const radioButtonCardLabelStyles = style([
 	a11yFocus,
 	utilCss({
 		alignItems: "center",
-		aspectRatio: "square",
+		// aspectRatio: "square",
 		border: "border_default",
 		borderRadius: "sm",
 		display: "flex",
@@ -34,7 +34,7 @@ export const radioButtonCardLabelStyles = style([
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),
 		accentColor: vars.color.button_default,
-		maxWidth: "12rem",
+		// maxWidth: "12rem",
 		selectors: {
 			"&:has(input:checked)": {
 				background: vars.color.tint_default,
