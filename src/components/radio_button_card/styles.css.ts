@@ -25,9 +25,11 @@ export const radioButtonCardLabelStyles = style([
 		borderRadius: "sm",
 		display: "flex",
 		gap: "space_4",
+		flexShrink: "1",
+		flexGrow: "1",
 		justifyContent: "center",
 		padding: "space_4",
-		width: "100%",
+		// width: "100%",
 	}),
 	{
 		...createAccessibleTransition({
