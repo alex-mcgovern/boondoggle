@@ -4,7 +4,7 @@ import { Skeleton } from "./Skeleton";
 import { SkeletonInput } from "./SkeletonInput";
 
 export function SkeletonCardFields({
-	withTitle = true,
+	withTitle,
 }: { withTitle?: boolean }) {
 	return (
 		<Card>
