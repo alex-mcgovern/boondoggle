@@ -3,9 +3,7 @@ import { FieldsGrid } from "../fields_grid";
 import { Skeleton } from "./Skeleton";
 import { SkeletonInput } from "./SkeletonInput";
 
-export function SkeletonCardFields({
-	withTitle,
-}: { withTitle?: boolean }) {
+export function SkeletonCardFields({ withTitle }: { withTitle?: boolean }) {
 	return (
 		<Card>
 			{withTitle ? (
