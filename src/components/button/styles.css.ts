@@ -227,7 +227,7 @@ export const getButtonStyles = recipe({
 	defaultVariants: {
 		alignment: "center",
 		appearance: "primary",
-		size: "sm",
+		size: "md",
 	},
 
 	variants: {

@@ -30,43 +30,43 @@ export type SelectItemListProps<
 	 * Function provided by Downshift to check whether an item is selected
 	 */
 	getIsItemSelected:
-		| ((item: SelectItemShape<TValue, TItemData>) => boolean)
-		| undefined;
+	| ((item: SelectItemShape<TValue, TItemData>) => boolean)
+	| undefined;
 
 	/**
 	 * Function provided by Downshift to get props for an individual item.
 	 */
 	getItemProps:
-		| UseComboboxPropGetters<
-				SelectItemShape<TValue, TItemData>
-		  >["getItemProps"]
-		| UseSelectPropGetters<
-				SelectItemShape<TValue, TItemData>
-		  >["getItemProps"];
+	| UseComboboxPropGetters<
+		SelectItemShape<TValue, TItemData>
+	>["getItemProps"]
+	| UseSelectPropGetters<
+		SelectItemShape<TValue, TItemData>
+	>["getItemProps"];
 
 	/**
 	 * Function provided by Downshift to get props for the outer menu element.
 	 */
 	getMenuProps:
-		| UseComboboxPropGetters<
-				SelectItemShape<TValue, TItemData>
-		  >["getMenuProps"]
-		| UseSelectPropGetters<
-				SelectItemShape<TValue, TItemData>
-		  >["getMenuProps"];
+	| UseComboboxPropGetters<
+		SelectItemShape<TValue, TItemData>
+	>["getMenuProps"]
+	| UseSelectPropGetters<
+		SelectItemShape<TValue, TItemData>
+	>["getMenuProps"];
 
 	/**
 	 * Function provided by Downshift to get props for the currently selected item.
 	 */
 	getSelectedItemProps:
-		| ((
-				options: UseMultipleSelectionGetSelectedItemPropsOptions<
-					SelectItemShape<TValue, TItemData>
-				>,
-		  ) => {
-				[key: string]: unknown;
-		  })
-		| undefined;
+	| ((
+		options: UseMultipleSelectionGetSelectedItemPropsOptions<
+			SelectItemShape<TValue, TItemData>
+		>,
+	) => {
+		[key: string]: unknown;
+	})
+	| undefined;
 
 	/**
 	 * The index of the currently highlighted item.
@@ -87,9 +87,9 @@ export type SelectItemListProps<
 	 * The items to render in the list.
 	 */
 	items:
-		| FlatSelectItems<TValue, TItemData>
-		| GroupedSelectItems<TValue, TItemData>
-		| undefined;
+	| FlatSelectItems<TValue, TItemData>
+	| GroupedSelectItems<TValue, TItemData>
+	| undefined;
 
 	/**
 	 * The style to apply to the outer menu element. Used by floating-ui to position the menu.
@@ -114,7 +114,7 @@ function SelectItemListBase<
 		isMulti,
 		isOpen,
 		items,
-		size = "sm",
+		size = "md",
 		...rest
 	}: SelectItemListProps<TValue, TItemData>,
 	ref: ForwardedRef<HTMLDivElement>,

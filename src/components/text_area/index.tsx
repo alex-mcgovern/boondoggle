@@ -59,7 +59,7 @@ export const TextArea = forwardRef(
 			labelProps,
 			labelTooltip,
 			name,
-			size = "sm",
+			size = "md",
 			slotLeft,
 			slotRight,
 			wrapperProps,

@@ -46,61 +46,61 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithStateDisabled &
-			WithSlots & {
-				/**
-				 * Forces the button's active state
-				 */
-				active?: boolean;
+		WithSlots & {
+			/**
+			 * Forces the button's active state
+			 */
+			active?: boolean;
 
-				/**
-				 * Controls the horizontal alignment of the button's content.
-				 */
-				alignment?: Alignment;
+			/**
+			 * Controls the horizontal alignment of the button's content.
+			 */
+			alignment?: Alignment;
 
-				/**
-				 * Controls the button's appearance.
-				 */
-				appearance?: Appearance;
+			/**
+			 * Controls the button's appearance.
+			 */
+			appearance?: Appearance;
 
-				/**
-				 * The React node shown in the button.
-				 */
-				children?: ReactNode;
+			/**
+			 * The React node shown in the button.
+			 */
+			children?: ReactNode;
 
-				/**
-				 * Whether to show a loader on first render
-				 */
-				isLoading?: boolean;
+			/**
+			 * Whether to show a loader on first render
+			 */
+			isLoading?: boolean;
 
-				/**
-				 * The title for the button, shown in the UI.
-				 */
-				name: string;
+			/**
+			 * The title for the button, shown in the UI.
+			 */
+			name: string;
 
-				/**
-				 * The size of the button.
-				 */
-				size?:
-					| "square_md"
-					| "square_sm"
-					| "square_xs"
-					| ElementSizeEnum;
+			/**
+			 * The size of the button.
+			 */
+			size?:
+			| "square_md"
+			| "square_sm"
+			| "square_xs"
+			| ElementSizeEnum;
 
-				/**
-				 * The tooltip to show on hover
-				 */
-				strTooltip?: string;
+			/**
+			 * The tooltip to show on hover
+			 */
+			strTooltip?: string;
 
-				/**
-				 * The placement of the tooltip relative to the trigger.
-				 */
-				tooltipPlacement?: Placement;
+			/**
+			 * The placement of the tooltip relative to the trigger.
+			 */
+			tooltipPlacement?: Placement;
 
-				/**
-				 * The HTML button type, defaults to `button`.
-				 */
-				type?: "button" | "submit" | "reset";
-			} & WithColorOverlay
+			/**
+			 * The HTML button type, defaults to `button`.
+			 */
+			type?: "button" | "submit" | "reset";
+		} & WithColorOverlay
 	>;
 
 type ButtonComponent = <TPolymorphicAs extends ElementType = "button">(
@@ -122,7 +122,7 @@ export const Button: ButtonComponent = forwardRef(
 			disabled,
 			gap,
 			isLoading,
-			size = "sm",
+			size = "md",
 			slotLeft,
 			slotProps,
 			slotRight,
