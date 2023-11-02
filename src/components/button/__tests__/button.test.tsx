@@ -375,7 +375,7 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantButtonSize.sm);
+			expect(getByRole("button")).toHaveClass(variantButtonSize.md);
 		});
 
 		test("should have the `sm` class name when size = sm", () => {
