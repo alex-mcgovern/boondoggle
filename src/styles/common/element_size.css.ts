@@ -54,5 +54,4 @@ export const elementPadding = styleVariants({
 	},
 });
 
-export type ElementSizeEnum = keyof typeof elementFontSize &
-	keyof typeof elementPadding;
+export type ElementSizeEnum = "lg" | "md" | "sm";

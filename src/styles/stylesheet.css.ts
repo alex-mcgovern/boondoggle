@@ -422,6 +422,14 @@ globalStyle("textarea", {
 	},
 });
 
+globalStyle("select", {
+	"@layer": {
+		[baseLayer]: {
+			...textFieldStyleRule,
+		},
+	},
+});
+
 globalStyle("textarea[readonly]", {
 	"@layer": {
 		[baseLayer]: {
