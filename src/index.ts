@@ -225,6 +225,8 @@ export { Card } from "./components/card/Card";
 
 export type { CardProps } from "./components/card/Card";
 
+export { NativeSelect } from "./components/native-select";
+
 export { SelectSingle } from "./components/select/select_single";
 
 export type { SelectSingleProps } from "./components/select/select_single";
