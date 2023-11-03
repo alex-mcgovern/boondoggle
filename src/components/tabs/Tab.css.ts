@@ -37,7 +37,14 @@ export const tab = recipe({
 	},
 	variants: {
 		isTabFullWidth: {
-			true: [utilCss({ flexGrow: "1" })],
+			true: [
+				utilCss({
+					flexGrow: "1",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+				}),
+			],
 			false: [],
 		},
 		active: {
