@@ -6,12 +6,13 @@ import * as styles from "./Tab.css";
 export function Tab({
 	className,
 	active,
+	isTabFullWidth,
 	children,
 	count,
 	...rest
-}: ButtonProps & { count?: number }) {
+}: ButtonProps & { count?: number; isTabFullWidth?: boolean; }) {
 	return (
-		<div className={clsx(styles.tab({ active }), className)}>
+		<div className={clsx(styles.tab({ active, isTabFullWidth }), className)}>
 			<Button
 				{...rest}
 				slotRight={

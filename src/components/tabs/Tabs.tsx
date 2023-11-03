@@ -10,9 +10,11 @@ export function Tabs({
 	tabs,
 	justifyContent = "start",
 	size,
+	areTabsFullWidth
 }: WithSize & {
 	tabs: Array<ComponentProps<typeof Tab>>;
 	justifyContent?: "start" | "space-between";
+	areTabsFullWidth?: boolean;
 }) {
 	return (
 		<section className={styles.section({ size })}>
@@ -22,7 +24,9 @@ export function Tabs({
 			>
 				{arrayHasLength(tabs) &&
 					tabs.map((tab) => {
-						return <Tab key={tab.name} {...tab} />;
+						return <Tab
+							isTabFullWidth={areTabsFullWidth}
+							key={tab.name} {...tab} />;
 					})}
 			</nav>
 		</section>
