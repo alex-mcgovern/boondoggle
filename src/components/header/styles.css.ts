@@ -23,7 +23,14 @@ export const header = recipe({
 });
 
 export const inner = recipe({
-	base: [utilCss({ alignItems: "center", display: "flex", gap: "space_4" })],
+	base: [
+		utilCss({
+			alignItems: "center",
+			display: "flex",
+			gap: "space_4",
+			minHeight: "space_10",
+		}),
+	],
 	defaultVariants: {
 		hasTabs: false,
 	},
