@@ -10,7 +10,7 @@ export function Tabs({
 	tabs,
 	justifyContent = "start",
 	size,
-	areTabsFullWidth
+	areTabsFullWidth,
 }: WithSize & {
 	tabs: Array<ComponentProps<typeof Tab>>;
 	justifyContent?: "start" | "space-between";
@@ -24,9 +24,13 @@ export function Tabs({
 			>
 				{arrayHasLength(tabs) &&
 					tabs.map((tab) => {
-						return <Tab
-							isTabFullWidth={areTabsFullWidth}
-							key={tab.name} {...tab} />;
+						return (
+							<Tab
+								isTabFullWidth={areTabsFullWidth}
+								key={tab.name}
+								{...tab}
+							/>
+						);
 					})}
 			</nav>
 		</section>

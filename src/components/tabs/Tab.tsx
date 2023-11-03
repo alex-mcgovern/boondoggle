@@ -10,9 +10,11 @@ export function Tab({
 	children,
 	count,
 	...rest
-}: ButtonProps & { count?: number; isTabFullWidth?: boolean; }) {
+}: ButtonProps & { count?: number; isTabFullWidth?: boolean }) {
 	return (
-		<div className={clsx(styles.tab({ active, isTabFullWidth }), className)}>
+		<div
+			className={clsx(styles.tab({ active, isTabFullWidth }), className)}
+		>
 			<Button
 				{...rest}
 				slotRight={
