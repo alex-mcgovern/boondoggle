@@ -10,5 +10,6 @@ export const slot = style([
 		color: "text_low_contrast",
 		display: "flex",
 		justifyContent: "center",
+		minWidth: "space_4",
 	}),
 ]);
