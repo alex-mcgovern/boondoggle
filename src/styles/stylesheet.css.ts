@@ -594,7 +594,7 @@ export const tHeadStyles = style({
 const tableCellStyleRule: StyleRule = {
 	fontSize: vars.fontSize.bodyMd,
 	padding: `${vars.spacing.space_2} ${vars.spacing.space_6}`,
-	textAlign: "left",
+	// textAlign: "left",
 	verticalAlign: "middle",
 };
 
@@ -602,6 +602,15 @@ globalStyle("th, td", {
 	"@layer": {
 		[baseLayer]: {
 			...tableCellStyleRule,
+		},
+	},
+});
+globalStyle("th, td", {
+	"@layer": {
+		[baseLayer]: {
+			textOverflow: "ellipsis",
+			whiteSpace: "nowrap",
+			overflow: "hidden",
 		},
 	},
 });
@@ -613,6 +622,9 @@ export const thStyles = style({
 
 export const tdStyles = style({
 	display: "table-cell",
+	textOverflow: "ellipsis",
+	whiteSpace: "nowrap",
+	overflow: "hidden",
 	...tableCellStyleRule,
 });
 
