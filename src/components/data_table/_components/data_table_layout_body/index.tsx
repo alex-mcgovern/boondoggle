@@ -29,7 +29,7 @@ type DataTableLayoutBodyProps<TRowData> = {
 export function DataTableLayoutBody<TRowData>({
 	table,
 	isSelectable,
-	hasRowActions
+	hasRowActions,
 }: DataTableLayoutBodyProps<TRowData>) {
 	return (
 		<div className={getBodyStyle({ isSelectable, hasRowActions })}>

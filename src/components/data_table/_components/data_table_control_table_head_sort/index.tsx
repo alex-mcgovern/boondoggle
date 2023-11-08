@@ -1,5 +1,5 @@
-import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
+import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
 import { useMemo } from "react";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
@@ -32,12 +32,17 @@ export function DataTableControlTableHeadSort<TData>({
 
 	const slotRight = useMemo(() => {
 		return canSort
-			?
-			{
-				asc: <Icon icon={faSortUp} />,
-				desc: <Icon icon={faSortUp} style={{ transform: "rotate(180deg)" }} />,
-			}[header.column.getIsSorted() as string]
-			?? <Icon className={sortIconStyle} icon={faSort} />
+			? {
+					asc: <Icon icon={faSortUp} />,
+					desc: (
+						<Icon
+							icon={faSortUp}
+							style={{ transform: "rotate(180deg)" }}
+						/>
+					),
+			  }[header.column.getIsSorted() as string] ?? (
+					<Icon className={sortIconStyle} icon={faSort} />
+			  )
 			: undefined;
 	}, [canSort, header.column]);
 

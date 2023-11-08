@@ -1,4 +1,5 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import {
 	tBodyStyles,
@@ -8,7 +9,6 @@ import {
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { utilCss } from "../../../../styles/utils/util_css.css";
-import { calc } from "@vanilla-extract/css-utils";
 
 const baseBodyStyle = style({});
 

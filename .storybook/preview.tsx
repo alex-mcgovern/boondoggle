@@ -1,5 +1,5 @@
-import { Parameters } from "@storybook/react";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Parameters } from "@storybook/react";
 import "../src/styles/stylesheet.css";
 import "../src/styles/theme.css";
 
