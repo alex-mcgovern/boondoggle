@@ -1,6 +1,6 @@
-import { faCaretDown, faCaretUp } from "@fortawesome/pro-solid-svg-icons";
-import { type ReactNode, useMemo } from "react";
-
+import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
+import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
+import { useMemo } from "react";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import { getSortControlStyle, sortIconStyle } from "./styles.css";
@@ -11,7 +11,7 @@ type DataTableControlTableHeadSortProps<TData> = {
 	/**
 	 * The children to render inside the sort control.
 	 */
-	children: ReactNode;
+	children: React.ReactNode;
 
 	/**
 	 * The `react-table` header instance to render the sort control for.
@@ -32,12 +32,12 @@ export function DataTableControlTableHeadSort<TData>({
 
 	const slotRight = useMemo(() => {
 		return canSort
-			? [
-					{
-						asc: <Icon icon={faCaretUp} />,
-						desc: <Icon icon={faCaretDown} />,
-					}[header.column.getIsSorted() as string],
-			  ] ?? [<Icon className={sortIconStyle} icon={faCaretDown} />]
+			?
+			{
+				asc: <Icon icon={faSortUp} />,
+				desc: <Icon icon={faSortUp} style={{ transform: "rotate(180deg)" }} />,
+			}[header.column.getIsSorted() as string]
+			?? <Icon className={sortIconStyle} icon={faSort} />
 			: undefined;
 	}, [canSort, header.column]);
 
@@ -50,7 +50,7 @@ export function DataTableControlTableHeadSort<TData>({
 			name={`sort_${header.column.id}`}
 			onClick={header.column.getToggleSortingHandler()}
 			size="sm"
-			slotRight={slotRight as [ReactNode]}
+			slotRight={slotRight}
 		>
 			{children}
 		</Button>

@@ -552,7 +552,7 @@ globalStyle("p", {
 const tableStyleRule: StyleRule = {
 	borderCollapse: "collapse",
 	borderSpacing: 0,
-	tableLayout: "auto",
+	tableLayout: "fixed",
 	width: "100%",
 };
 

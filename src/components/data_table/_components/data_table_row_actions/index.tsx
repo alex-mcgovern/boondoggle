@@ -38,7 +38,7 @@ export function DataTableRowActions({ items }: DataTableRowActionsProps) {
 			placement="bottom-end"
 			slotRight={<Icon icon={faEllipsis} />}
 			wrapperProps={{
-				marginLeft: "auto",
+				marginX: "auto",
 				width: "min-content",
 			}}
 		/>

@@ -5,6 +5,6 @@ import { createAccessibleTransition } from "../../styles/utils/create_accessible
 
 export const icon = style([
 	createAccessibleTransition({
-		transition: `transform ${vars.transitionDuration.short} ease`,
+		transition: `transform color ${vars.transitionDuration.short} ease`,
 	}),
 ]);

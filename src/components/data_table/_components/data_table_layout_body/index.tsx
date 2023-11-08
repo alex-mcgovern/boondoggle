@@ -29,9 +29,10 @@ type DataTableLayoutBodyProps<TRowData> = {
 export function DataTableLayoutBody<TRowData>({
 	table,
 	isSelectable,
+	hasRowActions
 }: DataTableLayoutBodyProps<TRowData>) {
 	return (
-		<div className={getBodyStyle({ isSelectable })}>
+		<div className={getBodyStyle({ isSelectable, hasRowActions })}>
 			{table.getRowModel().rows.map((row) => {
 				return (
 					<Box className={rowStyles} key={row.id}>

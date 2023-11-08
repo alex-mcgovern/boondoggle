@@ -4,9 +4,7 @@
 	"description": "Boondoggle design system component library",
 	"version": "0.14.166",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -42,6 +40,7 @@
 		"@floating-ui/react": "0.25.1",
 		"@fortawesome/fontawesome-svg-core": "6.4.0",
 		"@fortawesome/pro-solid-svg-icons": "6.4.0",
+		"@fortawesome/pro-duotone-svg-icons": "6.4.0",
 		"@fortawesome/react-fontawesome": "0.2.0",
 		"@hookform/resolvers": "3.3.2",
 		"@radix-ui/react-collapsible": "1.0.3",

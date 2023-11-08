@@ -1,5 +1,4 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
-
 import { recipe } from "@vanilla-extract/recipes";
 import {
 	tBodyStyles,
@@ -9,6 +8,7 @@ import {
 import { vars } from "../../../../styles/theme.css";
 import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
 import { utilCss } from "../../../../styles/utils/util_css.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 const baseBodyStyle = style({});
 
@@ -40,7 +40,10 @@ globalStyle(
 globalStyle(
 	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${tdStyles}:last-child`,
 	{
-		width: vars.spacing.space_1,
+		width: calc.add(
+			calc.multiply(vars.spacing.space_5, 2),
+			vars.spacing.space_12,
+		),
 	},
 );
 

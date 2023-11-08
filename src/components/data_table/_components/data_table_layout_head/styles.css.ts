@@ -2,6 +2,7 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { tHeadStyles, thStyles } from "../../../../styles/stylesheet.css";
 import { vars } from "../../../../styles/theme.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 const baseHeadStyle = style({});
 
@@ -33,6 +34,9 @@ globalStyle(
 globalStyle(
 	`${hasRowActions.true} th:last-child, ${hasRowActions.true} ${thStyles}:last-child`,
 	{
-		width: vars.spacing.space_1,
+		width: calc.add(
+			calc.multiply(vars.spacing.space_5, 2),
+			vars.spacing.space_12,
+		),
 	},
 );
