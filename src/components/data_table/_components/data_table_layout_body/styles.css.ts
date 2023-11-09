@@ -44,6 +44,7 @@ globalStyle(
 			calc.multiply(vars.spacing.space_5, 2),
 			vars.spacing.space_12,
 		),
+		overflow: "visible",
 	},
 );
 
