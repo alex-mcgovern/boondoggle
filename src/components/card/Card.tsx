@@ -1,6 +1,6 @@
 import { Box } from "../box";
-import { CardActionsWrapper } from "./_CardActionsWrapper";
 import * as styles from "./Card.css";
+import { CardActionsWrapper } from "./_CardActionsWrapper";
 export type CardProps = {
 	/**
 	 * Action shown on the right-hand side of a card.
@@ -47,7 +47,9 @@ export function Card({
 	return (
 		<>
 			{header && <header className={styles.header}>{header}</header>}
-			<section className={styles.card({ hasPadding, hasHeader: !!header })}>
+			<section
+				className={styles.card({ hasPadding, hasHeader: !!header })}
+			>
 				{(title || actions) && (
 					<Box
 						alignItems="start"
@@ -77,6 +79,7 @@ export function Card({
 				)}
 
 				{children}
-			</section></>
+			</section>
+		</>
 	);
 }

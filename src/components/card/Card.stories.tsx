@@ -61,6 +61,15 @@ export const WithTitleAndDescription: Story = {
 
 export const WithHeader: Story = {
 	args: {
-		header: <><Box as="h3" fontStyle="h5" marginBottom="none">Title</Box> <Button name="action" marginLeft="auto">Action</Button></>
+		header: (
+			<>
+				<Box as="h3" fontStyle="h5" marginBottom="none">
+					Title
+				</Box>{" "}
+				<Button name="action" marginLeft="auto">
+					Action
+				</Button>
+			</>
+		),
 	},
 };
