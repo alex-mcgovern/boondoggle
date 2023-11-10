@@ -8,6 +8,7 @@ export const header = style([
 		border: "border_default",
 		padding: "space_8",
 		display: "flex",
+		gap: "space_4",
 		alignItems: "center",
 		marginTop: "space_8",
 	}),
