@@ -28,7 +28,7 @@ export const inner = recipe({
 			alignItems: "center",
 			display: "flex",
 			gap: "space_4",
-			minHeight: "space_10",
+			minHeight: "space_12",
 		}),
 	],
 	defaultVariants: {

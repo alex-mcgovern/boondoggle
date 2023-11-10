@@ -2,6 +2,7 @@ import { Header as StoryComp } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../button";
+import { Box } from "../box";
 
 const meta = {
 	title: "Components/Header",
@@ -9,7 +10,7 @@ const meta = {
 	args: {
 		children: (
 			<>
-				<h1>Title</h1>
+				<Box as="h1" fontStyle="h4" marginBottom="none" fontWeight="semibold">Title</Box>
 			</>
 		),
 	},
@@ -22,6 +23,6 @@ export const Default: Story = {};
 
 export const WithActions: Story = {
 	args: {
-		actions: <Button name="primary">Primary action</Button>,
+		actions: <Button size="sm" name="primary">Primary action</Button>,
 	},
 };
