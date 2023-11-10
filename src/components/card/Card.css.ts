@@ -6,11 +6,11 @@ import { utilCss } from "../../styles/utils/util_css.css";
 export const header = style([
 	utilCss({
 		border: "border_default",
-		padding: "space_8",
+		padding: "space_5",
 		display: "flex",
 		gap: "space_4",
 		alignItems: "center",
-		marginTop: "space_8",
+		marginTop: "space_4",
 	}),
 	{
 		borderTopLeftRadius: vars.borderRadius.lg,
@@ -21,13 +21,13 @@ export const header = style([
 export const card = recipe({
 	base: [
 		utilCss({
-			marginBottom: "space_8",
+			marginBottom: "space_5",
 		}),
 	],
 	variants: {
 		hasPadding: {
 			true: utilCss({
-				padding: "space_8",
+				padding: "space_5",
 			}),
 			false: [],
 		},
@@ -43,7 +43,7 @@ export const card = recipe({
 			],
 			false: utilCss({
 				border: "border_default",
-				marginTop: "space_8",
+				marginTop: "space_5",
 				borderRadius: "lg",
 			}),
 		},
