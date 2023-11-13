@@ -67,7 +67,6 @@ export function FilterPillMultiSelect<TRowData>({
 	const facetKeys = column.getCanFilter()
 		? Array.from(column.getFacetedUniqueValues().keys())
 		: [];
-	console.debug("debug  facetKeys:", facetKeys);
 
 	const items = useMemo(() => {
 		if (!column.getCanFilter()) {
