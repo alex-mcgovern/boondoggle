@@ -91,15 +91,6 @@ function PrivateFilterPillMenu(
 		}
 	}, [controlledIsOpen, setIsOpen, isOpen]);
 
-	// /**
-	//  * Synchronize the local `isOpen` state with the controlled state.
-	//  */
-	// React.useEffect(() => {
-	// 	if (onIsOpenChange !== undefined && isOpen !== controlledIsOpen) {
-	// 		onIsOpenChange(isOpen);
-	// 	}
-	// }, [controlledIsOpen, onIsOpenChange, isOpen]);
-
 	/**
 	 * Use @floating-ui/react to manage the styles and interactions of the floating menu.
 	 */
