@@ -62,6 +62,8 @@ export type { CollapsibleProps } from "./components/collapsible";
 
 export { DataTable } from "./components/data_table";
 
+export { dataTableFilterFnMultiSelect } from "./components/data_table/_lib/dataTableFilterFnMultiSelect";
+
 export type { DataTableProps } from "./components/data_table";
 
 export { DataTableRowActions } from "./components/data_table/_components/data_table_row_actions";
