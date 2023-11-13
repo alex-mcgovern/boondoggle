@@ -1,6 +1,5 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { utilCss } from "../../../../styles/utils/util_css.css";
-import { vars } from "../../../../styles/theme.css";
 
 export const activeFilterString = style([
 	utilCss({ display: "inline-block" }),
