@@ -1,6 +1,6 @@
-import { Box } from "../../../../box";
+import { Box } from "../../../box";
 
-export const DataTableFilterSelectItem = ({
+export const FilterSelectItem = ({
 	defaultChecked,
 	label,
 	value,

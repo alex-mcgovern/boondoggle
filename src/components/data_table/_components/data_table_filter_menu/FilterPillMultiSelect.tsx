@@ -4,8 +4,8 @@ import { arrayHasLength } from "../../../../lib/array_has_length";
 import { isTruthy } from "../../../../lib/is_truthy";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
-import { FilterPillMenu } from "../data_table_filter_menu/FilterPillMenu";
-import { DataTableFilterSelectItem } from "./_components/DataTableFilterSelectItem";
+import { FilterPillMenu } from "./FilterPillMenu";
+import { FilterSelectItem } from "./FilterSelectItem";
 
 export function FilterPillMultiSelect<TRowData>({
 	strApply,
@@ -76,10 +76,10 @@ export function FilterPillMultiSelect<TRowData>({
 
 		return facetKeys.sort().map((value) => {
 			return (
-				<DataTableFilterSelectItem
+				<FilterSelectItem
 					handleSelection={handleSelection}
-					// isSelected={item.isSelected}
 					label={value}
+					key={value}
 					value={value}
 					defaultChecked={currentFilters?.includes(value)}
 				/>
@@ -87,9 +87,17 @@ export function FilterPillMultiSelect<TRowData>({
 		});
 	}, [facetKeys, handleSelection, currentFilters, column]);
 
+	/** -----------------------------------------------------------------------------
+	 * EARLY RETURN IF NO FILTERS
+	 * ------------------------------------------------------------------------------- */
+
 	if (!column.getCanFilter()) {
 		return null;
 	}
+
+	/** -----------------------------------------------------------------------------
+	 * RENDER
+	 * ------------------------------------------------------------------------------- */
 
 	return (
 		<FilterPillMenu

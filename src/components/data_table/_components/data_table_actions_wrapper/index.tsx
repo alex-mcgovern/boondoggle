@@ -5,7 +5,7 @@ import { Box } from "../../../box";
 import { Table } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
-import { FilterPillMultiSelect } from "../data_table_filter_select";
+import { FilterPillMultiSelect } from "../data_table_filter_menu/FilterPillMultiSelect";
 
 type DataTableActionsWrapperProps<TRowData> = {
 	/**
