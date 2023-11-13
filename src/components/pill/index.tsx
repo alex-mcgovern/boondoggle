@@ -31,6 +31,12 @@ type BasePillProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 			WithSize &
 			WithSlots & {
 				/**
+				 * The appearance of the pill
+				 */
+
+				appearance?: "default" | "dotted";
+
+				/**
 				 * The react node rendered in the pill.
 				 */
 				children?: ReactNode;
@@ -57,6 +63,7 @@ export const Pill: PillComponent = forwardRef(
 	<TPolymorphicAs extends ElementType = "span">(
 		{
 			as,
+			appearance = "default",
 			children,
 			className: userClassName,
 			colorOverlay,
@@ -80,7 +87,7 @@ export const Pill: PillComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						styles.getPillStyle({ colorOverlay, size }),
+						styles.getPillStyle({ colorOverlay, size, appearance }),
 						utilCss({
 							...atomProps,
 							paddingLeft: slotLeft ? "space_1" : "space_2",

@@ -1,4 +1,7 @@
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
+import {
+	faPlusCircle,
+	faTriangleCircleSquare,
+} from "@fortawesome/pro-solid-svg-icons";
 
 import { Pill as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
@@ -86,5 +89,14 @@ export const Colors: StoryObj<StoryCompProps> = {
 export const WithNumber: StoryObj<StoryCompProps> = {
 	args: {
 		children: 1,
+	},
+};
+
+export const AppearanceDotted: StoryObj<StoryCompProps> = {
+	args: {
+		appearance: "dotted",
+		as: "button",
+		children: "Status",
+		slotLeft: <Icon icon={faPlusCircle} />,
 	},
 };

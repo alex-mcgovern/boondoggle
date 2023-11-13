@@ -12,6 +12,7 @@ import type {
 } from "downshift";
 import { CSSProperties, ForwardedRef, Fragment } from "react";
 import type { WithSize } from "../../common-types";
+import { FloatingPanel } from "../floating_panel";
 import { SelectSeparator } from "./SelectSeparator";
 import type {
 	FlatSelectItems,
@@ -127,9 +128,9 @@ function SelectItemListBase<
 		let index = 0;
 
 		return (
-			<div
+			<FloatingPanel
+				isOpen={isOpen}
 				{...getMenuProps?.({
-					className: styles.getOuter({ isOpen }),
 					ref,
 					...rest,
 				})}
@@ -231,16 +232,16 @@ function SelectItemListBase<
 						/>
 					)}
 				</div>
-			</div>
+			</FloatingPanel>
 		);
 	}
 
 	let index = 0;
 
 	return (
-		<div
+		<FloatingPanel
+			isOpen={isOpen}
 			{...getMenuProps?.({
-				className: styles.getOuter({ isOpen }),
 				ref,
 				...rest,
 			})}
@@ -321,7 +322,7 @@ function SelectItemListBase<
 					/>
 				)}
 			</div>
-		</div>
+		</FloatingPanel>
 	);
 }
 
