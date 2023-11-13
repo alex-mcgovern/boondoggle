@@ -60,7 +60,7 @@ function PrivateFilterPillMenu(
 		/**
 		 * Callback when the menu is opened or closed.
 		 */
-		onIsOpenChange?: (isOpen: boolean) => void;
+		onIsOpenChange?: React.Dispatch<React.SetStateAction<boolean>>;
 
 		/**
 		 * Whether the menu is open or closed.
@@ -78,17 +78,18 @@ function PrivateFilterPillMenu(
 	 */
 	const toggleIsOpen = () => {
 		setWasOpen(true);
-		setIsOpen((current) => !current);
+		setIsOpen((c) => !c);
+		onIsOpenChange?.((c) => !c);
 	};
 
-	// /**
-	//  * Synchronize the controlled `isOpen` state with the local state.
-	//  */
-	// React.useEffect(() => {
-	// 	if (controlledIsOpen !== undefined) {
-	// 		setIsOpen(controlledIsOpen);
-	// 	}
-	// }, [controlledIsOpen, setIsOpen]);
+	/**
+	 * Synchronize the controlled `isOpen` state with the local state.
+	 */
+	React.useEffect(() => {
+		if (controlledIsOpen !== undefined && isOpen !== controlledIsOpen) {
+			setIsOpen(controlledIsOpen);
+		}
+	}, [controlledIsOpen, setIsOpen, isOpen]);
 
 	// /**
 	//  * Synchronize the local `isOpen` state with the controlled state.
@@ -114,7 +115,10 @@ function PrivateFilterPillMenu(
 			}),
 		],
 		open: isOpen,
-		onOpenChange: setIsOpen,
+		onOpenChange: (o) => {
+			setIsOpen(o);
+			onIsOpenChange?.(o);
+		},
 		placement: "bottom-start",
 		whileElementsMounted: autoUpdate,
 	});
@@ -137,7 +141,10 @@ function PrivateFilterPillMenu(
 				{isFiltered ? (
 					<FilterPillCloseButton
 						clearFilters={clearFilters}
-						setIsOpen={setIsOpen}
+						setIsOpen={(o) => {
+							setIsOpen(o);
+							onIsOpenChange?.(o);
+						}}
 					/>
 				) : null}
 				<FilterPillOpenButton
