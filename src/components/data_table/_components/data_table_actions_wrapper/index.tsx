@@ -1,10 +1,8 @@
-import { Children } from "react";
-
-import { Box } from "../../../box";
-
 import { Table } from "@tanstack/react-table";
+import { Children } from "react";
 import type { ReactNode } from "react";
 import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
+import { Box } from "../../../box";
 import { FilterPillMultiSelect } from "../data_table_filter_menu/FilterPillMultiSelect";
 
 type DataTableActionsWrapperProps<TRowData> = {
@@ -13,12 +11,36 @@ type DataTableActionsWrapperProps<TRowData> = {
 	 */
 	leftAction?: ReactNode;
 
+	/**
+	 * The `react-table` table instance
+	 */
 	table: Table<TRowData>;
 
 	/**
 	 * Action shown on the right-hand side
 	 */
 	rightActions?: ReactNode | [ReactNode?, ReactNode?];
+
+	/**
+	 * The text to display in the "Apply filters" button.
+	 */
+	strApplyFilter: string | undefined;
+
+	/**
+	 * A map of column IDs to their string representations.
+	 */
+	filterColumnStrMap?: Readonly<
+		Partial<
+			Record<
+				keyof TRowData,
+				{
+					strFilterDialogTitle: string;
+					strFilterPillText: string;
+					valueToString: (value: string) => string;
+				}
+			>
+		>
+	>;
 } & UtilCssArgs;
 
 /**
@@ -27,6 +49,8 @@ type DataTableActionsWrapperProps<TRowData> = {
 export function DataTableActionsWrapper<TRowData>({
 	leftAction,
 	rightActions,
+	strApplyFilter,
+	filterColumnStrMap,
 	table,
 	...rest
 }: DataTableActionsWrapperProps<TRowData>) {
@@ -46,17 +70,33 @@ export function DataTableActionsWrapper<TRowData>({
 		>
 			{leftAction && <Box>{leftAction}</Box>}
 
-			{table.getAllColumns().map((column) => {
-				return (
-					<FilterPillMultiSelect<TRowData>
-						column={column}
-						strApply="Apply"
-						strMenuTitle={column.id}
-						strPillText={column.id}
-						key={column.id}
-					/>
-				);
-			})}
+			{strApplyFilter && filterColumnStrMap
+				? table.getAllColumns().map((column) => {
+						const {
+							valueToString,
+							strFilterDialogTitle,
+							strFilterPillText,
+						} =
+							filterColumnStrMap[column.id as keyof TRowData] ||
+							{};
+
+						if (!strFilterDialogTitle || !strFilterPillText) {
+							return null;
+						}
+
+						return (
+							<FilterPillMultiSelect<TRowData>
+								column={column}
+								valueToString={valueToString}
+								strApplyFilter={strApplyFilter}
+								strFilterDialogTitle={strFilterDialogTitle}
+								strFilterPillText={strFilterPillText}
+								key={column.id}
+							/>
+						);
+				  })
+				: null}
+
 			{rightActions && (
 				<Box
 					alignItems="center"

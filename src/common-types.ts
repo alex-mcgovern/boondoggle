@@ -414,7 +414,7 @@ export type WithTableOptionalPagination =
 			strResults?: never;
 	  };
 
-export type WithTableOptionalFiltering =
+export type WithTableOptionalFiltering<TRowData extends RowData> =
 	/**
 	 * If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed.
 	 */
@@ -423,6 +423,11 @@ export type WithTableOptionalFiltering =
 			 * Whether the table should be filterable
 			 */
 			isFilterable: true;
+
+			/**
+			 * String to use for apply filter button
+			 */
+			strApplyFilter: string;
 
 			/**
 			 * The text to display for the clear filters button.
@@ -438,6 +443,20 @@ export type WithTableOptionalFiltering =
 			 * String to use for filter field placeholder
 			 */
 			strFilterPlaceholder: string;
+
+			/**
+			 * A map of column IDs to their string representations.
+			 */
+			filterColumnStrMap: Partial<
+				Record<
+					keyof TRowData,
+					{
+						strFilterDialogTitle: string;
+						strFilterPillText: string;
+						valueToString: (value: string) => string;
+					}
+				>
+			>;
 	  }
 	/**
 	 * If `isFilterable` is `false` or `undefined`, `strFilterPlaceholder` should not be passed.
@@ -447,6 +466,11 @@ export type WithTableOptionalFiltering =
 			 * Whether the table should be filterable
 			 */
 			isFilterable?: false;
+
+			/**
+			 * String to use for apply filter button
+			 */
+			strApplyFilter?: never;
 
 			/**
 			 * The text to display for the clear all filters button.
@@ -462,6 +486,11 @@ export type WithTableOptionalFiltering =
 			 * String to use for filter field placeholder
 			 */
 			strFilterPlaceholder?: never;
+
+			/**
+			 * A map of column IDs to their string representations.
+			 */
+			filterColumnStrMap?: never;
 	  };
 
 export type WithTableOptionalSelectableRows<TData extends RowData> =

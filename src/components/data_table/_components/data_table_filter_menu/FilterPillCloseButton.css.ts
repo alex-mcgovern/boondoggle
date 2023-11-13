@@ -14,6 +14,8 @@ export const closeButton = style([
 
 		paddingX: "space_2",
 		paddingY: "space_1",
+
+		flexShrink: "0",
 	}),
 	{
 		marginRight: calc.multiply(vars.spacing.space_2, -1),

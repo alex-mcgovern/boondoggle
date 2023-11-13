@@ -35,6 +35,8 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
 	columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	data: MOCK_DATA,
 	isFilterable: true,
+	strApplyFilter: "Apply filter",
+	filterColumnStrMap: {},
 	isPaginated: true,
 	isSortable: true,
 	strClearAllFilters: "Clear all filters",

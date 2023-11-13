@@ -295,7 +295,17 @@ globalStyle("input[type=checkbox]", {
 			accentColor: vars.color.button_default,
 			cursor: "pointer",
 			height: vars.spacing.space_4,
+			flexShrink: 0,
 			width: vars.spacing.space_4,
+		},
+	},
+});
+
+globalStyle("input[type=checkbox]:focus", {
+	"@layer": {
+		[baseLayer]: {
+			outline: "none",
+			// ...a11yFocusStyleRule,
 		},
 	},
 });

@@ -6,18 +6,23 @@ import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { FilterPillMenu } from "./FilterPillMenu";
 import { FilterSelectItem } from "./FilterSelectItem";
+import * as styles from "./FilterPillMultiSelect.css";
 
 export function FilterPillMultiSelect<TRowData>({
-	strApply,
-	strMenuTitle,
-	strPillText,
+	strApplyFilter,
+	strFilterDialogTitle,
+	strFilterPillText,
+	valueToString = (value) => value,
 	column,
 }: {
 	column: Column<TRowData>;
-	strApply: string;
-	strMenuTitle: string;
-	strPillText: string;
+	strApplyFilter: string;
+	strFilterDialogTitle: string;
+	strFilterPillText: string;
+	valueToString?: (value: string) => string;
 }) {
+	const [isOpen, setIsOpen] = useState(false);
+
 	/** -----------------------------------------------------------------------------
 	 * SYNCHRONISING STATE BETWEEN THE FILTER MENU AND THE FILTER PILL
 	 * ------------------------------------------------------------------------------- */
@@ -50,14 +55,24 @@ export function FilterPillMultiSelect<TRowData>({
 		arrayHasLength(currentFilters.filter(isTruthy));
 
 	const pillText = isFiltered ? (
-		<span>
-			{strPillText} |{" "}
-			<Box as="span" color="button_default">
-				{currentFilters.join(", ")}
-			</Box>
-		</span>
+		<Box display="flex" gap="space_1">
+			{strFilterPillText}
+			<div>|</div>
+			{currentFilters.map((v, i) => {
+				return (
+					<Box
+						as="span"
+						className={styles.activeFilterString}
+						color="button_default"
+					>
+						{valueToString(v)}
+						{i < currentFilters.length - 1 ? ", " : ""}
+					</Box>
+				);
+			})}
+		</Box>
 	) : (
-		strPillText
+		strFilterPillText
 	);
 
 	/** -----------------------------------------------------------------------------
@@ -77,14 +92,14 @@ export function FilterPillMultiSelect<TRowData>({
 			return (
 				<FilterSelectItem
 					handleSelection={handleSelection}
-					label={value}
+					label={valueToString(value)}
 					key={value}
 					value={value}
 					defaultChecked={currentFilters?.includes(value)}
 				/>
 			);
 		});
-	}, [facetKeys, handleSelection, currentFilters, column]);
+	}, [facetKeys, handleSelection, currentFilters, column, valueToString]);
 
 	/** -----------------------------------------------------------------------------
 	 * EARLY RETURN IF NO FILTERS
@@ -104,28 +119,38 @@ export function FilterPillMultiSelect<TRowData>({
 			isFiltered={isFiltered}
 			pillText={pillText}
 			disabled={!arrayHasLength(facetKeys)}
+			isOpen={isOpen}
+			onIsOpenChange={setIsOpen}
 		>
-			{strMenuTitle && (
-				<Box as="h3" fontStyle="h6" marginBottom="space_4">
-					{strMenuTitle}
+			{strFilterDialogTitle && (
+				<Box
+					padding="space_4"
+					as="h3"
+					fontStyle="h6"
+					marginBottom="none"
+				>
+					{strFilterDialogTitle}
 				</Box>
 			)}
 
-			{items}
+			<div className={styles.selectItemList}>{items}</div>
 
-			<Button
-				onClick={() => {
-					column.setFilterValue(
-						arrayHasLength(selectedItems)
-							? selectedItems
-							: undefined,
-					);
-				}}
-				width="100%"
-				name="apply_filter"
-			>
-				{strApply}
-			</Button>
+			<Box padding="space_4">
+				<Button
+					onClick={() => {
+						column.setFilterValue(
+							arrayHasLength(selectedItems)
+								? selectedItems
+								: undefined,
+						);
+						setIsOpen(false);
+					}}
+					width="100%"
+					name="apply_filter"
+				>
+					{strApplyFilter}
+				</Button>
+			</Box>
 		</FilterPillMenu>
 	);
 }

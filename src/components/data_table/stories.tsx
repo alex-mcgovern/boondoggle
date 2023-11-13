@@ -23,12 +23,64 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** -----------------------------------------------------------------------------
+ * MOCK DATA
+ * ------------------------------------------------------------------------------- */
+
 const MOCK_DATA = Array.from({ length: 20 }, generateMockAccountColumn);
+
+const MOCK_FILTER_STRINGS = {
+	email_address: {
+		strFilterDialogTitle: "Filter by email address",
+		strFilterPillText: "Email address",
+		valueToString: (value: string) => value,
+	},
+	first_name: {
+		strFilterDialogTitle: "Filter by first name",
+		strFilterPillText: "First name",
+		valueToString: (value: string) => value,
+	},
+	last_name: {
+		strFilterDialogTitle: "Filter by last name",
+		strFilterPillText: "Last name",
+		valueToString: (value: string) => value,
+	},
+	phone_number: {
+		strFilterDialogTitle: "Filter by phone number",
+		strFilterPillText: "Phone number",
+		valueToString: (value: string) => value,
+	},
+	id: {
+		strFilterDialogTitle: "Filter by ID",
+		strFilterPillText: "ID",
+		valueToString: (value: string) => value,
+	},
+	status: {
+		strFilterDialogTitle: "Filter by status",
+		strFilterPillText: "Status",
+		valueToString: (value: string) => {
+			switch (value) {
+				case "active":
+					return "Active";
+				case "inactive":
+					return "Inactive";
+				case "invited":
+					return "Invited";
+				default:
+					return value;
+			}
+		},
+	},
+} as const;
 
 const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> =
 	() => {
 		return <DataTableRowActions items={mockSelectItemsActions()} />;
 	};
+
+/** -----------------------------------------------------------------------------
+ * STORIES
+ * ------------------------------------------------------------------------------- */
 
 export const Default: Story = {
 	args: {
@@ -76,6 +128,8 @@ export const IsFilterable: Story = {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
 		isFilterable: true,
+		strApplyFilter: "Apply filter",
+		filterColumnStrMap: MOCK_FILTER_STRINGS,
 		strClearAllFilters: "Clear all filters",
 		strClearFilterInput: "Clear filter input",
 		strFilterPlaceholder: "Filter results...",
@@ -121,6 +175,8 @@ export const WithNoResults: Story = {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: [],
 		isFilterable: true,
+		strApplyFilter: "Apply filter",
+		filterColumnStrMap: MOCK_FILTER_STRINGS,
 		strClearAllFilters: "Clear all filters",
 		strClearFilterInput: "Clear filter input",
 		strFilterPlaceholder: "Filter results...",
@@ -138,6 +194,8 @@ export const WithInitialSorting: Story = {
 				id: "last_name",
 			},
 		],
+		strApplyFilter: "Apply filter",
+		filterColumnStrMap: MOCK_FILTER_STRINGS,
 		isFilterable: true,
 		isSortable: true,
 		strClearAllFilters: "Clear all filters",
@@ -225,6 +283,8 @@ export const KitchenSink: Story = {
 			</Button>,
 		],
 		columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
+		strApplyFilter: "Apply filter",
+		filterColumnStrMap: MOCK_FILTER_STRINGS,
 		data: MOCK_DATA,
 		isFilterable: true,
 		isPaginated: true,

@@ -13,7 +13,7 @@ const rotateOutKeyframes = keyframes({
 });
 
 export const filterMenu = style([
-	utilCss({ padding: "space_4", width: "auto" }),
+	utilCss({ width: "auto" }),
 	{
 		width: "22.5rem",
 	},

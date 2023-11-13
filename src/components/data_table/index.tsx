@@ -23,7 +23,7 @@ import type {
 export type DataTableProps<TRowData extends RowData> =
 	WithTableOptionalPagination &
 		WithTableOptionalSelectableRows<TRowData> &
-		WithTableOptionalFiltering & {
+		WithTableOptionalFiltering<TRowData> & {
 			/**
 			 * React component to render a list of actions on each row
 			 */
@@ -71,7 +71,6 @@ export type DataTableProps<TRowData extends RowData> =
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
 export function DataTable<TRowData extends RowData>({
-	RowActions,
 	actions,
 	columns: initColumns,
 	data,
@@ -83,11 +82,14 @@ export function DataTable<TRowData extends RowData>({
 	isSelectable,
 	isSortable,
 	onSelect,
+	RowActions,
+	strApplyFilter,
 	strClearAllFilters,
 	strClearFilterInput,
 	strFilterPlaceholder,
 	strNext,
 	strNoResults,
+	filterColumnStrMap,
 	strPage,
 	strPrev,
 	strResults,
@@ -112,6 +114,8 @@ export function DataTable<TRowData extends RowData>({
 		<Box>
 			<DataTableActionsWrapper<TRowData>
 				table={table}
+				strApplyFilter={strApplyFilter}
+				filterColumnStrMap={filterColumnStrMap}
 				leftAction={
 					isFilterable && strClearAllFilters ? (
 						<DataTableFilterInput

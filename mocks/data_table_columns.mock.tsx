@@ -212,6 +212,8 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
 		cell: (info) => {
 			return info.getValue();
 		},
+		enableColumnFilter: true,
+		filterFn: dataTableFilterFnMultiSelect,
 		header: () => {
 			return "User ID";
 		},
