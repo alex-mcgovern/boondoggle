@@ -90,8 +90,10 @@ export const Pill: PillComponent = forwardRef(
 						styles.getPillStyle({ colorOverlay, size, appearance }),
 						utilCss({
 							...atomProps,
-							paddingLeft: slotLeft ? "space_1" : "space_2",
-							paddingRight: slotRight ? "space_1" : "space_2",
+							paddingLeft:
+								!slotLeft && children ? "space_2" : "space_1",
+							paddingRight:
+								!slotRight && children ? "space_2" : "space_1",
 						}),
 						a11yFocus,
 					),

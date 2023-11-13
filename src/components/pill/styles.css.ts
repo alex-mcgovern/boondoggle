@@ -1,4 +1,4 @@
-import { styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { a11yFocus } from "../../styles/common/a11y.css";
 import {
@@ -30,8 +30,11 @@ const pillSize = styleVariants({
 	],
 });
 
+export const pillBaseStyle = style({});
+
 export const getPillStyle = recipe({
 	base: [
+		pillBaseStyle,
 		utilCss({
 			display: "inline-flex",
 			fontSize: "bodySm",
@@ -51,7 +54,7 @@ export const getPillStyle = recipe({
 		},
 		a11yFocus,
 		createAccessibleTransition({
-			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
+			transition: `border-color ${vars.transitionDuration.medium} ease, background ${vars.transitionDuration.medium} ease`,
 		}),
 	],
 
@@ -59,9 +62,10 @@ export const getPillStyle = recipe({
 		appearance: {
 			default: [
 				utilCss({
-					background: "tint_active",
+					background: "tint_default",
 				}),
 				{
+					border: "1px solid transparent",
 					selectors: {
 						[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
 							background: vars.color.tint_active,

@@ -110,7 +110,8 @@ export function DataTable<TRowData extends RowData>({
 
 	return (
 		<Box>
-			<DataTableActionsWrapper
+			<DataTableActionsWrapper<TRowData>
+				table={table}
 				leftAction={
 					isFilterable && strClearAllFilters ? (
 						<DataTableFilterInput

@@ -1,19 +1,17 @@
 import { faPlus } from "@fortawesome/pro-solid-svg-icons";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { DataTable as StoryComp } from ".";
 import {
 	DATA_TABLE_COLUMNS_MOCK,
 	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
+import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
+import type { TDataTableRowActions } from "../../common-types";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 import { DataTableRowActions } from "./_components/data_table_row_actions";
-
-import type { Meta, StoryObj } from "@storybook/react";
-import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
-import type { TDataTableRowActions } from "../../common-types";
 
 const meta = {
 	args: {},
@@ -25,7 +23,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const MOCK_DATA = Array.from({ length: 40 }, generateMockAccountColumn);
+const MOCK_DATA = Array.from({ length: 20 }, generateMockAccountColumn);
 
 const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> =
 	() => {
@@ -36,7 +34,6 @@ export const Default: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
 		data: MOCK_DATA,
-
 		strNoResults: "No results",
 	},
 };

@@ -1,13 +1,16 @@
-import { DataTableFilterSelect as StoryComp } from ".";
+import { FilterPillMenu as StoryComp } from "./FilterPillMenu";
 
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/DataTableFilterSelect",
+	title: "Components/FilterPillMenu",
 	component: StoryComp,
 	args: {
-		strApply: "Apply",
-		strTitle: "Filter by account",
+		pillText: "Filter",
+		clearFilters: () => {},
+		disabled: false,
+		isFiltered: false,
+		children: <>Lorem ipsum</>,
 	},
 } satisfies Meta<typeof StoryComp>;
 

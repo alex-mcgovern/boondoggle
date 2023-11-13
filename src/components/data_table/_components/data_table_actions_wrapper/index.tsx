@@ -2,14 +2,18 @@ import { Children } from "react";
 
 import { Box } from "../../../box";
 
+import { Table } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
+import { FilterPillMultiSelect } from "../data_table_filter_select";
 
-type DataTableActionsWrapperProps = {
+type DataTableActionsWrapperProps<TRowData> = {
 	/**
 	 * Action shown on the left-hand side
 	 */
 	leftAction?: ReactNode;
+
+	table: Table<TRowData>;
 
 	/**
 	 * Action shown on the right-hand side
@@ -20,11 +24,12 @@ type DataTableActionsWrapperProps = {
 /**
  * Wraps actions for a data table.
  */
-export function DataTableActionsWrapper({
+export function DataTableActionsWrapper<TRowData>({
 	leftAction,
 	rightActions,
+	table,
 	...rest
-}: DataTableActionsWrapperProps) {
+}: DataTableActionsWrapperProps<TRowData>) {
 	if (!leftAction && !rightActions) {
 		return null;
 	}
@@ -40,6 +45,17 @@ export function DataTableActionsWrapper({
 			{...rest}
 		>
 			{leftAction && <Box>{leftAction}</Box>}
+
+			{table.getAllColumns().map((column) => {
+				return (
+					<FilterPillMultiSelect<TRowData>
+						column={column}
+						strApply="Apply"
+						strMenuTitle={column.id}
+						strPillText={column.id}
+					/>
+				);
+			})}
 			{rightActions && (
 				<Box
 					alignItems="center"

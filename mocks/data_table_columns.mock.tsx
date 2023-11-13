@@ -2,10 +2,11 @@
 import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
-
+import { Pill } from "../src";
 import { Avatar } from "../src/components/avatar";
 import { Box } from "../src/components/box";
 import { DataTableCellButton } from "../src/components/data_table/_components/data_table_cell_button";
+import { dataTableFilterFnMultiSelect } from "../src/components/data_table/_lib/filterFnMultiSelect";
 import { Icon } from "../src/components/icon";
 
 const faker = new Faker({ locale: [en] });
@@ -37,6 +38,11 @@ export type MockAccountColumnData = {
 	 * User's phone number
 	 */
 	phone_number: string;
+
+	/**
+	 * Status of a user's account
+	 */
+	status: "active" | "inactive" | "invited";
 };
 
 /**
@@ -48,6 +54,7 @@ export const generateMockAccountColumn = (): MockAccountColumnData => {
 		first_name: faker.person.firstName(),
 		id: faker.string.uuid(),
 		last_name: faker.person.lastName(),
+		status: faker.helpers.arrayElement(["active", "inactive", "invited"]),
 		phone_number: faker.phone.number(),
 	};
 };
@@ -65,6 +72,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 			);
 		},
 		enableHiding: false,
+		enableColumnFilter: false,
 		header: () => {
 			return "First name";
 		},
@@ -73,6 +81,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 		cell: (info) => {
 			return info.getValue();
 		},
+		enableColumnFilter: false,
 		header: () => {
 			return "Last name";
 		},
@@ -81,6 +90,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 		cell: (info) => {
 			return info.getValue();
 		},
+		enableColumnFilter: false,
 		header: () => {
 			return "Email address";
 		},
@@ -89,14 +99,26 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 		cell: (info) => {
 			return info.getValue();
 		},
+		enableColumnFilter: false,
 		header: () => {
 			return "Phone number";
+		},
+	}),
+	columnHelper.accessor("status", {
+		cell: (info) => {
+			return <Pill>{info.getValue()}</Pill>;
+		},
+		enableColumnFilter: true,
+		filterFn: dataTableFilterFnMultiSelect,
+		header: () => {
+			return "Status";
 		},
 	}),
 	columnHelper.accessor("id", {
 		cell: (info) => {
 			return info.getValue();
 		},
+		enableColumnFilter: false,
 		header: () => {
 			return "User ID";
 		},
@@ -174,6 +196,16 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
 		},
 		header: () => {
 			return "Phone number";
+		},
+	}),
+	columnHelper.accessor("status", {
+		cell: (info) => {
+			return <Pill>{info.getValue()}</Pill>;
+		},
+		enableColumnFilter: true,
+		filterFn: dataTableFilterFnMultiSelect,
+		header: () => {
+			return "Status";
 		},
 	}),
 	columnHelper.accessor("id", {

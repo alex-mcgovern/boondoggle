@@ -1,13 +1,15 @@
 {
-	"search.exclude": {
-		"docs": true,
-		"build": true,
-		"**/package-lock.json": true,
-		"**/node_modules": true,
-		"**/.cache": true,
-		"**/*.snap": true,
-		".git": true,
-		"dist": true
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"commentBox.styles": {
 		"h1": {
@@ -77,12 +79,22 @@
 		"Toggleable",
 		"vars"
 	],
+	"git.ignoreLimitWarning": true,
+	"mdx.experimentalLanguageServer": true,
+	"search.exclude": {
+		".git": true,
+		"**/.cache": true,
+		"**/*.snap": true,
+		"**/node_modules": true,
+		"**/package-lock.json": true,
+		"build": true,
+		"dist": true,
+		"docs": true
+	},
 	"turboConsoleLog.delimiterInsideMessage": "",
 	"turboConsoleLog.includeFileNameAndLineNum": false,
 	"turboConsoleLog.insertEnclosingClass": false,
 	"turboConsoleLog.insertEnclosingFunction": false,
 	"turboConsoleLog.logMessagePrefix": "debug",
-	"turboConsoleLog.logType": "debug",
-	"git.ignoreLimitWarning": true,
-	"mdx.experimentalLanguageServer": true
+	"turboConsoleLog.logType": "debug"
 }

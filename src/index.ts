@@ -80,10 +80,6 @@ export { DialogModal } from "./components/dialog_modal";
 
 export type { DialogModalProps } from "./components/dialog_modal";
 
-export { DialogModalDataTable } from "./components/dialog_modal_data_table";
-
-export type { DialogModalDataTableProps } from "./components/dialog_modal_data_table";
-
 export { DialogModalForm } from "./components/dialog_modal_form";
 
 export type { DialogModalFormProps } from "./components/dialog_modal_form";

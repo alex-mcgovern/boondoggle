@@ -1,26 +1,124 @@
+import { Column } from "@tanstack/react-table";
+import { useEffect, useMemo, useState } from "react";
+import { arrayHasLength } from "../../../../lib/array_has_length";
+import { isTruthy } from "../../../../lib/is_truthy";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
-import { DataTableFilterMenu } from "../data_table_filter_menu";
+import { FilterPillMenu } from "../data_table_filter_menu/FilterPillMenu";
 import { DataTableFilterSelectItem } from "./_components/DataTableFilterSelectItem";
 
-export const DataTableFilterSelect = ({
+export function FilterPillMultiSelect<TRowData>({
 	strApply,
-	strTitle,
-}: { strApply: string; strTitle: string }) => {
+	strMenuTitle,
+	strPillText,
+	column,
+}: {
+	column: Column<TRowData>;
+	strApply: string;
+	strMenuTitle: string;
+	strPillText: string;
+}) {
+	/** -----------------------------------------------------------------------------
+	 * SYNCHRONISING STATE BETWEEN THE FILTER MENU AND THE FILTER PILL
+	 * ------------------------------------------------------------------------------- */
+
+	const currentFilters: string[] = column.getFilterValue() as string[];
+
+	const [selectedItems, setSelectedItems] =
+		useState<Array<string>>(currentFilters);
+
+	const handleSelection = (value: string) => {
+		setSelectedItems((current) => {
+			if (current?.includes(value)) {
+				return current.filter((item) => item !== value);
+			}
+
+			return [...(current ?? []), value];
+		});
+	};
+
+	useEffect(() => {
+		setSelectedItems(currentFilters);
+	}, [currentFilters]);
+
+	/** -----------------------------------------------------------------------------
+	 * PILL TEXT
+	 * ------------------------------------------------------------------------------- */
+
+	const isFiltered =
+		column.getIsFiltered() &&
+		arrayHasLength(currentFilters.filter(isTruthy));
+
+	const pillText = isFiltered ? (
+		<span>
+			{strPillText} |{" "}
+			<Box as="span" color="button_default">
+				{currentFilters.join(", ")}
+			</Box>
+		</span>
+	) : (
+		strPillText
+	);
+
+	/** -----------------------------------------------------------------------------
+	 * FILTER SELECT ITEMS
+	 * ------------------------------------------------------------------------------- */
+
+	const facetKeys = column.getCanFilter()
+		? Array.from(column.getFacetedUniqueValues().keys())
+		: [];
+	console.debug("debug  facetKeys:", facetKeys);
+
+	const items = useMemo(() => {
+		if (!column.getCanFilter()) {
+			return [];
+		}
+
+		return facetKeys.sort().map((value) => {
+			return (
+				<DataTableFilterSelectItem
+					handleSelection={handleSelection}
+					// isSelected={item.isSelected}
+					label={value}
+					value={value}
+					defaultChecked={currentFilters?.includes(value)}
+				/>
+			);
+		});
+	}, [facetKeys, handleSelection, currentFilters, column]);
+
+	if (!column.getCanFilter()) {
+		return null;
+	}
+
 	return (
-		<DataTableFilterMenu pillText={"Test"}>
-			{strTitle && (
+		<FilterPillMenu
+			clearFilters={() => column.setFilterValue(undefined)}
+			isFiltered={isFiltered}
+			pillText={pillText}
+			disabled={!arrayHasLength(facetKeys)}
+		>
+			{strMenuTitle && (
 				<Box as="h3" fontStyle="h6" marginBottom="space_4">
-					{strTitle}
+					{strMenuTitle}
 				</Box>
 			)}
 
-			<DataTableFilterSelectItem isSelected={false} label={"Test 1"} />
-			<DataTableFilterSelectItem isSelected={false} label={"Test 2"} />
-			<DataTableFilterSelectItem isSelected={false} label={"Test 3"} />
-			<Button width="100%" name="apply_filter">
+			{items}
+
+			<Button
+				onClick={() => {
+					column.setFilterValue(
+						arrayHasLength(selectedItems)
+							? selectedItems
+							: undefined,
+					);
+				}}
+				width="100%"
+				name="apply_filter"
+			>
 				{strApply}
 			</Button>
-		</DataTableFilterMenu>
+		</FilterPillMenu>
 	);
-};
+}

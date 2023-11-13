@@ -1,6 +1,10 @@
 import {
+	ColumnFiltersState,
 	createColumnHelper,
 	getCoreRowModel,
+	getFacetedMinMaxValues,
+	getFacetedRowModel,
+	getFacetedUniqueValues,
 	getFilteredRowModel,
 	getPaginationRowModel,
 	getSortedRowModel,
@@ -93,8 +97,8 @@ export function useDataTableState<TData extends RowData>({
 	isSortable,
 	onSelect,
 }: UseDataTableStateProps<TData>) {
+	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 	const [globalFilter, setGlobalFilter] = useState("");
-
 	const [rowSelection, setRowSelection] = useState({});
 
 	const onRowSelectionChange = useCallback(
@@ -158,6 +162,17 @@ export function useDataTableState<TData extends RowData>({
 								return <RowActions row_data={row.original} />;
 							},
 							id: "actions",
+							getUniqueValues: () => [],
+							header: () => null,
+							enableColumnFilter: false,
+							enableGlobalFilter: false,
+							enableGrouping: false,
+							enableMultiSort: false,
+							enableSorting: false,
+							enableHiding: false,
+							enablePinning: false,
+							enableResizing: false,
+							filterFn: () => true,
 						}),
 				  ]
 				: []),
@@ -172,23 +187,33 @@ export function useDataTableState<TData extends RowData>({
 		columns,
 		data: tableData || [],
 		getCoreRowModel: getCoreRowModel(),
+		getFacetedRowModel: getFacetedRowModel(),
+		getFacetedUniqueValues: getFacetedUniqueValues(),
+		getFacetedMinMaxValues: getFacetedMinMaxValues(),
+		getFilteredRowModel: getFilteredRowModel(),
 		...(isFilterable && {
-			getFilteredRowModel: getFilteredRowModel(),
 			globalFilterFn: dataTableFuzzyFilter,
 			onGlobalFilterChange: setGlobalFilter,
 		}),
-		...(isPaginated && { getPaginationRowModel: getPaginationRowModel() }),
+		...(isPaginated && {
+			getPaginationRowModel: getPaginationRowModel(),
+		}),
 		...(isSortable && { getSortedRowModel: getSortedRowModel() }),
 		...(isSelectable && {
 			enableMultiRowSelection,
 			onRowSelectionChange,
 		}),
+		onColumnFiltersChange: setColumnFilters,
 
 		initialState: {
 			sorting: initialSorting,
 		},
-
+		defaultColumn: {
+			enableColumnFilter: false,
+		},
+		filterFromLeafRows: false,
 		state: {
+			columnFilters,
 			...(isFilterable && {
 				globalFilter,
 			}),
@@ -202,5 +227,6 @@ export function useDataTableState<TData extends RowData>({
 		globalFilter,
 		setGlobalFilter,
 		table,
+		setColumnFilters,
 	};
 }
