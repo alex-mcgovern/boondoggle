@@ -53,6 +53,7 @@ export function DataTableActionsWrapper<TRowData>({
 						strApply="Apply"
 						strMenuTitle={column.id}
 						strPillText={column.id}
+						key={column.id}
 					/>
 				);
 			})}
