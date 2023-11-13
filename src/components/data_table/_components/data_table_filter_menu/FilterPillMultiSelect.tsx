@@ -5,8 +5,8 @@ import { isTruthy } from "../../../../lib/is_truthy";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { FilterPillMenu } from "./FilterPillMenu";
-import { FilterSelectItem } from "./FilterSelectItem";
 import * as styles from "./FilterPillMultiSelect.css";
+import { FilterSelectItem } from "./FilterSelectItem";
 
 export function FilterPillMultiSelect<TRowData>({
 	strApplyFilter,
