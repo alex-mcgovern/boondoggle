@@ -453,7 +453,8 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					{
 						strFilterDialogTitle: string;
 						strFilterPillText: string;
-						valueToString: (value: string) => string;
+						// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+						valueToString: (value: any) => string;
 					}
 				>
 			>;

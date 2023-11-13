@@ -3,7 +3,7 @@ import { Children } from "react";
 import type { ReactNode } from "react";
 import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
 import { Box } from "../../../box";
-import { FilterPillMultiSelect } from "../data_table_filter_menu/FilterPillMultiSelect";
+import { FilterPillMultiSelect } from "../filter-pill/FilterPillMultiSelect";
 
 type DataTableActionsWrapperProps<TRowData> = {
 	/**
@@ -36,7 +36,8 @@ type DataTableActionsWrapperProps<TRowData> = {
 				{
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
-					valueToString: (value: string) => string;
+					// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+					valueToString: (value: any) => string;
 				}
 			>
 		>

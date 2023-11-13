@@ -58,7 +58,7 @@ const MOCK_FILTER_STRINGS = {
 	status: {
 		strFilterDialogTitle: "Filter by status",
 		strFilterPillText: "Status",
-		valueToString: (value: string) => {
+		valueToString: (value: MockAccountColumnData["status"]) => {
 			switch (value) {
 				case "active":
 					return "Active";

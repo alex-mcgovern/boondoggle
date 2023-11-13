@@ -19,7 +19,8 @@ export function FilterPillMultiSelect<TRowData>({
 	strApplyFilter: string;
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
-	valueToString?: (value: string) => string;
+	// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+	valueToString?: (value: any) => string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 
