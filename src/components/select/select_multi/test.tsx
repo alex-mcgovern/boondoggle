@@ -82,8 +82,9 @@ describe("<SelectMulti />", () => {
 	describe("mouse navigation", () => {
 		describe("input value", () => {
 			test("should have placeholder with count of 1 selected items", async () => {
-				const { getByRole, getByText, user } =
-					await renderComponent(PROPS);
+				const { getByRole, getByText, user } = await renderComponent(
+					PROPS,
+				);
 
 				const combobox = getByRole("combobox");
 
@@ -101,8 +102,9 @@ describe("<SelectMulti />", () => {
 			});
 
 			test("should have placeholder with count of 2 items", async () => {
-				const { getByRole, getByText, user } =
-					await renderComponent(PROPS);
+				const { getByRole, getByText, user } = await renderComponent(
+					PROPS,
+				);
 
 				const combobox = getByRole("combobox");
 
@@ -128,8 +130,9 @@ describe("<SelectMulti />", () => {
 
 		describe("onChange()", () => {
 			test("should call `onChange()` with first clicked item", async () => {
-				const { getByRole, getByText, user } =
-					await renderComponent(PROPS);
+				const { getByRole, getByText, user } = await renderComponent(
+					PROPS,
+				);
 
 				const combobox = getByRole("combobox");
 
@@ -149,8 +152,9 @@ describe("<SelectMulti />", () => {
 			});
 
 			test("should call `onChange()` with second clicked item", async () => {
-				const { getByRole, getByText, user } =
-					await renderComponent(PROPS);
+				const { getByRole, getByText, user } = await renderComponent(
+					PROPS,
+				);
 
 				const combobox = getByRole("combobox");
 
