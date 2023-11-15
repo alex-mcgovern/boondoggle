@@ -3,9 +3,11 @@ import { Children } from "react";
 import type { ReactNode } from "react";
 import type { UtilCssArgs } from "../../../../styles/utils/util_css.css";
 import { Box } from "../../../box";
-import { FilterPillMultiSelect } from "../filter-pill/FilterPillMultiSelect";
+import { FilterPillMultiSelect } from "../filters/multi-select/FilterPillMultiSelect";
+import { FilterPillNumberRange } from "../filters/number-range/_components/FilterPillNumberRange";
+import { NumberRangeFilterMode } from "../filters/number-range/types";
 
-type DataTableActionsWrapperProps<TRowData> = {
+type DataTableActionsWrapperProps<TRowData> = UtilCssArgs & {
 	/**
 	 * Action shown on the left-hand side
 	 */
@@ -27,22 +29,38 @@ type DataTableActionsWrapperProps<TRowData> = {
 	strApplyFilter: string | undefined;
 
 	/**
+	 * Whether filtering is enabled for the data table.
+	 */
+
+	isFilterable: boolean | undefined;
+
+	/**
 	 * A map of column IDs to their string representations.
 	 */
-	filterColumnStrMap?: Readonly<
-		Partial<
-			Record<
-				keyof TRowData,
-				{
-					strFilterDialogTitle: string;
-					strFilterPillText: string;
-					// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-					valueToString: (value: any) => string;
-				}
-			>
-		>
-	>;
-} & UtilCssArgs;
+	filterColumnStrMap:
+		| undefined
+		| Readonly<
+				Partial<
+					Record<
+						keyof TRowData,
+						{
+							strFilterDialogTitle: string;
+							strFilterPillText: string;
+							// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+							valueToString: (value: any) => string;
+						}
+					>
+				>
+		  >;
+
+	/**
+	 * A map of strings used in the numeric filter mode.
+	 */
+	strMapFilterMode:
+		| undefined
+		| Record<NumberRangeFilterMode, string>
+		| undefined;
+};
 
 /**
  * Wraps actions for a data table.
@@ -51,7 +69,9 @@ export function DataTableActionsWrapper<TRowData>({
 	leftAction,
 	rightActions,
 	strApplyFilter,
+	isFilterable,
 	filterColumnStrMap,
+	strMapFilterMode,
 	table,
 	...rest
 }: DataTableActionsWrapperProps<TRowData>) {
@@ -71,8 +91,12 @@ export function DataTableActionsWrapper<TRowData>({
 		>
 			{leftAction && <Box>{leftAction}</Box>}
 
-			{strApplyFilter && filterColumnStrMap
+			{isFilterable && strApplyFilter && filterColumnStrMap
 				? table.getAllColumns().map((column) => {
+						if (!column.getCanFilter()) {
+							return null;
+						}
+
 						const {
 							valueToString,
 							strFilterDialogTitle,
@@ -85,16 +109,42 @@ export function DataTableActionsWrapper<TRowData>({
 							return null;
 						}
 
-						return (
-							<FilterPillMultiSelect<TRowData>
-								column={column}
-								valueToString={valueToString}
-								strApplyFilter={strApplyFilter}
-								strFilterDialogTitle={strFilterDialogTitle}
-								strFilterPillText={strFilterPillText}
-								key={column.id}
-							/>
-						);
+						const firstValue = table
+							.getPreFilteredRowModel()
+							.flatRows[0]?.getValue(column.id);
+
+						if (typeof firstValue === "string") {
+							return (
+								<FilterPillMultiSelect<TRowData>
+									column={column}
+									valueToString={valueToString}
+									strApplyFilter={strApplyFilter}
+									strFilterDialogTitle={strFilterDialogTitle}
+									strFilterPillText={strFilterPillText}
+									key={column.id}
+								/>
+							);
+						}
+
+						if (
+							typeof firstValue === "number" &&
+							strMapFilterMode
+						) {
+							return (
+								<FilterPillNumberRange<TRowData>
+									strings={{
+										strApplyFilter,
+										strFilterDialogTitle,
+										strFilterPillText,
+										strMapFilterMode,
+									}}
+									column={column}
+									key={column.id}
+								/>
+							);
+						}
+
+						return null;
 				  })
 				: null}
 

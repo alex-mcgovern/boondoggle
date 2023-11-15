@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { vars } from "../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+import { vars } from "../../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../../styles/utils/create_accessible_transition";
+import { utilCss } from "../../../../../styles/utils/util_css.css";
 
 const rotateInKeyframes = keyframes({
 	"0%": {},

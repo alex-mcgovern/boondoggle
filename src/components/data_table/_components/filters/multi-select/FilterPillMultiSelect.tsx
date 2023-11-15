@@ -1,10 +1,11 @@
 import { Column } from "@tanstack/react-table";
 import { useEffect, useMemo, useState } from "react";
-import { arrayHasLength } from "../../../../lib/array_has_length";
-import { isTruthy } from "../../../../lib/is_truthy";
-import { Box } from "../../../box";
-import { Button } from "../../../button";
-import { FilterPillMenu } from "./FilterPillMenu";
+import { arrayHasLength } from "../../../../../lib/array_has_length";
+import { isTruthy } from "../../../../../lib/is_truthy";
+import { Box } from "../../../../box";
+import { Button } from "../../../../button";
+import { FilterDialogTitle } from "../base/FilterDialogTitle";
+import { FilterPillMenu } from "../base/FilterPillMenu";
 import * as styles from "./FilterPillMultiSelect.css";
 import { FilterSelectItem } from "./FilterSelectItem";
 
@@ -123,16 +124,7 @@ export function FilterPillMultiSelect<TRowData>({
 			isOpen={isOpen}
 			onIsOpenChange={setIsOpen}
 		>
-			{strFilterDialogTitle && (
-				<Box
-					padding="space_4"
-					as="h3"
-					fontStyle="h6"
-					marginBottom="none"
-				>
-					{strFilterDialogTitle}
-				</Box>
-			)}
+			<FilterDialogTitle strFilterDialogTitle={strFilterDialogTitle} />
 
 			<div className={styles.selectItemList}>{items}</div>
 

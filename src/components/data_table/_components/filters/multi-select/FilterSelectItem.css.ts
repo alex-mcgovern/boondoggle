@@ -3,9 +3,9 @@ import { calc } from "@vanilla-extract/css-utils";
 import {
 	// a11yFocus,
 	a11yFocusStyleRule,
-} from "../../../../styles/common/a11y.css";
-import { vars } from "../../../../styles/theme.css";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+} from "../../../../../styles/common/a11y.css";
+import { vars } from "../../../../../styles/theme.css";
+import { utilCss } from "../../../../../styles/utils/util_css.css";
 
 export const selectItemLabel = style([
 	utilCss({

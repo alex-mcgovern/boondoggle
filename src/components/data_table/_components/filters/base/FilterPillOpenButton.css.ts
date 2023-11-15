@@ -1,8 +1,8 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { a11yFocus } from "../../../../styles/common/a11y.css";
-import { vars } from "../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+import { a11yFocus } from "../../../../../styles/common/a11y.css";
+import { vars } from "../../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../../styles/utils/create_accessible_transition";
+import { utilCss } from "../../../../../styles/utils/util_css.css";
 
 const rotateOutKeyframes = keyframes({
 	"0%": { transform: "rotate(45deg)" },
@@ -12,6 +12,7 @@ const rotateOutKeyframes = keyframes({
 export const openButton = style([
 	a11yFocus,
 	utilCss({
+		borderRadius: "pill",
 		display: "inline-flex",
 		alignItems: "center",
 		gap: "space_2",

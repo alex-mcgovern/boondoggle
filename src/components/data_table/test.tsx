@@ -14,6 +14,7 @@ import { Icon } from "../icon";
 
 import type { DataTableProps } from ".";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
+import { MOCK_FILTER_MODE_STRINGS, MOCK_FILTER_STRINGS } from "./stories";
 
 const renderComponent = ({
 	...props
@@ -36,8 +37,9 @@ const PROPS: DataTableProps<MockAccountColumnData> = {
 	data: MOCK_DATA,
 	isFilterable: true,
 	strApplyFilter: "Apply filter",
-	filterColumnStrMap: {},
 	isPaginated: true,
+	strMapFilterMode: MOCK_FILTER_MODE_STRINGS,
+	filterColumnStrMap: MOCK_FILTER_STRINGS,
 	isSortable: true,
 	strClearAllFilters: "Clear all filters",
 	strClearFilterInput: "Clear filter input",

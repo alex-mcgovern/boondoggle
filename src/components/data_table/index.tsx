@@ -1,5 +1,13 @@
 "use client";
 
+import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
+import type { ReactNode } from "react";
+import type {
+	TDataTableRowActions,
+	WithTableOptionalFiltering,
+	WithTableOptionalPagination,
+	WithTableOptionalSelectableRows,
+} from "../../common-types";
 import { arrayHasLength } from "../../lib/array_has_length";
 import { useDataTableState } from "../../lib/use_data_table_state";
 import { tableStyles } from "../../styles/stylesheet.css";
@@ -10,15 +18,6 @@ import { DataTableInfoNoResults } from "./_components/data_table_info_no_results
 import { DataTableLayoutBody } from "./_components/data_table_layout_body";
 import { DataTableLayoutHead } from "./_components/data_table_layout_head";
 import { DataTablePaginationWrapper } from "./_components/data_table_pagination_wrapper";
-
-import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
-import type { ReactNode } from "react";
-import type {
-	TDataTableRowActions,
-	WithTableOptionalFiltering,
-	WithTableOptionalPagination,
-	WithTableOptionalSelectableRows,
-} from "../../common-types";
 
 export type DataTableProps<TRowData extends RowData> =
 	WithTableOptionalPagination &
@@ -89,6 +88,7 @@ export function DataTable<TRowData extends RowData>({
 	strFilterPlaceholder,
 	strNext,
 	strNoResults,
+	strMapFilterMode,
 	filterColumnStrMap,
 	strPage,
 	strPrev,
@@ -116,6 +116,8 @@ export function DataTable<TRowData extends RowData>({
 				table={table}
 				strApplyFilter={strApplyFilter}
 				filterColumnStrMap={filterColumnStrMap}
+				strMapFilterMode={strMapFilterMode}
+				isFilterable={isFilterable}
 				leftAction={
 					isFilterable && strClearAllFilters ? (
 						<DataTableFilterInput

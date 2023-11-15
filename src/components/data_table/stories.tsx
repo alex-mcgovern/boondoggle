@@ -12,6 +12,7 @@ import { Button } from "../button";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
 import { DataTableRowActions } from "./_components/data_table_row_actions";
+import { NumberRangeFilterMode } from "./_components/filters/number-range/types";
 
 const meta = {
 	args: {},
@@ -29,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 const MOCK_DATA = Array.from({ length: 20 }, generateMockAccountColumn);
 
-const MOCK_FILTER_STRINGS = {
+export const MOCK_FILTER_STRINGS = {
 	email_address: {
 		strFilterDialogTitle: "Filter by email address",
 		strFilterPillText: "Email address",
@@ -55,6 +56,11 @@ const MOCK_FILTER_STRINGS = {
 		strFilterPillText: "ID",
 		valueToString: (value: string) => value,
 	},
+	balance: {
+		strFilterDialogTitle: "Filter by balance",
+		strFilterPillText: "Balance",
+		valueToString: (value: string) => value,
+	},
 	status: {
 		strFilterDialogTitle: "Filter by status",
 		strFilterPillText: "Status",
@@ -72,6 +78,13 @@ const MOCK_FILTER_STRINGS = {
 		},
 	},
 } as const;
+
+export const MOCK_FILTER_MODE_STRINGS: Record<NumberRangeFilterMode, string> = {
+	is_between: "Is between",
+	is_equal_to: "Is equal to",
+	is_greater_than: "Is greater than",
+	is_less_than: "Is less than",
+};
 
 const MockRowActionsComponent: TDataTableRowActions<MockAccountColumnData> =
 	() => {
@@ -126,6 +139,7 @@ export const IsSortable: Story = {
 export const IsFilterable: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
+		strMapFilterMode: MOCK_FILTER_MODE_STRINGS,
 		data: MOCK_DATA,
 		isFilterable: true,
 		strApplyFilter: "Apply filter",
@@ -173,6 +187,7 @@ export const WithAggregatedCell: Story = {
 export const WithNoResults: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_MOCK,
+		strMapFilterMode: MOCK_FILTER_MODE_STRINGS,
 		data: [],
 		isFilterable: true,
 		strApplyFilter: "Apply filter",
@@ -187,6 +202,7 @@ export const WithNoResults: Story = {
 export const WithInitialSorting: Story = {
 	args: {
 		columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
+		strMapFilterMode: MOCK_FILTER_MODE_STRINGS,
 		data: MOCK_DATA,
 		initialSorting: [
 			{
@@ -282,6 +298,7 @@ export const KitchenSink: Story = {
 				Primary action
 			</Button>,
 		],
+		strMapFilterMode: MOCK_FILTER_MODE_STRINGS,
 		columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 		strApplyFilter: "Apply filter",
 		filterColumnStrMap: MOCK_FILTER_STRINGS,

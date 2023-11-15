@@ -324,7 +324,7 @@ export const getAddonWrapperStyle = recipe({
 
 export const addonChildrenStyle = style({
 	flexGrow: 1,
-	flexShrink: 0,
+	flexShrink: 1,
 	// width: "100%",
 });
 

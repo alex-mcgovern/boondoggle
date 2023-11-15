@@ -11,7 +11,7 @@ export const floatingPanel = recipe({
 			borderRadius: "md",
 			boxShadow: "md",
 			// minWidth: "100%",
-			overflow: "hidden",
+			// overflow: "hidden",
 			width: "max-content",
 		}),
 		{ zIndex: "999" },

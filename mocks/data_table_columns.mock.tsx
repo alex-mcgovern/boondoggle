@@ -40,6 +40,11 @@ export type MockAccountColumnData = {
 	phone_number: string;
 
 	/**
+	 * User's balance
+	 */
+	balance: number;
+
+	/**
 	 * Status of a user's account
 	 */
 	status: "active" | "inactive" | "invited";
@@ -56,6 +61,7 @@ export const generateMockAccountColumn = (): MockAccountColumnData => {
 		last_name: faker.person.lastName(),
 		status: faker.helpers.arrayElement(["active", "inactive", "invited"]),
 		phone_number: faker.phone.number(),
+		balance: faker.number.int(1000),
 	};
 };
 
@@ -112,6 +118,15 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 		filterFn: dataTableFilterFnMultiSelect,
 		header: () => {
 			return "Status";
+		},
+	}),
+	columnHelper.accessor("balance", {
+		cell: (info) => {
+			return info.getValue();
+		},
+		enableColumnFilter: true,
+		header: () => {
+			return "Balance";
 		},
 	}),
 	columnHelper.accessor("id", {

@@ -1,6 +1,6 @@
 import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons/faCirclePlus";
-import { Icon } from "../../../icon";
-import * as styles from "./FilterPillOpenButton.css";
+import { Icon } from "../../../../icon";
+import * as styles from "../base/FilterPillOpenButton.css";
 
 export const FilterPillOpenButton = ({
 	disabled,

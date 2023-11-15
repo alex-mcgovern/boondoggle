@@ -45,6 +45,8 @@ export type InputProps = Partial<
 		| "defaultValue"
 		| "value"
 		| "autoFocus"
+		| "min"
+		| "max"
 		| "onChange"
 		| "onClick"
 		| "onFocus"
