@@ -1,6 +1,22 @@
 import { Box } from "../box/_components/Box";
-import * as styles from "./Card.css";
-import { CardActionsWrapper } from "./_CardActionsWrapper";
+import * as styles from "./styles.css";
+
+function CardActionsWrapper({
+	actions,
+}: {
+	actions?: React.ReactNode | [React.ReactNode?, React.ReactNode?];
+}) {
+	if (!actions) {
+		return null;
+	}
+
+	return (
+		<Box alignItems="center" display="flex" gap="space_2" marginLeft="auto">
+			{actions}
+		</Box>
+	);
+}
+
 export type CardProps = {
 	/**
 	 * Action shown on the right-hand side of a card.

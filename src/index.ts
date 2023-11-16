@@ -478,9 +478,9 @@ export { SlotWrapper } from "./components/slot_wrapper";
 
 export type { SlotWrapperProps } from "./components/slot_wrapper";
 
-export { Card } from "./components/card/Card";
+export { Card } from "./components/card";
 
-export type { CardProps } from "./components/card/Card";
+export type { CardProps } from "./components/card";
 
 export { NativeSelect } from "./components/native-select";
 

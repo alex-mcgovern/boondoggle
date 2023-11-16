@@ -1,4 +1,4 @@
-import { Card } from "../card/Card";
+import { Card } from "../card";
 import { FieldsGrid } from "../fields_grid";
 import { Skeleton } from "./Skeleton";
 import { SkeletonInput } from "./SkeletonInput";

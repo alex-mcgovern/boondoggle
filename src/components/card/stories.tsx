@@ -4,7 +4,7 @@ import { Button } from "../button";
 import { FieldsGrid } from "../fields_grid";
 import { Input } from "../input";
 import { SkeletonInput } from "../skeletons/SkeletonInput";
-import { Card as StoryComp } from "./Card";
+import { Card as StoryComp } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
 
