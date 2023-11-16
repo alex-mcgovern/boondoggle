@@ -29,5 +29,6 @@ export default defineConfig({
 	splitting: true,
 	target: "es2020",
 	treeshake: false,
+	metafile: true,
 	tsconfig: "./tsconfig.build.json",
 });
