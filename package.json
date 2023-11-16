@@ -4,9 +4,7 @@
 	"description": "Boondoggle design system component library",
 	"version": "0.14.189",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -16,12 +14,6 @@
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"exports": {
-		"./*": {
-			"default": "./dist/index.js",
-			"import": "./dist/index.js",
-			"require": "./dist/index.js",
-			"types": "./dist/index.d.ts"
-		},
 		"./components/*": {
 			"import": "./dist/components*",
 			"require": "./dist/components/*",
