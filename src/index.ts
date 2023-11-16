@@ -1,6 +1,6 @@
 export { vars, getTheme, variantColorOverlay } from "./styles/theme.css";
 
-export * as stylesheet from "./styles/stylesheet.css";
+// export * as stylesheet from "./styles/stylesheet.css";
 
 export { createAccessibleTransition } from "./styles/utils/create_accessible_transition";
 
@@ -58,7 +58,11 @@ export { Collapsible } from "./components/collapsible";
 
 export type { CollapsibleProps } from "./components/collapsible";
 
-export * from "./components/data-table";
+export {
+	DataTable,
+	DataTableRowActions,
+	dataTableFilterFnMultiSelect,
+} from "./components/data-table";
 
 export { Dialog } from "./components/dialog";
 
