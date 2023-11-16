@@ -81,6 +81,7 @@ export const FormFilterNumberRange = ({
 		>
 			<Box paddingX="space_4">
 				<FormSelectSingle<NumberRangeFilterMode>
+					size="sm"
 					name="filter_mode"
 					defaultValue={localFilterMode}
 					items={filterModeItems}
@@ -89,6 +90,8 @@ export const FormFilterNumberRange = ({
 				{localFilterMode === "is_between" && (
 					<Box display="grid" gridTemplateColumns="2x" gap="space_2">
 						<FormInput
+							size="sm"
+							marginBottom="space_4"
 							inputMode="numeric"
 							name="min"
 							defaultValue={currentMin}
@@ -98,6 +101,8 @@ export const FormFilterNumberRange = ({
 							}`}
 						/>
 						<FormInput
+							size="sm"
+							marginBottom="space_4"
 							inputMode="numeric"
 							name="max"
 							defaultValue={currentMax}
@@ -110,6 +115,8 @@ export const FormFilterNumberRange = ({
 				)}
 				{localFilterMode === "is_equal_to" && (
 					<FormInput
+						size="sm"
+						marginBottom="space_4"
 						defaultValue={currentMin}
 						inputMode="numeric"
 						name="is_equal_to"
@@ -120,6 +127,8 @@ export const FormFilterNumberRange = ({
 				)}
 				{localFilterMode === "is_greater_than" && (
 					<FormInput
+						size="sm"
+						marginBottom="space_4"
 						defaultValue={currentMin || currentMax}
 						inputMode="numeric"
 						name="is_greater_than"
@@ -130,6 +139,8 @@ export const FormFilterNumberRange = ({
 				)}
 				{localFilterMode === "is_less_than" && (
 					<FormInput
+						size="sm"
+						marginBottom="space_4"
 						defaultValue={currentMax || currentMin}
 						inputMode="numeric"
 						name="is_less_than"
@@ -140,8 +151,13 @@ export const FormFilterNumberRange = ({
 				)}
 			</Box>
 
-			<Box padding="space_4">
-				<FormSubmitButton width="100%" name="apply_filter">
+			<Box paddingX="space_4">
+				<FormSubmitButton
+					size="sm"
+					marginBottom="space_4"
+					width="100%"
+					name="apply_filter"
+				>
 					{strApplyFilter}
 				</FormSubmitButton>
 			</Box>

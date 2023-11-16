@@ -6,7 +6,13 @@ export const FilterDialogTitle = ({
 	strFilterDialogTitle: string;
 }) => {
 	return (
-		<Box padding="space_4" as="h3" fontStyle="h6" marginBottom="none">
+		<Box
+			paddingX="space_4"
+			paddingTop="space_3"
+			marginBottom="space_2"
+			as="h3"
+			fontStyle="bodyMd"
+		>
 			{strFilterDialogTitle}
 		</Box>
 	);
