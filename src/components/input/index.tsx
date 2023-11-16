@@ -26,10 +26,10 @@ import type {
 import { useForwardRef } from "../../hooks/use_forward_ref";
 import { utilCss } from "../../styles/utils/util_css.css";
 import type { UtilCssArgs } from "../../styles/utils/util_css.css";
-import { FieldActionButtonClear } from "../field_action_button_clear";
-import { FieldActionButtonCopy } from "../field_action_button_copy";
-import { FieldActionButtonVisibility } from "../field_action_button_visibility";
-import { FieldWrapper } from "../field_wrapper";
+import { FieldActionButtonClear } from "../field-action-button-clear";
+import { FieldActionButtonCopy } from "../field-action-button-copy";
+import { FieldActionButtonVisibility } from "../field-action-button-visibility";
+import { FieldWrapper } from "../field-wrapper";
 import {
 	InputAddonWrapper,
 	WithOptionalInputAddons,

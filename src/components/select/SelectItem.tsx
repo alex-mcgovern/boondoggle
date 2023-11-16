@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React from "react";
 
 import { Box } from "../box/_components/Box";
-import { SlotWrapper } from "../slot_wrapper";
+import { SlotWrapper } from "../slot-wrapper";
 import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css";
 
 import type { Ref } from "react";

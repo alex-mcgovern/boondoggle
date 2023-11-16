@@ -24,8 +24,8 @@ import { variantColorOverlay } from "../../styles/theme.css";
 import { utilCss } from "../../styles/utils/util_css.css";
 import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 import { Loader } from "../loader";
-import { SlotWrapper } from "../slot_wrapper";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip_comp";
+import { SlotWrapper } from "../slot-wrapper";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
 import { getButtonStyles } from "./styles.css";
 import type { Alignment, Appearance } from "./styles.css";
 

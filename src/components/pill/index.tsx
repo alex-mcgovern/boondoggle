@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 
 import { a11yFocus } from "../../styles/common/a11y.css";
 import { utilCss } from "../../styles/utils/util_css.css";
-import { SlotWrapper } from "../slot_wrapper";
+import { SlotWrapper } from "../slot-wrapper";
 import * as styles from "./styles.css";
 
 import type {

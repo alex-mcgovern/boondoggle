@@ -10,7 +10,7 @@ import type { RegisterOptions } from "react-hook-form";
 import type { BoxProps } from "./components/box/_components/Box";
 
 import { NumberRangeFilterMode } from "./components/data-table/_components/column-filters/number-range/types";
-import type { FieldLabelProps } from "./components/field_label";
+import type { FieldLabelProps } from "./components/field-label";
 import type { ColorOverlay } from "./styles/color_palette.css";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
 

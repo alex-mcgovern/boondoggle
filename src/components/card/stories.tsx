@@ -2,7 +2,7 @@ import { Card as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../box/_components/Box";
 import { Button } from "../button";
-import { FieldsGrid } from "../fields_grid";
+import { FieldsGrid } from "../fields-grid";
 import { Input } from "../input";
 import { SkeletonInput } from "../skeletons/SkeletonInput";
 

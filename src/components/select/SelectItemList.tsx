@@ -12,7 +12,7 @@ import type {
 } from "downshift";
 import { CSSProperties, ForwardedRef, Fragment } from "react";
 import type { WithSize } from "../../common-types";
-import { FloatingPanel } from "../floating_panel";
+import { FloatingPanel } from "../floating-panel";
 import { SelectSeparator } from "./SelectSeparator";
 import type {
 	FlatSelectItems,

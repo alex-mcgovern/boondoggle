@@ -6,9 +6,9 @@ import { forwardRef } from "react";
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { utilCss } from "../../styles/utils/util_css.css";
 import { Box } from "../box/_components/Box";
-import { FieldErrorMessage } from "../field_error_message";
-import { FieldLabel } from "../field_label";
-import { SlotWrapper } from "../slot_wrapper";
+import { FieldErrorMessage } from "../field-error-message";
+import { FieldLabel } from "../field-label";
+import { SlotWrapper } from "../slot-wrapper";
 import * as styles from "./styles.css";
 
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";

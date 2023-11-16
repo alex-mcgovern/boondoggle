@@ -12,7 +12,7 @@ import "../../../../test/mocked_dependencies/has_pointer_capture.mock";
 import "../../../../test/mocked_dependencies/resize_observer.mock";
 import { selectFromDatePicker } from "../../../../test/select_from_date_picker";
 import { selectFromSingleSelect } from "../../../../test/select_from_select_single";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../radio_button_card_group/__mocks__/radio_button_cards.mock";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
 import { mockForm } from "../__mocks__/mock_form.mock";
 

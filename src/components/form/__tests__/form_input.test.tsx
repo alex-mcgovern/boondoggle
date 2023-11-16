@@ -6,10 +6,10 @@ import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { FormInput } from "../../form_input";
+import { FormInput } from "../../form-input";
 import { FormTestProvider } from "../form_test_provider.comp";
 
-import type { FormInputProps } from "../../form_input";
+import type { FormInputProps } from "../../form-input";
 
 const PROPS: FormInputProps = {
 	errorMessage: LOREM.errorMessage(),
