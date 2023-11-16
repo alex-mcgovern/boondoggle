@@ -40,15 +40,13 @@ export {
 	type ElementSizeEnum,
 } from "./styles/common/element_size.css";
 
-export type { TDataTableRowActions } from "./common-types";
-
 export { Avatar } from "./components/avatar";
 
 export type { AvatarProps } from "./components/avatar";
 
-export { Box } from "./components/box";
+export { Box } from "./components/box/_components/Box";
 
-export type { BoxProps } from "./components/box";
+export type { BoxProps } from "./components/box/_components/Box";
 
 export { Button } from "./components/button";
 
@@ -60,19 +58,7 @@ export { Collapsible } from "./components/collapsible";
 
 export type { CollapsibleProps } from "./components/collapsible";
 
-export { DataTable } from "./components/data-table";
-
-export { dataTableFilterFnMultiSelect } from "./components/data-table/_lib/dataTableFilterFnMultiSelect";
-
-export type { DataTableProps } from "./components/data-table";
-
-export { DataTableRowActions } from "./components/data-table/_components/data_table_row_actions";
-
-export type { DataTableRowActionsProps } from "./components/data-table/_components/data_table_row_actions";
-
-export { DataTableCellButton } from "./components/data-table/_components/data_table_cell_button";
-
-export type { DataTableCellButtonProps } from "./components/data-table/_components/data_table_cell_button";
+export * from "./components/data-table";
 
 export { Dialog } from "./components/dialog";
 

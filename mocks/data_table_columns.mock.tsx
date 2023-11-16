@@ -2,13 +2,12 @@
 import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Pill } from "../src";
 import { Avatar } from "../src/components/avatar";
-import { Box } from "../src/components/box";
-import { DataTableCellButton } from "../src/components/data-table/_components/data_table_cell_button";
-import { dataTableFilterFnMultiSelect } from "../src/components/data-table/_lib/dataTableFilterFnMultiSelect";
+import { Box } from "../src/components/box/_components/Box";
+import { Button } from "../src/components/button";
+import { dataTableFilterFnMultiSelect } from "../src/components/data-table";
 import { Icon } from "../src/components/icon";
-
+import { Pill } from "../src/components/pill";
 const faker = new Faker({ locale: [en] });
 
 faker.seed(42);
@@ -71,10 +70,13 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 	columnHelper.accessor("first_name", {
 		cell: (info) => {
 			return (
-				<DataTableCellButton
+				<Button
+					name="button"
+					appearance="link"
 					slotRight={<Icon icon={faArrowUpRight} />}
-					value={info.getValue()}
-				/>
+				>
+					{info.getValue()}
+				</Button>
 			);
 		},
 		enableHiding: false,
@@ -144,10 +146,13 @@ export const DATA_TABLE_COLUMNS_REDUCED_MOCK = [
 	columnHelper.accessor("first_name", {
 		cell: (info) => {
 			return (
-				<DataTableCellButton
+				<Button
+					name="button"
+					appearance="link"
 					slotRight={<Icon icon={faArrowUpRight} />}
-					value={info.getValue()}
-				/>
+				>
+					{info.getValue()}
+				</Button>
 			);
 		},
 		enableHiding: false,

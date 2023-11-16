@@ -20,7 +20,7 @@ import type {
 } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { UtilCssArgs } from "../../../styles/utils/util_css.css";
-import { Box } from "../../box";
+import { Box } from "../../box/_components/Box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";

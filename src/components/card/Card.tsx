@@ -1,4 +1,4 @@
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import * as styles from "./Card.css";
 import { CardActionsWrapper } from "./_CardActionsWrapper";
 export type CardProps = {

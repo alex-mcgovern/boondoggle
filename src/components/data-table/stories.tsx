@@ -1,18 +1,18 @@
 import { faPlus } from "@fortawesome/pro-solid-svg-icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DataTable as StoryComp } from ".";
 import {
 	DATA_TABLE_COLUMNS_MOCK,
 	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
 import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
-import type { TDataTableRowActions } from "../../common-types";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
-import { DataTableRowActions } from "./_components/data_table_row_actions";
-import { NumberRangeFilterMode } from "./_components/filters/number-range/types";
+import { DataTable as StoryComp } from "./_components/DataTable";
+import { NumberRangeFilterMode } from "./_components/column-filters/number-range/types";
+import { DataTableRowActions } from "./_components/row-actions/DataTableRowActions";
+import { TDataTableRowActions } from "./types";
 
 const meta = {
 	args: {},

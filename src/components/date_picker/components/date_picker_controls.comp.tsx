@@ -4,7 +4,7 @@ import {
 	faAngleRight,
 } from "@fortawesome/pro-solid-svg-icons";
 
-import { Box } from "../../box";
+import { Box } from "../../box/_components/Box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
 
@@ -14,7 +14,7 @@ import type {
 	DPUseYearsPropGetters,
 	DPYear,
 } from "@rehookify/datepicker";
-import type { BoxProps } from "../../box";
+import type { BoxProps } from "../../box/_components/Box";
 
 type DatePickerControlsProps = {
 	/**

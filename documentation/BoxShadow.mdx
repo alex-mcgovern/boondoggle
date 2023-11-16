@@ -1,45 +1,44 @@
 import { Canvas, Meta } from "@storybook/blocks";
-
 import { LOREM } from "../mocks/LOREM.mock";
-import { Box } from "../src/components/box";
+import { Box } from "../src/components/box/_components/Box";
 
-<Meta title="Documentation/BoxShadow" />
+        <Meta title="Documentation/BoxShadow" />
 
 # Box shadow
 
-<Box
-    display="flex"
-    flexDirection="column"
-    gap="space_12"
->
+        <Box
+                    display="flex"
+                    flexDirection="column"
+                    gap="space_12"
+                >
+                    <Box
+                            background="white"
+                            __width="20rem"
+                            marginBottom="space_6"
+                            aspectRatio="square"
+                            boxShadow="sm"
+                            borderRadius="sm"
+                        >
+
+                        </Box>
     <Box
-        background="white"
-        __width="20rem"
-        marginBottom="space_6"
-        aspectRatio="square"
-        boxShadow="sm"
-        borderRadius="sm"
-    >
-        Shadow SM
-    </Box>
+                    background="white"
+                    __width="20rem"
+                    marginBottom="space_6"
+                    aspectRatio="square"
+                    boxShadow="md"
+                    borderRadius="sm"
+                >
+
+                </Box>
     <Box
-        background="white"
-        __width="20rem"
-        marginBottom="space_6"
-        aspectRatio="square"
-        boxShadow="md"
-        borderRadius="sm"
-    >
-        Shadow MD
-    </Box>
-    <Box
-        background="white"
-        __width="20rem"
-        marginBottom="space_6"
-        aspectRatio="square"
-        boxShadow="lg"
-        borderRadius="sm"
-    >
-        Shadow LG
-    </Box>
-</Box>
+                    background="white"
+                    __width="20rem"
+                    marginBottom="space_6"
+                    aspectRatio="square"
+                    boxShadow="lg"
+                    borderRadius="sm"
+                >
+
+                </Box>
+                    </Box>

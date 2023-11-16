@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import { FieldDescription } from "../field_description";
 import { FieldErrorMessage } from "../field_error_message";
 import { FieldLabel } from "../field_label";

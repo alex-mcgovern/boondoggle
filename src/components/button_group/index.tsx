@@ -1,9 +1,9 @@
 import clsx from "clsx";
 
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import { buttonGroupStyles } from "./styles.css";
 
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../box/_components/Box";
 
 /**
  * Button group.

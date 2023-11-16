@@ -4,9 +4,7 @@
 	"description": "Boondoggle design system component library",
 	"version": "0.14.181",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -16,6 +14,12 @@
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"scripts": {
+		"prebuild": "rm -rf dist/*",
+		"build": "npm run build:css && npm run build:js",
+		"build:css": "tsup --config=\"tsup.css.config.ts\" && rm -rf dist/css/*.{js,d.ts}",
+		"build:js": "tsup --config=\"tsup.js.config.ts\" && rm -rf dist/js/**/*.css",
+		"postbuild": "cp -R dist/{js,css}/* dist/ && rm -rf dist/{js,css}",
+		"—————————————————————": "",
 		"build-storybook": "storybook build",
 		"build:dev": "rm -rf lib && tsup --watch",
 		"fix": "biome check --apply-unsafe .",

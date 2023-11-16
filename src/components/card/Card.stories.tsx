@@ -1,5 +1,5 @@
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import { Button } from "../button";
 import { FieldsGrid } from "../fields_grid";
 import { Input } from "../input";

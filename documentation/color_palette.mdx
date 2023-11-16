@@ -1,6 +1,6 @@
 import { ColorItem, Meta } from "@storybook/blocks";
 
-import { Box } from "../src/components/box";
+import { Box } from "../src/components/box/_components/Box";
 import { getTheme, variantColorOverlay, vars } from "../src/styles/theme.css";
 import { ColorPalette } from "./color_palette.comp";
 
@@ -12,36 +12,36 @@ import { ColorPalette } from "./color_palette.comp";
 
 <Box className={getTheme()}>
     <ColorPalette />
-</Box>
+    </Box>
 
 ## ColorOverlay: Blue
 
 <Box className={variantColorOverlay.blue}>
     <ColorPalette>
-        <ColorPalette />
-    </ColorPalette>
-</Box>
+            <ColorPalette />
+            </ColorPalette>
+    </Box>
 
 ## ColorOverlay: Amber
 
 <Box className={variantColorOverlay.amber}>
     <ColorPalette>
-        <ColorPalette />
-    </ColorPalette>
-</Box>
+            <ColorPalette />
+            </ColorPalette>
+    </Box>
 
 ## ColorOverlay: Green
 
 <Box className={variantColorOverlay.green}>
     <ColorPalette>
-        <ColorPalette />
-    </ColorPalette>
-</Box>
+            <ColorPalette />
+            </ColorPalette>
+    </Box>
 
 ## ColorOverlay: Red
 
 <Box className={variantColorOverlay.red}>
     <ColorPalette>
-        <ColorPalette />
-    </ColorPalette>
-</Box>
+            <ColorPalette />
+            </ColorPalette>
+    </Box>

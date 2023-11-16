@@ -1,4 +1,4 @@
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import {
 	radioButtonCardInputStyles,
 	radioButtonCardLabelStyles,

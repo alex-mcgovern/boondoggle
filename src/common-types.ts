@@ -3,13 +3,13 @@ import type {
 	ComponentPropsWithRef,
 	ComponentPropsWithoutRef,
 	ElementType,
-	JSXElementConstructor,
 	PropsWithChildren,
 	ReactNode,
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
-import type { BoxProps } from "./components/box";
-import { NumberRangeFilterMode } from "./components/data-table/_components/filters/number-range/types";
+import type { BoxProps } from "./components/box/_components/Box";
+
+import { NumberRangeFilterMode } from "./components/data-table/_components/column-filters/number-range/types";
 import type { FieldLabelProps } from "./components/field_label";
 import type { ColorOverlay } from "./styles/color_palette.css";
 import type { ElementSizeEnum } from "./styles/common/element_size.css";
@@ -19,14 +19,6 @@ declare module "react" {
 		render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
 	): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
 }
-
-export type TDataTableRowActions<TData extends RowData> =
-	JSXElementConstructor<{
-		/**
-		 * The raw data for the DataTable row.
-		 */
-		row_data: TData;
-	}>;
 
 export type WithDescription = {
 	/**

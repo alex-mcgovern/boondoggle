@@ -1,4 +1,4 @@
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import { DialogModalCloseButton } from "../dialog_modal_close_button";
 import { dialogHeaderStyle, dialogTitleStyle } from "./styles.css";
 

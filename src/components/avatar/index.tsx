@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Box } from "../box";
+import { Box } from "../box/_components/Box";
 import { getInitials } from "./lib/get_initials";
 import * as styles from "./styles.css";
 
