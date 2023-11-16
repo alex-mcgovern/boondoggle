@@ -3,8 +3,8 @@ import clsx from "clsx";
 import { createRef, forwardRef, useCallback } from "react";
 
 import { useClickOutside } from "../../hooks/use-click-outside";
-import { useForwardRef } from "../../hooks/use_forward_ref";
 import { useOpenDialogWithKeyboard } from "../../hooks/use-open-dialog-with-keyboard";
+import { useForwardRef } from "../../hooks/use_forward_ref";
 import { Box } from "../box/_components/Box";
 import { getDialogStyles } from "./styles.css";
 
