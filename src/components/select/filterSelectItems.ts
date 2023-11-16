@@ -1,5 +1,5 @@
-import { arrayHasLength } from "../../lib/array_has_length";
-import { isTruthy } from "../../lib/is_truthy";
+import { arrayHasLength } from "../../lib/array-has-length";
+import { isTruthy } from "../../lib/is-truthy";
 import { isFlatSelectItems } from "./isFlatSelectItems";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 import { isNotSeparator } from "./isNotSeparator";

@@ -2,8 +2,8 @@ import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { handleHookFormErrors } from "../../../../lib/handle_hook_form_errors";
-import { useDialogModalState } from "../../../../lib/use_dialog_modal_state";
+import { handleHookFormErrors } from "../../../form/handle_hook_form_errors";
+import { useDialogModalState } from "../../../../lib/use-dialog-modal-state";
 import { variantColorOverlay } from "../../../../styles/color_palette.css";
 import { Box } from "../../../box/_components/Box";
 import { FormSubmitButton } from "../../../form-submit-button";

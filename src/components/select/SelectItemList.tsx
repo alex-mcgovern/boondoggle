@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { arrayHasLength } from "../../lib/array_has_length";
+import { arrayHasLength } from "../../lib/array-has-length";
 import { SelectItem } from "./SelectItem";
 import * as styles from "./SelectItemList.css";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";

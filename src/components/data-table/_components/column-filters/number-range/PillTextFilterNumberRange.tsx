@@ -1,4 +1,4 @@
-import { exhaustiveSwitchGuard } from "../../../../../lib/exhaustive_switch_guard";
+import { exhaustiveSwitchGuard } from "../../../../../lib/exhaustive-switch-guard";
 import { Box } from "../../../../box/_components/Box";
 import { activeFilterString } from "../multi-select/FilterPillMultiSelect.css";
 import { useNumberRangeFilterMode } from "./FilterModeContext";

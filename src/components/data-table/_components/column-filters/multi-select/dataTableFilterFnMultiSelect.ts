@@ -1,5 +1,5 @@
 import { Row, RowData } from "@tanstack/react-table";
-import { arrayHasLength } from "../../../../../lib/array_has_length";
+import { arrayHasLength } from "../../../../../lib/array-has-length";
 
 export function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,

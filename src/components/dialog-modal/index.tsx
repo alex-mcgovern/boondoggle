@@ -1,7 +1,7 @@
 import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef } from "react";
 import type { ReactNode } from "react";
-import { useDialogModalState } from "../../lib/use_dialog_modal_state";
+import { useDialogModalState } from "../../lib/use-dialog-modal-state";
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box/_components/Box";
 import type { BoxProps } from "../box/_components/Box";

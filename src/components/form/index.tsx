@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 
-import { handleHookFormErrors } from "../../lib/handle_hook_form_errors";
+import { handleHookFormErrors } from "./handle_hook_form_errors";
 import { Box } from "../box/_components/Box";
 
 import type { ReactNode } from "react";

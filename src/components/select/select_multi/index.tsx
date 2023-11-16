@@ -8,7 +8,7 @@ import { forwardRef, useCallback, useState } from "react";
 
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
-import { arrayHasLength } from "../../../lib/array_has_length";
+import { arrayHasLength } from "../../../lib/array-has-length";
 import { Box } from "../../box/_components/Box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";

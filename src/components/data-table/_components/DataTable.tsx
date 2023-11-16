@@ -1,6 +1,6 @@
 "use client";
 
-import { arrayHasLength } from "../../../lib/array_has_length";
+import { arrayHasLength } from "../../../lib/array-has-length";
 import { tableStyles } from "../../../styles/stylesheet.css";
 import { Box } from "../../box/_components/Box";
 import { useDataTableState } from "../_lib/useDataTableState";

@@ -1,7 +1,7 @@
 import { Column } from "@tanstack/react-table";
 import { useState } from "react";
-import { arrayHasLength } from "../../../../../lib/array_has_length";
-import { isTruthy } from "../../../../../lib/is_truthy";
+import { arrayHasLength } from "../../../../../lib/array-has-length";
+import { isTruthy } from "../../../../../lib/is-truthy";
 import { FilterDialogTitle } from "../base/FilterDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
 import { NumberRangeFilterModeProvider } from "./FilterModeContext";

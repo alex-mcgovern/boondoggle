@@ -6,7 +6,7 @@ import { Button } from "../../../button";
 import { dialogModalActionsWrapperStyle } from "./styles.css";
 
 import type { ReactNode } from "react";
-import type { useDialogModalState } from "../../../../lib/use_dialog_modal_state";
+import type { useDialogModalState } from "../../../../lib/use-dialog-modal-state";
 
 export type DialogModalActionsProps = {
 	/**

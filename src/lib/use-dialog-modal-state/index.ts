@@ -1,6 +1,6 @@
 import { createRef, useCallback } from "react";
 
-import { useClickOutside } from "../../hooks/use_click_outside";
+import { useClickOutside } from "../../hooks/use-click-outside";
 import { useForwardRef } from "../../hooks/use_forward_ref";
 
 import type { ForwardedRef } from "react";
