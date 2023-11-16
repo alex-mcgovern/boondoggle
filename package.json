@@ -4,9 +4,7 @@
 	"description": "Boondoggle design system component library",
 	"version": "0.14.186",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -69,6 +67,9 @@
 		"react-hook-form": "7.47.0",
 		"@vanilla-extract/recipes": "0.4.0",
 		"@vanilla-extract/sprinkles": "1.6.0",
+		"@vanilla-extract/css": "1.11.0",
+		"@vanilla-extract/css-utils": "0.1.3",
+		"@radix-ui/colors": "0.1.8",
 		"zod": "3.21.4"
 	},
 	"devDependencies": {
@@ -78,7 +79,6 @@
 		"@babel/preset-typescript": "7.21.5",
 		"@biomejs/biome": "1.3.3",
 		"@faker-js/faker": "8.0.2",
-		"@radix-ui/colors": "0.1.8",
 		"@storybook/addon-essentials": "7.0.12",
 		"@storybook/addon-interactions": "7.0.12",
 		"@storybook/addon-mdx-gfm": "7.0.12",
@@ -93,8 +93,6 @@
 		"@types/jest": "29.5.1",
 		"@types/react": "18.2.6",
 		"@types/react-dom": "18.2.4",
-		"@vanilla-extract/css": "1.11.0",
-		"@vanilla-extract/css-utils": "0.1.3",
 		"@vanilla-extract/esbuild-plugin": "2.2.2",
 		"@vanilla-extract/jest-transform": "1.1.1",
 		"@vanilla-extract/webpack-plugin": "2.2.0",
