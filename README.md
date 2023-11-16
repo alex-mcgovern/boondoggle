@@ -5,7 +5,7 @@
 ## Installation
 
 ```shell
-npm i boondoggle-ui
+npm i boondoggle
 ```
 
 **Note:** You must have a valid FontAwesome Pro token exported as `FONTAWESOME_TOKEN` in order to
