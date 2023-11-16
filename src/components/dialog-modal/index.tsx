@@ -5,6 +5,7 @@ import { useDialogModalState } from "../../lib/use_dialog_modal_state";
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box/_components/Box";
 import type { BoxProps } from "../box/_components/Box";
+import { LoaderFullScreen } from "../loader-full-screen";
 import { DialogModalActions } from "./_components/dialog_modal_actions";
 import type { DialogModalActionsProps } from "./_components/dialog_modal_actions";
 import { DialogModalContent } from "./_components/dialog_modal_content";
@@ -13,7 +14,6 @@ import { DialogModalHeader } from "./_components/dialog_modal_header";
 import { DialogModalInner } from "./_components/dialog_modal_inner";
 import type { DialogModalInnerWidth } from "./_components/dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "./_components/dialog_modal_outer";
-import { LoaderFullScreen } from "../loader-full-screen";
 
 export type DialogModalProps = {
 	/**

@@ -6,9 +6,9 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../box/_components/Box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
+import { Icon } from "../icon";
 import { DialogModalActionConfirm } from "./_components/dialog_modal_action_confirm";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
-import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { DialogModalProps as StoryCompProps } from ".";
