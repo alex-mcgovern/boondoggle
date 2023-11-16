@@ -4,9 +4,7 @@
 	"description": "Boondoggle component library",
 	"version": "0.15.1",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -22,8 +20,13 @@
 			"types": "./dist/index.d.ts"
 		},
 		"./components/*": {
-			"import": "./dist/components*",
+			"import": "./dist/components/*",
 			"require": "./dist/components/*",
+			"types": "./dist/index.d.ts"
+		},
+		"./styles/*": {
+			"import": "./dist/styles/*",
+			"require": "./dist/styles/*",
 			"types": "./dist/index.d.ts"
 		}
 	},
