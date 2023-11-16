@@ -12,7 +12,7 @@ import {
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
 
-import { DataTableCellSelectable } from "../../components/data_table/_components/data_table_cell_selectable";
+import { DataTableCellSelectable } from "../../components/data-table/_components/data_table_cell_selectable";
 import { Skeleton } from "../../components/skeletons/Skeleton";
 import { dataTableFuzzyFilter } from "../data_table_fuzzy_filter";
 

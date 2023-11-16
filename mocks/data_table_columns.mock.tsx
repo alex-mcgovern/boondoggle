@@ -5,8 +5,8 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { Pill } from "../src";
 import { Avatar } from "../src/components/avatar";
 import { Box } from "../src/components/box";
-import { DataTableCellButton } from "../src/components/data_table/_components/data_table_cell_button";
-import { dataTableFilterFnMultiSelect } from "../src/components/data_table/_lib/dataTableFilterFnMultiSelect";
+import { DataTableCellButton } from "../src/components/data-table/_components/data_table_cell_button";
+import { dataTableFilterFnMultiSelect } from "../src/components/data-table/_lib/dataTableFilterFnMultiSelect";
 import { Icon } from "../src/components/icon";
 
 const faker = new Faker({ locale: [en] });

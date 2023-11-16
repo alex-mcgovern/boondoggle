@@ -60,19 +60,19 @@ export { Collapsible } from "./components/collapsible";
 
 export type { CollapsibleProps } from "./components/collapsible";
 
-export { DataTable } from "./components/data_table";
+export { DataTable } from "./components/data-table";
 
-export { dataTableFilterFnMultiSelect } from "./components/data_table/_lib/dataTableFilterFnMultiSelect";
+export { dataTableFilterFnMultiSelect } from "./components/data-table/_lib/dataTableFilterFnMultiSelect";
 
-export type { DataTableProps } from "./components/data_table";
+export type { DataTableProps } from "./components/data-table";
 
-export { DataTableRowActions } from "./components/data_table/_components/data_table_row_actions";
+export { DataTableRowActions } from "./components/data-table/_components/data_table_row_actions";
 
-export type { DataTableRowActionsProps } from "./components/data_table/_components/data_table_row_actions";
+export type { DataTableRowActionsProps } from "./components/data-table/_components/data_table_row_actions";
 
-export { DataTableCellButton } from "./components/data_table/_components/data_table_cell_button";
+export { DataTableCellButton } from "./components/data-table/_components/data_table_cell_button";
 
-export type { DataTableCellButtonProps } from "./components/data_table/_components/data_table_cell_button";
+export type { DataTableCellButtonProps } from "./components/data-table/_components/data_table_cell_button";
 
 export { Dialog } from "./components/dialog";
 
