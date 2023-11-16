@@ -1,4 +1,4 @@
-import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
+// import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
@@ -6,7 +6,7 @@ export default defineConfig({
 		js: '"use client"',
 	},
 	bundle: false,
-	clean: false,
+	clean: true,
 	config: "./tsconfig.build.json",
 	dts: {
 		entry: "./src/index.ts",
@@ -19,17 +19,17 @@ export default defineConfig({
 		"!./src/**/*test.*",
 		"!./src/**/types.*",
 	],
-	esbuildPlugins: [
-		vanillaExtractPlugin({
-			identifiers: "short",
-			outputCss: false,
-			runtime: false,
-		}),
-	],
+	// esbuildPlugins: [
+	// 	vanillaExtractPlugin({
+	// 		identifiers: "short",
+	// 		outputCss: false,
+	// 		runtime: false,
+	// 	}),
+	// ],
 	external: ["react"],
 	format: "esm",
 	minify: false,
-	outDir: "dist/js",
+	outDir: "dist",
 	platform: "browser",
 	sourcemap: false,
 	splitting: false,
