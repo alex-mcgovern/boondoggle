@@ -1,4 +1,3 @@
-"use client";
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import * as React from "react";

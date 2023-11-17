@@ -1,4 +1,3 @@
-"use client";
 
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import type { Placement } from "@floating-ui/react";

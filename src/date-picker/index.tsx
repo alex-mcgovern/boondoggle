@@ -1,4 +1,3 @@
-"use client";
 
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
 import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";

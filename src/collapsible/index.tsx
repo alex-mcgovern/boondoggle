@@ -1,4 +1,3 @@
-"use client";
 
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
