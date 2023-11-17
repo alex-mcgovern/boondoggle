@@ -9,6 +9,7 @@ import type {
 } from "react";
 import { a11yFocus } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
@@ -18,7 +19,6 @@ import {
 	WithStateDisabled,
 } from "../types";
 import { getTagStyle } from "./styles.css";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 type BaseTagProps<TPolymorphicAs extends ElementType> = Sprinkles &
 	PolymorphicComponentPropWithRef<

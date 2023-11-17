@@ -9,6 +9,7 @@ import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
 import { variantColorOverlay } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	WithName,
 	WithOptionalLabel,
@@ -24,7 +25,6 @@ import {
 	sliderThumb,
 	sliderTrack,
 } from "./styles.css";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
 	Sprinkles &

@@ -8,6 +8,7 @@ import { FieldLabel } from "../field-label";
 import { variantColorOverlay } from "../index.css";
 import { RadioButton } from "../radio-button";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
+import { Sprinkles } from "../sprinkles/index.css";
 import {
 	WithDescription,
 	WithName,
@@ -16,7 +17,6 @@ import {
 	WithWrapperProps,
 } from "../types";
 import { getGroupLabelStyles } from "./styles.css";
-import { Sprinkles } from "../sprinkles/index.css";
 
 export type RadioButtonGroupProps = Sprinkles &
 	WithWrapperProps &

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Box } from "../box";
-import { flagStyles } from "./styles.css";
 import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { flagStyles } from "./styles.css";
 
 export function FlagAc({
 	height = "space_8",

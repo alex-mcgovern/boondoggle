@@ -1,5 +1,5 @@
-import { sprinkles } from "../sprinkles/index.css";
 import { Skeleton } from "../skeleton";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const SkeletonInput = () => {
 	return (

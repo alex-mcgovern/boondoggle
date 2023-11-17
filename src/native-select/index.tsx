@@ -2,8 +2,9 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef } from "react";
-import { a11yError } from "../index.css";
 import { FieldWrapper } from "../field-wrapper";
+import { a11yError } from "../index.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -20,7 +21,6 @@ import {
 	getOptionalLabelProps,
 } from "../types";
 import { selectCSS } from "./styles.css";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type NativeSelectProps = Omit<
 	ComponentPropsWithoutRef<"select">,

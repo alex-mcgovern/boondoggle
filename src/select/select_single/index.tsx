@@ -12,6 +12,7 @@ import { Icon } from "../../icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
+import { Sprinkles } from "../../sprinkles/index.css";
 import {
 	WithDescription,
 	WithName,
@@ -37,7 +38,6 @@ import type {
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
-import { Sprinkles } from "../../sprinkles/index.css";
 
 export type SelectSingleProps<
 	TValue extends string = string,

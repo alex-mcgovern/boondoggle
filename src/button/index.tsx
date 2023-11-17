@@ -11,6 +11,7 @@ import type {
 import { type ElementSizeEnum, variantColorOverlay } from "../index.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot-wrapper";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
 import type {
 	PolymorphicComponentPropWithRef,
@@ -21,7 +22,6 @@ import type {
 } from "../types";
 import { getButtonStyles } from "./styles.css";
 import type { Alignment, Appearance } from "./styles.css";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 const getLoadingSlotSide = ({
 	slotLeft,

@@ -2,8 +2,8 @@ import { flexRender } from "@tanstack/react-table";
 import type { Header } from "@tanstack/react-table";
 import clsx from "clsx";
 import { thStyles } from "../../../index.css";
-import { TableSortButton } from "../controls/TableSortButton";
 import { sprinkles } from "../../../sprinkles/index.css";
+import { TableSortButton } from "../controls/TableSortButton";
 
 export function TableHeaderCell<THeaderData>({
 	header,

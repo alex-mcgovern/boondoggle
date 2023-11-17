@@ -1,9 +1,9 @@
-import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
+import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import {
+	MEDIA_QUERY_DESKTOP,
+	MEDIA_QUERY_TABLET,
 	sprinklesLayer,
 	vars,
-	MEDIA_QUERY_TABLET,
-	MEDIA_QUERY_DESKTOP,
 } from "../index.css";
 
 export const properties = defineProperties({

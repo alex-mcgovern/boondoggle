@@ -13,6 +13,7 @@ import { Box } from "../../box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
+import { Sprinkles } from "../../sprinkles/index.css";
 import {
 	WithName,
 	WithOptionalIsClearable,
@@ -36,7 +37,6 @@ import type {
 	SelectItemShape,
 } from "../types";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
-import { Sprinkles } from "../../sprinkles/index.css";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,

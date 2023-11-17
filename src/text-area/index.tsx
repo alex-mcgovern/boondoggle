@@ -5,6 +5,7 @@ import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 import { FieldWrapper } from "../field-wrapper";
 import { a11yError } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -21,7 +22,6 @@ import {
 	getOptionalLabelProps,
 } from "../types";
 import { getTextAreaStyles } from "./styles.css";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,

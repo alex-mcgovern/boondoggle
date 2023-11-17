@@ -10,7 +10,7 @@ import {
 	elementPadding,
 	vars,
 } from "../index.css";
-import { sprinkles, Sprinkles } from "../sprinkles/index.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export const variantButtonSize = styleVariants({
 	lg: [

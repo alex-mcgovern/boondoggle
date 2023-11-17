@@ -13,6 +13,7 @@ import { Button } from "../../button";
 import type { ButtonProps } from "../../button";
 import { Icon } from "../../icon";
 
+import { Sprinkles } from "../../sprinkles/index.css";
 import {
 	WithName,
 	WithOptionalLabel,
@@ -29,7 +30,6 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
-import { Sprinkles } from "../../sprinkles/index.css";
 
 export type SelectButtonProps<
 	TValue extends string = string,

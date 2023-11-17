@@ -9,6 +9,7 @@ import { defineConfig } from "tsup";
 
 const isIncluded = (file: string) =>
 	file.includes(".tsx") || file.includes("index.css.ts");
+
 const isExcluded = (file: string) =>
 	file.includes("_lib") ||
 	file.includes("_components") ||
@@ -52,7 +53,6 @@ export default defineConfig({
 		entry: files,
 		resolve: false,
 	},
-	// dts: true,
 	entry: [
 		"./src",
 		"!./src/**/*mock.*",
@@ -61,22 +61,14 @@ export default defineConfig({
 		"!./src/**/*spec.*",
 		"!./src/**/types.*",
 	],
-	// esbuildPlugins: [
-	// 	vanillaExtractPlugin({
-	// 		identifiers: "short",
-	// 		outputCss: false,
-	// 		runtime: false,
-	// 	}),
-	// ],
 	external: ["react"],
 	format: "esm",
+	metafile: true,
 	minify: false,
 	outDir: "dist",
 	platform: "browser",
 	sourcemap: false,
 	splitting: false,
 	target: "es2020",
-	treeshake: false,
-	metafile: true,
 	tsconfig: "./tsconfig.build.json",
 });
