@@ -7,9 +7,9 @@ import type {
 	ReactNode,
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
-import type { BoxProps } from "./components/box";
-import { NumberRangeFilterMode } from "./components/data-table/_components/column-filters/number-range/types";
-import type { FieldLabelProps } from "./components/field-label";
+import { BoxProps } from "./box";
+import { NumberRangeFilterMode } from "./data-table/_components/column-filters/number-range/types";
+import { FieldLabelProps } from "./field-label";
 import { ColorOverlay, ElementSizeEnum } from "./index.css";
 
 declare module "react" {

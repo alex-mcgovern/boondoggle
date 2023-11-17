@@ -9,8 +9,7 @@ export default defineConfig({
 	clean: true,
 	config: "./tsconfig.build.json",
 	dts: {
-		entry: "./src/index.ts",
-		resolve: false,
+		entry: "src/*.ts",
 	},
 	entry: [
 		"./src",

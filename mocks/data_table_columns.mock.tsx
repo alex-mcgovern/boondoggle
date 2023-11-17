@@ -2,12 +2,12 @@
 import { Faker, en } from "@faker-js/faker";
 import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons/faArrowUpRight";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Avatar } from "../src/components/avatar";
-import { Box } from "../src/components/box";
-import { Button } from "../src/components/button";
-import { dataTableFilterFnMultiSelect } from "../src/components/data-table";
-import { Icon } from "../src/components/icon";
-import { Pill } from "../src/components/pill";
+import { Avatar } from "../src/avatar";
+import { Box } from "../src/box";
+import { Button } from "../src/button";
+import { dataTableFilterFnMultiSelect } from "../src/data-table";
+import { Icon } from "../src/icon";
+import { Pill } from "../src/pill";
 const faker = new Faker({ locale: [en] });
 
 faker.seed(42);
