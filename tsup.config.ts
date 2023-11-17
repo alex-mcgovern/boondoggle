@@ -1,7 +1,7 @@
-// import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
-import { defineConfig } from "tsup";
 import fs from "fs";
 import path from "path";
+// import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
+import { defineConfig } from "tsup";
 
 /** -----------------------------------------------------------------------------
  * UTIL FOR GETTING THE FILES WE WANT TO GENERATE .DTS FILES FOR
