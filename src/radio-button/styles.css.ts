@@ -1,9 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
-import { a11yFocus, utilCss, vars } from "../index.css";
+import { a11yFocus, vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const radioButtonWrapperStyles = style([
-	utilCss({
+	sprinkles({
 		alignItems: "start",
 		borderRadius: "sm",
 		display: "flex",
@@ -13,7 +14,7 @@ export const radioButtonWrapperStyles = style([
 
 export const radioButtonInputStyles = style([
 	a11yFocus,
-	utilCss({ borderRadius: "50%", marginTop: "space_2" }),
+	sprinkles({ borderRadius: "50%", marginTop: "space_2" }),
 ]);
 
 export const radioButtonLabelStyles = style([

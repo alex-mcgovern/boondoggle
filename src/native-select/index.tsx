@@ -2,8 +2,8 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef } from "react";
+import { a11yError } from "../index.css";
 import { FieldWrapper } from "../field-wrapper";
-import { type UtilCssArgs, a11yError, utilCss } from "../index.css";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -20,6 +20,7 @@ import {
 	getOptionalLabelProps,
 } from "../types";
 import { selectCSS } from "./styles.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type NativeSelectProps = Omit<
 	ComponentPropsWithoutRef<"select">,
@@ -27,7 +28,7 @@ export type NativeSelectProps = Omit<
 > &
 	// WithOptionalIsClearable &
 	// WithOptionalIsCopyable &
-	UtilCssArgs &
+	Sprinkles &
 	WithColorOverlay &
 	WithDescription &
 	WithHideLastpass &
@@ -62,9 +63,12 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 		ref,
 	) => {
 		/**
-		 * Separate `UtilCssArgs` from other spread props, so we don't break Vanilla Extract
+		 * Separate `Sprinkles` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(
+			rest,
+			sprinkles,
+		);
 
 		return (
 			<FieldWrapper
@@ -85,7 +89,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 				<select
 					aria-invalid={invalid}
 					aria-label={label}
-					className={clsx(selectCSS({ size }), utilCss(atomProps), {
+					className={clsx(selectCSS({ size }), sprinkles(atomProps), {
 						[a11yError]: invalid,
 					})}
 					id={name}

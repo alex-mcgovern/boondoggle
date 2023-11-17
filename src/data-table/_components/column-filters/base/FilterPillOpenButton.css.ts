@@ -1,6 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../../../../css-utils";
-import { a11yFocus, utilCss, vars } from "../../../../index.css";
+import { a11yFocus, vars } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 const rotateOutKeyframes = keyframes({
 	"0%": { transform: "rotate(45deg)" },
@@ -9,7 +10,7 @@ const rotateOutKeyframes = keyframes({
 
 export const openIconCSS = style([
 	a11yFocus,
-	utilCss({
+	sprinkles({
 		borderRadius: "pill",
 		display: "inline-flex",
 		alignItems: "center",

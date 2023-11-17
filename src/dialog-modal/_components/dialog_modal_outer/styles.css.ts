@@ -6,14 +6,14 @@ import {
 	MEDIA_QUERY_TABLET,
 	animateSlideUp,
 	fadeInBackdropKeyframes,
-	utilCss,
 	vars,
 } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 export const getDialogModalOuterStyle = recipe({
 	base: [
 		animateSlideUp,
-		utilCss({
+		sprinkles({
 			background: "background",
 			margin: "auto",
 			padding: "none",

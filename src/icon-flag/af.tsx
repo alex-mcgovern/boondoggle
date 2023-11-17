@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { type UtilCssArgs, utilCss } from "../index.css";
+import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 import { Box } from "../box";
 import { flagStyles } from "./styles.css";
@@ -8,11 +8,11 @@ export function FlagAf({
 	height = "space_8",
 	width = "space_8",
 	...rest
-}: UtilCssArgs) {
+}: Sprinkles) {
 	return (
 		<Box
 			as="svg"
-			className={clsx(flagStyles, utilCss({ height, width, ...rest }))}
+			className={clsx(flagStyles, sprinkles({ height, width, ...rest }))}
 			viewBox="0 0 512 512"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"

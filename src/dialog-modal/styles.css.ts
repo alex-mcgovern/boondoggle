@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const dialogConfirmText = style([
-	utilCss({
+	sprinkles({
 		display: "inline-block",
 		marginBottom: "space_2",
 	}),

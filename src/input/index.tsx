@@ -12,7 +12,7 @@ import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";
 import { FieldActionButtonVisibility } from "../field-action-button-visibility";
 import { FieldWrapper } from "../field-wrapper";
-import { type UtilCssArgs, utilCss } from "../index.css";
+import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	WithColorOverlay,
 	WithDescription,
@@ -77,7 +77,7 @@ export type InputProps = Partial<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: UtilCssArgs["marginBottom"];
+		marginBottom?: Sprinkles["marginBottom"];
 
 		/**
 		 * Whether to render the input with a border.
@@ -157,7 +157,7 @@ function InputBase(
 	}, [inputRef]);
 
 	const { atomProps, otherProps } = React.useMemo(() => {
-		return extractAtomsFromProps(rest, utilCss);
+		return extractAtomsFromProps(rest, sprinkles);
 	}, [rest]);
 
 	const { handleToggleVisibility, isVisible } = useFieldVisibilityState({
@@ -191,7 +191,7 @@ function InputBase(
 				size={size}
 			>
 				<InputSlotWrapper
-					className={clsx(utilCss(atomProps), userClassName)}
+					className={clsx(sprinkles(atomProps), userClassName)}
 					disabled={disabled}
 					focus={focus}
 					hasBorder={hasBorder}

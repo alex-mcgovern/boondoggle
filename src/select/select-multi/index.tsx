@@ -11,7 +11,6 @@ import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
-import { UtilCssArgs } from "../../index.css";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import {
@@ -37,6 +36,7 @@ import type {
 	SelectItemShape,
 } from "../types";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
+import { Sprinkles } from "../../sprinkles/index.css";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,
@@ -97,7 +97,7 @@ export type SelectMultiProps<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: UtilCssArgs["marginBottom"];
+		marginBottom?: Sprinkles["marginBottom"];
 
 		/**
 		 * Item to be preselected when the component mounts.

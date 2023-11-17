@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 export const dialogModalActionsWrapperStyle = style([
-	utilCss({
+	sprinkles({
 		borderTop: "border_default",
 		display: "grid",
 		gap: "space_2",

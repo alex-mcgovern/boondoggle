@@ -4,8 +4,8 @@ import {
 	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
-	utilCss,
 } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 const variantWidth = styleVariants({
 	lg: {
@@ -36,7 +36,7 @@ export type DialogModalInnerWidth = keyof typeof variantWidth;
 
 export const getDialogModalInnerStyle = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			display: "flex",
 			flexDirection: "column",
 			maxWidth: "100vw",

@@ -1,10 +1,11 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss, vars } from "../index.css";
+import { vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const tabCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			flexShrink: "0",
 			paddingBottom: "space_1",
 		}),
@@ -15,7 +16,7 @@ export const tabCSS = recipe({
 	variants: {
 		isTabFullWidth: {
 			true: [
-				utilCss({
+				sprinkles({
 					flexGrow: "1",
 					display: "flex",
 					justifyContent: "center",
@@ -41,7 +42,7 @@ export const tabCSS = recipe({
 
 export const sectionCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			marginY: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
@@ -52,15 +53,15 @@ export const sectionCSS = recipe({
 	},
 	variants: {
 		size: {
-			lg: [utilCss({ maxWidth: "main_lg" })],
-			md: [utilCss({ maxWidth: "main_md" })],
-			sm: [utilCss({ maxWidth: "main_sm" })],
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [sprinkles({ maxWidth: "main_md" })],
+			sm: [sprinkles({ maxWidth: "main_sm" })],
 		},
 	},
 });
 
 export const tabListCSS = style([
-	utilCss({
+	sprinkles({
 		alignItems: "center",
 		borderBottom: "border_default",
 		display: "flex",

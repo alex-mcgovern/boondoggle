@@ -1,20 +1,21 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss, variantColorOverlay } from "../index.css";
+import { variantColorOverlay } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const size = styleVariants({
 	lg: [
-		utilCss({
+		sprinkles({
 			fontStyle: "bodyMd",
 		}),
 	],
 	md: [
-		utilCss({
+		sprinkles({
 			fontStyle: "bodySm",
 		}),
 	],
 	sm: [
-		utilCss({
+		sprinkles({
 			fontStyle: "bodySm",
 		}),
 	],
@@ -23,7 +24,7 @@ const size = styleVariants({
 export const progressBarCss = recipe({
 	base: [
 		variantColorOverlay.blue,
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			border: "border_hover",
 			borderRadius: "sm",
@@ -48,7 +49,7 @@ export const progressBarCss = recipe({
 });
 
 export const progressBarInnerCSS = style([
-	utilCss({
+	sprinkles({
 		background: "tint_active",
 	}),
 	{

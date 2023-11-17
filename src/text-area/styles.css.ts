@@ -3,34 +3,22 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	a11yDisabled,
 	a11yFocus,
-	elementFontSize,
 	elementHeight,
 	elementPadding,
-	utilCss,
 } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const size = styleVariants({
-	lg: [
-		elementFontSize.lg,
-		elementPadding.lg,
-		{ minHeight: elementHeight.lg },
-	],
-	md: [
-		elementFontSize.md,
-		elementPadding.md,
-		{ minHeight: elementHeight.md },
-	],
-	sm: [
-		elementFontSize.sm,
-		elementPadding.sm,
-		{ minHeight: elementHeight.sm },
-	],
+	lg: [elementPadding.lg, { minHeight: elementHeight.lg }],
+	md: [elementPadding.md, { minHeight: elementHeight.md }],
+	sm: [elementPadding.sm, { minHeight: elementHeight.sm }],
 });
 
 export const getTextAreaStyles = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			width: "100%",
+			fontStyle: "bodyMd",
 		}),
 		a11yDisabled,
 		a11yFocus,

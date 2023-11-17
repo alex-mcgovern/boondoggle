@@ -12,7 +12,6 @@ import { Box } from "../../box";
 import { Button } from "../../button";
 import type { ButtonProps } from "../../button";
 import { Icon } from "../../icon";
-import { UtilCssArgs } from "../../index.css";
 import {
 	WithName,
 	WithOptionalLabel,
@@ -29,11 +28,12 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
+import { Sprinkles } from "../../sprinkles/index.css";
 
 export type SelectButtonProps<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
-> = UtilCssArgs &
+> = Sprinkles &
 	WithName &
 	WithSize &
 	WithSlots &
@@ -89,7 +89,7 @@ export type SelectButtonProps<
 		/**
 		 * Props to customise the wrapper Box component.
 		 */
-		wrapperProps?: Omit<UtilCssArgs, "position">;
+		wrapperProps?: Omit<Sprinkles, "position">;
 	};
 
 /**

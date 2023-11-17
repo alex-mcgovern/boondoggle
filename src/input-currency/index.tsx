@@ -2,7 +2,6 @@
 
 import { forwardRef, useEffect, useMemo, useState } from "react";
 import type { ComponentPropsWithoutRef, ForwardedRef } from "react";
-import type { UtilCssArgs } from "../index.css";
 import { Input } from "../input";
 import { SelectSingle } from "../select/select-single";
 import type {
@@ -25,6 +24,7 @@ import { useFormattedCurrency } from "./use_formatted_currency";
 
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";
 import type { SelectItemShape } from "../select/types";
+import { Sprinkles } from "../sprinkles/index.css";
 
 type IsCurrencyEditable<TCurrency extends string = string> = {
 	/**
@@ -104,7 +104,7 @@ export type InputCurrencyProps<TCurrency extends string = string> = Partial<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: UtilCssArgs["marginBottom"];
+		marginBottom?: Sprinkles["marginBottom"];
 		/**
 		 * Initial value on first render.
 		 */

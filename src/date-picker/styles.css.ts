@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const datePickerRootCSS = style([
-	utilCss({
+	sprinkles({
 		padding: "space_4",
 		width: "max-content",
 	}),

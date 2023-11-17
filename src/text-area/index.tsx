@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 import { FieldWrapper } from "../field-wrapper";
-import { type UtilCssArgs, a11yError, utilCss } from "../index.css";
+import { a11yError } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
 import {
 	WithColorOverlay,
@@ -21,6 +21,7 @@ import {
 	getOptionalLabelProps,
 } from "../types";
 import { getTextAreaStyles } from "./styles.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,
@@ -28,7 +29,7 @@ export type TextAreaProps = Omit<
 > &
 	// WithOptionalIsClearable &
 	// WithOptionalIsCopyable &
-	UtilCssArgs &
+	Sprinkles &
 	WithColorOverlay &
 	WithDescription &
 	WithHideLastpass &
@@ -64,9 +65,12 @@ export const TextArea = forwardRef(
 		ref: LegacyRef<HTMLTextAreaElement> | undefined,
 	) => {
 		/**
-		 * Separate `UtilCssArgs` from other spread props, so we don't break Vanilla Extract
+		 * Separate `Sprinkles` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(
+			rest,
+			sprinkles,
+		);
 
 		return (
 			<FieldWrapper
@@ -96,7 +100,7 @@ export const TextArea = forwardRef(
 						aria-label={label}
 						className={clsx(
 							getTextAreaStyles({ size }),
-							utilCss(atomProps),
+							sprinkles(atomProps),
 							{
 								[a11yError]: invalid,
 							},

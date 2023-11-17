@@ -5,7 +5,7 @@ import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-import { UtilCssArgs, variantColorOverlay } from "../index.css";
+import { variantColorOverlay } from "../index.css";
 import { RadioButton } from "../radio-button";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
 import {
@@ -16,8 +16,9 @@ import {
 	WithWrapperProps,
 } from "../types";
 import { getGroupLabelStyles } from "./styles.css";
+import { Sprinkles } from "../sprinkles/index.css";
 
-export type RadioButtonGroupProps = UtilCssArgs &
+export type RadioButtonGroupProps = Sprinkles &
 	WithWrapperProps &
 	WithStateInvalid &
 	WithName &

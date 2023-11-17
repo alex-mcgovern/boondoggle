@@ -3,14 +3,14 @@ import { withPrefersMotion } from "../css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 	a11yFocus,
-	utilCss,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const pillCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			display: "inline-flex",
 			fontSize: "bodySm",
 			alignItems: "center",
@@ -45,19 +45,19 @@ export const pillCSS = recipe({
 		colorOverlay: variantColorOverlay,
 		size: {
 			lg: [
-				utilCss({
+				sprinkles({
 					height: "space_10",
 					minWidth: "space_10",
 				}),
 			],
 			md: [
-				utilCss({
+				sprinkles({
 					height: "space_8",
 					minWidth: "space_8",
 				}),
 			],
 			sm: [
-				utilCss({
+				sprinkles({
 					height: "space_6",
 					minWidth: "space_6",
 				}),

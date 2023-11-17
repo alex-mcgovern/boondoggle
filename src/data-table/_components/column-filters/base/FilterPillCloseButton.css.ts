@@ -4,13 +4,13 @@ import { withPrefersMotion } from "../../../../css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
 	a11yFocus,
-	utilCss,
 	vars,
 } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const closeButtonCSS = style([
 	a11yFocus,
-	utilCss({
+	sprinkles({
 		color: "text_low_contrast",
 		fontStyle: "bodyMd",
 

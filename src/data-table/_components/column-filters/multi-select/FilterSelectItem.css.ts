@@ -1,9 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { a11yFocusStyleRule, utilCss, vars } from "../../../../index.css";
+import { a11yFocusStyleRule, vars } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const selectItemLabelCSS = style([
-	utilCss({
+	sprinkles({
 		paddingX: "space_2",
 		paddingY: "space_2",
 		borderRadius: "md",
@@ -27,7 +28,7 @@ export const selectItemLabelCSS = style([
 ]);
 
 export const selectItemLabelTextCSS = style([
-	utilCss({
+	sprinkles({
 		whiteSpace: "nowrap",
 		overflow: "hidden",
 	}),

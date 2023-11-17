@@ -1,8 +1,8 @@
 import { createBox } from "@dessert-box/react";
-import { type UtilCssArgs, utilCss } from "../index.css";
+import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export const Box = createBox({
-	atoms: utilCss,
+	atoms: sprinkles,
 });
 
-export type BoxProps = React.ComponentPropsWithoutRef<typeof Box> & UtilCssArgs;
+export type BoxProps = React.ComponentPropsWithoutRef<typeof Box> & Sprinkles;

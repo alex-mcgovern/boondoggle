@@ -9,7 +9,6 @@ import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
-import { UtilCssArgs } from "../../index.css";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
@@ -38,6 +37,7 @@ import type {
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
+import { Sprinkles } from "../../sprinkles/index.css";
 
 export type SelectSingleProps<
 	TValue extends string = string,
@@ -57,7 +57,7 @@ export type SelectSingleProps<
 		 * The bottom margin applied to the input element.
 		 * @default "space_6" (1.5rem / 24px)
 		 */
-		marginBottom?: UtilCssArgs["marginBottom"];
+		marginBottom?: Sprinkles["marginBottom"];
 
 		/**
 		 * Item to be preselected when the component mounts.

@@ -5,7 +5,7 @@ import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-import { UtilCssArgs, variantColorOverlay } from "../index.css";
+import { variantColorOverlay } from "../index.css";
 import { RadioButtonCard } from "../radio-button-card";
 import type {
 	RadioButtonCardShape,
@@ -18,8 +18,9 @@ import {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../types";
+import { Sprinkles } from "../sprinkles/index.css";
 
-export type RadioButtonCardGroupProps = UtilCssArgs &
+export type RadioButtonCardGroupProps = Sprinkles &
 	WithWrapperProps &
 	WithStateInvalid &
 	WithName &

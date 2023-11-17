@@ -1,8 +1,9 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss, vars } from "../index.css";
+import { vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const fieldsGridStyle = style([
-	utilCss({
+	sprinkles({
 		display: "grid",
 		gridTemplateColumns: {
 			mobile: "1x",

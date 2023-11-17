@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const filterMenuCSS = style([
-	utilCss({ width: "auto" }),
+	sprinkles({ width: "auto" }),
 	{
 		width: "22.5rem",
 	},

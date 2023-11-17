@@ -7,10 +7,10 @@ import {
 	a11yFocus,
 	elementHeight,
 	elementPaddingRaw,
-	utilCss,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const selectItemSize = styleVariants({
 	lg: [
@@ -44,7 +44,7 @@ const selectItemSize = styleVariants({
 
 export const getSelectItemStyles = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			borderRadius: "md",
 			color: "text_low_contrast",

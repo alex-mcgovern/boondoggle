@@ -1,7 +1,8 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { elementPaddingRaw, utilCss, vars } from "../index.css";
+import { elementPaddingRaw, vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const groupTitleSize = styleVariants({
 	lg: {
@@ -38,7 +39,7 @@ const groupTitleSize = styleVariants({
 
 export const groupTitleCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			color: "text_low_contrast",
 			fontStyle: "bodySm",
 			marginY: "space_2",
@@ -50,7 +51,7 @@ export const groupTitleCSS = recipe({
 });
 
 export const innerCSS = style([
-	utilCss({
+	sprinkles({
 		overflowY: "auto",
 		padding: "space_1",
 	}),

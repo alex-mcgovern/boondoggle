@@ -7,7 +7,7 @@ import type { AriaRole, Ref } from "react";
 import { Box } from "../box";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-import { type UtilCssArgs, utilCss, variantColorOverlay } from "../index.css";
+import { variantColorOverlay } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
 import {
 	WithName,
@@ -24,9 +24,10 @@ import {
 	sliderThumb,
 	sliderTrack,
 } from "./styles.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
-	UtilCssArgs &
+	Sprinkles &
 	WithWrapperProps &
 	WithOptionalLabel &
 	WithStateInvalid &
@@ -65,7 +66,10 @@ export const Slider = forwardRef(
 	) => {
 		const labelId = id ? `${id}-label` : undefined;
 
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(
+			rest,
+			sprinkles,
+		);
 
 		return (
 			<Box
@@ -91,7 +95,7 @@ export const Slider = forwardRef(
 						aria-label={name}
 						aria-labelledby={label && id ? labelId : undefined}
 						aria-required={required}
-						className={clsx(sliderRoot, utilCss(atomProps))}
+						className={clsx(sliderRoot, sprinkles(atomProps))}
 						id={id}
 						name={name}
 						ref={ref}

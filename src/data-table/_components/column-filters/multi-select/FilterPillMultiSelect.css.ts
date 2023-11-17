@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const activeFilterStringCSS = style([
-	utilCss({ display: "inline-block" }),
+	sprinkles({ display: "inline-block" }),
 	{
 		maxWidth: "5rem",
 		whiteSpace: "nowrap",
@@ -12,7 +12,7 @@ export const activeFilterStringCSS = style([
 ]);
 
 export const selectItemListCSS = style([
-	utilCss({
+	sprinkles({
 		paddingX: "space_4",
 	}),
 	{

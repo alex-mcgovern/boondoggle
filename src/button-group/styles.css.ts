@@ -1,9 +1,9 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
-import { utilCss } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const buttonGroupStyles = style([
-	utilCss({ alignItems: "stretch", display: "flex" }),
+	sprinkles({ alignItems: "stretch", display: "flex" }),
 	{
 		borderCollapse: "collapse",
 	},

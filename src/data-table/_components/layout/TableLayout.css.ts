@@ -2,13 +2,8 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../../css-utils";
-import {
-	tBodyStyles,
-	tRowStyles,
-	tdStyles,
-	utilCss,
-	vars,
-} from "../../../index.css";
+import { tBodyStyles, tRowStyles, tdStyles, vars } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 const baseBodyStyle = style({});
 
@@ -53,7 +48,7 @@ const baseRowStyles = style({});
 export const rowStyles = style([
 	tRowStyles,
 	baseRowStyles,
-	utilCss({
+	sprinkles({
 		color: "text_high_contrast",
 		textDecoration: "none",
 	}),

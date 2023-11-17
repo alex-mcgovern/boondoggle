@@ -5,12 +5,12 @@ import {
 	SELECTOR_IS_FOCUS,
 	SELECTOR_IS_HOVER,
 	a11yFocusStyleRule,
-	utilCss,
 	vars,
 } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const sliderRoot = style([
-	utilCss({
+	sprinkles({
 		alignItems: "center",
 		display: "flex",
 		marginY: "space_2",
@@ -33,7 +33,7 @@ export const sliderRoot = style([
 ]);
 
 export const sliderTrack = style([
-	utilCss({
+	sprinkles({
 		borderRadius: "sm",
 		position: "relative",
 	}),
@@ -52,7 +52,7 @@ export const sliderTrack = style([
 ]);
 
 export const sliderRange = style([
-	utilCss({
+	sprinkles({
 		background: "button_default",
 		borderRadius: "pill",
 		height: "100%",
@@ -61,7 +61,7 @@ export const sliderRange = style([
 ]);
 
 export const sliderThumb = style([
-	utilCss({
+	sprinkles({
 		background: "tint_default",
 		border: "border_hover",
 		borderRadius: "50%",

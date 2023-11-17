@@ -2,16 +2,16 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	a11yDisabled,
 	a11yFocus,
-	elementFontSize,
 	elementHeight,
 	elementPadding,
-	utilCss,
 } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const selectCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			width: "100%",
+			fontStyle: "bodyMd",
 		}),
 		a11yDisabled,
 		a11yFocus,
@@ -22,21 +22,9 @@ export const selectCSS = recipe({
 	},
 	variants: {
 		size: {
-			lg: [
-				elementFontSize.lg,
-				elementPadding.lg,
-				{ height: elementHeight.lg },
-			],
-			md: [
-				elementFontSize.md,
-				elementPadding.md,
-				{ height: elementHeight.md },
-			],
-			sm: [
-				elementFontSize.sm,
-				elementPadding.sm,
-				{ height: elementHeight.sm },
-			],
+			lg: [elementPadding.lg, { height: elementHeight.lg }],
+			md: [elementPadding.md, { height: elementHeight.md }],
+			sm: [elementPadding.sm, { height: elementHeight.sm }],
 		},
 	},
 });

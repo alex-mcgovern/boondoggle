@@ -8,12 +8,7 @@ import type {
 	ReactElement,
 	ReactNode,
 } from "react";
-import {
-	type ElementSizeEnum,
-	type UtilCssArgs,
-	utilCss,
-	variantColorOverlay,
-} from "../index.css";
+import { type ElementSizeEnum, variantColorOverlay } from "../index.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot-wrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
@@ -26,6 +21,7 @@ import type {
 } from "../types";
 import { getButtonStyles } from "./styles.css";
 import type { Alignment, Appearance } from "./styles.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 const getLoadingSlotSide = ({
 	slotLeft,
@@ -40,7 +36,7 @@ const getLoadingSlotSide = ({
 	return "right";
 };
 
-type BaseButtonProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
+type BaseButtonProps<TPolymorphicAs extends ElementType> = Sprinkles &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithStateDisabled &
@@ -131,7 +127,10 @@ export const Button: ButtonComponent = forwardRef(
 		}: BaseButtonProps<TPolymorphicAs>,
 		ref?: PolymorphicRef<TPolymorphicAs>,
 	) => {
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(
+			rest,
+			sprinkles,
+		);
 
 		const Component = as || "button";
 
@@ -152,7 +151,7 @@ export const Button: ButtonComponent = forwardRef(
 										appearance,
 										size,
 									}),
-									utilCss(atomProps),
+									sprinkles(atomProps),
 									userClassName,
 									colorOverlay
 										? variantColorOverlay[colorOverlay]
@@ -195,7 +194,7 @@ export const Button: ButtonComponent = forwardRef(
 					"aria-disabled": disabled,
 					className: clsx(
 						getButtonStyles({ alignment, appearance, size }),
-						utilCss(atomProps),
+						sprinkles(atomProps),
 						userClassName,
 						colorOverlay
 							? variantColorOverlay[colorOverlay]

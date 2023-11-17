@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { utilCss } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const flagStyles = style([
-	utilCss({
+	sprinkles({
 		aspectRatio: "square",
 		border: "border_default",
 		borderRadius: "50%",

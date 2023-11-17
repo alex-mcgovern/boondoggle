@@ -1,9 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss, vars } from "../index.css";
+import { vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const headerCSS = style([
-	utilCss({
+	sprinkles({
 		border: "border_default",
 		padding: "space_5",
 		display: "flex",
@@ -19,13 +20,13 @@ export const headerCSS = style([
 
 export const cardCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			marginBottom: "space_5",
 		}),
 	],
 	variants: {
 		hasPadding: {
-			true: utilCss({
+			true: sprinkles({
 				padding: "space_5",
 			}),
 			false: [],
@@ -40,7 +41,7 @@ export const cardCSS = recipe({
 					borderLeft: `1px solid ${vars.color.border_default}`,
 				},
 			],
-			false: utilCss({
+			false: sprinkles({
 				border: "border_default",
 				marginTop: "space_5",
 				borderRadius: "lg",

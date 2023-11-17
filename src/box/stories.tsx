@@ -5,7 +5,8 @@ import { Box, type BoxProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Link } from "../../test/link.comp.mock";
 import { Icon } from "../icon";
-import { type UtilCssArgs, variantColorOverlay } from "../index.css";
+import { variantColorOverlay } from "../index.css";
+import { Sprinkles } from "../sprinkles/index.css";
 
 export default {
 	component: Box,
@@ -40,7 +41,7 @@ export const ExamplePolymorphismReactComponent: StoryObj<BoxProps> = {
 	render: Template,
 };
 
-const BASIC_SPRINKLES_PROPS: UtilCssArgs = {
+const BASIC_SPRINKLES_PROPS: Sprinkles = {
 	background: "tint_default",
 	border: "border_default",
 	borderRadius: "sm",

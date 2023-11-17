@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const headerCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			marginY: "space_4",
 			marginX: "auto",
 			paddingX: "space_4",
@@ -15,16 +15,16 @@ export const headerCSS = recipe({
 	},
 	variants: {
 		size: {
-			lg: [utilCss({ maxWidth: "main_lg" })],
-			md: [utilCss({ maxWidth: "main_md" })],
-			sm: [utilCss({ maxWidth: "main_sm" })],
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [sprinkles({ maxWidth: "main_md" })],
+			sm: [sprinkles({ maxWidth: "main_sm" })],
 		},
 	},
 });
 
 export const innerCSS = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			display: "flex",
 			gap: "space_4",
@@ -37,7 +37,7 @@ export const innerCSS = recipe({
 	variants: {
 		hasTabs: {
 			false: [
-				utilCss({
+				sprinkles({
 					paddingBottom: "space_4",
 					borderBottom: "border_default",
 				}),
@@ -47,4 +47,4 @@ export const innerCSS = recipe({
 	},
 });
 
-export const actionsCSS = style([utilCss({ marginLeft: "auto" })]);
+export const actionsCSS = style([sprinkles({ marginLeft: "auto" })]);

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ComponentProps } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Button, ButtonProps } from "../button";
-import { utilCss } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 import { Pill } from "../pill";
 import { WithSize } from "../types";
 import { sectionCSS, tabCSS, tabListCSS } from "./styles.css";
@@ -48,7 +48,7 @@ export function Tabs({
 		<section className={sectionCSS({ size })}>
 			<nav
 				role="tablist"
-				className={clsx(tabListCSS, utilCss({ justifyContent }))}
+				className={clsx(tabListCSS, sprinkles({ justifyContent }))}
 			>
 				{arrayHasLength(tabs) &&
 					tabs.map((tab) => {

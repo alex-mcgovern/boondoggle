@@ -7,7 +7,7 @@ import type {
 	ReactElement,
 	ReactNode,
 } from "react";
-import { type UtilCssArgs, a11yFocus, utilCss } from "../index.css";
+import { a11yFocus } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
 import {
 	PolymorphicComponentPropWithRef,
@@ -18,8 +18,9 @@ import {
 	WithStateDisabled,
 } from "../types";
 import { pillCSS } from "./styles.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
-type BasePillProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
+type BasePillProps<TPolymorphicAs extends ElementType> = Sprinkles &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithColorOverlay &
@@ -67,7 +68,10 @@ export const Pill: PillComponent = forwardRef(
 		/**
 		 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(
+			rest,
+			sprinkles,
+		);
 
 		const Component = as || "div";
 
@@ -77,7 +81,7 @@ export const Pill: PillComponent = forwardRef(
 					className: clsx(
 						userClassName,
 						pillCSS({ colorOverlay, size }),
-						utilCss({
+						sprinkles({
 							...atomProps,
 							paddingLeft: slotLeft ? "space_1" : "space_2",
 							paddingRight: slotRight ? "space_1" : "space_2",

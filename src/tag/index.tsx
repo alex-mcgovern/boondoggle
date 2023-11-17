@@ -7,7 +7,7 @@ import type {
 	ReactElement,
 	ReactNode,
 } from "react";
-import { type UtilCssArgs, a11yFocus, utilCss } from "../index.css";
+import { a11yFocus } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
 import {
 	PolymorphicComponentPropWithRef,
@@ -18,8 +18,9 @@ import {
 	WithStateDisabled,
 } from "../types";
 import { getTagStyle } from "./styles.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
-type BaseTagProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
+type BaseTagProps<TPolymorphicAs extends ElementType> = Sprinkles &
 	PolymorphicComponentPropWithRef<
 		TPolymorphicAs,
 		WithColorOverlay &
@@ -67,7 +68,10 @@ export const Tag: TagComponent = forwardRef(
 		/**
 		 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
 		 */
-		const { atomProps, otherProps } = extractAtomsFromProps(rest, utilCss);
+		const { atomProps, otherProps } = extractAtomsFromProps(
+			rest,
+			sprinkles,
+		);
 
 		const Component = as || "div";
 
@@ -76,8 +80,8 @@ export const Tag: TagComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						getTagStyle({ colorOverlay, size }),
-						utilCss(atomProps),
+						getTagStyle({ colorOverlay }),
+						sprinkles(atomProps),
 						a11yFocus,
 					),
 					id,

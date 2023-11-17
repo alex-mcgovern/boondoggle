@@ -4,33 +4,32 @@ import { withPrefersMotion } from "../css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
-	type UtilCssArgs,
 	a11yDisabled,
 	a11yFocus,
 	elementHeight,
 	elementPadding,
-	utilCss,
 	vars,
 } from "../index.css";
+import { sprinkles, Sprinkles } from "../sprinkles/index.css";
 
 export const variantButtonSize = styleVariants({
 	lg: [
-		utilCss({
+		sprinkles({
 			fontStyle: "bodyMd",
 		}),
 	],
 	md: [
-		utilCss({
+		sprinkles({
 			fontStyle: "bodyMd",
 		}),
 	],
 	sm: [
-		utilCss({
+		sprinkles({
 			fontStyle: "bodyMd",
 		}),
 	],
 	square_md: [
-		utilCss({
+		sprinkles({
 			aspectRatio: "square",
 			flexShrink: "0",
 			fontStyle: "bodyMd",
@@ -39,7 +38,7 @@ export const variantButtonSize = styleVariants({
 		}),
 	],
 	square_sm: [
-		utilCss({
+		sprinkles({
 			aspectRatio: "square",
 			flexShrink: "0",
 			fontStyle: "bodySm",
@@ -48,7 +47,7 @@ export const variantButtonSize = styleVariants({
 		}),
 	],
 	square_xs: [
-		utilCss({
+		sprinkles({
 			aspectRatio: "square",
 			flexShrink: "0",
 			fontStyle: "bodySm",
@@ -58,21 +57,21 @@ export const variantButtonSize = styleVariants({
 	],
 });
 
-const COMMON_BUTTON_SPRINKLES: UtilCssArgs = {
+const COMMON_BUTTON_SPRINKLES: Sprinkles = {
 	fontWeight: "medium",
 	whiteSpace: "nowrap",
 };
 
 const variantAlignment = styleVariants({
-	center: [utilCss({ justifyContent: "center", textAlign: "center" })],
-	left: [utilCss({ justifyContent: "start", textAlign: "left" })],
+	center: [sprinkles({ justifyContent: "center", textAlign: "center" })],
+	left: [sprinkles({ justifyContent: "start", textAlign: "left" })],
 });
 
 export type Alignment = keyof typeof variantAlignment;
 
 const variantAppearance = styleVariants({
 	ghost: [
-		utilCss(COMMON_BUTTON_SPRINKLES),
+		sprinkles(COMMON_BUTTON_SPRINKLES),
 		{
 			color: vars.color.text_high_contrast,
 			selectors: {
@@ -100,7 +99,7 @@ const variantAppearance = styleVariants({
 	],
 
 	navigational: [
-		utilCss({
+		sprinkles({
 			fontWeight: "normal",
 			paddingX: "space_2",
 			paddingY: "space_1",
@@ -119,7 +118,7 @@ const variantAppearance = styleVariants({
 	],
 
 	primary: [
-		utilCss(COMMON_BUTTON_SPRINKLES),
+		sprinkles(COMMON_BUTTON_SPRINKLES),
 		{
 			background: vars.color.button_default,
 			color: vars.color.white,
@@ -136,7 +135,7 @@ const variantAppearance = styleVariants({
 	],
 
 	secondary: [
-		utilCss(COMMON_BUTTON_SPRINKLES),
+		sprinkles(COMMON_BUTTON_SPRINKLES),
 		{
 			border: "1px solid",
 			borderColor: vars.color.border_default,
@@ -165,7 +164,7 @@ export const getButtonStyles = recipe({
 		buttonBaseClsDoNotRemoveOrYouWillBeFired,
 		a11yFocus,
 		a11yDisabled,
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			borderRadius: "md",
 			display: "inline-flex",

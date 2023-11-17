@@ -9,9 +9,9 @@ import {
 	elementHeight,
 	elementPadding,
 	elementPaddingRaw,
-	utilCss,
 	vars,
 } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],
@@ -32,7 +32,7 @@ const hasSlotRight = styleVariants({ false: {}, true: {} });
 export const getSlotWrapperStyles = recipe({
 	base: [
 		inputSlotWrapperDoNotRemoveOrYouWillBeFired,
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			background: "background",
 			border: "border_default",
@@ -177,7 +177,7 @@ globalStyle(
 );
 
 export const inputStyles = style([
-	utilCss({
+	sprinkles({
 		flexGrow: "1",
 		fontStyle: "bodyMd",
 		height: "space_6",
@@ -244,7 +244,7 @@ const tabSize = styleVariants({
 
 export const getInputAddonTabStyle = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			background: "tint_default",
 			color: "text_low_contrast",
@@ -310,7 +310,7 @@ const hasAddonRight = styleVariants({
 
 export const getAddonWrapperStyle = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			alignItems: "center",
 			display: "flex",
 			width: "100%",

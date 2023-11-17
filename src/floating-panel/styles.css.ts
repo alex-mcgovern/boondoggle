@@ -1,10 +1,11 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yFocus, utilCss } from "../index.css";
+import { a11yFocus } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const floatingPanel = recipe({
 	base: [
 		a11yFocus,
-		utilCss({
+		sprinkles({
 			background: "background",
 			border: "border_default",
 			borderRadius: "md",

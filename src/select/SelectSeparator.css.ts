@@ -1,7 +1,8 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { elementPaddingRaw, utilCss, vars } from "../index.css";
+import { elementPaddingRaw, vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const separatorSize = styleVariants({
 	lg: [
@@ -32,7 +33,7 @@ const separatorSize = styleVariants({
 
 export const getSeparatorStyle = recipe({
 	base: [
-		utilCss({
+		sprinkles({
 			marginX: "space_3",
 			marginY: "space_2",
 			borderBottom: "border_default",
