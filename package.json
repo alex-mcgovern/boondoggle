@@ -16,6 +16,11 @@
 			"require": "./dist/index.css.js",
 			"types": "./dist/index.css.d.ts"
 		},
+		"./sprinkles": {
+			"import": "./dist/sprinkles/index.css.js",
+			"require": "./dist/sprinkles/index.css.js",
+			"types": "./dist/sprinkles/index.css.d.ts"
+		},
 		"./*": {
 			"import": "./dist/*",
 			"require": "./dist/*",
