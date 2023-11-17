@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { utilCss } from "../index.css";
 
-export const slot = style([
+export const slotCSS = style([
 	{
 		pointerEvents: "none",
 	},

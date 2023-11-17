@@ -1,6 +1,6 @@
 import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons/faCirclePlus";
 import { Icon } from "../../../../icon";
-import * as styles from "./FilterPillOpenButton.css";
+import { openButtonCSS, openIconCSS } from "./FilterPillOpenButton.css";
 
 export const FilterPillOpenButton = ({
 	disabled,
@@ -17,14 +17,14 @@ export const FilterPillOpenButton = ({
 }) => {
 	return (
 		<button
-			className={styles.openButton}
+			className={openButtonCSS}
 			type="button"
 			disabled={disabled}
 			onClick={toggleIsOpen}
 		>
 			{!isFiltered ? (
 				<Icon
-					className={wasOpen ? styles.openIcon : undefined}
+					className={wasOpen ? openIconCSS : undefined}
 					icon={faCirclePlus}
 				/>
 			) : null}

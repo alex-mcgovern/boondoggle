@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { utilCss } from "../index.css";
 
-export const datePickerRoot = style([
+export const datePickerRootCSS = style([
 	utilCss({
 		padding: "space_4",
 		width: "max-content",

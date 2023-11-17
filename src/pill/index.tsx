@@ -17,7 +17,7 @@ import {
 	WithSlots,
 	WithStateDisabled,
 } from "../types";
-import * as styles from "./styles.css";
+import { pillCSS } from "./styles.css";
 
 type BasePillProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
@@ -76,7 +76,7 @@ export const Pill: PillComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						styles.getPillStyle({ colorOverlay, size }),
+						pillCSS({ colorOverlay, size }),
 						utilCss({
 							...atomProps,
 							paddingLeft: slotLeft ? "space_1" : "space_2",

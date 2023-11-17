@@ -19,7 +19,7 @@ import {
 	WithWrapperProps,
 	getOptionalLabelProps,
 } from "../types";
-import * as styles from "./styles.css";
+import { selectCSS } from "./styles.css";
 
 export type NativeSelectProps = Omit<
 	ComponentPropsWithoutRef<"select">,
@@ -85,13 +85,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 				<select
 					aria-invalid={invalid}
 					aria-label={label}
-					className={clsx(
-						styles.select({ size }),
-						utilCss(atomProps),
-						{
-							[a11yError]: invalid,
-						},
-					)}
+					className={clsx(selectCSS({ size }), utilCss(atomProps), {
+						[a11yError]: invalid,
+					})}
 					id={name}
 					name={name}
 					ref={ref}

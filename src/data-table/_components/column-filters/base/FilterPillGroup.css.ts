@@ -2,7 +2,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../../../css-utils";
 import { utilCss, variantColorOverlay, vars } from "../../../../index.css";
 
-export const pillGroup = recipe({
+export const pillGroupCSS = recipe({
 	base: [
 		utilCss({
 			borderRadius: "pill",

@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { a11yFocusStyleRule, utilCss, vars } from "../../../../index.css";
 
-export const selectItemLabel = style([
+export const selectItemLabelCSS = style([
 	utilCss({
 		paddingX: "space_2",
 		paddingY: "space_2",
@@ -26,7 +26,7 @@ export const selectItemLabel = style([
 	},
 ]);
 
-export const selectItemLabelText = style([
+export const selectItemLabelTextCSS = style([
 	utilCss({
 		whiteSpace: "nowrap",
 		overflow: "hidden",

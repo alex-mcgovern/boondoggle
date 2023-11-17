@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { type UtilCssArgs, utilCss } from "../index.css";
-import * as styles from "./styles.css";
+import { iconCSS } from "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {
 	className?: string;
@@ -22,7 +22,7 @@ export function Icon({
 	return (
 		<FontAwesomeIcon
 			className={clsx(
-				styles.icon,
+				iconCSS,
 				userClassName,
 				utilCss({ ...atomProps, color, flexShrink: "0" }),
 			)}

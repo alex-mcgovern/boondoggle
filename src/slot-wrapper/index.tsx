@@ -3,7 +3,7 @@ import type { ReactNode, Ref } from "react";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { WithSlots } from "../types";
-import * as styles from "./styles.css";
+import { slotCSS } from "./styles.css";
 
 export type SlotWrapperProps = BoxProps &
 	WithSlots & {
@@ -39,7 +39,7 @@ export const SlotWrapper = forwardRef(
 				{slotLeft && (
 					<Box
 						{...slotProps}
-						className={styles.slot}
+						className={slotCSS}
 						color="inherit"
 						flexShrink="0"
 					>
@@ -54,7 +54,7 @@ export const SlotWrapper = forwardRef(
 				{slotRight && (
 					<Box
 						{...slotProps}
-						className={styles.slot}
+						className={slotCSS}
 						color="inherit"
 						flexShrink="0"
 					>

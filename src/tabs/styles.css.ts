@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss, vars } from "../index.css";
 
-export const tab = recipe({
+export const tabCSS = recipe({
 	base: [
 		utilCss({
 			flexShrink: "0",
@@ -39,7 +39,7 @@ export const tab = recipe({
 	},
 });
 
-export const section = recipe({
+export const sectionCSS = recipe({
 	base: [
 		utilCss({
 			marginY: "space_4",
@@ -59,7 +59,7 @@ export const section = recipe({
 	},
 });
 
-export const tabList = style([
+export const tabListCSS = style([
 	utilCss({
 		alignItems: "center",
 		borderBottom: "border_default",

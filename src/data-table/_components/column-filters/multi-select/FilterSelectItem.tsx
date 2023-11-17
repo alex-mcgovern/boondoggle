@@ -1,5 +1,8 @@
 import { Box } from "../../../../box";
-import * as styles from "./FilterSelectItem.css";
+import {
+	selectItemLabelCSS,
+	selectItemLabelTextCSS,
+} from "./FilterSelectItem.css";
 
 export const FilterSelectItem = ({
 	defaultChecked,
@@ -14,7 +17,7 @@ export const FilterSelectItem = ({
 }) => {
 	return (
 		<Box
-			className={styles.selectItemLabel}
+			className={selectItemLabelCSS}
 			as="label"
 			htmlFor={`item_${value}`}
 			display="flex"
@@ -33,7 +36,7 @@ export const FilterSelectItem = ({
 				type="checkbox"
 				id={`item_${value}`}
 			/>
-			<div className={styles.selectItemLabelText}>{label}</div>
+			<div className={selectItemLabelTextCSS}>{label}</div>
 		</Box>
 	);
 };

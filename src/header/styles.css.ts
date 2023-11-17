@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss } from "../index.css";
 
-export const header = recipe({
+export const headerCSS = recipe({
 	base: [
 		utilCss({
 			marginY: "space_4",
@@ -22,7 +22,7 @@ export const header = recipe({
 	},
 });
 
-export const inner = recipe({
+export const innerCSS = recipe({
 	base: [
 		utilCss({
 			alignItems: "center",
@@ -47,4 +47,4 @@ export const inner = recipe({
 	},
 });
 
-export const actions = style([utilCss({ marginLeft: "auto" })]);
+export const actionsCSS = style([utilCss({ marginLeft: "auto" })]);

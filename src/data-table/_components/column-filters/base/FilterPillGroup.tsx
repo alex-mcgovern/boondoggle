@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as styles from "./FilterPillGroup.css";
+import { pillGroupCSS } from "./FilterPillGroup.css";
 
 export const FilterPillGroup = React.forwardRef<
 	HTMLDivElement,
@@ -9,7 +9,7 @@ export const FilterPillGroup = React.forwardRef<
 	}
 >(({ children, isFiltered }, ref) => {
 	return (
-		<div ref={ref} className={styles.pillGroup({ isFiltered })}>
+		<div ref={ref} className={pillGroupCSS({ isFiltered })}>
 			{children}
 		</div>
 	);

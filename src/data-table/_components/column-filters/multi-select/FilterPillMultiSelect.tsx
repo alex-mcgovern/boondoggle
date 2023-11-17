@@ -6,7 +6,10 @@ import { Box } from "../../../../box";
 import { Button } from "../../../../button";
 import { FilterDialogTitle } from "../base/FilterDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
-import * as styles from "./FilterPillMultiSelect.css";
+import {
+	activeFilterStringCSS,
+	selectItemListCSS,
+} from "./FilterPillMultiSelect.css";
 import { FilterSelectItem } from "./FilterSelectItem";
 
 export function FilterPillMultiSelect<TRowData>({
@@ -64,7 +67,7 @@ export function FilterPillMultiSelect<TRowData>({
 				return (
 					<Box
 						as="span"
-						className={styles.activeFilterString}
+						className={activeFilterStringCSS}
 						color="button_default"
 					>
 						{valueToString(v)}
@@ -126,7 +129,7 @@ export function FilterPillMultiSelect<TRowData>({
 		>
 			<FilterDialogTitle strFilterDialogTitle={strFilterDialogTitle} />
 
-			<div className={styles.selectItemList}>{items}</div>
+			<div className={selectItemListCSS}>{items}</div>
 
 			<Box padding="space_4">
 				<Button

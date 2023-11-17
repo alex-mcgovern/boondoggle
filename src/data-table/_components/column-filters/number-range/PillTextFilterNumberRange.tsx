@@ -1,7 +1,7 @@
 import { exhaustiveSwitchGuard } from "../../../../_lib/exhaustive-switch-guard";
 import { Box } from "../../../../box";
 import { TableNumberRangeFilterMode } from "../../../types";
-import { activeFilterString } from "../multi-select/FilterPillMultiSelect.css";
+import { activeFilterStringCSS } from "../multi-select/FilterPillMultiSelect.css";
 import { useTableNumberRangeFilterMode } from "./FilterModeContext";
 
 const getSeparator = (filterMode: TableNumberRangeFilterMode) => {
@@ -66,7 +66,7 @@ export const PillTextFilterNumberRange = ({
 
 			<Box
 				as="span"
-				className={activeFilterString}
+				className={activeFilterStringCSS}
 				color="button_default"
 			>
 				{getValue({ filterMode, currentFilters })}

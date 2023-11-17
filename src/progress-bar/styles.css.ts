@@ -20,7 +20,7 @@ const size = styleVariants({
 	],
 });
 
-export const getProgressBarStyles = recipe({
+export const progressBarCss = recipe({
 	base: [
 		variantColorOverlay.blue,
 		utilCss({
@@ -47,7 +47,7 @@ export const getProgressBarStyles = recipe({
 	},
 });
 
-export const progressBarInnerStyles = style([
+export const progressBarInnerCSS = style([
 	utilCss({
 		background: "tint_active",
 	}),

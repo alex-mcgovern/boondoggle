@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { WithSize } from "../types";
-import * as styles from "./styles.css";
+import { progressBarCss, progressBarInnerCSS } from "./styles.css";
 
 export type ProgressBarProps = WithSize & {
 	/**
@@ -33,16 +33,13 @@ export function ProgressBar({
 
 	return (
 		<Box
-			className={clsx(
-				userClassName,
-				styles.getProgressBarStyles({ size }),
-			)}
+			className={clsx(userClassName, progressBarCss({ size }))}
 			{...rest}
 		>
 			{isVisible && <Box zIndex="1">{value} %</Box>}
 			<Box
 				background="tint_active"
-				className={styles.progressBarInnerStyles}
+				className={progressBarInnerCSS}
 				style={{ width: `${clampedValue}%` }}
 			/>
 		</Box>

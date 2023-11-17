@@ -8,7 +8,7 @@ import {
 	utilCss,
 } from "../index.css";
 
-export const select = recipe({
+export const selectCSS = recipe({
 	base: [
 		utilCss({
 			width: "100%",

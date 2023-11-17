@@ -9,7 +9,7 @@ import { arrayHasLength } from "../_lib/array-has-length";
 import { FloatingPanel } from "../floating-panel";
 import { WithSize } from "../types";
 import { SelectItem } from "./SelectItem";
-import * as styles from "./SelectItemList.css";
+import { groupTitleCSS, innerCSS } from "./SelectItemList.css";
 import { SelectSeparator } from "./SelectSeparator";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 import type {
@@ -133,7 +133,7 @@ function SelectItemListBase<
 					...rest,
 				})}
 			>
-				<div className={styles.inner}>
+				<div className={innerCSS}>
 					{items.map((group) => {
 						if (!arrayHasLength(group.items)) {
 							return null;
@@ -143,7 +143,7 @@ function SelectItemListBase<
 							<Fragment key={group.title}>
 								<div
 									key={group.title}
-									className={styles.getGroupTitle({ size })}
+									className={groupTitleCSS({ size })}
 								>
 									{group.title}
 								</div>
@@ -244,7 +244,7 @@ function SelectItemListBase<
 				...rest,
 			})}
 		>
-			<div className={styles.inner}>
+			<div className={innerCSS}>
 				{items.map((item) => {
 					if (item === "SEPARATOR") {
 						return (

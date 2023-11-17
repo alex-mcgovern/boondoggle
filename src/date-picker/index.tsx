@@ -20,7 +20,7 @@ import type { BoxProps } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
-import * as styles from "./styles.css";
+import { datePickerRootCSS } from "./styles.css";
 
 export function DatePickerYears({
 	onYearClick,
@@ -243,7 +243,7 @@ export const DatePicker = forwardRef(
 				as="section"
 				className={clsx(
 					userClassName,
-					styles.datePickerRoot,
+					datePickerRootCSS,
 					variantColorOverlay.default,
 				)}
 				ref={ref}

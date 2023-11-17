@@ -1,4 +1,3 @@
-import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
@@ -9,28 +8,7 @@ import {
 	vars,
 } from "../index.css";
 
-const pillSize = styleVariants({
-	lg: [
-		utilCss({
-			height: "space_10",
-			minWidth: "space_10",
-		}),
-	],
-	md: [
-		utilCss({
-			height: "space_8",
-			minWidth: "space_8",
-		}),
-	],
-	sm: [
-		utilCss({
-			height: "space_6",
-			minWidth: "space_6",
-		}),
-	],
-});
-
-export const getPillStyle = recipe({
+export const pillCSS = recipe({
 	base: [
 		utilCss({
 			display: "inline-flex",
@@ -65,6 +43,25 @@ export const getPillStyle = recipe({
 
 	variants: {
 		colorOverlay: variantColorOverlay,
-		size: pillSize,
+		size: {
+			lg: [
+				utilCss({
+					height: "space_10",
+					minWidth: "space_10",
+				}),
+			],
+			md: [
+				utilCss({
+					height: "space_8",
+					minWidth: "space_8",
+				}),
+			],
+			sm: [
+				utilCss({
+					height: "space_6",
+					minWidth: "space_6",
+				}),
+			],
+		},
 	},
 });

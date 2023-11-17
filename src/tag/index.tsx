@@ -17,7 +17,7 @@ import {
 	WithSlots,
 	WithStateDisabled,
 } from "../types";
-import * as styles from "./styles.css";
+import { getTagStyle } from "./styles.css";
 
 type BaseTagProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<
@@ -76,7 +76,7 @@ export const Tag: TagComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						styles.getTagStyle({ colorOverlay, size }),
+						getTagStyle({ colorOverlay, size }),
 						utilCss(atomProps),
 						a11yFocus,
 					),

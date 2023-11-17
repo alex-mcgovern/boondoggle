@@ -5,7 +5,7 @@ import { Button, ButtonProps } from "../button";
 import { utilCss } from "../index.css";
 import { Pill } from "../pill";
 import { WithSize } from "../types";
-import * as styles from "./styles.css";
+import { sectionCSS, tabCSS, tabListCSS } from "./styles.css";
 
 function Tab({
 	className,
@@ -16,9 +16,7 @@ function Tab({
 	...rest
 }: ButtonProps & { count?: number; isTabFullWidth?: boolean }) {
 	return (
-		<div
-			className={clsx(styles.tab({ active, isTabFullWidth }), className)}
-		>
+		<div className={clsx(tabCSS({ active, isTabFullWidth }), className)}>
 			<Button
 				{...rest}
 				slotRight={
@@ -47,10 +45,10 @@ export function Tabs({
 	areTabsFullWidth?: boolean;
 }) {
 	return (
-		<section className={styles.section({ size })}>
+		<section className={sectionCSS({ size })}>
 			<nav
 				role="tablist"
-				className={clsx(styles.tabList, utilCss({ justifyContent }))}
+				className={clsx(tabListCSS, utilCss({ justifyContent }))}
 			>
 				{arrayHasLength(tabs) &&
 					tabs.map((tab) => {

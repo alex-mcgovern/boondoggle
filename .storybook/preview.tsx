@@ -1,7 +1,6 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Parameters } from "@storybook/react";
-import "../src/styles/stylesheet.css";
-import "../src/styles/theme.css";
+// import "../src/index.css";
 
 export const parameters: Parameters = {
 	actions: { argTypesRegex: "^on[A-Z].*" },

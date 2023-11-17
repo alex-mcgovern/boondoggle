@@ -16,7 +16,7 @@ import { Box } from "../../../../box";
 import { FloatingPanel } from "../../../../floating-panel";
 import { FilterPillCloseButton } from "./FilterPillCloseButton";
 import { FilterPillGroup } from "./FilterPillGroup";
-import * as styles from "./FilterPillMenu.css";
+import { filterMenuCSS } from "./FilterPillMenu.css";
 import { FilterPillOpenButton } from "./FilterPillOpenButton";
 
 /**
@@ -114,7 +114,7 @@ function PrivateFilterPillMenu(
 			{isOpen && (
 				<FloatingFocusManager context={context}>
 					<FloatingPanel
-						className={styles.filterMenu}
+						className={filterMenuCSS}
 						isOpen={isOpen}
 						style={floatingStyles}
 						ref={isOpen ? refs.setFloating : undefined}

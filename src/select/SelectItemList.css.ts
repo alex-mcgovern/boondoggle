@@ -36,7 +36,7 @@ const groupTitleSize = styleVariants({
 	},
 });
 
-export const getGroupTitle = recipe({
+export const groupTitleCSS = recipe({
 	base: [
 		utilCss({
 			color: "text_low_contrast",
@@ -49,7 +49,7 @@ export const getGroupTitle = recipe({
 	},
 });
 
-export const inner = style([
+export const innerCSS = style([
 	utilCss({
 		overflowY: "auto",
 		padding: "space_1",

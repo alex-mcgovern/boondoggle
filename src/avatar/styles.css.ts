@@ -1,7 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss, vars } from "../index.css";
 
-export const avatar = recipe({
+export const avatarCSS = recipe({
 	base: [
 		utilCss({
 			alignItems: "center",

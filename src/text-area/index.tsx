@@ -20,7 +20,7 @@ import {
 	WithWrapperProps,
 	getOptionalLabelProps,
 } from "../types";
-import * as styles from "./styles.css";
+import { getTextAreaStyles } from "./styles.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,
@@ -95,7 +95,7 @@ export const TextArea = forwardRef(
 						aria-invalid={invalid}
 						aria-label={label}
 						className={clsx(
-							styles.getTextAreaStyles({ size }),
+							getTextAreaStyles({ size }),
 							utilCss(atomProps),
 							{
 								[a11yError]: invalid,

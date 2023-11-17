@@ -8,7 +8,7 @@ import {
 	vars,
 } from "../../../../index.css";
 
-export const closeButton = style([
+export const closeButtonCSS = style([
 	a11yFocus,
 	utilCss({
 		color: "text_low_contrast",
@@ -40,7 +40,7 @@ const rotateInKeyframes = keyframes({
 	"100%": { transform: "rotate(45deg)" },
 });
 
-export const closeIcon = style({
+export const closeIconCSS = style({
 	...withPrefersMotion({
 		animation: `${rotateInKeyframes} ${vars.transitionDuration.long} ease forwards`,
 	}),

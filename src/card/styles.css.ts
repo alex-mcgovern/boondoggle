@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { utilCss, vars } from "../index.css";
 
-export const header = style([
+export const headerCSS = style([
 	utilCss({
 		border: "border_default",
 		padding: "space_5",
@@ -17,7 +17,7 @@ export const header = style([
 	},
 ]);
 
-export const card = recipe({
+export const cardCSS = recipe({
 	base: [
 		utilCss({
 			marginBottom: "space_5",

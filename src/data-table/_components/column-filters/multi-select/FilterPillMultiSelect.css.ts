@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { utilCss } from "../../../../index.css";
 
-export const activeFilterString = style([
+export const activeFilterStringCSS = style([
 	utilCss({ display: "inline-block" }),
 	{
 		maxWidth: "5rem",
@@ -11,7 +11,7 @@ export const activeFilterString = style([
 	},
 ]);
 
-export const selectItemList = style([
+export const selectItemListCSS = style([
 	utilCss({
 		paddingX: "space_4",
 	}),

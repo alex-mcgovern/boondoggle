@@ -18,7 +18,12 @@ import {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../types";
-import * as styles from "./styles.css";
+import {
+	sliderRange,
+	sliderRoot,
+	sliderThumb,
+	sliderTrack,
+} from "./styles.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
 	UtilCssArgs &
@@ -86,16 +91,16 @@ export const Slider = forwardRef(
 						aria-label={name}
 						aria-labelledby={label && id ? labelId : undefined}
 						aria-required={required}
-						className={clsx(styles.sliderRoot, utilCss(atomProps))}
+						className={clsx(sliderRoot, utilCss(atomProps))}
 						id={id}
 						name={name}
 						ref={ref}
 						{...otherProps}
 					>
-						<RadixSlider.Track className={styles.sliderTrack}>
-							<RadixSlider.Range className={styles.sliderRange} />
+						<RadixSlider.Track className={sliderTrack}>
+							<RadixSlider.Range className={sliderRange} />
 						</RadixSlider.Track>
-						<RadixSlider.Thumb className={styles.sliderThumb} />
+						<RadixSlider.Thumb className={sliderThumb} />
 					</RadixSlider.Root>
 				</SlotWrapper>
 				{invalid && errorMessage && (

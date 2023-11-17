@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Box } from "../box";
-import * as styles from "./styles.css";
+import { avatarCSS } from "./styles.css";
 
 function getInitials({
 	firstName,
@@ -86,7 +86,7 @@ export function Avatar({
 		return (
 			<img
 				alt="avatar"
-				className={styles.avatar({ appearance })}
+				className={avatarCSS({ appearance })}
 				height={size}
 				src={src}
 				width={size}
@@ -99,7 +99,7 @@ export function Avatar({
 			<Box
 				__height={size}
 				__width={size}
-				className={styles.avatar({ appearance })}
+				className={avatarCSS({ appearance })}
 			/>
 		);
 	}
@@ -108,7 +108,7 @@ export function Avatar({
 		<Box
 			__height={size}
 			__width={size}
-			className={styles.avatar({ appearance })}
+			className={avatarCSS({ appearance })}
 		>
 			{initials.toUpperCase()}
 		</Box>
