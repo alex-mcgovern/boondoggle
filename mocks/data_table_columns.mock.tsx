@@ -5,7 +5,6 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { Avatar } from "../src/avatar";
 import { Box } from "../src/box";
 import { Button } from "../src/button";
-import { dataTableFilterFnMultiSelect } from "../src/data-table";
 import { Icon } from "../src/icon";
 import { Pill } from "../src/pill";
 const faker = new Faker({ locale: [en] });
@@ -117,7 +116,7 @@ export const DATA_TABLE_COLUMNS_MOCK = [
 			return <Pill>{info.getValue()}</Pill>;
 		},
 		enableColumnFilter: true,
-		filterFn: dataTableFilterFnMultiSelect,
+		filterFn: "multiSelect",
 		header: () => {
 			return "Status";
 		},
@@ -223,7 +222,7 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
 			return <Pill>{info.getValue()}</Pill>;
 		},
 		enableColumnFilter: true,
-		filterFn: dataTableFilterFnMultiSelect,
+		filterFn: "multiSelect",
 		header: () => {
 			return "Status";
 		},
@@ -233,7 +232,7 @@ export const DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK = [
 			return info.getValue();
 		},
 		enableColumnFilter: true,
-		filterFn: dataTableFilterFnMultiSelect,
+		filterFn: "multiSelect",
 		header: () => {
 			return "User ID";
 		},
