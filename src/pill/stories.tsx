@@ -1,4 +1,4 @@
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons";
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTriangleCircleSquare";
 import type { StoryFn, StoryObj } from "@storybook/react";
 import { Pill as StoryComp } from ".";
 import type { PillProps as StoryCompProps } from ".";

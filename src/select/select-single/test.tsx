@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SelectSingle } from ".";

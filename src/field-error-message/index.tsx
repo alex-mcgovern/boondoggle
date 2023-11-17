@@ -1,4 +1,4 @@
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import clsx from "clsx";
 import { Box } from "../box";
 import type { BoxProps } from "../box";

@@ -1,5 +1,4 @@
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
-
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { Box } from "../box";
 import { Icon } from "../icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";

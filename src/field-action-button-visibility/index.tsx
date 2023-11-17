@@ -1,5 +1,5 @@
-import { faEye, faEyeSlash } from "@fortawesome/pro-solid-svg-icons";
-
+import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
+import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { FieldActionButton } from "../field-action-button";
 import { Icon } from "../icon";
 

@@ -1,21 +1,14 @@
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
-
-import {
-	Tooltip as StoryComp,
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from ".";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Tooltip, TooltipContent, TooltipTrigger } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
 
-import type { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
 	args: {},
-	component: StoryComp,
+	component: Tooltip,
 	title: "Components/Tooltip2",
-} satisfies Meta<typeof StoryComp>;
+} satisfies Meta<typeof Tooltip>;
 
 export default meta;
 

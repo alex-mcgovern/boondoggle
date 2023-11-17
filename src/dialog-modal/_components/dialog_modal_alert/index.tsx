@@ -1,4 +1,4 @@
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { Children } from "react";
 import { Box } from "../../../box";
 import { Icon } from "../../../icon";

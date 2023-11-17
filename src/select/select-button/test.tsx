@@ -1,17 +1,15 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { SelectButton } from ".";
+import type { SelectButtonProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
 import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
-
-import type { SelectButtonProps } from ".";
 
 const renderComponent = (props: SelectButtonProps<string>) => {
 	return {

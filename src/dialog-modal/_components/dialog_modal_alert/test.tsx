@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { render } from "@testing-library/react";
 import { DialogModalAlert } from ".";
 import type { DialogModalAlertProps } from ".";

@@ -1,4 +1,3 @@
-
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
 import type { ReactNode } from "react";

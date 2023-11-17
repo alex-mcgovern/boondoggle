@@ -1,9 +1,7 @@
-import { faGlobe } from "@fortawesome/pro-solid-svg-icons";
-
+import { faGlobe } from "@fortawesome/pro-solid-svg-icons/faGlobe";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
-
 import type { BoxProps } from "../../box";
+import { Icon } from "../../icon";
 import type { GroupedSelectItems, SelectItemShape } from "../types";
 
 type MockSelectItemsArgs = {

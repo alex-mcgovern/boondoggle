@@ -1,4 +1,4 @@
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import type { StoryFn, StoryObj } from "@storybook/react";
 import { createRef, useCallback } from "react";
 import { DialogActionConfirmation, DialogModal as StoryComp } from ".";

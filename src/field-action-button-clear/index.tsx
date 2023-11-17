@@ -1,9 +1,7 @@
-import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons";
-
+import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import { FieldActionButton } from "../field-action-button";
-import { Icon } from "../icon";
-
 import type { FieldActionButtonProps } from "../field-action-button";
+import { Icon } from "../icon";
 
 type FieldActionButtonClearProps = Omit<
 	FieldActionButtonProps,

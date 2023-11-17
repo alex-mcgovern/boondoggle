@@ -1,9 +1,7 @@
-import {
-	faArrowRight,
-	faLock,
-	faRefresh,
-	faTriangleCircleSquare,
-} from "@fortawesome/pro-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/pro-solid-svg-icons/faArrowRight";
+import { faLock } from "@fortawesome/pro-solid-svg-icons/faLock";
+import { faRefresh } from "@fortawesome/pro-solid-svg-icons/faRefresh";
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTriangleCircleSquare";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input as StoryComp } from ".";
 import type { InputProps as StoryCompProps } from ".";

@@ -1,4 +1,3 @@
-
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
 import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
 import { faAngleRight } from "@fortawesome/pro-solid-svg-icons/faAngleRight";

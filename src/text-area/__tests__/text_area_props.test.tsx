@@ -1,15 +1,13 @@
 /**
  * @jest-environment jsdom
  */
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { render } from "@testing-library/react";
-
 import { TextArea } from "..";
+import type { TextAreaProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
 import { Icon } from "../../icon";
-
-import type { TextAreaProps } from "..";
 
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),

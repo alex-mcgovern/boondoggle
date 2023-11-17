@@ -1,4 +1,4 @@
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { DialogInfoBullet as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Icon } from "../icon";

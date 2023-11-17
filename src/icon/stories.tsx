@@ -1,4 +1,4 @@
-import { faShapes } from "@fortawesome/pro-solid-svg-icons";
+import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 
 import { Icon as StoryComp } from ".";
 
