@@ -8,11 +8,10 @@ export default defineConfig({
 	bundle: false,
 	clean: true,
 	config: "./tsconfig.build.json",
-	// dts: {
-	// 	entry: "./src/index.ts",
-	// 	resolve: false,
-	// },
-	dts: true,
+	dts: {
+		entry: "./src/index.ts",
+		resolve: false,
+	},
 	entry: [
 		"./src",
 		"!./src/**/*mock.*",

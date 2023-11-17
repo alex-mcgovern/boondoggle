@@ -4,9 +4,7 @@
 	"description": "Boondoggle component library",
 	"version": "0.15.2",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -29,7 +27,7 @@
 	},
 	"scripts": {
 		"=== BUILD ===": "",
-		"build": "tsup",
+		"build": "NODE_OPTIONS=\"--max-old-space-size=8192\" tsup",
 		"prebuild": "rm -rf dist/*",
 		"=== BUILD (OLD) ===": "",
 		"build:dev": "rm -rf lib && tsup --watch",
