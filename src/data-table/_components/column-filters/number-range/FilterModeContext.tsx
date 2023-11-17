@@ -1,32 +1,32 @@
 import * as React from "react";
-import { NumberRangeFilterMode } from "./types";
+import { TableNumberRangeFilterMode } from "../../../types";
 
-export const NumberRangeFilterModeContext = React.createContext<
+export const TableNumberRangeFilterModeContext = React.createContext<
 	| [
-			NumberRangeFilterMode,
-			React.Dispatch<React.SetStateAction<NumberRangeFilterMode>>,
+			TableNumberRangeFilterMode,
+			React.Dispatch<React.SetStateAction<TableNumberRangeFilterMode>>,
 	  ]
 	| undefined
 >(undefined);
 
-export const NumberRangeFilterModeProvider = ({
+export const TableNumberRangeFilterModeProvider = ({
 	children,
 }: { children: React.ReactNode }) => {
 	return (
-		<NumberRangeFilterModeContext.Provider
-			value={React.useState<NumberRangeFilterMode>("is_between")}
+		<TableNumberRangeFilterModeContext.Provider
+			value={React.useState<TableNumberRangeFilterMode>("is_between")}
 		>
 			{children}
-		</NumberRangeFilterModeContext.Provider>
+		</TableNumberRangeFilterModeContext.Provider>
 	);
 };
 
-export const useNumberRangeFilterMode = () => {
-	const context = React.useContext(NumberRangeFilterModeContext);
+export const useTableNumberRangeFilterMode = () => {
+	const context = React.useContext(TableNumberRangeFilterModeContext);
 
 	if (context == null) {
 		throw new Error(
-			"NumberRangeFilterModeContext must be used within a NumberRangeFilterModeProvider",
+			"TableNumberRangeFilterModeContext must be used within a TableNumberRangeFilterModeProvider",
 		);
 	}
 

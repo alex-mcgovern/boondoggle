@@ -4,10 +4,10 @@ import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { FilterDialogTitle } from "../base/FilterDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
-import { NumberRangeFilterModeProvider } from "./FilterModeContext";
+import { TableNumberRangeFilterModeProvider } from "./FilterModeContext";
 import { FormFilterNumberRange } from "./FormFilterNumberRange";
 import { PillTextFilterNumberRange } from "./PillTextFilterNumberRange";
-import { NumberRangeFilterMode } from "./types";
+import { TableNumberRangeFilterMode } from "../../../types";
 
 export function FilterPillNumberRange<TRowData>({
 	strings: {
@@ -20,7 +20,7 @@ export function FilterPillNumberRange<TRowData>({
 }: {
 	column: Column<TRowData>;
 	strings: {
-		strMapFilterMode: Record<NumberRangeFilterMode, string>;
+		strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
 		strApplyFilter: string;
 		strFilterDialogTitle: string;
 		strFilterPillText: string;
@@ -81,7 +81,7 @@ export function FilterPillNumberRange<TRowData>({
 	 * ------------------------------------------------------------------------------- */
 
 	return (
-		<NumberRangeFilterModeProvider>
+		<TableNumberRangeFilterModeProvider>
 			<FilterPillMenu
 				clearFilters={() => column.setFilterValue(undefined)}
 				isFiltered={isFiltered}
@@ -107,6 +107,6 @@ export function FilterPillNumberRange<TRowData>({
 					strErrorTooSmall="Must be greater than "
 				/>
 			</FilterPillMenu>
-		</NumberRangeFilterModeProvider>
+		</TableNumberRangeFilterModeProvider>
 	);
 }

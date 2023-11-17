@@ -1,11 +1,11 @@
 import { SelectItemShape } from "../../../../select/types";
-import { NumberRangeFilterMode } from "./types";
+import { TableNumberRangeFilterMode } from "../../../types";
 
-export const getNumberRangeFilterModeItems = ({
+export const getTableNumberRangeFilterModeItems = ({
 	strMapFilterMode,
 }: {
-	strMapFilterMode: Record<NumberRangeFilterMode, string>;
-}): Array<SelectItemShape<NumberRangeFilterMode>> => [
+	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
+}): Array<SelectItemShape<TableNumberRangeFilterMode>> => [
 	{
 		label: strMapFilterMode.is_between,
 		value: "is_between",

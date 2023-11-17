@@ -5,13 +5,13 @@ import { Form } from "../../../../form";
 import { FormInput } from "../../../../form-input";
 import { FormSelectSingle } from "../../../../form-select-single";
 import { FormSubmitButton } from "../../../../form-submit-button";
-import { useNumberRangeFilterMode } from "./FilterModeContext";
-import { getNumberRangeFilterModeItems } from "./getNumberRangeFilterModeItems";
-import { NumberRangeFilterMode } from "./types";
+import { useTableNumberRangeFilterMode } from "./FilterModeContext";
 import {
 	FieldValuesFilterNumberRange,
 	getZodFilterNumberRange,
 } from "./zodFilterNumberRange";
+import type { TableNumberRangeFilterMode } from "../../../types";
+import { getTableNumberRangeFilterModeItems } from "./getNumberRangeFilterModeItems";
 
 export const FormFilterNumberRange = ({
 	currentMax,
@@ -32,14 +32,17 @@ export const FormFilterNumberRange = ({
 	strApplyFilter: string;
 	strErrorTooLarge: string;
 	strErrorTooSmall: string;
-	strMapFilterMode: Record<NumberRangeFilterMode, string>;
+	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
 }) => {
-	const [parentFilterMode, setParentFilterMode] = useNumberRangeFilterMode();
+	const [parentFilterMode, setParentFilterMode] =
+		useTableNumberRangeFilterMode();
 
 	const [localFilterMode, setLocalFilterMode] =
-		React.useState<NumberRangeFilterMode>(parentFilterMode);
+		React.useState<TableNumberRangeFilterMode>(parentFilterMode);
 
-	const filterModeItems = getNumberRangeFilterModeItems({ strMapFilterMode });
+	const filterModeItems = getTableNumberRangeFilterModeItems({
+		strMapFilterMode,
+	});
 
 	return (
 		<Form<FieldValuesFilterNumberRange>
@@ -80,7 +83,7 @@ export const FormFilterNumberRange = ({
 			)}
 		>
 			<Box paddingX="space_4">
-				<FormSelectSingle<NumberRangeFilterMode>
+				<FormSelectSingle<TableNumberRangeFilterMode>
 					size="sm"
 					name="filter_mode"
 					defaultValue={localFilterMode}

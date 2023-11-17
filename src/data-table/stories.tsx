@@ -8,11 +8,13 @@ import {
 } from "../../mocks/data_table_columns.mock";
 import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock";
 import { Button } from "../button";
-import { DataTableRowActions } from "../data-table-row-actions";
+import {
+	DataTableRowActions,
+	TDataTableRowActions,
+} from "../data-table-row-actions";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
-import { NumberRangeFilterMode } from "./_components/column-filters/number-range/types";
-import { TDataTableRowActions } from "./types";
+import { TableNumberRangeFilterMode } from "./types";
 
 const meta = {
 	args: {},
@@ -79,7 +81,10 @@ export const MOCK_FILTER_STRINGS = {
 	},
 } as const;
 
-export const MOCK_FILTER_MODE_STRINGS: Record<NumberRangeFilterMode, string> = {
+export const MOCK_FILTER_MODE_STRINGS: Record<
+	TableNumberRangeFilterMode,
+	string
+> = {
 	is_between: "Is between",
 	is_equal_to: "Is equal to",
 	is_greater_than: "Is greater than",

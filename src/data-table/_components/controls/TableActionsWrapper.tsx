@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Box } from "../../../box";
 import { FilterPillMultiSelect } from "../column-filters/multi-select/FilterPillMultiSelect";
 import { FilterPillNumberRange } from "../column-filters/number-range/FilterPillNumberRange";
-import { NumberRangeFilterMode } from "../column-filters/number-range/types";
+import { TableNumberRangeFilterMode } from "../../types";
 
 export function TableActionsWrapper<TRowData>({
 	leftAction,
@@ -38,7 +38,7 @@ export function TableActionsWrapper<TRowData>({
 		  >;
 	strMapFilterMode:
 		| undefined
-		| Record<NumberRangeFilterMode, string>
+		| Record<TableNumberRangeFilterMode, string>
 		| undefined;
 }) {
 	if (!leftAction && !rightActions) {
