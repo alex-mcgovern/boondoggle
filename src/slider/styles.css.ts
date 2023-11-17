@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
+import { withPrefersMotion } from "../css-utils";
 import {
 	SELECTOR_IS_FOCUS,
 	SELECTOR_IS_HOVER,
@@ -7,7 +8,6 @@ import {
 	utilCss,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 
 export const sliderRoot = style([
 	utilCss({

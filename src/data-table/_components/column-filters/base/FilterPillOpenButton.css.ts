@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { a11yFocus, utilCss, vars } from "../../../../index.css";
 import { withPrefersMotion } from "../../../../css-utils";
+import { a11yFocus, utilCss, vars } from "../../../../index.css";
 
 const rotateOutKeyframes = keyframes({
 	"0%": { transform: "rotate(45deg)" },

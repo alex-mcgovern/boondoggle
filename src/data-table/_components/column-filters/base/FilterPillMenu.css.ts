@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { utilCss, vars } from "../../../../index.css";
 import { withPrefersMotion } from "../../../../css-utils";
+import { utilCss, vars } from "../../../../index.css";
 
 const rotateInKeyframes = keyframes({
 	"0%": {},

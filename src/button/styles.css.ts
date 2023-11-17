@@ -1,5 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
@@ -11,7 +12,6 @@ import {
 	utilCss,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 
 export const variantButtonSize = styleVariants({
 	lg: [

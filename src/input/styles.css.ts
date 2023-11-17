@@ -2,6 +2,7 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
+import { withPrefersMotion } from "../css-utils";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
@@ -11,7 +12,6 @@ import {
 	utilCss,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],

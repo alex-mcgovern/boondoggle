@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { vars } from "../../../index.css";
 import { withPrefersMotion } from "../../../css-utils";
+import { vars } from "../../../index.css";
 
 const sortControlBase = style({});
 

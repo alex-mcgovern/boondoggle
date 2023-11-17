@@ -1,4 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../../../css-utils";
 import {
 	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_MOBILE,
@@ -8,7 +9,6 @@ import {
 	utilCss,
 	vars,
 } from "../../../index.css";
-import { withPrefersMotion } from "../../../css-utils";
 
 export const getDialogModalOuterStyle = recipe({
 	base: [

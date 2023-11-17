@@ -1,6 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../../../css-utils";
 import {
 	tBodyStyles,
 	tRowStyles,
@@ -8,7 +9,6 @@ import {
 	utilCss,
 	vars,
 } from "../../../index.css";
-import { withPrefersMotion } from "../../../css-utils";
 
 const baseBodyStyle = style({});
 

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus, vars } from "../index.css";
 import { withPrefersMotion } from "../css-utils";
+import { a11yFocus, vars } from "../index.css";
 
 export const fieldActionButtonStyle = style([
 	a11yFocus,

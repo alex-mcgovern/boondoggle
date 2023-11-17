@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { utilCss, variantColorOverlay, vars } from "../../../../index.css";
 import { withPrefersMotion } from "../../../../css-utils";
+import { utilCss, variantColorOverlay, vars } from "../../../../index.css";
 
 export const pillGroup = recipe({
 	base: [
