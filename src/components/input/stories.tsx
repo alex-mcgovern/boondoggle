@@ -7,7 +7,7 @@ import {
 
 import { Input as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 

@@ -3,7 +3,7 @@ import { createRef, useCallback } from "react";
 
 import { DialogModal as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../icon";

@@ -1,7 +1,3 @@
-/**
- * Approach adapted from a LogRocket blog by Ohans Emmanuel
- * https://blog.logrocket.com/build-strongly-typed-polymorphic-components-react-typescript/
- */
 import { extractAtomsFromProps } from "@dessert-box/core";
 import type { Placement } from "@floating-ui/react";
 import clsx from "clsx";

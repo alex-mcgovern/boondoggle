@@ -2,11 +2,11 @@ import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-import { RadioButton } from "../radio_button";
+import { RadioButton } from "../radio-button";
 import { getGroupLabelStyles } from "./styles.css";
 
 import type { Ref } from "react";
@@ -18,7 +18,7 @@ import type {
 	WithWrapperProps,
 } from "../../common-types";
 import type { UtilCssArgs } from "../../styles/utils/util_css.css";
-import type { RadioButtonInputProps, RadioButtonShape } from "../radio_button";
+import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
 
 export type RadioButtonGroupProps = UtilCssArgs &
 	WithWrapperProps &

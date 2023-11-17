@@ -1,18 +1,16 @@
 /**
  * @jest-environment jsdom
  */
-import { faPlus } from "@fortawesome/pro-solid-svg-icons";
+import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { render } from "@testing-library/react";
-
 import {
 	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	generateMockAccountColumn,
 } from "../../../mocks/data_table_columns.mock";
+import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { DataTable } from "./_components/DataTable";
-
-import type { MockAccountColumnData } from "../../../mocks/data_table_columns.mock";
 import type { DataTableProps } from "./_components/DataTable";
 import { MOCK_FILTER_MODE_STRINGS, MOCK_FILTER_STRINGS } from "./stories";
 

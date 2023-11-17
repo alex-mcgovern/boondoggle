@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { utilCss } from "../../styles/utils/util_css.css";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
 import { SlotWrapper } from "../slot-wrapper";

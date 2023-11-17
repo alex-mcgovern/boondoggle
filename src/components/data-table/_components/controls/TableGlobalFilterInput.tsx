@@ -1,4 +1,4 @@
-import { faSearch } from "@fortawesome/pro-solid-svg-icons";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import type { WithOptionalPlaceholder } from "../../../../common-types";
 import { Icon } from "../../../icon";
 import { Input } from "../../../input";

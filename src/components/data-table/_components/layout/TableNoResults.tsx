@@ -1,8 +1,6 @@
-import {
-	faCircleExclamation,
-	faTimesCircle,
-} from "@fortawesome/pro-solid-svg-icons";
-import { Box } from "../../../box/_components/Box";
+import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
+import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
+import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import type { useDataTableState } from "../../_lib/useDataTableState";

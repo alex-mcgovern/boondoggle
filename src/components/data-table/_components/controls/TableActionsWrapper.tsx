@@ -1,7 +1,7 @@
 import { Table } from "@tanstack/react-table";
 import { Children } from "react";
 import type { ReactNode } from "react";
-import { Box } from "../../../box/_components/Box";
+import { Box } from "../../../box";
 import { FilterPillMultiSelect } from "../column-filters/multi-select/FilterPillMultiSelect";
 import { FilterPillNumberRange } from "../column-filters/number-range/FilterPillNumberRange";
 import { NumberRangeFilterMode } from "../column-filters/number-range/types";

@@ -1,5 +1,5 @@
 import type { RowData, Table } from "@tanstack/react-table";
-import { Box } from "../../../box/_components/Box";
+import { Box } from "../../../box";
 import { Button } from "../../../button";
 
 export function TablePagination<TData extends RowData>({

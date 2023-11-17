@@ -3,8 +3,38 @@ import { ComponentProps } from "react";
 import { WithSize } from "../../common-types";
 import { arrayHasLength } from "../../lib/array-has-length";
 import { utilCss } from "../../styles/utils/util_css.css";
-import { Tab } from "./Tab";
-import * as styles from "./Tabs.css";
+import { Button, ButtonProps } from "../button";
+import { Pill } from "../pill";
+import * as styles from "./styles.css";
+
+function Tab({
+	className,
+	active,
+	isTabFullWidth,
+	children,
+	count,
+	...rest
+}: ButtonProps & { count?: number; isTabFullWidth?: boolean }) {
+	return (
+		<div
+			className={clsx(styles.tab({ active, isTabFullWidth }), className)}
+		>
+			<Button
+				{...rest}
+				slotRight={
+					typeof count === "number" ? (
+						<Pill colorOverlay="blue" size="sm">
+							{count}
+						</Pill>
+					) : undefined
+				}
+				appearance="ghost"
+			>
+				{children}
+			</Button>
+		</div>
+	);
+}
 
 export function Tabs({
 	tabs,

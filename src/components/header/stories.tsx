@@ -1,7 +1,7 @@
 import { Header as StoryComp } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { Button } from "../button";
 
 const meta = {

@@ -12,7 +12,7 @@ import {
 } from "@floating-ui/react";
 import * as React from "react";
 import { useForwardRef } from "../../../../../hooks/use_forward_ref";
-import { Box } from "../../../../box/_components/Box";
+import { Box } from "../../../../box";
 import { FloatingPanel } from "../../../../floating-panel";
 import { FilterPillCloseButton } from "./FilterPillCloseButton";
 import { FilterPillGroup } from "./FilterPillGroup";

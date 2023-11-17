@@ -1,4 +1,4 @@
-import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons";
+import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons/faCirclePlus";
 import { Icon } from "../../../../icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../../../tooltip";
 import * as styles from "./FilterPillCloseButton.css";

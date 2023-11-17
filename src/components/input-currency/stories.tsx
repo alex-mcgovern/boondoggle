@@ -6,8 +6,8 @@ import {
 	MOCK_CURRENCY_SELECT_ITEMS,
 	MOCK_LOCALE_SELECT_ITEMS,
 } from "../../../test/mock_data/input_currency";
-import { Box } from "../box/_components/Box";
-import { SelectSingle } from "../select/select_single";
+import { Box } from "../box";
+import { SelectSingle } from "../select/select-single";
 
 import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";

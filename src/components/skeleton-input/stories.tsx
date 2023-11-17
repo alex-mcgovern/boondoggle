@@ -1,4 +1,4 @@
-import { SkeletonInput as StoryComp } from "./SkeletonInput";
+import { SkeletonInput as StoryComp } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
 

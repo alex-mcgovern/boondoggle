@@ -1,7 +1,7 @@
 import { flexRender } from "@tanstack/react-table";
 import type { Table } from "@tanstack/react-table";
 import { tdStyles } from "../../../../styles/stylesheet.css";
-import { Box } from "../../../box/_components/Box";
+import { Box } from "../../../box";
 import { getBodyStyle, rowStyles } from "./TableLayout.css";
 
 export function TableLayout<TRowData>({

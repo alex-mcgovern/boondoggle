@@ -1,8 +1,8 @@
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { Loader } from "../loader";
 import { loaderWrapperStyle } from "./styles.css";
 
-import type { BoxProps } from "../box/_components/Box";
+import type { BoxProps } from "../box";
 
 export type LoaderFullScreenProps = {
 	/**

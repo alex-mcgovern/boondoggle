@@ -2,10 +2,8 @@
 
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
-
-import { collapsibleContentAnimation } from "./styles.css";
-
 import type { ReactNode } from "react";
+import { collapsibleContentAnimation } from "./styles.css";
 
 export type CollapsibleProps = {
 	/**

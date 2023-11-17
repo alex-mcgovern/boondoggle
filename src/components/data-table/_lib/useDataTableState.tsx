@@ -18,7 +18,7 @@ import type {
 	Updater,
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
-import { Skeleton } from "../../skeletons/Skeleton";
+import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { TDataTableRowActions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";

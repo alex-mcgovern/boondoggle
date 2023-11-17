@@ -1,7 +1,39 @@
 import { useMemo } from "react";
-import { Box } from "../box/_components/Box";
-import { getInitials } from "./lib/get_initials";
+import { Box } from "../box";
 import * as styles from "./styles.css";
+
+function getInitials({
+	firstName,
+	fullName,
+	lastName,
+}: {
+	firstName?: string;
+	fullName?: string;
+	lastName?: string;
+}) {
+	if (fullName && !firstName && !lastName) {
+		const [first, last] = fullName.split(" ");
+
+		if (!last) {
+			return `${first[0]}`;
+		}
+		return `${first[0]}${last[0]}`;
+	}
+
+	if (firstName && lastName) {
+		return `${firstName[0]}${lastName[0]}`;
+	}
+
+	if (firstName) {
+		return firstName[0];
+	}
+
+	if (lastName) {
+		return lastName[0];
+	}
+
+	return "";
+}
 
 export type AvatarProps = {
 	/**

@@ -6,7 +6,7 @@ import { useSelect } from "downshift";
 import { forwardRef } from "react";
 
 import { useForwardRef } from "../../../hooks/use_forward_ref";
-import { Box } from "../../box/_components/Box";
+import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
 import { SelectItemList } from "../SelectItemList";

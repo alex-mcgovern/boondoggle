@@ -1,10 +1,8 @@
-import { faArrowRight } from "@fortawesome/pro-solid-svg-icons";
-
+import { faArrowRight } from "@fortawesome/pro-solid-svg-icons/faArrowRight";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Button as StoryComp } from ".";
 import { Link } from "../../../test/link.comp.mock";
 import { Icon } from "../icon";
-
-import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
 	args: {

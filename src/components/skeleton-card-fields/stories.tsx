@@ -1,4 +1,4 @@
-import { SkeletonCardFields as StoryComp } from "./SkeletonCardFields";
+import { SkeletonCardFields as StoryComp } from ".";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

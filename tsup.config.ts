@@ -8,15 +8,17 @@ export default defineConfig({
 	bundle: false,
 	clean: true,
 	config: "./tsconfig.build.json",
-	dts: {
-		entry: "./src/index.ts",
-		resolve: false,
-	},
+	// dts: {
+	// 	entry: "./src/index.ts",
+	// 	resolve: false,
+	// },
+	dts: true,
 	entry: [
 		"./src",
 		"!./src/**/*mock.*",
 		"!./src/**/*stories.*",
 		"!./src/**/*test.*",
+		"!./src/**/*spec.*",
 		"!./src/**/types.*",
 	],
 	// esbuildPlugins: [

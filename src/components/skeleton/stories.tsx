@@ -1,4 +1,4 @@
-import { Skeleton as StoryComp } from "./Skeleton";
+import { Skeleton as StoryComp } from ".";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

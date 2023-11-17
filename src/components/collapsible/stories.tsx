@@ -1,12 +1,10 @@
-import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
-
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
+import type { StoryFn, StoryObj } from "@storybook/react";
 import { Collapsible as StoryComp } from ".";
+import type { CollapsibleProps as StoryCompProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { utilCss } from "../../styles/utils/util_css.css";
 import { Icon } from "../icon";
-
-import type { StoryFn, StoryObj } from "@storybook/react";
-import type { CollapsibleProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

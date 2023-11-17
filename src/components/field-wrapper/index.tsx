@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
 import { hideLastpassStyle } from "../../styles/common/hide_lastpass.css";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";

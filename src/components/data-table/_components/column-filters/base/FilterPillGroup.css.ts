@@ -1,10 +1,8 @@
 import { recipe } from "@vanilla-extract/recipes";
-import {
-	createAccessibleTransition,
-	utilCss,
-	variantColorOverlay,
-	vars,
-} from "../../../../..";
+import { variantColorOverlay } from "../../../../../styles/color_palette.css";
+import { vars } from "../../../../../styles/theme.css";
+import { createAccessibleTransition } from "../../../../../styles/utils/create_accessible_transition";
+import { utilCss } from "../../../../../styles/utils/util_css.css";
 
 export const pillGroup = recipe({
 	base: [

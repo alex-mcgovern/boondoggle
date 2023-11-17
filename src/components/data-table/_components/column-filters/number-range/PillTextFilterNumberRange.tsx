@@ -1,5 +1,5 @@
 import { exhaustiveSwitchGuard } from "../../../../../lib/exhaustive-switch-guard";
-import { Box } from "../../../../box/_components/Box";
+import { Box } from "../../../../box";
 import { activeFilterString } from "../multi-select/FilterPillMultiSelect.css";
 import { useNumberRangeFilterMode } from "./FilterModeContext";
 import { NumberRangeFilterMode } from "./types";

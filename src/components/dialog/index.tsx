@@ -5,11 +5,11 @@ import { createRef, forwardRef, useCallback } from "react";
 import { useClickOutside } from "../../hooks/use-click-outside";
 import { useOpenDialogWithKeyboard } from "../../hooks/use-open-dialog-with-keyboard";
 import { useForwardRef } from "../../hooks/use_forward_ref";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { getDialogStyles } from "./styles.css";
 
 import type { ReactNode } from "react";
-import type { BoxProps } from "../box/_components/Box";
+import type { BoxProps } from "../box";
 import type { DialogPlacementEnum } from "./styles.css";
 
 export type DialogProps = BoxProps & {

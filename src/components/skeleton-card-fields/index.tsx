@@ -1,7 +1,7 @@
 import { Card } from "../card";
 import { FieldsGrid } from "../fields-grid";
-import { Skeleton } from "./Skeleton";
-import { SkeletonInput } from "./SkeletonInput";
+import { Skeleton } from "../skeleton";
+import { SkeletonInput } from "../skeleton-input";
 
 export function SkeletonCardFields({ withTitle }: { withTitle?: boolean }) {
 	return (

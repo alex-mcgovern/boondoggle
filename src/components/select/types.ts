@@ -1,5 +1,5 @@
 import type { WithColorOverlay, WithSlots } from "../../common-types";
-import type { BoxProps } from "../box/_components/Box";
+import type { BoxProps } from "../box";
 
 type IsFilterableBaseProps = {
 	/**

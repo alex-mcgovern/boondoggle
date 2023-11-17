@@ -16,7 +16,7 @@ import { mockSelectItems } from "../../select/__mocks__/select.mock";
 
 import type { FormProps } from "..";
 import type { MockCurrency } from "../../../../test/mock_data/input_currency";
-import type { BoxProps } from "../../box/_components/Box";
+import type { BoxProps } from "../../box";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),

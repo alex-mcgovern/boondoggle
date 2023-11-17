@@ -1,7 +1,7 @@
-import { faEllipsis } from "@fortawesome/pro-solid-svg-icons";
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { Icon } from "../../../icon";
-import { SelectButton } from "../../../select/select_button";
-import type { SelectButtonProps } from "../../../select/select_button";
+import { SelectButton } from "../../../select/select-button";
+import type { SelectButtonProps } from "../../../select/select-button";
 import type { SelectItemShape } from "../../../select/types";
 
 export function DataTableRowActions({

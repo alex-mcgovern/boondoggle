@@ -1,4 +1,4 @@
-import { faPlus } from "@fortawesome/pro-solid-svg-icons";
+import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
 	DATA_TABLE_COLUMNS_MOCK,

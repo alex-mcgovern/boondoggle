@@ -2,7 +2,7 @@
 
 import { arrayHasLength } from "../../../lib/array-has-length";
 import { tableStyles } from "../../../styles/stylesheet.css";
-import { Box } from "../../box/_components/Box";
+import { Box } from "../../box";
 import { useDataTableState } from "../_lib/useDataTableState";
 
 import { TableActionsWrapper } from "./controls/TableActionsWrapper";

@@ -3,7 +3,7 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 import { Pill as StoryComp } from ".";
 import type { PillProps as StoryCompProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { Icon } from "../icon";
 
 export default {

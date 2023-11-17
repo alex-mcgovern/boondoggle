@@ -1,4 +1,4 @@
-import { Tabs as StoryComp } from "./Tabs";
+import { Tabs as StoryComp } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
 

@@ -1,4 +1,4 @@
-import { Box } from "../../../../box/_components/Box";
+import { Box } from "../../../../box";
 import * as styles from "./FilterSelectItem.css";
 
 export const FilterSelectItem = ({

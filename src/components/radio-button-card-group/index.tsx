@@ -2,11 +2,11 @@ import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
 
 import { getTheme } from "../../styles/color_palette.css";
-import { Box } from "../box/_components/Box";
+import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
-import { RadioButtonCard } from "../radio_button_card";
+import { RadioButtonCard } from "../radio-button-card";
 
 import type { Ref } from "react";
 import type {
@@ -20,7 +20,7 @@ import type { UtilCssArgs } from "../../styles/utils/util_css.css";
 import type {
 	RadioButtonCardShape,
 	RadioButtonInputProps,
-} from "../radio_button_card";
+} from "../radio-button-card";
 
 export type RadioButtonCardGroupProps = UtilCssArgs &
 	WithWrapperProps &

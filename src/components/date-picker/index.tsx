@@ -1,18 +1,183 @@
 "use client";
 
-import { useDatePicker } from "@rehookify/datepicker";
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
+import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
+import { faAngleRight } from "@fortawesome/pro-solid-svg-icons/faAngleRight";
+import {
+	type DPCalendar,
+	type DPDay,
+	type DPUseMonthsPropGetters,
+	type DPUseYearsPropGetters,
+	type DPYear,
+	useDatePicker,
+	useDaysPropGetters,
+} from "@rehookify/datepicker";
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
-
+import type { MouseEvent, Ref } from "react";
 import { variantColorOverlay } from "../../styles/color_palette.css";
-import { Box } from "../box/_components/Box";
-import { DatePickerControls } from "./components/date_picker_controls.comp";
-import { DatePickerDays } from "./components/date_picker_days.comp";
-import { DatePickerYears } from "./components/date_picker_years.comp";
+import { Box } from "../box";
+import type { BoxProps } from "../box";
+import { Button } from "../button";
+import { Icon } from "../icon";
 import * as styles from "./styles.css";
 
-import type { MouseEvent, Ref } from "react";
-import type { BoxProps } from "../box/_components/Box";
+export function DatePickerYears({
+	onYearClick,
+	yearButton,
+	years,
+}: {
+	onYearClick: () => void;
+	yearButton: ReturnType<DPUseYearsPropGetters>["yearButton"];
+	years: Array<DPYear>;
+}) {
+	return (
+		<>
+			{years.map((calendarYear) => {
+				return (
+					<Button
+						appearance={calendarYear.selected ? "primary" : "ghost"}
+						key={calendarYear.year.toString()}
+						name={calendarYear.year.toString()}
+						width="100%"
+						{...yearButton(calendarYear, {
+							onClick: onYearClick,
+						})}
+					>
+						{calendarYear.year}
+					</Button>
+				);
+			})}
+		</>
+	);
+}
+
+const getDayButtonAppearance = ({
+	now,
+	selected,
+}: Pick<DPDay, "now" | "selected">) => {
+	if (selected) {
+		return "primary";
+	}
+	if (now) {
+		return "secondary";
+	}
+
+	return "ghost";
+};
+
+export function DatePickerDays({
+	dayButton,
+	days,
+	onDayClick,
+}: {
+	dayButton: ReturnType<typeof useDaysPropGetters>["dayButton"];
+	days: Array<DPDay>;
+	month: DPCalendar["month"];
+	onDayClick: (evt: MouseEvent<HTMLElement>, date: Date) => void;
+}) {
+	return (
+		<>
+			{days.map((calendarDay) => {
+				if (!calendarDay.inCurrentMonth) {
+					return null;
+				}
+
+				return (
+					<Button
+						{...dayButton(calendarDay, {
+							onClick: onDayClick,
+						})}
+						appearance={getDayButtonAppearance({
+							now: calendarDay.now,
+							selected: calendarDay.selected,
+						})}
+						key={calendarDay.$date.toISOString()}
+						name={calendarDay.$date.toISOString()}
+						size="square_md"
+					>
+						{calendarDay.day}
+					</Button>
+				);
+			})}
+		</>
+	);
+}
+
+export function DatePickerControls({
+	isShowingYears,
+	month,
+	nextMonthButton,
+	nextYearsButton,
+	onToggleYears,
+	previousMonthButton,
+	previousYearsButton,
+	year,
+	years,
+}: {
+	isShowingYears: boolean;
+	month: DPCalendar["month"];
+	nextMonthButton: ReturnType<DPUseMonthsPropGetters>["nextMonthButton"];
+	nextYearsButton: ReturnType<DPUseYearsPropGetters>["nextYearsButton"];
+	onToggleYears: () => void;
+	previousMonthButton: ReturnType<DPUseMonthsPropGetters>["previousMonthButton"];
+	previousYearsButton: ReturnType<DPUseYearsPropGetters>["previousYearsButton"];
+	year: DPCalendar["year"];
+	years: Array<DPYear>;
+}) {
+	return (
+		<Box as="header">
+			<Box
+				alignItems="center"
+				display="flex"
+				gap="space_2"
+				justifyContent="space-between"
+				marginBottom="space_4"
+				width="100%"
+			>
+				<Button
+					{...(isShowingYears
+						? previousYearsButton()
+						: previousMonthButton())}
+					appearance="ghost"
+					name="prev"
+					size="square_md"
+					slotLeft={<Icon icon={faAngleLeft} />}
+				/>
+
+				<Button
+					appearance="ghost"
+					name="toggle_years"
+					onClick={onToggleYears}
+				>
+					{isShowingYears ? (
+						<>
+							{" "}
+							{`${years[0].year} - ${
+								years[years.length - 1].year
+							}`}
+						</>
+					) : (
+						<>
+							{month} {year}
+						</>
+					)}
+					<Icon icon={faAngleDown} />
+				</Button>
+
+				<Button
+					{...(isShowingYears
+						? nextYearsButton()
+						: nextMonthButton())}
+					appearance="ghost"
+					name="next"
+					size="square_md"
+					slotLeft={<Icon icon={faAngleRight} />}
+				/>
+			</Box>
+		</Box>
+	);
+}
 
 export type DatePickerProps = {
 	/**

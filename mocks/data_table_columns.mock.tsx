@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Faker, en } from "@faker-js/faker";
-import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons";
+import { faArrowUpRight } from "@fortawesome/pro-solid-svg-icons/faArrowUpRight";
 import { createColumnHelper } from "@tanstack/react-table";
 import { Avatar } from "../src/components/avatar";
-import { Box } from "../src/components/box/_components/Box";
+import { Box } from "../src/components/box";
 import { Button } from "../src/components/button";
 import { dataTableFilterFnMultiSelect } from "../src/components/data-table";
 import { Icon } from "../src/components/icon";

@@ -3,7 +3,7 @@
 import { forwardRef, useEffect, useMemo, useState } from "react";
 
 import { Input } from "../input";
-import { SelectSingle } from "../select/select_single";
+import { SelectSingle } from "../select/select-single";
 import { currencySelectInputStyle } from "./styles.css";
 import { useFormattedCurrency } from "./use_formatted_currency";
 

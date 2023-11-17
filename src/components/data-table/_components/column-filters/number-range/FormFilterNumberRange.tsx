@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
-import { Box } from "../../../../box/_components/Box";
+import { Box } from "../../../../box";
 import { Form } from "../../../../form";
 import { FormInput } from "../../../../form-input";
 import { FormSelectSingle } from "../../../../form-select-single";

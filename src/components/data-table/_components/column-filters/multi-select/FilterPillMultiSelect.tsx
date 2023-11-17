@@ -2,7 +2,7 @@ import { Column } from "@tanstack/react-table";
 import { useEffect, useMemo, useState } from "react";
 import { arrayHasLength } from "../../../../../lib/array-has-length";
 import { isTruthy } from "../../../../../lib/is-truthy";
-import { Box } from "../../../../box/_components/Box";
+import { Box } from "../../../../box";
 import { Button } from "../../../../button";
 import { FilterDialogTitle } from "../base/FilterDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";

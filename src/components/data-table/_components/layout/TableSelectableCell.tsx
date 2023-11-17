@@ -1,5 +1,5 @@
 import type { Row, RowData } from "@tanstack/react-table";
-import { Box } from "../../../box/_components/Box";
+import { Box } from "../../../box";
 
 export function TableSelectableCell<TData extends RowData>({
 	row,
