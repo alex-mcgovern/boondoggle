@@ -10,19 +10,19 @@ import type { ReactNode } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { tableStyles } from "../index.css";
-import { useDataTableState } from "./_lib/useDataTableState";
-import { TDataTableRowActions } from "./types";
+import {
+	WithTableOptionalFiltering,
+	WithTableOptionalPagination,
+	WithTableOptionalSelectableRows,
+} from "../types";
 import { TableActionsWrapper } from "./_components/controls/TableActionsWrapper";
 import { TableGlobalFilterInput } from "./_components/controls/TableGlobalFilterInput";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableHead } from "./_components/layout/TableHead";
 import { TableLayout } from "./_components/layout/TableLayout";
 import { TableNoResults } from "./_components/layout/TableNoResults";
-import {
-	WithTableOptionalPagination,
-	WithTableOptionalSelectableRows,
-	WithTableOptionalFiltering,
-} from "../types";
+import { useDataTableState } from "./_lib/useDataTableState";
+import { TDataTableRowActions } from "./types";
 
 declare module "@tanstack/table-core" {
 	interface FilterFns {

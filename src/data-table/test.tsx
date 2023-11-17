@@ -3,6 +3,8 @@
  */
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { render } from "@testing-library/react";
+import { DataTable } from ".";
+import type { DataTableProps } from ".";
 import {
 	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
 	generateMockAccountColumn,
@@ -10,8 +12,6 @@ import {
 import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { DataTable } from ".";
-import type { DataTableProps } from ".";
 import { MOCK_FILTER_MODE_STRINGS, MOCK_FILTER_STRINGS } from "./stories";
 
 const renderComponent = ({

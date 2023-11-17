@@ -19,11 +19,11 @@ import type {
 	Updater,
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
+import { arrayHasLength } from "../../_lib/array-has-length";
 import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { TDataTableRowActions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
-import { arrayHasLength } from "../../_lib/array-has-length";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,
