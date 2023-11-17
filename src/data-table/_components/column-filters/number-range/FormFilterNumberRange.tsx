@@ -5,13 +5,13 @@ import { Form } from "../../../../form";
 import { FormInput } from "../../../../form-input";
 import { FormSelectSingle } from "../../../../form-select-single";
 import { FormSubmitButton } from "../../../../form-submit-button";
+import type { TableNumberRangeFilterMode } from "../../../types";
 import { useTableNumberRangeFilterMode } from "./FilterModeContext";
+import { getTableNumberRangeFilterModeItems } from "./getNumberRangeFilterModeItems";
 import {
 	FieldValuesFilterNumberRange,
 	getZodFilterNumberRange,
 } from "./zodFilterNumberRange";
-import type { TableNumberRangeFilterMode } from "../../../types";
-import { getTableNumberRangeFilterModeItems } from "./getNumberRangeFilterModeItems";
 
 export const FormFilterNumberRange = ({
 	currentMax,

@@ -9,6 +9,7 @@ import type {
 import type { ReactNode } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
+import { TDataTableRowActions } from "../data-table-row-actions";
 import { tableStyles } from "../index.css";
 import { TableActionsWrapper } from "./_components/controls/TableActionsWrapper";
 import { TableGlobalFilterInput } from "./_components/controls/TableGlobalFilterInput";
@@ -17,11 +18,10 @@ import { TableHead } from "./_components/layout/TableHead";
 import { TableLayout } from "./_components/layout/TableLayout";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
-import { TDataTableRowActions } from "../data-table-row-actions";
 import {
+	WithTableOptionalFiltering,
 	WithTableOptionalPagination,
 	WithTableOptionalSelectableRows,
-	WithTableOptionalFiltering,
 } from "./types";
 
 declare module "@tanstack/table-core" {

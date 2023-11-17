@@ -20,10 +20,10 @@ import type {
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
 import { arrayHasLength } from "../../_lib/array-has-length";
+import { TDataTableRowActions } from "../../data-table-row-actions";
 import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
-import { TDataTableRowActions } from "../../data-table-row-actions";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,

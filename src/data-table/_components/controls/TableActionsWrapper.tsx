@@ -2,9 +2,9 @@ import { Table } from "@tanstack/react-table";
 import { Children } from "react";
 import type { ReactNode } from "react";
 import { Box } from "../../../box";
+import { TableNumberRangeFilterMode } from "../../types";
 import { FilterPillMultiSelect } from "../column-filters/multi-select/FilterPillMultiSelect";
 import { FilterPillNumberRange } from "../column-filters/number-range/FilterPillNumberRange";
-import { TableNumberRangeFilterMode } from "../../types";
 
 export function TableActionsWrapper<TRowData>({
 	leftAction,

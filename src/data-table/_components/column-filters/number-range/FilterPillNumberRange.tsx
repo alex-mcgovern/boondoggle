@@ -2,12 +2,12 @@ import { Column } from "@tanstack/react-table";
 import { useState } from "react";
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
+import { TableNumberRangeFilterMode } from "../../../types";
 import { FilterDialogTitle } from "../base/FilterDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
 import { TableNumberRangeFilterModeProvider } from "./FilterModeContext";
 import { FormFilterNumberRange } from "./FormFilterNumberRange";
 import { PillTextFilterNumberRange } from "./PillTextFilterNumberRange";
-import { TableNumberRangeFilterMode } from "../../../types";
 
 export function FilterPillNumberRange<TRowData>({
 	strings: {
