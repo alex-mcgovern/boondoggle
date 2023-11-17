@@ -19,7 +19,6 @@ import type {
 	WithStateInvalid,
 } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
-import { UtilCssArgs } from "../../../styles/utils/util_css.css";
 import { Box } from "../../box";
 import { Icon } from "../../icon";
 import { Input } from "../../input";
@@ -38,6 +37,7 @@ import type {
 	SelectItemShape,
 	WithOptionalIsFilterable,
 } from "../types";
+import { UtilCssArgs } from "../../../index.css";
 
 export type SelectSingleProps<
 	TValue extends string = string,

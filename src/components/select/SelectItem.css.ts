@@ -1,13 +1,16 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { variantColorOverlay } from "../../styles/color_palette.css";
-import { a11yDisabled, a11yFocus } from "../../index.css";
-import { elementHeight, elementPaddingRaw } from "../../index.css";
-import { vars } from "../../index.css";
-import { createAccessibleTransition } from "../../index.css";
-import { utilCss } from "../../index.css";
+import {
+	elementHeight,
+	elementPaddingRaw,
+	vars,
+	a11yDisabled,
+	a11yFocus,
+	variantColorOverlay,
+	createAccessibleTransition,
+	utilCss,
+} from "../../index.css";
 
 const selectItemSize = styleVariants({
 	lg: [

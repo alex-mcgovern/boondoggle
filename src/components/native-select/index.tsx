@@ -17,9 +17,7 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import { a11yError } from "../../index.css";
-import { utilCss } from "../../index.css";
-import type { UtilCssArgs } from "../../index.css";
+import { a11yError, utilCss, type UtilCssArgs } from "../../index.css";
 import { FieldWrapper } from "../field-wrapper";
 import * as styles from "./styles.css";
 

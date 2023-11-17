@@ -1,9 +1,7 @@
 import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef, useCallback } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-
 import { useDialogModalState } from "../../../../lib/use-dialog-modal-state";
-import { variantColorOverlay } from "../../../../styles/color_palette.css";
 import { Box } from "../../../box";
 import { FormSubmitButton } from "../../../form-submit-button";
 import { handleHookFormErrors } from "../../../form/handle_hook_form_errors";
@@ -13,11 +11,11 @@ import { DialogModalErrorMessage } from "../dialog_modal_error_message";
 import { DialogModalHeader } from "../dialog_modal_header";
 import { DialogModalInner } from "../dialog_modal_inner";
 import { DialogModalOuter } from "../dialog_modal_outer";
-
 import type { ReactNode } from "react";
 import type { FieldValues, Resolver } from "react-hook-form";
 import type { BoxProps } from "../../../box";
 import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
+import { variantColorOverlay } from "../../../../index.css";
 
 export type DialogModalFormProps<
 	TFieldValues extends FieldValues = FieldValues,

@@ -3,13 +3,11 @@
  */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { Input } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-import { a11yDisabled } from "../../../styles/common/a11y.css";
-
 import type { InputProps } from "..";
+import { a11yDisabled } from "../../../index.css";
 
 const ON_CHANGE = jest.fn();
 

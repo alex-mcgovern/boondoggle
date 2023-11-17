@@ -1,9 +1,8 @@
 import { flexRender } from "@tanstack/react-table";
 import type { Header } from "@tanstack/react-table";
 import clsx from "clsx";
-import { thStyles } from "../../../../styles/stylesheet.css";
-import { utilCss } from "../../../../styles/utils/util_css.css";
 import { TableSortButton } from "../controls/TableSortButton";
+import { thStyles, utilCss } from "../../../../index.css";
 
 export function TableHeaderCell<THeaderData>({
 	header,

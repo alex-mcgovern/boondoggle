@@ -1,13 +1,13 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yDisabled, a11yFocus } from "../../index.css";
 import {
 	elementFontSize,
 	elementHeight,
 	elementPadding,
+	utilCss,
+	a11yDisabled,
+	a11yFocus,
 } from "../../index.css";
-import { utilCss } from "../../index.css";
 
 const size = styleVariants({
 	lg: [

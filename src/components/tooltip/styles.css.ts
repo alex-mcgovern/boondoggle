@@ -1,8 +1,5 @@
 import { style } from "@vanilla-extract/css";
-
-import { animateFadeIn } from "../../index.css";
-import { variantColorOverlay } from "../../index.css";
-import { utilCss } from "../../index.css";
+import { animateFadeIn, variantColorOverlay, utilCss } from "../../index.css";
 
 export const tooltipTextStyle = style([
 	variantColorOverlay.grey,

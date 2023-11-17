@@ -3,12 +3,12 @@ import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import {
 	tBodyStyles,
-	tRowStyles,
 	tdStyles,
-} from "../../../../styles/stylesheet.css";
-import { vars } from "../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+	vars,
+	tRowStyles,
+	utilCss,
+	createAccessibleTransition,
+} from "../../../../index.css";
 
 const baseBodyStyle = style({});
 

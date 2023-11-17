@@ -1,8 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus, a11yFocusStyleRule } from "../../index.css";
-import { vars } from "../../index.css";
-import { createAccessibleTransition } from "../../index.css";
-import { utilCss } from "../../index.css";
+import {
+	a11yFocus,
+	a11yFocusStyleRule,
+	vars,
+	createAccessibleTransition,
+	utilCss,
+} from "../../index.css";
 
 export const radioButtonCardInputStyles = style({
 	position: "absolute",

@@ -1,10 +1,12 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { a11yFocus } from "../../../../../styles/common/a11y.css";
-import { SELECTOR_LINK_BUTTON_INPUT_HOVER } from "../../../../../styles/common/selectors.css";
-import { vars } from "../../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../../styles/utils/util_css.css";
+import {
+	SELECTOR_LINK_BUTTON_INPUT_HOVER,
+	a11yFocus,
+	createAccessibleTransition,
+	utilCss,
+	vars,
+} from "../../../../../index.css";
 
 export const closeButton = style([
 	a11yFocus,

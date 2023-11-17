@@ -4,13 +4,12 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { Button } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import { Link } from "../../../../test/link.comp.mock";
-import { variantColorOverlay } from "../../../styles/theme.css";
 import { Icon } from "../../icon";
 import { getButtonStyles, variantButtonSize } from "../styles.css";
+import { variantColorOverlay } from "../../../index.css";
 
 describe("<Button />", () => {
 	describe("Basic smoke tests", () => {

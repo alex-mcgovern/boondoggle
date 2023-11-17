@@ -1,10 +1,13 @@
 import { style } from "@vanilla-extract/css";
 
-import { a11yFocusStyleRule } from "../../index.css";
-import { SELECTOR_IS_FOCUS, SELECTOR_IS_HOVER } from "../../index.css";
-import { vars } from "../../index.css";
-import { createAccessibleTransition } from "../../index.css";
-import { utilCss } from "../../index.css";
+import {
+	vars,
+	a11yFocusStyleRule,
+	createAccessibleTransition,
+	utilCss,
+	SELECTOR_IS_FOCUS,
+	SELECTOR_IS_HOVER,
+} from "../../index.css";
 
 export const sliderRoot = style([
 	utilCss({

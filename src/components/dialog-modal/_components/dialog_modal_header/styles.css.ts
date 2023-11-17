@@ -1,8 +1,5 @@
 import { style } from "@vanilla-extract/css";
-
-import { MEDIA_QUERY_MOBILE } from "../../../../styles/common/media_queries.css";
-import { vars } from "../../../../styles/theme.css";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+import { utilCss, MEDIA_QUERY_MOBILE, vars } from "../../../../index.css";
 
 export const dialogHeaderStyle = style([
 	utilCss({

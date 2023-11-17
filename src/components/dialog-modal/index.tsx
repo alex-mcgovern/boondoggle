@@ -2,7 +2,6 @@ import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef } from "react";
 import type { ReactNode } from "react";
 import { useDialogModalState } from "../../lib/use-dialog-modal-state";
-import { variantColorOverlay } from "../../styles/color_palette.css";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { LoaderFullScreen } from "../loader-full-screen";
@@ -14,6 +13,7 @@ import { DialogModalHeader } from "./_components/dialog_modal_header";
 import { DialogModalInner } from "./_components/dialog_modal_inner";
 import type { DialogModalInnerWidth } from "./_components/dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "./_components/dialog_modal_outer";
+import { variantColorOverlay } from "../../index.css";
 
 export type DialogModalProps = {
 	/**

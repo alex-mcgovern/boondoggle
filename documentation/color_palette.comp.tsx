@@ -2,8 +2,7 @@ import {
 	ColorItem,
 	ColorPalette as StoryblokColorPalette,
 } from "@storybook/blocks";
-
-import { vars } from "../src/styles/theme.css";
+import { vars } from "../src/index.css";
 
 /**
  * Renders the Boondoggle color palette for Storybook.

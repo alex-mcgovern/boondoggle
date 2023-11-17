@@ -4,12 +4,9 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { SelectSingle } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-import { variantColorOverlay } from "../../../styles/color_palette.css";
-import { a11yError } from "../../../styles/common/a11y.css";
 import { Icon } from "../../icon";
 import {
 	mockSelectItems,
@@ -18,6 +15,7 @@ import {
 import { flattenSelectItems } from "../flattenSelectItems";
 
 import type { SelectSingleProps } from ".";
+import { a11yError, variantColorOverlay } from "../../../index.css";
 
 const ON_CHANGE = jest.fn();
 

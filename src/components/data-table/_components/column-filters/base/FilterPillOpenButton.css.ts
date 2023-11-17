@@ -1,8 +1,10 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { a11yFocus } from "../../../../../styles/common/a11y.css";
-import { vars } from "../../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../../styles/utils/util_css.css";
+import {
+	a11yFocus,
+	createAccessibleTransition,
+	utilCss,
+	vars,
+} from "../../../../../index.css";
 
 const rotateOutKeyframes = keyframes({
 	"0%": { transform: "rotate(45deg)" },

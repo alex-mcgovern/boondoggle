@@ -1,11 +1,13 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yFocus } from "../../index.css";
-import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../index.css";
-import { variantColorOverlay, vars } from "../../index.css";
-import { createAccessibleTransition } from "../../index.css";
-import { utilCss } from "../../index.css";
+import {
+	createAccessibleTransition,
+	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
+	utilCss,
+	a11yFocus,
+	variantColorOverlay,
+	vars,
+} from "../../index.css";
 
 const tagSize = styleVariants({
 	lg: [

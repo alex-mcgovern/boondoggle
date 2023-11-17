@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { utilCss } from "../../index.css";
-import type { UtilCssArgs } from "../../index.css";
+import { utilCss, UtilCssArgs } from "../../index.css";
+
 import { Box } from "../box";
 import { flagStyles } from "./styles.css";
 

@@ -1,8 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { variantColorOverlay } from "../../../../styles/color_palette.css";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+import { utilCss, variantColorOverlay } from "../../../../index.css";
 
 export const getDialogModalAlertWrapperStyles = recipe({
 	base: [

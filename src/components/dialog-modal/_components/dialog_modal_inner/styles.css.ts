@@ -1,12 +1,11 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
 import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
-} from "../../../../styles/common/media_queries.css";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+	MEDIA_QUERY_DESKTOP,
+	utilCss,
+	MEDIA_QUERY_MOBILE,
+} from "../../../../index.css";
 
 const variantWidth = styleVariants({
 	lg: {

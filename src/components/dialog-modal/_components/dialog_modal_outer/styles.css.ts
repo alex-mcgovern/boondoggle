@@ -1,17 +1,14 @@
 import { recipe } from "@vanilla-extract/recipes";
-
 import {
 	animateSlideUp,
-	fadeInBackdropKeyframes,
-} from "../../../../styles/common/animations.css";
-import {
-	MEDIA_QUERY_DESKTOP,
+	utilCss,
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
-} from "../../../../styles/common/media_queries.css";
-import { vars } from "../../../../styles/theme.css";
-import { createAccessibleTransition } from "../../../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../../../styles/utils/util_css.css";
+	vars,
+	MEDIA_QUERY_DESKTOP,
+	createAccessibleTransition,
+	fadeInBackdropKeyframes,
+} from "../../../../index.css";
 
 export const getDialogModalOuterStyle = recipe({
 	base: [

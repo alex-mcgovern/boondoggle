@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { utilCss } from "../../../../styles/utils/util_css.css";
+import { utilCss } from "../../../../index.css";
 
 export const dialogContentOuterStyle = style([
 	utilCss({

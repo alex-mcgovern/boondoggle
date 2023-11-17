@@ -24,8 +24,7 @@ import type {
 	WithStateInvalid,
 } from "../../common-types";
 import { useForwardRef } from "../../hooks/use_forward_ref";
-import { utilCss } from "../../index.css";
-import type { UtilCssArgs } from "../../index.css";
+import { utilCss, type UtilCssArgs } from "../../index.css";
 import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";
 import { FieldActionButtonVisibility } from "../field-action-button-visibility";

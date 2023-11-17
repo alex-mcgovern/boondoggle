@@ -3,8 +3,7 @@ import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
-import { utilCss } from "../../index.css";
-import type { UtilCssArgs } from "../../index.css";
+import { utilCss, type UtilCssArgs } from "../../index.css";
 import * as styles from "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {

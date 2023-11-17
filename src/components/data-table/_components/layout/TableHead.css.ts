@@ -1,8 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { tHeadStyles, thStyles } from "../../../../styles/stylesheet.css";
-import { vars } from "../../../../styles/theme.css";
+import { tHeadStyles, thStyles, vars } from "../../../../index.css";
 
 const baseHeadStyle = style({});
 

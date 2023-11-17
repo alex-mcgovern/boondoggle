@@ -15,10 +15,12 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 } from "../../common-types";
-import type { ElementSizeEnum } from "../../index.css";
-import { variantColorOverlay } from "../../index.css";
-import { utilCss } from "../../index.css";
-import type { UtilCssArgs } from "../../index.css";
+import {
+	type ElementSizeEnum,
+	variantColorOverlay,
+	utilCss,
+	type UtilCssArgs,
+} from "../../index.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot-wrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";

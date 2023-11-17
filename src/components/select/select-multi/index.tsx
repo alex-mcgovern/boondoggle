@@ -5,7 +5,6 @@ import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
 import { forwardRef, useCallback, useState } from "react";
-
 import { getOptionalLabelProps } from "../../../common-types";
 import { useForwardRef } from "../../../hooks/use_forward_ref";
 import { arrayHasLength } from "../../../lib/array-has-length";
@@ -19,7 +18,6 @@ import { getIsSelected } from "../getIsSelected";
 import { getSlotRight } from "../lib/get_slot_right";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import { selectMultiInputSelectedItemsStyle } from "./styles.css";
-
 import type { UseComboboxStateChange } from "downshift";
 import type { ForwardedRef } from "react";
 import type {
@@ -32,13 +30,13 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
-import { UtilCssArgs } from "../../../styles/utils/util_css.css";
 import type { InputProps } from "../../input";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
+import { UtilCssArgs } from "../../../index.css";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,

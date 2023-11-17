@@ -2,15 +2,16 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import * as RadixSlider from "@radix-ui/react-slider";
 import clsx from "clsx";
 import { forwardRef } from "react";
-
-import { variantColorOverlay } from "../../styles/color_palette.css";
-import { utilCss } from "../../index.css";
+import {
+	utilCss,
+	variantColorOverlay,
+	type UtilCssArgs,
+} from "../../index.css";
 import { Box } from "../box";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
 import { SlotWrapper } from "../slot-wrapper";
 import * as styles from "./styles.css";
-
 import type { SliderProps as RadixSliderProps } from "@radix-ui/react-slider";
 import type { AriaRole, Ref } from "react";
 import type {
@@ -22,7 +23,6 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { UtilCssArgs } from "../../index.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
 	UtilCssArgs &
