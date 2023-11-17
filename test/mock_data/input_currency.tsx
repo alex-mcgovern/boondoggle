@@ -1,8 +1,8 @@
-import { FlagAe } from "../../src/components/icon-flag/flags/ae";
-import { FlagKw } from "../../src/components/icon-flag/flags/kw";
-import { FlagOm } from "../../src/components/icon-flag/flags/om";
-import { FlagSa } from "../../src/components/icon-flag/flags/sa";
-import { FlagUs } from "../../src/components/icon-flag/flags/us";
+import { FlagAe } from "../../src/components/icon-flag/ae";
+import { FlagKw } from "../../src/components/icon-flag/kw";
+import { FlagOm } from "../../src/components/icon-flag/om";
+import { FlagSa } from "../../src/components/icon-flag/sa";
+import { FlagUs } from "../../src/components/icon-flag/us";
 import { SelectItemShape } from "../../src/components/select/types";
 
 export type MockCurrency = "USD" | "AED" | "OMR" | "SAR" | "KWD";
