@@ -3,19 +3,19 @@ import { forwardRef, useCallback } from "react";
 import type { ReactNode } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import type { FieldValues, Resolver } from "react-hook-form";
-import { useDialogModalState } from "../_lib/use-dialog-modal-state";
-import { Box } from "../box";
-import type { BoxProps } from "../box";
-import { DialogModalErrorMessage } from "../dialog-modal-error-message";
-import { DialogModalActions } from "../dialog-modal/_components/dialog_modal_actions";
-import { DialogModalContent } from "../dialog-modal/_components/dialog_modal_content";
-import { DialogModalHeader } from "../dialog-modal/_components/dialog_modal_header";
-import { DialogModalInner } from "../dialog-modal/_components/dialog_modal_inner";
-import type { DialogModalInnerWidth } from "../dialog-modal/_components/dialog_modal_inner/styles.css";
-import { DialogModalOuter } from "../dialog-modal/_components/dialog_modal_outer";
-import { FormSubmitButton } from "../form-submit-button";
-import { handleHookFormErrors } from "../form/handle_hook_form_errors";
-import { variantColorOverlay } from "../index.css";
+import { useDialogModalState } from "../../../_lib/use-dialog-modal-state";
+import { Box } from "../../../box";
+import type { BoxProps } from "../../../box";
+import { DialogModalErrorMessage } from "../../../dialog-modal-error-message";
+import { FormSubmitButton } from "../../../form-submit-button";
+import { handleHookFormErrors } from "../../../form/handle_hook_form_errors";
+import { variantColorOverlay } from "../../../index.css";
+import { DialogModalActions } from "../dialog_modal_actions";
+import { DialogModalContent } from "../dialog_modal_content";
+import { DialogModalHeader } from "../dialog_modal_header";
+import { DialogModalInner } from "../dialog_modal_inner";
+import type { DialogModalInnerWidth } from "../dialog_modal_inner/styles.css";
+import { DialogModalOuter } from "../dialog_modal_outer";
 
 export type DialogModalFormProps<
 	TFieldValues extends FieldValues = FieldValues,
