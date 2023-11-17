@@ -1,5 +1,6 @@
 import {
 	ColumnFiltersState,
+	Row,
 	createColumnHelper,
 	getCoreRowModel,
 	getFacetedMinMaxValues,
@@ -22,6 +23,22 @@ import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { TDataTableRowActions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
+import { arrayHasLength } from "../../_lib/array-has-length";
+
+function dataTableFilterFnMultiSelect<TRowData extends RowData>(
+	row: Row<TRowData>,
+	column_id: string,
+	// biome-ignore lint/suspicious/noExplicitAny: required by react-table
+	filter_value: any,
+) {
+	const cell_value = row.getValue(column_id);
+
+	if (!arrayHasLength(filter_value)) {
+		return false;
+	}
+
+	return filter_value.includes(cell_value as string);
+}
 
 type UseDataTableStateProps<TData extends RowData> = {
 	RowActions?: TDataTableRowActions<TData>;
@@ -149,6 +166,9 @@ export function useDataTableState<TData extends RowData>({
 			globalFilterFn: dataTableFuzzyFilter,
 			onGlobalFilterChange: setGlobalFilter,
 		}),
+		filterFns: {
+			multiSelect: dataTableFilterFnMultiSelect,
+		},
 		...(isPaginated && {
 			getPaginationRowModel: getPaginationRowModel(),
 		}),

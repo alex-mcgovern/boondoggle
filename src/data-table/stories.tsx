@@ -9,9 +9,9 @@ import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock"
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
-import { DataTable as StoryComp } from "./_components/DataTable";
+import { DataTable as StoryComp } from ".";
 import { NumberRangeFilterMode } from "./_components/column-filters/number-range/types";
-import { DataTableRowActions } from "./_components/row-actions/DataTableRowActions";
+import { DataTableRowActions } from "../data-table-row-actions";
 import { TDataTableRowActions } from "./types";
 
 const meta = {

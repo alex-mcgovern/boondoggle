@@ -10,8 +10,8 @@ import {
 import type { MockAccountColumnData } from "../../mocks/data_table_columns.mock";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { DataTable } from "./_components/DataTable";
-import type { DataTableProps } from "./_components/DataTable";
+import { DataTable } from ".";
+import type { DataTableProps } from ".";
 import { MOCK_FILTER_MODE_STRINGS, MOCK_FILTER_STRINGS } from "./stories";
 
 const renderComponent = ({
