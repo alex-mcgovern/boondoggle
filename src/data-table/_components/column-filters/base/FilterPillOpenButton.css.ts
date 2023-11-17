@@ -8,7 +8,7 @@ const rotateOutKeyframes = keyframes({
 	"100%": { transform: "rotate(0deg)" },
 });
 
-export const openIconCSS = style([
+export const  openButtonCSS = style([
 	a11yFocus,
 	sprinkles({
 		borderRadius: "pill",
@@ -25,7 +25,7 @@ export const openIconCSS = style([
 	}),
 ]);
 
-export const openButtonCSS = style({
+export const openIconCSS = style({
 	...withPrefersMotion({
 		animation: `${rotateOutKeyframes} ${vars.transitionDuration.long} ease forwards`,
 	}),

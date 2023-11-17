@@ -1242,7 +1242,7 @@ export const elementPaddingRaw = {
 		y: vars.spacing.space_2,
 	},
 	sm: {
-		x: vars.spacing.space_2,
+		x: vars.spacing.space_3,
 		y: vars.spacing.space_1,
 	},
 };
