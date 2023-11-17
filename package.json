@@ -22,7 +22,7 @@
 	},
 	"scripts": {
 		"=== BUILD ===": "",
-		"build": "NODE_OPTIONS=\"--max-old-space-size=8192\" tsup",
+		"build": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup",
 		"prebuild": "rm -rf dist/*",
 		"=== BUILD (OLD) ===": "",
 		"build:dev": "rm -rf lib && tsup --watch",
