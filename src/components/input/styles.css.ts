@@ -1,16 +1,16 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yDisabled, a11yFocusStyleRule } from "../../styles/common/a11y.css";
 import {
+	a11yDisabled,
+	a11yFocusStyleRule,
 	elementHeight,
 	elementPadding,
 	elementPaddingRaw,
-} from "../../styles/common/element_size.css";
-import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../styles/utils/util_css.css";
+	createAccessibleTransition,
+	vars,
+	utilCss,
+} from "../../index.css";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 
 const size = styleVariants({

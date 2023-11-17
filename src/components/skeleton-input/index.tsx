@@ -1,4 +1,4 @@
-import { utilCss } from "../../styles/utils/util_css.css";
+import { utilCss } from "../../index.css";
 import { Skeleton } from "../skeleton";
 
 export const SkeletonInput = () => {

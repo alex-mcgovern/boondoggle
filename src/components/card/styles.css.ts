@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { vars } from "../../styles/theme.css";
-import { utilCss } from "../../styles/utils/util_css.css";
+import { vars, utilCss } from "../../index.css";
 
 export const header = style([
 	utilCss({

@@ -15,10 +15,10 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 } from "../../common-types";
-import type { ElementSizeEnum } from "../../styles/common/element_size.css";
-import { variantColorOverlay } from "../../styles/theme.css";
-import { utilCss } from "../../styles/utils/util_css.css";
-import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+import type { ElementSizeEnum } from "../../index.css";
+import { variantColorOverlay } from "../../index.css";
+import { utilCss } from "../../index.css";
+import type { UtilCssArgs } from "../../index.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot-wrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";

@@ -1,10 +1,13 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yFocus } from "../../styles/common/a11y.css";
-import { SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS } from "../../styles/common/selectors.css";
-import { variantColorOverlay, vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../styles/utils/util_css.css";
+import {
+	variantColorOverlay,
+	vars,
+	a11yFocus,
+	createAccessibleTransition,
+	utilCss,
+	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
+} from "../../index.css";
 
 const pillSize = styleVariants({
 	lg: [

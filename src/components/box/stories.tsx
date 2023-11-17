@@ -3,11 +3,11 @@ import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamat
 import { Box, BoxProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
-import { variantColorOverlay } from "../../styles/theme.css";
+import { variantColorOverlay } from "../../index.css";
 import { Icon } from "../icon";
 
 import type { StoryFn, StoryObj } from "@storybook/react";
-import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+import type { UtilCssArgs } from "../../index.css";
 
 export default {
 	component: Box,

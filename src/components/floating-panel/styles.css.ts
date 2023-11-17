@@ -1,6 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yFocus } from "../../styles/common/a11y.css";
-import { utilCss } from "../../styles/utils/util_css.css";
+import { a11yFocus, utilCss } from "../../index.css";
 
 export const floatingPanel = recipe({
 	base: [

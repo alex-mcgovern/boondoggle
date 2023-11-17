@@ -1,11 +1,12 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import {
 	elementFontSize,
+	a11yDisabled,
+	a11yFocus,
 	elementHeight,
 	elementPadding,
-} from "../../styles/common/element_size.css";
-import { utilCss } from "../../styles/utils/util_css.css";
+	utilCss,
+} from "../../index.css";
 
 export const select = recipe({
 	base: [

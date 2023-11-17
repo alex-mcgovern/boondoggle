@@ -1,6 +1,6 @@
 import { createBox } from "@dessert-box/react";
-import { utilCss } from "../../styles/utils/util_css.css";
-import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+import { utilCss } from "../../index.css";
+import type { UtilCssArgs } from "../../index.css";
 
 export const Box = createBox({
 	atoms: utilCss,

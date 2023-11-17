@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { utilCss } from "../../styles/utils/util_css.css";
+import { utilCss } from "../../index.css";
 
 export const topBarStyle = style([
 	style([

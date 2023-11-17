@@ -17,7 +17,7 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+import type { UtilCssArgs } from "../../index.css";
 import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
 
 export type RadioButtonGroupProps = UtilCssArgs &

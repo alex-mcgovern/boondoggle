@@ -1,6 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-
-import { utilCss } from "../../styles/utils/util_css.css";
+import { utilCss } from "../../index.css";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 
 export const buttonGroupStyles = style([

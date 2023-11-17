@@ -1,20 +1,17 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-import { a11yDisabled, a11yFocus } from "../../styles/common/a11y.css";
 import {
+	a11yDisabled,
+	a11yFocus,
 	elementHeight,
 	elementPadding,
-} from "../../styles/common/element_size.css";
-import {
 	SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
-} from "../../styles/common/selectors.css";
-import { vars } from "../../styles/theme.css";
-import { createAccessibleTransition } from "../../styles/utils/create_accessible_transition";
-import { utilCss } from "../../styles/utils/util_css.css";
-
-import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+	vars,
+	createAccessibleTransition,
+	utilCss,
+	type UtilCssArgs,
+} from "../../index.css";
 
 export const variantButtonSize = styleVariants({
 	lg: [

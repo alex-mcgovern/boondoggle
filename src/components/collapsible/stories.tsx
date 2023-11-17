@@ -3,7 +3,7 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 import { Collapsible as StoryComp } from ".";
 import type { CollapsibleProps as StoryCompProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { utilCss } from "../../styles/utils/util_css.css";
+import { utilCss } from "../../index.css";
 import { Icon } from "../icon";
 
 export default {

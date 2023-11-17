@@ -1,7 +1,5 @@
 import { style } from "@vanilla-extract/css";
-
-import { a11yFocus } from "../../styles/common/a11y.css";
-import { utilCss } from "../../styles/utils/util_css.css";
+import { a11yFocus, utilCss } from "../../index.css";
 
 export const datePickerDialogStyle = style([
 	a11yFocus,

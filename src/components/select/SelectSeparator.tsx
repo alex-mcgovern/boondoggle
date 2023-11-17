@@ -1,4 +1,4 @@
-import { ElementSizeEnum } from "../../styles/common/element_size.css";
+import { ElementSizeEnum } from "../../index.css";
 import { getSeparatorStyle } from "./SelectSeparator.css";
 
 export const SelectSeparator = ({ size }: { size: ElementSizeEnum }) => {

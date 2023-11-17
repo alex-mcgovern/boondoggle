@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { variantColorOverlay } from "../../styles/color_palette.css";
-import { utilCss } from "../../styles/utils/util_css.css";
+import { utilCss } from "../../index.css";
 import { Box } from "../box";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
@@ -22,7 +22,7 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import type { UtilCssArgs } from "../../styles/utils/util_css.css";
+import type { UtilCssArgs } from "../../index.css";
 
 export type SliderProps = Omit<RadixSliderProps, "color"> &
 	UtilCssArgs &
