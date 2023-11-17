@@ -8,7 +8,7 @@ const rotateOutKeyframes = keyframes({
 	"100%": { transform: "rotate(0deg)" },
 });
 
-export const  openButtonCSS = style([
+export const openButtonCSS = style([
 	a11yFocus,
 	sprinkles({
 		borderRadius: "pill",
