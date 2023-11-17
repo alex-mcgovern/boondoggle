@@ -59,7 +59,6 @@ export default defineConfig({
 		"!./src/**/*stories.*",
 		"!./src/**/*test.*",
 		"!./src/**/*spec.*",
-		"!./src/**/types.*",
 	],
 	external: ["react"],
 	format: "esm",
