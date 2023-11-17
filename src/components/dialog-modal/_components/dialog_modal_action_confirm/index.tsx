@@ -7,7 +7,7 @@ import { Button } from "../../../button";
 import { Input } from "../../../input";
 import { confirmTextStyle } from "./styles.css";
 
-import type { WithColorOverlay } from "../../../../common-types";
+import type { WithColorOverlay } from "../../../../types";
 import type { ButtonProps } from "../../../button";
 
 export type DialogModalActionConfirmProps = WithColorOverlay & {

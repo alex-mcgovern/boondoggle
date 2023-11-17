@@ -6,7 +6,7 @@ import { SlotWrapper } from "../slot-wrapper";
 import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css";
 
 import type { Ref } from "react";
-import type { WithColorOverlay, WithSize, WithSlots } from "../../common-types";
+import type { WithColorOverlay, WithSize, WithSlots } from "../../types";
 import type { BoxProps } from "../box";
 
 export type SelectItemProps = BoxProps &

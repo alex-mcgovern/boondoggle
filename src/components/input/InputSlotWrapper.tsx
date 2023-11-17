@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as React from "react";
-import { WithSlots, WithStateDisabled } from "../../common-types";
+import { WithSlots, WithStateDisabled } from "../../types";
 import { type ElementSizeEnum, a11yError } from "../../index.css";
 import { getSlotWrapperStyles } from "./styles.css";
 

@@ -14,7 +14,7 @@ import type {
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
-} from "../../common-types";
+} from "../../types";
 import { type UtilCssArgs, a11yFocus, utilCss } from "../../index.css";
 import { SlotWrapper } from "../slot-wrapper";
 import * as styles from "./styles.css";

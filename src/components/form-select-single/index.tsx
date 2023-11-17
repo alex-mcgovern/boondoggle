@@ -4,7 +4,7 @@ import { useController, useFormContext } from "react-hook-form";
 import { flattenSelectItems } from "../select/flattenSelectItems";
 import { SelectSingle } from "../select/select-single";
 
-import type { WithFormFieldProps } from "../../common-types";
+import type { WithFormFieldProps } from "../../types";
 import type { SelectSingleProps } from "../select/select-single";
 import type { SelectItemShape } from "../select/types";
 

@@ -22,7 +22,7 @@ import type {
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-} from "../../common-types";
+} from "../../types";
 import type { UtilCssArgs } from "../../index.css";
 
 import { WithOptionalInputAddons } from "../input/InputAddonWrapper";

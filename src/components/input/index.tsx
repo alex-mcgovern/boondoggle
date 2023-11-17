@@ -7,7 +7,7 @@ import type {
 	ComponentPropsWithoutRef,
 	ForwardedRef,
 } from "react";
-import { getOptionalLabelProps } from "../../common-types";
+import { getOptionalLabelProps } from "../../types";
 import type {
 	WithColorOverlay,
 	WithDescription,
@@ -22,8 +22,8 @@ import type {
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-} from "../../common-types";
-import { useForwardRef } from "../../hooks/use_forward_ref";
+} from "../../types";
+import { useForwardRef } from "../../hooks/use-forward-ref";
 import { type UtilCssArgs, utilCss } from "../../index.css";
 import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";

@@ -2,10 +2,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { TextArea } from "../text-area";
 
-import type {
-	WithFormFieldProps,
-	WithOptionalPlaceholder,
-} from "../../common-types";
+import type { WithFormFieldProps, WithOptionalPlaceholder } from "../../types";
 import type { TextAreaProps } from "../text-area";
 
 /**

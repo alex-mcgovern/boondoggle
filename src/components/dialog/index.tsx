@@ -4,7 +4,7 @@ import { createRef, forwardRef, useCallback } from "react";
 
 import { useClickOutside } from "../../hooks/use-click-outside";
 import { useOpenDialogWithKeyboard } from "../../hooks/use-open-dialog-with-keyboard";
-import { useForwardRef } from "../../hooks/use_forward_ref";
+import { useForwardRef } from "../../hooks/use-forward-ref";
 import { Box } from "../box";
 import { getDialogStyles } from "./styles.css";
 

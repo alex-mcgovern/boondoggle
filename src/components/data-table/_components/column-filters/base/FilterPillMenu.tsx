@@ -11,7 +11,7 @@ import {
 	useInteractions,
 } from "@floating-ui/react";
 import * as React from "react";
-import { useForwardRef } from "../../../../../hooks/use_forward_ref";
+import { useForwardRef } from "../../../../../hooks/use-forward-ref";
 import { Box } from "../../../../box";
 import { FloatingPanel } from "../../../../floating-panel";
 import { FilterPillCloseButton } from "./FilterPillCloseButton";

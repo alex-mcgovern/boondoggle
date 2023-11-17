@@ -1,5 +1,5 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
-import type { WithOptionalPlaceholder } from "../../../../common-types";
+import type { WithOptionalPlaceholder } from "../../../../types";
 import { Icon } from "../../../icon";
 import { Input } from "../../../input";
 import type { useDataTableState } from "../../_lib/useDataTableState";

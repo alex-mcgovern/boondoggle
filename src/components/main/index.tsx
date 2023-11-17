@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { getMainStyles } from "./styles.css";
 
 import type { HTMLProps } from "react";
-import type { WithSize } from "../../common-types";
+import type { WithSize } from "../../types";
 
 /**
  * Main HTML element.

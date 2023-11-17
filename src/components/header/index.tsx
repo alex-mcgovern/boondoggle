@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { HTMLProps } from "react";
-import type { WithSize } from "../../common-types";
+import type { WithSize } from "../../types";
 import * as styles from "./styles.css";
 
 /**

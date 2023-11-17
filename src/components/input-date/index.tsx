@@ -10,10 +10,7 @@ import { Input } from "../input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";
 
 import type { MouseEvent } from "react";
-import type {
-	WithOptionalLabel,
-	WithOptionalPlaceholder,
-} from "../../common-types";
+import type { WithOptionalLabel, WithOptionalPlaceholder } from "../../types";
 import type { InputProps } from "../input";
 
 /**

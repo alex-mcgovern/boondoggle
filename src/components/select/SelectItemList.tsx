@@ -11,7 +11,7 @@ import type {
 	UseSelectPropGetters,
 } from "downshift";
 import { CSSProperties, ForwardedRef, Fragment } from "react";
-import type { WithSize } from "../../common-types";
+import type { WithSize } from "../../types";
 import { FloatingPanel } from "../floating-panel";
 import { SelectSeparator } from "./SelectSeparator";
 import type {

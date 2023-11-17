@@ -1,6 +1,6 @@
 import { Box } from "../box";
 
-import type { WithDescription } from "../../common-types";
+import type { WithDescription } from "../../types";
 import type { BoxProps } from "../box";
 
 export type FieldDescriptionProps = BoxProps & WithDescription;

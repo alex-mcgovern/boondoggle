@@ -2,7 +2,7 @@ import { Children } from "react";
 
 import { Box } from "../box";
 
-import type { WithSlots } from "../../common-types";
+import type { WithSlots } from "../../types";
 
 export type DialogInfoBulletProps = WithSlots & {
 	/**

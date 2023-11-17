@@ -2,7 +2,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Input } from "../input";
 
-import type { WithFormFieldProps } from "../../common-types";
+import type { WithFormFieldProps } from "../../types";
 import type { InputProps } from "../input";
 
 /**

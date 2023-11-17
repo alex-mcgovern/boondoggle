@@ -2,7 +2,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef } from "react";
-import { getOptionalLabelProps } from "../../common-types";
+import { getOptionalLabelProps } from "../../types";
 import type {
 	WithColorOverlay,
 	WithDescription,
@@ -16,7 +16,7 @@ import type {
 	WithSlots,
 	WithStateInvalid,
 	WithWrapperProps,
-} from "../../common-types";
+} from "../../types";
 import { type UtilCssArgs, a11yError, utilCss } from "../../index.css";
 import { FieldWrapper } from "../field-wrapper";
 import * as styles from "./styles.css";

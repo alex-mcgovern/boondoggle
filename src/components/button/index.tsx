@@ -14,7 +14,7 @@ import type {
 	WithColorOverlay,
 	WithSlots,
 	WithStateDisabled,
-} from "../../common-types";
+} from "../../types";
 import {
 	type ElementSizeEnum,
 	type UtilCssArgs,

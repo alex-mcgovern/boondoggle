@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Box } from "../box";
 import * as styles from "./styles.css";
 
-import type { WithSize } from "../../common-types";
+import type { WithSize } from "../../types";
 import type { BoxProps } from "../box";
 
 export type ProgressBarProps = WithSize & {

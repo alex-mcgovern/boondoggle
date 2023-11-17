@@ -5,7 +5,7 @@ import {
 } from "./styles.css";
 
 import type { HTMLProps, ReactNode } from "react";
-import type { WithName } from "../../common-types";
+import type { WithName } from "../../types";
 
 export type RadioButtonInputProps = Omit<
 	HTMLProps<HTMLInputElement>,

@@ -6,7 +6,7 @@ import type {
 	WithTableOptionalFiltering,
 	WithTableOptionalPagination,
 	WithTableOptionalSelectableRows,
-} from "../../../common-types";
+} from "../../../types";
 import { tableStyles } from "../../../index.css";
 import { arrayHasLength } from "../../../lib/array-has-length";
 import { Box } from "../../box";

@@ -7,7 +7,7 @@ import type {
 	WithOptionalLabel,
 	WithStateInvalid,
 	WithWrapperProps,
-} from "../../common-types";
+} from "../../types";
 import { UtilCssArgs, variantColorOverlay } from "../../index.css";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";

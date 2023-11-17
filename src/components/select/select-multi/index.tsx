@@ -7,7 +7,7 @@ import { useCombobox, useMultipleSelection } from "downshift";
 import type { UseComboboxStateChange } from "downshift";
 import { forwardRef, useCallback, useState } from "react";
 import type { ForwardedRef } from "react";
-import { getOptionalLabelProps } from "../../../common-types";
+import { getOptionalLabelProps } from "../../../types";
 import type {
 	WithName,
 	WithOptionalIsClearable,
@@ -17,8 +17,8 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-} from "../../../common-types";
-import { useForwardRef } from "../../../hooks/use_forward_ref";
+} from "../../../types";
+import { useForwardRef } from "../../../hooks/use-forward-ref";
 import { UtilCssArgs } from "../../../index.css";
 import { arrayHasLength } from "../../../lib/array-has-length";
 import { Box } from "../../box";

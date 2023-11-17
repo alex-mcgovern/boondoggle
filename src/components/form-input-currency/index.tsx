@@ -2,7 +2,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { InputCurrency } from "../input-currency";
 
-import type { WithFormFieldProps } from "../../common-types";
+import type { WithFormFieldProps } from "../../types";
 import type { InputCurrencyProps } from "../input-currency";
 
 /**

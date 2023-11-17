@@ -12,7 +12,7 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 	WithWrapperProps,
-} from "../../common-types";
+} from "../../types";
 import {
 	type UtilCssArgs,
 	utilCss,

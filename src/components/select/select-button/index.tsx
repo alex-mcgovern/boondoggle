@@ -14,8 +14,8 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-} from "../../../common-types";
-import { useForwardRef } from "../../../hooks/use_forward_ref";
+} from "../../../types";
+import { useForwardRef } from "../../../hooks/use-forward-ref";
 import { UtilCssArgs } from "../../../index.css";
 import { Box } from "../../box";
 import { Button } from "../../button";

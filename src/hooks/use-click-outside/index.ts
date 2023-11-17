@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import type { MutableRefObject, RefObject } from "react";
-import type { ElementTypeArg } from "../../common-types";
+import type { ElementTypeArg } from "../../types";
 
 type UseClickOutsideArgs<
 	TContentType extends ElementTypeArg,
