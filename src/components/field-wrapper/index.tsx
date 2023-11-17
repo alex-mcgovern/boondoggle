@@ -1,8 +1,4 @@
 import clsx from "clsx";
-import { Box } from "../box";
-import { FieldDescription } from "../field-description";
-import { FieldErrorMessage } from "../field-error-message";
-import { FieldLabel } from "../field-label";
 import type { ReactNode } from "react";
 import type {
 	WithColorOverlay,
@@ -12,7 +8,11 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../common-types";
-import { variantColorOverlay, hideLastpassStyle } from "../../index.css";
+import { hideLastpassStyle, variantColorOverlay } from "../../index.css";
+import { Box } from "../box";
+import { FieldDescription } from "../field-description";
+import { FieldErrorMessage } from "../field-error-message";
+import { FieldLabel } from "../field-label";
 
 type FieldWrapperProps = WithColorOverlay &
 	WithOptionalLabel &

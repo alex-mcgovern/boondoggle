@@ -2,12 +2,12 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	tBodyStyles,
-	tdStyles,
-	vars,
-	tRowStyles,
-	utilCss,
 	createAccessibleTransition,
+	tBodyStyles,
+	tRowStyles,
+	tdStyles,
+	utilCss,
+	vars,
 } from "../../../../index.css";
 
 const baseBodyStyle = style({});

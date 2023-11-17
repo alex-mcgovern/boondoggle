@@ -1,9 +1,6 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { utilCss, a11yFocus, type UtilCssArgs } from "../../index.css";
-import { SlotWrapper } from "../slot-wrapper";
-import * as styles from "./styles.css";
 import type {
 	ComponentPropsWithoutRef,
 	ElementType,
@@ -18,6 +15,9 @@ import type {
 	WithSlots,
 	WithStateDisabled,
 } from "../../common-types";
+import { type UtilCssArgs, a11yFocus, utilCss } from "../../index.css";
+import { SlotWrapper } from "../slot-wrapper";
+import * as styles from "./styles.css";
 
 type BasePillProps<TPolymorphicAs extends ElementType> = UtilCssArgs &
 	PolymorphicComponentPropWithRef<

@@ -4,22 +4,10 @@ import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
 import { useCombobox, useMultipleSelection } from "downshift";
-import { forwardRef, useCallback, useState } from "react";
-import { getOptionalLabelProps } from "../../../common-types";
-import { useForwardRef } from "../../../hooks/use_forward_ref";
-import { arrayHasLength } from "../../../lib/array-has-length";
-import { Box } from "../../box";
-import { Icon } from "../../icon";
-import { Input } from "../../input";
-import { SelectItemList } from "../SelectItemList";
-import { filterSelectItems } from "../filterSelectItems";
-import { flattenSelectItems } from "../flattenSelectItems";
-import { getIsSelected } from "../getIsSelected";
-import { getSlotRight } from "../lib/get_slot_right";
-import { selectInputCursorStyles } from "../shared/select_input.styles.css";
-import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 import type { UseComboboxStateChange } from "downshift";
+import { forwardRef, useCallback, useState } from "react";
 import type { ForwardedRef } from "react";
+import { getOptionalLabelProps } from "../../../common-types";
 import type {
 	WithName,
 	WithOptionalIsClearable,
@@ -30,13 +18,25 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
+import { useForwardRef } from "../../../hooks/use_forward_ref";
+import { UtilCssArgs } from "../../../index.css";
+import { arrayHasLength } from "../../../lib/array-has-length";
+import { Box } from "../../box";
+import { Icon } from "../../icon";
+import { Input } from "../../input";
 import type { InputProps } from "../../input";
+import { SelectItemList } from "../SelectItemList";
+import { filterSelectItems } from "../filterSelectItems";
+import { flattenSelectItems } from "../flattenSelectItems";
+import { getIsSelected } from "../getIsSelected";
+import { getSlotRight } from "../lib/get_slot_right";
+import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
-import { UtilCssArgs } from "../../../index.css";
+import { selectMultiInputSelectedItemsStyle } from "./styles.css";
 
 type GetPlaceholderArgs<
 	TValue extends string = string,

@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
 import {
-	vars,
+	SELECTOR_IS_FOCUS,
+	SELECTOR_IS_HOVER,
 	a11yFocusStyleRule,
 	createAccessibleTransition,
 	utilCss,
-	SELECTOR_IS_FOCUS,
-	SELECTOR_IS_HOVER,
+	vars,
 } from "../../index.css";
 
 export const sliderRoot = style([

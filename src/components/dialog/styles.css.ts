@@ -1,7 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { animateFadeIn, vars, utilCss } from "../../index.css";
+import { animateFadeIn, utilCss, vars } from "../../index.css";
 
 const placement = styleVariants({
 	"bottom-center": [

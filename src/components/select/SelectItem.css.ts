@@ -2,14 +2,14 @@ import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	elementHeight,
-	elementPaddingRaw,
-	vars,
 	a11yDisabled,
 	a11yFocus,
-	variantColorOverlay,
 	createAccessibleTransition,
+	elementHeight,
+	elementPaddingRaw,
 	utilCss,
+	variantColorOverlay,
+	vars,
 } from "../../index.css";
 
 const selectItemSize = styleVariants({

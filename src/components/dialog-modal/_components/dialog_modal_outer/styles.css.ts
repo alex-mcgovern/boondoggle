@@ -1,13 +1,13 @@
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	animateSlideUp,
-	utilCss,
+	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
-	vars,
-	MEDIA_QUERY_DESKTOP,
+	animateSlideUp,
 	createAccessibleTransition,
 	fadeInBackdropKeyframes,
+	utilCss,
+	vars,
 } from "../../../../index.css";
 
 export const getDialogModalOuterStyle = recipe({

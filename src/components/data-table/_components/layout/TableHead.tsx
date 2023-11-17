@@ -1,7 +1,7 @@
 import type { Table } from "@tanstack/react-table";
+import { tRowStyles } from "../../../../index.css";
 import { getHeadStyle } from "./TableHead.css";
 import { TableHeaderCell } from "./TableHeaderCell";
-import { tRowStyles } from "../../../../index.css";
 
 export function TableHead<TTableData>({
 	isSortable,

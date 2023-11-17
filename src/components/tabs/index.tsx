@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { ComponentProps } from "react";
 import { WithSize } from "../../common-types";
-import { arrayHasLength } from "../../lib/array-has-length";
 import { utilCss } from "../../index.css";
+import { arrayHasLength } from "../../lib/array-has-length";
 import { Button, ButtonProps } from "../button";
 import { Pill } from "../pill";
 import * as styles from "./styles.css";

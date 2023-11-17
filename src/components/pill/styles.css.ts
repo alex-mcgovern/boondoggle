@@ -1,12 +1,12 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	variantColorOverlay,
-	vars,
+	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 	a11yFocus,
 	createAccessibleTransition,
 	utilCss,
-	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
+	variantColorOverlay,
+	vars,
 } from "../../index.css";
 
 const pillSize = styleVariants({

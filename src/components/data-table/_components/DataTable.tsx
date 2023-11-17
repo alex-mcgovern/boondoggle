@@ -1,14 +1,5 @@
 "use client";
 
-import { arrayHasLength } from "../../../lib/array-has-length";
-import { Box } from "../../box";
-import { useDataTableState } from "../_lib/useDataTableState";
-import { TableActionsWrapper } from "./controls/TableActionsWrapper";
-import { TableGlobalFilterInput } from "./controls/TableGlobalFilterInput";
-import { TablePagination } from "./controls/TablePagination";
-import { TableHead } from "./layout/TableHead";
-import { TableLayout } from "./layout/TableLayout";
-import { TableNoResults } from "./layout/TableNoResults";
 import type { ColumnDef, RowData, SortingState } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import type {
@@ -16,8 +7,17 @@ import type {
 	WithTableOptionalPagination,
 	WithTableOptionalSelectableRows,
 } from "../../../common-types";
-import { TDataTableRowActions } from "../types";
 import { tableStyles } from "../../../index.css";
+import { arrayHasLength } from "../../../lib/array-has-length";
+import { Box } from "../../box";
+import { useDataTableState } from "../_lib/useDataTableState";
+import { TDataTableRowActions } from "../types";
+import { TableActionsWrapper } from "./controls/TableActionsWrapper";
+import { TableGlobalFilterInput } from "./controls/TableGlobalFilterInput";
+import { TablePagination } from "./controls/TablePagination";
+import { TableHead } from "./layout/TableHead";
+import { TableLayout } from "./layout/TableLayout";
+import { TableNoResults } from "./layout/TableNoResults";
 
 export type DataTableProps<TRowData extends RowData> =
 	WithTableOptionalPagination &

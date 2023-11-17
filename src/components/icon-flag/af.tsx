@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { utilCss, UtilCssArgs } from "../../index.css";
+import { UtilCssArgs, utilCss } from "../../index.css";
 
 import { Box } from "../box";
 import { flagStyles } from "./styles.css";

@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { vars, createAccessibleTransition } from "../../index.css";
+import { createAccessibleTransition, vars } from "../../index.css";
 
 export const icon = style([
 	createAccessibleTransition({

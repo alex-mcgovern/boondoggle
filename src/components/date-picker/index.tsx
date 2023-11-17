@@ -15,12 +15,12 @@ import {
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 import type { MouseEvent, Ref } from "react";
+import { variantColorOverlay } from "../../index.css";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import * as styles from "./styles.css";
-import { variantColorOverlay } from "../../index.css";
 
 export function DatePickerYears({
 	onYearClick,

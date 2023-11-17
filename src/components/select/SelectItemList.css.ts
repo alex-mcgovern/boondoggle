@@ -1,7 +1,7 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { vars, utilCss, elementPaddingRaw } from "../../index.css";
+import { elementPaddingRaw, utilCss, vars } from "../../index.css";
 
 const groupTitleSize = styleVariants({
 	lg: {

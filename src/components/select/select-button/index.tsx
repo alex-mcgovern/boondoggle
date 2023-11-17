@@ -1,16 +1,11 @@
 "use client";
 
 import { autoUpdate, flip, offset, useFloating } from "@floating-ui/react";
+import type { Placement } from "@floating-ui/react";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import { useSelect } from "downshift";
-import { forwardRef } from "react";
-import { useForwardRef } from "../../../hooks/use_forward_ref";
-import { Box } from "../../box";
-import { Button } from "../../button";
-import { Icon } from "../../icon";
-import { SelectItemList } from "../SelectItemList";
-import type { Placement } from "@floating-ui/react";
 import type { UseComboboxStateChange } from "downshift";
+import { forwardRef } from "react";
 import type { ForwardedRef } from "react";
 import type {
 	WithName,
@@ -20,7 +15,13 @@ import type {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../common-types";
+import { useForwardRef } from "../../../hooks/use_forward_ref";
+import { UtilCssArgs } from "../../../index.css";
+import { Box } from "../../box";
+import { Button } from "../../button";
 import type { ButtonProps } from "../../button";
+import { Icon } from "../../icon";
+import { SelectItemList } from "../SelectItemList";
 import { flattenSelectItems } from "../flattenSelectItems";
 import { isNotSeparator } from "../isNotSeparator";
 import type {
@@ -28,7 +29,6 @@ import type {
 	GroupedSelectItems,
 	SelectItemShape,
 } from "../types";
-import { UtilCssArgs } from "../../../index.css";
 
 export type SelectButtonProps<
 	TValue extends string = string,

@@ -1,8 +1,8 @@
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	elementFontSize,
 	a11yDisabled,
 	a11yFocus,
+	elementFontSize,
 	elementHeight,
 	elementPadding,
 	utilCss,

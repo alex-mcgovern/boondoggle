@@ -4,12 +4,12 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
+	createAccessibleTransition,
 	elementHeight,
 	elementPadding,
 	elementPaddingRaw,
-	createAccessibleTransition,
-	vars,
 	utilCss,
+	vars,
 } from "../../index.css";
 import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 

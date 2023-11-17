@@ -4,9 +4,9 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TextArea } from "..";
+import type { TextAreaProps } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
 import "../../../../test/mocked_dependencies/dialog.mock";
-import type { TextAreaProps } from "..";
 import { a11yDisabled } from "../../../index.css";
 
 const ON_CHANGE = jest.fn();

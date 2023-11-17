@@ -17,9 +17,9 @@ import type {
 } from "../../common-types";
 import {
 	type ElementSizeEnum,
-	variantColorOverlay,
-	utilCss,
 	type UtilCssArgs,
+	utilCss,
+	variantColorOverlay,
 } from "../../index.css";
 import { Loader } from "../loader";
 import { SlotWrapper } from "../slot-wrapper";

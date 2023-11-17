@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 import {
 	a11yFocus,
-	vars,
 	createAccessibleTransition,
 	utilCss,
+	vars,
 } from "../../index.css";
 
 export const radioButtonWrapperStyles = style([
