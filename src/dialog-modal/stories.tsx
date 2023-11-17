@@ -1,14 +1,14 @@
 import { faShapes } from "@fortawesome/pro-solid-svg-icons";
+import type { StoryFn, StoryObj } from "@storybook/react";
 import { createRef, useCallback } from "react";
 import { DialogActionConfirmation, DialogModal as StoryComp } from ".";
+import type { DialogModalProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../icon";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
-import type { StoryFn, StoryObj } from "@storybook/react";
-import type { DialogModalProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,

@@ -1,11 +1,16 @@
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import * as RadixSlot from "@radix-ui/react-slot";
 import { forwardRef, useState } from "react";
 import type { ReactNode } from "react";
 import { useDialogModalState } from "../_lib/use-dialog-modal-state";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
+import { Button, ButtonProps } from "../button";
+import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
+import { Input } from "../input";
 import { LoaderFullScreen } from "../loader-full-screen";
+import { WithColorOverlay } from "../types";
 import { DialogModalActions } from "./_components/dialog_modal_actions";
 import type { DialogModalActionsProps } from "./_components/dialog_modal_actions";
 import { DialogModalContent } from "./_components/dialog_modal_content";
@@ -13,12 +18,7 @@ import { DialogModalHeader } from "./_components/dialog_modal_header";
 import { DialogModalInner } from "./_components/dialog_modal_inner";
 import type { DialogModalInnerWidth } from "./_components/dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "./_components/dialog_modal_outer";
-import { ButtonProps, Button } from "../button";
 import { dialogConfirmText } from "./styles.css";
-import { Input } from "../input";
-import { WithColorOverlay } from "../types";
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
-import { Icon } from "../icon";
 
 /** -----------------------------------------------------------------------------
  * DIALOG ERROR MESSAGE

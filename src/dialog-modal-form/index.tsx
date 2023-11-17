@@ -6,6 +6,7 @@ import type { FieldValues, Resolver } from "react-hook-form";
 import { useDialogModalState } from "../_lib/use-dialog-modal-state";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
+import { DialogModalErrorMessage } from "../dialog-modal";
 import { DialogModalActions } from "../dialog-modal/_components/dialog_modal_actions";
 import { DialogModalContent } from "../dialog-modal/_components/dialog_modal_content";
 import { DialogModalHeader } from "../dialog-modal/_components/dialog_modal_header";
@@ -15,7 +16,6 @@ import { DialogModalOuter } from "../dialog-modal/_components/dialog_modal_outer
 import { FormSubmitButton } from "../form-submit-button";
 import { handleHookFormErrors } from "../form/handle_hook_form_errors";
 import { variantColorOverlay } from "../index.css";
-import { DialogModalErrorMessage } from "../dialog-modal";
 
 export type DialogModalFormProps<
 	TFieldValues extends FieldValues = FieldValues,
