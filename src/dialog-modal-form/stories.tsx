@@ -4,15 +4,15 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 import { z } from "zod";
 import { DialogModalForm as StoryComp } from ".";
 import type { DialogModalFormProps as StoryCompProps } from ".";
-import { LOREM } from "../../../../mocks/LOREM.mock";
-import type { BoxProps } from "../../../box";
-import { Button } from "../../../button";
-import { FormInput } from "../../../form-input";
-import { FormRadioButtonGroup } from "../../../form-radio-button-group";
-import { FormSelectSingle } from "../../../form-select-single";
-import { FormTextArea } from "../../../form-text-area";
-import { RADIO_BUTTONS_MOCK } from "../../../radio-button-group/mocks";
-import { mockSelectItems } from "../../../select/__mocks__/select.mock";
+import { LOREM } from "../../mocks/LOREM.mock";
+import type { BoxProps } from "../box";
+import { Button } from "../button";
+import { FormInput } from "../form-input";
+import { FormRadioButtonGroup } from "../form-radio-button-group";
+import { FormSelectSingle } from "../form-select-single";
+import { FormTextArea } from "../form-text-area";
+import { RADIO_BUTTONS_MOCK } from "../radio-button-group/mocks";
+import { mockSelectItems } from "../select/__mocks__/select.mock";
 
 const mockFormSchema = z.object({
 	description: z.string().min(1),
