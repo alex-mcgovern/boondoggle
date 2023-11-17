@@ -1,14 +1,12 @@
 import { faShapes } from "@fortawesome/pro-solid-svg-icons";
 import { createRef, useCallback } from "react";
-import { DialogModal as StoryComp } from ".";
+import { DialogActionConfirmation, DialogModal as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../icon";
-import { DialogModalActionConfirm } from "./_components/dialog_modal_action_confirm";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
-
 import type { StoryFn, StoryObj } from "@storybook/react";
 import type { DialogModalProps as StoryCompProps } from ".";
 
@@ -220,7 +218,7 @@ export const With2Actions: StoryObj<StoryCompProps> = {
 export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 	args: {
 		actions: (
-			<DialogModalActionConfirm
+			<DialogActionConfirmation
 				buttonText="Freeze account"
 				confirmText="freeze account"
 				onClick={() => {
@@ -242,7 +240,7 @@ export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
 	{
 		args: {
 			actions: (
-				<DialogModalActionConfirm
+				<DialogActionConfirmation
 					buttonText="Freeze account"
 					colorOverlay="red"
 					confirmText="freeze account"

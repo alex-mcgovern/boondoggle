@@ -1,10 +1,9 @@
 import * as RadixSlot from "@radix-ui/react-slot";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import type { ReactNode } from "react";
 import { useDialogModalState } from "../_lib/use-dialog-modal-state";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { DialogModalErrorMessage } from "../dialog-modal-error-message";
 import { variantColorOverlay } from "../index.css";
 import { LoaderFullScreen } from "../loader-full-screen";
 import { DialogModalActions } from "./_components/dialog_modal_actions";
@@ -14,6 +13,155 @@ import { DialogModalHeader } from "./_components/dialog_modal_header";
 import { DialogModalInner } from "./_components/dialog_modal_inner";
 import type { DialogModalInnerWidth } from "./_components/dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "./_components/dialog_modal_outer";
+import { ButtonProps, Button } from "../button";
+import { dialogConfirmText } from "./styles.css";
+import { Input } from "../input";
+import { WithColorOverlay } from "../types";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
+import { Icon } from "../icon";
+
+/** -----------------------------------------------------------------------------
+ * DIALOG ERROR MESSAGE
+ * ------------------------------------------------------------------------------- */
+
+/**
+ * Renders an error message inside a dialog modal.
+ */
+export function DialogModalErrorMessage({
+	description,
+
+	title,
+}: {
+	/**
+	 * Text that will be rendered inside the dialog modal.
+	 */
+	description: string | undefined;
+
+	/**
+	 * Text that will be rendered inside the dialog modal.
+	 */
+	title: string;
+}) {
+	return (
+		<Box
+			alignItems="center"
+			display="flex"
+			flexDirection="column"
+			justifyContent="center"
+			padding="space_5"
+			textAlign="center"
+		>
+			<Icon
+				className={variantColorOverlay.red}
+				color="text_low_contrast"
+				icon={faExclamationCircle}
+				marginBottom="space_4"
+				size="3x"
+			/>
+
+			{title && (
+				<Box as="h3" fontStyle="h5">
+					{title}
+				</Box>
+			)}
+			{description && (
+				<Box as="p" color="text_low_contrast">
+					{description}
+				</Box>
+			)}
+		</Box>
+	);
+}
+
+/** -----------------------------------------------------------------------------
+ * DIALOG ACTION CONFIRMATION
+ * ------------------------------------------------------------------------------- */
+
+export const DialogActionConfirmation = forwardRef<
+	HTMLDivElement,
+	WithColorOverlay & {
+		/**
+		 * Additional props to customise the confirm button.
+		 */
+		buttonProps?: Omit<ButtonProps, "onClick">;
+
+		/**
+		 * The text for the confirm button.
+		 */
+		buttonText: string;
+
+		/**
+		 * The text that the suer has to type to confirm the action.
+		 */
+		confirmText: string;
+
+		/**
+		 * The callback when the suer confirms the action.
+		 */
+		onClick?: ButtonProps["onClick"];
+
+		/**
+		 * The text prefixed to the confirmation prompt.
+		 */
+		promptPrefix: string;
+
+		/**
+		 * The text suffixed to the confirmation prompt.
+		 */
+		promptSuffix: string;
+	}
+>(
+	(
+		{
+			buttonProps,
+			buttonText,
+			colorOverlay,
+			confirmText,
+			onClick,
+			promptPrefix,
+			promptSuffix,
+		},
+		ref,
+	) => {
+		const [userConfirmText, setUserConfirmText] = useState("");
+
+		return (
+			<Box ref={ref}>
+				<Box className={dialogConfirmText}>
+					<Box as="span">{promptPrefix}</Box>{" "}
+					<Box as="span" fontWeight="bold">
+						{confirmText}
+					</Box>{" "}
+					<Box as="span">{promptSuffix}</Box>
+				</Box>
+
+				<Input
+					colorOverlay={colorOverlay}
+					marginBottom="space_4"
+					autoComplete="off"
+					name="dialog_confirm_text"
+					onChange={(e) => {
+						return setUserConfirmText(e.target.value);
+					}}
+					placeholder=""
+					value={userConfirmText}
+				/>
+
+				<Button
+					appearance="primary"
+					colorOverlay={colorOverlay}
+					disabled={userConfirmText !== confirmText}
+					name="primary_action"
+					onClick={onClick}
+					width="100%"
+					{...buttonProps}
+				>
+					{buttonText}
+				</Button>
+			</Box>
+		);
+	},
+);
 
 export type DialogModalProps = {
 	/**

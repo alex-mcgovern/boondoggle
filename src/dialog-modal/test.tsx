@@ -3,9 +3,8 @@
  */
 import { render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { DialogModal } from ".";
+import { DialogActionConfirmation, DialogModal } from ".";
 import "../../test/mocked_dependencies/dialog.mock";
-import { DialogModalActionConfirm } from "./_components/dialog_modal_action_confirm";
 
 import type { DialogModalProps } from ".";
 
@@ -51,7 +50,7 @@ describe("<DialogModal />", () => {
 			test("should render without throwing", async () => {
 				const { container } = await renderComponent({
 					actions: (
-						<DialogModalActionConfirm
+						<DialogActionConfirmation
 							buttonText="Remove team member"
 							colorOverlay="red"
 							confirmText="remove team member"
