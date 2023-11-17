@@ -1,11 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import {
-	a11yFocus,
-	a11yFocusStyleRule,
-	createAccessibleTransition,
-	utilCss,
-	vars,
-} from "../index.css";
+import { a11yFocus, a11yFocusStyleRule, utilCss, vars } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 export const radioButtonCardInputStyles = style({
 	position: "absolute",
@@ -34,7 +29,7 @@ export const radioButtonCardLabelStyles = style([
 		// width: "100%",
 	}),
 	{
-		...createAccessibleTransition({
+		...withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),
 		accentColor: vars.color.button_default,

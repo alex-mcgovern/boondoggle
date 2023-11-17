@@ -1,9 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import {
-	createAccessibleTransition,
-	utilCss,
-	vars,
-} from "../../../../index.css";
+import { utilCss, vars } from "../../../../index.css";
+import { withPrefersMotion } from "../../../../css-utils";
 
 const rotateInKeyframes = keyframes({
 	"0%": {},
@@ -22,13 +19,13 @@ export const filterMenu = style([
 ]);
 
 export const closeIcon = style({
-	...createAccessibleTransition({
+	...withPrefersMotion({
 		animation: `${rotateInKeyframes} ${vars.transitionDuration.long} ease forwards`,
 	}),
 });
 
 export const openIcon = style({
-	...createAccessibleTransition({
+	...withPrefersMotion({
 		animation: `${rotateOutKeyframes} ${vars.transitionDuration.long} ease forwards`,
 	}),
 });

@@ -1,10 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import {
-	a11yFocus,
-	createAccessibleTransition,
-	utilCss,
-	vars,
-} from "../index.css";
+import { a11yFocus, utilCss, vars } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 export const radioButtonWrapperStyles = style([
 	utilCss({
@@ -22,7 +18,7 @@ export const radioButtonInputStyles = style([
 
 export const radioButtonLabelStyles = style([
 	{
-		...createAccessibleTransition({
+		...withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),
 		accentColor: vars.color.button_default,

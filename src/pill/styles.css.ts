@@ -3,11 +3,11 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 	a11yFocus,
-	createAccessibleTransition,
 	utilCss,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 const pillSize = styleVariants({
 	lg: [
@@ -51,7 +51,7 @@ export const getPillStyle = recipe({
 			verticalAlign: "middle",
 		},
 		a11yFocus,
-		createAccessibleTransition({
+		withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),
 		{

@@ -1,10 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import {
-	a11yFocus,
-	createAccessibleTransition,
-	utilCss,
-	vars,
-} from "../../../../index.css";
+import { a11yFocus, utilCss, vars } from "../../../../index.css";
+import { withPrefersMotion } from "../../../../css-utils";
 
 const rotateOutKeyframes = keyframes({
 	"0%": { transform: "rotate(45deg)" },
@@ -29,7 +25,7 @@ export const openButton = style([
 ]);
 
 export const openIcon = style({
-	...createAccessibleTransition({
+	...withPrefersMotion({
 		animation: `${rotateOutKeyframes} ${vars.transitionDuration.long} ease forwards`,
 	}),
 });

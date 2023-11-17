@@ -4,11 +4,11 @@ import {
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
 	animateSlideUp,
-	createAccessibleTransition,
 	fadeInBackdropKeyframes,
 	utilCss,
 	vars,
 } from "../../../index.css";
+import { withPrefersMotion } from "../../../css-utils";
 
 export const getDialogModalOuterStyle = recipe({
 	base: [
@@ -42,7 +42,7 @@ export const getDialogModalOuterStyle = recipe({
 			selectors: {
 				"&::backdrop": {
 					background: vars.color.backdrop,
-					...createAccessibleTransition({
+					...withPrefersMotion({
 						animation: `${fadeInBackdropKeyframes} ${vars.transitionDuration.long} ease forwards`,
 					}),
 				},

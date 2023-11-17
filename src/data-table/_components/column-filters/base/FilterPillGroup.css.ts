@@ -1,10 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import {
-	createAccessibleTransition,
-	utilCss,
-	variantColorOverlay,
-	vars,
-} from "../../../../index.css";
+import { utilCss, variantColorOverlay, vars } from "../../../../index.css";
+import { withPrefersMotion } from "../../../../css-utils";
 
 export const pillGroup = recipe({
 	base: [
@@ -14,7 +10,7 @@ export const pillGroup = recipe({
 			alignItems: "center",
 			justifyContent: "center",
 		}),
-		createAccessibleTransition({
+		withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.medium} ease, background ${vars.transitionDuration.medium} ease`,
 		}),
 	],

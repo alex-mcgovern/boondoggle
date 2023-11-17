@@ -4,10 +4,10 @@ import {
 	SELECTOR_IS_FOCUS,
 	SELECTOR_IS_HOVER,
 	a11yFocusStyleRule,
-	createAccessibleTransition,
 	utilCss,
 	vars,
 } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 export const sliderRoot = style([
 	utilCss({
@@ -70,7 +70,7 @@ export const sliderThumb = style([
 		height: "space_6",
 		width: "space_6",
 	}),
-	createAccessibleTransition({
+	withPrefersMotion({
 		transition: `background ${vars.transitionDuration.short} ease, border-color ${vars.transitionDuration.short} ease`,
 	}),
 	{

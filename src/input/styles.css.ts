@@ -5,13 +5,13 @@ import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../button/styles.css";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
-	createAccessibleTransition,
 	elementHeight,
 	elementPadding,
 	elementPaddingRaw,
 	utilCss,
 	vars,
 } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],
@@ -48,7 +48,7 @@ export const getSlotWrapperStyles = recipe({
 		{
 			cursor: "text",
 			// gridTemplateColumns: `repeat(auto-fit, minmax(${vars.spacing.space_5}, auto))`,
-			...createAccessibleTransition({
+			...withPrefersMotion({
 				transition: `ease ${vars.transitionDuration.short} ease`,
 				transitionProperty: "color, background-color, border-color",
 			}),

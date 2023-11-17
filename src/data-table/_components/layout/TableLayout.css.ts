@@ -2,13 +2,13 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	createAccessibleTransition,
 	tBodyStyles,
 	tRowStyles,
 	tdStyles,
 	utilCss,
 	vars,
 } from "../../../index.css";
+import { withPrefersMotion } from "../../../css-utils";
 
 const baseBodyStyle = style({});
 
@@ -63,7 +63,7 @@ export const rowStyles = style([
 				backgroundColor: vars.color.tint_default,
 			},
 		},
-		...createAccessibleTransition({
+		...withPrefersMotion({
 			transition: `background-color ${vars.transitionDuration.medium} ease`,
 		}),
 	},

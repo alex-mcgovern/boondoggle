@@ -3,10 +3,10 @@ import { calc } from "@vanilla-extract/css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
 	a11yFocus,
-	createAccessibleTransition,
 	utilCss,
 	vars,
 } from "../../../../index.css";
+import { withPrefersMotion } from "../../../../css-utils";
 
 export const closeButton = style([
 	a11yFocus,
@@ -29,7 +29,7 @@ export const closeButton = style([
 				color: vars.color.text_high_contrast,
 			},
 		},
-		...createAccessibleTransition({
+		...withPrefersMotion({
 			transition: `color ${vars.transitionDuration.medium} ease`,
 		}),
 	},
@@ -41,7 +41,7 @@ const rotateInKeyframes = keyframes({
 });
 
 export const closeIcon = style({
-	...createAccessibleTransition({
+	...withPrefersMotion({
 		animation: `${rotateInKeyframes} ${vars.transitionDuration.long} ease forwards`,
 	}),
 });

@@ -4,13 +4,13 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	a11yDisabled,
 	a11yFocus,
-	createAccessibleTransition,
 	elementHeight,
 	elementPaddingRaw,
 	utilCss,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 const selectItemSize = styleVariants({
 	lg: [
@@ -59,7 +59,7 @@ export const getSelectItemStyles = recipe({
 		}),
 		a11yDisabled,
 		a11yFocus,
-		createAccessibleTransition({
+		withPrefersMotion({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{

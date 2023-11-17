@@ -10,18 +10,7 @@ import {
 	styleVariants,
 } from "@vanilla-extract/css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
-
-export function createAccessibleTransition({
-	...styleRules
-}: StyleRule): StyleRule {
-	return {
-		"@media": {
-			"(prefers-reduced-motion: no-preference)": {
-				...styleRules,
-			},
-		},
-	};
-}
+import { withPrefersMotion } from "./css-utils";
 
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
@@ -322,7 +311,7 @@ const fadeInKeyframes = keyframes({
 });
 
 export const animateFadeIn = style([
-	createAccessibleTransition({
+	withPrefersMotion({
 		animation: `${fadeInKeyframes} ${vars.transitionDuration.short} ease forwards`,
 	}),
 ]);
@@ -333,7 +322,7 @@ const slideUpKeyframes = keyframes({
 });
 
 export const animateSlideUp = style([
-	createAccessibleTransition({
+	withPrefersMotion({
 		animation: `${slideUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
 	}),
 ]);
@@ -1140,7 +1129,7 @@ export const textFieldStyleRule: StyleRule = {
 	color: vars.color.text_high_contrast,
 	fontWeight: vars.fontWeight.normal,
 	padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
-	...createAccessibleTransition({
+	...withPrefersMotion({
 		transition: `ease ${vars.transitionDuration.short} ease`,
 		transitionProperty: "color, background-color, border-color",
 	}),

@@ -6,12 +6,12 @@ import {
 	type UtilCssArgs,
 	a11yDisabled,
 	a11yFocus,
-	createAccessibleTransition,
 	elementHeight,
 	elementPadding,
 	utilCss,
 	vars,
 } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 export const variantButtonSize = styleVariants({
 	lg: [
@@ -172,7 +172,7 @@ export const getButtonStyles = recipe({
 			gap: "space_2",
 			textDecoration: "none",
 		}),
-		createAccessibleTransition({
+		withPrefersMotion({
 			transition: `color ${vars.transitionDuration.short} ease,\
                          background ${vars.transitionDuration.short} ease,\
                          opacity ${vars.transitionDuration.short} ease,\

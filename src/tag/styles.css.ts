@@ -3,11 +3,11 @@ import { recipe } from "@vanilla-extract/recipes";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 	a11yFocus,
-	createAccessibleTransition,
 	utilCss,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 const tagSize = styleVariants({
 	lg: [
@@ -44,7 +44,7 @@ export const getTagStyle = recipe({
 			width: "max-content",
 		}),
 		a11yFocus,
-		createAccessibleTransition({
+		withPrefersMotion({
 			transition: `ease ${vars.transitionDuration.short} ease`,
 			transitionProperty: "color, background-color, border-color",
 		}),

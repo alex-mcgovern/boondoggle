@@ -1,8 +1,9 @@
 import { style } from "@vanilla-extract/css";
-import { createAccessibleTransition, vars } from "../index.css";
+import { vars } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 export const icon = style([
-	createAccessibleTransition({
+	withPrefersMotion({
 		transition: `transform color ${vars.transitionDuration.short} ease`,
 	}),
 ]);

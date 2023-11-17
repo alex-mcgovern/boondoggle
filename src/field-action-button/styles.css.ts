@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { a11yFocus, createAccessibleTransition, vars } from "../index.css";
+import { a11yFocus, vars } from "../index.css";
+import { withPrefersMotion } from "../css-utils";
 
 export const fieldActionButtonStyle = style([
 	a11yFocus,
@@ -10,7 +11,7 @@ export const fieldActionButtonStyle = style([
 		selectors: {
 			"&:hover": {
 				color: vars.color.text_high_contrast,
-				...createAccessibleTransition({
+				...withPrefersMotion({
 					transition: `ease ${vars.transitionDuration.short} ease`,
 					transitionProperty: "color",
 				}),
