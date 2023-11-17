@@ -63,7 +63,7 @@ export default defineConfig({
 	external: ["react"],
 	format: "esm",
 	metafile: true,
-	minify: false,
+	minify: true,
 	outDir: "dist",
 	platform: "browser",
 	sourcemap: false,
