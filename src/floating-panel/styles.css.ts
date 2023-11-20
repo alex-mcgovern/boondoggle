@@ -1,9 +1,10 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yFocus } from "../index.css";
+import { a11yFocus, animateFadeIn } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const floatingPanel = recipe({
 	base: [
+		animateFadeIn,
 		a11yFocus,
 		sprinkles({
 			background: "background",
