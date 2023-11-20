@@ -12,15 +12,15 @@ const tableActionsContainer = createContainer();
 export const tableActionsContainerCSS = style({
 	containerName: tableActionsContainer,
 	containerType: "inline-size",
+	marginTop: "space_2",
+	paddingBottom: "space_2",
+	borderBottom: "border_default",
 });
 
 export const tableActionsCSS = style([
 	sprinkles({
 		display: "grid",
 		gap: "space_2",
-		marginTop: "space_2",
-		paddingBottom: "space_2",
-		borderBottom: "border_default",
 		alignItems: "start",
 	}),
 	{
