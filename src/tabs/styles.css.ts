@@ -1,9 +1,9 @@
 import { keyframes, style } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { withPrefersMotion } from "../css-utils";
-import { calc } from "@vanilla-extract/css-utils";
 
 const scaleUpKeyframes = keyframes({
 	"0%": {
