@@ -15,8 +15,8 @@ import type {
 	SelectItemShape,
 } from "../../types";
 import { SelectItem } from "../SelectItem";
-import { groupTitleCSS, innerCSS, selectItemListCSS } from "./styles.css";
 import { SelectSeparator } from "../SelectSeparator";
+import { groupTitleCSS, innerCSS, selectItemListCSS } from "./styles.css";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
