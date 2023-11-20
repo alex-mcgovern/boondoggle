@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { createContainer, style } from "@vanilla-extract/css";
 import {
 	CONTAINER_LG,
 	CONTAINER_MD,
@@ -6,6 +6,13 @@ import {
 	vars,
 } from "../../../../index.css";
 import { sprinkles } from "../../../../sprinkles/index.css";
+
+const tableActionsContainer = createContainer();
+
+export const tableActionsContainerCSS = style({
+	containerName: tableActionsContainer,
+	containerType: "inline-size",
+});
 
 export const tableActionsCSS = style([
 	sprinkles({

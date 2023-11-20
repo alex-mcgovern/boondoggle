@@ -5,6 +5,7 @@ import {
 	columnFiltersCSS,
 	globalFilterCSS,
 	tableActionsCSS,
+	tableActionsContainerCSS,
 } from "./styles.css";
 
 export function TableActions({
@@ -21,13 +22,15 @@ export function TableActions({
 	}
 
 	return (
-		<div className={tableActionsCSS}>
-			<div className={globalFilterCSS}>{globalFilter}</div>
-			<div className={columnFiltersCSS}>{columnFilters}</div>
-			<div className={actionsCSS}>
-				{Children.map(actions, (action) => {
-					return action;
-				})}
+		<div className={tableActionsContainerCSS}>
+			<div className={tableActionsCSS}>
+				<div className={globalFilterCSS}>{globalFilter}</div>
+				<div className={columnFiltersCSS}>{columnFilters}</div>
+				<div className={actionsCSS}>
+					{Children.map(actions, (action) => {
+						return action;
+					})}
+				</div>
 			</div>
 		</div>
 	);
