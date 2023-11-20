@@ -1,5 +1,6 @@
 import {
 	Row,
+	VisibilityState,
 	createColumnHelper,
 	getCoreRowModel,
 	getFacetedMinMaxValues,
@@ -55,12 +56,14 @@ type UseDataTableStateProps<TRowData extends RowData> = {
 	// ==== NEW PROPS ====
 	filteringOptions: FilteringOptions<TRowData> | undefined;
 	paginationOptions: PaginationOptions | undefined;
+	columnVisibility: VisibilityState | undefined;
 };
 
 export function useDataTableState<TRowData extends RowData>({
 	RowActions,
 	data,
 	enableMultiRowSelection,
+	columnVisibility,
 	initColumns,
 	initialSorting,
 	isLoading,
@@ -178,6 +181,7 @@ export function useDataTableState<TRowData extends RowData>({
 		}),
 
 		initialState: {
+			columnVisibility,
 			sorting: initialSorting,
 		},
 		defaultColumn: {

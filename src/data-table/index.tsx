@@ -3,6 +3,7 @@ import type {
 	FilterFn,
 	RowData,
 	SortingState,
+	VisibilityState,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
@@ -78,6 +79,11 @@ export type DataTableProps<TRowData extends RowData> =
 		paginationOptions?: PaginationOptions;
 
 		/**
+		 * Options related to column visibility.
+		 */
+		columnVisibility?: VisibilityState;
+
+		/**
 		 * Options related to filtering.
 		 */
 		filteringOptions?: FilteringOptions<TRowData>;
@@ -98,6 +104,7 @@ export function DataTable<TRowData extends RowData>({
 	isSortable,
 	onSelect,
 	RowActions,
+	columnVisibility,
 	strNoResults,
 	paginationOptions,
 	filteringOptions,
@@ -109,6 +116,7 @@ export function DataTable<TRowData extends RowData>({
 		initialSorting,
 		filteringOptions,
 		isLoading,
+		columnVisibility,
 		paginationOptions,
 		isSelectable,
 		isSortable,
