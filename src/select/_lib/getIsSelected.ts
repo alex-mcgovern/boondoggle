@@ -1,5 +1,5 @@
 import type { UseComboboxProps, UseMultipleSelectionProps } from "downshift";
-import type { SelectItemShape } from "./types";
+import type { SelectItemShape } from "../types";
 
 export function getIsSelected<
 	TValue extends string = string,

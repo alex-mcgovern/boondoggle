@@ -23,11 +23,11 @@ import {
 	WithStateInvalid,
 	getOptionalLabelProps,
 } from "../../types";
-import { SelectItemList } from "../SelectItemList";
-import { filterSelectItems } from "../filterSelectItems";
-import { flattenSelectItems } from "../flattenSelectItems";
-import { getIsSelected } from "../getIsSelected";
-import { getSlotRight } from "../lib/get_slot_right";
+import { SelectItemList } from "../_components/SelectItemList";
+import { filterSelectItems } from "../_lib/filterSelectItems";
+import { flattenSelectItems } from "../_lib/flattenSelectItems";
+import { getIsSelected } from "../_lib/getIsSelected";
+import { getSlotRight } from "../_lib/get-slot-right";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import type {
 	FlatSelectItems,

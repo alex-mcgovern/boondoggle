@@ -1,8 +1,8 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { elementPaddingRaw, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { elementPaddingRaw, vars } from "../../index.css";
+import { sprinkles } from "../../sprinkles/index.css";
 
 const separatorSize = styleVariants({
 	lg: [

@@ -1,4 +1,4 @@
-import { SelectItemShape, SelectSeparator } from "./types";
+import { SelectItemShape, SelectSeparator } from "../types";
 
 export function isNotSeparator<
 	TValue extends string = string,

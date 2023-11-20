@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React from "react";
 import type { Ref } from "react";
-import { Box } from "../box";
-import type { BoxProps } from "../box";
-import { SlotWrapper } from "../slot-wrapper";
-import { WithColorOverlay, WithSize, WithSlots } from "../types";
+import { Box } from "../../box";
+import type { BoxProps } from "../../box";
+import { SlotWrapper } from "../../slot-wrapper";
+import { WithColorOverlay, WithSize, WithSlots } from "../../types";
 import { getSelectItemStyles, isHighlightedStyle } from "./SelectItem.css";
 
 export type SelectItemProps = BoxProps &

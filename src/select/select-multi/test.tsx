@@ -11,7 +11,7 @@ import "../../../test/mocked_dependencies/dialog.mock";
 import { Icon } from "../../icon";
 import { a11yError, variantColorOverlay } from "../../index.css";
 import { mockSelectItems } from "../__mocks__/select.mock";
-import { flattenSelectItems } from "../flattenSelectItems";
+import { flattenSelectItems } from "../_lib/flattenSelectItems";
 
 const ON_CHANGE = jest.fn();
 

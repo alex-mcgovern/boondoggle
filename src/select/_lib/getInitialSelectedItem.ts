@@ -6,7 +6,7 @@ import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
-} from "./types";
+} from "../types";
 
 export function getInitialSelectedItem<
 	TValue extends string = string,

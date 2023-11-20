@@ -1,7 +1,7 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../../css-utils";
 import {
 	a11yDisabled,
 	a11yFocus,
@@ -9,8 +9,8 @@ import {
 	elementPaddingRaw,
 	variantColorOverlay,
 	vars,
-} from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+} from "../../index.css";
+import { sprinkles } from "../../sprinkles/index.css";
 
 const selectItemSize = styleVariants({
 	lg: [

@@ -1,9 +1,9 @@
-import { arrayHasLength } from "../_lib/array-has-length";
-import { isTruthy } from "../_lib/is-truthy";
+import { arrayHasLength } from "../../_lib/array-has-length";
+import { isTruthy } from "../../_lib/is-truthy";
 import { isFlatSelectItems } from "./isFlatSelectItems";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 import { isNotSeparator } from "./isNotSeparator";
-import type { FlatSelectItems, GroupedSelectItems } from "./types";
+import type { FlatSelectItems, GroupedSelectItems } from "../types";
 
 /**
  * Removes items not matching `inputValue` from `items`

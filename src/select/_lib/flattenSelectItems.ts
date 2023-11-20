@@ -4,7 +4,7 @@ import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
-} from "./types";
+} from "../types";
 
 export function flattenSelectItems<
 	TValue extends string = string,

@@ -20,9 +20,9 @@ import {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../types";
-import { SelectItemList } from "../SelectItemList";
-import { flattenSelectItems } from "../flattenSelectItems";
-import { isNotSeparator } from "../isNotSeparator";
+import { SelectItemList } from "../_components/SelectItemList";
+import { flattenSelectItems } from "../_lib/flattenSelectItems";
+import { isNotSeparator } from "../_lib/isNotSeparator";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,

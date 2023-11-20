@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { flattenSelectItems } from "../select/flattenSelectItems";
+import { flattenSelectItems } from "../select/_lib/flattenSelectItems";
 import { SelectSingle } from "../select/select-single";
 import type { SelectSingleProps } from "../select/select-single";
 import type { SelectItemShape } from "../select/types";

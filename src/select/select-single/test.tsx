@@ -14,7 +14,7 @@ import {
 	mockSelectItems,
 	mockSelectItemsGrouped,
 } from "../__mocks__/select.mock";
-import { flattenSelectItems } from "../flattenSelectItems";
+import { flattenSelectItems } from "../_lib/flattenSelectItems";
 
 const ON_CHANGE = jest.fn();
 
