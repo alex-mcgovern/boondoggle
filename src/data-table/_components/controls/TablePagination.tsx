@@ -53,6 +53,7 @@ export function TablePagination<TRowData extends RowData>({
 
 			<Box alignItems="center" display="flex" gap="space_2">
 				<Button
+					size="sm"
 					appearance="secondary"
 					disabled={!table.getCanPreviousPage()}
 					name="button_previous_page"
@@ -61,6 +62,7 @@ export function TablePagination<TRowData extends RowData>({
 					{strPrev}
 				</Button>
 				<Button
+					size="sm"
 					appearance="secondary"
 					disabled={!table.getCanNextPage()}
 					name="button_next_page"

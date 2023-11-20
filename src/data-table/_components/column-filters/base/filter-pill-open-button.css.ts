@@ -14,6 +14,7 @@ export const openButtonCSS = style([
 	sprinkles({
 		borderRadius: "pill",
 		display: "inline-flex",
+		flexShrink: "0",
 		alignItems: "center",
 		gap: "space_2",
 		justifyContent: "center",
@@ -22,7 +23,7 @@ export const openButtonCSS = style([
 		fontStyle: "bodyMd",
 
 		paddingX: "space_2",
-		paddingY: "space_1",
+		paddingY: "space_0",
 	}),
 ]);
 

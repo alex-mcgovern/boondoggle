@@ -10,6 +10,7 @@ export const pillGroupCSS = recipe({
 			display: "inline-flex",
 			alignItems: "center",
 			justifyContent: "center",
+			height: "space_8",
 		}),
 		withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.medium} ease, background ${vars.transitionDuration.medium} ease`,
