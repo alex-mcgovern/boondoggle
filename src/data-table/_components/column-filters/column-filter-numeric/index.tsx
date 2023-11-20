@@ -91,14 +91,14 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 	strApplyFilter,
 	strFilterDialogTitle,
 	strFilterPillText,
-	strMapFilterMode,
+	strMapNumericFilterMode,
 	column,
 	transformerNumericFromRaw,
 	transformerNumericToRaw,
 	strNotANumber,
 }: {
 	column: Column<TRowData>;
-	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
+	strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
 	strApplyFilter: string;
 	strFilterDialogTitle: string;
 	strNotANumber: string;
@@ -175,7 +175,7 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 					smallestValue={smallestValue ?? 0}
 					transformerNumericToRaw={transformerNumericToRaw}
 					strApplyFilter={strApplyFilter}
-					strMapFilterMode={strMapFilterMode}
+					strMapNumericFilterMode={strMapNumericFilterMode}
 					strNotANumber={strNotANumber}
 				/>
 			</FilterPillMenu>

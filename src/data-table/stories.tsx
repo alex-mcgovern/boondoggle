@@ -180,7 +180,7 @@ export const IsColumnFilterEnabled: Story = {
 				balance: {
 					strFilterDialogTitle: "Filter by balance",
 					strFilterPillText: "Balance",
-					strMapFilterMode: {
+					strMapNumericFilterMode: {
 						is_between: "Is between",
 						is_equal_to: "Is equal to",
 						is_greater_than: "Is greater than",
@@ -196,7 +196,7 @@ export const IsColumnFilterEnabled: Story = {
 				points: {
 					strFilterDialogTitle: "Filter by points",
 					strFilterPillText: "Points",
-					strMapFilterMode: {
+					strMapNumericFilterMode: {
 						is_between: "Is between",
 						is_equal_to: "Is equal to",
 						is_greater_than: "Is greater than",

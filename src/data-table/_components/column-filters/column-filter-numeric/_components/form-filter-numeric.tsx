@@ -19,7 +19,7 @@ export const FormFilterNumeric = ({
 	largestValue,
 	smallestValue,
 	strApplyFilter,
-	strMapFilterMode,
+	strMapNumericFilterMode,
 	strNotANumber,
 	setFilter,
 	transformerNumericToRaw,
@@ -32,7 +32,7 @@ export const FormFilterNumeric = ({
 	transformerNumericToRaw?: (value: number | undefined) => number | undefined;
 	strApplyFilter: string;
 	strNotANumber: string;
-	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
+	strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
 }) => {
 	const [parentFilterMode, setParentFilterMode] = useNumericFilterMode();
 
@@ -40,7 +40,7 @@ export const FormFilterNumeric = ({
 		React.useState<TableNumberRangeFilterMode>(parentFilterMode);
 
 	const filterModeItems = getTableNumberRangeFilterModeItems({
-		strMapFilterMode,
+		strMapNumericFilterMode,
 	});
 
 	return (

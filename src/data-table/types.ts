@@ -73,10 +73,7 @@ export type FilteringOptions<TRowData extends RowData> = {
 					transformerNumericToRaw?: (
 						value: number | undefined,
 					) => number | undefined;
-					strMapFilterMode: Record<
-						TableNumberRangeFilterMode,
-						string
-					>;
+					strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
 			  }
 		>
 	>;
@@ -189,9 +186,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					  }
 					| {
 							type: "NUMBER_RANGE";
-							transformerNumericFromRaw: (
-								value: number,
-							) => number;
+							transformerNumericFromRaw: (value: number) => number;
 							transformerNumericToRaw: (value: number) => number;
 					  }
 				>
@@ -215,7 +210,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 			/**
 			 * A map of strings used in the numeric filter mode.
 			 */
-			strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
+			strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
 	  }
 	/**
 	 * If `isGlobalFilterEnabled` is `false` or `undefined`, `strFilterPlaceholder` should not be passed.
@@ -254,7 +249,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 			/**
 			 * A map of strings used in the numeric filter mode.
 			 */
-			strMapFilterMode?: never;
+			strMapNumericFilterMode?: never;
 	  };
 
 export type WithTableOptionalSelectableRows<TData extends RowData> =

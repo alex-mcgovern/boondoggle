@@ -59,7 +59,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 					const {
 						strFilterDialogTitle,
 						strFilterPillText,
-						strMapFilterMode,
+						strMapNumericFilterMode,
 						transformerNumericFromRaw,
 						transformerNumericToRaw,
 						strNotANumber,
@@ -70,7 +70,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 							strApplyFilter={strApplyFilter}
 							strFilterDialogTitle={strFilterDialogTitle}
 							strFilterPillText={strFilterPillText}
-							strMapFilterMode={strMapFilterMode}
+							strMapNumericFilterMode={strMapNumericFilterMode}
 							transformerNumericFromRaw={
 								transformerNumericFromRaw
 							}
