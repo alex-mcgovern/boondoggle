@@ -11,7 +11,7 @@ export const floatingPanel = recipe({
 			border: "border_default",
 			borderRadius: "md",
 			boxShadow: "md",
-			width: "max-content",
+			// width: "max-content",
 		}),
 		{ zIndex: "999" },
 	],
