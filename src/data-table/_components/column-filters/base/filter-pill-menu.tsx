@@ -42,10 +42,18 @@ function PrivateFilterPillMenu(
 ) {
 	const ref = useForwardRef(initialRef);
 	const [isOpen, setIsOpen] = React.useState(controlledIsOpen);
-	const [wasOpen, setWasOpen] = React.useState(false);
+	const [wasFiltered, setWasFiltered] = React.useState(isFiltered);
+
+	/**
+	 * One-time effect to set `wasFiltered` to `true` if `isFiltered` is `true`.
+	 * This allows to enable the animation on the open button when filters are applied,
+	 * without triggering the animation on initial render.
+	 */
+	React.useEffect(() => {
+		if (isFiltered === true) setWasFiltered(true);
+	}, [isFiltered, setWasFiltered]);
 
 	const toggleIsOpen = () => {
-		setWasOpen(true);
 		setIsOpen((c) => !c);
 		onIsOpenChange?.((c) => !c);
 	};
@@ -101,11 +109,11 @@ function PrivateFilterPillMenu(
 					/>
 				) : null}
 				<FilterPillOpenButton
+					wasFiltered={wasFiltered}
 					disabled={disabled}
 					isFiltered={isFiltered}
 					pillText={pillText}
 					toggleIsOpen={toggleIsOpen}
-					wasOpen={wasOpen}
 				/>
 			</FilterPillGroup>
 

@@ -14,11 +14,18 @@ export const closeButtonCSS = style([
 		color: "text_low_contrast",
 		fontStyle: "bodyMd",
 
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+
 		paddingX: "space_2",
 		paddingY: "space_1",
 
 		borderRadius: "pill",
 		aspectRatio: "square",
+
+		// width: "space_4",
+		// height: "space_4",
 
 		flexShrink: "0",
 	}),
@@ -40,8 +47,11 @@ const rotateInKeyframes = keyframes({
 	"100%": { transform: "rotate(45deg)" },
 });
 
-export const closeIconCSS = style({
-	...withPrefersMotion({
-		animation: `${rotateInKeyframes} ${vars.transitionDuration.long} ease forwards`,
-	}),
-});
+export const closeIconCSS = style([
+	sprinkles({ fontStyle: "bodyLg", width: "space_4", height: "space_4" }),
+	{
+		...withPrefersMotion({
+			animation: `${rotateInKeyframes} ${vars.transitionDuration.long} ease forwards`,
+		}),
+	},
+]);

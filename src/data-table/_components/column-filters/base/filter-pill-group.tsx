@@ -1,5 +1,5 @@
 import * as React from "react";
-import { pillGroupCSS } from "./filter-pill-group";
+import { pillGroupCSS } from "./filter-pill-group.css";
 
 export const FilterPillGroup = React.forwardRef<
 	HTMLDivElement,

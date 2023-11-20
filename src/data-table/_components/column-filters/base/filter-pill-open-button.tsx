@@ -5,16 +5,17 @@ import { openButtonCSS, openIconCSS } from "./filter-pill-open-button.css";
 export const FilterPillOpenButton = ({
 	disabled,
 	toggleIsOpen,
-	wasOpen,
 	isFiltered,
+	wasFiltered,
 	pillText,
 }: {
 	disabled: boolean | undefined;
 	toggleIsOpen: () => void;
-	wasOpen: boolean | undefined;
+	wasFiltered: boolean | undefined;
 	isFiltered: boolean;
 	pillText: React.ReactNode;
 }) => {
+	console.debug("debug  wasFiltered:", wasFiltered);
 	return (
 		<button
 			className={openButtonCSS}
@@ -24,7 +25,9 @@ export const FilterPillOpenButton = ({
 		>
 			{!isFiltered ? (
 				<Icon
-					className={wasOpen ? openIconCSS : undefined}
+					className={openIconCSS({
+						shouldAnimate: wasFiltered,
+					})}
 					icon={faCirclePlus}
 				/>
 			) : null}
