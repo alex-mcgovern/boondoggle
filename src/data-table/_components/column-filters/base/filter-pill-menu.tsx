@@ -12,10 +12,10 @@ import * as React from "react";
 import { useForwardRef } from "../../../../_hooks/use-forward-ref";
 import { Box } from "../../../../box";
 import { FloatingPanel } from "../../../../floating-panel";
-import { FilterPillCloseButton } from "./FilterPillCloseButton";
-import { FilterPillGroup } from "./FilterPillGroup";
-import { filterMenuCSS } from "./FilterPillMenu.css";
-import { FilterPillOpenButton } from "./FilterPillOpenButton";
+import { FilterPillCloseButton } from "./filter-pill-close-button";
+import { FilterPillGroup } from "./filter-pill-group";
+import { filterMenuCSS } from "./filter-pill-menu.css";
+import { FilterPillOpenButton } from "./filter-pill-open-button";
 
 /**
  * @private This is a base component that should be wrapped with `ForwardRef`.

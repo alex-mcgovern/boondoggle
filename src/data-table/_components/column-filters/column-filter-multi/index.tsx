@@ -4,8 +4,8 @@ import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { Box } from "../../../../box";
 import { Button } from "../../../../button";
-import { FilterDialogTitle } from "../base/FilterBaseDialogTitle";
-import { FilterPillMenu } from "../base/FilterPillMenu";
+import { FilterDialogTitle } from "../base/filter-dialog-title";
+import { FilterPillMenu } from "../base/filter-pill-menu";
 import {
 	activeFilterStringCSS,
 	multiFilterItemCSS,
