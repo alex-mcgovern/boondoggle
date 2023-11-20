@@ -41,14 +41,14 @@ export const COLUMNS = [
 		{
 			cell: ({ row }) => {
 				return (
-					<Box alignItems="center" display="flex" gap="space_4">
+					<Box alignItems="center" display="flex" gap="space_2">
 						<Avatar
 							firstName={row.original.first_name}
 							lastName={row.original.last_name}
-							size={40}
+							size={32}
 						/>
 						<Box>
-							<Box fontWeight="medium">
+							<Box fontWeight="medium" fontStyle="bodySm">
 								{row.original.first_name}{" "}
 								{row.original.last_name}
 							</Box>

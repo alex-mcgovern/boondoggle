@@ -34,7 +34,7 @@ export const openIconCSS = recipe({
 	variants: {
 		shouldAnimate: {
 			true: withPrefersMotion({
-				animation: `${rotateOutKeyframes} ${vars.transitionDuration.long} ease forwards`,
+				animation: `${rotateOutKeyframes} ${vars.transitionDuration.medium} ease forwards`,
 			}),
 			false: {},
 		},

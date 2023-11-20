@@ -146,9 +146,8 @@ const variantAppearance = styleVariants({
 					borderColor: vars.color.border_hover,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.button_tint,
-					borderColor: vars.color.button_default,
-					color: vars.color.button_default,
+					background: vars.color.tint_active,
+					borderColor: vars.color.border_active,
 				},
 			},
 		},

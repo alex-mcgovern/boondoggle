@@ -1,6 +1,8 @@
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import type { Meta, StoryObj } from "@storybook/react";
 import { DataTable as StoryComp } from ".";
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
+
 import { Button } from "../button";
 import {
 	DataTableRowActions,
@@ -272,9 +274,12 @@ export const With1Action: Story = {
 export const With2Actions: Story = {
 	args: {
 		actions: [
-			<Button size="sm" appearance="secondary" name="secondary_action">
-				Secondary action
-			</Button>,
+			<Button
+				size="square_sm"
+				appearance="secondary"
+				name="secondary_action"
+				slotLeft={<Icon icon={faEllipsis} />}
+			/>,
 			<Button
 				size="sm"
 				name="primary_action"
@@ -289,18 +294,6 @@ export const With2Actions: Story = {
 
 export const WithRowActionItems: Story = {
 	args: {
-		actions: [
-			<Button size="sm" appearance="secondary" name="secondary_action">
-				Secondary action
-			</Button>,
-			<Button
-				size="sm"
-				name="primary_action"
-				slotLeft={<Icon icon={faPlus} />}
-			>
-				Primary action
-			</Button>,
-		],
 		RowActions: MockRowActionsComponent,
 		strNoResults: "No results",
 	},
@@ -308,21 +301,8 @@ export const WithRowActionItems: Story = {
 
 export const WithRowActionItemsShortList: Story = {
 	args: {
-		actions: [
-			<Button size="sm" appearance="secondary" name="secondary_action">
-				Secondary action
-			</Button>,
-			<Button
-				size="sm"
-				name="primary_action"
-				slotLeft={<Icon icon={faPlus} />}
-			>
-				Primary action
-			</Button>,
-		],
 		data: Array.from({ length: 1 }, mockColumn),
 		RowActions: MockRowActionsComponent,
-
 		strNoResults: "No results",
 	},
 };
@@ -330,9 +310,12 @@ export const WithRowActionItemsShortList: Story = {
 export const KitchenSink: Story = {
 	args: {
 		actions: [
-			<Button size="sm" appearance="secondary" name="secondary_action">
-				Secondary action
-			</Button>,
+			<Button
+				size="square_sm"
+				appearance="secondary"
+				name="secondary_action"
+				slotLeft={<Icon icon={faEllipsis} />}
+			/>,
 			<Button
 				size="sm"
 				name="primary_action"
