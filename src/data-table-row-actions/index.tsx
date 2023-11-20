@@ -24,12 +24,12 @@ export function DataTableRowActions({
 	return (
 		<SelectButton
 			buttonProps={{
-				appearance: "ghost",
+				appearance: "secondary",
 				name: "row_actions",
 				onClick: (e: React.ChangeEvent<HTMLButtonElement>) => {
 					return e.stopPropagation();
 				},
-				size: "square_md",
+				size: "square_sm",
 				width: "min-content",
 			}}
 			items={items}

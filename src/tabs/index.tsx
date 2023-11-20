@@ -5,7 +5,7 @@ import { Button, ButtonProps } from "../button";
 import { Pill } from "../pill";
 import { sprinkles } from "../sprinkles/index.css";
 import { WithSize } from "../types";
-import { sectionCSS, tabCSS, tabListCSS } from "./styles.css";
+import { tabsSectionCss, tabCSS, tabListCSS } from "./styles.css";
 
 function Tab({
 	className,
@@ -45,7 +45,7 @@ export function Tabs({
 	areTabsFullWidth?: boolean;
 }) {
 	return (
-		<section className={sectionCSS({ size })}>
+		<section className={tabsSectionCss({ size })}>
 			<nav
 				role="tablist"
 				className={clsx(tabListCSS, sprinkles({ justifyContent }))}

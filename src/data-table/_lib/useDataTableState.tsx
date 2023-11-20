@@ -154,7 +154,7 @@ export function useDataTableState<TRowData extends RowData>({
 	}, [RowActions, columnHelper, initColumns, isLoading, isSelectable]);
 
 	const tableData = useMemo(() => {
-		return isLoading ? Array(10).fill({}) : data;
+		return isLoading ? Array(25).fill({}) : data;
 	}, [isLoading, data]);
 
 	const table = useReactTable<TRowData>({
@@ -181,6 +181,9 @@ export function useDataTableState<TRowData extends RowData>({
 		}),
 
 		initialState: {
+			pagination: {
+				pageSize: 25,
+			},
 			columnVisibility,
 			sorting: initialSorting,
 		},

@@ -1,6 +1,5 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { RowData, Table } from "@tanstack/react-table";
-import { Box } from "../../../../box";
 import { Icon } from "../../../../icon";
 import { Input } from "../../../../input";
 import { FilteringOptions } from "../../../types";

@@ -170,7 +170,7 @@ export function DataTable<TRowData extends RowData>({
 			)}
 
 			{paginationOptions &&
-				table.getFilteredRowModel().rows.length > 10 && (
+				table.getFilteredRowModel().rows.length > 25 && (
 					<TablePagination
 						paginationOptions={paginationOptions}
 						table={table}

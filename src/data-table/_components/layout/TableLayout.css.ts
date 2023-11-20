@@ -1,7 +1,6 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { withPrefersMotion } from "../../../css-utils";
 import { tBodyStyles, tRowStyles, tdStyles, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
@@ -36,8 +35,8 @@ globalStyle(
 	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${tdStyles}:last-child`,
 	{
 		width: calc.add(
-			calc.multiply(vars.spacing.space_5, 2),
-			vars.spacing.space_12,
+			calc.multiply(vars.spacing.space_4, 2),
+			vars.spacing.space_8,
 		),
 		overflow: "visible",
 	},
@@ -53,13 +52,13 @@ export const rowStyles = style([
 		textDecoration: "none",
 	}),
 	{
-		selectors: {
-			"&:hover": {
-				backgroundColor: vars.color.tint_default,
-			},
-		},
-		...withPrefersMotion({
-			transition: `background-color ${vars.transitionDuration.medium} ease`,
-		}),
+		// selectors: {
+		// 	"&:hover": {
+		// 		backgroundColor: vars.color.tint_default,
+		// 	},
+		// },
+		// ...withPrefersMotion({
+		// 	transition: `background-color ${vars.transitionDuration.medium} ease`,
+		// }),
 	},
 ]);
