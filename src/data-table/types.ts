@@ -73,7 +73,10 @@ export type FilteringOptions<TRowData extends RowData> = {
 					transformerNumericToRaw?: (
 						value: number | undefined,
 					) => number | undefined;
-					strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
+					strMapNumericFilterMode: Record<
+						TableNumberRangeFilterMode,
+						string
+					>;
 			  }
 		>
 	>;
@@ -186,7 +189,9 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					  }
 					| {
 							type: "NUMBER_RANGE";
-							transformerNumericFromRaw: (value: number) => number;
+							transformerNumericFromRaw: (
+								value: number,
+							) => number;
 							transformerNumericToRaw: (value: number) => number;
 					  }
 				>
