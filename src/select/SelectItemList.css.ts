@@ -67,3 +67,8 @@ export const innerCSS = style([
 		},
 	},
 ]);
+
+export const selectItemListCSS = style({
+	minWidth: "100%",
+	overflow: "hidden",
+});

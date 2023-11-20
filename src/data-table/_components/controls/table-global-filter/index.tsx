@@ -23,7 +23,7 @@ export function TableGlobalFilter<TRowData extends RowData>({
 	return (
 		<Box __maxWidth="12rem">
 			<Input
-				size="sm"
+				// size="sm"
 				autoComplete="off"
 				disabled={disabled}
 				hideLastpass

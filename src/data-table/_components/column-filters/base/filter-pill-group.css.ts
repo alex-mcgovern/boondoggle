@@ -22,9 +22,10 @@ export const pillGroupCSS = recipe({
 			true: [
 				sprinkles({
 					background: "tint_default",
+					border: "border_hover",
 				}),
 				{
-					border: "1px solid transparent",
+					// border: "1px solid transparent",
 					selectors: {
 						"&:not(:has(button[disabled])):hover": {
 							background: vars.color.tint_active,

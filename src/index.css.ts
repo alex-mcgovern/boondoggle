@@ -164,10 +164,6 @@ export const vars = createGlobalTheme(":root", {
 		tall: "9 / 16",
 		wide: "16 / 9",
 	},
-	border: {
-		border_default: `1px solid ${slate.slate6}`,
-		border_hover: `1px solid ${slate.slate7}`,
-	},
 	borderRadius: {
 		"50%": "50%",
 		lg: "12px",

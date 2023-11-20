@@ -6,6 +6,12 @@ import {
 	vars,
 } from "../index.css";
 
+const border = {
+	border_default: `1px solid ${vars.color.border_default}`,
+	border_hover: `1px solid ${vars.color.border_hover}`,
+	border_active: `1px solid ${vars.color.border_active}`,
+};
+
 export const properties = defineProperties({
 	"@layer": sprinklesLayer,
 	properties: {
@@ -16,15 +22,12 @@ export const properties = defineProperties({
 			inherit: "inherit",
 			transparent: "transparent",
 		},
-		border: {
-			border_default: `1px solid ${vars.color.border_default}`,
-			border_hover: `1px solid ${vars.color.border_hover}`,
-		},
-		borderBottom: vars.border,
-		borderLeft: vars.border,
+		border: border,
+		borderBottom: border,
+		borderLeft: border,
+		borderTop: border,
+		borderRight: border,
 		borderRadius: vars.borderRadius,
-		borderRight: vars.border,
-		borderTop: vars.border,
 		bottom: ["0"],
 		boxShadow: vars.boxShadow,
 		color: {

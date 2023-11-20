@@ -22,8 +22,10 @@ export const openButtonCSS = style([
 		color: "text_low_contrast",
 		fontStyle: "bodyMd",
 
+		height: "space_8",
+
 		paddingX: "space_2",
-		paddingY: "space_0",
+		// paddingY: "space_0",
 	}),
 ]);
 

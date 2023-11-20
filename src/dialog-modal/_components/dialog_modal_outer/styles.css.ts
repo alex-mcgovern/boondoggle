@@ -27,13 +27,12 @@ export const getDialogModalOuterStyle = recipe({
 					maxWidth: "100vw",
 				},
 				[MEDIA_QUERY_TABLET]: {
-					border: vars.border.border_default,
+					border: `1px solid ${vars.color.border_default}`,
 					borderRadius: vars.borderRadius.lg,
 					boxShadow: vars.boxShadow.lg,
 				},
-				// eslint-disable-next-line sort-keys-fix/sort-keys-fix
 				[MEDIA_QUERY_DESKTOP]: {
-					border: vars.border.border_default,
+					border: `1px solid ${vars.color.border_default}`,
 					borderRadius: vars.borderRadius.lg,
 					boxShadow: vars.boxShadow.lg,
 				},

@@ -9,7 +9,11 @@ import { arrayHasLength } from "../_lib/array-has-length";
 import { FloatingPanel } from "../floating-panel";
 import { WithSize } from "../types";
 import { SelectItem } from "./SelectItem";
-import { groupTitleCSS, innerCSS } from "./SelectItemList.css";
+import {
+	groupTitleCSS,
+	innerCSS,
+	selectItemListCSS,
+} from "./SelectItemList.css";
 import { SelectSeparator } from "./SelectSeparator";
 import { isGroupedSelectItems } from "./isGroupedSelectItems";
 import type {
@@ -127,6 +131,7 @@ function SelectItemListBase<
 
 		return (
 			<FloatingPanel
+				className={selectItemListCSS}
 				isOpen={isOpen}
 				{...getMenuProps?.({
 					ref,
@@ -238,6 +243,7 @@ function SelectItemListBase<
 
 	return (
 		<FloatingPanel
+			className={selectItemListCSS}
 			isOpen={isOpen}
 			{...getMenuProps?.({
 				ref,
