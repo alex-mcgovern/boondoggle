@@ -10,7 +10,7 @@ import "../../../test/mocked_dependencies/dialog.mock";
 
 import type { InputDateProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { selectFromDatePicker } from "../../../test/select_from_date_picker";
+import { selectFromDatePicker } from "../../../test/select-from-date-picker";
 
 const renderComponent = async ({ ...props }: InputDateProps) => {
 	const ref = createRef<HTMLInputElement>();
