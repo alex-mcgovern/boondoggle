@@ -9,13 +9,17 @@ import { sprinkles } from "../../../../sprinkles/index.css";
 
 const tableActionsContainer = createContainer();
 
-export const tableActionsContainerCSS = style({
-	containerName: tableActionsContainer,
-	containerType: "inline-size",
-	marginTop: "space_2",
-	paddingBottom: "space_2",
-	borderBottom: "border_default",
-});
+export const tableActionsContainerCSS = style([
+	sprinkles({
+		marginTop: "space_2",
+		paddingBottom: "space_2",
+		borderBottom: "border_default",
+	}),
+	{
+		containerName: tableActionsContainer,
+		containerType: "inline-size",
+	},
+]);
 
 export const tableActionsCSS = style([
 	sprinkles({
@@ -56,6 +60,7 @@ export const columnFiltersCSS = style([
 		display: "flex",
 		gap: "space_2",
 		alignItems: "center",
+		flexWrap: "wrap",
 	}),
 	{
 		gridArea: "columnFilters",
