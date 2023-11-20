@@ -1,7 +1,21 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { withPrefersMotion } from "../css-utils";
+import { calc } from "@vanilla-extract/css-utils";
+
+const scaleUpKeyframes = keyframes({
+	"0%": {
+		marginLeft: calc.multiply(vars.spacing.space_12, -1),
+		transform: "scale(0.8)",
+		opacity: 0,
+	},
+	"50%": { transform: "scale(0.8)", opacity: 0 },
+	"100%": {
+		opacity: 1,
+	},
+});
 
 export const tabCSS = recipe({
 	base: [
@@ -63,6 +77,8 @@ export const tabsSectionCss = recipe({
 export const tabListCSS = style([
 	sprinkles({
 		alignItems: "center",
+		borderTop: "border_default",
+		paddingTop: "space_1",
 		borderBottom: "border_default",
 		display: "flex",
 	}),
@@ -78,3 +94,9 @@ export const tabListCSS = style([
 		},
 	},
 ]);
+
+export const tabCountCSS = style({
+	...withPrefersMotion({
+		animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+	}),
+});

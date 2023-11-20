@@ -5,7 +5,7 @@ import { Button, ButtonProps } from "../button";
 import { Pill } from "../pill";
 import { sprinkles } from "../sprinkles/index.css";
 import { WithSize } from "../types";
-import { tabCSS, tabListCSS, tabsSectionCss } from "./styles.css";
+import { tabCSS, tabCountCSS, tabListCSS, tabsSectionCss } from "./styles.css";
 
 function Tab({
 	className,
@@ -18,10 +18,15 @@ function Tab({
 	return (
 		<div className={clsx(tabCSS({ active, isTabFullWidth }), className)}>
 			<Button
+				size="sm"
 				{...rest}
 				slotRight={
 					typeof count === "number" ? (
-						<Pill colorOverlay="blue" size="sm">
+						<Pill
+							className={tabCountCSS}
+							colorOverlay="blue"
+							size="sm"
+						>
 							{count}
 						</Pill>
 					) : undefined
