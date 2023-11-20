@@ -28,15 +28,13 @@ import { withPrefersMotion } from "./css-utils";
  * MEDIA QUERIES
  * ------------------------------------------------------------------------------- */
 
-export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 896px)";
+export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 992px)";
+export const MEDIA_QUERY_TABLET = "only screen and (min-width: 496px)";
+export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 31rem)";
 
-export const MEDIA_QUERY_TABLET = "only screen and (min-width: 512px)";
-
-export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 511px)";
-
-export const CONTAINER_LG = "(width > 896px)";
-export const CONTAINER_MD = "(width > 512px)";
-export const CONTAINER_SM = "(width < 511px)";
+export const CONTAINER_LG = "(width > 992px)";
+export const CONTAINER_MD = "(width >= 496px)";
+export const CONTAINER_SM = "(width < 494px)";
 
 /** -----------------------------------------------------------------------------
  * SELECTORS
