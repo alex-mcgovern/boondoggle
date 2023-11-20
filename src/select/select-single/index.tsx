@@ -26,9 +26,9 @@ import {
 import { SelectItemList } from "../_components/SelectItemList";
 import { filterSelectItems } from "../_lib/filterSelectItems";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";
+import { getSlotRight } from "../_lib/get-slot-right";
 import { getInitialSelectedItem } from "../_lib/getInitialSelectedItem";
 import { getIsSelected } from "../_lib/getIsSelected";
-import { getSlotRight } from "../_lib/get-slot-right";
 import { selectInputCursorStyles } from "../shared/select_input.styles.css";
 import type {
 	FlatSelectItems,

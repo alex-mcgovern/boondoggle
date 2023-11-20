@@ -8,6 +8,12 @@ import { CSSProperties, ForwardedRef, Fragment } from "react";
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { FloatingPanel } from "../../floating-panel";
 import { WithSize } from "../../types";
+import { isGroupedSelectItems } from "../_lib/isGroupedSelectItems";
+import type {
+	FlatSelectItems,
+	GroupedSelectItems,
+	SelectItemShape,
+} from "../types";
 import { SelectItem } from "./SelectItem";
 import {
 	groupTitleCSS,
@@ -15,12 +21,6 @@ import {
 	selectItemListCSS,
 } from "./SelectItemList.css";
 import { SelectSeparator } from "./SelectSeparator";
-import { isGroupedSelectItems } from "../_lib/isGroupedSelectItems";
-import type {
-	FlatSelectItems,
-	GroupedSelectItems,
-	SelectItemShape,
-} from "../types";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
