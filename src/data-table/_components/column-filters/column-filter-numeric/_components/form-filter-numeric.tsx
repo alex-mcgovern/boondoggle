@@ -22,14 +22,14 @@ export const FormFilterNumeric = ({
 	strMapNumericFilterMode,
 	strNotANumber,
 	setFilter,
-	transformerNumericToRaw,
+	transformNumericToRaw,
 }: {
 	currentMax: number | undefined;
 	currentMin: number | undefined;
 	largestValue: number;
 	smallestValue: number;
 	setFilter: (v: [number | undefined, number | undefined]) => void;
-	transformerNumericToRaw?: (value: number | undefined) => number | undefined;
+	transformNumericToRaw?: (value: number | undefined) => number | undefined;
 	strApplyFilter: string;
 	strNotANumber: string;
 	strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
@@ -95,8 +95,8 @@ export const FormFilterNumeric = ({
 							inputMode="numeric"
 							name="min"
 							defaultValue={
-								transformerNumericToRaw
-									? transformerNumericToRaw(currentMin)
+								transformNumericToRaw
+									? transformNumericToRaw(currentMin)
 									: currentMin
 							}
 							autoComplete="off"
@@ -110,8 +110,8 @@ export const FormFilterNumeric = ({
 							inputMode="numeric"
 							name="max"
 							defaultValue={
-								transformerNumericToRaw
-									? transformerNumericToRaw(currentMax)
+								transformNumericToRaw
+									? transformNumericToRaw(currentMax)
 									: currentMax
 							}
 							autoComplete="off"
@@ -126,8 +126,8 @@ export const FormFilterNumeric = ({
 						size="sm"
 						marginBottom="space_2"
 						defaultValue={
-							transformerNumericToRaw
-								? transformerNumericToRaw(
+							transformNumericToRaw
+								? transformNumericToRaw(
 										currentMin || currentMax,
 								  )
 								: currentMin || currentMax
@@ -144,8 +144,8 @@ export const FormFilterNumeric = ({
 						size="sm"
 						marginBottom="space_2"
 						defaultValue={
-							transformerNumericToRaw
-								? transformerNumericToRaw(
+							transformNumericToRaw
+								? transformNumericToRaw(
 										currentMin || currentMax,
 								  )
 								: currentMin || currentMax
@@ -162,8 +162,8 @@ export const FormFilterNumeric = ({
 						size="sm"
 						marginBottom="space_2"
 						defaultValue={
-							transformerNumericToRaw
-								? transformerNumericToRaw(
+							transformNumericToRaw
+								? transformNumericToRaw(
 										currentMax || currentMin,
 								  )
 								: currentMax || currentMin

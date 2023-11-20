@@ -60,17 +60,17 @@ export type FilteringOptions<TRowData extends RowData> = {
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
 					// biome-ignore lint/suspicious/noExplicitAny: Using any here because we don't know what the type of the data is
-					transformerIdToString: (value: any) => string;
+					transformValueToString?: (value: any) => string;
 			  }
 			| {
 					type: "NUMBER_RANGE";
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
 					strNotANumber: string;
-					transformerNumericFromRaw?: (
+					transformNumericFromRaw?: (
 						value: number | undefined,
 					) => number | undefined;
-					transformerNumericToRaw?: (
+					transformNumericToRaw?: (
 						value: number | undefined,
 					) => number | undefined;
 					strMapNumericFilterMode: Record<
@@ -185,14 +185,12 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 							strFilterDialogTitle: string;
 							strFilterPillText: string;
 							// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-							transformerNumericFromRaw: (value: any) => string;
+							transformNumericFromRaw: (value: any) => string;
 					  }
 					| {
 							type: "NUMBER_RANGE";
-							transformerNumericFromRaw: (
-								value: number,
-							) => number;
-							transformerNumericToRaw: (value: number) => number;
+							transformNumericFromRaw: (value: number) => number;
+							transformNumericToRaw: (value: number) => number;
 					  }
 				>
 			>;
@@ -207,7 +205,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 						strFilterDialogTitle: string;
 						strFilterPillText: string;
 						// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-						transformerNumericFromRaw: (value: any) => string;
+						transformNumericFromRaw: (value: any) => string;
 					}
 				>
 			>;

@@ -32,37 +32,37 @@ export const MOCK_FILTER_STRINGS = {
 	email_address: {
 		strFilterDialogTitle: "Filter by email address",
 		strFilterPillText: "Email address",
-		transformerNumericFromRaw: (value: string) => value,
+		transformNumericFromRaw: (value: string) => value,
 	},
 	first_name: {
 		strFilterDialogTitle: "Filter by first name",
 		strFilterPillText: "First name",
-		transformerNumericFromRaw: (value: string) => value,
+		transformNumericFromRaw: (value: string) => value,
 	},
 	last_name: {
 		strFilterDialogTitle: "Filter by last name",
 		strFilterPillText: "Last name",
-		transformerNumericFromRaw: (value: string) => value,
+		transformNumericFromRaw: (value: string) => value,
 	},
 	phone_number: {
 		strFilterDialogTitle: "Filter by phone number",
 		strFilterPillText: "Phone number",
-		transformerNumericFromRaw: (value: string) => value,
+		transformNumericFromRaw: (value: string) => value,
 	},
 	id: {
 		strFilterDialogTitle: "Filter by ID",
 		strFilterPillText: "ID",
-		transformerNumericFromRaw: (value: string) => value,
+		transformNumericFromRaw: (value: string) => value,
 	},
 	balance: {
 		strFilterDialogTitle: "Filter by balance",
 		strFilterPillText: "Balance",
-		transformerNumericFromRaw: (value: string) => value,
+		transformNumericFromRaw: (value: string) => value,
 	},
 	status: {
 		strFilterDialogTitle: "Filter by status",
 		strFilterPillText: "Status",
-		transformerNumericFromRaw: (value: MockTableData["status"]) => {
+		transformNumericFromRaw: (value: MockTableData["status"]) => {
 			switch (value) {
 				case "active":
 					return "Active";
@@ -164,7 +164,9 @@ export const IsColumnFilterEnabled: Story = {
 					strFilterDialogTitle: "Filter by status",
 					strFilterPillText: "Status",
 					type: "MULTI_SELECT",
-					transformerIdToString: (value: MockTableData["status"]) => {
+					transformValueToString: (
+						value: MockTableData["status"],
+					) => {
 						switch (value) {
 							case "active":
 								return "Active";
@@ -186,9 +188,9 @@ export const IsColumnFilterEnabled: Story = {
 						is_greater_than: "Is greater than",
 						is_less_than: "Is less than",
 					},
-					transformerNumericFromRaw: (value: number | undefined) =>
+					transformNumericFromRaw: (value: number | undefined) =>
 						value !== undefined ? value / 100 : undefined,
-					transformerNumericToRaw: (value: number | undefined) =>
+					transformNumericToRaw: (value: number | undefined) =>
 						value !== undefined ? value * 100 : undefined,
 					type: "NUMBER_RANGE",
 					strNotANumber: "Enter a number",
@@ -329,7 +331,9 @@ export const KitchenSink: Story = {
 					strFilterDialogTitle: "Filter by status",
 					strFilterPillText: "Status",
 					type: "MULTI_SELECT",
-					transformerIdToString: (value: MockTableData["status"]) => {
+					transformValueToString: (
+						value: MockTableData["status"],
+					) => {
 						switch (value) {
 							case "active":
 								return "Active";

@@ -13,20 +13,18 @@ type NumberRangeFilterValue = [number | undefined, number | undefined];
 
 function getCurrentFilters<TRowData extends RowData>({
 	column,
-	transformerNumericFromRaw,
+	transformNumericFromRaw,
 }: {
 	column: Column<TRowData>;
-	transformerNumericFromRaw?: (
-		value: number | undefined,
-	) => number | undefined;
+	transformNumericFromRaw?: (value: number | undefined) => number | undefined;
 }) {
 	let currentFilters: NumberRangeFilterValue =
 		column.getFilterValue() as NumberRangeFilterValue;
 
-	if (transformerNumericFromRaw && currentFilters) {
+	if (transformNumericFromRaw && currentFilters) {
 		currentFilters = [
-			transformerNumericFromRaw(currentFilters[0]),
-			transformerNumericFromRaw(currentFilters[1]),
+			transformNumericFromRaw(currentFilters[0]),
+			transformNumericFromRaw(currentFilters[1]),
 		];
 	}
 
@@ -35,24 +33,22 @@ function getCurrentFilters<TRowData extends RowData>({
 
 function getSmallestLargestValues<TRowData extends RowData>({
 	column,
-	transformerNumericFromRaw,
+	transformNumericFromRaw,
 }: {
 	column: Column<TRowData>;
-	transformerNumericFromRaw?: (
-		value: number | undefined,
-	) => number | undefined;
+	transformNumericFromRaw?: (value: number | undefined) => number | undefined;
 }) {
 	let smallestValue = column.getFacetedMinMaxValues()?.[0];
 	let largestValue = column.getFacetedMinMaxValues()?.[1];
 
-	if (transformerNumericFromRaw) {
+	if (transformNumericFromRaw) {
 		smallestValue =
 			smallestValue !== undefined
-				? transformerNumericFromRaw(smallestValue)
+				? transformNumericFromRaw(smallestValue)
 				: undefined;
 		largestValue =
 			largestValue !== undefined
-				? transformerNumericFromRaw(largestValue)
+				? transformNumericFromRaw(largestValue)
 				: undefined;
 	}
 
@@ -61,26 +57,24 @@ function getSmallestLargestValues<TRowData extends RowData>({
 
 function getMinMax<TRowData extends RowData>({
 	column,
-	transformerNumericFromRaw,
+	transformNumericFromRaw,
 	currentFilters,
 }: {
 	currentFilters: NumberRangeFilterValue;
 	column: Column<TRowData>;
-	transformerNumericFromRaw?: (
-		value: number | undefined,
-	) => number | undefined;
+	transformNumericFromRaw?: (value: number | undefined) => number | undefined;
 }) {
 	let currentMin = column.getIsFiltered() ? currentFilters[0] : undefined;
 	let currentMax = column.getIsFiltered() ? currentFilters[1] : undefined;
 
-	if (transformerNumericFromRaw) {
+	if (transformNumericFromRaw) {
 		currentMin =
 			currentMin !== undefined
-				? transformerNumericFromRaw(currentMin)
+				? transformNumericFromRaw(currentMin)
 				: undefined;
 		currentMax =
 			currentMax !== undefined
-				? transformerNumericFromRaw(currentMax)
+				? transformNumericFromRaw(currentMax)
 				: undefined;
 	}
 
@@ -93,8 +87,8 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 	strFilterPillText,
 	strMapNumericFilterMode,
 	column,
-	transformerNumericFromRaw,
-	transformerNumericToRaw,
+	transformNumericFromRaw,
+	transformNumericToRaw,
 	strNotANumber,
 }: {
 	column: Column<TRowData>;
@@ -103,16 +97,14 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 	strFilterDialogTitle: string;
 	strNotANumber: string;
 	strFilterPillText: string;
-	transformerNumericFromRaw?: (
-		value: number | undefined,
-	) => number | undefined;
-	transformerNumericToRaw?: (value: number | undefined) => number | undefined;
+	transformNumericFromRaw?: (value: number | undefined) => number | undefined;
+	transformNumericToRaw?: (value: number | undefined) => number | undefined;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const currentFilters = getCurrentFilters<TRowData>({
 		column,
-		transformerNumericFromRaw,
+		transformNumericFromRaw,
 	});
 
 	const isFiltered =
@@ -121,13 +113,13 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 
 	const { largestValue, smallestValue } = getSmallestLargestValues<TRowData>({
 		column,
-		transformerNumericFromRaw,
+		transformNumericFromRaw,
 	});
 
 	const { currentMin, currentMax } = getMinMax<TRowData>({
 		column,
 		currentFilters,
-		transformerNumericFromRaw,
+		transformNumericFromRaw,
 	});
 
 	const pillText = isFiltered ? (
@@ -165,15 +157,15 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 					currentMin={currentMin}
 					largestValue={largestValue ?? 0}
 					setFilter={(v: NumberRangeFilterValue) => {
-						if (transformerNumericToRaw) {
+						if (transformNumericToRaw) {
 							return column.setFilterValue(
-								v.map(transformerNumericToRaw),
+								v.map(transformNumericToRaw),
 							);
 						}
 						return column.setFilterValue(v);
 					}}
 					smallestValue={smallestValue ?? 0}
-					transformerNumericToRaw={transformerNumericToRaw}
+					transformNumericToRaw={transformNumericToRaw}
 					strApplyFilter={strApplyFilter}
 					strMapNumericFilterMode={strMapNumericFilterMode}
 					strNotANumber={strNotANumber}

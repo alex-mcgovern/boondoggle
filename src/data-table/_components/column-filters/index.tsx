@@ -39,8 +39,8 @@ export function TableColumnFilters<TRowData extends RowData>({
 					return (
 						<ColumnMultiFilter<TRowData>
 							column={column}
-							transformerIdToString={
-								columnConfig.transformerIdToString
+							transformValueToString={
+								columnConfig.transformValueToString
 							}
 							strApplyFilter={strApplyFilter}
 							strFilterDialogTitle={
@@ -60,8 +60,8 @@ export function TableColumnFilters<TRowData extends RowData>({
 						strFilterDialogTitle,
 						strFilterPillText,
 						strMapNumericFilterMode,
-						transformerNumericFromRaw,
-						transformerNumericToRaw,
+						transformNumericFromRaw,
+						transformNumericToRaw,
 						strNotANumber,
 					} = columnConfig;
 
@@ -71,10 +71,8 @@ export function TableColumnFilters<TRowData extends RowData>({
 							strFilterDialogTitle={strFilterDialogTitle}
 							strFilterPillText={strFilterPillText}
 							strMapNumericFilterMode={strMapNumericFilterMode}
-							transformerNumericFromRaw={
-								transformerNumericFromRaw
-							}
-							transformerNumericToRaw={transformerNumericToRaw}
+							transformNumericFromRaw={transformNumericFromRaw}
+							transformNumericToRaw={transformNumericToRaw}
 							column={column}
 							key={column.id}
 							strNotANumber={strNotANumber}

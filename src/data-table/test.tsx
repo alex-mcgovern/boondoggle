@@ -37,7 +37,7 @@ const PROPS: DataTableProps<MockTableData> = {
 				strFilterDialogTitle: "Filter by status",
 				strFilterPillText: "Status",
 				type: "MULTI_SELECT",
-				transformerIdToString: (value: MockTableData["status"]) => {
+				transformValueToString: (value: MockTableData["status"]) => {
 					switch (value) {
 						case "active":
 							return "Active";

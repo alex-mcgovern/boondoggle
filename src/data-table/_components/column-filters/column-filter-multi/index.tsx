@@ -57,7 +57,7 @@ export function ColumnMultiFilter<TRowData>({
 	strApplyFilter,
 	strFilterDialogTitle,
 	strFilterPillText,
-	transformerIdToString = (value) => value,
+	transformValueToString = (value) => value,
 	column,
 }: {
 	column: Column<TRowData>;
@@ -65,7 +65,7 @@ export function ColumnMultiFilter<TRowData>({
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
 	// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-	transformerIdToString?: (value: any) => string;
+	transformValueToString?: (value: any) => string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -103,7 +103,7 @@ export function ColumnMultiFilter<TRowData>({
 						className={activeFilterStringCSS}
 						color="button_default"
 					>
-						{transformerIdToString(v)}
+						{transformValueToString ? transformValueToString(v) : v}
 						{i < currentFilters.length - 1 ? ", " : ""}
 					</Box>
 				);
@@ -126,14 +126,16 @@ export function ColumnMultiFilter<TRowData>({
 			return [];
 		}
 
-		return facetKeys.sort().map((value) => {
+		return facetKeys.sort().map((v) => {
 			return (
 				<ColumnMultiFilterItem
 					handleSelection={handleSelection}
-					label={transformerIdToString(value)}
-					key={value}
-					value={value}
-					defaultChecked={currentFilters?.includes(value)}
+					label={
+						transformValueToString ? transformValueToString(v) : v
+					}
+					key={v}
+					value={v}
+					defaultChecked={currentFilters?.includes(v)}
 				/>
 			);
 		});
@@ -142,7 +144,7 @@ export function ColumnMultiFilter<TRowData>({
 		handleSelection,
 		currentFilters,
 		column,
-		transformerIdToString,
+		transformValueToString,
 	]);
 
 	if (!column.getCanFilter()) {
