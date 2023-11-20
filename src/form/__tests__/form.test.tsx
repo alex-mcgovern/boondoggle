@@ -113,10 +113,10 @@ describe("<Form />", () => {
 			expect(descriptionTextArea).toHaveValue(LOREM.text_xxs);
 
 			await selectFromSingleSelect({
-				expected_value: mockSelectItems({})[0].label,
+				expectedValue: mockSelectItems({})[0].label,
 				getByRole,
-				item_label: mockSelectItems({})[0].label,
-				select_label: LOREM.labelDropdown(),
+				itemLabel: mockSelectItems({})[0].label,
+				selectLabel: LOREM.labelDropdown(),
 			});
 
 			await selectFromDatePicker({
