@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { a11yFocusStyleRule, vars } from "../../../../index.css";
 import { sprinkles } from "../../../../sprinkles/index.css";
+import { withPrefersMotion } from "../../../../css-utils";
 
 export const activeFilterStringCSS = style([
 	sprinkles({ display: "inline-block" }),
@@ -32,6 +33,9 @@ export const multiFilterItemCSS = style([
 	}),
 	{
 		margin: `0 ${calc.multiply(vars.spacing.space_2, -1)}`,
+		...withPrefersMotion({
+			transition: `background ${vars.transitionDuration.short} ease`,
+		}),
 		selectors: {
 			"&:has(input:focus-visible)": {
 				...a11yFocusStyleRule,
