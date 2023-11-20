@@ -30,11 +30,9 @@ export const openIconCSS = recipe({
 	base: [sprinkles({ fontStyle: "bodyLg" })],
 	variants: {
 		shouldAnimate: {
-			true: {
-				...withPrefersMotion({
-					animation: `${rotateOutKeyframes} ${vars.transitionDuration.long} ease forwards`,
-				}),
-			},
+			true: withPrefersMotion({
+				animation: `${rotateOutKeyframes} ${vars.transitionDuration.long} ease forwards`,
+			}),
 			false: {},
 		},
 	},
