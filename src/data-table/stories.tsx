@@ -349,6 +349,34 @@ export const KitchenSink: Story = {
 						}
 					},
 				},
+				balance: {
+					strFilterDialogTitle: "Filter by balance",
+					strFilterPillText: "Balance",
+					strMapNumericFilterMode: {
+						is_between: "Is between",
+						is_equal_to: "Is equal to",
+						is_greater_than: "Is greater than",
+						is_less_than: "Is less than",
+					},
+					transformNumericFromRaw: (value: number | undefined) =>
+						value !== undefined ? value / 100 : undefined,
+					transformNumericToRaw: (value: number | undefined) =>
+						value !== undefined ? value * 100 : undefined,
+					type: "NUMBER_RANGE",
+					strNotANumber: "Enter a number",
+				},
+				points: {
+					strFilterDialogTitle: "Filter by points",
+					strFilterPillText: "Points",
+					strMapNumericFilterMode: {
+						is_between: "Is between",
+						is_equal_to: "Is equal to",
+						is_greater_than: "Is greater than",
+						is_less_than: "Is less than",
+					},
+					type: "NUMBER_RANGE",
+					strNotANumber: "Enter a number",
+				},
 			},
 		},
 		paginationOptions: {

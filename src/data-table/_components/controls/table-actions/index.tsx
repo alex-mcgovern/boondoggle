@@ -18,16 +18,31 @@ export function TableActions({
 
 	return (
 		<Box
-			alignItems="center"
+			alignItems="start"
 			borderBottom="border_default"
 			display="flex"
+			// flexWrap="wrap"
 			gap="space_2"
 			marginTop="space_2"
 			paddingBottom="space_2"
 			{...rest}
 		>
-			{globalFilter}
-			{columnFilters}
+			<Box
+				display="flex"
+				flexWrap="wrap"
+				gap="space_2"
+				alignItems="center"
+			>
+				{globalFilter}
+				<Box
+					// flexWrap="wrap"
+					gap="space_2"
+					alignItems="center"
+					display={{ mobile: "none", tablet: "flex" }}
+				>
+					{columnFilters}
+				</Box>
+			</Box>
 			{actions && (
 				<Box
 					alignItems="center"

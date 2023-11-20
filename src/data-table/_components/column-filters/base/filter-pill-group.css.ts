@@ -8,6 +8,7 @@ export const pillGroupCSS = recipe({
 		sprinkles({
 			borderRadius: "pill",
 			display: "inline-flex",
+			flexShrink: "0",
 			alignItems: "center",
 			justifyContent: "center",
 			height: "space_8",
