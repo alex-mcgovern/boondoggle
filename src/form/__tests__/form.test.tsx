@@ -18,7 +18,6 @@ import { mockForm } from "../__mocks__/mock_form.mock";
 import type { FormProps } from "..";
 
 const handleSubmit = jest.fn();
-
 const handleErrors = jest.fn();
 
 const PROPS: FormProps = mockForm({
