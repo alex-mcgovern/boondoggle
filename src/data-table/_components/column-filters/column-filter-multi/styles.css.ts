@@ -16,6 +16,7 @@ export const activeFilterStringCSS = style([
 export const multiFilterListCSS = style([
 	sprinkles({
 		paddingX: "space_4",
+		marginY: "space_2",
 	}),
 	{
 		maxHeight: "12.5rem",
@@ -42,6 +43,16 @@ export const multiFilterItemCSS = style([
 			"&:active": {
 				cursor: "pointer",
 				background: vars.color.tint_hover,
+			},
+		},
+	},
+]);
+
+export const multiFilterItemCheckboxCSS = style([
+	{
+		selectors: {
+			"&:focus": {
+				outline: "none",
 			},
 		},
 	},

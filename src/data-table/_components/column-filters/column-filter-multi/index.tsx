@@ -9,6 +9,7 @@ import { FilterPillMenu } from "../base/filter-pill-menu";
 import {
 	activeFilterStringCSS,
 	multiFilterItemCSS,
+	multiFilterItemCheckboxCSS,
 	multiFilterItemTextCSS,
 	multiFilterListCSS,
 } from "./styles.css";
@@ -38,6 +39,7 @@ const ColumnMultiFilterItem = ({
 			<Box
 				value={value}
 				as="input"
+				className={multiFilterItemCheckboxCSS}
 				defaultChecked={defaultChecked}
 				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 					handleSelection(e.target.value)
@@ -172,6 +174,7 @@ export function ColumnMultiFilter<TRowData>({
 					}}
 					width="100%"
 					size="sm"
+					marginBottom="space_4"
 					name="apply_filter"
 				>
 					{strApplyFilter}
