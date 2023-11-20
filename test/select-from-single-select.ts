@@ -1,6 +1,6 @@
 import { within } from "@testing-library/dom";
-import userEvent from "@testing-library/user-event";
 import type { ByRoleMatcher, ByRoleOptions } from "@testing-library/dom";
+import userEvent from "@testing-library/user-event";
 
 export const selectFromSingleSelect = async ({
 	expectedValue,
