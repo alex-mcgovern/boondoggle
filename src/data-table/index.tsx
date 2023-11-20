@@ -9,9 +9,10 @@ import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { TDataTableRowActions } from "../data-table-row-actions";
 import { tableStyles } from "../index.css";
+import { TableColumnFilters } from "./_components/column-filters";
+import { TablePagination } from "./_components/controls/TablePagination";
 import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
-import { TablePagination } from "./_components/controls/TablePagination";
 import { TableHead } from "./_components/layout/TableHead";
 import { TableLayout } from "./_components/layout/TableLayout";
 import { TableNoResults } from "./_components/layout/TableNoResults";
@@ -21,7 +22,6 @@ import {
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
-import { TableColumnFilters } from "./_components/column-filters";
 
 declare module "@tanstack/table-core" {
 	interface FilterFns {

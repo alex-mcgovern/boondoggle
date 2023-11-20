@@ -1,7 +1,7 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
+import { RowData, Table } from "@tanstack/react-table";
 import { Icon } from "../../../../icon";
 import { Input } from "../../../../input";
-import { RowData, Table } from "@tanstack/react-table";
 import { FilteringOptions } from "../../../types";
 
 export function TableGlobalFilter<TRowData extends RowData>({

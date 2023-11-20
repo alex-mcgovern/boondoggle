@@ -22,8 +22,8 @@ import { arrayHasLength } from "../../_lib/array-has-length";
 import { TDataTableRowActions } from "../../data-table-row-actions";
 import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
-import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
 import { FilteringOptions, PaginationOptions } from "../types";
+import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,

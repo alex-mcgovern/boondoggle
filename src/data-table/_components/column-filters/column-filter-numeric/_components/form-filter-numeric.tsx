@@ -6,12 +6,12 @@ import { FormInput } from "../../../../../form-input";
 import { FormSelectSingle } from "../../../../../form-select-single";
 import { FormSubmitButton } from "../../../../../form-submit-button";
 import type { TableNumberRangeFilterMode } from "../../../../types";
-import { useNumericFilterMode } from "./numeric-filter-mode-context";
 import { getTableNumberRangeFilterModeItems } from "../_lib/getNumberRangeFilterModeItems";
 import {
 	FieldValuesFilterNumberRange,
 	getZodFilterNumberRange,
 } from "../_lib/zodFilterNumberRange";
+import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
 export const FormFilterNumeric = ({
 	currentMax,
@@ -20,20 +20,18 @@ export const FormFilterNumeric = ({
 	smallestValue,
 	strApplyFilter,
 	strMapFilterMode,
-	strErrorTooLarge,
-	strErrorTooSmall,
+	strNotANumber,
 	setFilter,
 	transformerNumericToRaw,
 }: {
 	currentMax: number | undefined;
 	currentMin: number | undefined;
 	largestValue: number;
+	smallestValue: number;
 	setFilter: (v: [number | undefined, number | undefined]) => void;
 	transformerNumericToRaw?: (value: number | undefined) => number | undefined;
-	smallestValue: number;
 	strApplyFilter: string;
-	strErrorTooLarge: string;
-	strErrorTooSmall: string;
+	strNotANumber: string;
 	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
 }) => {
 	const [parentFilterMode, setParentFilterMode] = useNumericFilterMode();
@@ -76,10 +74,7 @@ export const FormFilterNumeric = ({
 			}}
 			resolver={zodResolver(
 				getZodFilterNumberRange({
-					smallestValue,
-					largestValue,
-					strErrorTooLarge,
-					strErrorTooSmall,
+					strNotANumber,
 				}),
 			)}
 		>

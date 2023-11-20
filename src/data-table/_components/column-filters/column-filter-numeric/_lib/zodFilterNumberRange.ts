@@ -1,33 +1,35 @@
 import { z } from "zod";
 
 export const getZodFilterNumberRange = ({
-	smallestValue,
-	largestValue,
-	strErrorTooSmall,
-	strErrorTooLarge,
+	strNotANumber,
 }: {
-	smallestValue: number;
-	largestValue: number;
-	strErrorTooSmall: string;
-	strErrorTooLarge: string;
+	strNotANumber: string;
 }) => {
+	const errorMap = () => {
+		return { message: strNotANumber };
+	};
+
 	return z.discriminatedUnion("filter_mode", [
 		z.object({
 			filter_mode: z.literal("is_between"),
-			min: z.coerce.number(),
-			max: z.coerce.number(),
+			min: z.coerce.number({
+				errorMap,
+			}),
+			max: z.coerce.number({
+				errorMap,
+			}),
 		}),
 		z.object({
 			filter_mode: z.literal("is_equal_to"),
-			is_equal_to: z.coerce.number(),
+			is_equal_to: z.coerce.number({ errorMap }),
 		}),
 		z.object({
 			filter_mode: z.literal("is_greater_than"),
-			is_greater_than: z.coerce.number(),
+			is_greater_than: z.coerce.number({ errorMap }),
 		}),
 		z.object({
 			filter_mode: z.literal("is_less_than"),
-			is_less_than: z.coerce.number(),
+			is_less_than: z.coerce.number({ errorMap }),
 		}),
 	]);
 };

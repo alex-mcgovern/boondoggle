@@ -66,6 +66,7 @@ export type FilteringOptions<TRowData extends RowData> = {
 					type: "NUMBER_RANGE";
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
+					strNotANumber: string;
 					transformerNumericFromRaw?: (
 						value: number | undefined,
 					) => number | undefined;

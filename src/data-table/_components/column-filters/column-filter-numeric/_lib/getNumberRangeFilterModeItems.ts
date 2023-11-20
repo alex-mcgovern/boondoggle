@@ -1,5 +1,5 @@
 import { SelectItemShape } from "../../../../../select/types";
-import { TableNumberRangeFilterMode } from "../../../../../types";
+import { TableNumberRangeFilterMode } from "../../../../types";
 
 export const getTableNumberRangeFilterModeItems = ({
 	strMapFilterMode,

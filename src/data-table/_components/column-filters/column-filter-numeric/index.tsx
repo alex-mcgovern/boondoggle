@@ -5,8 +5,8 @@ import { isTruthy } from "../../../../_lib/is-truthy";
 import { TableNumberRangeFilterMode } from "../../../types";
 import { FilterDialogTitle } from "../base/FilterBaseDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
-import { NumericFilterModeProvider } from "./_components/numeric-filter-mode-context";
 import { FormFilterNumeric } from "./_components/form-filter-numeric";
+import { NumericFilterModeProvider } from "./_components/numeric-filter-mode-context";
 import { PillTextFilterNumberRange } from "./_components/pill-text-filter-numeric";
 
 type NumberRangeFilterValue = [number | undefined, number | undefined];
@@ -95,11 +95,13 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 	column,
 	transformerNumericFromRaw,
 	transformerNumericToRaw,
+	strNotANumber,
 }: {
 	column: Column<TRowData>;
 	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
 	strApplyFilter: string;
 	strFilterDialogTitle: string;
+	strNotANumber: string;
 	strFilterPillText: string;
 	transformerNumericFromRaw?: (
 		value: number | undefined,
@@ -174,8 +176,7 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 					transformerNumericToRaw={transformerNumericToRaw}
 					strApplyFilter={strApplyFilter}
 					strMapFilterMode={strMapFilterMode}
-					strErrorTooLarge="Must be less than "
-					strErrorTooSmall="Must be greater than "
+					strNotANumber={strNotANumber}
 				/>
 			</FilterPillMenu>
 		</NumericFilterModeProvider>

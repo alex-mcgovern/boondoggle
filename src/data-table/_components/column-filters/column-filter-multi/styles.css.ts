@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
-import { sprinkles } from "../../../../sprinkles/index.css";
 import { calc } from "@vanilla-extract/css-utils";
-import { vars, a11yFocusStyleRule } from "../../../../index.css";
+import { a11yFocusStyleRule, vars } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const activeFilterStringCSS = style([
 	sprinkles({ display: "inline-block" }),

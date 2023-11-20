@@ -1,7 +1,7 @@
 import { RowData, Table } from "@tanstack/react-table";
+import { FilteringOptions } from "../../types";
 import { ColumnMultiFilter } from "./column-filter-multi";
 import { ColumnFilterNumeric } from "./column-filter-numeric";
-import { FilteringOptions } from "../../types";
 
 export function TableColumnFilters<TRowData extends RowData>({
 	table,
@@ -62,6 +62,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 						strMapFilterMode,
 						transformerNumericFromRaw,
 						transformerNumericToRaw,
+						strNotANumber,
 					} = columnConfig;
 
 					return (
@@ -76,6 +77,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 							transformerNumericToRaw={transformerNumericToRaw}
 							column={column}
 							key={column.id}
+							strNotANumber={strNotANumber}
 						/>
 					);
 				}

@@ -8,9 +8,9 @@ import { FilterDialogTitle } from "../base/FilterBaseDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
 import {
 	activeFilterStringCSS,
-	multiFilterListCSS,
 	multiFilterItemCSS,
 	multiFilterItemTextCSS,
+	multiFilterListCSS,
 } from "./styles.css";
 
 const ColumnMultiFilterItem = ({

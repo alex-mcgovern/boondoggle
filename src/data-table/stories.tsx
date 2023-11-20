@@ -1,7 +1,6 @@
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import type { Meta, StoryObj } from "@storybook/react";
 import { DataTable as StoryComp } from ".";
-import { COLUMNS, mockColumn, MockTableData } from "./_mocks/data-table.mock";
 import { Button } from "../button";
 import {
 	DataTableRowActions,
@@ -9,6 +8,7 @@ import {
 } from "../data-table-row-actions";
 import { Icon } from "../icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
+import { COLUMNS, MockTableData, mockColumn } from "./_mocks/data-table.mock";
 import { TableNumberRangeFilterMode } from "./types";
 
 const meta = {
@@ -191,6 +191,7 @@ export const IsColumnFilterEnabled: Story = {
 					transformerNumericToRaw: (value: number | undefined) =>
 						value !== undefined ? value * 100 : undefined,
 					type: "NUMBER_RANGE",
+					strNotANumber: "Enter a number",
 				},
 				points: {
 					strFilterDialogTitle: "Filter by points",
@@ -202,6 +203,7 @@ export const IsColumnFilterEnabled: Story = {
 						is_less_than: "Is less than",
 					},
 					type: "NUMBER_RANGE",
+					strNotANumber: "Enter a number",
 				},
 			},
 		},

@@ -5,14 +5,10 @@ import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { render } from "@testing-library/react";
 import { DataTable } from ".";
 import type { DataTableProps } from ".";
-import {
-	DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
-	mockColumn,
-} from "./_mocks/data-table.mock";
-import type { MockTableData } from "./_mocks/data-table.mock";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { MOCK_FILTER_MODE_STRINGS, MOCK_FILTER_STRINGS } from "./stories";
+import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
+import type { MockTableData } from "./_mocks/data-table.mock";
 
 const renderComponent = ({ ...props }: DataTableProps<MockTableData>) => {
 	return render(<DataTable {...props} />);
@@ -21,6 +17,8 @@ const renderComponent = ({ ...props }: DataTableProps<MockTableData>) => {
 const MOCK_DATA = Array.from({ length: 40 }, mockColumn);
 
 const PROPS: DataTableProps<MockTableData> = {
+	data: MOCK_DATA,
+	columns: COLUMNS,
 	actions: [
 		<Button appearance="secondary" name="secondary_action">
 			Secondary action
@@ -29,22 +27,43 @@ const PROPS: DataTableProps<MockTableData> = {
 			Primary action
 		</Button>,
 	],
-	columns: DATA_TABLE_COLUMNS_WITH_AGGREGATED_MOCK,
-	data: MOCK_DATA,
-	isGlobalFilterEnabled: true,
-	strApplyFilter: "Apply filter",
-	isPaginated: true,
-	strMapFilterMode: MOCK_FILTER_MODE_STRINGS,
-	filterColumnStrMap: MOCK_FILTER_STRINGS,
+	filteringOptions: {
+		strApplyFilter: "Apply filter",
+		strClearAllFilters: "Clear all filters",
+		strClearFilterInput: "Clear filter input",
+		strFilterPlaceholder: "Filter results...",
+		columnFilterConfig: {
+			status: {
+				strFilterDialogTitle: "Filter by status",
+				strFilterPillText: "Status",
+				type: "MULTI_SELECT",
+				transformerIdToString: (value: MockTableData["status"]) => {
+					switch (value) {
+						case "active":
+							return "Active";
+						case "inactive":
+							return "Inactive";
+						case "invited":
+							return "Invited";
+						default:
+							return value;
+					}
+				},
+			},
+		},
+	},
+	paginationOptions: {
+		strNext: "Next",
+		strPage: "Page",
+		strPrev: "Previous",
+		strResults: "Results",
+	},
+	isSelectable: true,
 	isSortable: true,
-	strClearAllFilters: "Clear all filters",
-	strClearFilterInput: "Clear filter input",
-	strFilterPlaceholder: "Filter results...",
-	strNext: "Next",
+	onSelect: (rowSelection) => {
+		alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
+	},
 	strNoResults: "No results",
-	strPage: "Page",
-	strPrev: "Previous",
-	strResults: "Results",
 };
 
 describe("<DataTable />", () => {
