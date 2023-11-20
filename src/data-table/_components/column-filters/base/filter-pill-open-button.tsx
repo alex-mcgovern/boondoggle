@@ -15,7 +15,6 @@ export const FilterPillOpenButton = ({
 	isFiltered: boolean;
 	pillText: React.ReactNode;
 }) => {
-	console.debug("debug  wasFiltered:", wasFiltered);
 	return (
 		<button
 			className={openButtonCSS}
