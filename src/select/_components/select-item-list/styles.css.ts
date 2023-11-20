@@ -1,8 +1,8 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { elementPaddingRaw, vars } from "../../index.css";
-import { sprinkles } from "../../sprinkles/index.css";
+import { elementPaddingRaw, vars } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 const groupTitleSize = styleVariants({
 	lg: {
@@ -60,6 +60,7 @@ export const innerCSS = style([
 		listStyle: "none",
 		maxHeight: "15rem",
 		minWidth: "10rem",
+
 		selectors: {
 			"&:empty": {
 				display: "none",
@@ -70,5 +71,7 @@ export const innerCSS = style([
 
 export const selectItemListCSS = style({
 	minWidth: "100%",
+	width: "max-content",
 	overflow: "hidden",
+	zIndex: 9999,
 });

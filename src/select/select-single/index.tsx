@@ -23,7 +23,7 @@ import {
 	WithStateInvalid,
 	getOptionalLabelProps,
 } from "../../types";
-import { SelectItemList } from "../_components/SelectItemList";
+import { SelectItemList } from "../_components/select-item-list";
 import { filterSelectItems } from "../_lib/filterSelectItems";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";
 import { getSlotRight } from "../_lib/get-slot-right";

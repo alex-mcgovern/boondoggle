@@ -5,22 +5,18 @@ import type {
 } from "downshift";
 import * as React from "react";
 import { CSSProperties, ForwardedRef, Fragment } from "react";
-import { arrayHasLength } from "../../_lib/array-has-length";
-import { FloatingPanel } from "../../floating-panel";
-import { WithSize } from "../../types";
-import { isGroupedSelectItems } from "../_lib/isGroupedSelectItems";
+import { arrayHasLength } from "../../../_lib/array-has-length";
+import { FloatingPanel } from "../../../floating-panel";
+import { WithSize } from "../../../types";
+import { isGroupedSelectItems } from "../../_lib/isGroupedSelectItems";
 import type {
 	FlatSelectItems,
 	GroupedSelectItems,
 	SelectItemShape,
-} from "../types";
-import { SelectItem } from "./SelectItem";
-import {
-	groupTitleCSS,
-	innerCSS,
-	selectItemListCSS,
-} from "./SelectItemList.css";
-import { SelectSeparator } from "./SelectSeparator";
+} from "../../types";
+import { SelectItem } from "../SelectItem";
+import { groupTitleCSS, innerCSS, selectItemListCSS } from "./styles.css";
+import { SelectSeparator } from "../SelectSeparator";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`

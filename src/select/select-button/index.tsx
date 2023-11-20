@@ -20,7 +20,7 @@ import {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../types";
-import { SelectItemList } from "../_components/SelectItemList";
+import { SelectItemList } from "../_components/select-item-list";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";
 import { isNotSeparator } from "../_lib/isNotSeparator";
 import type {
