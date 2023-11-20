@@ -133,24 +133,30 @@ export const sprinklesLayer = globalLayer("sprinkles");
 
 export const vars = createGlobalTheme(":root", {
 	color: {
-		backdrop: slateA.slateA11,
-		background: slate.slate1,
 		black: slate.slate12,
-		border_active: slate.slate8,
+		white: slate.slate1,
+
+		text_low_contrast: slate.slate11,
+		text_high_contrast: slate.slate12,
+
+		background: slate.slate1,
+		backdrop: slateA.slateA11,
+		shadow: slateA.slateA4,
+
 		border_default: slate.slate6,
+		border_active: slate.slate8,
 		border_hover: slate.slate7,
-		button_active: blue.blue11,
+
+		button_tint: blue.blue5,
 		button_default: blue.blue9,
 		button_hover: blue.blue10,
-		button_tint: blue.blue5,
+		button_active: blue.blue11,
+
+		tint_default: slate.slate3,
+		tint_hover: slate.slate4,
+		tint_active: slate.slate5,
+
 		focus_ring: blue.blue7,
-		shadow: slateA.slateA4,
-		text_high_contrast: slate.slate12,
-		text_low_contrast: slate.slate11,
-		tint_active: slate.slate4,
-		tint_default: slate.slate2,
-		tint_hover: slate.slate3,
-		white: slate.slate1,
 	},
 	aspectRatio: {
 		extraWide: "10 / 3",
@@ -159,8 +165,8 @@ export const vars = createGlobalTheme(":root", {
 		wide: "16 / 9",
 	},
 	border: {
-		border_default: `1px solid ${slate.slate7}`,
-		border_hover: `1px solid ${slate.slate8}`,
+		border_default: `1px solid ${slate.slate6}`,
+		border_hover: `1px solid ${slate.slate7}`,
 	},
 	borderRadius: {
 		"50%": "50%",
@@ -345,24 +351,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: amberA.amberA11,
-					background: amber.amber1,
 					black: amber.amber12,
-					border_active: amber.amber8,
+					white: amber.amber1,
+
+					text_low_contrast: amber.amber11,
+					text_high_contrast: amber.amber12,
+
+					background: amber.amber1,
+					backdrop: amberA.amberA11,
+					shadow: amberA.amberA4,
+
 					border_default: amber.amber6,
+					border_active: amber.amber8,
 					border_hover: amber.amber7,
-					button_active: amber.amber11,
+
+					button_tint: amber.amber5,
 					button_default: amber.amber9,
 					button_hover: amber.amber10,
-					button_tint: amber.amber5,
+					button_active: amber.amber11,
+
+					tint_default: amber.amber3,
+					tint_hover: amber.amber4,
+					tint_active: amber.amber5,
+
 					focus_ring: amber.amber7,
-					shadow: amberA.amberA4,
-					text_high_contrast: amber.amber12,
-					text_low_contrast: amber.amber11,
-					tint_active: amber.amber4,
-					tint_default: amber.amber2,
-					tint_hover: amber.amber3,
-					white: amber.amber1,
 				}),
 			},
 		},
@@ -371,24 +383,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: blueA.blueA11,
-					background: blue.blue1,
 					black: blue.blue12,
-					border_active: blue.blue8,
+					white: blue.blue1,
+
+					text_low_contrast: blue.blue11,
+					text_high_contrast: blue.blue12,
+
+					background: blue.blue1,
+					backdrop: blueA.blueA11,
+					shadow: blueA.blueA4,
+
 					border_default: blue.blue6,
+					border_active: blue.blue8,
 					border_hover: blue.blue7,
-					button_active: blue.blue11,
+
+					button_tint: blue.blue5,
 					button_default: blue.blue9,
 					button_hover: blue.blue10,
-					button_tint: blue.blue5,
+					button_active: blue.blue11,
+
+					tint_default: blue.blue3,
+					tint_hover: blue.blue4,
+					tint_active: blue.blue5,
+
 					focus_ring: blue.blue7,
-					shadow: blueA.blueA4,
-					text_high_contrast: blue.blue12,
-					text_low_contrast: blue.blue11,
-					tint_active: blue.blue4,
-					tint_default: blue.blue2,
-					tint_hover: blue.blue3,
-					white: blue.blue1,
 				}),
 			},
 		},
@@ -397,24 +415,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: slateA.slateA11,
-					background: slate.slate1,
 					black: slate.slate12,
-					border_active: slate.slate8,
+					white: slate.slate1,
+
+					text_low_contrast: slate.slate11,
+					text_high_contrast: slate.slate12,
+
+					background: slate.slate1,
+					backdrop: slateA.slateA11,
+					shadow: slateA.slateA4,
+
 					border_default: slate.slate6,
+					border_active: slate.slate8,
 					border_hover: slate.slate7,
-					button_active: blue.blue11,
+
+					button_tint: blue.blue5,
 					button_default: blue.blue9,
 					button_hover: blue.blue10,
-					button_tint: blue.blue5,
+					button_active: blue.blue11,
+
+					tint_default: slate.slate3,
+					tint_hover: slate.slate4,
+					tint_active: slate.slate5,
+
 					focus_ring: blue.blue7,
-					shadow: slateA.slateA4,
-					text_high_contrast: slate.slate12,
-					text_low_contrast: slate.slate11,
-					tint_active: slate.slate4,
-					tint_default: slate.slate2,
-					tint_hover: slate.slate3,
-					white: slate.slate1,
 				}),
 			},
 		},
@@ -423,24 +447,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: greenA.greenA11,
-					background: green.green1,
 					black: green.green12,
-					border_active: green.green8,
+					white: green.green1,
+
+					text_low_contrast: green.green11,
+					text_high_contrast: green.green12,
+
+					background: green.green1,
+					backdrop: greenA.greenA11,
+					shadow: greenA.greenA4,
+
 					border_default: green.green6,
+					border_active: green.green8,
 					border_hover: green.green7,
-					button_active: green.green11,
+
+					button_tint: green.green5,
 					button_default: green.green9,
 					button_hover: green.green10,
-					button_tint: green.green5,
+					button_active: green.green11,
+
+					tint_default: green.green3,
+					tint_hover: green.green4,
+					tint_active: green.green5,
+
 					focus_ring: green.green7,
-					shadow: greenA.greenA4,
-					text_high_contrast: green.green12,
-					text_low_contrast: green.green11,
-					tint_active: green.green4,
-					tint_default: green.green2,
-					tint_hover: green.green3,
-					white: green.green1,
 				}),
 			},
 		},
@@ -449,24 +479,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: slateA.slateA11,
-					background: slate.slate1,
 					black: slate.slate12,
-					border_active: slate.slate8,
+					white: slate.slate1,
+
+					text_low_contrast: slate.slate11,
+					text_high_contrast: slate.slate12,
+
+					background: slate.slate1,
+					backdrop: slateA.slateA11,
+					shadow: slateA.slateA4,
+
 					border_default: slate.slate6,
+					border_active: slate.slate8,
 					border_hover: slate.slate7,
-					button_active: slate.slate11,
+
+					button_tint: slate.slate5,
 					button_default: slate.slate9,
 					button_hover: slate.slate10,
-					button_tint: slate.slate5,
+					button_active: slate.slate11,
+
+					tint_default: slate.slate3,
+					tint_hover: slate.slate4,
+					tint_active: slate.slate5,
+
 					focus_ring: slate.slate7,
-					shadow: slateA.slateA4,
-					text_high_contrast: slate.slate12,
-					text_low_contrast: slate.slate11,
-					tint_active: slate.slate4,
-					tint_default: slate.slate2,
-					tint_hover: slate.slate3,
-					white: slate.slate1,
 				}),
 			},
 		},
@@ -475,24 +511,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: redA.redA11,
-					background: red.red1,
 					black: red.red12,
-					border_active: red.red8,
+					white: red.red1,
+
+					text_low_contrast: red.red11,
+					text_high_contrast: red.red12,
+
+					background: red.red1,
+					backdrop: redA.redA11,
+					shadow: redA.redA4,
+
 					border_default: red.red6,
+					border_active: red.red8,
 					border_hover: red.red7,
-					button_active: red.red11,
+
+					button_tint: red.red5,
 					button_default: red.red9,
 					button_hover: red.red10,
-					button_tint: red.red5,
+					button_active: red.red11,
+
+					tint_default: red.red3,
+					tint_hover: red.red4,
+					tint_active: red.red5,
+
 					focus_ring: red.red7,
-					shadow: redA.redA4,
-					text_high_contrast: red.red12,
-					text_low_contrast: red.red11,
-					tint_active: red.red4,
-					tint_default: red.red2,
-					tint_hover: red.red3,
-					white: red.red1,
 				}),
 			},
 		},
@@ -501,24 +543,30 @@ export const variantColorOverlay = styleVariants({
 		"@layer": {
 			[themeLayer]: {
 				vars: assignVars(vars.color, {
-					backdrop: irisA.irisA11,
-					background: iris.iris1,
 					black: iris.iris12,
-					border_active: iris.iris8,
+					white: iris.iris1,
+
+					text_low_contrast: iris.iris11,
+					text_high_contrast: iris.iris12,
+
+					background: iris.iris1,
+					backdrop: irisA.irisA11,
+					shadow: irisA.irisA4,
+
 					border_default: iris.iris6,
+					border_active: iris.iris8,
 					border_hover: iris.iris7,
-					button_active: iris.iris11,
+
+					button_tint: iris.iris5,
 					button_default: iris.iris9,
 					button_hover: iris.iris10,
-					button_tint: iris.iris5,
+					button_active: iris.iris11,
+
+					tint_default: iris.iris3,
+					tint_hover: iris.iris4,
+					tint_active: iris.iris5,
+
 					focus_ring: iris.iris7,
-					shadow: irisA.irisA4,
-					text_high_contrast: iris.iris12,
-					text_low_contrast: iris.iris11,
-					tint_active: iris.iris4,
-					tint_default: iris.iris2,
-					tint_hover: iris.iris3,
-					white: iris.iris1,
 				}),
 			},
 		},
@@ -1175,7 +1223,7 @@ export const tHeadStyles = style({
 
 const tableCellStyleRule: StyleRule = {
 	fontSize: vars.fontSize.bodyMd,
-	padding: `${vars.spacing.space_2} ${vars.spacing.space_6}`,
+	padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
 	// textAlign: "left",
 	verticalAlign: "middle",
 };

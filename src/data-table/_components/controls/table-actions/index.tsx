@@ -22,8 +22,8 @@ export function TableActions({
 			borderBottom="border_default"
 			display="flex"
 			gap="space_2"
-			marginTop="space_4"
-			paddingBottom="space_4"
+			marginTop="space_2"
+			paddingBottom="space_2"
 			{...rest}
 		>
 			{globalFilter}

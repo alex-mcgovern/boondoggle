@@ -257,7 +257,11 @@ export const WithInitialSorting: Story = {
 export const With1Action: Story = {
 	args: {
 		actions: (
-			<Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+			<Button
+				size="sm"
+				name="primary_action"
+				slotLeft={<Icon icon={faPlus} />}
+			>
 				Primary action
 			</Button>
 		),
@@ -268,10 +272,14 @@ export const With1Action: Story = {
 export const With2Actions: Story = {
 	args: {
 		actions: [
-			<Button appearance="secondary" name="secondary_action">
+			<Button size="sm" appearance="secondary" name="secondary_action">
 				Secondary action
 			</Button>,
-			<Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+			<Button
+				size="sm"
+				name="primary_action"
+				slotLeft={<Icon icon={faPlus} />}
+			>
 				Primary action
 			</Button>,
 		],
@@ -282,10 +290,14 @@ export const With2Actions: Story = {
 export const WithRowActionItems: Story = {
 	args: {
 		actions: [
-			<Button appearance="secondary" name="secondary_action">
+			<Button size="sm" appearance="secondary" name="secondary_action">
 				Secondary action
 			</Button>,
-			<Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+			<Button
+				size="sm"
+				name="primary_action"
+				slotLeft={<Icon icon={faPlus} />}
+			>
 				Primary action
 			</Button>,
 		],
@@ -297,10 +309,14 @@ export const WithRowActionItems: Story = {
 export const WithRowActionItemsShortList: Story = {
 	args: {
 		actions: [
-			<Button appearance="secondary" name="secondary_action">
+			<Button size="sm" appearance="secondary" name="secondary_action">
 				Secondary action
 			</Button>,
-			<Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+			<Button
+				size="sm"
+				name="primary_action"
+				slotLeft={<Icon icon={faPlus} />}
+			>
 				Primary action
 			</Button>,
 		],
@@ -314,10 +330,14 @@ export const WithRowActionItemsShortList: Story = {
 export const KitchenSink: Story = {
 	args: {
 		actions: [
-			<Button appearance="secondary" name="secondary_action">
+			<Button size="sm" appearance="secondary" name="secondary_action">
 				Secondary action
 			</Button>,
-			<Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+			<Button
+				size="sm"
+				name="primary_action"
+				slotLeft={<Icon icon={faPlus} />}
+			>
 				Primary action
 			</Button>,
 		],
