@@ -67,6 +67,9 @@ export const getSelectItemStyles = recipe({
 				"&:hover": {
 					cursor: "pointer",
 				},
+				"&:active": {
+					background: vars.color.tint_hover,
+				},
 			},
 		},
 	],
@@ -78,6 +81,6 @@ export const getSelectItemStyles = recipe({
 
 export const isHighlightedStyle = style([
 	{
-		background: vars.color.tint_active,
+		background: vars.color.tint_default,
 	},
 ]);
