@@ -28,11 +28,11 @@ import { withPrefersMotion } from "./css-utils";
  * MEDIA QUERIES
  * ------------------------------------------------------------------------------- */
 
-export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 1024px)";
+export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 896px)";
 
 export const MEDIA_QUERY_TABLET = "only screen and (min-width: 512px)";
 
-export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 511x)";
+export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 511px)";
 
 /** -----------------------------------------------------------------------------
  * SELECTORS

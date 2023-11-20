@@ -1,12 +1,17 @@
 import { Children } from "react";
 import type { ReactNode } from "react";
 import { Box } from "../../../../box";
+import {
+	actionsCSS,
+	columnFiltersCSS,
+	globalFilterCSS,
+	tableActionsCSS,
+} from "./styles.css";
 
 export function TableActions({
 	globalFilter,
 	columnFilters,
 	actions,
-	...rest
 }: {
 	globalFilter?: ReactNode;
 	columnFilters: ReactNode;
@@ -17,44 +22,14 @@ export function TableActions({
 	}
 
 	return (
-		<Box
-			alignItems="start"
-			borderBottom="border_default"
-			display="flex"
-			// flexWrap="wrap"
-			gap="space_2"
-			marginTop="space_2"
-			paddingBottom="space_2"
-			{...rest}
-		>
-			<Box
-				display="flex"
-				flexWrap="wrap"
-				gap="space_2"
-				alignItems="center"
-			>
-				{globalFilter}
-				<Box
-					// flexWrap="wrap"
-					gap="space_2"
-					alignItems="center"
-					display={{ mobile: "none", tablet: "flex" }}
-				>
-					{columnFilters}
-				</Box>
-			</Box>
-			{actions && (
-				<Box
-					alignItems="center"
-					display="flex"
-					gap="space_2"
-					marginLeft="auto"
-				>
-					{Children.map(actions, (action) => {
-						return action;
-					})}
-				</Box>
-			)}
-		</Box>
+		<div className={tableActionsCSS}>
+			<div className={globalFilterCSS}>{globalFilter}</div>
+			<div className={columnFiltersCSS}>{columnFilters}</div>
+			<div className={actionsCSS}>
+				{Children.map(actions, (action) => {
+					return action;
+				})}
+			</div>
+		</div>
 	);
 }

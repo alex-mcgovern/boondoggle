@@ -93,7 +93,7 @@ function PrivateFilterPillMenu(
 	]);
 
 	return (
-		<Box position="relative">
+		<Box position="relative" flexShrink="0">
 			<FilterPillGroup
 				isFiltered={isFiltered}
 				ref={ref}
