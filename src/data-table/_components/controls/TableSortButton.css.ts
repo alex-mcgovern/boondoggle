@@ -20,6 +20,13 @@ export const sortIconStyle = style({
 	...withPrefersMotion({
 		transition: `opacity ${vars.transitionDuration.short} ease`,
 	}),
+
+	/**
+	 * @note There was a bug with the table actions wrapper which
+	 * caused the sort icon to appear over dropdowns. This is
+	 * an ugly fix to make sure the sort icon is always behind.
+	 */
+	zIndex: -1,
 });
 
 globalStyle(`${sortControlBase}:hover ${sortIconStyle}`, {
