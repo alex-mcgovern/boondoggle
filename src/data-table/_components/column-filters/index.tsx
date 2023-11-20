@@ -1,6 +1,6 @@
 import { RowData, Table } from "@tanstack/react-table";
-import { FilterPillMultiSelect } from "./multi-select/FilterPillMultiSelect";
-import { ColumnFilterNumeric } from "./table-column-filter-numeric";
+import { ColumnMultiFilter } from "./column-filter-multi";
+import { ColumnFilterNumeric } from "./column-filter-numeric";
 import { FilteringOptions } from "../../types";
 
 export function TableColumnFilters<TRowData extends RowData>({
@@ -37,7 +37,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 					columnConfig?.type === "MULTI_SELECT"
 				) {
 					return (
-						<FilterPillMultiSelect<TRowData>
+						<ColumnMultiFilter<TRowData>
 							column={column}
 							transformerIdToString={
 								columnConfig.transformerIdToString

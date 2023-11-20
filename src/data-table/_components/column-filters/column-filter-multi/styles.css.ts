@@ -1,9 +1,29 @@
 import { style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
-import { a11yFocusStyleRule, vars } from "../../../../index.css";
 import { sprinkles } from "../../../../sprinkles/index.css";
+import { calc } from "@vanilla-extract/css-utils";
+import { vars, a11yFocusStyleRule } from "../../../../index.css";
 
-export const selectItemLabelCSS = style([
+export const activeFilterStringCSS = style([
+	sprinkles({ display: "inline-block" }),
+	{
+		maxWidth: "5rem",
+		whiteSpace: "nowrap",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+	},
+]);
+
+export const multiFilterListCSS = style([
+	sprinkles({
+		paddingX: "space_4",
+	}),
+	{
+		maxHeight: "12.5rem",
+		overflowY: "auto",
+	},
+]);
+
+export const multiFilterItemCSS = style([
 	sprinkles({
 		paddingX: "space_2",
 		paddingY: "space_1",
@@ -27,7 +47,7 @@ export const selectItemLabelCSS = style([
 	},
 ]);
 
-export const selectItemLabelTextCSS = style([
+export const multiFilterItemTextCSS = style([
 	sprinkles({
 		whiteSpace: "nowrap",
 		overflow: "hidden",

@@ -29,7 +29,7 @@ export const FormFilterNumeric = ({
 	currentMin: number | undefined;
 	largestValue: number;
 	setFilter: (v: [number | undefined, number | undefined]) => void;
-	transformerNumericToRaw: (value: number | undefined) => number | undefined;
+	transformerNumericToRaw?: (value: number | undefined) => number | undefined;
 	smallestValue: number;
 	strApplyFilter: string;
 	strErrorTooLarge: string;

@@ -16,7 +16,7 @@ function getCurrentFilters<TRowData extends RowData>({
 	transformerNumericFromRaw,
 }: {
 	column: Column<TRowData>;
-	transformerNumericFromRaw: (
+	transformerNumericFromRaw?: (
 		value: number | undefined,
 	) => number | undefined;
 }) {
@@ -38,7 +38,7 @@ function getSmallestLargestValues<TRowData extends RowData>({
 	transformerNumericFromRaw,
 }: {
 	column: Column<TRowData>;
-	transformerNumericFromRaw: (
+	transformerNumericFromRaw?: (
 		value: number | undefined,
 	) => number | undefined;
 }) {
@@ -66,7 +66,7 @@ function getMinMax<TRowData extends RowData>({
 }: {
 	currentFilters: NumberRangeFilterValue;
 	column: Column<TRowData>;
-	transformerNumericFromRaw: (
+	transformerNumericFromRaw?: (
 		value: number | undefined,
 	) => number | undefined;
 }) {
@@ -101,10 +101,10 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 	strApplyFilter: string;
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
-	transformerNumericFromRaw: (
+	transformerNumericFromRaw?: (
 		value: number | undefined,
 	) => number | undefined;
-	transformerNumericToRaw: (value: number | undefined) => number | undefined;
+	transformerNumericToRaw?: (value: number | undefined) => number | undefined;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 

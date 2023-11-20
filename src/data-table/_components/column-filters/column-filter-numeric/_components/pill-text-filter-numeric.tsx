@@ -1,7 +1,7 @@
 import { exhaustiveSwitchGuard } from "../../../../../_lib/exhaustive-switch-guard";
 import { Box } from "../../../../../box";
 import { TableNumberRangeFilterMode } from "../../../../types";
-import { activeFilterStringCSS } from "../../multi-select/FilterPillMultiSelect.css";
+import { activeFilterStringCSS } from "../../column-filter-multi/styles.css";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
 const getSeparator = (filterMode: TableNumberRangeFilterMode) => {

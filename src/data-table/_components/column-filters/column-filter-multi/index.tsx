@@ -8,11 +8,50 @@ import { FilterDialogTitle } from "../base/FilterBaseDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
 import {
 	activeFilterStringCSS,
-	selectItemListCSS,
-} from "./FilterPillMultiSelect.css";
-import { FilterSelectItem } from "./FilterSelectItem";
+	multiFilterListCSS,
+	multiFilterItemCSS,
+	multiFilterItemTextCSS,
+} from "./styles.css";
 
-export function FilterPillMultiSelect<TRowData>({
+const ColumnMultiFilterItem = ({
+	defaultChecked,
+	label,
+	value,
+	handleSelection,
+}: {
+	handleSelection: (value: string) => void;
+	defaultChecked: boolean | undefined;
+	label: string;
+	value: string;
+}) => {
+	return (
+		<Box
+			className={multiFilterItemCSS}
+			as="label"
+			htmlFor={`item_${value}`}
+			display="flex"
+			alignItems="center"
+			fontStyle="bodyMd"
+			gap="space_2"
+			marginBottom="space_4"
+		>
+			<Box
+				value={value}
+				as="input"
+				defaultChecked={defaultChecked}
+				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+					handleSelection(e.target.value)
+				}
+				// tabIndex={-1}
+				type="checkbox"
+				id={`item_${value}`}
+			/>
+			<div className={multiFilterItemTextCSS}>{label}</div>
+		</Box>
+	);
+};
+
+export function ColumnMultiFilter<TRowData>({
 	strApplyFilter,
 	strFilterDialogTitle,
 	strFilterPillText,
@@ -27,10 +66,6 @@ export function FilterPillMultiSelect<TRowData>({
 	transformerIdToString?: (value: any) => string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
-
-	/** -----------------------------------------------------------------------------
-	 * SYNCHRONISING STATE BETWEEN THE FILTER MENU AND THE FILTER PILL
-	 * ------------------------------------------------------------------------------- */
 
 	const currentFilters: string[] = column.getFilterValue() as string[];
 
@@ -50,10 +85,6 @@ export function FilterPillMultiSelect<TRowData>({
 	useEffect(() => {
 		setSelectedItems(currentFilters);
 	}, [currentFilters]);
-
-	/** -----------------------------------------------------------------------------
-	 * PILL TEXT
-	 * ------------------------------------------------------------------------------- */
 
 	const isFiltered =
 		column.getIsFiltered() &&
@@ -95,7 +126,7 @@ export function FilterPillMultiSelect<TRowData>({
 
 		return facetKeys.sort().map((value) => {
 			return (
-				<FilterSelectItem
+				<ColumnMultiFilterItem
 					handleSelection={handleSelection}
 					label={transformerIdToString(value)}
 					key={value}
@@ -112,17 +143,9 @@ export function FilterPillMultiSelect<TRowData>({
 		transformerIdToString,
 	]);
 
-	/** -----------------------------------------------------------------------------
-	 * EARLY RETURN IF NO FILTERS
-	 * ------------------------------------------------------------------------------- */
-
 	if (!column.getCanFilter()) {
 		return null;
 	}
-
-	/** -----------------------------------------------------------------------------
-	 * RENDER
-	 * ------------------------------------------------------------------------------- */
 
 	return (
 		<FilterPillMenu
@@ -135,7 +158,7 @@ export function FilterPillMultiSelect<TRowData>({
 		>
 			<FilterDialogTitle strFilterDialogTitle={strFilterDialogTitle} />
 
-			<div className={selectItemListCSS}>{items}</div>
+			<div className={multiFilterListCSS}>{items}</div>
 
 			<Box paddingX="space_4">
 				<Button
