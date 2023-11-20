@@ -5,7 +5,7 @@ import { Button, ButtonProps } from "../button";
 import { Pill } from "../pill";
 import { sprinkles } from "../sprinkles/index.css";
 import { WithSize } from "../types";
-import { tabsSectionCss, tabCSS, tabListCSS } from "./styles.css";
+import { tabCSS, tabListCSS, tabsSectionCss } from "./styles.css";
 
 function Tab({
 	className,

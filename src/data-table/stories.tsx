@@ -1,7 +1,7 @@
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import type { Meta, StoryObj } from "@storybook/react";
 import { DataTable as StoryComp } from ".";
-import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 
 import { Button } from "../button";
 import {
