@@ -1,4 +1,4 @@
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTriangleCircleSquare";
+import { faCircleSmall } from "@fortawesome/pro-solid-svg-icons/faCircleSmall";
 import type { StoryFn, StoryObj } from "@storybook/react";
 import { Pill as StoryComp } from ".";
 import type { PillProps as StoryCompProps } from ".";
@@ -11,65 +11,36 @@ export default {
 	title: "Components/Pill",
 };
 
-const TemplateSizes: StoryFn<StoryCompProps> = () => {
-	return (
-		<Box alignItems="center" display="flex" gap="space_6">
-			<StoryComp
-				size="lg"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
-			>
-				{LOREM.text_xxs}
-			</StoryComp>
-			<StoryComp
-				size="md"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
-			>
-				{LOREM.text_xxs}
-			</StoryComp>
-			<StoryComp
-				size="sm"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
-			>
-				{LOREM.text_xxs}
-			</StoryComp>
-		</Box>
-	);
-};
-
-export const Sizes: StoryObj<StoryCompProps> = {
-	render: TemplateSizes,
-};
-
 const TemplateColors: StoryFn<StoryCompProps> = () => {
 	return (
 		<Box alignItems="center" display="flex" gap="space_6">
 			<StoryComp
 				colorOverlay="blue"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
+				slotLeft={<Icon icon={faCircleSmall} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
 				colorOverlay="red"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
+				slotLeft={<Icon icon={faCircleSmall} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
 				colorOverlay="green"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
+				slotLeft={<Icon icon={faCircleSmall} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
 				colorOverlay="amber"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
+				slotLeft={<Icon icon={faCircleSmall} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>
 			<StoryComp
 				colorOverlay="grey"
-				slotLeft={<Icon icon={faTriangleCircleSquare} />}
+				slotLeft={<Icon icon={faCircleSmall} />}
 			>
 				{LOREM.text_xxs}
 			</StoryComp>

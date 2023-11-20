@@ -80,7 +80,7 @@ export const Pill: PillComponent = forwardRef(
 				{...{
 					className: clsx(
 						userClassName,
-						pillCSS({ colorOverlay, size }),
+						pillCSS({ colorOverlay }),
 						sprinkles({
 							...atomProps,
 							paddingLeft: slotLeft ? "space_1" : "space_2",
@@ -95,7 +95,7 @@ export const Pill: PillComponent = forwardRef(
 			>
 				<SlotWrapper
 					color="inherit"
-					gap="space_1"
+					gap={"space_0"}
 					size={size}
 					slotLeft={slotLeft}
 					slotRight={slotRight}

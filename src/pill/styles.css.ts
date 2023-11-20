@@ -22,12 +22,11 @@ export const pillCSS = recipe({
 			fontWeight: "medium",
 			textDecoration: "none",
 			whiteSpace: "nowrap",
-			paddingX: "space_2",
+			paddingX: "space_1",
 			paddingY: "space_1",
+			height: "space_6",
+			minWidth: "space_6",
 		}),
-		{
-			verticalAlign: "middle",
-		},
 		a11yFocus,
 		withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
@@ -43,25 +42,5 @@ export const pillCSS = recipe({
 
 	variants: {
 		colorOverlay: variantColorOverlay,
-		size: {
-			lg: [
-				sprinkles({
-					height: "space_10",
-					minWidth: "space_10",
-				}),
-			],
-			md: [
-				sprinkles({
-					height: "space_8",
-					minWidth: "space_8",
-				}),
-			],
-			sm: [
-				sprinkles({
-					height: "space_6",
-					minWidth: "space_6",
-				}),
-			],
-		},
 	},
 });
