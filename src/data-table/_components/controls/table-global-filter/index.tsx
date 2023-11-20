@@ -23,7 +23,6 @@ export function TableGlobalFilter<TRowData extends RowData>({
 	return (
 		<Input
 			className={tableGlobalFilterCSS}
-			size="sm"
 			autoComplete="off"
 			disabled={disabled}
 			hideLastpass
