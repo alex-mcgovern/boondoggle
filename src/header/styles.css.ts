@@ -5,7 +5,8 @@ import { sprinkles } from "../sprinkles/index.css";
 export const headerCSS = recipe({
 	base: [
 		sprinkles({
-			marginY: "space_4",
+			marginTop: "space_4",
+			marginBottom: "space_2",
 			marginX: "auto",
 			paddingX: "space_4",
 		}),
