@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_MOBILE,
-	MEDIA_QUERY_TABLET,
+	CONTAINER_LG,
+	CONTAINER_MD,
+	CONTAINER_SM,
 	vars,
 } from "../../../../index.css";
 import { sprinkles } from "../../../../sprinkles/index.css";
@@ -17,22 +17,22 @@ export const tableActionsCSS = style([
 		alignItems: "start",
 	}),
 	{
-		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
+		"@container": {
+			[CONTAINER_SM]: {
 				gridTemplateAreas: `
-                "actions"
-                "globalFilter"
-                "columnFilters"`,
+				"actions"
+				"globalFilter"
+				"columnFilters"`,
 				gridTemplateColumns: "1fr",
 				gridTemplateRows: "min-content min-content",
 			},
-			[MEDIA_QUERY_TABLET]: {
+			[CONTAINER_MD]: {
 				gridTemplateAreas: `
-                "globalFilter actions"
-                "columnFilters columnFilters"`,
+				"globalFilter actions"
+				"columnFilters columnFilters"`,
 				gridTemplateColumns: "1fr 1fr",
 			},
-			[MEDIA_QUERY_DESKTOP]: {
+			[CONTAINER_LG]: {
 				gridTemplateAreas: `"globalFilter columnFilters actions"`,
 				gridTemplateColumns: "12rem 1fr 1fr",
 			},
@@ -64,8 +64,8 @@ export const actionsCSS = style([
 	}),
 	{
 		gridArea: "actions",
-		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
+		"@container": {
+			[CONTAINER_SM]: {
 				paddingBottom: vars.spacing.space_2,
 				borderBottom: `1px solid ${vars.color.border_default}`,
 			},

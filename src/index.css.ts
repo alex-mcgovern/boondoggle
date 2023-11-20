@@ -34,6 +34,10 @@ export const MEDIA_QUERY_TABLET = "only screen and (min-width: 512px)";
 
 export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 511px)";
 
+export const CONTAINER_LG = "(width > 896px)";
+export const CONTAINER_MD = "(width > 512px)";
+export const CONTAINER_SM = "(width < 511px)";
+
 /** -----------------------------------------------------------------------------
  * SELECTORS
  * ------------------------------------------------------------------------------- */
