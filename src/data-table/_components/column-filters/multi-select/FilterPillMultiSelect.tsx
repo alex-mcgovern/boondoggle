@@ -4,7 +4,7 @@ import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { Box } from "../../../../box";
 import { Button } from "../../../../button";
-import { FilterDialogTitle } from "../base/FilterDialogTitle";
+import { FilterDialogTitle } from "../base/FilterBaseDialogTitle";
 import { FilterPillMenu } from "../base/FilterPillMenu";
 import {
 	activeFilterStringCSS,
@@ -16,7 +16,7 @@ export function FilterPillMultiSelect<TRowData>({
 	strApplyFilter,
 	strFilterDialogTitle,
 	strFilterPillText,
-	valueToString = (value) => value,
+	transformerIdToString = (value) => value,
 	column,
 }: {
 	column: Column<TRowData>;
@@ -24,7 +24,7 @@ export function FilterPillMultiSelect<TRowData>({
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
 	// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-	valueToString?: (value: any) => string;
+	transformerIdToString?: (value: any) => string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -70,7 +70,7 @@ export function FilterPillMultiSelect<TRowData>({
 						className={activeFilterStringCSS}
 						color="button_default"
 					>
-						{valueToString(v)}
+						{transformerIdToString(v)}
 						{i < currentFilters.length - 1 ? ", " : ""}
 					</Box>
 				);
@@ -97,14 +97,20 @@ export function FilterPillMultiSelect<TRowData>({
 			return (
 				<FilterSelectItem
 					handleSelection={handleSelection}
-					label={valueToString(value)}
+					label={transformerIdToString(value)}
 					key={value}
 					value={value}
 					defaultChecked={currentFilters?.includes(value)}
 				/>
 			);
 		});
-	}, [facetKeys, handleSelection, currentFilters, column, valueToString]);
+	}, [
+		facetKeys,
+		handleSelection,
+		currentFilters,
+		column,
+		transformerIdToString,
+	]);
 
 	/** -----------------------------------------------------------------------------
 	 * EARLY RETURN IF NO FILTERS
@@ -131,7 +137,7 @@ export function FilterPillMultiSelect<TRowData>({
 
 			<div className={selectItemListCSS}>{items}</div>
 
-			<Box padding="space_4">
+			<Box paddingX="space_4">
 				<Button
 					onClick={() => {
 						column.setFilterValue(
@@ -142,6 +148,7 @@ export function FilterPillMultiSelect<TRowData>({
 						setIsOpen(false);
 					}}
 					width="100%"
+					size="sm"
 					name="apply_filter"
 				>
 					{strApplyFilter}

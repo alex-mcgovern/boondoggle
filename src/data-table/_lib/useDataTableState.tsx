@@ -1,5 +1,4 @@
 import {
-	ColumnFiltersState,
 	Row,
 	createColumnHelper,
 	getCoreRowModel,
@@ -24,6 +23,7 @@ import { TDataTableRowActions } from "../../data-table-row-actions";
 import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
+import { FilteringOptions, PaginationOptions } from "../types";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,
@@ -40,36 +40,36 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	return filter_value.includes(cell_value as string);
 }
 
-type UseDataTableStateProps<TData extends RowData> = {
-	RowActions?: TDataTableRowActions<TData>;
-	data: Array<TData> | undefined;
+type UseDataTableStateProps<TRowData extends RowData> = {
+	RowActions?: TDataTableRowActions<TRowData>;
+	data: Array<TRowData> | undefined;
 	enableMultiRowSelection: boolean | undefined;
 	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
-	initColumns: Array<ColumnDef<TData, any>>;
+	initColumns: Array<ColumnDef<TRowData, any>>;
 	initialSorting: SortingState | undefined;
-	isFilterable: boolean | undefined;
 	isLoading: boolean | undefined;
-	isPaginated: boolean | undefined;
 	isSelectable: boolean | undefined;
 	isSortable: boolean | undefined;
-	onSelect: ((selection: TData[] | undefined) => void) | undefined;
+	onSelect: ((selection: TRowData[] | undefined) => void) | undefined;
+
+	// ==== NEW PROPS ====
+	filteringOptions: FilteringOptions<TRowData> | undefined;
+	paginationOptions: PaginationOptions | undefined;
 };
 
-export function useDataTableState<TData extends RowData>({
+export function useDataTableState<TRowData extends RowData>({
 	RowActions,
 	data,
 	enableMultiRowSelection,
 	initColumns,
 	initialSorting,
-	isFilterable,
 	isLoading,
-	isPaginated,
+	paginationOptions,
+	filteringOptions,
 	isSelectable,
 	isSortable,
 	onSelect,
-}: UseDataTableStateProps<TData>) {
-	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-	const [globalFilter, setGlobalFilter] = useState("");
+}: UseDataTableStateProps<TRowData>) {
 	const [rowSelection, setRowSelection] = useState({});
 
 	const onRowSelectionChange = useCallback(
@@ -82,7 +82,7 @@ export function useDataTableState<TData extends RowData>({
 
 			if (typeof updater === "function") {
 				return onSelect?.(
-					data?.reduce<TData[]>((acc, row, index) => {
+					data?.reduce<TRowData[]>((acc, row, index) => {
 						if (updater({})[index]) {
 							acc.push(row);
 						}
@@ -96,7 +96,7 @@ export function useDataTableState<TData extends RowData>({
 		[data, onSelect, isSelectable],
 	);
 
-	const columnHelper = createColumnHelper<TData>();
+	const columnHelper = createColumnHelper<TRowData>();
 
 	const columns = useMemo(() => {
 		return [
@@ -154,7 +154,7 @@ export function useDataTableState<TData extends RowData>({
 		return isLoading ? Array(10).fill({}) : data;
 	}, [isLoading, data]);
 
-	const table = useReactTable<TData>({
+	const table = useReactTable<TRowData>({
 		columns,
 		data: tableData || [],
 		getCoreRowModel: getCoreRowModel(),
@@ -162,14 +162,13 @@ export function useDataTableState<TData extends RowData>({
 		getFacetedUniqueValues: getFacetedUniqueValues(),
 		getFacetedMinMaxValues: getFacetedMinMaxValues(),
 		getFilteredRowModel: getFilteredRowModel(),
-		...(isFilterable && {
+		...(!!filteringOptions?.columnFilterConfig && {
 			globalFilterFn: dataTableFuzzyFilter,
-			onGlobalFilterChange: setGlobalFilter,
 		}),
 		filterFns: {
 			multiSelect: dataTableFilterFnMultiSelect,
 		},
-		...(isPaginated && {
+		...(!!paginationOptions && {
 			getPaginationRowModel: getPaginationRowModel(),
 		}),
 		...(isSortable && { getSortedRowModel: getSortedRowModel() }),
@@ -177,7 +176,6 @@ export function useDataTableState<TData extends RowData>({
 			enableMultiRowSelection,
 			onRowSelectionChange,
 		}),
-		onColumnFiltersChange: setColumnFilters,
 
 		initialState: {
 			sorting: initialSorting,
@@ -187,10 +185,6 @@ export function useDataTableState<TData extends RowData>({
 		},
 		filterFromLeafRows: false,
 		state: {
-			columnFilters,
-			...(isFilterable && {
-				globalFilter,
-			}),
 			...(isSelectable && {
 				rowSelection,
 			}),
@@ -198,9 +192,6 @@ export function useDataTableState<TData extends RowData>({
 	});
 
 	return {
-		globalFilter,
-		setGlobalFilter,
 		table,
-		setColumnFilters,
 	};
 }

@@ -22,6 +22,7 @@ export const FilterSelectItem = ({
 			htmlFor={`item_${value}`}
 			display="flex"
 			alignItems="center"
+			fontStyle="bodyMd"
 			gap="space_2"
 			marginBottom="space_4"
 		>

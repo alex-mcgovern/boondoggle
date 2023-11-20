@@ -1,8 +1,8 @@
-import { exhaustiveSwitchGuard } from "../../../../_lib/exhaustive-switch-guard";
-import { Box } from "../../../../box";
-import { TableNumberRangeFilterMode } from "../../../types";
-import { activeFilterStringCSS } from "../multi-select/FilterPillMultiSelect.css";
-import { useTableNumberRangeFilterMode } from "./FilterModeContext";
+import { exhaustiveSwitchGuard } from "../../../../../_lib/exhaustive-switch-guard";
+import { Box } from "../../../../../box";
+import { TableNumberRangeFilterMode } from "../../../../types";
+import { activeFilterStringCSS } from "../../multi-select/FilterPillMultiSelect.css";
+import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
 const getSeparator = (filterMode: TableNumberRangeFilterMode) => {
 	switch (filterMode) {
@@ -55,9 +55,9 @@ export const PillTextFilterNumberRange = ({
 	currentFilters,
 }: {
 	strFilterPillText: string;
-	currentFilters: [number, number];
+	currentFilters: [number | undefined, number | undefined];
 }) => {
-	const [filterMode] = useTableNumberRangeFilterMode();
+	const [filterMode] = useNumericFilterMode();
 
 	return (
 		<Box display="flex" gap="space_1">

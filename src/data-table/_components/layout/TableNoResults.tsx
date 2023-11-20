@@ -3,17 +3,16 @@ import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
-import type { useDataTableState } from "../../_lib/useDataTableState";
+import { FilteringOptions } from "../../types";
+import { RowData, Table } from "@tanstack/react-table";
 
-export function TableNoResults({
-	globalFilter,
-	setGlobalFilter,
-	strClearAllFilters,
+export function TableNoResults<TRowData extends RowData>({
+	table,
+	filteringOptions,
 	strNoResults,
 }: {
-	globalFilter: ReturnType<typeof useDataTableState>["globalFilter"];
-	setGlobalFilter: ReturnType<typeof useDataTableState>["setGlobalFilter"];
-	strClearAllFilters: string;
+	table: Table<TRowData>;
+	filteringOptions: FilteringOptions<TRowData> | undefined;
 	strNoResults: string;
 }) {
 	return (
@@ -35,15 +34,15 @@ export function TableNoResults({
 				{strNoResults}
 			</Box>
 
-			{globalFilter && (
+			{filteringOptions && table.getState().globalFilter && (
 				<Button
 					name="clear_filters"
 					onClick={() => {
-						return setGlobalFilter("");
+						return table.setGlobalFilter("");
 					}}
 					slotRight={<Icon icon={faTimesCircle} />}
 				>
-					{strClearAllFilters}
+					{filteringOptions.strClearAllFilters}
 				</Button>
 			)}
 		</Box>

@@ -1,19 +1,19 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
-import { Box } from "../../../../box";
-import { Form } from "../../../../form";
-import { FormInput } from "../../../../form-input";
-import { FormSelectSingle } from "../../../../form-select-single";
-import { FormSubmitButton } from "../../../../form-submit-button";
-import type { TableNumberRangeFilterMode } from "../../../types";
-import { useTableNumberRangeFilterMode } from "./FilterModeContext";
-import { getTableNumberRangeFilterModeItems } from "./getNumberRangeFilterModeItems";
+import { Box } from "../../../../../box";
+import { Form } from "../../../../../form";
+import { FormInput } from "../../../../../form-input";
+import { FormSelectSingle } from "../../../../../form-select-single";
+import { FormSubmitButton } from "../../../../../form-submit-button";
+import type { TableNumberRangeFilterMode } from "../../../../types";
+import { useNumericFilterMode } from "./numeric-filter-mode-context";
+import { getTableNumberRangeFilterModeItems } from "../_lib/getNumberRangeFilterModeItems";
 import {
 	FieldValuesFilterNumberRange,
 	getZodFilterNumberRange,
-} from "./zodFilterNumberRange";
+} from "../_lib/zodFilterNumberRange";
 
-export const FormFilterNumberRange = ({
+export const FormFilterNumeric = ({
 	currentMax,
 	currentMin,
 	largestValue,
@@ -23,19 +23,20 @@ export const FormFilterNumberRange = ({
 	strErrorTooLarge,
 	strErrorTooSmall,
 	setFilter,
+	transformerNumericToRaw,
 }: {
 	currentMax: number | undefined;
 	currentMin: number | undefined;
 	largestValue: number;
 	setFilter: (v: [number | undefined, number | undefined]) => void;
+	transformerNumericToRaw: (value: number | undefined) => number | undefined;
 	smallestValue: number;
 	strApplyFilter: string;
 	strErrorTooLarge: string;
 	strErrorTooSmall: string;
 	strMapFilterMode: Record<TableNumberRangeFilterMode, string>;
 }) => {
-	const [parentFilterMode, setParentFilterMode] =
-		useTableNumberRangeFilterMode();
+	const [parentFilterMode, setParentFilterMode] = useNumericFilterMode();
 
 	const [localFilterMode, setLocalFilterMode] =
 		React.useState<TableNumberRangeFilterMode>(parentFilterMode);
@@ -86,6 +87,7 @@ export const FormFilterNumberRange = ({
 				<FormSelectSingle<TableNumberRangeFilterMode>
 					size="sm"
 					name="filter_mode"
+					marginBottom="space_2"
 					defaultValue={localFilterMode}
 					items={filterModeItems}
 					onChange={(s) => (s ? setLocalFilterMode(s.value) : null)}
@@ -94,10 +96,14 @@ export const FormFilterNumberRange = ({
 					<Box display="grid" gridTemplateColumns="2x" gap="space_2">
 						<FormInput
 							size="sm"
-							marginBottom="space_4"
+							marginBottom="space_2"
 							inputMode="numeric"
 							name="min"
-							defaultValue={currentMin}
+							defaultValue={
+								transformerNumericToRaw
+									? transformerNumericToRaw(currentMin)
+									: currentMin
+							}
 							autoComplete="off"
 							placeholder={`Min ${
 								smallestValue ? `(${smallestValue})` : ""
@@ -105,10 +111,14 @@ export const FormFilterNumberRange = ({
 						/>
 						<FormInput
 							size="sm"
-							marginBottom="space_4"
+							marginBottom="space_2"
 							inputMode="numeric"
 							name="max"
-							defaultValue={currentMax}
+							defaultValue={
+								transformerNumericToRaw
+									? transformerNumericToRaw(currentMax)
+									: currentMax
+							}
 							autoComplete="off"
 							placeholder={`Max ${
 								largestValue ? `(${largestValue})` : ""
@@ -119,8 +129,14 @@ export const FormFilterNumberRange = ({
 				{localFilterMode === "is_equal_to" && (
 					<FormInput
 						size="sm"
-						marginBottom="space_4"
-						defaultValue={currentMin}
+						marginBottom="space_2"
+						defaultValue={
+							transformerNumericToRaw
+								? transformerNumericToRaw(
+										currentMin || currentMax,
+								  )
+								: currentMin || currentMax
+						}
 						inputMode="numeric"
 						name="is_equal_to"
 						autoComplete="off"
@@ -131,8 +147,14 @@ export const FormFilterNumberRange = ({
 				{localFilterMode === "is_greater_than" && (
 					<FormInput
 						size="sm"
-						marginBottom="space_4"
-						defaultValue={currentMin || currentMax}
+						marginBottom="space_2"
+						defaultValue={
+							transformerNumericToRaw
+								? transformerNumericToRaw(
+										currentMin || currentMax,
+								  )
+								: currentMin || currentMax
+						}
 						inputMode="numeric"
 						name="is_greater_than"
 						autoComplete="off"
@@ -143,8 +165,14 @@ export const FormFilterNumberRange = ({
 				{localFilterMode === "is_less_than" && (
 					<FormInput
 						size="sm"
-						marginBottom="space_4"
-						defaultValue={currentMax || currentMin}
+						marginBottom="space_2"
+						defaultValue={
+							transformerNumericToRaw
+								? transformerNumericToRaw(
+										currentMax || currentMin,
+								  )
+								: currentMax || currentMin
+						}
 						inputMode="numeric"
 						name="is_less_than"
 						autoComplete="off"

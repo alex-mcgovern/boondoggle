@@ -6,7 +6,7 @@ import { sprinkles } from "../../../../sprinkles/index.css";
 export const selectItemLabelCSS = style([
 	sprinkles({
 		paddingX: "space_2",
-		paddingY: "space_2",
+		paddingY: "space_1",
 		borderRadius: "md",
 	}),
 	{

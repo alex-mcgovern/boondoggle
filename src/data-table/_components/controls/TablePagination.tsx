@@ -1,20 +1,21 @@
 import type { RowData, Table } from "@tanstack/react-table";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
+import { PaginationOptions } from "../../types";
 
-export function TablePagination<TData extends RowData>({
-	strNext,
-	strPage,
-	strPrev,
-	strResults,
+export function TablePagination<TRowData extends RowData>({
 	table,
+	paginationOptions,
 }: {
-	strNext: string;
-	strPage: string;
-	strPrev: string;
-	strResults: string;
-	table: Table<TData>;
+	table: Table<TRowData>;
+	paginationOptions: PaginationOptions | undefined;
 }) {
+	if (!paginationOptions) {
+		return null;
+	}
+
+	const { strNext, strPage, strPrev, strResults } = paginationOptions;
+
 	return (
 		<Box
 			alignItems="center"
@@ -25,32 +26,30 @@ export function TablePagination<TData extends RowData>({
 			paddingTop="space_4"
 			paddingX="space_6"
 		>
-			{strPage && strResults && (
-				<Box
-					alignItems="center"
-					as="span"
-					display="flex"
-					fontSize="bodyMd"
-					gap="space_1"
-					marginRight="auto"
-					marginY="space_1"
-				>
-					<Box fontWeight="semibold">
-						{table.getPrePaginationRowModel().rows.length}
-					</Box>
-					<Box>{strResults}.</Box>
-
-					{!!table.getPageCount() && (
-						<>
-							<Box>{strPage}</Box>
-							<Box fontWeight="semibold" whiteSpace="nowrap">
-								{table.getState().pagination.pageIndex + 1} of{" "}
-								{table.getPageCount()}
-							</Box>
-						</>
-					)}
+			<Box
+				alignItems="center"
+				as="span"
+				display="flex"
+				fontSize="bodyMd"
+				gap="space_1"
+				marginRight="auto"
+				marginY="space_1"
+			>
+				<Box fontWeight="semibold">
+					{table.getPrePaginationRowModel().rows.length}
 				</Box>
-			)}
+				<Box>{strResults}.</Box>
+
+				{!!table.getPageCount() && (
+					<>
+						<Box>{strPage}</Box>
+						<Box fontWeight="semibold" whiteSpace="nowrap">
+							{table.getState().pagination.pageIndex + 1} of{" "}
+							{table.getPageCount()}
+						</Box>
+					</>
+				)}
+			</Box>
 
 			<Box alignItems="center" display="flex" gap="space_2">
 				<Button
