@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
-import { sprinkles } from "../../../../sprinkles/index.css";
 import {
 	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
 	vars,
 } from "../../../../index.css";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const tableActionsCSS = style([
 	sprinkles({
