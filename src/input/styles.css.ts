@@ -34,7 +34,7 @@ export const getSlotWrapperStyles = recipe({
 		inputSlotWrapperDoNotRemoveOrYouWillBeFired,
 		sprinkles({
 			alignItems: "center",
-			background: "background",
+			background: "tint_1",
 			border: "border_default",
 			borderRadius: "md",
 			color: "text_low_contrast",
@@ -54,9 +54,10 @@ export const getSlotWrapperStyles = recipe({
 			}),
 			selectors: {
 				"&:has(input[readonly])": {
-					background: vars.color.tint_default,
+					background: vars.color.background,
 				},
 				"&:hover": {
+					// background: vars.color.tint_2,
 					borderColor: vars.color.border_hover,
 				},
 				"&:active": {
@@ -247,7 +248,7 @@ export const getInputAddonTabStyle = recipe({
 	base: [
 		sprinkles({
 			alignItems: "center",
-			background: "tint_default",
+			background: "tint_2",
 			color: "text_low_contrast",
 			display: "flex",
 			fontStyle: "bodyMd",

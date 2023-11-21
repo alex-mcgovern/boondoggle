@@ -42,11 +42,11 @@ export const multiFilterItemCSS = style([
 			},
 			"&:hover": {
 				cursor: "pointer",
-				background: vars.color.tint_default,
+				background: vars.color.tint_2,
 			},
 			"&:active": {
 				cursor: "pointer",
-				background: vars.color.tint_hover,
+				background: vars.color.tint_3,
 			},
 		},
 	},

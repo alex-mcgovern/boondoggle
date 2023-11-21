@@ -13,7 +13,7 @@ export const getTagStyle = recipe({
 		sprinkles({
 			fontStyle: "bodySm",
 			alignItems: "center",
-			background: "tint_default",
+			background: "tint_2",
 			borderRadius: "md",
 			color: "text_low_contrast",
 			display: "inline-flex",
@@ -33,7 +33,7 @@ export const getTagStyle = recipe({
 		{
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-					background: vars.color.tint_active,
+					background: vars.color.tint_4,
 					color: vars.color.text_high_contrast,
 				},
 			},

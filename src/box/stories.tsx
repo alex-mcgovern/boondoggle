@@ -42,7 +42,7 @@ export const ExamplePolymorphismReactComponent: StoryObj<BoxProps> = {
 };
 
 const BASIC_SPRINKLES_PROPS: Sprinkles = {
-	background: "tint_default",
+	background: "tint_2",
 	border: "border_default",
 	borderRadius: "sm",
 	padding: "space_6",
@@ -86,7 +86,7 @@ export const ExampleEscapeHatchStyles: StoryObj<BoxProps> = {
 
 export const BoxAsInfoCard: StoryObj<BoxProps> = {
 	args: {
-		background: "tint_default",
+		background: "tint_2",
 		border: "border_default",
 		borderRadius: "sm",
 		children: [
@@ -103,7 +103,7 @@ export const BoxAsInfoCard: StoryObj<BoxProps> = {
 export const BoxAsWarning: StoryObj<BoxProps> = {
 	args: {
 		alignItems: "start",
-		background: "tint_default",
+		background: "tint_2",
 		border: "border_default",
 		borderRadius: "sm",
 		children: [
@@ -136,7 +136,7 @@ export const BoxAsWarning: StoryObj<BoxProps> = {
 export const BoxAsConfirmation: StoryObj<BoxProps> = {
 	args: {
 		alignItems: "start",
-		background: "tint_default",
+		background: "tint_2",
 		border: "border_default",
 		borderRadius: "sm",
 		children: [
@@ -166,13 +166,13 @@ export const BoxAsConfirmation: StoryObj<BoxProps> = {
 export const BoxAsGridLayout: StoryObj<BoxProps> = {
 	args: {
 		children: [
-			<Box background="tint_default" padding="space_6">
+			<Box background="tint_2" padding="space_6">
 				Content 1
 			</Box>,
-			<Box background="tint_default" padding="space_6">
+			<Box background="tint_2" padding="space_6">
 				Content 2
 			</Box>,
-			<Box background="tint_default" padding="space_6">
+			<Box background="tint_2" padding="space_6">
 				Content 3
 			</Box>,
 		],

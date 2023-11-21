@@ -37,7 +37,7 @@ export const radioButtonCardLabelStyles = style([
 		// maxWidth: "12rem",
 		selectors: {
 			"&:has(input:checked)": {
-				background: vars.color.tint_default,
+				background: vars.color.tint_2,
 				border: `1px solid ${vars.color.border_hover}`,
 			},
 			"&:has(input:focus)": {
@@ -45,7 +45,7 @@ export const radioButtonCardLabelStyles = style([
 				border: `1px solid ${vars.color.button_default}`,
 			},
 			"&:hover": {
-				background: vars.color.tint_default,
+				background: vars.color.tint_2,
 				border: `1px solid ${vars.color.border_hover}`,
 				cursor: "pointer",
 			},

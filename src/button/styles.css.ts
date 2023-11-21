@@ -76,17 +76,17 @@ const variantAppearance = styleVariants({
 			color: vars.color.text_high_contrast,
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_default,
+					background: vars.color.tint_2,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_hover,
+					background: vars.color.tint_3,
 				},
 			},
 		},
 	],
 
 	link: [
-		// sprinkles({ color: "button_default" }),
+		sprinkles({ color: "text_high_contrast" }),
 		{
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
@@ -110,10 +110,10 @@ const variantAppearance = styleVariants({
 			color: vars.color.text_high_contrast,
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_default,
+					background: vars.color.tint_2,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_hover,
+					background: vars.color.tint_3,
 				},
 			},
 		},
@@ -144,11 +144,11 @@ const variantAppearance = styleVariants({
 			color: vars.color.text_high_contrast,
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_hover,
+					background: vars.color.tint_3,
 					borderColor: vars.color.border_hover,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_active,
+					background: vars.color.tint_4,
 					borderColor: vars.color.border_active,
 				},
 			},

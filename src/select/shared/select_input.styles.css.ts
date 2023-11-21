@@ -15,7 +15,7 @@ globalStyle(
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only:hover`,
 	{
-		background: vars.color.tint_default,
+		background: vars.color.tint_2,
 	},
 );
 

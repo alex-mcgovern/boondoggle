@@ -22,14 +22,14 @@ export const pillGroupCSS = recipe({
 		isFiltered: {
 			true: [
 				sprinkles({
-					background: "tint_default",
+					background: "tint_2",
 					border: "border_hover",
 				}),
 				{
 					// border: "1px solid transparent",
 					selectors: {
 						"&:not(:has(button[disabled])):hover": {
-							background: vars.color.tint_active,
+							background: vars.color.tint_4,
 						},
 					},
 				},
@@ -40,10 +40,10 @@ export const pillGroupCSS = recipe({
 					border: `1px dashed ${vars.color.border_default}`,
 					selectors: {
 						"&:not(:has(button[disabled])):hover": {
-							background: vars.color.tint_default,
+							background: vars.color.tint_2,
 						},
 						// [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-						//     background: vars.color.tint_active,
+						//     background: vars.color.tint_4,
 						// },
 					},
 				},

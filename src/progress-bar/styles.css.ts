@@ -50,7 +50,7 @@ export const progressBarCss = recipe({
 
 export const progressBarInnerCSS = style([
 	sprinkles({
-		background: "tint_active",
+		background: "tint_4",
 	}),
 	{
 		inset: "0",

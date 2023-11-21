@@ -38,7 +38,7 @@ export function ProgressBar({
 		>
 			{isVisible && <Box zIndex="1">{value} %</Box>}
 			<Box
-				background="tint_active"
+				background="tint_4"
 				className={progressBarInnerCSS}
 				style={{ width: `${clampedValue}%` }}
 			/>

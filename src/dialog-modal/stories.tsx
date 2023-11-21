@@ -62,7 +62,7 @@ const ControlledTemplate: StoryFn<StoryCompProps> = ({
 		<>
 			<Box
 				alignItems="center"
-				background="tint_default"
+				background="tint_2"
 				borderRadius="sm"
 				display="flex"
 				gap="space_2"
