@@ -71,7 +71,7 @@ export function Card({
 						display="flex"
 						flexWrap="wrap"
 						gap="space_6"
-						marginBottom="space_6"
+						marginBottom="space_3"
 					>
 						{(title || description) && (
 							<Box>
