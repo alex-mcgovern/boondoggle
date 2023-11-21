@@ -17,6 +17,7 @@ export const dialogTitleStyle = style([
 	sprinkles({
 		fontWeight: "semibold",
 		marginY: "none",
+		color: "text_high_contrast",
 	}),
 	{
 		"@media": {

@@ -18,6 +18,7 @@ export const radioButtonInputStyles = style([
 ]);
 
 export const radioButtonLabelStyles = style([
+	sprinkles({ color: "text_high_contrast" }),
 	{
 		...withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,

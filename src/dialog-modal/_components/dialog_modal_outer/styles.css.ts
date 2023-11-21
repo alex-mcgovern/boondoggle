@@ -14,7 +14,7 @@ export const getDialogModalOuterStyle = recipe({
 	base: [
 		animateSlideUp,
 		sprinkles({
-			background: "background",
+			background: "background_raised",
 			margin: "auto",
 			padding: "none",
 		}),

@@ -394,8 +394,8 @@ export const variantColorOverlay = styleVariants({
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
 						vars: assignVars(vars.color, {
-							black: amberDark.amber12,
-							white: amberDark.amber1,
+							black: amberDark.amber1,
+							white: amberDark.amber12,
 
 							text_low_contrast: amberDark.amber11,
 							text_high_contrast: amberDark.amber11,
@@ -459,8 +459,8 @@ export const variantColorOverlay = styleVariants({
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
 						vars: assignVars(vars.color, {
-							black: blueDark.blue12,
-							white: blueDark.blue1,
+							black: blueDark.blue1,
+							white: blueDark.blue12,
 
 							text_low_contrast: blueDark.blue11,
 							text_high_contrast: blueDark.blue11,
@@ -520,6 +520,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: blue.blue7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: slateDark.slate1,
+							white: slateDark.slate12,
+
+							text_low_contrast: slateDark.slate11,
+							text_high_contrast: slateDark.slate12,
+
+							background: slateDark.slate2,
+							background_raised: slateDark.slate3,
+							backdrop: slateDarkA.slateA11,
+							shadow: slateDarkA.slateA1,
+
+							border_default: slateDark.slate6,
+							border_active: slateDark.slate8,
+							border_hover: slateDark.slate7,
+
+							button_tint: blueDark.blue5,
+							button_default: blueDark.blue9,
+							button_hover: blueDark.blue10,
+							button_active: blueDark.blue11,
+
+							tint_default: slateDark.slate4,
+							tint_hover: slateDark.slate5,
+							tint_active: slateDark.slate6,
+
+							focus_ring: blueDark.blue7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -557,8 +589,8 @@ export const variantColorOverlay = styleVariants({
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
 						vars: assignVars(vars.color, {
-							black: greenDark.green12,
-							white: greenDark.green1,
+							black: greenDark.green1,
+							white: greenDark.green12,
 
 							text_low_contrast: greenDark.green11,
 							text_high_contrast: greenDark.green11,
@@ -622,8 +654,8 @@ export const variantColorOverlay = styleVariants({
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
 						vars: assignVars(vars.color, {
-							black: slateDark.slate12,
-							white: slateDark.slate1,
+							black: slateDark.slate1,
+							white: slateDark.slate12,
 
 							text_low_contrast: slateDark.slate11,
 							text_high_contrast: slateDark.slate11,
@@ -687,8 +719,8 @@ export const variantColorOverlay = styleVariants({
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
 						vars: assignVars(vars.color, {
-							black: redDark.red12,
-							white: redDark.red1,
+							black: redDark.red1,
+							white: redDark.red12,
 
 							text_low_contrast: redDark.red11,
 							text_high_contrast: redDark.red11,
@@ -752,8 +784,8 @@ export const variantColorOverlay = styleVariants({
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
 						vars: assignVars(vars.color, {
-							black: irisDark.iris12,
-							white: irisDark.iris1,
+							black: irisDark.iris1,
+							white: irisDark.iris12,
 
 							text_low_contrast: irisDark.iris11,
 							text_high_contrast: irisDark.iris11,
@@ -1055,8 +1087,8 @@ globalStyle(":root", {
 		},
 		[MEDIA_QUERY_DARK]: {
 			vars: {
-				[vars.color.black]: slateDark.slate12,
-				[vars.color.white]: slateDark.slate1,
+				[vars.color.black]: slateDark.slate1,
+				[vars.color.white]: slateDark.slate12,
 
 				[vars.color.text_low_contrast]: slateDark.slate11,
 				[vars.color.text_high_contrast]: slateDark.slate12,
@@ -1121,6 +1153,18 @@ globalStyle("body", {
 			color: vars.color.text_high_contrast,
 			lineHeight: vars.lineHeight.bodyMd,
 			WebkitFontSmoothing: "antialiased",
+			scrollbarColor: `${vars.color.tint_default} ${vars.color.background_raised}`,
+		},
+	},
+});
+
+globalStyle("body", {
+	"@layer": {
+		[baseLayer]: {
+			color: vars.color.text_high_contrast,
+			lineHeight: vars.lineHeight.bodyMd,
+			WebkitFontSmoothing: "antialiased",
+			scrollbarColor: `${vars.color.tint_default} ${vars.color.background_raised}`,
 		},
 	},
 });
@@ -1425,6 +1469,10 @@ globalStyle("p", {
 	},
 });
 
+/**
+ * Scrollbars
+ */
+
 // Table
 
 const tableStyleRule: StyleRule = {
@@ -1553,6 +1601,27 @@ globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
 	"@layer": {
 		[baseLayer]: {
 			...tableCellBorderStyleRule,
+		},
+	},
+});
+
+/** -----------------------------------------------------------------------------
+ * SCROLL BAR
+ * ------------------------------------------------------------------------------- */
+
+globalStyle("::-webkit-scrollbar", {
+	"@layer": {
+		[baseLayer]: {
+			background: vars.color.background,
+			width: vars.spacing.space_2,
+		},
+	},
+});
+globalStyle("::-webkit-scrollbar-thumb", {
+	"@layer": {
+		[baseLayer]: {
+			background: vars.color.tint_default,
+			borderRadius: vars.borderRadius.pill,
 		},
 	},
 });
