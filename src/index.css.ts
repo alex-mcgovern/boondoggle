@@ -160,9 +160,9 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		backdrop: slateA.slateA11,
 		shadow: slateA.slateA4,
 
-		border_default: slate.slate6,
-		border_active: slate.slate8,
-		border_hover: slate.slate7,
+		border_default: slate.slate5,
+		border_active: slate.slate7,
+		border_hover: slate.slate6,
 
 		button_tint: blue.blue5,
 		button_default: blue.blue9,
@@ -375,9 +375,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: amberA.amberA11,
 					shadow: amberA.amberA4,
 
-					border_default: amber.amber6,
-					border_active: amber.amber8,
-					border_hover: amber.amber7,
+					border_default: amber.amber5,
+					border_active: amber.amber7,
+					border_hover: amber.amber6,
 
 					button_tint: amber.amber5,
 					button_default: amber.amber9,
@@ -405,9 +405,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: amberDarkA.amberA11,
 							shadow: amberDarkA.amberA4,
 
-							border_default: amberDark.amber6,
-							border_active: amberDark.amber8,
-							border_hover: amberDark.amber7,
+							border_default: amberDark.amber5,
+							border_active: amberDark.amber7,
+							border_hover: amberDark.amber6,
 
 							button_tint: amberDark.amber5,
 							button_default: amberDark.amber9,
@@ -440,9 +440,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: blueA.blueA11,
 					shadow: blueA.blueA4,
 
-					border_default: blue.blue6,
-					border_active: blue.blue8,
-					border_hover: blue.blue7,
+					border_default: blue.blue5,
+					border_active: blue.blue7,
+					border_hover: blue.blue6,
 
 					button_tint: blue.blue5,
 					button_default: blue.blue9,
@@ -470,9 +470,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: blueDarkA.blueA11,
 							shadow: blueDarkA.blueA4,
 
-							border_default: blueDark.blue6,
-							border_active: blueDark.blue8,
-							border_hover: blueDark.blue7,
+							border_default: blueDark.blue5,
+							border_active: blueDark.blue7,
+							border_hover: blueDark.blue6,
 
 							button_tint: blueDark.blue5,
 							button_default: blueDark.blue9,
@@ -505,9 +505,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: slateA.slateA11,
 					shadow: slateA.slateA4,
 
-					border_default: slate.slate6,
-					border_active: slate.slate8,
-					border_hover: slate.slate7,
+					border_default: slate.slate5,
+					border_active: slate.slate7,
+					border_hover: slate.slate6,
 
 					button_tint: blue.blue5,
 					button_default: blue.blue9,
@@ -535,9 +535,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: slateDarkA.slateA11,
 							shadow: slateDarkA.slateA1,
 
-							border_default: slateDark.slate6,
-							border_active: slateDark.slate8,
-							border_hover: slateDark.slate7,
+							border_default: slateDark.slate5,
+							border_active: slateDark.slate7,
+							border_hover: slateDark.slate6,
 
 							button_tint: blueDark.blue5,
 							button_default: blueDark.blue9,
@@ -570,9 +570,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: greenA.greenA11,
 					shadow: greenA.greenA4,
 
-					border_default: green.green6,
-					border_active: green.green8,
-					border_hover: green.green7,
+					border_default: green.green5,
+					border_active: green.green7,
+					border_hover: green.green6,
 
 					button_tint: green.green5,
 					button_default: green.green9,
@@ -600,9 +600,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: greenDarkA.greenA11,
 							shadow: greenDarkA.greenA4,
 
-							border_default: greenDark.green6,
-							border_active: greenDark.green8,
-							border_hover: greenDark.green7,
+							border_default: greenDark.green5,
+							border_active: greenDark.green7,
+							border_hover: greenDark.green6,
 
 							button_tint: greenDark.green5,
 							button_default: greenDark.green9,
@@ -635,9 +635,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: slateA.slateA11,
 					shadow: slateA.slateA4,
 
-					border_default: slate.slate6,
-					border_active: slate.slate8,
-					border_hover: slate.slate7,
+					border_default: slate.slate5,
+					border_active: slate.slate7,
+					border_hover: slate.slate6,
 
 					button_tint: slate.slate5,
 					button_default: slate.slate9,
@@ -665,9 +665,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: slateDarkA.slateA11,
 							shadow: slateDarkA.slateA4,
 
-							border_default: slateDark.slate6,
-							border_active: slateDark.slate8,
-							border_hover: slateDark.slate7,
+							border_default: slateDark.slate5,
+							border_active: slateDark.slate7,
+							border_hover: slateDark.slate6,
 
 							button_tint: slateDark.slate5,
 							button_default: slateDark.slate9,
@@ -700,9 +700,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: redA.redA11,
 					shadow: redA.redA4,
 
-					border_default: red.red6,
-					border_active: red.red8,
-					border_hover: red.red7,
+					border_default: red.red5,
+					border_active: red.red7,
+					border_hover: red.red6,
 
 					button_tint: red.red5,
 					button_default: red.red9,
@@ -730,9 +730,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: redDarkA.redA11,
 							shadow: redDarkA.redA4,
 
-							border_default: redDark.red6,
-							border_active: redDark.red8,
-							border_hover: redDark.red7,
+							border_default: redDark.red5,
+							border_active: redDark.red7,
+							border_hover: redDark.red6,
 
 							button_tint: redDark.red5,
 							button_default: redDark.red9,
@@ -765,9 +765,9 @@ export const variantColorOverlay = styleVariants({
 					backdrop: irisA.irisA11,
 					shadow: irisA.irisA4,
 
-					border_default: iris.iris6,
-					border_active: iris.iris8,
-					border_hover: iris.iris7,
+					border_default: iris.iris5,
+					border_active: iris.iris7,
+					border_hover: iris.iris6,
 
 					button_tint: iris.iris5,
 					button_default: iris.iris9,
@@ -795,9 +795,9 @@ export const variantColorOverlay = styleVariants({
 							backdrop: irisDarkA.irisA11,
 							shadow: irisDarkA.irisA4,
 
-							border_default: irisDark.iris6,
-							border_active: irisDark.iris8,
-							border_hover: irisDark.iris7,
+							border_default: irisDark.iris5,
+							border_active: irisDark.iris7,
+							border_hover: irisDark.iris6,
 
 							button_tint: irisDark.iris5,
 							button_default: irisDark.iris9,
@@ -1098,9 +1098,9 @@ globalStyle(":root", {
 				[vars.color.backdrop]: slateDarkA.slateA11,
 				[vars.color.shadow]: slateDarkA.slateA1,
 
-				[vars.color.border_default]: slateDark.slate6,
-				[vars.color.border_active]: slateDark.slate8,
-				[vars.color.border_hover]: slateDark.slate7,
+				[vars.color.border_default]: slateDark.slate5,
+				[vars.color.border_active]: slateDark.slate7,
+				[vars.color.border_hover]: slateDark.slate6,
 
 				[vars.color.button_tint]: blueDark.blue5,
 				[vars.color.button_default]: blueDark.blue9,
