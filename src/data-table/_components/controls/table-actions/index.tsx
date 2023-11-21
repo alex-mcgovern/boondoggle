@@ -26,11 +26,13 @@ export function TableActions({
 			<div className={tableActionsCSS}>
 				<div className={globalFilterCSS}>{globalFilter}</div>
 				<div className={columnFiltersCSS}>{columnFilters}</div>
-				<div className={actionsCSS}>
-					{Children.map(actions, (action) => {
-						return action;
-					})}
-				</div>
+				{actions ? (
+					<div className={actionsCSS}>
+						{Children.map(actions, (action) => {
+							return action;
+						})}
+					</div>
+				) : null}
 			</div>
 		</div>
 	);
