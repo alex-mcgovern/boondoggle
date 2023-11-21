@@ -5,7 +5,6 @@ import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import { FilteringOptions } from "../../types";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 
 export function TableNoResults<TRowData extends RowData>({
 	table,
