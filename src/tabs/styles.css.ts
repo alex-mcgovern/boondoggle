@@ -2,8 +2,9 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
-import { vars } from "../index.css";
+import { variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { ColorOverlayBlue } from "../button/stories";
 
 const scaleUpKeyframes = keyframes({
 	"0%": {
@@ -77,7 +78,6 @@ export const tabsSectionCss = recipe({
 export const tabListCSS = style([
 	sprinkles({
 		alignItems: "center",
-		borderTop: "border_default",
 		paddingTop: "space_1",
 		borderBottom: "border_default",
 		display: "flex",
@@ -95,8 +95,25 @@ export const tabListCSS = style([
 	},
 ]);
 
-export const tabCountCSS = style({
-	...withPrefersMotion({
-		animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+export const tabCountCSS = style([
+	variantColorOverlay.blue,
+	sprinkles({
+		fontStyle: "bodySm",
+		borderRadius: "pill",
+		padding: "space_1",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		textAlign: "center",
+		fontWeight: "semibold",
+		height: "space_4",
+		minWidth: "space_4",
+		color: "text_low_contrast",
 	}),
-});
+	{
+		background: vars.color.button_tint,
+		...withPrefersMotion({
+			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+		}),
+	},
+]);

@@ -7,6 +7,10 @@ import { sprinkles } from "../sprinkles/index.css";
 import { WithSize } from "../types";
 import { tabCSS, tabCountCSS, tabListCSS, tabsSectionCss } from "./styles.css";
 
+const TabCount = ({ count }: { count: number }) => {
+	return <div className={tabCountCSS}>{count}</div>;
+};
+
 function Tab({
 	className,
 	active,
@@ -22,13 +26,7 @@ function Tab({
 				{...rest}
 				slotRight={
 					typeof count === "number" ? (
-						<Pill
-							className={tabCountCSS}
-							colorOverlay="blue"
-							size="sm"
-						>
-							{count}
-						</Pill>
+						<TabCount count={count} />
 					) : undefined
 				}
 				appearance="ghost"
