@@ -100,9 +100,7 @@ export const FormFilterNumeric = ({
 									: currentMin
 							}
 							autoComplete="off"
-							placeholder={`Min ${
-								smallestValue ? `(${smallestValue})` : ""
-							}`}
+							placeholder="Min"
 						/>
 						<FormInput
 							size="sm"
@@ -115,9 +113,7 @@ export const FormFilterNumeric = ({
 									: currentMax
 							}
 							autoComplete="off"
-							placeholder={`Max ${
-								largestValue ? `(${largestValue})` : ""
-							}`}
+							placeholder="Max"
 						/>
 					</Box>
 				)}

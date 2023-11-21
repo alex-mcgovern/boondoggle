@@ -162,7 +162,8 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 								v.map(transformNumericToRaw),
 							);
 						}
-						return column.setFilterValue(v);
+						column.setFilterValue(v);
+						setIsOpen(false);
 					}}
 					smallestValue={smallestValue ?? 0}
 					transformNumericToRaw={transformNumericToRaw}
