@@ -1,11 +1,11 @@
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import { RowData, Table } from "@tanstack/react-table";
+import { arrayHasLength } from "../../../_lib/array-has-length";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import { FilteringOptions } from "../../types";
-import { arrayHasLength } from "../../../_lib/array-has-length";
 
 export function TableNoResults<TRowData extends RowData>({
 	table,
