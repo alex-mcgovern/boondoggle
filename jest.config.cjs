@@ -1,12 +1,12 @@
 module.exports = {
-	globalSetup: "<rootDir>/test/global_setup.ts",
+	globalSetup: "<rootDir>/test/global-setup.ts",
 	moduleNameMapper: {
 		".*node_modules+.*.css$": "<rootDir>/__mocks__/style_mock.js",
 		".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
 			"<rootDir>/test/__mocks__/file-mock.ts", // <-- haven't bothered with this yet
 	},
-	setupFiles: ["<rootDir>/test/setup_tests.ts"],
-	setupFilesAfterEnv: ["<rootDir>/test/setup_test_env.ts"],
+	setupFiles: ["<rootDir>/test/setup-tests.ts"],
+	setupFilesAfterEnv: ["<rootDir>/test/setup-test-env.ts"],
 	testEnvironmentOptions: {
 		url: "http://localhost",
 	},
