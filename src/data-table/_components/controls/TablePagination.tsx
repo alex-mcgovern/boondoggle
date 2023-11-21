@@ -19,7 +19,6 @@ export function TablePagination<TRowData extends RowData>({
 	return (
 		<Box
 			alignItems="center"
-			borderTop="border_default"
 			display="flex"
 			gap="space_2"
 			marginY="space_3"

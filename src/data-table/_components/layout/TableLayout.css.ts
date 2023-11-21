@@ -56,13 +56,10 @@ export const rowStyles = style([
 		textDecoration: "none",
 	}),
 	{
-		// selectors: {
-		// 	"&:hover": {
-		// 		backgroundColor: vars.color.tint_default,
-		// 	},
-		// },
-		// ...withPrefersMotion({
-		// 	transition: `background-color ${vars.transitionDuration.medium} ease`,
-		// }),
+		selectors: {
+			"&:last-of-type": {
+				borderBottom: `1px solid ${vars.color.border_default}`,
+			},
+		},
 	},
 ]);
