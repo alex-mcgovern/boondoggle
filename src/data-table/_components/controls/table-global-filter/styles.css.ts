@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
-import { MEDIA_QUERY_TABLET } from "../../../../index.css";
+import { CONTAINER_MD } from "../../../../index.css";
 
 export const tableGlobalFilterCSS = style({
 	width: "100%",
-	"@media": {
-		[MEDIA_QUERY_TABLET]: {
+	"@container": {
+		[CONTAINER_MD]: {
 			width: "12rem",
 		},
 	},

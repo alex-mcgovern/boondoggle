@@ -35,7 +35,6 @@ export const tableActionsCSS = style([
 				"globalFilter"
 				"columnFilters"`,
 				gridTemplateColumns: "1fr",
-				gridTemplateRows: "min-content min-content",
 			},
 			[CONTAINER_MD]: {
 				gridTemplateAreas: `
@@ -45,7 +44,7 @@ export const tableActionsCSS = style([
 			},
 			[CONTAINER_LG]: {
 				gridTemplateAreas: `"globalFilter columnFilters actions"`,
-				gridTemplateColumns: "12rem 1fr 1fr",
+				gridTemplateColumns: "12rem 1fr min-content",
 			},
 		},
 	},

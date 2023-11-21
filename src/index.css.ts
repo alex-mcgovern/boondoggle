@@ -34,7 +34,7 @@ export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 31rem)";
 
 export const CONTAINER_LG = "(width > 992px)";
 export const CONTAINER_MD = "(width >= 496px)";
-export const CONTAINER_SM = "(width < 494px)";
+export const CONTAINER_SM = "(width < 496px)";
 
 /** -----------------------------------------------------------------------------
  * SELECTORS
