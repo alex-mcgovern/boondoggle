@@ -77,7 +77,6 @@ export const tabsSectionCss = recipe({
 export const tabListCSS = style([
 	sprinkles({
 		alignItems: "center",
-		paddingTop: "space_1",
 		borderBottom: "border_default",
 		display: "flex",
 	}),
