@@ -42,7 +42,7 @@ const config: StorybookConfig = {
 			plugins: [
 				new VanillaExtractPlugin({
 					identifiers: "debug",
-					outputCss: true,
+					// outputCss: false,
 				}),
 			],
 		}),
