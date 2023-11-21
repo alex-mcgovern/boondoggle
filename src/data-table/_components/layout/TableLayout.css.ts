@@ -58,7 +58,7 @@ export const rowStyles = style([
 	{
 		selectors: {
 			"&:last-of-type": {
-				borderBottom: `1px solid ${vars.color.border_default}`,
+				borderBottom: `1px solid ${vars.color.border_1}`,
 			},
 		},
 	},

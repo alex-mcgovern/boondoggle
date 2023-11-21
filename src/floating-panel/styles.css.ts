@@ -8,7 +8,7 @@ export const floatingPanel = recipe({
 		a11yFocus,
 		sprinkles({
 			background: "background_raised",
-			border: "border_default",
+			border: "border_1",
 			borderRadius: "md",
 			boxShadow: "md",
 		}),

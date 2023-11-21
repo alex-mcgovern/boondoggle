@@ -19,7 +19,7 @@ export const radioButtonCardLabelStyles = style([
 	sprinkles({
 		alignItems: "center",
 		// aspectRatio: "square",
-		border: "border_default",
+		border: "border_1",
 		borderRadius: "sm",
 		display: "flex",
 		gap: "space_4",
@@ -38,7 +38,7 @@ export const radioButtonCardLabelStyles = style([
 		selectors: {
 			"&:has(input:checked)": {
 				background: vars.color.tint_2,
-				border: `1px solid ${vars.color.border_hover}`,
+				border: `1px solid ${vars.color.border_2}`,
 			},
 			"&:has(input:focus)": {
 				...a11yFocusStyleRule,
@@ -46,7 +46,7 @@ export const radioButtonCardLabelStyles = style([
 			},
 			"&:hover": {
 				background: vars.color.tint_2,
-				border: `1px solid ${vars.color.border_hover}`,
+				border: `1px solid ${vars.color.border_2}`,
 				cursor: "pointer",
 			},
 		},

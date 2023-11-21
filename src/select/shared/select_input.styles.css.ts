@@ -7,21 +7,21 @@ export const selectInputCursorStyles = style({});
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only`,
 	{
-		background: vars.color.background,
+		// background: vars.color.background,
 		cursor: "pointer",
 	},
 );
 
-globalStyle(
-	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only:hover`,
-	{
-		background: vars.color.tint_2,
-	},
-);
+// globalStyle(
+// 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only:hover`,
+// 	{
+// 		background: vars.color.tint_2,
+// 	},
+// );
 
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:is(:focus,:focus-visible)`,
 	{
-		borderColor: vars.color.border_default,
+		borderColor: vars.color.border_1,
 	},
 );

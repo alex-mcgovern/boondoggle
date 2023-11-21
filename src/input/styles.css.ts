@@ -35,7 +35,7 @@ export const getSlotWrapperStyles = recipe({
 		sprinkles({
 			alignItems: "center",
 			background: "tint_1",
-			border: "border_default",
+			border: "border_3",
 			borderRadius: "md",
 			color: "text_low_contrast",
 			display: "flex",
@@ -54,14 +54,14 @@ export const getSlotWrapperStyles = recipe({
 			}),
 			selectors: {
 				"&:has(input[readonly])": {
-					background: vars.color.background,
+					// background: vars.color.tint_2,
 				},
 				"&:hover": {
 					// background: vars.color.tint_2,
-					borderColor: vars.color.border_hover,
+					borderColor: vars.color.border_2,
 				},
 				"&:active": {
-					borderColor: vars.color.border_active,
+					borderColor: vars.color.border_3,
 				},
 				"&:has(input:focus-visible)": {
 					...a11yFocusStyleRule,
@@ -266,10 +266,10 @@ export const getInputAddonTabStyle = recipe({
 		{
 			style: [
 				{
-					borderBottom: `1px solid ${vars.color.border_default}`,
+					borderBottom: `1px solid ${vars.color.border_1}`,
 					borderBottomLeftRadius: vars.borderRadius.md,
-					borderLeft: `1px solid ${vars.color.border_default}`,
-					borderTop: `1px solid ${vars.color.border_default}`,
+					borderLeft: `1px solid ${vars.color.border_1}`,
+					borderTop: `1px solid ${vars.color.border_1}`,
 					borderTopLeftRadius: vars.borderRadius.md,
 				},
 			],
@@ -278,10 +278,10 @@ export const getInputAddonTabStyle = recipe({
 		{
 			style: [
 				{
-					borderBottom: `1px solid ${vars.color.border_default}`,
+					borderBottom: `1px solid ${vars.color.border_1}`,
 					borderBottomRightRadius: vars.borderRadius.md,
-					borderRight: `1px solid ${vars.color.border_default}`,
-					borderTop: `1px solid ${vars.color.border_default}`,
+					borderRight: `1px solid ${vars.color.border_1}`,
+					borderTop: `1px solid ${vars.color.border_1}`,
 					borderTopRightRadius: vars.borderRadius.md,
 				},
 			],

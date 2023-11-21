@@ -5,7 +5,7 @@ import { sprinkles } from "../../../sprinkles/index.css";
 export const dialogHeaderStyle = style([
 	sprinkles({
 		alignItems: "center",
-		borderBottom: "border_default",
+		borderBottom: "border_1",
 		display: "flex",
 		justifyContent: "space-between",
 		maxWidth: "100%",

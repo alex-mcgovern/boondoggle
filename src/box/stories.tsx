@@ -43,7 +43,7 @@ export const ExamplePolymorphismReactComponent: StoryObj<BoxProps> = {
 
 const BASIC_SPRINKLES_PROPS: Sprinkles = {
 	background: "tint_2",
-	border: "border_default",
+	border: "border_1",
 	borderRadius: "sm",
 	padding: "space_6",
 };
@@ -87,7 +87,7 @@ export const ExampleEscapeHatchStyles: StoryObj<BoxProps> = {
 export const BoxAsInfoCard: StoryObj<BoxProps> = {
 	args: {
 		background: "tint_2",
-		border: "border_default",
+		border: "border_1",
 		borderRadius: "sm",
 		children: [
 			<Box as="h3" fontSize="bodyLg" fontWeight="bold">
@@ -104,7 +104,7 @@ export const BoxAsWarning: StoryObj<BoxProps> = {
 	args: {
 		alignItems: "start",
 		background: "tint_2",
-		border: "border_default",
+		border: "border_1",
 		borderRadius: "sm",
 		children: [
 			<Icon
@@ -137,7 +137,7 @@ export const BoxAsConfirmation: StoryObj<BoxProps> = {
 	args: {
 		alignItems: "start",
 		background: "tint_2",
-		border: "border_default",
+		border: "border_1",
 		borderRadius: "sm",
 		children: [
 			<Icon color="text_low_contrast" icon={faCheckCircle} size="xl" />,

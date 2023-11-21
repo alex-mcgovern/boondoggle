@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {
-		border: "border_default",
+		border: "border_1",
 		borderRadius: "50%",
 		height: "space_8",
 		width: "space_8",

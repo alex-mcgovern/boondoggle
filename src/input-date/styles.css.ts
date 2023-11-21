@@ -6,7 +6,7 @@ export const datePickerDialogStyle = style([
 	a11yFocus,
 	sprinkles({
 		background: "background",
-		border: "border_default",
+		border: "border_1",
 		borderRadius: "md",
 		boxShadow: "md",
 		marginTop: "space_2",

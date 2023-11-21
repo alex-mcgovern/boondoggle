@@ -19,7 +19,7 @@ export const pillCSS = recipe({
 			borderRadius: "pill",
 			color: "text_low_contrast",
 			flexShrink: "0",
-			fontWeight: "medium",
+			fontWeight: "normal",
 			textDecoration: "none",
 			whiteSpace: "nowrap",
 			paddingX: "space_1",

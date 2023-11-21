@@ -23,7 +23,7 @@ export function DialogModalHeader({
 }: DialogModalHeaderProps) {
 	return (
 		<Box className={dialogHeaderStyle}>
-			<Box as="h3" className={dialogTitleStyle} fontStyle="h5">
+			<Box as="h3" className={dialogTitleStyle} fontStyle="bodyLg">
 				{title}
 			</Box>
 

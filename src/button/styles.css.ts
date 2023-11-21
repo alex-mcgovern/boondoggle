@@ -113,18 +113,21 @@ const variantAppearance = styleVariants({
 					background: vars.color.tint_2,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_3,
+					background: vars.color.tint_2,
 				},
 			},
 		},
 	],
 
 	primary: [
-		sprinkles(COMMON_BUTTON_SPRINKLES),
+		sprinkles({ ...COMMON_BUTTON_SPRINKLES, boxShadow: "sm" }),
 		{
 			background: vars.color.button_default,
 			color: vars.color.white,
 			selectors: {
+				"&:not(:is([disabled], [aria-disabled='true']))": {
+					boxShadow: vars.boxShadow.sm,
+				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.button_hover,
 					color: vars.color.white,
@@ -137,19 +140,24 @@ const variantAppearance = styleVariants({
 	],
 
 	secondary: [
-		sprinkles(COMMON_BUTTON_SPRINKLES),
+		sprinkles({
+			...COMMON_BUTTON_SPRINKLES,
+			border: "border_2",
+			color: "text_high_contrast",
+			background: "tint_1",
+		}),
 		{
-			border: "1px solid",
-			borderColor: vars.color.border_default,
-			color: vars.color.text_high_contrast,
 			selectors: {
+				"&:not(:is([disabled], [aria-disabled='true']))": {
+					boxShadow: vars.boxShadow.sm,
+				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_3,
-					borderColor: vars.color.border_hover,
+					background: vars.color.tint_1,
+					borderColor: vars.color.border_3,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_4,
-					borderColor: vars.color.border_active,
+					background: vars.color.tint_2,
+					borderColor: vars.color.border_4,
 				},
 			},
 		},

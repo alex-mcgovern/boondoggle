@@ -68,7 +68,7 @@ export const getSelectItemStyles = recipe({
 					cursor: "pointer",
 				},
 				"&:active": {
-					background: vars.color.tint_3,
+					background: vars.color.tint_2,
 				},
 			},
 		},

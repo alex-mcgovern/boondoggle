@@ -8,7 +8,7 @@ export const getDialogModalAlertWrapperStyles = recipe({
 		sprinkles({
 			alignItems: "center",
 			background: "tint_2",
-			borderBottom: "border_default",
+			borderBottom: "border_1",
 			display: "flex",
 			gap: "space_4",
 			padding: "space_4",
