@@ -1,11 +1,11 @@
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
-import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import { RowData, Table } from "@tanstack/react-table";
 import { arrayHasLength } from "../../../_lib/array-has-length";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import { FilteringOptions } from "../../types";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 
 export function TableNoResults<TRowData extends RowData>({
 	table,
@@ -41,12 +41,13 @@ export function TableNoResults<TRowData extends RowData>({
 
 			{filteringOptions && isFiltered && (
 				<Button
+					size="sm"
 					name="clear_filters"
+					appearance="secondary"
 					onClick={() => {
 						table.setColumnFilters([]);
 						table.setGlobalFilter("");
 					}}
-					slotRight={<Icon icon={faTimesCircle} />}
 				>
 					{filteringOptions.strClearAllFilters}
 				</Button>

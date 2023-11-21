@@ -158,11 +158,10 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 					largestValue={largestValue ?? 0}
 					setFilter={(v: NumberRangeFilterValue) => {
 						if (transformNumericToRaw) {
-							return column.setFilterValue(
-								v.map(transformNumericToRaw),
-							);
+							column.setFilterValue(v.map(transformNumericToRaw));
+						} else {
+							column.setFilterValue(v);
 						}
-						column.setFilterValue(v);
 						setIsOpen(false);
 					}}
 					smallestValue={smallestValue ?? 0}
