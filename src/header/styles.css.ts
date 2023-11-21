@@ -39,8 +39,8 @@ export const innerCSS = recipe({
 		hasTabs: {
 			false: [
 				sprinkles({
-					paddingBottom: "space_2",
-					borderBottom: "border_default",
+					// paddingBottom: "space_2",
+					// borderBottom: "border_default",
 				}),
 			],
 			true: [],
