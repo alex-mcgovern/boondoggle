@@ -133,7 +133,7 @@ export const sprinklesLayer = globalLayer("sprinkles");
  * - See: https://vanilla-extract.style/documentation/global-api/create-global-theme/
  */
 
-export const vars = createGlobalTheme(":root", {
+export const vars = createGlobalTheme(":root, ::backdrop", {
 	color: {
 		black: slate.slate12,
 		white: slate.slate1,
@@ -353,7 +353,7 @@ export const variantColorOverlay = styleVariants({
 					white: amber.amber1,
 
 					text_low_contrast: amber.amber11,
-					text_high_contrast: amber.amber12,
+					text_high_contrast: amber.amber11,
 
 					background: amber.amber1,
 					backdrop: amberA.amberA11,
@@ -385,7 +385,7 @@ export const variantColorOverlay = styleVariants({
 					white: blue.blue1,
 
 					text_low_contrast: blue.blue11,
-					text_high_contrast: blue.blue12,
+					text_high_contrast: blue.blue11,
 
 					background: blue.blue1,
 					backdrop: blueA.blueA11,
@@ -449,7 +449,7 @@ export const variantColorOverlay = styleVariants({
 					white: green.green1,
 
 					text_low_contrast: green.green11,
-					text_high_contrast: green.green12,
+					text_high_contrast: green.green11,
 
 					background: green.green1,
 					backdrop: greenA.greenA11,
@@ -481,7 +481,7 @@ export const variantColorOverlay = styleVariants({
 					white: slate.slate1,
 
 					text_low_contrast: slate.slate11,
-					text_high_contrast: slate.slate12,
+					text_high_contrast: slate.slate11,
 
 					background: slate.slate1,
 					backdrop: slateA.slateA11,
@@ -513,7 +513,7 @@ export const variantColorOverlay = styleVariants({
 					white: red.red1,
 
 					text_low_contrast: red.red11,
-					text_high_contrast: red.red12,
+					text_high_contrast: red.red11,
 
 					background: red.red1,
 					backdrop: redA.redA11,
@@ -545,7 +545,7 @@ export const variantColorOverlay = styleVariants({
 					white: iris.iris1,
 
 					text_low_contrast: iris.iris11,
-					text_high_contrast: iris.iris12,
+					text_high_contrast: iris.iris11,
 
 					background: iris.iris1,
 					backdrop: irisA.irisA11,
