@@ -7,7 +7,7 @@ export const floatingPanel = recipe({
 		animateFadeIn,
 		a11yFocus,
 		sprinkles({
-			background: "background",
+			background: "background_raised",
 			border: "border_default",
 			borderRadius: "md",
 			boxShadow: "md",

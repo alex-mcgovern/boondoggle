@@ -86,10 +86,12 @@ const variantAppearance = styleVariants({
 	],
 
 	link: [
+		sprinkles({ color: "button_default" }),
 		{
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					color: vars.color.button_default,
+					color: vars.color.button_hover,
+					textDecoration: "underline",
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
 					color: vars.color.button_active,

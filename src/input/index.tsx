@@ -33,7 +33,7 @@ import {
 	WithOptionalInputAddons,
 } from "./InputAddonWrapper";
 import { InputSlotWrapper } from "./InputSlotWrapper";
-import { clearButtonStyle, inputStyles } from "./styles.css";
+import { clearButtonStyle, inputCSS } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
 
@@ -240,7 +240,7 @@ function InputBase(
 					}
 				>
 					<input
-						className={inputStyles}
+						className={inputCSS}
 						defaultValue={defaultValue}
 						disabled={disabled}
 						id={name}

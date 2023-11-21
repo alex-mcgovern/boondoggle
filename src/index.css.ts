@@ -1,16 +1,28 @@
 import {
 	amber,
 	amberA,
+	amberDark,
+	amberDarkA,
 	blue,
 	blueA,
+	blueDark,
+	blueDarkA,
 	green,
 	greenA,
+	greenDark,
+	greenDarkA,
 	iris,
 	irisA,
+	irisDark,
+	irisDarkA,
 	red,
 	redA,
+	redDark,
+	redDarkA,
 	slate,
 	slateA,
+	slateDark,
+	slateDarkA,
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
@@ -27,6 +39,8 @@ import { withPrefersMotion } from "./css-utils";
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
  * ------------------------------------------------------------------------------- */
+
+export const MEDIA_QUERY_DARK = "(prefers-color-scheme: dark)";
 
 export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 992px)";
 export const MEDIA_QUERY_TABLET = "only screen and (min-width: 496px)";
@@ -142,6 +156,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		text_high_contrast: slate.slate12,
 
 		background: slate.slate1,
+		background_raised: slate.slate1,
 		backdrop: slateA.slateA11,
 		shadow: slateA.slateA4,
 
@@ -174,9 +189,9 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		sm: "4px",
 	},
 	boxShadow: {
-		lg: "0 8px 24px rgba(140,149,159,0.2)",
-		md: "0 3px 6px rgba(140,149,159,0.15)",
-		sm: "0 1px 0 rgba(31,35,40,0.04)",
+		lg: `0 8px 24px ${slateA.slateA4}`,
+		md: `0 3px 6px ${slateA.slateA4}`,
+		sm: `0 1px 0 ${slateA.slateA4}`,
 	},
 	display: {
 		block: "block",
@@ -356,6 +371,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: amber.amber11,
 
 					background: amber.amber1,
+					background_raised: amber.amber1,
 					backdrop: amberA.amberA11,
 					shadow: amberA.amberA4,
 
@@ -374,6 +390,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: amber.amber7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: amberDark.amber12,
+							white: amberDark.amber1,
+
+							text_low_contrast: amberDark.amber11,
+							text_high_contrast: amberDark.amber11,
+
+							background: amberDark.amber1,
+							background_raised: amberDark.amber2,
+							backdrop: amberDarkA.amberA11,
+							shadow: amberDarkA.amberA4,
+
+							border_default: amberDark.amber6,
+							border_active: amberDark.amber8,
+							border_hover: amberDark.amber7,
+
+							button_tint: amberDark.amber5,
+							button_default: amberDark.amber9,
+							button_hover: amberDark.amber10,
+							button_active: amberDark.amber11,
+
+							tint_default: amberDark.amber3,
+							tint_hover: amberDark.amber4,
+							tint_active: amberDark.amber5,
+
+							focus_ring: amberDark.amber7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -388,6 +436,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: blue.blue11,
 
 					background: blue.blue1,
+					background_raised: blue.blue1,
 					backdrop: blueA.blueA11,
 					shadow: blueA.blueA4,
 
@@ -406,6 +455,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: blue.blue7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: blueDark.blue12,
+							white: blueDark.blue1,
+
+							text_low_contrast: blueDark.blue11,
+							text_high_contrast: blueDark.blue11,
+
+							background: blueDark.blue1,
+							background_raised: blueDark.blue1,
+							backdrop: blueDarkA.blueA11,
+							shadow: blueDarkA.blueA4,
+
+							border_default: blueDark.blue6,
+							border_active: blueDark.blue8,
+							border_hover: blueDark.blue7,
+
+							button_tint: blueDark.blue5,
+							button_default: blueDark.blue9,
+							button_hover: blueDark.blue10,
+							button_active: blueDark.blue11,
+
+							tint_default: blueDark.blue3,
+							tint_hover: blueDark.blue4,
+							tint_active: blueDark.blue5,
+
+							focus_ring: blueDark.blue7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -420,6 +501,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: slate.slate12,
 
 					background: slate.slate1,
+					background_raised: slate.slate1,
 					backdrop: slateA.slateA11,
 					shadow: slateA.slateA4,
 
@@ -452,6 +534,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: green.green11,
 
 					background: green.green1,
+					background_raised: green.green1,
 					backdrop: greenA.greenA11,
 					shadow: greenA.greenA4,
 
@@ -470,6 +553,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: green.green7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: greenDark.green12,
+							white: greenDark.green1,
+
+							text_low_contrast: greenDark.green11,
+							text_high_contrast: greenDark.green11,
+
+							background: greenDark.green1,
+							background_raised: greenDark.green2,
+							backdrop: greenDarkA.greenA11,
+							shadow: greenDarkA.greenA4,
+
+							border_default: greenDark.green6,
+							border_active: greenDark.green8,
+							border_hover: greenDark.green7,
+
+							button_tint: greenDark.green5,
+							button_default: greenDark.green9,
+							button_hover: greenDark.green10,
+							button_active: greenDark.green11,
+
+							tint_default: greenDark.green3,
+							tint_hover: greenDark.green4,
+							tint_active: greenDark.green5,
+
+							focus_ring: greenDark.green7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -484,6 +599,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: slate.slate11,
 
 					background: slate.slate1,
+					background_raised: slate.slate1,
 					backdrop: slateA.slateA11,
 					shadow: slateA.slateA4,
 
@@ -502,6 +618,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: slate.slate7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: slateDark.slate12,
+							white: slateDark.slate1,
+
+							text_low_contrast: slateDark.slate11,
+							text_high_contrast: slateDark.slate11,
+
+							background: slateDark.slate1,
+							background_raised: slateDark.slate2,
+							backdrop: slateDarkA.slateA11,
+							shadow: slateDarkA.slateA4,
+
+							border_default: slateDark.slate6,
+							border_active: slateDark.slate8,
+							border_hover: slateDark.slate7,
+
+							button_tint: slateDark.slate5,
+							button_default: slateDark.slate9,
+							button_hover: slateDark.slate10,
+							button_active: slateDark.slate11,
+
+							tint_default: slateDark.slate3,
+							tint_hover: slateDark.slate4,
+							tint_active: slateDark.slate5,
+
+							focus_ring: slateDark.slate7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -516,6 +664,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: red.red11,
 
 					background: red.red1,
+					background_raised: red.red1,
 					backdrop: redA.redA11,
 					shadow: redA.redA4,
 
@@ -534,6 +683,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: red.red7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: redDark.red12,
+							white: redDark.red1,
+
+							text_low_contrast: redDark.red11,
+							text_high_contrast: redDark.red11,
+
+							background: redDark.red1,
+							background_raised: redDark.red2,
+							backdrop: redDarkA.redA11,
+							shadow: redDarkA.redA4,
+
+							border_default: redDark.red6,
+							border_active: redDark.red8,
+							border_hover: redDark.red7,
+
+							button_tint: redDark.red5,
+							button_default: redDark.red9,
+							button_hover: redDark.red10,
+							button_active: redDark.red11,
+
+							tint_default: redDark.red3,
+							tint_hover: redDark.red4,
+							tint_active: redDark.red5,
+
+							focus_ring: redDark.red7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -548,6 +729,7 @@ export const variantColorOverlay = styleVariants({
 					text_high_contrast: iris.iris11,
 
 					background: iris.iris1,
+					background_raised: iris.iris1,
 					backdrop: irisA.irisA11,
 					shadow: irisA.irisA4,
 
@@ -566,6 +748,38 @@ export const variantColorOverlay = styleVariants({
 
 					focus_ring: iris.iris7,
 				}),
+
+				"@media": {
+					[MEDIA_QUERY_DARK]: {
+						vars: assignVars(vars.color, {
+							black: irisDark.iris12,
+							white: irisDark.iris1,
+
+							text_low_contrast: irisDark.iris11,
+							text_high_contrast: irisDark.iris11,
+
+							background: irisDark.iris1,
+							background_raised: irisDark.iris2,
+							backdrop: irisDarkA.irisA11,
+							shadow: irisDarkA.irisA4,
+
+							border_default: irisDark.iris6,
+							border_active: irisDark.iris8,
+							border_hover: irisDark.iris7,
+
+							button_tint: irisDark.iris5,
+							button_default: irisDark.iris9,
+							button_hover: irisDark.iris10,
+							button_active: irisDark.iris11,
+
+							tint_default: irisDark.iris3,
+							tint_hover: irisDark.iris4,
+							tint_active: irisDark.iris5,
+
+							focus_ring: irisDark.iris7,
+						}),
+					},
+				},
 			},
 		},
 	},
@@ -837,6 +1051,39 @@ globalStyle(":root", {
 				[vars.fontSize.h4]: "1.375rem",
 				[vars.fontSize.h5]: "1.125rem",
 				[vars.fontSize.h6]: "1rem",
+			},
+		},
+		[MEDIA_QUERY_DARK]: {
+			vars: {
+				[vars.color.black]: slateDark.slate12,
+				[vars.color.white]: slateDark.slate1,
+
+				[vars.color.text_low_contrast]: slateDark.slate11,
+				[vars.color.text_high_contrast]: slateDark.slate12,
+
+				[vars.color.background]: slateDark.slate2,
+				[vars.color.background_raised]: slateDark.slate3,
+				[vars.color.backdrop]: slateDarkA.slateA11,
+				[vars.color.shadow]: slateDarkA.slateA1,
+
+				[vars.color.border_default]: slateDark.slate6,
+				[vars.color.border_active]: slateDark.slate8,
+				[vars.color.border_hover]: slateDark.slate7,
+
+				[vars.color.button_tint]: blueDark.blue5,
+				[vars.color.button_default]: blueDark.blue9,
+				[vars.color.button_hover]: blueDark.blue10,
+				[vars.color.button_active]: blueDark.blue11,
+
+				[vars.color.tint_default]: slateDark.slate4,
+				[vars.color.tint_hover]: slateDark.slate5,
+				[vars.color.tint_active]: slateDark.slate6,
+
+				[vars.color.focus_ring]: blueDark.blue7,
+
+				// [vars.boxShadow.lg]: `0 8px 24px ${slateDarkA.slateA4}`,
+				// [vars.boxShadow.md]: `0 3px 6px ${slateDarkA.slateA4}`,
+				// [vars.boxShadow.sm]: `0 1px 0 ${slateDarkA.slateA4}`,
 			},
 		},
 	},

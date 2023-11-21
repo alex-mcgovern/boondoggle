@@ -176,10 +176,11 @@ globalStyle(
 	},
 );
 
-export const inputStyles = style([
+export const inputCSS = style([
 	sprinkles({
 		flexGrow: "1",
 		fontStyle: "bodyMd",
+		color: "text_high_contrast",
 		height: "space_6",
 		margin: "none",
 		padding: "none",
