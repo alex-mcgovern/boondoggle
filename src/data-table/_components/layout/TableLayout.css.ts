@@ -4,7 +4,11 @@ import { recipe } from "@vanilla-extract/recipes";
 import { tBodyStyles, tRowStyles, tdStyles, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
-const baseBodyStyle = style({});
+const baseBodyStyle = style([
+	sprinkles({
+		marginY: "space_3",
+	}),
+]);
 
 const isSelectable = styleVariants({
 	true: {},

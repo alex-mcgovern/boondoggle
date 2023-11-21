@@ -22,8 +22,7 @@ export function TablePagination<TRowData extends RowData>({
 			borderTop="border_default"
 			display="flex"
 			gap="space_2"
-			marginBottom="space_2"
-			paddingTop="space_2"
+			marginY="space_3"
 			paddingX="space_4"
 		>
 			<Box

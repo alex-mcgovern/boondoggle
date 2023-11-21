@@ -924,6 +924,9 @@ globalStyle("input[type=checkbox]", {
 			cursor: "pointer",
 			height: vars.spacing.space_4,
 			width: vars.spacing.space_4,
+			...withPrefersMotion({
+				transition: `all ${vars.transitionDuration.long} ease`,
+			}),
 		},
 	},
 });

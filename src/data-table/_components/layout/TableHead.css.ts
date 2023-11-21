@@ -2,8 +2,13 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { tHeadStyles, thStyles, vars } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
-const baseHeadStyle = style({});
+const baseHeadStyle = style([
+	sprinkles({
+		borderTop: "border_default",
+	}),
+]);
 
 const isSelectable = styleVariants({
 	true: {},

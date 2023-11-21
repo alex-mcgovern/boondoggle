@@ -5,6 +5,7 @@ import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import { FilteringOptions } from "../../types";
+import { arrayHasLength } from "../../../_lib/array-has-length";
 
 export function TableNoResults<TRowData extends RowData>({
 	table,
@@ -15,6 +16,10 @@ export function TableNoResults<TRowData extends RowData>({
 	filteringOptions: FilteringOptions<TRowData> | undefined;
 	strNoResults: string;
 }) {
+	const isFiltered =
+		table.getState().globalFilter ||
+		arrayHasLength(table.getState().columnFilters);
+
 	return (
 		<Box
 			alignItems="center"
@@ -34,11 +39,12 @@ export function TableNoResults<TRowData extends RowData>({
 				{strNoResults}
 			</Box>
 
-			{filteringOptions && table.getState().globalFilter && (
+			{filteringOptions && isFiltered && (
 				<Button
 					name="clear_filters"
 					onClick={() => {
-						return table.setGlobalFilter("");
+						table.setColumnFilters([]);
+						table.setGlobalFilter("");
 					}}
 					slotRight={<Icon icon={faTimesCircle} />}
 				>

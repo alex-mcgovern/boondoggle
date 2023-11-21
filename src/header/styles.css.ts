@@ -5,8 +5,7 @@ import { sprinkles } from "../sprinkles/index.css";
 export const headerCSS = recipe({
 	base: [
 		sprinkles({
-			marginTop: "space_4",
-			marginBottom: "space_2",
+			marginY: "space_3",
 			marginX: "auto",
 			paddingX: "space_4",
 		}),
@@ -23,30 +22,14 @@ export const headerCSS = recipe({
 	},
 });
 
-export const innerCSS = recipe({
-	base: [
-		sprinkles({
-			alignItems: "center",
-			display: "flex",
-			gap: "space_4",
-			minHeight: "space_12",
-		}),
-	],
-	defaultVariants: {
-		hasTabs: false,
-	},
-	variants: {
-		hasTabs: {
-			false: [
-				sprinkles({
-					// paddingBottom: "space_2",
-					// borderBottom: "border_default",
-				}),
-			],
-			true: [],
-		},
-	},
-});
+export const innerCSS = style([
+	sprinkles({
+		alignItems: "center",
+		display: "flex",
+		gap: "space_2",
+		minHeight: "space_8",
+	}),
+]);
 
 export const actionsCSS = style([
 	sprinkles({

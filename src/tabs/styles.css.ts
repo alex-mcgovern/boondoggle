@@ -57,7 +57,7 @@ export const tabCSS = recipe({
 export const tabsSectionCss = recipe({
 	base: [
 		sprinkles({
-			marginY: "space_2",
+			marginY: "space_3",
 			marginX: "auto",
 			paddingX: "space_4",
 		}),

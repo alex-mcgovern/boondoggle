@@ -33,7 +33,7 @@ export function Header({
 	return (
 		<>
 			<header className={clsx(className, headerCSS({ size }))} {...rest}>
-				<div className={innerCSS({ hasTabs: !!tabs })}>
+				<div className={innerCSS}>
 					{children}
 					{actions && <div className={actionsCSS}>{actions}</div>}
 				</div>
