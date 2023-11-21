@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { ComponentProps } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Button, ButtonProps } from "../button";
-import { Pill } from "../pill";
 import { sprinkles } from "../sprinkles/index.css";
 import { WithSize } from "../types";
 import { tabCSS, tabCountCSS, tabListCSS, tabsSectionCss } from "./styles.css";

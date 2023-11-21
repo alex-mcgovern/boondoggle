@@ -1,10 +1,10 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { ColorOverlayBlue } from "../button/stories";
 import { withPrefersMotion } from "../css-utils";
 import { variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { ColorOverlayBlue } from "../button/stories";
 
 const scaleUpKeyframes = keyframes({
 	"0%": {
