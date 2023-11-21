@@ -48,4 +48,11 @@ export const innerCSS = recipe({
 	},
 });
 
-export const actionsCSS = style([sprinkles({ marginLeft: "auto" })]);
+export const actionsCSS = style([
+	sprinkles({
+		marginLeft: "auto",
+		display: "flex",
+		alignItems: "center",
+		gap: "space_2",
+	}),
+]);
