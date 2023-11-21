@@ -15,7 +15,7 @@ export const pillCSS = recipe({
 			fontSize: "bodySm",
 			alignItems: "center",
 			justifyContent: "center",
-			background: "tint_active",
+			background: "tint_default",
 			borderRadius: "pill",
 			color: "text_low_contrast",
 			flexShrink: "0",
@@ -34,6 +34,9 @@ export const pillCSS = recipe({
 		{
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+					background: vars.color.tint_hover,
+				},
+				"&:active": {
 					background: vars.color.tint_active,
 				},
 			},
