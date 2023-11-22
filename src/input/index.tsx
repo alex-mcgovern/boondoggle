@@ -204,9 +204,6 @@ function InputBase(
 					slotRight={
 						<>
 							{initialSlotRight}
-							{readOnly ? (
-								<Icon color="text_low_contrast" icon={faLock} />
-							) : null}
 							{isVisibilityToggleable && (
 								<FieldActionButtonVisibility
 									isVisible={isVisible}

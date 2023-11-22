@@ -11,7 +11,7 @@ const tableActionsContainer = createContainer();
 
 export const tableActionsContainerCSS = style([
 	sprinkles({
-		marginY: "space_3",
+		marginY: "space_4",
 	}),
 	{
 		containerName: tableActionsContainer,

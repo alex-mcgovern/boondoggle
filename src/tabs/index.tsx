@@ -19,20 +19,21 @@ function Tab({
 	...rest
 }: ButtonProps & { count?: number; isTabFullWidth?: boolean }) {
 	return (
-		<div className={clsx(tabCSS({ active, isTabFullWidth }), className)}>
-			<Button
-				size="sm"
-				{...rest}
-				slotRight={
-					typeof count === "number" ? (
-						<TabCount count={count} />
-					) : undefined
-				}
-				appearance="ghost"
-			>
-				{children}
-			</Button>
-		</div>
+		// <div className={clsx(tabCSS({ active, isTabFullWidth }), className)}>
+		<Button
+			size="sm"
+			appearance={active ? "secondary" : "ghost"}
+			{...rest}
+			// slotRight={
+			// 	typeof count === "number" ? (
+			// 		<TabCount count={count} />
+			// 	) : undefined
+			// }
+			// appearance="ghost"
+		>
+			{children}
+		</Button>
+		// </div>
 	);
 }
 

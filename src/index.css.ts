@@ -257,7 +257,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100vh": "100vh",
 		auto: "auto",
 		"min-content": "min-content",
-		topBar: "4rem",
+		topBar: "3.5rem",
 	},
 	lineHeight: {
 		bodyLg: "1.5rem", // 24px
@@ -1117,32 +1117,35 @@ globalStyle(":root", {
 		},
 		[MEDIA_QUERY_DARK]: {
 			vars: {
-				[vars.color.black]: slateDark.slate1,
-				[vars.color.white]: slateDark.slate12,
+				...assignVars(vars.color, {
+					black: slateDark.slate1,
+					white: slateDark.slate12,
 
-				[vars.color.text_low_contrast]: slateDark.slate11,
-				[vars.color.text_high_contrast]: slateDark.slate12,
+					text_low_contrast: slateDark.slate11,
+					text_high_contrast: slateDark.slate12,
 
-				[vars.color.background]: slateDark.slate3,
-				[vars.color.background_raised]: slateDark.slate4,
-				[vars.color.backdrop]: slateDarkA.slateA11,
-				[vars.color.shadow]: slateDarkA.slateA1,
+					background: blueDark.blue2,
+					background_raised: blueDark.blue3,
+					backdrop: slateA.slateA11,
+					shadow: slateA.slateA2,
 
-				[vars.color.border_1]: slateDark.slate5,
-				[vars.color.border_3]: slateDark.slate7,
-				[vars.color.border_2]: slateDark.slate6,
+					border_1: slateDark.slate4,
+					border_2: slateDark.slate5,
+					border_3: slateDark.slate6,
+					border_4: slateDark.slate7,
 
-				[vars.color.button_tint]: blueDark.blue5,
-				[vars.color.button_default]: blueDark.blue9,
-				[vars.color.button_hover]: blueDark.blue10,
-				[vars.color.button_active]: blueDark.blue11,
+					button_tint: blueDark.blue5,
+					button_default: blueDark.blue9,
+					button_hover: blueDark.blue8,
+					button_active: blueDark.blue7,
 
-				[vars.color.tint_1]: slateDark.slate4,
-				[vars.color.tint_2]: slateDark.slate5,
-				[vars.color.tint_3]: slateDark.slate6,
-				[vars.color.tint_4]: slateDark.slate7,
+					tint_1: slateDark.slate2,
+					tint_2: slateDark.slate3,
+					tint_3: slateDark.slate4,
+					tint_4: slateDark.slate5,
 
-				[vars.color.focus_ring]: blueDark.blue7,
+					focus_ring: blueDark.blue7,
+				}),
 
 				// [vars.boxShadow.lg]: `0 8px 24px ${slateDarkA.slateA2}`,
 				// [vars.boxShadow.md]: `0 3px 6px ${slateDarkA.slateA2}`,

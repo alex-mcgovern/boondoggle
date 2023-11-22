@@ -141,6 +141,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 		onChange: initOnChange,
 		onCurrencyChange,
 		value: controlledValue,
+		size,
 		...rest
 	}: InputCurrencyProps<TCurrency>,
 	ref: ForwardedRef<HTMLInputElement>,
@@ -170,6 +171,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 					inputProps={{
 						className: currencySelectInputStyle,
 					}}
+					size={size}
 					isLabelVisible={false}
 					items={currencySelectItems}
 					label={currencySelectLabel}
@@ -191,6 +193,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 		initialCurrency,
 		isCurrencyEditable,
 		onCurrencyChange,
+		size,
 	]);
 
 	return (
@@ -201,6 +204,7 @@ function PureInputCurrency<TCurrency extends string = string>(
 			inputMode="decimal"
 			onChange={onChange}
 			ref={ref}
+			size={size}
 			selectionRange={value.selection}
 			value={value.formatted}
 			marginBottom={marginBottom}
