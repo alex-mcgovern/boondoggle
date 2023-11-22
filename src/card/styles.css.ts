@@ -21,7 +21,7 @@ export const headerCSS = style([
 export const cardCSS = recipe({
 	base: [
 		sprinkles({
-			background: "background_raised",
+			background: "background",
 			marginBottom: "space_5",
 			boxShadow: "sm",
 		}),
