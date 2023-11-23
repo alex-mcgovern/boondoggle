@@ -4,11 +4,16 @@ import { arrayHasLength } from "../_lib/array-has-length";
 import { Button, ButtonProps } from "../button";
 import { sprinkles } from "../sprinkles/index.css";
 import { WithSize } from "../types";
-import { tabCSS, tabCountCSS, tabListCSS, tabsSectionCss } from "./styles.css";
+import {
+	// tabCSS,
+	// tabCountCSS,
+	tabListCSS,
+	tabsSectionCss,
+} from "./styles.css";
 
-const TabCount = ({ count }: { count: number }) => {
-	return <div className={tabCountCSS}>{count}</div>;
-};
+// const TabCount = ({ count }: { count: number }) => {
+// 	return <div className={tabCountCSS}>{count}</div>;
+// };
 
 function Tab({
 	className,
