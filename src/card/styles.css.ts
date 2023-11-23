@@ -6,7 +6,7 @@ import { sprinkles } from "../sprinkles/index.css";
 export const headerCSS = style([
 	sprinkles({
 		border: "border_1",
-		padding: "space_5",
+		padding: "space_4",
 		display: "flex",
 		gap: "space_4",
 		alignItems: "center",
@@ -22,14 +22,14 @@ export const cardCSS = recipe({
 	base: [
 		sprinkles({
 			background: "background",
-			marginBottom: "space_5",
+			marginBottom: "space_4",
 			boxShadow: "sm",
 		}),
 	],
 	variants: {
 		hasPadding: {
 			true: sprinkles({
-				padding: "space_5",
+				padding: "space_4",
 			}),
 			false: [],
 		},
@@ -45,7 +45,7 @@ export const cardCSS = recipe({
 			],
 			false: sprinkles({
 				border: "border_1",
-				marginTop: "space_5",
+				marginTop: "space_4",
 				borderRadius: "lg",
 			}),
 		},

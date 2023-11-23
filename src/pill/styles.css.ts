@@ -1,6 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
+	SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
 	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
 	a11yFocus,
 	variantColorOverlay,
@@ -21,6 +22,7 @@ export const pillCSS = recipe({
 			flexShrink: "0",
 			fontWeight: "normal",
 			textDecoration: "none",
+			boxShadow: "sm",
 			whiteSpace: "nowrap",
 			paddingX: "space_1",
 			paddingY: "space_1",
@@ -34,9 +36,9 @@ export const pillCSS = recipe({
 		{
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-					background: vars.color.tint_3,
+					background: vars.color.tint_4,
 				},
-				"&:active": {
+				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
 					background: vars.color.tint_4,
 				},
 			},

@@ -17,6 +17,7 @@ import {
 	irisDarkA,
 	mauveA,
 	mauveDark,
+	mauveDarkA,
 	red,
 	redA,
 	redDark,
@@ -36,7 +37,7 @@ import {
 	style,
 	styleVariants,
 } from "@vanilla-extract/css";
-import { withPrefersMotion } from "./css-utils";
+import { makeDarkTheme, makeLightTheme, withPrefersMotion } from "./css-utils";
 
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
@@ -150,35 +151,12 @@ export const sprinklesLayer = globalLayer("sprinkles");
  */
 
 export const vars = createGlobalTheme(":root, ::backdrop", {
-	color: {
-		black: slate.slate12,
-		white: slate.slate1,
-
-		text_low_contrast: slate.slate10,
-		text_high_contrast: slate.slate12,
-
-		background: slate.slate1,
-		background_raised: slate.slate1,
-		tint_1: slate.slate2,
-		backdrop: slateA.slateA11,
-		shadow: slateA.slateA2,
-
-		border_1: slate.slate3,
-		border_2: slate.slate4,
-		border_3: slate.slate5,
-		border_4: slate.slate6,
-
-		button_tint: blue.blue5,
-		button_default: blue.blue9,
-		button_hover: blue.blue10,
-		button_active: blue.blue11,
-
-		tint_2: slate.slate3,
-		tint_3: slate.slate4,
-		tint_4: slate.slate5,
-
-		focus_ring: blue.blue7,
-	},
+	color: makeLightTheme({
+		primary: blue,
+		secondary: slate,
+		alpha: slateA,
+		isColorOverlay: false,
+	}),
 	aspectRatio: {
 		extraWide: "10 / 3",
 		square: "1 / 1",
@@ -367,67 +345,27 @@ export const variantColorOverlay = styleVariants({
 	amber: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: amber.amber12,
-					white: amber.amber1,
-
-					text_low_contrast: amber.amber11,
-					text_high_contrast: amber.amber11,
-
-					background: amber.amber1,
-					background_raised: amber.amber1,
-					backdrop: amberA.amberA11,
-					shadow: amberA.amberA2,
-
-					border_1: amber.amber5,
-					border_2: amber.amber6,
-					border_3: amber.amber7,
-					border_4: amber.amber7,
-
-					button_tint: amber.amber5,
-					button_default: amber.amber9,
-					button_hover: amber.amber10,
-					button_active: amber.amber11,
-
-					tint_1: amber.amber2,
-					tint_2: amber.amber3,
-					tint_3: amber.amber4,
-					tint_4: amber.amber5,
-
-					focus_ring: amber.amber7,
-				}),
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: amber,
+						secondary: amber,
+						alpha: amberA,
+						isColorOverlay: true,
+					}),
+				),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: amberDark.amber1,
-							white: amberDark.amber12,
-
-							text_low_contrast: amberDark.amber11,
-							text_high_contrast: amberDark.amber11,
-
-							background: amberDark.amber1,
-							background_raised: amberDark.amber2,
-							backdrop: amberDarkA.amberA11,
-							shadow: amberDarkA.amberA2,
-
-							border_1: amberDark.amber5,
-							border_2: amberDark.amber6,
-							border_3: amberDark.amber7,
-							border_4: amberDark.amber7,
-
-							button_tint: amberDark.amber5,
-							button_default: amberDark.amber9,
-							button_hover: amberDark.amber10,
-							button_active: amberDark.amber11,
-
-							tint_1: amberDark.amber2,
-							tint_2: amberDark.amber3,
-							tint_3: amberDark.amber4,
-							tint_4: amberDark.amber5,
-
-							focus_ring: amberDark.amber7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: amberDark,
+								secondary: amberDark,
+								alpha: amberDarkA,
+								isColorOverlay: true,
+							}),
+						),
 					},
 				},
 			},
@@ -436,67 +374,27 @@ export const variantColorOverlay = styleVariants({
 	blue: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: blue.blue12,
-					white: blue.blue1,
-
-					text_low_contrast: blue.blue11,
-					text_high_contrast: blue.blue11,
-
-					background: blue.blue1,
-					background_raised: blue.blue1,
-					backdrop: blueA.blueA11,
-					shadow: blueA.blueA2,
-
-					border_1: blue.blue5,
-					border_2: blue.blue6,
-					border_3: blue.blue7,
-					border_4: blue.blue8,
-
-					button_tint: blue.blue5,
-					button_default: blue.blue9,
-					button_hover: blue.blue10,
-					button_active: blue.blue11,
-
-					tint_1: blue.blue2,
-					tint_2: blue.blue3,
-					tint_3: blue.blue4,
-					tint_4: blue.blue5,
-
-					focus_ring: blue.blue7,
-				}),
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: blue,
+						secondary: blue,
+						alpha: blueA,
+						isColorOverlay: true,
+					}),
+				),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: blueDark.blue1,
-							white: blueDark.blue12,
-
-							text_low_contrast: blueDark.blue11,
-							text_high_contrast: blueDark.blue11,
-
-							background: blueDark.blue1,
-							background_raised: blueDark.blue1,
-							backdrop: blueDarkA.blueA11,
-							shadow: blueDarkA.blueA2,
-
-							border_1: blueDark.blue5,
-							border_2: blueDark.blue6,
-							border_3: blueDark.blue7,
-							border_4: blueDark.blue8,
-
-							button_tint: blueDark.blue5,
-							button_default: blueDark.blue9,
-							button_hover: blueDark.blue10,
-							button_active: blueDark.blue11,
-
-							tint_1: blueDark.blue2,
-							tint_2: blueDark.blue3,
-							tint_3: blueDark.blue4,
-							tint_4: blueDark.blue5,
-
-							focus_ring: blueDark.blue7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: blueDark,
+								secondary: blueDark,
+								alpha: blueDarkA,
+								isColorOverlay: true,
+							}),
+						),
 					},
 				},
 			},
@@ -505,67 +403,27 @@ export const variantColorOverlay = styleVariants({
 	default: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: slate.slate12,
-					white: slate.slate1,
-
-					text_low_contrast: slate.slate11,
-					text_high_contrast: slate.slate12,
-
-					background: slate.slate1,
-					background_raised: slate.slate1,
-					backdrop: slateA.slateA11,
-					shadow: slateA.slateA2,
-
-					border_1: slate.slate5,
-					border_2: slate.slate6,
-					border_3: slate.slate7,
-					border_4: slate.slate8,
-
-					button_tint: blue.blue5,
-					button_default: blue.blue9,
-					button_hover: blue.blue10,
-					button_active: blue.blue11,
-
-					tint_1: slate.slate2,
-					tint_2: slate.slate3,
-					tint_3: slate.slate4,
-					tint_4: slate.slate5,
-
-					focus_ring: blue.blue7,
-				}),
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: blue,
+						secondary: slate,
+						alpha: slateA,
+						isColorOverlay: false,
+					}),
+				),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: slateDark.slate1,
-							white: slateDark.slate12,
-
-							text_low_contrast: slateDark.slate11,
-							text_high_contrast: slateDark.slate12,
-
-							background: slateDark.slate2,
-							background_raised: slateDark.slate3,
-							backdrop: slateDarkA.slateA11,
-							shadow: slateDarkA.slateA1,
-
-							border_1: slateDark.slate5,
-							border_2: slateDark.slate6,
-							border_3: slateDark.slate7,
-							border_4: slateDark.slate8,
-
-							button_tint: blueDark.blue5,
-							button_default: blueDark.blue9,
-							button_hover: blueDark.blue10,
-							button_active: blueDark.blue11,
-
-							tint_1: slateDark.slate3,
-							tint_2: slateDark.slate4,
-							tint_3: slateDark.slate5,
-							tint_4: slateDark.slate6,
-
-							focus_ring: blueDark.blue7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: blueDark,
+								secondary: mauveDark,
+								alpha: mauveDarkA,
+								isColorOverlay: false,
+							}),
+						),
 					},
 				},
 			},
@@ -574,67 +432,27 @@ export const variantColorOverlay = styleVariants({
 	green: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: green.green12,
-					white: green.green1,
-
-					text_low_contrast: green.green11,
-					text_high_contrast: green.green11,
-
-					background: green.green1,
-					background_raised: green.green1,
-					backdrop: greenA.greenA11,
-					shadow: greenA.greenA2,
-
-					border_1: green.green5,
-					border_2: green.green6,
-					border_3: green.green7,
-					border_4: green.green8,
-
-					button_tint: green.green5,
-					button_default: green.green9,
-					button_hover: green.green10,
-					button_active: green.green11,
-
-					tint_1: green.green2,
-					tint_2: green.green3,
-					tint_3: green.green4,
-					tint_4: green.green5,
-
-					focus_ring: green.green7,
-				}),
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: green,
+						secondary: green,
+						alpha: greenA,
+						isColorOverlay: true,
+					}),
+				),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: greenDark.green1,
-							white: greenDark.green12,
-
-							text_low_contrast: greenDark.green11,
-							text_high_contrast: greenDark.green11,
-
-							background: greenDark.green3,
-							background_raised: greenDark.green4,
-							backdrop: greenA.greenA11,
-							shadow: greenA.greenA2,
-
-							border_1: greenDark.green4,
-							border_2: greenDark.green5,
-							border_3: greenDark.green6,
-							border_4: greenDark.green7,
-
-							button_tint: greenDark.green5,
-							button_default: greenDark.green9,
-							button_hover: greenDark.green10,
-							button_active: greenDark.green10,
-
-							tint_1: greenDark.green4,
-							tint_2: greenDark.green4,
-							tint_3: greenDark.green5,
-							tint_4: greenDark.green6,
-
-							focus_ring: greenDark.green7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: greenDark,
+								secondary: greenDark,
+								alpha: greenDarkA,
+								isColorOverlay: true,
+							}),
+						),
 					},
 				},
 			},
@@ -643,67 +461,27 @@ export const variantColorOverlay = styleVariants({
 	grey: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: slate.slate12,
-					white: slate.slate1,
-
-					text_low_contrast: slate.slate11,
-					text_high_contrast: slate.slate11,
-
-					background: slate.slate1,
-					background_raised: slate.slate1,
-					backdrop: slateA.slateA11,
-					shadow: slateA.slateA2,
-
-					border_1: slate.slate5,
-					border_2: slate.slate6,
-					border_3: slate.slate7,
-					border_4: slate.slate8,
-
-					button_tint: slate.slate5,
-					button_default: slate.slate9,
-					button_hover: slate.slate10,
-					button_active: slate.slate11,
-
-					tint_1: slate.slate2,
-					tint_2: slate.slate3,
-					tint_3: slate.slate4,
-					tint_4: slate.slate5,
-
-					focus_ring: slate.slate7,
-				}),
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: slate,
+						secondary: slate,
+						alpha: slateA,
+						isColorOverlay: true,
+					}),
+				),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: slateDark.slate1,
-							white: slateDark.slate12,
-
-							text_low_contrast: slateDark.slate11,
-							text_high_contrast: slateDark.slate11,
-
-							background: slateDark.slate1,
-							background_raised: slateDark.slate2,
-							backdrop: slateDarkA.slateA11,
-							shadow: slateDarkA.slateA2,
-
-							border_1: slateDark.slate5,
-							border_2: slateDark.slate6,
-							border_3: slateDark.slate7,
-							border_4: slateDark.slate8,
-
-							button_tint: slateDark.slate5,
-							button_default: slateDark.slate9,
-							button_hover: slateDark.slate10,
-							button_active: slateDark.slate11,
-
-							tint_1: slateDark.slate2,
-							tint_2: slateDark.slate3,
-							tint_3: slateDark.slate4,
-							tint_4: slateDark.slate5,
-
-							focus_ring: slateDark.slate7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: mauveDark,
+								secondary: mauveDark,
+								alpha: mauveDarkA,
+								isColorOverlay: true,
+							}),
+						),
 					},
 				},
 			},
@@ -712,67 +490,27 @@ export const variantColorOverlay = styleVariants({
 	red: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: red.red12,
-					white: red.red1,
-
-					text_low_contrast: red.red11,
-					text_high_contrast: red.red11,
-
-					background: red.red1,
-					background_raised: red.red1,
-					backdrop: redA.redA11,
-					shadow: redA.redA2,
-
-					border_1: red.red5,
-					border_2: red.red6,
-					border_3: red.red7,
-					border_4: red.red8,
-
-					button_tint: red.red5,
-					button_default: red.red9,
-					button_hover: red.red10,
-					button_active: red.red11,
-
-					tint_1: red.red2,
-					tint_2: red.red3,
-					tint_3: red.red4,
-					tint_4: red.red5,
-
-					focus_ring: red.red7,
-				}),
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: red,
+						secondary: red,
+						alpha: redA,
+						isColorOverlay: true,
+					}),
+				),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: redDark.red1,
-							white: redDark.red12,
-
-							text_low_contrast: redDark.red11,
-							text_high_contrast: redDark.red11,
-
-							background: redDark.red3,
-							background_raised: redDark.red4,
-							backdrop: redA.redA11,
-							shadow: redA.redA2,
-
-							border_1: redDark.red4,
-							border_2: redDark.red5,
-							border_3: redDark.red6,
-							border_4: redDark.red7,
-
-							button_tint: redDark.red5,
-							button_default: redDark.red9,
-							button_hover: redDark.red10,
-							button_active: redDark.red10,
-
-							tint_1: redDark.red4,
-							tint_2: redDark.red4,
-							tint_3: redDark.red5,
-							tint_4: redDark.red6,
-
-							focus_ring: redDark.red7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: redDark,
+								secondary: redDark,
+								alpha: redDarkA,
+								isColorOverlay: true,
+							}),
+						),
 					},
 				},
 			},
@@ -781,67 +519,24 @@ export const variantColorOverlay = styleVariants({
 	purple: {
 		"@layer": {
 			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: iris.iris12,
-					white: iris.iris1,
-
-					text_low_contrast: iris.iris11,
-					text_high_contrast: iris.iris11,
-
-					background: iris.iris1,
-					background_raised: iris.iris1,
-					backdrop: irisA.irisA11,
-					shadow: irisA.irisA2,
-
-					border_1: iris.iris5,
-					border_2: iris.iris6,
-					border_3: iris.iris7,
-					border_4: iris.iris8,
-
-					button_tint: iris.iris5,
-					button_default: iris.iris9,
-					button_hover: iris.iris10,
-					button_active: iris.iris11,
-
-					tint_1: iris.iris2,
-					tint_2: iris.iris3,
-					tint_3: iris.iris4,
-					tint_4: iris.iris5,
-
-					focus_ring: iris.iris7,
+				vars: makeLightTheme({
+					primary: iris,
+					secondary: iris,
+					alpha: irisA,
+					isColorOverlay: true,
 				}),
 
 				"@media": {
 					[MEDIA_QUERY_DARK]: {
-						vars: assignVars(vars.color, {
-							black: irisDark.iris1,
-							white: irisDark.iris12,
-
-							text_low_contrast: irisDark.iris11,
-							text_high_contrast: irisDark.iris11,
-
-							background: irisDark.iris1,
-							background_raised: irisDark.iris2,
-							backdrop: irisDarkA.irisA11,
-							shadow: irisDarkA.irisA2,
-
-							border_1: irisDark.iris5,
-							border_2: irisDark.iris6,
-							border_3: irisDark.iris7,
-							border_4: irisDark.iris8,
-
-							button_tint: irisDark.iris5,
-							button_default: irisDark.iris9,
-							button_hover: irisDark.iris10,
-							button_active: irisDark.iris11,
-
-							tint_1: irisDark.iris2,
-							tint_2: irisDark.iris3,
-							tint_3: irisDark.iris4,
-							tint_4: irisDark.iris5,
-
-							focus_ring: irisDark.iris7,
-						}),
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: irisDark,
+								secondary: irisDark,
+								alpha: irisDarkA,
+								isColorOverlay: true,
+							}),
+						),
 					},
 				},
 			},
@@ -1119,35 +814,15 @@ globalStyle(":root", {
 		},
 		[MEDIA_QUERY_DARK]: {
 			vars: {
-				...assignVars(vars.color, {
-					black: mauveDark.mauve1,
-					white: mauveDark.mauve12,
-
-					text_low_contrast: mauveDark.mauve11,
-					text_high_contrast: mauveDark.mauve12,
-
-					background: mauveDark.mauve3,
-					background_raised: mauveDark.mauve4,
-					backdrop: mauveA.mauveA11,
-					shadow: mauveA.mauveA2,
-
-					border_1: mauveDark.mauve4,
-					border_2: mauveDark.mauve5,
-					border_3: mauveDark.mauve6,
-					border_4: mauveDark.mauve7,
-
-					button_tint: blueDark.blue5,
-					button_default: blueDark.blue9,
-					button_hover: blueDark.blue10,
-					button_active: blueDark.blue10,
-
-					tint_1: mauveDark.mauve4,
-					tint_2: mauveDark.mauve4,
-					tint_3: mauveDark.mauve5,
-					tint_4: mauveDark.mauve6,
-
-					focus_ring: blueDark.blue7,
-				}),
+				...assignVars(
+					vars.color,
+					makeDarkTheme({
+						primary: blueDark,
+						secondary: mauveDark,
+						alpha: mauveDarkA,
+						isColorOverlay: false,
+					}),
+				),
 
 				// [vars.boxShadow.lg]: `0 8px 24px ${slateDarkA.slateA2}`,
 				// [vars.boxShadow.md]: `0 3px 6px ${slateDarkA.slateA2}`,
