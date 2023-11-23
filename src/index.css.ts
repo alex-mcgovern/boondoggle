@@ -728,6 +728,24 @@ globalStyle("input, button, textarea, select", {
 	},
 });
 
+/**
+ * Override the user-agent autofill color.
+ * Especially problematic in dark mode.
+ */
+globalStyle(
+	`input:-webkit-autofill,\
+	input:autofill,\
+	textarea:-webkit-autofill,\
+	textarea:autofill`,
+	{
+		"@layer": {
+			[resetLayer]: {
+				boxShadow: `0 0 0px 1000px ${vars.color.tint_1} inset`,
+			},
+		},
+	},
+);
+
 globalStyle(`input[type="search"]`, {
 	"@layer": {
 		[resetLayer]: {
