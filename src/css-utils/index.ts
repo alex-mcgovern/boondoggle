@@ -1,5 +1,4 @@
 import { StyleRule } from "@vanilla-extract/css";
-import { vars } from "../index.css";
 
 export function withPrefersMotion({ ...styleRules }: StyleRule): StyleRule {
 	return {
