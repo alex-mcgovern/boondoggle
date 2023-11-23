@@ -1183,7 +1183,7 @@ globalStyle("p", {
 const tableStyleRule: StyleRule = {
 	borderCollapse: "collapse",
 	borderSpacing: 0,
-	tableLayout: "auto",
+	tableLayout: "fixed",
 	width: "100%",
 };
 
@@ -1224,8 +1224,8 @@ export const tHeadStyles = style({
 
 const tableCellStyleRule: StyleRule = {
 	fontSize: vars.fontSize.bodyMd,
-	paddingTop: vars.spacing.space_2,
-	paddingBottom: vars.spacing.space_2,
+	padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
+	// textAlign: "left",
 	verticalAlign: "middle",
 };
 
@@ -1283,8 +1283,6 @@ export const tBodyStyles = style({
 
 export const tRowStyles = style({
 	display: "table-row",
-	paddingLeft: vars.spacing.space_4,
-	paddingRight: vars.spacing.space_4,
 });
 
 // Ensure that table cells have border bottom, unless they are the last row
