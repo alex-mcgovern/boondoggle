@@ -44,7 +44,7 @@ export const MEDIA_QUERY_DARK = "(prefers-color-scheme: dark)";
 
 export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 992px)";
 export const MEDIA_QUERY_TABLET = "only screen and (min-width: 496px)";
-export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 31rem)";
+export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 495px)";
 
 export const CONTAINER_LG = "(width > 992px)";
 export const CONTAINER_MD = "(width >= 496px)";

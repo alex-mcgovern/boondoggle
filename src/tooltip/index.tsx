@@ -29,6 +29,7 @@ import { tooltipTextStyle } from "./styles.css";
 
 import type { Placement } from "@floating-ui/react";
 import type { HTMLProps, ReactNode } from "react";
+import { sprinkles } from "../sprinkles/index.css";
 
 const ARROW_WIDTH = 16;
 
@@ -233,6 +234,7 @@ export const TooltipContent = forwardRef<
 					{props.children}
 
 					<FloatingArrow
+						className={sprinkles({ background: "black" })}
 						context={context.context}
 						height={ARROW_HEIGHT}
 						ref={context.arrowRef}
