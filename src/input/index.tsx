@@ -36,8 +36,6 @@ import { InputSlotWrapper } from "./InputSlotWrapper";
 import { clearButtonStyle, inputCSS } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
-import { faLock } from "@fortawesome/pro-solid-svg-icons/faLock";
-import { Icon } from "../icon";
 
 export type InputProps = Partial<
 	Pick<

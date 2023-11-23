@@ -15,7 +15,6 @@ import {
 	irisA,
 	irisDark,
 	irisDarkA,
-	mauveA,
 	mauveDark,
 	mauveDarkA,
 	red,
@@ -24,8 +23,6 @@ import {
 	redDarkA,
 	slate,
 	slateA,
-	slateDark,
-	slateDarkA,
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
