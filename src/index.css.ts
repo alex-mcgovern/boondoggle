@@ -1183,7 +1183,7 @@ globalStyle("p", {
 const tableStyleRule: StyleRule = {
 	borderCollapse: "collapse",
 	borderSpacing: 0,
-	tableLayout: "fixed",
+	tableLayout: "auto",
 	width: "100%",
 };
 
