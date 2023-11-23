@@ -1224,8 +1224,8 @@ export const tHeadStyles = style({
 
 const tableCellStyleRule: StyleRule = {
 	fontSize: vars.fontSize.bodyMd,
-	padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
-	// textAlign: "left",
+	paddingTop: vars.spacing.space_2,
+	paddingBottom: vars.spacing.space_2,
 	verticalAlign: "middle",
 };
 
@@ -1283,6 +1283,8 @@ export const tBodyStyles = style({
 
 export const tRowStyles = style({
 	display: "table-row",
+	paddingLeft: vars.spacing.space_4,
+	paddingRight: vars.spacing.space_4,
 });
 
 // Ensure that table cells have border bottom, unless they are the last row
