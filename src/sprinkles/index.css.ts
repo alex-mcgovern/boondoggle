@@ -67,6 +67,7 @@ export const properties = defineProperties({
 		overflowY: ["hidden", "auto", "visible", "scroll"],
 		right: ["0"],
 		textAlign: ["center", "left", "right"],
+		textWrap: ["balance"],
 		textDecoration: ["underline", "none", "line-through"],
 		textTransform: ["capitalize", "uppercase", "lowercase"],
 		top: ["0"],
