@@ -1,8 +1,8 @@
 "use client";
 import * as React from "react";
-import { modalCSS } from "./styles.css";
+import { backdropCSS, modalCSS } from "./styles.css";
 
-export default function Modal({
+export function Modal({
 	children,
 	onDismiss,
 }: { children: React.ReactNode; onDismiss: () => void }) {
@@ -32,11 +32,7 @@ export default function Modal({
 
 	return (
 		// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-		<div
-			ref={overlay}
-			// className={sprinkles({ position: "fixed" })}
-			onClick={onClick}
-		>
+		<div ref={overlay} className={backdropCSS} onClick={onClick}>
 			<div ref={wrapper} className={modalCSS}>
 				{children}
 			</div>

@@ -2,6 +2,18 @@ import { style } from "@vanilla-extract/css";
 import { a11yFocus, animateFadeIn } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
+export const backdropCSS = style([
+	animateFadeIn,
+	a11yFocus,
+	sprinkles({
+		background: "backdrop",
+	}),
+	{
+		position: "fixed",
+		inset: 0,
+	},
+]);
+
 export const modalCSS = style([
 	animateFadeIn,
 	a11yFocus,
