@@ -1,13 +1,14 @@
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import type { StoryFn, StoryObj } from "@storybook/react";
 import { createRef, useCallback } from "react";
-import { DialogActionConfirmation, DialogModal as StoryComp } from ".";
+import { DialogModal as StoryComp } from ".";
 import type { DialogModalProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../icon";
+import { ModalActionConfirm } from "../modal-action-confirmation";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
 
 export default {
@@ -218,14 +219,15 @@ export const With2Actions: StoryObj<StoryCompProps> = {
 export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 	args: {
 		actions: (
-			<DialogActionConfirmation
-				buttonText="Freeze account"
-				confirmText="freeze account"
+			<ModalActionConfirm
+				strButtonText="Freeze account"
+				strConfirmText="freeze account"
 				onClick={() => {
 					alert("Confirmed");
 				}}
-				promptPrefix="Please type"
-				promptSuffix="to continue"
+				strInvalid="The text you have entered is incorrect"
+				strPromptPrefix="Please type"
+				strPromptSuffix="to continue"
 			/>
 		),
 
@@ -240,15 +242,16 @@ export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
 	{
 		args: {
 			actions: (
-				<DialogActionConfirmation
-					buttonText="Freeze account"
+				<ModalActionConfirm
+					strButtonText="Freeze account"
 					colorOverlay="red"
-					confirmText="freeze account"
+					strConfirmText="freeze account"
 					onClick={() => {
 						alert("Confirmed");
 					}}
-					promptPrefix="Please type"
-					promptSuffix="to continue"
+					strInvalid="The text you have entered is incorrect"
+					strPromptPrefix="Please type"
+					strPromptSuffix="to continue"
 				/>
 			),
 

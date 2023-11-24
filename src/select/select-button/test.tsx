@@ -21,7 +21,7 @@ const renderComponent = (props: SelectButtonProps<string>) => {
 const ON_CHANGE = jest.fn();
 
 const PROPS: SelectButtonProps<string> = {
-	buttonText: LOREM.select,
+	strButtonText: LOREM.select,
 	items: mockSelectItems({}),
 	name: LOREM.text_xxs,
 	onChange: ON_CHANGE,

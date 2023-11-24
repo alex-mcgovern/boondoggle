@@ -1,4 +1,5 @@
 import { useController, useFormContext } from "react-hook-form";
+import { variantColorOverlay } from "../index.css";
 import { Input } from "../input";
 import type { InputProps } from "../input";
 import type { WithFormFieldProps } from "../types";
@@ -14,6 +15,7 @@ export function FormInput({
 	invalid,
 	name,
 	onChange,
+	colorOverlay,
 	marginBottom = "space_4",
 	...rest
 }: FormInputProps) {
@@ -39,6 +41,7 @@ export function FormInput({
 			invalid={invalid || !!error}
 			name={name}
 			onBlur={onBlur}
+			colorOverlay={invalid || !!error ? "red" : colorOverlay}
 			onChange={(e) => {
 				onChange?.(e);
 

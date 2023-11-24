@@ -6,7 +6,7 @@ import { mockSelectItems } from "../__mocks__/select.mock";
 
 const meta = {
 	args: {
-		buttonText: LOREM.button,
+		strButtonText: LOREM.button,
 		items: mockSelectItems({}),
 		name: LOREM.name(),
 		onChange: (selection) => {
@@ -106,7 +106,7 @@ export const WithButtonsAsItems: Story = {
 //       <Box marginLeft="auto">
 //         <StoryComp
 //           {...props}
-//           buttonText="Click me"
+//           strButtonText="Click me"
 //           items={[
 //             {
 //               as: "button",

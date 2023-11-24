@@ -7,7 +7,7 @@ describe("<SelectButton />", () => {
 		cy.mount(
 			<SelectButton
 				{...{
-					buttonText: LOREM.name(),
+					strButtonText: LOREM.name(),
 					id: LOREM.id(),
 					items: mockSelectItems({}),
 					label: LOREM.label(),
