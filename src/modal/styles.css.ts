@@ -11,6 +11,7 @@ export const backdropCSS = style([
 	{
 		position: "fixed",
 		inset: 0,
+		zIndex: 10,
 	},
 ]);
 
