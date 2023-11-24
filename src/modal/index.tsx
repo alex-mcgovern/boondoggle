@@ -1,26 +1,26 @@
 "use client";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import * as React from "react";
+import { Box } from "../box";
+import { Button } from "../button";
+import { Icon } from "../icon";
 import {
 	backdropCSS,
 	modalCSS,
 	modalHeaderCSS,
 	modalTitleCSS,
 } from "./styles.css";
-import { Box } from "../box";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
-import { Button } from "../button";
-import { Icon } from "../icon";
 
 export function Modal({
 	children,
 	onDismiss,
 	title,
-	width,
+	width = "sm",
 }: {
 	children: React.ReactNode;
 	onDismiss: () => void;
 	title: string;
-	width: "sm" | "lg";
+	width?: "sm" | "lg";
 }) {
 	const overlay = React.useRef(null);
 	const wrapper = React.useRef(null);
