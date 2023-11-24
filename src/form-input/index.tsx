@@ -1,5 +1,4 @@
 import { useController, useFormContext } from "react-hook-form";
-import { variantColorOverlay } from "../index.css";
 import { Input } from "../input";
 import type { InputProps } from "../input";
 import type { WithFormFieldProps } from "../types";
