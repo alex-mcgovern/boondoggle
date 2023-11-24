@@ -105,7 +105,7 @@ export const ModalActionConfirm = forwardRef<
 					<FormInput
 						{...(inputProps as InputProps)}
 						colorOverlay={colorOverlay}
-						marginBottom="space_4"
+						marginBottom="space_2"
 						autoComplete="off"
 						name="confirm_text"
 						onChange={(e) => {

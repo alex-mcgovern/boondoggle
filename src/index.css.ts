@@ -1144,8 +1144,9 @@ globalStyle("ul, ol", {
 globalStyle("ul li, ol li", {
 	"@layer": {
 		[baseLayer]: {
+			marginLeft: vars.spacing.space_2,
 			listStylePosition: "inside",
-			marginBottom: vars.spacing.space_2,
+			marginBottom: vars.spacing.space_1,
 		},
 	},
 });
@@ -1154,6 +1155,7 @@ globalStyle("ul li::marker, ol li::marker", {
 	"@layer": {
 		[baseLayer]: {
 			color: vars.color.button_default,
+			marginRight: 0,
 			fontWeight: vars.fontWeight.semibold,
 		},
 	},

@@ -61,7 +61,7 @@ export function Modal({
 		>
 			<div ref={wrapper} className={modalCSS({ width })}>
 				<header className={modalHeaderCSS}>
-					<Box as="h3" className={modalTitleCSS} fontStyle="h5">
+					<Box as="h3" className={modalTitleCSS}>
 						{title}
 					</Box>
 

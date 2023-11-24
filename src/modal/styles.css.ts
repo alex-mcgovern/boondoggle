@@ -116,7 +116,8 @@ export const modalHeaderCSS = style([
 		display: "flex",
 		justifyContent: "space-between",
 		maxWidth: "100%",
-		padding: "space_4",
+		paddingX: "space_4",
+		paddingY: "space_2",
 		position: "sticky",
 		top: "0",
 	}),
@@ -141,12 +142,6 @@ export const modalTitleCSS = style([
 	sprinkles({
 		fontWeight: "semibold",
 		marginY: "none",
+		fontStyle: "bodyLg",
 	}),
-	{
-		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
-				fontSize: vars.fontSize.bodyLg,
-			},
-		},
-	},
 ]);
