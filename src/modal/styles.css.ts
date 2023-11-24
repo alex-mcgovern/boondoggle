@@ -10,18 +10,28 @@ import {
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const backdropCSS = style([
-	animateFadeIn,
-	a11yFocus,
-	sprinkles({
-		background: "backdrop",
-	}),
-	{
-		position: "fixed",
-		inset: 0,
-		zIndex: 10,
+export const backdropCSS = recipe({
+	base: [
+		a11yFocus,
+		sprinkles({
+			background: "backdrop",
+		}),
+		{
+			position: "fixed",
+			inset: 0,
+			zIndex: 10,
+		},
+	],
+	defaultVariants: {
+		enableFadeIn: true,
 	},
-]);
+	variants: {
+		enableFadeIn: {
+			true: animateFadeIn,
+			false: [],
+		},
+	},
+});
 
 export const modalCSS = recipe({
 	base: [

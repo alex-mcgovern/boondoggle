@@ -19,12 +19,14 @@ export function Modal({
 	onDismiss,
 	title,
 	width = "sm",
+	enableFadeIn = true,
 }: {
 	children: React.ReactNode;
 	onDismiss: () => void;
 	title: string;
 	width?: "sm" | "lg";
 	footer?: React.ReactNode;
+	enableFadeIn?: boolean;
 }) {
 	const overlay = React.useRef(null);
 	const wrapper = React.useRef(null);
@@ -54,7 +56,7 @@ export function Modal({
 		<div
 			ref={overlay}
 			onKeyDown={onKeyDown}
-			className={backdropCSS}
+			className={backdropCSS({ enableFadeIn })}
 			onClick={onClick}
 		>
 			<div ref={wrapper} className={modalCSS({ width })}>
