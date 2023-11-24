@@ -29,7 +29,7 @@ export const ModalActionConfirm = forwardRef<
 		/**
 		 * Props to forward to the input element.
 		 */
-		inputProps?: InputProps;
+		inputProps?: Partial<InputProps>;
 
 		/**
 		 * Additional props to customise the confirm button.
@@ -103,7 +103,7 @@ export const ModalActionConfirm = forwardRef<
 					)}
 				>
 					<FormInput
-						{...inputProps}
+						{...(inputProps as InputProps)}
 						colorOverlay={colorOverlay}
 						marginBottom="space_4"
 						autoComplete="off"
@@ -115,12 +115,12 @@ export const ModalActionConfirm = forwardRef<
 						value={userConfirmText}
 					/>
 					<FormSubmitButton
+						{...buttonProps}
 						appearance="primary"
 						colorOverlay={colorOverlay}
-						// disabled={userConfirmText !== strConfirmText}
+						aria-disabled={userConfirmText !== strConfirmText}
 						name="primary_action"
 						width="100%"
-						{...buttonProps}
 					>
 						{strButtonText}
 					</FormSubmitButton>

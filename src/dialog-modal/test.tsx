@@ -7,7 +7,7 @@ import { DialogModal } from ".";
 import "../../test/mocked_dependencies/dialog.mock";
 
 import type { DialogModalProps } from ".";
-import { ModalActionConfirm } from "../modal-action-confirmation";
+import { ModalActionConfirm } from "../modal-action-confirm";
 
 const renderComponent = async (props: DialogModalProps) => {
 	const dialogRef = createRef<HTMLDialogElement>();

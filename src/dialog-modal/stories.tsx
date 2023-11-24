@@ -8,7 +8,7 @@ import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../icon";
-import { ModalActionConfirm } from "../modal-action-confirmation";
+import { ModalActionConfirm } from "../modal-action-confirm";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
 
 export default {
