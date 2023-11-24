@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { animateFadeIn, a11yFocus } from "../index.css";
+import { a11yFocus, animateFadeIn } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const modalCSS = style([
