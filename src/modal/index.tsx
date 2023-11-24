@@ -1,11 +1,27 @@
 "use client";
 import * as React from "react";
-import { backdropCSS, modalCSS } from "./styles.css";
+import {
+	backdropCSS,
+	modalCSS,
+	modalHeaderCSS,
+	modalTitleCSS,
+} from "./styles.css";
+import { Box } from "../box";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
 export function Modal({
 	children,
 	onDismiss,
-}: { children: React.ReactNode; onDismiss: () => void }) {
+	title,
+	width,
+}: {
+	children: React.ReactNode;
+	onDismiss: () => void;
+	title: string;
+	width: "sm" | "lg";
+}) {
 	const overlay = React.useRef(null);
 	const wrapper = React.useRef(null);
 
@@ -19,7 +35,7 @@ export function Modal({
 	);
 
 	const onKeyDown = React.useCallback(
-		(e: KeyboardEvent) => {
+		(e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent) => {
 			if (e.key === "Escape") onDismiss();
 		},
 		[onDismiss],
@@ -31,9 +47,29 @@ export function Modal({
 	}, [onKeyDown]);
 
 	return (
-		// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-		<div ref={overlay} className={backdropCSS} onClick={onClick}>
-			<div ref={wrapper} className={modalCSS}>
+		<div
+			ref={overlay}
+			onKeyDown={onKeyDown}
+			className={backdropCSS}
+			onClick={onClick}
+		>
+			<div ref={wrapper} className={modalCSS({ width })}>
+				<Box className={modalHeaderCSS}>
+					<Box as="h3" className={modalTitleCSS} fontStyle="h5">
+						{title}
+					</Box>
+
+					<Button
+						appearance="ghost"
+						aria-label="Close"
+						marginLeft="auto"
+						name="close"
+						onClick={onDismiss}
+						size="square_sm"
+						slotLeft={<Icon icon={faTimes} />}
+						type="button"
+					/>
+				</Box>
 				{children}
 			</div>
 		</div>
