@@ -6,7 +6,6 @@ import {
 	MEDIA_QUERY_TABLET,
 	a11yFocus,
 	animateFadeIn,
-	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
