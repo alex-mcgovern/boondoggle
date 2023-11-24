@@ -35,6 +35,11 @@ export const modalCSS = recipe({
 			borderRadius: "md",
 			boxShadow: "md",
 
+			// Use flex to allow footer element to
+			// stick to bottom of container
+			display: "flex",
+			flexDirection: "column",
+
 			// Ensure inner content can scroll
 			overflowY: "auto",
 		}),
@@ -102,6 +107,21 @@ export const modalHeaderCSS = style([
 		padding: "space_4",
 		position: "sticky",
 		top: "0",
+	}),
+]);
+
+export const modalContentCSS = style([
+	sprinkles({
+		overflowY: "auto",
+		padding: "space_4",
+	}),
+]);
+
+export const modalFooterCSS = style([
+	sprinkles({
+		borderTop: "border_default",
+		marginTop: "auto",
+		padding: "space_4",
 	}),
 ]);
 

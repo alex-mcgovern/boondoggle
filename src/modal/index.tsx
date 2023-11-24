@@ -7,12 +7,15 @@ import { Icon } from "../icon";
 import {
 	backdropCSS,
 	modalCSS,
+	modalContentCSS,
+	modalFooterCSS,
 	modalHeaderCSS,
 	modalTitleCSS,
 } from "./styles.css";
 
 export function Modal({
 	children,
+	footer,
 	onDismiss,
 	title,
 	width = "sm",
@@ -21,6 +24,7 @@ export function Modal({
 	onDismiss: () => void;
 	title: string;
 	width?: "sm" | "lg";
+	footer?: React.ReactNode;
 }) {
 	const overlay = React.useRef(null);
 	const wrapper = React.useRef(null);
@@ -54,7 +58,7 @@ export function Modal({
 			onClick={onClick}
 		>
 			<div ref={wrapper} className={modalCSS({ width })}>
-				<Box className={modalHeaderCSS}>
+				<header className={modalHeaderCSS}>
 					<Box as="h3" className={modalTitleCSS} fontStyle="h5">
 						{title}
 					</Box>
@@ -69,8 +73,11 @@ export function Modal({
 						slotLeft={<Icon icon={faTimes} />}
 						type="button"
 					/>
-				</Box>
-				{children}
+				</header>
+
+				<div className={modalContentCSS}>{children}</div>
+
+				{footer && <footer className={modalFooterCSS}>{footer}</footer>}
 			</div>
 		</div>
 	);
