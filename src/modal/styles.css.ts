@@ -45,6 +45,8 @@ export const modalCSS = recipe({
 			borderRadius: "md",
 			boxShadow: "md",
 
+			width: "100%",
+
 			// Use flex to allow footer element to
 			// stick to bottom of container
 			display: "flex",
