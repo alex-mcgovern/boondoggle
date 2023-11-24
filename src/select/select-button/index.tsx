@@ -47,7 +47,7 @@ export type SelectButtonProps<
 		/**
 		 * The text to display in the button.
 		 */
-		strButtonText?: string;
+		buttonText?: string;
 
 		/**
 		 * An item preselected when the component mounts.
@@ -101,7 +101,7 @@ function SelectButtonBase<
 >(
 	{
 		buttonProps,
-		strButtonText,
+		buttonText,
 		disabled,
 		initialSelectedItem,
 		items,
@@ -174,7 +174,7 @@ function SelectButtonBase<
 					ref,
 				})}
 			>
-				{strButtonText}
+				{buttonText}
 			</Button>
 
 			<SelectItemList
