@@ -115,7 +115,8 @@ export const modalHeaderCSS = style([
 		display: "flex",
 		justifyContent: "space-between",
 		maxWidth: "100%",
-		paddingX: "space_4",
+		paddingLeft: "space_4",
+		paddingRight: "space_2",
 		paddingY: "space_2",
 		position: "sticky",
 		top: "0",
@@ -134,6 +135,7 @@ export const modalFooterCSS = style([
 		borderTop: "border_default",
 		marginTop: "auto",
 		padding: "space_4",
+		paddingTop: "space_2",
 	}),
 ]);
 
