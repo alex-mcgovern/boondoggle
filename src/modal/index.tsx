@@ -4,6 +4,7 @@ import * as React from "react";
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
+import { WithColorOverlay } from "../types";
 import {
 	backdropCSS,
 	modalCSS,
@@ -12,7 +13,6 @@ import {
 	modalHeaderCSS,
 	modalTitleCSS,
 } from "./styles.css";
-import { WithColorOverlay } from "../types";
 
 export function Modal({
 	children,
