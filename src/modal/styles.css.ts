@@ -39,10 +39,10 @@ export const modalCSS = recipe({
 		animateFadeIn,
 		a11yFocus,
 		sprinkles({
-			background: "background",
+			background: "background_raised",
 			position: "absolute",
 
-			border: "border_default",
+			border: "border_1",
 			borderRadius: "md",
 			boxShadow: "md",
 
@@ -114,7 +114,7 @@ export const modalCSS = recipe({
 export const modalHeaderCSS = style([
 	sprinkles({
 		alignItems: "center",
-		borderBottom: "border_default",
+		borderBottom: "border_1",
 		display: "flex",
 		justifyContent: "space-between",
 		maxWidth: "100%",
@@ -135,7 +135,7 @@ export const modalContentCSS = style([
 
 export const modalFooterCSS = style([
 	sprinkles({
-		borderTop: "border_default",
+		borderTop: "border_1",
 		marginTop: "auto",
 		paddingX: "space_4",
 		paddingY: "space_3",
