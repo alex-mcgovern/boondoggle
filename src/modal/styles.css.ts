@@ -134,8 +134,7 @@ export const modalFooterCSS = style([
 	sprinkles({
 		borderTop: "border_default",
 		marginTop: "auto",
-		padding: "space_4",
-		paddingTop: "space_2",
+		paddingY: "space_4",
 	}),
 ]);
 
