@@ -99,19 +99,21 @@ export const tabListCSS = style([
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
-		fontStyle: "bodySm",
 		borderRadius: "pill",
-		padding: "space_1",
+		padding: "space_0",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
 		textAlign: "center",
-		fontWeight: "medium",
-		height: "space_6",
-		minWidth: "space_6",
+		fontWeight: "semibold",
+		height: "space_5",
+		minWidth: "space_5",
 		color: "text_low_contrast",
 	}),
 	{
+		// transform: "translateY(0.0625rem)",
+		fontSize: "0.625rem",
+		lineHeight: "0.625rem",
 		background: vars.color.button_tint,
 		...withPrefersMotion({
 			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,

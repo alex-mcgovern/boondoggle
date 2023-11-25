@@ -1148,12 +1148,17 @@ globalStyle(
 	},
 );
 
+/** -----------------------------------------------------------------------------
+ * LIST ELEMENTS
+ * ------------------------------------------------------------------------------- */
+
 globalStyle("ul, ol", {
 	"@layer": {
 		[baseLayer]: {
 			marginBlockEnd: 0,
 			marginBlockStart: 0,
 			paddingInlineStart: 0,
+			marginInlineStart: vars.spacing.space_3,
 		},
 	},
 });
@@ -1161,8 +1166,7 @@ globalStyle("ul, ol", {
 globalStyle("ul li, ol li", {
 	"@layer": {
 		[baseLayer]: {
-			listStylePosition: "inside",
-			marginBottom: vars.spacing.space_2,
+			marginBottom: 0,
 		},
 	},
 });
@@ -1195,11 +1199,13 @@ globalStyle("p", {
 	},
 });
 
-/**
- * Scrollbars
- */
+/** -----------------------------------------------------------------------------
+ * TABLE ELEMENTS
+ * ------------------------------------------------------------------------------- */
 
-// Table
+/**
+ * Some re-usable style rules that can apply table styling to different elements.
+ */
 
 const tableStyleRule: StyleRule = {
 	borderCollapse: "collapse",
@@ -1207,7 +1213,14 @@ const tableStyleRule: StyleRule = {
 	tableLayout: "fixed",
 	width: "100%",
 };
+const tHeadStyleRule: StyleRule = {
+	fontSize: vars.fontSize.bodySm,
+	fontWeight: vars.fontWeight.semibold,
+};
 
+/**
+ * Styles for outer table element.
+ */
 globalStyle("table", {
 	"@layer": {
 		[baseLayer]: {
@@ -1215,19 +1228,13 @@ globalStyle("table", {
 		},
 	},
 });
-
 export const tableStyles = style({
 	display: "table",
 	...tableStyleRule,
 });
-
-// Table head cell styles
-
-const tHeadStyleRule: StyleRule = {
-	fontSize: vars.fontSize.bodySm,
-	fontWeight: vars.fontWeight.semibold,
-};
-
+/**
+ * Table head cell styles
+ */
 globalStyle("thead", {
 	"@layer": {
 		[baseLayer]: {
@@ -1235,14 +1242,14 @@ globalStyle("thead", {
 		},
 	},
 });
-
 export const tHeadStyles = style({
 	display: "table-header-group",
 	...tHeadStyleRule,
 });
 
-// Table cells
-
+/**
+ * Table cell styles
+ */
 const tableCellStyleRule: StyleRule = {
 	fontSize: vars.fontSize.bodyMd,
 	padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
@@ -1257,7 +1264,7 @@ globalStyle("th, td", {
 		},
 	},
 });
-globalStyle("th, td", {
+globalStyle("td", {
 	"@layer": {
 		[baseLayer]: {
 			textOverflow: "ellipsis",

@@ -39,9 +39,7 @@ export const getDialogModalInnerStyle = recipe({
 		sprinkles({
 			display: "flex",
 			flexDirection: "column",
-			maxWidth: "100vw",
 			padding: "none",
-			width: "100vw",
 		}),
 		{
 			"@media": {

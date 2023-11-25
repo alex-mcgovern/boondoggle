@@ -1,16 +1,13 @@
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import * as RadixSlot from "@radix-ui/react-slot";
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import type { ReactNode } from "react";
 import { useDialogModalState } from "../_lib/use-dialog-modal-state";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { Button, ButtonProps } from "../button";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
-import { Input } from "../input";
 import { LoaderFullScreen } from "../loader-full-screen";
-import { WithColorOverlay } from "../types";
 import { DialogModalActions } from "./_components/dialog_modal_actions";
 import type { DialogModalActionsProps } from "./_components/dialog_modal_actions";
 import { DialogModalContent } from "./_components/dialog_modal_content";
@@ -18,7 +15,6 @@ import { DialogModalHeader } from "./_components/dialog_modal_header";
 import { DialogModalInner } from "./_components/dialog_modal_inner";
 import type { DialogModalInnerWidth } from "./_components/dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "./_components/dialog_modal_outer";
-import { dialogConfirmText } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * DIALOG ERROR MESSAGE
@@ -76,92 +72,6 @@ export function DialogModalErrorMessage({
 /** -----------------------------------------------------------------------------
  * DIALOG ACTION CONFIRMATION
  * ------------------------------------------------------------------------------- */
-
-export const DialogActionConfirmation = forwardRef<
-	HTMLDivElement,
-	WithColorOverlay & {
-		/**
-		 * Additional props to customise the confirm button.
-		 */
-		buttonProps?: Omit<ButtonProps, "onClick">;
-
-		/**
-		 * The text for the confirm button.
-		 */
-		buttonText: string;
-
-		/**
-		 * The text that the suer has to type to confirm the action.
-		 */
-		confirmText: string;
-
-		/**
-		 * The callback when the suer confirms the action.
-		 */
-		onClick?: ButtonProps["onClick"];
-
-		/**
-		 * The text prefixed to the confirmation prompt.
-		 */
-		promptPrefix: string;
-
-		/**
-		 * The text suffixed to the confirmation prompt.
-		 */
-		promptSuffix: string;
-	}
->(
-	(
-		{
-			buttonProps,
-			buttonText,
-			colorOverlay,
-			confirmText,
-			onClick,
-			promptPrefix,
-			promptSuffix,
-		},
-		ref,
-	) => {
-		const [userConfirmText, setUserConfirmText] = useState("");
-
-		return (
-			<Box ref={ref}>
-				<Box className={dialogConfirmText}>
-					<Box as="span">{promptPrefix}</Box>{" "}
-					<Box as="span" fontWeight="bold">
-						{confirmText}
-					</Box>{" "}
-					<Box as="span">{promptSuffix}</Box>
-				</Box>
-
-				<Input
-					colorOverlay={colorOverlay}
-					marginBottom="space_4"
-					autoComplete="off"
-					name="dialog_confirm_text"
-					onChange={(e) => {
-						return setUserConfirmText(e.target.value);
-					}}
-					placeholder=""
-					value={userConfirmText}
-				/>
-
-				<Button
-					appearance="primary"
-					colorOverlay={colorOverlay}
-					disabled={userConfirmText !== confirmText}
-					name="primary_action"
-					onClick={onClick}
-					width="100%"
-					{...buttonProps}
-				>
-					{buttonText}
-				</Button>
-			</Box>
-		);
-	},
-);
 
 export type DialogModalProps = {
 	/**
