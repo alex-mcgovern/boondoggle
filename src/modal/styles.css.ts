@@ -138,8 +138,7 @@ export const modalFooterCSS = style([
 		borderTop: "border_default",
 		marginTop: "auto",
 		paddingX: "space_4",
-		paddingBottom: "space_4",
-		paddingTop: "space_3",
+		paddingY: "space_3",
 	}),
 ]);
 
