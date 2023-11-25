@@ -1,11 +1,12 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const dialogConfirmText = style([
+export const confirmTextCSS = style([
 	sprinkles({
 		display: "inline-block",
 		marginBottom: "space_2",
-		fontStyle: "bodyMd",
+		fontSize: "bodyMd",
+		lineHeight: "bodySm",
 	}),
 	{
 		userSelect: "none",

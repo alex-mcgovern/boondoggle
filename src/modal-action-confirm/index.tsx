@@ -3,12 +3,12 @@ import { forwardRef, useState } from "react";
 import { z } from "zod";
 import { Box } from "../box";
 import { ButtonProps } from "../button";
-import { dialogConfirmText } from "../dialog-modal/styles.css";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
 import { FormSubmitButton } from "../form-submit-button";
 import { InputProps } from "../input";
 import { WithColorOverlay } from "../types";
+import { confirmTextCSS } from "./styles.css";
 
 const getZodSchema = ({
 	strConfirmText,
@@ -85,7 +85,7 @@ export const ModalActionConfirm = forwardRef<
 
 		return (
 			<Box ref={ref}>
-				<Box className={dialogConfirmText}>
+				<Box className={confirmTextCSS}>
 					<Box as="span">{strPromptPrefix}</Box>{" "}
 					<Box as="span" fontWeight="bold">
 						{strConfirmText}
@@ -107,6 +107,7 @@ export const ModalActionConfirm = forwardRef<
 						colorOverlay={colorOverlay}
 						marginBottom="space_2"
 						autoComplete="off"
+						size="sm"
 						name="confirm_text"
 						onChange={(e) => {
 							return setUserConfirmText(e.target.value);
@@ -116,6 +117,7 @@ export const ModalActionConfirm = forwardRef<
 					/>
 					<FormSubmitButton
 						{...buttonProps}
+						size="sm"
 						appearance="primary"
 						colorOverlay={colorOverlay}
 						aria-disabled={userConfirmText !== strConfirmText}
