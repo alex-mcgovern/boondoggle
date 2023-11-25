@@ -6,6 +6,7 @@ import {
 	MEDIA_QUERY_TABLET,
 	a11yFocus,
 	animateFadeIn,
+	variantColorOverlay,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
@@ -25,6 +26,7 @@ export const backdropCSS = recipe({
 		enableFadeIn: true,
 	},
 	variants: {
+		colorOverlay: variantColorOverlay,
 		enableFadeIn: {
 			true: animateFadeIn,
 			false: [],
@@ -77,6 +79,7 @@ export const modalCSS = recipe({
 		width: "sm",
 	},
 	variants: {
+		colorOverlay: variantColorOverlay,
 		width: {
 			lg: {
 				"@media": {
@@ -134,7 +137,9 @@ export const modalFooterCSS = style([
 	sprinkles({
 		borderTop: "border_default",
 		marginTop: "auto",
-		paddingY: "space_4",
+		paddingX: "space_4",
+		paddingBottom: "space_4",
+		paddingTop: "space_3",
 	}),
 ]);
 

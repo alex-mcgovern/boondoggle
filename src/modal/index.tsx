@@ -12,6 +12,7 @@ import {
 	modalHeaderCSS,
 	modalTitleCSS,
 } from "./styles.css";
+import { WithColorOverlay } from "../types";
 
 export function Modal({
 	children,
@@ -20,7 +21,8 @@ export function Modal({
 	title,
 	width = "sm",
 	enableFadeIn = true,
-}: {
+	colorOverlay,
+}: WithColorOverlay & {
 	children: React.ReactNode;
 	onDismiss: () => void;
 	title: string;
@@ -56,10 +58,10 @@ export function Modal({
 		<div
 			ref={overlay}
 			onKeyDown={onKeyDown}
-			className={backdropCSS({ enableFadeIn })}
+			className={backdropCSS({ enableFadeIn, colorOverlay })}
 			onClick={onClick}
 		>
-			<div ref={wrapper} className={modalCSS({ width })}>
+			<div ref={wrapper} className={modalCSS({ width, colorOverlay })}>
 				<header className={modalHeaderCSS}>
 					<Box as="h3" className={modalTitleCSS}>
 						{title}
