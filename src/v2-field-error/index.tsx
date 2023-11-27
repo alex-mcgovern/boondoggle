@@ -1,12 +1,12 @@
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import clsx from "clsx";
+import { forwardRef } from "react";
 import {
 	FieldError as ReactAriaFieldError,
 	FieldErrorProps as ReactAriaFieldErrorProps,
 } from "react-aria-components";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
-import { forwardRef } from "react";
 import { fieldErrorCss } from "./styles.css";
 
 /**
