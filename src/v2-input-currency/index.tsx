@@ -206,6 +206,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>({
 					data-slot-side="left"
 				/>
 				<InputCurrencyAddon<TCurrency>
+					size={size}
 					currency={currency}
 					currencyConfig={currencyConfig}
 					currencyIcon={currencyIcon}

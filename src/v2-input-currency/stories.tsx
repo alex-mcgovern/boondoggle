@@ -63,6 +63,16 @@ export const Invalid: Story = {
 	},
 };
 
+export const SizeMd: Story = {
+	args: {
+		size: "md",
+	},
+};
+export const SizeLg: Story = {
+	args: {
+		size: "lg",
+	},
+};
 export const WithLabel: Story = {
 	args: {
 		labelConfig: {
