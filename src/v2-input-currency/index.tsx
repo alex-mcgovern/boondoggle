@@ -22,7 +22,7 @@ type CurrencyConfig<TCurrency extends string = string> =
 			initialCurrency: TCurrency;
 			initialCurrencyIcon: React.ReactNode;
 			isCurrencyEditable: false;
-			items?: never;
+			items: Array<IterableMenuItem<TCurrency>>;
 			onCurrencyChange?: never;
 	  }
 	| {
@@ -135,6 +135,7 @@ function InputCurrencyAddon<TCurrency extends string = string>({
 	if (currencyConfig.isCurrencyEditable) {
 		return (
 			<CurrencyMenuButton<TCurrency>
+				size={size}
 				currency={currency}
 				currencyConfig={currencyConfig}
 				currencyIcon={currencyIcon}

@@ -12,6 +12,23 @@ const meta = {
 		currencyConfig: {
 			initialCurrency: "EUR",
 			isCurrencyEditable: false,
+			items: [
+				{
+					id: "EUR",
+					name: "EUR",
+					slotLeft: <FlagEu height="space_4" width="space_4" />,
+				},
+				{
+					id: "USD",
+					name: "USD",
+					slotLeft: <FlagUs height="space_4" width="space_4" />,
+				},
+				{
+					id: "GBP",
+					name: "GBP",
+					slotLeft: <FlagGb height="space_4" width="space_4" />,
+				},
+			],
 			initialCurrencyIcon: <FlagEu height="space_4" width="space_4" />,
 		},
 	},
