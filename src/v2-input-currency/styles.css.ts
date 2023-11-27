@@ -1,5 +1,11 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { elementPadding, elementHeight } from "../index.css";
+import {
+	FOCUS,
+	NOT_DISABLED,
+	a11yFocusStyleRule,
+	elementHeight,
+	elementPadding,
+} from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const numberInputCSS = recipe({
@@ -7,12 +13,16 @@ export const numberInputCSS = recipe({
 		sprinkles({
 			background: "transparent",
 			fontStyle: "bodyMd",
+			border: "border_default",
+			borderRadius: "md",
+			width: "100%",
+			color: "text_high_contrast",
 		}),
 		{
-			border: 0,
+			// border: 0,
 			selectors: {
-				"&:is(:focus,[data-focused])": {
-					outline: 0,
+				[`&${NOT_DISABLED}${FOCUS}`]: {
+					...a11yFocusStyleRule,
 				},
 			},
 		},

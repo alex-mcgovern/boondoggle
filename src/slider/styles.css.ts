@@ -2,8 +2,8 @@ import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../css-utils";
 import {
+	HOVER,
 	SELECTOR_IS_FOCUS,
-	SELECTOR_IS_HOVER,
 	a11yFocusStyleRule,
 	vars,
 } from "../index.css";
@@ -75,7 +75,7 @@ export const sliderThumb = style([
 	}),
 	{
 		selectors: {
-			[`&${SELECTOR_IS_HOVER}`]: {
+			[`&${HOVER}`]: {
 				background: vars.color.tint_active,
 				borderColor: vars.color.border_hover,
 				cursor: "pointer",

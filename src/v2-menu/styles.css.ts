@@ -1,89 +1,59 @@
+import { style } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import {
-	animateFadeIn,
-	a11yFocus,
+	NOT_DISABLED,
 	a11yDisabled,
-	variantColorOverlay,
-	vars,
+	a11yFocus,
+	animateFadeIn,
 	elementHeight,
 	elementPaddingRaw,
-	NOT_DISABLED,
+	variantColorOverlay,
+	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { style } from "@vanilla-extract/css";
-import { withPrefersMotion } from "../css-utils";
-import { calc } from "@vanilla-extract/css-utils";
+
+const menuRadius = vars.borderRadius.md;
+const menuPadding = vars.spacing["space_0.5"];
+
+const itemInset = calc.multiply(menuPadding, 2);
+const itemRadius = calc.subtract(menuRadius, menuPadding);
+
+const itemHeightLg = calc.subtract(elementHeight.lg, itemInset);
+const itemHeightMd = calc.subtract(elementHeight.md, itemInset);
+const itemHeightSm = calc.subtract(elementHeight.sm, itemInset);
+
+const itemPaddingXLg = calc.subtract(elementPaddingRaw.lg.x, itemInset);
+const itemPaddingXMd = calc.subtract(elementPaddingRaw.md.x, itemInset);
+const itemPaddingXSm = calc.subtract(elementPaddingRaw.sm.x, itemInset);
 
 export const menuCSS = style([
 	animateFadeIn,
-	a11yFocus,
 	sprinkles({
 		background: "background",
 		border: "border_default",
-		borderRadius: "md",
 		boxShadow: "md",
-		padding: "space_1",
 		overflowY: "auto",
 	}),
 	{
+		padding: menuPadding,
+		borderRadius: menuRadius,
+		selectors: {
+			"&:focus": {
+				outline: "none",
+			},
+		},
 		maxHeight: "15rem",
 		// minWidth: "10rem",
 	},
 ]);
 
-export const menuButtonCSS = recipe({
-	base: [
-		a11yFocus,
-		sprinkles({
-			flexShrink: "0",
-			flexGrow: "1",
-			// aspectRatio: "square",
-			border: "border_default",
-
-			fontStyle: "bodyMd",
-			display: "flex",
-			gap: "space_1",
-			alignItems: "center",
-			justifyContent: "center",
-			borderRadius: "md",
-		}),
-		{ width: "fit-content" },
-	],
-	defaultVariants: {
-		size: "sm",
-	},
-	variants: {
-		size: {
-			lg: [
-				sprinkles({
-					height: "space_12",
-					minWidth: "space_12",
-					paddingX: "space_4",
-				}),
-			],
-			md: [
-				sprinkles({
-					height: "space_10",
-					minWidth: "space_10",
-					paddingX: "space_3",
-				}),
-			],
-			sm: [
-				sprinkles({
-					height: "space_8",
-					minWidth: "space_8",
-					paddingX: "space_2",
-				}),
-			],
-		},
-	},
-});
-
 export const menuItemCSS = recipe({
 	base: [
 		sprinkles({
-			padding: "space_1",
-			borderRadius: "md",
+			paddingX: "space_1",
+			paddingY: "space_0.5",
 
 			width: "100%",
 			display: "flex",
@@ -103,6 +73,7 @@ export const menuItemCSS = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
+			borderRadius: itemRadius,
 			selectors: {
 				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
 					cursor: "pointer",
@@ -126,30 +97,21 @@ export const menuItemCSS = recipe({
 		colorOverlay: variantColorOverlay,
 		size: {
 			lg: [
-				{ minHeight: elementHeight.lg },
+				{ minHeight: itemHeightLg },
 				{
-					padding: `${elementPaddingRaw.lg.y} ${calc.subtract(
-						elementPaddingRaw.lg.x,
-						vars.spacing.space_1,
-					)}`,
+					padding: `${elementPaddingRaw.lg.y} ${itemPaddingXLg}`,
 				},
 			],
 			md: [
-				{ minHeight: elementHeight.md },
+				{ minHeight: itemHeightMd },
 				{
-					padding: `${elementPaddingRaw.md.y} ${calc.subtract(
-						elementPaddingRaw.md.x,
-						vars.spacing.space_1,
-					)}`,
+					padding: `${elementPaddingRaw.md.y} ${itemPaddingXMd}`,
 				},
 			],
 			sm: [
-				{ minHeight: elementHeight.sm },
+				{ minHeight: itemHeightSm },
 				{
-					padding: `${elementPaddingRaw.sm.y} ${calc.subtract(
-						elementPaddingRaw.sm.x,
-						vars.spacing.space_1,
-					)}`,
+					padding: `${elementPaddingRaw.sm.y} ${itemPaddingXSm}`,
 				},
 			],
 		},

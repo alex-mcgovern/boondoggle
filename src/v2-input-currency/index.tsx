@@ -1,74 +1,180 @@
+import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
+import * as React from "react";
 import {
-	Input,
-	NumberFieldProps as ReactAriaNumberFieldProps,
+	Input as ReactAriaInput,
 	NumberField as ReactAriaNumberField,
+	NumberFieldProps as ReactAriaNumberFieldProps,
 	ValidationResult,
 } from "react-aria-components";
-import { Group } from "../v2-group";
-import { numberInputCSS } from "./styles.css";
-import * as React from "react";
-import { Menu } from "../v2-menu";
 import { Icon } from "../icon";
-import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { LabelConfig, WithName, WithSize } from "../types";
+import { V2FieldError } from "../v2-field-error";
+import { Group } from "../v2-group";
 import { GroupAddon } from "../v2-group-addon";
-
-/** -----------------------------------------------------------------------------
- * Types
- * ------------------------------------------------------------------------------- */
+import { V2Label } from "../v2-label";
+import { IterableMenuItem } from "../v2-menu";
+import { MenuButton } from "../v2-menu-button";
+import { numberInputCSS } from "./styles.css";
 
 type CurrencyConfig<TCurrency extends string = string> =
 	| {
-			currency: TCurrency;
-			currencyIcon: React.ReactNode;
+			initialCurrency: TCurrency;
+			initialCurrencyIcon: React.ReactNode;
 			isCurrencyEditable: false;
 			items?: never;
 			onCurrencyChange?: never;
 	  }
 	| {
-			currency: TCurrency;
-			currencyIcon: React.ReactNode;
+			initialCurrency: TCurrency;
+			initialCurrencyIcon: React.ReactNode;
 			isCurrencyEditable: true;
-			items: Array<{
-				id: TCurrency;
-				name: string;
-				slotLeft: React.ReactNode;
-			}>;
-			onCurrencyChange:
-				| ((currency: TCurrency | undefined) => unknown)
-				| ((currency: TCurrency | undefined) => Promise<unknown>);
+			items: Array<IterableMenuItem<TCurrency>>;
+			onCurrencyChange?: React.Dispatch<React.SetStateAction<TCurrency>>;
 	  };
 
-/**
- * Manage the currency state and extract an icon to display it in the UI.
- */
 function useCurrencyState<TCurrency extends string = string>(
 	currencyConfig: CurrencyConfig<TCurrency>,
 ) {
-	const [currency, setCurrency] = React.useState<TCurrency>(
-		currencyConfig.currency,
+	const [currency, setCurrencyState] = React.useState<TCurrency>(
+		currencyConfig.initialCurrency,
 	);
+
+	const setCurrency: React.Dispatch<React.SetStateAction<TCurrency>> = (
+		n,
+	) => {
+		currencyConfig.onCurrencyChange?.(n);
+		setCurrencyState(n);
+	};
 
 	const currencyIcon = currencyConfig.isCurrencyEditable
 		? currencyConfig.items.find((i) => i.id === currency)?.slotLeft
-		: currencyConfig.currencyIcon;
+		: currencyConfig.initialCurrencyIcon;
 
 	return { currency, setCurrency, currencyIcon };
 }
 
-interface V2InputCurrencyProps<TCurrency extends string>
-	extends ReactAriaNumberFieldProps {
-	label?: string;
-	size: "sm" | "md" | "lg";
-	description?: string;
-	errorMessage?: string | ((validation: ValidationResult) => string);
-	currencyConfig: CurrencyConfig<TCurrency>;
+function CurrencyMenuIcon<TCurrency extends string = string>({
+	currencyIcon,
+	currency,
+}: { currency: TCurrency; currencyIcon?: React.ReactNode }) {
+	if (currencyIcon) {
+		return (
+			<>
+				{currencyIcon}
+				{currency}
+				<Icon color="text_low_contrast" icon={faAngleDown} />
+			</>
+		);
+	}
+
+	return <Icon color="text_low_contrast" icon={faAngleDown} />;
 }
 
-export function V2InputCurrency<TCurrency extends string>({
+function CurrencyMenuButton<TCurrency extends string = string>({
+	currencyConfig,
+	currency,
+	currencyIcon,
+	onCurrencyChange,
+	size,
+}: WithSize & {
+	currency: TCurrency;
+	currencyConfig: CurrencyConfig<TCurrency>;
+	currencyIcon: React.ReactNode;
+	onCurrencyChange: React.Dispatch<React.SetStateAction<TCurrency>>;
+}) {
+	return (
+		<MenuButton<TCurrency>
+			size={size}
+			buttonProps={{
+				slot: null,
+				children: (
+					<>
+						<CurrencyMenuIcon
+							currency={currency}
+							currencyIcon={currencyIcon}
+						/>
+					</>
+				),
+				"data-slot-side": "right",
+			}}
+			popoverProps={{
+				placement: "bottom end",
+			}}
+			menuProps={{
+				items: currencyConfig.items,
+				selectionMode: "single",
+				onSelectionChange: (s) => {
+					if (s === "all") {
+						return;
+					}
+					return onCurrencyChange(s.values().next().value);
+				},
+			}}
+		/>
+	);
+}
+
+/**
+ * Conditionally renders an icon of the selected currency for the field,
+ * or a MenuButton that allows switching currencies from a list of provided
+ * options.
+ */
+function InputCurrencyAddon<TCurrency extends string = string>({
+	currencyConfig,
+	currencyIcon,
+	currency,
+	onCurrencyChange,
+	size,
+}: WithSize & {
+	currency: TCurrency;
+	currencyConfig: CurrencyConfig<TCurrency>;
+	currencyIcon: React.ReactNode;
+	onCurrencyChange: React.Dispatch<React.SetStateAction<TCurrency>>;
+}) {
+	if (currencyConfig.isCurrencyEditable) {
+		return (
+			<CurrencyMenuButton<TCurrency>
+				currency={currency}
+				currencyConfig={currencyConfig}
+				currencyIcon={currencyIcon}
+				onCurrencyChange={onCurrencyChange}
+			/>
+		);
+	}
+	return (
+		<GroupAddon data-slot-side="right" size={size}>
+			{currencyIcon} {currency}
+		</GroupAddon>
+	);
+}
+
+/**
+ * @private
+ * - Renders a numeric input for currency values formatted with Intl.NumberFormat.
+ * - Optionally allows toggling the currency
+ */
+function BaseV2InputCurrency<TCurrency extends string = string>({
 	size = "sm",
 	currencyConfig,
+	labelConfig,
+	isInvalid,
+	errorMessage,
+	marginBottom = "space_4",
+	name,
 	...props
-}: V2InputCurrencyProps<TCurrency>) {
+}: ReactAriaNumberFieldProps &
+	WithSize &
+	WithName & {
+		labelConfig?: LabelConfig;
+		marginBottom?: Sprinkles["marginBottom"];
+		description?: string;
+		errorMessage?:
+			| string
+			| ((validation: ValidationResult) => string)
+			| null;
+		currencyConfig: CurrencyConfig<TCurrency>;
+	}) {
 	const { currency, currencyIcon, setCurrency } =
 		useCurrencyState(currencyConfig);
 
@@ -76,58 +182,40 @@ export function V2InputCurrency<TCurrency extends string>({
 		<ReactAriaNumberField
 			formatOptions={{
 				currency,
-				style: "currency",
-				currencyDisplay: "code",
-				currencySign: "accounting",
+				maximumFractionDigits: 2,
 			}}
-			defaultValue={1024}
-			minValue={0}
+			className={sprinkles({ marginBottom })}
 			{...props}
 		>
-			{/* <Label>Width</Label> */}
-			<Group>
-				<Input className={numberInputCSS({ size })} />
-				{currencyConfig.isCurrencyEditable ? (
-					<Menu
-						size={size}
-						buttonProps={{
-							slot: null,
-							children: currencyIcon ? (
-								<>
-									{currencyIcon}
-									<Icon
-										color="text_low_contrast"
-										icon={faAngleDown}
-									/>
-								</>
-							) : (
-								<Icon
-									color="text_low_contrast"
-									icon={faAngleDown}
-								/>
-							),
-							"data-slot-side": "right",
-						}}
-						popoverProps={{
-							placement: "bottom end",
-						}}
-						menuProps={{
-							items: currencyConfig.items,
-							selectionMode: "single",
-							onSelectionChange: (s) => {
-								if (s === "all") {
-									return;
-								}
-								return setCurrency(s.values().next().value);
-							},
-						}}
-					/>
-				) : (
-					<GroupAddon data-slot-side="right" size={size}>
-						{currencyIcon}
-					</GroupAddon>
-				)}
+			{labelConfig?.label ? (
+				<V2Label
+					isInvalid={isInvalid}
+					htmlFor={name}
+					isLabelVisible={labelConfig.isLabelVisible}
+					label={labelConfig.label}
+					labelTooltip={labelConfig.labelTooltip}
+					{...labelConfig.labelProps}
+				/>
+			) : null}
+			<Group isInvalid={isInvalid}>
+				<ReactAriaInput
+					name={name}
+					id={name}
+					className={numberInputCSS({ size })}
+					data-slot-side="left"
+				/>
+				<InputCurrencyAddon<TCurrency>
+					currency={currency}
+					currencyConfig={currencyConfig}
+					currencyIcon={currencyIcon}
+					onCurrencyChange={setCurrency}
+				/>
 			</Group>
+			{isInvalid && errorMessage && (
+				<V2FieldError>{errorMessage}</V2FieldError>
+			)}
 		</ReactAriaNumberField>
 	);
 }
+
+export const V2InputCurrency = React.forwardRef(BaseV2InputCurrency);

@@ -1,46 +1,18 @@
 import { globalStyle } from "@vanilla-extract/css";
-import { sprinkles } from "../sprinkles/index.css";
-import {
-	NOT_DISABLED,
-	a11yFocusStyleRule,
-	variantColorOverlay,
-	vars,
-} from "../index.css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
+import { FOCUS, variantColorOverlay, vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const groupCSS = recipe({
 	base: [
 		sprinkles({
 			display: "flex",
 			alignItems: "center",
-			borderRadius: "md",
-			// overflow: "hidden",
-			background: "background",
-			border: "border_default",
 		}),
 		withPrefersMotion({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
-		{
-			width: "fit-content",
-			selectors: {
-				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
-					// cursor: "text",
-					background: vars.color.tint_default,
-				},
-				// [`&${NOT_DISABLED}:is(:focus,[data-focused])`]: {
-				// 	outline: 0,
-				// 	background: vars.color.tint_default,
-				// },
-				"&[data-hovered]": {
-					borderColor: vars.color.border_hover,
-				},
-				// "&[data-focus-within]": {
-				// 	...a11yFocusStyleRule,
-				// },
-			},
-		},
 	],
 	variants: {
 		isDisabled: {
@@ -55,9 +27,29 @@ export const groupCSS = recipe({
 });
 
 globalStyle(`${groupCSS()} *[data-slot-side='right']`, {
+	borderTopRightRadius: vars.borderRadius.md,
+	borderBottomRightRadius: vars.borderRadius.md,
 	borderTopLeftRadius: "0 !important",
 	borderBottomLeftRadius: "0 !important",
-	borderTop: "0 !important",
-	borderRight: "0 !important",
-	borderBottom: "0 !important",
+
+	// borderBottom: "0 !important",
+	// borderRight: "0 !important",
+	// borderTop: "0 !important",
+});
+
+globalStyle(`${groupCSS()} *[data-slot-side='left']`, {
+	borderTopLeftRadius: vars.borderRadius.md,
+	borderBottomLeftRadius: vars.borderRadius.md,
+	borderTopRightRadius: "0 !important",
+	borderBottomRightRadius: "0 !important",
+});
+
+globalStyle(
+	`*[data-slot-side='left'] + *[data-slot-side='right']:not(${FOCUS})`,
+	{
+		borderLeft: "0 !important",
+	},
+);
+globalStyle(`*[data-slot-side='left'] + *[data-slot-side='right']${FOCUS}`, {
+	marginLeft: "-1px",
 });

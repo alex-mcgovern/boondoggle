@@ -1,143 +1,78 @@
 import * as React from "react";
 import {
-	Button as ReactAriaButton,
+	Collection as ReactAriaCollection,
+	Header as ReactAriaHeader,
 	Menu as ReactAriaMenu,
 	MenuItem as ReactAriaMenuItem,
-	MenuTrigger as ReactAriaMenuTrigger,
-	Popover as ReactAriaPopover,
-	Section as ReactAriaSection,
-	Header as ReactAriaHeader,
-	Collection as ReactAriaCollection,
-	type CollectionProps as ReactAriaCollectionProps,
-	type ButtonProps as ReactAriaButtonProps,
-	type MenuItemProps as ReactAriaMenuItemProps,
 	type MenuProps as ReactAriaMenuProps,
-	type MenuTriggerProps as ReactAriaMenuTriggerProps,
-	type PopoverProps as ReactAriaPopoverProps,
-	type SectionProps as ReactAriaSectionProps,
-
-	// type HeaderProps as ReactAriaHeaderProps,
-	// type CollectionProps as ReactAriaCollectionProps,
+	Section as ReactAriaSection,
 } from "react-aria-components";
-import {
-	menuButtonCSS,
-	menuCSS,
-	menuHeaderCSS,
-	menuItemCSS,
-} from "./styles.css";
-import { WithSize, WithSlotSide, WithSlots } from "../types";
+import { WithSize } from "../types";
+import { menuCSS, menuHeaderCSS, menuItemCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * Types
- * ------------------------------------------------------------------------------- */
+export type IterableMenuItem<TItemId extends string = string> =
+	| {
+			children?: never;
+			id: TItemId;
+			name: string;
+			slotLeft?: React.ReactNode;
+	  }
+	| {
+			children: Array<{
+				id: TItemId;
+				name: string;
+				slotLeft?: React.ReactNode;
+				children?: never;
+			}>;
+			id: string;
+			name: string;
+			slotLeft?: never;
+	  };
 
-type MenuItemSchema<TValue> = {
-	id: TValue;
-	name: string;
-	slotLeft?: React.ReactNode;
-};
-
-type MenuSectionSchema<TValue> = {
-	name: string;
-	id: string;
-	children: Array<MenuItemSchema<TValue>>;
-};
-
-type MenuIterable<TValue> = MenuItemSchema<TValue> | MenuSectionSchema<TValue>;
-
-function MenuItem({
-	children,
-	slotLeft,
-	size,
-	...props
-}: ReactAriaMenuItemProps & WithSize & WithSlots) {
-	return (
-		<ReactAriaMenuItem {...props} className={menuItemCSS({ size })}>
-			{slotLeft}
-			{children}
-		</ReactAriaMenuItem>
-	);
-}
-
-function MenuSection<TValue extends object = object>(
-	props: ReactAriaSectionProps<TValue>,
+function BaseMenu<TItemId extends string = string>(
+	{
+		size,
+		...props
+	}: WithSize & ReactAriaMenuProps<IterableMenuItem<TItemId>>,
+	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
-	return <ReactAriaSection {...props} />;
-}
-
-const MenuHeader = React.forwardRef<
-	HTMLElement,
-	React.HtmlHTMLAttributes<HTMLElement> & WithSize
->((props, ref) => {
 	return (
-		<ReactAriaHeader
-			className={menuHeaderCSS({ size: props.size })}
+		<ReactAriaMenu<IterableMenuItem<TItemId>>
+			className={menuCSS}
 			ref={ref}
 			{...props}
-		/>
-	);
-});
-
-function MenuCollection<TValue extends object = object>(
-	props: ReactAriaCollectionProps<TValue>,
-) {
-	return <ReactAriaCollection {...props} />;
-}
-
-export function Menu<TValue extends string = string>({
-	buttonProps,
-	menuProps,
-	menuTriggerProps,
-	popoverProps,
-	size,
-}: WithSize & {
-	buttonProps?: WithSlotSide & ReactAriaButtonProps;
-	menuProps?: ReactAriaMenuProps<TValue>;
-	menuTriggerProps?: ReactAriaMenuTriggerProps;
-	popoverProps?: ReactAriaPopoverProps;
-}) {
-	return (
-		<ReactAriaMenuTrigger {...menuTriggerProps}>
-			<ReactAriaButton
-				className={menuButtonCSS({ size })}
-				{...buttonProps}
-				aria-label="Menu"
-			/>
-			<ReactAriaPopover {...popoverProps}>
-				<ReactAriaMenu<
-					MenuItemSchema<TValue> | MenuSectionSchema<TValue>
-				>
-					className={menuCSS}
-					{...menuProps}
-				>
-					{(item) =>
-						item.children ? (
-							<MenuSection>
-								{item.name ? (
-									<MenuHeader size={size}>
-										{item.name}
-									</MenuHeader>
-								) : null}
-
-								<MenuCollection items={item.children}>
-									{(i) => (
-										<MenuItem
-											slotLeft={i.slotLeft}
-											size={size}
-										>
-											{i.name}
-										</MenuItem>
-									)}
-								</MenuCollection>
-							</MenuSection>
-						) : (
-							<MenuItem slotLeft={item.slotLeft} size={size}>
+		>
+			{(item) =>
+				item.children ? (
+					<ReactAriaSection>
+						{item.name ? (
+							<ReactAriaHeader
+								className={menuHeaderCSS({ size })}
+							>
 								{item.name}
-							</MenuItem>
-						)
-					}
-				</ReactAriaMenu>
-			</ReactAriaPopover>
-		</ReactAriaMenuTrigger>
+							</ReactAriaHeader>
+						) : null}
+
+						<ReactAriaCollection items={item.children}>
+							{(childItem) => (
+								<ReactAriaMenuItem
+									className={menuItemCSS({ size })}
+								>
+									{childItem.slotLeft}
+									{childItem.name}
+								</ReactAriaMenuItem>
+							)}
+						</ReactAriaCollection>
+					</ReactAriaSection>
+				) : (
+					<ReactAriaMenuItem className={menuItemCSS({ size })}>
+						{item.slotLeft}
+						{item.name}
+					</ReactAriaMenuItem>
+				)
+			}
+		</ReactAriaMenu>
 	);
 }
+
+export const Menu = React.forwardRef(BaseMenu);

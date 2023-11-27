@@ -45,7 +45,8 @@ const SELECTOR_IS_LINK_BUTTON_INPUT = ":is(a,button,input)";
 export const DISABLED = ":is([disabled], [aria-disabled='true'])";
 export const NOT_DISABLED = `:not(${DISABLED})`;
 
-export const SELECTOR_IS_HOVER = ":is(:hover)";
+export const HOVER = ":is(:hover,[data-hovered])";
+export const FOCUS = ":is(:focus,[data-focused])";
 
 export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
 
@@ -60,7 +61,7 @@ const hoverSelectorArray = [
 	"&",
 	SELECTOR_IS_LINK_BUTTON_INPUT,
 	NOT_DISABLED,
-	SELECTOR_IS_HOVER,
+	HOVER,
 ];
 
 export const SELECTOR_LINK_BUTTON_INPUT_HOVER = hoverSelectorArray.join("");

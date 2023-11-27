@@ -1,5 +1,5 @@
-import { groupAddonCSS } from "./styles.css";
 import { WithSize } from "../types";
+import { groupAddonCSS } from "./styles.css";
 
 export const GroupAddon = ({
 	children,
