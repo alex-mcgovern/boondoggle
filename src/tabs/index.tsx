@@ -8,6 +8,7 @@ import {
 	forwardRef,
 } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
+import { SlotWrapper } from "../slot-wrapper";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	PolymorphicComponentPropWithRef,
@@ -17,9 +18,7 @@ import {
 	WithSlots,
 	WithStateDisabled,
 } from "../types";
-import { tabListCSS, tabsSectionCss, tabCSS } from "./styles.css";
-import { SlotWrapper } from "../slot-wrapper";
-import {} from "./styles.css";
+import { tabCSS, tabListCSS, tabsSectionCss } from "./styles.css";
 
 // const TabCount = ({ count }: { count: number }) => {
 // 	return <div className={tabCountCSS}>{count}</div>;
