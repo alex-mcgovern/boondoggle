@@ -4,7 +4,6 @@ import {
 	Input as ReactAriaInput,
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
-	ValidationResult,
 } from "react-aria-components";
 import { Icon } from "../icon";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
@@ -170,10 +169,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>({
 		labelConfig?: LabelConfig;
 		marginBottom?: Sprinkles["marginBottom"];
 		description?: string;
-		errorMessage?:
-			| string
-			| ((validation: ValidationResult) => string)
-			| null;
+		errorMessage?: string | null;
 		currencyConfig: CurrencyConfig<TCurrency>;
 	}) {
 	const { currency, currencyIcon, setCurrency } =
@@ -181,6 +177,8 @@ function BaseV2InputCurrency<TCurrency extends string = string>({
 
 	return (
 		<ReactAriaNumberField
+			isInvalid={isInvalid}
+			validationBehavior="aria"
 			formatOptions={{
 				currency,
 				maximumFractionDigits: 2,

@@ -35,6 +35,7 @@ export const Invalid: Story = {
 			label: "Amount",
 			labelTooltip: "Please enter an amount",
 		},
+		errorMessage: "Please enter a valid amount",
 		currencyConfig: {
 			initialCurrency: "EUR",
 			initialCurrencyIcon: <FlagEu height="space_4" width="space_4" />,
