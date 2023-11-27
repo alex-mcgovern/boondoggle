@@ -4,9 +4,7 @@
 	"description": "Boondoggle component library",
 	"version": "0.18.1-21",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -54,11 +52,9 @@
 		"storybook": "storybook dev -p 6006",
 		"=== CHECKS ===": "",
 		"check": "concurrently npm:check-* -c auto",
-		"check-biome": "biome ci .",
+		"check-biome": "biome check --apply-unsafe .",
 		"check-tsc": "tsc",
 		"check-jest": "jest",
-		"fix": "biome check --apply-unsafe .",
-		"lint:fix": "biome check --apply .",
 		"=== TESTING ===": "",
 		"cy:open": "cypress open",
 		"cy:run": "cypress run --component",
