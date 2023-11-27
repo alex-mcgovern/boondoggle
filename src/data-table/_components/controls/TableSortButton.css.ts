@@ -1,16 +1,37 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../../css-utils";
-import { vars } from "../../../index.css";
+import { HOVER, vars } from "../../../index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 const sortControlBase = style({});
 
 export const getSortControlStyle = recipe({
-	base: [sortControlBase],
+	base: [
+		sortControlBase,
+		sprinkles({
+			flexShrink: "0",
+			display: "flex",
+			alignItems: "center",
+			color: "text_low_contrast",
+			marginRight: "auto",
+			gap: "space_2",
+		}),
+		withPrefersMotion({
+			transition: `color ${vars.transitionDuration.short} ease`,
+		}),
+		{
+			[`&${HOVER}`]: {
+				color: vars.color.text_high_contrast,
+			},
+		},
+	],
 	variants: {
 		isSorted: {
 			false: {},
-			true: {},
+			true: {
+				color: vars.color.text_high_contrast,
+			},
 		},
 	},
 });
@@ -29,6 +50,9 @@ export const sortIconStyle = style({
 	zIndex: -1,
 });
 
-globalStyle(`${sortControlBase}:hover ${sortIconStyle}`, {
-	opacity: 0.7,
-});
+globalStyle(
+	`${getSortControlStyle({ isSorted: false })}:hover ${sortIconStyle}`,
+	{
+		opacity: 0.7,
+	},
+);

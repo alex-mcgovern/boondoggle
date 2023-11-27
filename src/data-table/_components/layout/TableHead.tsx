@@ -5,13 +5,11 @@ import { TableHeaderCell } from "./TableHeaderCell";
 
 export function TableHead<TTableData>({
 	isSortable,
-	isSticky,
 	table,
 	isSelectable,
 	hasRowActions,
 }: {
 	isSortable: boolean | undefined;
-	isSticky?: boolean;
 	isSelectable: boolean | undefined;
 	hasRowActions: boolean | undefined;
 	table: Table<TTableData>;
@@ -26,7 +24,6 @@ export function TableHead<TTableData>({
 								<TableHeaderCell<TTableData>
 									header={h}
 									isSortable={isSortable}
-									isSticky={isSticky}
 									key={h.id}
 								/>
 							);

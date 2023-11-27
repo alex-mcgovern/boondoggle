@@ -8,11 +8,9 @@ import { TableSortButton } from "../controls/TableSortButton";
 export function TableHeaderCell<THeaderData>({
 	header,
 	isSortable,
-	isSticky,
 }: {
 	header: Header<THeaderData, unknown>;
 	isSortable: boolean | undefined;
-	isSticky?: boolean;
 }) {
 	if (isSortable) {
 		return (
@@ -20,9 +18,7 @@ export function TableHeaderCell<THeaderData>({
 				className={clsx(
 					thStyles,
 					sprinkles({
-						background: isSticky ? "white" : undefined,
-						position: isSticky ? "sticky" : undefined,
-						top: isSticky ? "0" : undefined,
+						color: "text_low_contrast",
 					}),
 				)}
 			>
@@ -43,9 +39,7 @@ export function TableHeaderCell<THeaderData>({
 			className={clsx(
 				thStyles,
 				sprinkles({
-					background: isSticky ? "white" : undefined,
-					position: isSticky ? "sticky" : undefined,
-					top: isSticky ? "0" : undefined,
+					color: "text_low_contrast",
 				}),
 			)}
 		>

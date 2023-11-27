@@ -78,7 +78,7 @@ export const sliderThumb = style([
 			[`&${HOVER}`]: {
 				background: vars.color.tint_1,
 				borderColor: vars.color.tint_2,
-				cursor: "pointer",
+				cursor: "default",
 			},
 			[`&${SELECTOR_IS_FOCUS}`]: {
 				boxShadow: vars.boxShadow.md,

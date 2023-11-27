@@ -8,7 +8,7 @@ globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:read-only`,
 	{
 		// background: vars.color.background,
-		cursor: "pointer",
+		cursor: "default",
 	},
 );
 

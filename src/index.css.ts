@@ -1,8 +1,7 @@
 import {
 	amber,
 	amberA,
-	amberDark,
-	amberDarkA,
+	blackA,
 	blue,
 	blueA,
 	blueDark,
@@ -15,14 +14,16 @@ import {
 	irisA,
 	irisDark,
 	irisDarkA,
-	mauveDark,
-	mauveDarkA,
 	red,
 	redA,
 	redDark,
 	redDarkA,
 	slate,
 	slateA,
+	slateDark,
+	slateDarkA,
+	yellowDark,
+	yellowDarkA,
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
@@ -34,6 +35,7 @@ import {
 	style,
 	styleVariants,
 } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { makeDarkTheme, makeLightTheme, withPrefersMotion } from "./css-utils";
 
 /** -----------------------------------------------------------------------------
@@ -170,8 +172,9 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 	},
 	boxShadow: {
 		lg: `0 8px 24px ${slateA.slateA2}`,
-		md: `0 3px 6px ${slateA.slateA2}`,
-		sm: `0 1px 2px ${slateA.slateA2}`,
+		md: `0 4px 8px ${slateA.slateA4}`,
+		// sm: `0 1px 1.5px ${slateA.slateA2}`,
+		sm: `${blackA.blackA1} 0px 1px 4px`,
 	},
 	display: {
 		block: "block",
@@ -324,6 +327,12 @@ export const animateFadeIn = style([
 	}),
 ]);
 
+export const animateFadeInLong = style([
+	withPrefersMotion({
+		animation: `${fadeInKeyframes} ${vars.transitionDuration.long} ease forwards`,
+	}),
+]);
+
 const slideUpKeyframes = keyframes({
 	"0%": { opacity: 0, transform: `translateY(${vars.spacing.space_10})` },
 	"100%": { opacity: 1 },
@@ -358,9 +367,9 @@ export const variantColorOverlay = styleVariants({
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
-								primary: amberDark,
-								secondary: amberDark,
-								alpha: amberDarkA,
+								primary: yellowDark,
+								secondary: yellowDark,
+								alpha: yellowDarkA,
 								isColorOverlay: true,
 							}),
 						),
@@ -417,8 +426,8 @@ export const variantColorOverlay = styleVariants({
 							vars.color,
 							makeDarkTheme({
 								primary: blueDark,
-								secondary: mauveDark,
-								alpha: mauveDarkA,
+								secondary: slateDark,
+								alpha: slateDarkA,
 								isColorOverlay: false,
 							}),
 						),
@@ -474,9 +483,9 @@ export const variantColorOverlay = styleVariants({
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
-								primary: mauveDark,
-								secondary: mauveDark,
-								alpha: mauveDarkA,
+								primary: slateDark,
+								secondary: slateDark,
+								alpha: slateDarkA,
 								isColorOverlay: true,
 							}),
 						),
@@ -741,7 +750,10 @@ globalStyle(
 	{
 		"@layer": {
 			[resetLayer]: {
-				boxShadow: `0 0 0px 1000px ${vars.color.tint_1} inset`,
+				boxShadow: `0 0 0px 30px ${vars.color.tint_1} inset`,
+				WebkitTextFillColor: vars.color.text_high_contrast,
+				caretColor: vars.color.text_high_contrast,
+				fontSize: `${vars.fontSize.bodyMd} !important`,
 			},
 		},
 	},
@@ -811,7 +823,7 @@ globalStyle("input[type='date']::-webkit-calendar-picker-indicator", {
 globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
 	"@layer": {
 		[resetLayer]: {
-			cursor: "pointer",
+			cursor: "default",
 		},
 	},
 });
@@ -834,8 +846,8 @@ globalStyle(":root", {
 					vars.color,
 					makeDarkTheme({
 						primary: blueDark,
-						secondary: mauveDark,
-						alpha: mauveDarkA,
+						secondary: slateDark,
+						alpha: slateDarkA,
 						isColorOverlay: false,
 					}),
 				),
@@ -880,10 +892,20 @@ globalStyle("body", {
 			color: vars.color.text_high_contrast,
 			lineHeight: vars.lineHeight.bodyMd,
 			WebkitFontSmoothing: "antialiased",
-			scrollbarColor: `${vars.color.tint_2} ${vars.color.background_raised}`,
+			scrollbarColor: `${vars.color.tint_2} ${vars.color.floating_menu_background}`,
 		},
 	},
 });
+
+// msOverflowStyle: "none",
+// 		overflowX: "scroll",
+// 		scrollbarGutter: "none",
+// 		scrollbarWidth: "none",
+// 		selectors: {
+// 			"&::-webkit-scrollbar": {
+// 				display: "none",
+// 			},
+// 		},
 
 globalStyle("body", {
 	"@layer": {
@@ -891,7 +913,7 @@ globalStyle("body", {
 			color: vars.color.text_high_contrast,
 			lineHeight: vars.lineHeight.bodyMd,
 			WebkitFontSmoothing: "antialiased",
-			scrollbarColor: `${vars.color.tint_2} ${vars.color.background_raised}`,
+			scrollbarColor: `${vars.color.tint_2} ${vars.color.floating_menu_background}`,
 		},
 	},
 });
@@ -903,6 +925,7 @@ globalStyle("a", {
 			margin: 0,
 			padding: 0,
 			textDecoration: "none",
+			cursor: "default",
 		},
 	},
 });
@@ -939,7 +962,7 @@ globalStyle("input[type=checkbox]", {
 	"@layer": {
 		[baseLayer]: {
 			accentColor: vars.color.button_default,
-			cursor: "pointer",
+			cursor: "default",
 			height: vars.spacing.space_4,
 			width: vars.spacing.space_4,
 			...withPrefersMotion({
@@ -1216,7 +1239,7 @@ const tableStyleRule: StyleRule = {
 };
 const tHeadStyleRule: StyleRule = {
 	fontSize: vars.fontSize.bodySm,
-	fontWeight: vars.fontWeight.semibold,
+	fontWeight: vars.fontWeight.normal,
 };
 
 /**
@@ -1398,3 +1421,41 @@ export const elementPadding = styleVariants({
 });
 
 export type ElementSizeEnum = "lg" | "md" | "sm";
+
+/** -----------------------------------------------------------------------------
+ * FLOATING MENU VARS
+ * ------------------------------------------------------------------------------- */
+
+const menuRadius = vars.borderRadius.md;
+const menuPadding = vars.spacing["space_0.5"];
+
+const itemInset = calc.multiply(menuPadding, 2);
+const itemRadius = calc.subtract(menuRadius, menuPadding);
+
+const itemHeightLg = calc.subtract(elementHeight.lg, itemInset);
+const itemHeightMd = calc.subtract(elementHeight.md, itemInset);
+const itemHeightSm = calc.subtract(elementHeight.sm, itemInset);
+
+const itemPaddingXLg = calc.subtract(elementPaddingRaw.lg.x, itemInset);
+const itemPaddingXMd = calc.subtract(elementPaddingRaw.md.x, itemInset);
+const itemPaddingXSm = calc.subtract(elementPaddingRaw.sm.x, itemInset);
+
+const itemPaddingYLg = calc.subtract(elementPaddingRaw.lg.y, itemInset);
+const itemPaddingYMd = calc.subtract(elementPaddingRaw.md.y, itemInset);
+const itemPaddingYSm = calc.subtract(elementPaddingRaw.sm.y, itemInset);
+
+export const floatingMenuVars = createGlobalTheme(":root", {
+	menuRadius,
+	menuPadding,
+	itemInset,
+	itemRadius,
+	itemHeightLg,
+	itemHeightMd,
+	itemHeightSm,
+	itemPaddingXLg,
+	itemPaddingXMd,
+	itemPaddingXSm,
+	itemPaddingYLg,
+	itemPaddingYMd,
+	itemPaddingYSm,
+});

@@ -37,13 +37,12 @@ export const makeLightTheme = ({
 
 		text_low_contrast: isColorOverlay
 			? step(secondary, 11)
-			: step(secondary, 10),
+			: step(secondary, 11),
 		text_high_contrast: isColorOverlay
 			? step(secondary, 11)
 			: step(secondary, 12),
 
 		background: step(secondary, 1),
-		background_raised: step(secondary, 1),
 		backdrop: step(alpha, 11),
 		shadow: step(alpha, 2),
 
@@ -57,10 +56,34 @@ export const makeLightTheme = ({
 		button_hover: step(primary, 10),
 		button_active: step(primary, 11),
 
+		button_secondary: isColorOverlay
+			? step(secondary, 3)
+			: step(secondary, 2),
+
+		button_secondary_border: isColorOverlay
+			? step(secondary, 4)
+			: step(secondary, 3),
+
+		button_secondary_highlight: isColorOverlay
+			? step(secondary, 4)
+			: step(secondary, 3),
+		button_secondary_border_highlight: isColorOverlay
+			? step(secondary, 5)
+			: step(secondary, 4),
+
+		floating_menu_background: step(secondary, 2),
+		floating_menu_highlight: step(secondary, 3),
+
+		tabs_background: step(secondary, 3),
+		tab_active_background: step(secondary, 1),
+
 		tint_1: isColorOverlay ? step(secondary, 3) : step(secondary, 2),
 		tint_2: isColorOverlay ? step(secondary, 4) : step(secondary, 3),
 		tint_3: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
 		tint_4: isColorOverlay ? step(secondary, 6) : step(secondary, 5),
+
+		tooltip_background: step(secondary, 12),
+		tooltip_foreground: step(secondary, 1),
 
 		focus_ring: step(primary, 8),
 	};
@@ -82,7 +105,6 @@ export const makeDarkTheme = ({
 			: step(secondary, 12),
 
 		background: step(secondary, 3),
-		background_raised: step(secondary, 4),
 		backdrop: step(alpha, 11),
 		shadow: step(alpha, 2),
 
@@ -96,10 +118,35 @@ export const makeDarkTheme = ({
 		button_hover: step(primary, 10),
 		button_active: step(primary, 10),
 
+		button_secondary: isColorOverlay
+			? step(secondary, 5)
+			: step(secondary, 4),
+		button_secondary_border: isColorOverlay
+			? step(secondary, 6)
+			: step(secondary, 5),
+
+		button_secondary_highlight: isColorOverlay
+			? step(secondary, 6)
+			: step(secondary, 5),
+		button_secondary_border_highlight: isColorOverlay
+			? step(secondary, 7)
+			: step(secondary, 6),
+
+		floating_menu_background: step(secondary, 4),
+		floating_menu_highlight: isColorOverlay
+			? step(secondary, 2)
+			: step(secondary, 5),
+
+		tabs_background: step(secondary, 4),
+		tab_active_background: step(secondary, 2),
+
 		tint_1: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
 		tint_2: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
 		tint_3: isColorOverlay ? step(secondary, 6) : step(secondary, 5),
 		tint_4: isColorOverlay ? step(secondary, 7) : step(secondary, 6),
+
+		tooltip_background: step(secondary, 6),
+		tooltip_foreground: step(secondary, 12),
 
 		focus_ring: step(primary, 8),
 	};

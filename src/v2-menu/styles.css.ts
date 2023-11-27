@@ -7,26 +7,12 @@ import {
 	a11yDisabled,
 	a11yFocus,
 	animateFadeIn,
-	elementHeight,
 	elementPaddingRaw,
+	floatingMenuVars,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-
-const menuRadius = vars.borderRadius.md;
-const menuPadding = vars.spacing["space_0.5"];
-
-const itemInset = calc.multiply(menuPadding, 2);
-const itemRadius = calc.subtract(menuRadius, menuPadding);
-
-const itemHeightLg = calc.subtract(elementHeight.lg, itemInset);
-const itemHeightMd = calc.subtract(elementHeight.md, itemInset);
-const itemHeightSm = calc.subtract(elementHeight.sm, itemInset);
-
-const itemPaddingXLg = calc.subtract(elementPaddingRaw.lg.x, itemInset);
-const itemPaddingXMd = calc.subtract(elementPaddingRaw.md.x, itemInset);
-const itemPaddingXSm = calc.subtract(elementPaddingRaw.sm.x, itemInset);
 
 export const menuCSS = style([
 	animateFadeIn,
@@ -37,8 +23,8 @@ export const menuCSS = style([
 		overflowY: "auto",
 	}),
 	{
-		padding: menuPadding,
-		borderRadius: menuRadius,
+		padding: floatingMenuVars.menuPadding,
+		borderRadius: floatingMenuVars.menuRadius,
 		selectors: {
 			"&:focus": {
 				outline: "none",
@@ -73,15 +59,15 @@ export const menuItemCSS = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
-			borderRadius: itemRadius,
+			borderRadius: floatingMenuVars.itemRadius,
 			selectors: {
 				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
-					cursor: "pointer",
+					cursor: "default",
 					background: vars.color.tint_3,
 				},
 				[`&${NOT_DISABLED}:is(:focus,[data-focused])`]: {
 					outline: 0,
-					cursor: "pointer",
+					cursor: "default",
 					background: vars.color.tint_3,
 				},
 				[`&${NOT_DISABLED}:is(:active,[data-selected])`]: {
@@ -97,21 +83,21 @@ export const menuItemCSS = recipe({
 		colorOverlay: variantColorOverlay,
 		size: {
 			lg: [
-				{ minHeight: itemHeightLg },
+				{ minHeight: floatingMenuVars.itemHeightLg },
 				{
-					padding: `${elementPaddingRaw.lg.y} ${itemPaddingXLg}`,
+					padding: `${elementPaddingRaw.lg.y} ${floatingMenuVars.itemPaddingXLg}`,
 				},
 			],
 			md: [
-				{ minHeight: itemHeightMd },
+				{ minHeight: floatingMenuVars.itemHeightMd },
 				{
-					padding: `${elementPaddingRaw.md.y} ${itemPaddingXMd}`,
+					padding: `${elementPaddingRaw.md.y} ${floatingMenuVars.itemPaddingXMd}`,
 				},
 			],
 			sm: [
-				{ minHeight: itemHeightSm },
+				{ minHeight: floatingMenuVars.itemHeightSm },
 				{
-					padding: `${elementPaddingRaw.sm.y} ${itemPaddingXSm}`,
+					padding: `${elementPaddingRaw.sm.y} ${floatingMenuVars.itemPaddingXSm}`,
 				},
 			],
 		},

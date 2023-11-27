@@ -11,7 +11,7 @@ export const loadingStyles = style({
 	background: `linear-gradient(
       100deg,
       ${vars.color.tint_2} 40%,
-      ${vars.color.tint_3} 50%,
+      ${vars.color.tint_1} 50%,
       ${vars.color.tint_2} 60%
     ) ${vars.color.tint_1}`,
 	backgroundColor: vars.color.tint_1,

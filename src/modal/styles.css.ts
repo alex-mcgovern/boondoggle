@@ -39,7 +39,7 @@ export const modalCSS = recipe({
 		animateFadeIn,
 		a11yFocus,
 		sprinkles({
-			background: "background_raised",
+			background: "floating_menu_background",
 			position: "absolute",
 
 			border: "border_1",

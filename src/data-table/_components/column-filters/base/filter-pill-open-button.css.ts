@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../../../css-utils";
-import { a11yFocus, vars } from "../../../../index.css";
+import { HOVER, NOT_DISABLED, a11yFocus, vars } from "../../../../index.css";
 import { sprinkles } from "../../../../sprinkles/index.css";
 
 const rotateOutKeyframes = keyframes({
@@ -27,6 +27,16 @@ export const openButtonCSS = style([
 		paddingX: "space_2",
 		// paddingY: "space_0",
 	}),
+	{
+		...withPrefersMotion({
+			transition: `color ${vars.transitionDuration.medium} ease`,
+		}),
+		selectors: {
+			[`&${NOT_DISABLED}${HOVER}`]: {
+				color: vars.color.text_high_contrast,
+			},
+		},
+	},
 ]);
 
 export const openIconCSS = recipe({

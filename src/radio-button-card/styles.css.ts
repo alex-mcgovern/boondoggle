@@ -47,7 +47,7 @@ export const radioButtonCardLabelStyles = style([
 			"&:hover": {
 				background: vars.color.tint_2,
 				border: `1px solid ${vars.color.border_2}`,
-				cursor: "pointer",
+				cursor: "default",
 			},
 		},
 	},

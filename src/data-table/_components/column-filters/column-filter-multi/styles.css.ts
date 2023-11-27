@@ -41,12 +41,12 @@ export const multiFilterItemCSS = style([
 				...a11yFocusStyleRule,
 			},
 			"&:hover": {
-				cursor: "pointer",
-				background: vars.color.tint_2,
+				cursor: "default",
+				background: vars.color.floating_menu_highlight,
 			},
 			"&:active": {
-				cursor: "pointer",
-				background: vars.color.tint_3,
+				cursor: "default",
+				background: vars.color.floating_menu_highlight,
 			},
 		},
 	},

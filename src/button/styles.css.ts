@@ -73,6 +73,7 @@ const variantAppearance = styleVariants({
 	ghost: [
 		sprinkles(COMMON_BUTTON_SPRINKLES),
 		{
+			border: "1px solid transparent",
 			color: vars.color.text_high_contrast,
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
@@ -144,20 +145,20 @@ const variantAppearance = styleVariants({
 			...COMMON_BUTTON_SPRINKLES,
 			border: "border_2",
 			color: "text_high_contrast",
-			background: "tint_1",
 		}),
 		{
+			background: vars.color.button_secondary,
 			selectors: {
 				"&:not(:is([disabled], [aria-disabled='true']))": {
 					boxShadow: vars.boxShadow.sm,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_1,
+					background: vars.color.button_secondary_highlight,
 					borderColor: vars.color.border_3,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-					background: vars.color.tint_2,
-					borderColor: vars.color.border_4,
+					background: vars.color.button_secondary_highlight,
+					borderColor: vars.color.border_3,
 				},
 			},
 		},

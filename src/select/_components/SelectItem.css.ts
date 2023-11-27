@@ -1,12 +1,10 @@
 import { style, styleVariants } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../css-utils";
 import {
 	a11yDisabled,
 	a11yFocus,
-	elementHeight,
-	elementPaddingRaw,
+	floatingMenuVars,
 	variantColorOverlay,
 	vars,
 } from "../../index.css";
@@ -14,30 +12,21 @@ import { sprinkles } from "../../sprinkles/index.css";
 
 const selectItemSize = styleVariants({
 	lg: [
-		{ minHeight: elementHeight.lg },
+		{ minHeight: floatingMenuVars.itemHeightLg },
 		{
-			padding: `${elementPaddingRaw.lg.y} ${calc.subtract(
-				elementPaddingRaw.lg.x,
-				vars.spacing.space_1,
-			)}`,
+			padding: `${floatingMenuVars.itemPaddingXLg} ${floatingMenuVars.itemPaddingXLg}`,
 		},
 	],
 	md: [
-		{ minHeight: elementHeight.md },
+		{ minHeight: floatingMenuVars.itemHeightMd },
 		{
-			padding: `${elementPaddingRaw.md.y} ${calc.subtract(
-				elementPaddingRaw.md.x,
-				vars.spacing.space_1,
-			)}`,
+			padding: `${floatingMenuVars.itemPaddingYMd} ${floatingMenuVars.itemPaddingXMd}`,
 		},
 	],
 	sm: [
-		{ minHeight: elementHeight.sm },
+		{ minHeight: floatingMenuVars.itemHeightSm },
 		{
-			padding: `${elementPaddingRaw.sm.y} ${calc.subtract(
-				elementPaddingRaw.sm.x,
-				vars.spacing.space_1,
-			)}`,
+			padding: `${floatingMenuVars.itemPaddingXSm} ${floatingMenuVars.itemPaddingXSm}`,
 		},
 	],
 });
@@ -63,12 +52,13 @@ export const getSelectItemStyles = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
+			borderRadius: floatingMenuVars.itemRadius,
 			selectors: {
 				"&:hover": {
-					cursor: "pointer",
+					cursor: "default",
 				},
 				"&:active": {
-					background: vars.color.tint_2,
+					background: vars.color.floating_menu_highlight,
 				},
 			},
 		},
@@ -81,6 +71,6 @@ export const getSelectItemStyles = recipe({
 
 export const isHighlightedStyle = style([
 	{
-		background: vars.color.tint_2,
+		background: vars.color.floating_menu_highlight,
 	},
 ]);

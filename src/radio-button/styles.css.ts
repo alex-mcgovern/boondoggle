@@ -26,7 +26,7 @@ export const radioButtonLabelStyles = style([
 		accentColor: vars.color.button_default,
 		selectors: {
 			"&:hover": {
-				cursor: "pointer",
+				cursor: "default",
 			},
 		},
 	},

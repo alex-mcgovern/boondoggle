@@ -2,7 +2,13 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
-import { variantColorOverlay, vars } from "../index.css";
+import {
+	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
+	a11yFocus,
+	elementHeight,
+	variantColorOverlay,
+	vars,
+} from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 const scaleUpKeyframes = keyframes({
@@ -14,43 +20,6 @@ const scaleUpKeyframes = keyframes({
 	"50%": { transform: "scale(0.8)", opacity: 0 },
 	"100%": {
 		opacity: 1,
-	},
-});
-
-export const tabCSS = recipe({
-	base: [
-		sprinkles({
-			flexShrink: "0",
-			paddingBottom: "space_1",
-		}),
-	],
-	defaultVariants: {
-		active: false,
-	},
-	variants: {
-		isTabFullWidth: {
-			true: [
-				sprinkles({
-					flexGrow: "1",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-				}),
-			],
-			false: [],
-		},
-		active: {
-			false: [
-				{
-					borderBottom: `${vars.spacing["space_0.5"]} solid transparent`,
-				},
-			],
-			true: [
-				{
-					borderBottom: `${vars.spacing["space_0.5"]} solid ${vars.color.button_default}`,
-				},
-			],
-		},
 	},
 });
 
@@ -77,24 +46,72 @@ export const tabsSectionCss = recipe({
 export const tabListCSS = style([
 	sprinkles({
 		alignItems: "center",
-		// borderBottom: "border_1",
 		display: "flex",
-		background: "tint_2",
 		borderRadius: "md",
 		width: "min-content",
+		isolation: "isolate",
 	}),
 	{
-		msOverflowStyle: "none",
-		overflowX: "scroll",
-		scrollbarGutter: "none",
-		scrollbarWidth: "none",
-		selectors: {
-			"&::-webkit-scrollbar": {
-				display: "none",
-			},
-		},
+		height: "fit-content",
+		background: vars.color.tabs_background,
 	},
 ]);
+
+export const tabCSS = recipe({
+	base: [
+		sprinkles({
+			display: "flex",
+			alignItems: "center",
+			gap: "space_1",
+			flexShrink: "0",
+
+			fontStyle: "bodyMd",
+			color: "text_low_contrast",
+			whiteSpace: "nowrap",
+			textDecoration: "none",
+
+			borderRadius: "md",
+			paddingX: "space_3",
+			paddingY: "space_1",
+			width: "max-content",
+		}),
+		{ height: elementHeight.sm },
+		a11yFocus,
+		withPrefersMotion({
+			transition: `ease ${vars.transitionDuration.short} ease`,
+			transitionProperty: "color, background-color, border-color",
+		}),
+	],
+
+	variants: {
+		isActive: {
+			true: [
+				sprinkles({
+					background: "tab_active_background",
+					boxShadow: "sm",
+				}),
+				{
+					border: `1px solid ${vars.color.button_secondary_border_highlight}`,
+					selectors: {
+						[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+							background: vars.color.tab_active_background,
+							color: vars.color.button_secondary_border_highlight,
+						},
+					},
+				},
+			],
+			false: {
+				selectors: {
+					[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
+						background: vars.color.tint_4,
+						color: vars.color.text_high_contrast,
+					},
+				},
+			},
+		},
+		colorOverlay: variantColorOverlay,
+	},
+});
 
 export const tabCountCSS = style([
 	variantColorOverlay.blue,

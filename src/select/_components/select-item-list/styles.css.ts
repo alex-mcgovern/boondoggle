@@ -1,39 +1,20 @@
 import { style, styleVariants } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { elementPaddingRaw, vars } from "../../../index.css";
+import { floatingMenuVars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
 const groupTitleSize = styleVariants({
 	lg: {
-		paddingLeft: calc.subtract(
-			elementPaddingRaw.lg.x,
-			vars.spacing.space_1,
-		),
-		paddingRight: calc.subtract(
-			elementPaddingRaw.lg.x,
-			vars.spacing.space_1,
-		),
+		paddingLeft: floatingMenuVars.itemPaddingXLg,
+		paddingRight: floatingMenuVars.itemPaddingXLg,
 	},
 	md: {
-		paddingLeft: calc.subtract(
-			elementPaddingRaw.md.x,
-			vars.spacing.space_1,
-		),
-		paddingRight: calc.subtract(
-			elementPaddingRaw.md.x,
-			vars.spacing.space_1,
-		),
+		paddingLeft: floatingMenuVars.itemPaddingXMd,
+		paddingRight: floatingMenuVars.itemPaddingXMd,
 	},
 	sm: {
-		paddingLeft: calc.subtract(
-			elementPaddingRaw.sm.x,
-			vars.spacing.space_1,
-		),
-		paddingRight: calc.subtract(
-			elementPaddingRaw.sm.x,
-			vars.spacing.space_1,
-		),
+		paddingLeft: floatingMenuVars.itemPaddingXSm,
+		paddingRight: floatingMenuVars.itemPaddingXSm,
 	},
 });
 
@@ -53,9 +34,9 @@ export const groupTitleCSS = recipe({
 export const innerCSS = style([
 	sprinkles({
 		overflowY: "auto",
-		padding: "space_1",
 	}),
 	{
+		padding: floatingMenuVars.menuPadding,
 		borderCollapse: "collapse",
 		listStyle: "none",
 		maxHeight: "15rem",

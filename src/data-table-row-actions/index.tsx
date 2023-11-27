@@ -24,7 +24,7 @@ export function DataTableRowActions({
 	return (
 		<SelectButton
 			buttonProps={{
-				appearance: "secondary",
+				appearance: "ghost",
 				name: "row_actions",
 				onClick: (e: React.ChangeEvent<HTMLButtonElement>) => {
 					return e.stopPropagation();

@@ -14,6 +14,7 @@ import {
 	useMergeRefs,
 	useRole,
 } from "@floating-ui/react";
+import type { Placement } from "@floating-ui/react";
 import {
 	cloneElement,
 	createContext,
@@ -24,15 +25,11 @@ import {
 	useRef,
 	useState,
 } from "react";
-
-import { tooltipTextStyle } from "./styles.css";
-
-import type { Placement } from "@floating-ui/react";
 import type { HTMLProps, ReactNode } from "react";
-import { sprinkles } from "../sprinkles/index.css";
+import { vars } from "../index.css";
+import { tooltipCSS } from "./styles.css";
 
 const ARROW_WIDTH = 16;
-
 const ARROW_HEIGHT = 8;
 
 type TooltipOptions = {
@@ -230,12 +227,12 @@ export const TooltipContent = forwardRef<
 				}}
 				{...context.getFloatingProps(props)}
 			>
-				<div className={tooltipTextStyle}>
+				<div className={tooltipCSS}>
 					{props.children}
 
 					<FloatingArrow
-						className={sprinkles({ background: "black" })}
 						context={context.context}
+						fill={vars.color.tooltip_background}
 						height={ARROW_HEIGHT}
 						ref={context.arrowRef}
 						width={ARROW_WIDTH}

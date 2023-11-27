@@ -22,7 +22,6 @@ export const pillCSS = recipe({
 			flexShrink: "0",
 			fontWeight: "normal",
 			textDecoration: "none",
-			boxShadow: "sm",
 			whiteSpace: "nowrap",
 			paddingX: "space_1",
 			paddingY: "space_1",

@@ -20,7 +20,7 @@ export const datePickerDialogStyle = style([
 export const inputDateStyle = style({
 	selectors: {
 		"&:hover": {
-			cursor: "pointer",
+			cursor: "default",
 		},
 	},
 	textAlign: "left",
