@@ -18,7 +18,7 @@ export function V2FormInputCurrency<TCurrency extends string = string>({
 			onBlur,
 			onChange: reactHookFormOnChange,
 			ref,
-			value: controlledValue = "",
+			value: controlledValue = undefined,
 		},
 		fieldState: { error },
 	} = useController({

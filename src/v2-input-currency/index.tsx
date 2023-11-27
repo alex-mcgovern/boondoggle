@@ -154,29 +154,33 @@ function InputCurrencyAddon<TCurrency extends string = string>({
  * - Renders a numeric input for currency values formatted with Intl.NumberFormat.
  * - Optionally allows toggling the currency
  */
-function BaseV2InputCurrency<TCurrency extends string = string>({
-	size = "sm",
-	currencyConfig,
-	labelConfig,
-	isInvalid,
-	errorMessage,
-	marginBottom = "space_4",
-	name,
-	...props
-}: ReactAriaNumberFieldProps &
-	WithSize &
-	WithName & {
-		labelConfig?: LabelConfig;
-		marginBottom?: Sprinkles["marginBottom"];
-		description?: string;
-		errorMessage?: string | null;
-		currencyConfig: CurrencyConfig<TCurrency>;
-	}) {
+function BaseV2InputCurrency<TCurrency extends string = string>(
+	{
+		size = "sm",
+		currencyConfig,
+		labelConfig,
+		isInvalid,
+		errorMessage,
+		marginBottom = "space_4",
+		name,
+		...props
+	}: ReactAriaNumberFieldProps &
+		WithSize &
+		WithName & {
+			labelConfig?: LabelConfig;
+			marginBottom?: Sprinkles["marginBottom"];
+			description?: string;
+			errorMessage?: string | null;
+			currencyConfig: CurrencyConfig<TCurrency>;
+		},
+	ref: React.ForwardedRef<HTMLInputElement>,
+) {
 	const { currency, currencyIcon, setCurrency } =
 		useCurrencyState(currencyConfig);
 
 	return (
 		<ReactAriaNumberField
+			ref={ref}
 			isInvalid={isInvalid}
 			validationBehavior="aria"
 			formatOptions={{
