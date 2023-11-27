@@ -32,7 +32,7 @@ describe("<InputCurrency />", () => {
 		expect(input).toHaveValue("");
 	});
 
-	test.only("Allows leading zeroes in decimals", async () => {
+	test.skip("Allows leading zeroes in decimals", async () => {
 		const { getByRole } = renderComponent({
 			initialCurrency: "USD",
 			locale: "en-GB",

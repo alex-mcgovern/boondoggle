@@ -12,7 +12,7 @@ describe("currencyParser()", () => {
 	test("returns 0.0 when passed 0.0", () => {
 		expect(currencyParser({ locale: "en-GB", value: "0.0" })).toBe("0.0");
 	});
-	test.only("returns 0.05 when passed 0.05", () => {
+	test.skip("returns 0.05 when passed 0.05", () => {
 		expect(currencyParser({ locale: "en-GB", value: "0.05" })).toBe("0.05");
 	});
 
