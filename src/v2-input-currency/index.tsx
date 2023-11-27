@@ -22,7 +22,7 @@ type CurrencyConfig<TCurrency extends string = string> =
 			initialCurrency: TCurrency;
 			initialCurrencyIcon: React.ReactNode;
 			isCurrencyEditable: false;
-			items: Array<IterableMenuItem<TCurrency>>;
+			items?: never;
 			onCurrencyChange?: never;
 	  }
 	| {
