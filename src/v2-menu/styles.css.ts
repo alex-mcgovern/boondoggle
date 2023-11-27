@@ -32,7 +32,7 @@ export const menuCSS = style([
 	animateFadeIn,
 	sprinkles({
 		background: "background",
-		border: "border_default",
+		border: "border_2",
 		boxShadow: "md",
 		overflowY: "auto",
 	}),
@@ -77,15 +77,15 @@ export const menuItemCSS = recipe({
 			selectors: {
 				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
 					cursor: "pointer",
-					background: vars.color.tint_hover,
+					background: vars.color.tint_3,
 				},
 				[`&${NOT_DISABLED}:is(:focus,[data-focused])`]: {
 					outline: 0,
 					cursor: "pointer",
-					background: vars.color.tint_hover,
+					background: vars.color.tint_3,
 				},
 				[`&${NOT_DISABLED}:is(:active,[data-selected])`]: {
-					background: vars.color.tint_active,
+					background: vars.color.tint_4,
 				},
 			},
 		},

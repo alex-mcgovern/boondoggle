@@ -10,7 +10,7 @@ export const menuButtonCSS = recipe({
 			background: "background",
 			flexGrow: "1",
 			// aspectRatio: "square",
-			border: "border_default",
+			border: "border_2",
 
 			fontStyle: "bodyMd",
 			display: "flex",

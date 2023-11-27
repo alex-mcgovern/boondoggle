@@ -13,7 +13,7 @@ export const numberInputCSS = recipe({
 		sprinkles({
 			background: "transparent",
 			fontStyle: "bodyMd",
-			border: "border_default",
+			border: "border_2",
 			borderRadius: "md",
 			width: "100%",
 			color: "text_high_contrast",
