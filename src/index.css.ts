@@ -42,10 +42,11 @@ export const CONTAINER_SM = "(width < 496px)";
 
 const SELECTOR_IS_LINK_BUTTON_INPUT = ":is(a,button,input)";
 
-const SELECTOR_IS_NOT_DISABLED =
-	":not(:is([disabled], [aria-disabled='true']))";
+export const DISABLED = ":is([disabled], [aria-disabled='true'])";
+export const NOT_DISABLED = `:not(${DISABLED})`;
 
-export const SELECTOR_IS_HOVER = ":is(:hover)";
+export const HOVER = ":is(:hover,[data-hovered])";
+export const FOCUS = ":is(:focus,[data-focused])";
 
 export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
 
@@ -59,8 +60,8 @@ const SELECTOR_IS_ACTIVE = `:is(:active, [data-active='true'])`;
 const hoverSelectorArray = [
 	"&",
 	SELECTOR_IS_LINK_BUTTON_INPUT,
-	SELECTOR_IS_NOT_DISABLED,
-	SELECTOR_IS_HOVER,
+	NOT_DISABLED,
+	HOVER,
 ];
 
 export const SELECTOR_LINK_BUTTON_INPUT_HOVER = hoverSelectorArray.join("");
@@ -71,7 +72,7 @@ export const SELECTOR_LINK_BUTTON_INPUT_HOVER = hoverSelectorArray.join("");
 const focusSelectorArray = [
 	"&",
 	SELECTOR_IS_LINK_BUTTON_INPUT,
-	SELECTOR_IS_NOT_DISABLED,
+	NOT_DISABLED,
 	SELECTOR_IS_FOCUS,
 ];
 
@@ -83,7 +84,7 @@ export const SELECTOR_LINK_BUTTON_INPUT_FOCUS = focusSelectorArray.join("");
 const hoverFocusSelectorArray = [
 	"&",
 	SELECTOR_IS_LINK_BUTTON_INPUT,
-	SELECTOR_IS_NOT_DISABLED,
+	NOT_DISABLED,
 	SELECTOR_IS_HOVER_FOCUS,
 ];
 
@@ -96,7 +97,7 @@ export const SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS =
 const activeSelectorArray = [
 	"&",
 	SELECTOR_IS_LINK_BUTTON_INPUT,
-	SELECTOR_IS_NOT_DISABLED,
+	NOT_DISABLED,
 	SELECTOR_IS_ACTIVE,
 ];
 
@@ -603,10 +604,10 @@ export const a11yDisabled = style({
 	"@layer": {
 		[themeLayer]: {
 			selectors: {
-				"&[disabled], &[aria-disabled='true']": {
+				[`&${DISABLED}`]: {
 					opacity: 0.5,
 				},
-				"&[disabled]:hover, &[aria-disabled='true']:hover": {
+				[`&${DISABLED}:hover`]: {
 					cursor: "not-allowed !important",
 				},
 			},

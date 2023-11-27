@@ -34,12 +34,17 @@ export function currencyParser({
 		const cleanInt = int?.replace(/[^\d.]/g, "");
 		const cleanDec = dec?.replace(/[^\d.]/g, "");
 
+		const hasZero = cleanDec.startsWith("0");
+
 		if (cleanInt === "" && cleanDec === "") {
 			return "";
 		}
 
 		let parsedInt = NumberParser(locale)(cleanInt);
-		const parsedDec = NumberParser(locale)(cleanDec);
+		let parsedDec = NumberParser(locale)(cleanDec);
+		if (hasZero) {
+			parsedDec = Number(`0${parsedDec}`);
+		}
 
 		if (
 			(typeof parsedInt === "undefined" || Number.isNaN(parsedInt)) &&

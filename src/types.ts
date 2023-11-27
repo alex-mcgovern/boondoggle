@@ -288,6 +288,7 @@ type WithoutLabel = BaseWithLabel & {
 /* eslint-enable jsdoc/require-jsdoc */
 
 export type WithOptionalLabel = WithLabel | WithoutLabel;
+export type LabelConfig = Omit<WithLabel | WithoutLabel, "name">;
 
 /**
  * Validates that the correct required props are present to label
@@ -310,6 +311,13 @@ export type WithSize = {
 	 * Consistent size option shared across multiple components.
 	 */
 	size?: ElementSizeEnum;
+};
+
+export type WithSlotSide = {
+	/**
+	 * Consistent size option shared across multiple components.
+	 */
+	"data-slot-side"?: "right" | "left";
 };
 
 export type WithSlots = {

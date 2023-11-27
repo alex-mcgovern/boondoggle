@@ -2,11 +2,9 @@
 	"author": "Alex McGovern",
 	"name": "boondoggle",
 	"description": "Boondoggle component library",
-	"version": "0.18.1-16",
+	"version": "0.18.1-21",
 	"license": "MIT",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
@@ -52,19 +50,15 @@
 		"=== STORYBOOK ===": "",
 		"build-storybook": "storybook build",
 		"storybook": "storybook dev -p 6006",
-		"=== LINTING ===": "",
-		"check": "npm run tsc && npm run ci-lint && npm run test",
-		"ci-lint": "biome ci .",
-		"fix": "biome check --apply-unsafe .",
-		"format": "prettier    --loglevel warn --write \"./**/*.{ts,tsx,css,md,json}\" ",
-		"lint:fix": "biome check --apply .",
-		"prune": "ts-prune --error --ignore 'src/index.ts|docs|build|(.*).stories.tsx|tsup.config.ts|documentation|get_sprinkles.css.ts|src/components/icon_flag/flags/(.*).tsx'",
-		"tsc": "tsc",
+		"=== CHECKS ===": "",
+		"check": "concurrently -n BIOME,TSC,JEST -c \"bgYellow.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-biome\" \"npm:check-tsc\" \"npm:check-jest\"",
+		"check-biome": "biome check --apply-unsafe .",
+		"check-tsc": "tsc",
+		"check-jest": "jest",
 		"=== TESTING ===": "",
 		"cy:open": "cypress open",
 		"cy:run": "cypress run --component",
-		"test:watch": "jest --watch",
-		"test": "jest"
+		"test:watch": "jest --watch"
 	},
 	"dependencies": {
 		"@dessert-box/core": "0.2.0",
@@ -92,8 +86,11 @@
 		"downshift": "8.1.0",
 		"intl-number-parser": "1.0.2",
 		"react": "18.2.0",
+		"react-aria": "3.30.0",
+		"react-aria-components": "1.0.0-rc.0",
 		"react-dom": "18.2.0",
 		"react-hook-form": "7.47.0",
+		"react-stately": "3.28.0",
 		"zod": "3.21.4"
 	},
 	"devDependencies": {
@@ -123,6 +120,7 @@
 		"@whitespace/storybook-addon-html": "5.1.6",
 		"babel-jest": "29.5.0",
 		"chromatic": "6.17.4",
+		"concurrently": "8.2.2",
 		"css-loader": "6.8.1",
 		"cypress": "13.1.0",
 		"downshift": "8.1.0",

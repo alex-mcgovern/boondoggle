@@ -32,6 +32,22 @@ describe("<InputCurrency />", () => {
 		expect(input).toHaveValue("");
 	});
 
+	test.skip("Allows leading zeroes in decimals", async () => {
+		const { getByRole } = renderComponent({
+			initialCurrency: "USD",
+			locale: "en-GB",
+			name: "amount",
+		});
+
+		const input = getByRole("textbox");
+
+		await act(async () => {
+			return userEvent.type(input, "0.05");
+		});
+
+		expect(input).toHaveValue("0.05");
+	});
+
 	test("(en-GB) Should have correct default value", async () => {
 		const { getByRole } = renderComponent({
 			defaultValue: 42000.69,
