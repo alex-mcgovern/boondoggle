@@ -35,7 +35,6 @@ export function currencyParser({
 		const cleanDec = dec?.replace(/[^\d.]/g, "");
 
 		const hasZero = cleanDec.startsWith("0");
-		console.debug("debug  cleanDec:", cleanDec);
 
 		if (cleanInt === "" && cleanDec === "") {
 			return "";
@@ -46,7 +45,6 @@ export function currencyParser({
 		if (hasZero) {
 			parsedDec = Number(`0${parsedDec}`);
 		}
-		console.debug("debug  parsedDec:", parsedDec);
 
 		if (
 			(typeof parsedInt === "undefined" || Number.isNaN(parsedInt)) &&
