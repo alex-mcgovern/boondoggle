@@ -172,8 +172,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 	},
 	boxShadow: {
 		lg: `0 8px 24px ${slateA.slateA2}`,
-		md: `0 4px 8px ${slateA.slateA4}`,
-		// sm: `0 1px 1.5px ${slateA.slateA2}`,
+		md: `${blackA.blackA1} 0px 3px 12px`,
 		sm: `${blackA.blackA1} 0px 1px 4px`,
 	},
 	display: {
@@ -1427,7 +1426,7 @@ export type ElementSizeEnum = "lg" | "md" | "sm";
  * ------------------------------------------------------------------------------- */
 
 const menuRadius = vars.borderRadius.md;
-const menuPadding = vars.spacing["space_0.5"];
+const menuPadding = vars.spacing.space_1;
 
 const itemInset = calc.multiply(menuPadding, 2);
 const itemRadius = calc.subtract(menuRadius, menuPadding);
