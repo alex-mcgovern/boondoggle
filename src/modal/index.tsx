@@ -36,14 +36,14 @@ export function Modal({
 	/**
 	 * Handle clicking outside the modal
 	 */
-	const onClickOutside: React.MouseEventHandler = React.useCallback(
-		(e) => {
-			if (e.target === overlay.current || e.target === wrapper.current) {
-				if (onDismiss) onDismiss();
-			}
-		},
-		[onDismiss, overlay, wrapper],
-	);
+	// const onClickOutside: React.MouseEventHandler = React.useCallback(
+	// 	(e) => {
+	// 		if (e.target === overlay.current || e.target === wrapper.current) {
+	// 			if (onDismiss) onDismiss();
+	// 		}
+	// 	},
+	// 	[onDismiss, overlay, wrapper],
+	// );
 
 	React.useEffect(() => {
 		const esc = (e: KeyboardEvent) => {
