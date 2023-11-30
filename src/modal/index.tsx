@@ -33,7 +33,10 @@ export function Modal({
 	const overlay = React.useRef(null);
 	const wrapper = React.useRef(null);
 
-	const onClick: React.MouseEventHandler = React.useCallback(
+	/**
+	 * Handle clicking outside the modal
+	 */
+	const onClickOutside: React.MouseEventHandler = React.useCallback(
 		(e) => {
 			if (e.target === overlay.current || e.target === wrapper.current) {
 				if (onDismiss) onDismiss();
@@ -42,24 +45,23 @@ export function Modal({
 		[onDismiss, overlay, wrapper],
 	);
 
-	const onKeyDown = React.useCallback(
-		(e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent) => {
-			if (e.key === "Escape") onDismiss();
-		},
-		[onDismiss],
-	);
-
 	React.useEffect(() => {
-		document.addEventListener("keydown", onKeyDown);
-		return () => document.removeEventListener("keydown", onKeyDown);
-	}, [onKeyDown]);
+		const esc = (e: KeyboardEvent) => {
+			if (e.key === "Escape") {
+				e.preventDefault();
+				return onDismiss();
+			}
+		};
+
+		document.addEventListener("keydown", esc);
+		return () => document.removeEventListener("keydown", esc);
+	}, [onDismiss]);
 
 	return (
 		<div
 			ref={overlay}
-			onKeyDown={onKeyDown}
 			className={backdropCSS({ enableFadeIn, colorOverlay })}
-			onClick={onClick}
+			// onClick={onClickOutside}
 		>
 			<div ref={wrapper} className={modalCSS({ width, colorOverlay })}>
 				<header className={modalHeaderCSS}>

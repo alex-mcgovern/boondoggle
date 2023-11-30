@@ -20,6 +20,8 @@ export const backdropCSS = recipe({
 			position: "fixed",
 			inset: 0,
 			zIndex: 10,
+			display: "flex",
+			alignItems: "center",
 		},
 	],
 	defaultVariants: {
@@ -45,8 +47,6 @@ export const modalCSS = recipe({
 			border: "border_1",
 			borderRadius: "md",
 			boxShadow: "md",
-
-			width: "100%",
 
 			// Use flex to allow footer element to
 			// stick to bottom of container
@@ -84,7 +84,7 @@ export const modalCSS = recipe({
 			lg: {
 				"@media": {
 					[MEDIA_QUERY_MOBILE]: {
-						height: "100vw",
+						width: "100vw",
 					},
 					[MEDIA_QUERY_TABLET]: {
 						width: "40rem",
@@ -97,7 +97,7 @@ export const modalCSS = recipe({
 			sm: {
 				"@media": {
 					[MEDIA_QUERY_MOBILE]: {
-						height: "100vw",
+						width: "100vw",
 					},
 					[MEDIA_QUERY_TABLET]: {
 						width: "20rem",

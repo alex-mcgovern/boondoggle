@@ -39,7 +39,7 @@ type BaseTabProps<TPolymorphicAs extends ElementType> = Sprinkles &
 				/**
 				 * Whether the tab section is full width
 				 */
-				isFullWidth: boolean | undefined;
+				isFullWidth?: boolean;
 
 				/**
 				 * Whether the tab is currently active
