@@ -23,45 +23,38 @@ const scaleUpKeyframes = keyframes({
 	},
 });
 
-export const tabsSectionCss = recipe({
+export const tabListCSS = recipe({
 	base: [
 		sprinkles({
-			marginY: "space_3",
-			marginX: "auto",
-			paddingX: "space_4",
+			alignItems: "center",
+			display: "flex",
+			borderRadius: "md",
+			isolation: "isolate",
+			marginY: "space_4",
 		}),
+		{
+			height: "fit-content",
+			background: vars.color.tabs_background,
+		},
 	],
-	defaultVariants: {
-		size: "lg",
-	},
 	variants: {
-		size: {
-			lg: [sprinkles({ maxWidth: "main_lg" })],
-			md: [sprinkles({ maxWidth: "main_md" })],
-			sm: [sprinkles({ maxWidth: "main_sm" })],
+		isFullWidth: {
+			true: {
+				width: "100%",
+				justifyContent: "space-between",
+			},
+			false: {
+				width: "min-content",
+			},
 		},
 	},
 });
-
-export const tabListCSS = style([
-	sprinkles({
-		alignItems: "center",
-		display: "flex",
-		borderRadius: "md",
-		width: "min-content",
-		isolation: "isolate",
-	}),
-	{
-		height: "fit-content",
-		background: vars.color.tabs_background,
-	},
-]);
 
 export const tabCSS = recipe({
 	base: [
 		sprinkles({
 			display: "flex",
-			alignItems: "center",
+			placeItems: "center",
 			gap: "space_1",
 			flexShrink: "0",
 
@@ -73,7 +66,6 @@ export const tabCSS = recipe({
 			borderRadius: "md",
 			paddingX: "space_3",
 			paddingY: "space_1",
-			width: "max-content",
 		}),
 		{ height: elementHeight.sm },
 		a11yFocus,
@@ -84,6 +76,17 @@ export const tabCSS = recipe({
 	],
 
 	variants: {
+		isFullWidth: {
+			true: {
+				width: "auto",
+				flexGrow: "1",
+				textAlign: "center",
+			},
+			false: {
+				flexShrink: "0",
+				width: "max-content",
+			},
+		},
 		isActive: {
 			true: [
 				sprinkles({
@@ -92,18 +95,12 @@ export const tabCSS = recipe({
 				}),
 				{
 					border: `1px solid ${vars.color.button_secondary_border_highlight}`,
-					selectors: {
-						[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-							background: vars.color.tab_active_background,
-							color: vars.color.button_secondary_border_highlight,
-						},
-					},
 				},
 			],
 			false: {
 				selectors: {
 					[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-						background: vars.color.tint_4,
+						// background: vars.color.tint_4,
 						color: vars.color.text_high_contrast,
 					},
 				},

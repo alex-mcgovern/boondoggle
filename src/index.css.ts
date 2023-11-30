@@ -300,7 +300,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		col_12: "100%",
 		main_lg: "90rem",
 		main_md: "60rem",
-		main_sm: "30rem",
+		main_sm: "40rem",
 		"max-content": "max-content",
 		"min-content": "min-content",
 	},

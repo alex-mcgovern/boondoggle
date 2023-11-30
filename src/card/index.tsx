@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Box } from "../box";
 import { cardCSS, headerCSS } from "./styles.css";
 
@@ -29,6 +30,11 @@ export type CardProps = {
 	children: React.ReactNode;
 
 	/**
+	 * Custom class name passed from the consumer.
+	 */
+	className?: string;
+
+	/**
 	 * The description of the card
 	 */
 	description?: string;
@@ -56,14 +62,22 @@ export function Card({
 	actions,
 	children,
 	description,
+	className,
 	hasPadding = true,
 	header,
 	title,
 }: CardProps) {
 	return (
 		<>
-			{header && <header className={headerCSS}>{header}</header>}
-			<section className={cardCSS({ hasPadding, hasHeader: !!header })}>
+			{header && (
+				<header className={clsx(className, headerCSS)}>{header}</header>
+			)}
+			<section
+				className={clsx(
+					className,
+					cardCSS({ hasPadding, hasHeader: !!header }),
+				)}
+			>
 				{(title || actions) && (
 					<Box
 						alignItems="start"

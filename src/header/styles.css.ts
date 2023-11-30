@@ -5,8 +5,10 @@ import { sprinkles } from "../sprinkles/index.css";
 export const headerCSS = recipe({
 	base: [
 		sprinkles({
-			marginY: "space_4",
-			marginX: "auto",
+			// marginY: "space_4",
+			paddingTop: "space_4",
+			marginBottom: "space_2",
+			// marginX: "auto",
 			paddingX: "space_4",
 		}),
 	],
@@ -15,9 +17,21 @@ export const headerCSS = recipe({
 	},
 	variants: {
 		size: {
-			lg: [sprinkles({ maxWidth: "main_lg" })],
-			md: [sprinkles({ maxWidth: "main_md" })],
-			sm: [sprinkles({ maxWidth: "main_sm" })],
+			lg: [
+				sprinkles({
+					// maxWidth: "main_lg"
+				}),
+			],
+			md: [
+				sprinkles({
+					// maxWidth: "main_md"
+				}),
+			],
+			sm: [
+				sprinkles({
+					// maxWidth: "main_sm"
+				}),
+			],
 		},
 	},
 });

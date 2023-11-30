@@ -1,7 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const mainCSS = recipe({
+export const containerCSS = recipe({
 	base: [
 		sprinkles({
 			// marginX: "auto",
@@ -17,7 +17,7 @@ export const mainCSS = recipe({
 		size: {
 			lg: [
 				sprinkles({
-					// maxWidth: "main_lg"
+					// maxWidth: "container_lg"
 				}),
 			],
 			md: [

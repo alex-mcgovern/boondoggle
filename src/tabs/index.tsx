@@ -9,7 +9,7 @@ import {
 } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { SlotWrapper } from "../slot-wrapper";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { Sprinkles } from "../sprinkles/index.css";
 import {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
@@ -18,7 +18,7 @@ import {
 	WithSlots,
 	WithStateDisabled,
 } from "../types";
-import { tabCSS, tabListCSS, tabsSectionCss } from "./styles.css";
+import { tabCSS, tabListCSS } from "./styles.css";
 
 // const TabCount = ({ count }: { count: number }) => {
 // 	return <div className={tabCountCSS}>{count}</div>;
@@ -36,6 +36,14 @@ type BaseTabProps<TPolymorphicAs extends ElementType> = Sprinkles &
 				 */
 				children?: ReactNode;
 
+				/**
+				 * Whether the tab section is full width
+				 */
+				isFullWidth: boolean | undefined;
+
+				/**
+				 * Whether the tab is currently active
+				 */
 				active: boolean | undefined;
 
 				/**
@@ -64,8 +72,10 @@ const Tab: TabComponent = forwardRef(
 			colorOverlay,
 			active,
 			id,
+			isFullWidth,
 			slotLeft,
 			slotRight,
+			...rest
 		}: BaseTabProps<TPolymorphicAs>,
 		ref?: PolymorphicRef<TPolymorphicAs>,
 	) => {
@@ -74,9 +84,14 @@ const Tab: TabComponent = forwardRef(
 		return (
 			<Component
 				{...{
-					className: tabCSS({ colorOverlay, isActive: !!active }),
+					className: tabCSS({
+						isFullWidth,
+						colorOverlay,
+						isActive: !!active,
+					}),
 					id,
 					ref,
+					...rest,
 				}}
 			>
 				<SlotWrapper
@@ -95,31 +110,23 @@ const Tab: TabComponent = forwardRef(
 
 export function Tabs({
 	tabs,
-	justifyContent = "start",
-	size,
-	areTabsFullWidth,
-}: WithSize & {
+	isFullWidth,
+}: {
 	tabs: Array<ComponentProps<typeof Tab>>;
-	justifyContent?: "start" | "space-between";
-	areTabsFullWidth?: boolean;
+	isFullWidth?: boolean;
 }) {
 	return (
-		<section className={tabsSectionCss({ size })}>
-			<nav
-				role="tablist"
-				className={clsx(tabListCSS, sprinkles({ justifyContent }))}
-			>
-				{arrayHasLength(tabs) &&
-					tabs.map((tab) => {
-						return (
-							<Tab
-								isTabFullWidth={areTabsFullWidth}
-								key={tab.name}
-								{...tab}
-							/>
-						);
-					})}
-			</nav>
-		</section>
+		<nav role="tablist" className={clsx(tabListCSS({ isFullWidth }))}>
+			{arrayHasLength(tabs) &&
+				tabs.map((tab) => {
+					return (
+						<Tab
+							{...tab}
+							isFullWidth={isFullWidth}
+							key={tab.name}
+						/>
+					);
+				})}
+		</nav>
 	);
 }
