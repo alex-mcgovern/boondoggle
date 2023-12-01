@@ -1,5 +1,6 @@
 import { Children } from "react";
 import type { ReactNode } from "react";
+import { HeaderSecondary } from "../../../../header-secondary";
 import {
 	actionsCSS,
 	columnFiltersCSS,
@@ -7,7 +8,6 @@ import {
 	tableActionsCSS,
 	tableActionsContainerCSS,
 } from "./styles.css";
-import { HeaderSecondary } from "../../../../header-secondary";
 
 export function TableActions({
 	globalFilter,
