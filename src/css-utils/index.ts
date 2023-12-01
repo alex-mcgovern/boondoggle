@@ -104,7 +104,7 @@ export const makeDarkTheme = ({
 			? step(secondary, 11)
 			: step(secondary, 12),
 
-		background: step(alpha, 3),
+		background: step(secondary, 3),
 		backdrop: step(alpha, 11),
 		shadow: step(alpha, 2),
 

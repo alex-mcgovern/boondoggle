@@ -427,7 +427,7 @@ export const variantColorOverlay = styleVariants({
 							makeDarkTheme({
 								primary: blueDark,
 								secondary: slateDark,
-								alpha: slateDarkA,
+								alpha: slateA,
 								isColorOverlay: false,
 							}),
 						),
@@ -485,7 +485,7 @@ export const variantColorOverlay = styleVariants({
 							makeDarkTheme({
 								primary: slateDark,
 								secondary: slateDark,
-								alpha: slateDarkA,
+								alpha: slateA,
 								isColorOverlay: true,
 							}),
 						),
@@ -847,7 +847,7 @@ globalStyle(":root", {
 					makeDarkTheme({
 						primary: blueDark,
 						secondary: slateDark,
-						alpha: slateDarkA,
+						alpha: slateA,
 						isColorOverlay: false,
 					}),
 				),
