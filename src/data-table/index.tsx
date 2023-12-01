@@ -153,7 +153,7 @@ export function DataTable<TRowData extends RowData>({
 
 			{hasData && (
 				<Box display="grid" __gridTemplateColumns={gridTemplateColumns}>
-					{table
+					{/* {table
 						.getHeaderGroups()
 						.map((hg) =>
 							hg.headers.map((h) => (
@@ -163,7 +163,7 @@ export function DataTable<TRowData extends RowData>({
 									key={h.id}
 								/>
 							)),
-						)}
+						)} */}
 
 					{table.getRowModel().rows.map((row) =>
 						row.getVisibleCells().map((cell) => (
