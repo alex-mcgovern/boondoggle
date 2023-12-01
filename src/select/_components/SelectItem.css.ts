@@ -34,7 +34,7 @@ const selectItemSize = styleVariants({
 export const getSelectItemStyles = recipe({
 	base: [
 		sprinkles({
-			alignItems: "start",
+			alignItems: "center",
 			borderRadius: "md",
 			color: "text_low_contrast",
 			display: "flex",

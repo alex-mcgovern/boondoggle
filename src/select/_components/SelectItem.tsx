@@ -61,7 +61,7 @@ export const SelectItem = React.forwardRef(
 		return (
 			<SlotWrapper
 				as={as}
-				alignItems="start"
+				alignItems="center"
 				className={clsx(
 					getSelectItemStyles({
 						colorOverlay,
