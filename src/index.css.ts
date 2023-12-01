@@ -21,7 +21,7 @@ import {
 	slate,
 	slateA,
 	slateDark,
-	slateDarkA,
+	// slateDarkA,
 	yellowDark,
 	yellowDarkA,
 } from "@radix-ui/colors";
