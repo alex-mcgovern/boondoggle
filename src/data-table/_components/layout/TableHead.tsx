@@ -14,23 +14,15 @@ export function TableHead<TTableData>({
 	hasRowActions: boolean | undefined;
 	table: Table<TTableData>;
 }) {
-	return (
-		<>
-			{table.getHeaderGroups().map((hg) => {
-				return (
-					<>
-						{hg.headers.map((h) => {
-							return (
-								<TableHeaderCell<TTableData>
-									header={h}
-									isSortable={isSortable}
-									key={h.id}
-								/>
-							);
-						})}
-					</>
-				);
-			})}
-		</>
-	);
+	return table
+		.getHeaderGroups()
+		.map((hg) =>
+			hg.headers.map((h) => (
+				<TableHeaderCell<TTableData>
+					header={h}
+					isSortable={isSortable}
+					key={h.id}
+				/>
+			)),
+		);
 }

@@ -17,12 +17,13 @@ import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableHead } from "./_components/layout/TableHead";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
+import { tableCellCSS } from "./styles.css";
 import {
 	FilteringOptions,
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
-import { tableCellCSS } from "./styles.css";
+import { TableHeaderCell } from "./_components/layout/TableHeaderCell";
 
 declare module "@tanstack/table-core" {
 	interface FilterFns {
@@ -152,17 +153,18 @@ export function DataTable<TRowData extends RowData>({
 			/>
 
 			{hasData && (
-				<Box
-					display={"grid"}
-					__gridTemplateColumns={gridTemplateColumns}
-					// className={tableStyles}
-				>
-					<TableHead<TRowData>
-						isSortable={isSortable}
-						isSelectable={isSelectable}
-						hasRowActions={!!RowActions}
-						table={table}
-					/>
+				<Box display="grid" __gridTemplateColumns={gridTemplateColumns}>
+					{table
+						.getHeaderGroups()
+						.map((hg) =>
+							hg.headers.map((h) => (
+								<TableHeaderCell<TRowData>
+									header={h}
+									isSortable={isSortable}
+									key={h.id}
+								/>
+							)),
+						)}
 
 					{table.getRowModel().rows.map((row) =>
 						row.getVisibleCells().map((cell) => (
