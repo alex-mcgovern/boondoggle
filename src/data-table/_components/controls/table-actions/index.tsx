@@ -7,6 +7,7 @@ import {
 	tableActionsCSS,
 	tableActionsContainerCSS,
 } from "./styles.css";
+import { HeaderSecondary } from "../../../../header-secondary";
 
 export function TableActions({
 	globalFilter,
@@ -22,7 +23,7 @@ export function TableActions({
 	}
 
 	return (
-		<div className={tableActionsContainerCSS}>
+		<HeaderSecondary className={tableActionsContainerCSS}>
 			<div className={tableActionsCSS({ withExtraActions: !!actions })}>
 				{actions ? (
 					<div className={actionsCSS}>
@@ -34,6 +35,6 @@ export function TableActions({
 				<div className={columnFiltersCSS}>{columnFilters}</div>
 				<div className={globalFilterCSS}>{globalFilter}</div>
 			</div>
-		</div>
+		</HeaderSecondary>
 	);
 }

@@ -18,6 +18,7 @@ export const SlotWrapper = forwardRef(
 	(
 		{
 			children,
+			alignItems = "center",
 			className: userClassName,
 			slotLeft,
 			gap = "space_2",
@@ -29,7 +30,7 @@ export const SlotWrapper = forwardRef(
 	) => {
 		return (
 			<Box
-				alignItems="center"
+				alignItems={alignItems}
 				className={userClassName}
 				display="flex"
 				gap={gap}

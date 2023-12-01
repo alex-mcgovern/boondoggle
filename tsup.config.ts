@@ -49,10 +49,10 @@ export default defineConfig({
 	bundle: false,
 	// clean: true,
 	config: "./tsconfig.build.json",
-	dts: {
-		entry: files,
-		resolve: false,
-	},
+	// dts: {
+	// 	entry: files,
+	// 	resolve: false,
+	// },
 	entry: [
 		"./src",
 		"!./src/**/*mock.*",

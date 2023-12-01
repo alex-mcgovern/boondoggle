@@ -20,7 +20,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 		<>
 			{table.getAllColumns().map((column) => {
 				if (
-					!column.getCanFilter() ||
+					// !column.getCanFilter() ||
 					!columnFilterConfig[column.id as keyof TRowData]
 				) {
 					return null;
@@ -28,12 +28,12 @@ export function TableColumnFilters<TRowData extends RowData>({
 				const columnConfig =
 					columnFilterConfig[column.id as keyof TRowData];
 
-				const firstValue = table
-					.getPreFilteredRowModel()
-					.flatRows[0]?.getValue(column.id);
+				// const firstValue = table
+				// 	.getPreFilteredRowModel()
+				// 	.flatRows[0]?.getValue(column.id);
 
 				if (
-					typeof firstValue === "string" &&
+					// typeof firstValue === "string" &&
 					columnConfig?.type === "MULTI_SELECT"
 				) {
 					return (
@@ -53,7 +53,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 				}
 
 				if (
-					typeof firstValue === "number" &&
+					// typeof firstValue === "number" &&
 					columnConfig?.type === "NUMBER_RANGE"
 				) {
 					const {

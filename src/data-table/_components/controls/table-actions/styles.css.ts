@@ -11,15 +11,7 @@ import { sprinkles } from "../../../../sprinkles/index.css";
 const tableActionsContainer = createContainer();
 
 export const tableActionsContainerCSS = style([
-	sprinkles({
-		paddingY: "space_2",
-		paddingX: "space_4",
-		position: "sticky",
-		background: "background",
-		borderBottom: "border_1",
-	}),
 	{
-		top: vars.height.header,
 		containerName: tableActionsContainer,
 		containerType: "inline-size",
 	},

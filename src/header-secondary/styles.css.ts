@@ -11,10 +11,6 @@ export const headerSecondaryCSS = style([
 		borderBottom: "border_1",
 		background: "background",
 
-		display: "flex",
-		alignItems: "center",
-		gap: "space_2",
-
 		position: "sticky",
 	}),
 	{
