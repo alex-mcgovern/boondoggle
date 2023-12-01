@@ -30,7 +30,7 @@ export const tabListCSS = recipe({
 			display: "flex",
 			borderRadius: "md",
 			isolation: "isolate",
-			marginY: "space_4",
+			marginBottom: "space_4",
 		}),
 		{
 			height: "fit-content",
@@ -98,6 +98,7 @@ export const tabCSS = recipe({
 				},
 			],
 			false: {
+				border: "1px solid transparent",
 				selectors: {
 					[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
 						// background: vars.color.tint_4,

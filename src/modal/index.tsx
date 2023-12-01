@@ -21,6 +21,7 @@ export function Modal({
 	title,
 	width = "sm",
 	enableFadeIn = true,
+	headerActions,
 	colorOverlay,
 }: WithColorOverlay & {
 	children: React.ReactNode;
@@ -28,6 +29,7 @@ export function Modal({
 	title: string;
 	width?: "sm" | "lg";
 	footer?: React.ReactNode;
+	headerActions?: React.ReactNode;
 	enableFadeIn?: boolean;
 }) {
 	const overlay = React.useRef(null);
@@ -68,21 +70,21 @@ export function Modal({
 					<Box as="h3" className={modalTitleCSS}>
 						{title}
 					</Box>
-
-					<Button
-						appearance="ghost"
-						aria-label="Close"
-						marginLeft="auto"
-						name="close"
-						onClick={onDismiss}
-						size="square_sm"
-						slotLeft={<Icon icon={faTimes} />}
-						type="button"
-					/>
+					<Box display="flex" gap="space_2">
+						{headerActions}
+						<Button
+							appearance="ghost"
+							aria-label="Close"
+							marginLeft="auto"
+							name="close"
+							onClick={onDismiss}
+							size="square_sm"
+							slotLeft={<Icon icon={faTimes} />}
+							type="button"
+						/>
+					</Box>
 				</header>
-
 				<div className={modalContentCSS}>{children}</div>
-
 				{footer && <footer className={modalFooterCSS}>{footer}</footer>}
 			</div>
 		</div>

@@ -6,7 +6,7 @@ import { sprinkles } from "../../../sprinkles/index.css";
 
 const baseHeadStyle = style([
 	sprinkles({
-		borderTop: "border_1",
+		// borderTop: "border_1",
 	}),
 ]);
 

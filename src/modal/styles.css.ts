@@ -22,6 +22,7 @@ export const backdropCSS = recipe({
 			zIndex: 10,
 			display: "flex",
 			alignItems: "center",
+			justifyContent: "center",
 		},
 	],
 	defaultVariants: {
@@ -44,6 +45,8 @@ export const modalCSS = recipe({
 			background: "floating_menu_background",
 			position: "absolute",
 
+			marginX: "auto",
+
 			border: "border_1",
 			borderRadius: "md",
 			boxShadow: "md",
@@ -57,10 +60,6 @@ export const modalCSS = recipe({
 			overflowY: "auto",
 		}),
 		{
-			top: "50%",
-			left: "50%",
-			transform: "translate(-50%, -50%)",
-			zIndex: "999",
 			"@media": {
 				[MEDIA_QUERY_MOBILE]: {
 					height: "100dvh",
@@ -69,7 +68,7 @@ export const modalCSS = recipe({
 					maxHeight: "75dvh",
 				},
 				[MEDIA_QUERY_DESKTOP]: {
-					maxHeight: "50dvh",
+					maxHeight: "75dvh",
 				},
 			},
 			overscrollBehavior: "contain",
@@ -91,6 +90,19 @@ export const modalCSS = recipe({
 					},
 					[MEDIA_QUERY_DESKTOP]: {
 						width: "50rem",
+					},
+				},
+			},
+			md: {
+				"@media": {
+					[MEDIA_QUERY_MOBILE]: {
+						width: "100vw",
+					},
+					[MEDIA_QUERY_TABLET]: {
+						width: "30rem",
+					},
+					[MEDIA_QUERY_DESKTOP]: {
+						width: "40rem",
 					},
 				},
 			},
@@ -124,6 +136,9 @@ export const modalHeaderCSS = style([
 		position: "sticky",
 		top: "0",
 	}),
+	{
+		overscrollBehavior: "contain",
+	},
 ]);
 
 export const modalContentCSS = style([
