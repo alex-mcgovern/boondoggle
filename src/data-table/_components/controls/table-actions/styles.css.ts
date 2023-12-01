@@ -6,6 +6,7 @@ import {
 	vars,
 } from "../../../../index.css";
 import { sprinkles } from "../../../../sprinkles/index.css";
+import { recipe } from "@vanilla-extract/recipes";
 
 const tableActionsContainer = createContainer();
 
@@ -24,34 +25,81 @@ export const tableActionsContainerCSS = style([
 	},
 ]);
 
-export const tableActionsCSS = style([
-	sprinkles({
-		display: "grid",
-		gap: "space_2",
-		alignItems: "start",
-	}),
-	{
-		"@container": {
-			[CONTAINER_SM]: {
-				gridTemplateAreas: `
-				"actions"
-				"globalFilter"
-				"columnFilters"`,
-				gridTemplateColumns: "1fr",
+export const tableActionsCSS = recipe({
+	base: [
+		sprinkles({
+			display: "grid",
+			gap: "space_2",
+			alignItems: "start",
+		}),
+		{
+			"@container": {
+				[CONTAINER_SM]: {
+					gridTemplateAreas: `
+					"actions"
+					"globalFilter"
+					"columnFilters"`,
+					gridTemplateColumns: "1fr",
+				},
+				[CONTAINER_MD]: {
+					gridTemplateAreas: `
+					"globalFilter actions"
+					"columnFilters columnFilters"`,
+					gridTemplateColumns: "1fr 1fr",
+				},
+				[CONTAINER_LG]: {
+					gridTemplateAreas: `"actions columnFilters globalFilter"`,
+					gridTemplateColumns: "min-content 1fr 12rem",
+				},
 			},
-			[CONTAINER_MD]: {
-				gridTemplateAreas: `
-				"globalFilter actions"
-				"columnFilters columnFilters"`,
-				gridTemplateColumns: "1fr 1fr",
+		},
+	],
+	variants: {
+		withExtraActions: {
+			false: {
+				"@container": {
+					[CONTAINER_SM]: {
+						gridTemplateAreas: `
+					"globalFilter"
+					"columnFilters"`,
+						gridTemplateColumns: "1fr",
+					},
+					[CONTAINER_MD]: {
+						gridTemplateAreas: `
+					"globalFilter"
+					"columnFilters"`,
+						gridTemplateColumns: "1fr 1fr",
+					},
+					[CONTAINER_LG]: {
+						gridTemplateAreas: `"columnFilters globalFilter"`,
+						gridTemplateColumns: "1fr 12rem",
+					},
+				},
 			},
-			[CONTAINER_LG]: {
-				gridTemplateAreas: `"globalFilter columnFilters actions"`,
-				gridTemplateColumns: "12rem 1fr min-content",
+			true: {
+				"@container": {
+					[CONTAINER_SM]: {
+						gridTemplateAreas: `
+					"actions"
+					"globalFilter"
+					"columnFilters"`,
+						gridTemplateColumns: "1fr",
+					},
+					[CONTAINER_MD]: {
+						gridTemplateAreas: `
+					"globalFilter actions"
+					"columnFilters columnFilters"`,
+						gridTemplateColumns: "1fr 1fr",
+					},
+					[CONTAINER_LG]: {
+						gridTemplateAreas: `"actions columnFilters globalFilter"`,
+						gridTemplateColumns: "min-content 1fr 12rem",
+					},
+				},
 			},
 		},
 	},
-]);
+});
 
 export const globalFilterCSS = style({
 	gridArea: "globalFilter",

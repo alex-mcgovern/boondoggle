@@ -23,9 +23,7 @@ export function TableActions({
 
 	return (
 		<div className={tableActionsContainerCSS}>
-			<div className={tableActionsCSS}>
-				<div className={globalFilterCSS}>{globalFilter}</div>
-				<div className={columnFiltersCSS}>{columnFilters}</div>
+			<div className={tableActionsCSS({ withExtraActions: !!actions })}>
 				{actions ? (
 					<div className={actionsCSS}>
 						{Children.map(actions, (action) => {
@@ -33,6 +31,8 @@ export function TableActions({
 						})}
 					</div>
 				) : null}
+				<div className={columnFiltersCSS}>{columnFilters}</div>
+				<div className={globalFilterCSS}>{globalFilter}</div>
 			</div>
 		</div>
 	);

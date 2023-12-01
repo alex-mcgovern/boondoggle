@@ -85,7 +85,7 @@ const Tab: TabComponent = forwardRef(
 			<Component
 				{...{
 					className: tabCSS({
-						isFullWidth,
+						isFullWidth: !!isFullWidth,
 						colorOverlay,
 						isActive: !!active,
 					}),
@@ -111,12 +111,20 @@ const Tab: TabComponent = forwardRef(
 export function Tabs({
 	tabs,
 	isFullWidth,
+	className,
 }: {
 	tabs: Array<ComponentProps<typeof Tab>>;
 	isFullWidth?: boolean;
+	className?: string;
 }) {
 	return (
-		<nav role="tablist" className={clsx(tabListCSS({ isFullWidth }))}>
+		<nav
+			role="tablist"
+			className={clsx(
+				className,
+				tabListCSS({ isFullWidth: !!isFullWidth }),
+			)}
+		>
 			{arrayHasLength(tabs) &&
 				tabs.map((tab) => {
 					return (

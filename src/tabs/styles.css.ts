@@ -30,7 +30,7 @@ export const tabListCSS = recipe({
 			display: "flex",
 			borderRadius: "md",
 			isolation: "isolate",
-			marginBottom: "space_4",
+			// marginBottom: "space_4",
 		}),
 		{
 			height: "fit-content",
