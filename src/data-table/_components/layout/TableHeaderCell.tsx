@@ -19,6 +19,9 @@ export function TableHeaderCell<THeaderData>({
 					thStyles,
 					sprinkles({
 						color: "text_low_contrast",
+						paddingY: "space_1",
+						paddingX: "space_4",
+						borderBottom: "border_1",
 					}),
 				)}
 			>
@@ -40,6 +43,9 @@ export function TableHeaderCell<THeaderData>({
 				thStyles,
 				sprinkles({
 					color: "text_low_contrast",
+					paddingY: "space_1",
+					paddingX: "space_4",
+					borderBottom: "border_1",
 				}),
 			)}
 		>

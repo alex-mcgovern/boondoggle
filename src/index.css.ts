@@ -237,6 +237,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100vh": "100vh",
 		auto: "auto",
 		"min-content": "min-content",
+		header: "3rem",
 		topBar: "3.5rem",
 	},
 	lineHeight: {

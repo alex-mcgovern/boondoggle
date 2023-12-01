@@ -6,6 +6,8 @@ export const headerCSS = style([
 		paddingY: "space_2",
 		paddingX: "space_4",
 		borderBottom: "border_1",
+		height: "header",
+		background: "background",
 	}),
 ]);
 
