@@ -27,7 +27,7 @@ export function Modal({
 	children: React.ReactNode;
 	onDismiss: () => void;
 	title: string;
-	width?: "sm" | "lg";
+	width?: "sm" | "md" | "lg";
 	footer?: React.ReactNode;
 	headerActions?: React.ReactNode;
 	enableFadeIn?: boolean;
