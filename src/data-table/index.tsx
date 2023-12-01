@@ -14,7 +14,7 @@ import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
-import { TableHead } from "./_components/layout/TableHead";
+import { TableHeaderCell } from "./_components/layout/TableHeaderCell";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
 import { tableCellCSS } from "./styles.css";
@@ -23,7 +23,6 @@ import {
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
-import { TableHeaderCell } from "./_components/layout/TableHeaderCell";
 
 declare module "@tanstack/table-core" {
 	interface FilterFns {
