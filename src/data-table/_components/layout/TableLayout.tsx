@@ -14,23 +14,33 @@ export function TableLayout<TRowData>({
 	table: Table<TRowData>;
 }) {
 	return (
-		<div className={getBodyStyle({ isSelectable, hasRowActions })}>
+		<>
 			{table.getRowModel().rows.map((row) => {
 				return (
-					<Box className={rowStyles} key={row.id}>
+					<>
 						{row.getVisibleCells().map((cell) => {
 							return (
-								<div className={tdStyles} key={cell.id}>
+								<Box
+									borderBottom="border_1"
+									paddingY="space_1"
+									paddingX="space_4"
+									display="flex"
+									alignItems="center"
+									justifyContent="start"
+									fontStyle="bodyMd"
+									// className={tdStyles}
+									key={cell.id}
+								>
 									{flexRender(
 										cell.column.columnDef.cell,
 										cell.getContext(),
 									)}
-								</div>
+								</Box>
 							);
 						})}
-					</Box>
+					</>
 				);
 			})}
-		</div>
+		</>
 	);
 }

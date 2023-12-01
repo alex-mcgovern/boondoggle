@@ -15,10 +15,10 @@ export function TableHead<TTableData>({
 	table: Table<TTableData>;
 }) {
 	return (
-		<div className={getHeadStyle({ isSelectable, hasRowActions })}>
+		<>
 			{table.getHeaderGroups().map((hg) => {
 				return (
-					<div className={tRowStyles} key={hg.id}>
+					<>
 						{hg.headers.map((h) => {
 							return (
 								<TableHeaderCell<TTableData>
@@ -28,9 +28,9 @@ export function TableHead<TTableData>({
 								/>
 							);
 						})}
-					</div>
+					</>
 				);
 			})}
-		</div>
+		</>
 	);
 }

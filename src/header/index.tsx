@@ -10,7 +10,6 @@ export function Header({
 	children,
 	className,
 	actions,
-	size = "lg",
 	tabs,
 	...rest
 }: Omit<HTMLProps<HTMLElement>, "size"> &
@@ -32,7 +31,7 @@ export function Header({
 	}) {
 	return (
 		<>
-			<header className={clsx(className, headerCSS({ size }))} {...rest}>
+			<header className={clsx(className, headerCSS)} {...rest}>
 				<div className={innerCSS}>
 					{children}
 					{actions && <div className={actionsCSS}>{actions}</div>}
