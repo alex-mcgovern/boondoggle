@@ -296,7 +296,7 @@ export function DataGridFilterToggleButton({
 
 	return (
 		<Button
-			marginX="space_2"
+			// marginX="space_2"
 			size="sm"
 			appearance="secondary"
 			name="filter"
