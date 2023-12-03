@@ -7,7 +7,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 	table,
 	filteringOptions,
 }: {
-	table: Table<TRowData>;
+	table: Table<TRowData> | undefined;
 	filteringOptions: FilteringOptions<TRowData> | undefined;
 }) {
 	if (!filteringOptions?.columnFilterConfig) {
@@ -18,7 +18,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 
 	return (
 		<>
-			{table.getAllColumns().map((column) => {
+			{table?.getAllColumns().map((column) => {
 				if (
 					// !column.getCanFilter() ||
 					!columnFilterConfig[column.id as keyof TRowData]

@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { MQ_SHOW_DESKTOP_NAV, vars } from "boondoggle/css";
-import { sprinkles } from "boondoggle/sprinkles";
+import { MQ_SHOW_DESKTOP_NAV, vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 /**
  * Shared styles used for collapsible open/close state

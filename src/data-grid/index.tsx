@@ -9,12 +9,7 @@ import {
 	flexRender,
 } from "@tanstack/react-table";
 
-import {
-	faBarsFilter,
-	faFilter,
-	faSliders,
-	faTimes,
-} from "@fortawesome/pro-solid-svg-icons";
+import { faBarsFilter, faTimes } from "@fortawesome/pro-solid-svg-icons";
 import {
 	ReactNode,
 	createContext,
@@ -25,7 +20,6 @@ import {
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
-import { Collapsible } from "../collapsible";
 import { collapsibleContentAnimation } from "../collapsible/styles.css";
 import { TDataTableRowActions } from "../data-table-row-actions";
 import { Icon } from "../icon";

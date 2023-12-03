@@ -36,6 +36,7 @@ function useMatchMedia(
 	// State and setter for matched value
 	const [value, setValue] = useState(getValue);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	React.useLayoutEffect(() => {
 		// Event listener callback
 		// Note: By defining getValue outside of useEffect we ensure that it has ...
@@ -107,7 +108,7 @@ export const useCollapsibleSideNav = () => {
  * Button for toggling the side nav
  */
 export const ButtonMobileMenu = () => {
-	const [isOpen, setIsOpen] = useCollapsibleSideNav();
+	const [_, setIsOpen] = useCollapsibleSideNav();
 
 	return (
 		<Button
@@ -127,9 +128,7 @@ export const ButtonMobileMenu = () => {
  */
 export function CollapsibleSideNav({
 	children,
-	isOpen: controlledIsOpen,
 	onOpenChange: controlledOnOpenChange,
-	triggerNode,
 }: {
 	/**
 	 * Dialog content
@@ -137,23 +136,11 @@ export function CollapsibleSideNav({
 	children: ReactNode | Array<ReactNode>;
 
 	/**
-	 * Allow collapsible to act as a controlled component
-	 */
-	isOpen?: boolean;
-
-	/**
 	 * Function called with new state when state changes.
 	 */
 	onOpenChange?: (openState: boolean) => void;
-
-	/**
-	 * Element to use as Dialog trigger. Note: Must accept a ref.
-	 */
-	triggerNode: ReactNode;
 }) {
 	const [isTabletPlus] = useMatchMedia([MQ_SHOW_DESKTOP_NAV], [true]);
-
-	console.debug("👉  isTabletPlus:", isTabletPlus);
 
 	const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
@@ -163,17 +150,6 @@ export function CollapsibleSideNav({
 		}
 		return setIsOpen(false);
 	}, [isTabletPlus, setIsOpen]);
-
-	// const handleOpenChange = React.useCallback(
-	// 	(openState: boolean) => {
-	// 		setIsOpen(openState);
-
-	// 		if (controlledOnOpenChange) {
-	// 			controlledOnOpenChange(openState);
-	// 		}
-	// 	},
-	// 	[controlledOnOpenChange],
-	// );
 
 	return (
 		<RadixCollapsible.Root

@@ -2,6 +2,7 @@ import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { RowData, Table } from "@tanstack/react-table";
 import { Icon } from "../../../../icon";
 import { Input } from "../../../../input";
+import { getOptionalIsClearableProps } from "../../../../types";
 import { tableGlobalFilterCSS } from "./styles.css";
 
 export function TableGlobalFilter<TRowData extends RowData>({
@@ -22,17 +23,20 @@ export function TableGlobalFilter<TRowData extends RowData>({
 			size="sm"
 			disabled={disabled}
 			hideLastpass
-			isClearable
 			name="filter"
 			onChange={(e) => {
 				return table?.setGlobalFilter(e.target.value);
 			}}
 			placeholder={strFilterPlaceholder}
 			slotLeft={<Icon icon={faSearch} />}
-			strClear={strClearFilterInput}
 			type="search"
 			value={table?.getState().globalFilter}
 			marginBottom="none"
+			{...getOptionalIsClearableProps({
+				isClearable: true,
+				readOnly: false,
+				strClear: strClearFilterInput,
+			})}
 		/>
 	);
 }
