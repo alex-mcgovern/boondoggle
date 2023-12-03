@@ -2,8 +2,8 @@ import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../../css-utils";
 import {
 	MQ_LG,
-	MQ_XS,
 	MQ_SM,
+	MQ_XS,
 	animateSlideUp,
 	fadeInBackdropKeyframes,
 	vars,

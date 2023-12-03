@@ -5,15 +5,15 @@ import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import * as React from "react";
+import { Button } from "../button";
+import { Icon } from "../icon";
+import { MQ_SHOW_DESKTOP_NAV } from "../index.css";
 // import useMatchMedia from "use-match-media-hook";
 import {
 	collapsibleNavButtonCSS,
 	collapsibleNavInnerCSS,
 	collapsibleNavOuterCSS,
 } from "./styles.css";
-import { Icon } from "../icon";
-import { MQ_SHOW_DESKTOP_NAV } from "../index.css";
-import { Button } from "../button";
 
 function useMatchMedia(
 	queries: string[],

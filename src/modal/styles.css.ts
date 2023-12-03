@@ -2,8 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
 	MQ_LG,
-	MQ_XS,
 	MQ_SM,
+	MQ_XS,
 	a11yFocus,
 	animateFadeIn,
 	variantColorOverlay,

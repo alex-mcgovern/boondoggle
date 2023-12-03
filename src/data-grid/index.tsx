@@ -1,3 +1,4 @@
+import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import {
 	ColumnDef,
 	FilterFn,
@@ -7,8 +8,13 @@ import {
 	VisibilityState,
 	flexRender,
 } from "@tanstack/react-table";
-import * as RadixCollapsible from "@radix-ui/react-collapsible";
 
+import {
+	faBarsFilter,
+	faFilter,
+	faSliders,
+	faTimes,
+} from "@fortawesome/pro-solid-svg-icons";
 import {
 	ReactNode,
 	createContext,
@@ -18,7 +24,11 @@ import {
 } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
+import { Button } from "../button";
+import { Collapsible } from "../collapsible";
+import { collapsibleContentAnimation } from "../collapsible/styles.css";
 import { TDataTableRowActions } from "../data-table-row-actions";
+import { Icon } from "../icon";
 import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableActions } from "./_components/controls/table-actions";
@@ -32,16 +42,6 @@ import {
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
-import { Button } from "../button";
-import { Icon } from "../icon";
-import {
-	faBarsFilter,
-	faFilter,
-	faSliders,
-	faTimes,
-} from "@fortawesome/pro-solid-svg-icons";
-import { Collapsible } from "../collapsible";
-import { collapsibleContentAnimation } from "../collapsible/styles.css";
 
 declare module "@tanstack/table-core" {
 	interface FilterFns {
