@@ -4,9 +4,12 @@ import { sprinkles } from "../sprinkles/index.css";
 
 export const headerSecondaryCSS = style([
 	sprinkles({
-		height: "header",
+		minHeight: "header",
 		paddingY: "space_2",
 		paddingX: "space_4",
+
+		display: "flex",
+		alignItems: "center",
 
 		borderBottom: "border_1",
 		background: "background",

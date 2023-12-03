@@ -44,9 +44,13 @@ import { makeDarkTheme, makeLightTheme, withPrefersMotion } from "./css-utils";
 
 export const MEDIA_QUERY_DARK = "(prefers-color-scheme: dark)";
 
-export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 992px)";
-export const MEDIA_QUERY_TABLET = "only screen and (min-width: 496px)";
-export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 495px)";
+export const MQ_XL = "(min-width: 1400px)";
+export const MQ_LG = "(min-width: 992px)";
+export const MQ_MD = "(min-width: 768px)";
+export const MQ_SM = "(min-width: 576px)";
+export const MQ_XS = "(max-width: 575px)";
+
+export const MQ_SHOW_DESKTOP_NAV = MQ_MD;
 
 export const CONTAINER_LG = "(width > 992px)";
 export const CONTAINER_MD = "(width >= 496px)";
@@ -830,7 +834,7 @@ globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
 
 globalStyle(":root", {
 	"@media": {
-		[MEDIA_QUERY_MOBILE]: {
+		[MQ_XS]: {
 			vars: {
 				[vars.fontSize.h1]: "2.5rem",
 				[vars.fontSize.h2]: "2rem",
@@ -892,7 +896,7 @@ globalStyle("body", {
 			color: vars.color.text_high_contrast,
 			lineHeight: vars.lineHeight.bodyMd,
 			WebkitFontSmoothing: "antialiased",
-			scrollbarColor: `${vars.color.tint_2} ${vars.color.floating_menu_background}`,
+			scrollbarColor: `${vars.color.scrollbar_handle} ${vars.color.scrollbar_background}`,
 		},
 	},
 });
@@ -906,17 +910,6 @@ globalStyle("body", {
 // 				display: "none",
 // 			},
 // 		},
-
-globalStyle("body", {
-	"@layer": {
-		[baseLayer]: {
-			color: vars.color.text_high_contrast,
-			lineHeight: vars.lineHeight.bodyMd,
-			WebkitFontSmoothing: "antialiased",
-			scrollbarColor: `${vars.color.tint_2} ${vars.color.floating_menu_background}`,
-		},
-	},
-});
 
 globalStyle("a", {
 	"@layer": {
@@ -1369,7 +1362,7 @@ globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
 globalStyle("::-webkit-scrollbar", {
 	"@layer": {
 		[baseLayer]: {
-			background: vars.color.background,
+			background: vars.color.scrollbar_background,
 			width: vars.spacing.space_2,
 		},
 	},
@@ -1377,7 +1370,7 @@ globalStyle("::-webkit-scrollbar", {
 globalStyle("::-webkit-scrollbar-thumb", {
 	"@layer": {
 		[baseLayer]: {
-			background: vars.color.tint_2,
+			background: vars.color.scrollbar_handle,
 			borderRadius: vars.borderRadius.pill,
 		},
 	},

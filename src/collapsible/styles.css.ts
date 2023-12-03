@@ -6,7 +6,7 @@ import { vars } from "../index.css";
  */
 
 const open = keyframes({
-	from: { height: 0 },
+	from: { height: 0, overflow: "hidden" },
 	to: { height: "var(--radix-collapsible-content-height)" },
 });
 
@@ -16,9 +16,9 @@ const close = keyframes({
 });
 
 export const collapsibleContentAnimation = style({
-	overflow: "hidden",
 	selectors: {
 		'&[data-state="closed"]': {
+			overflow: "hidden",
 			animation: `${close} ${vars.transitionDuration.medium} ease forwards`,
 		},
 		'&[data-state="open"]': {

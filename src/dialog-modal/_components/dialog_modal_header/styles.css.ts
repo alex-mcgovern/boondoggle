@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { MEDIA_QUERY_MOBILE, vars } from "../../../index.css";
+import { MQ_XS, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
 export const dialogHeaderStyle = style([
@@ -21,7 +21,7 @@ export const dialogTitleStyle = style([
 	}),
 	{
 		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
+			[MQ_XS]: {
 				fontSize: vars.fontSize.bodyLg,
 			},
 		},

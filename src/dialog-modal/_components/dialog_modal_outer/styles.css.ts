@@ -1,9 +1,9 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../../css-utils";
 import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_MOBILE,
-	MEDIA_QUERY_TABLET,
+	MQ_LG,
+	MQ_XS,
+	MQ_SM,
 	animateSlideUp,
 	fadeInBackdropKeyframes,
 	vars,
@@ -20,18 +20,18 @@ export const getDialogModalOuterStyle = recipe({
 		}),
 		{
 			"@media": {
-				[MEDIA_QUERY_MOBILE]: {
+				[MQ_XS]: {
 					border: "none",
 					borderRadius: 0,
 					maxHeight: "100dvh",
 					maxWidth: "100vw",
 				},
-				[MEDIA_QUERY_TABLET]: {
+				[MQ_SM]: {
 					border: `1px solid ${vars.color.border_1}`,
 					borderRadius: vars.borderRadius.lg,
 					boxShadow: vars.boxShadow.lg,
 				},
-				[MEDIA_QUERY_DESKTOP]: {
+				[MQ_LG]: {
 					border: `1px solid ${vars.color.border_1}`,
 					borderRadius: vars.borderRadius.lg,
 					boxShadow: vars.boxShadow.lg,

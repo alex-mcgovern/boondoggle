@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_MOBILE,
-	MEDIA_QUERY_TABLET,
+	MQ_LG,
+	MQ_XS,
+	MQ_SM,
 	a11yFocus,
 	animateFadeIn,
 	variantColorOverlay,
@@ -61,13 +61,13 @@ export const modalCSS = recipe({
 		}),
 		{
 			"@media": {
-				[MEDIA_QUERY_MOBILE]: {
+				[MQ_XS]: {
 					height: "100dvh",
 				},
-				[MEDIA_QUERY_TABLET]: {
+				[MQ_SM]: {
 					maxHeight: "75dvh",
 				},
-				[MEDIA_QUERY_DESKTOP]: {
+				[MQ_LG]: {
 					maxHeight: "75dvh",
 				},
 			},
@@ -82,39 +82,39 @@ export const modalCSS = recipe({
 		width: {
 			lg: {
 				"@media": {
-					[MEDIA_QUERY_MOBILE]: {
+					[MQ_XS]: {
 						width: "100vw",
 					},
-					[MEDIA_QUERY_TABLET]: {
+					[MQ_SM]: {
 						width: "40rem",
 					},
-					[MEDIA_QUERY_DESKTOP]: {
+					[MQ_LG]: {
 						width: "50rem",
 					},
 				},
 			},
 			md: {
 				"@media": {
-					[MEDIA_QUERY_MOBILE]: {
+					[MQ_XS]: {
 						width: "100vw",
 					},
-					[MEDIA_QUERY_TABLET]: {
+					[MQ_SM]: {
 						width: "30rem",
 					},
-					[MEDIA_QUERY_DESKTOP]: {
+					[MQ_LG]: {
 						width: "40rem",
 					},
 				},
 			},
 			sm: {
 				"@media": {
-					[MEDIA_QUERY_MOBILE]: {
+					[MQ_XS]: {
 						width: "100vw",
 					},
-					[MEDIA_QUERY_TABLET]: {
+					[MQ_SM]: {
 						width: "20rem",
 					},
-					[MEDIA_QUERY_DESKTOP]: {
+					[MQ_LG]: {
 						width: "30rem",
 					},
 				},

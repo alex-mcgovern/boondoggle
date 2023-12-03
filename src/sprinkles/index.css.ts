@@ -1,10 +1,5 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
-import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_TABLET,
-	sprinklesLayer,
-	vars,
-} from "../index.css";
+import { MQ_LG, MQ_SM, sprinklesLayer, vars } from "../index.css";
 
 const border = {
 	border_1: `1px solid ${vars.color.border_1}`,
@@ -88,10 +83,10 @@ export const responsiveProperties = defineProperties({
 	conditions: {
 		mobile: {},
 		tablet: {
-			"@media": MEDIA_QUERY_TABLET,
+			"@media": MQ_SM,
 		},
 		desktop: {
-			"@media": MEDIA_QUERY_DESKTOP,
+			"@media": MQ_LG,
 		},
 	},
 	defaultCondition: "mobile",

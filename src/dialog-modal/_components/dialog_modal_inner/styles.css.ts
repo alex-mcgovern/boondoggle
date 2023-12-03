@@ -1,29 +1,25 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import {
-	MEDIA_QUERY_DESKTOP,
-	MEDIA_QUERY_MOBILE,
-	MEDIA_QUERY_TABLET,
-} from "../../../index.css";
+import { MQ_LG, MQ_XS, MQ_SM } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
 const variantWidth = styleVariants({
 	lg: {
 		"@media": {
-			[MEDIA_QUERY_TABLET]: {
+			[MQ_SM]: {
 				width: "40rem",
 			},
-			[MEDIA_QUERY_DESKTOP]: {
+			[MQ_LG]: {
 				width: "50rem",
 			},
 		},
 	},
 	sm: {
 		"@media": {
-			[MEDIA_QUERY_TABLET]: {
+			[MQ_SM]: {
 				width: "20rem",
 			},
-			[MEDIA_QUERY_DESKTOP]: {
+			[MQ_LG]: {
 				width: "30rem",
 			},
 		},
@@ -43,10 +39,10 @@ export const getDialogModalInnerStyle = recipe({
 		}),
 		{
 			"@media": {
-				[MEDIA_QUERY_MOBILE]: {
+				[MQ_XS]: {
 					height: "100dvh",
 				},
-				[MEDIA_QUERY_TABLET]: {
+				[MQ_SM]: {
 					maxHeight: "75dvh",
 				},
 			},

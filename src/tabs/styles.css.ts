@@ -92,6 +92,7 @@ export const tabCSS = recipe({
 				sprinkles({
 					background: "tab_active_background",
 					boxShadow: "sm",
+					color: "text_high_contrast",
 				}),
 				{
 					border: `1px solid ${vars.color.button_secondary_border_highlight}`,

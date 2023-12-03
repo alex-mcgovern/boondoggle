@@ -74,6 +74,9 @@ export const makeLightTheme = ({
 		floating_menu_background: step(secondary, 2),
 		floating_menu_highlight: step(secondary, 3),
 
+		scrollbar_background: step(secondary, 3),
+		scrollbar_handle: step(secondary, 1),
+
 		tabs_background: step(secondary, 3),
 		tab_active_background: step(secondary, 1),
 
@@ -138,7 +141,10 @@ export const makeDarkTheme = ({
 			: step(secondary, 5),
 
 		tabs_background: step(secondary, 4),
-		tab_active_background: step(secondary, 2),
+		tab_active_background: step(secondary, 5),
+
+		scrollbar_background: step(secondary, 4),
+		scrollbar_handle: step(secondary, 5),
 
 		tint_1: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
 		tint_2: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
