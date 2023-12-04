@@ -14,7 +14,7 @@ export const tableCellCSS = style([
 
 		fontStyle: "bodyMd",
 		whiteSpace: "nowrap",
-		overflow: "hidden",
+		// overflow: "hidden",
 	}),
 	{
 		textOverflow: "ellipsis",

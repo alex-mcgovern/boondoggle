@@ -1,8 +1,7 @@
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DataTable as StoryComp } from ".";
-
+import { DataGrid, DataGridOuterProvider } from ".";
 import { Button } from "../button";
 import {
 	DataTableRowActions,
@@ -19,9 +18,14 @@ const meta = {
 		data: Array.from({ length: 20 }, mockColumn),
 		gridTemplateColumns: "1fr repeat(3, min-content)",
 	},
-	component: StoryComp<MockTableData>,
-	title: "Components/DataTable",
-} satisfies Meta<typeof StoryComp<MockTableData>>;
+	component: DataGrid<MockTableData>,
+	title: "Components/DataGrid",
+	render: (args) => (
+		<DataGridOuterProvider>
+			<DataGrid<MockTableData> {...args} />
+		</DataGridOuterProvider>
+	),
+} satisfies Meta<typeof DataGrid<MockTableData>>;
 
 export default meta;
 

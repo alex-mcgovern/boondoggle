@@ -41,7 +41,7 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	return filter_value.includes(cell_value as string);
 }
 
-type UseDataTableStateProps<TRowData extends RowData> = {
+type UseDataGridStateProps<TRowData extends RowData> = {
 	RowActions?: TDataTableRowActions<TRowData>;
 	data: Array<TRowData> | undefined;
 	enableMultiRowSelection: boolean | undefined;
@@ -59,7 +59,7 @@ type UseDataTableStateProps<TRowData extends RowData> = {
 	columnVisibility: VisibilityState | undefined;
 };
 
-export function useDataTableState<TRowData extends RowData>({
+export function useDataGridState<TRowData extends RowData>({
 	RowActions,
 	data,
 	enableMultiRowSelection,
@@ -72,7 +72,7 @@ export function useDataTableState<TRowData extends RowData>({
 	isSelectable,
 	isSortable,
 	onSelect,
-}: UseDataTableStateProps<TRowData>) {
+}: UseDataGridStateProps<TRowData>) {
 	const [rowSelection, setRowSelection] = useState({});
 
 	const onRowSelectionChange = useCallback(

@@ -3,20 +3,20 @@
  */
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { render } from "@testing-library/react";
-import { DataTable } from ".";
-import type { DataTableProps } from ".";
+import { DataGrid } from ".";
+import type { DataGridProps } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
 import type { MockTableData } from "./_mocks/data-table.mock";
 
-const renderComponent = ({ ...props }: DataTableProps<MockTableData>) => {
-	return render(<DataTable {...props} />);
+const renderComponent = ({ ...props }: DataGridProps<MockTableData>) => {
+	return render(<DataGrid {...props} />);
 };
 
 const MOCK_DATA = Array.from({ length: 40 }, mockColumn);
 
-const PROPS: DataTableProps<MockTableData> = {
+const PROPS: DataGridProps<MockTableData> = {
 	data: MOCK_DATA,
 	columns: COLUMNS,
 	actions: [
@@ -66,7 +66,7 @@ const PROPS: DataTableProps<MockTableData> = {
 	strNoResults: "No results",
 };
 
-describe("<DataTable />", () => {
+describe("<DataGrid />", () => {
 	describe("when rendering", () => {
 		test("should render without throwing", () => {
 			const { container } = renderComponent(PROPS);

@@ -29,7 +29,7 @@ import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableHeaderCell } from "./_components/layout/TableHeaderCell";
 import { TableNoResults } from "./_components/layout/TableNoResults";
-import { useDataTableState } from "./_lib/useDataGridState";
+import { useDataGridState } from "./_lib/useDataGridState";
 import { tableCellCSS } from "./styles.css";
 import {
 	FilteringOptions,
@@ -43,7 +43,7 @@ declare module "@tanstack/table-core" {
 	}
 }
 
-export type DataTableProps<TRowData extends RowData> =
+export type DataGridProps<TRowData extends RowData> =
 	WithTableOptionalSelectableRows<TRowData> & {
 		/**
 		 * React component to render a list of actions on each row
@@ -111,114 +111,114 @@ export type DataTableProps<TRowData extends RowData> =
  * Component to render tabular data with filtering/sorting controls.
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
-export function DataTable<TRowData extends RowData>({
-	actions,
-	columns: initColumns,
-	data,
-	enableMultiRowSelection = false,
-	initialSorting,
-	isLoading,
-	isSelectable,
-	gridTemplateColumns,
-	isSortable,
-	onSelect,
-	RowActions,
-	columnVisibility,
-	strNoResults,
-	paginationOptions,
-	filteringOptions,
-}: DataTableProps<TRowData>) {
-	const { table } = useDataTableState({
-		data,
-		enableMultiRowSelection,
-		initColumns,
-		initialSorting,
-		filteringOptions,
-		isLoading,
-		columnVisibility,
-		paginationOptions,
-		isSelectable,
-		isSortable,
-		onSelect,
-		RowActions,
-	});
+// export function DataGrid<TRowData extends RowData>({
+// 	actions,
+// 	columns: initColumns,
+// 	data,
+// 	enableMultiRowSelection = false,
+// 	initialSorting,
+// 	isLoading,
+// 	isSelectable,
+// 	gridTemplateColumns,
+// 	isSortable,
+// 	onSelect,
+// 	RowActions,
+// 	columnVisibility,
+// 	strNoResults,
+// 	paginationOptions,
+// 	filteringOptions,
+// }: DataGridProps<TRowData>) {
+// 	const { table } = useDataGridState({
+// 		data,
+// 		enableMultiRowSelection,
+// 		initColumns,
+// 		initialSorting,
+// 		filteringOptions,
+// 		isLoading,
+// 		columnVisibility,
+// 		paginationOptions,
+// 		isSelectable,
+// 		isSortable,
+// 		onSelect,
+// 		RowActions,
+// 	});
 
-	const hasData = arrayHasLength(table.getFilteredRowModel().rows);
+// 	const hasData = arrayHasLength(table.getFilteredRowModel().rows);
 
-	return (
-		<Box>
-			<TableActions
-				globalFilter={
-					<TableGlobalFilter<TRowData>
-						table={table}
-						strClearFilterInput={
-							filteringOptions?.strClearFilterInput
-						}
-						strFilterPlaceholder={
-							filteringOptions?.strFilterPlaceholder
-						}
-						disabled={isLoading}
-					/>
-				}
-				columnFilters={
-					<TableColumnFilters<TRowData>
-						table={table}
-						filteringOptions={filteringOptions}
-					/>
-				}
-				actions={actions}
-			/>
+// 	return (
+// 		<Box>
+// 			<TableActions
+// 				globalFilter={
+// 					<TableGlobalFilter<TRowData>
+// 						table={table}
+// 						strClearFilterInput={
+// 							filteringOptions?.strClearFilterInput
+// 						}
+// 						strFilterPlaceholder={
+// 							filteringOptions?.strFilterPlaceholder
+// 						}
+// 						disabled={isLoading}
+// 					/>
+// 				}
+// 				columnFilters={
+// 					<TableColumnFilters<TRowData>
+// 						table={table}
+// 						filteringOptions={filteringOptions}
+// 					/>
+// 				}
+// 				actions={actions}
+// 			/>
 
-			{hasData && (
-				<Box display="grid" __gridTemplateColumns={gridTemplateColumns}>
-					{table
-						.getHeaderGroups()
-						.map((hg) =>
-							hg.headers.map((h) => (
-								<TableHeaderCell<TRowData>
-									header={h}
-									isSortable={isSortable}
-									key={h.id}
-								/>
-							)),
-						)}
+// 			{hasData && (
+// 				<Box display="grid" __gridTemplateColumns={gridTemplateColumns}>
+// 					{table
+// 						.getHeaderGroups()
+// 						.map((hg) =>
+// 							hg.headers.map((h) => (
+// 								<TableHeaderCell<TRowData>
+// 									header={h}
+// 									isSortable={isSortable}
+// 									key={h.id}
+// 								/>
+// 							)),
+// 						)}
 
-					{table.getRowModel().rows.map((row) =>
-						row.getVisibleCells().map((cell) => (
-							<div className={tableCellCSS} key={cell.id}>
-								{flexRender(
-									cell.column.columnDef.cell,
-									cell.getContext(),
-								)}
-							</div>
-						)),
-					)}
-				</Box>
-			)}
+// 					{table.getRowModel().rows.map((row) =>
+// 						row.getVisibleCells().map((cell) => (
+// 							<div className={tableCellCSS} key={cell.id}>
+// 								{flexRender(
+// 									cell.column.columnDef.cell,
+// 									cell.getContext(),
+// 								)}
+// 							</div>
+// 						)),
+// 					)}
+// 				</Box>
+// 			)}
 
-			{!hasData && (
-				<TableNoResults
-					table={table}
-					filteringOptions={filteringOptions}
-					strNoResults={strNoResults}
-				/>
-			)}
+// 			{!hasData && (
+// 				<TableNoResults
+// 					table={table}
+// 					filteringOptions={filteringOptions}
+// 					strNoResults={strNoResults}
+// 				/>
+// 			)}
 
-			{paginationOptions &&
-				table.getFilteredRowModel().rows.length > 25 && (
-					<TablePagination
-						paginationOptions={paginationOptions}
-						table={table}
-					/>
-				)}
-		</Box>
-	);
-}
+// 			{paginationOptions &&
+// 				table.getFilteredRowModel().rows.length > 25 && (
+// 					<TablePagination
+// 						paginationOptions={paginationOptions}
+// 						table={table}
+// 					/>
+// 				)}
+// 		</Box>
+// 	);
+// }
 /** -----------------------------------------------------------------------------
  * CONTEXT PROVIDER FOR DATA GRID
  * ------------------------------------------------------------------------------- */
 
-export const DataGridContext = createContext<
+export const DataGridOuterContext = createContext<
 	| [
 			Table<RowData> | undefined,
 			React.Dispatch<React.SetStateAction<Table<RowData> | undefined>>,
@@ -226,29 +226,25 @@ export const DataGridContext = createContext<
 	| undefined
 >(undefined);
 
-const DataTableContext = createContext<Table<RowData> | undefined>(undefined);
-
-export function V2DataGridProvider({
+export function DataGridOuterProvider({
 	children,
 }: { children: React.ReactNode }) {
 	return (
-		<DataGridContext.Provider
+		<DataGridOuterContext.Provider
 			value={useState<Table<RowData> | undefined>(undefined)}
 		>
 			<DataGridFilterToggleProvider>
 				{children}
 			</DataGridFilterToggleProvider>
-		</DataGridContext.Provider>
+		</DataGridOuterContext.Provider>
 	);
 }
 
 function useDataGrid<TRowData extends RowData>() {
-	const context = useContext(DataGridContext);
+	const context = useContext(DataGridOuterContext);
 
 	if (context == null) {
-		throw new Error(
-			"NumericFilterModeContext must be used within a NumericFilterModeProvider",
-		);
+		throw new Error("useDataGrid must be used within DataGridOuterContext");
 	}
 
 	return context as [
@@ -352,6 +348,8 @@ export function DataGridColumnFilters<TRowData>({
  * DATA GRID
  * ------------------------------------------------------------------------------- */
 
+const DataGridContext = createContext<Table<RowData> | undefined>(undefined);
+
 export function DataGrid<TRowData extends RowData>({
 	columns: initColumns,
 	data,
@@ -366,8 +364,8 @@ export function DataGrid<TRowData extends RowData>({
 	columnVisibility,
 	paginationOptions,
 	filteringOptions,
-}: DataTableProps<TRowData> & { children: React.ReactNode }) {
-	const { table } = useDataTableState({
+}: DataGridProps<TRowData> & { children: React.ReactNode }) {
+	const { table } = useDataGridState({
 		data,
 		enableMultiRowSelection,
 		initColumns,
@@ -389,7 +387,7 @@ export function DataGrid<TRowData extends RowData>({
 	}, [table, setTable]);
 
 	return (
-		<DataTableContext.Provider value={table as Table<RowData>}>
+		<DataGridContext.Provider value={table as Table<RowData>}>
 			<DataGridColumnFilters<TRowData>
 				filteringOptions={filteringOptions}
 			/>
@@ -417,7 +415,7 @@ export function DataGrid<TRowData extends RowData>({
 					)),
 				)}
 			</Box>
-		</DataTableContext.Provider>
+		</DataGridContext.Provider>
 	);
 }
 
