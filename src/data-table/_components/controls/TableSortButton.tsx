@@ -1,7 +1,6 @@
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
 import type { Header } from "@tanstack/react-table";
-import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 import { getSortControlStyle, sortIconStyle } from "./TableSortButton.css";
 
@@ -17,9 +16,10 @@ export function TableSortButton<TData>({
 
 	const slotRight = canSort
 		? {
-				asc: <Icon icon={faSortUp} />,
+				asc: <Icon className={sortIconStyle} icon={faSortUp} />,
 				desc: (
 					<Icon
+						className={sortIconStyle}
 						icon={faSortUp}
 						style={{ transform: "rotate(180deg)" }}
 					/>
@@ -30,17 +30,16 @@ export function TableSortButton<TData>({
 		: undefined;
 
 	return (
-		<Button
-			appearance="link"
+		<button
+			type="button"
 			className={getSortControlStyle({ isSorted })}
-			flexShrink="0"
-			marginLeft="auto"
+			// flexShrink="0"
+			// marginLeft="auto"
 			name={`sort_${header.column.id}`}
 			onClick={header.column.getToggleSortingHandler()}
-			size="sm"
-			slotRight={slotRight}
 		>
 			{children}
-		</Button>
+			{slotRight}
+		</button>
 	);
 }

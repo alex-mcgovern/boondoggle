@@ -100,6 +100,7 @@ export function ColumnMultiFilter<TRowData>({
 				return (
 					<Box
 						as="span"
+						key={v}
 						className={activeFilterStringCSS}
 						color="button_default"
 					>

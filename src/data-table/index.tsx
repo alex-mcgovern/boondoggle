@@ -1,23 +1,23 @@
-import type {
+import {
 	ColumnDef,
 	FilterFn,
 	RowData,
 	SortingState,
 	VisibilityState,
+	flexRender,
 } from "@tanstack/react-table";
 import type { ReactNode } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { TDataTableRowActions } from "../data-table-row-actions";
-import { tableStyles } from "../index.css";
 import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
-import { TableHead } from "./_components/layout/TableHead";
-import { TableLayout } from "./_components/layout/TableLayout";
+import { TableHeaderCell } from "./_components/layout/TableHeaderCell";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
+import { tableCellCSS } from "./styles.css";
 import {
 	FilteringOptions,
 	PaginationOptions,
@@ -87,6 +87,11 @@ export type DataTableProps<TRowData extends RowData> =
 		 * Options related to filtering.
 		 */
 		filteringOptions?: FilteringOptions<TRowData>;
+
+		/**
+		 * Grid template columns
+		 */
+		gridTemplateColumns: string;
 	};
 
 /**
@@ -101,6 +106,7 @@ export function DataTable<TRowData extends RowData>({
 	initialSorting,
 	isLoading,
 	isSelectable,
+	gridTemplateColumns,
 	isSortable,
 	onSelect,
 	RowActions,
@@ -146,18 +152,29 @@ export function DataTable<TRowData extends RowData>({
 			/>
 
 			{hasData && (
-				<Box className={tableStyles}>
-					<TableHead<TRowData>
-						isSortable={isSortable}
-						isSelectable={isSelectable}
-						hasRowActions={!!RowActions}
-						table={table}
-					/>
-					<TableLayout<TRowData>
-						isSelectable={isSelectable}
-						hasRowActions={!!RowActions}
-						table={table}
-					/>
+				<Box display="grid" __gridTemplateColumns={gridTemplateColumns}>
+					{table
+						.getHeaderGroups()
+						.map((hg) =>
+							hg.headers.map((h) => (
+								<TableHeaderCell<TRowData>
+									header={h}
+									isSortable={isSortable}
+									key={h.id}
+								/>
+							)),
+						)}
+
+					{table.getRowModel().rows.map((row) =>
+						row.getVisibleCells().map((cell) => (
+							<div className={tableCellCSS} key={cell.id}>
+								{flexRender(
+									cell.column.columnDef.cell,
+									cell.getContext(),
+								)}
+							</div>
+						)),
+					)}
 				</Box>
 			)}
 
