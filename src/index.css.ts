@@ -570,8 +570,28 @@ export type ColorOverlay = keyof typeof variantColorOverlay;
  * ------------------------------------------------------------------------------- */
 
 export const variantDarkMode = styleVariants({
-	true: {},
-	false: {},
+	true: {
+		vars: assignVars(
+			vars.color,
+			makeDarkTheme({
+				primary: blueDark,
+				secondary: slateDark,
+				alpha: slateA,
+				isColorOverlay: false,
+			}),
+		),
+	},
+	false: {
+		vars: assignVars(
+			vars.color,
+			makeLightTheme({
+				primary: blue,
+				secondary: slate,
+				alpha: slateA,
+				isColorOverlay: false,
+			}),
+		),
+	},
 });
 
 globalStyle(`${variantDarkMode.true} ${variantColorOverlay.amber}`, {

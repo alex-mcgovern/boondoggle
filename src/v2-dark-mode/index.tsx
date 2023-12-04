@@ -1,10 +1,10 @@
+import { faMoon } from "@fortawesome/pro-solid-svg-icons/faMoon";
+import { faSun } from "@fortawesome/pro-solid-svg-icons/faSun";
 import * as React from "react";
 import { useMatchMedia } from "../_hooks/use-media-query";
-import { MQ_DARK_MODE, variantDarkMode } from "../index.css";
 import { Button, ButtonProps } from "../button";
 import { Icon } from "../icon";
-import { faSun } from "@fortawesome/pro-solid-svg-icons/faSun";
-import { faMoon } from "@fortawesome/pro-solid-svg-icons/faMoon";
+import { MQ_DARK_MODE, variantDarkMode } from "../index.css";
 
 export const DarkModeContext = React.createContext<
 	| [boolean, React.Dispatch<React.SetStateAction<boolean>> | undefined]
@@ -32,7 +32,10 @@ export const DarkModeProvider = ({
 
 	return (
 		<DarkModeContext.Provider value={[darkMode, setDarkMode]}>
-			<div className={variantDarkMode[darkMode ? "true" : "false"]}>
+			<div
+				data-testid="dark-mode-provider"
+				className={variantDarkMode[darkMode ? "true" : "false"]}
+			>
 				{children}
 			</div>
 		</DarkModeContext.Provider>
@@ -45,7 +48,15 @@ export const ButtonDarkMode = ({
 	name = "dark_mode_toggle",
 	...rest
 }: Omit<ButtonProps, "onClick">) => {
-	const [darkMode, setDarkMode] = useToggleDarkMode();
+	const darkModeState = useToggleDarkMode();
+
+	if (!darkModeState) {
+		throw new Error(
+			"DarkModeContext must be used within a DarkModeProvider",
+		);
+	}
+
+	const [darkMode, setDarkMode] = darkModeState;
 
 	return (
 		<Button
@@ -56,9 +67,13 @@ export const ButtonDarkMode = ({
 				<Icon
 					color="text_low_contrast"
 					icon={darkMode ? faSun : faMoon}
+					size="lg"
 				/>
 			}
-			onClick={() => setDarkMode?.((c) => !c)}
+			onClick={() => {
+				console.debug("darkModeToggle");
+				setDarkMode?.((c) => !c);
+			}}
 			{...rest}
 		/>
 	);
