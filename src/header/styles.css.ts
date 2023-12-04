@@ -6,14 +6,13 @@ export const headerCSS = recipe({
 	base: [
 		sprinkles({
 			height: "space_8",
-			
+
 			marginTop: "space_4",
 			marginBottom: "space_3",
-		
+
 			marginX: "auto",
 			paddingX: "space_4",
-		
-			
+
 			alignItems: "center",
 			display: "flex",
 			gap: "space_2",
@@ -30,8 +29,6 @@ export const headerCSS = recipe({
 		},
 	},
 });
-
-
 
 export const actionsCSS = style([
 	sprinkles({

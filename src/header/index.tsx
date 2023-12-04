@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { HTMLProps } from "react";
 import type { WithSize } from "../types";
-import { actionsCSS, headerCSS, innerCSS } from "./styles.css";
+import { actionsCSS, headerCSS } from "./styles.css";
 
 /**
  * Header HTML element.
@@ -34,8 +34,8 @@ export function Header({
 		<>
 			<header className={clsx(className, headerCSS({ size }))} {...rest}>
 				{/* <div className={innerCSS}> */}
-					{children}
-					{actions && <div className={actionsCSS}>{actions}</div>}
+				{children}
+				{actions && <div className={actionsCSS}>{actions}</div>}
 				{/* </div> */}
 			</header>
 			{tabs && tabs}
