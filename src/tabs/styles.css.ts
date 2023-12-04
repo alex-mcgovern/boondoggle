@@ -105,6 +105,7 @@ export const tabCountCSS = style([
 		textAlign: "center",
 		fontWeight: "semibold",
 		height: "space_5",
+		flexShrink: "0",
 		minWidth: "space_5",
 		color: "text_low_contrast",
 	}),
