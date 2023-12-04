@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMatchMedia } from "../_hooks/use-media-query";
-import { MQ_DARK_MODE } from "../index.css";
+import { MQ_DARK_MODE, variantDarkMode } from "../index.css";
 import { Button, ButtonProps } from "../button";
 import { Icon } from "../icon";
 import { faSun } from "@fortawesome/pro-solid-svg-icons/faSun";
@@ -32,7 +32,9 @@ export const DarkModeProvider = ({
 
 	return (
 		<DarkModeContext.Provider value={[darkMode, setDarkMode]}>
-			{children}
+			<div className={variantDarkMode[darkMode ? "true" : "false"]}>
+				{children}
+			</div>
 		</DarkModeContext.Provider>
 	);
 };
