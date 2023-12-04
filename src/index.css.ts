@@ -18,6 +18,7 @@ import {
 	keyframes,
 	style,
 	styleVariants,
+	assignVars,
 } from "@vanilla-extract/css";
 import { makeTheme, withPrefersMotion } from "./css-utils";
 
@@ -319,62 +320,92 @@ export const animateSlideUp = style([
 export const variantColorOverlay = styleVariants({
 	amber: {
 		"@layer": {
-			[themeLayer]: makeTheme({
-				primary: amber,
-				secondary: amber,
-				alpha: amberA,
-				isOverlay: true,
-			}),
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: amber,
+						secondary: amber,
+						alpha: amberA,
+						isOverlay: true,
+					}),
+				),
+			},
 		},
 	},
 	blue: {
 		"@layer": {
-			[themeLayer]: makeTheme({
-				primary: blue,
-				secondary: blue,
-				alpha: blueA,
-				isOverlay: true,
-			}),
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: blue,
+						secondary: blue,
+						alpha: blueA,
+						isOverlay: true,
+					}),
+				),
+			},
 		},
 	},
 	default: {
 		"@layer": {
-			[themeLayer]: makeTheme({
-				primary: blue,
-				secondary: slate,
-				alpha: slateA,
-				isOverlay: false,
-			}),
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: blue,
+						secondary: slate,
+						alpha: slateA,
+						isOverlay: false,
+					}),
+				),
+			},
 		},
 	},
 	green: {
 		"@layer": {
-			[themeLayer]: makeTheme({
-				primary: green,
-				secondary: green,
-				alpha: greenA,
-				isOverlay: true,
-			}),
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: green,
+						secondary: green,
+						alpha: greenA,
+						isOverlay: true,
+					}),
+				),
+			},
 		},
 	},
 	grey: {
 		"@layer": {
-			[themeLayer]: makeTheme({
-				primary: slate,
-				secondary: slate,
-				alpha: slateA,
-				isOverlay: true,
-			}),
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: slate,
+						secondary: slate,
+						alpha: slateA,
+						isOverlay: true,
+					}),
+				),
+			},
 		},
 	},
 	red: {
 		"@layer": {
-			[themeLayer]: makeTheme({
-				primary: red,
-				secondary: red,
-				alpha: redA,
-				isOverlay: true,
-			}),
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: red,
+						secondary: red,
+						alpha: redA,
+						isOverlay: true,
+					}),
+				),
+			},
 		},
 	},
 });
