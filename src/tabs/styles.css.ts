@@ -98,7 +98,7 @@ export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
 		borderRadius: "pill",
-		padding: "space_0",
+		padding: "space_1",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",

@@ -39,7 +39,7 @@ export const WithCount: Story = {
 				name: "tab_1",
 				children: "Tab 1",
 				active: false,
-				count: 23,
+				count: 6666,
 			},
 		],
 	},
