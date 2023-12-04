@@ -121,14 +121,11 @@ const variantAppearance = styleVariants({
 	],
 
 	primary: [
-		sprinkles({ ...COMMON_BUTTON_SPRINKLES, boxShadow: "sm" }),
+		sprinkles({ ...COMMON_BUTTON_SPRINKLES }),
 		{
 			background: vars.color.button_default,
 			color: vars.color.white,
 			selectors: {
-				"&:not(:is([disabled], [aria-disabled='true']))": {
-					boxShadow: vars.boxShadow.sm,
-				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.button_hover,
 					color: vars.color.white,
@@ -149,9 +146,6 @@ const variantAppearance = styleVariants({
 		{
 			background: vars.color.button_secondary,
 			selectors: {
-				"&:not(:is([disabled], [aria-disabled='true']))": {
-					boxShadow: vars.boxShadow.sm,
-				},
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 					background: vars.color.button_secondary_highlight,
 					borderColor: vars.color.border_3,

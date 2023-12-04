@@ -19,6 +19,7 @@ const MOCK_DATA = Array.from({ length: 40 }, mockColumn);
 const PROPS: DataTableProps<MockTableData> = {
 	data: MOCK_DATA,
 	columns: COLUMNS,
+	gridTemplateColumns: "min-content 1fr repeat(4, min-content)",
 	actions: [
 		<Button appearance="secondary" name="secondary_action">
 			Secondary action

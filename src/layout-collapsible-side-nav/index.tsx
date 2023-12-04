@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 import * as React from "react";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { MQ_SHOW_DESKTOP_NAV } from "../index.css";
+import { MQ_SHOW_MOBILE_NAV } from "../index.css";
 // import useMatchMedia from "use-match-media-hook";
 import {
 	collapsibleNavButtonCSS,
@@ -72,7 +72,7 @@ export const CollapsibleSideNavProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	const [isTabletPlus] = useMatchMedia([MQ_SHOW_DESKTOP_NAV], [true]);
+	const [isTabletPlus] = useMatchMedia([MQ_SHOW_MOBILE_NAV], [true]);
 	const [isOpen, setIsOpen] = React.useState<boolean>(true);
 
 	React.useEffect(() => {
@@ -140,7 +140,7 @@ export function CollapsibleSideNav({
 	 */
 	onOpenChange?: (openState: boolean) => void;
 }) {
-	const [isTabletPlus] = useMatchMedia([MQ_SHOW_DESKTOP_NAV], [true]);
+	const [isTabletPlus] = useMatchMedia([MQ_SHOW_MOBILE_NAV], [true]);
 
 	const [isOpen, setIsOpen] = useCollapsibleSideNav();
 

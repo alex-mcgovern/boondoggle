@@ -23,7 +23,6 @@ export const cardCSS = recipe({
 		sprinkles({
 			background: "background",
 			marginBottom: "space_4",
-			boxShadow: "sm",
 		}),
 	],
 	variants: {

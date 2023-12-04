@@ -147,7 +147,7 @@ export const getSlotWrapperStyles = recipe({
 		hasBorder: true,
 		hasSlotLeft: false,
 		hasSlotRight: false,
-		size: "md",
+		size: "sm",
 	},
 	variants: {
 		hasBorder,

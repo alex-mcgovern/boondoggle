@@ -44,17 +44,25 @@ import { makeDarkTheme, makeLightTheme, withPrefersMotion } from "./css-utils";
 
 export const MEDIA_QUERY_DARK = "(prefers-color-scheme: dark)";
 
-export const MQ_XL = "(min-width: 1400px)";
-export const MQ_LG = "(min-width: 992px)";
-export const MQ_MD = "(min-width: 768px)";
-export const MQ_SM = "(min-width: 576px)";
-export const MQ_XS = "(max-width: 575px)";
+const BP = {
+	xl: 1400,
+	lg: 992,
+	md: 768,
+	sm: 576,
+	xs: 0,
+};
 
-export const MQ_SHOW_DESKTOP_NAV = MQ_MD;
+export const MQ_XL = `(min-width: ${BP.xl}px)`;
+export const MQ_LG = `(min-width: ${BP.lg}px)`;
+export const MQ_MD = `(min-width: ${BP.md}px)`;
+export const MQ_SM = `(min-width: ${BP.sm}px)`;
+export const MQ_XS = `(max-width: ${BP.xs}px)`;
 
-export const CONTAINER_LG = "(width > 992px)";
-export const CONTAINER_MD = "(width >= 496px)";
-export const CONTAINER_SM = "(width < 496px)";
+export const MQ_SHOW_MOBILE_NAV = `(max-width: ${BP.md - 1}px)`;
+
+export const CONTAINER_LG = `(width > ${BP.xl}px)`;
+export const CONTAINER_MD = `(width >= ${BP.sm}px)`;
+export const CONTAINER_SM = `(width < ${BP.sm - 1}px)`;
 
 /** -----------------------------------------------------------------------------
  * SELECTORS

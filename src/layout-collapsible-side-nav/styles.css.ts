@@ -1,5 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { MQ_SHOW_DESKTOP_NAV, vars } from "../index.css";
+import { MQ_SHOW_MOBILE_NAV, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 /**
@@ -21,7 +21,7 @@ export const collapsibleNavButtonCSS = style([
 	{
 		display: "flex",
 		"@media": {
-			[MQ_SHOW_DESKTOP_NAV]: {
+			[MQ_SHOW_MOBILE_NAV]: {
 				display: "none",
 			},
 		},
