@@ -152,7 +152,11 @@ export function DataTable<TRowData extends RowData>({
 			/>
 
 			{hasData && (
-				<Box display="grid" __gridTemplateColumns={gridTemplateColumns}>
+				<Box
+					display="grid"
+					borderTop="border_default"
+					__gridTemplateColumns={gridTemplateColumns}
+				>
 					{table
 						.getHeaderGroups()
 						.map((hg) =>
