@@ -5,8 +5,6 @@ import {
 	blueA,
 	green,
 	greenA,
-	iris,
-	irisA,
 	red,
 	redA,
 	slate,
@@ -14,7 +12,6 @@ import {
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
-	assignVars,
 	createGlobalTheme,
 	globalLayer,
 	globalStyle,
@@ -22,7 +19,7 @@ import {
 	style,
 	styleVariants,
 } from "@vanilla-extract/css";
-import { withPrefersMotion } from "./css-utils";
+import { makeTheme, withPrefersMotion } from "./css-utils";
 
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
@@ -135,32 +132,12 @@ export const sprinklesLayer = globalLayer("sprinkles");
  */
 
 export const vars = createGlobalTheme(":root, ::backdrop", {
-	color: {
-		black: slate.slate12,
-		white: slate.slate1,
-
-		text_low_contrast: slate.slate11,
-		text_high_contrast: slate.slate12,
-
-		background: slate.slate1,
-		backdrop: slateA.slateA11,
-		shadow: slateA.slateA4,
-
-		border_default: slate.slate6,
-		border_active: slate.slate8,
-		border_hover: slate.slate7,
-
-		button_tint: blue.blue5,
-		button_default: blue.blue9,
-		button_hover: blue.blue10,
-		button_active: blue.blue11,
-
-		tint_default: slate.slate3,
-		tint_hover: slate.slate4,
-		tint_active: slate.slate5,
-
-		focus_ring: blue.blue7,
-	},
+	color: makeTheme({
+		primary: blue,
+		secondary: slate,
+		alpha: slateA,
+		isColorOverlay: false,
+	}),
 	aspectRatio: {
 		extraWide: "10 / 3",
 		square: "1 / 1",
@@ -241,7 +218,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100vh": "100vh",
 		auto: "auto",
 		"min-content": "min-content",
-		topBar: "4rem",
+		topBar: "3rem",
 	},
 	lineHeight: {
 		bodyLg: "1.5rem", // 24px
@@ -271,12 +248,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		space_8: "2rem",
 		space_10: "2.5rem",
 		space_12: "3rem",
-		// space_14: "3.5rem",
-		// space_16: "4rem",
-		// space_20: "5rem",
-		// space_24: "6rem",
-		// space_32: "8rem",
-		/* eslint-enable sort-keys-fix/sort-keys-fix */
 	},
 	transitionDuration: {
 		long: "600ms",
@@ -348,226 +319,62 @@ export const animateSlideUp = style([
 export const variantColorOverlay = styleVariants({
 	amber: {
 		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: amber.amber12,
-					white: amber.amber1,
-
-					text_low_contrast: amber.amber11,
-					text_high_contrast: amber.amber11,
-
-					background: amber.amber1,
-					backdrop: amberA.amberA11,
-					shadow: amberA.amberA4,
-
-					border_default: amber.amber6,
-					border_active: amber.amber8,
-					border_hover: amber.amber7,
-
-					button_tint: amber.amber5,
-					button_default: amber.amber9,
-					button_hover: amber.amber10,
-					button_active: amber.amber11,
-
-					tint_default: amber.amber3,
-					tint_hover: amber.amber4,
-					tint_active: amber.amber5,
-
-					focus_ring: amber.amber7,
-				}),
-			},
+			[themeLayer]: makeTheme({
+				primary: amber,
+				secondary: amber,
+				alpha: amberA,
+				isColorOverlay: true,
+			}),
 		},
 	},
 	blue: {
 		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: blue.blue12,
-					white: blue.blue1,
-
-					text_low_contrast: blue.blue11,
-					text_high_contrast: blue.blue11,
-
-					background: blue.blue1,
-					backdrop: blueA.blueA11,
-					shadow: blueA.blueA4,
-
-					border_default: blue.blue6,
-					border_active: blue.blue8,
-					border_hover: blue.blue7,
-
-					button_tint: blue.blue5,
-					button_default: blue.blue9,
-					button_hover: blue.blue10,
-					button_active: blue.blue11,
-
-					tint_default: blue.blue3,
-					tint_hover: blue.blue4,
-					tint_active: blue.blue5,
-
-					focus_ring: blue.blue7,
-				}),
-			},
+			[themeLayer]: makeTheme({
+				primary: blue,
+				secondary: blue,
+				alpha: blueA,
+				isColorOverlay: true,
+			}),
 		},
 	},
 	default: {
 		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: slate.slate12,
-					white: slate.slate1,
-
-					text_low_contrast: slate.slate11,
-					text_high_contrast: slate.slate12,
-
-					background: slate.slate1,
-					backdrop: slateA.slateA11,
-					shadow: slateA.slateA4,
-
-					border_default: slate.slate6,
-					border_active: slate.slate8,
-					border_hover: slate.slate7,
-
-					button_tint: blue.blue5,
-					button_default: blue.blue9,
-					button_hover: blue.blue10,
-					button_active: blue.blue11,
-
-					tint_default: slate.slate3,
-					tint_hover: slate.slate4,
-					tint_active: slate.slate5,
-
-					focus_ring: blue.blue7,
-				}),
-			},
+			[themeLayer]: makeTheme({
+				primary: blue,
+				secondary: slate,
+				alpha: slateA,
+				isColorOverlay: false,
+			}),
 		},
 	},
 	green: {
 		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: green.green12,
-					white: green.green1,
-
-					text_low_contrast: green.green11,
-					text_high_contrast: green.green11,
-
-					background: green.green1,
-					backdrop: greenA.greenA11,
-					shadow: greenA.greenA4,
-
-					border_default: green.green6,
-					border_active: green.green8,
-					border_hover: green.green7,
-
-					button_tint: green.green5,
-					button_default: green.green9,
-					button_hover: green.green10,
-					button_active: green.green11,
-
-					tint_default: green.green3,
-					tint_hover: green.green4,
-					tint_active: green.green5,
-
-					focus_ring: green.green7,
-				}),
-			},
+			[themeLayer]: makeTheme({
+				primary: green,
+				secondary: green,
+				alpha: greenA,
+				isColorOverlay: true,
+			}),
 		},
 	},
 	grey: {
 		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: slate.slate12,
-					white: slate.slate1,
-
-					text_low_contrast: slate.slate11,
-					text_high_contrast: slate.slate11,
-
-					background: slate.slate1,
-					backdrop: slateA.slateA11,
-					shadow: slateA.slateA4,
-
-					border_default: slate.slate6,
-					border_active: slate.slate8,
-					border_hover: slate.slate7,
-
-					button_tint: slate.slate5,
-					button_default: slate.slate9,
-					button_hover: slate.slate10,
-					button_active: slate.slate11,
-
-					tint_default: slate.slate3,
-					tint_hover: slate.slate4,
-					tint_active: slate.slate5,
-
-					focus_ring: slate.slate7,
-				}),
-			},
+			[themeLayer]: makeTheme({
+				primary: slate,
+				secondary: slate,
+				alpha: slateA,
+				isColorOverlay: true,
+			}),
 		},
 	},
 	red: {
 		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: red.red12,
-					white: red.red1,
-
-					text_low_contrast: red.red11,
-					text_high_contrast: red.red11,
-
-					background: red.red1,
-					backdrop: redA.redA11,
-					shadow: redA.redA4,
-
-					border_default: red.red6,
-					border_active: red.red8,
-					border_hover: red.red7,
-
-					button_tint: red.red5,
-					button_default: red.red9,
-					button_hover: red.red10,
-					button_active: red.red11,
-
-					tint_default: red.red3,
-					tint_hover: red.red4,
-					tint_active: red.red5,
-
-					focus_ring: red.red7,
-				}),
-			},
-		},
-	},
-	purple: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(vars.color, {
-					black: iris.iris12,
-					white: iris.iris1,
-
-					text_low_contrast: iris.iris11,
-					text_high_contrast: iris.iris11,
-
-					background: iris.iris1,
-					backdrop: irisA.irisA11,
-					shadow: irisA.irisA4,
-
-					border_default: iris.iris6,
-					border_active: iris.iris8,
-					border_hover: iris.iris7,
-
-					button_tint: iris.iris5,
-					button_default: iris.iris9,
-					button_hover: iris.iris10,
-					button_active: iris.iris11,
-
-					tint_default: iris.iris3,
-					tint_hover: iris.iris4,
-					tint_active: iris.iris5,
-
-					focus_ring: iris.iris7,
-				}),
-			},
+			[themeLayer]: makeTheme({
+				primary: red,
+				secondary: red,
+				alpha: redA,
+				isColorOverlay: true,
+			}),
 		},
 	},
 });
