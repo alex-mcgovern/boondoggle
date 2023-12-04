@@ -10,6 +10,7 @@ export const headerSecondaryCSS = style([
 
 		display: "flex",
 		alignItems: "center",
+		gap: "space_2",
 
 		borderBottom: "border_1",
 		background: "background",
