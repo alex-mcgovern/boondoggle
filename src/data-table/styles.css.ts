@@ -4,9 +4,9 @@ import { sprinkles } from "../sprinkles/index.css";
 export const tableCellCSS = style([
 	sprinkles({
 		borderBottom: "border_default",
-		paddingY: "space_1",
+		paddingY: "space_2",
 		paddingX: "space_4",
-		// height: "space_10",
+		minHeight: "space_10",
 
 		display: "flex",
 		alignItems: "center",
