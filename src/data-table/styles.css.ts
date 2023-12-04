@@ -6,7 +6,7 @@ export const tableCellCSS = style([
 		borderBottom: "border_default",
 		paddingY: "space_1",
 		paddingX: "space_4",
-		height: "space_10",
+		// height: "space_10",
 
 		display: "flex",
 		alignItems: "center",
