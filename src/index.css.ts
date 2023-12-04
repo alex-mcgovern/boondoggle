@@ -42,7 +42,7 @@ import { makeDarkTheme, makeLightTheme, withPrefersMotion } from "./css-utils";
  * MEDIA QUERIES
  * ------------------------------------------------------------------------------- */
 
-export const MEDIA_QUERY_DARK = "(prefers-color-scheme: dark)";
+export const MQ_DARK_MODE = "(prefers-color-scheme: dark)";
 
 const BP = {
 	xl: 1400,
@@ -375,7 +375,7 @@ export const variantColorOverlay = styleVariants({
 				),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -404,7 +404,7 @@ export const variantColorOverlay = styleVariants({
 				),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -433,7 +433,7 @@ export const variantColorOverlay = styleVariants({
 				),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -462,7 +462,7 @@ export const variantColorOverlay = styleVariants({
 				),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -491,7 +491,7 @@ export const variantColorOverlay = styleVariants({
 				),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -520,7 +520,7 @@ export const variantColorOverlay = styleVariants({
 				),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -546,7 +546,7 @@ export const variantColorOverlay = styleVariants({
 				}),
 
 				"@media": {
-					[MEDIA_QUERY_DARK]: {
+					[MQ_DARK_MODE]: {
 						vars: assignVars(
 							vars.color,
 							makeDarkTheme({
@@ -564,6 +564,93 @@ export const variantColorOverlay = styleVariants({
 });
 
 export type ColorOverlay = keyof typeof variantColorOverlay;
+
+/** -----------------------------------------------------------------------------
+ * DARK MODE OVERRIDES
+ * ------------------------------------------------------------------------------- */
+
+export const variantDarkMode = styleVariants({
+	true: {},
+	false: {},
+});
+
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.amber}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: yellowDark,
+			secondary: yellowDark,
+			alpha: yellowDarkA,
+			isColorOverlay: true,
+		}),
+	),
+});
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.blue}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: blueDark,
+			secondary: blueDark,
+			alpha: blueDarkA,
+			isColorOverlay: true,
+		}),
+	),
+});
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.default}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: blueDark,
+			secondary: slateDark,
+			alpha: slateA,
+			isColorOverlay: false,
+		}),
+	),
+});
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.green}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: greenDark,
+			secondary: greenDark,
+			alpha: greenDarkA,
+			isColorOverlay: true,
+		}),
+	),
+});
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.grey}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: slateDark,
+			secondary: slateDark,
+			alpha: slateA,
+			isColorOverlay: true,
+		}),
+	),
+});
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.red}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: redDark,
+			secondary: redDark,
+			alpha: redDarkA,
+			isColorOverlay: true,
+		}),
+	),
+});
+globalStyle(`${variantDarkMode.true} ${variantColorOverlay.purple}`, {
+	vars: assignVars(
+		vars.color,
+		makeDarkTheme({
+			primary: irisDark,
+			secondary: irisDark,
+			alpha: irisDarkA,
+			isColorOverlay: true,
+		}),
+	),
+});
 
 /** -----------------------------------------------------------------------------
  * A11Y STYLES
@@ -852,7 +939,7 @@ globalStyle(":root", {
 				[vars.fontSize.h6]: "1rem",
 			},
 		},
-		[MEDIA_QUERY_DARK]: {
+		[MQ_DARK_MODE]: {
 			vars: {
 				...assignVars(
 					vars.color,

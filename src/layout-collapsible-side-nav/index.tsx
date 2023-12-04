@@ -58,7 +58,6 @@ function useMatchMedia(
 	return value;
 }
 
-export default useMatchMedia;
 
 /**
  * React context provider that allows toggling the open state of a collapsible UI element from anywhere in the app.
