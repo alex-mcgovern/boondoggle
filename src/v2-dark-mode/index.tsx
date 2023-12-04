@@ -4,7 +4,35 @@ import * as React from "react";
 import { useMatchMedia } from "../_hooks/use-media-query";
 import { Button, ButtonProps } from "../button";
 import { Icon } from "../icon";
-import { MQ_DARK_MODE, variantDarkMode } from "../index.css";
+import { MQ_DARK_MODE } from "../index.css";
+
+/** -----------------------------------------------------------------------------
+ * UTILS FOR GETTING / SETTING COOKIES
+ * ------------------------------------------------------------------------------- */
+
+function setCookie(cookieName: string, cookieValue: string, expDays = 30) {
+	const date = new Date();
+	date.setTime(date.getTime() + expDays * 24 * 60 * 60 * 1000);
+
+	const expires = `expires=${date.toUTCString()}`;
+
+	document.cookie = `${cookieName}=${cookieValue}; ${expires}; path=/`;
+}
+
+function getCookie(cookieName: string) {
+	const name = `${cookieName}=`;
+	const cookiesDecoded = decodeURIComponent(document.cookie);
+	const cookieArray = cookiesDecoded.split("; ");
+	let res;
+	for (const cookie of cookieArray) {
+		if (cookie.indexOf(name) === 0) res = cookie.substring(name.length);
+	}
+	return res;
+}
+
+/** -----------------------------------------------------------------------------
+ * CONTEXT FOR DARK MODE
+ * ------------------------------------------------------------------------------- */
 
 export const DarkModeContext = React.createContext<
 	| [boolean, React.Dispatch<React.SetStateAction<boolean>> | undefined]
@@ -28,16 +56,19 @@ export const DarkModeProvider = ({
 }: { children: React.ReactNode }) => {
 	const [prefersDarkMode] = useMatchMedia([MQ_DARK_MODE], [false]);
 
-	const [darkMode, setDarkMode] = React.useState<boolean>(prefersDarkMode);
+	const cookieDarkMode = getCookie("prefersDarkMode");
+
+	const [darkMode, setDarkMode] = React.useState<boolean>(
+		cookieDarkMode === "true" || prefersDarkMode,
+	);
+
+	React.useEffect(() => {
+		setCookie("prefersDarkMode", darkMode ? "true" : "false");
+	}, [darkMode]);
 
 	return (
 		<DarkModeContext.Provider value={[darkMode, setDarkMode]}>
-			<div
-				data-testid="dark-mode-provider"
-				className={variantDarkMode[darkMode ? "true" : "false"]}
-			>
-				{children}
-			</div>
+			{children}
 		</DarkModeContext.Provider>
 	);
 };

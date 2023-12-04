@@ -36,7 +36,7 @@ import {
 	styleVariants,
 } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { makeDarkTheme, makeLightTheme, withPrefersMotion } from "./css-utils";
+import { withPrefersMotion } from "./css-utils";
 
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
@@ -154,6 +154,154 @@ export const sprinklesLayer = globalLayer("sprinkles");
 /** -----------------------------------------------------------------------------
  * CSS VARS
  * ------------------------------------------------------------------------------- */
+
+type PaletteKey = `${string}${number}`;
+
+type PaletteShape = Record<PaletteKey, string>;
+
+const step = (palette: Record<PaletteKey, string>, target_step: number) => {
+	return palette[Object.keys(palette)[target_step - 1] as PaletteKey];
+};
+
+type MakeThemeArgs = {
+	primary: PaletteShape;
+	secondary: PaletteShape;
+	alpha: PaletteShape;
+	isColorOverlay: boolean;
+};
+
+const makeLightTheme = ({
+	primary,
+	secondary,
+	alpha,
+	isColorOverlay,
+}: MakeThemeArgs) => {
+	return {
+		black: step(secondary, 12),
+		white: step(secondary, 1),
+
+		text_low_contrast: isColorOverlay
+			? step(secondary, 11)
+			: step(secondary, 11),
+		text_high_contrast: isColorOverlay
+			? step(secondary, 11)
+			: step(secondary, 12),
+
+		background: step(secondary, 1),
+		backdrop: step(alpha, 11),
+		shadow: step(alpha, 2),
+
+		border_1: isColorOverlay ? step(secondary, 4) : step(secondary, 3),
+		border_2: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
+		border_3: isColorOverlay ? step(secondary, 6) : step(secondary, 5),
+		border_4: isColorOverlay ? step(secondary, 7) : step(secondary, 6),
+
+		button_tint: step(primary, 5),
+		button_default: step(primary, 9),
+		button_hover: step(primary, 10),
+		button_active: step(primary, 11),
+
+		button_secondary: isColorOverlay
+			? step(secondary, 3)
+			: step(secondary, 2),
+
+		button_secondary_border: isColorOverlay
+			? step(secondary, 4)
+			: step(secondary, 3),
+
+		button_secondary_highlight: isColorOverlay
+			? step(secondary, 4)
+			: step(secondary, 3),
+		button_secondary_border_highlight: isColorOverlay
+			? step(secondary, 5)
+			: step(secondary, 4),
+
+		floating_menu_background: step(secondary, 2),
+		floating_menu_highlight: step(secondary, 3),
+
+		scrollbar_background: step(secondary, 3),
+		scrollbar_handle: step(secondary, 1),
+
+		tabs_background: step(secondary, 3),
+		tab_active_background: step(secondary, 1),
+
+		tint_1: isColorOverlay ? step(secondary, 3) : step(secondary, 2),
+		tint_2: isColorOverlay ? step(secondary, 4) : step(secondary, 3),
+		tint_3: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
+		tint_4: isColorOverlay ? step(secondary, 6) : step(secondary, 5),
+
+		tooltip_background: step(secondary, 12),
+		tooltip_foreground: step(secondary, 1),
+
+		focus_ring: step(primary, 8),
+	};
+};
+
+const makeDarkTheme = ({
+	primary,
+	secondary,
+	alpha,
+	isColorOverlay,
+}: MakeThemeArgs) => {
+	return {
+		black: step(secondary, 1),
+		white: step(secondary, 12),
+
+		text_low_contrast: step(secondary, 10),
+		text_high_contrast: isColorOverlay
+			? step(secondary, 11)
+			: step(secondary, 12),
+
+		background: step(secondary, 3),
+		backdrop: step(alpha, 11),
+		shadow: step(alpha, 2),
+
+		border_1: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
+		border_2: isColorOverlay ? step(secondary, 6) : step(secondary, 5),
+		border_3: isColorOverlay ? step(secondary, 7) : step(secondary, 6),
+		border_4: isColorOverlay ? step(secondary, 8) : step(secondary, 7),
+
+		button_tint: step(primary, 5),
+		button_default: step(primary, 9),
+		button_hover: step(primary, 10),
+		button_active: step(primary, 10),
+
+		button_secondary: isColorOverlay
+			? step(secondary, 5)
+			: step(secondary, 4),
+		button_secondary_border: isColorOverlay
+			? step(secondary, 6)
+			: step(secondary, 5),
+
+		button_secondary_highlight: isColorOverlay
+			? step(secondary, 6)
+			: step(secondary, 5),
+		button_secondary_border_highlight: isColorOverlay
+			? step(secondary, 7)
+			: step(secondary, 6),
+
+		floating_menu_background: step(secondary, 4),
+		floating_menu_highlight: isColorOverlay
+			? step(secondary, 2)
+			: step(secondary, 5),
+
+		tabs_background: step(secondary, 4),
+		tab_active_background: step(secondary, 5),
+
+		scrollbar_background: step(secondary, 4),
+		scrollbar_handle: step(secondary, 5),
+
+		tint_1: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
+		tint_2: isColorOverlay ? step(secondary, 5) : step(secondary, 4),
+		tint_3: isColorOverlay ? step(secondary, 6) : step(secondary, 5),
+		tint_4: isColorOverlay ? step(secondary, 7) : step(secondary, 6),
+
+		tooltip_background: step(secondary, 6),
+		tooltip_foreground: step(secondary, 12),
+
+		focus_ring: step(primary, 8),
+	};
+};
 
 /**
  * Global variables (css vars)
@@ -320,6 +468,244 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 });
 
 /** -----------------------------------------------------------------------------
+ * OVERRIDES (RESPONSIVE FONT SIZES & DARK MODE)
+ * ------------------------------------------------------------------------------- */
+
+globalStyle(":root", {
+	"@media": {
+		[MQ_XS]: {
+			vars: {
+				[vars.fontSize.h1]: "2.5rem",
+				[vars.fontSize.h2]: "2rem",
+				[vars.fontSize.h3]: "1.625rem",
+				[vars.fontSize.h4]: "1.375rem",
+				[vars.fontSize.h5]: "1.125rem",
+				[vars.fontSize.h6]: "1rem",
+			},
+		},
+		[MQ_DARK_MODE]: {
+			vars: {
+				...assignVars(
+					vars.color,
+					makeDarkTheme({
+						primary: blueDark,
+						secondary: slateDark,
+						alpha: slateA,
+						isColorOverlay: false,
+					}),
+				),
+
+				// [vars.boxShadow.lg]: `0 8px 24px ${slateDarkA.slateA2}`,
+				// [vars.boxShadow.md]: `0 3px 6px ${slateDarkA.slateA2}`,
+				// [vars.boxShadow.sm]: `0 1px 0 ${slateDarkA.slateA2}`,
+			},
+		},
+	},
+});
+
+/** -----------------------------------------------------------------------------
+ * DARK MODE OVERRIDES
+ * ------------------------------------------------------------------------------- */
+
+export const variantDarkMode = styleVariants({
+	true: {
+		vars: assignVars(
+			vars.color,
+			makeDarkTheme({
+				primary: blueDark,
+				secondary: slateDark,
+				alpha: slateA,
+				isColorOverlay: false,
+			}),
+		),
+	},
+	false: {
+		vars: assignVars(
+			vars.color,
+			makeLightTheme({
+				primary: blue,
+				secondary: slate,
+				alpha: slateA,
+				isColorOverlay: false,
+			}),
+		),
+	},
+});
+
+/** -----------------------------------------------------------------------------
+ * COLOR OVERLAY VARIANT
+ * ------------------------------------------------------------------------------- */
+
+const makeDarkLightTheme = ({
+	light,
+	dark,
+	isColorOverlay,
+}: {
+	isColorOverlay: boolean;
+	light: {
+		primary: PaletteShape;
+		secondary: PaletteShape;
+		alpha: PaletteShape;
+	};
+	dark: {
+		primary: PaletteShape;
+		secondary: PaletteShape;
+		alpha: PaletteShape;
+	};
+}) => {
+	return {
+		"@layer": {
+			[themeLayer]: {
+				vars: assignVars(
+					vars.color,
+					makeLightTheme({
+						primary: light.primary,
+						secondary: light.secondary,
+						alpha: light.alpha,
+						isColorOverlay,
+					}),
+				),
+
+				selectors: {
+					[`${variantDarkMode.false} &`]: {
+						vars: assignVars(
+							vars.color,
+							makeLightTheme({
+								primary: light.primary,
+								secondary: light.secondary,
+								alpha: light.alpha,
+								isColorOverlay,
+							}),
+						),
+					},
+					[`${variantDarkMode.true} &`]: {
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: dark.primary,
+								secondary: dark.secondary,
+								alpha: dark.alpha,
+								isColorOverlay,
+							}),
+						),
+					},
+				},
+
+				"@media": {
+					[MQ_DARK_MODE]: {
+						vars: assignVars(
+							vars.color,
+							makeDarkTheme({
+								primary: dark.primary,
+								secondary: dark.secondary,
+								alpha: dark.alpha,
+								isColorOverlay,
+							}),
+						),
+					},
+				},
+			},
+		},
+	};
+};
+
+export const variantColorOverlay = styleVariants({
+	amber: makeDarkLightTheme({
+		isColorOverlay: true,
+		light: {
+			primary: amber,
+			secondary: amber,
+			alpha: amberA,
+		},
+		dark: {
+			primary: yellowDark,
+			secondary: yellowDark,
+			alpha: yellowDarkA,
+		},
+	}),
+	blue: makeDarkLightTheme({
+		isColorOverlay: true,
+		light: {
+			primary: blue,
+			secondary: blue,
+			alpha: blueA,
+		},
+		dark: {
+			primary: blueDark,
+			secondary: blueDark,
+			alpha: blueDarkA,
+		},
+	}),
+	default: makeDarkLightTheme({
+		isColorOverlay: false,
+		light: {
+			primary: blue,
+			secondary: slate,
+			alpha: slateA,
+		},
+		dark: {
+			primary: blueDark,
+			secondary: slateDark,
+			alpha: slateA,
+		},
+	}),
+	green: makeDarkLightTheme({
+		isColorOverlay: true,
+		light: {
+			primary: green,
+			secondary: green,
+			alpha: greenA,
+		},
+		dark: {
+			primary: greenDark,
+			secondary: greenDark,
+			alpha: greenDarkA,
+		},
+	}),
+	grey: makeDarkLightTheme({
+		isColorOverlay: true,
+		light: {
+			primary: slate,
+			secondary: slate,
+			alpha: slateA,
+		},
+		dark: {
+			primary: slateDark,
+			secondary: slateDark,
+			alpha: slateA,
+		},
+	}),
+	red: makeDarkLightTheme({
+		isColorOverlay: true,
+		light: {
+			primary: red,
+			secondary: red,
+			alpha: redA,
+		},
+		dark: {
+			primary: redDark,
+			secondary: redDark,
+			alpha: redDarkA,
+		},
+	}),
+	purple: makeDarkLightTheme({
+		isColorOverlay: true,
+		light: {
+			primary: iris,
+			secondary: iris,
+			alpha: irisA,
+		},
+		dark: {
+			primary: irisDark,
+			secondary: irisDark,
+			alpha: irisDarkA,
+		},
+	}),
+});
+
+export type ColorOverlay = keyof typeof variantColorOverlay;
+
+/** -----------------------------------------------------------------------------
  * ANIMATIONS
  * ------------------------------------------------------------------------------- */
 
@@ -355,322 +741,6 @@ export const animateSlideUp = style([
 		animation: `${slideUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
 	}),
 ]);
-
-/** -----------------------------------------------------------------------------
- * COLOR OVERLAY VARIANT
- * ------------------------------------------------------------------------------- */
-
-export const variantColorOverlay = styleVariants({
-	amber: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(
-					vars.color,
-					makeLightTheme({
-						primary: amber,
-						secondary: amber,
-						alpha: amberA,
-						isColorOverlay: true,
-					}),
-				),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: yellowDark,
-								secondary: yellowDark,
-								alpha: yellowDarkA,
-								isColorOverlay: true,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-	blue: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(
-					vars.color,
-					makeLightTheme({
-						primary: blue,
-						secondary: blue,
-						alpha: blueA,
-						isColorOverlay: true,
-					}),
-				),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: blueDark,
-								secondary: blueDark,
-								alpha: blueDarkA,
-								isColorOverlay: true,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-	default: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(
-					vars.color,
-					makeLightTheme({
-						primary: blue,
-						secondary: slate,
-						alpha: slateA,
-						isColorOverlay: false,
-					}),
-				),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: blueDark,
-								secondary: slateDark,
-								alpha: slateA,
-								isColorOverlay: false,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-	green: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(
-					vars.color,
-					makeLightTheme({
-						primary: green,
-						secondary: green,
-						alpha: greenA,
-						isColorOverlay: true,
-					}),
-				),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: greenDark,
-								secondary: greenDark,
-								alpha: greenDarkA,
-								isColorOverlay: true,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-	grey: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(
-					vars.color,
-					makeLightTheme({
-						primary: slate,
-						secondary: slate,
-						alpha: slateA,
-						isColorOverlay: true,
-					}),
-				),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: slateDark,
-								secondary: slateDark,
-								alpha: slateA,
-								isColorOverlay: true,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-	red: {
-		"@layer": {
-			[themeLayer]: {
-				vars: assignVars(
-					vars.color,
-					makeLightTheme({
-						primary: red,
-						secondary: red,
-						alpha: redA,
-						isColorOverlay: true,
-					}),
-				),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: redDark,
-								secondary: redDark,
-								alpha: redDarkA,
-								isColorOverlay: true,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-	purple: {
-		"@layer": {
-			[themeLayer]: {
-				vars: makeLightTheme({
-					primary: iris,
-					secondary: iris,
-					alpha: irisA,
-					isColorOverlay: true,
-				}),
-
-				"@media": {
-					[MQ_DARK_MODE]: {
-						vars: assignVars(
-							vars.color,
-							makeDarkTheme({
-								primary: irisDark,
-								secondary: irisDark,
-								alpha: irisDarkA,
-								isColorOverlay: true,
-							}),
-						),
-					},
-				},
-			},
-		},
-	},
-});
-
-export type ColorOverlay = keyof typeof variantColorOverlay;
-
-/** -----------------------------------------------------------------------------
- * DARK MODE OVERRIDES
- * ------------------------------------------------------------------------------- */
-
-export const variantDarkMode = styleVariants({
-	true: {
-		vars: assignVars(
-			vars.color,
-			makeDarkTheme({
-				primary: blueDark,
-				secondary: slateDark,
-				alpha: slateA,
-				isColorOverlay: false,
-			}),
-		),
-	},
-	false: {
-		vars: assignVars(
-			vars.color,
-			makeLightTheme({
-				primary: blue,
-				secondary: slate,
-				alpha: slateA,
-				isColorOverlay: false,
-			}),
-		),
-	},
-});
-
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.amber}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: yellowDark,
-			secondary: yellowDark,
-			alpha: yellowDarkA,
-			isColorOverlay: true,
-		}),
-	),
-});
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.blue}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: blueDark,
-			secondary: blueDark,
-			alpha: blueDarkA,
-			isColorOverlay: true,
-		}),
-	),
-});
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.default}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: blueDark,
-			secondary: slateDark,
-			alpha: slateA,
-			isColorOverlay: false,
-		}),
-	),
-});
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.green}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: greenDark,
-			secondary: greenDark,
-			alpha: greenDarkA,
-			isColorOverlay: true,
-		}),
-	),
-});
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.grey}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: slateDark,
-			secondary: slateDark,
-			alpha: slateA,
-			isColorOverlay: true,
-		}),
-	),
-});
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.red}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: redDark,
-			secondary: redDark,
-			alpha: redDarkA,
-			isColorOverlay: true,
-		}),
-	),
-});
-globalStyle(`${variantDarkMode.true} ${variantColorOverlay.purple}`, {
-	vars: assignVars(
-		vars.color,
-		makeDarkTheme({
-			primary: irisDark,
-			secondary: irisDark,
-			alpha: irisDarkA,
-			isColorOverlay: true,
-		}),
-	),
-});
 
 /** -----------------------------------------------------------------------------
  * A11Y STYLES
@@ -947,38 +1017,6 @@ globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
 	},
 });
 
-globalStyle(":root", {
-	"@media": {
-		[MQ_XS]: {
-			vars: {
-				[vars.fontSize.h1]: "2.5rem",
-				[vars.fontSize.h2]: "2rem",
-				[vars.fontSize.h3]: "1.625rem",
-				[vars.fontSize.h4]: "1.375rem",
-				[vars.fontSize.h5]: "1.125rem",
-				[vars.fontSize.h6]: "1rem",
-			},
-		},
-		[MQ_DARK_MODE]: {
-			vars: {
-				...assignVars(
-					vars.color,
-					makeDarkTheme({
-						primary: blueDark,
-						secondary: slateDark,
-						alpha: slateA,
-						isColorOverlay: false,
-					}),
-				),
-
-				// [vars.boxShadow.lg]: `0 8px 24px ${slateDarkA.slateA2}`,
-				// [vars.boxShadow.md]: `0 3px 6px ${slateDarkA.slateA2}`,
-				// [vars.boxShadow.sm]: `0 1px 0 ${slateDarkA.slateA2}`,
-			},
-		},
-	},
-});
-
 globalStyle("*", {
 	"@layer": {
 		[baseLayer]: { boxSizing: "border-box", margin: 0 },
@@ -991,6 +1029,9 @@ globalStyle("html", {
 			accentColor: vars.color.button_default,
 			background: vars.color.background,
 			fontSize: vars.fontSize.root,
+			...withPrefersMotion({
+				transition: `background ${vars.transitionDuration.medium} ease`,
+			}),
 		},
 	},
 });
