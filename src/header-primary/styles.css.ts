@@ -1,22 +1,33 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const headerCSS = style([
-	sprinkles({
-		paddingY: "space_2",
-		paddingX: "space_4",
-		borderBottom: "border_1",
-		height: "header",
-		background: "background",
-	}),
-]);
+export const headerCSS = recipe({
+	base: [
+		sprinkles({
+			marginY: "space_4",
+			marginX: "auto",
+			paddingX: "space_4",
+		}),
+	],
+	defaultVariants: {
+		size: "lg",
+	},
+	variants: {
+		size: {
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [sprinkles({ maxWidth: "main_md" })],
+			sm: [sprinkles({ maxWidth: "main_sm" })],
+		},
+	},
+});
 
 export const innerCSS = style([
 	sprinkles({
 		alignItems: "center",
 		display: "flex",
 		gap: "space_2",
-		minHeight: "space_8",
+		minHeight: "space_10",
 	}),
 ]);
 

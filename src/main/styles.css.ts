@@ -4,10 +4,10 @@ import { sprinkles } from "../sprinkles/index.css";
 export const mainCSS = recipe({
 	base: [
 		sprinkles({
-			// marginX: "auto",
-			// marginTop: "space_2",
+			marginX: "auto",
+			marginTop: "space_2",
 			marginBottom: "space_8",
-			// paddingX: "space_4",
+			paddingX: "space_4",
 		}),
 	],
 	defaultVariants: {
@@ -15,23 +15,9 @@ export const mainCSS = recipe({
 	},
 	variants: {
 		size: {
-			lg: [
-				sprinkles({
-					// maxWidth: "main_lg"
-				}),
-			],
-			md: [
-				sprinkles({
-					marginX: "auto",
-					maxWidth: "main_md",
-				}),
-			],
-			sm: [
-				sprinkles({
-					marginX: "auto",
-					maxWidth: "main_sm",
-				}),
-			],
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [sprinkles({ maxWidth: "main_md" })],
+			sm: [sprinkles({ maxWidth: "main_sm" })],
 		},
 	},
 });

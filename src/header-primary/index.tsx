@@ -10,6 +10,8 @@ export function Header({
 	children,
 	className,
 	actions,
+	size = "lg",
+	tabs,
 	...rest
 }: Omit<HTMLProps<HTMLElement>, "size"> &
 	WithSize & {
@@ -22,15 +24,21 @@ export function Header({
 		 * Actions to be displayed on the right side of the header.
 		 */
 		actions?: React.ReactNode;
+
+		/**
+		 * Tabs to be displayed underneath the header.
+		 */
+		tabs?: React.ReactNode;
 	}) {
 	return (
 		<>
-			<header className={clsx(className, headerCSS)} {...rest}>
+			<header className={clsx(className, headerCSS({ size }))} {...rest}>
 				<div className={innerCSS}>
 					{children}
 					{actions && <div className={actionsCSS}>{actions}</div>}
 				</div>
 			</header>
+			{tabs && tabs}
 		</>
 	);
 }

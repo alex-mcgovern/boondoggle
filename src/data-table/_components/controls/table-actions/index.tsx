@@ -1,6 +1,5 @@
 import { Children } from "react";
 import type { ReactNode } from "react";
-import { HeaderSecondary } from "../../../../header-secondary";
 import {
 	actionsCSS,
 	columnFiltersCSS,
@@ -23,8 +22,10 @@ export function TableActions({
 	}
 
 	return (
-		<HeaderSecondary className={tableActionsContainerCSS}>
-			<div className={tableActionsCSS({ withExtraActions: !!actions })}>
+		<div className={tableActionsContainerCSS}>
+			<div className={tableActionsCSS}>
+				<div className={globalFilterCSS}>{globalFilter}</div>
+				<div className={columnFiltersCSS}>{columnFilters}</div>
 				{actions ? (
 					<div className={actionsCSS}>
 						{Children.map(actions, (action) => {
@@ -32,9 +33,7 @@ export function TableActions({
 						})}
 					</div>
 				) : null}
-				<div className={columnFiltersCSS}>{columnFilters}</div>
-				<div className={globalFilterCSS}>{globalFilter}</div>
 			</div>
-		</HeaderSecondary>
+		</div>
 	);
 }

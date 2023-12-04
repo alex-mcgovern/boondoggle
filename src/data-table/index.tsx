@@ -91,7 +91,7 @@ export type DataTableProps<TRowData extends RowData> =
 		/**
 		 * Grid template columns
 		 */
-		gridTemplateColumns?: string;
+		gridTemplateColumns: string;
 	};
 
 /**

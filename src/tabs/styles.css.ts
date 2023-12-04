@@ -2,13 +2,7 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
-import {
-	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
-	a11yFocus,
-	elementHeight,
-	variantColorOverlay,
-	vars,
-} from "../index.css";
+import { variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 const scaleUpKeyframes = keyframes({
@@ -23,113 +17,98 @@ const scaleUpKeyframes = keyframes({
 	},
 });
 
-export const tabListCSS = recipe({
-	base: [
-		sprinkles({
-			alignItems: "center",
-			display: "flex",
-			borderRadius: "md",
-			isolation: "isolate",
-			// marginBottom: "space_4",
-		}),
-		{
-			height: "fit-content",
-			background: vars.color.tabs_background,
-		},
-	],
-	variants: {
-		isFullWidth: {
-			true: {
-				width: "100%",
-				justifyContent: "space-between",
-			},
-			false: {
-				width: "min-content",
-			},
-		},
-	},
-});
-
 export const tabCSS = recipe({
 	base: [
 		sprinkles({
-			display: "flex",
-			placeItems: "center",
-			gap: "space_1",
 			flexShrink: "0",
-
-			fontStyle: "bodyMd",
-			color: "text_low_contrast",
-			whiteSpace: "nowrap",
-			textDecoration: "none",
-
-			borderRadius: "md",
-			paddingX: "space_3",
-			paddingY: "space_1",
-		}),
-		{ height: elementHeight.sm },
-		a11yFocus,
-		withPrefersMotion({
-			transition: `ease ${vars.transitionDuration.short} ease`,
-			transitionProperty: "color, background-color, border-color",
+			paddingBottom: "space_1",
 		}),
 	],
-
+	defaultVariants: {
+		active: false,
+	},
 	variants: {
-		isFullWidth: {
-			true: {
-				width: "auto",
-				flexGrow: "1",
-				textAlign: "center",
-			},
-			false: {
-				flexShrink: "0",
-				width: "max-content",
-			},
-		},
-		isActive: {
+		isTabFullWidth: {
 			true: [
 				sprinkles({
-					background: "tab_active_background",
-					boxShadow: "sm",
-					color: "text_high_contrast",
+					flexGrow: "1",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
 				}),
+			],
+			false: [],
+		},
+		active: {
+			false: [
 				{
-					border: `1px solid ${vars.color.button_secondary_border_highlight}`,
+					borderBottom: `${vars.spacing["space_0.5"]} solid transparent`,
 				},
 			],
-			false: {
-				border: "1px solid transparent",
-				selectors: {
-					[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-						// background: vars.color.tint_4,
-						color: vars.color.text_high_contrast,
-					},
+			true: [
+				{
+					borderBottom: `${vars.spacing["space_0.5"]} solid ${vars.color.button_default}`,
 				},
-			},
+			],
 		},
-		colorOverlay: variantColorOverlay,
 	},
 });
+
+export const tabsSectionCss = recipe({
+	base: [
+		sprinkles({
+			marginY: "space_3",
+			marginX: "auto",
+			paddingX: "space_4",
+		}),
+	],
+	defaultVariants: {
+		size: "lg",
+	},
+	variants: {
+		size: {
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [sprinkles({ maxWidth: "main_md" })],
+			sm: [sprinkles({ maxWidth: "main_sm" })],
+		},
+	},
+});
+
+export const tabListCSS = style([
+	sprinkles({
+		alignItems: "center",
+		borderBottom: "border_1",
+		display: "flex",
+	}),
+	{
+		msOverflowStyle: "none",
+		overflowX: "scroll",
+		scrollbarGutter: "none",
+		scrollbarWidth: "none",
+		selectors: {
+			"&::-webkit-scrollbar": {
+				display: "none",
+			},
+		},
+	},
+]);
 
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
+		fontStyle: "bodySm",
 		borderRadius: "pill",
-		padding: "space_0",
+		padding: "space_1",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
 		textAlign: "center",
-		fontWeight: "semibold",
-		height: "space_5",
-		minWidth: "space_5",
+		fontWeight: "medium",
+		height: "space_6",
+		minWidth: "space_6",
 		color: "text_low_contrast",
 	}),
 	{
-		// transform: "translateY(0.0625rem)",
-		fontSize: "0.625rem",
-		lineHeight: "0.625rem",
 		background: vars.color.button_tint,
 		...withPrefersMotion({
 			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
