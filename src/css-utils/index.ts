@@ -49,9 +49,9 @@ export const makeTheme = ({
 		button_hover: step(primary, 10),
 		button_active: step(primary, 11),
 
-		tint_default: step(secondary, isOverlay ? 3 : 2),
-		tint_hover: step(secondary, isOverlay ? 4 : 3),
-		tint_active: step(secondary, isOverlay ? 5 : 4),
+		tint_default: step(secondary, isOverlay ? 4 : 3),
+		tint_hover: step(secondary, isOverlay ? 5 : 4),
+		tint_active: step(secondary, isOverlay ? 6 : 5),
 
 		focus_ring: step(primary, 8),
 	};
