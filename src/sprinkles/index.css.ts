@@ -16,6 +16,8 @@ export const properties = defineProperties({
 	"@layer": sprinklesLayer,
 	properties: {
 		alignItems: ["stretch", "start", "center", "end", "baseline"],
+		alignSelf: ["stretch", "start", "center", "end", "baseline"],
+		justifySelf: ["stretch", "start", "center", "end", "baseline"],
 		aspectRatio: vars.aspectRatio,
 		background: {
 			...vars.color,

@@ -30,16 +30,16 @@ export function DataTableRowActions({
 					return e.stopPropagation();
 				},
 				size: "square_sm",
-				width: "min-content",
+				// width: "min-content",
 			}}
 			items={items}
 			name="row_actions"
 			placement="bottom-end"
 			slotRight={<Icon icon={faEllipsis} />}
-			wrapperProps={{
-				marginX: "auto",
-				width: "min-content",
-			}}
+			// wrapperProps={{
+			// 	marginX: "auto",
+			// 	width: "min-content",
+			// }}
 		/>
 	);
 }
