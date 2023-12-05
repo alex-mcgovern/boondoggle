@@ -8,7 +8,7 @@ import type { InputProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 
 const meta = {
 	args: {

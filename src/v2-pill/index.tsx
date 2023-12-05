@@ -3,52 +3,27 @@ import clsx from "clsx";
 import type { ReactNode } from "react";
 import { SlotWrapper } from "../slot-wrapper";
 import { sprinkles } from "../sprinkles/index.css";
-import {
-	WithColorOverlay,
-	WithSize,
-	WithSlots,
-	WithStateDisabled,
-} from "../types";
 import { pillCSS } from "./styles.css";
-
-export type PillProps = WithColorOverlay &
-	WithStateDisabled &
-	WithSize &
-	WithSlots & {
-		/**
-		 * The react node rendered in the pill.
-		 */
-		children?: ReactNode;
-
-		/**
-		 * Used as the html class.
-		 */
-		className?: string;
-
-		/**
-		 * Used as the html ID.
-		 */
-		id?: string;
-
-		/**
-		 * Callback on click.
-		 */
-		onClick?(...args: unknown[]): unknown;
-	};
+import { ColorOverlay } from "../index.css";
 
 export const Pill = ({
 	children,
 	className: userClassName,
 	colorOverlay,
 	id,
-	size,
+	size = "sm",
 	slotLeft,
 	slotRight,
 	...rest
-}: PillProps) => {
-	/**
-	 * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
-	 */
+}: {
+	children?: ReactNode;
+	className?: string;
+	colorOverlay?: ColorOverlay;
+	id?: string;
+	size?: "sm" | "md" | "lg";
+	slotLeft?: ReactNode;
+	slotRight?: ReactNode;
+}) => {
 	const { atomProps, otherProps } = extractAtomsFromProps(rest, sprinkles);
 
 	return (

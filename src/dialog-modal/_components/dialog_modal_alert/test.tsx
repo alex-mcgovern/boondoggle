@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 import { DialogModalAlert } from ".";
 import type { DialogModalAlertProps } from ".";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { Icon } from "../../../icon";
+import { Icon } from "../../../v2-icon";
 
 const renderComponent = ({ ...props }: DialogModalAlertProps) => {
 	return render(<DialogModalAlert {...props} />);

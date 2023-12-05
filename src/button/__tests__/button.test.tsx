@@ -7,7 +7,7 @@ import userEvent from "@testing-library/user-event";
 import { Button } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
-import { Icon } from "../../icon";
+import { Icon } from "../../v2-icon";
 import { variantColorOverlay } from "../../index.css";
 import { getButtonStyles, variantButtonSize } from "../styles.css";
 

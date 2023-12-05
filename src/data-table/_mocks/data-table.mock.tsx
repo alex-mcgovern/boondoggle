@@ -3,7 +3,7 @@ import { Faker, en } from "@faker-js/faker";
 import { createColumnHelper } from "@tanstack/react-table";
 import { Avatar } from "../../avatar";
 import { Box } from "../../box";
-import { Pill } from "../../pill";
+import { Pill } from "../../v2-pill";
 const faker = new Faker({ locale: [en] });
 
 faker.seed(42);

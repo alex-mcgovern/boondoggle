@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { useDialogModalState } from "../_lib/use-dialog-modal-state";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 import { variantColorOverlay } from "../index.css";
 import { LoaderFullScreen } from "../loader-full-screen";
 import { DialogModalActions } from "./_components/dialog_modal_actions";

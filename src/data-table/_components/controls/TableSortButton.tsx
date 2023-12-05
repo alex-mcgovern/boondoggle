@@ -1,7 +1,7 @@
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
 import type { Header } from "@tanstack/react-table";
-import { Icon } from "../../../icon";
+import { Icon } from "../../../v2-icon";
 import { getSortControlStyle, sortIconStyle } from "./TableSortButton.css";
 
 export function TableSortButton<TData>({

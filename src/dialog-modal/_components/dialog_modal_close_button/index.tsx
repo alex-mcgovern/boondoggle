@@ -1,6 +1,6 @@
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { Button } from "../../../v2-button";
-import { Icon } from "../../../icon";
+import { Icon } from "../../../v2-icon";
 import { sprinkles } from "../../../sprinkles/index.css";
 
 export function DialogModalCloseButton({

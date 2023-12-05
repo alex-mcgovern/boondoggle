@@ -8,7 +8,7 @@ import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { Box } from "../../box";
-import { Icon } from "../../icon";
+import { Icon } from "../../v2-icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import { Sprinkles } from "../../sprinkles/index.css";

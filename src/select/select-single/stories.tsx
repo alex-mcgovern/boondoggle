@@ -2,7 +2,7 @@ import { faGlobeAfrica } from "@fortawesome/pro-solid-svg-icons/faGlobeAfrica";
 import type { Meta, StoryObj } from "@storybook/react";
 import { SelectSingle as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../icon";
+import { Icon } from "../../v2-icon";
 import {
 	mockSelectItems,
 	mockSelectItemsGrouped,

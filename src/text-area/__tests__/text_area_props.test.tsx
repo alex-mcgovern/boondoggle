@@ -7,7 +7,7 @@ import { TextArea } from "..";
 import type { TextAreaProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
-import { Icon } from "../../icon";
+import { Icon } from "../../v2-icon";
 
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),

@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 import { DataTable } from ".";
 import type { DataTableProps } from ".";
 import { Button } from "../button";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
 import type { MockTableData } from "./_mocks/data-table.mock";
 

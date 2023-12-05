@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/pro-solid-svg-icons/faArrowRight";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button as StoryComp } from ".";
 import { Link } from "../../test/link.comp.mock";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 
 const meta = {
 	args: {

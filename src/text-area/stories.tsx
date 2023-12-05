@@ -2,7 +2,7 @@ import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTrian
 import type { Meta, StoryObj } from "@storybook/react";
 import { TextArea as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 import { Loader } from "../loader";
 
 const meta = {

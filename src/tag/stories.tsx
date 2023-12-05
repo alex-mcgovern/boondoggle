@@ -4,7 +4,7 @@ import { Tag as StoryComp } from ".";
 import type { TagProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 
 export default {
 	component: StoryComp,

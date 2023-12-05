@@ -2,7 +2,7 @@ import { faCheck } from "@fortawesome/pro-solid-svg-icons/faCheck";
 import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
 import { FieldActionButton } from "../field-action-button";
 import type { FieldActionButtonProps } from "../field-action-button";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 
 export type FieldActionButtonCopyProps = {
 	/**

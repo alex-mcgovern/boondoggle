@@ -2,7 +2,7 @@ import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleEx
 import { RowData, Table } from "@tanstack/react-table";
 import { arrayHasLength } from "../../../_lib/array-has-length";
 import { Box } from "../../../box";
-import { Icon } from "../../../icon";
+import { Icon } from "../../../v2-icon";
 import { FilteringOptions } from "../../types";
 import { Button } from "../../../v2-button";
 

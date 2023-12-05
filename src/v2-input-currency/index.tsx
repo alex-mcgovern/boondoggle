@@ -5,7 +5,7 @@ import {
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName, WithSize } from "../types";
 import { V2FieldError } from "../v2-field-error";

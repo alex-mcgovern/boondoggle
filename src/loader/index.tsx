@@ -1,6 +1,6 @@
 import { faSpinnerThird } from "@fortawesome/pro-solid-svg-icons/faSpinnerThird";
-import { Icon } from "../icon";
-import type { IconProps } from "../icon";
+import { Icon } from "../v2-icon";
+import type { IconProps } from "../v2-icon";
 
 export type LoaderProps = Omit<IconProps, "icon"> & {
 	icon?: IconProps["icon"];

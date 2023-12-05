@@ -3,7 +3,7 @@ import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import * as React from "react";
 import { Box } from "../box";
 import { Button } from "../v2-button";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 import { WithColorOverlay } from "../types";
 import {
 	backdropCSS,

@@ -9,7 +9,7 @@ import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import type { ButtonProps } from "../../button";
-import { Icon } from "../../icon";
+import { Icon } from "../../v2-icon";
 
 import { Sprinkles } from "../../sprinkles/index.css";
 import {

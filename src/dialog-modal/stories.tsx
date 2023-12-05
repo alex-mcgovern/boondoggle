@@ -7,7 +7,7 @@ import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 import { ModalActionConfirm } from "../modal-action-confirm";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
 

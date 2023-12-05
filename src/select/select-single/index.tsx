@@ -6,7 +6,7 @@ import { forwardRef, useCallback, useState } from "react";
 import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { Box } from "../../box";
-import { Icon } from "../../icon";
+import { Icon } from "../../v2-icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";

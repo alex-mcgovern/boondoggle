@@ -2,7 +2,7 @@ import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
 import { forwardRef } from "react";
 import { FieldActionButton } from "../field-action-button";
 import type { FieldActionButtonProps } from "../field-action-button";
-import { Icon } from "../icon";
+import { Icon } from "../v2-icon";
 
 type FieldActionButtonDateProps = Omit<FieldActionButtonProps, "name" | "slot">;
 
