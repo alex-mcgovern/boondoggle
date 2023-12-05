@@ -33,8 +33,6 @@ export function TableSortButton<TData>({
 		<button
 			type="button"
 			className={getSortControlStyle({ isSorted })}
-			// flexShrink="0"
-			// marginLeft="auto"
 			name={`sort_${header.column.id}`}
 			onClick={header.column.getToggleSortingHandler()}
 		>

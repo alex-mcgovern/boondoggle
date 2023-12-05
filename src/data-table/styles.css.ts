@@ -1,23 +1,37 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const tableCellCSS = style([
+/** -----------------------------------------------------------------------------
+ * TABLE CELLS
+ * ------------------------------------------------------------------------------- */
+
+const commonCellCSS = style([
 	sprinkles({
 		borderBottom: "border_default",
 		paddingY: "space_2",
 		paddingX: "space_4",
-		minHeight: "space_10",
 
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "start",
 
 		fontStyle: "bodyMd",
-		// whiteSpace: "nowrap",
-		// overflow: "hidden",
 	}),
 	{
-		minWidth: "0",
-		textOverflow: "ellipsis",
+		minWidth: "0", // Ensure that children with class `overflowEllipsis` work correctly
 	},
+]);
+
+export const tableCellCSS = style([
+	commonCellCSS,
+	sprinkles({
+		minHeight: "space_8",
+	}),
+]);
+
+export const tableHeaderCellCSS = style([
+	commonCellCSS,
+	sprinkles({
+		height: "space_8",
+	}),
 ]);

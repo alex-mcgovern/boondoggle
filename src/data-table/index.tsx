@@ -12,12 +12,12 @@ import { Box } from "../box";
 import { TDataTableRowActions } from "../data-table-row-actions";
 import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
+import { TableSortButton } from "./_components/controls/TableSortButton";
 import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
-import { TableHeaderCell } from "./_components/layout/TableHeaderCell";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
-import { tableCellCSS } from "./styles.css";
+import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
 import {
 	FilteringOptions,
 	PaginationOptions,
@@ -157,17 +157,35 @@ export function DataTable<TRowData extends RowData>({
 					borderTop="border_default"
 					__gridTemplateColumns={gridTemplateColumns}
 				>
-					{table
-						.getHeaderGroups()
-						.map((hg) =>
-							hg.headers.map((h) => (
-								<TableHeaderCell<TRowData>
-									header={h}
-									isSortable={isSortable}
-									key={h.id}
-								/>
-							)),
-						)}
+					{table.getHeaderGroups().map((hg) =>
+						hg.headers.map((h) => {
+							const headerContent = h.isPlaceholder
+								? null
+								: flexRender(
+										h.column.columnDef.header,
+										h.getContext(),
+								  );
+
+							if (isSortable) {
+								return (
+									<div
+										key={h.id}
+										className={tableHeaderCellCSS}
+									>
+										<TableSortButton header={h}>
+											{headerContent}
+										</TableSortButton>
+									</div>
+								);
+							}
+
+							return (
+								<div key={h.id} className={tableHeaderCellCSS}>
+									{headerContent}
+								</div>
+							);
+						}),
+					)}
 
 					{table.getRowModel().rows.map((row) =>
 						row.getVisibleCells().map((cell) => (
