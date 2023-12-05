@@ -42,22 +42,25 @@ export function Modal({
 		[onDismiss, overlay, wrapper],
 	);
 
-	const onKeyDown = React.useCallback(
-		(e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent) => {
-			if (e.key === "Escape") onDismiss();
-		},
-		[onDismiss],
-	);
-
 	React.useEffect(() => {
+		const onKeyDown = (
+			e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent,
+		) => {
+			if (e.key === "Escape") onDismiss();
+		};
+
 		document.addEventListener("keydown", onKeyDown);
 		return () => document.removeEventListener("keydown", onKeyDown);
-	}, [onKeyDown]);
+	}, [onDismiss]);
 
 	return (
 		<div
 			ref={overlay}
-			onKeyDown={onKeyDown}
+			onKeyDown={(
+				e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent,
+			) => {
+				if (e.key === "Escape") onDismiss();
+			}}
 			className={backdropCSS({ enableFadeIn, colorOverlay })}
 			onClick={onClick}
 		>
