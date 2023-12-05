@@ -40,9 +40,9 @@ export const makeTheme = ({
 		backdrop: step(alpha, 11),
 		shadow: step(alpha, 2),
 
-		border_default: step(secondary, isOverlay ? 5 : 4),
-		border_active: step(secondary, isOverlay ? 6 : 5),
-		border_hover: step(secondary, isOverlay ? 7 : 6),
+		border_default: step(secondary, isOverlay ? 6 : 5),
+		border_active: step(secondary, isOverlay ? 7 : 6),
+		border_hover: step(secondary, isOverlay ? 8 : 7),
 
 		button_tint: step(primary, 5),
 		button_default: step(primary, 9),

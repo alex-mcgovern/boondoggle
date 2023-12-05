@@ -29,14 +29,15 @@
 			"types": "./dist/sprinkles/*.d.ts"
 		},
 		"./*": {
-			"import": "./dist/*",
-			"require": "./dist/*",
+			"import": "./dist/*/index.js",
+			"require": "./dist/*/index.js",
 			"types": "./dist/*/index.d.ts"
 		}
 	},
 	"scripts": {
 		"=== BUILD ===": "",
-		"build": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup && tsc src/**/*.{ts,tsx} --declaration --emitDeclarationOnly --outDir \"./dist\"",
+		"build": "concurrently -n JS,DTS -c \"bgGreen.bold,bgBlue.bold\" \"npm:build-js\" \"npm:build-types\"",
+		"build-js": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup",
 		"build-types": "tsc --project tsconfig.build.json  --declaration --emitDeclarationOnly --outDir \"./dist\"",
 		"prebuild": "rm -rf dist/*",
 		"=== BUILD (OLD) ===": "",

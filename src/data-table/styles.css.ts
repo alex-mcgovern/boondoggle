@@ -13,10 +13,11 @@ export const tableCellCSS = style([
 		justifyContent: "start",
 
 		fontStyle: "bodyMd",
-		whiteSpace: "nowrap",
+		// whiteSpace: "nowrap",
 		// overflow: "hidden",
 	}),
 	{
+		minWidth: "0",
 		textOverflow: "ellipsis",
 	},
 ]);

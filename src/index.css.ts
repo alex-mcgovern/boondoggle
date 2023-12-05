@@ -459,6 +459,18 @@ export const a11yFocus = style([
 	},
 ]);
 
+export const overflowEllipsis = style([
+	{
+		"@layer": {
+			[themeLayer]: {
+				textOverflow: "ellipsis",
+				whiteSpace: "nowrap",
+				overflow: "hidden",
+			},
+		},
+	},
+]);
+
 /** -----------------------------------------------------------------------------
  * GLOBAL STYLESHEET
  * ------------------------------------------------------------------------------- */
