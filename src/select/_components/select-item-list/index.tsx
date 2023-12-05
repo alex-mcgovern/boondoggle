@@ -113,7 +113,7 @@ function SelectItemListBase<
 		isMulti,
 		isOpen,
 		items,
-		size = "md",
+		size = "sm",
 		...rest
 	}: SelectItemListProps<TValue, TItemData>,
 	ref: ForwardedRef<HTMLDivElement>,

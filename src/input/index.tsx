@@ -125,7 +125,7 @@ function InputBase(
 		outerRef,
 		readOnly,
 		selectionRange,
-		size = "md",
+		size = "sm",
 		slotLeft,
 		slotRight: initialSlotRight,
 		strClear,

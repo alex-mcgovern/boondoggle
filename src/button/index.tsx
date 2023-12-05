@@ -116,7 +116,7 @@ export const Button: ButtonComponent = forwardRef(
 			disabled,
 			gap,
 			isLoading,
-			size = "md",
+			size = "sm",
 			slotLeft,
 			slotProps,
 			slotRight,

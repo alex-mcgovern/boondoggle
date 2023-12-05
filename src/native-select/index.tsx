@@ -56,7 +56,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 			labelTooltip,
 			children,
 			name,
-			size = "md",
+			size = "sm",
 			wrapperProps,
 			...rest
 		},

@@ -56,7 +56,7 @@ export const TextArea = forwardRef(
 			labelProps,
 			labelTooltip,
 			name,
-			size = "md",
+			size = "sm",
 			slotLeft,
 			slotRight,
 			wrapperProps,

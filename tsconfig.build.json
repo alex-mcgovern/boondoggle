@@ -18,12 +18,17 @@
         "skipLibCheck": true,
         "strict": true
     },
-	"include": ["src/**/*"],
+	"include": [
+        "src/index.css.ts", 
+        "src/sprinkles/index.css.ts", 
+        "src/icon-flag/*.{ts,tsx}",
+        "src/**/index.{ts,tsx}"
+    ],
 	"exclude": [
 		"src/**/*mock.*",
-		"src/**/*spec.*",
-		"src/**/*stories.*",
-		"src/**/*styles.*",
-		"src/**/*test.*",
+		"src/**/spec.*",
+		"src/**/stories.*",
+		"src/**/styles.css.ts",
+		"src/**/test.*",
 	]
 }
