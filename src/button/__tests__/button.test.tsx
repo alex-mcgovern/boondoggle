@@ -369,12 +369,12 @@ describe("<Button />", () => {
 	});
 
 	describe("`size` prop", () => {
-		test("should have the `md` class name by default", () => {
+		test("should have the `sm` class name by default", () => {
 			const { getByRole } = render(
 				<Button id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantButtonSize.md);
+			expect(getByRole("button")).toHaveClass(variantButtonSize.sm);
 		});
 
 		test("should have the `sm` class name when size = sm", () => {
