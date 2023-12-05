@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { V2InputCurrency as StoryComp } from ".";
-import { FlagEu } from "../icon-flag/eu";
-import { FlagGb } from "../icon-flag/gb";
-import { FlagUs } from "../icon-flag/us";
+import { FlagEu } from "../v2-icon-flag/eu";
+import { FlagGb } from "../v2-icon-flag/gb";
+import { FlagUs } from "../v2-icon-flag/us";
 
 const meta = {
 	title: "Components/V2/InputCurrency",

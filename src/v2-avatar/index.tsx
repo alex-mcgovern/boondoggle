@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import * as React from "react";
 import { Box } from "../box";
 import { avatarCSS } from "./styles.css";
 
@@ -35,38 +35,6 @@ function getInitials({
 	return "";
 }
 
-export type AvatarProps = {
-	/**
-	 * First name of the user.
-	 */
-	firstName?: string;
-
-	/**
-	 * Full name of the user
-	 */
-	fullName?: string;
-
-	/**
-	 * Last name of the user.
-	 */
-	lastName?: string;
-
-	/**
-	 * Size of the avatar.
-	 */
-	size?: number;
-
-	/**
-	 * URL of the avatar image.
-	 */
-	src?: string | null;
-
-	/**
-	 * Controls the appearance of the avatar.
-	 */
-	appearance?: "circle" | "square";
-};
-
 /**
  * Renders an avatar. Falls back to initial letters if no image is provided.
  */
@@ -75,12 +43,23 @@ export function Avatar({
 	fullName,
 	lastName,
 	size = 64,
-	src,
+	imageSrc,
 	appearance = "circle",
-}: AvatarProps) {
-	const initials: string | undefined = useMemo(() => {
-		return getInitials({ firstName, fullName, lastName });
-	}, [firstName, fullName, lastName]);
+}: {
+	firstName?: string;
+	fullName?: string;
+	lastName?: string;
+	size?: number;
+	imageSrc?: string | null;
+	appearance?: "circle" | "square";
+}) {
+	const initials: string | undefined = getInitials({
+		firstName,
+		fullName,
+		lastName,
+	});
+
+	const [src] = React.useState(imageSrc);
 
 	if (src) {
 		return (

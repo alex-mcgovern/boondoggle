@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const WithSrc: Story = {
 	args: {
-		src: MOCK_AVATAR,
+		imageSrc: MOCK_AVATAR,
 	},
 };
 

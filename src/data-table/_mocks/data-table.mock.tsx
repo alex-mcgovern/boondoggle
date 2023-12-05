@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Faker, en } from "@faker-js/faker";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Avatar } from "../../avatar";
+import { Avatar } from "../../v2-avatar";
 import { Box } from "../../box";
 import { Pill } from "../../v2-pill";
 const faker = new Faker({ locale: [en] });
