@@ -15,8 +15,8 @@ import type { DialogModalInnerWidth } from "../dialog-modal/_components/dialog_m
 import { DialogModalOuter } from "../dialog-modal/_components/dialog_modal_outer";
 import { handleHookFormErrors } from "../form/handle_hook_form_errors";
 import { variantColorOverlay } from "../index.css";
-import { FormSubmitButton } from "../v2-form-submit-button";
 import { Loader } from "../loader";
+import { FormSubmitButton } from "../v2-form-submit-button";
 
 export type DialogModalFormProps<
 	TFieldValues extends FieldValues = FieldValues,

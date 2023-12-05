@@ -2,8 +2,8 @@ import clsx from "clsx";
 import * as React from "react";
 import { Button as ReactAriaButton } from "react-aria-components";
 import type { ButtonProps as ReactAriaButtonProps } from "react-aria-components";
-import { buttonCSS } from "./styles.css";
 import { ColorOverlay, variantColorOverlay } from "../index.css";
+import { buttonCSS } from "./styles.css";
 
 export const Button = React.forwardRef(
 	({

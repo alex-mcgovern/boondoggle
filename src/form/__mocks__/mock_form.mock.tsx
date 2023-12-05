@@ -14,8 +14,8 @@ import { FormSlider } from "../../form-slider";
 import { FormTextArea } from "../../form-text-area";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
-import { FormSubmitButton } from "../../v2-form-submit-button";
 import { sprinkles } from "../../sprinkles/index.css";
+import { FormSubmitButton } from "../../v2-form-submit-button";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),

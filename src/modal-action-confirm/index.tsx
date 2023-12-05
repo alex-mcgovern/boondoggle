@@ -6,10 +6,10 @@ import { ButtonProps } from "../button";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
 import { InputProps } from "../input";
+import { sprinkles } from "../sprinkles/index.css";
 import { WithColorOverlay } from "../types";
 import { FormSubmitButton } from "../v2-form-submit-button";
 import { confirmTextCSS } from "./styles.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 const getZodSchema = ({
 	strConfirmText,

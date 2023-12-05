@@ -4,6 +4,7 @@ import { Box } from "../../../../../box";
 import { Form } from "../../../../../form";
 import { FormInput } from "../../../../../form-input";
 import { FormSelectSingle } from "../../../../../form-select-single";
+import { sprinkles } from "../../../../../sprinkles/index.css";
 import { FormSubmitButton } from "../../../../../v2-form-submit-button";
 import type { TableNumberRangeFilterMode } from "../../../../types";
 import { getTableNumberRangeFilterModeItems } from "../_lib/getNumberRangeFilterModeItems";
@@ -12,7 +13,6 @@ import {
 	getZodFilterNumberRange,
 } from "../_lib/zodFilterNumberRange";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
-import { sprinkles } from "../../../../../sprinkles/index.css";
 
 export const FormFilterNumeric = ({
 	currentMax,
