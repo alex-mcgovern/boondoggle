@@ -8,7 +8,7 @@ const meta = {
 		value: 50,
 	},
 	component: StoryComp,
-	title: "Components/ProgressBar",
+	title: "Components/V1/ProgressBar",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

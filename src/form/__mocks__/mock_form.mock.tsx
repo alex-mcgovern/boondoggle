@@ -11,7 +11,7 @@ import { FormInputDate } from "../../form-input-date";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";
 import { FormSelectSingle } from "../../form-select-single";
 import { FormSlider } from "../../form-slider";
-import { FormSubmitButton } from "../../form-submit-button";
+import { FormSubmitButton } from "../../v2-form-submit-button";
 import { FormTextArea } from "../../form-text-area";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";

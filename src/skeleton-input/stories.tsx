@@ -3,7 +3,7 @@ import { SkeletonInput as StoryComp } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/SkeletonInput",
+	title: "Components/V1/SkeletonInput",
 	component: StoryComp,
 	args: {},
 } satisfies Meta<typeof StoryComp>;

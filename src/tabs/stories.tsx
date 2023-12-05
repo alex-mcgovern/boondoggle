@@ -3,7 +3,7 @@ import { Tabs as StoryComp } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/Tabs",
+	title: "Components/V1/Tabs",
 	component: StoryComp,
 	args: {
 		tabs: [

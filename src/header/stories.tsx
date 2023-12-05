@@ -5,7 +5,7 @@ import { Box } from "../box";
 import { Button } from "../button";
 
 const meta = {
-	title: "Components/Header",
+	title: "Components/V1/Header",
 	component: StoryComp,
 	args: {
 		children: (

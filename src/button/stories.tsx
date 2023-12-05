@@ -9,7 +9,7 @@ const meta = {
 		children: "Button",
 	},
 	component: StoryComp,
-	title: "Components/Button",
+	title: "Components/V1/Button",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

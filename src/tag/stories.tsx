@@ -8,7 +8,7 @@ import { Icon } from "../icon";
 
 export default {
 	component: StoryComp,
-	title: "Components/Tag",
+	title: "Components/V1/Tag",
 };
 
 const TemplateSizes: StoryFn<StoryCompProps> = () => {

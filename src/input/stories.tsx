@@ -169,7 +169,7 @@ const meta = {
 	},
 
 	component: StoryComp,
-	title: "Components/Input",
+	title: "Components/V1/Input",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

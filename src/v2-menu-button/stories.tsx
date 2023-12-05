@@ -4,7 +4,7 @@ import { MenuButton as StoryComp } from ".";
 import { Icon } from "../icon";
 
 const meta = {
-	title: "Components/V2MenuButton",
+	title: "Components/V2/MenuButton",
 	component: StoryComp,
 	args: {
 		buttonProps: {

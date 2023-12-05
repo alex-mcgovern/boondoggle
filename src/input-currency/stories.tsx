@@ -24,7 +24,7 @@ const meta = {
 		},
 	},
 	component: StoryComp,
-	title: "Components/InputCurrency",
+	title: "Components/V1/InputCurrency",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

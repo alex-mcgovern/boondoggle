@@ -13,7 +13,7 @@ import { DialogModalAlert } from "./_components/dialog_modal_alert";
 
 export default {
 	component: StoryComp,
-	title: "Components/DialogModal",
+	title: "Components/V1/DialogModal",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {

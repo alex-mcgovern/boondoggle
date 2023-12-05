@@ -9,7 +9,7 @@ import { SkeletonInput } from "../skeleton-input";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/Card",
+	title: "Components/V1/Card",
 	component: StoryComp,
 	args: {
 		children: (

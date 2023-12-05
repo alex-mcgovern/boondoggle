@@ -3,7 +3,7 @@ import { NativeSelect as StoryComp } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/NativeSelect",
+	title: "Components/V1/NativeSelect",
 	component: StoryComp,
 	args: {},
 } satisfies Meta<typeof StoryComp>;

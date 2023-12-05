@@ -14,7 +14,7 @@ const meta = {
 		},
 	},
 	component: StoryComp,
-	title: "Components/SelectButton",
+	title: "Components/V1/SelectButton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

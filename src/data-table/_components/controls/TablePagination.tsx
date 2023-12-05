@@ -1,7 +1,7 @@
 import type { RowData, Table } from "@tanstack/react-table";
 import { Box } from "../../../box";
-import { Button } from "../../../button";
 import { PaginationOptions } from "../../types";
+import { Button } from "../../../v2-button";
 
 export function TablePagination<TRowData extends RowData>({
 	table,
@@ -51,20 +51,20 @@ export function TablePagination<TRowData extends RowData>({
 
 			<Box alignItems="center" display="flex" gap="space_2">
 				<Button
-					size="sm"
 					appearance="secondary"
-					disabled={!table.getCanPreviousPage()}
+					isDisabled={!table.getCanPreviousPage()}
 					name="button_previous_page"
-					onClick={() => table.previousPage()}
+					onPress={() => table.previousPage()}
+					size="sm"
 				>
 					{strPrev}
 				</Button>
 				<Button
-					size="sm"
 					appearance="secondary"
-					disabled={!table.getCanNextPage()}
+					isDisabled={!table.getCanNextPage()}
 					name="button_next_page"
-					onClick={() => table.nextPage()}
+					onPress={() => table.nextPage()}
+					size="sm"
 				>
 					{strNext}
 				</Button>

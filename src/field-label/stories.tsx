@@ -5,7 +5,7 @@ import { LOREM } from "../../mocks/LOREM.mock";
 
 export default {
 	component: StoryComp,
-	title: "Components/FieldLabel",
+	title: "Components/V1/FieldLabel",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {

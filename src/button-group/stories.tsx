@@ -20,7 +20,7 @@ const meta = {
 		),
 	},
 	component: StoryComp,
-	title: "Components/ButtonGroup",
+	title: "Components/V1/ButtonGroup",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

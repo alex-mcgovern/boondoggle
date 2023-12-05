@@ -8,7 +8,7 @@ const meta = {
 		title: LOREM.text_xxs,
 	},
 	component: StoryComp,
-	title: "Components/DialogModalAlert",
+	title: "Components/V1/DialogModalAlert",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

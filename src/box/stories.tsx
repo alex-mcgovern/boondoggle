@@ -10,7 +10,7 @@ import { Sprinkles } from "../sprinkles/index.css";
 
 export default {
 	component: Box,
-	title: "Components/Box",
+	title: "Components/V1/Box",
 };
 
 const Template: StoryFn<BoxProps> = ({

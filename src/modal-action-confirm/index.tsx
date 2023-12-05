@@ -5,7 +5,7 @@ import { Box } from "../box";
 import { ButtonProps } from "../button";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
-import { FormSubmitButton } from "../form-submit-button";
+import { FormSubmitButton } from "../v2-form-submit-button";
 import { InputProps } from "../input";
 import { WithColorOverlay } from "../types";
 import { confirmTextCSS } from "./styles.css";

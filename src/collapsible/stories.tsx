@@ -8,7 +8,7 @@ import { sprinkles } from "../sprinkles/index.css";
 
 export default {
 	component: StoryComp,
-	title: "Components/Collapsible",
+	title: "Components/V1/Collapsible",
 };
 
 const TriggerNode = (

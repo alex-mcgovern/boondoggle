@@ -3,7 +3,7 @@ import { V2Label as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 
 const meta = {
-	title: "Components/V2Label",
+	title: "Components/V2/Label",
 	component: StoryComp,
 	args: {
 		args: {

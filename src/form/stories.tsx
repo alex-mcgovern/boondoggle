@@ -25,7 +25,7 @@ handleErrors.mockImplementation(async (errors) => {
 
 const meta = {
 	component: StoryComp,
-	title: "Components/Form",
+	title: "Components/V1/Form",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

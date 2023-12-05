@@ -1,30 +1,26 @@
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
-import { Button } from "../../../button";
+import { Button } from "../../../v2-button";
 import { Icon } from "../../../icon";
+import { sprinkles } from "../../../sprinkles/index.css";
 
-export type DialogModalCloseButtonProps = {
-	/**
-	 * Callback to close the dialog component.
-	 */
-	closeDialog: () => void;
-};
-
-/**
- * Renders a square close button for a modal dialog.
- */
 export function DialogModalCloseButton({
 	closeDialog,
-}: DialogModalCloseButtonProps) {
+}: {
+	closeDialog: () => void;
+}) {
 	return (
 		<Button
 			appearance="ghost"
 			aria-label="Close"
-			marginLeft="auto"
+			className={sprinkles({
+				justifySelf: "end",
+			})}
 			name="close"
-			onClick={closeDialog}
+			onPress={closeDialog}
 			size="square_md"
-			slotLeft={<Icon icon={faTimes} />}
 			type="button"
-		/>
+		>
+			<Icon icon={faTimes} />
+		</Button>
 	);
 }

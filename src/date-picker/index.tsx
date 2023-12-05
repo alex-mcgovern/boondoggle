@@ -15,10 +15,11 @@ import { forwardRef, useCallback, useState } from "react";
 import type { MouseEvent, Ref } from "react";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { Button } from "../button";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
 import { datePickerRootCSS } from "./styles.css";
+import { Button } from "../v2-button";
+import { sprinkles } from "../sprinkles/index.css";
 
 export function DatePickerYears({
 	onYearClick,
@@ -37,7 +38,9 @@ export function DatePickerYears({
 						appearance={calendarYear.selected ? "primary" : "ghost"}
 						key={calendarYear.year.toString()}
 						name={calendarYear.year.toString()}
-						width="100%"
+						className={sprinkles({
+							width: "100%",
+						})}
 						{...yearButton(calendarYear, {
 							onClick: onYearClick,
 						})}
@@ -140,13 +143,14 @@ export function DatePickerControls({
 					appearance="ghost"
 					name="prev"
 					size="square_md"
-					slotLeft={<Icon icon={faAngleLeft} />}
-				/>
+				>
+					<Icon icon={faAngleLeft} />
+				</Button>
 
 				<Button
 					appearance="ghost"
 					name="toggle_years"
-					onClick={onToggleYears}
+					onPress={onToggleYears}
 				>
 					{isShowingYears ? (
 						<>
@@ -170,8 +174,9 @@ export function DatePickerControls({
 					appearance="ghost"
 					name="next"
 					size="square_md"
-					slotLeft={<Icon icon={faAngleRight} />}
-				/>
+				>
+					<Icon icon={faAngleRight} />
+				</Button>
 			</Box>
 		</Box>
 	);

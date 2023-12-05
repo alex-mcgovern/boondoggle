@@ -32,7 +32,7 @@ const meta = {
 	},
 
 	component: StoryComp,
-	title: "Components/DialogModalActions",
+	title: "Components/V1/DialogModalActions",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

@@ -12,7 +12,7 @@ const meta = {
 		title: LOREM.text_xxs,
 	},
 	component: StoryComp,
-	title: "Components/DialogInfoBullet",
+	title: "Components/V1/DialogInfoBullet",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

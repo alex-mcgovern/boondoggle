@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	args: {},
 	component: StoryComp,
-	title: "Components/LoaderFullScreen",
+	title: "Components/V1/LoaderFullScreen",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

@@ -44,7 +44,9 @@ export const DISABLED = ":is([disabled], [aria-disabled='true'])";
 export const NOT_DISABLED = `:not(${DISABLED})`;
 
 export const HOVER = ":is(:hover,[data-hovered])";
+export const ACTIVE = ":is(:active,[data-pressed])";
 export const FOCUS = ":is(:focus,[data-focused])";
+export const FOCUS_VISIBLE = ":is(:focus-visible,[data-focus-visible])";
 
 export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
 
@@ -446,11 +448,11 @@ export const a11yFocus = style([
 		"@layer": {
 			[themeLayer]: {
 				selectors: {
-					"&:focus:not(:focus-visible)": {
+					[`&${FOCUS}:not(${FOCUS_VISIBLE})`]: {
 						outline: "none",
 					},
 
-					"&:not(:is([disabled], [readonly])):focus-visible": {
+					[`&:not(${DISABLED})${FOCUS_VISIBLE}`]: {
 						...a11yFocusStyleRule,
 					},
 				},

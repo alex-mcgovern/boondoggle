@@ -8,7 +8,7 @@ import { Icon } from "../icon";
 
 export default {
 	component: StoryComp,
-	title: "Components/Pill",
+	title: "Components/V1/Pill",
 };
 
 const TemplateColors: StoryFn<StoryCompProps> = () => {

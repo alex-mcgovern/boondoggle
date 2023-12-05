@@ -7,7 +7,7 @@ const meta = {
 		message: LOREM.errorMessage(),
 	},
 	component: StoryComp,
-	title: "Components/FieldErrorMessage",
+	title: "Components/V1/FieldErrorMessage",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

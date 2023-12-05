@@ -9,7 +9,7 @@ const meta = {
 		},
 	},
 	component: StoryComp,
-	title: "Components/DialogModalCloseButton",
+	title: "Components/V1/DialogModalCloseButton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

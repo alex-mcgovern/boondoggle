@@ -3,7 +3,7 @@ import { Children } from "react";
 import type { ReactNode } from "react";
 import type { useDialogModalState } from "../../../_lib/use-dialog-modal-state";
 import { Box } from "../../../box";
-import { Button } from "../../../button";
+import { Button } from "../../../v2-button";
 import { dialogModalActionsWrapperStyle } from "./styles.css";
 
 export type DialogModalActionsProps = {
@@ -56,7 +56,7 @@ export function DialogModalActions({
 	if (isError && strTryAgain && onClickTryAgain) {
 		return (
 			<Box className={dialogModalActionsWrapperStyle}>
-				<Button name="try_again" onClick={onClickTryAgain}>
+				<Button name="try_again" onPress={onClickTryAgain}>
 					{strTryAgain}
 				</Button>
 			</Box>

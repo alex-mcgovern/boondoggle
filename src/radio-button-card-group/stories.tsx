@@ -12,7 +12,7 @@ const meta = {
 		name: LOREM.name(),
 	},
 	component: StoryComp,
-	title: "Components/RadioButtonCard",
+	title: "Components/V1/RadioButtonCard",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

@@ -37,7 +37,7 @@ const FORM_FIELD_WRAPPER_PROPS: BoxProps = {
 
 export default {
 	component: StoryComp,
-	title: "Components/DialogModalForm",
+	title: "Components/V1/DialogModalForm",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {

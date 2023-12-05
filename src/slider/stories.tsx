@@ -7,7 +7,7 @@ const meta = {
 		name: LOREM.name(),
 	},
 	component: StoryComp,
-	title: "Components/Slider",
+	title: "Components/V1/Slider",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

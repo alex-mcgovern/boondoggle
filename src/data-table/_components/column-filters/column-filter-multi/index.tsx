@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { Box } from "../../../../box";
-import { Button } from "../../../../button";
 import { FilterDialogTitle } from "../base/filter-dialog-title";
 import { FilterPillMenu } from "../base/filter-pill-menu";
 import {
@@ -13,6 +12,8 @@ import {
 	multiFilterItemTextCSS,
 	multiFilterListCSS,
 } from "./styles.css";
+import { Button } from "../../../../v2-button";
+import { sprinkles } from "../../../../sprinkles/index.css";
 
 const ColumnMultiFilterItem = ({
 	defaultChecked,
@@ -167,7 +168,7 @@ export function ColumnMultiFilter<TRowData>({
 
 			<Box paddingX="space_4">
 				<Button
-					onClick={() => {
+					onPress={() => {
 						column.setFilterValue(
 							arrayHasLength(selectedItems)
 								? selectedItems
@@ -175,9 +176,11 @@ export function ColumnMultiFilter<TRowData>({
 						);
 						setIsOpen(false);
 					}}
-					width="100%"
+					className={sprinkles({
+						width: "100%",
+						marginBottom: "space_4",
+					})}
 					size="sm"
-					marginBottom="space_4"
 					name="apply_filter"
 				>
 					{strApplyFilter}

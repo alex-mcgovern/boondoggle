@@ -2,7 +2,7 @@
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import * as React from "react";
 import { Box } from "../box";
-import { Button } from "../button";
+import { Button } from "../v2-button";
 import { Icon } from "../icon";
 import { WithColorOverlay } from "../types";
 import {
@@ -13,6 +13,7 @@ import {
 	modalHeaderCSS,
 	modalTitleCSS,
 } from "./styles.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export function Modal({
 	children,
@@ -73,13 +74,16 @@ export function Modal({
 					<Button
 						appearance="ghost"
 						aria-label="Close"
-						marginLeft="auto"
+						className={sprinkles({
+							marginLeft: "auto",
+						})}
 						name="close"
-						onClick={onDismiss}
+						onPress={onDismiss}
 						size="square_sm"
-						slotLeft={<Icon icon={faTimes} />}
 						type="button"
-					/>
+					>
+						<Icon icon={faTimes} />
+					</Button>
 				</header>
 
 				<div className={modalContentCSS}>{children}</div>

@@ -7,7 +7,7 @@ import { Icon } from "../icon";
 const meta = {
 	args: {},
 	component: Tooltip,
-	title: "Components/Tooltip2",
+	title: "Components/V1/Tooltip2",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;

@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
 	args: {},
 	component: StoryComp,
-	title: "Components/SkeletonCardFields",
+	title: "Components/V1/SkeletonCardFields",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

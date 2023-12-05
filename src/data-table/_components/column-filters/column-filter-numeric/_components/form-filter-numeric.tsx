@@ -4,7 +4,7 @@ import { Box } from "../../../../../box";
 import { Form } from "../../../../../form";
 import { FormInput } from "../../../../../form-input";
 import { FormSelectSingle } from "../../../../../form-select-single";
-import { FormSubmitButton } from "../../../../../form-submit-button";
+import { FormSubmitButton } from "../../../../../v2-form-submit-button";
 import type { TableNumberRangeFilterMode } from "../../../../types";
 import { getTableNumberRangeFilterModeItems } from "../_lib/getNumberRangeFilterModeItems";
 import {
