@@ -25,7 +25,7 @@ export const getTextAreaStyles = recipe({
 		{ resize: "none" },
 	],
 	defaultVariants: {
-		size: "md",
+		size: "sm",
 	},
 	variants: {
 		size,

@@ -180,7 +180,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		h3: "1.75rem", // 28px
 		h4: "1.5rem", // 24px
 		h5: "1.25rem", // 20px
-		h6: "1rem", // 16px
+		h6: "1.125rem", // 18px
 		root: "16px",
 	},
 	fontWeight: {

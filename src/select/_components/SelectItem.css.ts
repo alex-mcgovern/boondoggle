@@ -81,6 +81,6 @@ export const getSelectItemStyles = recipe({
 
 export const isHighlightedStyle = style([
 	{
-		background: vars.color.tint_default,
+		background: vars.color.tint_hover,
 	},
 ]);

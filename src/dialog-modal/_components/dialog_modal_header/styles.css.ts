@@ -1,15 +1,19 @@
 import { style } from "@vanilla-extract/css";
-import { MEDIA_QUERY_MOBILE, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
 export const dialogHeaderStyle = style([
 	sprinkles({
-		alignItems: "center",
-		borderBottom: "border_default",
 		display: "flex",
+		alignItems: "center",
 		justifyContent: "space-between",
+
 		maxWidth: "100%",
-		padding: "space_4",
+
+		paddingLeft: "space_4",
+		paddingRight: "space_2",
+		paddingY: "space_2",
+
+		borderBottom: "border_default",
 	}),
 ]);
 
@@ -17,12 +21,6 @@ export const dialogTitleStyle = style([
 	sprinkles({
 		fontWeight: "semibold",
 		marginY: "none",
+		fontStyle: "bodyLg",
 	}),
-	{
-		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
-				fontSize: vars.fontSize.bodyLg,
-			},
-		},
-	},
 ]);

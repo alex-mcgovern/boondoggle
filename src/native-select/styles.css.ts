@@ -18,7 +18,7 @@ export const selectCSS = recipe({
 		{ resize: "none" },
 	],
 	defaultVariants: {
-		size: "md",
+		size: "sm",
 	},
 	variants: {
 		size: {

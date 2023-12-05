@@ -16,6 +16,7 @@ export function FormInput({
 	onChange,
 	colorOverlay,
 	marginBottom = "space_4",
+	size = "sm",
 	...rest
 }: FormInputProps) {
 	const { control } = useFormContext();
@@ -39,6 +40,7 @@ export function FormInput({
 			errorMessage={error?.message}
 			invalid={invalid || !!error}
 			name={name}
+			size={size}
 			onBlur={onBlur}
 			colorOverlay={invalid || !!error ? "red" : colorOverlay}
 			onChange={(e) => {

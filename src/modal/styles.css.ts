@@ -113,16 +113,20 @@ export const modalCSS = recipe({
 
 export const modalHeaderCSS = style([
 	sprinkles({
-		alignItems: "center",
-		borderBottom: "border_default",
 		display: "flex",
+		alignItems: "center",
 		justifyContent: "space-between",
+
 		maxWidth: "100%",
+
 		paddingLeft: "space_4",
 		paddingRight: "space_2",
 		paddingY: "space_2",
+
 		position: "sticky",
 		top: "0",
+
+		borderBottom: "border_default",
 	}),
 ]);
 

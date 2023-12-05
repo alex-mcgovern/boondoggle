@@ -85,7 +85,7 @@ export const menuItemCSS = recipe({
 					background: vars.color.tint_hover,
 				},
 				[`&${NOT_DISABLED}:is(:active,[data-selected])`]: {
-					background: vars.color.tint_active,
+					background: vars.color.tint_hover,
 				},
 			},
 		},

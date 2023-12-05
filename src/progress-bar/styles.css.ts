@@ -41,7 +41,7 @@ export const progressBarCss = recipe({
 		}),
 	],
 	defaultVariants: {
-		size: "md",
+		size: "sm",
 	},
 	variants: {
 		size,

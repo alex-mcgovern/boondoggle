@@ -76,7 +76,7 @@ const variantAppearance = styleVariants({
 			color: vars.color.text_high_contrast,
 			selectors: {
 				[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
-					background: vars.color.tint_default,
+					background: vars.color.tint_hover,
 				},
 				[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
 					background: vars.color.tint_hover,
@@ -222,7 +222,7 @@ export const getButtonStyles = recipe({
 	defaultVariants: {
 		alignment: "center",
 		appearance: "primary",
-		size: "md",
+		size: "sm",
 	},
 
 	variants: {
