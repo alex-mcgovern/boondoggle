@@ -8,8 +8,8 @@ import {
 	DataTableRowActions,
 	TDataTableRowActions,
 } from "../data-table-row-actions";
-import { Icon } from "../v2-icon";
 import { mockSelectItemsActions } from "../select/__mocks__/select.mock";
+import { Icon } from "../v2-icon";
 import { COLUMNS, MockTableData, mockColumn } from "./_mocks/data-table.mock";
 import { TableNumberRangeFilterMode } from "./types";
 

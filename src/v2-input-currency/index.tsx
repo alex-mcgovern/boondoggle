@@ -5,12 +5,12 @@ import {
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
-import { Icon } from "../v2-icon";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName, WithSize } from "../types";
 import { V2FieldError } from "../v2-field-error";
 import { Group } from "../v2-group";
 import { GroupAddon } from "../v2-group-addon";
+import { Icon } from "../v2-icon";
 import { V2Label } from "../v2-label";
 import { IterableMenuItem } from "../v2-menu";
 import { MenuButton } from "../v2-menu-button";

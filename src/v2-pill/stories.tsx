@@ -1,7 +1,7 @@
-import { Pill } from ".";
-import { Meta, StoryObj } from "@storybook/react";
-import { Icon } from "../v2-icon";
 import { faCircleSmall } from "@fortawesome/pro-solid-svg-icons/faCircleSmall";
+import { Meta, StoryObj } from "@storybook/react";
+import { Pill } from ".";
+import { Icon } from "../v2-icon";
 
 const meta = {
 	title: "Components/V2/Pill",

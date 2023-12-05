@@ -1,7 +1,7 @@
 import type { RowData, Table } from "@tanstack/react-table";
 import { Box } from "../../../box";
-import { PaginationOptions } from "../../types";
 import { Button } from "../../../v2-button";
+import { PaginationOptions } from "../../types";
 
 export function TablePagination<TRowData extends RowData>({
 	table,

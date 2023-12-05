@@ -1,8 +1,8 @@
 import { Button } from ".";
 
+import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { Meta, StoryObj } from "@storybook/react";
 import { Icon } from "../v2-icon";
-import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 
 const meta = {
 	title: "Components/V2/Button",

@@ -1,10 +1,10 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import type { ReactNode } from "react";
+import { ColorOverlay } from "../index.css";
 import { SlotWrapper } from "../slot-wrapper";
 import { sprinkles } from "../sprinkles/index.css";
 import { pillCSS } from "./styles.css";
-import { ColorOverlay } from "../index.css";
 
 export const Pill = ({
 	children,

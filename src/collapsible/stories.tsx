@@ -3,8 +3,8 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 import { Collapsible as StoryComp } from ".";
 import type { CollapsibleProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
-import { Icon } from "../v2-icon";
 import { sprinkles } from "../sprinkles/index.css";
+import { Icon } from "../v2-icon";
 
 export default {
 	component: StoryComp,

@@ -21,7 +21,6 @@ import type {
 	WithStateDisabled,
 } from "../types";
 import { getButtonStyles } from "./styles.css";
-import type { Alignment, Appearance } from "./styles.css";
 
 const getLoadingSlotSide = ({
 	slotLeft,
@@ -49,12 +48,17 @@ type BaseButtonProps<TPolymorphicAs extends ElementType> = Sprinkles &
 				/**
 				 * Controls the horizontal alignment of the button's content.
 				 */
-				alignment?: Alignment;
+				alignment?: "left" | "center";
 
 				/**
 				 * Controls the button's appearance.
 				 */
-				appearance?: Appearance;
+				appearance?:
+					| "primary"
+					| "secondary"
+					| "ghost"
+					| "link"
+					| "navigational";
 
 				/**
 				 * The React node shown in the button.

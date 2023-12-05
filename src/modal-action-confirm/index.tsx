@@ -5,10 +5,11 @@ import { Box } from "../box";
 import { ButtonProps } from "../button";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
-import { FormSubmitButton } from "../v2-form-submit-button";
 import { InputProps } from "../input";
 import { WithColorOverlay } from "../types";
+import { FormSubmitButton } from "../v2-form-submit-button";
 import { confirmTextCSS } from "./styles.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const getZodSchema = ({
 	strConfirmText,
@@ -118,11 +119,12 @@ export const ModalActionConfirm = forwardRef<
 					<FormSubmitButton
 						{...buttonProps}
 						size="sm"
+						className={sprinkles({
+							width: "100%",
+						})}
 						appearance="primary"
 						colorOverlay={colorOverlay}
 						aria-disabled={userConfirmText !== strConfirmText}
-						name="primary_action"
-						width="100%"
 					>
 						{strButtonText}
 					</FormSubmitButton>

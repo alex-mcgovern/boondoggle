@@ -15,11 +15,11 @@ import { forwardRef, useCallback, useState } from "react";
 import type { MouseEvent, Ref } from "react";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { Icon } from "../v2-icon";
 import { variantColorOverlay } from "../index.css";
-import { datePickerRootCSS } from "./styles.css";
-import { Button } from "../v2-button";
 import { sprinkles } from "../sprinkles/index.css";
+import { Button } from "../v2-button";
+import { Icon } from "../v2-icon";
+import { datePickerRootCSS } from "./styles.css";
 
 export function DatePickerYears({
 	onYearClick,

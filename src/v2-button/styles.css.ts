@@ -1,7 +1,14 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
-import { ACTIVE, HOVER, a11yDisabled, a11yFocus, vars } from "../index.css";
+import {
+	ACTIVE,
+	HOVER,
+	a11yDisabled,
+	a11yFocus,
+	variantColorOverlay,
+	vars,
+} from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
@@ -30,6 +37,7 @@ export const buttonCSS = recipe({
 	],
 
 	variants: {
+		colorOverlay: variantColorOverlay,
 		alignment: {
 			center: [
 				sprinkles({ justifyContent: "center", textAlign: "center" }),

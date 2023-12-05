@@ -12,6 +12,7 @@ import {
 	getZodFilterNumberRange,
 } from "../_lib/zodFilterNumberRange";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
+import { sprinkles } from "../../../../../sprinkles/index.css";
 
 export const FormFilterNumeric = ({
 	currentMax,
@@ -176,9 +177,10 @@ export const FormFilterNumeric = ({
 			<Box paddingX="space_4">
 				<FormSubmitButton
 					size="sm"
-					marginBottom="space_4"
-					width="100%"
-					name="apply_filter"
+					className={sprinkles({
+						marginBottom: "space_4",
+						width: "100%",
+					})}
 				>
 					{strApplyFilter}
 				</FormSubmitButton>

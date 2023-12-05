@@ -7,9 +7,9 @@ import userEvent from "@testing-library/user-event";
 import { Button } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import { Link } from "../../../test/link.comp.mock";
-import { Icon } from "../../v2-icon";
 import { variantColorOverlay } from "../../index.css";
-import { getButtonStyles, variantButtonSize } from "../styles.css";
+import { Icon } from "../../v2-icon";
+import { getButtonStyles } from "../styles.css";
 
 describe("<Button />", () => {
 	describe("Basic smoke tests", () => {
@@ -374,7 +374,9 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantButtonSize.sm);
+			expect(getByRole("button")).toHaveClass(
+				getButtonStyles({ size: "sm" }),
+			);
 		});
 
 		test("should have the `sm` class name when size = sm", () => {
@@ -382,7 +384,9 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" size="sm" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantButtonSize.sm);
+			expect(getByRole("button")).toHaveClass(
+				getButtonStyles({ size: "sm" }),
+			);
 		});
 
 		test("should have the `md` class name when size = md", () => {
@@ -390,7 +394,9 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" size="md" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantButtonSize.md);
+			expect(getByRole("button")).toHaveClass(
+				getButtonStyles({ size: "md" }),
+			);
 		});
 
 		test("should have the `lg` class name when size = lg", () => {
@@ -398,7 +404,9 @@ describe("<Button />", () => {
 				<Button id="button" name="Test button" size="lg" />,
 			);
 
-			expect(getByRole("button")).toHaveClass(variantButtonSize.lg);
+			expect(getByRole("button")).toHaveClass(
+				getButtonStyles({ size: "lg" }),
+			);
 		});
 
 		test("should have the `square_md` class name when size = square_md", () => {

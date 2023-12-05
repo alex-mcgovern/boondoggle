@@ -3,9 +3,9 @@ import clsx from "clsx";
 import { Label } from "react-aria-components";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { Icon } from "../v2-icon";
 import { variantColorOverlay } from "../index.css";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
+import { Icon } from "../v2-icon";
 
 /**
  * HTML label element for use with a form field or other labelled element.

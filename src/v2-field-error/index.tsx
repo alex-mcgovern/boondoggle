@@ -5,8 +5,8 @@ import {
 	FieldError as ReactAriaFieldError,
 	FieldErrorProps as ReactAriaFieldErrorProps,
 } from "react-aria-components";
-import { Icon } from "../v2-icon";
 import { variantColorOverlay } from "../index.css";
+import { Icon } from "../v2-icon";
 import { fieldErrorCss } from "./styles.css";
 
 /**

@@ -6,7 +6,6 @@ import { forwardRef, useCallback, useState } from "react";
 import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { Box } from "../../box";
-import { Icon } from "../../v2-icon";
 import { Input } from "../../input";
 import type { InputProps } from "../../input";
 import { WithOptionalInputAddons } from "../../input/InputAddonWrapper";
@@ -23,6 +22,7 @@ import {
 	WithStateInvalid,
 	getOptionalLabelProps,
 } from "../../types";
+import { Icon } from "../../v2-icon";
 import { SelectItemList } from "../_components/select-item-list";
 import { filterSelectItems } from "../_lib/filterSelectItems";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";

@@ -1,6 +1,6 @@
 import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons/faCirclePlus";
-import { Icon } from "../../../../v2-icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../../../tooltip";
+import { Icon } from "../../../../v2-icon";
 import { closeButtonCSS, closeIconCSS } from "./filter-pill-close-button.css";
 
 export const FilterPillCloseButton = ({

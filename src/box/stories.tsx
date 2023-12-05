@@ -4,9 +4,9 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 import { Box, type BoxProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Link } from "../../test/link.comp.mock";
-import { Icon } from "../v2-icon";
 import { variantColorOverlay } from "../index.css";
 import { Sprinkles } from "../sprinkles/index.css";
+import { Icon } from "../v2-icon";
 
 export default {
 	component: Box,

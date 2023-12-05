@@ -3,6 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { Box } from "../../../../box";
+import { sprinkles } from "../../../../sprinkles/index.css";
+import { Button } from "../../../../v2-button";
 import { FilterDialogTitle } from "../base/filter-dialog-title";
 import { FilterPillMenu } from "../base/filter-pill-menu";
 import {
@@ -12,8 +14,6 @@ import {
 	multiFilterItemTextCSS,
 	multiFilterListCSS,
 } from "./styles.css";
-import { Button } from "../../../../v2-button";
-import { sprinkles } from "../../../../sprinkles/index.css";
 
 const ColumnMultiFilterItem = ({
 	defaultChecked,

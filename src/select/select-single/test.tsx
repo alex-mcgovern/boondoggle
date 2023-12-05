@@ -8,8 +8,8 @@ import { SelectSingle } from ".";
 import type { SelectSingleProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
-import { Icon } from "../../v2-icon";
 import { a11yError, variantColorOverlay } from "../../index.css";
+import { Icon } from "../../v2-icon";
 import {
 	mockSelectItems,
 	mockSelectItemsGrouped,

@@ -11,10 +11,11 @@ import { FormInputDate } from "../../form-input-date";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";
 import { FormSelectSingle } from "../../form-select-single";
 import { FormSlider } from "../../form-slider";
-import { FormSubmitButton } from "../../v2-form-submit-button";
 import { FormTextArea } from "../../form-text-area";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
+import { FormSubmitButton } from "../../v2-form-submit-button";
+import { sprinkles } from "../../sprinkles/index.css";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),
@@ -123,7 +124,13 @@ export const mockForm = ({
 					name="radio"
 					wrapperProps={WRAPPER_PROPS}
 				/>
-				<FormSubmitButton width="100%">Submit</FormSubmitButton>
+				<FormSubmitButton
+					className={sprinkles({
+						width: "100%",
+					})}
+				>
+					Submit
+				</FormSubmitButton>
 			</>
 		),
 		handleErrors,

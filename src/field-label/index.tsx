@@ -1,7 +1,7 @@
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { Box } from "../box";
-import { Icon } from "../v2-icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
+import { Icon } from "../v2-icon";
 
 import type { BoxProps } from "../box";
 

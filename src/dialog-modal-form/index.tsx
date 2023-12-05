@@ -13,9 +13,10 @@ import { DialogModalHeader } from "../dialog-modal/_components/dialog_modal_head
 import { DialogModalInner } from "../dialog-modal/_components/dialog_modal_inner";
 import type { DialogModalInnerWidth } from "../dialog-modal/_components/dialog_modal_inner/styles.css";
 import { DialogModalOuter } from "../dialog-modal/_components/dialog_modal_outer";
-import { FormSubmitButton } from "../v2-form-submit-button";
 import { handleHookFormErrors } from "../form/handle_hook_form_errors";
 import { variantColorOverlay } from "../index.css";
+import { FormSubmitButton } from "../v2-form-submit-button";
+import { Loader } from "../loader";
 
 export type DialogModalFormProps<
 	TFieldValues extends FieldValues = FieldValues,
@@ -190,7 +191,8 @@ function BaseDialogModalForm<TFieldValues extends FieldValues = FieldValues>(
 						{!isError && (
 							<DialogModalActions
 								actions={
-									<FormSubmitButton isLoading={isLoading}>
+									<FormSubmitButton>
+										{isLoading ? <Loader /> : null}
 										{formSubmitButtonText}
 									</FormSubmitButton>
 								}
