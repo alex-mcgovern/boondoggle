@@ -21,8 +21,9 @@
 	"include": [
         "src/index.css.ts", 
         "src/sprinkles/index.css.ts", 
-        "src/icon-flag/*.{ts,tsx}",
-        "src/**/index.{ts,tsx}"
+        "src/icon-flag/*.tsx",
+        "src/**/index.tsx",
+        "src/**/index.ts"
     ],
 	"exclude": [
 		"src/**/*mock.*",
