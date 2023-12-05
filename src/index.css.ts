@@ -12,13 +12,13 @@ import {
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
+	assignVars,
 	createGlobalTheme,
 	globalLayer,
 	globalStyle,
 	keyframes,
 	style,
 	styleVariants,
-	assignVars,
 } from "@vanilla-extract/css";
 import { makeTheme, withPrefersMotion } from "./css-utils";
 
@@ -262,20 +262,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100%": "100%",
 		"100vw": "100vw",
 		auto: "auto",
-		col_1: "8.33333333%",
-		col_2: "16.66666666%",
-		col_3: "24.99999999%",
-		col_4: "33.33333332%",
-		col_5: "41.66666665%",
-		col_6: "49.99999998%",
-		col_7: "58.33333331%",
-		col_8: "66.66666664%",
-		col_9: "74.99999997%",
-		col_10: "83.3333333%",
-		col_11: "91.66666663%",
-		col_12: "100%",
-		main_lg: "90rem",
-		main_md: "60rem",
+		main_lg: "75rem",
+		main_md: "55.5rem",
 		main_sm: "30rem",
 		"max-content": "max-content",
 		"min-content": "min-content",

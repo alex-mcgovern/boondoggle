@@ -36,7 +36,7 @@
 	},
 	"scripts": {
 		"=== BUILD ===": "",
-		"build": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup",
+		"build": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup && tsc src/**/*.{ts,tsx} --declaration --emitDeclarationOnly",
 		"prebuild": "rm -rf dist/*",
 		"=== BUILD (OLD) ===": "",
 		"build:dev": "rm -rf lib && tsup --watch",

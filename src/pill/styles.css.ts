@@ -1,46 +1,30 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { withPrefersMotion } from "../css-utils";
-import {
-	SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS,
-	a11yFocus,
-	variantColorOverlay,
-	vars,
-} from "../index.css";
+import { variantColorOverlay } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const pillCSS = recipe({
 	base: [
 		sprinkles({
+			background: "tint_hover",
+			color: "text_low_contrast",
+
 			display: "inline-flex",
-			fontSize: "bodySm",
 			alignItems: "center",
 			justifyContent: "center",
-			background: "tint_default",
-			borderRadius: "pill",
-			color: "text_low_contrast",
-			flexShrink: "0",
+
+			fontSize: "bodySm",
 			fontWeight: "medium",
-			textDecoration: "none",
+			flexShrink: "0",
 			whiteSpace: "nowrap",
-			paddingX: "space_1",
-			paddingY: "space_1",
+
 			height: "space_6",
 			minWidth: "space_6",
+
+			paddingX: "space_1",
+			paddingY: "space_1",
+
+			borderRadius: "pill",
 		}),
-		a11yFocus,
-		withPrefersMotion({
-			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
-		}),
-		{
-			selectors: {
-				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-					background: vars.color.tint_hover,
-				},
-				"&:active": {
-					background: vars.color.tint_active,
-				},
-			},
-		},
 	],
 
 	variants: {
