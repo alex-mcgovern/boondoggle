@@ -5,22 +5,29 @@ import type { ButtonProps as ReactAriaButtonProps } from "react-aria-components"
 import { ColorOverlay, variantColorOverlay } from "../index.css";
 import { buttonCSS } from "./styles.css";
 
-export const Button = React.forwardRef(
-	({
-		alignment = "center",
-		appearance = "secondary",
-		className,
-		size = "sm",
-		colorOverlay,
-		...rest
-	}: ReactAriaButtonProps & {
+export const Button = React.forwardRef<
+	HTMLButtonElement,
+	ReactAriaButtonProps & {
 		colorOverlay?: ColorOverlay;
 		alignment?: "left" | "center";
 		appearance?: "primary" | "secondary" | "ghost";
 		size?: "lg" | "md" | "sm" | "square_md" | "square_sm" | "square_xs";
-	}) => {
+	}
+>(
+	(
+		{
+			alignment = "center",
+			appearance = "secondary",
+			className,
+			size = "sm",
+			colorOverlay,
+			...rest
+		},
+		ref,
+	) => {
 		return (
 			<ReactAriaButton
+				ref={ref}
 				className={clsx(
 					className,
 					colorOverlay

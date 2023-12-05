@@ -101,7 +101,7 @@ export function ColumnMultiFilter<TRowData>({
 				return (
 					<Box
 						as="span"
-						key={v}
+						key={v ?? i}
 						className={activeFilterStringCSS}
 						color="button_default"
 					>
@@ -128,14 +128,14 @@ export function ColumnMultiFilter<TRowData>({
 			return [];
 		}
 
-		return facetKeys.sort().map((v) => {
+		return facetKeys.sort().map((v, i) => {
 			return (
 				<ColumnMultiFilterItem
 					handleSelection={handleSelection}
 					label={
 						transformValueToString ? transformValueToString(v) : v
 					}
-					key={v}
+					key={v ?? i}
 					value={v}
 					defaultChecked={currentFilters?.includes(v)}
 				/>
