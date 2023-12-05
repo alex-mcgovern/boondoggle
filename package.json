@@ -36,7 +36,8 @@
 	},
 	"scripts": {
 		"=== BUILD ===": "",
-		"build": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup && tsc src/**/*.{ts,tsx} --declaration --emitDeclarationOnly",
+		"build": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup && tsc src/**/*.{ts,tsx} --declaration --emitDeclarationOnly --outDir \"./dist\"",
+		"build-types": "tsc --project tsconfig.build.json  --declaration --emitDeclarationOnly --outDir \"./dist\"",
 		"prebuild": "rm -rf dist/*",
 		"=== BUILD (OLD) ===": "",
 		"build:dev": "rm -rf lib && tsup --watch",

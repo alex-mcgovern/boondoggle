@@ -5,7 +5,7 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { RadioButtonGroup } from ".";
-import { RADIO_BUTTONS_MOCK } from "./mocks";
+import { RADIO_BUTTONS_MOCK } from "./mock";
 
 import type { RadioButtonGroupProps } from ".";
 

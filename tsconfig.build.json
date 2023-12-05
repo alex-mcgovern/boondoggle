@@ -1,6 +1,29 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": { "rootDir": "src" },
-	"include": ["./src/**/*"],
-	"exclude": ["**/*.(test|mock|stories|spec).*"]
+	"compilerOptions": {
+        // "incremental": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "importHelpers": true,
+        "jsx": "react-jsx",
+        "lib": ["dom", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist",
+		"rootDir": "src",
+        "skipLibCheck": true,
+        "strict": true
+    },
+	"include": ["src/**/*"],
+	"exclude": [
+		"src/**/*mock.*",
+		"src/**/*spec.*",
+		"src/**/*stories.*",
+		"src/**/*styles.*",
+		"src/**/*test.*",
+	]
 }

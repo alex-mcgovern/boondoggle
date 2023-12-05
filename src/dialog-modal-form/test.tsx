@@ -12,7 +12,7 @@ import { FormInput } from "../form-input";
 import { FormRadioButtonGroup } from "../form-radio-button-group";
 import { FormSelectSingle } from "../form-select-single";
 import { FormTextArea } from "../form-text-area";
-import { RADIO_BUTTONS_MOCK } from "../radio-button-group/mocks";
+import { RADIO_BUTTONS_MOCK } from "../radio-button-group/mock";
 import { mockSelectItems } from "../select/__mocks__/select.mock";
 
 import type { DialogModalFormProps } from ".";
