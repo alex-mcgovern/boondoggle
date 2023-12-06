@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-        // "incremental": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
@@ -30,6 +29,6 @@
 		"src/**/spec.*",
 		"src/**/stories.*",
 		"src/**/styles.css.ts",
-		"src/**/test.*",
+		"src/**/test.*"
 	]
 }
