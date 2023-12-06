@@ -43,7 +43,9 @@ export function Modal({
 	const onKeyDown = (
 		e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent,
 	) => {
-		if (e.key === "Escape") {onDismiss()};
+		if (e.key === "Escape") {
+			onDismiss();
+		}
 	};
 
 	React.useEffect(() => {

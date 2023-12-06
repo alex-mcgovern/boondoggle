@@ -115,7 +115,7 @@ export const tabCountCSS = style([
 		lineHeight: "0.625rem",
 		background: vars.color.button_tint,
 		...withPrefersMotion({
-			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		}),
 	},
 ]);

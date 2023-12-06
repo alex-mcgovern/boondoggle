@@ -51,7 +51,7 @@ export const closeIconCSS = style([
 	sprinkles({ fontStyle: "bodyLg", width: "space_4", height: "space_4" }),
 	{
 		...withPrefersMotion({
-			animation: `${rotateInKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+			animation: `${rotateInKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		}),
 	},
 ]);

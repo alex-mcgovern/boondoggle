@@ -173,6 +173,9 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 	fontFamily: {
 		body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
 	},
+	ease: {
+		quart_in_out: "cubic-bezier(0.76, 0, 0.24, 1)",
+	},
 	fontSize: {
 		bodyLg: "1rem", // 16px
 		bodyMd: "0.875rem", // 14px
@@ -211,14 +214,14 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 	height: {
 		"": "0",
 		"25%": "25%",
-		"25vh": "25vh",
+		"25dvh": "25dvh",
 		"50%": "50%",
-		"50vh": "50vh",
+		"50dvh": "50dvh",
 		"75%": "75%",
-		"75vh": "75vh",
-		"90vh": "90vh",
+		"75dvh": "75dvh",
+		"90dvh": "90dvh",
 		"100%": "100%",
-		"100vh": "100vh",
+		"100dvh": "100dvh",
 		auto: "auto",
 		"min-content": "min-content",
 		topBar: "3rem",
@@ -288,7 +291,7 @@ const fadeInKeyframes = keyframes({
 
 export const animateFadeIn = style([
 	withPrefersMotion({
-		animation: `${fadeInKeyframes} ${vars.transitionDuration.short} ease forwards`,
+		animation: `${fadeInKeyframes} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 	}),
 ]);
 
@@ -299,7 +302,7 @@ const slideUpKeyframes = keyframes({
 
 export const animateSlideUp = style([
 	withPrefersMotion({
-		animation: `${slideUpKeyframes} ${vars.transitionDuration.medium} ease forwards`,
+		animation: `${slideUpKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 	}),
 ]);
 

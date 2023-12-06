@@ -42,7 +42,7 @@ export const getDialogModalOuterStyle = recipe({
 				"&::backdrop": {
 					background: vars.color.backdrop,
 					...withPrefersMotion({
-						animation: `${fadeInBackdropKeyframes} ${vars.transitionDuration.long} ease forwards`,
+						animation: `${fadeInBackdropKeyframes} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
 					}),
 				},
 				"&:focus": { outline: "none" },

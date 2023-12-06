@@ -19,10 +19,10 @@ export const collapsibleContentAnimation = style({
 	overflow: "hidden",
 	selectors: {
 		'&[data-state="closed"]': {
-			animation: `${close} ${vars.transitionDuration.medium} ease forwards`,
+			animation: `${close} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		},
 		'&[data-state="open"]': {
-			animation: `${open} ${vars.transitionDuration.medium} ease forwards`,
+			animation: `${open} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		},
 	},
 });
