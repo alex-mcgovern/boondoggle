@@ -32,6 +32,7 @@ export const modalOverlayCSS = recipe({
 		}),
 		{
 			minHeight: "100dvh",
+			minWidth: "100vw",
 			position: "fixed",
 			inset: "0",
 			zIndex: 10,
