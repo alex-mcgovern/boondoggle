@@ -69,18 +69,23 @@ export const V2DialogFooter = ({ children }: { children: React.ReactNode }) => {
 export const V2Dialog = ({
 	buttonProps,
 	colorOverlay,
+	dialogTriggerProps,
 	width = "sm",
 	children,
 	modalProps,
 }: {
 	buttonProps: React.ComponentProps<typeof Button>;
 	colorOverlay?: ColorOverlay;
+	dialogTriggerProps?: Omit<
+		React.ComponentProps<typeof ReactAriaDialogTrigger>,
+		"children"
+	>;
 	width?: "sm" | "lg";
 	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
 	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
 }) => {
 	return (
-		<ReactAriaDialogTrigger>
+		<ReactAriaDialogTrigger {...dialogTriggerProps}>
 			<Button {...buttonProps} />
 			<ReactAriaModalOverlay className={modalOverlayCSS}>
 				<ReactAriaModal
