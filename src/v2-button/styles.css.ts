@@ -127,6 +127,13 @@ export const buttonCSS = recipe({
 					paddingY: "space_1",
 				}),
 			],
+			xs: [
+				sprinkles({
+					height: "space_6",
+					paddingX: "space_3",
+					paddingY: "space_0",
+				}),
+			],
 			square_md: [
 				sprinkles({
 					aspectRatio: "square",
