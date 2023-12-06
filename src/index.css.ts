@@ -1020,6 +1020,8 @@ globalStyle("menu", {
 globalStyle("p", {
 	"@layer": {
 		[baseLayer]: {
+			fontSize: vars.fontSize.bodySm,
+			lineHeight: vars.lineHeight.bodySm,
 			marginBottom: vars.spacing.space_2,
 			overflowWrap: "break-word",
 		},
