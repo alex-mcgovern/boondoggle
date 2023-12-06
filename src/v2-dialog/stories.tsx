@@ -1,13 +1,13 @@
+import { faker } from "@faker-js/faker";
+import { Meta, StoryObj } from "@storybook/react";
 import {
 	V2Dialog as StoryComp,
 	V2DialogFooter,
 	V2DialogHeader,
 	V2ScrollableDialogContent,
 } from ".";
-import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../v2-button";
 import { sprinkles } from "../sprinkles/index.css";
-import { faker } from "@faker-js/faker";
+import { Button } from "../v2-button";
 
 const meta = {
 	title: "Components/V2/Dialog",

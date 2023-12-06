@@ -47,7 +47,7 @@ export const FormFilterNumeric = ({
 	return (
 		<Form<FieldValuesFilterNumberRange>
 			name="filter_number_range"
-			handleSubmit={function (fieldValues) {
+			handleSubmit={(fieldValues) => {
 				setParentFilterMode(fieldValues.filter_mode);
 				switch (fieldValues.filter_mode) {
 					case "is_between": {

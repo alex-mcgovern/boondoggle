@@ -1,3 +1,4 @@
+import { faTimes } from "@fortawesome/pro-solid-svg-icons";
 import {
 	Dialog as ReactAriaDialog,
 	DialogTrigger as ReactAriaDialogTrigger,
@@ -5,6 +6,10 @@ import {
 	Modal as ReactAriaModal,
 	ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
+import { ColorOverlay } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
+import { Button } from "../v2-button";
+import { Icon } from "../v2-icon";
 import {
 	dialogCSS,
 	dialogContentCSS,
@@ -14,11 +19,6 @@ import {
 	modalCSS,
 	modalOverlayCSS,
 } from "./styles.css";
-import { ColorOverlay } from "../index.css";
-import { Button } from "../v2-button";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons";
-import { sprinkles } from "../sprinkles/index.css";
-import { Icon } from "../v2-icon";
 
 /**
  * Wrapper to render the dialog header.
