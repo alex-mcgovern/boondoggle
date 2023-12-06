@@ -6,8 +6,8 @@ import type { DialogModalProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
-import { DialogInfoBullet } from "../dialog-info-bullet";
 import { ConfirmedAction } from "../confirmed-action";
+import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../v2-icon";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
 

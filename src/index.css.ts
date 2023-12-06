@@ -1003,7 +1003,7 @@ globalStyle("ul li, ol li", {
 globalStyle("ul li::marker, ol li::marker", {
 	"@layer": {
 		[baseLayer]: {
-			color: vars.color.button_default,
+			color: vars.color.text_low_contrast,
 			fontWeight: vars.fontWeight.semibold,
 		},
 	},

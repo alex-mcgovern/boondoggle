@@ -157,7 +157,7 @@ export const dialogCSS = style([
 				maxHeight: "100dvh",
 			},
 			[MEDIA_QUERY_TABLET]: {
-				minHeight: "50dvh",
+				// minHeight: "50dvh",
 				maxHeight: "75dvh",
 			},
 		},
