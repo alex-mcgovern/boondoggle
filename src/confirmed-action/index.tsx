@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { forwardRef, useState } from "react";
 import { z } from "zod";
 import { Box } from "../box";
-import { ButtonProps } from "../button";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
 import { InputProps } from "../input";
@@ -24,7 +23,7 @@ const getZodSchema = ({
 	});
 };
 
-export const ModalActionConfirm = forwardRef<
+export const ConfirmedAction = forwardRef<
 	HTMLDivElement,
 	WithColorOverlay & {
 		/**
@@ -35,12 +34,12 @@ export const ModalActionConfirm = forwardRef<
 		/**
 		 * Additional props to customise the confirm button.
 		 */
-		buttonProps?: Omit<ButtonProps, "onClick">;
+		buttonProps?: Omit<React.ComponentProps<typeof FormSubmitButton>, "onPress">;
 
 		/**
 		 * The callback when the user confirms the action.
 		 */
-		onClick?: ButtonProps["onClick"];
+		onConfirmed?: (() => unknown) | (() => Promise<unknown>);
 
 		/**
 		 * The string shown when the field fails validation.
@@ -76,7 +75,7 @@ export const ModalActionConfirm = forwardRef<
 			colorOverlay,
 			strInvalid,
 			strConfirmText,
-			onClick,
+			onConfirmed,
 			strPromptPrefix,
 			strPromptSuffix,
 		},
@@ -96,7 +95,7 @@ export const ModalActionConfirm = forwardRef<
 
 				<Form
 					handleSubmit={() => {
-						onClick();
+						onConfirmed?.();
 					}}
 					name="modal_action_confirmation"
 					resolver={zodResolver(

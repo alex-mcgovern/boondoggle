@@ -7,7 +7,7 @@ import { DialogModal } from ".";
 import "../../test/mocked_dependencies/dialog.mock";
 
 import type { DialogModalProps } from ".";
-import { ModalActionConfirm } from "../modal-action-confirm";
+import { ConfirmedAction } from "../confirmed-action";
 
 const renderComponent = async (props: DialogModalProps) => {
 	const dialogRef = createRef<HTMLDialogElement>();
@@ -51,12 +51,12 @@ describe("<DialogModal />", () => {
 			test("should render without throwing", async () => {
 				const { container } = await renderComponent({
 					actions: (
-						<ModalActionConfirm
+						<ConfirmedAction
 							strButtonText="Remove team member"
 							colorOverlay="red"
 							strConfirmText="remove team member"
 							strInvalid="The text you have entered is incorrect"
-							onClick={() => {
+							onConfirmed={() => {
 								alert("clicked");
 							}}
 							strPromptPrefix="Please type"

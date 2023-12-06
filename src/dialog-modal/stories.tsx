@@ -7,7 +7,7 @@ import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Button } from "../button";
 import { DialogInfoBullet } from "../dialog-info-bullet";
-import { ModalActionConfirm } from "../modal-action-confirm";
+import { ConfirmedAction } from "../confirmed-action";
 import { Icon } from "../v2-icon";
 import { DialogModalAlert } from "./_components/dialog_modal_alert";
 
@@ -219,10 +219,10 @@ export const With2Actions: StoryObj<StoryCompProps> = {
 export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 	args: {
 		actions: (
-			<ModalActionConfirm
+			<ConfirmedAction
 				strButtonText="Freeze account"
 				strConfirmText="freeze account"
-				onClick={() => {
+				onConfirmed={() => {
 					alert("Confirmed");
 				}}
 				strInvalid="The text you have entered is incorrect"
@@ -242,11 +242,11 @@ export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
 	{
 		args: {
 			actions: (
-				<ModalActionConfirm
+				<ConfirmedAction
 					strButtonText="Freeze account"
 					colorOverlay="red"
 					strConfirmText="freeze account"
-					onClick={() => {
+					onConfirmed={() => {
 						alert("Confirmed");
 					}}
 					strInvalid="The text you have entered is incorrect"
