@@ -11,7 +11,7 @@ export const Button = React.forwardRef<
 		colorOverlay?: ColorOverlay;
 		alignment?: "left" | "center";
 		appearance?: "primary" | "secondary" | "ghost";
-		size?: "lg" | "md" | "sm" | "square_md" | "square_sm" | "square_xs";
+		size?: "lg" | "md" | "sm" | "xs" | "square_md" | "square_sm" | "square_xs";
 	}
 >(
 	(
