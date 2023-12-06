@@ -993,6 +993,8 @@ globalStyle("ul, ol", {
 globalStyle("ul li, ol li", {
 	"@layer": {
 		[baseLayer]: {
+			fontSize: vars.fontSize.bodyMd,
+			lineHeight: vars.lineHeight.bodyMd,
 			marginBottom: 0,
 		},
 	},
@@ -1020,8 +1022,8 @@ globalStyle("menu", {
 globalStyle("p", {
 	"@layer": {
 		[baseLayer]: {
-			fontSize: vars.fontSize.bodySm,
-			lineHeight: vars.lineHeight.bodySm,
+			fontSize: vars.fontSize.bodyMd,
+			lineHeight: vars.lineHeight.bodyMd,
 			marginBottom: vars.spacing.space_2,
 			overflowWrap: "break-word",
 		},
