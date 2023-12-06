@@ -23,32 +23,41 @@ const kfModalOverlayOut = keyframes({
 	"100%": { opacity: 0 },
 });
 
-export const modalOverlayCSS = style([
-	sprinkles({
-		display: "flex",
-		placeItems: "center",
-		background: "backdrop",
-	}),
-	{
-		minHeight: "100dvh",
-		position: "fixed",
-		inset: "0",
-		zIndex: 10,
+export const modalOverlayCSS = recipe({
+	base: [
+		sprinkles({
+			display: "flex",
+			placeItems: "center",
+			background: "backdrop",
+		}),
+		{
+			minHeight: "100dvh",
+			position: "fixed",
+			inset: "0",
+			zIndex: 10,
 
-		selectors: {
-			"&[data-entering]": {
-				...withPrefersMotion({
-					animation: `${kfModalOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-				}),
-			},
-			"&[data-exiting]": {
-				...withPrefersMotion({
-					animation: `${kfModalOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-				}),
+			...withPrefersMotion({
+				transition: `opacity ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+			}),
+
+			selectors: {
+				"&[data-entering]": {
+					...withPrefersMotion({
+						animation: `${kfModalOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					}),
+				},
+				"&[data-exiting]": {
+					...withPrefersMotion({
+						animation: `${kfModalOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					}),
+				},
 			},
 		},
+	],
+	variants: {
+		colorOverlay: variantColorOverlay,
 	},
-]);
+});
 
 /** -----------------------------------------------------------------------------
  * MODAL
