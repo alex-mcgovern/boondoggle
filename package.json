@@ -23,10 +23,10 @@
 			"require": "./dist/sprinkles/index.css.js",
 			"types": "./dist/sprinkles/index.css.d.ts"
 		},
-		"./icon-flag/*": {
-			"import": "./dist/icon-flag/*.js",
-			"require": "./dist/icon-flag/*.js",
-			"types": "./dist/sprinkles/*.d.ts"
+		"./v2-icon-flag/*": {
+			"import": "./dist/v2-icon-flag/*.js",
+			"require": "./dist/v2-icon-flag/*.js",
+			"types": "./dist/v2-icon-flag/*.d.ts"
 		},
 		"./*": {
 			"import": "./dist/*/index.js",
