@@ -188,6 +188,7 @@ export const dialogTitleCSS = style([
 		fontWeight: "semibold",
 		marginY: "none",
 		fontStyle: "bodyLg",
+		color: "text_high_contrast",
 	}),
 ]);
 

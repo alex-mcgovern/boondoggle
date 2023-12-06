@@ -91,7 +91,7 @@ export const V2Dialog = ({
 }) => {
 	return (
 		<ReactAriaDialogTrigger {...dialogTriggerProps}>
-			<Button {...buttonProps} />
+			{buttonProps ? <Button {...buttonProps} /> : null}
 			<ReactAriaModalOverlay
 				className={modalOverlayCSS({ colorOverlay })}
 				{...modalOverlayProps}
