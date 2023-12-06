@@ -36,7 +36,7 @@
 	},
 	"scripts": {
 		"=== BUILD ===": "",
-		"build": "concurrently -n JS,DTS -c \"bgGreen.bold,bgBlue.bold\" \"npm:build-js\"",
+		"build": "concurrently -n JS,DTS -c \"bgGreen.bold,bgBlue.bold\" \"npm:build-js\" \"npm:build-types\"",
 		"build-js": "NODE_OPTIONS=\"--max-old-space-size=16384\" tsup",
 		"build-types": "tsc --project tsconfig.build.json  --declaration --emitDeclarationOnly --outDir \"./dist\"",
 		"prebuild": "npm run check",
