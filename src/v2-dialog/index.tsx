@@ -73,6 +73,7 @@ export const V2Dialog = ({
 	width = "sm",
 	children,
 	modalProps,
+	modalOverlayProps,
 }: {
 	buttonProps: React.ComponentProps<typeof Button>;
 	colorOverlay?: ColorOverlay;
@@ -83,12 +84,17 @@ export const V2Dialog = ({
 	width?: "sm" | "lg";
 	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
 	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
+	modalOverlayProps?: Omit<
+		React.ComponentProps<typeof ReactAriaModalOverlay>,
+		"className"
+	>;
 }) => {
 	return (
 		<ReactAriaDialogTrigger {...dialogTriggerProps}>
 			<Button {...buttonProps} />
 			<ReactAriaModalOverlay
 				className={modalOverlayCSS({ colorOverlay })}
+				{...modalOverlayProps}
 			>
 				<ReactAriaModal
 					className={modalCSS({ colorOverlay, width })}

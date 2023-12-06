@@ -13,7 +13,7 @@ const meta = {
 	title: "Components/V2/Dialog",
 	component: StoryComp,
 	args: {
-		modalProps: {
+		modalOverlayProps: {
 			isDismissable: true,
 		},
 		buttonProps: {
