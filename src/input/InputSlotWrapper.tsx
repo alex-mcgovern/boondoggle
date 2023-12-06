@@ -64,9 +64,9 @@ export const InputSlotWrapper = React.forwardRef<
 	) => {
 		const handleClick = React.useCallback(
 			(e: React.MouseEvent<HTMLElement>) => {
+				e.stopPropagation();
 				focus();
 				onClick?.(e as React.MouseEvent<HTMLInputElement>);
-				e.stopPropagation();
 			},
 			[focus, onClick],
 		);

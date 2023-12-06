@@ -17,7 +17,7 @@ export const Button = React.forwardRef<
 	(
 		{
 			alignment = "center",
-			appearance = "secondary",
+			appearance = "primary",
 			className,
 			size = "sm",
 			colorOverlay,

@@ -34,25 +34,22 @@ export function Modal({
 	const overlay = React.useRef(null);
 	const wrapper = React.useRef(null);
 
-	const onClick: React.MouseEventHandler = React.useCallback(
-		(e) => {
-			if (e.target === overlay.current || e.target === wrapper.current) {
-				if (onDismiss) onDismiss();
-			}
-		},
-		[onDismiss, overlay, wrapper],
-	);
+	const onClick: React.MouseEventHandler = (e) => {
+		if (e.target === overlay.current || e.target === wrapper.current) {
+			if (onDismiss) onDismiss();
+		}
+	};
+
+	const onKeyDown = (
+		e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent,
+	) => {
+		if (e.key === "Escape") {onDismiss()};
+	};
 
 	React.useEffect(() => {
-		const onKeyDown = (
-			e: React.KeyboardEvent<HTMLDivElement> | KeyboardEvent,
-		) => {
-			if (e.key === "Escape") onDismiss();
-		};
-
 		document.addEventListener("keydown", onKeyDown);
 		return () => document.removeEventListener("keydown", onKeyDown);
-	}, [onDismiss]);
+	}, [onKeyDown]);
 
 	return (
 		<div
