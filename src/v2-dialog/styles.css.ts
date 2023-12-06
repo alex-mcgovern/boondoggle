@@ -68,7 +68,7 @@ export const modalCSS = recipe({
 		sprinkles({
 			// padding: "space_4",
 			background: "background",
-			width: "100%",
+			// width: "100%",
 			borderRadius: "md",
 			border: "border_default",
 			boxShadow: "lg",
@@ -90,6 +90,9 @@ export const modalCSS = recipe({
 			},
 		},
 	],
+	defaultVariants: {
+		width: "lg",
+	},
 	variants: {
 		colorOverlay: variantColorOverlay,
 		width: {
@@ -131,9 +134,6 @@ export const dialogCSS = style([
 	sprinkles({
 		position: "relative",
 
-		minHeight: "50dvh",
-		maxHeight: "75dvh",
-
 		// Use flex to allow footer element to
 		// stick to bottom of container
 		display: "flex",
@@ -145,6 +145,10 @@ export const dialogCSS = style([
 			[MEDIA_QUERY_MOBILE]: {
 				height: "100vh",
 				maxHeight: "100dvh",
+			},
+			[MEDIA_QUERY_TABLET]: {
+				minHeight: "50dvh",
+				maxHeight: "75dvh",
 			},
 		},
 	},
