@@ -11,33 +11,30 @@ import { sprinkles } from "../sprinkles/index.css";
 export const getTagStyle = recipe({
 	base: [
 		sprinkles({
-			fontStyle: "bodySm",
 			alignItems: "center",
-			background: "tint_default",
-			borderRadius: "md",
-			color: "text_low_contrast",
 			display: "inline-flex",
-			flexShrink: "0",
 			gap: "space_1",
-			paddingX: "space_2",
-			paddingY: "space_1",
+			flexShrink: "0",
+
+			width: "max-content",
+
+			borderRadius: "md",
+
+			fontStyle: "bodySm",
 			textDecoration: "none",
 			whiteSpace: "nowrap",
-			width: "max-content",
+
+			color: "text_low_contrast",
+			background: "tint_hover",
+
+			paddingX: "space_2",
+			paddingY: "space_1",
 		}),
 		a11yFocus,
 		withPrefersMotion({
 			transition: `ease ${vars.transitionDuration.short} ease`,
 			transitionProperty: "color, background-color, border-color",
 		}),
-		{
-			selectors: {
-				[SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS]: {
-					background: vars.color.tint_active,
-					color: vars.color.text_high_contrast,
-				},
-			},
-		},
 	],
 
 	variants: {
