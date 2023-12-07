@@ -59,11 +59,6 @@ export type DataTableProps<TRowData extends RowData> =
 		initialSorting?: SortingState;
 
 		/**
-		 * Whether the data is loading or not.
-		 */
-		isLoading?: boolean;
-
-		/**
 		 * Whether the table should be sortable and show sorting controls
 		 */
 		isSortable?: boolean;
@@ -100,11 +95,10 @@ export type DataTableProps<TRowData extends RowData> =
  */
 export function DataTable<TRowData extends RowData>({
 	actions,
-	columns: initColumns,
+	columns,
 	data,
 	enableMultiRowSelection = false,
 	initialSorting,
-	isLoading,
 	isSelectable,
 	gridTemplateColumns,
 	isSortable,
@@ -118,10 +112,9 @@ export function DataTable<TRowData extends RowData>({
 	const { table } = useDataTableState({
 		data,
 		enableMultiRowSelection,
-		initColumns,
+		columns,
 		initialSorting,
 		filteringOptions,
-		isLoading,
 		columnVisibility,
 		paginationOptions,
 		isSelectable,
@@ -139,7 +132,6 @@ export function DataTable<TRowData extends RowData>({
 					<TableGlobalFilter<TRowData>
 						table={table}
 						filteringOptions={filteringOptions}
-						disabled={isLoading}
 					/>
 				}
 				columnFilters={

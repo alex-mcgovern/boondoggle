@@ -1,4 +1,3 @@
-import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import {
 	Row,
 	VisibilityState,
@@ -22,10 +21,7 @@ import type {
 import { useCallback, useMemo, useState } from "react";
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { TDataTableRowActions } from "../../data-table-row-actions";
-import { Skeleton } from "../../skeleton";
-import { Button } from "../../v2-button";
 import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
-import { Icon } from "../../v2-icon";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
@@ -52,9 +48,8 @@ type UseDataTableStateProps<TRowData extends RowData> = {
 	data: Array<TRowData> | undefined;
 	enableMultiRowSelection: boolean | undefined;
 	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
-	initColumns: Array<ColumnDef<TRowData, any>>;
+	columns: Array<ColumnDef<TRowData, any>>;
 	initialSorting: SortingState | undefined;
-	isLoading: boolean | undefined;
 	isSelectable: boolean | undefined;
 	isSortable: boolean | undefined;
 	onSelect: ((selection: TRowData[] | undefined) => void) | undefined;
@@ -70,9 +65,8 @@ export function useDataTableState<TRowData extends RowData>({
 	data,
 	enableMultiRowSelection,
 	columnVisibility,
-	initColumns,
+	columns: initColumns,
 	initialSorting,
-	isLoading,
 	paginationOptions,
 	filteringOptions,
 	isSelectable,
@@ -121,63 +115,28 @@ export function useDataTableState<TRowData extends RowData>({
 				  ]
 				: []),
 
-			// The original columns array
-			...(isLoading
-				? initColumns.map((initColumn) => {
-						return {
-							...initColumn,
-							cell: () => {
-								return <Skeleton />;
-							},
-						};
-				  })
-				: initColumns),
+			...initColumns,
 
 			// If the table has row action items, add a column for
 			// the dropdown menu at the end of the columns array
 			...(RowActions
 				? [
-						isLoading
-							? columnHelper.display({
-									cell: () => {
-										return (
-											<Button
-												isDisabled
-												size="square_md"
-												appearance="secondary"
-											>
-												<Icon icon={faEllipsis} />
-											</Button>
-										);
-									},
-									id: "actions",
-									header: () => null,
-									filterFn: () => true,
-							  })
-							: columnHelper.display({
-									cell: ({ row }) => {
-										return (
-											<RowActions
-												row_data={row.original}
-											/>
-										);
-									},
-									id: "actions",
-									header: () => null,
-									filterFn: () => true,
-							  }),
+						columnHelper.display({
+							cell: ({ row }) => {
+								return <RowActions row_data={row.original} />;
+							},
+							id: "actions",
+							header: () => null,
+							filterFn: () => true,
+						}),
 				  ]
 				: []),
 		];
-	}, [RowActions, columnHelper, initColumns, isLoading, isSelectable]);
-
-	const tableData = useMemo(() => {
-		return isLoading ? Array(25).fill({}) : data;
-	}, [isLoading, data]);
+	}, [RowActions, columnHelper, isSelectable, initColumns]);
 
 	const table = useReactTable<TRowData>({
 		columns,
-		data: tableData || [],
+		data: data || [],
 		getCoreRowModel: getCoreRowModel(),
 		getFacetedRowModel: getFacetedRowModel(),
 		getFacetedUniqueValues: getFacetedUniqueValues(),

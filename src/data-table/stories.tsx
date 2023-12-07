@@ -127,13 +127,6 @@ export const Default: Story = {
 	},
 };
 
-export const IsLoading: Story = {
-	args: {
-		isLoading: true,
-		strNoResults: "No results",
-	},
-};
-
 export const IsPaginated: Story = {
 	args: {
 		paginationOptions: {
