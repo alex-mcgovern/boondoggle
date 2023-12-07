@@ -1,18 +1,20 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
-import { a11yFocus, vars } from "../index.css";
+import { HOVER, a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const toastRegionCSS = style([
 	sprinkles({
 		display: "flex",
 		flexDirection: "column",
+		alignItems: "start",
 		gap: "space_2",
 	}),
 	{
 		position: "fixed",
-		bottom: vars.spacing.space_2,
-		right: vars.spacing.space_2,
+		bottom: vars.spacing.space_4,
+		// right: vars.spacing.space_4,
+		left: vars.spacing.space_4,
 		outline: "none",
 	},
 ]);
@@ -44,7 +46,7 @@ export const toastCSS = style([
 		border: "border_default",
 		borderRadius: "md",
 
-		background: "tint_default",
+		background: "background",
 		color: "text_low_contrast",
 		boxShadow: "md",
 	}),
@@ -59,6 +61,26 @@ export const toastCSS = style([
 				...withPrefersMotion({
 					animation: `${kfToastOut} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
 				}),
+			},
+		},
+	},
+]);
+
+export const toastCloseButtonCSS = style([
+	sprinkles({
+		width: "space_8",
+		height: "space_8",
+		borderRadius: "md",
+		color: "white",
+		marginLeft: "auto",
+	}),
+	{
+		...withPrefersMotion({
+			transition: `background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+		}),
+		selectors: {
+			[`&${HOVER}`]: {
+				background: vars.color.text_low_contrast,
 			},
 		},
 	},
