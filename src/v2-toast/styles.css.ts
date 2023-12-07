@@ -7,14 +7,14 @@ export const toastRegionCSS = style([
 	sprinkles({
 		display: "flex",
 		flexDirection: "column",
-		alignItems: "start",
+		alignItems: "center",
 		gap: "space_2",
 	}),
 	{
 		zIndex: 10,
 		position: "fixed",
 		bottom: vars.spacing.space_4,
-		// right: vars.spacing.space_4,
+		right: vars.spacing.space_4,
 		left: vars.spacing.space_4,
 		outline: "none",
 	},
@@ -40,15 +40,13 @@ export const toastCSS = style([
 		gap: "space_4",
 		alignItems: "center",
 
-		paddingLeft: "space_4",
-		paddingRight: "space_2",
-		paddingY: "space_2",
+		padding: "space_4",
 
 		border: "border_default",
 		borderRadius: "md",
 
-		background: "background",
-		color: "text_low_contrast",
+		background: "black",
+		color: "white",
 		boxShadow: "md",
 	}),
 	{
@@ -77,7 +75,7 @@ export const toastCloseButtonCSS = style([
 	}),
 	{
 		...withPrefersMotion({
-			transition: `background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+			transition: `background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, color ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
 		}),
 		selectors: {
 			[`&${HOVER}`]: {
@@ -90,14 +88,14 @@ export const toastCloseButtonCSS = style([
 export const toastTitleCSS = style([
 	sprinkles({
 		fontWeight: "semibold",
-		color: "text_low_contrast",
+		color: "white",
 		fontStyle: "bodyMd",
 	}),
 ]);
 
 export const toastDescriptionCSS = style([
 	sprinkles({
-		color: "text_low_contrast",
+		color: "white",
 		fontStyle: "bodyMd",
 	}),
 ]);

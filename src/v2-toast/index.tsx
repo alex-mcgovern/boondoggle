@@ -11,6 +11,7 @@ import { Button } from "../v2-button";
 import { Icon } from "../v2-icon";
 import {
 	toastCSS,
+	toastCloseButtonCSS,
 	toastDescriptionCSS,
 	toastRegionCSS,
 	toastTitleCSS,
@@ -89,14 +90,14 @@ function Toast({
 					</div>
 				) : null}
 			</div>
-			<Button
-				className={sprinkles({ marginLeft: "auto" })}
-				size="square_sm"
-				appearance="ghost"
+			<button
+				type="button"
+				name="close_toast"
+				className={toastCloseButtonCSS}
 				{...closeButtonProps}
 			>
 				<Icon icon={faTimes} />
-			</Button>
+			</button>
 		</div>
 	);
 }
