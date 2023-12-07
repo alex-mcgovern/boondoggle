@@ -11,6 +11,7 @@ export const toastRegionCSS = style([
 		gap: "space_2",
 	}),
 	{
+		zIndex: 10,
 		position: "fixed",
 		bottom: vars.spacing.space_4,
 		// right: vars.spacing.space_4,
