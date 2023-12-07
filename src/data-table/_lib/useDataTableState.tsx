@@ -1,3 +1,4 @@
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import {
 	Row,
 	VisibilityState,
@@ -22,13 +23,12 @@ import { useCallback, useMemo, useState } from "react";
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { TDataTableRowActions } from "../../data-table-row-actions";
 import { Skeleton } from "../../skeleton";
+import { Button } from "../../v2-button";
 import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
+import { Icon } from "../../v2-icon";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
-import { Button } from "../../v2-button";
-import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
-import { Icon } from "../../v2-icon";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,

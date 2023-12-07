@@ -1,6 +1,6 @@
 import { Box } from "../box";
-import { Skeleton } from "../skeleton";
 import { tableCellCSS, tableHeaderCellCSS } from "../data-table/styles.css";
+import { Skeleton } from "../skeleton";
 
 function random(min: number, max: number) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
