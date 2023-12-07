@@ -194,7 +194,9 @@ export function DataTable<TRowData extends RowData>({
 								</div>
 							))}
 							{RowActions ? (
-								<RowActions row_data={row.original} />
+								<div className={tableCellCSS}>
+									<RowActions row_data={row.original} />
+								</div>
 							) : null}
 						</React.Fragment>
 					))}
