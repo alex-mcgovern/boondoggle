@@ -23,14 +23,13 @@ export const toastRegionCSS = style([
 const kfToastIn = keyframes({
 	"0%": {
 		opacity: 0,
-		maxHeight: 0,
-		transform: `translateY(${vars.spacing.space_4})`,
+		transform: "scale(0.99)",
 	},
-	"100%": { opacity: 1, maxHeight: "100vh" },
+	"100%": { opacity: 1 },
 });
 const kfToastOut = keyframes({
-	"0%": { opacity: 1, maxHeight: "100vh" },
-	"100%": { opacity: 0, transform: "scale(0.99)", maxHeight: 0 },
+	"0%": { opacity: 1 },
+	"100%": { opacity: 0, transform: "scale(0.99)" },
 });
 
 export const toastCSS = style([
@@ -56,16 +55,17 @@ export const toastCSS = style([
 					animation: `${kfToastIn} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
-			"&[data-animation=exiting]": {
-				...withPrefersMotion({
-					animation: `${kfToastOut} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
-				}),
-			},
+			// "&[data-animation=exiting]": {
+			// 	...withPrefersMotion({
+			// 		animation: `${kfToastOut} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
+			// 	}),
+			// },
 		},
 	},
 ]);
 
 export const toastCloseButtonCSS = style([
+	a11yFocus,
 	sprinkles({
 		width: "space_8",
 		height: "space_8",

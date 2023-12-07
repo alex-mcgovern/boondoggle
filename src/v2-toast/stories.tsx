@@ -31,22 +31,11 @@ const meta = {
 					onPress={() =>
 						state.add(
 							{
-								icon: faker.helpers.arrayElement([
-									<Icon
-										className={variantColorOverlay.green}
-										color="text_low_contrast"
-										icon={faCircleCheck}
-									/>,
-									<Icon
-										className={variantColorOverlay.amber}
-										color="text_low_contrast"
-										icon={faWarning}
-									/>,
-									<Icon
-										className={variantColorOverlay.red}
-										color="text_low_contrast"
-										icon={faExclamationCircle}
-									/>,
+								level: faker.helpers.arrayElement([
+									"info",
+									"success",
+									"warning",
+									"error",
 								]),
 								title: faker.lorem.sentence(3),
 								description: faker.lorem.sentence(7),

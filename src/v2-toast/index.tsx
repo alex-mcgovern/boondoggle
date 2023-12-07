@@ -14,11 +14,18 @@ import {
 	toastRegionCSS,
 	toastTitleCSS,
 } from "./styles.css";
+import { Button as ReactAriaButton } from "react-aria-components";
+import { variantColorOverlay } from "../index.css";
+import { faCircleCheck } from "@fortawesome/pro-solid-svg-icons/faCircleCheck";
+import { faWarning } from "@fortawesome/pro-solid-svg-icons/faWarning";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
+import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
 
 type ToastContent = {
 	title: string;
 	description?: string;
-	icon?: React.ReactNode;
+	level: "info" | "success" | "warning" | "error";
 };
 
 const ToastContext = React.createContext<ToastState<ToastContent> | null>(null);
@@ -51,6 +58,47 @@ function ToastRegion({
 	);
 }
 
+const getToastIcon = (level: Required<ToastContent["level"]>) => {
+	switch (level) {
+		case "info":
+			return (
+				<Icon
+					className={variantColorOverlay.blue}
+					color="focus_ring"
+					icon={faInfoCircle}
+				/>
+			);
+		case "success":
+			return (
+				<Icon
+					className={variantColorOverlay.green}
+					color="focus_ring"
+					icon={faCircleCheck}
+				/>
+			);
+		case "warning":
+			return (
+				<Icon
+					className={variantColorOverlay.amber}
+					color="focus_ring"
+					icon={faWarning}
+				/>
+			);
+		case "error":
+			return (
+				<Icon
+					className={variantColorOverlay.red}
+					color="focus_ring"
+					icon={faExclamationCircle}
+				/>
+			);
+
+		default: {
+			return exhaustiveSwitchGuard(level);
+		}
+	}
+};
+
 function Toast({
 	state,
 	...props
@@ -65,16 +113,16 @@ function Toast({
 		<div
 			className={toastCSS}
 			{...toastProps}
-			data-animation={props.toast.animation}
-			onAnimationEnd={() => {
-				// Remove the toast when the exiting animation completes.
-				if (props.toast.animation === "exiting") {
-					state.remove(props.toast.key);
-				}
-			}}
+			// data-animation={props.toast.animation}
+			// onAnimationEnd={() => {
+			// 	// Remove the toast when the exiting animation completes.
+			// 	if (props.toast.animation === "exiting") {
+			// 		state.remove(props.toast.key);
+			// 	}
+			// }}
 			ref={ref}
 		>
-			{props.toast.content.icon ? props.toast.content.icon : null}
+			{getToastIcon(props.toast.content.level)}
 			<div>
 				{props.toast.content.title ? (
 					<div className={toastTitleCSS} {...titleProps}>
@@ -88,14 +136,14 @@ function Toast({
 					</div>
 				) : null}
 			</div>
-			<button
+			<ReactAriaButton
 				type="button"
 				name="close_toast"
 				className={toastCloseButtonCSS}
 				{...closeButtonProps}
 			>
 				<Icon icon={faTimes} />
-			</button>
+			</ReactAriaButton>
 		</div>
 	);
 }
@@ -106,7 +154,7 @@ export function ToastProvider({
 }: AriaToastRegionProps & { children?: React.ReactNode }) {
 	const state = useToastState<ToastContent>({
 		maxVisibleToasts: 5,
-		hasExitAnimation: true,
+		// hasExitAnimation: true,
 	});
 
 	return (
