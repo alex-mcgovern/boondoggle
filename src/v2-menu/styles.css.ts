@@ -15,7 +15,7 @@ import {
 import { sprinkles } from "../sprinkles/index.css";
 
 const menuRadius = vars.borderRadius.md;
-const menuPadding = vars.spacing["space_0.5"];
+const menuPadding = vars.spacing.space_1;
 
 const itemInset = calc.multiply(menuPadding, 2);
 const itemRadius = calc.subtract(menuRadius, menuPadding);
