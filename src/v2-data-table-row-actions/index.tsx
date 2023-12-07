@@ -11,11 +11,11 @@ export type TV2DataTableRowActions<TData extends RowData> =
 		row_data: TData;
 	}>;
 
-export function V2DataTableRowActions({
+export function V2DataTableRowActions<TActionId extends string>({
 	menuProps,
-}: Omit<React.ComponentProps<typeof MenuButton>, "buttonProps">) {
+}: Omit<React.ComponentProps<typeof MenuButton<TActionId>>, "buttonProps">) {
 	return (
-		<MenuButton
+		<MenuButton<TActionId>
 			menuProps={menuProps}
 			popoverProps={{
 				placement: "bottom end",

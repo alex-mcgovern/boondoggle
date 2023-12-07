@@ -7,9 +7,9 @@ import {
 	type MenuProps as ReactAriaMenuProps,
 	Section as ReactAriaSection,
 } from "react-aria-components";
+import { ColorOverlay } from "../index.css";
 import { WithSize } from "../types";
 import { menuCSS, menuHeaderCSS, menuItemCSS } from "./styles.css";
-import { ColorOverlay } from "../index.css";
 
 type SingleMenuItem<TItemId extends string = string> = {
 	children?: never;
