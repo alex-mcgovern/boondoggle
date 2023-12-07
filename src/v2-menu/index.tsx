@@ -9,21 +9,22 @@ import {
 } from "react-aria-components";
 import { WithSize } from "../types";
 import { menuCSS, menuHeaderCSS, menuItemCSS } from "./styles.css";
+import { ColorOverlay } from "../index.css";
+
+type SingleMenuItem<TItemId extends string = string> = {
+	children?: never;
+	id: TItemId;
+	name: string;
+	description?: string;
+	colorOverlay?: ColorOverlay;
+	slotLeft?: React.ReactNode;
+};
 
 export type IterableMenuItem<TItemId extends string = string> =
+	| SingleMenuItem
 	| {
-			children?: never;
-			id: TItemId;
-			name: string;
-			slotLeft?: React.ReactNode;
-	  }
-	| {
-			children: Array<{
-				id: TItemId;
-				name: string;
-				slotLeft?: React.ReactNode;
-				children?: never;
-			}>;
+			colorOverlay?: never;
+			children: Array<SingleMenuItem<TItemId>>;
 			id: string;
 			name: string;
 			slotLeft?: never;
@@ -56,7 +57,10 @@ function BaseMenu<TItemId extends string = string>(
 						<ReactAriaCollection items={item.children}>
 							{(childItem) => (
 								<ReactAriaMenuItem
-									className={menuItemCSS({ size })}
+									className={menuItemCSS({
+										size,
+										colorOverlay: childItem.colorOverlay,
+									})}
 								>
 									{childItem.slotLeft}
 									{childItem.name}
@@ -65,7 +69,12 @@ function BaseMenu<TItemId extends string = string>(
 						</ReactAriaCollection>
 					</ReactAriaSection>
 				) : (
-					<ReactAriaMenuItem className={menuItemCSS({ size })}>
+					<ReactAriaMenuItem
+						className={menuItemCSS({
+							size,
+							colorOverlay: item.colorOverlay,
+						})}
+					>
 						{item.slotLeft}
 						{item.name}
 					</ReactAriaMenuItem>
