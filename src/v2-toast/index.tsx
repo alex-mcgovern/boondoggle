@@ -52,7 +52,7 @@ function ToastRegion({
 	return (
 		<div {...regionProps} ref={ref} className={toastRegionCSS}>
 			{state.visibleToasts.map((toast) => (
-				<Toast key={toast.key} toast={toast} state={state} />
+				<Toast key={toast.content.title} toast={toast} state={state} />
 			))}
 		</div>
 	);
@@ -113,13 +113,13 @@ function Toast({
 		<div
 			className={toastCSS}
 			{...toastProps}
-			// data-animation={props.toast.animation}
-			// onAnimationEnd={() => {
-			// 	// Remove the toast when the exiting animation completes.
-			// 	if (props.toast.animation === "exiting") {
-			// 		state.remove(props.toast.key);
-			// 	}
-			// }}
+			data-animation={props.toast.animation}
+			onAnimationEnd={() => {
+				// Remove the toast when the exiting animation completes.
+				if (props.toast.animation === "exiting") {
+					state.remove(props.toast.key);
+				}
+			}}
 			ref={ref}
 		>
 			{getToastIcon(props.toast.content.level)}
@@ -153,8 +153,8 @@ export function ToastProvider({
 	...props
 }: AriaToastRegionProps & { children?: React.ReactNode }) {
 	const state = useToastState<ToastContent>({
-		maxVisibleToasts: 5,
-		// hasExitAnimation: true,
+		maxVisibleToasts: 3,
+		hasExitAnimation: true,
 	});
 
 	return (

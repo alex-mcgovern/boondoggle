@@ -2,6 +2,7 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 export const toastRegionCSS = style([
 	sprinkles({
@@ -22,14 +23,22 @@ export const toastRegionCSS = style([
 
 const kfToastIn = keyframes({
 	"0%": {
+		zIndex: 1,
 		opacity: 0,
-		transform: "scale(0.99)",
+		transform: `translateY(${vars.spacing.space_4})`,
 	},
 	"100%": { opacity: 1 },
 });
 const kfToastOut = keyframes({
-	"0%": { opacity: 1 },
-	"100%": { opacity: 0, transform: "scale(0.99)" },
+	"0%": { opacity: 1, position: "absolute", bottom: "100%" },
+	"100%": {
+		opacity: 0,
+		transform: `translateY(${vars.spacing.space_4})`,
+	},
+});
+const kfToastNoAnim = keyframes({
+	"0%": {},
+	"100%": {},
 });
 
 export const toastCSS = style([
@@ -50,16 +59,21 @@ export const toastCSS = style([
 	}),
 	{
 		selectors: {
-			"&[data-animation=entering]": {
+			"&:last-child[data-animation=entering]": {
 				...withPrefersMotion({
-					animation: `${kfToastIn} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfToastIn} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards `,
 				}),
 			},
-			// "&[data-animation=exiting]": {
-			// 	...withPrefersMotion({
-			// 		animation: `${kfToastOut} ${vars.transitionDuration.long} ${vars.ease.quart_in_out} forwards`,
-			// 	}),
-			// },
+			"&:last-child[data-animation=exiting]": {
+				...withPrefersMotion({
+					animation: `${kfToastOut} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
+				}),
+			},
+			"&:not(:last-child)[data-animation=exiting]": {
+				...withPrefersMotion({
+					animation: `${kfToastNoAnim} 0 ${vars.ease.quart_in_out} forwards`,
+				}),
+			},
 		},
 	},
 ]);

@@ -28,7 +28,7 @@ const meta = {
 			<>
 				<Button
 					appearance="secondary"
-					onPress={() =>
+					onPress={() => {
 						state.add(
 							{
 								level: faker.helpers.arrayElement([
@@ -41,8 +41,8 @@ const meta = {
 								description: faker.lorem.sentence(7),
 							},
 							{ timeout: 5000 },
-						)
-					}
+						);
+					}}
 				>
 					Show toast
 				</Button>
