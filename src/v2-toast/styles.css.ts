@@ -1,8 +1,8 @@
 import { keyframes, style } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { calc } from "@vanilla-extract/css-utils";
 
 export const toastRegionCSS = style([
 	sprinkles({

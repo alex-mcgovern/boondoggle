@@ -1,4 +1,8 @@
+import { faCircleCheck } from "@fortawesome/pro-solid-svg-icons/faCircleCheck";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
+import { faWarning } from "@fortawesome/pro-solid-svg-icons/faWarning";
 import type { AriaToastRegionProps } from "@react-aria/toast";
 import { useToastRegion } from "@react-aria/toast";
 import type { AriaToastProps } from "@react-aria/toast";
@@ -6,6 +10,9 @@ import { useToast } from "@react-aria/toast";
 import { useToastState } from "@react-stately/toast";
 import type { ToastState } from "@react-stately/toast";
 import * as React from "react";
+import { Button as ReactAriaButton } from "react-aria-components";
+import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
+import { variantColorOverlay } from "../index.css";
 import { Icon } from "../v2-icon";
 import {
 	toastCSS,
@@ -14,13 +21,6 @@ import {
 	toastRegionCSS,
 	toastTitleCSS,
 } from "./styles.css";
-import { Button as ReactAriaButton } from "react-aria-components";
-import { variantColorOverlay } from "../index.css";
-import { faCircleCheck } from "@fortawesome/pro-solid-svg-icons/faCircleCheck";
-import { faWarning } from "@fortawesome/pro-solid-svg-icons/faWarning";
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
-import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
 
 type ToastContent = {
 	title: string;

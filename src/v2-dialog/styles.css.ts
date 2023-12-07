@@ -2,7 +2,6 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
-	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
 	variantColorOverlay,
@@ -82,6 +81,7 @@ export const modalCSS = recipe({
 			borderRadius: "md",
 			border: "border_default",
 			boxShadow: "lg",
+			maxWidth: "100vw",
 		}),
 		{
 			outline: "none",
@@ -112,9 +112,6 @@ export const modalCSS = recipe({
 						width: "100vw",
 					},
 					[MEDIA_QUERY_TABLET]: {
-						width: "40rem",
-					},
-					[MEDIA_QUERY_DESKTOP]: {
 						width: "50rem",
 					},
 				},
@@ -125,9 +122,6 @@ export const modalCSS = recipe({
 						width: "100vw",
 					},
 					[MEDIA_QUERY_TABLET]: {
-						width: "20rem",
-					},
-					[MEDIA_QUERY_DESKTOP]: {
 						width: "30rem",
 					},
 				},

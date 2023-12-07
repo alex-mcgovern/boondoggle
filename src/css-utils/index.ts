@@ -37,8 +37,7 @@ export const makeTheme = ({
 		text_high_contrast: step(secondary, isOverlay ? 11 : 12),
 
 		background: step(secondary, 1),
-		backdrop: 11,
-		shadow: step(alpha, 2),
+		backdrop: step(alpha, 11),
 
 		border_default: step(secondary, isOverlay ? 6 : 5),
 		border_active: step(secondary, isOverlay ? 7 : 6),
