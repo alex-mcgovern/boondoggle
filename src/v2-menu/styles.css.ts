@@ -24,9 +24,12 @@ const itemHeightLg = calc.subtract(elementHeight.lg, itemInset);
 const itemHeightMd = calc.subtract(elementHeight.md, itemInset);
 const itemHeightSm = calc.subtract(elementHeight.sm, itemInset);
 
-const itemPaddingXLg = calc.subtract(elementPaddingRaw.lg.x, itemInset);
-const itemPaddingXMd = calc.subtract(elementPaddingRaw.md.x, itemInset);
-const itemPaddingXSm = calc.subtract(elementPaddingRaw.sm.x, itemInset);
+// const itemPaddingXLg = calc.subtract(elementPaddingRaw.lg.x, itemInset);
+const itemPaddingXLg = elementPaddingRaw.lg.x;
+// const itemPaddingXMd = calc.subtract(elementPaddingRaw.md.x, itemInset);
+const itemPaddingXMd = elementPaddingRaw.md.x;
+// const itemPaddingXSm = calc.subtract(elementPaddingRaw.sm.x, itemInset);
+const itemPaddingXSm = elementPaddingRaw.sm.x;
 
 export const menuCSS = style([
 	animateFadeIn,
