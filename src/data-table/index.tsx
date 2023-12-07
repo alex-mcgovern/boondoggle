@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
 	ColumnDef,
 	FilterFn,
@@ -7,6 +6,7 @@ import {
 	VisibilityState,
 	flexRender,
 } from "@tanstack/react-table";
+import * as React from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { TDataTableRowActions } from "../data-table-row-actions";
