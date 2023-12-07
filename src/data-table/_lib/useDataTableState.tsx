@@ -22,10 +22,10 @@ import { useCallback, useMemo, useState } from "react";
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { TDataTableRowActions } from "../../data-table-row-actions";
 import { Skeleton } from "../../skeleton";
+import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
-import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,

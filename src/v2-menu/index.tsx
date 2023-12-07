@@ -63,6 +63,7 @@ function BaseMenu<TItemId extends string = string>(
 										size,
 										colorOverlay: childItem.colorOverlay,
 									})}
+									href={childItem.href}
 								>
 									{childItem.slotLeft}
 									{childItem.name}
@@ -76,6 +77,7 @@ function BaseMenu<TItemId extends string = string>(
 							size,
 							colorOverlay: item.colorOverlay,
 						})}
+						href={item.href}
 					>
 						{item.slotLeft}
 						{item.name}
