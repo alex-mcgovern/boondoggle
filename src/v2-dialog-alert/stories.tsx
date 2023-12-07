@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DialogModalAlert as StoryComp } from ".";
-import { LOREM } from "../../../../mocks/LOREM.mock";
+import { V2DialogAlert as StoryComp } from ".";
+import { LOREM } from "../../mocks/LOREM.mock";
 
 const meta = {
 	args: {
@@ -8,7 +8,7 @@ const meta = {
 		title: LOREM.text_xxs,
 	},
 	component: StoryComp,
-	title: "Components/V1/DialogModalAlert",
+	title: "Components/V2/V2DialogAlert",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

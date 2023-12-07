@@ -8,6 +8,7 @@ import {
 } from ".";
 import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../v2-button";
+import { V2DialogAlert } from "../v2-dialog-alert";
 
 const meta = {
 	title: "Components/V2/Dialog",
@@ -65,5 +66,44 @@ export const WidthSm: Story = {
 export const WidthLg: Story = {
 	args: {
 		width: "lg",
+	},
+};
+
+export const WithDialogAlert: Story = {
+	args: {
+		children: ({ close }) => (
+			<>
+				<V2DialogHeader close={close} title="Dialog Title" />
+				<V2DialogAlert
+					colorOverlay="red"
+					description="This is a description for the alert"
+					title="This is an alert"
+				/>
+				<V2ScrollableDialogContent>
+					<>
+						<p>
+							A modal dialog component powered by{" "}
+							<a href="https://react-spectrum.adobe.com/react-aria/Dialog.html">
+								React Aria Components
+							</a>
+						</p>
+						{Array.from({ length: 10 }, () => {
+							return <p>{faker.lorem.paragraphs(1)}</p>;
+						})}
+					</>
+				</V2ScrollableDialogContent>
+				<V2DialogFooter>
+					<Button
+						className={sprinkles({ width: "100%" })}
+						onPress={() => {
+							alert("Confirmed");
+							close();
+						}}
+					>
+						Confirm
+					</Button>
+				</V2DialogFooter>
+			</>
+		),
 	},
 };

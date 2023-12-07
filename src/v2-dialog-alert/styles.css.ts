@@ -1,17 +1,20 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { variantColorOverlay } from "../../../index.css";
-import { sprinkles } from "../../../sprinkles/index.css";
+import { variantColorOverlay } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
-export const getDialogModalAlertWrapperStyles = recipe({
+export const dialogAlertWrapperCSS = recipe({
 	base: [
 		sprinkles({
-			alignItems: "center",
+			display: "flex",
+			alignItems: "start",
+
 			background: "tint_default",
 			borderBottom: "border_default",
-			display: "flex",
-			gap: "space_4",
-			padding: "space_4",
+			gap: "space_2",
+
+			paddingX: "space_4",
+			paddingY: "space_2",
 		}),
 	],
 	variants: {
@@ -19,10 +22,11 @@ export const getDialogModalAlertWrapperStyles = recipe({
 	},
 });
 
-export const dialogModalAlertSlotStyle = style([
+export const dialogAlertSlotCSS = style([
 	sprinkles({
 		color: "text_low_contrast",
 		flexShrink: "0",
+		marginY: "space_1",
 		width: "space_4",
 	}),
 ]);

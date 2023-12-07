@@ -9,7 +9,7 @@ import { Button } from "../button";
 import { ConfirmedAction } from "../confirmed-action";
 import { DialogInfoBullet } from "../dialog-info-bullet";
 import { Icon } from "../v2-icon";
-import { DialogModalAlert } from "./_components/dialog_modal_alert";
+import { V2DialogAlert } from "../v2-dialog-alert";
 
 export default {
 	component: StoryComp,
@@ -137,7 +137,7 @@ export const WidthLg: StoryObj<StoryCompProps> = {
 export const WithAlert: StoryObj<StoryCompProps> = {
 	args: {
 		alert: (
-			<DialogModalAlert
+			<V2DialogAlert
 				description="This is a description for the alert"
 				title="This is an alert"
 			/>
@@ -153,7 +153,7 @@ export const WithAlert: StoryObj<StoryCompProps> = {
 export const WithAlertWithColorOverlay: StoryObj<StoryCompProps> = {
 	args: {
 		alert: (
-			<DialogModalAlert
+			<V2DialogAlert
 				colorOverlay="red"
 				description="This is a description for the alert"
 				title="This is an alert"
