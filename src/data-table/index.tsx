@@ -120,7 +120,6 @@ export function DataTable<TRowData extends RowData>({
 		isSelectable,
 		isSortable,
 		onSelect,
-		RowActions,
 	});
 
 	const hasData = arrayHasLength(table.getFilteredRowModel().rows);

@@ -20,8 +20,6 @@ import type {
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
 import { arrayHasLength } from "../../_lib/array-has-length";
-import { TDataTableRowActions } from "../../data-table-row-actions";
-import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
@@ -42,9 +40,6 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 }
 
 type UseDataTableStateProps<TRowData extends RowData> = {
-	RowActions?:
-		| TDataTableRowActions<TRowData>
-		| TV2DataTableRowActions<TRowData>;
 	data: Array<TRowData> | undefined;
 	enableMultiRowSelection: boolean | undefined;
 	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
