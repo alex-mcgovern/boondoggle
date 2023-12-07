@@ -195,7 +195,8 @@ export const dialogTitleCSS = style([
 export const dialogContentCSS = style([
 	sprinkles({
 		overflowY: "auto",
-		padding: "space_4",
+		paddingY: "space_4",
+		paddingX: "space_4",
 	}),
 ]);
 
