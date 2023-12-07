@@ -26,6 +26,9 @@ import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
+import { Button } from "../../v2-button";
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
+import { Icon } from "../../v2-icon";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,
@@ -134,23 +137,35 @@ export function useDataTableState<TRowData extends RowData>({
 			// the dropdown menu at the end of the columns array
 			...(RowActions
 				? [
-						columnHelper.display({
-							cell: ({ row }) => {
-								return <RowActions row_data={row.original} />;
-							},
-							id: "actions",
-							getUniqueValues: () => [],
-							header: () => null,
-							enableColumnFilter: false,
-							enableGlobalFilter: false,
-							enableGrouping: false,
-							enableMultiSort: false,
-							enableSorting: false,
-							enableHiding: false,
-							enablePinning: false,
-							enableResizing: false,
-							filterFn: () => true,
-						}),
+						isLoading
+							? columnHelper.display({
+									cell: () => {
+										return (
+											<Button
+												isDisabled
+												size="square_md"
+												appearance="secondary"
+											>
+												<Icon icon={faEllipsis} />
+											</Button>
+										);
+									},
+									id: "actions",
+									header: () => null,
+									filterFn: () => true,
+							  })
+							: columnHelper.display({
+									cell: ({ row }) => {
+										return (
+											<RowActions
+												row_data={row.original}
+											/>
+										);
+									},
+									id: "actions",
+									header: () => null,
+									filterFn: () => true,
+							  }),
 				  ]
 				: []),
 		];
