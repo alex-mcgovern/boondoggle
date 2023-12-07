@@ -8,8 +8,8 @@ import { Box } from "../box";
 import { Button } from "../button";
 import { ConfirmedAction } from "../confirmed-action";
 import { DialogInfoBullet } from "../dialog-info-bullet";
-import { Icon } from "../v2-icon";
 import { V2DialogAlert } from "../v2-dialog-alert";
+import { Icon } from "../v2-icon";
 
 export default {
 	component: StoryComp,

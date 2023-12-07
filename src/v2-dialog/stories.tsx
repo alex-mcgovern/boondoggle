@@ -9,6 +9,7 @@ import {
 import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../v2-button";
 import { V2DialogAlert } from "../v2-dialog-alert";
+import { V2DialogErrorMessage } from "../v2-dialog-error-message";
 
 const meta = {
 	title: "Components/V2/Dialog",
@@ -69,8 +70,32 @@ export const WidthLg: Story = {
 	},
 };
 
+export const WithDialogErrorMessage: Story = {
+	args: {
+		dialogTriggerProps: {
+			defaultOpen: true,
+		},
+		colorOverlay: "red",
+		children: ({ close }) => (
+			<>
+				<V2DialogHeader close={close} title="Dialog Title" />
+				<V2DialogErrorMessage
+					strCancel="Cancel"
+					strTryAgain="Try Again"
+					error={{ message: "This is an error message" }}
+					onPressCancel={close}
+					onPressTryAgain={close}
+				/>
+			</>
+		),
+	},
+};
+
 export const WithDialogAlert: Story = {
 	args: {
+		dialogTriggerProps: {
+			defaultOpen: true,
+		},
 		children: ({ close }) => (
 			<>
 				<V2DialogHeader close={close} title="Dialog Title" />
