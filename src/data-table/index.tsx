@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
 	ColumnDef,
 	FilterFn,
@@ -6,7 +7,6 @@ import {
 	VisibilityState,
 	flexRender,
 } from "@tanstack/react-table";
-import type { ReactNode } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { TDataTableRowActions } from "../data-table-row-actions";
@@ -40,7 +40,7 @@ export type DataTableProps<TRowData extends RowData> =
 		/**
 		 * Up to 2 react nodes to render as actions for the table
 		 */
-		actions?: ReactNode | [ReactNode?, ReactNode?];
+		actions?: React.ReactNode | [React.ReactNode?, React.ReactNode?];
 
 		/**
 		 * Column definitions for the tabular data
@@ -183,7 +183,7 @@ export function DataTable<TRowData extends RowData>({
 					)}
 
 					{table.getRowModel().rows.map((row) => (
-						<>
+						<React.Fragment key={row.id}>
 							{row.getVisibleCells().map((cell) => (
 								<div className={tableCellCSS} key={cell.id}>
 									{flexRender(
@@ -195,7 +195,7 @@ export function DataTable<TRowData extends RowData>({
 									) : null}
 								</div>
 							))}
-						</>
+						</React.Fragment>
 					))}
 				</Box>
 			)}
