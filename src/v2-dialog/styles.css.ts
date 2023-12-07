@@ -22,42 +22,37 @@ const kfModalOverlayOut = keyframes({
 	"100%": { opacity: 0 },
 });
 
-export const modalOverlayCSS = recipe({
-	base: [
-		sprinkles({
-			display: "flex",
-			placeItems: "center",
-			background: "backdrop",
+export const modalOverlayCSS = style([
+	sprinkles({
+		display: "flex",
+		placeItems: "center",
+		background: "backdrop",
+	}),
+	{
+		minHeight: "100dvh",
+		minWidth: "100vw",
+		position: "fixed",
+		inset: "0",
+		zIndex: 10,
+
+		...withPrefersMotion({
+			transition: `opacity ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
 		}),
-		{
-			minHeight: "100dvh",
-			minWidth: "100vw",
-			position: "fixed",
-			inset: "0",
-			zIndex: 10,
 
-			...withPrefersMotion({
-				transition: `opacity ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
-			}),
-
-			selectors: {
-				"&[data-entering]": {
-					...withPrefersMotion({
-						animation: `${kfModalOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-					}),
-				},
-				"&[data-exiting]": {
-					...withPrefersMotion({
-						animation: `${kfModalOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-					}),
-				},
+		selectors: {
+			"&[data-entering]": {
+				...withPrefersMotion({
+					animation: `${kfModalOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+				}),
+			},
+			"&[data-exiting]": {
+				...withPrefersMotion({
+					animation: `${kfModalOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+				}),
 			},
 		},
-	],
-	variants: {
-		colorOverlay: variantColorOverlay,
 	},
-});
+]);
 
 /** -----------------------------------------------------------------------------
  * MODAL
