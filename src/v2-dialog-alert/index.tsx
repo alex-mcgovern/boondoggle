@@ -19,7 +19,7 @@ export function V2DialogAlert({
 		/**
 		 * The description text of the alert.
 		 */
-		description: string;
+		description?: string;
 		/**
 		 * The title text of the alert.
 		 */
@@ -36,8 +36,8 @@ export function V2DialogAlert({
 			)}
 
 			<Box color="text_low_contrast" fontStyle="bodyMd">
-				{title && <Box fontWeight="semibold">{title}</Box>}
-				{description}
+				{title ? <Box fontWeight="semibold">{title}</Box> : null}
+				{description ? description : null}
 			</Box>
 
 			{slotLeft && (
