@@ -181,7 +181,7 @@ export function DataTable<TRowData extends RowData>({
 							);
 						}),
 					)}
-					{RowActions ? <div /> : null}
+					{RowActions ? <div className={tableHeaderCellCSS} /> : null}
 
 					{table.getRowModel().rows.map((row) => (
 						<React.Fragment key={row.id}>
