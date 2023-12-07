@@ -10,7 +10,6 @@ export const dialogAlertWrapperCSS = recipe({
 			alignItems: "start",
 
 			background: "tint_default",
-			// border: "border_default",
 			gap: "space_2",
 
 			paddingX: "space_4",
@@ -18,11 +17,6 @@ export const dialogAlertWrapperCSS = recipe({
 
 			zIndex: "1",
 		}),
-		// {
-		// 	marginTop: "-1px",
-		// 	marginLeft: "-1px",
-		// 	marginRight: "-1px",
-		// },
 	],
 	variants: {
 		colorOverlay: variantColorOverlay,
