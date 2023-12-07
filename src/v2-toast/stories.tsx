@@ -1,14 +1,14 @@
-import { ToastProvider, useToastContext } from ".";
-import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../v2-button";
-import { faCircleCheck } from "@fortawesome/pro-solid-svg-icons/faCircleCheck";
-import { Icon } from "../v2-icon";
-import { variantColorOverlay } from "../index.css";
 import { faker } from "@faker-js/faker";
 import {
 	faExclamationCircle,
 	faWarning,
 } from "@fortawesome/pro-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/pro-solid-svg-icons/faCircleCheck";
+import { Meta, StoryObj } from "@storybook/react";
+import { ToastProvider, useToastContext } from ".";
+import { variantColorOverlay } from "../index.css";
+import { Button } from "../v2-button";
+import { Icon } from "../v2-icon";
 
 const meta = {
 	title: "Components/ToastProvider",

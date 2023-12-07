@@ -1,12 +1,13 @@
-import * as React from "react";
-import { useToastState } from "@react-stately/toast";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import type { AriaToastRegionProps } from "@react-aria/toast";
-import type { ToastState } from "@react-stately/toast";
 import { useToastRegion } from "@react-aria/toast";
 import type { AriaToastProps } from "@react-aria/toast";
 import { useToast } from "@react-aria/toast";
+import { useToastState } from "@react-stately/toast";
+import type { ToastState } from "@react-stately/toast";
+import * as React from "react";
+import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../v2-button";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { Icon } from "../v2-icon";
 import {
 	toastCSS,
@@ -14,7 +15,6 @@ import {
 	toastRegionCSS,
 	toastTitleCSS,
 } from "./styles.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 type ToastContent = {
 	title: string;
