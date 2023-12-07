@@ -75,7 +75,7 @@ export const V2Dialog = ({
 	modalProps,
 	modalOverlayProps,
 }: {
-	buttonProps: React.ComponentProps<typeof Button>;
+	buttonProps?: React.ComponentProps<typeof Button>;
 	colorOverlay?: ColorOverlay;
 	dialogTriggerProps?: Omit<
 		React.ComponentProps<typeof ReactAriaDialogTrigger>,
