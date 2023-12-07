@@ -191,11 +191,11 @@ export function DataTable<TRowData extends RowData>({
 										cell.column.columnDef.cell,
 										cell.getContext(),
 									)}
-									{RowActions ? (
-										<RowActions row_data={row.original} />
-									) : null}
 								</div>
 							))}
+							{RowActions ? (
+								<RowActions row_data={row.original} />
+							) : null}
 						</React.Fragment>
 					))}
 				</Box>
