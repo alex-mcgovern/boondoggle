@@ -1,9 +1,9 @@
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 import { Box } from "../box";
 import { variantColorOverlay } from "../index.css";
+import { Button } from "../v2-button";
 import { V2DialogFooter } from "../v2-dialog";
 import { Icon } from "../v2-icon";
-import { Button } from "../v2-button";
 
 export const V2DialogErrorMessage = ({
 	error,
