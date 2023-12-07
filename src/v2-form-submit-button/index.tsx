@@ -10,7 +10,6 @@ export const FormSubmitButton = React.forwardRef<
 			name="submit"
 			appearance="primary"
 			ref={ref}
-			size="md"
 			type="submit"
 			{...rest}
 		>
