@@ -25,6 +25,7 @@ import { Skeleton } from "../../skeleton";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
 import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
+import { TV2DataTableRowActions } from "../../v2-data-table-row-actions";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,
@@ -42,7 +43,9 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 }
 
 type UseDataTableStateProps<TRowData extends RowData> = {
-	RowActions?: TDataTableRowActions<TRowData>;
+	RowActions?:
+		| TDataTableRowActions<TRowData>
+		| TV2DataTableRowActions<TRowData>;
 	data: Array<TRowData> | undefined;
 	enableMultiRowSelection: boolean | undefined;
 	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.

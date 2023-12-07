@@ -8,7 +8,7 @@ export const FormSubmitButton = React.forwardRef<
 	return (
 		<Button
 			name="submit"
-			appearance="primary"
+			appearance={appearance}
 			ref={ref}
 			type="submit"
 			{...rest}

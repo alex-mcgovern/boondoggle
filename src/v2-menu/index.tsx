@@ -13,18 +13,20 @@ import { menuCSS, menuHeaderCSS, menuItemCSS } from "./styles.css";
 
 type SingleMenuItem<TItemId extends string = string> = {
 	children?: never;
+	colorOverlay?: ColorOverlay;
+	description?: string;
+	href?: string;
 	id: TItemId;
 	name: string;
-	description?: string;
-	colorOverlay?: ColorOverlay;
 	slotLeft?: React.ReactNode;
 };
 
 export type IterableMenuItem<TItemId extends string = string> =
 	| SingleMenuItem
 	| {
-			colorOverlay?: never;
 			children: Array<SingleMenuItem<TItemId>>;
+			colorOverlay?: never;
+			href?: never;
 			id: string;
 			name: string;
 			slotLeft?: never;
