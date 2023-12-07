@@ -1,6 +1,7 @@
 import {
 	amber,
 	amberA,
+	blackA,
 	blue,
 	blueA,
 	green,
@@ -155,9 +156,9 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		sm: "4px",
 	},
 	boxShadow: {
-		lg: "0 8px 24px rgba(140,149,159,0.2)",
-		md: "0 3px 6px rgba(140,149,159,0.15)",
-		sm: "0 1px 0 rgba(31,35,40,0.04)",
+		lg: `${blackA.blackA3} 0px 5px 40px`,
+		md: `${blackA.blackA2} 0px 5px 20px`,
+		sm: `${blackA.blackA1} 0px 5px 10px`,
 	},
 	display: {
 		block: "block",
