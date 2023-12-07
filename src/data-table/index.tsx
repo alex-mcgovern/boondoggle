@@ -147,7 +147,11 @@ export function DataTable<TRowData extends RowData>({
 				<Box
 					display="grid"
 					borderTop="border_default"
-					__gridTemplateColumns={gridTemplateColumns}
+					__gridTemplateColumns={
+						RowActions
+							? `${gridTemplateColumns} max-content`
+							: gridTemplateColumns
+					}
 				>
 					{table.getHeaderGroups().map((hg) =>
 						hg.headers.map((h) => {
@@ -179,16 +183,21 @@ export function DataTable<TRowData extends RowData>({
 						}),
 					)}
 
-					{table.getRowModel().rows.map((row) =>
-						row.getVisibleCells().map((cell) => (
-							<div className={tableCellCSS} key={cell.id}>
-								{flexRender(
-									cell.column.columnDef.cell,
-									cell.getContext(),
-								)}
-							</div>
-						)),
-					)}
+					{table.getRowModel().rows.map((row) => (
+						<>
+							{row.getVisibleCells().map((cell) => (
+								<div className={tableCellCSS} key={cell.id}>
+									{flexRender(
+										cell.column.columnDef.cell,
+										cell.getContext(),
+									)}
+									{RowActions ? (
+										<RowActions row_data={row.original} />
+									) : null}
+								</div>
+							))}
+						</>
+					))}
 				</Box>
 			)}
 

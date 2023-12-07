@@ -61,7 +61,6 @@ type UseDataTableStateProps<TRowData extends RowData> = {
 };
 
 export function useDataTableState<TRowData extends RowData>({
-	RowActions,
 	data,
 	enableMultiRowSelection,
 	columnVisibility,
@@ -116,23 +115,8 @@ export function useDataTableState<TRowData extends RowData>({
 				: []),
 
 			...initColumns,
-
-			// If the table has row action items, add a column for
-			// the dropdown menu at the end of the columns array
-			...(RowActions
-				? [
-						columnHelper.display({
-							cell: ({ row }) => {
-								return <RowActions row_data={row.original} />;
-							},
-							id: "actions",
-							header: () => null,
-							filterFn: () => true,
-						}),
-				  ]
-				: []),
 		];
-	}, [RowActions, columnHelper, isSelectable, initColumns]);
+	}, [columnHelper, isSelectable, initColumns]);
 
 	const table = useReactTable<TRowData>({
 		columns,
