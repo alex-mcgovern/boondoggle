@@ -6,8 +6,8 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import * as React from "react";
 import { Button } from "../button";
-import { Icon } from "../v2-icon";
 import { MEDIA_QUERY_MOBILE } from "../index.css";
+import { Icon } from "../v2-icon";
 import {
 	collapsibleNavButtonCSS,
 	collapsibleNavInnerCSS,
