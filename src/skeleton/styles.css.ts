@@ -14,7 +14,7 @@ export const loadingStyles = style({
       rgba(255, 255, 255, .5) 50%,
       rgba(255, 255, 255, 0) 60%
     ) ${vars.color.tint_active}`,
-	backgroundColor: vars.color.tint_default,
+	backgroundColor: vars.color.tint_hover,
 	backgroundPositionX: "180%",
 	backgroundSize: "200% 100%",
 });
