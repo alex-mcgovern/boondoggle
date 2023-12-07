@@ -47,7 +47,8 @@ export const toastCSS = style([
 		gap: "space_4",
 		alignItems: "center",
 
-		padding: "space_4",
+		paddingY: "space_2",
+		paddingX: "space_4",
 
 		border: "border_default",
 		borderRadius: "md",
