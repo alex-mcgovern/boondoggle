@@ -1,13 +1,11 @@
 import clsx from "clsx";
-import { forwardRef, useMemo } from "react";
-import type { Ref } from "react";
+import * as React from "react";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { FieldLabel } from "../field-label";
 import { variantColorOverlay } from "../index.css";
 import { RadioButton } from "../radio-button";
-import type { RadioButtonInputProps, RadioButtonShape } from "../radio-button";
 import { Sprinkles } from "../sprinkles/index.css";
 import {
 	WithDescription,
@@ -29,11 +27,9 @@ export type RadioButtonGroupProps = Sprinkles &
 
 		id: string;
 
-		inputProps?: RadioButtonInputProps;
-
 		isLabelVisible?: boolean;
 
-		items: Array<RadioButtonShape>;
+		items: Array<React.ComponentProps<typeof RadioButton>>;
 
 		label: string;
 
@@ -46,14 +42,13 @@ export type RadioButtonGroupProps = Sprinkles &
 		value?: string;
 	};
 
-export const RadioButtonGroup = forwardRef(
+export const RadioButtonGroup = React.forwardRef(
 	(
 		{
 			defaultValue,
 			description,
 			errorMessage,
 			id,
-			inputProps,
 			invalid,
 			isLabelVisible,
 			items,
@@ -67,9 +62,9 @@ export const RadioButtonGroup = forwardRef(
 			wrapperProps,
 			...rest
 		}: RadioButtonGroupProps,
-		ref: Ref<HTMLDivElement>,
+		ref: React.Ref<HTMLDivElement>,
 	) => {
-		const controlledItems: Array<RadioButtonShape> = useMemo(() => {
+		const controlledItems: Array<React.ComponentProps<typeof RadioButton>> = React.useMemo(() => {
 			if (!Array.isArray(items) || items.length < 1) {
 				return [];
 			}
@@ -117,7 +112,6 @@ export const RadioButtonGroup = forwardRef(
 							<RadioButton
 								checked={item.checked}
 								description={item.description}
-								inputProps={inputProps}
 								key={item.title}
 								name={name}
 								onChange={onChange}

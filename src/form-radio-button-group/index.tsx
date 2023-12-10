@@ -12,6 +12,7 @@ export type FormRadioButtonGroupProps = RadioButtonGroupProps &
 export function FormRadioButtonGroup({
 	defaultValue,
 	invalid,
+	items,
 	name,
 	onChange: onChangeParent,
 	wrapperProps = { marginBottom: "space_6" },
@@ -31,19 +32,21 @@ export function FormRadioButtonGroup({
 	const handleChange = useCallback(
 		(value: string) => {
 			onChange(value);
-
 			onChangeParent?.(value);
 		},
 		[onChange, onChangeParent],
 	);
 
+	const wrappedItems = items.map((item) => ({
+		...item,
+		onBlur,
+	}));
+
 	return (
 		<RadioButtonGroup
 			defaultValue={defaultValue}
 			errorMessage={error?.message}
-			inputProps={{
-				onBlur,
-			}}
+			items={wrappedItems}
 			invalid={invalid || !!error}
 			name={name}
 			onChange={handleChange}
