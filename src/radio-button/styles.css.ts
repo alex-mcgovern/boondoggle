@@ -20,9 +20,10 @@ export const radioButtonInputStyles = style([
 export const radioButtonLabelStyles = style([
 	sprinkles({
 		position: "relative",
-		fontStyle: "bodyMd",
+		fontSize: "bodyMd",
 	}),
 	{
+		lineHeight: "1",
 		...withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),
