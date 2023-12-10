@@ -22,6 +22,7 @@ export const buttonCSS = recipe({
 			display: "inline-flex",
 			alignItems: "center",
 			gap: "space_2",
+			flexShrink: "0",
 
 			fontStyle: "bodyMd",
 			textDecoration: "none",
