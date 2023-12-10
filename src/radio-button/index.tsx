@@ -60,7 +60,7 @@ export function RadioButton({
 				className={radioButtonLabelStyles}
 				htmlFor={`${name}-${value}`}
 			>
-				<Box>{title}</Box>
+				<Box color="text_high_contrast">{title}</Box>
 				<Box color="text_low_contrast">{description}</Box>
 			</label>
 		</Box>
