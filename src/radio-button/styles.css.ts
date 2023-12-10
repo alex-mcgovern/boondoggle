@@ -14,7 +14,7 @@ export const radioButtonWrapperStyles = style([
 
 export const radioButtonInputStyles = style([
 	a11yFocus,
-	sprinkles({ borderRadius: "50%", marginTop: "space_2" }),
+	sprinkles({ borderRadius: "50%", marginTop: "space_1" }),
 ]);
 
 export const radioButtonLabelStyles = style([
@@ -23,7 +23,7 @@ export const radioButtonLabelStyles = style([
 		fontSize: "bodyMd",
 	}),
 	{
-		lineHeight: "1",
+		lineHeight: "1.25",
 		...withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),

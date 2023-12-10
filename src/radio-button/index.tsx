@@ -1,35 +1,10 @@
-import type { HTMLProps } from "react";
+import * as React from "react";
 import { Box } from "../box";
-import { WithName } from "../types";
 import {
 	radioButtonInputStyles,
 	radioButtonLabelStyles,
 	radioButtonWrapperStyles,
 } from "./styles.css";
-
-export type RadioButtonInputProps = Omit<
-	HTMLProps<HTMLInputElement>,
-	"className" | "id" | "name" | "required" | "type" | "value"
->;
-
-export type RadioButtonShape = {
-	checked?: boolean;
-
-	description: string;
-
-	title: string;
-
-	value: string;
-};
-
-export type RadioButtonProps = RadioButtonShape &
-	WithName & {
-		inputProps?: RadioButtonInputProps;
-
-		onChange?: (value: string) => void;
-
-		required?: boolean;
-	};
 
 export function RadioButton({
 	checked,
@@ -40,7 +15,31 @@ export function RadioButton({
 	required,
 	title,
 	value,
-}: RadioButtonProps) {
+}: {
+	/**
+	 * Unique name for the element.
+	 * @important Should be a *snake_case* string.
+	 * @important This will be used as the HTML element ID.
+	 */
+	name: string;
+
+	inputProps?: Omit<
+		React.HTMLProps<HTMLInputElement>,
+		"className" | "id" | "name" | "required" | "type" | "value"
+	>;
+
+	onChange?: (value: string) => void;
+
+	required?: boolean;
+
+	checked?: boolean;
+
+	description: string;
+
+	title: string;
+
+	value: string;
+}) {
 	return (
 		<Box className={radioButtonWrapperStyles}>
 			<input
