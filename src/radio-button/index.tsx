@@ -56,15 +56,13 @@ export function RadioButton({
 				value={value}
 				{...inputProps}
 			/>
-			<Box
-				as="label"
+			<label
 				className={radioButtonLabelStyles}
 				htmlFor={`${name}-${value}`}
-				position="relative"
 			>
 				<Box>{title}</Box>
 				<Box color="text_low_contrast">{description}</Box>
-			</Box>
+			</label>
 		</Box>
 	);
 }
