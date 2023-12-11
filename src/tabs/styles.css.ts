@@ -61,6 +61,9 @@ export const tabsSectionCss = recipe({
 			marginX: "auto",
 			paddingX: "space_4",
 		}),
+		{
+			scrollbarGutter: "stable",
+		},
 	],
 	defaultVariants: {
 		size: "lg",

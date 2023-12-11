@@ -17,6 +17,9 @@ export const headerCSS = recipe({
 			display: "flex",
 			gap: "space_2",
 		}),
+		{
+			scrollbarGutter: "stable",
+		},
 	],
 	defaultVariants: {
 		size: "lg",

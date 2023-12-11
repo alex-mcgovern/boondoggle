@@ -22,5 +22,6 @@ export const topBarStyle = style([
 
 			zIndex: "1",
 		}),
+		{ scrollbarGutter: "stable" },
 	]),
 ]);

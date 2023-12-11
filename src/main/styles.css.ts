@@ -9,6 +9,9 @@ export const mainCSS = recipe({
 			// marginBottom: "space_8",
 			paddingX: "space_4",
 		}),
+		{
+			scrollbarGutter: "stable",
+		},
 	],
 	defaultVariants: {
 		size: "lg",
