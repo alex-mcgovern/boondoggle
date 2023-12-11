@@ -76,7 +76,7 @@ export function Card({
 						{(title || description) && (
 							<Box>
 								{title && (
-									<Box as="h3" fontStyle="h5">
+									<Box as="h3" fontStyle="bodyLg">
 										{title}
 									</Box>
 								)}
