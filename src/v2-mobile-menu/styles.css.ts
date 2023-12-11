@@ -7,11 +7,11 @@ import { sprinkles } from "../sprinkles/index.css";
  * MODAL OVERLAY
  * ------------------------------------------------------------------------------- */
 
-const kfModalOverlayIn = keyframes({
+const kfMobileMenuOverlayIn = keyframes({
 	"0%": { opacity: 0 },
 	"100%": { opacity: 1 },
 });
-const kfModalOverlayOut = keyframes({
+const kfMobileMenuOverlayOut = keyframes({
 	"0%": { opacity: 1 },
 	"100%": { opacity: 0 },
 });
@@ -36,12 +36,12 @@ export const mobileMenuOverlayCSS = style([
 		selectors: {
 			"&[data-entering]": {
 				...withPrefersMotion({
-					animation: `${kfModalOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 			"&[data-exiting]": {
 				...withPrefersMotion({
-					animation: `${kfModalOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 		},
@@ -52,11 +52,11 @@ export const mobileMenuOverlayCSS = style([
  * MODAL
  * ------------------------------------------------------------------------------- */
 
-const kfModalIn = keyframes({
+const kfMobileMenuModalIn = keyframes({
 	"0%": { opacity: 0, transform: "scale(0.99)" },
 	"100%": { opacity: 1 },
 });
-const kfModalOut = keyframes({
+const kfMobileMenuModalOut = keyframes({
 	"0%": { opacity: 1 },
 	"100%": { opacity: 0, transform: "scale(0.99)" },
 });
@@ -74,12 +74,12 @@ export const mobileMenuModalCSS = style([
 		selectors: {
 			"&[data-entering]": {
 				...withPrefersMotion({
-					animation: `${kfModalIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuModalIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 			"&[data-exiting]": {
 				...withPrefersMotion({
-					animation: `${kfModalOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuModalOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 		},
@@ -106,7 +106,7 @@ export const mobileMenuCSS = style([
 	},
 ]);
 
-export const dialogHeaderCSS = style([
+export const mobileMenuHeaderCSS = style([
 	sprinkles({
 		display: "flex",
 		alignItems: "center",
@@ -125,7 +125,7 @@ export const dialogHeaderCSS = style([
 	}),
 ]);
 
-export const dialogTitleCSS = style([
+export const mobileMenuTitleCSS = style([
 	sprinkles({
 		fontWeight: "semibold",
 		marginY: "none",

@@ -12,8 +12,8 @@ import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../v2-button";
 import { Icon } from "../v2-icon";
 import {
-	dialogHeaderCSS,
-	dialogTitleCSS,
+	mobileMenuHeaderCSS,
+	mobileMenuTitleCSS,
 	mobileMenuCSS,
 	mobileMenuContentCSS,
 	mobileMenuFooterCSS,
@@ -29,8 +29,8 @@ export const V2MobileMenuHeader = ({
 	title,
 }: { close: () => void; title: string }) => {
 	return (
-		<header className={dialogHeaderCSS}>
-			<ReactAriaHeading slot="title" className={dialogTitleCSS}>
+		<header className={mobileMenuHeaderCSS}>
+			<ReactAriaHeading slot="title" className={mobileMenuTitleCSS}>
 				{title}
 			</ReactAriaHeading>
 
