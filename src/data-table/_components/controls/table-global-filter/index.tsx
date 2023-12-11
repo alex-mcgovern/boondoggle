@@ -36,7 +36,7 @@ export function TableGlobalFilter<TRowData extends RowData>({
 			slotLeft={<Icon icon={faSearch} />}
 			strClear={strClearFilterInput}
 			type="search"
-			value={table.getState().globalFilter}
+			value={table.getState().globalFilter ?? ""}
 			marginBottom="none"
 		/>
 	);
