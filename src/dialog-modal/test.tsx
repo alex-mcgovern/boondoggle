@@ -52,7 +52,9 @@ describe("<DialogModal />", () => {
 				const { container } = await renderComponent({
 					actions: (
 						<ConfirmedAction
-							strButtonText="Remove team member"
+							buttonProps={{
+								children: "Remove team member",
+							}}
 							colorOverlay="red"
 							strConfirmText="remove team member"
 							strInvalid="The text you have entered is incorrect"

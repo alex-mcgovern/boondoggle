@@ -220,7 +220,9 @@ export const WithConfirmationAction: StoryObj<StoryCompProps> = {
 	args: {
 		actions: (
 			<ConfirmedAction
-				strButtonText="Freeze account"
+				buttonProps={{
+					children: "Freeze account",
+				}}
 				strConfirmText="freeze account"
 				onConfirmed={() => {
 					alert("Confirmed");
@@ -243,7 +245,9 @@ export const WithConfirmationActionWithColorOverlay: StoryObj<StoryCompProps> =
 		args: {
 			actions: (
 				<ConfirmedAction
-					strButtonText="Freeze account"
+					buttonProps={{
+						children: "Freeze account",
+					}}
 					colorOverlay="red"
 					strConfirmText="freeze account"
 					onConfirmed={() => {
