@@ -315,7 +315,7 @@ export const WithRowActionItems: Story = {
 	args: {
 		RowActions: MockRowActionsComponent,
 		strNoResults: "No results",
-		gridTemplateColumns: "1fr repeat(4, min-content)",
+		gridTemplateColumns: "1fr repeat(3, min-content)",
 	},
 };
 
@@ -324,7 +324,7 @@ export const WithRowActionItemsShortList: Story = {
 		data: Array.from({ length: 1 }, mockColumn),
 		RowActions: MockRowActionsComponent,
 		strNoResults: "No results",
-		gridTemplateColumns: "1fr repeat(4, min-content)",
+		gridTemplateColumns: "1fr repeat(3, min-content)",
 	},
 };
 
