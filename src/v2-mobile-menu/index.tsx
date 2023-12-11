@@ -1,5 +1,6 @@
-import * as React from "react";
+import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
+import * as React from "react";
 import {
 	Dialog as ReactAriaDialog,
 	DialogTrigger as ReactAriaDialogTrigger,
@@ -11,15 +12,14 @@ import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../v2-button";
 import { Icon } from "../v2-icon";
 import {
+	dialogHeaderCSS,
+	dialogTitleCSS,
 	mobileMenuCSS,
 	mobileMenuContentCSS,
 	mobileMenuFooterCSS,
-	dialogHeaderCSS,
-	dialogTitleCSS,
 	mobileMenuModalCSS,
 	mobileMenuOverlayCSS,
 } from "./styles.css";
-import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 
 /**
  * Wrapper to render the dialog header.
