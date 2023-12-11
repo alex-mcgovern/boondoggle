@@ -135,31 +135,28 @@ export const buttonCSS = recipe({
 					paddingY: "space_0",
 				}),
 			],
+			square_lg: [
+				sprinkles({
+					aspectRatio: "square",
+					height: "space_12",
+					width: "space_12",
+					flexGrow: "0",
+				}),
+			],
 			square_md: [
 				sprinkles({
 					aspectRatio: "square",
-					flexShrink: "0",
-					fontStyle: "bodyMd",
 					height: "space_10",
 					width: "space_10",
+					flexGrow: "0",
 				}),
 			],
 			square_sm: [
 				sprinkles({
 					aspectRatio: "square",
-					flexShrink: "0",
-					fontStyle: "bodySm",
 					height: "space_8",
 					width: "space_8",
-				}),
-			],
-			square_xs: [
-				sprinkles({
-					aspectRatio: "square",
-					flexShrink: "0",
-					fontStyle: "bodySm",
-					height: "space_6",
-					width: "space_6",
+					flexGrow: "0",
 				}),
 			],
 		},
