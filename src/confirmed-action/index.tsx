@@ -47,11 +47,6 @@ export const ConfirmedAction = forwardRef<
 		strInvalid: string;
 
 		/**
-		 * The text for the confirm button.
-		 */
-		strButtonText: string;
-
-		/**
 		 * The text that the user has to type to confirm the action.
 		 */
 		strConfirmText: string;
@@ -70,7 +65,6 @@ export const ConfirmedAction = forwardRef<
 	(
 		{
 			buttonProps,
-			strButtonText,
 			inputProps,
 			colorOverlay,
 			strInvalid,
@@ -124,9 +118,7 @@ export const ConfirmedAction = forwardRef<
 						appearance="primary"
 						colorOverlay={colorOverlay}
 						aria-disabled={userConfirmText !== strConfirmText}
-					>
-						{strButtonText}
-					</FormSubmitButton>
+					/>
 				</Form>
 			</Box>
 		);
