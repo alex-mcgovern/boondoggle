@@ -6,8 +6,8 @@ import {
 	type PopoverProps as ReactAriaPopoverProps,
 } from "react-aria-components";
 import { WithSize } from "../types";
-import { IterableMenuItem, Menu } from "../v2-menu";
 import { Button } from "../v2-button";
+import { IterableMenuItem, Menu } from "../v2-menu";
 
 export function MenuButton<TItemId extends string = string>({
 	buttonProps,

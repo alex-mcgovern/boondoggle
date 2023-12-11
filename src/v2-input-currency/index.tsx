@@ -5,6 +5,7 @@ import {
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
+import { Box } from "../box";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName, WithSize } from "../types";
 import { V2FieldError } from "../v2-field-error";
@@ -15,7 +16,6 @@ import { V2Label } from "../v2-label";
 import { IterableMenuItem } from "../v2-menu";
 import { MenuButton } from "../v2-menu-button";
 import { numberInputCSS } from "./styles.css";
-import { Box } from "../box";
 
 type CurrencyConfig<TCurrency extends string = string> =
 	| {
