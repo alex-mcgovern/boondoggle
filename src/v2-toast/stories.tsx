@@ -4,7 +4,7 @@ import { ToastProvider, useToastContext } from ".";
 import { Button } from "../v2-button";
 
 const meta = {
-	title: "Components/ToastProvider",
+	title: "Components/V2/ToastProvider",
 	component: ToastProvider,
 	args: {},
 	decorators: [

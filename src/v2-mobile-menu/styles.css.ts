@@ -30,18 +30,18 @@ export const mobileMenuOverlayCSS = style([
 		zIndex: 10,
 
 		...withPrefersMotion({
-			transition: `opacity ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+			transition: `opacity ${vars.transitionDuration.medium} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.medium} ${vars.ease.quart_in_out}`,
 		}),
 
 		selectors: {
 			"&[data-entering]": {
 				...withPrefersMotion({
-					animation: `${kfMobileMenuOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuOverlayIn} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 			"&[data-exiting]": {
 				...withPrefersMotion({
-					animation: `${kfMobileMenuOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuOverlayOut} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 		},
@@ -53,12 +53,12 @@ export const mobileMenuOverlayCSS = style([
  * ------------------------------------------------------------------------------- */
 
 const kfMobileMenuModalIn = keyframes({
-	"0%": { opacity: 0, transform: "scale(0.99)" },
+	"0%": { opacity: 0 },
 	"100%": { opacity: 1 },
 });
 const kfMobileMenuModalOut = keyframes({
 	"0%": { opacity: 1 },
-	"100%": { opacity: 0, transform: "scale(0.99)" },
+	"100%": { opacity: 0 },
 });
 
 export const mobileMenuModalCSS = style([
@@ -74,12 +74,12 @@ export const mobileMenuModalCSS = style([
 		selectors: {
 			"&[data-entering]": {
 				...withPrefersMotion({
-					animation: `${kfMobileMenuModalIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuModalIn} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 			"&[data-exiting]": {
 				...withPrefersMotion({
-					animation: `${kfMobileMenuModalOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfMobileMenuModalOut} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 		},
@@ -110,18 +110,18 @@ export const mobileMenuHeaderCSS = style([
 	sprinkles({
 		display: "flex",
 		alignItems: "center",
-		justifyContent: "space-between",
 
-		maxWidth: "100%",
+		background: "tint_default",
+		borderBottom: "border_rule",
 
-		paddingLeft: "space_4",
-		paddingRight: "space_2",
+		gap: "space_4",
+		height: "topBar",
+
+		paddingX: "space_4",
 		paddingY: "space_2",
 
 		position: "sticky",
 		top: "0",
-
-		borderBottom: "border_rule",
 	}),
 ]);
 

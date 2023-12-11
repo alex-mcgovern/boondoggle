@@ -27,12 +27,16 @@ import {
 export const V2MobileMenuHeader = ({
 	close,
 	title,
-}: { close: () => void; title: string }) => {
+	children,
+}: { close: () => void; title?: string; children?: React.ReactNode }) => {
 	return (
 		<header className={mobileMenuHeaderCSS}>
-			<ReactAriaHeading slot="title" className={mobileMenuTitleCSS}>
-				{title}
-			</ReactAriaHeading>
+			{children}
+			{title ? (
+				<ReactAriaHeading slot="title" className={mobileMenuTitleCSS}>
+					{title}
+				</ReactAriaHeading>
+			) : null}
 
 			<Button
 				appearance="ghost"
