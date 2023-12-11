@@ -145,7 +145,7 @@ export function DataTable<TRowData extends RowData>({
 			{hasData && (
 				<Box
 					display="grid"
-					borderTop="border_default"
+					borderTop="border_rule"
 					__gridTemplateColumns={
 						RowActions
 							? `${gridTemplateColumns} max-content`

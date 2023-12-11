@@ -76,7 +76,7 @@ export const actionsCSS = style([
 		"@container": {
 			[CONTAINER_SM]: {
 				paddingBottom: vars.spacing.space_2,
-				borderBottom: `1px solid ${vars.color.border_default}`,
+				borderBottom: `1px solid ${vars.color.border_rule}`,
 			},
 		},
 	},

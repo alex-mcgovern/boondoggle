@@ -74,7 +74,7 @@ export const modalCSS = recipe({
 			background: "background",
 			// width: "100%",
 			borderRadius: "md",
-			border: "border_default",
+			border: "border_rule",
 			boxShadow: "lg",
 			maxWidth: "100vw",
 		}),
@@ -168,7 +168,7 @@ export const dialogHeaderCSS = style([
 		position: "sticky",
 		top: "0",
 
-		borderBottom: "border_default",
+		borderBottom: "border_rule",
 	}),
 ]);
 
@@ -191,7 +191,7 @@ export const dialogContentCSS = style([
 
 export const dialogFooterCSS = style([
 	sprinkles({
-		borderTop: "border_default",
+		borderTop: "border_rule",
 		marginTop: "auto",
 		paddingX: "space_4",
 		paddingY: "space_3",

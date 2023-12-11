@@ -7,7 +7,7 @@ import { sprinkles } from "../sprinkles/index.css";
 
 const commonCellCSS = style([
 	sprinkles({
-		borderBottom: "border_default",
+		borderBottom: "border_rule",
 		paddingY: "space_2",
 		paddingX: "space_4",
 

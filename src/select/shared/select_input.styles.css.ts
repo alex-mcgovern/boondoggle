@@ -22,6 +22,6 @@ globalStyle(
 globalStyle(
 	`${inputSlotWrapperDoNotRemoveOrYouWillBeFired}${selectInputCursorStyles}:is(:focus,:focus-visible)`,
 	{
-		borderColor: vars.color.border_default,
+		borderColor: vars.color.border_element_active,
 	},
 );

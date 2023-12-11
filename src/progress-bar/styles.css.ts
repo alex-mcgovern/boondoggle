@@ -26,7 +26,7 @@ export const progressBarCss = recipe({
 		variantColorOverlay.blue,
 		sprinkles({
 			alignItems: "center",
-			border: "border_hover",
+			border: "border_element",
 			borderRadius: "sm",
 			color: "text_low_contrast",
 			display: "flex",

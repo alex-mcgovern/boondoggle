@@ -69,16 +69,16 @@ export const getButtonStyles = recipe({
 				}),
 				{
 					border: "1px solid",
-					borderColor: vars.color.border_default,
+					borderColor: vars.color.border_element,
 					color: vars.color.text_high_contrast,
 					selectors: {
 						[SELECTOR_LINK_BUTTON_INPUT_HOVER]: {
 							background: vars.color.tint_hover,
-							borderColor: vars.color.border_hover,
+							borderColor: vars.color.border_element_active,
 						},
 						[SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
 							background: vars.color.tint_hover,
-							borderColor: vars.color.border_active,
+							borderColor: vars.color.border_element_active,
 						},
 					},
 				},

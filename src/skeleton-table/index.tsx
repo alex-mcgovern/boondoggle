@@ -95,7 +95,7 @@ export const SkeletonTable = () => {
 		<>
 			<SkeletonFilters />
 			<Box
-				borderTop="border_default"
+				borderTop="border_rule"
 				display="grid"
 				__gridTemplateColumns="2fr min-content min-content min-content"
 			>

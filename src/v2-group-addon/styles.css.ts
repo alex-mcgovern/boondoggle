@@ -7,7 +7,7 @@ export const groupAddonCSS = recipe({
 			flexShrink: "0",
 			flexGrow: "1",
 			// aspectRatio: "square",
-			border: "border_default",
+			border: "border_element",
 
 			background: "background",
 			color: "text_high_contrast",

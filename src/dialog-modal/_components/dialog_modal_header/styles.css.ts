@@ -13,7 +13,7 @@ export const dialogHeaderStyle = style([
 		paddingRight: "space_2",
 		paddingY: "space_2",
 
-		borderBottom: "border_default",
+		borderBottom: "border_rule",
 	}),
 ]);
 

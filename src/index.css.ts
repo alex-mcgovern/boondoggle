@@ -869,7 +869,7 @@ globalStyle("hr", {
 	"@layer": {
 		[baseLayer]: {
 			borderBottom: "none",
-			borderColor: `${vars.color.border_default} !important`,
+			borderColor: `${vars.color.border_rule} !important`,
 			borderTop: "1px solid",
 			marginBottom: vars.spacing.space_6,
 			marginTop: vars.spacing.space_6,
@@ -879,7 +879,7 @@ globalStyle("hr", {
 
 export const textFieldStyleRule: StyleRule = {
 	background: vars.color.background,
-	border: `1px solid ${vars.color.border_default}`,
+	border: `1px solid ${vars.color.border_rule}`,
 	borderRadius: vars.borderRadius.md,
 	color: vars.color.text_high_contrast,
 	fontWeight: vars.fontWeight.normal,
@@ -948,7 +948,7 @@ globalStyle(
 		"@layer": {
 			[baseLayer]: {
 				// background: vars.color.tint_default,
-				// borderColor: vars.color.border_hover,
+				// borderColor: vars.color.border_element_active,
 			},
 		},
 	},
@@ -1148,7 +1148,7 @@ export const tRowStyles = style({
 // Ensure that table cells have border bottom, unless they are the last row
 
 const tableCellBorderStyleRule: StyleRule = {
-	borderBottom: `1px solid ${vars.color.border_default}`,
+	borderBottom: `1px solid ${vars.color.border_rule}`,
 };
 
 globalStyle(

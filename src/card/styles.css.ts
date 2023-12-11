@@ -5,7 +5,7 @@ import { sprinkles } from "../sprinkles/index.css";
 
 export const headerCSS = style([
 	sprinkles({
-		border: "border_default",
+		border: "border_rule",
 		padding: "space_5",
 		display: "flex",
 		gap: "space_4",
@@ -36,13 +36,13 @@ export const cardCSS = recipe({
 				{
 					borderBottomLeftRadius: vars.borderRadius.lg,
 					borderBottomRightRadius: vars.borderRadius.lg,
-					borderRight: `1px solid ${vars.color.border_default}`,
-					borderBottom: `1px solid ${vars.color.border_default}`,
-					borderLeft: `1px solid ${vars.color.border_default}`,
+					borderRight: `1px solid ${vars.color.border_rule}`,
+					borderBottom: `1px solid ${vars.color.border_rule}`,
+					borderLeft: `1px solid ${vars.color.border_rule}`,
 				},
 			],
 			false: sprinkles({
-				border: "border_default",
+				border: "border_rule",
 				marginTop: "space_5",
 				borderRadius: "lg",
 			}),

@@ -73,16 +73,16 @@ export const buttonCSS = recipe({
 				}),
 				{
 					border: "1px solid",
-					borderColor: vars.color.border_default,
+					borderColor: vars.color.border_element,
 					color: vars.color.text_high_contrast,
 					selectors: {
 						[`&${HOVER}`]: {
 							background: vars.color.tint_hover,
-							borderColor: vars.color.border_hover,
+							borderColor: vars.color.border_element_active,
 						},
 						[`&${ACTIVE}`]: {
 							background: vars.color.tint_hover,
-							borderColor: vars.color.border_active,
+							borderColor: vars.color.border_element_active,
 						},
 					},
 				},

@@ -36,7 +36,7 @@ export const getSeparatorStyle = recipe({
 		sprinkles({
 			marginX: "space_3",
 			marginY: "space_2",
-			borderBottom: "border_default",
+			borderBottom: "border_rule",
 			// width: "100%",
 		}),
 	],

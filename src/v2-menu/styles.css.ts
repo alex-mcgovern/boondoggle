@@ -35,7 +35,7 @@ export const menuCSS = style([
 	animateFadeIn,
 	sprinkles({
 		background: "background",
-		border: "border_default",
+		border: "border_rule",
 		boxShadow: "md",
 		overflowY: "auto",
 	}),

@@ -3,7 +3,7 @@ import { sprinkles } from "../../../sprinkles/index.css";
 
 export const dialogModalActionsWrapperStyle = style([
 	sprinkles({
-		borderTop: "border_default",
+		borderTop: "border_rule",
 		display: "grid",
 		gap: "space_2",
 		marginTop: "auto",

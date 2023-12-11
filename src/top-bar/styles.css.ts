@@ -7,7 +7,7 @@ export const topBarStyle = style([
 		sprinkles({
 			alignItems: "center",
 			background: "tint_default",
-			borderBottom: "border_default",
+			borderBottom: "border_rule",
 			display: "flex",
 			gap: "space_4",
 			height: "topBar",

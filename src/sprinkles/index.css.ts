@@ -7,9 +7,9 @@ import {
 } from "../index.css";
 
 const border = {
-	border_default: `1px solid ${vars.color.border_default}`,
-	border_hover: `1px solid ${vars.color.border_hover}`,
-	border_active: `1px solid ${vars.color.border_active}`,
+	border_rule: `1px solid ${vars.color.border_rule}`,
+	border_element: `1px solid ${vars.color.border_element}`,
+	border_element_active: `1px solid ${vars.color.border_element_active}`,
 };
 
 export const properties = defineProperties({

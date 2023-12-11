@@ -42,7 +42,7 @@ export const modalCSS = recipe({
 			background: "background",
 			position: "absolute",
 
-			border: "border_default",
+			border: "border_rule",
 			borderRadius: "md",
 			boxShadow: "md",
 
@@ -126,7 +126,7 @@ export const modalHeaderCSS = style([
 		position: "sticky",
 		top: "0",
 
-		borderBottom: "border_default",
+		borderBottom: "border_rule",
 	}),
 ]);
 
@@ -139,7 +139,7 @@ export const modalContentCSS = style([
 
 export const modalFooterCSS = style([
 	sprinkles({
-		borderTop: "border_default",
+		borderTop: "border_rule",
 		marginTop: "auto",
 		paddingX: "space_4",
 		paddingY: "space_3",

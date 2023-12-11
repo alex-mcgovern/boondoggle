@@ -46,7 +46,7 @@ export const collapsibleNavOuterCSS = style([
 export const collapsibleNavInnerCSS = style([
 	sprinkles({
 		background: "background",
-		borderRight: "border_default",
+		borderRight: "border_rule",
 
 		paddingX: "space_4",
 		paddingY: "space_2",

@@ -27,12 +27,12 @@ export const getDialogModalOuterStyle = recipe({
 					maxWidth: "100vw",
 				},
 				[MEDIA_QUERY_TABLET]: {
-					border: `1px solid ${vars.color.border_default}`,
+					border: `1px solid ${vars.color.border_rule}`,
 					borderRadius: vars.borderRadius.lg,
 					boxShadow: vars.boxShadow.lg,
 				},
 				[MEDIA_QUERY_DESKTOP]: {
-					border: `1px solid ${vars.color.border_default}`,
+					border: `1px solid ${vars.color.border_rule}`,
 					borderRadius: vars.borderRadius.lg,
 					boxShadow: vars.boxShadow.lg,
 				},

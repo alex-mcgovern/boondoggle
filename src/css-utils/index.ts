@@ -39,9 +39,9 @@ export const makeTheme = ({
 		background: step(secondary, 1),
 		backdrop: step(alpha, 11),
 
-		border_default: step(secondary, isOverlay ? 6 : 5),
-		border_active: step(secondary, isOverlay ? 7 : 6),
-		border_hover: step(secondary, isOverlay ? 8 : 7),
+		border_rule: step(secondary, isOverlay ? 6 : 5),
+		border_element: step(secondary, isOverlay ? 7 : 6),
+		border_element_active: step(secondary, isOverlay ? 8 : 7),
 
 		button_tint: step(primary, 5),
 		button_default: step(primary, 9),

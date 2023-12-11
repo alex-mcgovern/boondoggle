@@ -38,7 +38,7 @@ export const sliderTrack = style([
 		position: "relative",
 	}),
 	{
-		background: vars.color.border_default,
+		background: vars.color.border_rule,
 		flexGrow: 1,
 		selectors: {
 			"&[data-orientation='horizontal']": {
@@ -63,7 +63,7 @@ export const sliderRange = style([
 export const sliderThumb = style([
 	sprinkles({
 		background: "tint_default",
-		border: "border_hover",
+		border: "border_element",
 		borderRadius: "50%",
 
 		display: "block",
@@ -77,7 +77,7 @@ export const sliderThumb = style([
 		selectors: {
 			[`&${HOVER}`]: {
 				background: vars.color.tint_active,
-				borderColor: vars.color.border_hover,
+				borderColor: vars.color.border_element_active,
 				cursor: "pointer",
 			},
 			[`&${SELECTOR_IS_FOCUS}`]: {
