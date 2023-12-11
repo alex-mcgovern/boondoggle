@@ -12,13 +12,13 @@ import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../v2-button";
 import { Icon } from "../v2-icon";
 import {
-	mobileMenuHeaderCSS,
-	mobileMenuTitleCSS,
 	mobileMenuCSS,
 	mobileMenuContentCSS,
 	mobileMenuFooterCSS,
+	mobileMenuHeaderCSS,
 	mobileMenuModalCSS,
 	mobileMenuOverlayCSS,
+	mobileMenuTitleCSS,
 } from "./styles.css";
 
 /**
