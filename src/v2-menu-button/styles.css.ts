@@ -23,7 +23,7 @@ export const menuButtonCSS = recipe({
 		{
 			selectors: {
 				"&:hover": {
-					cursor: "default",
+					cursor: "pointer",
 				},
 			},
 			width: "fit-content",

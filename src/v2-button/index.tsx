@@ -8,6 +8,7 @@ import { buttonCSS } from "./styles.css";
 export const Button = React.forwardRef<
 	HTMLButtonElement,
 	ReactAriaButtonProps & {
+		"data-slot-side"?: "right" | "left";
 		colorOverlay?: ColorOverlay;
 		alignment?: "left" | "center";
 		appearance?: "primary" | "secondary" | "ghost";

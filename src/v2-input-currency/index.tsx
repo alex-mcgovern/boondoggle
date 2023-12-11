@@ -15,6 +15,7 @@ import { V2Label } from "../v2-label";
 import { IterableMenuItem } from "../v2-menu";
 import { MenuButton } from "../v2-menu-button";
 import { numberInputCSS } from "./styles.css";
+import { Box } from "../box";
 
 type CurrencyConfig<TCurrency extends string = string> =
 	| {
@@ -61,8 +62,10 @@ function CurrencyMenuIcon<TCurrency extends string = string>({
 		return (
 			<>
 				{currencyIcon}
-				{currency}
-				<Icon color="text_low_contrast" icon={faAngleDown} />
+				<Box display="flex" gap="space_1" alignItems="center">
+					{currency}
+					<Icon color="text_low_contrast" icon={faAngleDown} />
+				</Box>
 			</>
 		);
 	}
@@ -75,7 +78,7 @@ function CurrencyMenuButton<TCurrency extends string = string>({
 	currency,
 	currencyIcon,
 	onCurrencyChange,
-	size,
+	size = "sm",
 }: WithSize & {
 	currency: TCurrency;
 	currencyConfig: CurrencyConfig<TCurrency>;
@@ -86,7 +89,9 @@ function CurrencyMenuButton<TCurrency extends string = string>({
 		<MenuButton<TCurrency>
 			size={size}
 			buttonProps={{
+				appearance: "secondary",
 				slot: null,
+				size: size,
 				children: (
 					<>
 						<CurrencyMenuIcon
