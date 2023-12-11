@@ -51,12 +51,11 @@ export const toastCSS = style([
 		paddingLeft: "space_4",
 		paddingRight: "space_2",
 
-		border: "border_default",
 		borderRadius: "md",
 
 		background: "black",
 		color: "white",
-		boxShadow: "md",
+		boxShadow: "lg",
 	}),
 	{
 		selectors: {
