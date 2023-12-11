@@ -101,7 +101,16 @@ export const V2MobileMenu = ({
 				dialogTriggerProps?.onOpenChange?.(isOpen);
 			}}
 		>
-			<Button appearance="ghost" size="square_md">
+			<Button
+				className={sprinkles({
+					display: {
+						mobile: "inline-flex",
+						desktop: "none",
+					},
+				})}
+				appearance="ghost"
+				size="square_md"
+			>
 				<Icon icon={isOpen ? faTimes : faBars} />
 			</Button>
 			<ReactAriaModalOverlay
