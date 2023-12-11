@@ -22,6 +22,7 @@ export function V2DataTableRowActions<TActionId extends string>({
 			}}
 			size="sm"
 			buttonProps={{
+				appearance: "ghost",
 				name: "row_actions",
 				children: <Icon icon={faEllipsis} />,
 			}}
