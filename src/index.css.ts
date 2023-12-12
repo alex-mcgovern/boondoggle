@@ -260,6 +260,10 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		long: "600ms",
 		medium: "400ms",
 		short: "200ms",
+
+		// Bespoke durations
+
+		sideNav: "600ms",
 	},
 	width: {
 		"": "0",

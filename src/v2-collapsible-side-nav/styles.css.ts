@@ -36,10 +36,10 @@ export const collapsibleNavOuterCSS = style([
 	{
 		selectors: {
 			'&[data-state="closed"]': {
-				animation: `${close} ${vars.transitionDuration.short} cubic-bezier(0.76, 0, 0.24, 1) forwards`,
+				animation: `${close} ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out} forwards`,
 			},
 			'&[data-state="open"]': {
-				animation: `${open} ${vars.transitionDuration.short} cubic-bezier(0.76, 0, 0.24, 1) forwards`,
+				animation: `${open} ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out} forwards`,
 			},
 		},
 	},

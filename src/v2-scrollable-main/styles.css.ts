@@ -3,6 +3,7 @@ import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { withPrefersMotion } from "../css-utils";
 
 const scrollableContainer = createContainer();
 
@@ -76,7 +77,11 @@ const calcOffsetForSidebarRight = (contentWidth: string) => {
 };
 
 export const scrollableMainInnerCSS = recipe({
-	base: [],
+	base: [
+		withPrefersMotion({
+			transition: `max-width ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out}, margin max-width ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out}`,
+		}),
+	],
 	defaultVariants: {
 		isSidebarOpen: true,
 		size: "lg",
