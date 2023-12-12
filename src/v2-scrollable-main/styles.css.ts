@@ -1,7 +1,7 @@
-import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles } from "../sprinkles/index.css";
 import { calc } from "@vanilla-extract/css-utils";
+import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const scrollableMainCSS = recipe({
 	base: [
