@@ -16,6 +16,7 @@ export const scrollableMainCSS = recipe({
 			paddingX: "space_4",
 			overflowY: "auto",
 			overflowX: "hidden",
+			height: "100dvh",
 		}),
 		{
 			scrollbarGutter: "stable",
@@ -31,13 +32,13 @@ export const scrollableMainCSS = recipe({
 			sm: [sprinkles({ maxWidth: "main_sm" })],
 		},
 		headers: {
-			0: {
+			"0": {
 				height: "100dvh",
 			},
-			1: {
+			"1": {
 				height: calc.subtract("100dvh", vars.height.topBar),
 			},
-			2: {
+			"2": {
 				height: calc.subtract(
 					"100dvh",
 					vars.height.topBar,

@@ -17,6 +17,7 @@ export function ScrollableMain({
 	children,
 	className,
 	size = "lg",
+	headers,
 	...rest
 }: Omit<HTMLProps<HTMLElement>, "size"> &
 	WithSize & {
@@ -24,10 +25,14 @@ export function ScrollableMain({
 		 * Main content.
 		 */
 		children: React.ReactNode;
+		/**
+		 * Number of headers in the page. Used to calculate the total height.
+		 */
+		headers: "0" | "1" | "2";
 	}) {
 	return (
 		<main
-			className={clsx(className, scrollableMainCSS({ size }))}
+			className={clsx(className, scrollableMainCSS({ size, headers }))}
 			{...rest}
 		>
 			{children}
