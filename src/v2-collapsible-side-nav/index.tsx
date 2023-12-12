@@ -111,20 +111,26 @@ export const ButtonToggleCollapsibleNav = () => {
 export function CollapsibleSideNav({
 	children,
 	onOpenChange: controlledOnOpenChange,
+	isOpen: controlledIsOpen,
 }: {
 	children: ReactNode | Array<ReactNode>;
+	isOpen?: boolean;
 	onOpenChange?: (openState: boolean) => void;
 }) {
 	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
 
 	const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
+		if (controlledIsOpen !== undefined) {
+			return setIsOpen(controlledIsOpen);
+		}
+
 		if (isMobile) {
 			return setIsOpen(false);
 		}
 		return setIsOpen(true);
-	}, [isMobile, setIsOpen]);
+	}, [isMobile, setIsOpen, controlledIsOpen]);
 
 	return (
 		<RadixCollapsible.Root
