@@ -1,8 +1,10 @@
-import { style } from "@vanilla-extract/css";
+import { createContainer, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+
+const scrollableContainer = createContainer();
 
 export const nonScrollableWrapperCSS = style({
 	height: "100dvh",
@@ -19,6 +21,8 @@ export const scrollableMainCSS = recipe({
 			width: "100%",
 		}),
 		{
+			containerName: scrollableContainer,
+			containerType: "inline-size",
 			scrollbarGutter: "stable",
 		},
 	],
@@ -46,9 +50,13 @@ export const scrollableMainCSS = recipe({
 
 export const scrollableMainInnerCSS = recipe({
 	base: [
-		sprinkles({
-			marginX: "auto",
-		}),
+		{
+			marginLeft: calc.subtract("50%", "50cqw"),
+			marginRight: calc.subtract("50%", "50cqw"),
+		},
+		// sprinkles({
+		// 	marginX: "auto",
+		// }),
 	],
 	defaultVariants: {
 		size: "lg",
