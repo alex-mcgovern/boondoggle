@@ -68,6 +68,7 @@ export const mobileMenuModalCSS = style([
 		width: "100vw",
 	}),
 	{
+		border: 0,
 		outline: "none",
 
 		selectors: {
