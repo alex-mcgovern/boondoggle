@@ -7,20 +7,10 @@ import { sprinkles } from "../sprinkles/index.css";
  * MODAL OVERLAY
  * ------------------------------------------------------------------------------- */
 
-const kfMobileMenuOverlayIn = keyframes({
-	"0%": { opacity: 0 },
-	"100%": { opacity: 1 },
-});
-const kfMobileMenuOverlayOut = keyframes({
-	"0%": { opacity: 1 },
-	"100%": { opacity: 0 },
-});
-
 export const mobileMenuOverlayCSS = style([
 	sprinkles({
 		display: "flex",
 		placeItems: "center",
-		background: "backdrop",
 	}),
 	{
 		minHeight: "100dvh",
@@ -28,23 +18,6 @@ export const mobileMenuOverlayCSS = style([
 		position: "fixed",
 		inset: "0",
 		zIndex: 10,
-
-		...withPrefersMotion({
-			transition: `opacity ${vars.transitionDuration.medium} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.medium} ${vars.ease.quart_in_out}`,
-		}),
-
-		selectors: {
-			"&[data-entering]": {
-				...withPrefersMotion({
-					animation: `${kfMobileMenuOverlayIn} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
-				}),
-			},
-			"&[data-exiting]": {
-				...withPrefersMotion({
-					animation: `${kfMobileMenuOverlayOut} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
-				}),
-			},
-		},
 	},
 ]);
 
