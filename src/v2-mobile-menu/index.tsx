@@ -46,7 +46,7 @@ export const V2MobileMenuHeader = ({
 				})}
 				name="close"
 				onPress={close}
-				size="square_sm"
+				size="square_md"
 				type="button"
 			>
 				<Icon icon={faTimes} />

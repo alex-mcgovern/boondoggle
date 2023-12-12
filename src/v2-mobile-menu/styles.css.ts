@@ -64,7 +64,6 @@ const kfMobileMenuModalOut = keyframes({
 export const mobileMenuModalCSS = style([
 	sprinkles({
 		background: "background",
-		border: "border_rule",
 		boxShadow: "lg",
 		width: "100vw",
 	}),
