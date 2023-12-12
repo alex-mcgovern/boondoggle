@@ -5,7 +5,6 @@ export const headerCSS = style([
 	sprinkles({
 		height: "space_8",
 
-		marginTop: "space_4",
 		marginBottom: "space_3",
 
 		alignItems: "center",

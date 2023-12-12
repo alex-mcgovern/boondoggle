@@ -8,13 +8,31 @@ import { sprinkles } from "../sprinkles/index.css";
  */
 
 const open = keyframes({
-	from: { width: 0 },
-	to: { width: "var(--radix-collapsible-content-width)" },
+	from: {
+		// width: 0,
+		overflow: "hidden",
+
+		transform: "translateX(-100%)",
+	},
+	to: {
+		// width: "var(--radix-collapsible-content-width)",
+	},
 });
 
 const close = keyframes({
-	from: { width: "var(--radix-collapsible-content-width)" },
-	to: { width: 0 },
+	from: {
+		overflow: "hidden",
+
+		// width: "var(--radix-collapsible-content-width)",
+		position: "absolute",
+	},
+	to: {
+		overflow: "hidden",
+
+		// width: 0,
+		position: "absolute",
+		transform: "translateX(-100%)",
+	},
 });
 
 export const collapsibleNavButtonCSS = style([
@@ -30,16 +48,19 @@ export const collapsibleNavButtonCSS = style([
 ]);
 export const collapsibleNavOuterCSS = style([
 	sprinkles({
-		overflow: "hidden",
 		borderRight: "border_rule",
+		zIndex: "1",
 	}),
 	{
 		selectors: {
 			'&[data-state="closed"]': {
-				animation: `${close} ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out} forwards`,
+				// visibility: "hidden",
+				// userSelect: "none",
+				// pointerEvents: "none",
+				animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
 			'&[data-state="open"]': {
-				animation: `${open} ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out} forwards`,
+				animation: `${open} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
 		},
 	},

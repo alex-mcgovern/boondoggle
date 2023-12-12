@@ -60,7 +60,7 @@ export const CollapsibleSideNavProvider = ({
 	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
 	const [isOpen, setIsOpen] = React.useState<boolean>(true);
 
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		if (isMobile) {
 			return setIsOpen(false);
 		}

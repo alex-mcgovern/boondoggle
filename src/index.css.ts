@@ -263,7 +263,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 
 		// Bespoke durations
 
-		sideNav: "600ms",
+		sideBarShowHide: "800ms",
 	},
 	width: {
 		"": "0",

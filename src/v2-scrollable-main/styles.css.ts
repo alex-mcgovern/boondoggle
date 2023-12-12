@@ -15,7 +15,6 @@ export const nonScrollableWrapperCSS = style({
 export const scrollableMainCSS = recipe({
 	base: [
 		sprinkles({
-			paddingX: "space_4",
 			overflowY: "auto",
 			overflowX: "hidden",
 			height: "100dvh",
@@ -54,34 +53,32 @@ const positive = (value: string) => {
 };
 
 const calcNonOffsetMargin = (contentWidth: string) => {
-	return positive(calc.subtract("50cqw", calc.divide(contentWidth, 2)));
+	return positive(calc.subtract("50vw", calc.divide(contentWidth, 2)));
 };
 
 const calcOffsetForSidebarLeft = (contentWidth: string) => {
 	return positive(
-		calc.subtract(
-			"50cqw",
-			calc.divide(contentWidth, 2),
-			calc.divide(vars.width.sideBar, 2),
-		),
+		calc.subtract("50vw", calc.divide(contentWidth, 2), vars.width.sideBar),
 	);
 };
 
 const calcOffsetForSidebarRight = (contentWidth: string) => {
-	return positive(
-		calc.add(
-			calc.subtract("50cqw", calc.divide(contentWidth, 2)),
-			calc.divide(vars.width.sideBar, 2),
-		),
-	);
+	return positive(calc.subtract("50vw", calc.divide(contentWidth, 2)));
 };
 
 export const scrollableMainInnerCSS = recipe({
 	base: [
+		sprinkles({
+			position: "relative",
+			marginX: "auto",
+			width: "100%",
+			maxWidth: "main_lg",
+			padding: "space_4",
+		}),
 		withPrefersMotion({
-			transitionProperty: "max-width, margin",
-			transitionDuration: vars.transitionDuration.sideNav,
-			transitionTimingFunction: vars.ease.quart_in_out,
+			// transitionProperty: "margin, max-width",
+			// transitionDuration: vars.transitionDuration.sideBarShowHide,
+			// transitionTimingFunction: vars.ease.quart_in_out,
 		}),
 	],
 	defaultVariants: {
@@ -178,7 +175,13 @@ export const scrollableMainInnerCSS = recipe({
 	],
 	variants: {
 		isSidebarOpen: {
-			true: [],
+			true: [
+				// withPrefersMotion({
+				// 	transitionProperty: "margin",
+				// 	transitionDuration: vars.transitionDuration.sideBarShowHide,
+				// 	transitionTimingFunction: vars.ease.quart_in_out,
+				// }),
+			],
 			false: [],
 		},
 		size: {

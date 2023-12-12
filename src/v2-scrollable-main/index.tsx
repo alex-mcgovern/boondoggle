@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { HTMLProps } from "react";
 import { WithSize } from "../types";
+import { useCollapsibleSideNav } from "../v2-collapsible-side-nav";
 import { scrollableMainCSS, scrollableMainInnerCSS } from "./styles.css";
 import { nonScrollableWrapperCSS } from "./styles.css";
 
@@ -15,7 +16,6 @@ export const NonScrollableWrapper = ({
 export function ScrollableMain({
 	children,
 	className,
-	isSidebarOpen,
 	size = "lg",
 	headers,
 	...rest
@@ -29,11 +29,9 @@ export function ScrollableMain({
 		 * Number of headers in the page. Used to calculate the total height.
 		 */
 		headers: "0" | "1" | "2";
-		/**
-		 * Whether the sidebar is open or not.
-		 */
-		isSidebarOpen?: boolean;
 	}) {
+	const [isSidebarOpen] = useCollapsibleSideNav();
+
 	return (
 		<main
 			className={clsx(className, scrollableMainCSS({ headers }))}
