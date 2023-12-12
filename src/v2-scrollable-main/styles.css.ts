@@ -52,6 +52,29 @@ const positive = (value: string) => {
 	return `max(${value}, 0)`;
 };
 
+const calcNonOffsetMargin = (contentWidth: string) => {
+	return positive(calc.subtract("50cqw", calc.divide(contentWidth, 2)));
+};
+
+const calcOffsetForSidebarLeft = (contentWidth: string) => {
+	return positive(
+		calc.subtract(
+			"50cqw",
+			calc.divide(contentWidth, 2),
+			calc.divide(vars.width.sideBar, 2),
+		),
+	);
+};
+
+const calcOffsetForSidebarRight = (contentWidth: string) => {
+	return positive(
+		calc.add(
+			calc.subtract("50cqw", calc.divide(contentWidth, 2)),
+			calc.divide(vars.width.sideBar, 2),
+		),
+	);
+};
+
 export const scrollableMainInnerCSS = recipe({
 	base: [],
 	defaultVariants: {
@@ -70,22 +93,8 @@ export const scrollableMainInnerCSS = recipe({
 			},
 			style: [
 				{
-					marginLeft: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_lg, 2),
-							calc.divide(vars.width.sideBar, 2),
-						),
-					),
-					marginRight: positive(
-						calc.add(
-							calc.subtract(
-								"50cqw",
-								calc.divide(vars.width.main_lg, 2),
-							),
-							calc.divide(vars.width.sideBar, 2),
-						),
-					),
+					marginLeft: calcOffsetForSidebarLeft(vars.width.main_lg),
+					marginRight: calcOffsetForSidebarRight(vars.width.main_lg),
 				},
 			],
 		},
@@ -96,18 +105,8 @@ export const scrollableMainInnerCSS = recipe({
 			},
 			style: [
 				{
-					marginLeft: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_lg, 2),
-						),
-					),
-					marginRight: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_lg, 2),
-						),
-					),
+					marginLeft: calcNonOffsetMargin(vars.width.main_lg),
+					marginRight: calcNonOffsetMargin(vars.width.main_lg),
 				},
 			],
 		},
@@ -123,22 +122,8 @@ export const scrollableMainInnerCSS = recipe({
 			},
 			style: [
 				{
-					marginLeft: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_md, 2),
-							calc.divide(vars.width.sideBar, 2),
-						),
-					),
-					marginRight: positive(
-						calc.add(
-							calc.subtract(
-								"50cqw",
-								calc.divide(vars.width.main_md, 2),
-							),
-							calc.divide(vars.width.sideBar, 2),
-						),
-					),
+					marginLeft: calcOffsetForSidebarLeft(vars.width.main_md),
+					marginRight: calcOffsetForSidebarRight(vars.width.main_md),
 				},
 			],
 		},
@@ -149,18 +134,8 @@ export const scrollableMainInnerCSS = recipe({
 			},
 			style: [
 				{
-					marginLeft: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_md, 2),
-						),
-					),
-					marginRight: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_md, 2),
-						),
-					),
+					marginLeft: calcNonOffsetMargin(vars.width.main_md),
+					marginRight: calcNonOffsetMargin(vars.width.main_md),
 				},
 			],
 		},
@@ -176,22 +151,8 @@ export const scrollableMainInnerCSS = recipe({
 			},
 			style: [
 				{
-					marginLeft: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_sm, 2),
-							calc.divide(vars.width.sideBar, 2),
-						),
-					),
-					marginRight: positive(
-						calc.add(
-							calc.subtract(
-								"50cqw",
-								calc.divide(vars.width.main_sm, 2),
-							),
-							calc.divide(vars.width.sideBar, 2),
-						),
-					),
+					marginLeft: calcOffsetForSidebarLeft(vars.width.main_sm),
+					marginRight: calcOffsetForSidebarRight(vars.width.main_sm),
 				},
 			],
 		},
@@ -202,18 +163,8 @@ export const scrollableMainInnerCSS = recipe({
 			},
 			style: [
 				{
-					marginLeft: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_sm, 2),
-						),
-					),
-					marginRight: positive(
-						calc.subtract(
-							"50cqw",
-							calc.divide(vars.width.main_sm, 2),
-						),
-					),
+					marginLeft: calcNonOffsetMargin(vars.width.main_sm),
+					marginRight: calcNonOffsetMargin(vars.width.main_sm),
 				},
 			],
 		},
