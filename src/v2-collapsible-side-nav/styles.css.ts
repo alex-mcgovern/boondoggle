@@ -1,6 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { MEDIA_QUERY_MOBILE, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 /**
  * Shared styles used for collapsible open/close state
@@ -59,7 +60,7 @@ export const collapsibleNavInnerCSS = style([
 		zIndex: "1",
 	}),
 	{
-		height: "100dvh",
+		height: calc.subtract("100dvh", vars.height.topBar),
 		width: "15rem",
 	},
 ]);
