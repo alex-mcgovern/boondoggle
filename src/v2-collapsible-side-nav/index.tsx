@@ -92,7 +92,7 @@ export const useCollapsibleSideNav = () => {
 /**
  * Button for toggling the side nav
  */
-export const ButtonMobileMenu = () => {
+export const ButtonToggleCollapsibleNav = () => {
 	const [_, setIsOpen] = useCollapsibleSideNav();
 
 	return (
