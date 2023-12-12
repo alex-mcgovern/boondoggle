@@ -57,15 +57,15 @@ export const CollapsibleSideNavProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	const [isTabletPlus] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
+	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
 	const [isOpen, setIsOpen] = React.useState<boolean>(true);
 
 	React.useEffect(() => {
-		if (isTabletPlus) {
+		if (isMobile) {
 			return setIsOpen(true);
 		}
 		return setIsOpen(false);
-	}, [isTabletPlus, setIsOpen]);
+	}, [isMobile, setIsOpen]);
 
 	return (
 		<CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
@@ -115,16 +115,16 @@ export function CollapsibleSideNav({
 	children: ReactNode | Array<ReactNode>;
 	onOpenChange?: (openState: boolean) => void;
 }) {
-	const [isTabletPlus] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
+	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
 
 	const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
 	React.useEffect(() => {
-		if (isTabletPlus) {
+		if (isMobile) {
 			return setIsOpen(true);
 		}
 		return setIsOpen(false);
-	}, [isTabletPlus, setIsOpen]);
+	}, [isMobile, setIsOpen]);
 
 	return (
 		<RadixCollapsible.Root
