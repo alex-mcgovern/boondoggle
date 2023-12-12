@@ -63,7 +63,19 @@ export const scrollableMainInnerCSS = recipe({
 	},
 	variants: {
 		size: {
-			lg: [sprinkles({ maxWidth: "main_lg" })],
+			lg: [
+				sprinkles({ maxWidth: "main_lg" }),
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_lg, 2),
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_lg, 2),
+					),
+				},
+			],
 			md: [sprinkles({ maxWidth: "main_md" })],
 			sm: [sprinkles({ maxWidth: "main_sm" })],
 		},
