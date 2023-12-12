@@ -2,6 +2,12 @@ import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { style } from "@vanilla-extract/css";
+
+export const nonScrollableWrapperCSS = style({
+	height: "100dvh",
+	overflow: "hidden",
+});
 
 export const scrollableMainCSS = recipe({
 	base: [
