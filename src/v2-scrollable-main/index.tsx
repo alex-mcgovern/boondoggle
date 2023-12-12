@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import type { HTMLProps } from "react";
 import { WithSize } from "../types";
-import { scrollableMainCSS } from "./styles.css";
-
+import { scrollableMainCSS, scrollableMainInnerCSS } from "./styles.css";
 import { nonScrollableWrapperCSS } from "./styles.css";
 
 export const NonScrollableWrapper = ({
@@ -32,10 +31,10 @@ export function ScrollableMain({
 	}) {
 	return (
 		<main
-			className={clsx(className, scrollableMainCSS({ size, headers }))}
+			className={clsx(className, scrollableMainCSS({ headers }))}
 			{...rest}
 		>
-			{children}
+			<div className={scrollableMainInnerCSS({ size })}>{children}</div>
 		</main>
 	);
 }

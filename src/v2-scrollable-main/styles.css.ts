@@ -12,7 +12,6 @@ export const nonScrollableWrapperCSS = style({
 export const scrollableMainCSS = recipe({
 	base: [
 		sprinkles({
-			marginX: "auto",
 			paddingX: "space_4",
 			overflowY: "auto",
 			overflowX: "hidden",
@@ -23,14 +22,9 @@ export const scrollableMainCSS = recipe({
 		},
 	],
 	defaultVariants: {
-		size: "lg",
+		headers: "1",
 	},
 	variants: {
-		size: {
-			lg: [sprinkles({ maxWidth: "main_lg" })],
-			md: [sprinkles({ maxWidth: "main_md" })],
-			sm: [sprinkles({ maxWidth: "main_sm" })],
-		},
 		headers: {
 			"0": {
 				height: "100dvh",
@@ -45,6 +39,24 @@ export const scrollableMainCSS = recipe({
 					vars.height.topBar,
 				),
 			},
+		},
+	},
+});
+
+export const scrollableMainInnerCSS = recipe({
+	base: [
+		sprinkles({
+			marginX: "auto",
+		}),
+	],
+	defaultVariants: {
+		size: "lg",
+	},
+	variants: {
+		size: {
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [sprinkles({ maxWidth: "main_md" })],
+			sm: [sprinkles({ maxWidth: "main_sm" })],
 		},
 	},
 });
