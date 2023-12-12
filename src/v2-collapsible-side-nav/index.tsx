@@ -121,9 +121,9 @@ export function CollapsibleSideNav({
 
 	React.useEffect(() => {
 		if (isMobile) {
-			return setIsOpen(true);
+			return setIsOpen(false);
 		}
-		return setIsOpen(false);
+		return setIsOpen(true);
 	}, [isMobile, setIsOpen]);
 
 	return (
