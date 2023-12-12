@@ -3,7 +3,6 @@ import { ComponentProps } from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Button, ButtonProps } from "../button";
 import { sprinkles } from "../sprinkles/index.css";
-import { WithSize } from "../types";
 import { tabCSS, tabCountCSS, tabListCSS, tabsSectionCss } from "./styles.css";
 
 const TabCount = ({ count }: { count: number }) => {
@@ -39,15 +38,14 @@ function Tab({
 export function Tabs({
 	tabs,
 	justifyContent = "start",
-	size,
 	areTabsFullWidth,
-}: WithSize & {
+}: {
 	tabs: Array<ComponentProps<typeof Tab>>;
 	justifyContent?: "start" | "space-between";
 	areTabsFullWidth?: boolean;
 }) {
 	return (
-		<section className={tabsSectionCss({ size })}>
+		<section className={tabsSectionCss}>
 			<nav
 				role="tablist"
 				className={clsx(tabListCSS, sprinkles({ justifyContent }))}

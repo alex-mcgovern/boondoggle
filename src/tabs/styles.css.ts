@@ -54,28 +54,12 @@ export const tabCSS = recipe({
 	},
 });
 
-export const tabsSectionCss = recipe({
-	base: [
-		sprinkles({
-			marginY: "space_3",
-			marginX: "auto",
-			paddingX: "space_4",
-		}),
-		{
-			scrollbarGutter: "stable",
-		},
-	],
-	defaultVariants: {
-		size: "lg",
-	},
-	variants: {
-		size: {
-			lg: [sprinkles({ maxWidth: "main_lg" })],
-			md: [sprinkles({ maxWidth: "main_md" })],
-			sm: [sprinkles({ maxWidth: "main_sm" })],
-		},
-	},
-});
+export const tabsSectionCss = style([
+	sprinkles({
+		marginY: "space_3",
+		marginX: "auto",
+	}),
+]);
 
 export const tabListCSS = style([
 	sprinkles({
