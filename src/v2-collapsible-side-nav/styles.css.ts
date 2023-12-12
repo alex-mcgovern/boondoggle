@@ -31,6 +31,7 @@ export const collapsibleNavButtonCSS = style([
 export const collapsibleNavOuterCSS = style([
 	sprinkles({
 		overflow: "hidden",
+		borderRight: "border_rule",
 	}),
 	{
 		selectors: {
