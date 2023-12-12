@@ -49,7 +49,7 @@ export const scrollableMainCSS = recipe({
 });
 
 const positive = (value: string) => {
-	return `max(${value}, 0)`;
+	return `max(${value}, 0px)`;
 };
 
 const calcNonOffsetMargin = (contentWidth: string) => {
