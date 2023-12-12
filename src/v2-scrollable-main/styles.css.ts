@@ -16,6 +16,7 @@ export const scrollableMainCSS = recipe({
 			overflowY: "auto",
 			overflowX: "hidden",
 			height: "100dvh",
+			width: "100%",
 		}),
 		{
 			scrollbarGutter: "stable",
