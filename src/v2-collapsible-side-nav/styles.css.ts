@@ -48,7 +48,7 @@ export const collapsibleNavOuterCSS = style([
 export const collapsibleNavInnerCSS = style([
 	sprinkles({
 		background: "background",
-		borderRight: "border_rule",
+		// borderRight: "border_rule",
 
 		paddingX: "space_4",
 		paddingY: "space_2",
@@ -62,6 +62,6 @@ export const collapsibleNavInnerCSS = style([
 	}),
 	{
 		height: calc.subtract("100dvh", vars.height.topBar),
-		width: "15rem",
+		width: vars.width.sideBar,
 	},
 ]);

@@ -268,6 +268,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100%": "100%",
 		"100vw": "100vw",
 		auto: "auto",
+		sideBar: "15rem",
 		main_lg: "75rem",
 		main_md: "55.5rem",
 		main_sm: "30rem",

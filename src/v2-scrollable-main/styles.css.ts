@@ -49,22 +49,37 @@ export const scrollableMainCSS = recipe({
 });
 
 export const scrollableMainInnerCSS = recipe({
-	base: [
-		{
-			marginLeft: calc.subtract("50%", "50cqw"),
-			marginRight: calc.subtract("50%", "50cqw"),
-		},
-		// sprinkles({
-		// 	marginX: "auto",
-		// }),
-	],
+	base: [],
 	defaultVariants: {
+		isSidebarOpen: true,
 		size: "lg",
 	},
-	variants: {
-		size: {
-			lg: [
-				sprinkles({ maxWidth: "main_lg" }),
+	compoundVariants: [
+		{
+			variants: {
+				size: "lg",
+				isSidebarOpen: true,
+			},
+			style: [
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_lg, 2),
+						vars.width.sideBar,
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_lg, 2),
+					),
+				},
+			],
+		},
+		{
+			variants: {
+				size: "lg",
+				isSidebarOpen: false,
+			},
+			style: [
 				{
 					marginLeft: calc.subtract(
 						"50cqw",
@@ -76,8 +91,117 @@ export const scrollableMainInnerCSS = recipe({
 					),
 				},
 			],
-			md: [sprinkles({ maxWidth: "main_md" })],
-			sm: [sprinkles({ maxWidth: "main_sm" })],
+		},
+
+		{
+			variants: {
+				size: "md",
+				isSidebarOpen: true,
+			},
+			style: [
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_md, 2),
+						vars.width.sideBar,
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_md, 2),
+					),
+				},
+			],
+		},
+		{
+			variants: {
+				size: "md",
+				isSidebarOpen: false,
+			},
+			style: [
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_md, 2),
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_md, 2),
+					),
+				},
+			],
+		},
+
+		{
+			variants: {
+				size: "sm",
+				isSidebarOpen: true,
+			},
+			style: [
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_sm, 2),
+						vars.width.sideBar,
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_sm, 2),
+					),
+				},
+			],
+		},
+		{
+			variants: {
+				size: "sm",
+				isSidebarOpen: false,
+			},
+			style: [
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_sm, 2),
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_sm, 2),
+					),
+				},
+			],
+		},
+	],
+	variants: {
+		isSidebarOpen: {
+			true: [],
+			false: [],
+		},
+		size: {
+			lg: [sprinkles({ maxWidth: "main_lg" })],
+			md: [
+				sprinkles({ maxWidth: "main_md" }),
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_md, 2),
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_md, 2),
+					),
+				},
+			],
+			sm: [
+				sprinkles({ maxWidth: "main_sm" }),
+				{
+					marginLeft: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_sm, 2),
+					),
+					marginRight: calc.subtract(
+						"50cqw",
+						calc.divide(vars.width.main_sm, 2),
+					),
+				},
+			],
 		},
 	},
 });

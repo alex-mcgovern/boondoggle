@@ -15,6 +15,7 @@ export const NonScrollableWrapper = ({
 export function ScrollableMain({
 	children,
 	className,
+	isSidebarOpen,
 	size = "lg",
 	headers,
 	...rest
@@ -28,13 +29,19 @@ export function ScrollableMain({
 		 * Number of headers in the page. Used to calculate the total height.
 		 */
 		headers: "0" | "1" | "2";
+		/**
+		 * Whether the sidebar is open or not.
+		 */
+		isSidebarOpen?: boolean;
 	}) {
 	return (
 		<main
 			className={clsx(className, scrollableMainCSS({ headers }))}
 			{...rest}
 		>
-			<div className={scrollableMainInnerCSS({ size })}>{children}</div>
+			<div className={scrollableMainInnerCSS({ size, isSidebarOpen })}>
+				{children}
+			</div>
 		</main>
 	);
 }
