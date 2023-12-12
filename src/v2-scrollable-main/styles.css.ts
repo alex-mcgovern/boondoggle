@@ -79,7 +79,9 @@ const calcOffsetForSidebarRight = (contentWidth: string) => {
 export const scrollableMainInnerCSS = recipe({
 	base: [
 		withPrefersMotion({
-			transition: `max-width ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out}, margin ${vars.transitionDuration.sideNav} ${vars.ease.quart_in_out}`,
+			transitionProperty: "max-width, margin",
+			transitionDuration: vars.transitionDuration.sideNav,
+			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
 	],
 	defaultVariants: {
