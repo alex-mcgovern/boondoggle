@@ -16,7 +16,7 @@ import { tabCSS, tabIndicatorCSS, tabListCSS } from "./styles.css";
  * TAB
  * ------------------------------------------------------------------------------- */
 
-type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
+export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
 	label: string;
 };
 
