@@ -37,7 +37,7 @@ export const V2Tab = ({ id, label, ...props }: V2TabProps) => {
 								className={tabIndicatorCSS}
 								transition={{
 									type: "spring",
-									stiffness: 500,
+									stiffness: 1000,
 									damping: 75,
 								}}
 							/>

@@ -120,9 +120,6 @@ export const tabCSS = style([
 			},
 			"&[data-selected]": {
 				color: vars.color.button_default,
-				...withPrefersMotion({
-					transitionDuration: vars.transitionDuration.medium,
-				}),
 			},
 			[`&[data-selected]${HOVER}`]: {
 				background: vars.color.button_tint,
