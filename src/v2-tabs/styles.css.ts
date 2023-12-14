@@ -184,5 +184,7 @@ export const tabCountIconCSS = style([
 		color: "inherit",
 		height: TAB_COUNT_SIZE,
 		width: TAB_COUNT_SIZE,
+
+		padding: "space_0.5",
 	}),
 ]);
