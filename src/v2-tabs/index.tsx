@@ -1,45 +1,68 @@
+import { motion } from "framer-motion";
+import React from "react";
 import {
-	Tabs as ReactAriaTabs,
-	type TabsProps as ReactAriaTabsProps,
+	Tab as ReactAriaTab,
 	TabList as ReactAriaTabList,
 	type TabListProps as ReactAriaTabListProps,
-	Tab as ReactAriaTab,
-	type TabProps as ReactAriaTabProps,
 	TabPanel as ReactAriaTabPanel,
 	type TabPanelProps as ReactAriaTabPanelProps,
-	Key,
+	type TabProps as ReactAriaTabProps,
+	Tabs as ReactAriaTabs,
+	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
-import { tabCSS, tabListCSS } from "./styles.css";
-import React from "react";
+import { tabCSS, tabIndicatorCSS, tabListCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
- * UTILS FOR ANIMATION
+ * TAB
  * ------------------------------------------------------------------------------- */
 
-const getTabElementById = (
-	tabElements: NodeListOf<Element> | undefined,
-	key: Key,
-) => {
-	if (!tabElements) {
-		return undefined;
-	}
-	console.debug("debug  tabElements:", tabElements);
-	return [...tabElements.values()].find((v) => v.id === key);
+type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
+	label: string;
+};
+
+export const V2Tab = ({ id, label, ...props }: V2TabProps) => {
+	return (
+		<ReactAriaTab id={id} className={tabCSS} {...props}>
+			{({ isSelected }) => {
+				return (
+					<>
+						{isSelected ? (
+							<motion.span
+								layoutId="tab_indicator"
+								className={tabIndicatorCSS}
+								transition={{
+									type: "spring",
+									stiffness: 1000,
+									damping: 100,
+								}}
+							/>
+						) : null}
+						{label}
+					</>
+				);
+			}}
+		</ReactAriaTab>
+	);
 };
 
 /** -----------------------------------------------------------------------------
- * COMPONENTS
+ * TAB LIST
  * ------------------------------------------------------------------------------- */
 
-export const V2Tab = (props: Omit<ReactAriaTabProps, "className">) => {
-	return <ReactAriaTab className={tabCSS} {...props} />;
-};
+export function V2TabList({
+	items,
+	...props
+}: Omit<ReactAriaTabListProps<V2TabProps>, "className">) {
+	return (
+		<ReactAriaTabList className={tabListCSS} items={items} {...props}>
+			{(tab) => <V2Tab {...tab} />}
+		</ReactAriaTabList>
+	);
+}
 
-export const V2TabList = (
-	props: Omit<ReactAriaTabListProps<object>, "className">,
-) => {
-	return <ReactAriaTabList className={tabListCSS} {...props} />;
-};
+/** -----------------------------------------------------------------------------
+ * TAB PANEL
+ * ------------------------------------------------------------------------------- */
 
 export const V2TabPanel = (
 	props: Omit<ReactAriaTabPanelProps, "className">,
@@ -47,41 +70,29 @@ export const V2TabPanel = (
 	return <ReactAriaTabPanel {...props} />;
 };
 
-export const V2Tabs = (props: ReactAriaTabsProps) => {
-	const [selectedKey, setSelectedKey] = React.useState<Key>();
-	console.debug("debug  selectedKey:", selectedKey);
+/** -----------------------------------------------------------------------------
+ * TABS
+ * ------------------------------------------------------------------------------- */
 
-	const tabsRef = React.createRef<HTMLDivElement>();
+export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
+	const {
+		selectedKey: controlledSelectedKey,
+		onSelectionChange: controlledOnSelectionChange,
+		...tabsProps
+	} = props || {};
 
-	// Find all the tab elements so we can use their dimensions.
-	const [tabElements, setTabElements] = React.useState<NodeListOf<Element>>();
-
-	React.useEffect(() => {
-		if (!tabElements) {
-			const tabs = tabsRef.current?.querySelectorAll("[role=tab]");
-			console.debug("debug  tabs:", tabs);
-			setTabElements(tabs);
-		}
-	}, [tabElements, tabsRef, setTabElements]);
-
-	const onSelectionChange = React.useCallback(
-		(key: Key) => {
-			// alert("yas");
-			console.log(key);
-			setSelectedKey(key);
-		},
-		[tabElements, setSelectedKey],
-	);
+	const [selectedKey, setSelectedKey] = React.useState(controlledSelectedKey);
 
 	return (
 		<ReactAriaTabs
-			{...props}
+			{...tabsProps}
 			selectedKey={selectedKey}
-			onSelectionChange={(key: Key) => {
-				console.log(getTabElementById(tabElements, key));
-				setSelectedKey(key);
+			onSelectionChange={(k) => {
+				setSelectedKey(k);
+				controlledOnSelectionChange?.(k);
 			}}
-			ref={tabsRef}
-		/>
+		>
+			{children}
+		</ReactAriaTabs>
 	);
 };

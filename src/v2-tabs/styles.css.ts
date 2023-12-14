@@ -1,11 +1,10 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
 	ACTIVE,
+	FOCUS_VISIBLE,
 	HOVER,
-	a11yFocus,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
@@ -24,18 +23,17 @@ const scaleUpKeyframes = keyframes({
 });
 
 export const tabCSS = style([
-	a11yFocus,
 	sprinkles({
-		whiteSpace: "nowrap",
+		position: "relative",
 
 		fontStyle: "bodyMd",
 		fontWeight: "medium",
-
 		color: "text_low_contrast",
+		textDecoration: "none",
+		whiteSpace: "nowrap",
 
 		paddingX: "space_3",
 		paddingY: "space_1",
-
 		borderRadius: "md",
 	}),
 	withPrefersMotion({
@@ -44,19 +42,22 @@ export const tabCSS = style([
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
+		outline: "none",
+
 		selectors: {
 			[`&${HOVER}`]: {
 				cursor: "pointer",
 				color: vars.color.text_high_contrast,
-				// background: vars.color.tint_hover,
 			},
 			[`&${ACTIVE}`]: {
 				color: vars.color.text_high_contrast,
-				background: vars.color.tint_hover,
+			},
+			[`&${FOCUS_VISIBLE}`]: {
+				color: vars.color.text_high_contrast,
+				// ...a11yFocusStyleRule,
 			},
 			"&[data-selected]": {
 				color: vars.color.text_high_contrast,
-				background: vars.color.tint_hover,
 			},
 		},
 	},
@@ -77,6 +78,7 @@ export const tabListCSS = style([
 	{
 		msOverflowStyle: "none",
 		overflowX: "scroll",
+		overflowY: "visible",
 		scrollbarGutter: "none",
 		scrollbarWidth: "none",
 		selectors: {
@@ -116,12 +118,22 @@ export const tabCountCSS = style([
 export const tabIndicatorCSS = style([
 	sprinkles({
 		position: "absolute",
-		background: "button_default",
+		borderRadius: "md",
+		zIndex: "-1",
+		// background: "button_default",
 	}),
 	{
-		content: " ",
-		height: "0.125rem",
-		width: "20px",
-		top: calc.subtract("100%", 1),
+		inset: 0,
+		background: vars.color.tint_hover,
+		// right: 0,
+		// left: 0,
+		// bottom: 0,
+		// top: "100%",
+
+		// height: 1,
+
+		// zIndex: 10,
+		userSelect: "none",
+		pointerEvents: "none",
 	},
 ]);
