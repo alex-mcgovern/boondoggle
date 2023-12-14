@@ -16,7 +16,7 @@ import { sprinkles } from "../sprinkles/index.css";
  * ------------------------------------------------------------------------------- */
 
 const TAB_HEIGHT = vars.spacing.space_8;
-const TAB_PADDING_X = vars.spacing.space_3;
+const TAB_PADDING_X = vars.spacing.space_2;
 const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
 
 /** -----------------------------------------------------------------------------
@@ -66,6 +66,9 @@ export const tabListInnerCSS = style([
 		paddingBottom: "space_1",
 	}),
 	{
+		marginLeft: calc.multiply(TAB_PADDING_X, -1),
+		marginRight: calc.multiply(TAB_PADDING_X, -1),
+
 		overflowX: "scroll",
 		overflowY: "visible",
 	},
