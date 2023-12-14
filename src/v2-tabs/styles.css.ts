@@ -48,9 +48,11 @@ export const tabCSS = style([
 			[`&${HOVER}`]: {
 				cursor: "pointer",
 				color: vars.color.text_high_contrast,
+				background: vars.color.tint_hover,
 			},
 			[`&${ACTIVE}`]: {
 				color: vars.color.text_high_contrast,
+				background: vars.color.tint_hover,
 			},
 			[`&${FOCUS_VISIBLE}`]: {
 				color: vars.color.text_high_contrast,
@@ -133,14 +135,14 @@ export const tabIndicatorCSS = style([
 		borderRadius: "md",
 		zIndex: "-1",
 		background: "button_default",
+		height: "space_0.5",
 	}),
 	{
 		right: 0,
 		left: 0,
 		bottom: 0,
-		top: calc.subtract("100%", 1),
+		top: calc.subtract("100%", vars.spacing["space_0.5"]),
 
-		height: 1,
 		userSelect: "none",
 		pointerEvents: "none",
 	},
