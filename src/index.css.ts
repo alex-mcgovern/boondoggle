@@ -482,6 +482,19 @@ export const overflowEllipsis = style([
 	},
 ]);
 
+export const hideScrollbar = style([
+	{
+		msOverflowStyle: "none",
+		scrollbarGutter: "none",
+		scrollbarWidth: "none",
+		selectors: {
+			"&::-webkit-scrollbar": {
+				display: "none",
+			},
+		},
+	},
+]);
+
 /** -----------------------------------------------------------------------------
  * GLOBAL STYLESHEET
  * ------------------------------------------------------------------------------- */

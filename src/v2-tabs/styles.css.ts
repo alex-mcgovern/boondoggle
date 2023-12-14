@@ -5,10 +5,22 @@ import {
 	ACTIVE,
 	FOCUS_VISIBLE,
 	HOVER,
+	hideScrollbar,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+
+/** -----------------------------------------------------------------------------
+ * CONFIG / CONSTANTS
+ * ------------------------------------------------------------------------------- */
+
+const TAB_SECTION_HEIGHT = vars.spacing.space_8;
+const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
+
+/** -----------------------------------------------------------------------------
+ * ANIMATIONS
+ * ------------------------------------------------------------------------------- */
 
 const scaleUpKeyframes = keyframes({
 	"0%": {
@@ -22,19 +34,61 @@ const scaleUpKeyframes = keyframes({
 	},
 });
 
+/** -----------------------------------------------------------------------------
+ * TAB LIST
+ * ------------------------------------------------------------------------------- */
+
+export const tabListOuterCSS = style([
+	sprinkles({
+		position: "relative",
+		marginY: "space_2",
+	}),
+	{
+		selectors: {
+			"&:after": {
+				content: "",
+				position: "absolute",
+				inset: 0,
+				width: "inherit",
+				borderBottom: `1px solid ${vars.color.border_rule}`,
+				zIndex: -10,
+			},
+		},
+	},
+]);
+
+export const tabListInnerCSS = style([
+	sprinkles({
+		alignItems: "center",
+		display: "flex",
+		gap: "space_2",
+	}),
+	{
+		height: TAB_SECTION_HEIGHT,
+		overflowX: "scroll",
+		overflowY: "visible",
+	},
+	hideScrollbar,
+]);
+
+/** -----------------------------------------------------------------------------
+ * TAB
+ * ------------------------------------------------------------------------------- */
+
 export const tabCSS = style([
 	sprinkles({
 		position: "relative",
 
 		fontStyle: "bodyMd",
 		fontWeight: "medium",
+
 		color: "text_low_contrast",
 		textDecoration: "none",
 		whiteSpace: "nowrap",
 
-		paddingX: "space_3",
-		paddingY: "space_1",
-		marginY: "space_1",
+		paddingX: "space_2",
+		paddingY: "space_0.25",
+		// marginY: "space_1",
 		borderRadius: "md",
 	}),
 	withPrefersMotion({
@@ -60,50 +114,38 @@ export const tabCSS = style([
 				// ...a11yFocusStyleRule,
 			},
 			"&[data-selected]": {
-				color: vars.color.text_high_contrast,
+				color: vars.color.button_default,
+			},
+			[`&[data-selected]${HOVER}`]: {
+				background: vars.color.button_tint,
 			},
 		},
 	},
 ]);
 
-export const tabListOuterCSS = style([
+export const tabIndicatorCSS = style([
 	sprinkles({
-		position: "relative",
-		marginY: "space_2",
+		position: "absolute",
+		zIndex: "-1",
+		background: "button_default",
 	}),
 	{
-		selectors: {
-			"&:after": {
-				content: "",
-				position: "absolute",
-				inset: 0,
-				width: "inherit",
-				borderBottom: `1px solid ${vars.color.border_rule}`,
-				zIndex: -10,
-			},
-		},
+		height: TAB_INDICATOR_HEIGHT,
+
+		right: 0,
+		left: 0,
+		bottom: 0,
+		top: calc.add("100%", "1px"),
+		// top: calc.subtract(TAB_SECTION_HEIGHT, TAB_INDICATOR_HEIGHT),
+
+		userSelect: "none",
+		pointerEvents: "none",
 	},
 ]);
-export const tabListInnerCSS = style([
-	sprinkles({
-		alignItems: "center",
-		display: "flex",
-		gap: "space_2",
-		// paddingY: "space_1",
-	}),
-	{
-		msOverflowStyle: "none",
-		overflowX: "scroll",
-		overflowY: "visible",
-		scrollbarGutter: "none",
-		scrollbarWidth: "none",
-		selectors: {
-			"&::-webkit-scrollbar": {
-				display: "none",
-			},
-		},
-	},
-]);
+
+/** -----------------------------------------------------------------------------
+ * TAB COUNT
+ * ------------------------------------------------------------------------------- */
 
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
@@ -128,27 +170,5 @@ export const tabCountCSS = style([
 		...withPrefersMotion({
 			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		}),
-	},
-]);
-
-export const tabIndicatorCSS = style([
-	sprinkles({
-		position: "absolute",
-		borderRadius: "md",
-		zIndex: "-1",
-		background: "button_default",
-		height: "space_0.5",
-	}),
-	{
-		right: 0,
-		left: 0,
-		bottom: 0,
-		top: calc.subtract(
-			calc.add("100%", vars.spacing.space_1),
-			vars.spacing["space_0.5"],
-		),
-
-		userSelect: "none",
-		pointerEvents: "none",
 	},
 ]);
