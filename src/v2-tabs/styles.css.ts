@@ -5,6 +5,7 @@ import {
 	ACTIVE,
 	FOCUS_VISIBLE,
 	HOVER,
+	NOT_DISABLED,
 	a11yDisabled,
 	hideScrollbar,
 	variantColorOverlay,
@@ -96,16 +97,16 @@ export const tabOuterCSS = style([
 		paddingRight: TAB_PADDING_X,
 
 		selectors: {
-			[`&${HOVER}`]: {
+			[`&${NOT_DISABLED}${HOVER}`]: {
 				cursor: "pointer",
 				color: vars.color.text_high_contrast,
 				background: vars.color.tab_hover_color,
 			},
-			[`&${ACTIVE}`]: {
+			[`&${NOT_DISABLED}${ACTIVE}`]: {
 				color: vars.color.text_high_contrast,
 				background: vars.color.tab_hover_color,
 			},
-			[`&${FOCUS_VISIBLE}`]: {
+			[`&${NOT_DISABLED}${FOCUS_VISIBLE}`]: {
 				color: vars.color.text_high_contrast,
 			},
 			"&[data-selected]": {
