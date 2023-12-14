@@ -4,11 +4,11 @@ import React from "react";
 import {
 	Tab as ReactAriaTab,
 	TabList as ReactAriaTabList,
-	type TabListProps as ReactAriaTabListProps,
 	TabPanel as ReactAriaTabPanel,
+	Tabs as ReactAriaTabs,
+	type TabListProps as ReactAriaTabListProps,
 	type TabPanelProps as ReactAriaTabPanelProps,
 	type TabProps as ReactAriaTabProps,
-	Tabs as ReactAriaTabs,
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 import { Loader } from "../loader";

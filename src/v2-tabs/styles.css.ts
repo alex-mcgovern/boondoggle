@@ -181,7 +181,7 @@ export const tabCountCSS = style([
 ]);
 export const tabCountIconCSS = style([
 	sprinkles({
-		color: "text_low_contrast",
+		color: "inherit",
 		height: TAB_COUNT_SIZE,
 		width: TAB_COUNT_SIZE,
 	}),
