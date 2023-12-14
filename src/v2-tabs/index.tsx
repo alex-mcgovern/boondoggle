@@ -33,10 +33,16 @@ export const V2TabCount = ({
 	isError,
 }: { count?: number; isLoading?: boolean; isError?: boolean }) => {
 	if (isError) {
-		return <Icon icon={faExclamationCircle} className={tabCountIconCSS} />;
+		return (
+			<Icon
+				size="sm"
+				icon={faExclamationCircle}
+				className={tabCountIconCSS}
+			/>
+		);
 	}
 	if (isLoading) {
-		return <Loader className={tabCountIconCSS} />;
+		return <Loader size="sm" className={tabCountIconCSS} />;
 	}
 	if (!isLoading && !count) {
 		return <div className={tabCountCSS}>0</div>;

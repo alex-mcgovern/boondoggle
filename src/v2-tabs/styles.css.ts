@@ -155,7 +155,8 @@ const TAB_COUNT_SIZE = "space_4" satisfies
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
-		padding: "space_0.5",
+		paddingY: "space_0.5",
+		paddingX: "space_1",
 		borderRadius: "pill",
 
 		display: "flex",

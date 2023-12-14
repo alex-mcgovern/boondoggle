@@ -93,6 +93,7 @@ export const WithTabCount: Story = {
 						{
 							id: "tab_3",
 							label: faker.lorem.words(3),
+							slotRight: <V2TabCount count={42069} />,
 						},
 					]}
 				/>
