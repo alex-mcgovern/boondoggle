@@ -33,7 +33,7 @@ export const tabCSS = style([
 		whiteSpace: "nowrap",
 
 		paddingX: "space_3",
-		paddingY: "space_1",
+		paddingY: "space_2",
 		borderRadius: "md",
 	}),
 	withPrefersMotion({
@@ -68,13 +68,23 @@ export const tabListCSS = style([
 		position: "relative",
 
 		marginY: "space_2",
-		paddingY: "space_1",
 
 		alignItems: "center",
-		borderBottom: "border_rule",
 		display: "flex",
 		gap: "space_2",
 	}),
+	{
+		selectors: {
+			"&:after": {
+				content: "",
+				position: "absolute",
+				inset: 0,
+				width: "100%",
+				borderBottom: `1px solid ${vars.color.border_rule}`,
+				zIndex: -10,
+			},
+		},
+	},
 	{
 		msOverflowStyle: "none",
 		overflowX: "scroll",
@@ -120,17 +130,15 @@ export const tabIndicatorCSS = style([
 		position: "absolute",
 		borderRadius: "md",
 		zIndex: "-1",
-		// background: "button_default",
+		background: "button_default",
 	}),
 	{
-		inset: 0,
-		background: vars.color.tint_hover,
-		// right: 0,
-		// left: 0,
-		// bottom: 0,
-		// top: "100%",
+		right: 0,
+		left: 0,
+		bottom: 0,
+		top: calc.subtract("100%", 1),
 
-		// height: 1,
+		height: 1,
 
 		// zIndex: 10,
 		userSelect: "none",
