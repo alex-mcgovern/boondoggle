@@ -177,15 +177,16 @@ export const tabCountCSS = style([
 
 		textAlign: "center",
 		fontWeight: "semibold",
+
 		color: "text_low_contrast",
+		background: "button_tint",
 
 		height: "space_4",
 		minWidth: "space_4",
 		marginX: "space_0.5",
 	}),
 	{
-		fontSize: "0.5rem",
-		lineHeight: "0.5rem",
-		background: vars.color.button_tint,
+		fontSize: "0.625rem",
+		lineHeight: "0.625rem",
 	},
 ]);
