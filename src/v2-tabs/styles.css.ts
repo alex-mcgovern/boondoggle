@@ -1,4 +1,4 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { withPrefersMotion } from "../css-utils";
 import {
@@ -18,22 +18,6 @@ import { sprinkles } from "../sprinkles/index.css";
 const TAB_HEIGHT = vars.spacing.space_8;
 const TAB_PADDING_X = vars.spacing.space_2;
 const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
-
-/** -----------------------------------------------------------------------------
- * ANIMATIONS
- * ------------------------------------------------------------------------------- */
-
-const scaleUpKeyframes = keyframes({
-	"0%": {
-		marginLeft: calc.multiply(vars.spacing.space_12, -1),
-		transform: "scale(0.8)",
-		opacity: 0,
-	},
-	"50%": { transform: "scale(0.8)", opacity: 0 },
-	"100%": {
-		opacity: 1,
-	},
-});
 
 /** -----------------------------------------------------------------------------
  * TAB LIST

@@ -10,15 +10,15 @@ import {
 	Tabs as ReactAriaTabs,
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
+import { Loader } from "../loader";
 import {
-	tabOuterCSS,
+	tabCountCSS,
 	tabIndicatorCSS,
+	tabInnerCSS,
 	tabListInnerCSS,
 	tabListOuterCSS,
-	tabInnerCSS,
-	tabCountCSS,
+	tabOuterCSS,
 } from "./styles.css";
-import { Loader } from "../loader";
 
 /** -----------------------------------------------------------------------------
  * TAB COUNT
