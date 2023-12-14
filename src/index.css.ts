@@ -41,7 +41,8 @@ export const CONTAINER_SM = "(width < 496px)";
 
 const SELECTOR_IS_LINK_BUTTON_INPUT = ":is(a,button,input)";
 
-export const DISABLED = ":is([disabled], [aria-disabled='true'])";
+export const DISABLED =
+	":is([disabled], [aria-disabled='true'], [data-disabled])";
 export const NOT_DISABLED = `:not(${DISABLED})`;
 
 export const HOVER = ":is(:hover,[data-hovered])";

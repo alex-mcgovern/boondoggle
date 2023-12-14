@@ -5,6 +5,7 @@ import {
 	ACTIVE,
 	FOCUS_VISIBLE,
 	HOVER,
+	a11yDisabled,
 	hideScrollbar,
 	variantColorOverlay,
 	vars,
@@ -64,6 +65,7 @@ export const tabListInnerCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const tabOuterCSS = style([
+	a11yDisabled,
 	sprinkles({
 		position: "relative",
 
