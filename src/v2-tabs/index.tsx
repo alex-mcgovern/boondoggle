@@ -1,3 +1,4 @@
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import { motion } from "framer-motion";
 import React from "react";
 import {
@@ -11,6 +12,7 @@ import {
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 import { Loader } from "../loader";
+import { Icon } from "../v2-icon";
 import {
 	tabCountCSS,
 	tabCountIconCSS,
@@ -20,8 +22,6 @@ import {
 	tabListOuterCSS,
 	tabOuterCSS,
 } from "./styles.css";
-import { Icon } from "../v2-icon";
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 
 /** -----------------------------------------------------------------------------
  * TAB COUNT
