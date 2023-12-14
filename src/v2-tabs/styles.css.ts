@@ -114,6 +114,7 @@ export const tabOuterCSS = style([
 			},
 			[`&[data-selected]${HOVER}`]: {
 				background: vars.color.tab_selected_color,
+				color: vars.color.button_default,
 			},
 		},
 	},
