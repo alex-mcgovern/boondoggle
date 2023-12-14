@@ -63,15 +63,10 @@ export const tabCSS = style([
 	},
 ]);
 
-export const tabListCSS = style([
+export const tabListOuterCSS = style([
 	sprinkles({
 		position: "relative",
-
 		marginY: "space_2",
-
-		alignItems: "center",
-		display: "flex",
-		gap: "space_2",
 	}),
 	{
 		selectors: {
@@ -79,12 +74,19 @@ export const tabListCSS = style([
 				content: "",
 				position: "absolute",
 				inset: 0,
-				width: "100%",
+				width: "inherit",
 				borderBottom: `1px solid ${vars.color.border_rule}`,
 				zIndex: -10,
 			},
 		},
 	},
+]);
+export const tabListInnerCSS = style([
+	sprinkles({
+		alignItems: "center",
+		display: "flex",
+		gap: "space_2",
+	}),
 	{
 		msOverflowStyle: "none",
 		overflowX: "scroll",
@@ -139,8 +141,6 @@ export const tabIndicatorCSS = style([
 		top: calc.subtract("100%", 1),
 
 		height: 1,
-
-		// zIndex: 10,
 		userSelect: "none",
 		pointerEvents: "none",
 	},

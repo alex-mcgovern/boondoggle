@@ -10,7 +10,12 @@ import {
 	Tabs as ReactAriaTabs,
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
-import { tabCSS, tabIndicatorCSS, tabListCSS } from "./styles.css";
+import {
+	tabCSS,
+	tabIndicatorCSS,
+	tabListInnerCSS,
+	tabListOuterCSS,
+} from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * TAB
@@ -54,9 +59,15 @@ export function V2TabList({
 	...props
 }: Omit<ReactAriaTabListProps<V2TabProps>, "className">) {
 	return (
-		<ReactAriaTabList className={tabListCSS} items={items} {...props}>
-			{(tab) => <V2Tab {...tab} />}
-		</ReactAriaTabList>
+		<div className={tabListOuterCSS}>
+			<ReactAriaTabList
+				className={tabListInnerCSS}
+				items={items}
+				{...props}
+			>
+				{(tab) => <V2Tab {...tab} />}
+			</ReactAriaTabList>
+		</div>
 	);
 }
 
