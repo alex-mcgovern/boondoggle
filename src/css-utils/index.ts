@@ -53,7 +53,7 @@ export const makeTheme = ({
 		tint_active: step(secondary, isOverlay ? 5 : 4),
 
 		tab_hover_color: step(secondary, isOverlay ? 4 : 3),
-		tab_selected_color: step(primary, isOverlay ? 5 : 4),
+		tab_selected_color: step(primary, isOverlay ? 4 : 3),
 
 		focus_ring: step(primary, 8),
 	};
