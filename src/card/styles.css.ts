@@ -29,7 +29,8 @@ export const cardCSS = recipe({
 	variants: {
 		hasPadding: {
 			true: sprinkles({
-				padding: "space_4",
+				paddingX: "space_4",
+				paddingY: "space_3",
 			}),
 			false: [],
 		},
