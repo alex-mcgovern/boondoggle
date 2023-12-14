@@ -83,6 +83,17 @@ export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
 
 	const [selectedKey, setSelectedKey] = React.useState(controlledSelectedKey);
 
+	React.useLayoutEffect(() => {
+		if (controlledSelectedKey !== selectedKey) {
+			setSelectedKey(controlledSelectedKey);
+		}
+	}, [
+		controlledSelectedKey,
+		controlledSelectedKey,
+		selectedKey,
+		setSelectedKey,
+	]);
+
 	return (
 		<ReactAriaTabs
 			{...tabsProps}
