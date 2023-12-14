@@ -13,12 +13,15 @@ import {
 import { Loader } from "../loader";
 import {
 	tabCountCSS,
+	tabCountIconCSS,
 	tabIndicatorCSS,
 	tabInnerCSS,
 	tabListInnerCSS,
 	tabListOuterCSS,
 	tabOuterCSS,
 } from "./styles.css";
+import { Icon } from "../v2-icon";
+import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 
 /** -----------------------------------------------------------------------------
  * TAB COUNT
@@ -27,9 +30,16 @@ import {
 export const V2TabCount = ({
 	count,
 	isLoading,
-}: { count?: number; isLoading?: boolean }) => {
+	isError,
+}: { count?: number; isLoading?: boolean; isError?: boolean }) => {
+	if (isError) {
+		return <Icon icon={faExclamationCircle} className={tabCountIconCSS} />;
+	}
+	if (isLoading) {
+		return <Loader className={tabCountIconCSS} />;
+	}
 	if (!isLoading && !count) {
-		return null;
+		return <div className={tabCountCSS}>0</div>;
 	}
 	return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
 };

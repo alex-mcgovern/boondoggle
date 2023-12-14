@@ -9,7 +9,7 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * CONFIG / CONSTANTS
@@ -147,6 +147,11 @@ export const tabIndicatorCSS = style([
  * TAB COUNT
  * ------------------------------------------------------------------------------- */
 
+const TAB_COUNT_SIZE = "space_4" satisfies
+	| Sprinkles["width"]
+	| Sprinkles["maxWidth"]
+	| Sprinkles["height"];
+
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
@@ -165,12 +170,19 @@ export const tabCountCSS = style([
 		color: "text_low_contrast",
 		background: "button_tint",
 
-		height: "space_4",
-		minWidth: "space_4",
+		height: TAB_COUNT_SIZE,
+		minWidth: TAB_COUNT_SIZE,
 		marginX: "space_0.5",
 	}),
 	{
 		fontSize: "0.625rem",
 		lineHeight: "0.625rem",
 	},
+]);
+export const tabCountIconCSS = style([
+	sprinkles({
+		color: "text_low_contrast",
+		height: TAB_COUNT_SIZE,
+		width: TAB_COUNT_SIZE,
+	}),
 ]);
