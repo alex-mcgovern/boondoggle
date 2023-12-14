@@ -33,7 +33,7 @@ export const tabCSS = style([
 		whiteSpace: "nowrap",
 
 		paddingX: "space_3",
-		paddingY: "space_2",
+		paddingY: "space_1",
 		borderRadius: "md",
 	}),
 	withPrefersMotion({
@@ -88,6 +88,7 @@ export const tabListInnerCSS = style([
 		alignItems: "center",
 		display: "flex",
 		gap: "space_2",
+		paddingY: "space_1",
 	}),
 	{
 		msOverflowStyle: "none",
