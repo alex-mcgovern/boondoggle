@@ -46,7 +46,7 @@ export const tabListInnerCSS = style([
 	sprinkles({
 		alignItems: "center",
 		display: "flex",
-		// gap: "space_2",
+		gap: "space_2",
 		paddingBottom: "space_1",
 	}),
 	{
