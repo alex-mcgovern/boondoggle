@@ -10,7 +10,8 @@ export const headerCSS = style([
 		display: "flex",
 		gap: "space_4",
 		alignItems: "center",
-		marginTop: "space_4",
+		marginTop: "space_2",
+		marginBottom: "space_6",
 	}),
 	{
 		borderTopLeftRadius: vars.borderRadius.lg,
