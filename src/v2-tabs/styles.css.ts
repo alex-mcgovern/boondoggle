@@ -34,6 +34,7 @@ export const tabCSS = style([
 
 		paddingX: "space_3",
 		paddingY: "space_1",
+		marginY: "space_1",
 		borderRadius: "md",
 	}),
 	withPrefersMotion({
@@ -88,7 +89,7 @@ export const tabListInnerCSS = style([
 		alignItems: "center",
 		display: "flex",
 		gap: "space_2",
-		paddingY: "space_1",
+		// paddingY: "space_1",
 	}),
 	{
 		msOverflowStyle: "none",
@@ -142,7 +143,10 @@ export const tabIndicatorCSS = style([
 		right: 0,
 		left: 0,
 		bottom: 0,
-		top: calc.subtract("100%", vars.spacing["space_0.5"]),
+		top: calc.subtract(
+			calc.add("100%", vars.spacing.space_1),
+			vars.spacing["space_0.5"],
+		),
 
 		userSelect: "none",
 		pointerEvents: "none",

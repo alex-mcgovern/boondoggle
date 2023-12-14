@@ -37,8 +37,8 @@ export const V2Tab = ({ id, label, ...props }: V2TabProps) => {
 								className={tabIndicatorCSS}
 								transition={{
 									type: "spring",
-									stiffness: 1000,
-									damping: 100,
+									stiffness: 500,
+									damping: 75,
 								}}
 							/>
 						) : null}
@@ -75,10 +75,17 @@ export function V2TabList({
  * TAB PANEL
  * ------------------------------------------------------------------------------- */
 
-export const V2TabPanel = (
-	props: Omit<ReactAriaTabPanelProps, "className">,
-) => {
-	return <ReactAriaTabPanel {...props} />;
+export const V2TabPanel = ({
+	children,
+	...props
+}: Omit<ReactAriaTabPanelProps, "className">) => {
+	return (
+		<ReactAriaTabPanel {...props}>
+			{({ state }) => {
+				const { selectionManager } = state;
+			}}
+		</ReactAriaTabPanel>
+	);
 };
 
 /** -----------------------------------------------------------------------------
