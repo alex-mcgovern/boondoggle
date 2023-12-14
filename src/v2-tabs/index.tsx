@@ -25,7 +25,7 @@ export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
 	label: string;
 };
 
-export const V2Tab = ({ id, label, ...props }: V2TabProps) => {
+const V2Tab = ({ id, label, ...props }: V2TabProps) => {
 	return (
 		<ReactAriaTab id={id} className={tabCSS} {...props}>
 			{({ isSelected }) => {
@@ -37,7 +37,7 @@ export const V2Tab = ({ id, label, ...props }: V2TabProps) => {
 								className={tabIndicatorCSS}
 								transition={{
 									type: "spring",
-									stiffness: 1000,
+									stiffness: 750,
 									damping: 75,
 								}}
 							/>
