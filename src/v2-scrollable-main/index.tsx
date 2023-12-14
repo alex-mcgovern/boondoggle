@@ -40,7 +40,6 @@ export function ScrollableMain({
 			<div
 				className={scrollableMainInnerCSS({
 					size,
-					isSidebarOpen: true,
 				})}
 			>
 				{children}
