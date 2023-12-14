@@ -79,13 +79,7 @@ export const V2TabPanel = ({
 	children,
 	...props
 }: Omit<ReactAriaTabPanelProps, "className">) => {
-	return (
-		<ReactAriaTabPanel {...props}>
-			{({ state }) => {
-				const { selectionManager } = state;
-			}}
-		</ReactAriaTabPanel>
-	);
+	return <ReactAriaTabPanel {...props} />;
 };
 
 /** -----------------------------------------------------------------------------
