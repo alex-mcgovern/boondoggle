@@ -11,11 +11,28 @@ import {
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 import {
-	tabCSS,
+	tabOuterCSS,
 	tabIndicatorCSS,
 	tabListInnerCSS,
 	tabListOuterCSS,
+	tabInnerCSS,
+	tabCountCSS,
 } from "./styles.css";
+import { Loader } from "../loader";
+
+/** -----------------------------------------------------------------------------
+ * TAB COUNT
+ * ------------------------------------------------------------------------------- */
+
+export const V2TabCount = ({
+	count,
+	isLoading,
+}: { count?: number; isLoading?: boolean }) => {
+	if (!isLoading && !count) {
+		return null;
+	}
+	return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
+};
 
 /** -----------------------------------------------------------------------------
  * TAB
@@ -23,11 +40,13 @@ import {
 
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
 	label: string;
+	slotLeft?: React.ReactNode;
+	slotRight?: React.ReactNode;
 };
 
-const V2Tab = ({ id, label, ...props }: V2TabProps) => {
+const V2Tab = ({ id, label, slotLeft, slotRight, ...props }: V2TabProps) => {
 	return (
-		<ReactAriaTab id={id} className={tabCSS} {...props}>
+		<ReactAriaTab id={id} className={tabOuterCSS} {...props}>
 			{({ isSelected }) => {
 				return (
 					<>
@@ -42,7 +61,11 @@ const V2Tab = ({ id, label, ...props }: V2TabProps) => {
 								}}
 							/>
 						) : null}
-						{label}
+						<div className={tabInnerCSS}>
+							{slotLeft}
+							{label}
+							{slotRight}
+						</div>
 					</>
 				);
 			}}

@@ -79,12 +79,13 @@ export const tabListInnerCSS = style([
  * TAB
  * ------------------------------------------------------------------------------- */
 
-export const tabCSS = style([
+export const tabOuterCSS = style([
 	sprinkles({
 		position: "relative",
 
 		display: "inline-flex",
 		placeItems: "center",
+		flexShrink: "0",
 
 		fontStyle: "bodyMd",
 		fontWeight: "medium",
@@ -131,6 +132,14 @@ export const tabCSS = style([
 	},
 ]);
 
+export const tabInnerCSS = style([
+	sprinkles({
+		display: "flex",
+		alignItems: "center",
+		gap: "space_1",
+	}),
+]);
+
 export const tabIndicatorCSS = style([
 	sprinkles({
 		position: "absolute",
@@ -157,24 +166,26 @@ export const tabIndicatorCSS = style([
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
+		padding: "space_0.5",
 		borderRadius: "pill",
-		padding: "space_1",
+
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
+		flexShrink: "0",
+		flexGrow: "0",
+
 		textAlign: "center",
 		fontWeight: "semibold",
-		height: "space_5",
-		flexShrink: "0",
-		minWidth: "space_5",
 		color: "text_low_contrast",
+
+		height: "space_4",
+		minWidth: "space_4",
+		marginX: "space_0.5",
 	}),
 	{
-		fontSize: "0.625rem",
-		lineHeight: "0.625rem",
+		fontSize: "0.5rem",
+		lineHeight: "0.5rem",
 		background: vars.color.button_tint,
-		...withPrefersMotion({
-			animation: `${scaleUpKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
-		}),
 	},
 ]);
