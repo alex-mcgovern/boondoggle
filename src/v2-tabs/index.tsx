@@ -75,10 +75,9 @@ export function V2TabList({
  * TAB PANEL
  * ------------------------------------------------------------------------------- */
 
-export const V2TabPanel = ({
-	children,
-	...props
-}: Omit<ReactAriaTabPanelProps, "className">) => {
+export const V2TabPanel = (
+	props: Omit<ReactAriaTabPanelProps, "className">,
+) => {
 	return <ReactAriaTabPanel {...props} />;
 };
 
