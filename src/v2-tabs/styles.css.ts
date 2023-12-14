@@ -15,7 +15,8 @@ import { sprinkles } from "../sprinkles/index.css";
  * CONFIG / CONSTANTS
  * ------------------------------------------------------------------------------- */
 
-const TAB_SECTION_HEIGHT = vars.spacing.space_8;
+const TAB_HEIGHT = vars.spacing.space_8;
+const TAB_PADDING_X = vars.spacing.space_2;
 const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
 
 /** -----------------------------------------------------------------------------
@@ -62,9 +63,9 @@ export const tabListInnerCSS = style([
 		alignItems: "center",
 		display: "flex",
 		gap: "space_2",
+		paddingY: "space_1",
 	}),
 	{
-		height: TAB_SECTION_HEIGHT,
 		overflowX: "scroll",
 		overflowY: "visible",
 	},
@@ -79,6 +80,9 @@ export const tabCSS = style([
 	sprinkles({
 		position: "relative",
 
+		display: "inline-flex",
+		placeItems: "center",
+
 		fontStyle: "bodyMd",
 		fontWeight: "medium",
 
@@ -86,9 +90,7 @@ export const tabCSS = style([
 		textDecoration: "none",
 		whiteSpace: "nowrap",
 
-		paddingX: "space_2",
 		paddingY: "space_0.25",
-		// marginY: "space_1",
 		borderRadius: "md",
 	}),
 	withPrefersMotion({
@@ -98,6 +100,10 @@ export const tabCSS = style([
 	}),
 	{
 		outline: "none",
+
+		height: TAB_HEIGHT,
+		paddingLeft: TAB_PADDING_X,
+		paddingRight: TAB_PADDING_X,
 
 		selectors: {
 			[`&${HOVER}`]: {
@@ -111,10 +117,12 @@ export const tabCSS = style([
 			},
 			[`&${FOCUS_VISIBLE}`]: {
 				color: vars.color.text_high_contrast,
-				// ...a11yFocusStyleRule,
 			},
 			"&[data-selected]": {
 				color: vars.color.button_default,
+				...withPrefersMotion({
+					transitionDuration: vars.transitionDuration.medium,
+				}),
 			},
 			[`&[data-selected]${HOVER}`]: {
 				background: vars.color.button_tint,
@@ -132,11 +140,10 @@ export const tabIndicatorCSS = style([
 	{
 		height: TAB_INDICATOR_HEIGHT,
 
-		right: 0,
-		left: 0,
+		right: TAB_PADDING_X,
+		left: TAB_PADDING_X,
 		bottom: 0,
-		top: calc.add("100%", "1px"),
-		// top: calc.subtract(TAB_SECTION_HEIGHT, TAB_INDICATOR_HEIGHT),
+		top: calc.add("100%", TAB_INDICATOR_HEIGHT),
 
 		userSelect: "none",
 		pointerEvents: "none",
@@ -163,7 +170,6 @@ export const tabCountCSS = style([
 		color: "text_low_contrast",
 	}),
 	{
-		// transform: "translateY(0.0625rem)",
 		fontSize: "0.625rem",
 		lineHeight: "0.625rem",
 		background: vars.color.button_tint,
