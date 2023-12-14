@@ -43,7 +43,7 @@ export const makeTheme = ({
 		border_element: step(secondary, isOverlay ? 7 : 6),
 		border_element_active: step(secondary, isOverlay ? 8 : 7),
 
-		button_tint: step(primary, 3),
+		button_tint: step(primary, 5),
 		button_default: step(primary, 9),
 		button_hover: step(primary, 10),
 		button_active: step(primary, 11),
@@ -51,6 +51,9 @@ export const makeTheme = ({
 		tint_default: step(secondary, isOverlay ? 3 : 2),
 		tint_hover: step(secondary, isOverlay ? 4 : 3),
 		tint_active: step(secondary, isOverlay ? 5 : 4),
+
+		tab_hover_color: step(secondary, isOverlay ? 4 : 3),
+		tab_selected_color: step(primary, isOverlay ? 5 : 4),
 
 		focus_ring: step(primary, 8),
 	};

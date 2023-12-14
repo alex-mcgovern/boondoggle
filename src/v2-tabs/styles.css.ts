@@ -109,11 +109,11 @@ export const tabCSS = style([
 			[`&${HOVER}`]: {
 				cursor: "pointer",
 				color: vars.color.text_high_contrast,
-				background: vars.color.tint_hover,
+				background: vars.color.tab_hover_color,
 			},
 			[`&${ACTIVE}`]: {
 				color: vars.color.text_high_contrast,
-				background: vars.color.tint_hover,
+				background: vars.color.tab_hover_color,
 			},
 			[`&${FOCUS_VISIBLE}`]: {
 				color: vars.color.text_high_contrast,
@@ -122,7 +122,7 @@ export const tabCSS = style([
 				color: vars.color.button_default,
 			},
 			[`&[data-selected]${HOVER}`]: {
-				background: vars.color.button_tint,
+				background: vars.color.tab_selected_color,
 			},
 		},
 	},
