@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
 	HOVER,
@@ -10,7 +11,6 @@ import {
 	vars,
 } from "../index.css";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
-import { recipe } from "@vanilla-extract/recipes";
 
 /** -----------------------------------------------------------------------------
  * CONFIG / CONSTANTS
@@ -70,6 +70,9 @@ export const tabListInnerCSS = recipe({
 			},
 			"space-between": {
 				justifyContent: "space-between",
+			},
+			center: {
+				justifyContent: "center",
 			},
 		},
 	},
