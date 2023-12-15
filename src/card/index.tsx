@@ -70,13 +70,17 @@ export function Card({
 						as="header"
 						display="flex"
 						flexWrap="wrap"
-						gap="space_6"
-						marginBottom="space_6"
+						gap="space_4"
+						marginBottom="space_3"
 					>
 						{(title || description) && (
 							<Box>
 								{title && (
-									<Box as="h3" fontStyle="bodyLg">
+									<Box
+										as="h3"
+										fontStyle="bodyLg"
+										marginBottom="space_1"
+									>
 										{title}
 									</Box>
 								)}
