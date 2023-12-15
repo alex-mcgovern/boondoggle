@@ -5,9 +5,12 @@ import {
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
+import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
 import { Box } from "../box";
+import { ElementSizeEnum } from "../index.css";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName, WithSize } from "../types";
+import { ButtonProps } from "../v2-button";
 import { V2FieldError } from "../v2-field-error";
 import { Group } from "../v2-group";
 import { GroupAddon } from "../v2-group-addon";
@@ -16,6 +19,10 @@ import { V2Label } from "../v2-label";
 import { IterableMenuItem } from "../v2-menu";
 import { MenuButton } from "../v2-menu-button";
 import { numberInputCSS } from "./styles.css";
+
+/** -----------------------------------------------------------------------------
+ * TYPES
+ * ------------------------------------------------------------------------------- */
 
 type CurrencyConfig<TCurrency extends string = string> =
 	| {
@@ -32,6 +39,29 @@ type CurrencyConfig<TCurrency extends string = string> =
 			items: Array<IterableMenuItem<TCurrency>>;
 			onCurrencyChange?: React.Dispatch<React.SetStateAction<TCurrency>>;
 	  };
+
+/** -----------------------------------------------------------------------------
+ * UTILS
+ * ------------------------------------------------------------------------------- */
+
+const getMenuSize = (size: ElementSizeEnum): ButtonProps["size"] => {
+	switch (size) {
+		case "lg": {
+			return "square_lg";
+		}
+		case undefined:
+		case "md": {
+			return "square_md";
+		}
+		case "sm": {
+			return "square_sm";
+		}
+
+		default: {
+			return exhaustiveSwitchGuard(size);
+		}
+	}
+};
 
 function useCurrencyState<TCurrency extends string = string>(
 	currencyConfig: CurrencyConfig<TCurrency>,
@@ -53,6 +83,10 @@ function useCurrencyState<TCurrency extends string = string>(
 
 	return { currency, setCurrency, currencyIcon };
 }
+
+/** -----------------------------------------------------------------------------
+ * SUB-COMPONENTS
+ * ------------------------------------------------------------------------------- */
 
 function CurrencyMenuIcon<TCurrency extends string = string>({
 	currencyIcon,
@@ -87,11 +121,10 @@ function CurrencyMenuButton<TCurrency extends string = string>({
 }) {
 	return (
 		<MenuButton<TCurrency>
-			size={size}
 			buttonProps={{
 				appearance: "secondary",
 				slot: null,
-				size: size,
+				size: getMenuSize(size),
 				children: (
 					<>
 						<CurrencyMenuIcon
@@ -153,6 +186,10 @@ function InputCurrencyAddon<TCurrency extends string = string>({
 		</GroupAddon>
 	);
 }
+
+/** -----------------------------------------------------------------------------
+ * MAIN COMPONENT
+ * ------------------------------------------------------------------------------- */
 
 /**
  * @private

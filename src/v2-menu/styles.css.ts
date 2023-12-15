@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
@@ -7,29 +6,12 @@ import {
 	a11yDisabled,
 	a11yFocus,
 	animateFadeIn,
-	elementHeight,
 	elementPaddingRaw,
+	floatingMenu,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-
-const menuRadius = vars.borderRadius.md;
-const menuPadding = vars.spacing.space_1;
-
-const itemInset = calc.multiply(menuPadding, 2);
-const itemRadius = calc.subtract(menuRadius, menuPadding);
-
-const itemHeightLg = calc.subtract(elementHeight.lg, itemInset);
-const itemHeightMd = calc.subtract(elementHeight.md, itemInset);
-const itemHeightSm = calc.subtract(elementHeight.sm, itemInset);
-
-// const itemPaddingXLg = calc.subtract(elementPaddingRaw.lg.x, itemInset);
-const itemPaddingXLg = elementPaddingRaw.lg.x;
-// const itemPaddingXMd = calc.subtract(elementPaddingRaw.md.x, itemInset);
-const itemPaddingXMd = elementPaddingRaw.md.x;
-// const itemPaddingXSm = calc.subtract(elementPaddingRaw.sm.x, itemInset);
-const itemPaddingXSm = elementPaddingRaw.sm.x;
 
 export const menuCSS = style([
 	animateFadeIn,
@@ -40,8 +22,8 @@ export const menuCSS = style([
 		overflowY: "auto",
 	}),
 	{
-		padding: menuPadding,
-		borderRadius: menuRadius,
+		padding: floatingMenu.container.padding,
+		borderRadius: floatingMenu.container.radius,
 		selectors: {
 			"&:focus": {
 				outline: "none",
@@ -55,9 +37,6 @@ export const menuCSS = style([
 export const menuItemCSS = recipe({
 	base: [
 		sprinkles({
-			paddingX: "space_1",
-			paddingY: "space_0.5",
-
 			width: "100%",
 			display: "flex",
 			alignItems: "center",
@@ -77,7 +56,7 @@ export const menuItemCSS = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
-			borderRadius: itemRadius,
+			borderRadius: floatingMenu.item.radius,
 			selectors: {
 				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
 					cursor: "pointer",
@@ -101,66 +80,58 @@ export const menuItemCSS = recipe({
 		colorOverlay: variantColorOverlay,
 		size: {
 			lg: [
-				{ minHeight: itemHeightLg },
 				{
-					padding: `${elementPaddingRaw.lg.y} ${itemPaddingXLg}`,
+					minHeight: floatingMenu.item.height.lg,
+					padding: `${elementPaddingRaw.lg.y} ${floatingMenu.item.paddingX.lg}`,
 				},
 			],
 			md: [
-				{ minHeight: itemHeightMd },
 				{
-					padding: `${elementPaddingRaw.md.y} ${itemPaddingXMd}`,
+					minHeight: floatingMenu.item.height.md,
+					padding: `${elementPaddingRaw.md.y} ${floatingMenu.item.paddingX.md}`,
 				},
 			],
 			sm: [
-				{ minHeight: itemHeightSm },
 				{
-					padding: `${elementPaddingRaw.sm.y} ${itemPaddingXSm}`,
+					minHeight: floatingMenu.item.height.sm,
+					padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX.sm}`,
 				},
 			],
 		},
 	},
 });
 
+/** -----------------------------------------------------------------------------
+ * MENU SECTION HEADER
+ * ------------------------------------------------------------------------------- */
+
 export const menuHeaderCSS = recipe({
 	base: [
 		sprinkles({
+			display: "flex",
+			alignItems: "center",
+
 			color: "text_low_contrast",
-			fontStyle: "bodySm",
-			marginY: "space_2",
+			fontStyle: "bodyMd",
+			fontWeight: "semibold",
 		}),
 	],
 	variants: {
 		size: {
 			lg: {
-				paddingLeft: calc.subtract(
-					elementPaddingRaw.lg.x,
-					vars.spacing.space_1,
-				),
-				paddingRight: calc.subtract(
-					elementPaddingRaw.lg.x,
-					vars.spacing.space_1,
-				),
+				height: floatingMenu.item.height.lg,
+				paddingLeft: floatingMenu.item.paddingX.lg,
+				paddingRight: floatingMenu.item.paddingX.lg,
 			},
 			md: {
-				paddingLeft: calc.subtract(
-					elementPaddingRaw.md.x,
-					vars.spacing.space_1,
-				),
-				paddingRight: calc.subtract(
-					elementPaddingRaw.md.x,
-					vars.spacing.space_1,
-				),
+				height: floatingMenu.item.height.md,
+				paddingLeft: floatingMenu.item.paddingX.md,
+				paddingRight: floatingMenu.item.paddingX.md,
 			},
 			sm: {
-				paddingLeft: calc.subtract(
-					elementPaddingRaw.sm.x,
-					vars.spacing.space_1,
-				),
-				paddingRight: calc.subtract(
-					elementPaddingRaw.sm.x,
-					vars.spacing.space_1,
-				),
+				height: floatingMenu.item.height.sm,
+				paddingLeft: floatingMenu.item.paddingX.sm,
+				paddingRight: floatingMenu.item.paddingX.sm,
 			},
 		},
 	},

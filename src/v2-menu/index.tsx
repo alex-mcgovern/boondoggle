@@ -32,11 +32,11 @@ export type IterableMenuItem<TItemId extends string = string> =
 			slotLeft?: never;
 	  };
 
+export type MenuProps<TItemId extends string = string> = WithSize &
+	ReactAriaMenuProps<IterableMenuItem<TItemId>>;
+
 function BaseMenu<TItemId extends string = string>(
-	{
-		size,
-		...props
-	}: WithSize & ReactAriaMenuProps<IterableMenuItem<TItemId>>,
+	{ size, ...props }: MenuProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (

@@ -20,7 +20,6 @@ export function V2DataTableRowActions<TActionId extends string>({
 			popoverProps={{
 				placement: "bottom end",
 			}}
-			size="sm"
 			buttonProps={{
 				appearance: "ghost",
 				size: "square_sm",
