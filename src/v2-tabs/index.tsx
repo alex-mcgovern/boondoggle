@@ -109,7 +109,7 @@ export function V2TabList({
 	ReactAriaTabListProps<Omit<V2TabProps, "animationKey">>,
 	"className"
 > & {
-	justify?: "start" | "space-between" | "center";
+	justify?: "start" | "space-evenly";
 }) {
 	return (
 		<div className={tabListOuterCSS}>

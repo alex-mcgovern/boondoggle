@@ -68,12 +68,8 @@ export const tabListInnerCSS = recipe({
 			start: {
 				justifyContent: "flex-start",
 			},
-			"space-between": sprinkles({
-				justifyContent: "space-between",
-				paddingX: "space_3",
-			}),
-			center: {
-				justifyContent: "center",
+			"space-evenly": {
+				justifyContent: "space-evenly",
 			},
 		},
 	},
