@@ -58,9 +58,17 @@ export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
 	label: string;
 	slotLeft?: React.ReactNode;
 	slotRight?: React.ReactNode;
+	animationKey: string;
 };
 
-const V2Tab = ({ id, label, slotLeft, slotRight, ...props }: V2TabProps) => {
+const V2Tab = ({
+	id,
+	label,
+	slotLeft,
+	slotRight,
+	animationKey,
+	...props
+}: V2TabProps) => {
 	return (
 		<ReactAriaTab id={id} className={tabOuterCSS} {...props}>
 			{({ isSelected }) => {
@@ -68,7 +76,7 @@ const V2Tab = ({ id, label, slotLeft, slotRight, ...props }: V2TabProps) => {
 					<>
 						{isSelected ? (
 							<motion.span
-								layoutId="tab_indicator"
+								layoutId={animationKey}
 								className={tabIndicatorCSS}
 								transition={{
 									type: "spring",
@@ -97,7 +105,10 @@ export function V2TabList({
 	items,
 	justify = "start",
 	...props
-}: Omit<ReactAriaTabListProps<V2TabProps>, "className"> & {
+}: Omit<
+	ReactAriaTabListProps<Omit<V2TabProps, "animationKey">>,
+	"className"
+> & {
 	justify?: "start" | "space-between";
 }) {
 	return (
@@ -107,7 +118,7 @@ export function V2TabList({
 				items={items}
 				{...props}
 			>
-				{(tab) => <V2Tab {...tab} />}
+				{(tab) => <V2Tab animationKey={justify} {...tab} />}
 			</ReactAriaTabList>
 		</div>
 	);
