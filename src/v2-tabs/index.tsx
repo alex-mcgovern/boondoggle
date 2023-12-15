@@ -83,6 +83,9 @@ const V2Tab = ({
 									stiffness: 750,
 									damping: 75,
 								}}
+								style={{
+									originY: "0px", // prevent vertical movement
+								}}
 							/>
 						) : null}
 						<div className={tabInnerCSS}>
@@ -112,7 +115,7 @@ export function V2TabList({
 	justify?: "start" | "space-evenly";
 }) {
 	return (
-		<motion.div layoutRoot className={tabListOuterCSS}>
+		<div className={tabListOuterCSS}>
 			<ReactAriaTabList
 				className={tabListInnerCSS({ justify })}
 				items={items}
@@ -120,7 +123,7 @@ export function V2TabList({
 			>
 				{(tab) => <V2Tab animationKey={justify} {...tab} />}
 			</ReactAriaTabList>
-		</motion.div>
+		</div>
 	);
 }
 
