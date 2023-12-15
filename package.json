@@ -2,7 +2,7 @@
 	"author": "Alex McGovern",
 	"name": "boondoggle",
 	"description": "Boondoggle component library",
-	"version": "0.20.11-111",
+	"version": "0.20.11-158",
 	"license": "MIT",
 	"files": [
 		"dist"
@@ -90,7 +90,9 @@
 		"@vanilla-extract/sprinkles": "1.6.1",
 		"clsx": "1.2.1",
 		"downshift": "8.1.0",
+		"framer-motion": "10.16.16",
 		"intl-number-parser": "1.0.2",
+		"motion": "10.16.4",
 		"react": "18.2.0",
 		"react-aria": "3.30.0",
 		"react-aria-components": "1.0.0-rc.0",

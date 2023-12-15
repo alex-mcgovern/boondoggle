@@ -3,16 +3,18 @@ import { recipe } from "@vanilla-extract/recipes";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
+const MARGIN_TOP = vars.spacing.space_3;
+
 export const headerCSS = style([
 	sprinkles({
 		border: "border_rule",
-		padding: "space_5",
+		padding: "space_4",
 		display: "flex",
 		gap: "space_4",
 		alignItems: "center",
-		marginTop: "space_4",
 	}),
 	{
+		marginTop: MARGIN_TOP,
 		borderTopLeftRadius: vars.borderRadius.lg,
 		borderTopRightRadius: vars.borderRadius.lg,
 	},
@@ -21,13 +23,14 @@ export const headerCSS = style([
 export const cardCSS = recipe({
 	base: [
 		sprinkles({
-			marginBottom: "space_5",
+			marginBottom: "space_6",
 		}),
 	],
 	variants: {
 		hasPadding: {
 			true: sprinkles({
-				padding: "space_5",
+				paddingX: "space_4",
+				paddingY: "space_4",
 			}),
 			false: [],
 		},
@@ -41,11 +44,13 @@ export const cardCSS = recipe({
 					borderLeft: `1px solid ${vars.color.border_rule}`,
 				},
 			],
-			false: sprinkles({
-				border: "border_rule",
-				marginTop: "space_5",
-				borderRadius: "lg",
-			}),
+			false: [
+				sprinkles({
+					border: "border_rule",
+					borderRadius: "lg",
+				}),
+				{ marginTop: MARGIN_TOP },
+			],
 		},
 	},
 });
