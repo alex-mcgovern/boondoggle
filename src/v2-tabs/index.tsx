@@ -95,12 +95,15 @@ const V2Tab = ({ id, label, slotLeft, slotRight, ...props }: V2TabProps) => {
 
 export function V2TabList({
 	items,
+	justify = "start",
 	...props
-}: Omit<ReactAriaTabListProps<V2TabProps>, "className">) {
+}: Omit<ReactAriaTabListProps<V2TabProps>, "className"> & {
+	justify?: "start" | "space-between";
+}) {
 	return (
 		<div className={tabListOuterCSS}>
 			<ReactAriaTabList
-				className={tabListInnerCSS}
+				className={tabListInnerCSS({ justify })}
 				items={items}
 				{...props}
 			>

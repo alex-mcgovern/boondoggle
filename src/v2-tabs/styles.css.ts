@@ -10,6 +10,7 @@ import {
 	vars,
 } from "../index.css";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { recipe } from "@vanilla-extract/recipes";
 
 /** -----------------------------------------------------------------------------
  * CONFIG / CONSTANTS
@@ -42,22 +43,37 @@ export const tabListOuterCSS = style([
 	},
 ]);
 
-export const tabListInnerCSS = style([
-	sprinkles({
-		alignItems: "center",
-		display: "flex",
-		gap: "space_6",
-		paddingBottom: "space_1",
-	}),
-	{
-		// marginLeft: calc.multiply(TAB_PADDING_X, -1),
-		// marginRight: calc.multiply(TAB_PADDING_X, -1),
+export const tabListInnerCSS = recipe({
+	base: [
+		sprinkles({
+			alignItems: "center",
+			display: "flex",
+			gap: "space_6",
+			paddingBottom: "space_1",
+		}),
+		{
+			// marginLeft: calc.multiply(TAB_PADDING_X, -1),
+			// marginRight: calc.multiply(TAB_PADDING_X, -1),
 
-		overflowX: "scroll",
-		overflowY: "visible",
+			overflowX: "scroll",
+			overflowY: "visible",
+		},
+		hideScrollbar,
+	],
+	defaultVariants: {
+		justify: "start",
 	},
-	hideScrollbar,
-]);
+	variants: {
+		justify: {
+			start: {
+				justifyContent: "flex-start",
+			},
+			"space-between": {
+				justifyContent: "space-between",
+			},
+		},
+	},
+});
 
 /** -----------------------------------------------------------------------------
  * TAB
