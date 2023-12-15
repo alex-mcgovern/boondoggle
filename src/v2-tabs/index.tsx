@@ -112,7 +112,7 @@ export function V2TabList({
 	justify?: "start" | "space-evenly";
 }) {
 	return (
-		<div className={tabListOuterCSS}>
+		<motion.div layoutRoot className={tabListOuterCSS}>
 			<ReactAriaTabList
 				className={tabListInnerCSS({ justify })}
 				items={items}
@@ -120,7 +120,7 @@ export function V2TabList({
 			>
 				{(tab) => <V2Tab animationKey={justify} {...tab} />}
 			</ReactAriaTabList>
-		</div>
+		</motion.div>
 	);
 }
 
