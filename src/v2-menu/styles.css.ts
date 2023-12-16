@@ -45,7 +45,7 @@ export const menuItemCSS = recipe({
 
 			fontStyle: "bodyMd",
 			fontWeight: "normal",
-			color: "text_low_contrast",
+			color: "text_high_contrast",
 			textAlign: "left",
 
 			textDecoration: "none",
@@ -113,7 +113,8 @@ export const menuHeaderCSS = recipe({
 
 			color: "text_low_contrast",
 			fontStyle: "bodyMd",
-			fontWeight: "semibold",
+			fontWeight: "normal",
+			textAlign: "left",
 		}),
 	],
 	variants: {
