@@ -32,6 +32,10 @@ const meta = {
 					],
 				},
 				{
+					type: "SEPARATOR",
+					id: "separator_1",
+				},
+				{
 					name: "MENA",
 					id: "mena",
 					children: [

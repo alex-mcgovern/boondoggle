@@ -137,3 +137,13 @@ export const menuHeaderCSS = recipe({
 		},
 	},
 });
+
+/** -----------------------------------------------------------------------------
+ * MENU SEPARATOR
+ * ------------------------------------------------------------------------------- */
+
+export const menuSeparatorCSS = style([
+	sprinkles({
+		marginY: "space_1",
+	}),
+]);
