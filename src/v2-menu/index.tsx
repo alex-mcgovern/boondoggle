@@ -9,7 +9,6 @@ import {
 	Separator,
 } from "react-aria-components";
 import { ColorOverlay } from "../index.css";
-import { WithSize } from "../types";
 import {
 	menuCSS,
 	menuHeaderCSS,
@@ -49,11 +48,12 @@ export type IterableMenuItem<TItemId extends string = string> =
 			type: "SEPARATOR";
 	  };
 
-export type MenuProps<TItemId extends string = string> = WithSize &
-	ReactAriaMenuProps<IterableMenuItem<TItemId>>;
+export type MenuProps<TItemId extends string = string> = ReactAriaMenuProps<
+	IterableMenuItem<TItemId>
+>;
 
 function BaseMenu<TItemId extends string = string>(
-	{ size, ...props }: MenuProps<TItemId>,
+	props: MenuProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (
@@ -65,20 +65,14 @@ function BaseMenu<TItemId extends string = string>(
 			{(item) => {
 				if (item.type === "SEPARATOR") {
 					return (
-						<Separator
-							className={menuSeparatorCSS}
-							elementType="hr"
-							id={item.id}
-						/>
+						<Separator className={menuSeparatorCSS} id={item.id} />
 					);
 				}
 
 				return item.children ? (
 					<ReactAriaSection>
 						{item.name ? (
-							<ReactAriaHeader
-								className={menuHeaderCSS({ size })}
-							>
+							<ReactAriaHeader className={menuHeaderCSS}>
 								{item.name}
 							</ReactAriaHeader>
 						) : null}
@@ -87,7 +81,6 @@ function BaseMenu<TItemId extends string = string>(
 							{(childItem) => (
 								<ReactAriaMenuItem
 									className={menuItemCSS({
-										size,
 										colorOverlay: childItem.colorOverlay,
 									})}
 									href={childItem.href}
@@ -101,7 +94,6 @@ function BaseMenu<TItemId extends string = string>(
 				) : (
 					<ReactAriaMenuItem
 						className={menuItemCSS({
-							size,
 							colorOverlay: item.colorOverlay,
 						})}
 						href={item.href}
