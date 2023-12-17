@@ -10,6 +10,7 @@ export const menuHeaderCSS = style([
 		textAlign: "left",
 	}),
 	{
+		verticalAlign: "middle",
 		height: floatingMenu.item.height,
 		paddingLeft: floatingMenu.item.paddingX,
 		paddingRight: floatingMenu.item.paddingX,
