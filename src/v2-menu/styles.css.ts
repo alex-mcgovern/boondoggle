@@ -99,9 +99,11 @@ export const menuHeaderCSS = style([
 		fontStyle: "bodyMd",
 		fontWeight: "normal",
 		textAlign: "left",
+
+		display: "flex",
+		alignItems: "center",
 	}),
 	{
-		verticalAlign: "middle",
 		height: floatingMenu.item.height,
 		paddingLeft: floatingMenu.item.paddingX,
 		paddingRight: floatingMenu.item.paddingX,
