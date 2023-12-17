@@ -12,6 +12,7 @@ import {
 	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 /** -----------------------------------------------------------------------------
  * MENU CSS
@@ -104,7 +105,10 @@ export const menuHeaderCSS = style([
 		alignItems: "center",
 	}),
 	{
-		height: floatingMenu.item.height,
+		height: calc.subtract(
+			floatingMenu.item.height,
+			floatingMenu.container.padding,
+		),
 		paddingLeft: floatingMenu.item.paddingX,
 		paddingRight: floatingMenu.item.paddingX,
 	},

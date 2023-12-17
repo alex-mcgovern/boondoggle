@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { floatingMenu } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 export const menuHeaderCSS = style([
 	sprinkles({
@@ -13,7 +14,10 @@ export const menuHeaderCSS = style([
 		alignItems: "center",
 	}),
 	{
-		height: floatingMenu.item.height,
+		height: calc.subtract(
+			floatingMenu.item.height,
+			floatingMenu.container.padding,
+		),
 		paddingLeft: floatingMenu.item.paddingX,
 		paddingRight: floatingMenu.item.paddingX,
 	},
