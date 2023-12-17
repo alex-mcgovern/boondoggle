@@ -16,7 +16,7 @@ import type {
 } from "../../types";
 import { SelectItem } from "../SelectItem";
 import { SelectSeparator } from "../SelectSeparator";
-import { groupTitleCSS, innerCSS, selectItemListCSS } from "./styles.css";
+import { innerCSS, menuHeaderCSS, selectItemListCSS } from "./styles.css";
 
 /**
  * Renders a dropdown menu for use with `SelectSingle` or `SelectMulti`
@@ -144,7 +144,7 @@ function SelectItemListBase<
 							<Fragment key={group.title}>
 								<div
 									key={group.title}
-									className={groupTitleCSS({ size })}
+									className={menuHeaderCSS}
 								>
 									{group.title}
 								</div>

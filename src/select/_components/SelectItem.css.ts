@@ -1,60 +1,30 @@
-import { style, styleVariants } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
+import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../../css-utils";
 import {
 	a11yDisabled,
 	a11yFocus,
-	elementHeight,
 	elementPaddingRaw,
+	floatingMenu,
 	variantColorOverlay,
 	vars,
 } from "../../index.css";
 import { sprinkles } from "../../sprinkles/index.css";
 
-const selectItemSize = styleVariants({
-	lg: [
-		{ minHeight: elementHeight.lg },
-		{
-			padding: `${elementPaddingRaw.lg.y} ${calc.subtract(
-				elementPaddingRaw.lg.x,
-				vars.spacing.space_1,
-			)}`,
-		},
-	],
-	md: [
-		{ minHeight: elementHeight.md },
-		{
-			padding: `${elementPaddingRaw.md.y} ${calc.subtract(
-				elementPaddingRaw.md.x,
-				vars.spacing.space_1,
-			)}`,
-		},
-	],
-	sm: [
-		{ minHeight: elementHeight.sm },
-		{
-			padding: `${elementPaddingRaw.sm.y} ${calc.subtract(
-				elementPaddingRaw.sm.x,
-				vars.spacing.space_1,
-			)}`,
-		},
-	],
-});
-
 export const getSelectItemStyles = recipe({
 	base: [
 		sprinkles({
-			alignItems: "center",
-			borderRadius: "md",
-			color: "text_low_contrast",
 			display: "flex",
+			alignItems: "center",
+			gap: "space_2",
+
 			fontStyle: "bodyMd",
 			fontWeight: "normal",
-			gap: "space_2",
-			margin: "none",
+			color: "text_low_contrast",
 			textAlign: "left",
 			textDecoration: "none",
+
+			margin: "none",
 			width: "100%",
 		}),
 		a11yDisabled,
@@ -63,6 +33,11 @@ export const getSelectItemStyles = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
+			borderRadius: floatingMenu.item.radius,
+
+			minHeight: floatingMenu.item.height,
+			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
+
 			selectors: {
 				"&:hover": {
 					cursor: "pointer",
@@ -75,7 +50,6 @@ export const getSelectItemStyles = recipe({
 	],
 	variants: {
 		colorOverlay: variantColorOverlay,
-		size: selectItemSize,
 	},
 });
 

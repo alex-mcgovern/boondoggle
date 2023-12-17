@@ -1243,16 +1243,8 @@ export const floatingMenu = createGlobalTheme(":root, ::backdrop", {
 		padding: FM_PADDING,
 	},
 	item: {
-		height: {
-			lg: elementHeight.lg,
-			md: elementHeight.md,
-			sm: elementHeight.sm,
-		},
-		paddingX: {
-			lg: calc.subtract(elementPaddingRaw.lg.x, FM_PADDING),
-			md: calc.subtract(elementPaddingRaw.md.x, FM_PADDING),
-			sm: calc.subtract(elementPaddingRaw.sm.x, FM_PADDING),
-		},
+		height: elementHeight.sm,
+		paddingX: calc.subtract(elementPaddingRaw.sm.x, FM_PADDING),
 		radius: calc.subtract(FM_RADIUS, FM_PADDING),
 	},
 });

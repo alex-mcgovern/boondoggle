@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
@@ -65,8 +64,8 @@ export const menuItemCSS = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
-			minHeight: floatingMenu.item.height.sm,
-			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX.sm}`,
+			minHeight: floatingMenu.item.height,
+			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
 
 			borderRadius: floatingMenu.item.radius,
 			selectors: {
@@ -96,8 +95,7 @@ export const menuItemCSS = recipe({
 
 export const menuHeaderCSS = style([
 	sprinkles({
-		display: "flex",
-		alignItems: "center",
+		height: "space_6",
 
 		color: "text_low_contrast",
 		fontStyle: "bodyMd",
@@ -105,12 +103,8 @@ export const menuHeaderCSS = style([
 		textAlign: "left",
 	}),
 	{
-		height: calc.subtract(
-			floatingMenu.item.height.sm,
-			vars.spacing.space_1,
-		),
-		paddingLeft: floatingMenu.item.paddingX.sm,
-		paddingRight: floatingMenu.item.paddingX.sm,
+		paddingLeft: floatingMenu.item.paddingX,
+		paddingRight: floatingMenu.item.paddingX,
 	},
 ]);
 
@@ -125,7 +119,7 @@ export const menuSeparatorCSS = style([
 	}),
 	{
 		height: "1px",
-		marginLeft: floatingMenu.item.paddingX.sm,
-		marginRight: floatingMenu.item.paddingX.sm,
+		marginLeft: floatingMenu.item.paddingX,
+		marginRight: floatingMenu.item.paddingX,
 	},
 ]);
