@@ -10,9 +10,9 @@ export const menuHeaderCSS = style([
 		textAlign: "left",
 	}),
 	{
-		height: floatingMenu.header.height,
-		paddingLeft: floatingMenu.header.paddingX,
-		paddingRight: floatingMenu.header.paddingX,
+		height: floatingMenu.item.height,
+		paddingLeft: floatingMenu.item.paddingX,
+		paddingRight: floatingMenu.item.paddingX,
 	},
 ]);
 
