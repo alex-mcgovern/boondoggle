@@ -95,16 +95,15 @@ export const menuItemCSS = recipe({
 
 export const menuHeaderCSS = style([
 	sprinkles({
-		height: "space_6",
-
 		color: "text_low_contrast",
 		fontStyle: "bodyMd",
 		fontWeight: "normal",
 		textAlign: "left",
 	}),
 	{
-		paddingLeft: floatingMenu.item.paddingX,
-		paddingRight: floatingMenu.item.paddingX,
+		height: floatingMenu.header.height,
+		paddingLeft: floatingMenu.header.paddingX,
+		paddingRight: floatingMenu.header.paddingX,
 	},
 ]);
 
