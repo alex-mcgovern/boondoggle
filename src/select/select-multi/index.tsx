@@ -362,7 +362,6 @@ function SelectMultiBase<
 					items,
 				})}
 				ref={isOpen ? refs.setFloating : undefined}
-				size={size}
 				style={isOpen ? floatingStyles : {}}
 			/>
 		</Box>

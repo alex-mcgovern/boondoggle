@@ -318,7 +318,6 @@ function SelectSingleBase<
 				isOpen={isOpen}
 				items={items}
 				ref={isOpen ? refs.setFloating : undefined}
-				size={size}
 				style={floatingStyles}
 			/>
 		</Box>

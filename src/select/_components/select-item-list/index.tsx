@@ -7,7 +7,6 @@ import * as React from "react";
 import { CSSProperties, ForwardedRef, Fragment } from "react";
 import { arrayHasLength } from "../../../_lib/array-has-length";
 import { FloatingPanel } from "../../../floating-panel";
-import { WithSize } from "../../../types";
 import { isGroupedSelectItems } from "../../_lib/isGroupedSelectItems";
 import type {
 	FlatSelectItems,
@@ -24,7 +23,7 @@ import { innerCSS, menuHeaderCSS, selectItemListCSS } from "./styles.css";
 export type SelectItemListProps<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
-> = WithSize & {
+> = {
 	/**
 	 * Function provided by Downshift to check whether an item is selected
 	 */
@@ -113,7 +112,6 @@ function SelectItemListBase<
 		isMulti,
 		isOpen,
 		items,
-		size = "sm",
 		...rest
 	}: SelectItemListProps<TValue, TItemData>,
 	ref: ForwardedRef<HTMLDivElement>,
@@ -154,7 +152,6 @@ function SelectItemListBase<
 											return (
 												<SelectSeparator
 													key={`separator-${index}`}
-													size={size}
 												/>
 											);
 										}
@@ -192,7 +189,6 @@ function SelectItemListBase<
 												description={description}
 												isMulti={isMulti}
 												key={`${item.label}-${item.value}`}
-												size={size}
 												{...otherItemProps}
 												{...getItemProps({
 													isHighlighted,
@@ -226,7 +222,6 @@ function SelectItemListBase<
 							isHighlighted={false}
 							isMulti={false}
 							label="No results"
-							size={size}
 							value=""
 						/>
 					)}
@@ -249,12 +244,7 @@ function SelectItemListBase<
 			<div className={innerCSS}>
 				{items.map((item) => {
 					if (item === "SEPARATOR") {
-						return (
-							<SelectSeparator
-								key={`separator-${index}`}
-								size={size}
-							/>
-						);
+						return <SelectSeparator key={`separator-${index}`} />;
 					}
 
 					if (!item.label) {
@@ -287,7 +277,6 @@ function SelectItemListBase<
 							description={description}
 							isMulti={isMulti}
 							key={`${item.label}-${item.value}`}
-							size={size}
 							{...otherItemProps}
 							{...getItemProps({
 								isHighlighted,
@@ -317,7 +306,6 @@ function SelectItemListBase<
 						isHighlighted={false}
 						isMulti={false}
 						label="No results"
-						size={size}
 						value=""
 					/>
 				)}
