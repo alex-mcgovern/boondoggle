@@ -7,6 +7,7 @@ import {
 } from "react-aria-components";
 import { Button, type ButtonProps } from "../v2-button";
 import { type IterableMenuItem, Menu } from "../v2-menu";
+import { popoverCSS } from "./styles.css";
 
 export type MenuButtonProps<TItemId extends string = string> = {
 	buttonProps?: ButtonProps;
@@ -24,7 +25,7 @@ export function MenuButton<TItemId extends string = string>({
 	return (
 		<ReactAriaMenuTrigger {...menuTriggerProps}>
 			<Button {...buttonProps} aria-label="Menu" />
-			<ReactAriaPopover {...popoverProps}>
+			<ReactAriaPopover className={popoverCSS} {...popoverProps}>
 				<Menu {...menuProps} />
 			</ReactAriaPopover>
 		</ReactAriaMenuTrigger>

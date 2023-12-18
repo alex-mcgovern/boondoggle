@@ -6,7 +6,6 @@ import {
 	NOT_DISABLED,
 	a11yDisabled,
 	a11yFocus,
-	animateFadeIn,
 	elementPaddingRaw,
 	floatingMenu,
 	variantColorOverlay,
@@ -19,7 +18,6 @@ import { sprinkles } from "../sprinkles/index.css";
  * ------------------------------------------------------------------------------- */
 
 export const menuCSS = style([
-	animateFadeIn,
 	sprinkles({
 		background: "background",
 		border: "border_rule",
