@@ -44,25 +44,6 @@ type CurrencyConfig<TCurrency extends string = string> =
  * UTILS
  * ------------------------------------------------------------------------------- */
 
-const getMenuSize = (size: ElementSizeEnum): ButtonProps["size"] => {
-	switch (size) {
-		case "lg": {
-			return "square_lg";
-		}
-		case undefined:
-		case "md": {
-			return "square_md";
-		}
-		case "sm": {
-			return "square_sm";
-		}
-
-		default: {
-			return exhaustiveSwitchGuard(size);
-		}
-	}
-};
-
 function useCurrencyState<TCurrency extends string = string>(
 	currencyConfig: CurrencyConfig<TCurrency>,
 ) {
@@ -124,7 +105,7 @@ function CurrencyMenuButton<TCurrency extends string = string>({
 			buttonProps={{
 				appearance: "secondary",
 				slot: null,
-				size: getMenuSize(size),
+				size: size,
 				children: (
 					<>
 						<CurrencyMenuIcon
