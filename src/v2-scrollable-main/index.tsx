@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { HTMLProps } from "react";
 import { WithSize } from "../types";
+import { useCollapsibleSideNav } from "../v2-collapsible-side-nav";
 import { scrollableMainCSS, scrollableMainInnerCSS } from "./styles.css";
 import { nonScrollableWrapperCSS } from "./styles.css";
 
@@ -29,12 +30,16 @@ export function ScrollableMain({
 		 */
 		headers: "0" | "1" | "2";
 	}) {
+	const [isSidebarOpen] = useCollapsibleSideNav();
+
 	return (
 		<main
 			className={clsx(className, scrollableMainCSS({ headers }))}
 			{...rest}
 		>
-			<div className={scrollableMainInnerCSS({ size })}>{children}</div>
+			<div className={scrollableMainInnerCSS({ size, isSidebarOpen })}>
+				{children}
+			</div>
 		</main>
 	);
 }
