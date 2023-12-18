@@ -5,12 +5,9 @@ import {
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
-import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
 import { Box } from "../box";
-import { ElementSizeEnum } from "../index.css";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName, WithSize } from "../types";
-import { ButtonProps } from "../v2-button";
 import { V2FieldError } from "../v2-field-error";
 import { Group } from "../v2-group";
 import { GroupAddon } from "../v2-group-addon";
