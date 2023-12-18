@@ -1,8 +1,8 @@
+import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import { a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { keyframes, style } from "@vanilla-extract/css";
-import { withPrefersMotion } from "../css-utils";
 
 /** -----------------------------------------------------------------------------
  * MENU BUTTON STYLES
@@ -70,12 +70,12 @@ export const menuButtonCSS = recipe({
  * ------------------------------------------------------------------------------- */
 
 const kfPopoverIn = keyframes({
-	"0%": { opacity: 0, transform: "scale(0.9)" },
+	"0%": { opacity: 0, transform: "scale(0.95)" },
 	"100%": { opacity: 1 },
 });
 const kfPopoverOut = keyframes({
 	"0%": { opacity: 1 },
-	"100%": { opacity: 0, transform: "scale(0.9)" },
+	"100%": { opacity: 0, transform: "scale(0.95)" },
 });
 
 export const popoverCSS = style([
