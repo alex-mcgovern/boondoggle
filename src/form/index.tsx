@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import {
 	DefaultValues,
 	FormProvider,
-	UseFormWatch,
+	WatchObserver,
 	useForm,
 } from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
@@ -49,7 +49,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Function that will be called when a field value changes.
 	 */
-	watchCallback?: UseFormWatch<TFieldValues>;
+	watchCallback?: WatchObserver<TFieldValues>;
 };
 
 /**
