@@ -44,7 +44,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
 	resolver?: Resolver<TFieldValues, any>;
 
-	defaultValues: DefaultValues<TFieldValues> | undefined;
+	defaultValues?: DefaultValues<TFieldValues> | undefined;
 
 	/**
 	 * Function that will be called when a field value changes.
