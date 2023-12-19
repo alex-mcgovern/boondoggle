@@ -1,9 +1,14 @@
-import { FormProvider, UseFormWatch, useForm } from "react-hook-form";
-import { Box } from "../box";
-import { handleHookFormErrors } from "./handle_hook_form_errors";
 import type { ReactNode } from "react";
+import {
+	DefaultValues,
+	FormProvider,
+	UseFormWatch,
+	useForm,
+} from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
+import { Box } from "../box";
 import type { BoxProps } from "../box";
+import { handleHookFormErrors } from "./handle_hook_form_errors";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	BoxProps,
@@ -39,6 +44,8 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
 	resolver?: Resolver<TFieldValues, any>;
 
+	defaultValues: DefaultValues<TFieldValues> | undefined;
+
 	/**
 	 * Function that will be called when a field value changes.
 	 */
@@ -54,9 +61,10 @@ export function Form<TFieldValues extends FieldValues>({
 	handleSubmit,
 	name,
 	resolver,
+	defaultValues,
 	watchCallback,
 }: FormProps<TFieldValues>) {
-	const formMethods = useForm<TFieldValues>({ resolver });
+	const formMethods = useForm<TFieldValues>({ resolver, defaultValues });
 
 	if (watchCallback) {
 		formMethods.watch(watchCallback);
