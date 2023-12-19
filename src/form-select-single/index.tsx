@@ -46,7 +46,7 @@ export function FormSelectSingle<
 	const { control } = useFormContext();
 
 	const {
-		field: { onChange, ref },
+		field: { onChange, ref, value: rhfValue },
 		fieldState: { error },
 	} = useController({
 		control,
@@ -62,10 +62,15 @@ export function FormSelectSingle<
 		[onChange, onChangeParent],
 	);
 
-	const defaultItem = getDefaultValueItem({
-		items: flattenSelectItems(items),
-		value: defaultValue,
-	});
+	const defaultItem = rhfValue
+		? getDefaultValueItem({
+				items: flattenSelectItems(items),
+				value: rhfValue,
+		  })
+		: getDefaultValueItem({
+				items: flattenSelectItems(items),
+				value: defaultValue,
+		  });
 
 	return (
 		<SelectSingle<TValue, TItemData>
