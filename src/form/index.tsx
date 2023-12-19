@@ -49,7 +49,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Function that will be called when a field value changes.
 	 */
-	watchCallback?: UseFormWatch<TFieldValues>;
+	onChange?: UseFormWatch<TFieldValues>;
 };
 
 /**
@@ -62,12 +62,12 @@ export function Form<TFieldValues extends FieldValues>({
 	name,
 	resolver,
 	defaultValues,
-	watchCallback,
+	onChange,
 }: FormProps<TFieldValues>) {
 	const formMethods = useForm<TFieldValues>({ resolver, defaultValues });
 
-	if (watchCallback) {
-		formMethods.watch(watchCallback);
+	if (onChange) {
+		formMethods.watch(onChange);
 	}
 
 	return (
