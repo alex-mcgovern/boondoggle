@@ -93,7 +93,7 @@ export type InputProps = Partial<
 			start: number | null;
 		};
 
-		wrapperProps: FieldWrapperProps["wrapperProps"];
+		wrapperProps?: Partial<FieldWrapperProps["wrapperProps"]>;
 	};
 
 /**
