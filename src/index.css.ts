@@ -888,12 +888,12 @@ globalStyle("h6", {
 globalStyle("hr", {
 	"@layer": {
 		[baseLayer]: {
-			borderBottom: "none",
+			border: "none",
 			borderColor: `${vars.color.border_rule} !important`,
 			borderTop: "1px solid",
 			margin: "0",
 			marginBottom: vars.spacing.space_6,
-			// marginTop: vars.spacing.space_6,
+			marginTop: vars.spacing.space_6,
 		},
 	},
 });
