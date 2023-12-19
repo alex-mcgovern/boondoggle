@@ -14,7 +14,7 @@ import type {
 	WithWrapperProps,
 } from "../types";
 
-type FieldWrapperProps = WithColorOverlay &
+export type FieldWrapperProps = WithColorOverlay &
 	WithOptionalLabel &
 	WithHideLastpass &
 	WithDescription &

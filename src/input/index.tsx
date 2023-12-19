@@ -10,7 +10,7 @@ import { useForwardRef } from "../_hooks/use-forward-ref";
 import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";
 import { FieldActionButtonVisibility } from "../field-action-button-visibility";
-import { FieldWrapper } from "../field-wrapper";
+import { FieldWrapper, FieldWrapperProps } from "../field-wrapper";
 import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	WithColorOverlay,
@@ -92,6 +92,8 @@ export type InputProps = Partial<
 			end: number | null;
 			start: number | null;
 		};
+
+		wrapperProps: FieldWrapperProps["wrapperProps"];
 	};
 
 /**
@@ -136,6 +138,7 @@ function InputBase(
 		strShow,
 		type,
 		value,
+		wrapperProps,
 		...rest
 	}: InputProps,
 	ref: React.ForwardedRef<HTMLInputElement>,
@@ -175,7 +178,7 @@ function InputBase(
 			errorMessage={errorMessage}
 			hideLastpass={hideLastpass}
 			invalid={invalid}
-			wrapperProps={{ marginBottom }}
+			wrapperProps={{ marginBottom, ...wrapperProps }}
 			{...getOptionalLabelProps({
 				isLabelVisible,
 				label,
