@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { sprinkles } from "../sprinkles/index.css";
 import { withPrefersMotion } from "../css-utils";
-import { vars } from "../index.css";
+import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
 import { calc } from "@vanilla-extract/css-utils";
 
 const DOT_SIZE = vars.spacing.space_4;
@@ -18,6 +18,13 @@ export const switchCSS = style([
 		alignItems: "center",
 		gap: "space_2",
 	}),
+	{
+		selectors: {
+			[`&${HOVER}`]: {
+				cursor: "pointer",
+			},
+		},
+	},
 ]);
 
 export const switchLabelCSS = style([
@@ -39,7 +46,7 @@ export const switchIndicatorCSS = style([
 		height: SWITCH_HEIGHT,
 
 		...withPrefersMotion({
-			transitionProperty: "all",
+			transitionProperty: "background",
 			transitionDuration: vars.transitionDuration.short,
 			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
@@ -58,7 +65,7 @@ export const switchIndicatorCSS = style([
 				borderRadius: vars.borderRadius["50%"],
 
 				...withPrefersMotion({
-					transitionProperty: "all",
+					transitionProperty: "transform",
 					transitionDuration: vars.transitionDuration.short,
 					transitionTimingFunction: vars.ease.quart_in_out,
 				}),
@@ -87,6 +94,17 @@ export const switchIndicatorCSS = style([
 				// background: vars.color.button_default,
 				transform: "translateX(100%)",
 			},
+
+			/** ---------------------------------------------
+			 * FOCUSED
+			 * ----------------------------------------------- */
+
+			[`${switchCSS}[data-focused] &`]: {
+				...a11yFocusStyleRule,
+				// 	background: vars.color.switch_background_active,
+				// 	// borderColor: vars.color.focus_ring,
+			},
+			[`${switchCSS}[data-focused] &::before`]: {},
 		},
 	},
 ]);
