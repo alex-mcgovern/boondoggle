@@ -56,5 +56,9 @@ export const makeTheme = ({
 		tab_selected_color: step(primary, isOverlay ? 4 : 3),
 
 		focus_ring: step(primary, 8),
+
+		switch_background: step(secondary, 7),
+		switch_background_active: step(primary, 9),
+		switch_foreground: step(secondary, 1),
 	};
 };
