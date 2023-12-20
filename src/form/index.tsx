@@ -44,12 +44,20 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
 	resolver?: Resolver<TFieldValues, any>;
 
+	/**
+	 * Default values for the form fields.
+	 */
 	defaultValues?: DefaultValues<TFieldValues> | undefined;
 
 	/**
 	 * Function that will be called when a field value changes.
 	 */
 	watchCallback?: WatchObserver<TFieldValues>;
+
+	/**
+	 * Whether the form should reset after it is submitted.
+	 */
+	shouldResetOnSubmit?: boolean;
 };
 
 /**
@@ -62,6 +70,7 @@ export function Form<TFieldValues extends FieldValues>({
 	name,
 	resolver,
 	defaultValues,
+	shouldResetOnSubmit = false,
 	watchCallback,
 }: FormProps<TFieldValues>) {
 	const formMethods = useForm<TFieldValues>({ resolver, defaultValues });
@@ -75,7 +84,12 @@ export function Form<TFieldValues extends FieldValues>({
 			<Box
 				as="form"
 				name={name}
-				onSubmit={formMethods.handleSubmit(handleSubmit, handleErrors)}
+				onSubmit={formMethods.handleSubmit((fieldValues) => {
+					handleSubmit(fieldValues);
+					if (shouldResetOnSubmit) {
+						formMethods.reset(defaultValues);
+					}
+				}, handleErrors)}
 			>
 				{children}
 			</Box>
