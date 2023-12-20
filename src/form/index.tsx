@@ -2,6 +2,7 @@ import React from "react";
 import {
 	DefaultValues,
 	FormProvider,
+	UseFormReturn,
 	WatchObserver,
 	useForm,
 } from "react-hook-form";
@@ -17,7 +18,12 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
 	 */
-	children: React.ReactNode | React.ReactNode[];
+	children:
+		| React.ReactNode
+		| ((
+				// biome-ignore lint/suspicious/noExplicitAny: RHF uses `any` for the second type argument
+				formMethods: UseFormReturn<TFieldValues, any, undefined>,
+		  ) => React.ReactNode);
 
 	/**
 	 * Function that will be called when form validation errors occur.
@@ -95,7 +101,9 @@ function BaseForm<TFieldValues extends FieldValues>(
 					}
 				}, handleErrors)}
 			>
-				{children}
+				{typeof children === "function"
+					? children(formMethods)
+					: children}
 			</Box>
 		</FormProvider>
 	);
