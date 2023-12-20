@@ -11,9 +11,14 @@ export type SwitchProps = Omit<ReactAriaSwitchProps, "children" | "name"> & {
 };
 
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-	({ label, ...props }, ref) => {
+	({ label, defaultSelected = false, ...props }, ref) => {
 		return (
-			<ReactAriaSwitch ref={ref} className={switchCSS} {...props}>
+			<ReactAriaSwitch
+				defaultSelected={defaultSelected}
+				ref={ref}
+				className={switchCSS}
+				{...props}
+			>
 				<span className={switchLabelCSS}>{label}</span>
 				<div className={switchIndicatorCSS} />
 			</ReactAriaSwitch>
