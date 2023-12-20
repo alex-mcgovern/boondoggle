@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import {
 	DefaultValues,
 	FormProvider,
@@ -9,6 +8,7 @@ import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { handleHookFormErrors } from "./handle_hook_form_errors";
+import React from "react";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	BoxProps,
@@ -17,7 +17,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
 	 */
-	children: ReactNode | ReactNode[];
+	children: React.ReactNode | React.ReactNode[];
 
 	/**
 	 * Function that will be called when form validation errors occur.
@@ -63,16 +63,19 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 /**
  * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
  */
-export function Form<TFieldValues extends FieldValues>({
-	children,
-	handleErrors = handleHookFormErrors,
-	handleSubmit,
-	name,
-	resolver,
-	defaultValues,
-	shouldResetOnSubmit = false,
-	watchCallback,
-}: FormProps<TFieldValues>) {
+function BaseForm<TFieldValues extends FieldValues>(
+	{
+		children,
+		handleErrors = handleHookFormErrors,
+		handleSubmit,
+		name,
+		resolver,
+		defaultValues,
+		shouldResetOnSubmit = false,
+		watchCallback,
+	}: FormProps<TFieldValues>,
+	ref: React.ForwardedRef<HTMLFormElement>,
+) {
 	const formMethods = useForm<TFieldValues>({ resolver, defaultValues });
 
 	if (watchCallback) {
@@ -82,6 +85,7 @@ export function Form<TFieldValues extends FieldValues>({
 	return (
 		<FormProvider {...formMethods}>
 			<Box
+				ref={ref}
 				as="form"
 				name={name}
 				onSubmit={formMethods.handleSubmit((fieldValues) => {
@@ -96,3 +100,5 @@ export function Form<TFieldValues extends FieldValues>({
 		</FormProvider>
 	);
 }
+
+export const Form = React.forwardRef(BaseForm);
