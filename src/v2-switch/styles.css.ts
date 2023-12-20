@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
-import { sprinkles } from "../sprinkles/index.css";
+import { calc } from "@vanilla-extract/css-utils";
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
-import { calc } from "@vanilla-extract/css-utils";
+import { sprinkles } from "../sprinkles/index.css";
 
 const DOT_SIZE = vars.spacing.space_4;
 const SWITCH_MARGIN = vars.spacing["space_0.5"];

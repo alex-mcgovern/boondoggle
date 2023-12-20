@@ -10,8 +10,8 @@ export const Switch = ({
 }: Omit<ReactAriaSwitchProps, "children"> & { label: string }) => {
 	return (
 		<ReactAriaSwitch className={switchCSS} {...props}>
-			<div className={switchIndicatorCSS} />
 			<span className={switchLabelCSS}>{label}</span>
+			<div className={switchIndicatorCSS} />
 		</ReactAriaSwitch>
 	);
 };
