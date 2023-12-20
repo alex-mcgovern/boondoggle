@@ -6,6 +6,7 @@ const meta = {
 	title: "Components/V2/Switch",
 	component: StoryComp,
 	args: {
+		name: "switch",
 		label: "Switch me daddy",
 	},
 } satisfies Meta<typeof StoryComp>;

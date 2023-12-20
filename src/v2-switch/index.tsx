@@ -1,9 +1,9 @@
+import * as React from "react";
 import {
 	Switch as ReactAriaSwitch,
 	SwitchProps as ReactAriaSwitchProps,
 } from "react-aria-components";
 import { switchCSS, switchIndicatorCSS, switchLabelCSS } from "./styles.css";
-import * as React from "react";
 
 export type SwitchProps = Omit<ReactAriaSwitchProps, "children" | "name"> & {
 	label: string;
