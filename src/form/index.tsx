@@ -1,3 +1,4 @@
+import React from "react";
 import {
 	DefaultValues,
 	FormProvider,
@@ -8,7 +9,6 @@ import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { handleHookFormErrors } from "./handle_hook_form_errors";
-import React from "react";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	BoxProps,

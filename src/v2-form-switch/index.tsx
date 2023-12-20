@@ -2,7 +2,7 @@ import { useController, useFormContext } from "react-hook-form";
 import { Switch } from "../v2-switch";
 
 export function FormSwitch({
-	defaultSelected,
+	defaultSelected = false,
 	name,
 	onChange,
 	...rest
