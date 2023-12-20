@@ -17,6 +17,12 @@ export const switchCSS = style([
 		display: "flex",
 		alignItems: "center",
 		gap: "space_2",
+
+		/**
+		 * @note Required to prevent the hidden, absolutely
+		 * positioned input from upsetting the layout.
+		 */
+		position: "relative",
 	}),
 	{
 		selectors: {
