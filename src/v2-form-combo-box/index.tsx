@@ -40,6 +40,7 @@ export function FormComboBox<TValue extends string = string>({
 			errorMessage={error?.message}
 			comboBoxProps={{
 				...rest.comboBoxProps,
+				isInvalid: rest.comboBoxProps.isInvalid || !!error,
 				defaultSelectedKey: rhfValue,
 				onSelectionChange: handleChange,
 			}}
