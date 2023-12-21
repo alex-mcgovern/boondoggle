@@ -6,12 +6,12 @@ import {
 	type ComboBoxProps as ReactAriaComboBoxProps,
 	Input as ReactAriaInput,
 	ValidationResult,
+	Button as ReactAriaButton,
 } from "react-aria-components";
 import { Text } from "react-aria-components";
 import { unstyledInput } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName } from "../types";
-import { Button } from "../v2-button";
 import { V2FieldError } from "../v2-field-error";
 import { Icon } from "../v2-icon";
 import { V2Label } from "../v2-label";
@@ -19,6 +19,7 @@ import { ListBox } from "../v2-list-box";
 import { IterableMenuItem } from "../v2-menu";
 import { MenuPopover } from "../v2-menu-popover";
 import { V3Group } from "../v3-group";
+import { comboBoxButtonCSS } from "./styles.css";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
@@ -67,9 +68,9 @@ function BaseComboBox<TItemId extends string = string>(
 						}),
 					)}
 				/>
-				<Button size="square_sm" appearance="ghost">
+				<ReactAriaButton className={comboBoxButtonCSS}>
 					<Icon icon={faAngleDown} />
-				</Button>
+				</ReactAriaButton>
 			</V3Group>
 			{description && <Text slot="description">{description}</Text>}
 			{comboBoxProps.isInvalid && errorMessage && (

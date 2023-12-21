@@ -1,3 +1,5 @@
+import { TCountryCode } from "countries-list";
+import { Sprinkles } from "../sprinkles/index.css";
 import { FlagAd } from "./ad";
 import { FlagAe } from "./ae";
 import { FlagAf } from "./af";
@@ -248,8 +250,6 @@ import { FlagYt } from "./yt";
 import { FlagZa } from "./za";
 import { FlagZm } from "./zm";
 import { FlagZw } from "./zw";
-import { TCountryCode } from "countries-list";
-import { Sprinkles } from "../sprinkles/index.css";
 
 export const FLAGS: Record<
 	TCountryCode,
