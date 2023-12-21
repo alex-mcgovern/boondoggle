@@ -162,7 +162,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		md: `${blackA.blackA2} 0px 5px 20px`,
 		sm: `${blackA.blackA1} 0px 5px 10px`,
 		xs: `${blackA.blackA1} 0px 5px 5px`,
-		inset_xs: `inset ${blackA.blackA1} 0px 2px 5px`,
+		inset_xs: `inset ${blackA.blackA1} 0px 1px 2px`,
 	},
 	display: {
 		block: "block",
