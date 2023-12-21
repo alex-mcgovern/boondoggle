@@ -50,7 +50,7 @@ export function FormComboBox<TValue extends string = string>({
 				onBlur,
 				isDisabled: rest.comboBoxProps.isDisabled || disabled,
 				isInvalid: rest.comboBoxProps.isInvalid || !!error,
-				selectedKey: rhfValue,
+				selectedKey: rhfValue ?? null,
 				onSelectionChange: handleChange,
 			}}
 			name={name}
