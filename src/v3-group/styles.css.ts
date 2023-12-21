@@ -27,7 +27,8 @@ export const groupCSS = recipe({
 		}),
 		{
 			// boxShadow: `${vars.boxShadow.xs}, ${vars.boxShadow.inset_xs}`,
-			width: "fit-content",
+			// width: "fit-content",
+			width: "100%",
 
 			selectors: {
 				"&[data-hovered]": {
