@@ -2,7 +2,7 @@
 	"author": "Alex McGovern",
 	"name": "boondoggle",
 	"description": "Boondoggle component library",
-	"version": "0.20.12-24",
+	"version": "0.20.12-25",
 	"license": "MIT",
 	"files": [
 		"dist"
