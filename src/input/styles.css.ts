@@ -33,16 +33,21 @@ export const getSlotWrapperStyles = recipe({
 	base: [
 		inputSlotWrapperDoNotRemoveOrYouWillBeFired,
 		sprinkles({
-			alignItems: "center",
-			background: "background",
-			border: "border_element",
-			borderRadius: "md",
-			color: "text_low_contrast",
-			display: "flex",
-			fontWeight: "normal",
-			gap: "space_2",
 			position: "relative",
 			width: "100%",
+
+			background: "background",
+			boxShadow: "inset_xs",
+
+			border: "border_element",
+			borderRadius: "md",
+
+			display: "flex",
+			gap: "space_2",
+			alignItems: "center",
+
+			fontWeight: "normal",
+			color: "text_low_contrast",
 		}),
 		a11yDisabled,
 		{
