@@ -161,6 +161,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		lg: `${blackA.blackA3} 0px 5px 40px`,
 		md: `${blackA.blackA2} 0px 5px 20px`,
 		sm: `${blackA.blackA1} 0px 5px 10px`,
+		xs: `${blackA.blackA1} 0px 5px 5px`,
+		inset_xs: `inset ${blackA.blackA1} 0px 2px 5px`,
 	},
 	display: {
 		block: "block",
@@ -1190,6 +1192,34 @@ globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
 		},
 	},
 });
+
+/** -----------------------------------------------------------------------------
+ * REUSABLE: UNSTYLED INPUT
+ * ------------------------------------------------------------------------------- */
+
+export const unstyledInput = style([
+	{
+		appearance: "none",
+		background: "none",
+		border: "none",
+		color: "inherit",
+		font: "inherit",
+		margin: 0,
+
+		selectors: {
+			"&:focus": {
+				outline: "none",
+			},
+			"&::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration":
+				{
+					display: "none",
+				},
+			"&::-webkit-inner-spin-button, &::-webkit-outer-spin-button": {
+				display: "none",
+			},
+		},
+	},
+]);
 
 /** -----------------------------------------------------------------------------
  * ELEMENT SIZING

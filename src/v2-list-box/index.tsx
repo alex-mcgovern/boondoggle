@@ -2,9 +2,9 @@ import * as React from "react";
 import {
 	Collection as ReactAriaCollection,
 	Header as ReactAriaHeader,
-	Menu as ReactAriaMenu,
-	MenuItem as ReactAriaMenuItem,
-	type MenuProps as ReactAriaMenuProps,
+	ListBox as ReactAriaListBox,
+	ListBoxItem as ReactAriaListBoxItem,
+	type ListBoxProps as ReactAriaListBoxProps,
 	Section as ReactAriaSection,
 	Separator,
 } from "react-aria-components";
@@ -16,7 +16,7 @@ import {
 	menuSeparatorCSS,
 } from "../v2-common-css/menu.css";
 
-type SingleMenuItem<TItemId extends string = string> = {
+type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;
 	colorOverlay?: ColorOverlay;
 	description?: string;
@@ -27,10 +27,10 @@ type SingleMenuItem<TItemId extends string = string> = {
 	type?: never;
 };
 
-export type IterableMenuItem<TItemId extends string = string> =
-	| SingleMenuItem
+export type IterableListBoxItem<TItemId extends string = string> =
+	| SingleListBoxItem
 	| {
-			children: Array<SingleMenuItem<TItemId>>;
+			children: Array<SingleListBoxItem<TItemId>>;
 			colorOverlay?: never;
 			href?: never;
 			id: string;
@@ -48,16 +48,15 @@ export type IterableMenuItem<TItemId extends string = string> =
 			type: "SEPARATOR";
 	  };
 
-export type MenuProps<TItemId extends string = string> = ReactAriaMenuProps<
-	IterableMenuItem<TItemId>
->;
+export type ListBoxProps<TItemId extends string = string> =
+	ReactAriaListBoxProps<IterableListBoxItem<TItemId>>;
 
-function BaseMenu<TItemId extends string = string>(
-	props: MenuProps<TItemId>,
+function BaseListBox<TItemId extends string = string>(
+	props: ListBoxProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (
-		<ReactAriaMenu<IterableMenuItem<TItemId>>
+		<ReactAriaListBox<IterableListBoxItem<TItemId>>
 			className={menuCSS}
 			ref={ref}
 			{...props}
@@ -79,7 +78,7 @@ function BaseMenu<TItemId extends string = string>(
 
 						<ReactAriaCollection items={item.children}>
 							{(childItem) => (
-								<ReactAriaMenuItem
+								<ReactAriaListBoxItem
 									className={menuItemCSS({
 										colorOverlay: childItem.colorOverlay,
 									})}
@@ -87,12 +86,12 @@ function BaseMenu<TItemId extends string = string>(
 								>
 									{childItem.slotLeft}
 									{childItem.name}
-								</ReactAriaMenuItem>
+								</ReactAriaListBoxItem>
 							)}
 						</ReactAriaCollection>
 					</ReactAriaSection>
 				) : (
-					<ReactAriaMenuItem
+					<ReactAriaListBoxItem
 						className={menuItemCSS({
 							colorOverlay: item.colorOverlay,
 						})}
@@ -100,11 +99,11 @@ function BaseMenu<TItemId extends string = string>(
 					>
 						{item.slotLeft}
 						{item.name}
-					</ReactAriaMenuItem>
+					</ReactAriaListBoxItem>
 				);
 			}}
-		</ReactAriaMenu>
+		</ReactAriaListBox>
 	);
 }
 
-export const Menu = React.forwardRef(BaseMenu);
+export const ListBox = React.forwardRef(BaseListBox);
