@@ -47,7 +47,7 @@ export const menuItemCSS = recipe({
 			width: "100%",
 			display: "flex",
 			alignItems: "center",
-			gap: "space_1",
+			gap: "space_2",
 			flexShrink: "0",
 
 			fontStyle: "bodyMd",

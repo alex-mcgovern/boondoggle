@@ -89,6 +89,7 @@
 		"@vanilla-extract/recipes": "0.5.1",
 		"@vanilla-extract/sprinkles": "1.6.1",
 		"clsx": "1.2.1",
+		"countries-list": "3.0.6",
 		"downshift": "8.1.0",
 		"framer-motion": "10.16.16",
 		"intl-number-parser": "1.0.2",

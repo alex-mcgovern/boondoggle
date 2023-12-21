@@ -2,19 +2,18 @@ import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import { Key } from "react-stately";
 import type { WithFormFieldProps } from "../types";
-import { ComboBox, ComboBoxProps } from "../v2-combobox";
+import { CountryComboBox, CountryComboBoxProps } from "../v2-country-combo-box";
 
-export type FormComboBoxProps<TValue extends string = string> =
-	ComboBoxProps<TValue> &
-		WithFormFieldProps & {
-			defaultValue?: string | number;
-		};
+export type FormCountryComboBoxProps = CountryComboBoxProps &
+	WithFormFieldProps & {
+		defaultValue?: string | number;
+	};
 
-export function FormComboBox<TValue extends string = string>({
+export function FormCountryComboBox({
 	defaultValue,
 	name,
 	...rest
-}: FormComboBoxProps<TValue>) {
+}: FormCountryComboBoxProps) {
 	const { control } = useFormContext();
 
 	const {
@@ -35,20 +34,20 @@ export function FormComboBox<TValue extends string = string>({
 	const handleChange = useCallback(
 		(key: Key) => {
 			rhfOnChange(key);
-			rest.comboBoxProps.onSelectionChange?.(key);
+			rest.comboBoxProps?.onSelectionChange?.(key);
 		},
-		[rhfOnChange, rest.comboBoxProps.onSelectionChange],
+		[rhfOnChange, rest.comboBoxProps?.onSelectionChange],
 	);
 
 	return (
-		<ComboBox<TValue>
+		<CountryComboBox
 			{...rest}
 			errorMessage={error?.message}
 			comboBoxProps={{
 				...rest.comboBoxProps,
 				onBlur,
-				isDisabled: rest.comboBoxProps.isDisabled || disabled,
-				isInvalid: rest.comboBoxProps.isInvalid || !!error,
+				isDisabled: rest.comboBoxProps?.isDisabled || disabled,
+				isInvalid: rest.comboBoxProps?.isInvalid || !!error,
 				selectedKey: rhfValue ?? null,
 				onSelectionChange: handleChange,
 			}}

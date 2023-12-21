@@ -21,7 +21,6 @@ import { MenuPopover } from "../v2-menu-popover";
 import { V3Group } from "../v3-group";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
-	label?: string;
 	description?: string | null;
 	errorMessage?: string | ((validation: ValidationResult) => string);
 	labelConfig?: LabelConfig;
