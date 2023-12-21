@@ -32,7 +32,7 @@ export const menuCSS = style([
 				outline: "none",
 			},
 		},
-		// maxHeight: "15rem",
+		maxHeight: "100dvh",
 		// minWidth: "10rem",
 	},
 ]);
