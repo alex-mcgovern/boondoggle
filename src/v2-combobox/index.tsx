@@ -64,6 +64,7 @@ function BaseComboBox<TItemId extends string = string>(
 						unstyledInput,
 						sprinkles({
 							paddingX: "space_3",
+							width: "100%",
 						}),
 					)}
 				/>
