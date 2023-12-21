@@ -2,11 +2,11 @@ import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
 import React from "react";
 import {
+	Button as ReactAriaButton,
 	ComboBox as ReactAriaCombobox,
 	type ComboBoxProps as ReactAriaComboBoxProps,
 	Input as ReactAriaInput,
 	ValidationResult,
-	Button as ReactAriaButton,
 } from "react-aria-components";
 import { Text } from "react-aria-components";
 import { unstyledInput } from "../index.css";

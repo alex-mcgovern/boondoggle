@@ -1,7 +1,7 @@
-import { sprinkles } from "../sprinkles/index.css";
+import { style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, vars } from "../index.css";
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const comboBoxButtonCSS = style([
 	sprinkles({
