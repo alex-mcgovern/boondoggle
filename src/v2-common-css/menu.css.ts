@@ -5,18 +5,18 @@
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
 import {
-	floatingMenu,
+	NOT_DISABLED,
 	a11yDisabled,
 	a11yFocus,
-	vars,
 	elementPaddingRaw,
-	NOT_DISABLED,
+	floatingMenu,
 	variantColorOverlay,
+	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { style } from "@vanilla-extract/css";
 
 export const menuCSS = style([
 	sprinkles({
