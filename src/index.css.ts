@@ -184,7 +184,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 	fontSize: {
 		bodyLg: "1rem", // 16px
 		bodyMd: "0.875rem", // 14px
-		bodySm: "0.75rem", // 12px
+		bodySm: "0.8125rem", // 13px
 		h1: "2.5rem", // 40px
 		h2: "2rem", // 32 px
 		h3: "1.75rem", // 28px

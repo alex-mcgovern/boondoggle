@@ -4,7 +4,6 @@
 
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-
 import { style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
 import {
@@ -55,7 +54,6 @@ export const menuItemCSS = recipe({
 			fontWeight: "normal",
 			color: "text_high_contrast",
 			textAlign: "left",
-
 			textDecoration: "none",
 		}),
 		a11yDisabled,
@@ -81,6 +79,9 @@ export const menuItemCSS = recipe({
 				[`&${NOT_DISABLED}:is(:active,[data-selected])`]: {
 					background: vars.color.tint_hover,
 				},
+				"&:not(:last-child)": {
+					marginBottom: floatingMenu.container.padding,
+				},
 			},
 		},
 	],
@@ -88,6 +89,22 @@ export const menuItemCSS = recipe({
 		colorOverlay: variantColorOverlay,
 	},
 });
+
+export const menuItemNameCSS = style([
+	sprinkles({
+		display: "block",
+		color: "text_high_contrast",
+		fontStyle: "bodyMd",
+	}),
+]);
+
+export const menuItemDescriptionCSS = style([
+	sprinkles({
+		display: "block",
+		color: "text_low_contrast",
+		fontStyle: "bodySm",
+	}),
+]);
 
 /** -----------------------------------------------------------------------------
  * MENU SECTION HEADER

@@ -8,6 +8,9 @@ const meta = {
 	args: {
 		name: "country",
 		comboBoxProps: {
+			onSelectionChange: (key) => {
+				alert(`onSelectionChange: ${key}`);
+			},
 			formValue: "text",
 			defaultItems: [
 				{
@@ -17,14 +20,17 @@ const meta = {
 						{
 							id: "france",
 							name: "France",
+							description: "This is a description",
 						},
 						{
 							id: "germany",
 							name: "Germany",
+							description: "This is a description",
 						},
 						{
 							id: "spain",
 							name: "Spain",
+							description: "This is a description",
 						},
 					],
 				},
@@ -39,14 +45,17 @@ const meta = {
 						{
 							id: "uae",
 							name: "United Arab Emirates",
+							description: "This is a description",
 						},
 						{
 							id: "saudi_arabia",
 							name: "Saudi Arabia",
+							description: "This is a description",
 						},
 						{
 							id: "oman",
 							name: "Oman",
+							description: "This is a description",
 						},
 					],
 				},

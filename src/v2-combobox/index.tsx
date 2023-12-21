@@ -20,7 +20,7 @@ import { IterableMenuItem } from "../v2-menu";
 import { MenuPopover } from "../v2-menu-popover";
 import { V3Group } from "../v3-group";
 
-type ComboBoxProps<TItemId extends string = string> = WithName & {
+export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	label?: string;
 	description?: string | null;
 	errorMessage?: string | ((validation: ValidationResult) => string);
@@ -32,16 +32,19 @@ type ComboBoxProps<TItemId extends string = string> = WithName & {
 	>;
 };
 
-export function ComboBox<TItemId extends string = string>({
-	description,
-	errorMessage,
-	name,
-	labelConfig,
-	popoverProps,
-	comboBoxProps,
-}: ComboBoxProps<TItemId>) {
+function BaseComboBox<TItemId extends string = string>(
+	{
+		description,
+		errorMessage,
+		name,
+		labelConfig,
+		popoverProps,
+		comboBoxProps,
+	}: ComboBoxProps<TItemId>,
+	ref: React.ForwardedRef<HTMLDivElement>,
+) {
 	return (
-		<ReactAriaCombobox {...comboBoxProps} menuTrigger="focus">
+		<ReactAriaCombobox ref={ref} {...comboBoxProps} menuTrigger="focus">
 			{labelConfig?.label ? (
 				<V2Label
 					htmlFor={name}
@@ -78,3 +81,5 @@ export function ComboBox<TItemId extends string = string>({
 		</ReactAriaCombobox>
 	);
 }
+
+export const ComboBox = React.forwardRef(BaseComboBox);

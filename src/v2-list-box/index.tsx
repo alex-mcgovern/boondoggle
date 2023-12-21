@@ -4,15 +4,19 @@ import {
 	Header as ReactAriaHeader,
 	ListBox as ReactAriaListBox,
 	ListBoxItem as ReactAriaListBoxItem,
+	ListBoxItemProps as ReactAriaListBoxItemProps,
 	type ListBoxProps as ReactAriaListBoxProps,
 	Section as ReactAriaSection,
 	Separator,
+	Text as ReactAriaText,
 } from "react-aria-components";
 import { ColorOverlay } from "../index.css";
 import {
 	menuCSS,
 	menuHeaderCSS,
 	menuItemCSS,
+	menuItemDescriptionCSS,
+	menuItemNameCSS,
 	menuSeparatorCSS,
 } from "../v2-common-css/menu.css";
 
@@ -51,6 +55,34 @@ export type IterableListBoxItem<TItemId extends string = string> =
 export type ListBoxProps<TItemId extends string = string> =
 	ReactAriaListBoxProps<IterableListBoxItem<TItemId>>;
 
+function ListBoxItem<TItemId extends string = string>({
+	value,
+	...props
+}: ReactAriaListBoxItemProps<SingleListBoxItem<TItemId>>) {
+	return (
+		<ReactAriaListBoxItem
+			className={menuItemCSS({
+				colorOverlay: value?.colorOverlay,
+			})}
+			href={value?.href}
+			{...props}
+		>
+			{value?.slotLeft}
+			<div>
+				<ReactAriaText className={menuItemNameCSS} slot="label">
+					{value?.name}
+				</ReactAriaText>
+				<ReactAriaText
+					className={menuItemDescriptionCSS}
+					slot="description"
+				>
+					{value?.description}
+				</ReactAriaText>
+			</div>
+		</ReactAriaListBoxItem>
+	);
+}
+
 function BaseListBox<TItemId extends string = string>(
 	props: ListBoxProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
@@ -77,29 +109,13 @@ function BaseListBox<TItemId extends string = string>(
 						) : null}
 
 						<ReactAriaCollection items={item.children}>
-							{(childItem) => (
-								<ReactAriaListBoxItem
-									className={menuItemCSS({
-										colorOverlay: childItem.colorOverlay,
-									})}
-									href={childItem.href}
-								>
-									{childItem.slotLeft}
-									{childItem.name}
-								</ReactAriaListBoxItem>
+							{(i) => (
+								<ListBoxItem value={i} textValue={i.name} />
 							)}
 						</ReactAriaCollection>
 					</ReactAriaSection>
 				) : (
-					<ReactAriaListBoxItem
-						className={menuItemCSS({
-							colorOverlay: item.colorOverlay,
-						})}
-						href={item.href}
-					>
-						{item.slotLeft}
-						{item.name}
-					</ReactAriaListBoxItem>
+					<ListBoxItem value={item} textValue={item.name} />
 				);
 			}}
 		</ReactAriaListBox>
