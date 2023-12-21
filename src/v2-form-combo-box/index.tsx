@@ -18,20 +18,27 @@ export function FormComboBox<TValue extends string = string>({
 	const { control } = useFormContext();
 
 	const {
-		field: { onChange, ref, value: rhfValue },
+		field: {
+			onChange: rhfOnChange,
+			ref,
+			value: rhfValue,
+			disabled,
+			onBlur,
+		},
 		fieldState: { error },
 	} = useController({
 		control,
 		defaultValue,
 		name,
 	});
+	console.debug("FormComboBox rhfValue:", rhfValue);
 
 	const handleChange = useCallback(
 		(key: Key) => {
-			onChange(key);
+			rhfOnChange(key);
 			rest.comboBoxProps.onSelectionChange?.(key);
 		},
-		[onChange, rest.comboBoxProps.onSelectionChange],
+		[rhfOnChange, rest.comboBoxProps.onSelectionChange],
 	);
 
 	return (
@@ -40,8 +47,10 @@ export function FormComboBox<TValue extends string = string>({
 			errorMessage={error?.message}
 			comboBoxProps={{
 				...rest.comboBoxProps,
+				onBlur,
+				isDisabled: rest.comboBoxProps.isDisabled || disabled,
 				isInvalid: rest.comboBoxProps.isInvalid || !!error,
-				defaultSelectedKey: rhfValue,
+				selectedKey: rhfValue,
 				onSelectionChange: handleChange,
 			}}
 			name={name}
