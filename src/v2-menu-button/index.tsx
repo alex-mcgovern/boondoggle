@@ -2,12 +2,12 @@ import {
 	type MenuProps as ReactAriaMenuProps,
 	MenuTrigger as ReactAriaMenuTrigger,
 	type MenuTriggerProps as ReactAriaMenuTriggerProps,
-	type PopoverProps as ReactAriaPopoverProps,
 	Popover as ReactAriaPopover,
+	type PopoverProps as ReactAriaPopoverProps,
 } from "react-aria-components";
+import { popoverCSS } from "../_css/popover.css";
 import { Button, type ButtonProps } from "../v2-button";
 import { type IterableMenuItem, Menu } from "../v2-menu";
-import { popoverCSS } from "../_css/popover.css";
 
 export type MenuButtonProps<TItemId extends string = string> = {
 	buttonProps?: ButtonProps;

@@ -5,12 +5,13 @@ import {
 	Button as ReactAriaButton,
 	ComboBox as ReactAriaCombobox,
 	type ComboBoxProps as ReactAriaComboBoxProps,
+	Input as ReactAriaInput,
 	Popover as ReactAriaPopover,
 	type PopoverProps as ReactAriaPopoverProps,
-	Input as ReactAriaInput,
 	ValidationResult,
 } from "react-aria-components";
 import { Text } from "react-aria-components";
+import { popoverCSS } from "../_css/popover.css";
 import { unstyledInput } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName } from "../types";
@@ -21,7 +22,6 @@ import { ListBox } from "../v2-list-box";
 import { IterableMenuItem } from "../v2-menu";
 import { V3Group } from "../v3-group";
 import { comboBoxButtonCSS } from "./styles.css";
-import { popoverCSS } from "../_css/popover.css";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
@@ -57,6 +57,7 @@ function BaseComboBox<TItemId extends string = string>(
 					{...labelConfig.labelProps}
 				/>
 			) : null}
+
 			<V3Group
 				isInvalid={comboBoxProps.isInvalid}
 				isDisabled={comboBoxProps.isDisabled}
@@ -74,10 +75,13 @@ function BaseComboBox<TItemId extends string = string>(
 					<Icon icon={faAngleDown} />
 				</ReactAriaButton>
 			</V3Group>
+
 			{description && <Text slot="description">{description}</Text>}
+
 			{comboBoxProps.isInvalid && errorMessage && (
 				<V2FieldError>{errorMessage}</V2FieldError>
 			)}
+
 			<ReactAriaPopover {...popoverProps} className={popoverCSS}>
 				<ListBox<TItemId> />
 			</ReactAriaPopover>

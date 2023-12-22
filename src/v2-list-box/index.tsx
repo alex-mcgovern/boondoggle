@@ -10,7 +10,6 @@ import {
 	Separator,
 	Text as ReactAriaText,
 } from "react-aria-components";
-import { ColorOverlay } from "../index.css";
 import {
 	menuCSS,
 	menuHeaderCSS,
@@ -19,6 +18,7 @@ import {
 	menuItemNameCSS,
 	menuSeparatorCSS,
 } from "../_css/menu.css";
+import { ColorOverlay } from "../index.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;

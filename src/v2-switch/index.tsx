@@ -10,7 +10,7 @@ export type SwitchProps = Omit<ReactAriaSwitchProps, "children" | "name"> & {
 	name: string;
 };
 
-export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
+export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
 	({ label, defaultSelected = false, ...props }, ref) => {
 		return (
 			<ReactAriaSwitch

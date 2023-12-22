@@ -8,13 +8,13 @@ import {
 	Section as ReactAriaSection,
 	Separator,
 } from "react-aria-components";
-import { ColorOverlay } from "../index.css";
 import {
 	menuCSS,
 	menuHeaderCSS,
 	menuItemCSS,
 	menuSeparatorCSS,
 } from "../_css/menu.css";
+import { ColorOverlay } from "../index.css";
 
 type SingleMenuItem<TItemId extends string = string> = {
 	children?: never;
