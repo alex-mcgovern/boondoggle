@@ -18,7 +18,7 @@ import {
 	menuItemDescriptionCSS,
 	menuItemNameCSS,
 	menuSeparatorCSS,
-} from "../v2-common-css/menu.css";
+} from "../_css/menu.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;

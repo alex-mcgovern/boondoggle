@@ -14,7 +14,7 @@ import {
 	menuHeaderCSS,
 	menuItemCSS,
 	menuSeparatorCSS,
-} from "../v2-common-css/menu.css";
+} from "../_css/menu.css";
 
 type SingleMenuItem<TItemId extends string = string> = {
 	children?: never;

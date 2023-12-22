@@ -5,6 +5,8 @@ import {
 	Button as ReactAriaButton,
 	ComboBox as ReactAriaCombobox,
 	type ComboBoxProps as ReactAriaComboBoxProps,
+	Popover as ReactAriaPopover,
+	type PopoverProps as ReactAriaPopoverProps,
 	Input as ReactAriaInput,
 	ValidationResult,
 } from "react-aria-components";
@@ -17,15 +19,15 @@ import { Icon } from "../v2-icon";
 import { V2Label } from "../v2-label";
 import { ListBox } from "../v2-list-box";
 import { IterableMenuItem } from "../v2-menu";
-import { MenuPopover } from "../v2-menu-popover";
 import { V3Group } from "../v3-group";
 import { comboBoxButtonCSS } from "./styles.css";
+import { popoverCSS } from "../_css/popover.css";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
 	errorMessage?: string | ((validation: ValidationResult) => string);
 	labelConfig?: LabelConfig;
-	popoverProps?: React.ComponentProps<typeof MenuPopover>;
+	popoverProps?: ReactAriaPopoverProps;
 	comboBoxProps: Omit<
 		ReactAriaComboBoxProps<IterableMenuItem<TItemId>>,
 		"children"
@@ -44,7 +46,7 @@ function BaseComboBox<TItemId extends string = string>(
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (
-		<ReactAriaCombobox ref={ref} {...comboBoxProps} menuTrigger="focus">
+		<ReactAriaCombobox {...comboBoxProps} menuTrigger="focus" ref={ref}>
 			{labelConfig?.label ? (
 				<V2Label
 					htmlFor={name}
@@ -76,9 +78,9 @@ function BaseComboBox<TItemId extends string = string>(
 			{comboBoxProps.isInvalid && errorMessage && (
 				<V2FieldError>{errorMessage}</V2FieldError>
 			)}
-			<MenuPopover {...popoverProps}>
+			<ReactAriaPopover {...popoverProps} className={popoverCSS}>
 				<ListBox<TItemId> />
-			</MenuPopover>
+			</ReactAriaPopover>
 		</ReactAriaCombobox>
 	);
 }

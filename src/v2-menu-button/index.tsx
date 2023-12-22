@@ -3,10 +3,11 @@ import {
 	MenuTrigger as ReactAriaMenuTrigger,
 	type MenuTriggerProps as ReactAriaMenuTriggerProps,
 	type PopoverProps as ReactAriaPopoverProps,
+	Popover as ReactAriaPopover,
 } from "react-aria-components";
 import { Button, type ButtonProps } from "../v2-button";
 import { type IterableMenuItem, Menu } from "../v2-menu";
-import { MenuPopover } from "../v2-menu-popover";
+import { popoverCSS } from "../_css/popover.css";
 
 export type MenuButtonProps<TItemId extends string = string> = {
 	buttonProps?: ButtonProps;
@@ -24,9 +25,9 @@ export function MenuButton<TItemId extends string = string>({
 	return (
 		<ReactAriaMenuTrigger {...menuTriggerProps}>
 			<Button {...buttonProps} aria-label="Menu" />
-			<MenuPopover {...popoverProps}>
+			<ReactAriaPopover className={popoverCSS} {...popoverProps}>
 				<Menu {...menuProps} />
-			</MenuPopover>
+			</ReactAriaPopover>
 		</ReactAriaMenuTrigger>
 	);
 }
