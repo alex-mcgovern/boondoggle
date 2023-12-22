@@ -46,7 +46,7 @@ function BaseComboBox<TItemId extends string = string>(
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (
-		<ReactAriaCombobox {...comboBoxProps} menuTrigger="focus" ref={ref}>
+		<ReactAriaCombobox {...comboBoxProps} ref={ref}>
 			{labelConfig?.label ? (
 				<V2Label
 					htmlFor={name}

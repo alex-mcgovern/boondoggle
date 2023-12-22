@@ -46,7 +46,7 @@ export const menuItemCSS = recipe({
 		sprinkles({
 			width: "100%",
 			display: "flex",
-			alignItems: "start",
+			alignItems: "center",
 			gap: "space_2",
 			flexShrink: "0",
 

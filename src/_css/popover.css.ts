@@ -1,12 +1,10 @@
 import { keyframes, style } from "@vanilla-extract/css";
-
 import { calc } from "@vanilla-extract/css-utils";
 import { withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 
 const TRANSLATE_DISTANCE = vars.spacing.space_2;
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
-
 const DURATION = vars.transitionDuration.short;
 const EASING = vars.ease.quart_in_out;
 
@@ -24,7 +22,6 @@ const keyframesOutToLeft = keyframes({
 		transform: `translateX(${TRANSLATE_DISTANCE_NEGATIVE})`,
 	},
 });
-
 const keyframesInFromRight = keyframes({
 	"0%": {
 		opacity: 0,
@@ -32,7 +29,6 @@ const keyframesInFromRight = keyframes({
 	},
 	"100%": { opacity: 1 },
 });
-
 const keyframesOutToRight = keyframes({
 	"0%": { opacity: 1 },
 	"100%": {
@@ -40,7 +36,6 @@ const keyframesOutToRight = keyframes({
 		transform: `translateX(${TRANSLATE_DISTANCE})`,
 	},
 });
-
 const keyframesInFromTop = keyframes({
 	"0%": {
 		opacity: 0,
@@ -48,7 +43,6 @@ const keyframesInFromTop = keyframes({
 	},
 	"100%": { opacity: 1 },
 });
-
 const keyframesOutToTop = keyframes({
 	"0%": { opacity: 1 },
 	"100%": {
@@ -56,7 +50,6 @@ const keyframesOutToTop = keyframes({
 		transform: `translateY(${TRANSLATE_DISTANCE_NEGATIVE})`,
 	},
 });
-
 const keyframesInFromBottom = keyframes({
 	"0%": {
 		opacity: 0,
@@ -105,10 +98,10 @@ export const popoverCSS = style([
 					animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
 				},
 
-				// "&[data-trigger=ComboBox]": {
-				// },
+				"&[data-trigger=ComboBox]": {
+					width: "var(--trigger-width)",
+				},
 			},
-			width: "var(--trigger-width)",
 		}),
 	},
 ]);
