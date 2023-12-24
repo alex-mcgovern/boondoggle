@@ -28,7 +28,7 @@ export type IterableMenuItem<TItemId extends string = string> =
 			colorOverlay?: never;
 			href?: never;
 			id: string;
-			name: string;
+			name?: string;
 			slotLeft?: never;
 			type?: never;
 	  };

@@ -18,8 +18,7 @@ import { LabelConfig, WithName } from "../types";
 import { V2FieldError } from "../v2-field-error";
 import { Icon } from "../v2-icon";
 import { V2Label } from "../v2-label";
-import { ListBox } from "../v2-list-box";
-import { IterableMenuItem } from "../v2-menu";
+import { IterableListBoxItem, ListBox } from "../v2-list-box";
 import { V3Group } from "../v3-group";
 import { comboBoxButtonCSS, comboBoxCSS } from "./styles.css";
 
@@ -29,7 +28,7 @@ export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	labelConfig?: LabelConfig;
 	popoverProps?: ReactAriaPopoverProps;
 	comboBoxProps: Omit<
-		ReactAriaComboBoxProps<IterableMenuItem<TItemId>>,
+		ReactAriaComboBoxProps<IterableListBoxItem<TItemId>>,
 		"children"
 	>;
 };
