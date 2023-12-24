@@ -12,8 +12,6 @@ import {
 } from "react-aria-components";
 import { popoverCSS } from "../_css/popover.css";
 import { FieldDescription } from "../field-description";
-import { unstyledInput } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName } from "../types";
 import { V2FieldError } from "../v2-field-error";
 import { Icon } from "../v2-icon";
