@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { Text as ReactAriaText } from "react-aria-components";
 import { descriptionCSS } from "./styles.css";
-import clsx from "clsx";
 
 export function FieldDescription({
 	className,

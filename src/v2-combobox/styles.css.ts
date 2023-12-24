@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, a11yDisabled, variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
-import { recipe } from "@vanilla-extract/recipes";
 
 export const comboBoxCSS = recipe({
 	base: [],

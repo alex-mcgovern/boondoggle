@@ -11,6 +11,7 @@ import {
 	ValidationResult,
 } from "react-aria-components";
 import { popoverCSS } from "../_css/popover.css";
+import { FieldDescription } from "../field-description";
 import { unstyledInput } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 import { LabelConfig, WithName } from "../types";
@@ -21,7 +22,6 @@ import { ListBox } from "../v2-list-box";
 import { IterableMenuItem } from "../v2-menu";
 import { V3Group } from "../v3-group";
 import { comboBoxButtonCSS, comboBoxCSS } from "./styles.css";
-import { FieldDescription } from "../field-description";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
