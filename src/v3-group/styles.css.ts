@@ -19,17 +19,12 @@ export const groupCSS = recipe({
 			background: "tint_default",
 
 			fontStyle: "bodyMd",
-
-			// boxShadow: "inset_input",
 		}),
 		withPrefersMotion({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
-			// boxShadow: `${vars.boxShadow.xs}, ${vars.boxShadow.inset_input}`,
-			// width: "fit-content",
 			width: "100%",
-
 			selectors: {
 				"&[data-hovered]": {
 					borderColor: vars.color.border_element_active,
