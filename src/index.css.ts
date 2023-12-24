@@ -424,10 +424,8 @@ export type ColorOverlay = keyof typeof variantColorOverlay;
  * ------------------------------------------------------------------------------- */
 
 export const a11yFocusStyleRule: StyleRule = {
-	borderColor: vars.color.button_default,
+	borderColor: vars.color.focus_border,
 	outline: `2px solid ${vars.color.focus_ring} `,
-	// outlineOffset: "-2px",
-	// outline: "none",
 };
 
 export const a11yError = style([
