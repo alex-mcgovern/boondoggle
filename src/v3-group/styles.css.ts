@@ -20,13 +20,13 @@ export const groupCSS = recipe({
 
 			fontStyle: "bodyMd",
 
-			boxShadow: "inset_xs",
+			// boxShadow: "inset_input",
 		}),
 		withPrefersMotion({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
-			// boxShadow: `${vars.boxShadow.xs}, ${vars.boxShadow.inset_xs}`,
+			// boxShadow: `${vars.boxShadow.xs}, ${vars.boxShadow.inset_input}`,
 			// width: "fit-content",
 			width: "100%",
 

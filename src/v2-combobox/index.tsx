@@ -1,4 +1,4 @@
-import { faAngleDown } from "@fortawesome/pro-solid-svg-icons";
+import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
 import React from "react";
 import {
@@ -20,7 +20,7 @@ import { Icon } from "../v2-icon";
 import { V2Label } from "../v2-label";
 import { IterableListBoxItem, ListBox } from "../v2-list-box";
 import { V3Group } from "../v3-group";
-import { comboBoxButtonCSS, comboBoxCSS } from "./styles.css";
+import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
@@ -68,17 +68,9 @@ function BaseComboBox<TItemId extends string = string>(
 			) : null}
 
 			<V3Group isInvalid={isInvalid} isDisabled={isDisabled}>
-				<ReactAriaInput
-					className={clsx(
-						unstyledInput,
-						sprinkles({
-							paddingX: "space_3",
-							width: "100%",
-						}),
-					)}
-				/>
+				<ReactAriaInput className={comboBoxInputCSS} />
 				<ReactAriaButton className={comboBoxButtonCSS}>
-					<Icon icon={faAngleDown} />
+					<Icon icon={faAnglesUpDown} />
 				</ReactAriaButton>
 			</V3Group>
 

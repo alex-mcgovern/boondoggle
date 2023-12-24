@@ -48,6 +48,8 @@ export const getButtonStyles = recipe({
 					whiteSpace: "nowrap",
 				}),
 				{
+					boxShadow: `${vars.boxShadow.sm}, ${vars.boxShadow.inset_button}, ${vars.boxShadow.button_highlight}`,
+
 					background: vars.color.button_default,
 					color: vars.color.white,
 					selectors: {
@@ -68,6 +70,8 @@ export const getButtonStyles = recipe({
 					whiteSpace: "nowrap",
 				}),
 				{
+					boxShadow: `${vars.boxShadow.sm}, ${vars.boxShadow.inset_button}, ${vars.boxShadow.button_highlight}`,
+
 					border: "1px solid",
 					borderColor: vars.color.border_element,
 					color: vars.color.text_high_contrast,

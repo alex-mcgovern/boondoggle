@@ -10,6 +10,7 @@ import {
 	redA,
 	slate,
 	slateA,
+	whiteA,
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
@@ -162,7 +163,10 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		md: `${blackA.blackA2} 0px 5px 20px`,
 		sm: `${blackA.blackA1} 0px 5px 10px`,
 		xs: `${blackA.blackA1} 0px 5px 5px`,
-		inset_xs: `inset ${blackA.blackA1} 0px 1px 2px`,
+
+		inset_input: `inset ${blackA.blackA1} 0px 1px 2px`,
+		inset_button: `inset ${blackA.blackA1} 0px -5px 5px`,
+		button_highlight: `inset ${whiteA.whiteA6} 0px 1px 1px`,
 	},
 	display: {
 		block: "block",
