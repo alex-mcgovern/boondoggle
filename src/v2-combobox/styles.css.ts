@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { withPrefersMotion } from "../css-utils";
 import {
+	FOCUS,
 	HOVER,
 	a11yDisabled,
 	unstyledInput,
@@ -32,10 +33,29 @@ export const comboBoxInputCSS = style([
 		paddingX: "space_3",
 		width: "100%",
 
+		background: "input_background",
+
 		fontStyle: "bodyMd",
 		boxShadow: "inset_input",
 	}),
-	{},
+
+	withPrefersMotion({
+		transitionProperty: "color, background",
+		transitionDuration: vars.transitionDuration.short,
+		transitionTimingFunction: vars.ease.quart_in_out,
+	}),
+	{
+		borderTopLeftRadius: vars.borderRadius.md,
+		borderBottomLeftRadius: vars.borderRadius.md,
+		selectors: {
+			[`&${HOVER}`]: {
+				background: vars.color.input_background_active,
+			},
+			[`&${FOCUS}`]: {
+				background: vars.color.input_background_focus,
+			},
+		},
+	},
 ]);
 
 export const comboBoxButtonCSS = style([
@@ -50,18 +70,21 @@ export const comboBoxButtonCSS = style([
 
 		color: "text_low_contrast",
 
-		background: "tint_default",
+		background: "button_secondary_background",
 
 		borderLeft: "border_rule",
 	}),
 	withPrefersMotion({
-		transitionProperty: "color",
+		transitionProperty: "color, background",
 		transitionDuration: vars.transitionDuration.short,
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
+		borderTopRightRadius: vars.borderRadius.md,
+		borderBottomRightRadius: vars.borderRadius.md,
 		selectors: {
 			[`&${HOVER}`]: {
+				background: vars.color.button_secondary_background_active,
 				color: vars.color.text_high_contrast,
 			},
 		},

@@ -36,7 +36,7 @@ export const getSlotWrapperStyles = recipe({
 			position: "relative",
 			width: "100%",
 
-			background: "background",
+			background: "input_background",
 			boxShadow: "inset_input",
 
 			border: "border_element",
@@ -63,12 +63,17 @@ export const getSlotWrapperStyles = recipe({
 				},
 				"&:hover": {
 					borderColor: vars.color.border_element_active,
+					background: vars.color.input_background_active,
 				},
 				"&:active": {
 					borderColor: vars.color.border_element_active,
 				},
+				"&:focus": {
+					background: vars.color.input_background_focus,
+				},
 				"&:has(input:focus-visible)": {
 					...a11yFocusStyleRule,
+					background: vars.color.input_background_focus,
 				},
 				/* eslint-enable sort-keys-fix/sort-keys-fix */
 			},

@@ -36,9 +36,11 @@ export const groupCSS = recipe({
 				},
 				"&[data-focus-within]": {
 					outline: "none",
+					borderColor: vars.color.border_element_active,
 				},
 				"&[data-focus-visible]": {
 					...a11yFocusStyleRule,
+					borderColor: vars.color.border_element_active,
 				},
 			},
 		},
