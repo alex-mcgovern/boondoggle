@@ -60,8 +60,6 @@ export const comboBoxButtonCSS = style([
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
-		boxShadow: `${vars.boxShadow.sm}, ${vars.boxShadow.inset_button}, ${vars.boxShadow.button_highlight}`,
-
 		selectors: {
 			[`&${HOVER}`]: {
 				color: vars.color.text_high_contrast,
