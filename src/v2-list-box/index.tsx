@@ -7,7 +7,7 @@ import {
 	ListBoxItemProps as ReactAriaListBoxItemProps,
 	type ListBoxProps as ReactAriaListBoxProps,
 	Section as ReactAriaSection,
-	Separator,
+	SectionProps as ReactAriaSectionProps,
 	Text as ReactAriaText,
 } from "react-aria-components";
 import {
@@ -16,9 +16,9 @@ import {
 	menuItemCSS,
 	menuItemDescriptionCSS,
 	menuItemNameCSS,
-	menuSeparatorCSS,
 } from "../_css/menu.css";
 import { ColorOverlay } from "../index.css";
+import { Section } from "../section";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;
@@ -38,22 +38,10 @@ export type IterableListBoxItem<TItemId extends string = string> =
 			colorOverlay?: never;
 			href?: never;
 			id: string;
-			name: string;
+			name?: string;
 			slotLeft?: never;
 			type?: never;
-	  }
-	| {
-			children?: never;
-			colorOverlay?: never;
-			href?: never;
-			id?: string;
-			name?: never;
-			slotLeft?: never;
-			type: "SEPARATOR";
 	  };
-
-export type ListBoxProps<TItemId extends string = string> =
-	ReactAriaListBoxProps<IterableListBoxItem<TItemId>>;
 
 function ListBoxItem<TItemId extends string = string>({
 	value,
@@ -83,6 +71,9 @@ function ListBoxItem<TItemId extends string = string>({
 	);
 }
 
+export type ListBoxProps<TItemId extends string = string> =
+	ReactAriaListBoxProps<IterableListBoxItem<TItemId>>;
+
 function BaseListBox<TItemId extends string = string>(
 	props: ListBoxProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
@@ -94,14 +85,8 @@ function BaseListBox<TItemId extends string = string>(
 			{...props}
 		>
 			{(item) => {
-				if (item.type === "SEPARATOR") {
-					return (
-						<Separator className={menuSeparatorCSS} id={item.id} />
-					);
-				}
-
 				return item.children ? (
-					<ReactAriaSection>
+					<Section>
 						{item.name ? (
 							<ReactAriaHeader className={menuHeaderCSS}>
 								{item.name}
@@ -113,7 +98,7 @@ function BaseListBox<TItemId extends string = string>(
 								<ListBoxItem value={i} textValue={i.name} />
 							)}
 						</ReactAriaCollection>
-					</ReactAriaSection>
+					</Section>
 				) : (
 					<ListBoxItem value={item} textValue={item.name} />
 				);

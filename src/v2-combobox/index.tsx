@@ -10,7 +10,6 @@ import {
 	type PopoverProps as ReactAriaPopoverProps,
 	ValidationResult,
 } from "react-aria-components";
-import { Text } from "react-aria-components";
 import { popoverCSS } from "../_css/popover.css";
 import { unstyledInput } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -21,7 +20,8 @@ import { V2Label } from "../v2-label";
 import { ListBox } from "../v2-list-box";
 import { IterableMenuItem } from "../v2-menu";
 import { V3Group } from "../v3-group";
-import { comboBoxButtonCSS } from "./styles.css";
+import { comboBoxButtonCSS, comboBoxCSS } from "./styles.css";
+import { FieldDescription } from "../field-description";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
@@ -41,16 +41,26 @@ function BaseComboBox<TItemId extends string = string>(
 		name,
 		labelConfig,
 		popoverProps,
-		comboBoxProps,
+		comboBoxProps: { isDisabled, isInvalid, className, ...comboBoxProps },
 	}: ComboBoxProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (
-		<ReactAriaCombobox {...comboBoxProps} ref={ref}>
+		<ReactAriaCombobox
+			{...comboBoxProps}
+			className={clsx(
+				className,
+				comboBoxCSS({
+					isDisabled,
+					isInvalid,
+				}),
+			)}
+			ref={ref}
+		>
 			{labelConfig?.label ? (
 				<V2Label
 					htmlFor={name}
-					isInvalid={comboBoxProps.isInvalid}
+					isInvalid={isInvalid}
 					isLabelVisible={labelConfig.isLabelVisible}
 					label={labelConfig.label}
 					labelTooltip={labelConfig.labelTooltip}
@@ -58,10 +68,7 @@ function BaseComboBox<TItemId extends string = string>(
 				/>
 			) : null}
 
-			<V3Group
-				isInvalid={comboBoxProps.isInvalid}
-				isDisabled={comboBoxProps.isDisabled}
-			>
+			<V3Group isInvalid={isInvalid} isDisabled={isDisabled}>
 				<ReactAriaInput
 					className={clsx(
 						unstyledInput,
@@ -76,11 +83,13 @@ function BaseComboBox<TItemId extends string = string>(
 				</ReactAriaButton>
 			</V3Group>
 
-			{description && <Text slot="description">{description}</Text>}
+			{description && !isInvalid && errorMessage ? (
+				<FieldDescription description={description} />
+			) : null}
 
-			{comboBoxProps.isInvalid && errorMessage && (
+			{isInvalid && errorMessage ? (
 				<V2FieldError>{errorMessage}</V2FieldError>
-			)}
+			) : null}
 
 			<ReactAriaPopover {...popoverProps} className={popoverCSS}>
 				<ListBox<TItemId> />

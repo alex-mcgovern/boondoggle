@@ -35,10 +35,6 @@ const meta = {
 					],
 				},
 				{
-					type: "SEPARATOR",
-					id: "separator_1",
-				},
-				{
 					name: "MENA",
 					id: "mena",
 					children: [
@@ -68,3 +64,34 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const KitchenSink: Story = {
+	args: {
+		labelConfig: {
+			label: "Country",
+			labelTooltip: "This is a tooltip",
+		},
+		description: "This is a description",
+		errorMessage: "This is an error message",
+		comboBoxProps: {
+			...meta.args.comboBoxProps,
+			disabledKeys: ["france"],
+		},
+	},
+};
+
+export const KitchenSinkInvalid: Story = {
+	args: {
+		labelConfig: {
+			label: "Country",
+			labelTooltip: "This is a tooltip",
+		},
+		description: "This is a description",
+		errorMessage: "This is an error message",
+		comboBoxProps: {
+			...meta.args.comboBoxProps,
+			disabledKeys: ["france"],
+			isInvalid: true,
+		},
+	},
+};

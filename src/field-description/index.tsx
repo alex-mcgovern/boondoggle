@@ -1,33 +1,24 @@
-import { Box } from "../box";
-import type { BoxProps } from "../box";
-import type { WithDescription } from "../types";
+import { Text as ReactAriaText } from "react-aria-components";
+import { descriptionCSS } from "./styles.css";
+import clsx from "clsx";
 
-export type FieldDescriptionProps = BoxProps & WithDescription;
-
-/**
- * A description rendered under a field element.
- */
 export function FieldDescription({
-	className: userClassName,
+	className,
 	description,
-	...rest
-}: FieldDescriptionProps) {
+}: {
+	className?: string;
+	description: string | null | undefined;
+}) {
 	if (!description) {
 		return null;
 	}
 
 	return (
-		<Box
-			alignItems="start"
-			className={userClassName}
-			color="text_low_contrast"
-			display="flex"
-			fontStyle="bodySm"
-			gap="space_1"
-			marginY="space_1"
-			{...rest}
+		<ReactAriaText
+			className={clsx(descriptionCSS, className)}
+			slot="description"
 		>
 			{description}
-		</Box>
+		</ReactAriaText>
 	);
 }

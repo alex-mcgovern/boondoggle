@@ -1,7 +1,3 @@
-/** -----------------------------------------------------------------------------
- * MENU CSS
- * ------------------------------------------------------------------------------- */
-
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
@@ -16,6 +12,10 @@ import {
 	vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
+
+/** -----------------------------------------------------------------------------
+ * MENU CSS
+ * ------------------------------------------------------------------------------- */
 
 export const menuCSS = style([
 	sprinkles({
@@ -34,6 +34,31 @@ export const menuCSS = style([
 		},
 		maxHeight: "15rem",
 		// minWidth: "10rem",
+	},
+]);
+
+/** -----------------------------------------------------------------------------
+ * MENU CSS
+ * ------------------------------------------------------------------------------- */
+
+export const menuSectionCSS = style([
+	{
+		selectors: {
+			"&:not(:last-child)::after": {
+				content: "",
+				display: "block",
+				// width: "100%",
+
+				marginTop: elementPaddingRaw.sm.y,
+				marginBottom: elementPaddingRaw.sm.y,
+
+				background: vars.color.border_rule,
+				height: "1px",
+
+				marginLeft: floatingMenu.item.paddingX,
+				marginRight: floatingMenu.item.paddingX,
+			},
+		},
 	},
 ]);
 
@@ -135,12 +160,14 @@ export const menuHeaderCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuSeparatorCSS = style([
-	sprinkles({
-		marginY: "space_1",
-		background: "border_rule",
-	}),
+	sprinkles({}),
 	{
+		marginTop: vars.spacing.space_1,
+		marginBottom: vars.spacing.space_1,
+
+		background: vars.color.border_rule,
 		height: "1px",
+
 		marginLeft: floatingMenu.item.paddingX,
 		marginRight: floatingMenu.item.paddingX,
 	},
