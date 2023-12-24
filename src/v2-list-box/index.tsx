@@ -6,8 +6,6 @@ import {
 	ListBoxItem as ReactAriaListBoxItem,
 	ListBoxItemProps as ReactAriaListBoxItemProps,
 	type ListBoxProps as ReactAriaListBoxProps,
-	Section as ReactAriaSection,
-	SectionProps as ReactAriaSectionProps,
 	Text as ReactAriaText,
 } from "react-aria-components";
 import {

@@ -5,16 +5,10 @@ import {
 	Menu as ReactAriaMenu,
 	MenuItem as ReactAriaMenuItem,
 	type MenuProps as ReactAriaMenuProps,
-	Section as ReactAriaSection,
-	Separator,
 } from "react-aria-components";
-import {
-	menuCSS,
-	menuHeaderCSS,
-	menuItemCSS,
-	menuSeparatorCSS,
-} from "../_css/menu.css";
+import { menuCSS, menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
 import { ColorOverlay } from "../index.css";
+import { Section } from "../section";
 
 type SingleMenuItem<TItemId extends string = string> = {
 	children?: never;
@@ -37,15 +31,6 @@ export type IterableMenuItem<TItemId extends string = string> =
 			name: string;
 			slotLeft?: never;
 			type?: never;
-	  }
-	| {
-			children?: never;
-			colorOverlay?: never;
-			href?: never;
-			id?: string;
-			name?: never;
-			slotLeft?: never;
-			type: "SEPARATOR";
 	  };
 
 export type MenuProps<TItemId extends string = string> = ReactAriaMenuProps<
@@ -63,14 +48,8 @@ function BaseMenu<TItemId extends string = string>(
 			{...props}
 		>
 			{(item) => {
-				if (item.type === "SEPARATOR") {
-					return (
-						<Separator className={menuSeparatorCSS} id={item.id} />
-					);
-				}
-
 				return item.children ? (
-					<ReactAriaSection>
+					<Section>
 						{item.name ? (
 							<ReactAriaHeader className={menuHeaderCSS}>
 								{item.name}
@@ -90,7 +69,7 @@ function BaseMenu<TItemId extends string = string>(
 								</ReactAriaMenuItem>
 							)}
 						</ReactAriaCollection>
-					</ReactAriaSection>
+					</Section>
 				) : (
 					<ReactAriaMenuItem
 						className={menuItemCSS({
