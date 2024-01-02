@@ -3,7 +3,7 @@ import {
 	TextFieldProps as ReactAriaTextFieldProps,
 } from "react-aria-components";
 import { TextFieldSlotProps } from ".";
-import { LabelConfig, WithOptionalIsCopyable } from "../../types";
+import { FieldLabelProps } from "../../v1/field-label";
 
 /** -----------------------------------------------------------------------------
  * VISIBILITY PROPS
@@ -85,13 +85,58 @@ type IsNotClearable = BaseIsClearable & {
 type WithOptionalIsClearable = IsClearable | IsNotClearable;
 
 /** -----------------------------------------------------------------------------
+ * COPYABLE PROPS
+ * ------------------------------------------------------------------------------- */
+
+type BaseIsCopyable = {
+	/**
+	 * Whether the input is copyable or not.
+	 */
+	isCopyable?: boolean;
+
+	/**
+	 * Whether the input is read-only or not.
+	 */
+	isReadOnly?: boolean;
+
+	/**
+	 * The tooltip text to display when the button is hovered after copying.
+	 */
+	strCopied?: string;
+
+	/**
+	 * The tooltip text to display when the button is hovered before copying.
+	 */
+	strCopy?: string;
+};
+
+type IsCopyable = BaseIsCopyable & {
+	isCopyable: true;
+	isReadOnly: true;
+	strCopied: string;
+	strCopy: string;
+};
+
+type IsNotCopyable = BaseIsCopyable & {
+	isCopyable?: never;
+	isReadOnly?: boolean;
+	strCopied?: never;
+	strCopy?: never;
+};
+
+type WithOptionalIsCopyable = IsCopyable | IsNotCopyable;
+
+/** -----------------------------------------------------------------------------
  * PUBLIC TYPE SIGNATURE FOR TEXT FIELD
  * ------------------------------------------------------------------------------- */
 
 export type TextFieldProps = WithOptionalIsCopyable &
 	WithOptionalIsClearable &
 	WithOptionalIsVisibilityToggleable &
-	Omit<ReactAriaTextFieldProps, "children" | "ref"> & {
+	Omit<
+		ReactAriaTextFieldProps,
+		"children" | "ref" | "aria-label" | "aria-labelledby" | "isReadOnly"
+	> & {
 		// ===== INPUT PROPS =====
 
 		/**
@@ -113,26 +158,47 @@ export type TextFieldProps = WithOptionalIsCopyable &
 		 */
 		errorMessage?: string | null;
 
+		/**
+		 * Placeholder for the text field.
+		 */
+		placeholder?: string;
+
 		// ===== LABEL PROPS =====
 
 		/**
-		 * Additional props to control the label behavior.
+		 * Label text for the text field.
+		 * @note This is mandatory, if you do not want to display a label, use `isLabelVisible={false}`.
 		 */
-		labelConfig?: LabelConfig;
+		label: string;
+
+		/**
+		 * Whether the label is visible or not.
+		 */
+		isLabelVisible: boolean;
+
+		/**
+		 * Additional props for the label component.
+		 */
+		labelProps?: Omit<FieldLabelProps, "label"> | undefined;
+
+		/**
+		 * A tooltip to display on the label.
+		 */
+		labelTooltip?: string;
 
 		// ===== ADDITIONAL PROPS =====
 
 		/**
 		 * Props forwarded to the input element.
 		 */
-		inputProps: Omit<
+		inputProps?: Omit<
 			ReactAriaInputProps,
 			"isInvalid" | "name" | "defaultValue" | "value"
 		>;
 		/**
 		 * Additional props for the text-field component
 		 */
-		textFieldProps: Omit<
+		textFieldProps?: Omit<
 			ReactAriaTextFieldProps,
 			| "isInvalid"
 			| "className"

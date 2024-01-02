@@ -165,8 +165,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		xs: `${blackA.blackA1} 0px 5px 5px`,
 
 		inset_input: `inset ${blackA.blackA1} 0px 1px 2px`,
-		inset_button: `inset ${blackA.blackA1} 0px -5px 5px`,
-		button_highlight: `inset ${whiteA.whiteA6} 0px 1px 1px`,
+		inset_button: `inset ${blackA.blackA2} 0px -5px 5px`,
+		button_highlight: `inset ${whiteA.whiteA6} 0px 0.5px 0.25px`,
 	},
 	display: {
 		block: "block",

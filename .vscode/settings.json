@@ -75,6 +75,7 @@
 		"combobox",
 		"Dismissable",
 		"Hideable",
+		"labelledby",
 		"Lastpass",
 		"popover",
 		"Toggleable",

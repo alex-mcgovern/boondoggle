@@ -10,10 +10,9 @@ const meta = {
 	title: "Components/V2/TextField",
 	component: TextField,
 	args: {
-		labelConfig: {
-			label: "Text field",
-			labelTooltip: "This is a tooltip",
-		},
+		label: "Text field",
+		labelTooltip: "This is a tooltip",
+		isLabelVisible: true,
 		name: "text_field",
 	},
 	decorators: [
@@ -30,6 +29,16 @@ const meta = {
 export default meta;
 
 export const Default: StoryObj<TextFieldProps> = {};
+
+/** -----------------------------------------------------------------------------
+ * EVENTS
+ * ------------------------------------------------------------------------------- */
+
+export const Events: StoryObj<TextFieldProps> = {
+	args: {
+		onFocus: () => alert("onFocus"),
+	},
+};
 
 /** -----------------------------------------------------------------------------
  * STATES

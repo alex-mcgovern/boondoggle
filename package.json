@@ -79,6 +79,7 @@
 		"@radix-ui/react-slot": "1.0.2",
 		"@react-aria/toast": "3.0.0-beta.8",
 		"@react-stately/toast": "3.0.0-beta.1",
+		"@react-stately/utils": "3.9.0",
 		"@rehookify/datepicker": "5.0.0",
 		"@tanstack/match-sorter-utils": "8.8.4",
 		"@tanstack/react-table": "8.9.3",

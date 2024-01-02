@@ -31,25 +31,26 @@ import { TextFieldProps } from "./types";
  * ------------------------------------------------------------------------------- */
 
 function useControlledInputValue({
-	controlledValue,
+	initialValue,
 	defaultValue,
 	onChange,
 }: {
-	controlledValue: ReactAriaTextFieldProps["value"];
+	initialValue: ReactAriaTextFieldProps["value"];
 	defaultValue: ReactAriaTextFieldProps["defaultValue"];
 	onChange: ReactAriaTextFieldProps["onChange"] | undefined;
 }) {
-	const isControlled = controlledValue !== undefined;
-	const [value, setValue] = React.useState(
-		isControlled ? controlledValue : defaultValue,
+	const isControlled = initialValue !== undefined && initialValue !== "";
+
+	const [localStateValue, setLocalStateValue] = React.useState(
+		isControlled ? initialValue : defaultValue,
 	);
 
 	function handleChange(v: string) {
-		setValue(v);
+		setLocalStateValue(v);
 		onChange?.(v);
 	}
 
-	return { isControlled, value, handleChange };
+	return { isControlled, localStateValue, handleChange };
 }
 
 /**
@@ -118,14 +119,15 @@ function CopyButton({
 
 	const copyValue = React.useCallback(
 		(v: string) =>
-			navigator.clipboard
-				.writeText(v)
-				.then(() =>
-					toastState?.add(
-						{ level: "success", title: strCopied },
-						{ timeout: 5000 },
-					),
+			navigator.clipboard.writeText(v).then(() =>
+				toastState?.add(
+					{
+						level: "success",
+						title: strCopied,
+					},
+					{ timeout: 5000 },
 				),
+			),
 		[strCopied, toastState],
 	);
 
@@ -338,7 +340,7 @@ const BaseTextfield = (
 	{
 		// ===== Input props =====
 		name,
-		value: controlledValue,
+		value: initialValue,
 		defaultValue,
 		type,
 		className,
@@ -349,15 +351,12 @@ const BaseTextfield = (
 		isDisabled,
 
 		description,
+		placeholder,
 
 		// ===== Validation props =====
 
 		isInvalid,
 		errorMessage,
-
-		// Extra input props
-
-		inputProps,
 
 		// ===== Slot props =====
 
@@ -366,7 +365,9 @@ const BaseTextfield = (
 
 		// ===== Label props =====
 
-		labelConfig,
+		label,
+		labelTooltip,
+		isLabelVisible,
 
 		// ===== Copyable functionality =====
 
@@ -379,14 +380,14 @@ const BaseTextfield = (
 		isClearable,
 		strClear,
 
-		textFieldProps,
-
 		// ====== Visibility functionality =====
 
 		isVisibilityToggleable,
 		isVisible: initialIsVisible,
 		strHide,
 		strShow,
+
+		...rest
 	}: TextFieldProps,
 	ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
@@ -394,10 +395,10 @@ const BaseTextfield = (
 	const slotLeftRef = React.useRef<HTMLDivElement>(null);
 	const slotRightRef = React.useRef<HTMLDivElement>(null);
 
-	const { value, handleChange } = useControlledInputValue({
+	const { localStateValue, handleChange } = useControlledInputValue({
 		defaultValue,
 		onChange,
-		controlledValue,
+		initialValue,
 	});
 
 	const { toggleVisibility, isVisible } = useFieldVisibilityState({
@@ -409,26 +410,24 @@ const BaseTextfield = (
 
 	return (
 		<ReactAriaTextField
-			{...textFieldProps}
+			{...rest}
 			className={clsx(className, textFieldCSS({ isDisabled, isInvalid }))}
 			isInvalid={isInvalid}
 			isDisabled={isDisabled}
-			value={value}
+			value={localStateValue}
 			onChange={handleChange}
 			defaultValue={defaultValue}
 			isReadOnly={isReadOnly}
+			type={isVisibilityToggleable && !isVisible ? "password" : type}
 			ref={ref}
 		>
-			{labelConfig?.label ? (
-				<V2Label
-					htmlFor={name}
-					isInvalid={isInvalid}
-					isLabelVisible={labelConfig.isLabelVisible}
-					label={labelConfig.label}
-					labelTooltip={labelConfig.labelTooltip}
-					{...labelConfig.labelProps}
-				/>
-			) : null}
+			<V2Label
+				htmlFor={name}
+				isInvalid={isInvalid}
+				isLabelVisible={isLabelVisible}
+				label={label}
+				labelTooltip={labelTooltip}
+			/>
 
 			<ReactAriaGroup
 				isDisabled={isDisabled}
@@ -454,15 +453,13 @@ const BaseTextfield = (
 				) : null}
 
 				<ReactAriaInput
-					{...inputProps}
 					className={textFieldInputCSS({
 						hasSlotLeft: !!slotLeftProps?.children,
 						hasSlotRight: !!slotRightProps?.children,
 					})}
+					aria-label={label}
 					ref={inputRef}
-					type={
-						isVisibilityToggleable && !isVisible ? "password" : type
-					}
+					placeholder={placeholder}
 					name={name}
 					id={name}
 				/>
@@ -471,7 +468,7 @@ const BaseTextfield = (
 					ref={slotRightRef}
 					slotRightProps={slotRightProps}
 					handleChange={handleChange}
-					value={value}
+					value={localStateValue}
 					defaultValue={defaultValue}
 					/**
 					 * Clearable functionality
