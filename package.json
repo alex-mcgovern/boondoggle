@@ -13,10 +13,10 @@
 	},
 	"type": "module",
 	"exports": {
-		"./v1/css": {
-			"import": "./dist/v1/index.css.js",
-			"require": "./dist/v1/index.css.js",
-			"types": "./dist/v1/index.css.d.ts"
+		"./css": {
+			"import": "./dist/index.css.js",
+			"require": "./dist/index.css.js",
+			"types": "./dist/index.css.d.ts"
 		},
 		"./v1/sprinkles": {
 			"import": "./dist/v1/sprinkles/index.css.js",
