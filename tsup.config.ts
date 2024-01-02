@@ -5,7 +5,7 @@ export default defineConfig({
 		js: '"use client"',
 	},
 	bundle: false,
-	clean: false,
+	clean: true,
 	config: "./tsconfig.build.json",
 	entry: [
 		"./src",
