@@ -39,18 +39,16 @@ function useControlledInputValue({
 	defaultValue: ReactAriaTextFieldProps["defaultValue"];
 	onChange: ReactAriaTextFieldProps["onChange"] | undefined;
 }) {
-	const isControlled = initialValue !== undefined && initialValue !== "";
-
-	const [localStateValue, setLocalStateValue] = React.useState(
-		isControlled ? initialValue : defaultValue,
+	const [value, setValue] = React.useState(
+		initialValue ?? defaultValue ?? "",
 	);
 
 	function handleChange(v: string) {
-		setLocalStateValue(v);
+		setValue(v);
 		onChange?.(v);
 	}
 
-	return { isControlled, localStateValue, handleChange };
+	return { value, handleChange };
 }
 
 /**
@@ -141,6 +139,7 @@ function CopyButton({
 		>
 			<FieldActionButton
 				name="copy"
+				data-testid="copy"
 				onClick={() => copyValue(value)}
 				slot={<Icon icon={faCopy} />}
 				strTooltip={strCopy}
@@ -198,7 +197,8 @@ function VisibilityButton({
 			})}
 		>
 			<FieldActionButton
-				name="visibility"
+				name="toggle_visibility"
+				data-testid="toggle_visibility"
 				onClick={toggleVisibility}
 				slot={<Icon icon={isVisible ? faEyeSlash : faEye} />}
 				strTooltip={isVisible ? strHide : strShow}
@@ -395,7 +395,7 @@ const BaseTextfield = (
 	const slotLeftRef = React.useRef<HTMLDivElement>(null);
 	const slotRightRef = React.useRef<HTMLDivElement>(null);
 
-	const { localStateValue, handleChange } = useControlledInputValue({
+	const { value, handleChange } = useControlledInputValue({
 		defaultValue,
 		onChange,
 		initialValue,
@@ -414,7 +414,7 @@ const BaseTextfield = (
 			className={clsx(className, textFieldCSS({ isDisabled, isInvalid }))}
 			isInvalid={isInvalid}
 			isDisabled={isDisabled}
-			value={localStateValue}
+			value={value}
 			onChange={handleChange}
 			defaultValue={defaultValue}
 			isReadOnly={isReadOnly}
@@ -468,7 +468,7 @@ const BaseTextfield = (
 					ref={slotRightRef}
 					slotRightProps={slotRightProps}
 					handleChange={handleChange}
-					value={localStateValue}
+					value={value}
 					defaultValue={defaultValue}
 					/**
 					 * Clearable functionality

@@ -10,6 +10,7 @@ import userEvent from "@testing-library/user-event";
 import { faker } from "@faker-js/faker";
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { Icon } from "../icon";
+import { ToastProvider } from "../toast";
 
 const LABEL = "Label text";
 const NAME = "test_name";
@@ -24,7 +25,7 @@ const ON_BLUR = jest.fn();
  * Mock `navigator.clipboard.writeText()` to assert that it was called.
  */
 
-const WRITE_TEXT = jest.fn();
+const WRITE_TEXT = jest.fn().mockImplementation(() => Promise.resolve());
 
 Object.assign(navigator, {
 	clipboard: {
@@ -39,14 +40,16 @@ const renderComponent = ({
 	"name" | "label" | "onChange" | "onBlur" | "onFocus"
 >) => {
 	return render(
-		<TextField
-			{...(props as TextFieldProps)}
-			onBlur={ON_BLUR}
-			onFocus={ON_FOCUS}
-			onChange={ON_CHANGE}
-			name={NAME}
-			label={LABEL}
-		/>,
+		<ToastProvider>
+			<TextField
+				{...(props as TextFieldProps)}
+				onBlur={ON_BLUR}
+				onFocus={ON_FOCUS}
+				onChange={ON_CHANGE}
+				name={NAME}
+				label={LABEL}
+			/>
+		</ToastProvider>,
 	);
 };
 
@@ -343,13 +346,13 @@ describe("<TextField />", () => {
 
 	describe("clear button", () => {
 		it("doesn't render clear button when empty", () => {
-			const { queryByRole } = renderComponent({
+			const { queryByTestId } = renderComponent({
 				isLabelVisible: true,
 				strClear: "Clear",
 				isClearable: true,
 			});
 
-			expect(queryByRole("button", { name: "clear" })).toBeNull();
+			expect(queryByTestId("clear")).not.toBeInTheDocument();
 		});
 
 		it("clears value with default value", async () => {
@@ -386,6 +389,83 @@ describe("<TextField />", () => {
 
 			await userEvent.click(clearButton);
 			expect(textbox).toHaveValue("");
+		});
+	});
+
+	describe("copy button", () => {
+		it("doesn't render copy button when empty", () => {
+			const { queryByTestId } = renderComponent({
+				isLabelVisible: true,
+				isCopyable: true,
+				strCopy: "Copy",
+				strCopied: "Copied",
+			});
+
+			expect(queryByTestId("clear")).not.toBeInTheDocument();
+		});
+
+		it("copies default value", async () => {
+			const { getByRole, getByTestId } = renderComponent({
+				isLabelVisible: true,
+				isCopyable: true,
+				strCopy: "Copy",
+				strCopied: "Copied",
+				defaultValue: "Copy me",
+			});
+
+			const textbox = getByRole("textbox");
+			const copyButton = getByTestId("copy");
+
+			expect(textbox).toHaveValue("Copy me");
+			expect(copyButton).not.toBeNull();
+
+			await userEvent.click(copyButton);
+			expect(window.navigator.clipboard.writeText).toHaveBeenCalledWith(
+				"Copy me",
+			);
+		});
+
+		it("copies controlled value", async () => {
+			const { getByRole, getByTestId } = renderComponent({
+				isLabelVisible: true,
+				isCopyable: true,
+				strCopy: "Copy",
+				strCopied: "Copied",
+				value: "Copy me",
+			});
+
+			const textbox = getByRole("textbox");
+			const copyButton = getByTestId("copy");
+
+			expect(textbox).toHaveValue("Copy me");
+			expect(copyButton).not.toBeNull();
+
+			await userEvent.click(copyButton);
+			expect(window.navigator.clipboard.writeText).toHaveBeenCalledWith(
+				"Copy me",
+			);
+		});
+	});
+
+	describe("visibility toggle", () => {
+		it("shouldn't display value when hidden", async () => {
+			const { getByTestId, getByLabelText } = renderComponent({
+				isVisibilityToggleable: true,
+				isVisible: false,
+				strHide: "Hide",
+				strShow: "Show",
+				value: "password",
+				isLabelVisible: true,
+			});
+
+			const textbox = getByLabelText(LABEL, { selector: "input" });
+			expect(textbox).toHaveAttribute("type", "password");
+
+			const toggle = getByTestId("toggle_visibility");
+			await userEvent.click(toggle);
+
+			expect(textbox).toHaveAttribute("type", "text");
+			expect(textbox).toHaveValue("password");
 		});
 	});
 });
