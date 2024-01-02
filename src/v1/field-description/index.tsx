@@ -7,7 +7,7 @@ export function FieldDescription({
 	description,
 }: {
 	className?: string;
-	description: string | null | undefined;
+	description: React.ReactNode;
 }) {
 	if (!description) {
 		return null;
