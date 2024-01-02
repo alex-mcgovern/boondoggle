@@ -1,21 +1,20 @@
 import { faLock, faRefresh } from "@fortawesome/pro-solid-svg-icons";
-import { Textfield } from ".";
-
 import { Meta, StoryObj } from "@storybook/react";
+import { TextField } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { ToastProvider } from "../toast";
+import { TextFieldProps } from "./types";
 
 const meta = {
-	title: "Components/V2/Textfield",
-	component: Textfield,
+	title: "Components/V2/TextField",
+	component: TextField,
 	args: {
 		labelConfig: {
 			label: "Text field",
 			labelTooltip: "This is a tooltip",
 		},
 		name: "text_field",
-		textFieldProps: {},
 	},
 	decorators: [
 		(Story) => {
@@ -26,24 +25,23 @@ const meta = {
 			);
 		},
 	],
-} satisfies Meta<typeof Textfield>;
+} satisfies Meta<typeof TextField>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: StoryObj<TextFieldProps> = {};
 
 /** -----------------------------------------------------------------------------
  * STATES
  * ------------------------------------------------------------------------------- */
 
-export const IsDisabled: Story = {
+export const IsDisabled: StoryObj<TextFieldProps> = {
 	args: {
 		isDisabled: true,
 	},
 };
 
-export const IsInvalid: Story = {
+export const IsInvalid: StoryObj<TextFieldProps> = {
 	args: {
 		isInvalid: true,
 	},
@@ -53,7 +51,7 @@ export const IsInvalid: Story = {
  * SLOTS
  * ------------------------------------------------------------------------------- */
 
-export const SlotLeftIcon: Story = {
+export const SlotLeftIcon: StoryObj<TextFieldProps> = {
 	args: {
 		slotLeftProps: {
 			isClickable: false,
@@ -62,7 +60,7 @@ export const SlotLeftIcon: Story = {
 	},
 };
 
-export const SlotLeftButton: Story = {
+export const SlotLeftButton: StoryObj<TextFieldProps> = {
 	args: {
 		slotLeftProps: {
 			isClickable: true,
@@ -80,7 +78,7 @@ export const SlotLeftButton: Story = {
 	},
 };
 
-export const SlotRightIcon: Story = {
+export const SlotRightIcon: StoryObj<TextFieldProps> = {
 	args: {
 		slotRightProps: {
 			isClickable: false,
@@ -89,7 +87,7 @@ export const SlotRightIcon: Story = {
 	},
 };
 
-export const SlotRightButton: Story = {
+export const SlotRightButton: StoryObj<TextFieldProps> = {
 	args: {
 		slotRightProps: {
 			isClickable: true,
@@ -109,7 +107,7 @@ export const SlotRightButton: Story = {
 	},
 };
 
-export const SlotRightButtonIcon: Story = {
+export const SlotRightButtonIcon: StoryObj<TextFieldProps> = {
 	args: {
 		slotRightProps: {
 			isClickable: true,
@@ -136,7 +134,7 @@ export const SlotRightButtonIcon: Story = {
  * COPYABLE FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-export const CopyableNoValue: Story = {
+export const CopyableNoValue: StoryObj<TextFieldProps> = {
 	args: {
 		isCopyable: true,
 		strCopied: "Copied to clipboard",
@@ -144,7 +142,7 @@ export const CopyableNoValue: Story = {
 	},
 };
 
-export const CopyableDefaultValue: Story = {
+export const CopyableDefaultValue: StoryObj<TextFieldProps> = {
 	args: {
 		defaultValue: "Copy me daddy",
 		isCopyable: true,
@@ -153,7 +151,7 @@ export const CopyableDefaultValue: Story = {
 	},
 };
 
-export const CopyableControlledValue: Story = {
+export const CopyableControlledValue: StoryObj<TextFieldProps> = {
 	args: {
 		value: "Copy me daddy",
 		isCopyable: true,
@@ -162,7 +160,7 @@ export const CopyableControlledValue: Story = {
 	},
 };
 
-export const CopyableSlotRight: Story = {
+export const CopyableSlotRight: StoryObj<TextFieldProps> = {
 	args: {
 		value: "Copy me daddy",
 		isCopyable: true,
@@ -180,7 +178,7 @@ export const CopyableSlotRight: Story = {
  * CLEARABLE FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-export const ClearableControlledValue: Story = {
+export const ClearableControlledValue: StoryObj<TextFieldProps> = {
 	name: "Clearable: Controlled value",
 	args: {
 		value: "Clear me daddy",
@@ -191,7 +189,7 @@ export const ClearableControlledValue: Story = {
 		onChange: (v: string) => alert(`New value: ${v}`),
 	},
 };
-export const ClearableDefaultValue: Story = {
+export const ClearableDefaultValue: StoryObj<TextFieldProps> = {
 	name: "Clearable: Default value",
 	args: {
 		defaultValue: "Clear me daddy",
@@ -203,7 +201,7 @@ export const ClearableDefaultValue: Story = {
 	},
 };
 
-export const ClearableSlotRight: Story = {
+export const ClearableSlotRight: StoryObj<TextFieldProps> = {
 	name: "Clearable: Slot right",
 	args: {
 		defaultValue: "Clear me daddy",
@@ -220,36 +218,48 @@ export const ClearableSlotRight: Story = {
 	},
 };
 
-export const ActionCopyableVisibilitySlotRight: Story = {
+/** -----------------------------------------------------------------------------
+ * VISIBILITY FUNCTIONALITY
+ * ------------------------------------------------------------------------------- */
+
+export const VisibilityDefaultValue: StoryObj<TextFieldProps> = {
 	args: {
 		isVisibilityToggleable: true,
+		isVisible: false,
+		strHide: "Hide",
+		strShow: "Show",
+
 		defaultValue: "my-secret-password",
-		copyableProps: {
-			strCopy: "Copy",
-			strCopied: "Copied to clipboard",
-		},
-		visibilityProps: {
-			initialIsVisible: true,
-			strHide: "Hide",
-			strShow: "Show",
-		},
+	},
+};
+
+export const VisibilitySlotRight: StoryObj<TextFieldProps> = {
+	args: {
+		isVisibilityToggleable: true,
+		isVisible: false,
+		strHide: "Hide",
+		strShow: "Show",
+
+		defaultValue: "my-secret-password",
+
 		slotRightProps: {
 			isClickable: false,
 			children: <Icon icon={faLock} />,
 		},
 	},
 };
-export const SlotKitchenSink: Story = {
+
+/** -----------------------------------------------------------------------------
+ * SLOT KITCHEN SINK
+ * ------------------------------------------------------------------------------- */
+
+export const SlotKitchenSink: StoryObj<TextFieldProps> = {
 	args: {
-		copyableProps: {
-			strCopy: "Copy",
-			strCopied: "Copied to clipboard",
-		},
-		visibilityProps: {
-			initialIsVisible: true,
-			strHide: "Hide",
-			strShow: "Show",
-		},
+		isVisibilityToggleable: true,
+		isVisible: false,
+		strHide: "Hide",
+		strShow: "Show",
+
 		slotRightProps: {
 			isClickable: false,
 			children: <Icon icon={faLock} />,

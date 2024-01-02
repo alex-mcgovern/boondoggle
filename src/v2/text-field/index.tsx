@@ -11,6 +11,8 @@ import {
 	type TextFieldProps as ReactAriaTextFieldProps,
 } from "react-aria-components";
 import { FieldActionButton } from "../../v1/field-action-button";
+import { FieldDescription } from "../../v1/field-description";
+import { V2FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { V2Label } from "../label";
 import { useToastContext } from "../toast";
@@ -23,8 +25,6 @@ import {
 	textFieldSlotCSS,
 } from "./styles.css";
 import { TextFieldProps } from "./types";
-import { V2FieldError } from "../field-error";
-import { FieldDescription } from "../../v1/field-description";
 
 /** -----------------------------------------------------------------------------
  * HOOKS

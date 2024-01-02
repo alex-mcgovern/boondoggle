@@ -91,7 +91,7 @@ type WithOptionalIsClearable = IsClearable | IsNotClearable;
 export type TextFieldProps = WithOptionalIsCopyable &
 	WithOptionalIsClearable &
 	WithOptionalIsVisibilityToggleable &
-	ReactAriaTextFieldProps & {
+	Omit<ReactAriaTextFieldProps, "children" | "ref"> & {
 		// ===== INPUT PROPS =====
 
 		/**
