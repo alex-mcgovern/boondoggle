@@ -17,7 +17,6 @@ import { Sprinkles, sprinkles } from "../../v1/sprinkles/index.css";
  * ------------------------------------------------------------------------------- */
 
 const TAB_HEIGHT = vars.spacing.space_8;
-// const TAB_PADDING_X = vars.spacing.space_2;
 const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
 
 /** -----------------------------------------------------------------------------
@@ -52,9 +51,6 @@ export const tabListInnerCSS = recipe({
 			paddingBottom: "space_1",
 		}),
 		{
-			// marginLeft: calc.multiply(TAB_PADDING_X, -1),
-			// marginRight: calc.multiply(TAB_PADDING_X, -1),
-
 			overflowX: "scroll",
 			overflowY: "visible",
 		},
@@ -107,24 +103,17 @@ export const tabOuterCSS = style([
 		outline: "none",
 
 		height: TAB_HEIGHT,
-		// paddingLeft: TAB_PADDING_X,
-		// paddingRight: TAB_PADDING_X,
 
 		selectors: {
 			[`&${NOT_DISABLED}${HOVER}`]: {
 				cursor: "pointer",
 				color: vars.color.text_high_contrast,
-				// background: vars.color.tab_hover_color,
 			},
-			// [`&${NOT_DISABLED}${ACTIVE}`]: {
-			// 	// color: vars.color.text_high_contrast,
-			// 	// background: vars.color.tab_hover_color,
-			// },
+
 			"&[data-selected]": {
 				color: vars.color.button_default,
 			},
 			[`&[data-selected]${HOVER}`]: {
-				// background: vars.color.tab_selected_color,
 				color: vars.color.button_default,
 			},
 		},
@@ -147,9 +136,6 @@ export const tabIndicatorCSS = style([
 	}),
 	{
 		height: TAB_INDICATOR_HEIGHT,
-
-		// right: TAB_PADDING_X,
-		// left: TAB_PADDING_X,
 
 		inset: 0,
 		top: calc.add("100%", TAB_INDICATOR_HEIGHT),

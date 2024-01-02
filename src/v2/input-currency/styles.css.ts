@@ -19,7 +19,6 @@ export const numberInputCSS = recipe({
 			color: "text_high_contrast",
 		}),
 		{
-			// border: 0,
 			selectors: {
 				[`&${NOT_DISABLED}${FOCUS}`]: {
 					...a11yFocusStyleRule,

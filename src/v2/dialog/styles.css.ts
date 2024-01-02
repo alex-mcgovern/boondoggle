@@ -70,9 +70,7 @@ const kfModalOut = keyframes({
 export const modalCSS = recipe({
 	base: [
 		sprinkles({
-			// padding: "space_4",
 			background: "background",
-			// width: "100%",
 			borderRadius: "md",
 			border: "border_rule",
 			boxShadow: "lg",
@@ -146,7 +144,6 @@ export const dialogCSS = style([
 				maxHeight: "100dvh",
 			},
 			[MEDIA_QUERY_TABLET]: {
-				// minHeight: "50dvh",
 				maxHeight: "75dvh",
 			},
 		},

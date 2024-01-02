@@ -27,7 +27,6 @@ export const dialogAlertSlotCSS = style([
 	sprinkles({
 		color: "text_low_contrast",
 		flexShrink: "0",
-		// marginY: "space_1",
 		width: "space_4",
 	}),
 ]);

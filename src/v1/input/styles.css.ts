@@ -1,6 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { inputBg } from "../../_css/input.css";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
@@ -32,11 +33,12 @@ const hasSlotRight = styleVariants({ false: {}, true: {} });
 export const getSlotWrapperStyles = recipe({
 	base: [
 		inputSlotWrapperDoNotRemoveOrYouWillBeFired,
+		inputBg,
 		sprinkles({
 			position: "relative",
 			width: "100%",
 
-			background: "input_background",
+			background: "input_bg",
 
 			border: "border_element",
 			borderRadius: "md",
@@ -51,30 +53,15 @@ export const getSlotWrapperStyles = recipe({
 		a11yDisabled,
 		{
 			cursor: "text",
-			// gridTemplateColumns: `repeat(auto-fit, minmax(${vars.spacing.space_5}, auto))`,
 			...withPrefersMotion({
 				transition: `ease ${vars.transitionDuration.short} ease`,
 				transitionProperty: "color, background-color, border-color",
 			}),
 			selectors: {
-				"&:has(input[readonly])": {
-					background: vars.color.tint_default,
-				},
-				"&:hover": {
-					borderColor: vars.color.border_element_active,
-					background: vars.color.input_background_active,
-				},
-				"&:active": {
-					borderColor: vars.color.border_element_active,
-				},
-				"&:focus": {
-					background: vars.color.input_background_focus,
-				},
 				"&:has(input:focus-visible)": {
 					...a11yFocusStyleRule,
-					background: vars.color.input_background_focus,
+					background: vars.color.input_bg_highlighted,
 				},
-				/* eslint-enable sort-keys-fix/sort-keys-fix */
 			},
 		},
 	],
@@ -334,7 +321,6 @@ export const getAddonWrapperStyle = recipe({
 export const addonChildrenStyle = style({
 	flexGrow: 1,
 	flexShrink: 1,
-	// width: "100%",
 });
 
 globalStyle(

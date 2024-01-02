@@ -97,7 +97,6 @@ export const tabCountCSS = style([
 		color: "text_low_contrast",
 	}),
 	{
-		// transform: "translateY(0.0625rem)",
 		fontSize: "0.625rem",
 		lineHeight: "0.625rem",
 		background: vars.color.button_tint,

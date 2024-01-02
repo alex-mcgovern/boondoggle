@@ -15,7 +15,6 @@ export const menuButtonCSS = recipe({
 			flexShrink: "0",
 			background: "background",
 			flexGrow: "1",
-			// aspectRatio: "square",
 			border: "border_element",
 
 			fontStyle: "bodyMd",

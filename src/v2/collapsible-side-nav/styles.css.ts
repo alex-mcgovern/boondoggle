@@ -9,27 +9,19 @@ import { sprinkles } from "../../v1/sprinkles/index.css";
 
 const open = keyframes({
 	from: {
-		// width: 0,
 		overflow: "hidden",
-
 		transform: "translateX(-100%)",
 	},
-	to: {
-		// width: "var(--radix-collapsible-content-width)",
-	},
+	to: {},
 });
 
 const close = keyframes({
 	from: {
 		overflow: "hidden",
-
-		// width: "var(--radix-collapsible-content-width)",
 		position: "absolute",
 	},
 	to: {
 		overflow: "hidden",
-
-		// width: 0,
 		position: "absolute",
 		transform: "translateX(-100%)",
 	},
@@ -54,9 +46,6 @@ export const collapsibleNavOuterCSS = style([
 	{
 		selectors: {
 			'&[data-state="closed"]': {
-				// visibility: "hidden",
-				// userSelect: "none",
-				// pointerEvents: "none",
 				animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
 			'&[data-state="open"]': {
@@ -69,7 +58,6 @@ export const collapsibleNavOuterCSS = style([
 export const collapsibleNavInnerCSS = style([
 	sprinkles({
 		background: "background",
-		// borderRight: "border_rule",
 
 		paddingX: "space_4",
 		paddingY: "space_2",

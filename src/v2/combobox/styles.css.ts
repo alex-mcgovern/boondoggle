@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { inputBg } from "../../_css/input.css";
 import {
-	FOCUS,
 	HOVER,
 	a11yDisabled,
 	unstyledInput,
@@ -27,16 +27,14 @@ export const comboBoxCSS = recipe({
 
 export const comboBoxInputCSS = style([
 	unstyledInput,
+	inputBg,
 	sprinkles({
 		height: "space_8",
 
 		paddingX: "space_3",
 		width: "100%",
 
-		background: "input_background",
-
 		fontStyle: "bodyMd",
-		boxShadow: "inset_input",
 	}),
 
 	withPrefersMotion({
@@ -47,14 +45,6 @@ export const comboBoxInputCSS = style([
 	{
 		borderTopLeftRadius: vars.borderRadius.md,
 		borderBottomLeftRadius: vars.borderRadius.md,
-		selectors: {
-			[`&${HOVER}`]: {
-				background: vars.color.input_background_active,
-			},
-			[`&${FOCUS}`]: {
-				background: vars.color.input_background_focus,
-			},
-		},
 	},
 ]);
 
@@ -70,7 +60,7 @@ export const comboBoxButtonCSS = style([
 
 		color: "text_low_contrast",
 
-		background: "button_secondary_background",
+		background: "btn_secondary_bg",
 
 		borderLeft: "border_rule",
 	}),
@@ -84,7 +74,7 @@ export const comboBoxButtonCSS = style([
 		borderBottomRightRadius: vars.borderRadius.md,
 		selectors: {
 			[`&${HOVER}`]: {
-				background: vars.color.button_secondary_background_active,
+				background: vars.color.btn_secondary_bg_highlighted,
 				color: vars.color.text_high_contrast,
 			},
 		},

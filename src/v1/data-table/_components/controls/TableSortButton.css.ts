@@ -29,9 +29,7 @@ export const getSortControlStyle = recipe({
 	variants: {
 		isSorted: {
 			false: {},
-			true: {
-				// color: vars.color.text_high_contrast,
-			},
+			true: {},
 		},
 	},
 });

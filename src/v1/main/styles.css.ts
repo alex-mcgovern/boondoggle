@@ -5,8 +5,6 @@ export const mainCSS = recipe({
 	base: [
 		sprinkles({
 			marginX: "auto",
-			// marginTop: "space_2",
-			// marginBottom: "space_8",
 			paddingX: "space_4",
 		}),
 		{

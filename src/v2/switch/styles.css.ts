@@ -42,8 +42,6 @@ export const switchLabelCSS = style([
 
 export const switchIndicatorCSS = style([
 	sprinkles({
-		// border: "border_rule",
-
 		borderRadius: "pill",
 	}),
 	{

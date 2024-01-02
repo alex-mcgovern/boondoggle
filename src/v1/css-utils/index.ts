@@ -48,12 +48,11 @@ export const makeTheme = ({
 		button_hover: step(primary, 10),
 		button_active: step(primary, 11),
 
-		button_secondary_background: step(secondary, isOverlay ? 3 : 2),
-		button_secondary_background_active: step(secondary, isOverlay ? 4 : 3),
+		btn_secondary_bg: step(secondary, isOverlay ? 3 : 2),
+		btn_secondary_bg_highlighted: step(secondary, isOverlay ? 4 : 3),
 
-		input_background: step(secondary, isOverlay ? 3 : 2),
-		input_background_active: step(secondary, isOverlay ? 4 : 3),
-		input_background_focus: step(secondary, 1),
+		input_bg: step(secondary, isOverlay ? 3 : 2),
+		input_bg_highlighted: step(secondary, 1),
 
 		tint_default: step(secondary, isOverlay ? 3 : 2),
 		tint_hover: step(secondary, isOverlay ? 4 : 3),

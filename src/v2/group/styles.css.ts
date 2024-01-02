@@ -31,10 +31,6 @@ globalStyle(`${groupCSS()} *[data-slot-side='right']`, {
 	borderBottomRightRadius: vars.borderRadius.md,
 	borderTopLeftRadius: "0 !important",
 	borderBottomLeftRadius: "0 !important",
-
-	// borderBottom: "0 !important",
-	// borderRight: "0 !important",
-	// borderTop: "0 !important",
 });
 
 globalStyle(`${groupCSS()} *[data-slot-side='left']`, {

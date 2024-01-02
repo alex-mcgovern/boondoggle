@@ -24,9 +24,6 @@ export const closeButtonCSS = style([
 		borderRadius: "pill",
 		aspectRatio: "square",
 
-		// width: "space_4",
-		// height: "space_4",
-
 		flexShrink: "0",
 	}),
 	{

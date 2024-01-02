@@ -18,7 +18,6 @@ export const radioButtonCardLabelStyles = style([
 	a11yFocus,
 	sprinkles({
 		alignItems: "center",
-		// aspectRatio: "square",
 		border: "border_rule",
 		borderRadius: "sm",
 		display: "flex",
@@ -27,14 +26,12 @@ export const radioButtonCardLabelStyles = style([
 		flexGrow: "1",
 		justifyContent: "center",
 		padding: "space_4",
-		// width: "100%",
 	}),
 	{
 		...withPrefersMotion({
 			transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
 		}),
 		accentColor: vars.color.button_default,
-		// maxWidth: "12rem",
 		selectors: {
 			"&:has(input:checked)": {
 				background: vars.color.tint_default,

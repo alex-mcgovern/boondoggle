@@ -26,7 +26,6 @@ export const pillGroupCSS = recipe({
 					border: "border_element_active",
 				}),
 				{
-					// border: "1px solid transparent",
 					selectors: {
 						"&:not(:has(button[disabled])):hover": {
 							background: vars.color.tint_active,
@@ -42,9 +41,6 @@ export const pillGroupCSS = recipe({
 						"&:not(:has(button[disabled])):hover": {
 							background: vars.color.tint_default,
 						},
-						// [SELECTOR_LINK_BUTTON_INPUT_ACTIVE]: {
-						//     background: vars.color.tint_active,
-						// },
 					},
 				},
 			],

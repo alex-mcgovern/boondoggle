@@ -25,7 +25,6 @@ export const openButtonCSS = style([
 		height: "space_8",
 
 		paddingX: "space_2",
-		// paddingY: "space_0",
 	}),
 ]);
 

@@ -32,8 +32,7 @@ export const menuCSS = style([
 				outline: "none",
 			},
 		},
-		maxHeight: "15rem",
-		// minWidth: "10rem",
+		maxHeight: "20rem",
 	},
 ]);
 
@@ -47,7 +46,6 @@ export const menuSectionCSS = style([
 			"&:not(:last-child)::after": {
 				content: "",
 				display: "block",
-				// width: "100%",
 
 				marginTop: elementPaddingRaw.sm.y,
 				marginBottom: elementPaddingRaw.sm.y,

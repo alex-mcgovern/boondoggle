@@ -1,5 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { inputBg } from "../../_css/input.css";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
@@ -17,11 +18,8 @@ export const textFieldSlotCSS = recipe({
 
 			display: "flex",
 			placeItems: "center",
-			// gap: "space_0.5",
 
 			position: "absolute",
-
-			// paddingX: "space_1",
 		}),
 		{
 			top: 0,
@@ -51,13 +49,6 @@ export const slottedCSS = recipe({
 
 			fontStyle: "bodyMd",
 		}),
-		{
-			selectors: {
-				"&:not(:last-child)": {
-					// marginRight: vars.spacing.space_2,
-				},
-			},
-		},
 	],
 	variants: {
 		isClickable: {
@@ -99,6 +90,7 @@ export const actionsCSS = style([
 export const groupCSS = recipe({
 	base: [
 		a11yDisabled,
+		inputBg,
 		sprinkles({
 			height: "space_8",
 			width: "100%",
@@ -108,9 +100,6 @@ export const groupCSS = recipe({
 
 			border: "border_element",
 			borderRadius: "md",
-			boxShadow: "inset_input",
-
-			background: "tint_default",
 
 			fontStyle: "bodySm",
 			position: "relative",
@@ -124,20 +113,12 @@ export const groupCSS = recipe({
 		}),
 		{
 			selectors: {
-				"&[data-hovered]": {
-					borderColor: vars.color.border_element_active,
-					background: vars.color.input_background_active,
-				},
 				"&[data-focus-within]": {
 					outline: "none",
 					...a11yFocusStyleRule,
-					borderColor: vars.color.focus_border,
-					background: vars.color.input_background_focus,
 				},
 				"&[data-focus-visible]": {
 					...a11yFocusStyleRule,
-					borderColor: vars.color.focus_border,
-					background: vars.color.input_background_focus,
 				},
 			},
 		},

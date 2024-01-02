@@ -6,7 +6,6 @@ export const groupAddonCSS = recipe({
 		sprinkles({
 			flexShrink: "0",
 			flexGrow: "1",
-			// aspectRatio: "square",
 			border: "border_element",
 
 			background: "background",
