@@ -90,7 +90,8 @@ type WithOptionalIsClearable = IsClearable | IsNotClearable;
 
 export type TextFieldProps = WithOptionalIsCopyable &
 	WithOptionalIsClearable &
-	WithOptionalIsVisibilityToggleable & {
+	WithOptionalIsVisibilityToggleable &
+	ReactAriaTextFieldProps & {
 		// ===== INPUT PROPS =====
 
 		/**
@@ -101,39 +102,16 @@ export type TextFieldProps = WithOptionalIsCopyable &
 		name: string;
 
 		/**
-		 * The value of the input element, when controlled.
+		 * Additional text to display below the input.
 		 */
-		value?: ReactAriaTextFieldProps["value"];
+		description?: string | null;
+
+		// ===== VALIDATION PROPS =====
 
 		/**
-		 * The default value of the input element, when uncontrolled.
+		 * Error message to display when the input is invalid.
 		 */
-		defaultValue?: ReactAriaTextFieldProps["value"];
-
-		/**
-		 * Type of the input element.
-		 */
-		type: ReactAriaTextFieldProps["type"];
-
-		/**
-		 * CSS class name to apply to the root element.
-		 */
-		className?: string;
-
-		/**
-		 * Callback function to be invoked when the input value changes.
-		 */
-		onChange?: ReactAriaTextFieldProps["onChange"];
-
-		/**
-		 * Whether the input is disabled or not.
-		 */
-		isDisabled?: ReactAriaTextFieldProps["isDisabled"];
-
-		/**
-		 * Whether the input is invalid or not.
-		 */
-		isInvalid?: ReactAriaTextFieldProps["isInvalid"];
+		errorMessage?: string | null;
 
 		// ===== LABEL PROPS =====
 

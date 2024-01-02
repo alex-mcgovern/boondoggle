@@ -23,6 +23,8 @@ import {
 	textFieldSlotCSS,
 } from "./styles.css";
 import { TextFieldProps } from "./types";
+import { V2FieldError } from "../field-error";
+import { FieldDescription } from "../../v1/field-description";
 
 /** -----------------------------------------------------------------------------
  * HOOKS
@@ -332,7 +334,7 @@ const ContentRight = React.forwardRef<HTMLDivElement, {
  * PUBLIC COMPONENT
  * ------------------------------------------------------------------------------- */
 
-export const Textfield = (
+const BaseTextfield = (
 	{
 		// ===== Input props =====
 		name,
@@ -345,7 +347,13 @@ export const Textfield = (
 
 		isReadOnly,
 		isDisabled,
+
+		description,
+
+		// ===== Validation props =====
+
 		isInvalid,
+		errorMessage,
 
 		// Extra input props
 
@@ -485,6 +493,16 @@ export const Textfield = (
 					strShow={strShow}
 				/>
 			</ReactAriaGroup>
+
+			{description && !isInvalid && errorMessage ? (
+				<FieldDescription description={description} />
+			) : null}
+
+			{isInvalid && errorMessage && (
+				<V2FieldError>{errorMessage}</V2FieldError>
+			)}
 		</ReactAriaTextField>
 	);
 };
+
+export const TextField = React.forwardRef(BaseTextfield);
