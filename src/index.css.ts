@@ -10,7 +10,6 @@ import {
 	redA,
 	slate,
 	slateA,
-	whiteA,
 } from "@radix-ui/colors";
 import {
 	type StyleRule,
