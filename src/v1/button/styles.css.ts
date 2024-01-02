@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { buttonShadow } from "../../_css/button.css";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_ACTIVE,
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
@@ -11,7 +12,6 @@ import {
 } from "../../index.css";
 import { withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
-import { buttonShadow } from "../../_css/button.css";
 
 export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
 

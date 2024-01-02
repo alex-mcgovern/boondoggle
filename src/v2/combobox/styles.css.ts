@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { buttonShadow } from "../../_css/button.css";
 import {
 	ACTIVE,
 	FOCUS,
@@ -11,7 +12,6 @@ import {
 } from "../../index.css";
 import { withPrefersMotion } from "../../v1/css-utils";
 import { sprinkles } from "../../v1/sprinkles/index.css";
-import { buttonShadow } from "../../_css/button.css";
 
 export const comboBoxCSS = recipe({
 	base: [],
