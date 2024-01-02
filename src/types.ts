@@ -20,7 +20,7 @@ export type WithDescription = {
 	/**
 	 * Description shown under the field (when there is no error message).
 	 */
-	description?: string | null | undefined;
+	description?: React.ReactNode;
 };
 
 export type WithColorOverlay = {
