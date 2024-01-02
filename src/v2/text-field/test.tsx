@@ -213,11 +213,11 @@ describe("<TextField />", () => {
 
 		it("updates value with default value", async () => {
 			const { getByRole } = renderComponent({
-				defaultValue: "Old value",
+				defaultValue: "Default value",
 				isLabelVisible: true,
 			});
 
-			expect(getByRole("textbox")).toHaveValue("Old value");
+			expect(getByRole("textbox")).toHaveValue("Default value");
 
 			await userEvent.clear(getByRole("textbox"));
 			await userEvent.type(getByRole("textbox"), "New value");
@@ -228,12 +228,12 @@ describe("<TextField />", () => {
 
 		it("updates value with controlled value", async () => {
 			const { getByRole } = renderComponent({
-				value: "Old value",
+				value: "Controlled value",
 
 				isLabelVisible: true,
 			});
 
-			expect(getByRole("textbox")).toHaveValue("Old value");
+			expect(getByRole("textbox")).toHaveValue("Controlled value");
 
 			await userEvent.clear(getByRole("textbox"));
 			await userEvent.type(getByRole("textbox"), "New value");
@@ -244,7 +244,7 @@ describe("<TextField />", () => {
 
 		it("shouldn't update when readonly", async () => {
 			const { getByRole } = renderComponent({
-				value: "Old value",
+				value: "Controlled value",
 
 				isReadOnly: true,
 				isLabelVisible: true,
@@ -252,21 +252,21 @@ describe("<TextField />", () => {
 
 			await userEvent.type(getByRole("textbox"), "New value");
 
-			expect(getByRole("textbox")).toHaveValue("Old value");
+			expect(getByRole("textbox")).toHaveValue("Controlled value");
 			expect(ON_CHANGE).not.toHaveBeenCalled();
 		});
 
 		it("shouldn't update when disabled", async () => {
 			const { getByRole } = renderComponent({
 				isDisabled: true,
-				value: "Old value",
+				value: "Controlled value",
 
 				isLabelVisible: true,
 			});
 
 			await userEvent.type(getByRole("textbox"), "New value");
 
-			expect(getByRole("textbox")).toHaveValue("Old value");
+			expect(getByRole("textbox")).toHaveValue("Controlled value");
 			expect(ON_CHANGE).not.toHaveBeenCalled();
 		});
 	});
