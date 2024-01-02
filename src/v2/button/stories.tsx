@@ -17,6 +17,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+/** -----------------------------------------------------------------------------
+ * VARIANTS
+ * ------------------------------------------------------------------------------- */
+
+export const Primary: Story = {
+	args: {
+		appearance: "primary",
+	},
+};
+
+export const Secondary: Story = {
+	args: {
+		appearance: "secondary",
+	},
+};
+
+export const Ghost: Story = {
+	args: {
+		appearance: "ghost",
+	},
+};
+
+/** -----------------------------------------------------------------------------
+ * SLOTS
+ * ------------------------------------------------------------------------------- */
+
 export const SlotLeft: Story = {
 	render: ({ children, ...args }) => (
 		<Button {...args}>

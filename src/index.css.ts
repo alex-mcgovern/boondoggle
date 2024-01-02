@@ -165,8 +165,14 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		xs: `${blackA.blackA1} 0px 5px 5px`,
 
 		inset_input: `inset ${blackA.blackA1} 0px 1px 2px`,
-		inset_button: `inset ${blackA.blackA2} 0px -5px 5px`,
-		button_highlight: `inset ${whiteA.whiteA6} 0px 0.5px 0.25px`,
+
+		button_inset_top_highlight: `inset ${whiteA.whiteA4} 0px 1px 0px`,
+		button_inset_bottom_shadow: `inset ${blackA.blackA2} 0px -4px 4px`,
+		btn_bottom_edge: `inset ${blackA.blackA2} 0px -1px 0px`,
+
+		// Button pressed state shadows
+		btn_top_pressed: `inset ${blackA.blackA2} 0px 1px 0px`,
+		btn_bottom_pressed: `inset ${whiteA.whiteA2} 0px -4px 4px`,
 	},
 	display: {
 		block: "block",
@@ -196,6 +202,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		h5: "1.25rem", // 20px
 		h6: "1.125rem", // 18px
 		root: "16px",
+
+		input: "0.8125rem", // 13px
 	},
 	fontWeight: {
 		bold: "700",
@@ -246,6 +254,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		h5: "1.5rem", // 24px
 		h6: "1.5rem", // 24px
 		root: "1.5rem", // 24px
+
+		input: "1rem", // 16px
 	},
 	spacing: {
 		auto: "auto",

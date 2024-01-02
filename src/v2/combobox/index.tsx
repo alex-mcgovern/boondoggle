@@ -19,6 +19,7 @@ import { V2Label } from "../label";
 import { IterableListBoxItem, ListBox } from "../list-box";
 import { V3Group } from "../v3-group";
 import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
+import { buttonShadow } from "../../_css/button.css";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;

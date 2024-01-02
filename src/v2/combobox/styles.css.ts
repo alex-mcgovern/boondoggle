@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
+	ACTIVE,
 	FOCUS,
 	HOVER,
 	a11yDisabled,
@@ -10,6 +11,7 @@ import {
 } from "../../index.css";
 import { withPrefersMotion } from "../../v1/css-utils";
 import { sprinkles } from "../../v1/sprinkles/index.css";
+import { buttonShadow } from "../../_css/button.css";
 
 export const comboBoxCSS = recipe({
 	base: [],
@@ -35,7 +37,7 @@ export const comboBoxInputCSS = style([
 
 		background: "input_background",
 
-		fontStyle: "bodyMd",
+		fontStyle: "input",
 		boxShadow: "inset_input",
 	}),
 
@@ -59,6 +61,7 @@ export const comboBoxInputCSS = style([
 ]);
 
 export const comboBoxButtonCSS = style([
+	buttonShadow({ style: "inner-only" }),
 	sprinkles({
 		width: "space_8",
 		height: "space_8",
@@ -73,6 +76,8 @@ export const comboBoxButtonCSS = style([
 		background: "button_secondary_background",
 
 		borderLeft: "border_rule",
+
+		fontStyle: "input",
 	}),
 	withPrefersMotion({
 		transitionProperty: "color, background",
@@ -86,6 +91,11 @@ export const comboBoxButtonCSS = style([
 			[`&${HOVER}`]: {
 				background: vars.color.button_secondary_background_active,
 				color: vars.color.text_high_contrast,
+			},
+			[`&${ACTIVE}`]: {
+				background: vars.color.button_secondary_background_active,
+				color: vars.color.text_high_contrast,
+				boxShadow: `${vars.boxShadow.button_inset_top_highlight}, ${vars.boxShadow.button_inset_bottom_shadow}`,
 			},
 		},
 	},

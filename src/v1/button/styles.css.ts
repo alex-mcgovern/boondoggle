@@ -11,6 +11,7 @@ import {
 } from "../../index.css";
 import { withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
+import { buttonShadow } from "../../_css/button.css";
 
 export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
 
@@ -43,12 +44,13 @@ export const getButtonStyles = recipe({
 		},
 		appearance: {
 			primary: [
+				buttonShadow({ style: "all" }),
 				sprinkles({
 					fontWeight: "medium",
 					whiteSpace: "nowrap",
 				}),
 				{
-					// boxShadow: `${vars.boxShadow.button_highlight}, ${vars.boxShadow.inset_button}, ${vars.boxShadow.sm}`,
+					// boxShadow: `${vars.boxShadow.button_inset_top_highlight}, ${vars.boxShadow.button_inset_bottom_shadow}, ${vars.boxShadow.sm}`,
 
 					background: vars.color.button_default,
 					color: vars.color.white,
@@ -65,6 +67,7 @@ export const getButtonStyles = recipe({
 			],
 
 			secondary: [
+				buttonShadow({ style: "all" }),
 				sprinkles({
 					fontWeight: "medium",
 					whiteSpace: "nowrap",

@@ -10,6 +10,7 @@ import {
 } from "../../index.css";
 import { withPrefersMotion } from "../../v1/css-utils";
 import { sprinkles } from "../../v1/sprinkles/index.css";
+import { buttonShadow } from "../../_css/button.css";
 
 export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
 
@@ -47,6 +48,7 @@ export const buttonCSS = recipe({
 		},
 		appearance: {
 			primary: [
+				buttonShadow({ style: "all" }),
 				sprinkles({
 					fontWeight: "medium",
 					whiteSpace: "nowrap",
@@ -60,13 +62,14 @@ export const buttonCSS = recipe({
 							color: vars.color.white,
 						},
 						[`&${ACTIVE}`]: {
-							background: vars.color.button_active,
+							background: vars.color.button_hover,
 						},
 					},
 				},
 			],
 
 			secondary: [
+				buttonShadow({ style: "all" }),
 				sprinkles({
 					fontWeight: "medium",
 					whiteSpace: "nowrap",
