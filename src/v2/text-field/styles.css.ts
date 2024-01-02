@@ -118,7 +118,9 @@ export const groupCSS = recipe({
 			overflow: "hidden",
 		}),
 		withPrefersMotion({
-			transition: `background ${vars.transitionDuration.short} ease`,
+			transitionProperty: "background, color, border-color",
+			transitionDuration: vars.transitionDuration.short,
+			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
 		{
 			selectors: {
@@ -190,7 +192,7 @@ export const textFieldInputCSS = recipe({
 		}),
 
 		withPrefersMotion({
-			transitionProperty: "color, background",
+			transitionProperty: "color",
 			transitionDuration: vars.transitionDuration.short,
 			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
