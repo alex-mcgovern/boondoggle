@@ -52,6 +52,7 @@ function BaseComboBox<TItemId extends string = string>(
 					isInvalid,
 				}),
 			)}
+			menuTrigger="focus"
 			ref={ref}
 		>
 			{labelConfig?.label ? (

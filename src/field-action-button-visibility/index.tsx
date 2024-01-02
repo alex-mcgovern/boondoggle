@@ -1,9 +1,8 @@
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { FieldActionButton } from "../field-action-button";
-import { Icon } from "../v2-icon";
-
 import type { FieldActionButtonProps } from "../field-action-button";
+import { Icon } from "../v2-icon";
 
 export type FieldActionButtonVisibilityProps = {
 	/**

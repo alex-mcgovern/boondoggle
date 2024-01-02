@@ -1,24 +1,12 @@
 import { useCallback, useState } from "react";
 
-type UseFieldCopyableStateArgs = {
-	/**
-	 * Whether the field is copyable.
-	 */
-	isCopyable?: boolean;
-
-	/**
-	 * Whether the field is read-only.
-	 */
-	readOnly?: boolean;
-};
-
-/**
- * Hook to handle copying a value from a readOnly input.
- */
 export function useFieldCopyableState({
 	isCopyable,
 	readOnly,
-}: UseFieldCopyableStateArgs) {
+}: {
+	isCopyable?: boolean;
+	readOnly?: boolean;
+}) {
 	const [isCopied, setIsCopied] = useState<boolean>(false);
 
 	const revertIsCopied = useCallback(() => {

@@ -62,8 +62,12 @@ export const makeTheme = ({
 		tab_hover_color: step(secondary, isOverlay ? 4 : 3),
 		tab_selected_color: step(primary, isOverlay ? 4 : 3),
 
-		focus_ring: step(primary, 7),
-		focus_border: step(primary, isOverlay ? 8 : 7),
+		focus_ring: step(primary, 6),
+		focus_border: step(primary, isOverlay ? 9 : 8),
+
+		toast_background: step(secondary, 12),
+		toast_icon: step(primary, 7),
+		toast_text: step(primary, 1),
 
 		switch_background: step(secondary, 7),
 		switch_background_active: step(primary, 9),

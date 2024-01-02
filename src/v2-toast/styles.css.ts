@@ -53,7 +53,7 @@ export const toastCSS = style([
 
 		borderRadius: "md",
 
-		background: "black",
+		background: "toast_background",
 		color: "white",
 		boxShadow: "lg",
 	}),
@@ -61,12 +61,12 @@ export const toastCSS = style([
 		selectors: {
 			"&:last-child[data-animation=entering]": {
 				...withPrefersMotion({
-					animation: `${kfToastIn} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards `,
+					animation: `${kfToastIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards `,
 				}),
 			},
 			"&:last-child[data-animation=exiting]": {
 				...withPrefersMotion({
-					animation: `${kfToastOut} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
+					animation: `${kfToastOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
 			"&:not(:last-child)[data-animation=exiting]": {
@@ -84,7 +84,7 @@ export const toastCloseButtonCSS = style([
 		width: "space_8",
 		height: "space_8",
 		borderRadius: "md",
-		color: "white",
+		color: "toast_text",
 		marginLeft: "auto",
 	}),
 	{
@@ -102,14 +102,14 @@ export const toastCloseButtonCSS = style([
 export const toastTitleCSS = style([
 	sprinkles({
 		fontWeight: "semibold",
-		color: "white",
+		color: "toast_text",
 		fontStyle: "bodyMd",
 	}),
 ]);
 
 export const toastDescriptionCSS = style([
 	sprinkles({
-		color: "white",
+		color: "toast_text",
 		fontStyle: "bodyMd",
 	}),
 ]);

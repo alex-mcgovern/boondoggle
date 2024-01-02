@@ -37,7 +37,6 @@ export const getSlotWrapperStyles = recipe({
 			width: "100%",
 
 			background: "input_background",
-			boxShadow: "inset_input",
 
 			border: "border_element",
 			borderRadius: "md",

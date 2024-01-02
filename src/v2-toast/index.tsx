@@ -64,7 +64,7 @@ const getToastIcon = (level: Required<ToastContent["level"]>) => {
 			return (
 				<Icon
 					className={variantColorOverlay.blue}
-					color="focus_ring"
+					color="toast_icon"
 					icon={faInfoCircle}
 				/>
 			);
@@ -72,7 +72,7 @@ const getToastIcon = (level: Required<ToastContent["level"]>) => {
 			return (
 				<Icon
 					className={variantColorOverlay.green}
-					color="focus_ring"
+					color="toast_icon"
 					icon={faCircleCheck}
 				/>
 			);
@@ -80,7 +80,7 @@ const getToastIcon = (level: Required<ToastContent["level"]>) => {
 			return (
 				<Icon
 					className={variantColorOverlay.amber}
-					color="focus_ring"
+					color="toast_icon"
 					icon={faWarning}
 				/>
 			);

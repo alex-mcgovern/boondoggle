@@ -24,12 +24,16 @@ export const groupCSS = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
+			// boxShadow: `${vars.boxShadow.xs}, ${vars.boxShadow.inset_input}`,
+			// width: "fit-content",
 			width: "100%",
+
 			selectors: {
 				"&[data-hovered]": {
 					borderColor: vars.color.border_element_active,
 				},
 				"&[data-focus-within]": {
+					outline: "none",
 					...a11yFocusStyleRule,
 					borderColor: vars.color.focus_border,
 				},

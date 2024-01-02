@@ -1204,7 +1204,6 @@ export const unstyledInput = style([
 		appearance: "none",
 		background: "none",
 		border: "none",
-		color: "inherit",
 		font: "inherit",
 		margin: 0,
 
