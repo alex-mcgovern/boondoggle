@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
-import { withPrefersMotion } from "../css-utils";
 import {
 	NOT_DISABLED,
 	a11yDisabled,
@@ -11,7 +10,8 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { withPrefersMotion } from "../v1/css-utils";
+import { sprinkles } from "../v1/sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MENU CSS

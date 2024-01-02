@@ -2,9 +2,9 @@ import { faLock, faRefresh } from "@fortawesome/pro-solid-svg-icons";
 import { Textfield } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../../v2-button";
-import { Icon } from "../../v2-icon";
-import { ToastProvider } from "../../v2-toast";
+import { Button } from "../button";
+import { Icon } from "../icon";
+import { ToastProvider } from "../toast";
 
 const meta = {
 	title: "Components/V2/Textfield",

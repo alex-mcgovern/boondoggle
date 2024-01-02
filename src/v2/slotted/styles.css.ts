@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { sprinkles } from "../../sprinkles/index.css";
+import { sprinkles } from "../../v1/sprinkles/index.css";
 
 export const slottedCSS = style([
 	sprinkles({

@@ -1,6 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { withPrefersMotion } from "../../css-utils";
 import {
 	a11yDisabled,
 	a11yFocusStyleRule,
@@ -8,7 +7,8 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../../index.css";
-import { sprinkles } from "../../sprinkles/index.css";
+import { withPrefersMotion } from "../../v1/css-utils";
+import { sprinkles } from "../../v1/sprinkles/index.css";
 
 export const textFieldSlotCSS = recipe({
 	base: [

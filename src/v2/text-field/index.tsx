@@ -10,10 +10,10 @@ import {
 	TextField as ReactAriaTextField,
 	type TextFieldProps as ReactAriaTextFieldProps,
 } from "react-aria-components";
-import { FieldActionButton } from "../../field-action-button";
-import { Icon } from "../../v2-icon";
-import { V2Label } from "../../v2-label";
-import { useToastContext } from "../../v2-toast";
+import { FieldActionButton } from "../../v1/field-action-button";
+import { Icon } from "../icon";
+import { V2Label } from "../label";
+import { useToastContext } from "../toast";
 import {
 	clearButtonCSS,
 	groupCSS,
