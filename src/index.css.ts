@@ -265,13 +265,13 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		space_12: "3rem",
 	},
 	transitionDuration: {
-		long: "900ms",
-		medium: "600ms",
-		short: "300ms",
+		long: "600ms",
+		medium: "400ms",
+		short: "200ms",
 
 		// Bespoke durations
 
-		sideBarShowHide: "900ms",
+		sideBarShowHide: "600ms",
 	},
 	width: {
 		"": "0",
