@@ -108,6 +108,7 @@ export const groupCSS = recipe({
 
 			border: "border_element",
 			borderRadius: "md",
+			boxShadow: "inset_input",
 
 			background: "tint_default",
 
@@ -123,15 +124,18 @@ export const groupCSS = recipe({
 			selectors: {
 				"&[data-hovered]": {
 					borderColor: vars.color.border_element_active,
+					background: vars.color.input_background_active,
 				},
 				"&[data-focus-within]": {
 					outline: "none",
 					...a11yFocusStyleRule,
 					borderColor: vars.color.focus_border,
+					background: vars.color.input_background_focus,
 				},
 				"&[data-focus-visible]": {
 					...a11yFocusStyleRule,
 					borderColor: vars.color.focus_border,
+					background: vars.color.input_background_focus,
 				},
 			},
 		},
