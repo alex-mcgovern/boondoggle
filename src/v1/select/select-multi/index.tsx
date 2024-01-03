@@ -151,7 +151,7 @@ export type SelectMultiProps<
 		/**
 		 * Label config for the field.
 		 */
-		label: V2Label;
+		label?: V2Label;
 	};
 
 function SelectMultiBase<
@@ -224,7 +224,6 @@ function SelectMultiBase<
 	const {
 		getInputProps,
 		getItemProps,
-		getLabelProps,
 		getMenuProps,
 		highlightedIndex,
 		isOpen,
@@ -329,6 +328,7 @@ function SelectMultiBase<
 					}),
 					disabled,
 					id: name,
+					name,
 					placeholder: getPlaceholder({
 						placeholder,
 						selectedItems,

@@ -11,10 +11,8 @@ import {
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
-import { FieldLabel } from "../field-label";
 import { RadioButton } from "../radio-button";
 import { Sprinkles } from "../sprinkles/index.css";
-import { getGroupLabelStyles } from "./styles.css";
 import { Label } from "../../v2/_v2-label";
 
 export type RadioButtonGroupProps = Sprinkles &
@@ -34,7 +32,7 @@ export type RadioButtonGroupProps = Sprinkles &
 		/**
 		 * Label config for the field.
 		 */
-		label: V2Label;
+		label?: V2Label;
 
 		labelTooltip?: string;
 

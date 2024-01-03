@@ -4,7 +4,11 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "../../v1/tooltip";
 import { Icon } from "../icon";
 import { V2Label } from "../../types";
 
-export function Label({ label, name }: { label: V2Label; name: string }) {
+export function Label({ label, name }: { label?: V2Label; name: string }) {
+	if (!label) {
+		return null;
+	}
+
 	if (typeof label === "string") {
 		return <RACLabel htmlFor={name}>{label}</RACLabel>;
 	}

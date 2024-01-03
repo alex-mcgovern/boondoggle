@@ -13,7 +13,6 @@ import { FormInput } from "../../form-input";
 import { FormInputDate } from "../../form-input-date";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";
 import { FormSelectSingle } from "../../form-select-single";
-import { FormSlider } from "../../form-slider";
 import { FormTextArea } from "../../form-text-area";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../select/__mocks__/select.mock";
@@ -129,14 +128,6 @@ export const mockForm = ({
 					placeholder="Select an option from the dropdown"
 				/>
 
-				<FormSlider
-					defaultValue={withDefaultValues ? [50] : undefined}
-					id="amount"
-					label={LOREM.labelSlider()}
-					name="amount"
-					placeholder="Enter an amount"
-					wrapperProps={WRAPPER_PROPS}
-				/>
 				<FormRadioButtonCardGroup
 					defaultValue={
 						withDefaultValues
