@@ -5,12 +5,12 @@ import {
 	type TextFieldProps as RACTextFieldProps,
 } from "react-aria-components";
 import { FieldDescription } from "../../v1/field-description";
+import { FieldLabelProps } from "../../v1/field-label";
 import { V2FieldError } from "../field-error";
 import { Input } from "../input";
+import { InputProps } from "../input/types";
 import { V2Label } from "../label";
 import { textFieldCSS } from "./styles.css";
-import { FieldLabelProps } from "../../v1/field-label";
-import { InputProps } from "../input/types";
 
 export type TextFieldProps = Omit<
 	RACTextFieldProps,
