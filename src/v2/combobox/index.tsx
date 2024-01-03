@@ -4,10 +4,10 @@ import React from "react";
 import {
 	Button as RACButton,
 	ComboBox as RACCombobox,
+	type ComboBoxProps as RACComboBoxProps,
 	ComboBoxStateContext as RACComboBoxStateContext,
 	Input as RACInput,
 	Popover as RACPopover,
-	type ComboBoxProps as RACComboBoxProps,
 	type PopoverProps as RACPopoverProps,
 	type ValidationResult,
 } from "react-aria-components";
@@ -15,10 +15,10 @@ import { popoverCSS } from "../../_css/popover.css";
 import { LabelConfig, WithName } from "../../types";
 import { FieldDescription } from "../../v1/field-description";
 import { V2FieldError } from "../field-error";
+import { Group } from "../group";
 import { Icon } from "../icon";
 import { V2Label } from "../label";
 import { IterableListBoxItem, ListBox } from "../list-box";
-import { V3Group } from "../v3-group";
 import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
@@ -72,7 +72,7 @@ function BaseComboBox<TItemId extends string = string>(
 								/>
 							) : null}
 
-							<V3Group
+							<Group
 								isInvalid={isInvalid}
 								isDisabled={isDisabled}
 							>
@@ -83,7 +83,7 @@ function BaseComboBox<TItemId extends string = string>(
 								<RACButton className={comboBoxButtonCSS}>
 									<Icon icon={faAnglesUpDown} />
 								</RACButton>
-							</V3Group>
+							</Group>
 
 							{description && !isInvalid && errorMessage ? (
 								<FieldDescription description={description} />

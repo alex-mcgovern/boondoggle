@@ -1,22 +1,20 @@
+import { faker } from "@faker-js/faker";
 import { faLock, faRefresh } from "@fortawesome/pro-solid-svg-icons";
 import { Meta, StoryObj } from "@storybook/react";
-import { TextField } from ".";
+import { Input } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { ToastProvider } from "../toast";
-import { TextFieldProps } from "./types";
-import { faker } from "@faker-js/faker";
+import { InputProps } from "./types";
 
 const meta = {
-	title: "Components/V2/TextField",
-	component: TextField,
+	title: "Components/V2/Input",
+	component: Input,
 	parameters: {
 		layout: "centered",
 	},
 	args: {
-		label: "Text field",
-		labelTooltip: "This is a tooltip",
-		isLabelVisible: true,
+		label: faker.lorem.words(1),
 		name: "text_field",
 	},
 	decorators: [
@@ -28,17 +26,17 @@ const meta = {
 			);
 		},
 	],
-} satisfies Meta<typeof TextField>;
+} satisfies Meta<typeof Input>;
 
 export default meta;
 
-export const Default: StoryObj<TextFieldProps> = {};
+export const Default: StoryObj<InputProps> = {};
 
 /** -----------------------------------------------------------------------------
  * EVENTS
  * ------------------------------------------------------------------------------- */
 
-export const Events: StoryObj<TextFieldProps> = {
+export const Events: StoryObj<InputProps> = {
 	args: {
 		onFocus: () => alert("onFocus"),
 	},
@@ -48,15 +46,15 @@ export const Events: StoryObj<TextFieldProps> = {
  * STATES
  * ------------------------------------------------------------------------------- */
 
-export const IsDisabled: StoryObj<TextFieldProps> = {
+export const IsDisabled: StoryObj<InputProps> = {
 	args: {
-		isDisabled: true,
+		disabled: true,
 	},
 };
 
-export const IsInvalid: StoryObj<TextFieldProps> = {
+export const IsInvalid: StoryObj<InputProps> = {
 	args: {
-		isInvalid: true,
+		invalid: true,
 	},
 };
 
@@ -64,7 +62,7 @@ export const IsInvalid: StoryObj<TextFieldProps> = {
  * SLOTS
  * ------------------------------------------------------------------------------- */
 
-export const SlotLeftIcon: StoryObj<TextFieldProps> = {
+export const SlotLeftIcon: StoryObj<InputProps> = {
 	args: {
 		slotLeftProps: {
 			isClickable: false,
@@ -73,7 +71,7 @@ export const SlotLeftIcon: StoryObj<TextFieldProps> = {
 	},
 };
 
-export const SlotLeftButton: StoryObj<TextFieldProps> = {
+export const SlotLeftButton: StoryObj<InputProps> = {
 	args: {
 		slotLeftProps: {
 			isClickable: true,
@@ -91,7 +89,7 @@ export const SlotLeftButton: StoryObj<TextFieldProps> = {
 	},
 };
 
-export const SlotRightIcon: StoryObj<TextFieldProps> = {
+export const SlotRightIcon: StoryObj<InputProps> = {
 	args: {
 		slotRightProps: {
 			isClickable: false,
@@ -100,7 +98,7 @@ export const SlotRightIcon: StoryObj<TextFieldProps> = {
 	},
 };
 
-export const SlotRightButton: StoryObj<TextFieldProps> = {
+export const SlotRightButton: StoryObj<InputProps> = {
 	args: {
 		slotRightProps: {
 			isClickable: true,
@@ -120,7 +118,7 @@ export const SlotRightButton: StoryObj<TextFieldProps> = {
 	},
 };
 
-export const SlotRightButtonIcon: StoryObj<TextFieldProps> = {
+export const SlotRightButtonIcon: StoryObj<InputProps> = {
 	args: {
 		slotRightProps: {
 			isClickable: true,
@@ -147,26 +145,26 @@ export const SlotRightButtonIcon: StoryObj<TextFieldProps> = {
  * COPYABLE FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-const COPYABLE_ARGS: TextFieldProps["copyButtonProps"] = {
+const COPYABLE_ARGS: InputProps["copyButtonProps"] = {
 	strCopied: "Copied to clipboard",
 	strCopy: "Copy",
 };
 
-export const CopyableDefaultValue: StoryObj<TextFieldProps> = {
+export const CopyableDefaultValue: StoryObj<InputProps> = {
 	args: {
 		defaultValue: faker.lorem.words(3),
 		copyButtonProps: COPYABLE_ARGS,
 	},
 };
 
-export const CopyableControlledValue: StoryObj<TextFieldProps> = {
+export const CopyableControlledValue: StoryObj<InputProps> = {
 	args: {
 		value: faker.lorem.words(3),
 		copyButtonProps: COPYABLE_ARGS,
 	},
 };
 
-export const CopyableSlotRight: StoryObj<TextFieldProps> = {
+export const CopyableSlotRight: StoryObj<InputProps> = {
 	args: {
 		value: faker.lorem.words(3),
 		slotRightProps: {
@@ -181,24 +179,24 @@ export const CopyableSlotRight: StoryObj<TextFieldProps> = {
  * CLEARABLE FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-const CLEARABLE_ARGS: TextFieldProps["clearButtonProps"] = {
+const CLEARABLE_ARGS: InputProps["clearButtonProps"] = {
 	strClear: "Clear",
 };
 
-export const ClearableNoValue: StoryObj<TextFieldProps> = {
+export const ClearableNoValue: StoryObj<InputProps> = {
 	name: "Clearable: No value",
 	args: {
 		clearButtonProps: CLEARABLE_ARGS,
 	},
 };
-export const ClearableControlledValue: StoryObj<TextFieldProps> = {
+export const ClearableControlledValue: StoryObj<InputProps> = {
 	name: "Clearable: Controlled value",
 	args: {
 		value: faker.lorem.words(3),
 		clearButtonProps: CLEARABLE_ARGS,
 	},
 };
-export const ClearableDefaultValue: StoryObj<TextFieldProps> = {
+export const ClearableDefaultValue: StoryObj<InputProps> = {
 	name: "Clearable: Default value",
 	args: {
 		defaultValue: faker.lorem.words(3),
@@ -206,7 +204,7 @@ export const ClearableDefaultValue: StoryObj<TextFieldProps> = {
 	},
 };
 
-export const ClearableSlotRight: StoryObj<TextFieldProps> = {
+export const ClearableSlotRight: StoryObj<InputProps> = {
 	name: "Clearable: Slot right",
 	args: {
 		defaultValue: faker.lorem.words(3),
@@ -222,27 +220,27 @@ export const ClearableSlotRight: StoryObj<TextFieldProps> = {
  * VISIBILITY FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-const VISIBILITY_ARGS: TextFieldProps["visibilityToggleProps"] = {
+const VISIBILITY_ARGS: InputProps["visibilityToggleProps"] = {
 	isVisible: false,
 	strHide: "Hide",
 	strShow: "Show",
 };
 
-export const VisibilityDefaultValue: StoryObj<TextFieldProps> = {
+export const VisibilityDefaultValue: StoryObj<InputProps> = {
 	args: {
 		defaultValue: "my-secret-password",
 		visibilityToggleProps: VISIBILITY_ARGS,
 	},
 };
 
-export const VisibilityControlledValue: StoryObj<TextFieldProps> = {
+export const VisibilityControlledValue: StoryObj<InputProps> = {
 	args: {
 		value: "my-secret-password",
 		visibilityToggleProps: VISIBILITY_ARGS,
 	},
 };
 
-export const VisibilitySlotRight: StoryObj<TextFieldProps> = {
+export const VisibilitySlotRight: StoryObj<InputProps> = {
 	args: {
 		visibilityToggleProps: VISIBILITY_ARGS,
 		defaultValue: "my-secret-password",
@@ -254,11 +252,12 @@ export const VisibilitySlotRight: StoryObj<TextFieldProps> = {
 };
 
 /** -----------------------------------------------------------------------------
- * SLOT KITCHEN SINK
+ * KITCHEN SINK
  * ------------------------------------------------------------------------------- */
 
-export const KitchenSink: StoryObj<TextFieldProps> = {
+export const KitchenSink: StoryObj<InputProps> = {
 	args: {
+		defaultValue: "my-secret-password",
 		clearButtonProps: CLEARABLE_ARGS,
 		visibilityToggleProps: VISIBILITY_ARGS,
 		copyButtonProps: COPYABLE_ARGS,
@@ -270,7 +269,5 @@ export const KitchenSink: StoryObj<TextFieldProps> = {
 			isClickable: false,
 			children: <Icon icon={faLock} />,
 		},
-		defaultValue: faker.lorem.words(3),
-		description: faker.lorem.words(3),
 	},
 };

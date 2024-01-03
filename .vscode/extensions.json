@@ -2,8 +2,6 @@
 	"recommendations": [
 		"streetsidesoftware.code-spell-checker",
 		"slysherz.comment-box",
-		"esbenp.prettier-vscode",
-		"unifiedjs.vscode-mdx",
 		"wix.vscode-import-cost",
 		"orta.vscode-twoslash-queries"
 	]

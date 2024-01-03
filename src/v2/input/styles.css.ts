@@ -9,7 +9,7 @@ import {
 import { withPrefersMotion } from "../../v1/css-utils";
 import { sprinkles } from "../../v1/sprinkles/index.css";
 
-export const textFieldSlotCSS = recipe({
+export const slotWrapperCSS = recipe({
 	base: [
 		sprinkles({
 			minWidth: "space_8",
@@ -22,6 +22,12 @@ export const textFieldSlotCSS = recipe({
 		{
 			top: 0,
 			bottom: 0,
+
+			selectors: {
+				"&:empty": {
+					display: "none",
+				},
+			},
 		},
 	],
 	variants: {
@@ -111,7 +117,7 @@ export const textFieldCSS = recipe({
 	},
 });
 
-export const textFieldInputCSS = recipe({
+export const inputElementCSS = recipe({
 	base: [
 		unstyledInput,
 		a11yDisabled,
@@ -154,7 +160,7 @@ export const textFieldInputCSS = recipe({
 export const clearButtonCSS = style({});
 
 globalStyle(
-	`${textFieldInputCSS()}:has(input:placeholder-shown) > ${clearButtonCSS}`,
+	`${inputElementCSS()}:has(input:placeholder-shown) > ${clearButtonCSS}`,
 	{
 		display: "none",
 	},
