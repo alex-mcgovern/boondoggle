@@ -37,6 +37,9 @@ export const inputCSS = recipe({
 		{
 			outline: "0px solid transparent",
 			selectors: {
+				[`&:not(${DISABLED})[data-focus]`]: {
+					...a11yFocusStyleRule,
+				},
 				[`&:not(${DISABLED})[data-focus-visible]`]: {
 					...a11yFocusStyleRule,
 				},
