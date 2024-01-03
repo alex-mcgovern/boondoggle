@@ -7,7 +7,6 @@ import type { MockCurrency } from "../../../../test/mock_data/input_currency";
 import { FormSubmitButton } from "../../../v2/form-submit-button";
 import type { BoxProps } from "../../box";
 import { FormInput } from "../../form-input";
-import { FormInputCurrency } from "../../form-input-currency";
 import { FormInputDate } from "../../form-input-date";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";
 import { FormSelectSingle } from "../../form-select-single";
@@ -69,18 +68,7 @@ export const mockForm = ({
 					placeholder="Enter your email address"
 				/>
 				<FormInputDate label="Date" name="date" />
-				<FormInputCurrency<MockCurrency>
-					currencySelectItems={MOCK_CURRENCY_SELECT_ITEMS}
-					currencySelectLabel="Currency"
-					defaultValue={withDefaultValues ? 100 : undefined}
-					initialCurrency="USD"
-					isCurrencyEditable
-					label="Value"
-					locale="en-US"
-					name="value"
-					onCurrencyChange={() => {}}
-					placeholder="Enter a value"
-				/>
+
 				<FormTextArea
 					defaultValue={
 						withDefaultValues ? LOREM.text_xxs : undefined

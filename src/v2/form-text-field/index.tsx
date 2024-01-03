@@ -1,7 +1,6 @@
 import { useController, useFormContext } from "react-hook-form";
 import type { WithFormFieldProps } from "../../types";
-import { TextField } from "../text-field";
-import { TextFieldProps } from "../text-field/types";
+import { TextField, TextFieldProps } from "../text-field";
 
 /**
  * React Hook Form connected version of Boondoggle's `TextField`. Uses `useFormContext`

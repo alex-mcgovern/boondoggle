@@ -6,11 +6,10 @@ import { faker } from "@faker-js/faker";
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TextField } from ".";
+import { TextField, TextFieldProps } from ".";
 import { a11yDisabled, variantColorOverlay } from "../../index.css";
 import { Icon } from "../icon";
 import { ToastProvider } from "../toast";
-import { TextFieldProps } from "./types";
 
 const LABEL = "Label text";
 const NAME = "test_name";
