@@ -53,7 +53,7 @@ export type TextFieldProps = Omit<
 	/**
 	 * Whether the label is visible or not.
 	 */
-	isLabelVisible: boolean;
+	isLabelVisible?: boolean;
 
 	/**
 	 * Additional props for the label component.
