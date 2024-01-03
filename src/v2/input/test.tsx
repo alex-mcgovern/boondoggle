@@ -43,7 +43,6 @@ const renderComponent = ({
 				onFocus={ON_FOCUS}
 				onChange={ON_CHANGE}
 				name={NAME}
-				label={LABEL}
 			/>
 		</ToastProvider>,
 	);

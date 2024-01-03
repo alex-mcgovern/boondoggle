@@ -151,7 +151,7 @@ export type SelectMultiProps<
 		/**
 		 * Label config for the field.
 		 */
-		label?: V2Label;
+		label: V2Label;
 	};
 
 function SelectMultiBase<

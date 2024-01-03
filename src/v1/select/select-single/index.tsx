@@ -6,16 +6,15 @@ import { forwardRef, useCallback, useState } from "react";
 import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../../_hooks/use-forward-ref";
 import {
+	V2Label,
 	WithDescription,
 	WithName,
 	WithOptionalIsClearable,
-	WithOptionalLabel,
 	WithOptionalPlaceholder,
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-	getOptionalLabelProps,
 } from "../../../types";
 import { Icon } from "../../../v2/icon";
 import { Box } from "../../box";
@@ -49,7 +48,6 @@ export type SelectSingleProps<
 	WithStateDisabled &
 	WithOptionalInputAddons &
 	WithStateInvalid &
-	WithOptionalLabel &
 	WithOptionalIsFilterable & {
 		/**
 		 * The bottom margin applied to the input element.
@@ -124,6 +122,8 @@ export type SelectSingleProps<
 		 * Whether the select should reset when an item is selected.
 		 */
 		shouldClearFilterOnSelection?: boolean;
+
+		label: V2Label;
 	};
 
 /**
@@ -145,14 +145,13 @@ function SelectSingleBase<
 		invalid,
 		isClearable,
 		isFilterable,
-		isLabelVisible,
+
 		isOpen: controlledIsOpen,
 		itemToString = (item: SelectItemShape<TValue, TItemData> | null) => {
 			return item?.label || "";
 		},
 		items: initialItems,
 		label,
-		labelTooltip,
 		name,
 		onChange,
 		onIsOpenChange,
@@ -184,7 +183,6 @@ function SelectSingleBase<
 	const {
 		getInputProps,
 		getItemProps,
-		getLabelProps,
 		getMenuProps,
 		highlightedIndex,
 		isOpen,
@@ -274,6 +272,8 @@ function SelectSingleBase<
 				description={description}
 				errorMessage={errorMessage}
 				outerRef={refs.setReference}
+				label={label}
+				name={name}
 				size={size}
 				marginBottom={marginBottom}
 				slotLeft={selectedItem?.slotLeft || slotLeft}
@@ -295,15 +295,6 @@ function SelectSingleBase<
 					readOnly: !isFilterable,
 					ref,
 					value: inputValue,
-					...getOptionalLabelProps({
-						isLabelVisible,
-						label,
-						labelProps: getLabelProps({
-							htmlFor: name,
-						}),
-						labelTooltip,
-						name,
-					}),
 					...inputProps,
 				})}
 			/>

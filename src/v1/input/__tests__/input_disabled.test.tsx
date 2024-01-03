@@ -15,6 +15,7 @@ const ON_MOUSE_OVER = jest.fn();
 const ON_FOCUS = jest.fn();
 
 const PROPS: InputProps = {
+	label: "Input",
 	disabled: true,
 	name: LOREM.name(),
 	onChange: ON_CHANGE,

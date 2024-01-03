@@ -14,7 +14,6 @@ const meta = {
 		layout: "centered",
 	},
 	args: {
-		label: faker.lorem.words(1),
 		name: "text_field",
 	},
 	decorators: [

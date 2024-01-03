@@ -11,6 +11,7 @@ import { FormTestProvider } from "../form_test_provider.comp";
 import type { FormTextAreaProps } from "../../form-text-area";
 
 const PROPS: FormTextAreaProps = {
+	label: "Text area",
 	errorMessage: LOREM.errorMessage(),
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),

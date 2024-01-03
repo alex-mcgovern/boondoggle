@@ -13,9 +13,7 @@ const meta = {
 		layout: "centered",
 	},
 	args: {
-		label: "Text field",
-		labelTooltip: "This is a tooltip",
-		isLabelVisible: true,
+		label: { text: "Text field", tooltip: "This is a tooltip" },
 		name: "text_field",
 	},
 	decorators: [

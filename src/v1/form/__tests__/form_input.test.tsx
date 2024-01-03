@@ -10,6 +10,7 @@ import type { FormInputProps } from "../../form-input";
 import { FormTestProvider } from "../form_test_provider.comp";
 
 const PROPS: FormInputProps = {
+	label: "Input",
 	errorMessage: LOREM.errorMessage(),
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),

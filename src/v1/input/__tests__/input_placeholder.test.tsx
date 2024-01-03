@@ -9,6 +9,7 @@ import "../../../../test/mocked_dependencies/dialog.mock";
 import type { InputProps } from "..";
 
 const PROPS: InputProps = {
+	label: "input",
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),
 };

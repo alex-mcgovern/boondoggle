@@ -5,17 +5,17 @@ import {
 	NumberField as ReactAriaNumberField,
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
-import { LabelConfig, WithName, WithSize } from "../../types";
+import { V2Label, WithName, WithSize } from "../../types";
 import { Box } from "../../v1/box";
 import { Sprinkles, sprinkles } from "../../v1/sprinkles/index.css";
 import { V2FieldError } from "../field-error";
 import { Group } from "../group";
 import { GroupAddon } from "../group-addon";
 import { Icon } from "../icon";
-import { V2Label } from "../label";
 import { IterableMenuItem } from "../menu";
 import { MenuButton } from "../menu-button";
 import { numberInputCSS } from "./styles.css";
+import { Label } from "../_v2-label";
 
 /** -----------------------------------------------------------------------------
  * TYPES
@@ -178,7 +178,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 	{
 		size = "sm",
 		currencyConfig,
-		labelConfig,
+		label,
 		isInvalid,
 		errorMessage,
 		marginBottom = "space_4",
@@ -187,7 +187,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 	}: ReactAriaNumberFieldProps &
 		WithSize &
 		WithName & {
-			labelConfig?: LabelConfig;
+			label: V2Label;
 			marginBottom?: Sprinkles["marginBottom"];
 			description?: string;
 			errorMessage?: string | null;
@@ -210,16 +210,8 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 			className={sprinkles({ marginBottom })}
 			{...props}
 		>
-			{labelConfig?.label ? (
-				<V2Label
-					isInvalid={isInvalid}
-					htmlFor={name}
-					isLabelVisible={labelConfig.isLabelVisible}
-					label={labelConfig.label}
-					labelTooltip={labelConfig.labelTooltip}
-					{...labelConfig.labelProps}
-				/>
-			) : null}
+			<Label label={label} name={name} />
+
 			<Group isInvalid={isInvalid}>
 				<ReactAriaInput
 					name={name}
@@ -235,6 +227,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 					onCurrencyChange={setCurrency}
 				/>
 			</Group>
+
 			{isInvalid && errorMessage && (
 				<V2FieldError>{errorMessage}</V2FieldError>
 			)}

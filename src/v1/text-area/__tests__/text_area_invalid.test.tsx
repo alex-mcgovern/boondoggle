@@ -10,6 +10,7 @@ import { a11yError, variantColorOverlay } from "../../../index.css";
 
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),
+	label: "text area",
 	placeholder: LOREM.placeholder(),
 };
 

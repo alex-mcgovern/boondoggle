@@ -7,6 +7,10 @@ import { Loader } from "../loader";
 
 const meta = {
 	args: {
+		label: {
+			text: "Text area",
+			tooltip: "This is a tooltip",
+		},
 		name: LOREM.name(),
 		placeholder: LOREM.placeholder(),
 	},

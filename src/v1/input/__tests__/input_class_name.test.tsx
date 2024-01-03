@@ -9,6 +9,7 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { InputProps } from "..";
 
 const PROPS: InputProps = {
+	label: "Input",
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),
 };

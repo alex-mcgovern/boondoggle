@@ -49,7 +49,7 @@ export type RadioButtonCardGroupProps = Sprinkles &
 		/**
 		 * Label config for the field.
 		 */
-		label?: V2Label;
+		label: V2Label;
 	};
 
 export const RadioButtonCardGroup = forwardRef(

@@ -59,9 +59,7 @@ beforeEach(() => {
 describe("<TextField />", () => {
 	describe("a11y", () => {
 		it("has name", () => {
-			const { getByRole } = renderComponent({
-				isLabelVisible: true,
-			});
+			const { getByRole } = renderComponent({});
 
 			expect((getByRole("textbox") as HTMLInputElement).name).toBe(
 				"test_name",
@@ -69,9 +67,7 @@ describe("<TextField />", () => {
 		});
 
 		it("renders label", () => {
-			const { container, getByLabelText } = renderComponent({
-				isLabelVisible: true,
-			});
+			const { container, getByLabelText } = renderComponent({});
 
 			const label = container.querySelector("label");
 
@@ -81,21 +77,11 @@ describe("<TextField />", () => {
 
 			expect(getByLabelText(LABEL, { selector: "input" })).not.toBeNull();
 		});
-
-		it("has aria-label attribute", () => {
-			const { getByRole } = renderComponent({
-				isLabelVisible: false,
-			});
-
-			const input = getByRole("textbox");
-			expect(input?.getAttribute("aria-label")).toBe(LABEL);
-		});
 	});
 
 	test("should render placeholder", () => {
 		const { getByRole } = renderComponent({
 			placeholder: PLACEHOLDER,
-			isLabelVisible: true,
 		});
 
 		const textbox = getByRole("textbox");
@@ -106,7 +92,6 @@ describe("<TextField />", () => {
 	describe("Slot props", () => {
 		test("should render node passed to `slotLeft`", () => {
 			const { getByTestId } = renderComponent({
-				isLabelVisible: true,
 				slotLeftProps: {
 					isClickable: false,
 					children: <Icon data-testid="icon" icon={faSearch} />,
@@ -118,7 +103,6 @@ describe("<TextField />", () => {
 
 		test("should render node passed to `slotRight`", () => {
 			const { getByTestId } = renderComponent({
-				isLabelVisible: true,
 				slotRightProps: {
 					isClickable: false,
 					children: <Icon data-testid="icon" icon={faSearch} />,
@@ -133,7 +117,6 @@ describe("<TextField />", () => {
 		it("forwards class name to outer element", () => {
 			const { getByRole } = renderComponent({
 				className: "test-class",
-				isLabelVisible: true,
 			});
 
 			expect(getByRole("textbox").parentNode?.parentNode).toHaveClass(
@@ -144,7 +127,6 @@ describe("<TextField />", () => {
 		it("applies red color overlay to outer element when invalid", () => {
 			const { getByRole } = renderComponent({
 				isInvalid: true,
-				isLabelVisible: true,
 			});
 
 			expect(getByRole("textbox").parentNode?.parentNode).toHaveClass(
@@ -158,7 +140,6 @@ describe("<TextField />", () => {
 			const { getByText } = renderComponent({
 				errorMessage: ERROR_MESSAGE,
 				isInvalid: true,
-				isLabelVisible: true,
 			});
 
 			expect(getByText(ERROR_MESSAGE)).not.toBeNull();
@@ -168,7 +149,6 @@ describe("<TextField />", () => {
 	describe("disabled", () => {
 		const disabledProps = {
 			isDisabled: true,
-			isLabelVisible: true,
 		} satisfies Omit<TextFieldProps, "name" | "label">;
 
 		it("has disabled styling", () => {
@@ -197,9 +177,7 @@ describe("<TextField />", () => {
 
 	describe("value", () => {
 		it("updates value", async () => {
-			const { getByRole } = renderComponent({
-				isLabelVisible: true,
-			});
+			const { getByRole } = renderComponent({});
 
 			const textBox = getByRole("textbox");
 			expect(textBox).toHaveValue("");
@@ -213,7 +191,6 @@ describe("<TextField />", () => {
 		it("updates value with default value", async () => {
 			const { getByRole } = renderComponent({
 				defaultValue: "Default value",
-				isLabelVisible: true,
 			});
 
 			expect(getByRole("textbox")).toHaveValue("Default value");
@@ -228,8 +205,6 @@ describe("<TextField />", () => {
 		it("updates value with controlled value", async () => {
 			const { getByRole } = renderComponent({
 				value: "Controlled value",
-
-				isLabelVisible: true,
 			});
 
 			expect(getByRole("textbox")).toHaveValue("Controlled value");
@@ -246,7 +221,6 @@ describe("<TextField />", () => {
 				value: "Controlled value",
 
 				isReadOnly: true,
-				isLabelVisible: true,
 			});
 
 			await userEvent.type(getByRole("textbox"), "New value");
@@ -259,8 +233,6 @@ describe("<TextField />", () => {
 			const { getByRole } = renderComponent({
 				isDisabled: true,
 				value: "Controlled value",
-
-				isLabelVisible: true,
 			});
 
 			await userEvent.type(getByRole("textbox"), "New value");
@@ -272,9 +244,7 @@ describe("<TextField />", () => {
 
 	describe("onFocus", () => {
 		it("calls onFocus", async () => {
-			const { getByRole } = renderComponent({
-				isLabelVisible: true,
-			});
+			const { getByRole } = renderComponent({});
 
 			await userEvent.click(getByRole("textbox"));
 			expect(ON_FOCUS).toHaveBeenCalled();
@@ -283,7 +253,6 @@ describe("<TextField />", () => {
 		it("calls onFocus when isReadonly", async () => {
 			const { getByRole } = renderComponent({
 				isReadOnly: true,
-				isLabelVisible: true,
 			});
 
 			await userEvent.click(getByRole("textbox"));
@@ -293,8 +262,6 @@ describe("<TextField />", () => {
 		it("Given a disabled input, when clicking, it should not call onFocus", async () => {
 			const { getByRole } = renderComponent({
 				isDisabled: true,
-
-				isLabelVisible: true,
 			});
 
 			await userEvent.click(getByRole("textbox"));
@@ -308,9 +275,7 @@ describe("<TextField />", () => {
 	 */
 	describe("`onBlur`", () => {
 		it("calls onBlur", async () => {
-			const { getByRole } = renderComponent({
-				isLabelVisible: true,
-			});
+			const { getByRole } = renderComponent({});
 
 			await userEvent.click(getByRole("textbox"));
 			await userEvent.tab();
@@ -321,7 +286,6 @@ describe("<TextField />", () => {
 		it("calls onBlur when readOnly", async () => {
 			const { getByRole } = renderComponent({
 				isReadOnly: true,
-				isLabelVisible: true,
 			});
 
 			await userEvent.click(getByRole("textbox"));
@@ -333,7 +297,6 @@ describe("<TextField />", () => {
 		it("doesn't onBlur when disabled", async () => {
 			const { getByRole } = renderComponent({
 				isDisabled: true,
-				isLabelVisible: true,
 			});
 
 			await userEvent.click(getByRole("textbox"));

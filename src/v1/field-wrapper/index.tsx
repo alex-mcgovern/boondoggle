@@ -33,7 +33,7 @@ export type FieldWrapperProps = WithColorOverlay &
 		/**
 		 * Label config for the field.
 		 */
-		label?: V2Label;
+		label: V2Label;
 	};
 
 /**

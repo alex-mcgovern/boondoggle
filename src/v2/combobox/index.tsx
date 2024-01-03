@@ -12,24 +12,24 @@ import {
 	type ValidationResult,
 } from "react-aria-components";
 import { popoverCSS } from "../../_css/popover.css";
-import { LabelConfig, WithName } from "../../types";
+import { type V2Label, WithName } from "../../types";
 import { FieldDescription } from "../../v1/field-description";
 import { V2FieldError } from "../field-error";
 import { Group } from "../group";
 import { Icon } from "../icon";
-import { V2Label } from "../label";
 import { IterableListBoxItem, ListBox } from "../list-box";
 import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
+import { Label } from "../_v2-label";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
 	errorMessage?: string | ((validation: ValidationResult) => string);
-	labelConfig?: LabelConfig;
 	popoverProps?: RACPopoverProps;
 	comboBoxProps: Omit<
 		RACComboBoxProps<IterableListBoxItem<TItemId>>,
 		"children"
 	>;
+	label: V2Label;
 };
 
 function BaseComboBox<TItemId extends string = string>(
@@ -37,7 +37,7 @@ function BaseComboBox<TItemId extends string = string>(
 		description,
 		errorMessage,
 		name,
-		labelConfig,
+		label,
 		popoverProps,
 		comboBoxProps: { isDisabled, isInvalid, className, ...comboBoxProps },
 	}: ComboBoxProps<TItemId>,
@@ -61,16 +61,7 @@ function BaseComboBox<TItemId extends string = string>(
 					const { toggle } = state || {};
 					return (
 						<>
-							{labelConfig?.label ? (
-								<V2Label
-									htmlFor={name}
-									isInvalid={isInvalid}
-									isLabelVisible={labelConfig.isLabelVisible}
-									label={labelConfig.label}
-									labelTooltip={labelConfig.labelTooltip}
-									{...labelConfig.labelProps}
-								/>
-							) : null}
+							<Label name={name} label={label} />
 
 							<Group
 								isInvalid={isInvalid}

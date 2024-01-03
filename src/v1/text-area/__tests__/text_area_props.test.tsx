@@ -11,6 +11,7 @@ import { Icon } from "../../../v2/icon";
 
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),
+	label: "text area",
 	placeholder: LOREM.placeholder(),
 };
 

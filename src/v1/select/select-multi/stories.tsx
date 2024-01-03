@@ -100,6 +100,7 @@ const ControlledTemplate = () => {
 				</button>
 			</Box>
 			<StoryComp
+				label="Select"
 				items={ITEMS}
 				name={LOREM.name()}
 				placeholder={LOREM.placeholder()}

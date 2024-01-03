@@ -76,14 +76,6 @@ export type InputProps = Omit<
 
 	invalid: boolean | undefined;
 
-	// ===== LABEL PROPS =====
-
-	/**
-	 * Label text for the text field.
-	 * @note This is mandatory, if you do not want to display a label, use `isLabelVisible={false}`.
-	 */
-	label: string;
-
 	// ===== SLOT PROPS =====
 
 	/**

@@ -8,6 +8,10 @@ const meta = {
 	title: "Components/V2/InputCurrency",
 	component: StoryComp,
 	args: {
+		label: {
+			text: "Amount",
+			tooltip: "Please enter an amount",
+		},
 		name: "amount",
 		currencyConfig: {
 			initialCurrency: "EUR",
@@ -31,10 +35,6 @@ export const WithDefaultValue: Story = {
 export const Invalid: Story = {
 	args: {
 		isInvalid: true,
-		labelConfig: {
-			label: "Amount",
-			labelTooltip: "Please enter an amount",
-		},
 		errorMessage: "Please enter a valid amount",
 		currencyConfig: {
 			initialCurrency: "EUR",
@@ -72,22 +72,6 @@ export const SizeMd: Story = {
 export const SizeLg: Story = {
 	args: {
 		size: "lg",
-	},
-};
-export const WithLabel: Story = {
-	args: {
-		labelConfig: {
-			label: "Amount",
-		},
-	},
-};
-
-export const WithLabelTooltip: Story = {
-	args: {
-		labelConfig: {
-			label: "Amount",
-			labelTooltip: "Please enter an amount",
-		},
 	},
 };
 

@@ -8,8 +8,7 @@ import type {
 import type { RegisterOptions } from "react-hook-form";
 import { ColorOverlay, ElementSizeEnum } from "./index.css";
 import { BoxProps } from "./v1/box";
-import { FieldLabelProps } from "./v1/field-label";
-import { type LabelProps as RACLabelProps } from "react-aria-components";
+import { Label } from "./v2/_v2-label";
 
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(
@@ -235,86 +234,21 @@ export type WithReadOnly = {
 	readOnly?: boolean;
 };
 
-type BaseWithLabel = {
-	/**
-	 * Whether the label is visible or not.
-	 */
-	isLabelVisible?: boolean;
-
-	/**
-	 * Text for HTML label element
-	 */
-	label?: string;
-
-	/**
-	 * Props for FieldLabel component
-	 */
-	labelProps?: Omit<FieldLabelProps, "label"> | undefined;
-
-	/**
-	 * Optional tooltip for label
-	 */
-	labelTooltip?: string;
-
-	/**
-	 * HTML element id
-	 */
-	name: string;
-};
-
-type WithLabel = BaseWithLabel & {
-	isLabelVisible?: boolean;
-
-	label: string;
-
-	labelProps?: Omit<FieldLabelProps, "label"> | undefined;
-
-	labelTooltip?: string;
-
-	name: string;
-};
-
-type WithoutLabel = BaseWithLabel & {
-	isLabelVisible?: never;
-
-	label?: never;
-
-	labelProps?: never;
-
-	labelTooltip?: never;
-
-	name: string;
-};
-
-/* eslint-enable jsdoc/require-jsdoc */
-
-export type WithOptionalLabel = WithLabel | WithoutLabel;
-export type LabelConfig = Omit<WithLabel | WithoutLabel, "name">;
-
+/**
+ * Accessible label for a field.
+ * @note All fields should have a label, if the label is not visible, use the `hidden` prop.
+ */
 export type V2Label =
 	| string
 	| {
 			text: string;
 			isHidden?: boolean;
 			tooltip?: string;
-			props?: Omit<RACLabelProps, "children" | "htmlFor">;
+			props?: Omit<
+				ComponentPropsWithoutRef<typeof Label>,
+				"children" | "htmlFor"
+			>;
 	  };
-
-/**
- * Validates that the correct required props are present to label
- * an element and forwards them to a component.
- */
-export const getOptionalLabelProps = ({
-	isLabelVisible,
-	label,
-	labelProps,
-	labelTooltip,
-	name,
-}: BaseWithLabel): WithOptionalLabel => {
-	return typeof label !== "undefined" && typeof name !== "undefined"
-		? { isLabelVisible, label, labelProps, labelTooltip, name }
-		: { name };
-};
 
 export type WithSize = {
 	/**

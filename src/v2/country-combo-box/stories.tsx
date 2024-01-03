@@ -6,9 +6,9 @@ const meta = {
 	title: "Components/V2/CountryComboBox",
 	component: CountryComboBox,
 	args: {
-		labelConfig: {
-			label: "Country",
-			labelTooltip: "Select a country",
+		label: {
+			text: "Country",
+			tooltip: "Select a country",
 		},
 		name: "country",
 		comboBoxProps: {},

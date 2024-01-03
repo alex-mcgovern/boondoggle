@@ -82,6 +82,7 @@ export const FormFilterNumeric = ({
 			<Box paddingX="space_4">
 				<FormSelectSingle<TableNumberRangeFilterMode>
 					size="sm"
+					label={{ text: "Filter mode", isHidden: true }}
 					name="filter_mode"
 					marginBottom="space_2"
 					defaultValue={localFilterMode}
@@ -92,6 +93,7 @@ export const FormFilterNumeric = ({
 					<Box display="grid" gridTemplateColumns="2x" gap="space_2">
 						<FormInput
 							size="sm"
+							label={{ text: "Minimum", isHidden: true }}
 							marginBottom="space_2"
 							inputMode="numeric"
 							name="min"
@@ -105,6 +107,7 @@ export const FormFilterNumeric = ({
 						/>
 						<FormInput
 							size="sm"
+							label={{ text: "Maximum", isHidden: true }}
 							marginBottom="space_2"
 							inputMode="numeric"
 							name="max"
@@ -121,6 +124,7 @@ export const FormFilterNumeric = ({
 				{localFilterMode === "is_equal_to" && (
 					<FormInput
 						size="sm"
+						label={{ text: "Equal to", isHidden: true }}
 						marginBottom="space_2"
 						defaultValue={
 							transformNumericToRaw
@@ -139,6 +143,7 @@ export const FormFilterNumeric = ({
 				{localFilterMode === "is_greater_than" && (
 					<FormInput
 						size="sm"
+						label={{ text: "Greater than", isHidden: true }}
 						marginBottom="space_2"
 						defaultValue={
 							transformNumericToRaw
@@ -157,6 +162,7 @@ export const FormFilterNumeric = ({
 				{localFilterMode === "is_less_than" && (
 					<FormInput
 						size="sm"
+						label={{ text: "Less than", isHidden: true }}
 						marginBottom="space_2"
 						defaultValue={
 							transformNumericToRaw

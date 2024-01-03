@@ -23,7 +23,7 @@ describe("<InputDate />", () => {
 		test("should render without throwing", async () => {
 			const { getByLabelText } = await renderComponent(PROPS);
 
-			const textbox = getByLabelText(PROPS.label);
+			const textbox = getByLabelText("date picker");
 
 			expect(textbox).not.toBeNull();
 		});

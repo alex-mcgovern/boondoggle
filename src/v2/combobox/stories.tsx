@@ -6,6 +6,10 @@ const meta = {
 	title: "Components/V2/ComboBox",
 	component: ComboBox,
 	args: {
+		label: {
+			text: "Country",
+			tooltip: "Select a country",
+		},
 		name: "country",
 		comboBoxProps: {
 			onSelectionChange: (key) => {
@@ -67,10 +71,6 @@ export const Default: Story = {};
 
 export const KitchenSink: Story = {
 	args: {
-		labelConfig: {
-			label: "Country",
-			labelTooltip: "This is a tooltip",
-		},
 		description: "This is a description",
 		errorMessage: "This is an error message",
 		comboBoxProps: {
@@ -82,10 +82,6 @@ export const KitchenSink: Story = {
 
 export const KitchenSinkInvalid: Story = {
 	args: {
-		labelConfig: {
-			label: "Country",
-			labelTooltip: "This is a tooltip",
-		},
 		description: "This is a description",
 		errorMessage: "This is an error message",
 		comboBoxProps: {

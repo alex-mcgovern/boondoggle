@@ -23,7 +23,7 @@ describe("<InputDate />", () => {
 	test("default value", async () => {
 		const { getByLabelText } = await renderComponent(PROPS);
 
-		const textbox = getByLabelText(PROPS.label);
+		const textbox = getByLabelText("date picker");
 
 		expect(textbox).toHaveValue("2021-01-01");
 	});

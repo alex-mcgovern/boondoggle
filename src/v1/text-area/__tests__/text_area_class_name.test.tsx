@@ -9,6 +9,7 @@ import { LOREM } from "../../../../mocks/LOREM.mock";
 import type { TextAreaProps } from "..";
 
 const PROPS: TextAreaProps = {
+	label: "text area",
 	name: LOREM.name(),
 	placeholder: LOREM.placeholder(),
 };

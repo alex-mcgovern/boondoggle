@@ -25,6 +25,7 @@ describe("<Input />", () => {
 			describe("when uncontrolled", () => {
 				test("should update value when the user types", async () => {
 					const { getByRole } = renderComponent({
+						label: "Input",
 						name: LOREM.name(),
 						placeholder: LOREM.placeholder(),
 					});
@@ -38,6 +39,7 @@ describe("<Input />", () => {
 
 				test("should update value when the user types when there is `defaultValue`", async () => {
 					const { getByRole } = renderComponent({
+						label: "Input",
 						defaultValue: "Old value",
 						name: LOREM.name(),
 						placeholder: LOREM.placeholder(),
@@ -58,6 +60,7 @@ describe("<Input />", () => {
 					const onChange = jest.fn();
 
 					const { getByRole } = renderComponent({
+						label: "Input",
 						name: LOREM.name(),
 						onChange,
 						placeholder: LOREM.placeholder(),
@@ -80,6 +83,7 @@ describe("<Input />", () => {
 				const onChange = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onChange,
 					placeholder: LOREM.placeholder(),
@@ -99,6 +103,7 @@ describe("<Input />", () => {
 				const onChange = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onChange,
 					placeholder: LOREM.placeholder(),
@@ -116,6 +121,7 @@ describe("<Input />", () => {
 				const onChange = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onChange,
 					placeholder: LOREM.placeholder(),
@@ -131,6 +137,7 @@ describe("<Input />", () => {
 				const onChange = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					disabled: true,
 					name: LOREM.name(),
 					onChange,
@@ -148,6 +155,7 @@ describe("<Input />", () => {
 				const onClick = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onClick,
 					placeholder: LOREM.placeholder(),
@@ -162,6 +170,7 @@ describe("<Input />", () => {
 				const onClick = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onClick,
 					placeholder: LOREM.placeholder(),
@@ -177,6 +186,7 @@ describe("<Input />", () => {
 				const onClick = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					disabled: true,
 					name: LOREM.name(),
 					onClick,
@@ -194,6 +204,7 @@ describe("<Input />", () => {
 				const onMouseOver = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onMouseOver,
 					placeholder: LOREM.placeholder(),
@@ -208,6 +219,7 @@ describe("<Input />", () => {
 				const onMouseOver = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onMouseOver,
 					placeholder: LOREM.placeholder(),
@@ -223,6 +235,7 @@ describe("<Input />", () => {
 				const onMouseOver = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					disabled: true,
 					name: LOREM.name(),
 					onMouseOver,
@@ -240,6 +253,7 @@ describe("<Input />", () => {
 				const onMouseLeave = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onMouseLeave,
 					placeholder: LOREM.placeholder(),
@@ -254,6 +268,7 @@ describe("<Input />", () => {
 				const onMouseLeave = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					name: LOREM.name(),
 					onMouseLeave,
 					placeholder: LOREM.placeholder(),
@@ -269,6 +284,7 @@ describe("<Input />", () => {
 				const onMouseLeave = jest.fn();
 
 				const { getByRole } = renderComponent({
+					label: "Input",
 					disabled: true,
 					name: LOREM.name(),
 					onMouseLeave,
@@ -290,6 +306,7 @@ describe("<Input />", () => {
 			const onFocus = jest.fn();
 
 			const { getByRole } = renderComponent({
+				label: "Input",
 				name: LOREM.name(),
 				onFocus,
 				placeholder: LOREM.placeholder(),
@@ -304,6 +321,7 @@ describe("<Input />", () => {
 			const onFocus = jest.fn();
 
 			const { getByRole } = renderComponent({
+				label: "Input",
 				name: LOREM.name(),
 				onFocus,
 				placeholder: LOREM.placeholder(),
@@ -319,6 +337,7 @@ describe("<Input />", () => {
 			const onFocus = jest.fn();
 
 			const { getByRole } = renderComponent({
+				label: "Input",
 				disabled: true,
 				name: LOREM.name(),
 				onFocus,
@@ -339,6 +358,7 @@ describe("<Input />", () => {
 			const onBlur = jest.fn();
 
 			const { getByRole } = renderComponent({
+				label: "Input",
 				name: LOREM.name(),
 				onBlur,
 				placeholder: LOREM.placeholder(),
@@ -355,6 +375,7 @@ describe("<Input />", () => {
 			const onBlur = jest.fn();
 
 			const { getByRole } = renderComponent({
+				label: "Input",
 				name: LOREM.name(),
 				onBlur,
 				placeholder: LOREM.placeholder(),
@@ -372,6 +393,7 @@ describe("<Input />", () => {
 			const onBlur = jest.fn();
 
 			const { getByRole } = renderComponent({
+				label: "Input",
 				disabled: true,
 				name: LOREM.name(),
 				onBlur,

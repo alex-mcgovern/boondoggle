@@ -4,19 +4,18 @@ import { forwardRef } from "react";
 import type { ComponentPropsWithoutRef, LegacyRef } from "react";
 import { a11yError } from "../../index.css";
 import {
+	V2Label,
 	WithColorOverlay,
 	WithDescription,
 	WithHideLastpass,
 	WithName,
 	WithOptionalIsVisibilityToggleable,
-	WithOptionalLabel,
 	WithOptionalPlaceholder,
 	WithReadOnly,
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
 	WithWrapperProps,
-	getOptionalLabelProps,
 } from "../../types";
 import { FieldWrapper } from "../field-wrapper";
 import { SlotWrapper } from "../slot-wrapper";
@@ -35,13 +34,14 @@ export type TextAreaProps = Omit<
 	WithHideLastpass &
 	WithOptionalIsVisibilityToggleable &
 	WithName &
-	WithOptionalLabel &
 	WithOptionalPlaceholder &
 	WithReadOnly &
 	WithSize &
 	WithSlots &
 	WithStateInvalid &
-	WithWrapperProps;
+	WithWrapperProps & {
+		label: V2Label;
+	};
 
 export const TextArea = forwardRef(
 	(
@@ -51,10 +51,7 @@ export const TextArea = forwardRef(
 			errorMessage,
 			hideLastpass,
 			invalid,
-			isLabelVisible,
 			label,
-			labelProps,
-			labelTooltip,
 			name,
 			size = "sm",
 			slotLeft,
@@ -80,13 +77,8 @@ export const TextArea = forwardRef(
 				hideLastpass={hideLastpass}
 				invalid={invalid}
 				wrapperProps={wrapperProps}
-				{...getOptionalLabelProps({
-					isLabelVisible,
-					label,
-					labelProps,
-					labelTooltip,
-					name,
-				})}
+				label={label}
+				name={name}
 			>
 				<SlotWrapper
 					alignItems="start"
@@ -97,7 +89,6 @@ export const TextArea = forwardRef(
 				>
 					<textarea
 						aria-invalid={invalid}
-						aria-label={label}
 						className={clsx(
 							getTextAreaStyles({ size }),
 							sprinkles(atomProps),

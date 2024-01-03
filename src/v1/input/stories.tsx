@@ -13,6 +13,10 @@ import { Button } from "../button";
 const meta = {
 	args: {
 		name: LOREM.name(),
+		label: {
+			text: "Input",
+			tooltip: "This is a tooltip",
+		},
 		placeholder: LOREM.placeholder(),
 	},
 	component: StoryComp,
@@ -62,45 +66,48 @@ export const Description: Story = {
 	},
 };
 
-const TemplateColors = () => {
-	return (
-		<Box alignItems="center" display="flex" gap="space_6">
-			<StoryComp
-				colorOverlay="blue"
-				name="blue"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				colorOverlay="red"
-				name="red"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				colorOverlay="green"
-				name="green"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				colorOverlay="amber"
-				name="amber"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-			<StoryComp
-				colorOverlay="grey"
-				name="grey"
-				placeholder={LOREM.placeholder()}
-				slotRight={<Icon icon={faTriangleCircleSquare} />}
-			/>
-		</Box>
-	);
-};
-
 export const Colors: StoryObj<StoryCompProps> = {
-	render: TemplateColors,
+	render: (args: StoryCompProps) => {
+		return (
+			<Box alignItems="center" display="flex" gap="space_6">
+				<StoryComp
+					{...args}
+					colorOverlay="blue"
+					name="blue"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					{...args}
+					colorOverlay="red"
+					name="red"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					{...args}
+					colorOverlay="green"
+					name="green"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					{...args}
+					colorOverlay="amber"
+					name="amber"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+				<StoryComp
+					{...args}
+					colorOverlay="grey"
+					name="grey"
+					placeholder={LOREM.placeholder()}
+					slotRight={<Icon icon={faTriangleCircleSquare} />}
+				/>
+			</Box>
+		);
+	},
 };
 
 const TemplateSizes = (props: Omit<StoryCompProps, "name" | "placeholder">) => {
@@ -165,25 +172,6 @@ export const IsVisibilityToggleable: Story = {
 		strHide: "Hide",
 		strShow: "Show",
 	},
-};
-
-const TemplateIsVisibilityToggleableAndIsCopyable = () => {
-	return (
-		<>
-			<Box as="h3">Is visibility toggleable and is copyable</Box>
-
-			<TemplateSizes
-				defaultValue={LOREM.text_xxs}
-				isCopyable
-				isVisibilityToggleable
-				isVisible={false}
-			/>
-		</>
-	);
-};
-
-export const IsVisibilityToggleableAndIsCopyable: Story = {
-	render: TemplateIsVisibilityToggleableAndIsCopyable,
 };
 
 export const StateHover: Story = {

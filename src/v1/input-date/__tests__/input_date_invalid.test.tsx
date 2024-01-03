@@ -30,7 +30,7 @@ describe("<InputDate />", () => {
 				invalid: true,
 			});
 
-			const textbox = getByLabelText(PROPS.label);
+			const textbox = getByLabelText("date picker");
 
 			expect(textbox.parentNode).toHaveClass(a11yError);
 

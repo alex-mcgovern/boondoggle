@@ -321,7 +321,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 			defaultValue,
 			disabled,
 			invalid,
-			label,
 			name,
 			onChange,
 			placeholder,
@@ -355,7 +354,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 				{getSlotLeft(slotLeftProps, slotLeftRef)}
 
 				<RACInput
-					aria-label={label}
 					readOnly={readOnly}
 					disabled={disabled}
 					className={inputElementCSS({

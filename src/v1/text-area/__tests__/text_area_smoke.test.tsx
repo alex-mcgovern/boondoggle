@@ -10,6 +10,7 @@ import type { TextAreaProps } from "..";
 
 const PROPS: TextAreaProps = {
 	name: LOREM.name(),
+	label: "text area",
 	placeholder: LOREM.placeholder(),
 };
 

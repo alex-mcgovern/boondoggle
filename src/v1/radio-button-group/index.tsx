@@ -32,7 +32,7 @@ export type RadioButtonGroupProps = Sprinkles &
 		/**
 		 * Label config for the field.
 		 */
-		label?: V2Label;
+		label: V2Label;
 
 		labelTooltip?: string;
 

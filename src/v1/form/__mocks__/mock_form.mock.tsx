@@ -72,9 +72,7 @@ export const mockForm = ({
 				<FormInputDate label="Date" name="date" />
 				<V2FormInputCurrency<"AED">
 					name="amount"
-					labelConfig={{
-						label: "Currency",
-					}}
+					label="Currency"
 					currencyConfig={{
 						initialCurrencyIcon: (
 							<FlagAe height="space_4" width="space_4" />
