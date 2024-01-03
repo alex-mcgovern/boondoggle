@@ -2,13 +2,14 @@ import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown"
 import clsx from "clsx";
 import React from "react";
 import {
-	Button as ReactAriaButton,
-	ComboBox as ReactAriaCombobox,
-	type ComboBoxProps as ReactAriaComboBoxProps,
-	Input as ReactAriaInput,
-	Popover as ReactAriaPopover,
-	type PopoverProps as ReactAriaPopoverProps,
-	ValidationResult,
+	Button as RACButton,
+	ComboBox as RACCombobox,
+	ComboBoxStateContext as RACComboBoxStateContext,
+	Input as RACInput,
+	Popover as RACPopover,
+	type ComboBoxProps as RACComboBoxProps,
+	type PopoverProps as RACPopoverProps,
+	type ValidationResult,
 } from "react-aria-components";
 import { popoverCSS } from "../../_css/popover.css";
 import { LabelConfig, WithName } from "../../types";
@@ -24,9 +25,9 @@ export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;
 	errorMessage?: string | ((validation: ValidationResult) => string);
 	labelConfig?: LabelConfig;
-	popoverProps?: ReactAriaPopoverProps;
+	popoverProps?: RACPopoverProps;
 	comboBoxProps: Omit<
-		ReactAriaComboBoxProps<IterableListBoxItem<TItemId>>,
+		RACComboBoxProps<IterableListBoxItem<TItemId>>,
 		"children"
 	>;
 };
@@ -43,7 +44,7 @@ function BaseComboBox<TItemId extends string = string>(
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
 	return (
-		<ReactAriaCombobox
+		<RACCombobox
 			{...comboBoxProps}
 			className={clsx(
 				className,
@@ -52,39 +53,57 @@ function BaseComboBox<TItemId extends string = string>(
 					isInvalid,
 				}),
 			)}
-			menuTrigger="focus"
+			menuTrigger="input"
 			ref={ref}
 		>
-			{labelConfig?.label ? (
-				<V2Label
-					htmlFor={name}
-					isInvalid={isInvalid}
-					isLabelVisible={labelConfig.isLabelVisible}
-					label={labelConfig.label}
-					labelTooltip={labelConfig.labelTooltip}
-					{...labelConfig.labelProps}
-				/>
-			) : null}
+			<RACComboBoxStateContext.Consumer>
+				{(state) => {
+					const { toggle } = state || {};
+					return (
+						<>
+							{labelConfig?.label ? (
+								<V2Label
+									htmlFor={name}
+									isInvalid={isInvalid}
+									isLabelVisible={labelConfig.isLabelVisible}
+									label={labelConfig.label}
+									labelTooltip={labelConfig.labelTooltip}
+									{...labelConfig.labelProps}
+								/>
+							) : null}
 
-			<V3Group isInvalid={isInvalid} isDisabled={isDisabled}>
-				<ReactAriaInput className={comboBoxInputCSS} />
-				<ReactAriaButton className={comboBoxButtonCSS}>
-					<Icon icon={faAnglesUpDown} />
-				</ReactAriaButton>
-			</V3Group>
+							<V3Group
+								isInvalid={isInvalid}
+								isDisabled={isDisabled}
+							>
+								<RACInput
+									onClick={() => toggle()}
+									className={comboBoxInputCSS}
+								/>
+								<RACButton className={comboBoxButtonCSS}>
+									<Icon icon={faAnglesUpDown} />
+								</RACButton>
+							</V3Group>
 
-			{description && !isInvalid && errorMessage ? (
-				<FieldDescription description={description} />
-			) : null}
+							{description && !isInvalid && errorMessage ? (
+								<FieldDescription description={description} />
+							) : null}
 
-			{isInvalid && errorMessage ? (
-				<V2FieldError>{errorMessage}</V2FieldError>
-			) : null}
+							{isInvalid && errorMessage ? (
+								<V2FieldError>{errorMessage}</V2FieldError>
+							) : null}
 
-			<ReactAriaPopover {...popoverProps} className={popoverCSS}>
-				<ListBox<TItemId> />
-			</ReactAriaPopover>
-		</ReactAriaCombobox>
+							<RACPopover
+								{...popoverProps}
+								className={popoverCSS}
+							>
+								<ListBox<TItemId> />
+							</RACPopover>
+						</>
+					);
+				}}
+			</RACComboBoxStateContext.Consumer>
+		</RACCombobox>
 	);
 }
 
