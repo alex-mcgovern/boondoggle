@@ -1,17 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Slider as StoryComp } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import { Label as StoryComp } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 
 const meta = {
-	args: {
-		name: LOREM.name(),
-	},
+	title: "Components/V2/Label",
 	component: StoryComp,
-	title: "Components/V1/Slider",
+	args: {
+		label: LOREM.text_xxs,
+	},
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};

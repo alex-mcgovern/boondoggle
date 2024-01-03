@@ -8,15 +8,14 @@ import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../../_hooks/use-forward-ref";
 import { arrayHasLength } from "../../../_lib/array-has-length";
 import {
+	V2Label,
 	WithName,
 	WithOptionalIsClearable,
-	WithOptionalLabel,
 	WithOptionalPlaceholder,
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
 	WithStateInvalid,
-	getOptionalLabelProps,
 } from "../../../types";
 import { Icon } from "../../../v2/icon";
 import { Box } from "../../box";
@@ -83,8 +82,7 @@ function getPlaceholder<
 export type SelectMultiProps<
 	TValue extends string = string,
 	TItemData extends Record<string, unknown> = Record<string, unknown>,
-> = Partial<WithOptionalLabel> &
-	WithStateInvalid &
+> = WithStateInvalid &
 	Omit<WithOptionalIsClearable, "readOnly"> &
 	WithSlots &
 	WithSize &
@@ -149,6 +147,11 @@ export type SelectMultiProps<
 		selectedItemsToString?: (
 			selectedItems: Array<SelectItemShape<TValue, TItemData>>,
 		) => string;
+
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
 	};
 
 function SelectMultiBase<
@@ -162,10 +165,8 @@ function SelectMultiBase<
 		invalid,
 		isClearable,
 		isFilterable,
-		isLabelVisible,
 		items: initialItems,
 		label,
-		labelTooltip,
 		name,
 		onChange,
 		onIsOpenChange,
@@ -311,6 +312,7 @@ function SelectMultiBase<
 				outerRef={refs.setReference}
 				size={size}
 				slotLeft={slotLeft}
+				label={label}
 				marginBottom={marginBottom}
 				slotRight={getSlotRight({
 					isClearable:
@@ -337,15 +339,6 @@ function SelectMultiBase<
 					...getDropdownProps({
 						preventKeyAction: isOpen,
 						ref,
-					}),
-					...getOptionalLabelProps({
-						isLabelVisible,
-						label,
-						labelProps: getLabelProps({
-							htmlFor: name,
-						}),
-						labelTooltip,
-						name,
 					}),
 				})}
 			/>

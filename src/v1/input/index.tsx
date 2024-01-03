@@ -8,6 +8,7 @@ import type {
 } from "react";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
 import {
+	V2Label,
 	WithColorOverlay,
 	WithDescription,
 	WithHideLastpass,
@@ -15,13 +16,11 @@ import {
 	WithOptionalIsClearable,
 	WithOptionalIsCopyable,
 	WithOptionalIsVisibilityToggleable,
-	WithOptionalLabel,
 	WithOptionalPlaceholder,
 	WithReadOnly,
 	WithSize,
 	WithSlots,
 	WithStateInvalid,
-	getOptionalLabelProps,
 } from "../../types";
 import { FieldActionButtonClear } from "../field-action-button-clear";
 import { FieldActionButtonCopy } from "../field-action-button-copy";
@@ -66,7 +65,6 @@ export type InputProps = Partial<
 	WithOptionalIsClearable &
 	WithOptionalIsCopyable &
 	WithOptionalIsVisibilityToggleable &
-	WithOptionalLabel &
 	WithOptionalPlaceholder &
 	WithReadOnly &
 	WithSize &
@@ -94,6 +92,11 @@ export type InputProps = Partial<
 		};
 
 		wrapperProps?: Partial<FieldWrapperProps["wrapperProps"]>;
+
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
 	};
 
 /**
@@ -115,12 +118,9 @@ function InputBase(
 		invalid,
 		isClearable,
 		isCopyable,
-		isLabelVisible,
 		isVisibilityToggleable,
 		isVisible: initialIsVisible,
 		label,
-		labelProps,
-		labelTooltip,
 		name,
 		onChange,
 		onClick,
@@ -179,13 +179,8 @@ function InputBase(
 			hideLastpass={hideLastpass}
 			invalid={invalid}
 			wrapperProps={{ marginBottom, ...wrapperProps }}
-			{...getOptionalLabelProps({
-				isLabelVisible,
-				label,
-				labelProps,
-				labelTooltip,
-				name,
-			})}
+			label={label}
+			name={name}
 		>
 			<InputAddonWrapper
 				addonLeft={addonLeft}

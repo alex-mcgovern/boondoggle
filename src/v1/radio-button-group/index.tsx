@@ -2,9 +2,9 @@ import clsx from "clsx";
 import * as React from "react";
 import { variantColorOverlay } from "../../index.css";
 import {
+	V2Label,
 	WithDescription,
 	WithName,
-	WithOptionalLabel,
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../types";
@@ -15,13 +15,13 @@ import { FieldLabel } from "../field-label";
 import { RadioButton } from "../radio-button";
 import { Sprinkles } from "../sprinkles/index.css";
 import { getGroupLabelStyles } from "./styles.css";
+import { Label } from "../../v2/_v2-label";
 
 export type RadioButtonGroupProps = Sprinkles &
 	WithWrapperProps &
 	WithStateInvalid &
 	WithName &
 	WithDescription &
-	WithOptionalLabel &
 	WithStateInvalid & {
 		defaultValue?: string | number;
 
@@ -31,7 +31,10 @@ export type RadioButtonGroupProps = Sprinkles &
 
 		items: Array<React.ComponentProps<typeof RadioButton>>;
 
-		label: string;
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
 
 		labelTooltip?: string;
 
@@ -53,8 +56,6 @@ export const RadioButtonGroup = React.forwardRef(
 			isLabelVisible,
 			items,
 			label,
-			labelProps,
-			labelTooltip,
 			name,
 			onChange,
 			required,
@@ -87,16 +88,8 @@ export const RadioButtonGroup = React.forwardRef(
 				{...wrapperProps}
 				ref={ref}
 			>
-				{label && id && (
-					<FieldLabel
-						className={getGroupLabelStyles({ isLabelVisible })}
-						htmlFor={id}
-						id={`label-${id}`}
-						label={label}
-						labelTooltip={labelTooltip}
-						{...labelProps}
-					/>
-				)}
+				<Label name={name} label={label} />
+
 				<Box
 					aria-labelledby={`label-${id}`}
 					as="fieldset"

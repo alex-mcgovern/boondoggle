@@ -3,29 +3,29 @@ import { forwardRef, useMemo } from "react";
 import type { Ref } from "react";
 import { variantColorOverlay } from "../../index.css";
 import {
+	V2Label,
 	WithDescription,
 	WithName,
-	WithOptionalLabel,
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../types";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
-import { FieldLabel } from "../field-label";
+
 import { RadioButtonCard } from "../radio-button-card";
 import type {
 	RadioButtonCardShape,
 	RadioButtonInputProps,
 } from "../radio-button-card";
 import { Sprinkles } from "../sprinkles/index.css";
+import { Label } from "../../v2/_v2-label";
 
 export type RadioButtonCardGroupProps = Sprinkles &
 	WithWrapperProps &
 	WithStateInvalid &
 	WithName &
-	WithDescription &
-	WithOptionalLabel & {
+	WithDescription & {
 		defaultValue?: string | number;
 
 		id: string;
@@ -38,8 +38,6 @@ export type RadioButtonCardGroupProps = Sprinkles &
 
 		items: Array<RadioButtonCardShape>;
 
-		label: string;
-
 		labelTooltip?: string;
 
 		onChange?: (value: string) => void;
@@ -47,6 +45,11 @@ export type RadioButtonCardGroupProps = Sprinkles &
 		required?: boolean;
 
 		value?: string;
+
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
 	};
 
 export const RadioButtonCardGroup = forwardRef(
@@ -61,7 +64,6 @@ export const RadioButtonCardGroup = forwardRef(
 			isLabelVisible,
 			items,
 			label,
-			labelProps,
 			labelTooltip,
 			name,
 			onChange,
@@ -97,16 +99,8 @@ export const RadioButtonCardGroup = forwardRef(
 				{...wrapperProps}
 				ref={ref}
 			>
-				{label && id && (
-					<FieldLabel
-						htmlFor={id}
-						id={`label-${id}`}
-						isLabelVisible={isLabelVisible}
-						label={label}
-						labelTooltip={labelTooltip}
-						{...labelProps}
-					/>
-				)}
+				<Label name={name} label={label} />
+
 				<Box
 					aria-labelledby={`label-${id}`}
 					as="fieldset"

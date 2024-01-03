@@ -2,29 +2,38 @@ import clsx from "clsx";
 import type { ReactNode } from "react";
 import { hideLastpassStyle, variantColorOverlay } from "../../index.css";
 import type {
+	V2Label,
 	WithColorOverlay,
 	WithDescription,
 	WithHideLastpass,
-	WithOptionalLabel,
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../types";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
-import { FieldLabel } from "../field-label";
+import { Label } from "../../v2/_v2-label";
 
 export type FieldWrapperProps = WithColorOverlay &
-	WithOptionalLabel &
 	WithHideLastpass &
 	WithDescription &
 	WithStateInvalid &
 	WithWrapperProps &
 	WithStateInvalid & {
 		/**
+		 * Name & ID of the field.
+		 */
+		name: string;
+
+		/**
 		 * The field element to wrap.
 		 */
 		children: ReactNode;
+
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
 	};
 
 /**
@@ -37,10 +46,7 @@ export function FieldWrapper({
 	errorMessage,
 	hideLastpass,
 	invalid,
-	isLabelVisible = true,
 	label,
-	labelProps,
-	labelTooltip,
 	name,
 	wrapperProps,
 }: FieldWrapperProps) {
@@ -57,15 +63,7 @@ export function FieldWrapper({
 			position="relative"
 			{...wrapperProps}
 		>
-			{label && name && (
-				<FieldLabel
-					htmlFor={name}
-					isLabelVisible={isLabelVisible}
-					label={label}
-					labelTooltip={labelTooltip}
-					{...labelProps}
-				/>
-			)}
+			<Label name={name} label={label} />
 
 			{children}
 

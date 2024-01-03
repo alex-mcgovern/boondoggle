@@ -9,7 +9,6 @@ import {
 	WithHideLastpass,
 	WithName,
 	WithOptionalIsVisibilityToggleable,
-	WithOptionalLabel,
 	WithOptionalPlaceholder,
 	WithReadOnly,
 	WithSize,
@@ -34,13 +33,19 @@ export type NativeSelectProps = Omit<
 	WithHideLastpass &
 	WithOptionalIsVisibilityToggleable &
 	WithName &
-	WithOptionalLabel &
 	WithOptionalPlaceholder &
 	WithReadOnly &
 	WithSize &
 	WithSlots &
 	WithStateInvalid &
-	WithWrapperProps & { children: React.ReactNode };
+	WithWrapperProps & {
+		children: React.ReactNode;
+
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
+	};
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 	(
@@ -50,11 +55,8 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 			errorMessage,
 			hideLastpass,
 			invalid,
-			isLabelVisible,
 			label,
-			labelProps,
-			labelTooltip,
-			children,
+				children,
 			name,
 			size = "sm",
 			wrapperProps,
@@ -78,13 +80,8 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 				hideLastpass={hideLastpass}
 				invalid={invalid}
 				wrapperProps={wrapperProps}
-				{...getOptionalLabelProps({
-					isLabelVisible,
-					label,
-					labelProps,
-					labelTooltip,
-					name,
-				})}
+				label={label}
+				name={name}
 			>
 				<select
 					aria-invalid={invalid}

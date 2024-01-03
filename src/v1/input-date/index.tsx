@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 import type { MouseEvent } from "react";
-import { WithOptionalLabel, WithOptionalPlaceholder } from "../../types";
+import { V2Label, WithOptionalPlaceholder } from "../../types";
 import { DatePicker } from "../date-picker";
 import { Dialog } from "../dialog";
 import { FieldActionButtonDate } from "../field-action-button-date";
@@ -31,7 +31,6 @@ export type InputDateProps = Omit<
 	| "strShow"
 	| "isVisibilityToggleable"
 > &
-	WithOptionalLabel &
 	WithOptionalPlaceholder & {
 		/**
 		 * Controls whether the date picker is open or not.
@@ -49,6 +48,11 @@ export type InputDateProps = Omit<
 		onChange?:
 			| ((date: string) => unknown)
 			| ((date: string) => Promise<unknown>);
+
+		/**
+		 * Label config for the field.
+		 */
+		label: V2Label;
 	};
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(

@@ -10,10 +10,8 @@ import { Icon } from "../../../v2/icon";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import type { ButtonProps } from "../../button";
-
 import {
 	WithName,
-	WithOptionalLabel,
 	WithSize,
 	WithSlots,
 	WithStateDisabled,
@@ -37,8 +35,7 @@ export type SelectButtonProps<
 	WithSize &
 	WithSlots &
 	WithStateDisabled &
-	WithStateInvalid &
-	WithOptionalLabel & {
+	WithStateInvalid & {
 		/**
 		 * Props to customise the button trigger node.
 		 */

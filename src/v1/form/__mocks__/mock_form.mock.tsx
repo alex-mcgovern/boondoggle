@@ -2,9 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import type { FormProps } from "..";
 import { LOREM } from "../../../../mocks/LOREM.mock";
-import { MOCK_CURRENCY_SELECT_ITEMS } from "../../../../test/mock_data/input_currency";
-import type { MockCurrency } from "../../../../test/mock_data/input_currency";
+import { V2FormInputCurrency } from "../../../v2/form-input-currency";
 import { FormSubmitButton } from "../../../v2/form-submit-button";
+import { FlagAe } from "../../../v2/icon-flag/ae";
+import { FlagEu } from "../../../v2/icon-flag/eu";
+import { FlagGb } from "../../../v2/icon-flag/gb";
+import { FlagUs } from "../../../v2/icon-flag/us";
 import type { BoxProps } from "../../box";
 import { FormInput } from "../../form-input";
 import { FormInputDate } from "../../form-input-date";
@@ -68,7 +71,42 @@ export const mockForm = ({
 					placeholder="Enter your email address"
 				/>
 				<FormInputDate label="Date" name="date" />
-
+				<V2FormInputCurrency<"AED">
+					name="amount"
+					labelConfig={{
+						label: "Currency",
+					}}
+					currencyConfig={{
+						initialCurrencyIcon: (
+							<FlagAe height="space_4" width="space_4" />
+						),
+						initialCurrency: "AED",
+						items: [
+							{
+								id: "EUR",
+								name: "EUR",
+								slotLeft: (
+									<FlagEu height="space_4" width="space_4" />
+								),
+							},
+							{
+								id: "USD",
+								name: "USD",
+								slotLeft: (
+									<FlagUs height="space_4" width="space_4" />
+								),
+							},
+							{
+								id: "GBP",
+								name: "GBP",
+								slotLeft: (
+									<FlagGb height="space_4" width="space_4" />
+								),
+							},
+						],
+						isCurrencyEditable: true,
+					}}
+				/>
 				<FormTextArea
 					defaultValue={
 						withDefaultValues ? LOREM.text_xxs : undefined

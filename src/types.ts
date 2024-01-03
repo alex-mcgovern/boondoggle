@@ -9,6 +9,7 @@ import type { RegisterOptions } from "react-hook-form";
 import { ColorOverlay, ElementSizeEnum } from "./index.css";
 import { BoxProps } from "./v1/box";
 import { FieldLabelProps } from "./v1/field-label";
+import { type LabelProps as RACLabelProps } from "react-aria-components";
 
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(
@@ -289,6 +290,15 @@ type WithoutLabel = BaseWithLabel & {
 
 export type WithOptionalLabel = WithLabel | WithoutLabel;
 export type LabelConfig = Omit<WithLabel | WithoutLabel, "name">;
+
+export type V2Label =
+	| string
+	| {
+			text: string;
+			isHidden?: boolean;
+			tooltip?: string;
+			props?: Omit<RACLabelProps, "children" | "htmlFor">;
+	  };
 
 /**
  * Validates that the correct required props are present to label
