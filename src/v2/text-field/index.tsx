@@ -5,10 +5,10 @@ import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
 import * as React from "react";
 import {
-	Group as ReactAriaGroup,
-	Input as ReactAriaInput,
-	TextField as ReactAriaTextField,
-	type TextFieldProps as ReactAriaTextFieldProps,
+	Group as RACGroup,
+	Input as RACInput,
+	TextField as RACTextField,
+	type TextFieldProps as RACTextFieldProps,
 } from "react-aria-components";
 import { FieldActionButton } from "../../v1/field-action-button";
 import { FieldDescription } from "../../v1/field-description";
@@ -35,9 +35,9 @@ function useControlledInputValue({
 	defaultValue,
 	onChange,
 }: {
-	initialValue: ReactAriaTextFieldProps["value"];
-	defaultValue: ReactAriaTextFieldProps["defaultValue"];
-	onChange: ReactAriaTextFieldProps["onChange"] | undefined;
+	initialValue: RACTextFieldProps["value"];
+	defaultValue: RACTextFieldProps["defaultValue"];
+	onChange: RACTextFieldProps["onChange"] | undefined;
 }) {
 	const [value, setValue] = React.useState(
 		initialValue ?? defaultValue ?? "",
@@ -409,7 +409,7 @@ const BaseTextfield = (
 	useSlotOffsetPadding({ inputRef, slotLeftRef, slotRightRef });
 
 	return (
-		<ReactAriaTextField
+		<RACTextField
 			{...rest}
 			className={clsx(className, textFieldCSS({ isDisabled, isInvalid }))}
 			isInvalid={isInvalid}
@@ -429,7 +429,7 @@ const BaseTextfield = (
 				labelTooltip={labelTooltip}
 			/>
 
-			<ReactAriaGroup
+			<RACGroup
 				isDisabled={isDisabled}
 				isInvalid={isInvalid}
 				className={groupCSS({ isInvalid })}
@@ -452,7 +452,7 @@ const BaseTextfield = (
 					</TextFieldSlot>
 				) : null}
 
-				<ReactAriaInput
+				<RACInput
 					className={textFieldInputCSS({
 						hasSlotLeft: !!slotLeftProps?.children,
 						hasSlotRight: !!slotRightProps?.children,
@@ -489,7 +489,7 @@ const BaseTextfield = (
 					strHide={strHide}
 					strShow={strShow}
 				/>
-			</ReactAriaGroup>
+			</RACGroup>
 
 			{description && !isInvalid && errorMessage ? (
 				<FieldDescription description={description} />
@@ -498,7 +498,7 @@ const BaseTextfield = (
 			{isInvalid && errorMessage && (
 				<V2FieldError>{errorMessage}</V2FieldError>
 			)}
-		</ReactAriaTextField>
+		</RACTextField>
 	);
 };
 
