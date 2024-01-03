@@ -62,7 +62,7 @@ export type TextFieldProps = Omit<
 
 	// ===== ACTION PROPS =====
 
-	clearButtonProps?: InputProps["clearButtonProps"];
-	copyButtonProps?: InputProps["copyButtonProps"];
-	visibilityToggleProps?: InputProps["visibilityToggleProps"];
+	addonClearButton?: InputProps["addonClearButton"];
+	addonCopyButton?: InputProps["addonCopyButton"];
+	addonVisibilityToggle?: InputProps["addonVisibilityToggle"];
 };

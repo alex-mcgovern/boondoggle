@@ -147,7 +147,7 @@ export const SlotRightButtonIcon: StoryObj<TextFieldProps> = {
  * COPYABLE FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-const COPYABLE_ARGS: TextFieldProps["copyButtonProps"] = {
+const COPYABLE_ARGS: TextFieldProps["addonCopyButton"] = {
 	strCopied: "Copied to clipboard",
 	strCopy: "Copy",
 };
@@ -155,14 +155,14 @@ const COPYABLE_ARGS: TextFieldProps["copyButtonProps"] = {
 export const CopyableDefaultValue: StoryObj<TextFieldProps> = {
 	args: {
 		defaultValue: faker.lorem.words(3),
-		copyButtonProps: COPYABLE_ARGS,
+		addonCopyButton: COPYABLE_ARGS,
 	},
 };
 
 export const CopyableControlledValue: StoryObj<TextFieldProps> = {
 	args: {
 		value: faker.lorem.words(3),
-		copyButtonProps: COPYABLE_ARGS,
+		addonCopyButton: COPYABLE_ARGS,
 	},
 };
 
@@ -173,7 +173,7 @@ export const CopyableSlotRight: StoryObj<TextFieldProps> = {
 			isClickable: false,
 			children: <Icon icon={faLock} />,
 		},
-		copyButtonProps: COPYABLE_ARGS,
+		addonCopyButton: COPYABLE_ARGS,
 	},
 };
 
@@ -181,28 +181,28 @@ export const CopyableSlotRight: StoryObj<TextFieldProps> = {
  * CLEARABLE FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-const CLEARABLE_ARGS: TextFieldProps["clearButtonProps"] = {
+const CLEARABLE_ARGS: TextFieldProps["addonClearButton"] = {
 	strClear: "Clear",
 };
 
 export const ClearableNoValue: StoryObj<TextFieldProps> = {
 	name: "Clearable: No value",
 	args: {
-		clearButtonProps: CLEARABLE_ARGS,
+		addonClearButton: CLEARABLE_ARGS,
 	},
 };
 export const ClearableControlledValue: StoryObj<TextFieldProps> = {
 	name: "Clearable: Controlled value",
 	args: {
 		value: faker.lorem.words(3),
-		clearButtonProps: CLEARABLE_ARGS,
+		addonClearButton: CLEARABLE_ARGS,
 	},
 };
 export const ClearableDefaultValue: StoryObj<TextFieldProps> = {
 	name: "Clearable: Default value",
 	args: {
 		defaultValue: faker.lorem.words(3),
-		clearButtonProps: CLEARABLE_ARGS,
+		addonClearButton: CLEARABLE_ARGS,
 	},
 };
 
@@ -214,7 +214,7 @@ export const ClearableSlotRight: StoryObj<TextFieldProps> = {
 			isClickable: false,
 			children: <Icon icon={faLock} />,
 		},
-		clearButtonProps: CLEARABLE_ARGS,
+		addonClearButton: CLEARABLE_ARGS,
 	},
 };
 
@@ -222,7 +222,7 @@ export const ClearableSlotRight: StoryObj<TextFieldProps> = {
  * VISIBILITY FUNCTIONALITY
  * ------------------------------------------------------------------------------- */
 
-const VISIBILITY_ARGS: TextFieldProps["visibilityToggleProps"] = {
+const VISIBILITY_ARGS: TextFieldProps["addonVisibilityToggle"] = {
 	isVisible: false,
 	strHide: "Hide",
 	strShow: "Show",
@@ -231,20 +231,20 @@ const VISIBILITY_ARGS: TextFieldProps["visibilityToggleProps"] = {
 export const VisibilityDefaultValue: StoryObj<TextFieldProps> = {
 	args: {
 		defaultValue: "my-secret-password",
-		visibilityToggleProps: VISIBILITY_ARGS,
+		addonVisibilityToggle: VISIBILITY_ARGS,
 	},
 };
 
 export const VisibilityControlledValue: StoryObj<TextFieldProps> = {
 	args: {
 		value: "my-secret-password",
-		visibilityToggleProps: VISIBILITY_ARGS,
+		addonVisibilityToggle: VISIBILITY_ARGS,
 	},
 };
 
 export const VisibilitySlotRight: StoryObj<TextFieldProps> = {
 	args: {
-		visibilityToggleProps: VISIBILITY_ARGS,
+		addonVisibilityToggle: VISIBILITY_ARGS,
 		defaultValue: "my-secret-password",
 		slotRightProps: {
 			isClickable: false,
@@ -259,9 +259,9 @@ export const VisibilitySlotRight: StoryObj<TextFieldProps> = {
 
 export const KitchenSink: StoryObj<TextFieldProps> = {
 	args: {
-		clearButtonProps: CLEARABLE_ARGS,
-		visibilityToggleProps: VISIBILITY_ARGS,
-		copyButtonProps: COPYABLE_ARGS,
+		addonClearButton: CLEARABLE_ARGS,
+		addonVisibilityToggle: VISIBILITY_ARGS,
+		addonCopyButton: COPYABLE_ARGS,
 		slotRightProps: {
 			isClickable: false,
 			children: <Icon icon={faLock} />,

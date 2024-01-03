@@ -34,8 +34,8 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>((
 			/>
 
 			<Input
-				clearButtonProps={props.clearButtonProps}
-				copyButtonProps={props.copyButtonProps}
+				addonClearButton={props.addonClearButton}
+				addonCopyButton={props.addonCopyButton}
 				defaultValue={props.defaultValue}
 				disabled={props.isDisabled}
 				invalid={props.isInvalid}
@@ -44,7 +44,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>((
 				slotLeftProps={props.slotLeftProps}
 				slotRightProps={props.slotRightProps}
 				value={props.value}
-				visibilityToggleProps={props.visibilityToggleProps}
+				addonVisibilityToggle={props.addonVisibilityToggle}
 			/>
 
 			{props.description && !props.isInvalid && props.errorMessage ? (

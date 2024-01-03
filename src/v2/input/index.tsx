@@ -57,9 +57,6 @@ function useControlledInputValue({
 	return { localValue, handleChange };
 }
 
-/**
- * Offset the padding of the input by the width of the slot.
- */
 function useSlotOffsetPadding({
 	slotRightRef,
 	slotLeftRef,
@@ -84,12 +81,8 @@ function useSlotOffsetPadding({
 	}, [inputRef, slotLeftRef, slotRightRef]);
 }
 
-/** -----------------------------------------------------------------------------
- * "COPY-TO-CLIPBOARD" FUNCTIONALITY
- * ------------------------------------------------------------------------------- */
-
 const hasCopyProps = (
-	p: InputProps["copyButtonProps"],
+	p: InputProps["addonCopyButton"],
 ): p is { strCopied: string; strCopy: string } => !!p?.strCopied && !!p.strCopy;
 
 function CopyButton({
@@ -98,7 +91,7 @@ function CopyButton({
 	value,
 }: {
 	value: Exclude<InputProps["value"], undefined>;
-} & InputProps["copyButtonProps"]) {
+} & InputProps["addonCopyButton"]) {
 	const toastState = useToastContext();
 
 	const copyValue = React.useCallback(
@@ -140,7 +133,7 @@ const getCopyButton = ({
 	props,
 }: {
 	value: InputProps["value"];
-	props: InputProps["copyButtonProps"];
+	props: InputProps["addonCopyButton"];
 }) => {
 	if (!hasValue(value) || !hasCopyProps(props)) return null;
 
@@ -153,12 +146,8 @@ const getCopyButton = ({
 	);
 };
 
-/** -----------------------------------------------------------------------------
- * "CLEAR-VALUE" FUNCTIONALITY
- * ------------------------------------------------------------------------------- */
-
 const hasClearButtonProps = (
-	p: InputProps["clearButtonProps"],
+	p: InputProps["addonClearButton"],
 ): p is { strClear: string } => !!p?.strClear;
 
 function ClearButton({
@@ -166,7 +155,7 @@ function ClearButton({
 	strClear,
 }: {
 	onChange: Exclude<InputProps["onChange"], undefined>;
-} & InputProps["clearButtonProps"]) {
+} & InputProps["addonClearButton"]) {
 	return (
 		<div
 			className={slottedCSS({
@@ -194,18 +183,14 @@ const getClearButton = ({
 }: {
 	onChange: Exclude<InputProps["onChange"], undefined>;
 	value: InputProps["value"];
-	props: InputProps["clearButtonProps"];
+	props: InputProps["addonClearButton"];
 }) => {
 	if (!hasValue(value) || !hasClearButtonProps(props)) return null;
 
 	return <ClearButton onChange={onChange} strClear={props.strClear} />;
 };
 
-/** -----------------------------------------------------------------------------
- * "TOGGLE-VISIBILITY" FUNCTIONALITY
- * ------------------------------------------------------------------------------- */
-
-function useFieldVisibilityState(props: InputProps["visibilityToggleProps"]) {
+function useFieldVisibilityState(props: InputProps["addonVisibilityToggle"]) {
 	const [isVisible, setIsVisible] = React.useState<boolean>(
 		!!props?.isVisible,
 	);
@@ -218,7 +203,7 @@ function useFieldVisibilityState(props: InputProps["visibilityToggleProps"]) {
 }
 
 const hasVisibilityToggleProps = (
-	p: InputProps["visibilityToggleProps"],
+	p: InputProps["addonVisibilityToggle"],
 ): p is {
 	isVisible: boolean;
 	strHide: string;
@@ -234,7 +219,7 @@ function VisibilityButton({
 	strShow,
 }: {
 	toggleVisibility: () => void;
-} & InputProps["visibilityToggleProps"]) {
+} & InputProps["addonVisibilityToggle"]) {
 	return (
 		<div
 			className={slottedCSS({
@@ -256,7 +241,7 @@ const getVisibilityButton = ({
 	props,
 	toggleVisibility,
 }: {
-	props: InputProps["visibilityToggleProps"];
+	props: InputProps["addonVisibilityToggle"];
 	toggleVisibility: ReturnType<
 		typeof useFieldVisibilityState
 	>["toggleVisibility"];
@@ -272,10 +257,6 @@ const getVisibilityButton = ({
 		/>
 	);
 };
-
-/** -----------------------------------------------------------------------------
- * SLOTS
- * ------------------------------------------------------------------------------- */
 
 export type SlotProps = {
 	className?: string;
@@ -333,26 +314,22 @@ const getSlotContent = (
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 	(
-		/**
-		 * @note Props prefixed with an underscore may have 
-		 * augmented functionality and should be used carefully.
-		 */
 		{ 
-			clearButtonProps,
-			copyButtonProps,
+			addonClearButton,
+			addonCopyButton,
+			addonVisibilityToggle,
 			defaultValue,
 			disabled,
 			invalid,
 			label,
+			name,
 			onChange,
+			placeholder,
 			readOnly,
 			slotLeftProps,
 			slotRightProps,
-			value, 
-			visibilityToggleProps,
-			name,
-			placeholder,
 			type,
+			value, 
 			  ...props },
 		ref,
 	) => {
@@ -367,7 +344,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 		});
 
 		const { toggleVisibility, isVisible } = useFieldVisibilityState(
-			visibilityToggleProps,
+			addonVisibilityToggle,
 		);
 
 		/** Offset the padding of the input by the width of the slot */
@@ -391,7 +368,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 					placeholder={placeholder}
 					ref={inputRef}
 					type={
-						visibilityToggleProps && !isVisible
+						addonVisibilityToggle && !isVisible
 							? "password"
 							: type
 					}
@@ -402,15 +379,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 				<Slot side="right" ref={slotRightRef}>
 					{getClearButton({
 						onChange: handleChange,
-						props: clearButtonProps,
+						props: addonClearButton,
 						value: localValue,
 					})}
 					{getCopyButton({
-						props: copyButtonProps,
+						props: addonCopyButton,
 						value: localValue,
 					})}
 					{getVisibilityButton({
-						props: visibilityToggleProps,
+						props: addonVisibilityToggle,
 						toggleVisibility,
 					})}
 					{getSlotContent(slotRightProps)}

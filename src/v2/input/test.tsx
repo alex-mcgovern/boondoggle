@@ -381,7 +381,7 @@ describe("<Input />", () => {
 				value: undefined,
 				disabled: undefined,
 				invalid: undefined,
-				clearButtonProps: {
+				addonClearButton: {
 					strClear: "Clear",
 				},
 			});
@@ -394,7 +394,7 @@ describe("<Input />", () => {
 				value: undefined,
 				disabled: undefined,
 				invalid: undefined,
-				clearButtonProps: {
+				addonClearButton: {
 					strClear: "Clear",
 				},
 				defaultValue: "Clear me",
@@ -415,7 +415,7 @@ describe("<Input />", () => {
 				value: "Clear me",
 				disabled: undefined,
 				invalid: undefined,
-				clearButtonProps: {
+				addonClearButton: {
 					strClear: "Clear",
 				},
 				defaultValue: undefined,
@@ -439,7 +439,7 @@ describe("<Input />", () => {
 				value: undefined,
 				disabled: undefined,
 				invalid: undefined,
-				copyButtonProps: {
+				addonCopyButton: {
 					strCopy: "Copy",
 					strCopied: "Copied",
 				},
@@ -454,7 +454,7 @@ describe("<Input />", () => {
 				value: undefined,
 				disabled: undefined,
 				invalid: undefined,
-				copyButtonProps: {
+				addonCopyButton: {
 					strCopy: "Copy",
 					strCopied: "Copied",
 				},
@@ -478,7 +478,7 @@ describe("<Input />", () => {
 				defaultValue: undefined,
 				disabled: undefined,
 				invalid: undefined,
-				copyButtonProps: {
+				addonCopyButton: {
 					strCopy: "Copy",
 					strCopied: "Copied",
 				},
@@ -503,7 +503,7 @@ describe("<Input />", () => {
 				defaultValue: "password",
 				disabled: undefined,
 				invalid: undefined,
-				visibilityToggleProps: {
+				addonVisibilityToggle: {
 					isVisible: false,
 					strHide: "Hide",
 					strShow: "Show",
@@ -526,7 +526,7 @@ describe("<Input />", () => {
 				defaultValue: undefined,
 				disabled: undefined,
 				invalid: undefined,
-				visibilityToggleProps: {
+				addonVisibilityToggle: {
 					isVisible: false,
 
 					strHide: "Hide",

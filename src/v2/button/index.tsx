@@ -4,6 +4,7 @@ import { Button as ReactAriaButton } from "react-aria-components";
 import type { ButtonProps as ReactAriaButtonProps } from "react-aria-components";
 import { ColorOverlay, variantColorOverlay } from "../../index.css";
 import { buttonCSS } from "./styles.css";
+
 export type ButtonProps = ReactAriaButtonProps & {
 	"data-slot-side"?: "right" | "left";
 	colorOverlay?: ColorOverlay;

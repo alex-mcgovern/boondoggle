@@ -104,15 +104,15 @@ export type InputProps = Omit<
 	/**
 	 * Props to enable "clear value" functionality.
 	 */
-	clearButtonProps?: ClearButtonProps;
+	addonClearButton?: ClearButtonProps;
 
 	/**
 	 * Props to enable "copy to clipboard" functionality.
 	 */
-	copyButtonProps?: CopyButtonProps;
+	addonCopyButton?: CopyButtonProps;
 
 	/**
 	 * Config to enable "show/hide" functionality.
 	 */
-	visibilityToggleProps?: VisibilityToggleProps;
+	addonVisibilityToggle?: VisibilityToggleProps;
 };
