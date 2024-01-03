@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { faLock, faRefresh } from "@fortawesome/pro-solid-svg-icons";
 import { Meta, StoryObj } from "@storybook/react";
 import { TextField } from ".";
@@ -5,7 +6,6 @@ import { Button } from "../button";
 import { Icon } from "../icon";
 import { ToastProvider } from "../toast";
 import { TextFieldProps } from "./types";
-import { faker } from "@faker-js/faker";
 
 const meta = {
 	title: "Components/V2/TextField",
