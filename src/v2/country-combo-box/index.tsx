@@ -37,16 +37,18 @@ export type CountryComboBoxProps = Omit<
 	>;
 };
 
-export const CountryComboBox = React.forwardRef(
-	({ ...rest }: ComboBoxProps) => {
-		return (
-			<ComboBox
-				{...rest}
-				comboBoxProps={{
-					...rest.comboBoxProps,
-					defaultItems: COUNTRY_SELECT_ITEMS,
-				}}
-			/>
-		);
-	},
-);
+export const CountryComboBox = React.forwardRef<
+	HTMLInputElement,
+	ComboBoxProps
+>(({ ...rest }, ref) => {
+	return (
+		<ComboBox
+			ref={ref}
+			{...rest}
+			comboBoxProps={{
+				...rest.comboBoxProps,
+				defaultItems: COUNTRY_SELECT_ITEMS,
+			}}
+		/>
+	);
+});
