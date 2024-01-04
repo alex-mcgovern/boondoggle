@@ -1,0 +1,160 @@
+import {
+	Row,
+	VisibilityState,
+	createColumnHelper,
+	getCoreRowModel,
+	getFacetedMinMaxValues,
+	getFacetedRowModel,
+	getFacetedUniqueValues,
+	getFilteredRowModel,
+	getPaginationRowModel,
+	getSortedRowModel,
+	useReactTable,
+} from "@tanstack/react-table";
+import type {
+	ColumnDef,
+	RowData,
+	RowSelectionState,
+	SortingState,
+	Updater,
+} from "@tanstack/react-table";
+import { useCallback, useMemo, useState } from "react";
+import { arrayHasLength } from "../../_lib/array-has-length";
+import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
+import { FilteringOptions, PaginationOptions } from "../types";
+import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
+
+function dataTableFilterFnMultiSelect<TRowData extends RowData>(
+	row: Row<TRowData>,
+	column_id: string,
+	// biome-ignore lint/suspicious/noExplicitAny: required by react-table
+	filter_value: any,
+) {
+	const cell_value = row.getValue(column_id);
+
+	if (!arrayHasLength(filter_value)) {
+		return false;
+	}
+
+	return filter_value.includes(cell_value as string);
+}
+
+type UseDataTableStateProps<TRowData extends RowData> = {
+	data: Array<TRowData> | undefined;
+	enableMultiRowSelection: boolean | undefined;
+	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
+	columns: Array<ColumnDef<TRowData, any>>;
+	initialSorting: SortingState | undefined;
+	isSelectable: boolean | undefined;
+	isSortable: boolean | undefined;
+	onSelect: ((selection: TRowData[] | undefined) => void) | undefined;
+
+	// ==== NEW PROPS ====
+	filteringOptions: FilteringOptions<TRowData> | undefined;
+	paginationOptions: PaginationOptions | undefined;
+	columnVisibility: VisibilityState | undefined;
+};
+
+export function useDataTableState<TRowData extends RowData>({
+	data,
+	enableMultiRowSelection,
+	columnVisibility,
+	columns: initColumns,
+	initialSorting,
+	paginationOptions,
+	filteringOptions,
+	isSelectable,
+	isSortable,
+	onSelect,
+}: UseDataTableStateProps<TRowData>) {
+	const [rowSelection, setRowSelection] = useState({});
+
+	const onRowSelectionChange = useCallback(
+		(updater: Updater<RowSelectionState>) => {
+			if (!isSelectable) {
+				return null;
+			}
+
+			setRowSelection(updater);
+
+			if (typeof updater === "function") {
+				return onSelect?.(
+					data?.reduce<TRowData[]>((acc, row, index) => {
+						if (updater({})[index]) {
+							acc.push(row);
+						}
+						return acc;
+					}, []),
+				);
+			}
+
+			return onSelect?.(undefined);
+		},
+		[data, onSelect, isSelectable],
+	);
+
+	const columnHelper = createColumnHelper<TRowData>();
+
+	const columns = useMemo(() => {
+		return [
+			// If the table is selectable, add a column for
+			// the checkbox at the start of the columns array
+			...(isSelectable
+				? [
+						columnHelper.display({
+							cell: TableSelectableCell,
+							enableSorting: false,
+							id: "select",
+						}),
+				  ]
+				: []),
+
+			...initColumns,
+		];
+	}, [columnHelper, isSelectable, initColumns]);
+
+	const table = useReactTable<TRowData>({
+		columns,
+		data: data || [],
+		getCoreRowModel: getCoreRowModel(),
+		getFacetedRowModel: getFacetedRowModel(),
+		getFacetedUniqueValues: getFacetedUniqueValues(),
+		getFacetedMinMaxValues: getFacetedMinMaxValues(),
+		getFilteredRowModel: getFilteredRowModel(),
+		...(!!filteringOptions?.columnFilterConfig && {
+			globalFilterFn: dataTableFuzzyFilter,
+		}),
+		filterFns: {
+			multiSelect: dataTableFilterFnMultiSelect,
+		},
+		...(!!paginationOptions && {
+			getPaginationRowModel: getPaginationRowModel(),
+		}),
+		...(isSortable && { getSortedRowModel: getSortedRowModel() }),
+		...(isSelectable && {
+			enableMultiRowSelection,
+			onRowSelectionChange,
+		}),
+
+		initialState: {
+			pagination: {
+				pageSize: 25,
+			},
+			columnVisibility,
+			sorting: initialSorting,
+		},
+		defaultColumn: {
+			enableColumnFilter: false,
+		},
+		filterFromLeafRows: false,
+		state: {
+			...(isSelectable && {
+				rowSelection,
+			}),
+		},
+	});
+
+	return {
+		table,
+	};
+}

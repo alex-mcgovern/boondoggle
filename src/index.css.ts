@@ -22,7 +22,7 @@ import {
 	styleVariants,
 } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { makeTheme, withPrefersMotion } from "./v1/css-utils";
+import { makeTheme, withPrefersMotion } from "./__DONE__css-utils";
 
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
@@ -228,6 +228,13 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100dvh": "100dvh",
 		auto: "auto",
 		"min-content": "min-content",
+
+		// Bespoke, non-reusable heights
+
+		element_sm: "2rem",
+		element_md: "2.5rem",
+		element_lg: "3rem",
+
 		topBar: "3rem",
 	},
 	lineHeight: {
