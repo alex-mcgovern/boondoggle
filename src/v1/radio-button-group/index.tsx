@@ -8,12 +8,12 @@ import {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../../types";
+import { Label } from "../../label";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 import { RadioButton } from "../radio-button";
 import { Sprinkles } from "../sprinkles/index.css";
-import { Label } from "../../v2/label";
 
 export type RadioButtonGroupProps = Sprinkles &
 	WithWrapperProps &

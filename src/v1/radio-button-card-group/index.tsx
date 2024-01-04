@@ -13,13 +13,13 @@ import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
 
+import { Label } from "../../label";
 import { RadioButtonCard } from "../radio-button-card";
 import type {
 	RadioButtonCardShape,
 	RadioButtonInputProps,
 } from "../radio-button-card";
 import { Sprinkles } from "../sprinkles/index.css";
-import { Label } from "../../v2/label";
 
 export type RadioButtonCardGroupProps = Sprinkles &
 	WithWrapperProps &

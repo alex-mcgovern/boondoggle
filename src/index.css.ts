@@ -228,6 +228,13 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100dvh": "100dvh",
 		auto: "auto",
 		"min-content": "min-content",
+
+		// Bespoke, non-reusable heights
+
+		element_sm: "2rem",
+		element_md: "2.5rem",
+		element_lg: "3rem",
+
 		topBar: "3rem",
 	},
 	lineHeight: {

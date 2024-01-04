@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.4.1-nightly.d869a33/schema.json",
 	"organizeImports": {
 		"enabled": true
 	},
@@ -8,14 +8,24 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": ["docs", "build", "dist", "storybook-static"]
+		"ignore": [
+			"docs",
+			"build",
+			"dist",
+			"storybook-static"
+		]
 	},
 	"formatter": {
 		"enabled": true,
-		"formatWithErrors": true,
+		"formatWithErrors": false,
 		"indentStyle": "tab",
 		"indentWidth": 4,
 		"lineWidth": 80,
-		"ignore": ["docs", "build", "dist", "storybook-static"]
+		"ignore": [
+			"docs",
+			"build",
+			"dist",
+			"storybook-static"
+		]
 	}
 }

@@ -9,13 +9,13 @@ import { V2Label, WithName, WithSize } from "../../types";
 import { Box } from "../../v1/box";
 import { Sprinkles, sprinkles } from "../../v1/sprinkles/index.css";
 import { V2FieldError } from "../field-error";
-import { Group } from "../group";
+import { Group } from "../../group";
 import { GroupAddon } from "../group-addon";
 import { Icon } from "../icon";
+import { Label } from "../../label";
 import { IterableMenuItem } from "../menu";
 import { MenuButton } from "../menu-button";
 import { numberInputCSS } from "./styles.css";
-import { Label } from "../label";
 
 /** -----------------------------------------------------------------------------
  * TYPES

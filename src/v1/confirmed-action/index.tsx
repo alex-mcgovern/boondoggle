@@ -4,7 +4,7 @@ import { z } from "zod";
 import { WithColorOverlay } from "../../types";
 import { FormSubmitButton } from "../../v2/form-submit-button";
 import { Box } from "../box";
-import { Form } from "../form";
+import { Form } from "../../form";
 import { FormInput } from "../form-input";
 import { InputProps } from "../input";
 import { sprinkles } from "../sprinkles/index.css";

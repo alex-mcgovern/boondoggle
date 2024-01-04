@@ -6,10 +6,6 @@ import type { UseComboboxStateChange } from "downshift";
 import { forwardRef } from "react";
 import type { ForwardedRef } from "react";
 import { useForwardRef } from "../../../_hooks/use-forward-ref";
-import { Icon } from "../../../v2/icon";
-import { Box } from "../../box";
-import { Button } from "../../button";
-import type { ButtonProps } from "../../button";
 import {
 	WithName,
 	WithSize,
@@ -17,6 +13,10 @@ import {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../../types";
+import { Icon } from "../../../v2/icon";
+import { Box } from "../../box";
+import { Button } from "../../button";
+import type { ButtonProps } from "../../button";
 import { Sprinkles } from "../../sprinkles/index.css";
 import { SelectItemList } from "../_components/select-item-list";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";

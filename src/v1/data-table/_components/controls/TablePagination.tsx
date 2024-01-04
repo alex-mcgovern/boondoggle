@@ -1,5 +1,5 @@
 import type { RowData, Table } from "@tanstack/react-table";
-import { Button } from "../../../../v2/button";
+import { Button } from "../../../../button";
 import { Box } from "../../../box";
 import { PaginationOptions } from "../../types";
 

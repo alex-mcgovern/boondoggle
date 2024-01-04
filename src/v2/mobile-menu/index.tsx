@@ -9,7 +9,7 @@ import {
 	ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
 import { sprinkles } from "../../v1/sprinkles/index.css";
-import { Button } from "../button";
+import { Button } from "../../button";
 import { Icon } from "../icon";
 import {
 	mobileMenuCSS,

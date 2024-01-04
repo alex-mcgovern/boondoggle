@@ -7,7 +7,7 @@ import {
 	V2ScrollableDialogContent,
 } from ".";
 import { sprinkles } from "../../v1/sprinkles/index.css";
-import { Button } from "../button";
+import { Button } from "../../button";
 import { V2DialogAlert } from "../dialog-alert";
 import { V2DialogErrorMessage } from "../dialog-error-message";
 

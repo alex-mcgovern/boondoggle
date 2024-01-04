@@ -15,11 +15,11 @@ import { popoverCSS } from "../../_css/popover.css";
 import { type V2Label, WithName } from "../../types";
 import { FieldDescription } from "../../v1/field-description";
 import { V2FieldError } from "../field-error";
-import { Group } from "../group";
+import { Group } from "../../group";
 import { Icon } from "../icon";
+import { Label } from "../../label";
 import { IterableListBoxItem, ListBox } from "../list-box";
 import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
-import { Label } from "../label";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;

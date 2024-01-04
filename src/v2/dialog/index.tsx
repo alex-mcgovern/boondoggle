@@ -8,7 +8,7 @@ import {
 } from "react-aria-components";
 import { ColorOverlay } from "../../index.css";
 import { sprinkles } from "../../v1/sprinkles/index.css";
-import { Button } from "../button";
+import { Button } from "../../button";
 import { Icon } from "../icon";
 import {
 	dialogCSS,
