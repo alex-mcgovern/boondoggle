@@ -6,7 +6,7 @@ import { LOREM } from "../../mocks/LOREM.mock";
 import { Link } from "../../test/link.comp.mock";
 import { variantColorOverlay } from "../index.css";
 import { Icon } from "../__DONE__icon";
-import { Sprinkles } from "../sprinkles/index.css";
+import { Sprinkles } from "../__DONE__sprinkles/index.css";
 
 export default {
 	component: Box,

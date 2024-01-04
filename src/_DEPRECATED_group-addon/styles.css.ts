@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 
 export const groupAddonCSS = recipe({
 	base: [

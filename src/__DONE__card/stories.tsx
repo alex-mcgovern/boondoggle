@@ -5,8 +5,8 @@ import { Input } from "../_DEPRECATED_input";
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "react-aria-components";
 import { FieldsGrid } from "../__DONE__fields-grid";
-import { SkeletonInput } from "../skeleton-input";
-import { sprinkles } from "../sprinkles/index.css";
+import { SkeletonInput } from "../__DONE__skeleton-input";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 
 const meta = {
 	title: "Components/V1/Card",

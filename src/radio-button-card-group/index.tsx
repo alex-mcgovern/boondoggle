@@ -17,7 +17,7 @@ import type {
 	RadioButtonCardShape,
 	RadioButtonInputProps,
 } from "../radio-button-card";
-import { Sprinkles } from "../sprinkles/index.css";
+import { Sprinkles } from "../__DONE__sprinkles/index.css";
 import { FieldError } from "../__DONE__field-error";
 
 export type RadioButtonCardGroupProps = Sprinkles &

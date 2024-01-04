@@ -5,7 +5,7 @@ import {
 	CONTAINER_SM,
 	vars,
 } from "../../../../index.css";
-import { sprinkles } from "../../../../sprinkles/index.css";
+import { sprinkles } from "../../../../__DONE__sprinkles/index.css";
 
 const tableActionsContainer = createContainer();
 

@@ -1,12 +1,12 @@
 import { Form } from ".";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormTextField } from "../text-field";
-import { Input } from "../input";
-import { ToastProvider } from "../toast";
+import { FormTextField } from "../__DONE__text-field";
+import { Input } from "../__DONE__input";
+import { ToastProvider } from "../__DONE__toast";
 import { Button } from "../__DONE__button";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { Label } from "../label";
-import { TextArea } from "../text-area";
+import { TextArea } from "../__DONE__text-area";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -29,14 +29,8 @@ const meta = {
 						className={sprinkles({ marginBottom: "space_2" })}
 						name="first_name"
 					>
-						{({ ref }) => {
-							return (
-								<>
-									<Label>First name</Label>
-									<Input ref={ref} />
-								</>
-							);
-						}}
+						<Label>First name</Label>
+						<Input />
 					</FormTextField>
 
 					<FormTextField

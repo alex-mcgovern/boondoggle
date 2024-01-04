@@ -6,7 +6,7 @@ import {
 	V2DialogHeader,
 	V2ScrollableDialogContent,
 } from ".";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { Button } from "../__DONE__button";
 import { V2DialogAlert } from "../__DONE__dialog-alert";
 import { V2DialogErrorMessage } from "../__DONE__dialog-error-message";

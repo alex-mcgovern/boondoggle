@@ -2,7 +2,7 @@
 import { Faker, en } from "@faker-js/faker";
 import { createColumnHelper } from "@tanstack/react-table";
 import { Avatar } from "../../__DONE__avatar";
-import { Pill } from "../../pill";
+import { Pill } from "../../__DONE__pill";
 import { Box } from "../../__DONE__box";
 const faker = new Faker({ locale: [en] });
 

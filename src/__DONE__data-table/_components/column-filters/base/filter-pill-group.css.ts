@@ -1,7 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 import { variantColorOverlay, vars } from "../../../../index.css";
 import { withPrefersMotion } from "../../../../__DONE__css-utils";
-import { sprinkles } from "../../../../sprinkles/index.css";
+import { sprinkles } from "../../../../__DONE__sprinkles/index.css";
 
 export const pillGroupCSS = recipe({
 	base: [

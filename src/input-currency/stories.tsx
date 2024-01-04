@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { V2InputCurrency as StoryComp } from ".";
-import { FlagEu } from "../icon-flag/eu";
-import { FlagGb } from "../icon-flag/gb";
-import { FlagUs } from "../icon-flag/us";
+import { FlagEu } from "../__DONE__icon-flag/eu";
+import { FlagGb } from "../__DONE__icon-flag/gb";
+import { FlagUs } from "../__DONE__icon-flag/us";
 
 const meta = {
 	title: "Data entry/InputCurrency",

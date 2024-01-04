@@ -7,7 +7,7 @@ import { Box } from "../__DONE__box";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
 import { InputProps } from "../_DEPRECATED_input";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { confirmTextCSS } from "./styles.css";
 
 const getZodSchema = ({

@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { a11yFocusStyleRule, vars } from "../../../../index.css";
 import { withPrefersMotion } from "../../../../__DONE__css-utils";
-import { sprinkles } from "../../../../sprinkles/index.css";
+import { sprinkles } from "../../../../__DONE__sprinkles/index.css";
 
 export const activeFilterStringCSS = style([
 	sprinkles({ display: "inline-block" }),

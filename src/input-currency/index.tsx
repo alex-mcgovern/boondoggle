@@ -7,13 +7,13 @@ import {
 } from "react-aria-components";
 import { WithName, WithSize } from "../types";
 import { Box } from "../__DONE__box";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { Sprinkles, sprinkles } from "../__DONE__sprinkles/index.css";
 import { Group } from "../__DONE__group";
 import { GroupAddon } from "../_DEPRECATED_group-addon";
 import { Icon } from "../__DONE__icon";
 import { Label } from "../label";
-import { IterableMenuItem } from "../menu";
-import { MenuButton } from "../menu-button";
+import { IterableMenuItem } from "../__DONE__menu";
+import { MenuButton } from "../__DONE__menu-button";
 import { numberInputCSS } from "./styles.css";
 import { FieldError } from "../__DONE__field-error";
 

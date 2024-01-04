@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { a11yFocus, vars } from "../index.css";
 import { withPrefersMotion } from "../__DONE__css-utils";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 
 export const radioButtonWrapperStyles = style([
 	sprinkles({

@@ -7,7 +7,7 @@ import {
 	ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
 import { ColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { Button } from "../__DONE__button";
 import { Icon } from "../__DONE__icon";
 import {

@@ -2,8 +2,8 @@ import { TCountryCode, countries } from "countries-list";
 import * as React from "react";
 import { capitalize } from "../_lib/capitalize";
 import { ComboBox, ComboBoxProps } from "../combobox";
-import { FLAGS } from "../icon-flag/_map";
-import { IterableListBoxItem } from "../list-box";
+import { FLAGS } from "../__DONE__icon-flag/_map";
+import { IterableListBoxItem } from "../__DONE__list-box";
 
 const COUNTRY_SELECT_ITEMS: Array<IterableListBoxItem<TCountryCode>> =
 	Object.entries(countries)

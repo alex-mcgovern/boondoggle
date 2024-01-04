@@ -7,7 +7,7 @@ import {
 	elementPadding,
 	unstyledInput,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 
 export const numberInputCSS = recipe({
 	base: [

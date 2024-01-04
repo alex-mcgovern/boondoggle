@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 
 export const fieldsGridStyle = style([
 	sprinkles({

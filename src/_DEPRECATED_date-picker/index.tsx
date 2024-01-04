@@ -18,7 +18,7 @@ import { Icon } from "../__DONE__icon";
 import { Box } from "../__DONE__box";
 import type { BoxProps } from "../__DONE__box";
 import { datePickerRootCSS } from "./styles.css";
-import { sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { Button } from "../__DONE__button";
 
 export function DatePickerYears({

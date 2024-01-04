@@ -2,7 +2,7 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { a11yFocus, vars } from "../../../../index.css";
 import { withPrefersMotion } from "../../../../__DONE__css-utils";
-import { sprinkles } from "../../../../sprinkles/index.css";
+import { sprinkles } from "../../../../__DONE__sprinkles/index.css";
 
 const rotateOutKeyframes = keyframes({
 	"0%": { transform: "rotate(45deg)" },

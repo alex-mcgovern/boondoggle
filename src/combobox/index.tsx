@@ -17,7 +17,7 @@ import { FieldDescription } from "../__DONE__field-description";
 import { Group } from "../__DONE__group";
 import { Icon } from "../__DONE__icon";
 import { Label } from "../label";
-import { IterableListBoxItem, ListBox } from "../list-box";
+import { IterableListBoxItem, ListBox } from "../__DONE__list-box";
 import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
 import { FieldError } from "../__DONE__field-error";
 

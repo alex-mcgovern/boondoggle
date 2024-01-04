@@ -1,5 +1,5 @@
 import { createBox } from "@dessert-box/react";
-import { sprinkles, type Sprinkles } from "../sprinkles/index.css";
+import { sprinkles, type Sprinkles } from "../__DONE__sprinkles/index.css";
 
 export const Box = createBox({
 	atoms: sprinkles,
