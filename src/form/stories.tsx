@@ -227,7 +227,7 @@ const meta = {
 					>
 						<Label>Favourite food</Label>
 						<Group>
-							<Input placeholder="Select a food..." />
+							<Input placeholder="Type a food..." />
 							<ComboBoxButton />
 						</Group>
 					</FormComboBox>
@@ -242,7 +242,7 @@ const meta = {
 					>
 						<Label>Country</Label>
 						<Group>
-							<Input placeholder="Select a country..." />
+							<Input placeholder="Type a country..." />
 							<ComboBoxButton />
 						</Group>
 					</FormComboBoxCountry>
