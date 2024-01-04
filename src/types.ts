@@ -7,7 +7,7 @@ import type {
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
 import { ColorOverlay, ElementSizeEnum } from "./index.css";
-import { BoxProps } from "./v1/box";
+import { BoxProps } from "./box";
 import { Label } from "./label";
 
 declare module "react" {

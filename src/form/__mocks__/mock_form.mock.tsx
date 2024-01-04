@@ -2,21 +2,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import type { FormProps } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { V2FormInputCurrency } from "../../v2/form-input-currency";
-import { FormSubmitButton } from "../../v2/form-submit-button";
-import { FlagAe } from "../../v2/icon-flag/ae";
-import { FlagEu } from "../../v2/icon-flag/eu";
-import { FlagGb } from "../../v2/icon-flag/gb";
-import { FlagUs } from "../../v2/icon-flag/us";
-import type { BoxProps } from "../../v1/box";
-import { FormInput } from "../../v1/form-input";
-import { FormInputDate } from "../../v1/form-input-date";
-import { FormRadioButtonCardGroup } from "../../v1/form-radio-button-card-group";
-import { FormSelectSingle } from "../../v1/form-select-single";
-import { FormTextArea } from "../../v1/form-text-area";
-import { RADIO_BUTTON_CARDS_MOCK } from "../../v1/radio-button-card-group/__mocks__/radio_button_cards.mock";
-import { mockSelectItems } from "../../v1/select/__mocks__/select.mock";
-import { sprinkles } from "../../v1/sprinkles/index.css";
+import { V2FormInputCurrency } from "../../form-input-currency";
+import { FormSubmitButton } from "../../form-submit-button";
+import { FlagAe } from "../../icon-flag/ae";
+import { FlagEu } from "../../icon-flag/eu";
+import { FlagGb } from "../../icon-flag/gb";
+import { FlagUs } from "../../icon-flag/us";
+import type { BoxProps } from "../../box";
+import { FormInput } from "../../form-input";
+import { FormInputDate } from "../../_DEPRECATED_form-input-date";
+import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";
+import { FormSelectSingle } from "../../_DEPRECATED_form-select-single";
+import { FormTextArea } from "../../_DEPRECATED_form-text-area";
+import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
+import { mockSelectItems } from "../../_DEPRECATED_select/__mocks__/select.mock";
+import { sprinkles } from "../../sprinkles/index.css";
 
 const mockFormSchema = z.object({
 	amount: z.coerce.number().min(1),

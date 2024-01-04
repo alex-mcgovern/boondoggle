@@ -5,10 +5,10 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { FormTextArea } from "../../v1/form-text-area";
+import { FormTextArea } from "../../_DEPRECATED_form-text-area";
 import { FormTestProvider } from "../form_test_provider.comp";
 
-import type { FormTextAreaProps } from "../../v1/form-text-area";
+import type { FormTextAreaProps } from "../../_DEPRECATED_form-text-area";
 
 const PROPS: FormTextAreaProps = {
 	label: "Text area",

@@ -9,8 +9,12 @@ import {
 } from "react-aria-components";
 import { useToastContext } from "../toast";
 import { i18n } from "../_i18n";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../v1/tooltip";
-import { Icon } from "../v2/icon";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "../_DEPRECATED_tooltip";
+import { Icon } from "../icon";
 import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
 import { faClipboard } from "@fortawesome/pro-regular-svg-icons/faClipboard";
 import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
@@ -18,7 +22,7 @@ import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
 import { textFieldButtonCSS, textFieldCSS } from "./styles.css";
 import clsx from "clsx";
 import { useController, useFormContext } from "react-hook-form";
-import { FieldErrorMessage } from "../v1/field-error-message";
+import { FieldErrorMessage } from "../field-error-message";
 
 /** -----------------------------------------------------------------------------
  * TEXT FIELD CLEAR BUTTON

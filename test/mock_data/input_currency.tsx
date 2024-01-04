@@ -1,9 +1,9 @@
-import { SelectItemShape } from "../../src/v1/select/types";
-import { FlagAe } from "../../src/v2/icon-flag/ae";
-import { FlagKw } from "../../src/v2/icon-flag/kw";
-import { FlagOm } from "../../src/v2/icon-flag/om";
-import { FlagSa } from "../../src/v2/icon-flag/sa";
-import { FlagUs } from "../../src/v2/icon-flag/us";
+import { SelectItemShape } from "../../src/_DEPRECATED_select/types";
+import { FlagAe } from "../../src/icon-flag/ae";
+import { FlagKw } from "../../src/icon-flag/kw";
+import { FlagOm } from "../../src/icon-flag/om";
+import { FlagSa } from "../../src/icon-flag/sa";
+import { FlagUs } from "../../src/icon-flag/us";
 
 export type MockCurrency = "USD" | "AED" | "OMR" | "SAR" | "KWD";
 export type MockLocale = "en-US" | "en-GB" | "de-DE" | "fr-FR" | "ar-AE";

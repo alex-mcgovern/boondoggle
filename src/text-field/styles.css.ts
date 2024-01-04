@@ -1,7 +1,7 @@
 import { assignVars, style } from "@vanilla-extract/css";
-import { sprinkles } from "../v1/sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 import { vars } from "../index.css";
-import { makeTheme } from "../v1/css-utils";
+import { makeTheme } from "../css-utils";
 import { red, redA } from "@radix-ui/colors";
 
 export const textFieldCSS = style([

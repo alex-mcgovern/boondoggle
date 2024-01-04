@@ -9,8 +9,12 @@ import { ToastProvider } from "../toast";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../v1/tooltip";
-import { Icon } from "../v2/icon";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "../_DEPRECATED_tooltip";
+import { Icon } from "../icon";
 import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
 
 const meta = {

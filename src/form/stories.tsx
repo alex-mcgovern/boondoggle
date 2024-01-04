@@ -4,9 +4,7 @@ import { FormTextField } from "../text-field";
 import { Input } from "../input";
 import { ToastProvider } from "../toast";
 import { Button } from "../button";
-import { Icon } from "../v2/icon";
-import { faCheckCircle } from "@fortawesome/pro-solid-svg-icons/faCheckCircle";
-import { sprinkles } from "../v1/sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 import { Label } from "../label";
 
 const meta = {

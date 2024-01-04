@@ -10,8 +10,8 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../v1/css-utils";
-import { sprinkles } from "../v1/sprinkles/index.css";
+import { withPrefersMotion } from "../css-utils";
+import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MENU CSS

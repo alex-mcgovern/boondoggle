@@ -1,4 +1,4 @@
-import { sprinkles } from "../v1/sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 import { style } from "@vanilla-extract/css";
 
 export const labelCSS = style([

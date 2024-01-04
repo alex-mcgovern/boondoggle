@@ -5,8 +5,8 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { FormInput } from "../../v1/form-input";
-import type { FormInputProps } from "../../v1/form-input";
+import { FormInput } from "../../form-input";
+import type { FormInputProps } from "../../form-input";
 import { FormTestProvider } from "../form_test_provider.comp";
 
 const PROPS: FormInputProps = {
