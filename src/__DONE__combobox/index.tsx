@@ -26,7 +26,7 @@ export const ComboBoxButton = () => {
 };
 
 /** -----------------------------------------------------------------------------
- * COMBOBOX
+ * ComboBox
  * ------------------------------------------------------------------------------- */
 
 export type ComboBoxProps<TItemId extends string = string> = RACComboBoxProps<
@@ -62,7 +62,7 @@ function BaseComboBox<TItemId extends string = string>(
 export const ComboBox = React.forwardRef(BaseComboBox);
 
 /** -----------------------------------------------------------------------------
- * FORM COMBOBOX
+ * FormComboBox
  * ------------------------------------------------------------------------------- */
 
 /**

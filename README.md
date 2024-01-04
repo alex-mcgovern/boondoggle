@@ -45,8 +45,12 @@ styling and enabling application features.
   - [ ] Remove deprecated `Input` & `FormInput` components
   - [ ] Fix bug where `TextField` is not focused when clicking on label
 - [ ] Implement `ComboBox` component
-  - [ ] Implement `ComboBoxCountry` component
-  - [ ] Remove deprecated `SelectSingle` & `SelectMulti` components within the library
+  - [x] Implement `ComboBoxCountry` component
+
 - [ ] Implement `NumberField` component
 - [ ] Implement `DatePicker` component
 
+#### "Later"™️
+
+- [ ] Add functionality to toggle `ComboBox` on click
+- [ ] Virtualize `ComboBoxCountry` list

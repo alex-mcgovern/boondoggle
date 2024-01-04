@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ComboBoxButton, FormComboBox } from "../__DONE__combobox";
 import { Group } from "../__DONE__group";
+import { FormComboBoxCountry } from "../__DONE__combo-box-country";
 
 const meta = {
 	component: Form,
@@ -54,7 +55,7 @@ const meta = {
 
 					<FormComboBox<"apple" | "tomato" | "carrot" | "lettuce">
 						className={sprinkles({ marginBottom: "space_2" })}
-						name="country"
+						name="favourite_food"
 						defaultItems={[
 							{
 								name: "Fruits",
@@ -93,6 +94,17 @@ const meta = {
 							<ComboBoxButton />
 						</Group>
 					</FormComboBox>
+
+					<FormComboBoxCountry
+						className={sprinkles({ marginBottom: "space_2" })}
+						name="country"
+					>
+						<Label>Country</Label>
+						<Group>
+							<Input placeholder="Select a country..." />
+							<ComboBoxButton />
+						</Group>
+					</FormComboBoxCountry>
 
 					<FormTextField
 						className={sprinkles({ marginBottom: "space_2" })}
@@ -136,12 +148,13 @@ export const WithZod: Story = {
 				first_name: z.string().min(1).max(10),
 				last_name: z.string().min(1).max(10),
 				email_address: z.string().email(),
-				country: z.union([
+				favourite_food: z.union([
 					z.literal("apple"),
 					z.literal("tomato"),
 					z.literal("carrot"),
 					z.literal("lettuce"),
 				]),
+				country: z.string(),
 				description: z.string().min(1).max(20),
 			}),
 		),
