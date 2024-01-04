@@ -5,14 +5,13 @@ import { merge } from "webpack-merge";
 const config: StorybookConfig = {
 	addons: [
 		"@storybook/addon-essentials",
-		"@storybook/addon-interactions",
-		"@storybook/addon-mdx-gfm",
-		"storybook-addon-pseudo-states",
-		"@whitespace/storybook-addon-html",
+		// "@storybook/addon-interactions",
+		// "@storybook/addon-mdx-gfm",
+		// "storybook-addon-pseudo-states",
+		// "@whitespace/storybook-addon-html",
 	],
 	docs: {
-		autodocs: true,
-		defaultName: "Documentation",
+		autodocs: false,
 	},
 	framework: {
 		name: "@storybook/react-webpack5",
@@ -41,8 +40,8 @@ const config: StorybookConfig = {
 		merge(config, {
 			plugins: [
 				new VanillaExtractPlugin({
-					identifiers: "debug",
-					// outputCss: false,
+					identifiers: "short",
+					outputCss: true,
 				}),
 			],
 		}),

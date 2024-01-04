@@ -7,11 +7,8 @@ import { Icon } from "../icon";
 import { ToastProvider } from "../toast";
 
 const meta = {
-	title: "Components/V2/TextField",
+	title: "Data entry/TextField",
 	component: TextField,
-	parameters: {
-		layout: "centered",
-	},
 	args: {
 		label: { text: "Text field", tooltip: "This is a tooltip" },
 		name: "text_field",

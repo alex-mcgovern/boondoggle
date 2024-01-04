@@ -19,7 +19,7 @@ import type {
 	RadioButtonInputProps,
 } from "../radio-button-card";
 import { Sprinkles } from "../sprinkles/index.css";
-import { Label } from "../../v2/_v2-label";
+import { Label } from "../../v2/label";
 
 export type RadioButtonCardGroupProps = Sprinkles &
 	WithWrapperProps &

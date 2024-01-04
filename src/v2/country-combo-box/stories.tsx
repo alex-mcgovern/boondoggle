@@ -3,7 +3,7 @@ import { CountryComboBox } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/V2/CountryComboBox",
+	title: "Data entry/CountryComboBox",
 	component: CountryComboBox,
 	args: {
 		label: {

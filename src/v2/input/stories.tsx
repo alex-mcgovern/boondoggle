@@ -8,11 +8,8 @@ import { ToastProvider } from "../toast";
 import { InputProps } from "./types";
 
 const meta = {
-	title: "Components/V2/Input",
+	title: "Data entry/Input",
 	component: Input,
-	parameters: {
-		layout: "centered",
-	},
 	args: {
 		name: "text_field",
 	},

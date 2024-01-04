@@ -10,7 +10,7 @@ import { Input } from "../input";
 import { InputProps } from "../input/types";
 import { textFieldCSS } from "./styles.css";
 import { V2Label } from "../../types";
-import { Label } from "../_v2-label";
+import { Label } from "../label";
 
 export type TextFieldProps = Omit<
 	RACTextFieldProps,

@@ -20,7 +20,7 @@ const meta = {
 		placeholder: LOREM.placeholder(),
 	},
 	component: StoryComp,
-	title: "Components/V1/SelectMulti",
+	title: "Data entry/💀  SelectMulti",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

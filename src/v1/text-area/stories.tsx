@@ -15,7 +15,7 @@ const meta = {
 		placeholder: LOREM.placeholder(),
 	},
 	component: StoryComp,
-	title: "Components/V1/TextArea",
+	title: "Data entry/💀  TextArea",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

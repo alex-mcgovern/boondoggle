@@ -5,15 +5,17 @@ import {
 	a11yFocusStyleRule,
 	elementHeight,
 	elementPadding,
+	unstyledInput,
 } from "../../index.css";
 import { sprinkles } from "../../v1/sprinkles/index.css";
 
 export const numberInputCSS = recipe({
 	base: [
+		unstyledInput,
 		sprinkles({
 			background: "transparent",
 			fontStyle: "bodyMd",
-			border: "border_element",
+
 			borderRadius: "md",
 			width: "100%",
 			color: "text_high_contrast",

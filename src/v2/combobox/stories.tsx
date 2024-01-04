@@ -3,7 +3,7 @@ import { ComboBox } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/V2/ComboBox",
+	title: "Data entry/ComboBox",
 	component: ComboBox,
 	args: {
 		label: {

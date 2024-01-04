@@ -15,7 +15,7 @@ import { Icon } from "../icon";
 import { IterableMenuItem } from "../menu";
 import { MenuButton } from "../menu-button";
 import { numberInputCSS } from "./styles.css";
-import { Label } from "../_v2-label";
+import { Label } from "../label";
 
 /** -----------------------------------------------------------------------------
  * TYPES

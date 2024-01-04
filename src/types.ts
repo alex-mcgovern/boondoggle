@@ -8,7 +8,7 @@ import type {
 import type { RegisterOptions } from "react-hook-form";
 import { ColorOverlay, ElementSizeEnum } from "./index.css";
 import { BoxProps } from "./v1/box";
-import { Label } from "./v2/_v2-label";
+import { Label } from "./v2/label";
 
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(

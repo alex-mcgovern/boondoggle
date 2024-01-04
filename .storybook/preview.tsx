@@ -4,6 +4,9 @@ import { Parameters } from "@storybook/react";
 
 export const parameters: Parameters = {
 	actions: { argTypesRegex: "^on[A-Z].*" },
+
+	layout: "centered",
+
 	controls: {
 		sort: "requiredFirst",
 		expanded: false,

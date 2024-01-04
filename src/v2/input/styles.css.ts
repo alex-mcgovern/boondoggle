@@ -1,6 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
+	HOVER,
 	a11yDisabled,
 	unstyledInput,
 	variantColorOverlay,
@@ -52,13 +53,30 @@ export const slottedCSS = recipe({
 			gap: "space_1",
 
 			fontStyle: "bodyMd",
+			color: "text_low_contrast",
 		}),
 	],
 	variants: {
 		isClickable: {
-			true: {
-				pointerEvents: "auto",
-			},
+			true: [
+				sprinkles({
+					minHeight: "space_6",
+					borderRadius: "sm",
+				}),
+				{
+					pointerEvents: "auto",
+					selectors: {
+						[`&${HOVER}`]: {
+							color: vars.color.text_high_contrast,
+						},
+					},
+				},
+				withPrefersMotion({
+					transitionProperty: "background",
+					transitionDuration: vars.transitionDuration.short,
+					transitionTimingFunction: vars.ease.quart_in_out,
+				}),
+			],
 			false: {
 				pointerEvents: "none",
 				color: vars.color.text_low_contrast,
@@ -156,12 +174,3 @@ export const inputElementCSS = recipe({
 		},
 	},
 });
-
-export const clearButtonCSS = style({});
-
-globalStyle(
-	`${inputElementCSS()}:has(input:placeholder-shown) > ${clearButtonCSS}`,
-	{
-		display: "none",
-	},
-);

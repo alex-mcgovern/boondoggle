@@ -5,7 +5,7 @@ import { FlagGb } from "../icon-flag/gb";
 import { FlagUs } from "../icon-flag/us";
 
 const meta = {
-	title: "Components/V2/InputCurrency",
+	title: "Data entry/InputCurrency",
 	component: StoryComp,
 	args: {
 		label: {

@@ -12,7 +12,7 @@ import type {
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldErrorMessage } from "../field-error-message";
-import { Label } from "../../v2/_v2-label";
+import { Label } from "../../v2/label";
 
 export type FieldWrapperProps = WithColorOverlay &
 	WithHideLastpass &

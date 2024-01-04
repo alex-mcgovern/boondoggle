@@ -8,15 +8,15 @@ export const labelCSS = recipe({
 			alignItems: "center",
 			gap: "space_1",
 
-			color: "text_low_contrast",
+			color: "text_high_contrast",
 			fontSize: "bodyMd",
-			fontWeight: "normal",
+			fontWeight: "medium",
 
 			marginBottom: "space_1",
 		}),
 	],
 	variants: {
-		hidden: {
+		isHidden: {
 			true: {
 				position: "absolute",
 				border: 0,
@@ -29,6 +29,7 @@ export const labelCSS = recipe({
 				whiteSpace: "nowrap",
 				wordWrap: "normal",
 			},
+			false: {},
 		},
 	},
 });

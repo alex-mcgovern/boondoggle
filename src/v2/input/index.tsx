@@ -7,18 +7,14 @@ import * as React from "react";
 import {
 	Input as RACInput,
 	type InputProps as RACInputProps,
+	Button as RacButton,
 } from "react-aria-components";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
 import { FieldActionButton } from "../../v1/field-action-button";
 import { Group } from "../group";
 import { Icon } from "../icon";
 import { useToastContext } from "../toast";
-import {
-	clearButtonCSS,
-	inputElementCSS,
-	slotWrapperCSS,
-	slottedCSS,
-} from "./styles.css";
+import { inputElementCSS, slotWrapperCSS, slottedCSS } from "./styles.css";
 import { InputProps } from "./types";
 
 const hasValue = (
@@ -165,7 +161,6 @@ function ClearButton({
 			<FieldActionButton
 				data-testid="clear"
 				name="clear"
-				className={clearButtonCSS}
 				onClick={() => {
 					onChange(createChangeEvent(""));
 				}}

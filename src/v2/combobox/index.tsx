@@ -19,7 +19,7 @@ import { Group } from "../group";
 import { Icon } from "../icon";
 import { IterableListBoxItem, ListBox } from "../list-box";
 import { comboBoxButtonCSS, comboBoxCSS, comboBoxInputCSS } from "./styles.css";
-import { Label } from "../_v2-label";
+import { Label } from "../label";
 
 export type ComboBoxProps<TItemId extends string = string> = WithName & {
 	description?: string | null;

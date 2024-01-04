@@ -3,6 +3,7 @@ import { Label as RACLabel } from "react-aria-components";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../v1/tooltip";
 import { Icon } from "../icon";
 import { V2Label } from "../../types";
+import { labelCSS } from "./styles.css";
 
 export function Label({ label, name }: { label: V2Label; name: string }) {
 	if (!label) {
@@ -10,11 +11,19 @@ export function Label({ label, name }: { label: V2Label; name: string }) {
 	}
 
 	if (typeof label === "string") {
-		return <RACLabel htmlFor={name}>{label}</RACLabel>;
+		return (
+			<RACLabel className={labelCSS()} htmlFor={name}>
+				{label}
+			</RACLabel>
+		);
 	}
 
 	return (
-		<RACLabel {...label.props} htmlFor={name}>
+		<RACLabel
+			className={labelCSS({ isHidden: label.isHidden })}
+			{...label.props}
+			htmlFor={name}
+		>
 			{label.text}
 
 			{label.tooltip && (
