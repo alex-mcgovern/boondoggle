@@ -1,10 +1,10 @@
 import { assignVars, style } from "@vanilla-extract/css";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { vars } from "../index.css";
 import { makeTheme, withPrefersMotion } from "../__DONE__css-utils";
+import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { red, redA } from "@radix-ui/colors";
 
-export const textFieldCSS = style([
+export const comboBoxCSS = style([
 	{
 		selectors: {
 			/**
@@ -33,7 +33,7 @@ export const textFieldCSS = style([
 	},
 ]);
 
-export const textFieldButtonCSS = style([
+export const comboBoxButtonCSS = style([
 	sprinkles({
 		color: "text_low_contrast",
 

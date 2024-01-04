@@ -14,7 +14,7 @@ export const Group = ({ children, isDisabled, isInvalid }: RACGroupProps) => {
 		<RACGroup
 			isDisabled={isDisabled}
 			isInvalid={isInvalid}
-			className={groupCSS({ isInvalid })}
+			className={groupCSS}
 		>
 			{children}
 		</RACGroup>

@@ -1,77 +1,101 @@
-import { recipe } from "@vanilla-extract/recipes";
 import { inputBg } from "../_css/input.css";
-import {
-	ACTIVE,
-	DISABLED,
-	FOCUS,
-	a11yDisabled,
-	a11yFocusStyleRule,
-	variantColorOverlay,
-	vars,
-} from "../index.css";
-import { withPrefersMotion } from "../__DONE__css-utils";
+import { ACTIVE, FOCUS, a11yDisabled, vars } from "../index.css";
+import { makeTheme, withPrefersMotion } from "../__DONE__css-utils";
 import { sprinkles } from "../__DONE__sprinkles/index.css";
-import { globalStyle } from "@vanilla-extract/css";
+import { assignVars, globalStyle, style } from "@vanilla-extract/css";
+import { red, redA } from "@radix-ui/colors";
 
-export const groupCSS = recipe({
-	base: [
-		a11yDisabled,
-		inputBg,
-		sprinkles({
-			height: "space_8",
-			width: "100%",
+export const groupCSS = style([
+	a11yDisabled,
+	inputBg,
+	sprinkles({
+		height: "space_8",
+		width: "100%",
 
-			display: "flex",
-			alignItems: "center",
+		display: "flex",
+		alignItems: "center",
 
-			border: "border_element",
-			borderRadius: "md",
+		border: "border_element",
+		borderRadius: "md",
 
-			fontStyle: "bodySm",
-			position: "relative",
+		fontStyle: "bodySm",
+		position: "relative",
 
-			overflow: "hidden",
-		}),
-		withPrefersMotion({
-			transitionProperty: "background, color, border-color, outline",
-			transitionDuration: vars.transitionDuration.short,
-			transitionTimingFunction: vars.ease.quart_in_out,
-		}),
-		{
-			outline: "0px solid transparent",
-			selectors: {
-				[`&:${ACTIVE}`]: {
-					background: vars.color.text_field_background_highlighted,
-				},
-				[`&:${FOCUS}`]: {
-					background: vars.color.text_field_background_highlighted,
-				},
-				[`&:not(${DISABLED})[data-focus-within]`]: {
-					outline: "none",
-					...a11yFocusStyleRule,
-				},
-				[`&:not(${DISABLED})[data-focus-visible]`]: {
-					...a11yFocusStyleRule,
-				},
+		overflow: "hidden",
+	}),
+	withPrefersMotion({
+		transitionProperty: "color, background, border-color, outline, opacity",
+		transitionDuration: vars.transitionDuration.short,
+		transitionTimingFunction: vars.ease.quart_in_out,
+	}),
+	{
+		outline: "0px solid transparent",
+
+		selectors: {
+			/**
+			 * Whether the group is currently hovered with a mouse.
+			 */
+
+			"&[data-hovered]": {
+				background: vars.color.text_field_background_highlighted,
+				borderColor: vars.color.border_element_active,
+			},
+
+			/**
+			 * Whether an element within the group is focused, either via a mouse or keyboard
+			 */
+
+			"&[data-focus-within]": {
+				background: vars.color.text_field_background_highlighted,
+				borderColor: vars.color.focus_border,
+				outline: `2px solid ${vars.color.focus_ring}`,
+			},
+
+			/**
+			 * Whether the group is keyboard focused.
+			 */
+
+			"&[data-focus-visible]": {
+				background: vars.color.text_field_background_highlighted,
+				borderColor: vars.color.focus_border,
+				outline: `2px solid ${vars.color.focus_ring}`,
+			},
+
+			/**
+			 * Whether the group is disabled.
+			 */
+
+			"&[data-disabled]": {
+				opacity: 0.5,
+				cursor: "not-allowed !important",
+			},
+
+			/**
+			 * Whether the group is invalid.
+			 */
+
+			"&[data-invalid]": {
+				vars: assignVars(
+					vars.color,
+					makeTheme({
+						primary: red,
+						secondary: red,
+						alpha: redA,
+						isOverlay: true,
+					}),
+				),
+				borderColor: vars.color.focus_border,
+				outline: `2px solid ${vars.color.focus_ring}`,
 			},
 		},
-	],
-	variants: {
-		isInvalid: {
-			true: [variantColorOverlay.red],
-			false: [],
-		},
 	},
-});
+]);
 
-globalStyle(`${groupCSS()} > input`, {
+globalStyle(`${groupCSS} > input`, {
 	appearance: "none",
 	background: "none !important",
 	border: "none !important",
 	font: "inherit !important",
 	margin: "0 !important",
-});
-
-globalStyle(`${groupCSS()} > input:focus`, {
 	outline: "none !important",
 });

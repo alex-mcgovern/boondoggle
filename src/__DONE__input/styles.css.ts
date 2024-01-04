@@ -31,29 +31,36 @@ export const inputCSS = style([
 			/**
 			 * Whether the input is currently hovered with a mouse.
 			 */
+
 			"&[data-hovered]": {
 				background: vars.color.text_field_background_highlighted,
 				borderColor: vars.color.border_element_active,
 			},
+
 			/**
 			 * Whether the input is focused, either via a mouse or keyboard.
 			 */
+
 			"&[data-focused]": {
 				background: vars.color.text_field_background_highlighted,
 				borderColor: vars.color.focus_border,
 				outline: `2px solid ${vars.color.focus_ring}`,
 			},
+
 			/**
 			 * Whether the input is keyboard focused.
 			 */
+
 			"&[data-focus-visible]": {
 				background: vars.color.text_field_background_highlighted,
 				borderColor: vars.color.focus_border,
 				outline: `2px solid ${vars.color.focus_ring}`,
 			},
+
 			/**
 			 * Whether the input is disabled.
 			 */
+
 			"&[data-disabled]": {
 				opacity: 0.5,
 				cursor: "not-allowed !important",
@@ -62,6 +69,7 @@ export const inputCSS = style([
 			/**
 			 * Whether the input is invalid.
 			 */
+
 			"&[data-invalid]": {
 				vars: assignVars(
 					vars.color,

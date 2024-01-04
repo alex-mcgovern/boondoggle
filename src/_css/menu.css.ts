@@ -73,7 +73,7 @@ export const menuItemCSS = recipe({
 			gap: "space_2",
 			flexShrink: "0",
 
-			fontStyle: "bodyMd",
+			fontStyle: "bodySm",
 			fontWeight: "normal",
 			color: "text_high_contrast",
 			textAlign: "left",
@@ -90,20 +90,17 @@ export const menuItemCSS = recipe({
 
 			borderRadius: floatingMenu.item.radius,
 			selectors: {
-				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
+				"&[data-hovered]": {
 					cursor: "pointer",
 					background: vars.color.tint_hover,
 				},
-				[`&${NOT_DISABLED}:is(:focus,[data-focused])`]: {
+				"&[data-focused]": {
 					outline: 0,
 					cursor: "pointer",
 					background: vars.color.tint_hover,
 				},
-				[`&${NOT_DISABLED}:is(:active,[data-selected])`]: {
-					background: vars.color.tint_hover,
-				},
-				"&:not(:last-child)": {
-					marginBottom: floatingMenu.container.padding,
+				"&[data-selected]": {
+					fontWeight: "medium",
 				},
 			},
 		},
@@ -117,7 +114,7 @@ export const menuItemNameCSS = style([
 	sprinkles({
 		display: "block",
 		color: "text_high_contrast",
-		fontStyle: "bodyMd",
+		fontStyle: "bodySm",
 	}),
 ]);
 
@@ -136,7 +133,7 @@ export const menuItemDescriptionCSS = style([
 export const menuHeaderCSS = style([
 	sprinkles({
 		color: "text_low_contrast",
-		fontStyle: "bodyMd",
+		fontStyle: "bodySm",
 		fontWeight: "normal",
 		textAlign: "left",
 

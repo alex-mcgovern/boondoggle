@@ -9,6 +9,8 @@ import { Label } from "../label";
 import { TextArea } from "../__DONE__text-area";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { ComboBoxButton, FormComboBox } from "../__DONE__combobox";
+import { Group } from "../__DONE__group";
 
 const meta = {
 	component: Form,
@@ -44,10 +46,53 @@ const meta = {
 					<FormTextField
 						className={sprinkles({ marginBottom: "space_2" })}
 						name="email_address"
+						type="email"
 					>
 						<Label>Email address</Label>
 						<Input />
 					</FormTextField>
+
+					<FormComboBox<"apple" | "tomato" | "carrot" | "lettuce">
+						className={sprinkles({ marginBottom: "space_2" })}
+						name="country"
+						defaultItems={[
+							{
+								name: "Fruits",
+								id: "fruits",
+								children: [
+									{
+										id: "apple",
+										name: "Apple",
+									},
+									{
+										id: "tomato",
+										name: "Tomato",
+										description: "Yes, it's a fruit",
+									},
+								],
+							},
+							{
+								name: "Vegetables",
+								id: "vegetables",
+								children: [
+									{
+										id: "carrot",
+										name: "Carrot",
+									},
+									{
+										id: "lettuce",
+										name: "Lettuce",
+									},
+								],
+							},
+						]}
+					>
+						<Label>Favourite food</Label>
+						<Group>
+							<Input placeholder="Select a food..." />
+							<ComboBoxButton />
+						</Group>
+					</FormComboBox>
 
 					<FormTextField
 						className={sprinkles({ marginBottom: "space_2" })}
@@ -91,13 +136,13 @@ export const WithZod: Story = {
 				first_name: z.string().min(1).max(10),
 				last_name: z.string().min(1).max(10),
 				email_address: z.string().email(),
-				date_of_birth: z.string(),
-				address_line_1: z.string().min(1).max(10),
-				address_line_2: z.string().min(1).max(10),
-				address_line_3: z.string().min(1).max(10),
-				address_line_4: z.string().min(1).max(10),
+				country: z.union([
+					z.literal("apple"),
+					z.literal("tomato"),
+					z.literal("carrot"),
+					z.literal("lettuce"),
+				]),
 				description: z.string().min(1).max(20),
-				additional_info: z.string().min(1).max(20),
 			}),
 		),
 	},

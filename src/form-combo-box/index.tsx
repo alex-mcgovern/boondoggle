@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import { Key } from "react-stately";
 import type { WithFormFieldProps } from "../types";
-import { ComboBox, ComboBoxProps } from "../combobox";
+import { ComboBox, ComboBoxProps } from "../__DONE__combobox";
 
 export type FormComboBoxProps<TValue extends string = string> =
 	ComboBoxProps<TValue> &

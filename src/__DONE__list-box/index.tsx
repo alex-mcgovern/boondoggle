@@ -17,6 +17,8 @@ import {
 } from "../_css/menu.css";
 import { ColorOverlay } from "../index.css";
 import { Section } from "../__DONE__section";
+import { faCheck } from "@fortawesome/pro-solid-svg-icons";
+import { Icon } from "../__DONE__icon";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;
@@ -53,18 +55,30 @@ function ListBoxItem<TItemId extends string = string>({
 			href={value?.href}
 			{...props}
 		>
-			{value?.slotLeft}
-			<div>
-				<ReactAriaText className={menuItemNameCSS} slot="label">
-					{value?.name}
-				</ReactAriaText>
-				<ReactAriaText
-					className={menuItemDescriptionCSS}
-					slot="description"
-				>
-					{value?.description}
-				</ReactAriaText>
-			</div>
+			{({ isSelected }) => (
+				<>
+					{value?.slotLeft}
+					<div>
+						<ReactAriaText className={menuItemNameCSS} slot="label">
+							{value?.name}
+						</ReactAriaText>
+						<ReactAriaText
+							className={menuItemDescriptionCSS}
+							slot="description"
+						>
+							{value?.description}
+						</ReactAriaText>
+					</div>
+					{isSelected ? (
+						<Icon
+							marginLeft="auto"
+							marginRight="space_1"
+							color="text_low_contrast"
+							icon={faCheck}
+						/>
+					) : null}
+				</>
+			)}
 		</ReactAriaListBoxItem>
 	);
 }
