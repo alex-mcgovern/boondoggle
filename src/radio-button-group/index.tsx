@@ -10,8 +10,8 @@ import {
 import { Label } from "../label";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
-import { FieldErrorMessage } from "../field-error-message";
 import { RadioButton } from "../radio-button";
+import { FieldError } from "../field-error";
 import { Sprinkles } from "../sprinkles/index.css";
 
 export type RadioButtonGroupProps = Sprinkles &
@@ -113,7 +113,9 @@ export const RadioButtonGroup = React.forwardRef(
 					})}
 				</Box>
 				{invalid && errorMessage && (
-					<FieldErrorMessage message={errorMessage} />
+					<FieldError >
+						{errorMessage} 
+					</FieldError>
 				)}
 				{description && !invalid && (
 					<FieldDescription description={description} />

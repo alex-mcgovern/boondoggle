@@ -41,10 +41,10 @@ export const groupCSS = recipe({
 			outline: "0px solid transparent",
 			selectors: {
 				[`&:${ACTIVE}`]: {
-					background: vars.color.input_bg_highlighted,
+					background: vars.color.text_field_background_highlighted,
 				},
 				[`&:${FOCUS}`]: {
-					background: vars.color.input_bg_highlighted,
+					background: vars.color.text_field_background_highlighted,
 				},
 				[`&:not(${DISABLED})[data-focus-within]`]: {
 					outline: "none",

@@ -13,7 +13,6 @@ import { FormInput } from "../../form-input";
 import { FormInputDate } from "../../_DEPRECATED_form-input-date";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";
 import { FormSelectSingle } from "../../_DEPRECATED_form-select-single";
-import { FormTextArea } from "../../_DEPRECATED_form-text-area";
 import { RADIO_BUTTON_CARDS_MOCK } from "../../radio-button-card-group/__mocks__/radio_button_cards.mock";
 import { mockSelectItems } from "../../_DEPRECATED_select/__mocks__/select.mock";
 import { sprinkles } from "../../sprinkles/index.css";
@@ -94,16 +93,6 @@ export const mockForm = ({
 						],
 						isCurrencyEditable: true,
 					}}
-				/>
-				<FormTextArea
-					defaultValue={
-						withDefaultValues ? LOREM.text_xxs : undefined
-					}
-					label={LOREM.labelDescription()}
-					name="description"
-					placeholder="Enter your description"
-					required={false}
-					wrapperProps={WRAPPER_PROPS}
 				/>
 				<FormSelectSingle
 					defaultValue={

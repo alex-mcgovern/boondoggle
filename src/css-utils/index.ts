@@ -51,8 +51,8 @@ export const makeTheme = ({
 		btn_secondary_bg: step(secondary, isOverlay ? 3 : 2),
 		btn_secondary_bg_highlighted: step(secondary, isOverlay ? 4 : 3),
 
-		input_bg: step(secondary, isOverlay ? 3 : 2),
-		input_bg_highlighted: step(secondary, 1),
+		text_field_background: step(secondary, isOverlay ? 3 : 2),
+		text_field_background_highlighted: step(secondary, 1),
 
 		tint_default: step(secondary, isOverlay ? 3 : 2),
 		tint_hover: step(secondary, isOverlay ? 4 : 3),

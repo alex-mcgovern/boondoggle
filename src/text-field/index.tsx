@@ -1,3 +1,7 @@
+/**
+ * @todo
+ */
+
 import * as React from "react";
 import {
 	ButtonContext as RACButtonContext,
@@ -22,7 +26,7 @@ import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
 import { textFieldButtonCSS, textFieldCSS } from "./styles.css";
 import clsx from "clsx";
 import { useController, useFormContext } from "react-hook-form";
-import { FieldErrorMessage } from "../field-error-message";
+import { FieldError } from "../field-error";
 
 /** -----------------------------------------------------------------------------
  * TEXT FIELD CLEAR BUTTON
@@ -169,7 +173,10 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 					{...props}
 					className={clsx(props.className, textFieldCSS)}
 					value={value}
-					onChange={setValue}
+					onChange={(v) => {
+						setValue(v);
+						props.onChange?.(v);
+					}}
 					type={type}
 					ref={ref}
 				/>
@@ -187,7 +194,12 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
  */
-export function FormTextField({ children, ...props }: TextFieldProps) {
+export function FormTextField({
+	children,
+	...props
+}: TextFieldProps & {
+	element: "input" | "textarea";
+}) {
 	if (!props.name) {
 		throw new Error("FormTextField requires a name prop");
 	}
@@ -195,7 +207,7 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
 	const { control } = useFormContext();
 
 	const {
-		field: { disabled, ...field },
+		field: { ref, value = "", disabled: isDisabled, ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -207,18 +219,15 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
 		<TextField
 			{...props}
 			{...field}
-			isDisabled={disabled || props.isDisabled}
-			isInvalid={invalid || props.isInvalid}
+			value={value}
+			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+			isInvalid={invalid}
 		>
-			{({ isInvalid }) => {
+			{() => {
 				return (
 					<>
 						{children}
-						{isInvalid && error?.message ? (
-							<FieldErrorMessage>
-								{error.message}
-							</FieldErrorMessage>
-						) : null}
+						<FieldError>{error?.message}</FieldError>
 					</>
 				);
 			}}

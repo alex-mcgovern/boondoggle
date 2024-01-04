@@ -3,10 +3,10 @@ import { makeTheme, withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
 import { assignVars, style } from "@vanilla-extract/css";
 import { red, redA } from "@radix-ui/colors";
+import { calc } from "@vanilla-extract/css-utils";
 
-export const inputCSS = style([
+export const textareaCSS = style([
 	sprinkles({
-		height: "element_sm",
 		width: "100%",
 
 		border: "border_element",
@@ -25,18 +25,21 @@ export const inputCSS = style([
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
+		minHeight: calc.multiply(vars.height.element_sm, 4),
+		resize: "none",
+
 		outline: "0px solid transparent",
 
 		selectors: {
 			/**
-			 * Whether the input is currently hovered with a mouse.
+			 * Whether the text-area is currently hovered with a mouse.
 			 */
 			"&[data-hovered]": {
 				background: vars.color.text_field_background_highlighted,
 				borderColor: vars.color.border_element_active,
 			},
 			/**
-			 * Whether the input is focused, either via a mouse or keyboard.
+			 * Whether the text-area is focused, either via a mouse or keyboard.
 			 */
 			"&[data-focused]": {
 				background: vars.color.text_field_background_highlighted,
@@ -44,7 +47,7 @@ export const inputCSS = style([
 				outline: `2px solid ${vars.color.focus_ring}`,
 			},
 			/**
-			 * Whether the input is keyboard focused.
+			 * Whether the text-area is keyboard focused.
 			 */
 			"&[data-focus-visible]": {
 				background: vars.color.text_field_background_highlighted,
@@ -52,7 +55,7 @@ export const inputCSS = style([
 				outline: `2px solid ${vars.color.focus_ring}`,
 			},
 			/**
-			 * Whether the input is disabled.
+			 * Whether the text-area is disabled.
 			 */
 			"&[data-disabled]": {
 				opacity: 0.5,
@@ -60,7 +63,7 @@ export const inputCSS = style([
 			},
 
 			/**
-			 * Whether the input is invalid.
+			 * Whether the text-area is invalid.
 			 */
 			"&[data-invalid]": {
 				vars: assignVars(

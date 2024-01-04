@@ -10,5 +10,7 @@ export const labelCSS = style([
 		color: "text_high_contrast",
 		fontSize: "bodyMd",
 		fontWeight: "medium",
+
+		marginBottom: "space_1",
 	}),
 ]);

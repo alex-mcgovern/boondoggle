@@ -7,7 +7,6 @@ import {
 	useForm,
 } from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-import { Box } from "../box";
 import type { BoxProps } from "../box";
 import { handleHookFormErrors } from "./handle_hook_form_errors";
 
@@ -24,6 +23,11 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 				// biome-ignore lint/suspicious/noExplicitAny: RHF uses `any` for the second type argument
 				formMethods: UseFormReturn<TFieldValues, any, undefined>,
 		  ) => React.ReactNode);
+
+	/**
+	 * Class name for the form.
+	 */
+	className?: string;
 
 	/**
 	 * Function that will be called when form validation errors occur.
@@ -79,6 +83,7 @@ function BaseForm<TFieldValues extends FieldValues>(
 		defaultValues,
 		shouldResetOnSubmit = false,
 		watchCallback,
+		className,
 	}: FormProps<TFieldValues>,
 	ref: React.ForwardedRef<HTMLFormElement>,
 ) {
@@ -90,9 +95,9 @@ function BaseForm<TFieldValues extends FieldValues>(
 
 	return (
 		<FormProvider {...formMethods}>
-			<Box
+			<form
+				className={className}
 				ref={ref}
-				as="form"
 				name={name}
 				onSubmit={formMethods.handleSubmit((fieldValues) => {
 					handleSubmit(fieldValues);
@@ -104,7 +109,7 @@ function BaseForm<TFieldValues extends FieldValues>(
 				{typeof children === "function"
 					? children(formMethods)
 					: children}
-			</Box>
+			</form>
 		</FormProvider>
 	);
 }

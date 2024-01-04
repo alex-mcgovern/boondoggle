@@ -11,7 +11,7 @@ import type {
 import { Label } from "../label";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
-import { FieldErrorMessage } from "../field-error-message";
+import { FieldError } from "../field-error";
 
 export type FieldWrapperProps = WithColorOverlay &
 	WithHideLastpass &
@@ -65,9 +65,7 @@ export function FieldWrapper({
 
 			{children}
 
-			{invalid && errorMessage && (
-				<FieldErrorMessage message={errorMessage} />
-			)}
+			{invalid && errorMessage && <FieldError>{errorMessage}</FieldError>}
 
 			{description && !invalid && (
 				<FieldDescription description={description} />

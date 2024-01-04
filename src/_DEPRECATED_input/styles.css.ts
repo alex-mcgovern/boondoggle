@@ -37,7 +37,7 @@ export const getSlotWrapperStyles = recipe({
 			position: "relative",
 			width: "100%",
 
-			background: "input_bg",
+			background: "text_field_background",
 
 			border: "border_element",
 			borderRadius: "md",
@@ -59,7 +59,7 @@ export const getSlotWrapperStyles = recipe({
 			selectors: {
 				"&:has(input:focus-visible)": {
 					...a11yFocusStyleRule,
-					background: vars.color.input_bg_highlighted,
+					background: vars.color.text_field_background_highlighted,
 				},
 			},
 		},

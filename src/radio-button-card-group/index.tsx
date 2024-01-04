@@ -10,7 +10,6 @@ import {
 } from "../types";
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
-import { FieldErrorMessage } from "../field-error-message";
 
 import { Label } from "../label";
 import { RadioButtonCard } from "../radio-button-card";
@@ -19,6 +18,7 @@ import type {
 	RadioButtonInputProps,
 } from "../radio-button-card";
 import { Sprinkles } from "../sprinkles/index.css";
+import { FieldError } from "../field-error";
 
 export type RadioButtonCardGroupProps = Sprinkles &
 	WithWrapperProps &
@@ -128,7 +128,7 @@ export const RadioButtonCardGroup = forwardRef(
 					})}
 				</Box>
 				{invalid && errorMessage && (
-					<FieldErrorMessage message={errorMessage} />
+					<FieldError  >{errorMessage}</FieldError>
 				)}
 				{description && !invalid && (
 					<FieldDescription description={description} />

@@ -8,7 +8,6 @@ import {
 import { WithName, WithSize } from "../types";
 import { Box } from "../box";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
-import { V2FieldError } from "../field-error";
 import { Group } from "../group";
 import { GroupAddon } from "../group-addon";
 import { Icon } from "../icon";
@@ -16,6 +15,7 @@ import { Label } from "../label";
 import { IterableMenuItem } from "../menu";
 import { MenuButton } from "../menu-button";
 import { numberInputCSS } from "./styles.css";
+import { FieldError } from "../field-error";
 
 /** -----------------------------------------------------------------------------
  * TYPES
@@ -229,7 +229,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 			</Group>
 
 			{isInvalid && errorMessage && (
-				<V2FieldError>{errorMessage}</V2FieldError>
+				<FieldError>{errorMessage}</FieldError>
 			)}
 		</ReactAriaNumberField>
 	);

@@ -16,6 +16,9 @@ import {
 } from "../_DEPRECATED_tooltip";
 import { Icon } from "../icon";
 import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
+import * as React from "react";
+import { Button } from "../button";
+import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
 	title: "Data entry/TextField",
@@ -91,6 +94,38 @@ export const TypePassword: Story = {
 					<TextFieldVisibilityButton />
 				</Group>
 			</TextField>
+		);
+	},
+};
+
+export const TestRef: Story = {
+	args: {
+		value: "Hello world",
+	},
+	render: (args) => {
+		const ref = React.useRef<HTMLInputElement>(null);
+
+		return (
+			<>
+				<TextField
+					{...args}
+					className={sprinkles({ marginBottom: "space_2" })}
+					ref={ref}
+				>
+					<Label>Label</Label>
+					<Input />
+				</TextField>
+				<Button
+					appearance="secondary"
+					className={sprinkles({ width: "100%" })}
+					onPress={() => {
+						console.log(ref.current);
+						ref.current?.focus();
+					}}
+				>
+					Focus field
+				</Button>
+			</>
 		);
 	},
 };
