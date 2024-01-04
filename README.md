@@ -40,19 +40,29 @@ There is a Storybook deployed to <https://boondoggle.design>
 Focused on implementing React Aria Components to reduce Javascript boilerplate and focus attention on
 styling and enabling application features.
 
-- [x] Implement `TextField` component
-  - [ ] Remove deprecated `TextArea` & `FormTextArea` components
-  - [ ] Remove deprecated `Input` & `FormInput` components
-  - [ ] Fix bug where `TextField` is not focused when clicking on label
-- [ ] Implement `ComboBox` component
-  - [x] Implement `ComboBoxCountry` component
 
+- [x] Example of composing `NumberField` with `Select` to create a grouped fields
+- [x] Implement `ComboBox` component
+- [x] Implement `ComboBoxCountry` component
+- [x] Implement `ComboBoxCountry` component
 - [x] Implement `NumberField` component
-  - [x] Implement `NumberFieldCurrency` component
+- [x] Implement `Select` component
+- [x] Implement `TextField` component
+- [x] Remove deprecated `TextArea` & `FormTextArea` components
+
+- [ ] Remove deprecated `SlotWrapper` component
+- [ ] Remove deprecated `Dialog` component
+- [ ] Remove deprecated `FloatingPanel` component
+- [ ] Remove deprecated `Input` & `FormInput` components
+- [ ] Remove deprecated `SelectButton`, `SelectSingle` & `SelectMulti` components
 - [ ] Implement `DatePicker` component
+- [ ] Remove deprecated `InputDate` & `FormInputDate` components
+
+- [ ] ~Implement `NumberFieldCurrency` component~ (Not doing)
 
 #### "Later"™️
 
+- [ ] Fix bug where `TextField` is not focused when clicking on label
 - [ ] Add functionality to toggle `ComboBox` on input click
 - [ ] Virtualize `ComboBoxCountry` list
 - [ ] Summarise validation errors at bottom of `Form` component
