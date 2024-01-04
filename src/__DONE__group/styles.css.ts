@@ -1,5 +1,5 @@
 import { inputBg } from "../_css/input.css";
-import { ACTIVE, FOCUS, a11yDisabled, vars } from "../index.css";
+import { a11yDisabled, vars } from "../index.css";
 import { makeTheme, withPrefersMotion } from "../__DONE__css-utils";
 import { sprinkles } from "../__DONE__sprinkles/index.css";
 import { assignVars, globalStyle, style } from "@vanilla-extract/css";
@@ -22,6 +22,8 @@ export const groupCSS = style([
 		position: "relative",
 
 		overflow: "hidden",
+
+		paddingX: "space_1",
 	}),
 	withPrefersMotion({
 		transitionProperty: "color, background, border-color, outline, opacity",
@@ -74,7 +76,7 @@ export const groupCSS = style([
 			 * Whether the group is invalid.
 			 */
 
-			"&[data-invalid]": {
+			"&[data-invalid], &:has([data-invalid])": {
 				vars: assignVars(
 					vars.color,
 					makeTheme({

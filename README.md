@@ -47,10 +47,13 @@ styling and enabling application features.
 - [ ] Implement `ComboBox` component
   - [x] Implement `ComboBoxCountry` component
 
-- [ ] Implement `NumberField` component
+- [x] Implement `NumberField` component
+  - [x] Implement `NumberFieldCurrency` component
 - [ ] Implement `DatePicker` component
 
 #### "Later"™️
 
-- [ ] Add functionality to toggle `ComboBox` on click
+- [ ] Add functionality to toggle `ComboBox` on input click
 - [ ] Virtualize `ComboBoxCountry` list
+- [ ] Summarise validation errors at bottom of `Form` component
+- [ ] Fix bug where type is not known when using `onSelectionChange` callback in `Select` and `MenuButton` components

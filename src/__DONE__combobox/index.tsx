@@ -1,17 +1,17 @@
-import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
+import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
 import React from "react";
 import {
-	Button as RACButton,
 	ComboBox as RACCombobox,
 	type ComboBoxProps as RACComboBoxProps,
 } from "react-aria-components";
 import { Icon } from "../__DONE__icon";
 import { IterableListBoxItem, ListBox } from "../__DONE__list-box";
-import { comboBoxButtonCSS, comboBoxCSS } from "./styles.css";
+import { comboBoxCSS } from "./styles.css";
 import { Popover } from "../__DONE__popover/popover";
 import { useFormContext, useController } from "react-hook-form";
 import { FieldError } from "../__DONE__field-error";
+import { FieldButton } from "../__DONE__field-button";
 
 /** -----------------------------------------------------------------------------
  * COMBOBOX BUTTON
@@ -19,9 +19,9 @@ import { FieldError } from "../__DONE__field-error";
 
 export const ComboBoxButton = () => {
 	return (
-		<RACButton className={comboBoxButtonCSS}>
+		<FieldButton>
 			<Icon icon={faAnglesUpDown} />
-		</RACButton>
+		</FieldButton>
 	);
 };
 
@@ -33,7 +33,7 @@ export type ComboBoxProps<TItemId extends string = string> = RACComboBoxProps<
 	IterableListBoxItem<TItemId>
 >;
 
-function BaseComboBox<TItemId extends string = string>(
+function _ComboBox<TItemId extends string = string>(
 	{ children, ...props }: ComboBoxProps<TItemId>,
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) {
@@ -59,7 +59,7 @@ function BaseComboBox<TItemId extends string = string>(
 	);
 }
 
-export const ComboBox = React.forwardRef(BaseComboBox);
+export const ComboBox = React.forwardRef(_ComboBox);
 
 /** -----------------------------------------------------------------------------
  * FormComboBox

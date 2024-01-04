@@ -11,9 +11,9 @@ import { Sprinkles, sprinkles } from "../__DONE__sprinkles/index.css";
 import { Group } from "../__DONE__group";
 import { GroupAddon } from "../_DEPRECATED_group-addon";
 import { Icon } from "../__DONE__icon";
-import { Label } from "../label";
+import { Label } from "../__DONE__label";
 import { IterableMenuItem } from "../__DONE__menu";
-import { MenuButton } from "../__DONE__menu-button";
+import { MenuButton } from "../menu-button";
 import { numberInputCSS } from "./styles.css";
 import { FieldError } from "../__DONE__field-error";
 

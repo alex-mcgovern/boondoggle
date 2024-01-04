@@ -8,7 +8,7 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../types";
-import { Label } from "../label";
+import { Label } from "../__DONE__label";
 import { Box } from "../__DONE__box";
 import { FieldDescription } from "../__DONE__field-description";
 import { FieldError } from "../__DONE__field-error";

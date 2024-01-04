@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
 	ACTIVE,
+	FOCUS,
 	HOVER,
 	a11yDisabled,
 	a11yFocus,
@@ -29,11 +30,14 @@ export const buttonCSS = recipe({
 
 			borderRadius: "md",
 		}),
+		{
+			outline: "0px solid transparent",
+		},
 		withPrefersMotion({
-			transition: `color ${vars.transitionDuration.short} ease,\
-                         background ${vars.transitionDuration.short} ease,\
-                         opacity ${vars.transitionDuration.short} ease,\
-                         border-color ${vars.transitionDuration.short} ease`,
+			transitionProperty:
+				"color, background, border-color, outline, opacity",
+			transitionDuration: vars.transitionDuration.short,
+			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
 	],
 
@@ -79,6 +83,27 @@ export const buttonCSS = recipe({
 						[`&${HOVER}`]: {
 							background: vars.color.tint_hover,
 							borderColor: vars.color.border_element_active,
+						},
+						/**
+						 * Whether the button is focused, either via a mouse or keyboard.
+						 */
+
+						"&[data-focused]": {
+							background:
+								vars.color.text_field_background_highlighted,
+							borderColor: vars.color.focus_border,
+							outline: `2px solid ${vars.color.focus_ring}`,
+						},
+
+						/**
+						 * Whether the button is keyboard focused.
+						 */
+
+						"&[data-focus-visible]": {
+							background:
+								vars.color.text_field_background_highlighted,
+							borderColor: vars.color.focus_border,
+							outline: `2px solid ${vars.color.focus_ring}`,
 						},
 						[`&${ACTIVE}`]: {
 							background: vars.color.tint_hover,

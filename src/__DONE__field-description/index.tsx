@@ -1,24 +1,16 @@
 import clsx from "clsx";
-import { Text as ReactAriaText } from "react-aria-components";
+import {
+	Text as ReactAriaText,
+	TextProps as RACTextProps,
+} from "react-aria-components";
 import { descriptionCSS } from "./styles.css";
 
-export function FieldDescription({
-	className,
-	description,
-}: {
-	className?: string;
-	description: React.ReactNode;
-}) {
-	if (!description) {
-		return null;
-	}
-
+export function FieldDescription(props: RACTextProps) {
 	return (
 		<ReactAriaText
-			className={clsx(descriptionCSS, className)}
+			{...props}
+			className={clsx(props.className, descriptionCSS)}
 			slot="description"
-		>
-			{description}
-		</ReactAriaText>
+		/>
 	);
 }

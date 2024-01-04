@@ -1,7 +1,7 @@
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { RowData } from "@tanstack/react-table";
 import { Icon } from "../__DONE__icon";
-import { MenuButton } from "../__DONE__menu-button";
+import { MenuButton } from "../menu-button";
 
 export type TV2DataTableRowActions<TData extends RowData> =
 	React.JSXElementConstructor<{

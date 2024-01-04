@@ -1,12 +1,6 @@
-/**
- * @todo
- */
-
 import * as React from "react";
 import {
-	ButtonContext as RACButtonContext,
-	Button as RACButton,
-	type ButtonProps as RACButtonProps,
+	ButtonContext as FieldButtonContext,
 	TextField as RACTextField,
 	type TextFieldProps as RACTextFieldProps,
 	useSlottedContext,
@@ -23,27 +17,23 @@ import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle"
 import { faClipboard } from "@fortawesome/pro-regular-svg-icons/faClipboard";
 import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
 import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
-import { textFieldButtonCSS, textFieldCSS } from "./styles.css";
+import { textFieldCSS } from "./styles.css";
 import clsx from "clsx";
 import { useController, useFormContext } from "react-hook-form";
 import { FieldError } from "../__DONE__field-error";
+import { FieldButton, type FieldButtonProps } from "../__DONE__field-button";
 
 /** -----------------------------------------------------------------------------
  * TEXT FIELD CLEAR BUTTON
  * ------------------------------------------------------------------------------- */
 
-export const TextFieldClearButton = (props: RACButtonProps) => {
+export const TextFieldClearButton = () => {
 	return (
 		<Tooltip placement="top">
 			<TooltipTrigger asChild>
-				<RACButton
-					{...props}
-					className={textFieldButtonCSS}
-					excludeFromTabOrder
-					slot="clear"
-				>
+				<FieldButton slot="clear">
 					<Icon icon={faTimesCircle} />
-				</RACButton>
+				</FieldButton>
 			</TooltipTrigger>
 			<TooltipContent>{i18n.clear}</TooltipContent>
 		</Tooltip>
@@ -54,18 +44,13 @@ export const TextFieldClearButton = (props: RACButtonProps) => {
  * TEXT FIELD COPY BUTTON
  * ------------------------------------------------------------------------------- */
 
-export const TextFieldCopyButton = (props: RACButtonProps) => {
+export const TextFieldCopyButton = (props: FieldButtonProps) => {
 	return (
 		<Tooltip placement="top">
 			<TooltipTrigger asChild>
-				<RACButton
-					{...props}
-					className={textFieldButtonCSS}
-					excludeFromTabOrder
-					slot="copy"
-				>
+				<FieldButton {...props} slot="copy">
 					<Icon icon={faClipboard} />
-				</RACButton>
+				</FieldButton>
 			</TooltipTrigger>
 			<TooltipContent>{i18n.copy_to_clipboard}</TooltipContent>
 		</Tooltip>
@@ -76,22 +61,17 @@ export const TextFieldCopyButton = (props: RACButtonProps) => {
  * TEXT FIELD VISIBILITY BUTTON
  * ------------------------------------------------------------------------------- */
 
-export const TextFieldVisibilityButton = (props: RACButtonProps) => {
-	const context = useSlottedContext(RACButtonContext, "visibility");
+export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
+	const context = useSlottedContext(FieldButtonContext, "visibility");
 
 	return (
 		<Tooltip placement="top">
 			<TooltipTrigger asChild>
-				<RACButton
-					{...props}
-					className={textFieldButtonCSS}
-					excludeFromTabOrder
-					slot="visibility"
-				>
+				<FieldButton {...props} slot="visibility">
 					<Icon
 						icon={context?.value === "hidden" ? faEyeSlash : faEye}
 					/>
-				</RACButton>
+				</FieldButton>
 			</TooltipTrigger>
 			<TooltipContent>
 				{context?.value === "hidden" ? i18n.hide : i18n.show}
@@ -147,7 +127,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 
 		const buttonContext: Record<
 			"slots",
-			Record<string, RACButtonProps>
+			Record<string, FieldButtonProps>
 		> = React.useMemo(() => {
 			return {
 				slots: {
@@ -168,7 +148,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 		}, [clearValue, copyValue, toggleVisibility, value, type]);
 
 		return (
-			<RACButtonContext.Provider value={buttonContext}>
+			<FieldButtonContext.Provider value={buttonContext}>
 				<RACTextField
 					{...props}
 					className={clsx(props.className, textFieldCSS)}
@@ -180,7 +160,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 					type={type}
 					ref={ref}
 				/>
-			</RACButtonContext.Provider>
+			</FieldButtonContext.Provider>
 		);
 	},
 );

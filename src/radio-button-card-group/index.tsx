@@ -11,7 +11,7 @@ import {
 import { Box } from "../__DONE__box";
 import { FieldDescription } from "../__DONE__field-description";
 
-import { Label } from "../label";
+import { Label } from "../__DONE__label";
 import { RadioButtonCard } from "../radio-button-card";
 import type {
 	RadioButtonCardShape,

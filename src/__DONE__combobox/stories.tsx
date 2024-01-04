@@ -2,7 +2,7 @@ import { ComboBox, ComboBoxButton } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 import { Group } from "../__DONE__group";
 import { Input } from "../__DONE__input";
-import { Label } from "../label";
+import { Label } from "../__DONE__label";
 
 const meta = {
 	title: "Data entry/ComboBox",
