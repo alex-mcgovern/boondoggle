@@ -4,7 +4,7 @@ import type { MouseEvent } from "react";
 import { WithOptionalPlaceholder } from "../types";
 import { DatePicker } from "../_DEPRECATED_date-picker";
 import { Dialog } from "../_DEPRECATED_dialog";
-import { FieldActionButtonDate } from "../field-action-button-date";
+import { FieldActionButtonDate } from "../_DEPRECATED_field-action-button-date";
 import { Input } from "../_DEPRECATED_input";
 import type { InputProps } from "../_DEPRECATED_input";
 import { datePickerDialogStyle, inputDateStyle } from "./styles.css";

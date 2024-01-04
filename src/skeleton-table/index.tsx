@@ -1,5 +1,8 @@
-import { Box } from "../box";
-import { tableCellCSS, tableHeaderCellCSS } from "../data-table/styles.css";
+import { Box } from "../__DONE__box";
+import {
+	tableCellCSS,
+	tableHeaderCellCSS,
+} from "../__DONE__data-table/styles.css";
 import { Skeleton } from "../skeleton";
 
 function random(min: number, max: number) {

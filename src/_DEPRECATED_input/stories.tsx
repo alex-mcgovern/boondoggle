@@ -5,8 +5,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input as StoryComp } from ".";
 import type { InputProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
-import { Icon } from "../icon";
-import { Box } from "../box";
+import { Icon } from "../__DONE__icon";
+import { Box } from "../__DONE__box";
 
 const meta = {
 	args: {

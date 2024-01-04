@@ -6,7 +6,7 @@ import type {
 import * as React from "react";
 import { CSSProperties, ForwardedRef, Fragment } from "react";
 import { arrayHasLength } from "../../../_lib/array-has-length";
-import { FloatingPanel } from "../../../floating-panel";
+import { FloatingPanel } from "../../../_DEPRECATED_floating-panel";
 import { isGroupedSelectItems } from "../../_lib/isGroupedSelectItems";
 import type {
 	FlatSelectItems,

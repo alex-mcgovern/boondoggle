@@ -6,16 +6,16 @@ import {
 	NumberFieldProps as ReactAriaNumberFieldProps,
 } from "react-aria-components";
 import { WithName, WithSize } from "../types";
-import { Box } from "../box";
+import { Box } from "../__DONE__box";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
-import { Group } from "../group";
-import { GroupAddon } from "../group-addon";
-import { Icon } from "../icon";
+import { Group } from "../__DONE__group";
+import { GroupAddon } from "../_DEPRECATED_group-addon";
+import { Icon } from "../__DONE__icon";
 import { Label } from "../label";
 import { IterableMenuItem } from "../menu";
 import { MenuButton } from "../menu-button";
 import { numberInputCSS } from "./styles.css";
-import { FieldError } from "../field-error";
+import { FieldError } from "../__DONE__field-error";
 
 /** -----------------------------------------------------------------------------
  * TYPES

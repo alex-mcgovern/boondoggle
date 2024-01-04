@@ -5,8 +5,8 @@ import type { ReactNode } from "react";
 import { useClickOutside } from "../_hooks/use-click-outside";
 import { useForwardRef } from "../_hooks/use-forward-ref";
 import { useOpenDialogWithKeyboard } from "../_hooks/use-open-dialog-with-keyboard";
-import { Box } from "../box";
-import type { BoxProps } from "../box";
+import { Box } from "../__DONE__box";
+import type { BoxProps } from "../__DONE__box";
 import { getDialogStyles } from "./styles.css";
 import type { DialogPlacementEnum } from "./styles.css";
 

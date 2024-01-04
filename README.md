@@ -47,4 +47,6 @@ styling and enabling application features.
 - [ ] Implement `ComboBox` component
   - [ ] Implement `ComboBoxCountry` component
   - [ ] Remove deprecated `SelectSingle` & `SelectMulti` components within the library
+- [ ] Implement `NumberField` component
+- [ ] Implement `DatePicker` component
 

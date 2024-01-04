@@ -1,5 +1,5 @@
-import { Card } from "../card";
-import { FieldsGrid } from "../fields-grid";
+import { Card } from "../__DONE__card";
+import { FieldsGrid } from "../__DONE__fields-grid";
 import { Skeleton } from "../skeleton";
 import { SkeletonInput } from "../skeleton-input";
 

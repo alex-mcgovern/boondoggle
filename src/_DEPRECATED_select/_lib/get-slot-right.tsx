@@ -1,4 +1,4 @@
-import { FieldActionButtonClear } from "../../field-action-button-clear";
+import { FieldActionButtonClear } from "../../_DEPRECATED_field-action-button-clear";
 
 import type { ReactNode } from "react";
 

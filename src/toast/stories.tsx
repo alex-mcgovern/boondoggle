@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { Meta, StoryObj } from "@storybook/react";
 import { ToastProvider, useToastContext } from ".";
-import { Button } from "../button";
+import { Button } from "../__DONE__button";
 
 const meta = {
 	title: "Components/V2/ToastProvider",

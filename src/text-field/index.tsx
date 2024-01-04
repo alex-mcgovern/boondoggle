@@ -18,7 +18,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "../_DEPRECATED_tooltip";
-import { Icon } from "../icon";
+import { Icon } from "../__DONE__icon";
 import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
 import { faClipboard } from "@fortawesome/pro-regular-svg-icons/faClipboard";
 import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
@@ -26,7 +26,7 @@ import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
 import { textFieldButtonCSS, textFieldCSS } from "./styles.css";
 import clsx from "clsx";
 import { useController, useFormContext } from "react-hook-form";
-import { FieldError } from "../field-error";
+import { FieldError } from "../__DONE__field-error";
 
 /** -----------------------------------------------------------------------------
  * TEXT FIELD CLEAR BUTTON

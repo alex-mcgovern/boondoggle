@@ -21,11 +21,10 @@ import {
 	WithSlots,
 	WithStateInvalid,
 } from "../types";
-import { FieldActionButtonClear } from "../field-action-button-clear";
-import { FieldActionButtonCopy } from "../field-action-button-copy";
-import { FieldActionButtonVisibility } from "../field-action-button-visibility";
-import { FieldWrapper, FieldWrapperProps } from "../field-wrapper";
-import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { FieldActionButtonClear } from "../_DEPRECATED_field-action-button-clear";
+import { FieldActionButtonCopy } from "../_DEPRECATED_field-action-button-copy";
+import { FieldActionButtonVisibility } from "../_DEPRECATED_field-action-button-visibility";
+import { FieldWrapper, FieldWrapperProps } from "../_DEPRECATED_field-wrapper";
 import {
 	InputAddonWrapper,
 	WithOptionalInputAddons,
@@ -34,6 +33,7 @@ import { InputSlotWrapper } from "./InputSlotWrapper";
 import { clearButtonStyle, inputStyles } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type InputProps = Partial<
 	Pick<

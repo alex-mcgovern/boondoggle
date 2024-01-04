@@ -16,8 +16,8 @@ import {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../types";
-import { Icon } from "../../icon";
-import { Box } from "../../box";
+import { Icon } from "../../__DONE__icon";
+import { Box } from "../../__DONE__box";
 import { Input } from "../../_DEPRECATED_input";
 import type { InputProps } from "../../_DEPRECATED_input";
 import { Sprinkles } from "../../sprinkles/index.css";

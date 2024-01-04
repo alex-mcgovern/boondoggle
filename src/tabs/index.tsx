@@ -12,7 +12,7 @@ import {
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 import { Loader } from "../loader";
-import { Icon } from "../icon";
+import { Icon } from "../__DONE__icon";
 import {
 	tabCountCSS,
 	tabCountIconCSS,

@@ -7,7 +7,7 @@ import {
 	V2ScrollableMobileMenuContent,
 } from ".";
 import { sprinkles } from "../sprinkles/index.css";
-import { Button } from "../button";
+import { Button } from "../__DONE__button";
 
 const meta = {
 	title: "Components/V2/MobileMenu",

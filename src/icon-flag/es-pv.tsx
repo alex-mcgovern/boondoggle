@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Box } from "../box";
+import { Box } from "../__DONE__box";
 import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { flagStyles } from "./styles.css";
 

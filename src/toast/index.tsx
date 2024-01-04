@@ -13,7 +13,7 @@ import * as React from "react";
 import { Button as ReactAriaButton } from "react-aria-components";
 import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
 import { variantColorOverlay } from "../index.css";
-import { Icon } from "../icon";
+import { Icon } from "../__DONE__icon";
 import {
 	toastCSS,
 	toastCloseButtonCSS,

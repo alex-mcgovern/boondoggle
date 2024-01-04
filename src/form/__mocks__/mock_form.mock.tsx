@@ -8,7 +8,7 @@ import { FlagAe } from "../../icon-flag/ae";
 import { FlagEu } from "../../icon-flag/eu";
 import { FlagGb } from "../../icon-flag/gb";
 import { FlagUs } from "../../icon-flag/us";
-import type { BoxProps } from "../../box";
+import type { BoxProps } from "../../__DONE__box";
 import { FormInput } from "../../form-input";
 import { FormInputDate } from "../../_DEPRECATED_form-input-date";
 import { FormRadioButtonCardGroup } from "../../form-radio-button-card-group";

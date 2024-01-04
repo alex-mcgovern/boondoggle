@@ -7,7 +7,7 @@ import {
 	useForm,
 } from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-import type { BoxProps } from "../box";
+import type { BoxProps } from "../__DONE__box";
 import { handleHookFormErrors } from "./handle_hook_form_errors";
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<

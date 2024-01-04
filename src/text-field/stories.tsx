@@ -6,7 +6,7 @@ import {
 } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 import { ToastProvider } from "../toast";
-import { Group } from "../group";
+import { Group } from "../__DONE__group";
 import { Input } from "../input";
 import { Label } from "../label";
 import {
@@ -14,10 +14,10 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "../_DEPRECATED_tooltip";
-import { Icon } from "../icon";
+import { Icon } from "../__DONE__icon";
 import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
 import * as React from "react";
-import { Button } from "../button";
+import { Button } from "../__DONE__button";
 import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {

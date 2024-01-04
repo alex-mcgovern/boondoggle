@@ -2,7 +2,7 @@ import { faBars } from "@fortawesome/pro-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
 import { Meta, StoryObj } from "@storybook/react";
 import { MenuButton as StoryComp } from ".";
-import { Icon } from "../icon";
+import { Icon } from "../__DONE__icon";
 
 const meta = {
 	title: "Components/V2/MenuButton",
