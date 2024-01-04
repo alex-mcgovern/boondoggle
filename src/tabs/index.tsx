@@ -55,7 +55,7 @@ export const V2TabCount = ({
  * ------------------------------------------------------------------------------- */
 
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
-	label: string;
+	label?: string;
 	slotLeft?: React.ReactNode;
 	slotRight?: React.ReactNode;
 	animationKey: string;

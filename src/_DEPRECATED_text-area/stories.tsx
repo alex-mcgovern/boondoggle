@@ -3,14 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { TextArea as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Icon } from "../icon";
-import { Loader } from "../loader";
 
 const meta = {
 	args: {
-		label: {
-			text: "Text area",
-			tooltip: "This is a tooltip",
-		},
+		label: "Text area",
 		name: LOREM.name(),
 		placeholder: LOREM.placeholder(),
 	},
@@ -44,10 +40,6 @@ export const SlotLeftIcon: Story = {
 
 export const SlotRightIcon: Story = {
 	args: { slotRight: <Icon icon={faTriangleCircleSquare} /> },
-};
-
-export const SlotRightLoader: Story = {
-	args: { slotRight: <Loader /> },
 };
 
 export const StateHover: Story = {

@@ -52,7 +52,7 @@ export type InputDateProps = Omit<
 		/**
 		 * Label config for the field.
 		 */
-		label: string;
+		label?: string;
 	};
 
 export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(

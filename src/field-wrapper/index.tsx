@@ -32,7 +32,7 @@ export type FieldWrapperProps = WithColorOverlay &
 		/**
 		 * Label config for the field.
 		 */
-		label: string;
+		label?: string;
 	};
 
 /**
@@ -46,7 +46,6 @@ export function FieldWrapper({
 	hideLastpass,
 	invalid,
 	label,
-	name,
 	wrapperProps,
 }: FieldWrapperProps) {
 	return (

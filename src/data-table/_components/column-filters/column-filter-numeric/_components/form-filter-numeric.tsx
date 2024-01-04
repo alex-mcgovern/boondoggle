@@ -3,9 +3,7 @@ import * as React from "react";
 import { FormSubmitButton } from "../../../../../form-submit-button";
 import { Box } from "../../../../../box";
 import { Form } from "../../../../../form";
-import { FormInput } from "../../../../../form-input";
 import { FormSelectSingle } from "../../../../../_DEPRECATED_form-select-single";
-import { sprinkles } from "../../../../../sprinkles/index.css";
 import type { TableNumberRangeFilterMode } from "../../../../types";
 import { getTableNumberRangeFilterModeItems } from "../_lib/getNumberRangeFilterModeItems";
 import {
@@ -13,6 +11,8 @@ import {
 	getZodFilterNumberRange,
 } from "../_lib/zodFilterNumberRange";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
+import { FormInput } from "../../../../../form-input";
+import { sprinkles } from "../../../../../sprinkles/index.css";
 
 export const FormFilterNumeric = ({
 	currentMax,
@@ -92,7 +92,6 @@ export const FormFilterNumeric = ({
 					<Box display="grid" gridTemplateColumns="2x" gap="space_2">
 						<FormInput
 							size="sm"
-							label={{ text: "Minimum", isHidden: true }}
 							marginBottom="space_2"
 							inputMode="numeric"
 							name="min"
@@ -106,7 +105,6 @@ export const FormFilterNumeric = ({
 						/>
 						<FormInput
 							size="sm"
-							label={{ text: "Maximum", isHidden: true }}
 							marginBottom="space_2"
 							inputMode="numeric"
 							name="max"
@@ -123,7 +121,6 @@ export const FormFilterNumeric = ({
 				{localFilterMode === "is_equal_to" && (
 					<FormInput
 						size="sm"
-						label={{ text: "Equal to", isHidden: true }}
 						marginBottom="space_2"
 						defaultValue={
 							transformNumericToRaw
@@ -142,7 +139,6 @@ export const FormFilterNumeric = ({
 				{localFilterMode === "is_greater_than" && (
 					<FormInput
 						size="sm"
-						label={{ text: "Greater than", isHidden: true }}
 						marginBottom="space_2"
 						defaultValue={
 							transformNumericToRaw
@@ -161,7 +157,6 @@ export const FormFilterNumeric = ({
 				{localFilterMode === "is_less_than" && (
 					<FormInput
 						size="sm"
-						label={{ text: "Less than", isHidden: true }}
 						marginBottom="space_2"
 						defaultValue={
 							transformNumericToRaw

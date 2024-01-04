@@ -95,7 +95,7 @@ export type InputProps = Partial<
 		/**
 		 * Label config for the field.
 		 */
-		label: string;
+		label?: string;
 	};
 
 /**

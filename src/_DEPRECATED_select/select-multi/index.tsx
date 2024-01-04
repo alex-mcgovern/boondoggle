@@ -150,7 +150,7 @@ export type SelectMultiProps<
 		/**
 		 * Label config for the field.
 		 */
-		label: string;
+		label?: string;
 	};
 
 function SelectMultiBase<

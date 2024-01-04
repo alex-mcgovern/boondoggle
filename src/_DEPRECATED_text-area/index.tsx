@@ -16,10 +16,12 @@ import {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../types";
-import { FieldWrapper } from "../field-wrapper";
+
 import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
+
 import { getTextAreaStyles } from "./styles.css";
+import { FieldWrapper } from "../field-wrapper";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type TextAreaProps = Omit<
 	ComponentPropsWithoutRef<"textarea">,
@@ -39,7 +41,7 @@ export type TextAreaProps = Omit<
 	WithSlots &
 	WithStateInvalid &
 	WithWrapperProps & {
-		label: string;
+		label?: string;
 	};
 
 export const TextArea = forwardRef(

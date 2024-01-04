@@ -29,7 +29,7 @@ export type ComboBoxProps<TItemId extends string = string> = WithName & {
 		RACComboBoxProps<IterableListBoxItem<TItemId>>,
 		"children"
 	>;
-	label: string;
+	label?: string;
 };
 
 function BaseComboBox<TItemId extends string = string>(

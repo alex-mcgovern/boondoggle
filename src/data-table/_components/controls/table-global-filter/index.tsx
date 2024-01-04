@@ -22,10 +22,6 @@ export function TableGlobalFilter<TRowData extends RowData>({
 
 	return (
 		<Input
-			label={{
-				text: "Search",
-				isHidden: true,
-			}}
 			className={tableGlobalFilterCSS}
 			autoComplete="off"
 			size="sm"

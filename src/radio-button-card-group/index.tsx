@@ -48,7 +48,7 @@ export type RadioButtonCardGroupProps = Sprinkles &
 		/**
 		 * Label config for the field.
 		 */
-		label: string;
+		label?: string;
 	};
 
 export const RadioButtonCardGroup = forwardRef(

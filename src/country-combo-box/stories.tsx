@@ -6,10 +6,7 @@ const meta = {
 	title: "Data entry/CountryComboBox",
 	component: CountryComboBox,
 	args: {
-		label: {
-			text: "Country",
-			tooltip: "Select a country",
-		},
+		label: "Country",
 		name: "country",
 		comboBoxProps: {},
 	},

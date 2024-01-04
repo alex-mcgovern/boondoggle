@@ -33,7 +33,7 @@ export type SelectItemProps = BoxProps &
 		/**
 		 * The label to display for the item.
 		 */
-		label: string;
+		label?: string;
 
 		/**
 		 * The value of the item.

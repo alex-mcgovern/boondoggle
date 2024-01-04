@@ -8,10 +8,7 @@ const meta = {
 	title: "Data entry/InputCurrency",
 	component: StoryComp,
 	args: {
-		label: {
-			text: "Amount",
-			tooltip: "Please enter an amount",
-		},
+		label: "Amount",
 		name: "amount",
 		currencyConfig: {
 			initialCurrency: "EUR",

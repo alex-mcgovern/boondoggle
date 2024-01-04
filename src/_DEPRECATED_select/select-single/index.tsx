@@ -122,7 +122,7 @@ export type SelectSingleProps<
 		 */
 		shouldClearFilterOnSelection?: boolean;
 
-		label: string;
+		label?: string;
 	};
 
 /**

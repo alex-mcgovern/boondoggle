@@ -187,7 +187,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 	}: ReactAriaNumberFieldProps &
 		WithSize &
 		WithName & {
-			label: string;
+			label?: string;
 			marginBottom?: Sprinkles["marginBottom"];
 			description?: string;
 			errorMessage?: string | null;
@@ -210,7 +210,7 @@ function BaseV2InputCurrency<TCurrency extends string = string>(
 			className={sprinkles({ marginBottom })}
 			{...props}
 		>
-			<Label label={label} name={name} />
+			<Label>{label}</Label>
 
 			<Group isInvalid={isInvalid}>
 				<ReactAriaInput

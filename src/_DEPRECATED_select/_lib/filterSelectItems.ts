@@ -39,7 +39,7 @@ export function filterSelectItems<
 		return items.filter((item) => {
 			return (
 				isNotSeparator(item) &&
-				(item.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+				(item.label?.toLowerCase().includes(inputValue.toLowerCase()) ||
 					item.value
 						.toLowerCase()
 						.includes(inputValue.toLowerCase()) ||
@@ -59,7 +59,7 @@ export function filterSelectItems<
 					return (
 						isNotSeparator(item) &&
 						(item.label
-							.toLowerCase()
+							?.toLowerCase()
 							.includes(inputValue.toLowerCase()) ||
 							item.value
 								.toLowerCase()

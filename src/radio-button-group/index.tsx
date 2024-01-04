@@ -31,7 +31,7 @@ export type RadioButtonGroupProps = Sprinkles &
 		/**
 		 * Label config for the field.
 		 */
-		label: string;
+		label?: string;
 
 		labelTooltip?: string;
 

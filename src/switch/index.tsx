@@ -6,7 +6,7 @@ import {
 import { switchCSS, switchIndicatorCSS, switchLabelCSS } from "./styles.css";
 
 export type SwitchProps = Omit<ReactAriaSwitchProps, "children" | "name"> & {
-	label: string;
+	label?: string;
 	name: string;
 };
 

@@ -23,7 +23,7 @@ const ColumnMultiFilterItem = ({
 }: {
 	handleSelection: (value: string) => void;
 	defaultChecked: boolean | undefined;
-	label: string;
+	label?: string;
 	value: string;
 }) => {
 	return (
