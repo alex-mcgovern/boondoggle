@@ -1,8 +1,7 @@
 import { Header as StoryComp } from ".";
-
 import { Meta, StoryObj } from "@storybook/react";
 import { Box } from "../box";
-import { Button } from "../_DEPRECATED_button";
+import { Button } from "../button";
 
 const meta = {
 	title: "Components/V1/Header",

@@ -1,6 +1,5 @@
 import { faArrowRight } from "@fortawesome/pro-solid-svg-icons/faArrowRight";
 import { faLock } from "@fortawesome/pro-solid-svg-icons/faLock";
-import { faRefresh } from "@fortawesome/pro-solid-svg-icons/faRefresh";
 import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTriangleCircleSquare";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input as StoryComp } from ".";
@@ -8,7 +7,6 @@ import type { InputProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Icon } from "../icon";
 import { Box } from "../box";
-import { Button } from "../_DEPRECATED_button";
 
 const meta = {
 	args: {
@@ -225,21 +223,6 @@ export const With3SlotLeft: Story = {
 export const With1SlotRight: Story = {
 	args: {
 		slotRight: <Icon icon={faArrowRight} />,
-	},
-};
-
-export const With1SlotRightWide: Story = {
-	args: {
-		slotRight: (
-			<Button
-				appearance="ghost"
-				name="reset"
-				size="sm"
-				slotLeft={<Icon icon={faRefresh} />}
-			>
-				Reset
-			</Button>
-		),
 	},
 };
 

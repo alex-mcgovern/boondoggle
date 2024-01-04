@@ -17,9 +17,9 @@ import { variantColorOverlay } from "../index.css";
 import { Icon } from "../icon";
 import { Box } from "../box";
 import type { BoxProps } from "../box";
-import { Button } from "../_DEPRECATED_button";
-import { sprinkles } from "../sprinkles/index.css";
 import { datePickerRootCSS } from "./styles.css";
+import { sprinkles } from "../sprinkles/index.css";
+import { Button } from "../button";
 
 export function DatePickerYears({
 	onYearClick,
@@ -150,7 +150,7 @@ export function DatePickerControls({
 				<Button
 					appearance="ghost"
 					name="toggle_years"
-					onClick={onToggleYears}
+					onPress={onToggleYears}
 				>
 					{isShowingYears ? (
 						<>

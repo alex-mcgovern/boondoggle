@@ -10,7 +10,6 @@ import {
 	elementPaddingRaw,
 	vars,
 } from "../index.css";
-import { buttonBaseClsDoNotRemoveOrYouWillBeFired } from "../_DEPRECATED_button/styles.css";
 import { withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
 
@@ -212,25 +211,17 @@ const addonHasBorder = styleVariants({
 	true: {},
 });
 
-globalStyle(
-	`${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
-     ${tabSide.left} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
-	{
-		borderBottomRightRadius: "0",
-		borderRight: "none",
-		borderTopRightRadius: "0",
-	},
-);
+globalStyle(`${tabSide.left} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
+	borderBottomRightRadius: "0",
+	borderRight: "none",
+	borderTopRightRadius: "0",
+});
 
-globalStyle(
-	`${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired},\
-     ${tabSide.right} ${buttonBaseClsDoNotRemoveOrYouWillBeFired}`,
-	{
-		borderBottomLeftRadius: "0",
-		borderLeft: "none",
-		borderTopLeftRadius: "0",
-	},
-);
+globalStyle(`${tabSide.right} ${inputSlotWrapperDoNotRemoveOrYouWillBeFired}`, {
+	borderBottomLeftRadius: "0",
+	borderLeft: "none",
+	borderTopLeftRadius: "0",
+});
 
 const tabSize = styleVariants({
 	lg: [{ height: elementHeight.lg }],

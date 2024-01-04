@@ -2,7 +2,7 @@ import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip, TooltipContent, TooltipTrigger } from ".";
 import { Icon } from "../icon";
-import { Button } from "../_DEPRECATED_button";
+import { Button } from "../button";
 
 const meta = {
 	args: {},
@@ -52,7 +52,7 @@ export const DisabledButtonTrigger: Story = {
 		return (
 			<Tooltip placement="right">
 				<TooltipTrigger asChild>
-					<Button aria-disabled name="blah" type="button">
+					<Button isDisabled name="blah" type="button">
 						Hello there
 					</Button>
 				</TooltipTrigger>

@@ -6,13 +6,13 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import * as React from "react";
 import { MEDIA_QUERY_MOBILE } from "../index.css";
-import { Button } from "../_DEPRECATED_button";
 import { Icon } from "../icon";
 import {
 	collapsibleNavButtonCSS,
 	collapsibleNavInnerCSS,
 	collapsibleNavOuterCSS,
 } from "./styles.css";
+import { Button } from "../button";
 
 function useMatchMedia(
 	queries: string[],
@@ -100,7 +100,7 @@ export const ButtonToggleCollapsibleNav = () => {
 			size="square_sm"
 			className={collapsibleNavButtonCSS}
 			appearance="ghost"
-			onClick={() => setIsOpen((c) => !c)}
+			onPress={() => setIsOpen((c) => !c)}
 			name="mobile_menu"
 		>
 			<Icon icon={faSidebar} />

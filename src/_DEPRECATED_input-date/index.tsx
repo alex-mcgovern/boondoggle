@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 import type { MouseEvent } from "react";
 import { WithOptionalPlaceholder } from "../types";
-import { DatePicker } from "../date-picker";
+import { DatePicker } from "../_DEPRECATED_date-picker";
 import { Dialog } from "../_DEPRECATED_dialog";
 import { FieldActionButtonDate } from "../field-action-button-date";
 import { Input } from "../_DEPRECATED_input";

@@ -6,9 +6,9 @@ import { render } from "@testing-library/react";
 import { DataTable } from ".";
 import type { DataTableProps } from ".";
 import { Icon } from "../icon";
-import { Button } from "../_DEPRECATED_button";
 import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
 import type { MockTableData } from "./_mocks/data-table.mock";
+import { Button } from "../button";
 
 const renderComponent = ({ ...props }: DataTableProps<MockTableData>) => {
 	return render(<DataTable {...props} />);
@@ -24,7 +24,8 @@ const PROPS: DataTableProps<MockTableData> = {
 		<Button appearance="secondary" name="secondary_action">
 			Secondary action
 		</Button>,
-		<Button name="primary_action" slotLeft={<Icon icon={faPlus} />}>
+		<Button name="primary_action">
+			<Icon icon={faPlus} />
 			Primary action
 		</Button>,
 	],

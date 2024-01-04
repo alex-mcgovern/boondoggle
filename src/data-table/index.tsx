@@ -9,7 +9,6 @@ import {
 import * as React from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
-import { TDataTableRowActions } from "../_DEPRECATED_data-table-row-actions";
 import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
@@ -23,6 +22,7 @@ import {
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
+import { TV2DataTableRowActions } from "../data-table-row-actions";
 
 declare module "@tanstack/table-core" {
 	interface FilterFns {
@@ -35,7 +35,7 @@ export type DataTableProps<TRowData extends RowData> =
 		/**
 		 * React component to render a list of actions on each row
 		 */
-		RowActions?: TDataTableRowActions<TRowData>;
+		RowActions?: TV2DataTableRowActions<TRowData>;
 
 		/**
 		 * Up to 2 react nodes to render as actions for the table

@@ -1,12 +1,12 @@
 import { Card as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
-import { Button } from "../_DEPRECATED_button";
-import { FieldsGrid } from "../fields-grid";
 import { Input } from "../_DEPRECATED_input";
-import { SkeletonInput } from "../skeleton-input";
-
 import { Meta, StoryObj } from "@storybook/react";
+import { Button } from "react-aria-components";
+import { FieldsGrid } from "../fields-grid";
+import { SkeletonInput } from "../skeleton-input";
+import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
 	title: "Components/V1/Card",
@@ -66,7 +66,10 @@ export const WithHeader: Story = {
 				<Box as="h3" fontStyle="h5" marginBottom="none">
 					Title
 				</Box>{" "}
-				<Button name="action" marginLeft="auto">
+				<Button
+					name="action"
+					className={sprinkles({ marginLeft: "auto" })}
+				>
 					Action
 				</Button>
 			</>
