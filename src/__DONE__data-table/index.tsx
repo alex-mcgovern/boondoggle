@@ -22,13 +22,43 @@ import {
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
-import { TV2DataTableRowActions } from "../__DONE__data-table-row-actions";
-
+import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
+import { Icon } from "../__DONE__icon";
+import { MenuButton, type MenuButtonProps } from "../menu-button";
+import { Button } from "../__DONE__button";
 declare module "@tanstack/table-core" {
 	interface FilterFns {
 		multiSelect: FilterFn<unknown>;
 	}
 }
+
+/** -----------------------------------------------------------------------------
+ * TableRowMenuButton
+ * ------------------------------------------------------------------------------- */
+
+export type TV2DataTableRowActions<TData extends RowData> =
+	React.JSXElementConstructor<{
+		/**
+		 * The raw data for the DataTable row.
+		 */
+		row_data: TData;
+	}>;
+
+export function TableRowMenuButton<TActionId extends string>(
+	props: MenuButtonProps<TActionId>,
+) {
+	return (
+		<MenuButton {...props}>
+			<Button appearance="secondary" size="square_md">
+				<Icon icon={faEllipsis} />
+			</Button>
+		</MenuButton>
+	);
+}
+
+/** -----------------------------------------------------------------------------
+ * DataTable
+ * ------------------------------------------------------------------------------- */
 
 export type DataTableProps<TRowData extends RowData> =
 	WithTableOptionalSelectableRows<TRowData> & {

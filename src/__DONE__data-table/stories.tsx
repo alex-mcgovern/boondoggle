@@ -2,11 +2,11 @@ import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DataTable as StoryComp } from ".";
 import {
+	DataTable as StoryComp,
 	TV2DataTableRowActions,
-	V2DataTableRowActions,
-} from "../__DONE__data-table-row-actions";
+	TableRowMenuButton,
+} from ".";
 import { Icon } from "../__DONE__icon";
 import { COLUMNS, MockTableData, mockColumn } from "./_mocks/data-table.mock";
 import { TableNumberRangeFilterMode } from "./types";
@@ -91,30 +91,28 @@ export const MOCK_FILTER_MODE_STRINGS: Record<
 
 const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
 	return (
-		<V2DataTableRowActions
-			menuProps={{
-				onAction: (id) => {
-					alert(`Action ${id} clicked`);
-				},
-				items: [
-					{
-						description: faker.lorem.sentence(3),
-						id: "view_details",
-						name: "View details",
-					},
-					{
-						description: faker.lorem.sentence(3),
-						id: "edit",
-						name: "Edit",
-					},
-					{
-						colorOverlay: "red" as const,
-						description: faker.lorem.sentence(3),
-						id: "delete",
-						name: "Delete",
-					},
-				],
+		<TableRowMenuButton
+			onAction={(id) => {
+				alert(`Action ${id} clicked`);
 			}}
+			items={[
+				{
+					description: faker.lorem.sentence(3),
+					id: "view_details",
+					name: "View details",
+				},
+				{
+					description: faker.lorem.sentence(3),
+					id: "edit",
+					name: "Edit",
+				},
+				{
+					colorOverlay: "red" as const,
+					description: faker.lorem.sentence(3),
+					id: "delete",
+					name: "Delete",
+				},
+			]}
 		/>
 	);
 };

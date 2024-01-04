@@ -1,8 +1,6 @@
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import {
 	ACTIVE,
-	FOCUS,
 	HOVER,
 	a11yDisabled,
 	a11yFocus,
@@ -12,11 +10,8 @@ import {
 import { withPrefersMotion } from "../__DONE__css-utils";
 import { sprinkles } from "../__DONE__sprinkles/index.css";
 
-export const buttonBaseClsDoNotRemoveOrYouWillBeFired = style({});
-
 export const buttonCSS = recipe({
 	base: [
-		buttonBaseClsDoNotRemoveOrYouWillBeFired,
 		a11yFocus,
 		a11yDisabled,
 		sprinkles({

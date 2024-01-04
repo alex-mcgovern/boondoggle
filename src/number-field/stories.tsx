@@ -109,7 +109,7 @@ export const ExampleComposedCurrencyField: Story = {
 						aria-label="Currency"
 						placement="bottom end"
 						onSelectionChange={(k) => {
-							setCurrency(k);
+							setCurrency(k as typeof currency);
 						}}
 						items={[
 							{

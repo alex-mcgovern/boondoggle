@@ -113,7 +113,7 @@ export function FormSelect<TItemId extends string = string>({
 	});
 
 	return (
-		<Select
+		<Select<TItemId>
 			{...props}
 			{...field}
 			onSelectionChange={onChange}

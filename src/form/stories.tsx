@@ -20,7 +20,7 @@ import {
 	NumberFieldDecrementButton,
 	NumberFieldIncrementButton,
 } from "../number-field";
-import { FormSelect, Select, SelectButton } from "../select";
+import { FormSelect, SelectButton } from "../select";
 import { FlagEu } from "../__DONE__icon-flag/eu";
 import { FlagGb } from "../__DONE__icon-flag/gb";
 import { FlagUs } from "../__DONE__icon-flag/us";
@@ -67,7 +67,7 @@ const NumberFieldWithCurrencySelect = () => {
 					aria-label="Currency"
 					placement="bottom end"
 					onSelectionChange={(k) => {
-						setCurrency(k);
+						setCurrency(k as typeof currency);
 					}}
 					name="currency"
 					items={[

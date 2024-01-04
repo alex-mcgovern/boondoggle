@@ -8,7 +8,16 @@ import {
 } from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 import type { BoxProps } from "../__DONE__box";
-import { handleHookFormErrors } from "./handle_hook_form_errors";
+
+const debugFormErrors = (errors: FieldErrors) => {
+	if (process.env.NODE_ENV === "production") {
+		return;
+	}
+
+	for (const [field, error] of Object.entries(errors)) {
+		console.error(`[${field}] ${error?.message as string}`);
+	}
+};
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	BoxProps,
@@ -76,7 +85,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 function BaseForm<TFieldValues extends FieldValues>(
 	{
 		children,
-		handleErrors = handleHookFormErrors,
+		handleErrors = debugFormErrors,
 		handleSubmit,
 		name,
 		resolver,

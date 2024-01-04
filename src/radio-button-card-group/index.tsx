@@ -131,7 +131,7 @@ export const RadioButtonCardGroup = forwardRef(
 					<FieldError  >{errorMessage}</FieldError>
 				)}
 				{description && !invalid && (
-					<FieldDescription description={description} />
+					<FieldDescription>{description}</FieldDescription>
 				)}
 			</Box>
 		);

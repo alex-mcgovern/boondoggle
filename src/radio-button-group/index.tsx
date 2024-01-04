@@ -118,7 +118,7 @@ export const RadioButtonGroup = React.forwardRef(
 					</FieldError>
 				)}
 				{description && !invalid && (
-					<FieldDescription description={description} />
+					<FieldDescription>{description}</FieldDescription>
 				)}
 			</Box>
 		);

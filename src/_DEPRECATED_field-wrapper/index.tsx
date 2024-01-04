@@ -68,7 +68,7 @@ export function FieldWrapper({
 			{invalid && errorMessage && <FieldError>{errorMessage}</FieldError>}
 
 			{description && !invalid && (
-				<FieldDescription description={description} />
+				<FieldDescription>{description}</FieldDescription>
 			)}
 		</Box>
 	);
