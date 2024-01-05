@@ -1080,13 +1080,13 @@ const tHeadStyleRule: StyleRule = {
 /**
  * Styles for outer table element.
  */
-globalStyle("table", {
-	"@layer": {
-		[baseLayer]: {
-			...tableStyleRule,
-		},
-	},
-});
+// globalStyle("table", {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			...tableStyleRule,
+// 		},
+// 	},
+// });
 export const tableStyles = style({
 	display: "table",
 	...tableStyleRule,
@@ -1094,13 +1094,13 @@ export const tableStyles = style({
 /**
  * Table head cell styles
  */
-globalStyle("thead", {
-	"@layer": {
-		[baseLayer]: {
-			...tHeadStyleRule,
-		},
-	},
-});
+// globalStyle("thead", {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			...tHeadStyleRule,
+// 		},
+// 	},
+// });
 export const tHeadStyles = style({
 	display: "table-header-group",
 	...tHeadStyleRule,
@@ -1116,22 +1116,22 @@ const tableCellStyleRule: StyleRule = {
 	verticalAlign: "middle",
 };
 
-globalStyle("th, td", {
-	"@layer": {
-		[baseLayer]: {
-			...tableCellStyleRule,
-		},
-	},
-});
-globalStyle("td", {
-	"@layer": {
-		[baseLayer]: {
-			textOverflow: "ellipsis",
-			whiteSpace: "nowrap",
-			overflow: "hidden",
-		},
-	},
-});
+// globalStyle("th, td", {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			...tableCellStyleRule,
+// 		},
+// 	},
+// });
+// globalStyle("td", {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			textOverflow: "ellipsis",
+// 			whiteSpace: "nowrap",
+// 			overflow: "hidden",
+// 		},
+// 	},
+// });
 
 export const thStyles = style({
 	display: "table-cell",
@@ -1146,21 +1146,21 @@ export const tdStyles = style({
 	...tableCellStyleRule,
 });
 
-globalStyle("thead th", {
-	"@layer": {
-		[baseLayer]: {
-			whiteSpace: "nowrap",
-		},
-	},
-});
+// globalStyle("thead th", {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			whiteSpace: "nowrap",
+// 		},
+// 	},
+// });
 
-globalStyle(`${tHeadStyles} ${thStyles}`, {
-	"@layer": {
-		[baseLayer]: {
-			whiteSpace: "nowrap",
-		},
-	},
-});
+// globalStyle(`${tHeadStyles} ${thStyles}`, {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			whiteSpace: "nowrap",
+// 		},
+// 	},
+// });
 
 // Display table classes
 
@@ -1174,28 +1174,28 @@ export const tRowStyles = style({
 
 // Ensure that table cells have border bottom, unless they are the last row
 
-const tableCellBorderStyleRule: StyleRule = {
-	borderBottom: `1px solid ${vars.color.border_rule}`,
-};
+// const tableCellBorderStyleRule: StyleRule = {
+// 	borderBottom: `1px solid ${vars.color.border_rule}`,
+// };
 
-globalStyle(
-	`${tHeadStyles}:not(:last-child) ${thStyles}, ${tRowStyles}:not(:last-of-type) ${tdStyles}`,
-	{
-		"@layer": {
-			[baseLayer]: {
-				...tableCellBorderStyleRule,
-			},
-		},
-	},
-);
+// globalStyle(
+// 	`${tHeadStyles}:not(:last-child) ${thStyles}, ${tRowStyles}:not(:last-of-type) ${tdStyles}`,
+// 	{
+// 		"@layer": {
+// 			[baseLayer]: {
+// 				...tableCellBorderStyleRule,
+// 			},
+// 		},
+// 	},
+// );
 
-globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
-	"@layer": {
-		[baseLayer]: {
-			...tableCellBorderStyleRule,
-		},
-	},
-});
+// globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
+// 	"@layer": {
+// 		[baseLayer]: {
+// 			...tableCellBorderStyleRule,
+// 		},
+// 	},
+// });
 
 /** -----------------------------------------------------------------------------
  * REUSABLE: UNSTYLED INPUT

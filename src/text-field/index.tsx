@@ -24,7 +24,7 @@ import { useToastContext } from "../toast";
 import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
- * TEXT FIELD CLEAR BUTTON
+ * TextFieldClearButton
  * ------------------------------------------------------------------------------- */
 
 export const TextFieldClearButton = () => {
@@ -41,7 +41,7 @@ export const TextFieldClearButton = () => {
 };
 
 /** -----------------------------------------------------------------------------
- * TEXT FIELD COPY BUTTON
+ * TextFieldCopyButton
  * ------------------------------------------------------------------------------- */
 
 export const TextFieldCopyButton = (props: FieldButtonProps) => {
@@ -81,7 +81,7 @@ export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
 };
 
 /** -----------------------------------------------------------------------------
- * TEXT FIELD
+ * TextField
  * ------------------------------------------------------------------------------- */
 
 export type TextFieldProps = RACTextFieldProps;
@@ -166,7 +166,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 );
 
 /** -----------------------------------------------------------------------------
- * FORM TEXT FIELD
+ * FormTextField
  * ------------------------------------------------------------------------------- */
 
 /**
@@ -182,7 +182,7 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, ...field },
+		field: { ref, value = "", disabled: isDisabled, onChange, ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -194,6 +194,10 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
 		<TextField
 			{...props}
 			{...field}
+			onChange={(v) => {
+				onChange(v);
+				props.onChange?.(v);
+			}}
 			value={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 			isInvalid={invalid}

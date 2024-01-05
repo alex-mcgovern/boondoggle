@@ -9,10 +9,7 @@
         "scope": "typescript,css",
         "prefix": "VE Style",
         "body": [
-            "import { style } from \"@vanilla-extract/css\";",
-            "export const className = style({",
-            "\t",
-            "})"
+            "export const ${1}CSS = style([sprinkles({}), {}])"
         ],
         "description": "Vanilla Extract style"
     },

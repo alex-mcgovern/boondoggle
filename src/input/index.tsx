@@ -15,6 +15,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 				{...props}
 				ref={ref}
 				className={clsx(props.className, inputCSS)}
+				data-can-group
 			/>
 		);
 	},

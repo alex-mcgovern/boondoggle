@@ -12,7 +12,7 @@ import {
 import { useController, useFormContext } from "react-hook-form";
 import { Icon } from "../icon";
 import { IterableListBoxItem, ListBox } from "../list-box";
-import { Popover, PopoverProps } from "../popover/popover";
+import { Popover, PopoverProps } from "../popover";
 import { sprinkles } from "../sprinkles/index.css";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 

@@ -10,7 +10,7 @@ import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { IterableListBoxItem, ListBox } from "../list-box";
-import { Popover } from "../popover/popover";
+import { Popover } from "../popover";
 import { comboBoxCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------

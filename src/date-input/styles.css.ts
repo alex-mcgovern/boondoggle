@@ -1,29 +1,26 @@
 import { red, redA } from "@radix-ui/colors";
-import { assignVars, globalStyle, style } from "@vanilla-extract/css";
-import { inputBg } from "../_css/input.css";
-import { makeTheme, withPrefersMotion } from "../css-utils";
-import { a11yDisabled, vars } from "../index.css";
+import { style, assignVars } from "@vanilla-extract/css";
+import { withPrefersMotion, makeTheme } from "../css-utils";
+import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const groupCSS = style([
-	a11yDisabled,
-	inputBg,
+export const dateInputCSS = style([
 	sprinkles({
-		height: "space_8",
+		height: "element_sm",
 		width: "100%",
-
-		display: "flex",
-		alignItems: "center",
 
 		border: "border_element",
 		borderRadius: "md",
 
+		display: "flex",
+		alignItems: "center",
+
+		paddingX: "space_2",
+
 		fontStyle: "bodySm",
-		position: "relative",
 
-		overflow: "hidden",
-
-		paddingX: "space_1",
+		color: "text_high_contrast",
+		background: "text_field_background",
 	}),
 	withPrefersMotion({
 		transitionProperty: "color, background, border-color, outline, opacity",
@@ -35,7 +32,7 @@ export const groupCSS = style([
 
 		selectors: {
 			/**
-			 * Whether the group is currently hovered with a mouse.
+			 * Whether the date input is currently hovered with a mouse.
 			 */
 
 			"&[data-hovered]": {
@@ -44,7 +41,7 @@ export const groupCSS = style([
 			},
 
 			/**
-			 * Whether an element within the group is focused, either via a mouse or keyboard
+			 * Whether an element within the date input is focused, either via a mouse or keyboard.
 			 */
 
 			"&[data-focus-within]": {
@@ -54,7 +51,7 @@ export const groupCSS = style([
 			},
 
 			/**
-			 * Whether the group is keyboard focused.
+			 * Whether an element within the date input is keyboard focused.
 			 */
 
 			"&[data-focus-visible]": {
@@ -64,7 +61,7 @@ export const groupCSS = style([
 			},
 
 			/**
-			 * Whether the group is disabled.
+			 * Whether the date input is disabled.
 			 */
 
 			"&[data-disabled]": {
@@ -73,10 +70,10 @@ export const groupCSS = style([
 			},
 
 			/**
-			 * Whether the group is invalid.
+			 * Whether the date input is invalid.
 			 */
 
-			"&[data-invalid], &:has([data-invalid])": {
+			"&[data-invalid]": {
 				vars: assignVars(
 					vars.color,
 					makeTheme({
@@ -93,11 +90,30 @@ export const groupCSS = style([
 	},
 ]);
 
-globalStyle(`${groupCSS} > [data-can-group=true]`, {
-	appearance: "none",
-	background: "none !important",
-	border: "none !important",
-	font: "inherit !important",
-	margin: "0 !important",
-	outline: "none !important",
-});
+export const dateSegmentCSS = style([
+	sprinkles({
+		color: "text_high_contrast",
+		paddingX: "space_0.5",
+	}),
+	{
+		fontVariantNumeric: "tabular-nums",
+		textAlign: "end",
+
+		selectors: {
+			"&[data-type=literal]": {
+				padding: 0,
+			},
+			"&[data-placeholder]": {
+				color: vars.color.text_low_contrast,
+			},
+
+			"&:focus": {
+				color: vars.color.button_active,
+				background: vars.color.button_tint,
+				outline: "none",
+				borderRadius: vars.borderRadius.sm,
+				caretColor: "transparent",
+			},
+		},
+	},
+]);

@@ -101,6 +101,9 @@ export const popoverCSS = style([
 				"&[data-trigger=ComboBox]": {
 					width: "var(--trigger-width)",
 				},
+				"&[data-trigger=DatePicker]": {
+					width: "unset",
+				},
 			},
 		}),
 	},
