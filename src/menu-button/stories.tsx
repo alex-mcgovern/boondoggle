@@ -1,11 +1,11 @@
 import { faBars } from "@fortawesome/pro-regular-svg-icons/faBars";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { MenuButton } from ".";
-import { Icon } from "../__DONE__icon";
-import { Button } from "../__DONE__button";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
 const meta = {
-	title: "Components/V2/MenuButton",
+	title: "MenuButton",
 	component: MenuButton,
 	args: {
 		items: [

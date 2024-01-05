@@ -1,8 +1,8 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import { a11yFocus, vars } from "../index.css";
-import { withPrefersMotion } from "../__DONE__css-utils";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MENU BUTTON STYLES

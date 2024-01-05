@@ -1,30 +1,29 @@
-import { Form } from ".";
-import type { Meta, StoryObj } from "@storybook/react";
-import {
-	FormTextField,
-	TextFieldVisibilityButton,
-} from "../__DONE__text-field";
-import { Input } from "../__DONE__input";
-import { ToastProvider } from "../__DONE__toast";
-import { Button } from "../__DONE__button";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
-import { Label } from "../__DONE__label";
-import { TextArea } from "../__DONE__text-area";
 import { zodResolver } from "@hookform/resolvers/zod";
+import type { Meta, StoryObj } from "@storybook/react";
+import * as React from "react";
 import { z } from "zod";
-import { ComboBoxButton, FormComboBox } from "../__DONE__combobox";
-import { Group } from "../__DONE__group";
-import { FormComboBoxCountry } from "../__DONE__combo-box-country";
+import { Form } from ".";
+import { Button } from "../button";
+import { FormComboBoxCountry } from "../combo-box-country";
+import { ComboBoxButton, FormComboBox } from "../combobox";
+import { DateInput } from "../date-input";
+import { DatePickerButton, FormDatePicker } from "../date-picker";
+import { Group } from "../group";
+import { FlagEu } from "../icon-flag/eu";
+import { FlagGb } from "../icon-flag/gb";
+import { FlagUs } from "../icon-flag/us";
+import { Input } from "../input";
+import { Label } from "../label";
 import {
 	FormNumberField,
 	NumberFieldDecrementButton,
 	NumberFieldIncrementButton,
 } from "../number-field";
 import { FormSelect, SelectButton } from "../select";
-import { FlagEu } from "../__DONE__icon-flag/eu";
-import { FlagGb } from "../__DONE__icon-flag/gb";
-import { FlagUs } from "../__DONE__icon-flag/us";
-import * as React from "react";
+import { sprinkles } from "../sprinkles/index.css";
+import { TextArea } from "../text-area";
+import { FormTextField, TextFieldVisibilityButton } from "../text-field";
+import { ToastProvider } from "../toast";
 
 /** -----------------------------------------------------------------------------
  * @example Composition of `NumberField` with `Select` for currency selection
@@ -107,7 +106,7 @@ const NumberFieldWithCurrencySelect = () => {
 
 const meta = {
 	component: Form,
-	title: "Data entry/Form",
+	title: "Form",
 	args: {
 		handleSubmit: (fieldValues) => {
 			alert(
@@ -162,6 +161,21 @@ const meta = {
 							<TextFieldVisibilityButton />
 						</Group>
 					</FormTextField>
+
+					{/** --------------------------------------------
+					 * @example Date picker field
+					 * ----------------------------------------------- */}
+
+					<FormDatePicker
+						className={sprinkles({ marginBottom: "space_2" })}
+						name="date_of_birth"
+					>
+						<Label>Date of birth</Label>
+						<Group>
+							<DateInput />
+							<DatePickerButton />
+						</Group>
+					</FormDatePicker>
 
 					{/** --------------------------------------------
 					 * @example Number field
@@ -292,6 +306,7 @@ export const WithZod: Story = {
 			z.object({
 				full_name: z.string().min(1).max(30),
 				email_address: z.string().email(),
+				date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
 				favourite_food: z.enum([
 					"apple",
 					"tomato",

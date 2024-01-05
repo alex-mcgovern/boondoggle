@@ -3,8 +3,8 @@ import {
 	MenuTrigger as RACMenuTrigger,
 	type MenuTriggerProps as RACMenuTriggerProps,
 } from "react-aria-components";
-import { type IterableMenuItem, Menu } from "../__DONE__menu";
-import { Popover, PopoverProps } from "../__DONE__popover/popover";
+import { type IterableMenuItem, Menu } from "../menu";
+import { Popover, PopoverProps } from "../popover";
 
 export type MenuButtonProps<TItemId extends string = string> =
 	RACMenuTriggerProps &

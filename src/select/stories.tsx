@@ -1,15 +1,15 @@
 import { Select, SelectButton } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
-import { FlagFr } from "../__DONE__icon-flag/fr";
-import { FlagDe } from "../__DONE__icon-flag/de";
-import { FlagEs } from "../__DONE__icon-flag/es";
-import { FlagAe } from "../__DONE__icon-flag/ae";
-import { FlagSa } from "../__DONE__icon-flag/sa";
-import { FlagOm } from "../__DONE__icon-flag/om";
+import { FlagAe } from "../icon-flag/ae";
+import { FlagDe } from "../icon-flag/de";
+import { FlagEs } from "../icon-flag/es";
+import { FlagFr } from "../icon-flag/fr";
+import { FlagOm } from "../icon-flag/om";
+import { FlagSa } from "../icon-flag/sa";
 
 const meta = {
-	title: "Components/Select",
+	title: "Select",
 	component: Select,
 	args: {
 		placeholder: "Select a country",

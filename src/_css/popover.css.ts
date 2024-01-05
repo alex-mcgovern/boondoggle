@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+import { withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
-import { withPrefersMotion } from "../__DONE__css-utils";
 
 const TRANSLATE_DISTANCE = vars.spacing.space_2;
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
@@ -98,7 +98,7 @@ export const popoverCSS = style([
 					animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
 				},
 
-				"&[data-trigger=ComboBox]": {
+				"&[data-trigger=ComboBox], &[data-trigger=Select]": {
 					width: "var(--trigger-width)",
 				},
 			},

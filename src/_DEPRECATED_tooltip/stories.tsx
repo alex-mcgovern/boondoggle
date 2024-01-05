@@ -1,13 +1,13 @@
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip, TooltipContent, TooltipTrigger } from ".";
-import { Icon } from "../__DONE__icon";
-import { Button } from "../__DONE__button";
+import { Button } from "../button";
+import { Icon } from "../icon";
 
 const meta = {
 	args: {},
 	component: Tooltip,
-	title: "Components/V1/Tooltip2",
+	title: "❌ Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;

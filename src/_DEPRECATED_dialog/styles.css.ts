@@ -2,7 +2,7 @@ import { styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 import { animateFadeIn, vars } from "../index.css";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 const placement = styleVariants({
 	"bottom-center": [

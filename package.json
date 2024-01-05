@@ -2,7 +2,7 @@
 	"author": "Alex McGovern",
 	"name": "boondoggle",
 	"description": "Boondoggle component library",
-	"version": "0.22.0-8",
+	"version": "1.0.0-1",
 	"license": "MIT",
 	"files": [
 		"dist"
@@ -74,6 +74,7 @@
 		"@fortawesome/pro-solid-svg-icons": "6.5.1",
 		"@fortawesome/react-fontawesome": "0.2.0",
 		"@hookform/resolvers": "3.3.2",
+		"@internationalized/date": "3.5.1",
 		"@radix-ui/colors": "3.0.0",
 		"@radix-ui/react-collapsible": "1.0.3",
 		"@radix-ui/react-slider": "1.1.2",

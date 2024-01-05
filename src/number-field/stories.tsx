@@ -1,22 +1,22 @@
+import { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import {
 	NumberField,
 	NumberFieldDecrementButton,
 	NumberFieldIncrementButton,
 } from ".";
-import { Meta, StoryObj } from "@storybook/react";
-import { ToastProvider } from "../__DONE__toast";
-import { Group } from "../__DONE__group";
-import { Input } from "../__DONE__input";
-import { Label } from "../__DONE__label";
-import React from "react";
-import { FlagEu } from "../__DONE__icon-flag/eu";
-import { FlagGb } from "../__DONE__icon-flag/gb";
-import { FlagUs } from "../__DONE__icon-flag/us";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { Group } from "../group";
+import { FlagEu } from "../icon-flag/eu";
+import { FlagGb } from "../icon-flag/gb";
+import { FlagUs } from "../icon-flag/us";
+import { Input } from "../input";
+import { Label } from "../label";
 import { Select, SelectButton } from "../select";
+import { sprinkles } from "../sprinkles/index.css";
+import { ToastProvider } from "../toast";
 
 const meta = {
-	title: "Data entry/NumberField",
+	title: "NumberField",
 	component: NumberField,
 	args: {},
 	render: (args) => {

@@ -1,19 +1,20 @@
+import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
+import clsx from "clsx";
+import * as React from "react";
 import {
 	Button as RACButton,
 	type ButtonProps as RACButtonProps,
+	FieldError,
 	Select as RACSelect,
 	type SelectProps as RACSelectProps,
 	SelectValue as RACSelectValue,
-	FieldError,
 } from "react-aria-components";
-import { Popover, PopoverProps } from "../__DONE__popover/popover";
-import { IterableListBoxItem, ListBox } from "../__DONE__list-box";
-import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
-import { Icon } from "../__DONE__icon";
-import * as React from "react";
-import clsx from "clsx";
+import { useController, useFormContext } from "react-hook-form";
+import { Icon } from "../icon";
+import { IterableListBoxItem, ListBox } from "../list-box";
+import { Popover, PopoverProps } from "../popover";
+import { sprinkles } from "../sprinkles/index.css";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
-import { useFormContext, useController } from "react-hook-form";
 
 /** -----------------------------------------------------------------------------
  * SelectTrigger
@@ -39,7 +40,11 @@ function _SelectButton<TItemId extends string = string>(
 			<RACSelectValue<IterableListBoxItem<TItemId>>
 				className={selectValueCSS}
 			/>
-			<Icon color="text_low_contrast" icon={faAnglesUpDown} />
+			<Icon
+				className={sprinkles({ marginLeft: "auto" })}
+				color="text_low_contrast"
+				icon={faAnglesUpDown}
+			/>
 		</RACButton>
 	);
 }
@@ -116,7 +121,10 @@ export function FormSelect<TItemId extends string = string>({
 		<Select<TItemId>
 			{...props}
 			{...field}
-			onSelectionChange={onChange}
+			onSelectionChange={(k) => {
+				onChange(k);
+				props.onSelectionChange?.(k);
+			}}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 			isInvalid={invalid}
