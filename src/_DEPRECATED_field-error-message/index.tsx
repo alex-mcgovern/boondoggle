@@ -1,9 +1,9 @@
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import clsx from "clsx";
 import { variantColorOverlay } from "../index.css";
-import { Icon } from "../__DONE__icon";
-import { Box } from "../__DONE__box";
-import type { BoxProps } from "../__DONE__box";
+import { Icon } from "../icon";
+import { Box } from "../box";
+import type { BoxProps } from "../box";
 
 export type FieldErrorMessageProps = BoxProps & {
 	/**

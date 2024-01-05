@@ -67,3 +67,4 @@ styling and enabling application features.
 - [ ] Virtualize `ComboBoxCountry` list
 - [ ] Summarise validation errors at bottom of `Form` component
 - [ ] Fix bug where type is not known when using `onSelectionChange` callback in `Select` and `MenuButton` components
+- [ ] Use RAC render props type to add type-safety to recipe variants

@@ -2,7 +2,7 @@ import { faArrowRightArrowLeft } from "@fortawesome/pro-solid-svg-icons/faArrowR
 import { faBank } from "@fortawesome/pro-solid-svg-icons/faBank";
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Icon } from "../../__DONE__icon";
+import { Icon } from "../../icon";
 
 export const RADIO_BUTTON_CARDS_MOCK = [
 	{

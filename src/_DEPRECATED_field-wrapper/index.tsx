@@ -8,10 +8,10 @@ import type {
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../types";
-import { Label } from "../__DONE__label";
-import { Box } from "../__DONE__box";
-import { FieldDescription } from "../__DONE__field-description";
-import { FieldError } from "../__DONE__field-error";
+import { Label } from "../label";
+import { Box } from "../box";
+import { FieldDescription } from "../field-description";
+import { FieldError } from "../field-error";
 
 export type FieldWrapperProps = WithColorOverlay &
 	WithHideLastpass &

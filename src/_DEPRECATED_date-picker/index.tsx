@@ -14,12 +14,12 @@ import clsx from "clsx";
 import { forwardRef, useCallback, useState } from "react";
 import type { MouseEvent, Ref } from "react";
 import { variantColorOverlay } from "../index.css";
-import { Icon } from "../__DONE__icon";
-import { Box } from "../__DONE__box";
-import type { BoxProps } from "../__DONE__box";
+import { Icon } from "../icon";
+import { Box } from "../box";
+import type { BoxProps } from "../box";
 import { datePickerRootCSS } from "./styles.css";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
-import { Button } from "../__DONE__button";
+import { sprinkles } from "../sprinkles/index.css";
+import { Button } from "../button";
 
 export function DatePickerYears({
 	onYearClick,

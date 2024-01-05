@@ -1,7 +1,7 @@
 import { red, redA } from "@radix-ui/colors";
 import { style, assignVars } from "@vanilla-extract/css";
-import { withPrefersMotion, makeTheme } from "../__DONE__css-utils";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { withPrefersMotion, makeTheme } from "../css-utils";
+import { sprinkles } from "../sprinkles/index.css";
 import { vars } from "../index.css";
 import { recipe } from "@vanilla-extract/recipes";
 

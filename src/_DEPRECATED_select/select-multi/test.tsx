@@ -9,7 +9,7 @@ import type { SelectMultiProps } from ".";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
 import { a11yError, variantColorOverlay } from "../../index.css";
-import { Icon } from "../../__DONE__icon";
+import { Icon } from "../../icon";
 import { mockSelectItems } from "../__mocks__/select.mock";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";
 

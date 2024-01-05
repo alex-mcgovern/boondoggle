@@ -6,10 +6,10 @@ import {
 import { numberFieldCSS } from "./styles.css";
 import clsx from "clsx";
 import { useController, useFormContext } from "react-hook-form";
-import { FieldError } from "../__DONE__field-error";
-import { FieldButton } from "../__DONE__field-button";
+import { FieldError } from "../field-error";
+import { FieldButton } from "../field-button";
 import { faPlus } from "@fortawesome/pro-regular-svg-icons/faPlus";
-import { Icon } from "../__DONE__icon";
+import { Icon } from "../icon";
 import { faMinus } from "@fortawesome/pro-regular-svg-icons/faMinus";
 
 /** -----------------------------------------------------------------------------

@@ -33,7 +33,7 @@ import { InputSlotWrapper } from "./InputSlotWrapper";
 import { clearButtonStyle, inputStyles } from "./styles.css";
 import { useFieldCopyableState } from "./use_field_copyable_state";
 import { useFieldVisibilityState } from "./use_field_visibility_state";
-import { Sprinkles, sprinkles } from "../__DONE__sprinkles/index.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 export type InputProps = Partial<
 	Pick<

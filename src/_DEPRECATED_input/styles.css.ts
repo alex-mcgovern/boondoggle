@@ -10,8 +10,8 @@ import {
 	elementPaddingRaw,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../__DONE__css-utils";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { withPrefersMotion } from "../css-utils";
+import { sprinkles } from "../sprinkles/index.css";
 
 const size = styleVariants({
 	lg: [elementPadding.lg, { height: elementHeight.lg }],

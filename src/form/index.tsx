@@ -7,7 +7,7 @@ import {
 	useForm,
 } from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-import type { BoxProps } from "../__DONE__box";
+import type { BoxProps } from "../box";
 
 const debugFormErrors = (errors: FieldErrors) => {
 	if (process.env.NODE_ENV === "production") {

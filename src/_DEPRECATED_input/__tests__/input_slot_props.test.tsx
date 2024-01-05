@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 import { Input } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
 import "../../../test/mocked_dependencies/dialog.mock";
-import { Icon } from "../../__DONE__icon";
+import { Icon } from "../../icon";
 
 import type { InputProps } from "..";
 

@@ -1,5 +1,5 @@
 import { useController, useFormContext } from "react-hook-form";
-import { Switch } from "../__DONE__switch";
+import { Switch } from "../switch";
 
 export function FormSwitch({
 	defaultSelected = false,

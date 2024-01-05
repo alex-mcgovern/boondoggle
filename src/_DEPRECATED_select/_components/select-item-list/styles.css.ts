@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { floatingMenu } from "../../../index.css";
-import { sprinkles } from "../../../__DONE__sprinkles/index.css";
+import { sprinkles } from "../../../sprinkles/index.css";
 
 export const menuHeaderCSS = style([
 	sprinkles({

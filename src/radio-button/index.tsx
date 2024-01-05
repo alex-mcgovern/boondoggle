@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "../__DONE__box";
+import { Box } from "../box";
 import {
 	radioButtonInputStyles,
 	radioButtonLabelStyles,

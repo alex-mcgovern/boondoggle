@@ -1,6 +1,6 @@
 import { faCheck } from "@fortawesome/pro-solid-svg-icons/faCheck";
 import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
-import { Icon } from "../__DONE__icon";
+import { Icon } from "../icon";
 import { FieldActionButton } from "../_DEPRECATED_field-action-button";
 import type { FieldActionButtonProps } from "../_DEPRECATED_field-action-button";
 

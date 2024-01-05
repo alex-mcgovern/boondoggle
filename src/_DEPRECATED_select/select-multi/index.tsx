@@ -16,11 +16,11 @@ import {
 	WithStateDisabled,
 	WithStateInvalid,
 } from "../../types";
-import { Icon } from "../../__DONE__icon";
-import { Box } from "../../__DONE__box";
+import { Icon } from "../../icon";
+import { Box } from "../../box";
 import { Input } from "../../_DEPRECATED_input";
 import type { InputProps } from "../../_DEPRECATED_input";
-import { Sprinkles } from "../../__DONE__sprinkles/index.css";
+import { Sprinkles } from "../../sprinkles/index.css";
 import { SelectItemList } from "../_components/select-item-list";
 import { filterSelectItems } from "../_lib/filterSelectItems";
 import { flattenSelectItems } from "../_lib/flattenSelectItems";

@@ -4,15 +4,15 @@ import {
 	NumberFieldIncrementButton,
 } from ".";
 import { Meta, StoryObj } from "@storybook/react";
-import { ToastProvider } from "../__DONE__toast";
-import { Group } from "../__DONE__group";
-import { Input } from "../__DONE__input";
-import { Label } from "../__DONE__label";
+import { ToastProvider } from "../toast";
+import { Group } from "../group";
+import { Input } from "../input";
+import { Label } from "../label";
 import React from "react";
-import { FlagEu } from "../__DONE__icon-flag/eu";
-import { FlagGb } from "../__DONE__icon-flag/gb";
-import { FlagUs } from "../__DONE__icon-flag/us";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { FlagEu } from "../icon-flag/eu";
+import { FlagGb } from "../icon-flag/gb";
+import { FlagUs } from "../icon-flag/us";
+import { sprinkles } from "../sprinkles/index.css";
 import { Select, SelectButton } from "../select";
 
 const meta = {

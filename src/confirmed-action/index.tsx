@@ -3,11 +3,11 @@ import { forwardRef, useState } from "react";
 import { z } from "zod";
 import { WithColorOverlay } from "../types";
 import { FormSubmitButton } from "../form-submit-button";
-import { Box } from "../__DONE__box";
+import { Box } from "../box";
 import { Form } from "../form";
 import { FormInput } from "../form-input";
 import { InputProps } from "../_DEPRECATED_input";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 import { confirmTextCSS } from "./styles.css";
 
 const getZodSchema = ({

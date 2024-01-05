@@ -1,29 +1,26 @@
 import { Form } from ".";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-	FormTextField,
-	TextFieldVisibilityButton,
-} from "../__DONE__text-field";
-import { Input } from "../__DONE__input";
-import { ToastProvider } from "../__DONE__toast";
-import { Button } from "../__DONE__button";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
-import { Label } from "../__DONE__label";
-import { TextArea } from "../__DONE__text-area";
+import { FormTextField, TextFieldVisibilityButton } from "../text-field";
+import { Input } from "../input";
+import { ToastProvider } from "../toast";
+import { Button } from "../button";
+import { sprinkles } from "../sprinkles/index.css";
+import { Label } from "../label";
+import { TextArea } from "../text-area";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ComboBoxButton, FormComboBox } from "../__DONE__combobox";
-import { Group } from "../__DONE__group";
-import { FormComboBoxCountry } from "../__DONE__combo-box-country";
+import { ComboBoxButton, FormComboBox } from "../combobox";
+import { Group } from "../group";
+import { FormComboBoxCountry } from "../combo-box-country";
 import {
 	FormNumberField,
 	NumberFieldDecrementButton,
 	NumberFieldIncrementButton,
 } from "../number-field";
 import { FormSelect, SelectButton } from "../select";
-import { FlagEu } from "../__DONE__icon-flag/eu";
-import { FlagGb } from "../__DONE__icon-flag/gb";
-import { FlagUs } from "../__DONE__icon-flag/us";
+import { FlagEu } from "../icon-flag/eu";
+import { FlagGb } from "../icon-flag/gb";
+import { FlagUs } from "../icon-flag/us";
 import * as React from "react";
 
 /** -----------------------------------------------------------------------------

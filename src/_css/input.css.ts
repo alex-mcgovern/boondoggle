@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { ACTIVE, FOCUS, vars } from "../index.css";
-import { sprinkles } from "../__DONE__sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const inputBg = style([
 	sprinkles({
