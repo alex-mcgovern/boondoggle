@@ -20,7 +20,7 @@ const meta = {
 	},
 	component: StoryComp<MockTableData>,
 	parameters: {
-		layout: "fullscreen",
+		layout: "padded",
 	},
 	title: "DataTable",
 } satisfies Meta<typeof StoryComp<MockTableData>>;

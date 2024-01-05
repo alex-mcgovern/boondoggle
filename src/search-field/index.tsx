@@ -8,6 +8,8 @@ import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle"
 import { textFieldCSS } from "./styles.css";
 import clsx from "clsx";
 import { FieldButton } from "../field-button";
+import { faSearch } from "@fortawesome/pro-regular-svg-icons/faSearch";
+import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * SearchFieldClearButton
@@ -18,6 +20,25 @@ export const SearchFieldClearButton = () => {
 		<FieldButton>
 			<Icon icon={faTimesCircle} />
 		</FieldButton>
+	);
+};
+
+/** -----------------------------------------------------------------------------
+ * SearchFieldClearButton
+ * ------------------------------------------------------------------------------- */
+
+export const SearchFieldIcon = () => {
+	return (
+		<Icon
+			className={sprinkles({
+				width: "space_6",
+				height: "space_6",
+				color: "text_low_contrast",
+				flexShrink: "0",
+			})}
+			color="text_low_contrast"
+			icon={faSearch}
+		/>
 	);
 };
 

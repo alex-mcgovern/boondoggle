@@ -6,7 +6,11 @@ import { FilteringOptions } from "../../../types";
 import { tableGlobalFilterCSS } from "./styles.css";
 import { Group } from "../../../../group";
 import { Input } from "../../../../input";
-import { SearchField, SearchFieldClearButton } from "../../../../search-field";
+import {
+	SearchField,
+	SearchFieldClearButton,
+	SearchFieldIcon,
+} from "../../../../search-field";
 
 export function TableGlobalFilter<TRowData extends RowData>({
 	table,
@@ -31,7 +35,7 @@ export function TableGlobalFilter<TRowData extends RowData>({
 			value={table.getState().globalFilter ?? ""}
 		>
 			<Group>
-				<Icon icon={faSearch} />
+				<SearchFieldIcon />
 				<Input placeholder={strFilterPlaceholder} />
 				<SearchFieldClearButton />
 			</Group>
