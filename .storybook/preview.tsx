@@ -1,5 +1,7 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { Parameters } from "@storybook/react";
+import { Parameters, Preview } from "@storybook/react";
+import React from "react";
+import { ToastProvider } from "../src/toast";
 
 export const parameters: Parameters = {
 	actions: {
@@ -18,4 +20,16 @@ export const parameters: Parameters = {
 	// viewport: {
 	// 	defaultViewport: "tablet",
 	// },
+};
+
+export const preview: Preview = {
+	decorators: [
+		(Story) => {
+			return (
+				<ToastProvider>
+					<Story />
+				</ToastProvider>
+			);
+		},
+	],
 };
