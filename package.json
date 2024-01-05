@@ -19,14 +19,14 @@
 			"types": "./dist/index.css.d.ts"
 		},
 		"./sprinkles": {
-			"import": "./dist/v1/sprinkles/index.css.js",
-			"require": "./dist/v1/sprinkles/index.css.js",
-			"types": "./dist/v1/sprinkles/index.css.d.ts"
+			"import": "./dist/sprinkles/index.css.js",
+			"require": "./dist/sprinkles/index.css.js",
+			"types": "./dist/sprinkles/index.css.d.ts"
 		},
 		"./icon-flag/*": {
-			"import": "./dist/v2/icon-flag/*.js",
-			"require": "./dist/v2/icon-flag/*.js",
-			"types": "./dist/v2/icon-flag/*.d.ts"
+			"import": "./dist/icon-flag/*.js",
+			"require": "./dist/icon-flag/*.js",
+			"types": "./dist/icon-flag/*.d.ts"
 		},
 		"./*": {
 			"import": "./dist/*/index.js",
