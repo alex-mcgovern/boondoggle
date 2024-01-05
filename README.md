@@ -40,31 +40,29 @@ There is a Storybook deployed to <https://boondoggle.design>
 Focused on implementing React Aria Components to reduce Javascript boilerplate and focus attention on
 styling and enabling application features.
 
-
+- [x] ~Implement `NumberFieldCurrency` component~ (Not doing)
 - [x] Example of composing `NumberField` with `Select` to create a grouped fields
 - [x] Implement `ComboBox` component
 - [x] Implement `ComboBoxCountry` component
 - [x] Implement `ComboBoxCountry` component
+- [x] Implement `DatePicker` component
 - [x] Implement `NumberField` component
 - [x] Implement `Select` component
 - [x] Implement `TextField` component
+- [x] Remove deprecated `Input` & `FormInput` components
+- [x] Remove deprecated `InputDate` & `FormInputDate` components
 - [x] Remove deprecated `TextArea` & `FormTextArea` components
+- [x] Remove deprecated `SelectButton`, `SelectSingle` & `SelectMulti` components
 
 - [ ] Remove deprecated `SlotWrapper` component
 - [ ] Remove deprecated `Dialog` component
 - [ ] Remove deprecated `FloatingPanel` component
-- [ ] Remove deprecated `Input` & `FormInput` components
-- [ ] Remove deprecated `SelectButton`, `SelectSingle` & `SelectMulti` components
-- [ ] Implement `DatePicker` component
-- [ ] Remove deprecated `InputDate` & `FormInputDate` components
 
-- [ ] ~Implement `NumberFieldCurrency` component~ (Not doing)
-
-#### "Later"™️
+#### Later™️
 
 - [ ] Fix bug where `TextField` is not focused when clicking on label
 - [ ] Add functionality to toggle `ComboBox` on input click
-- [ ] Virtualize `ComboBoxCountry` list
+- [ ] Virtualize `ComboBoxCountry` list as loading 200+ country logos is slow
 - [ ] Summarise validation errors at bottom of `Form` component
 - [ ] Fix bug where type is not known when using `onSelectionChange` callback in `Select` and `MenuButton` components
 - [ ] Use RAC render props type to add type-safety to recipe variants

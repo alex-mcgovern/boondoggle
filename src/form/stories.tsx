@@ -22,6 +22,8 @@ import { sprinkles } from "../sprinkles/index.css";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
 import { ToastProvider } from "../toast";
+import { DatePickerButton, FormDatePicker } from "../date-picker";
+import { DateInput } from "../date-input";
 
 /** -----------------------------------------------------------------------------
  * @example Composition of `NumberField` with `Select` for currency selection
@@ -161,6 +163,21 @@ const meta = {
 					</FormTextField>
 
 					{/** --------------------------------------------
+					 * @example Date picker field
+					 * ----------------------------------------------- */}
+
+					<FormDatePicker
+						className={sprinkles({ marginBottom: "space_2" })}
+						name="date_of_birth"
+					>
+						<Label>Date of birth</Label>
+						<Group>
+							<DateInput />
+							<DatePickerButton />
+						</Group>
+					</FormDatePicker>
+
+					{/** --------------------------------------------
 					 * @example Number field
 					 * ----------------------------------------------- */}
 
@@ -289,6 +306,7 @@ export const WithZod: Story = {
 			z.object({
 				full_name: z.string().min(1).max(30),
 				email_address: z.string().email(),
+				date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
 				favourite_food: z.enum([
 					"apple",
 					"tomato",

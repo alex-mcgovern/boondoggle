@@ -1,9 +1,8 @@
+import { type CalendarDate, parseDate } from "@internationalized/date";
 import {
 	DatePicker as RACDatePicker,
 	DatePickerProps as RACDatePickerProps,
 	Dialog as RACDialog,
-	type DateValue as RACDateValue,
-	DatePickerProps,
 } from "react-aria-components";
 import { Popover } from "../popover";
 import { Calendar } from "../calendar";
@@ -30,10 +29,17 @@ export const DatePickerButton = () => {
  * DatePicker
  * ------------------------------------------------------------------------------- */
 
-export const DatePicker = <TDateValue extends RACDateValue>({
+/**
+ * A date picker combines a DateField and a Calendar popover to allow users to enter or select a date and time value.
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
+ */
+
+export type DatePickerProps = RACDatePickerProps<CalendarDate>;
+
+export const DatePicker = ({
 	children,
 	...props
-}: RACDatePickerProps<TDateValue>) => {
+}: RACDatePickerProps<CalendarDate>) => {
 	return (
 		<RACDatePicker {...props}>
 			{(values) => {
@@ -42,7 +48,7 @@ export const DatePicker = <TDateValue extends RACDateValue>({
 						{typeof children === "function"
 							? children(values)
 							: children}
-						<Popover placement="bottom" className={menuCSS}>
+						<Popover placement="bottom end" className={menuCSS}>
 							<RACDialog>
 								<Calendar />
 							</RACDialog>
@@ -55,18 +61,15 @@ export const DatePicker = <TDateValue extends RACDateValue>({
 };
 
 /** -----------------------------------------------------------------------------
- * FORM TEXT FIELD
+ * FormDatePicker
  * ------------------------------------------------------------------------------- */
 
 /**
- * A form text field connects a `DatePicker` to a `Form` component using `react-hook-form`.
+ * A `FormDatePicker` connects a `DatePicker` to a `Form` component using `react-hook-form`.
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
  */
-export function FormDatePicker<TDateValue extends RACDateValue>({
-	children,
-	...props
-}: DatePickerProps<TDateValue>) {
+export function FormDatePicker({ children, ...props }: DatePickerProps) {
 	if (!props.name) {
 		throw new Error("FormDatePicker requires a name prop");
 	}
@@ -74,7 +77,7 @@ export function FormDatePicker<TDateValue extends RACDateValue>({
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, onChange, ...field },
+		field: { ref, value = null, disabled: isDisabled, onChange, ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -83,14 +86,14 @@ export function FormDatePicker<TDateValue extends RACDateValue>({
 	});
 
 	return (
-		<DatePicker<TDateValue>
+		<DatePicker
 			{...props}
 			{...field}
 			onChange={(v) => {
-				onChange(v);
+				onChange(v.toString());
 				props.onChange?.(v);
 			}}
-			value={value}
+			value={value ? parseDate(value) : value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 			isInvalid={invalid}
 		>
