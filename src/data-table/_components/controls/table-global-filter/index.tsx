@@ -1,7 +1,4 @@
-import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { RowData, Table } from "@tanstack/react-table";
-import { Icon } from "../../../../icon";
-// import { Input } from "../../../../_DEPRECATED_input";
 import { FilteringOptions } from "../../../types";
 import { tableGlobalFilterCSS } from "./styles.css";
 import { Group } from "../../../../group";
