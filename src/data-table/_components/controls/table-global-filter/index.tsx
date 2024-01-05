@@ -30,10 +30,11 @@ export function TableGlobalFilter<TRowData extends RowData>({
 			isDisabled={disabled}
 			className={tableGlobalFilterCSS}
 			value={table.getState().globalFilter ?? ""}
+			aria-label="Filter"
 		>
 			<Group>
 				<SearchFieldIcon />
-				<Input aria-label="Filter" placeholder={strFilterPlaceholder} />
+				<Input placeholder={strFilterPlaceholder} />
 				<SearchFieldClearButton />
 			</Group>
 		</SearchField>
