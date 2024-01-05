@@ -14,6 +14,7 @@ import * as React from "react";
 import clsx from "clsx";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 import { useFormContext, useController } from "react-hook-form";
+import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * SelectTrigger
@@ -39,7 +40,11 @@ function _SelectButton<TItemId extends string = string>(
 			<RACSelectValue<IterableListBoxItem<TItemId>>
 				className={selectValueCSS}
 			/>
-			<Icon color="text_low_contrast" icon={faAnglesUpDown} />
+			<Icon
+				className={sprinkles({ marginLeft: "auto" })}
+				color="text_low_contrast"
+				icon={faAnglesUpDown}
+			/>
 		</RACButton>
 	);
 }
@@ -116,7 +121,10 @@ export function FormSelect<TItemId extends string = string>({
 		<Select<TItemId>
 			{...props}
 			{...field}
-			onSelectionChange={onChange}
+			onSelectionChange={(k) => {
+				onChange(k);
+				props.onSelectionChange?.(k);
+			}}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 			isInvalid={invalid}

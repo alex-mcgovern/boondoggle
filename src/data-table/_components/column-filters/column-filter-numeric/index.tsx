@@ -2,7 +2,6 @@ import { Column, RowData } from "@tanstack/react-table";
 import { useState } from "react";
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
-import { TableNumberRangeFilterMode } from "../../../types";
 import { FilterDialogTitle } from "../base/filter-dialog-title";
 import { FilterPillMenu } from "../base/filter-pill-menu";
 import { FormFilterNumeric } from "./_components/form-filter-numeric";
@@ -82,20 +81,14 @@ function getMinMax<TRowData extends RowData>({
 }
 
 export function ColumnFilterNumeric<TRowData extends RowData>({
-	strApplyFilter,
 	strFilterDialogTitle,
 	strFilterPillText,
-	strMapNumericFilterMode,
 	column,
 	transformNumericFromRaw,
 	transformNumericToRaw,
-	strNotANumber,
 }: {
 	column: Column<TRowData>;
-	strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
-	strApplyFilter: string;
 	strFilterDialogTitle: string;
-	strNotANumber: string;
 	strFilterPillText: string;
 	transformNumericFromRaw?: (value: number | undefined) => number | undefined;
 	transformNumericToRaw?: (value: number | undefined) => number | undefined;
@@ -166,9 +159,6 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 					}}
 					smallestValue={smallestValue ?? 0}
 					transformNumericToRaw={transformNumericToRaw}
-					strApplyFilter={strApplyFilter}
-					strMapNumericFilterMode={strMapNumericFilterMode}
-					strNotANumber={strNotANumber}
 				/>
 			</FilterPillMenu>
 		</NumericFilterModeProvider>

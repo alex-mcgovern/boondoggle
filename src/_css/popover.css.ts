@@ -98,7 +98,7 @@ export const popoverCSS = style([
 					animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
 				},
 
-				"&[data-trigger=ComboBox]": {
+				"&[data-trigger=ComboBox], &[data-trigger=Select]": {
 					width: "var(--trigger-width)",
 				},
 			},

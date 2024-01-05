@@ -26,6 +26,7 @@ import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
 import { Icon } from "../icon";
 import { MenuButton, type MenuButtonProps } from "../menu-button";
 import { Button } from "../button";
+import { TableColumnFilters } from "./_components/column-filters";
 declare module "@tanstack/table-core" {
 	interface FilterFns {
 		multiSelect: FilterFn<unknown>;
@@ -163,12 +164,12 @@ export function DataTable<TRowData extends RowData>({
 						filteringOptions={filteringOptions}
 					/>
 				}
-				// columnFilters={
-				// 	<TableColumnFilters<TRowData>
-				// 		table={table}
-				// 		filteringOptions={filteringOptions}
-				// 	/>
-				// }
+				columnFilters={
+					<TableColumnFilters<TRowData>
+						table={table}
+						filteringOptions={filteringOptions}
+					/>
+				}
 				actions={actions}
 			/>
 

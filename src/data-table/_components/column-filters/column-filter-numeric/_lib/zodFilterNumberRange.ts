@@ -1,12 +1,9 @@
 import { z } from "zod";
+import { i18n } from "../../../../../_i18n";
 
-export const getZodFilterNumberRange = ({
-	strNotANumber,
-}: {
-	strNotANumber: string;
-}) => {
+export const getZodFilterNumberRange = () => {
 	const errorMap = () => {
-		return { message: strNotANumber };
+		return { message: i18n.not_a_number };
 	};
 
 	return z.discriminatedUnion("filter_mode", [
