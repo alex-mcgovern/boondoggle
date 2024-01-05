@@ -45,7 +45,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 export type LinkButtonProps = RACLinkProps & ButtonVariants;
 
-export const LinkButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
 	(
 		{
 			alignment = "center",
