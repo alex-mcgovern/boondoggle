@@ -5,7 +5,7 @@ import type { LoaderProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,
-	title: "Components/V1/Loader",
+	title: "Loader",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {

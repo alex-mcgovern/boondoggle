@@ -5,7 +5,7 @@ import { Icon } from "../icon";
 import { Button } from "../button";
 
 const meta = {
-	title: "Components/V2/MenuButton",
+	title: "MenuButton",
 	component: MenuButton,
 	args: {
 		items: [

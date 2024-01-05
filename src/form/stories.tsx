@@ -104,7 +104,7 @@ const NumberFieldWithCurrencySelect = () => {
 
 const meta = {
 	component: Form,
-	title: "Data entry/Form",
+	title: "Form",
 	args: {
 		handleSubmit: (fieldValues) => {
 			alert(

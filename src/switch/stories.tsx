@@ -3,7 +3,7 @@ import { Switch as StoryComp } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/V2/Switch",
+	title: "Switch",
 	component: StoryComp,
 	args: {
 		name: "switch",

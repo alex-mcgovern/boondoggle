@@ -21,7 +21,7 @@ import { Button } from "../button";
 import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
-	title: "Data entry/TextField",
+	title: "TextField",
 	component: TextField,
 	args: {},
 	render: (args) => {

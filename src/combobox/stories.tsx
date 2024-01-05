@@ -5,7 +5,7 @@ import { Input } from "../input";
 import { Label } from "../label";
 
 const meta = {
-	title: "Data entry/ComboBox",
+	title: "ComboBox",
 	component: ComboBox,
 	args: {
 		defaultItems: [

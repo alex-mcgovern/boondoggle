@@ -98,7 +98,7 @@
             "import { Meta, StoryObj } from \"@storybook/react\";",
             "",
             "const meta = {",
-            "  title: \"Components/${1:Component}\",",
+            "  title: \"${1:Component}\",",
             "  component: ${1:Component},",
             "  args: {  },",
             "} satisfies Meta<typeof ${1:Component}>;",

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Icon } from "../icon";
 
 const meta = {
-	title: "Components/V2/Button",
+	title: "Button",
 	component: Button,
 	args: {
 		children: "Button",

@@ -3,7 +3,7 @@ import { SkeletonTable } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-	title: "Components/V1/SkeletonTable",
+	title: "SkeletonTable",
 	component: SkeletonTable,
 	args: {},
 } satisfies Meta<typeof SkeletonTable>;

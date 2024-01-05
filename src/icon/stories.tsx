@@ -7,7 +7,7 @@ import type { IconProps as StoryCompProps } from ".";
 
 export default {
 	component: StoryComp,
-	title: "Components/V1/Icon",
+	title: "Icon",
 };
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {

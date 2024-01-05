@@ -10,7 +10,7 @@ import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../button";
 
 const meta = {
-	title: "Components/V2/MobileMenu",
+	title: "MobileMenu",
 	component: StoryComp,
 	args: {
 		modalOverlayProps: {

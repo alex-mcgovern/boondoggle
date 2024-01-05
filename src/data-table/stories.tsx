@@ -19,7 +19,7 @@ const meta = {
 		gridTemplateColumns: "1fr repeat(3, min-content)",
 	},
 	component: StoryComp<MockTableData>,
-	title: "Components/V1/DataTable",
+	title: "DataTable",
 } satisfies Meta<typeof StoryComp<MockTableData>>;
 
 export default meta;

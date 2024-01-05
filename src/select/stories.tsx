@@ -9,7 +9,7 @@ import { FlagSa } from "../icon-flag/sa";
 import { FlagOm } from "../icon-flag/om";
 
 const meta = {
-	title: "Components/Select",
+	title: "Select",
 	component: Select,
 	args: {
 		placeholder: "Select a country",

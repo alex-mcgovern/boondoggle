@@ -16,7 +16,7 @@ import { sprinkles } from "../sprinkles/index.css";
 import { Select, SelectButton } from "../select";
 
 const meta = {
-	title: "Data entry/NumberField",
+	title: "NumberField",
 	component: NumberField,
 	args: {},
 	render: (args) => {

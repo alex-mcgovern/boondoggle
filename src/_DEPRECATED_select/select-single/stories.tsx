@@ -20,7 +20,7 @@ const meta = {
 		strClear: "Clear",
 	},
 	component: StoryComp,
-	title: "Data entry/💀  SelectSingle",
+	title: "❌ SelectSingle",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

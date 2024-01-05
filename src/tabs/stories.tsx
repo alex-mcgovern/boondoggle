@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { V2TabCount, V2TabList, V2TabPanel, V2Tabs } from ".";
 
 const meta = {
-	title: "Components/V2/Tabs",
+	title: "Tabs",
 	component: V2Tabs,
 	args: {
 		children: (

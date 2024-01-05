@@ -12,7 +12,7 @@ const meta = {
 		placeholder: LOREM.placeholder(),
 	},
 	component: StoryComp,
-	title: "Data entry/💀 InputDate",
+	title: "❌ InputDate",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

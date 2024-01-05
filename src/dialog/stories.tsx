@@ -12,7 +12,7 @@ import { V2DialogAlert } from "../dialog-alert";
 import { V2DialogErrorMessage } from "../dialog-error-message";
 
 const meta = {
-	title: "Components/V2/Dialog",
+	title: "Dialog",
 	component: StoryComp,
 	args: {
 		modalOverlayProps: {

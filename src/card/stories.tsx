@@ -9,7 +9,7 @@ import { SkeletonInput } from "../skeleton-input";
 import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
-	title: "Components/V1/Card",
+	title: "Card",
 	component: StoryComp,
 	args: {
 		children: (

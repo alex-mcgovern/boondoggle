@@ -4,7 +4,7 @@ import { Pill } from ".";
 import { Icon } from "../icon";
 
 const meta = {
-	title: "Components/V2/Pill",
+	title: "Pill",
 	component: Pill,
 	args: {
 		children: "Pill",

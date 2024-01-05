@@ -6,7 +6,7 @@ import { Label } from "../label";
 import { ComboBoxButton } from "../combobox";
 
 const meta = {
-	title: "Data entry/ComboBoxCountry",
+	title: "ComboBoxCountry",
 	component: ComboBoxCountry,
 	render: (args) => {
 		return (

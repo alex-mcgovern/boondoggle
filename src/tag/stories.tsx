@@ -8,7 +8,7 @@ import { Box } from "../box";
 
 export default {
 	component: StoryComp,
-	title: "Components/V1/Tag",
+	title: "Tag",
 };
 
 const TemplateSizes: StoryFn<StoryCompProps> = () => {
