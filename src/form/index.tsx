@@ -26,12 +26,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
 	 */
-	children:
-		| React.ReactNode
-		| ((
-				// biome-ignore lint/suspicious/noExplicitAny: RHF uses `any` for the second type argument
-				formMethods: UseFormReturn<TFieldValues, any, undefined>,
-		  ) => React.ReactNode);
+	children: React.ReactNode | ((values: TFieldValues) => React.ReactNode);
 
 	/**
 	 * Class name for the form.
@@ -116,7 +111,7 @@ function BaseForm<TFieldValues extends FieldValues>(
 				}, handleErrors)}
 			>
 				{typeof children === "function"
-					? children(formMethods)
+					? children(formMethods.getValues())
 					: children}
 			</form>
 		</FormProvider>
