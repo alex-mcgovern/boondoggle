@@ -196,3 +196,5 @@ export const buttonCSS = recipe({
 		size: "sm",
 	},
 });
+
+export type ButtonVariants = Parameters<typeof buttonCSS>[0];

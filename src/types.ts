@@ -257,13 +257,6 @@ export type WithSize = {
 	size?: ElementSizeEnum;
 };
 
-export type WithSlotSide = {
-	/**
-	 * Consistent size option shared across multiple components.
-	 */
-	"data-slot-side"?: "right" | "left";
-};
-
 export type WithSlots = {
 	/**
 	 * React node(s) rendered on the left-hand side.
