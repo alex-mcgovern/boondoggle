@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { a11yFocus, variantColorOverlay, vars } from "../index.css";
 import { withPrefersMotion } from "../css-utils";
+import { a11yFocus, variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const getTagStyle = recipe({

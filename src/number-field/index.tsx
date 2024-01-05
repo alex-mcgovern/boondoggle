@@ -1,16 +1,16 @@
+import { faMinus } from "@fortawesome/pro-regular-svg-icons/faMinus";
+import { faPlus } from "@fortawesome/pro-regular-svg-icons/faPlus";
+import clsx from "clsx";
 import * as React from "react";
 import {
 	NumberField as RACNumberField,
 	type NumberFieldProps as RACNumberFieldProps,
 } from "react-aria-components";
-import { numberFieldCSS } from "./styles.css";
-import clsx from "clsx";
 import { useController, useFormContext } from "react-hook-form";
-import { FieldError } from "../field-error";
 import { FieldButton } from "../field-button";
-import { faPlus } from "@fortawesome/pro-regular-svg-icons/faPlus";
+import { FieldError } from "../field-error";
 import { Icon } from "../icon";
-import { faMinus } from "@fortawesome/pro-regular-svg-icons/faMinus";
+import { numberFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * NumberFieldIncrementButton

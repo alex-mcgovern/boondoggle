@@ -1,6 +1,4 @@
 import { RowData, Table } from "@tanstack/react-table";
-import { FilteringOptions } from "../../../types";
-import { tableGlobalFilterCSS } from "./styles.css";
 import { Group } from "../../../../group";
 import { Input } from "../../../../input";
 import {
@@ -8,6 +6,8 @@ import {
 	SearchFieldClearButton,
 	SearchFieldIcon,
 } from "../../../../search-field";
+import { FilteringOptions } from "../../../types";
+import { tableGlobalFilterCSS } from "./styles.css";
 
 export function TableGlobalFilter<TRowData extends RowData>({
 	table,
@@ -33,7 +33,7 @@ export function TableGlobalFilter<TRowData extends RowData>({
 		>
 			<Group>
 				<SearchFieldIcon />
-				<Input placeholder={strFilterPlaceholder} />
+				<Input aria-label="Filter" placeholder={strFilterPlaceholder} />
 				<SearchFieldClearButton />
 			</Group>
 		</SearchField>

@@ -9,9 +9,9 @@ import {
 	useInteractions,
 } from "@floating-ui/react";
 import * as React from "react";
+import { FloatingPanel } from "../../../../_DEPRECATED_floating-panel";
 import { useForwardRef } from "../../../../_hooks/use-forward-ref";
 import { Box } from "../../../../box";
-import { FloatingPanel } from "../../../../_DEPRECATED_floating-panel";
 import { FilterPillCloseButton } from "./filter-pill-close-button";
 import { FilterPillGroup } from "./filter-pill-group";
 import { filterMenuCSS } from "./filter-pill-menu.css";

@@ -1,3 +1,4 @@
+import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
 import {
 	ColumnDef,
 	FilterFn,
@@ -9,6 +10,10 @@ import {
 import * as React from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
+import { Button } from "../button";
+import { Icon } from "../icon";
+import { MenuButton, type MenuButtonProps } from "../menu-button";
+import { TableColumnFilters } from "./_components/column-filters";
 // import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
@@ -22,11 +27,6 @@ import {
 	PaginationOptions,
 	WithTableOptionalSelectableRows,
 } from "./types";
-import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
-import { Icon } from "../icon";
-import { MenuButton, type MenuButtonProps } from "../menu-button";
-import { Button } from "../button";
-import { TableColumnFilters } from "./_components/column-filters";
 declare module "@tanstack/table-core" {
 	interface FilterFns {
 		multiSelect: FilterFn<unknown>;

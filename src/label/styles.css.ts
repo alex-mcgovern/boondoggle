@@ -1,5 +1,5 @@
-import { sprinkles } from "../sprinkles/index.css";
 import { style } from "@vanilla-extract/css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const labelCSS = style([
 	sprinkles({

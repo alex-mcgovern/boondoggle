@@ -1,8 +1,8 @@
+import { Meta, StoryObj } from "@storybook/react";
+import { Button } from "react-aria-components";
 import { Card as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
-import { Meta, StoryObj } from "@storybook/react";
-import { Button } from "react-aria-components";
 import { FieldsGrid } from "../fields-grid";
 import { SkeletonInput } from "../skeleton-input";
 import { sprinkles } from "../sprinkles/index.css";

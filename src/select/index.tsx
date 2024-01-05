@@ -1,20 +1,20 @@
+import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
+import clsx from "clsx";
+import * as React from "react";
 import {
 	Button as RACButton,
 	type ButtonProps as RACButtonProps,
+	FieldError,
 	Select as RACSelect,
 	type SelectProps as RACSelectProps,
 	SelectValue as RACSelectValue,
-	FieldError,
 } from "react-aria-components";
-import { Popover, PopoverProps } from "../popover/popover";
-import { IterableListBoxItem, ListBox } from "../list-box";
-import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
+import { useController, useFormContext } from "react-hook-form";
 import { Icon } from "../icon";
-import * as React from "react";
-import clsx from "clsx";
-import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
-import { useFormContext, useController } from "react-hook-form";
+import { IterableListBoxItem, ListBox } from "../list-box";
+import { Popover, PopoverProps } from "../popover/popover";
 import { sprinkles } from "../sprinkles/index.css";
+import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * SelectTrigger

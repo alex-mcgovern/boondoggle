@@ -7,10 +7,10 @@ import {
 	TV2DataTableRowActions,
 	TableRowMenuButton,
 } from ".";
+import { Button } from "../button";
 import { Icon } from "../icon";
 import { COLUMNS, MockTableData, mockColumn } from "./_mocks/data-table.mock";
 import { TableNumberRangeFilterMode } from "./types";
-import { Button } from "../button";
 
 const meta = {
 	args: {

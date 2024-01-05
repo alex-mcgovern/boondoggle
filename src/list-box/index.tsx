@@ -1,3 +1,4 @@
+import { faCheck } from "@fortawesome/pro-solid-svg-icons";
 import * as React from "react";
 import {
 	Collection as ReactAriaCollection,
@@ -15,10 +16,9 @@ import {
 	menuItemDescriptionCSS,
 	menuItemNameCSS,
 } from "../_css/menu.css";
+import { Icon } from "../icon";
 import { ColorOverlay } from "../index.css";
 import { Section } from "../section";
-import { faCheck } from "@fortawesome/pro-solid-svg-icons";
-import { Icon } from "../icon";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;

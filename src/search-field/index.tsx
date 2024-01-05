@@ -1,15 +1,15 @@
+import { faSearch } from "@fortawesome/pro-regular-svg-icons/faSearch";
+import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
+import clsx from "clsx";
 import * as React from "react";
 import {
 	SearchField as RACSearchField,
 	type SearchFieldProps as RACSearchFieldProps,
 } from "react-aria-components";
-import { Icon } from "../icon";
-import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
-import { textFieldCSS } from "./styles.css";
-import clsx from "clsx";
 import { FieldButton } from "../field-button";
-import { faSearch } from "@fortawesome/pro-regular-svg-icons/faSearch";
+import { Icon } from "../icon";
 import { sprinkles } from "../sprinkles/index.css";
+import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * SearchFieldClearButton

@@ -6,8 +6,8 @@ import {
 	V2MobileMenuHeader,
 	V2ScrollableMobileMenuContent,
 } from ".";
-import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../button";
+import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
 	title: "MobileMenu",

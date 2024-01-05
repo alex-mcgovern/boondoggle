@@ -1,11 +1,11 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+import { withPrefersMotion } from "../../../../css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
 	a11yFocus,
 	vars,
 } from "../../../../index.css";
-import { withPrefersMotion } from "../../../../css-utils";
 import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const closeButtonCSS = style([

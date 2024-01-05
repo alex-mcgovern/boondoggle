@@ -1,9 +1,9 @@
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 import { RowData, Table } from "@tanstack/react-table";
 import { arrayHasLength } from "../../../_lib/array-has-length";
+import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
-import { Box } from "../../../box";
 import { FilteringOptions } from "../../types";
 
 export function TableNoResults<TRowData extends RowData>({

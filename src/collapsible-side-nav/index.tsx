@@ -5,14 +5,14 @@ import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import * as React from "react";
-import { MEDIA_QUERY_MOBILE } from "../index.css";
+import { Button } from "../button";
 import { Icon } from "../icon";
+import { MEDIA_QUERY_MOBILE } from "../index.css";
 import {
 	collapsibleNavButtonCSS,
 	collapsibleNavInnerCSS,
 	collapsibleNavOuterCSS,
 } from "./styles.css";
-import { Button } from "../button";
 
 function useMatchMedia(
 	queries: string[],

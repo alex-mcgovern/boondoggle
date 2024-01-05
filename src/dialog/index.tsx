@@ -6,10 +6,10 @@ import {
 	Modal as ReactAriaModal,
 	ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
-import { ColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 import { Button } from "../button";
 import { Icon } from "../icon";
+import { ColorOverlay } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 import {
 	dialogCSS,
 	dialogContentCSS,

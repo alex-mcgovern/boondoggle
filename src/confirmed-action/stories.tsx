@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ToastProvider } from "../toast";
 import { ConfirmedAction } from ".";
+import { ToastProvider } from "../toast";
 
 const meta = {
 	title: "ConfirmedAction",

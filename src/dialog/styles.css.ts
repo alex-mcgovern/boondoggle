@@ -1,12 +1,12 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import {
 	MEDIA_QUERY_MOBILE,
 	MEDIA_QUERY_TABLET,
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------

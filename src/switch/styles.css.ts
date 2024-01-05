@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
 import { withPrefersMotion } from "../css-utils";
+import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 const DOT_SIZE = vars.spacing.space_4;

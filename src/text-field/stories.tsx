@@ -1,24 +1,24 @@
+import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
+import { Meta, StoryObj } from "@storybook/react";
+import * as React from "react";
 import {
 	TextField,
 	TextFieldClearButton,
 	TextFieldCopyButton,
 	TextFieldVisibilityButton,
 } from ".";
-import { Meta, StoryObj } from "@storybook/react";
-import { ToastProvider } from "../toast";
-import { Group } from "../group";
-import { Input } from "../input";
-import { Label } from "../label";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "../_DEPRECATED_tooltip";
-import { Icon } from "../icon";
-import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
-import * as React from "react";
 import { Button } from "../button";
+import { Group } from "../group";
+import { Icon } from "../icon";
+import { Input } from "../input";
+import { Label } from "../label";
 import { sprinkles } from "../sprinkles/index.css";
+import { ToastProvider } from "../toast";
 
 const meta = {
 	title: "TextField",

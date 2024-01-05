@@ -1,5 +1,5 @@
-import { SearchField, SearchFieldIcon } from ".";
 import { Meta, StoryObj } from "@storybook/react";
+import { SearchField, SearchFieldIcon } from ".";
 import { Input } from "../input";
 import { Label } from "../label";
 

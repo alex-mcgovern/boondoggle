@@ -1,11 +1,11 @@
 import { type TCountryCode, countries } from "countries-list";
 import * as React from "react";
+import { useController, useFormContext } from "react-hook-form";
 import { capitalize } from "../_lib/capitalize";
 import { ComboBox, type ComboBoxProps } from "../combobox";
+import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
 import { type IterableListBoxItem } from "../list-box";
-import { useController, useFormContext } from "react-hook-form";
-import { FieldError } from "../field-error";
 
 const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
 	countries,

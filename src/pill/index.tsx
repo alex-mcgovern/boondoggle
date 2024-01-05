@@ -1,8 +1,8 @@
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { ColorOverlay } from "../index.css";
 import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
+import { ColorOverlay } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 import { pillCSS } from "./styles.css";
 

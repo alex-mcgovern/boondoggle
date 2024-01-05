@@ -1,12 +1,12 @@
 import { Select, SelectButton } from ".";
 
 import { Meta, StoryObj } from "@storybook/react";
-import { FlagFr } from "../icon-flag/fr";
+import { FlagAe } from "../icon-flag/ae";
 import { FlagDe } from "../icon-flag/de";
 import { FlagEs } from "../icon-flag/es";
-import { FlagAe } from "../icon-flag/ae";
-import { FlagSa } from "../icon-flag/sa";
+import { FlagFr } from "../icon-flag/fr";
 import { FlagOm } from "../icon-flag/om";
+import { FlagSa } from "../icon-flag/sa";
 
 const meta = {
 	title: "Select",

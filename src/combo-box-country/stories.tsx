@@ -1,9 +1,9 @@
-import { ComboBoxCountry } from ".";
 import { Meta, StoryObj } from "@storybook/react";
+import { ComboBoxCountry } from ".";
+import { ComboBoxButton } from "../combobox";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
-import { ComboBoxButton } from "../combobox";
 
 const meta = {
 	title: "ComboBoxCountry",

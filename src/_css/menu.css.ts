@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import {
 	a11yDisabled,
 	a11yFocus,
@@ -9,7 +10,6 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { withPrefersMotion } from "../css-utils";
-import { sprinkles } from "../sprinkles/index.css";
 import { vars } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const fieldButtonCSS = style([
 	sprinkles({

@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import {
 	HOVER,
 	NOT_DISABLED,
@@ -9,7 +10,6 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------

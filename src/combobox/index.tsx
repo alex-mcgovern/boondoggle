@@ -5,13 +5,13 @@ import {
 	ComboBox as RACCombobox,
 	type ComboBoxProps as RACComboBoxProps,
 } from "react-aria-components";
+import { useController, useFormContext } from "react-hook-form";
+import { FieldButton } from "../field-button";
+import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { IterableListBoxItem, ListBox } from "../list-box";
-import { comboBoxCSS } from "./styles.css";
 import { Popover } from "../popover/popover";
-import { useFormContext, useController } from "react-hook-form";
-import { FieldError } from "../field-error";
-import { FieldButton } from "../field-button";
+import { comboBoxCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * COMBOBOX BUTTON

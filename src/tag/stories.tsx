@@ -3,8 +3,8 @@ import type { StoryFn, StoryObj } from "@storybook/react";
 import { Tag as StoryComp } from ".";
 import type { TagProps as StoryCompProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
-import { Icon } from "../icon";
 import { Box } from "../box";
+import { Icon } from "../icon";
 
 export default {
 	component: StoryComp,

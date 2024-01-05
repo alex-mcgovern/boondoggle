@@ -11,8 +11,8 @@ import {
 	Tabs as ReactAriaTabs,
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
-import { Loader } from "../loader";
 import { Icon } from "../icon";
+import { Loader } from "../loader";
 import {
 	tabCountCSS,
 	tabCountIconCSS,

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { sprinkles } from "../sprinkles/index.css";
 import { variantColorOverlay } from "../index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 export const fieldErrorCss = style([
 	variantColorOverlay.red,

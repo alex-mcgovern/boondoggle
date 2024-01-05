@@ -1,5 +1,5 @@
-import { Header as StoryComp } from ".";
 import { Meta, StoryObj } from "@storybook/react";
+import { Header as StoryComp } from ".";
 import { Box } from "../box";
 import { Button } from "../button";
 

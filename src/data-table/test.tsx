@@ -5,10 +5,10 @@ import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { render } from "@testing-library/react";
 import { DataTable } from ".";
 import type { DataTableProps } from ".";
+import { Button } from "../button";
 import { Icon } from "../icon";
 import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
 import type { MockTableData } from "./_mocks/data-table.mock";
-import { Button } from "../button";
 
 const renderComponent = ({ ...props }: DataTableProps<MockTableData>) => {
 	return render(<DataTable {...props} />);

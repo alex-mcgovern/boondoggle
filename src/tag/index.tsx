@@ -7,7 +7,9 @@ import type {
 	ReactElement,
 	ReactNode,
 } from "react";
+import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
 import { a11yFocus } from "../index.css";
+import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,
@@ -16,8 +18,6 @@ import {
 	WithSlots,
 	WithStateDisabled,
 } from "../types";
-import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { getTagStyle } from "./styles.css";
 
 type BaseTagProps<TPolymorphicAs extends ElementType> = Sprinkles &

@@ -1,3 +1,8 @@
+import { faClipboard } from "@fortawesome/pro-regular-svg-icons/faClipboard";
+import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
+import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
+import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
+import clsx from "clsx";
 import * as React from "react";
 import {
 	ButtonContext as FieldButtonContext,
@@ -5,23 +10,18 @@ import {
 	type TextFieldProps as RACTextFieldProps,
 	useSlottedContext,
 } from "react-aria-components";
-import { useToastContext } from "../toast";
-import { i18n } from "../_i18n";
+import { useController, useFormContext } from "react-hook-form";
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
 } from "../_DEPRECATED_tooltip";
-import { Icon } from "../icon";
-import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
-import { faClipboard } from "@fortawesome/pro-regular-svg-icons/faClipboard";
-import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
-import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
-import { textFieldCSS } from "./styles.css";
-import clsx from "clsx";
-import { useController, useFormContext } from "react-hook-form";
-import { FieldError } from "../field-error";
+import { i18n } from "../_i18n";
 import { FieldButton, type FieldButtonProps } from "../field-button";
+import { FieldError } from "../field-error";
+import { Icon } from "../icon";
+import { useToastContext } from "../toast";
+import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * TEXT FIELD CLEAR BUTTON

@@ -1,5 +1,5 @@
-import { ComboBox, ComboBoxButton } from ".";
 import { Meta, StoryObj } from "@storybook/react";
+import { ComboBox, ComboBoxButton } from ".";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";

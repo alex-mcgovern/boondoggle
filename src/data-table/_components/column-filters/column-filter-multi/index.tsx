@@ -1,9 +1,10 @@
 import { Column } from "@tanstack/react-table";
 import { useEffect, useMemo, useState } from "react";
+import { i18n } from "../../../../_i18n";
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
-import { Button } from "../../../../button";
 import { Box } from "../../../../box";
+import { Button } from "../../../../button";
 import { sprinkles } from "../../../../sprinkles/index.css";
 import { FilterDialogTitle } from "../base/filter-dialog-title";
 import { FilterPillMenu } from "../base/filter-pill-menu";
@@ -14,7 +15,6 @@ import {
 	multiFilterItemTextCSS,
 	multiFilterListCSS,
 } from "./styles.css";
-import { i18n } from "../../../../_i18n";
 
 const ColumnMultiFilterItem = ({
 	defaultChecked,

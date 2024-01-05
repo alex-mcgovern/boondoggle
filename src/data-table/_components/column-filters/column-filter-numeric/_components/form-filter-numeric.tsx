@@ -1,17 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
-import { FormSubmitButton } from "../../../../../form-submit-button";
+import { z } from "zod";
+import { i18n } from "../../../../../_i18n";
 import { Box } from "../../../../../box";
 import { Form } from "../../../../../form";
+import { FormSubmitButton } from "../../../../../form-submit-button";
+import { Input } from "../../../../../input";
+import { IterableListBoxItem } from "../../../../../list-box";
+import { FormNumberField } from "../../../../../number-field";
+import { FormSelect, SelectButton } from "../../../../../select";
+import { sprinkles } from "../../../../../sprinkles/index.css";
 import type { TableNumberRangeFilterMode } from "../../../../types";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
-import { sprinkles } from "../../../../../sprinkles/index.css";
-import { FormSelect, SelectButton } from "../../../../../select";
-import { IterableListBoxItem } from "../../../../../list-box";
-import { i18n } from "../../../../../_i18n";
-import { FormNumberField } from "../../../../../number-field";
-import { Input } from "../../../../../input";
-import { z } from "zod";
 
 /** -----------------------------------------------------------------------------
  * Filter mode items

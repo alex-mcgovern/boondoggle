@@ -1,4 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
+import { withPrefersMotion } from "../css-utils";
 import {
 	ACTIVE,
 	HOVER,
@@ -7,7 +8,6 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { withPrefersMotion } from "../css-utils";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const buttonCSS = recipe({

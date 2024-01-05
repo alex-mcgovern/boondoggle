@@ -1,9 +1,9 @@
+import * as React from "react";
 import {
 	Button as RACButton,
 	type ButtonProps as RACButtonProps,
 } from "react-aria-components";
 import { fieldButtonCSS } from "./styles.css";
-import * as React from "react";
 
 export type FieldButtonProps = RACButtonProps;
 
