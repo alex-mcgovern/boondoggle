@@ -1,7 +1,6 @@
 import { Card as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
-import { Input } from "../_DEPRECATED_input";
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "react-aria-components";
 import { FieldsGrid } from "../fields-grid";
@@ -33,22 +32,6 @@ export const Default: Story = {};
 export const WithTitle: Story = {
 	args: {
 		title: LOREM.text_xxs,
-	},
-};
-
-export const WithTitleAndInputs: Story = {
-	args: {
-		title: LOREM.text_xxs,
-		children: (
-			<>
-				<FieldsGrid>
-					<Input name="test1" label={LOREM.label("1")} />
-					<Input name="test2" label={LOREM.label("2")} />
-					<Input name="test3" label={LOREM.label("3")} />
-					<Input name="test4" label={LOREM.label("4")} />
-				</FieldsGrid>
-			</>
-		),
 	},
 };
 

@@ -40,6 +40,7 @@ export type FilteringOptions<TRowData extends RowData> = {
 	strClearAllFilters: string;
 
 	/**
+	 * @deprecated
 	 * The text to display for the clear all filters button in the search input component.
 	 */
 	strClearFilterInput: string;

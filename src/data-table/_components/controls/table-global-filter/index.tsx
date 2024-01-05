@@ -1,9 +1,12 @@
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { RowData, Table } from "@tanstack/react-table";
 import { Icon } from "../../../../icon";
-import { Input } from "../../../../_DEPRECATED_input";
+// import { Input } from "../../../../_DEPRECATED_input";
 import { FilteringOptions } from "../../../types";
 import { tableGlobalFilterCSS } from "./styles.css";
+import { Group } from "../../../../group";
+import { Input } from "../../../../input";
+import { SearchField, SearchFieldClearButton } from "../../../../search-field";
 
 export function TableGlobalFilter<TRowData extends RowData>({
 	table,
@@ -18,26 +21,20 @@ export function TableGlobalFilter<TRowData extends RowData>({
 		return null;
 	}
 
-	const { strFilterPlaceholder, strClearFilterInput } = filteringOptions;
+	const { strFilterPlaceholder } = filteringOptions;
 
 	return (
-		<Input
+		<SearchField
+			onChange={table.setGlobalFilter}
+			isDisabled={disabled}
 			className={tableGlobalFilterCSS}
-			autoComplete="off"
-			size="sm"
-			disabled={disabled}
-			hideLastpass
-			isClearable
-			name="filter"
-			onChange={(e) => {
-				return table.setGlobalFilter(e.target.value);
-			}}
-			placeholder={strFilterPlaceholder}
-			slotLeft={<Icon icon={faSearch} />}
-			strClear={strClearFilterInput}
-			type="search"
 			value={table.getState().globalFilter ?? ""}
-			marginBottom="none"
-		/>
+		>
+			<Group>
+				<Icon icon={faSearch} />
+				<Input placeholder={strFilterPlaceholder} />
+				<SearchFieldClearButton />
+			</Group>
+		</SearchField>
 	);
 }

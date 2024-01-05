@@ -9,7 +9,7 @@ import {
 import * as React from "react";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
-import { TableColumnFilters } from "./_components/column-filters";
+// import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
 import { TableActions } from "./_components/controls/table-actions";
@@ -163,12 +163,12 @@ export function DataTable<TRowData extends RowData>({
 						filteringOptions={filteringOptions}
 					/>
 				}
-				columnFilters={
-					<TableColumnFilters<TRowData>
-						table={table}
-						filteringOptions={filteringOptions}
-					/>
-				}
+				// columnFilters={
+				// 	<TableColumnFilters<TRowData>
+				// 		table={table}
+				// 		filteringOptions={filteringOptions}
+				// 	/>
+				// }
 				actions={actions}
 			/>
 
