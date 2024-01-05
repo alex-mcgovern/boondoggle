@@ -152,7 +152,6 @@ export const IsSortable: Story = {
 export const IsGlobalFilterEnabled: Story = {
 	args: {
 		filteringOptions: {
-			strApplyFilter: "Apply filter",
 			strClearAllFilters: "Clear all filters",
 			strClearFilterInput: "Clear filter input",
 			strFilterPlaceholder: "Filter results...",
@@ -164,7 +163,6 @@ export const IsGlobalFilterEnabled: Story = {
 export const IsGlobalFilterEnabledWithNoResults: Story = {
 	args: {
 		filteringOptions: {
-			strApplyFilter: "Apply filter",
 			strClearAllFilters: "Clear all filters",
 			strClearFilterInput: "Clear filter input",
 			strFilterPlaceholder: "Filter results...",
@@ -177,7 +175,6 @@ export const IsGlobalFilterEnabledWithNoResults: Story = {
 export const IsColumnFilterEnabled: Story = {
 	args: {
 		filteringOptions: {
-			strApplyFilter: "Apply filter",
 			strClearAllFilters: "Clear all filters",
 			strClearFilterInput: "Clear filter input",
 			strFilterPlaceholder: "Filter results...",
@@ -204,30 +201,16 @@ export const IsColumnFilterEnabled: Story = {
 				balance: {
 					strFilterDialogTitle: "Filter by balance",
 					strFilterPillText: "Balance",
-					strMapNumericFilterMode: {
-						is_between: "Is between",
-						is_equal_to: "Is equal to",
-						is_greater_than: "Is greater than",
-						is_less_than: "Is less than",
-					},
 					transformNumericFromRaw: (value: number | undefined) =>
 						value !== undefined ? value / 100 : undefined,
 					transformNumericToRaw: (value: number | undefined) =>
 						value !== undefined ? value * 100 : undefined,
 					type: "NUMBER_RANGE",
-					strNotANumber: "Enter a number",
 				},
 				points: {
 					strFilterDialogTitle: "Filter by points",
 					strFilterPillText: "Points",
-					strMapNumericFilterMode: {
-						is_between: "Is between",
-						is_equal_to: "Is equal to",
-						is_greater_than: "Is greater than",
-						is_less_than: "Is less than",
-					},
 					type: "NUMBER_RANGE",
-					strNotANumber: "Enter a number",
 				},
 			},
 		},
@@ -342,7 +325,6 @@ export const KitchenSink: Story = {
 			</Button>,
 		],
 		filteringOptions: {
-			strApplyFilter: "Apply filter",
 			strClearAllFilters: "Clear all filters",
 			strClearFilterInput: "Clear filter input",
 			strFilterPlaceholder: "Filter results...",
@@ -369,30 +351,16 @@ export const KitchenSink: Story = {
 				balance: {
 					strFilterDialogTitle: "Filter by balance",
 					strFilterPillText: "Balance",
-					strMapNumericFilterMode: {
-						is_between: "Is between",
-						is_equal_to: "Is equal to",
-						is_greater_than: "Is greater than",
-						is_less_than: "Is less than",
-					},
 					transformNumericFromRaw: (value: number | undefined) =>
 						value !== undefined ? value / 100 : undefined,
 					transformNumericToRaw: (value: number | undefined) =>
 						value !== undefined ? value * 100 : undefined,
 					type: "NUMBER_RANGE",
-					strNotANumber: "Enter a number",
 				},
 				points: {
 					strFilterDialogTitle: "Filter by points",
 					strFilterPillText: "Points",
-					strMapNumericFilterMode: {
-						is_between: "Is between",
-						is_equal_to: "Is equal to",
-						is_greater_than: "Is greater than",
-						is_less_than: "Is less than",
-					},
 					type: "NUMBER_RANGE",
-					strNotANumber: "Enter a number",
 				},
 			},
 		},

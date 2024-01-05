@@ -12,7 +12,6 @@ import { i18n } from "../../../../../_i18n";
 import { FormNumberField } from "../../../../../number-field";
 import { Input } from "../../../../../input";
 import { z } from "zod";
-import { set } from "react-hook-form";
 
 /** -----------------------------------------------------------------------------
  * Filter mode items
@@ -139,7 +138,7 @@ export const FormFilterNumeric = ({
 					items={MODES}
 					selectedKey={localFilterMode}
 					onSelectionChange={(k) => {
-						alert(k)
+						alert(k);
 						setLocalFilterMode(k as TableNumberRangeFilterMode);
 					}}
 				>

@@ -14,6 +14,7 @@ import {
 	multiFilterItemTextCSS,
 	multiFilterListCSS,
 } from "./styles.css";
+import { i18n } from "../../../../_i18n";
 
 const ColumnMultiFilterItem = ({
 	defaultChecked,
@@ -55,14 +56,12 @@ const ColumnMultiFilterItem = ({
 };
 
 export function ColumnMultiFilter<TRowData>({
-	strApplyFilter,
 	strFilterDialogTitle,
 	strFilterPillText,
 	transformValueToString = (value) => value,
 	column,
 }: {
 	column: Column<TRowData>;
-	strApplyFilter: string;
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
 	// biome-ignore lint/suspicious/noExplicitAny: no better alternative
@@ -183,7 +182,7 @@ export function ColumnMultiFilter<TRowData>({
 					size="sm"
 					name="apply_filter"
 				>
-					{strApplyFilter}
+					{i18n.apply_filter}
 				</Button>
 			</Box>
 		</FilterPillMenu>

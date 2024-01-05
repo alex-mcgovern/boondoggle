@@ -30,7 +30,6 @@ const PROPS: DataTableProps<MockTableData> = {
 		</Button>,
 	],
 	filteringOptions: {
-		strApplyFilter: "Apply filter",
 		strClearAllFilters: "Clear all filters",
 		strClearFilterInput: "Clear filter input",
 		strFilterPlaceholder: "Filter results...",

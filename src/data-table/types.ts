@@ -30,11 +30,6 @@ export type PaginationOptions = {
 
 export type FilteringOptions<TRowData extends RowData> = {
 	/**
-	 * String to use for apply filter button
-	 */
-	strApplyFilter: string;
-
-	/**
 	 * The text to display for the clear filters button.
 	 */
 	strClearAllFilters: string;
@@ -67,17 +62,12 @@ export type FilteringOptions<TRowData extends RowData> = {
 					type: "NUMBER_RANGE";
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
-					strNotANumber: string;
 					transformNumericFromRaw?: (
 						value: number | undefined,
 					) => number | undefined;
 					transformNumericToRaw?: (
 						value: number | undefined,
 					) => number | undefined;
-					strMapNumericFilterMode: Record<
-						TableNumberRangeFilterMode,
-						string
-					>;
 			  }
 		>
 	>;

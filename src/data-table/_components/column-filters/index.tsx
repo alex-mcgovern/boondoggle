@@ -14,7 +14,7 @@ export function TableColumnFilters<TRowData extends RowData>({
 		return null;
 	}
 
-	const { columnFilterConfig, strApplyFilter } = filteringOptions;
+	const { columnFilterConfig } = filteringOptions;
 
 	return (
 		<>
@@ -42,7 +42,6 @@ export function TableColumnFilters<TRowData extends RowData>({
 							transformValueToString={
 								columnConfig.transformValueToString
 							}
-							strApplyFilter={strApplyFilter}
 							strFilterDialogTitle={
 								columnConfig.strFilterDialogTitle
 							}
@@ -59,23 +58,18 @@ export function TableColumnFilters<TRowData extends RowData>({
 					const {
 						strFilterDialogTitle,
 						strFilterPillText,
-						strMapNumericFilterMode,
 						transformNumericFromRaw,
 						transformNumericToRaw,
-						strNotANumber,
 					} = columnConfig;
 
 					return (
 						<ColumnFilterNumeric<TRowData>
-							strApplyFilter={strApplyFilter}
 							strFilterDialogTitle={strFilterDialogTitle}
 							strFilterPillText={strFilterPillText}
-							strMapNumericFilterMode={strMapNumericFilterMode}
 							transformNumericFromRaw={transformNumericFromRaw}
 							transformNumericToRaw={transformNumericToRaw}
 							column={column}
 							key={column.id}
-							strNotANumber={strNotANumber}
 						/>
 					);
 				}
