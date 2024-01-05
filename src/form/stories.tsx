@@ -6,6 +6,8 @@ import { Form } from ".";
 import { Button } from "../button";
 import { FormComboBoxCountry } from "../combo-box-country";
 import { ComboBoxButton, FormComboBox } from "../combobox";
+import { DateInput } from "../date-input";
+import { DatePickerButton, FormDatePicker } from "../date-picker";
 import { Group } from "../group";
 import { FlagEu } from "../icon-flag/eu";
 import { FlagGb } from "../icon-flag/gb";
@@ -22,8 +24,6 @@ import { sprinkles } from "../sprinkles/index.css";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
 import { ToastProvider } from "../toast";
-import { DatePickerButton, FormDatePicker } from "../date-picker";
-import { DateInput } from "../date-input";
 
 /** -----------------------------------------------------------------------------
  * @example Composition of `NumberField` with `Select` for currency selection

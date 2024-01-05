@@ -1,17 +1,17 @@
+import { faCalendar } from "@fortawesome/pro-regular-svg-icons/faCalendar";
 import { type CalendarDate, parseDate } from "@internationalized/date";
 import {
 	DatePicker as RACDatePicker,
 	DatePickerProps as RACDatePickerProps,
 	Dialog as RACDialog,
 } from "react-aria-components";
-import { Popover } from "../popover";
-import { Calendar } from "../calendar";
-import { faCalendar } from "@fortawesome/pro-regular-svg-icons/faCalendar";
-import { FieldButton } from "../field-button";
-import { Icon } from "../icon";
-import { menuCSS } from "../_css/menu.css";
-import { FieldError } from "../field-error";
 import { useController, useFormContext } from "react-hook-form";
+import { menuCSS } from "../_css/menu.css";
+import { Calendar } from "../calendar";
+import { FieldButton } from "../field-button";
+import { FieldError } from "../field-error";
+import { Icon } from "../icon";
+import { Popover } from "../popover";
 
 /** -----------------------------------------------------------------------------
  * DatePickerButton

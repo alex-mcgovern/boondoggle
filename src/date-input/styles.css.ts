@@ -1,6 +1,6 @@
 import { red, redA } from "@radix-ui/colors";
-import { style, assignVars } from "@vanilla-extract/css";
-import { withPrefersMotion, makeTheme } from "../css-utils";
+import { assignVars, style } from "@vanilla-extract/css";
+import { makeTheme, withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 

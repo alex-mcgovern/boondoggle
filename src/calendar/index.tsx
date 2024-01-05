@@ -1,18 +1,19 @@
+import { faAngleLeft } from "@fortawesome/pro-regular-svg-icons/faAngleLeft";
+import { faAngleRight } from "@fortawesome/pro-regular-svg-icons/faAngleRight";
+import clsx from "clsx";
 import {
 	Calendar as RACCalendar,
-	CalendarProps as RACCalendarProps,
 	CalendarCell as RACCalendarCell,
 	CalendarGrid as RACCalendarGrid,
-	Heading as RACHeading,
-	type DateValue as RACDateValue,
 	CalendarGridBody as RACCalendarGridBody,
 	CalendarGridHeader as RACCalendarGridHeader,
 	CalendarHeaderCell as RACCalendarHeaderCell,
+	CalendarProps as RACCalendarProps,
+	type DateValue as RACDateValue,
+	Heading as RACHeading,
 } from "react-aria-components";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { faAngleRight } from "@fortawesome/pro-regular-svg-icons/faAngleRight";
-import { faAngleLeft } from "@fortawesome/pro-regular-svg-icons/faAngleLeft";
 import {
 	calendarCSS,
 	calendarCellCSS,
@@ -20,7 +21,6 @@ import {
 	calendarHeaderCSS,
 	calendarHeadingCSS,
 } from "./styles.css";
-import clsx from "clsx";
 
 export const Calendar = <TDateValue extends RACDateValue>(
 	props: RACCalendarProps<TDateValue>,
