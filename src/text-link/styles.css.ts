@@ -10,6 +10,7 @@ export const textLinkCSS = style([
 		gap: "space_1",
 	}),
 	{
+		fontSize: "inherit",
 		selectors: {
 			"&[data-hovered]": {
 				textDecoration: "underline",
