@@ -1,9 +1,8 @@
 import React from "react";
 import {
-	DefaultValues,
+	type DefaultValues,
 	FormProvider,
-	UseFormReturn,
-	WatchObserver,
+	type WatchObserver,
 	useForm,
 } from "react-hook-form";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
