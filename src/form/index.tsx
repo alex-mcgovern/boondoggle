@@ -71,12 +71,17 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	 * Whether the form should reset after it is submitted.
 	 */
 	shouldResetOnSubmit?: boolean;
+
+	/**
+	 * Whether the form is disabled or not.
+	 */
+	isDisabled?: boolean;
 };
 
 /**
  * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
  */
-function BaseForm<TFieldValues extends FieldValues>(
+function _Form<TFieldValues extends FieldValues>(
 	{
 		children,
 		handleErrors = debugFormErrors,
@@ -86,11 +91,16 @@ function BaseForm<TFieldValues extends FieldValues>(
 		defaultValues,
 		shouldResetOnSubmit = false,
 		watchCallback,
+		isDisabled,
 		className,
 	}: FormProps<TFieldValues>,
 	ref: React.ForwardedRef<HTMLFormElement>,
 ) {
-	const formMethods = useForm<TFieldValues>({ resolver, defaultValues });
+	const formMethods = useForm<TFieldValues>({
+		resolver,
+		defaultValues,
+		disabled: isDisabled,
+	});
 
 	if (watchCallback) {
 		formMethods.watch(watchCallback);
@@ -117,4 +127,4 @@ function BaseForm<TFieldValues extends FieldValues>(
 	);
 }
 
-export const Form = React.forwardRef(BaseForm);
+export const Form = React.forwardRef(_Form);
