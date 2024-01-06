@@ -51,6 +51,17 @@ export const Invalid: Story = {
     },
 };
 
+export const Percent: Story = {
+    args: {
+        formatOptions: {
+            style: "percent",
+        },
+        maxValue: 1,
+        minValue: 0,
+        step: 0.01,
+    },
+};
+
 export const KitchenSink: Story = {
     args: {
         defaultValue: 42000.69,
