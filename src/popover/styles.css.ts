@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import { vars } from "../index.css";
 
 const TRANSLATE_DISTANCE = vars.spacing.space_2;

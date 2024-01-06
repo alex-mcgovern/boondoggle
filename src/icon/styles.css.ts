@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import { vars } from "../index.css";
 
 export const iconCSS = style([

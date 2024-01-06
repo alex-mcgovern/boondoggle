@@ -44,6 +44,12 @@ module.exports = {
             "error",
             { prefer: "type-imports" },
         ],
+        "perfectionist/sort-objects": [
+            "error",
+            {
+                "partition-by-comment": "Group:**",
+            },
+        ],
         "react/display-name": "off",
     },
     settings: {

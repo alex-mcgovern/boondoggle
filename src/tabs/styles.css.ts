@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import type { Sprinkles } from "../sprinkles/index.css";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import {
     HOVER,
     NOT_DISABLED,

@@ -1,6 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import { HOVER, a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 

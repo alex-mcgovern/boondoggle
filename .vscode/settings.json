@@ -71,6 +71,7 @@
         "popover",
         "prepopulated",
         "Toggleable",
+        "TRAC",
         "vars"
     ],
     "editor.codeActionsOnSave": {

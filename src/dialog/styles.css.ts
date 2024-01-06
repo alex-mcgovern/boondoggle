@@ -1,7 +1,7 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import {
     MEDIA_QUERY_MOBILE,
     MEDIA_QUERY_TABLET,

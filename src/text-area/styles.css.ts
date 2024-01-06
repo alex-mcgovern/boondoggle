@@ -2,7 +2,7 @@ import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-import { makeTheme, withPrefersMotion } from "../css-utils";
+import { makeTheme, withPrefersMotion } from "../_css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 

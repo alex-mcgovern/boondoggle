@@ -1,7 +1,7 @@
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 
-import { makeTheme } from "../css-utils";
+import { makeTheme } from "../_css-utils";
 import { vars } from "../index.css";
 
 export const textFieldCSS = style([

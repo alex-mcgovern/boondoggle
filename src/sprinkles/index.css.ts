@@ -1,5 +1,6 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 
+import { withPrefersMotion } from "../_css-utils";
 import {
     MEDIA_QUERY_DESKTOP,
     MEDIA_QUERY_TABLET,
@@ -11,6 +12,7 @@ const border = {
     border_element: `1px solid ${vars.color.border_element}`,
     border_element_active: `1px solid ${vars.color.border_element_active}`,
     border_rule: `1px solid ${vars.color.border_rule}`,
+    focus: `1px solid ${vars.color.focus_border} !important`,
 };
 
 export const properties = defineProperties({
@@ -37,6 +39,7 @@ export const properties = defineProperties({
             currentColor: "currentColor",
             inherit: "inherit",
         },
+        cursor: ["pointer", "default", "not-allowed"],
         flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
         flexGrow: ["0", "1"],
         flexShrink: ["0", "1"],
@@ -66,6 +69,14 @@ export const properties = defineProperties({
         maxWidth: { ...vars.width, ...vars.spacing },
         minHeight: { ...vars.height, ...vars.spacing },
         minWidth: { ...vars.width, ...vars.spacing },
+        opacity: ["0", "0.3", "0.5", "0.8", "1"],
+        outline: {
+            // Group: Default outline should come first to allow overriding
+            none: "0px solid transparent",
+
+            // Group: Focus outline should come last to allow overriding
+            focus: `2px solid ${vars.color.focus_ring} !important`,
+        },
         overflowX: ["hidden", "auto", "visible", "scroll"],
         overflowY: ["hidden", "auto", "visible", "scroll"],
         right: ["0"],
@@ -74,6 +85,17 @@ export const properties = defineProperties({
         textTransform: ["capitalize", "uppercase", "lowercase"],
         textWrap: ["balance"],
         top: ["0"],
+        transition: {
+            long: withPrefersMotion({
+                transition: `all ${vars.transitionDuration.long} ${vars.ease.quart_in_out}`,
+            }),
+            medium: withPrefersMotion({
+                transition: `all ${vars.transitionDuration.medium} ${vars.ease.quart_in_out}`,
+            }),
+            short: withPrefersMotion({
+                transition: `all ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+            }),
+        },
         whiteSpace: ["nowrap", "normal"],
         zIndex: ["-1", "1"],
     },

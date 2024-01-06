@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import { a11yFocus, variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 

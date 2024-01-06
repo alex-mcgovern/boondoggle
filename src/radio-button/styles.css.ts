@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { withPrefersMotion } from "../css-utils";
+import { withPrefersMotion } from "../_css-utils";
 import { a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 

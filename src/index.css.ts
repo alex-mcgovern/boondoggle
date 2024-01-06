@@ -23,7 +23,7 @@ import {
 } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-import { makeTheme, withPrefersMotion } from "./css-utils";
+import { makeTheme, withPrefersMotion } from "./_css-utils";
 
 /** -----------------------------------------------------------------------------
  * MEDIA QUERIES
