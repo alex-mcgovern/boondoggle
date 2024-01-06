@@ -1,6 +1,6 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Parameters, Preview } from "@storybook/react";
-import React from "react";
+
 import { ToastProvider } from "../src/toast";
 
 export const parameters: Parameters = {

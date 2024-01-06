@@ -1,3 +1,5 @@
+import type { ComponentProps } from "react";
+
 import { useController, useFormContext } from "react-hook-form";
 
 import { Switch } from "../switch";
@@ -7,7 +9,7 @@ export function FormSwitch({
 	name,
 	onChange,
 	...rest
-}: React.ComponentProps<typeof Switch>) {
+}: ComponentProps<typeof Switch>) {
 	const { control } = useFormContext();
 
 	const {

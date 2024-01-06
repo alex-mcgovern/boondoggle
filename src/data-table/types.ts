@@ -38,7 +38,7 @@ export type FilteringOptions<TRowData extends RowData> = {
 			| {
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
-					// biome-ignore lint/suspicious/noExplicitAny: Using any here because we don't know what the type of the data is
+					
 					transformValueToString?: (value: any) => string;
 					type: "MULTI_SELECT";
 			  }
@@ -149,7 +149,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					| {
 							strFilterDialogTitle: string;
 							strFilterPillText: string;
-							// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+							
 							transformNumericFromRaw: (value: any) => string;
 							type: "MULTI_SELECT";
 					  }
@@ -170,7 +170,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					{
 						strFilterDialogTitle: string;
 						strFilterPillText: string;
-						// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+						
 						transformNumericFromRaw: (value: any) => string;
 					}
 				>

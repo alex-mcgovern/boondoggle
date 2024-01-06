@@ -1,4 +1,4 @@
-import type { HTMLProps } from "react";
+import type { HTMLProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -19,7 +19,7 @@ export function Main({
 		/**
 		 * Main content.
 		 */
-		children: React.ReactNode;
+		children: ReactNode;
 	}) {
 	return (
 		<main className={clsx(className, mainCSS({ size }))} {...rest}>

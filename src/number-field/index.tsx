@@ -1,7 +1,7 @@
 import { faMinus } from "@fortawesome/pro-regular-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-regular-svg-icons/faPlus";
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	NumberField as RACNumberField,
 	type NumberFieldProps as RACNumberFieldProps,
@@ -48,7 +48,7 @@ export type NumberFieldProps = RACNumberFieldProps;
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  */
-export const NumberField = React.forwardRef<HTMLInputElement, NumberFieldProps>(
+export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
 	(props, ref) => {
 		return (
 			<RACNumberField
@@ -89,7 +89,9 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
 		<NumberField
 			{...props}
 			{...field}
+			isDisabled={isDisabled}
 			isInvalid={invalid}
+			ref={ref}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 			value={value}
 		>

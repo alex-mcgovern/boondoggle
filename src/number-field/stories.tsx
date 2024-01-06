@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import React from "react";
+import { useState } from "react";
 
 import {
 	NumberField,
@@ -76,7 +76,7 @@ export const ExampleComposedCurrencyField: Story = {
 		name: "amount",
 	},
 	render: () => {
-		const [currency, setCurrency] = React.useState<"EUR" | "GBP" | "USD">(
+		const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">(
 			"EUR",
 		);
 		return (

@@ -1,21 +1,25 @@
-import * as React from "react";
+
+
+import type { Dispatch, ReactNode, SetStateAction} from "react";
+
+import { createContext, useContext, useState } from "react";
 
 import type { TableNumberRangeFilterMode } from "../../../../types";
 
-export const NumericFilterModeContext = React.createContext<
+export const NumericFilterModeContext = createContext<
 	| [
 			TableNumberRangeFilterMode,
-			React.Dispatch<React.SetStateAction<TableNumberRangeFilterMode>>,
+			Dispatch<SetStateAction<TableNumberRangeFilterMode>>,
 	  ]
 	| undefined
 >(undefined);
 
 export const NumericFilterModeProvider = ({
 	children,
-}: { children: React.ReactNode }) => {
+}: { children: ReactNode }) => {
 	return (
 		<NumericFilterModeContext.Provider
-			value={React.useState<TableNumberRangeFilterMode>("is_between")}
+			value={useState<TableNumberRangeFilterMode>("is_between")}
 		>
 			{children}
 		</NumericFilterModeContext.Provider>
@@ -23,7 +27,7 @@ export const NumericFilterModeProvider = ({
 };
 
 export const useNumericFilterMode = () => {
-	const context = React.useContext(NumericFilterModeContext);
+	const context = useContext(NumericFilterModeContext);
 
 	if (context == null) {
 		throw new Error(

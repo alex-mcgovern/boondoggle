@@ -1,6 +1,8 @@
 /**
  * @jest-environment jsdom
  */
+import type { ComponentProps } from "react";
+
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { render } from "@testing-library/react";
 
@@ -10,11 +12,11 @@ import { Icon } from "../icon";
 
 const renderComponent = ({
 	...props
-}: React.ComponentProps<typeof V2DialogAlert>) => {
+}: ComponentProps<typeof V2DialogAlert>) => {
 	return render(<V2DialogAlert {...props} />);
 };
 
-const PROPS: React.ComponentProps<typeof V2DialogAlert> = {
+const PROPS: ComponentProps<typeof V2DialogAlert> = {
 	description: LOREM.text_xxs,
 	slotLeft: (
 		<div>

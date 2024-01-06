@@ -1,4 +1,5 @@
 import type { Header } from "@tanstack/react-table";
+import type { ReactNode } from "react";
 
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
@@ -10,7 +11,7 @@ export function TableSortButton<TData>({
 	children,
 	header,
 }: {
-	children: React.ReactNode;
+	children: ReactNode;
 	header: Header<TData, unknown>;
 }) {
 	const canSort = header.column.getCanSort();

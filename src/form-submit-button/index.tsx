@@ -1,10 +1,13 @@
-import * as React from "react";
+
+import type { ComponentProps } from "react";
+
+import { forwardRef } from "react";
 
 import { Button } from "../button";
 
-export const FormSubmitButton = React.forwardRef<
+export const FormSubmitButton = forwardRef<
 	HTMLButtonElement,
-	Omit<React.ComponentProps<typeof Button>, "name">
+	Omit<ComponentProps<typeof Button>, "name">
 >(({ appearance = "primary", children, ...rest }, ref) => {
 	return (
 		<Button

@@ -1,3 +1,5 @@
+import type { ComponentProps, ReactNode } from "react";
+
 import { faTimes } from "@fortawesome/pro-solid-svg-icons";
 import {
 	Dialog as ReactAriaDialog,
@@ -57,14 +59,14 @@ export const V2DialogHeader = ({
  */
 export const V2ScrollableDialogContent = ({
 	children,
-}: { children: React.ReactNode }) => {
+}: { children: ReactNode }) => {
 	return <div className={dialogContentCSS}>{children}</div>;
 };
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export const V2DialogFooter = ({ children }: { children: React.ReactNode }) => {
+export const V2DialogFooter = ({ children }: { children: ReactNode }) => {
 	return <footer className={dialogFooterCSS}>{children}</footer>;
 };
 
@@ -77,18 +79,18 @@ export const V2Dialog = ({
 	modalProps,
 	width = "sm",
 }: {
-	buttonProps?: React.ComponentProps<typeof Button>;
-	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
+	buttonProps?: ComponentProps<typeof Button>;
+	children: ComponentProps<typeof ReactAriaDialog>["children"];
 	colorOverlay?: ColorOverlay;
 	dialogTriggerProps?: Omit<
-		React.ComponentProps<typeof ReactAriaDialogTrigger>,
+		ComponentProps<typeof ReactAriaDialogTrigger>,
 		"children"
 	>;
 	modalOverlayProps?: Omit<
-		React.ComponentProps<typeof ReactAriaModalOverlay>,
+		ComponentProps<typeof ReactAriaModalOverlay>,
 		"className"
 	>;
-	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
+	modalProps?: Omit<ComponentProps<typeof ReactAriaModal>, "className">;
 	width?: "lg" | "sm";
 }) => {
 	return (

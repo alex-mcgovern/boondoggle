@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as React from "react";
+import { useState } from "react";
 import { z } from "zod";
 
 import type { IterableListBoxItem } from "../../../../../list-box";
@@ -100,7 +100,7 @@ export const FormFilterNumeric = ({
 	const [parentFilterMode, setParentFilterMode] = useNumericFilterMode();
 
 	const [localFilterMode, setLocalFilterMode] =
-		React.useState<TableNumberRangeFilterMode>(parentFilterMode);
+		useState<TableNumberRangeFilterMode>(parentFilterMode);
 
 	return (
 		<Form<FieldValuesFilterNumberRange>

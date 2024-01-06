@@ -1,4 +1,7 @@
-import * as React from "react";
+
+import type { ForwardedRef, ReactNode} from "react";
+
+import { forwardRef } from "react";
 import {
 	Collection as ReactAriaCollection,
 	Header as ReactAriaHeader,
@@ -19,7 +22,7 @@ type SingleMenuItem<TItemId extends string = string> = {
 	href?: string;
 	id: TItemId;
 	name: string;
-	slotLeft?: React.ReactNode;
+	slotLeft?: ReactNode;
 	type?: never;
 };
 
@@ -39,9 +42,9 @@ export type MenuProps<TItemId extends string = string> = ReactAriaMenuProps<
 	IterableMenuItem<TItemId>
 >;
 
-function BaseMenu<TItemId extends string = string>(
+function _Menu<TItemId extends string = string>(
 	props: MenuProps<TItemId>,
-	ref: React.ForwardedRef<HTMLDivElement>,
+	ref: ForwardedRef<HTMLDivElement>,
 ) {
 	return (
 		<ReactAriaMenu<IterableMenuItem<TItemId>>
@@ -88,4 +91,4 @@ function BaseMenu<TItemId extends string = string>(
 	);
 }
 
-export const Menu = React.forwardRef(BaseMenu);
+export const Menu = forwardRef(_Menu);

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as React from "react";
+import { useState } from "react";
 import { z } from "zod";
 
 import { Form } from ".";
@@ -32,7 +32,7 @@ import { ToastProvider } from "../toast";
  * ------------------------------------------------------------------------------- */
 
 const NumberFieldWithCurrencySelect = () => {
-	const [currency, setCurrency] = React.useState<"EUR" | "GBP" | "USD">(
+	const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">(
 		"EUR",
 	);
 

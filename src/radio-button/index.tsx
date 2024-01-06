@@ -1,4 +1,6 @@
-import type * as React from "react";
+
+
+import type { HTMLProps } from "react";
 
 import { Box } from "../box";
 import {
@@ -22,7 +24,7 @@ export function RadioButton({
 	description: string;
 
 	inputProps?: Omit<
-		React.HTMLProps<HTMLInputElement>,
+		HTMLProps<HTMLInputElement>,
 		"className" | "id" | "name" | "required" | "type" | "value"
 	>;
 

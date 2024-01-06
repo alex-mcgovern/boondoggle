@@ -1,4 +1,5 @@
 import type { Column } from "@tanstack/react-table";
+import type { ChangeEvent} from "react";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -45,7 +46,7 @@ const ColumnMultiFilterItem = ({
 				className={multiFilterItemCheckboxCSS}
 				defaultChecked={defaultChecked}
 				id={`item_${value}`}
-				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+				onChange={(e: ChangeEvent<HTMLInputElement>) =>
 					handleSelection(e.target.value)
 				}
 				// tabIndex={-1}
@@ -66,7 +67,7 @@ export function ColumnMultiFilter<TRowData>({
 	column: Column<TRowData>;
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
-	// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	transformValueToString?: (value: any) => string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);

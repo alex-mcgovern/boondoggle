@@ -1,11 +1,12 @@
-import type * as React from "react";
+
+import type { ComponentProps } from "react";
 
 import type { RadioButton } from "../radio-button";
 
 import { LOREM } from "../../mocks/LOREM.mock";
 
 export const RADIO_BUTTONS_MOCK: Array<
-	React.ComponentProps<typeof RadioButton>
+	ComponentProps<typeof RadioButton>
 > = [
 	{
 		description: LOREM.text_xxs,

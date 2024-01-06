@@ -1,3 +1,5 @@
+import type { ReactNode} from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { forwardRef, useState } from "react";
@@ -28,7 +30,7 @@ const getZodSchema = ({
 };
 
 type ConfirmedActionProps = {
-	buttonContent: React.ReactNode;
+	buttonContent: ReactNode;
 	colorOverlay?: ColorOverlay;
 	onConfirmed?: (() => Promise<unknown>) | (() => unknown);
 	strConfirmText: string;

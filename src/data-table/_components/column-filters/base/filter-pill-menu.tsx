@@ -1,3 +1,5 @@
+import type { Dispatch, ForwardedRef, ReactNode, SetStateAction} from "react";
+
 import {
 	FloatingFocusManager,
 	autoUpdate,
@@ -8,7 +10,7 @@ import {
 	useFocus,
 	useInteractions,
 } from "@floating-ui/react";
-import * as React from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 import { FloatingPanel } from "../../../../_DEPRECATED_floating-panel";
 import { useForwardRef } from "../../../../_hooks/use-forward-ref";
@@ -31,26 +33,26 @@ function PrivateFilterPillMenu(
 		onIsOpenChange,
 		pillText,
 	}: {
-		children: React.ReactNode;
+		children: ReactNode;
 		clearFilters: () => void;
 		disabled?: boolean;
 		isFiltered: boolean;
 		isOpen?: boolean;
-		onIsOpenChange?: React.Dispatch<React.SetStateAction<boolean>>;
-		pillText?: React.ReactNode;
+		onIsOpenChange?: Dispatch<SetStateAction<boolean>>;
+		pillText?: ReactNode;
 	},
-	initialRef: React.ForwardedRef<HTMLDivElement>,
+	initialRef: ForwardedRef<HTMLDivElement>,
 ) {
 	const ref = useForwardRef(initialRef);
-	const [isOpen, setIsOpen] = React.useState(controlledIsOpen);
-	const [wasFiltered, setWasFiltered] = React.useState(isFiltered);
+	const [isOpen, setIsOpen] = useState(controlledIsOpen);
+	const [wasFiltered, setWasFiltered] = useState(isFiltered);
 
 	/**
 	 * One-time effect to set `wasFiltered` to `true` if `isFiltered` is `true`.
 	 * This allows to enable the animation on the open button when filters are applied,
 	 * without triggering the animation on initial render.
 	 */
-	React.useEffect(() => {
+	useEffect(() => {
 		if (isFiltered === true) setWasFiltered(true);
 	}, [isFiltered, setWasFiltered]);
 
@@ -59,7 +61,7 @@ function PrivateFilterPillMenu(
 		onIsOpenChange?.((c) => !c);
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (controlledIsOpen !== undefined && isOpen !== controlledIsOpen) {
 			setIsOpen(controlledIsOpen);
 		}
@@ -135,4 +137,4 @@ function PrivateFilterPillMenu(
 	);
 }
 
-export const FilterPillMenu = React.forwardRef(PrivateFilterPillMenu);
+export const FilterPillMenu = forwardRef(PrivateFilterPillMenu);

@@ -13,15 +13,15 @@ import type { Label } from "./label";
 
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(
-		render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
-	): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
+		render: (props: P, ref: Ref<T>) => ReactElement | null,
+	): (props: P & RefAttributes<T>) => ReactElement | null;
 }
 
 export type WithDescription = {
 	/**
 	 * Description shown under the field (when there is no error message).
 	 */
-	description?: React.ReactNode;
+	description?: ReactNode;
 };
 
 export type WithColorOverlay = {
@@ -281,7 +281,7 @@ export type WithStateInvalid = {
 	/**
 	 * Message shown when field fails validation.
 	 */
-	errorMessage?: React.ReactNode;
+	errorMessage?: ReactNode;
 
 	/**
 	 * Whether the value of the field fails validation.

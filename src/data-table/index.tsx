@@ -4,12 +4,13 @@ import type {
 	RowData,
 	SortingState,
 	VisibilityState} from "@tanstack/react-table";
+import type { JSXElementConstructor, ReactNode } from "react";
 
 import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
 import {
 	flexRender,
 } from "@tanstack/react-table";
-import * as React from "react";
+import { Fragment } from "react";
 
 import type {
 	FilteringOptions,
@@ -23,7 +24,6 @@ import { Button } from "../button";
 import { Icon } from "../icon";
 import { MenuButton, type MenuButtonProps } from "../menu-button";
 import { TableColumnFilters } from "./_components/column-filters";
-// import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
 import { TableActions } from "./_components/controls/table-actions";
@@ -42,7 +42,7 @@ declare module "@tanstack/table-core" {
  * ------------------------------------------------------------------------------- */
 
 export type TV2DataTableRowActions<TData extends RowData> =
-	React.JSXElementConstructor<{
+	JSXElementConstructor<{
 		/**
 		 * The raw data for the DataTable row.
 		 */
@@ -75,7 +75,7 @@ export type DataTableProps<TRowData extends RowData> =
 		/**
 		 * Up to 2 react nodes to render as actions for the table
 		 */
-		actions?: [React.ReactNode?, React.ReactNode?] | React.ReactNode;
+		actions?: [ReactNode?, ReactNode?] | ReactNode;
 
 		/**
 		 * Column definitions for the tabular data
@@ -85,7 +85,8 @@ export type DataTableProps<TRowData extends RowData> =
 		 */
 		columnVisibility?: VisibilityState;
 
-		// biome-ignore lint/suspicious/noExplicitAny: required to be this way
+		
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		columns: Array<ColumnDef<TRowData, any>>;
 
 		/**
@@ -219,7 +220,7 @@ export function DataTable<TRowData extends RowData>({
 					{RowActions ? <div className={tableHeaderCellCSS} /> : null}
 
 					{table.getRowModel().rows.map((row) => (
-						<React.Fragment key={row.id}>
+						<Fragment key={row.id}>
 							{row.getVisibleCells().map((cell) => (
 								<div className={tableCellCSS} key={cell.id}>
 									{flexRender(
@@ -233,7 +234,7 @@ export function DataTable<TRowData extends RowData>({
 									<RowActions row_data={row.original} />
 								</div>
 							) : null}
-						</React.Fragment>
+						</Fragment>
 					))}
 				</Box>
 			)}

@@ -1,4 +1,4 @@
-import type { HTMLProps } from "react";
+import type { HTMLProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -17,17 +17,17 @@ export function Header({
 	/**
 	 * Actions to be displayed on the right side of the header.
 	 */
-	actions?: React.ReactNode;
+	actions?: ReactNode;
 
 	/**
 	 * Main content.
 	 */
-	children: React.ReactNode;
+	children: ReactNode;
 
 	/**
 	 * Tabs to be displayed underneath the header.
 	 */
-	tabs?: React.ReactNode;
+	tabs?: ReactNode;
 }) {
 	return (
 		<>

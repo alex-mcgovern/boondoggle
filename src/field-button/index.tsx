@@ -1,4 +1,5 @@
-import * as React from "react";
+
+import { forwardRef } from "react";
 import {
 	Button as RACButton,
 	type ButtonProps as RACButtonProps,
@@ -13,7 +14,7 @@ export type FieldButtonProps = RACButtonProps;
  * to add additional functionality to a field. The `slot` prop is used to connect the
  * button to the field.
  */
-export const FieldButton = React.forwardRef<
+export const FieldButton = forwardRef<
 	HTMLButtonElement,
 	FieldButtonProps
 >((props: RACButtonProps, ref) => {

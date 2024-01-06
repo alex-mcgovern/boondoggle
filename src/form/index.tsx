@@ -1,10 +1,11 @@
-import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
+import type { ForwardedRef, ReactNode} from "react";
+import type { DefaultValues, FieldErrors, FieldValues ,
+	Resolver,
+	WatchObserver} from "react-hook-form";
 
-import React from "react";
+import { forwardRef } from "react";
 import {
-	type DefaultValues,
 	FormProvider,
-	type WatchObserver,
 	useForm,
 } from "react-hook-form";
 
@@ -27,7 +28,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	/**
 	 * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
 	 */
-	children: ((values: TFieldValues) => React.ReactNode) | React.ReactNode;
+	children: ((values: TFieldValues) => ReactNode) | ReactNode;
 
 	/**
 	 * Class name for the form.
@@ -66,7 +67,8 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	 */
 	name: string;
 
-	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
+	
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	resolver?: Resolver<TFieldValues, any>;
 
 	/**
@@ -96,7 +98,7 @@ function _Form<TFieldValues extends FieldValues>(
 		shouldResetOnSubmit = false,
 		watchCallback,
 	}: FormProps<TFieldValues>,
-	ref: React.ForwardedRef<HTMLFormElement>,
+	ref: ForwardedRef<HTMLFormElement>,
 ) {
 	const formMethods = useForm<TFieldValues>({
 		defaultValues,
@@ -129,4 +131,4 @@ function _Form<TFieldValues extends FieldValues>(
 	);
 }
 
-export const Form = React.forwardRef(_Form);
+export const Form = forwardRef(_Form);

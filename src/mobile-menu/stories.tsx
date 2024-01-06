@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { faker } from "@faker-js/faker";
 
 import {
-	V2MobileMenu as StoryComp,
+	V2MobileMenu,
 	V2MobileMenuFooter,
 	V2MobileMenuHeader,
 	V2ScrollableMobileMenuContent,
@@ -46,9 +46,9 @@ const meta = {
 			isDismissable: true,
 		},
 	},
-	component: StoryComp,
+	component: V2MobileMenu,
 	title: "MobileMenu",
-} satisfies Meta<typeof StoryComp>;
+} satisfies Meta<typeof V2MobileMenu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

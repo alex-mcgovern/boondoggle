@@ -1,7 +1,7 @@
 import { faSearch } from "@fortawesome/pro-regular-svg-icons/faSearch";
 import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	SearchField as RACSearchField,
 	type SearchFieldProps as RACSearchFieldProps,
@@ -54,7 +54,7 @@ export type SearchFieldProps = RACSearchFieldProps;
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/SearchField.html)
  */
-export const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
+export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
 	(props, ref) => {
 		return (
 			<RACSearchField

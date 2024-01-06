@@ -1,4 +1,4 @@
-import type { HTMLProps } from "react";
+import type { HTMLProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -10,7 +10,7 @@ import { nonScrollableWrapperCSS } from "./styles.css";
 export const NonScrollableWrapper = ({
 	children,
 }: {
-	children: React.ReactNode;
+	children: ReactNode;
 }) => {
 	return <div className={nonScrollableWrapperCSS}>{children}</div>;
 };
@@ -26,7 +26,7 @@ export function ScrollableMain({
 		/**
 		 * Main content.
 		 */
-		children: React.ReactNode;
+		children: ReactNode;
 		/**
 		 * Number of headers in the page. Used to calculate the total height.
 		 */

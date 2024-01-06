@@ -1,6 +1,8 @@
+import type { ComponentProps, ReactNode} from "react";
+
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
-import * as React from "react";
+import { useState } from "react";
 import {
 	Dialog as ReactAriaDialog,
 	DialogTrigger as ReactAriaDialogTrigger,
@@ -29,7 +31,7 @@ export const V2MobileMenuHeader = ({
 	children,
 	close,
 	title,
-}: { children?: React.ReactNode; close: () => void; title?: string }) => {
+}: { children?: ReactNode; close: () => void; title?: string }) => {
 	return (
 		<header className={mobileMenuHeaderCSS}>
 			{children}
@@ -61,7 +63,7 @@ export const V2MobileMenuHeader = ({
  */
 export const V2ScrollableMobileMenuContent = ({
 	children,
-}: { children: React.ReactNode }) => {
+}: { children: ReactNode }) => {
 	return <div className={mobileMenuContentCSS}>{children}</div>;
 };
 
@@ -70,7 +72,7 @@ export const V2ScrollableMobileMenuContent = ({
  */
 export const V2MobileMenuFooter = ({
 	children,
-}: { children: React.ReactNode }) => {
+}: { children: ReactNode }) => {
 	return <footer className={mobileMenuFooterCSS}>{children}</footer>;
 };
 
@@ -80,18 +82,18 @@ export const V2MobileMenu = ({
 	modalOverlayProps,
 	modalProps,
 }: {
-	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
+	children: ComponentProps<typeof ReactAriaDialog>["children"];
 	dialogTriggerProps?: Omit<
-		React.ComponentProps<typeof ReactAriaDialogTrigger>,
+		ComponentProps<typeof ReactAriaDialogTrigger>,
 		"children"
 	>;
 	modalOverlayProps?: Omit<
-		React.ComponentProps<typeof ReactAriaModalOverlay>,
+		ComponentProps<typeof ReactAriaModalOverlay>,
 		"className"
 	>;
-	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
+	modalProps?: Omit<ComponentProps<typeof ReactAriaModal>, "className">;
 }) => {
-	const [isOpen, setIsOpen] = React.useState(dialogTriggerProps?.isOpen);
+	const [isOpen, setIsOpen] = useState(dialogTriggerProps?.isOpen);
 
 	return (
 		<ReactAriaDialogTrigger

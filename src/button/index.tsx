@@ -3,7 +3,7 @@ import type {
 	LinkProps as RACLinkProps} from "react-aria-components";
 
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	Button as RACButton,
 	Link as RACLink
@@ -19,7 +19,7 @@ import { buttonCSS } from "./styles.css";
 
 export type ButtonProps = RACButtonProps & ButtonVariants;
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(
 		{
 			alignment = "center",
@@ -50,7 +50,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 export type LinkButtonProps = RACLinkProps & ButtonVariants;
 
-export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
+export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
 	(
 		{
 			alignment = "center",

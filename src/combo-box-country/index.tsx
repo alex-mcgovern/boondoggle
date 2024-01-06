@@ -1,5 +1,5 @@
 import { type TCountryCode, countries } from "countries-list";
-import * as React from "react";
+import { forwardRef } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 import { ComboBox, type ComboBoxProps } from "../combo-box";
@@ -62,7 +62,7 @@ export type ComboBoxCountryProps = Omit<
 	"defaultItems" | "items"
 >;
 
-export const ComboBoxCountry = React.forwardRef<
+export const ComboBoxCountry = forwardRef<
 	HTMLInputElement,
 	ComboBoxCountryProps
 >((props, ref) => {
@@ -103,8 +103,10 @@ export function FormComboBoxCountry({
 		<ComboBoxCountry
 			{...props}
 			{...field}
+			isDisabled={isDisabled}
 			isInvalid={invalid}
 			onSelectionChange={onChange}
+			ref={ref}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 		>

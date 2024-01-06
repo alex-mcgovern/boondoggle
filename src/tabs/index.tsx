@@ -1,15 +1,18 @@
+import type { ReactNode} from "react";
+import type {
+	TabListProps as ReactAriaTabListProps,
+	TabPanelProps as ReactAriaTabPanelProps,
+	TabProps as ReactAriaTabProps,
+	TabsProps as ReactAriaTabsProps} from "react-aria-components";
+
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import { motion } from "framer-motion";
-import React from "react";
+import { useLayoutEffect, useState } from "react";
 import {
 	Tab as ReactAriaTab,
 	TabList as ReactAriaTabList,
-	type TabListProps as ReactAriaTabListProps,
 	TabPanel as ReactAriaTabPanel,
-	type TabPanelProps as ReactAriaTabPanelProps,
-	type TabProps as ReactAriaTabProps,
-	Tabs as ReactAriaTabs,
-	type TabsProps as ReactAriaTabsProps,
+	Tabs as ReactAriaTabs
 } from "react-aria-components";
 
 import { Icon } from "../icon";
@@ -58,8 +61,8 @@ export const V2TabCount = ({
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
 	animationKey: string;
 	label?: string;
-	slotLeft?: React.ReactNode;
-	slotRight?: React.ReactNode;
+	slotLeft?: ReactNode;
+	slotRight?: ReactNode;
 };
 
 const V2Tab = ({
@@ -149,9 +152,9 @@ export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
 		...tabsProps
 	} = props || {};
 
-	const [selectedKey, setSelectedKey] = React.useState(controlledSelectedKey);
+	const [selectedKey, setSelectedKey] = useState(controlledSelectedKey);
 
-	React.useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		if (controlledSelectedKey !== selectedKey) {
 			setSelectedKey(controlledSelectedKey);
 		}

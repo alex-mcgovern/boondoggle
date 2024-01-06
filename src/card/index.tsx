@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+
 import { Box } from "../box";
 import { cardCSS, headerCSS } from "./styles.css";
 
 function CardActionsWrapper({
 	actions,
 }: {
-	actions?: [React.ReactNode?, React.ReactNode?] | React.ReactNode;
+	actions?: [ReactNode?, ReactNode?] | ReactNode;
 }) {
 	if (!actions) {
 		return null;
@@ -21,12 +23,12 @@ export type CardProps = {
 	/**
 	 * Action shown on the right-hand side of a card.
 	 */
-	actions?: [React.ReactNode?, React.ReactNode?] | React.ReactNode;
+	actions?: [ReactNode?, ReactNode?] | ReactNode;
 
 	/**
 	 * The components to render in the card
 	 */
-	children: React.ReactNode;
+	children: ReactNode;
 
 	/**
 	 * The description of the card
@@ -41,12 +43,12 @@ export type CardProps = {
 	/**
 	 * The header of the card
 	 */
-	header?: React.ReactNode;
+	header?: ReactNode;
 
 	/**
 	 * The title of the card
 	 */
-	title?: React.ReactNode;
+	title?: ReactNode;
 };
 
 /**

@@ -1,4 +1,5 @@
 import type { TCountryCode } from "countries-list";
+import type { JSXElementConstructor } from "react";
 
 import type { Sprinkles } from "../sprinkles/index.css";
 
@@ -255,7 +256,7 @@ import { FlagZw } from "./zw";
 
 export const FLAGS: Record<
 	TCountryCode,
-	React.JSXElementConstructor<Sprinkles>
+	JSXElementConstructor<Sprinkles>
 > = {
 	// AC: FlagAc,
 	AD: FlagAd,

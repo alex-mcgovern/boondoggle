@@ -1,10 +1,11 @@
+import type { ForwardedRef, ReactNode} from "react";
 import type {
 	ListBoxItemProps as ReactAriaListBoxItemProps,
 	ListBoxProps as ReactAriaListBoxProps,
 } from "react-aria-components";
 
 import { faCheck } from "@fortawesome/pro-solid-svg-icons";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	Collection as ReactAriaCollection,
 	Header as ReactAriaHeader,
@@ -32,7 +33,7 @@ type SingleListBoxItem<TItemId extends string = string> = {
 	href?: string;
 	id: TItemId;
 	name: string;
-	slotLeft?: React.ReactNode;
+	slotLeft?: ReactNode;
 	type?: never;
 };
 
@@ -93,7 +94,7 @@ export type ListBoxProps<TItemId extends string = string> =
 
 function BaseListBox<TItemId extends string = string>(
 	props: ListBoxProps<TItemId>,
-	ref: React.ForwardedRef<HTMLDivElement>
+	ref: ForwardedRef<HTMLDivElement>
 ) {
 	return (
 		<ReactAriaListBox<IterableListBoxItem<TItemId>>
@@ -124,4 +125,4 @@ function BaseListBox<TItemId extends string = string>(
 	);
 }
 
-export const ListBox = React.forwardRef(BaseListBox);
+export const ListBox = forwardRef(BaseListBox);

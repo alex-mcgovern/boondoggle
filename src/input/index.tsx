@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	Input as RACInput,
 	type InputProps as RACInputProps,
@@ -9,7 +9,7 @@ import { inputCSS } from "./styles.css";
 
 export type InputProps = RACInputProps;
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
 	(props, ref) => {
 		return (
 			<RACInput

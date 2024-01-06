@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons/faCirclePlus";
 
 import { Icon } from "../../../../icon";
@@ -12,7 +14,7 @@ export const FilterPillOpenButton = ({
 }: {
 	disabled: boolean | undefined;
 	isFiltered: boolean;
-	pillText: React.ReactNode;
+	pillText: ReactNode;
 	toggleIsOpen: () => void;
 	wasFiltered: boolean | undefined;
 }) => {

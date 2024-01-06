@@ -1,7 +1,7 @@
 import type {
 	SwitchProps as ReactAriaSwitchProps} from "react-aria-components";
 
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	Switch as ReactAriaSwitch
 } from "react-aria-components";
@@ -13,7 +13,7 @@ export type SwitchProps = Omit<ReactAriaSwitchProps, "children" | "name"> & {
 	name: string;
 };
 
-export const Switch = React.forwardRef<HTMLLabelElement, SwitchProps>(
+export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
 	({ defaultSelected = false, label, ...props }, ref) => {
 		return (
 			<ReactAriaSwitch

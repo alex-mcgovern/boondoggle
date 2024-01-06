@@ -30,7 +30,7 @@ import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 	row: Row<TRowData>,
 	column_id: string,
-	// biome-ignore lint/suspicious/noExplicitAny: required by react-table
+	
 	filter_value: any,
 ) {
 	const cell_value = row.getValue(column_id);
@@ -44,7 +44,7 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 
 type UseDataTableStateProps<TRowData extends RowData> = {
 	columnVisibility: VisibilityState | undefined;
-	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
+	
 	columns: Array<ColumnDef<TRowData, any>>;
 	data: Array<TRowData> | undefined;
 	enableMultiRowSelection: boolean | undefined;

@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 
 import { Box } from "../box";
 import { avatarCSS } from "./styles.css";
@@ -60,7 +60,7 @@ export function Avatar({
 		lastName,
 	});
 
-	const [src] = React.useState(imageSrc);
+	const [src] = useState(imageSrc);
 
 	if (src) {
 		return (

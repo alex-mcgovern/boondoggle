@@ -1,5 +1,7 @@
+import type { ComponentProps, Ref} from "react";
+
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef, useMemo } from "react";
 
 import type { Sprinkles } from "../sprinkles/index.css";
 import type {
@@ -26,9 +28,8 @@ export type RadioButtonGroupProps = Sprinkles &
 
 		id: string;
 
-		isLabelVisible?: boolean;
 
-		items: Array<React.ComponentProps<typeof RadioButton>>;
+		items: Array<ComponentProps<typeof RadioButton>>;
 
 		/**
 		 * Label config for the field.
@@ -44,7 +45,7 @@ export type RadioButtonGroupProps = Sprinkles &
 		value?: string;
 	};
 
-export const RadioButtonGroup = React.forwardRef(
+export const RadioButtonGroup = forwardRef(
 	(
 		{
 			defaultValue,
@@ -52,7 +53,6 @@ export const RadioButtonGroup = React.forwardRef(
 			errorMessage,
 			id,
 			invalid,
-			isLabelVisible,
 			items,
 			label,
 			name,
@@ -62,9 +62,9 @@ export const RadioButtonGroup = React.forwardRef(
 			wrapperProps,
 			...rest
 		}: RadioButtonGroupProps,
-		ref: React.Ref<HTMLDivElement>,
+		ref: Ref<HTMLDivElement>,
 	) => {
-		const controlledItems: Array<React.ComponentProps<typeof RadioButton>> = React.useMemo(() => {
+		const controlledItems: Array<ComponentProps<typeof RadioButton>> = useMemo(() => {
 			if (!Array.isArray(items) || items.length < 1) {
 				return [];
 			}

@@ -2,7 +2,7 @@ import type {
 	LinkProps as RACLinkProps} from "react-aria-components";
 
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	Link as RACLink
 } from "react-aria-components";
@@ -17,7 +17,7 @@ export type TextLinkProps = RACLinkProps;
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Link.html)
  */
 
-export const TextLink = React.forwardRef<HTMLAnchorElement, TextLinkProps>(
+export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
 	(
 		props,
 		ref,

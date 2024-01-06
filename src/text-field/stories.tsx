@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
-import * as React from "react";
+import { useRef } from "react";
 
 import {
 	TextField,
@@ -105,7 +105,7 @@ export const TestRef: Story = {
 		value: "Hello world",
 	},
 	render: (args) => {
-		const ref = React.useRef<HTMLInputElement>(null);
+		const ref = useRef<HTMLInputElement>(null);
 
 		return (
 			<>

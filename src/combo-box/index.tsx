@@ -1,6 +1,8 @@
+import type { ForwardedRef} from "react";
+
 import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 import {
 	type ComboBoxProps as RACComboBoxProps,
 	ComboBox as RACCombobox,
@@ -38,7 +40,7 @@ export type ComboBoxProps<TItemId extends string = string> = RACComboBoxProps<
 
 function _ComboBox<TItemId extends string = string>(
 	{ children, ...props }: ComboBoxProps<TItemId>,
-	ref: React.ForwardedRef<HTMLDivElement>,
+	ref: ForwardedRef<HTMLDivElement>,
 ) {
 	return (
 		<RACCombobox
@@ -62,7 +64,7 @@ function _ComboBox<TItemId extends string = string>(
 	);
 }
 
-export const ComboBox = React.forwardRef(_ComboBox);
+export const ComboBox = forwardRef(_ComboBox);
 
 /** -----------------------------------------------------------------------------
  * FormComboBox
@@ -96,8 +98,10 @@ export function FormComboBox<TItemId extends string = string>({
 		<ComboBox
 			{...props}
 			{...field}
+			isDisabled={isDisabled}
 			isInvalid={invalid}
 			onSelectionChange={onChange}
+			ref={ref}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 		>

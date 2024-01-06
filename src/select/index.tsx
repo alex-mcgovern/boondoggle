@@ -1,12 +1,15 @@
+import type { ForwardedRef} from "react";
+import type {
+	ButtonProps as RACButtonProps,
+	SelectProps as RACSelectProps} from "react-aria-components";
+
 import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	FieldError,
 	Button as RACButton,
-	type ButtonProps as RACButtonProps,
 	Select as RACSelect,
-	type SelectProps as RACSelectProps,
 	SelectValue as RACSelectValue,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
@@ -30,7 +33,7 @@ export type SelectTriggerProps = RACButtonProps & {
 
 function _SelectButton<TItemId extends string = string>(
 	{ variant = "default", ...props }: SelectTriggerProps,
-	ref: React.ForwardedRef<HTMLButtonElement>,
+	ref: ForwardedRef<HTMLButtonElement>,
 ) {
 	return (
 		<RACButton
@@ -53,7 +56,7 @@ function _SelectButton<TItemId extends string = string>(
 	);
 }
 
-export const SelectButton = React.forwardRef(_SelectButton);
+export const SelectButton = forwardRef(_SelectButton);
 
 /** -----------------------------------------------------------------------------
  * Select
@@ -68,7 +71,7 @@ export type SelectProps<TItemId extends string = string> = RACSelectProps<
 
 function _Select<TItemId extends string = string>(
 	{ children, ...props }: SelectProps<TItemId>,
-	ref: React.ForwardedRef<HTMLDivElement>,
+	ref: ForwardedRef<HTMLDivElement>,
 ) {
 	return (
 		<RACSelect<IterableListBoxItem<TItemId>>
@@ -91,7 +94,7 @@ function _Select<TItemId extends string = string>(
 	);
 }
 
-export const Select = React.forwardRef(_Select);
+export const Select = forwardRef(_Select);
 
 /** -----------------------------------------------------------------------------
  * FormSelect

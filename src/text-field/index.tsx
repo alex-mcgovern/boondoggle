@@ -3,7 +3,7 @@ import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef, useState, useCallback, useMemo } from "react";
 import {
 	ButtonContext as FieldButtonContext,
 	TextField as RACTextField,
@@ -92,27 +92,27 @@ export type TextFieldProps = RACTextFieldProps;
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
  */
-export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 	(props, ref) => {
-		const [value, setValue] = React.useState<TextFieldProps["value"]>(
+		const [value, setValue] = useState<TextFieldProps["value"]>(
 			props.value || props.defaultValue,
 		);
 
-		const [type, setType] = React.useState<TextFieldProps["type"]>(
+		const [type, setType] = useState<TextFieldProps["type"]>(
 			props.type,
 		);
 
 		const toastState = useToastContext();
 
-		const clearValue = React.useCallback(() => {
+		const clearValue = useCallback(() => {
 			setValue("");
 		}, [setValue]);
 
-		const toggleVisibility = React.useCallback(() => {
+		const toggleVisibility = useCallback(() => {
 			setType((c) => (c === "password" ? "text" : "password"));
 		}, [setType]);
 
-		const copyValue = React.useCallback(() => {
+		const copyValue = useCallback(() => {
 			if (!value) return;
 
 			return navigator.clipboard.writeText(value).then(() =>
@@ -129,7 +129,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 		const buttonContext: Record<
 			"slots",
 			Record<string, FieldButtonProps>
-		> = React.useMemo(() => {
+		> = useMemo(() => {
 			return {
 				slots: {
 					clear: {

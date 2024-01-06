@@ -1,11 +1,11 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { Dispatch, ReactNode, SetStateAction} from "react";
 
 import { faSidebar } from "@fortawesome/pro-solid-svg-icons/faSidebar";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
+import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
-import * as React from "react";
 
 import { Button } from "../button";
 import { Icon } from "../icon";
@@ -31,7 +31,7 @@ function useMatchMedia(
 
 	const [value, setValue] = useState(getValue);
 
-	React.useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		const handler = (): void => setValue(getValue);
 
 		for (const mql of mediaQueryLists) {
@@ -50,19 +50,19 @@ function useMatchMedia(
 /**
  * React context provider that allows toggling the open state of a collapsible UI element from anywhere in the app.
  */
-export const CollapsibleSideNavContext = React.createContext<
-	[boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
+export const CollapsibleSideNavContext = createContext<
+	[boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
 export const CollapsibleSideNavProvider = ({
 	children,
 }: {
-	children: React.ReactNode;
+	children: ReactNode;
 }) => {
 	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
-	const [isOpen, setIsOpen] = React.useState<boolean>(true);
+	const [isOpen, setIsOpen] = useState<boolean>(true);
 
-	React.useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		if (isMobile) {
 			return setIsOpen(false);
 		}
@@ -80,7 +80,7 @@ export const CollapsibleSideNavProvider = ({
  * Hook for consuming the CollapsibleSideNavContext.
  */
 export const useCollapsibleSideNav = () => {
-	const context = React.useContext(CollapsibleSideNavContext);
+	const context = useContext(CollapsibleSideNavContext);
 
 	if (context == null) {
 		throw new Error(
@@ -95,6 +95,7 @@ export const useCollapsibleSideNav = () => {
  * Button for toggling the side nav
  */
 export const ButtonToggleCollapsibleNav = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [_, setIsOpen] = useCollapsibleSideNav();
 
 	return (
@@ -123,7 +124,7 @@ export function CollapsibleSideNav({
 
 	const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
-	React.useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		if (controlledIsOpen !== undefined) {
 			return setIsOpen(controlledIsOpen);
 		}

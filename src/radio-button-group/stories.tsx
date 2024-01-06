@@ -36,9 +36,3 @@ export const DefaultValue: Story = {
 	},
 };
 
-export const WithHiddenLabel: Story = {
-	args: {
-		isLabelVisible: false,
-		items: RADIO_BUTTONS_MOCK,
-	},
-};

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 export const useForwardRef = <T>(
 	ref: ForwardedRef<T> | undefined,
-	// biome-ignore lint/suspicious/noExplicitAny: has to be this way
+	
 	initialValue: any = null,
 ) => {
 	const targetRef = useRef<T>(initialValue);

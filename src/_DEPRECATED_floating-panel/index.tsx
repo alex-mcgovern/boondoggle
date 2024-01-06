@@ -1,3 +1,5 @@
+import type { ForwardedRef, HTMLAttributes, ReactNode} from "react";
+
 import clsx from "clsx";
 import { forwardRef } from "react";
 
@@ -13,12 +15,12 @@ const BaseFloatingPanel = (
 		className,
 		isOpen,
 		...rest
-	}: React.HTMLAttributes<HTMLDivElement> & {
-		children: React.ReactNode;
+	}: HTMLAttributes<HTMLDivElement> & {
+		children: ReactNode;
 		className?: string;
 		isOpen: boolean | undefined;
 	},
-	ref: React.ForwardedRef<HTMLDivElement>,
+	ref: ForwardedRef<HTMLDivElement>,
 ) => {
 	return (
 		<div

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	TextArea as RACTextArea,
 	type TextAreaProps as RACTextAreaProps,
@@ -7,7 +7,7 @@ import {
 
 import { textareaCSS } from "./styles.css";
 
-export const TextArea = React.forwardRef<HTMLTextAreaElement, RACTextAreaProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, RACTextAreaProps>(
 	(props, ref) => {
 		return (
 			<RACTextArea

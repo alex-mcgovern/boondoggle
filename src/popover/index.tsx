@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import * as React from "react";
+import { forwardRef } from "react";
 import {
 	Popover as RACPopover,
 	type PopoverProps as RACPopoverProps,
@@ -9,7 +9,7 @@ import { popoverCSS } from "./styles.css";
 
 export type PopoverProps = RACPopoverProps;
 
-export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 	(props, ref) => (
 		<RACPopover
 			{...props}

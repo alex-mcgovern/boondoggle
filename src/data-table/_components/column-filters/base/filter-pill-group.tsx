@@ -1,11 +1,15 @@
-import * as React from "react";
+
+
+import type { ReactNode} from "react";
+
+import { forwardRef } from "react";
 
 import { pillGroupCSS } from "./filter-pill-group.css";
 
-export const FilterPillGroup = React.forwardRef<
+export const FilterPillGroup = forwardRef<
 	HTMLDivElement,
 	{
-		children: React.ReactNode;
+		children: ReactNode;
 		isFiltered: boolean;
 	}
 >(({ children, isFiltered }, ref) => {
