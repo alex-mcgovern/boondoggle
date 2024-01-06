@@ -60,6 +60,7 @@ styling and enabling application features.
 
 #### Later™️
 
+- [ ] Add flag of currently selected country to `ComboBoxCountry` input field
 - [ ] Fix bug where `TextField` is not focused when clicking on label
 - [ ] Add functionality to toggle `ComboBox` on input click
 - [ ] Virtualize `ComboBoxCountry` list as loading 200+ country logos is slow

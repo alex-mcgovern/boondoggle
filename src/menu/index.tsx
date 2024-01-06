@@ -22,7 +22,7 @@ type SingleMenuItem<TItemId extends string = string> = {
 };
 
 export type IterableMenuItem<TItemId extends string = string> =
-	| SingleMenuItem
+	| SingleMenuItem<TItemId>
 	| {
 			children: Array<SingleMenuItem<TItemId>>;
 			colorOverlay?: never;

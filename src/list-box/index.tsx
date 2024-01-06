@@ -32,7 +32,7 @@ type SingleListBoxItem<TItemId extends string = string> = {
 };
 
 export type IterableListBoxItem<TItemId extends string = string> =
-	| SingleListBoxItem
+	| SingleListBoxItem<TItemId>
 	| {
 			children: Array<SingleListBoxItem<TItemId>>;
 			colorOverlay?: never;
