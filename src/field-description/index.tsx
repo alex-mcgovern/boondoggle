@@ -1,10 +1,7 @@
-import type {
-	TextProps as RACTextProps} from "react-aria-components";
+import type { TextProps as RACTextProps } from "react-aria-components";
 
 import clsx from "clsx";
-import {
-	Text as ReactAriaText
-} from "react-aria-components";
+import { Text as ReactAriaText } from "react-aria-components";
 
 import { descriptionCSS } from "./styles.css";
 

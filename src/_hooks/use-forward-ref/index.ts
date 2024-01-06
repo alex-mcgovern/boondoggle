@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 export const useForwardRef = <T>(
 	ref: ForwardedRef<T> | undefined,
-	
+
 	initialValue: any = null,
 ) => {
 	const targetRef = useRef<T>(initialValue);

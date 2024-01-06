@@ -81,8 +81,6 @@ type IsNotCopyable = BaseIsCopyable & {
 	strCopy?: never;
 };
 
-
-
 export type WithOptionalIsCopyable = IsCopyable | IsNotCopyable;
 
 export const getOptionalIsCopyableProps = ({
@@ -94,11 +92,11 @@ export const getOptionalIsCopyableProps = ({
 	return readOnly && isCopyable && strCopy && strCopied
 		? { isCopyable, readOnly, strCopied, strCopy }
 		: {
-			isCopyable: undefined,
-			readOnly,
-			strCopied: undefined,
-			strCopy: undefined,
-		};
+				isCopyable: undefined,
+				readOnly,
+				strCopied: undefined,
+				strCopy: undefined,
+			};
 };
 
 type BaseIsVisibilityToggleable = {
@@ -136,8 +134,6 @@ type WithoutIsVisibilityToggleable = BaseIsVisibilityToggleable & {
 	strHide?: never;
 	strShow?: never;
 };
-
-
 
 export type WithOptionalIsVisibilityToggleable =
 	| WithIsVisibilityToggleable
@@ -186,8 +182,6 @@ type IsNotClearable = BaseIsClearable & {
 	readOnly?: boolean;
 	strClear?: never;
 };
-
-
 
 export type WithOptionalIsClearable = IsClearable | IsNotClearable;
 
@@ -241,14 +235,14 @@ export type WithReadOnly = {
  */
 export type V2Label =
 	| {
-		isHidden?: boolean;
-		props?: Omit<
-			ComponentPropsWithoutRef<typeof Label>,
-			"children" | "htmlFor"
-		>;
-		text: string;
-		tooltip?: string;
-	}
+			isHidden?: boolean;
+			props?: Omit<
+				ComponentPropsWithoutRef<typeof Label>,
+				"children" | "htmlFor"
+			>;
+			text: string;
+			tooltip?: string;
+	  }
 	| string;
 
 export type WithSize = {

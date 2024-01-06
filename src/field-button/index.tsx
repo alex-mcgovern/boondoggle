@@ -1,4 +1,3 @@
-
 import { forwardRef } from "react";
 import {
 	Button as RACButton,
@@ -14,16 +13,15 @@ export type FieldButtonProps = RACButtonProps;
  * to add additional functionality to a field. The `slot` prop is used to connect the
  * button to the field.
  */
-export const FieldButton = forwardRef<
-	HTMLButtonElement,
-	FieldButtonProps
->((props: RACButtonProps, ref) => {
-	return (
-		<RACButton
-			{...props}
-			className={fieldButtonCSS}
-			excludeFromTabOrder
-			ref={ref}
-		/>
-	);
-});
+export const FieldButton = forwardRef<HTMLButtonElement, FieldButtonProps>(
+	(props: RACButtonProps, ref) => {
+		return (
+			<RACButton
+				{...props}
+				className={fieldButtonCSS}
+				excludeFromTabOrder
+				ref={ref}
+			/>
+		);
+	},
+);

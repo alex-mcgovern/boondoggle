@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactNode} from "react";
+import type { ForwardedRef, ReactNode } from "react";
 import type {
 	ListBoxItemProps as ReactAriaListBoxItemProps,
 	ListBoxProps as ReactAriaListBoxProps,
@@ -46,7 +46,7 @@ export type IterableListBoxItem<TItemId extends string = string> =
 			name?: string;
 			slotLeft?: never;
 			type?: never;
-	  }
+}
 	| SingleListBoxItem<TItemId>;
 
 function ListBoxItem<TItemId extends string = string>({
@@ -94,7 +94,7 @@ export type ListBoxProps<TItemId extends string = string> =
 
 function BaseListBox<TItemId extends string = string>(
 	props: ListBoxProps<TItemId>,
-	ref: ForwardedRef<HTMLDivElement>
+	ref: ForwardedRef<HTMLDivElement>,
 ) {
 	return (
 		<ReactAriaListBox<IterableListBoxItem<TItemId>>

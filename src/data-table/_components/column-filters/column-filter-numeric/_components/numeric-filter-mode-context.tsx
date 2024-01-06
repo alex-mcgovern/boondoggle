@@ -1,6 +1,4 @@
-
-
-import type { Dispatch, ReactNode, SetStateAction} from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 
 import { createContext, useContext, useState } from "react";
 
@@ -16,7 +14,9 @@ export const NumericFilterModeContext = createContext<
 
 export const NumericFilterModeProvider = ({
 	children,
-}: { children: ReactNode }) => {
+}: {
+	children: ReactNode;
+}) => {
 	return (
 		<NumericFilterModeContext.Provider
 			value={useState<TableNumberRangeFilterMode>("is_between")}

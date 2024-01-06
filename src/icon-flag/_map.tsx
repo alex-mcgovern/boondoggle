@@ -254,10 +254,7 @@ import { FlagZa } from "./za";
 import { FlagZm } from "./zm";
 import { FlagZw } from "./zw";
 
-export const FLAGS: Record<
-	TCountryCode,
-	JSXElementConstructor<Sprinkles>
-> = {
+export const FLAGS: Record<TCountryCode, JSXElementConstructor<Sprinkles>> = {
 	// AC: FlagAc,
 	AD: FlagAd,
 	AE: FlagAe,

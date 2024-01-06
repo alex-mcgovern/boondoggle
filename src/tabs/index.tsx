@@ -1,9 +1,10 @@
-import type { ReactNode} from "react";
+import type { ReactNode } from "react";
 import type {
 	TabListProps as ReactAriaTabListProps,
 	TabPanelProps as ReactAriaTabPanelProps,
 	TabProps as ReactAriaTabProps,
-	TabsProps as ReactAriaTabsProps} from "react-aria-components";
+	TabsProps as ReactAriaTabsProps,
+} from "react-aria-components";
 
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import { motion } from "framer-motion";
@@ -12,7 +13,7 @@ import {
 	Tab as ReactAriaTab,
 	TabList as ReactAriaTabList,
 	TabPanel as ReactAriaTabPanel,
-	Tabs as ReactAriaTabs
+	Tabs as ReactAriaTabs,
 } from "react-aria-components";
 
 import { Icon } from "../icon";
@@ -35,7 +36,11 @@ export const V2TabCount = ({
 	count,
 	isError,
 	isLoading,
-}: { count?: number; isError?: boolean; isLoading?: boolean }) => {
+}: {
+	count?: number;
+	isError?: boolean;
+	isLoading?: boolean;
+}) => {
 	if (isError) {
 		return (
 			<Icon

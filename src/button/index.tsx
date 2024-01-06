@@ -1,15 +1,13 @@
 import type {
 	ButtonProps as RACButtonProps,
-	LinkProps as RACLinkProps} from "react-aria-components";
+	LinkProps as RACLinkProps,
+} from "react-aria-components";
 
 import clsx from "clsx";
 import { forwardRef } from "react";
-import {
-	Button as RACButton,
-	Link as RACLink
-} from "react-aria-components";
+import { Button as RACButton, Link as RACLink } from "react-aria-components";
 
-import type { ButtonVariants} from "./styles.css";
+import type { ButtonVariants } from "./styles.css";
 
 import { buttonCSS } from "./styles.css";
 

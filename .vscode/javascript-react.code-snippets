@@ -1,109 +1,116 @@
 {
-    "Helper function": {
-        "scope": "javascript,typescript",
-        "prefix": "JS Fn",
-        "body": ["export function functionName({ argument }) {", "\treturn argument;", "}"]
-    },
+	"Helper function": {
+		"scope": "javascript,typescript",
+		"prefix": "JS Fn",
+		"body": [
+			"export function functionName({ argument }) {",
+			"\treturn argument;",
+			"}"
+		]
+	},
 
-    "vanilla-extract style": {
-        "scope": "typescript,css",
-        "prefix": "VE Style",
-        "body": [
-            "export const ${1}CSS = style([sprinkles({}), {}])"
-        ],
-        "description": "Vanilla Extract style"
-    },
-    "vanilla-extract recipe": {
-        "scope": "typescript,css",
-        "prefix": "VE Recipe",
-        "body": [
-            "import { recipe } from \"@vanilla-extract/recipes\";",
-            "export const className = recipe({",
-            "\tbase: {",
-            "",
-            "\t},",
-            "\tvariants: {",
-            "\t\tvariantGroup: {",
-            "\t\t\tvariant1: {",
-            "\t\t\t\t",
-            "\t\t\t}",
-            "\t\t}",
-            "\t}",
-            "\t",
-            "})"
-        ]
-    },
-    "jest suite boilerplate": {
-        "scope": "javascript,typescript",
-        "prefix": "Jest",
-        "body": ["test(\"XXXXX\", () => {", "  expect(YYYYYY).toBe(ZZZZZ)", "});", ""]
-    },
+	"vanilla-extract style": {
+		"scope": "typescript,css",
+		"prefix": "VE Style",
+		"body": ["export const ${1}CSS = style([sprinkles({}), {}])"],
+		"description": "Vanilla Extract style"
+	},
+	"vanilla-extract recipe": {
+		"scope": "typescript,css",
+		"prefix": "VE Recipe",
+		"body": [
+			"import { recipe } from \"@vanilla-extract/recipes\";",
+			"export const className = recipe({",
+			"\tbase: {",
+			"",
+			"\t},",
+			"\tvariants: {",
+			"\t\tvariantGroup: {",
+			"\t\t\tvariant1: {",
+			"\t\t\t\t",
+			"\t\t\t}",
+			"\t\t}",
+			"\t}",
+			"\t",
+			"})"
+		]
+	},
+	"jest suite boilerplate": {
+		"scope": "javascript,typescript",
+		"prefix": "Jest",
+		"body": [
+			"test(\"XXXXX\", () => {",
+			"  expect(YYYYYY).toBe(ZZZZZ)",
+			"});",
+			""
+		]
+	},
 
-    "testing-library boilerplate": {
-        "scope": "typescriptreact",
-        "prefix": "rtl",
-        "body": [
-            "/** @jest-environment jsdom */",
-            "import { render } from \"@testing-library/react\";",
-            "import { MOCK_VALUES } from \"../../../../mocks/MOCK_VALUES.mock\";",
-            "import { ${1:Component} } from \"..\";",
-            "",
-            "import { ${1:Component}Props } from \"..\";",
-            "",
-            "const PROPS: ${1:Component}Props = {}",
-            "",
-            "const renderComponent = ({ ...props }: ${1:Component}Props) => {",
-            "  return render(<${1:Component} {...props} />);",
-            "};",
-            "",
-            "describe(\"<${1:Component} />\", () => {",
-            "  describe(\"when rendering\", () => {",
-            "\tit(\"should render without throwing\", () => {",
-            "\t\tconst { container } = renderComponent(PROPS);",
-            "",
-            "\t\texpect(container).not.toBeNull();",
-            "\t});",
-            "",
-            "\tit(\"should match snapshot\", () => {",
-            "\t\tconst { container } = renderComponent(PROPS);"
-        ],
-        "description": "testing library boilerplate"
-    },
+	"testing-library boilerplate": {
+		"scope": "typescriptreact",
+		"prefix": "rtl",
+		"body": [
+			"/** @jest-environment jsdom */",
+			"import { render } from \"@testing-library/react\";",
+			"import { MOCK_VALUES } from \"../../../../mocks/MOCK_VALUES.mock\";",
+			"import { ${1:Component} } from \"..\";",
+			"",
+			"import { ${1:Component}Props } from \"..\";",
+			"",
+			"const PROPS: ${1:Component}Props = {}",
+			"",
+			"const renderComponent = ({ ...props }: ${1:Component}Props) => {",
+			"  return render(<${1:Component} {...props} />);",
+			"};",
+			"",
+			"describe(\"<${1:Component} />\", () => {",
+			"  describe(\"when rendering\", () => {",
+			"\tit(\"should render without throwing\", () => {",
+			"\t\tconst { container } = renderComponent(PROPS);",
+			"",
+			"\t\texpect(container).not.toBeNull();",
+			"\t});",
+			"",
+			"\tit(\"should match snapshot\", () => {",
+			"\t\tconst { container } = renderComponent(PROPS);"
+		],
+		"description": "testing library boilerplate"
+	},
 
-    "React TypeScript Functional Component": {
-        "scope": "typescriptreact",
-        "prefix": "TS FC",
-        "description": "",
+	"React TypeScript Functional Component": {
+		"scope": "typescriptreact",
+		"prefix": "TS FC",
+		"description": "",
 
-        "body": [
-            "const ${1:Component} = ({ ${2:prop} }: {",
-            "\t${2:prop}: undefined",
-            "}) => {",
-            "\treturn (",
-            "",
-            "\t)",
-            "}"
-        ]
-    },
-    "Storybook story": {
-        "scope": "typescriptreact",
-        "prefix": "story",
-        "description": "Simple Storybook story",
-        "body": [
-            "import { ${1:Component} } from \".\";",
-            "",
-            "import { Meta, StoryObj } from \"@storybook/react\";",
-            "",
-            "const meta = {",
-            "  title: \"${1:Component}\",",
-            "  component: ${1:Component},",
-            "  args: {  },",
-            "} satisfies Meta<typeof ${1:Component}>;",
-            "",
-            "export default meta;",
-            "type Story = StoryObj<typeof meta>;",
-            "",
-            "export const Default: Story = {};"
-        ]
-    }
+		"body": [
+			"const ${1:Component} = ({ ${2:prop} }: {",
+			"\t${2:prop}: undefined",
+			"}) => {",
+			"\treturn (",
+			"",
+			"\t)",
+			"}"
+		]
+	},
+	"Storybook story": {
+		"scope": "typescriptreact",
+		"prefix": "story",
+		"description": "Simple Storybook story",
+		"body": [
+			"import { ${1:Component} } from \".\";",
+			"",
+			"import { Meta, StoryObj } from \"@storybook/react\";",
+			"",
+			"const meta = {",
+			"  title: \"${1:Component}\",",
+			"  component: ${1:Component},",
+			"  args: {  },",
+			"} satisfies Meta<typeof ${1:Component}>;",
+			"",
+			"export default meta;",
+			"type Story = StoryObj<typeof meta>;",
+			"",
+			"export const Default: Story = {};"
+		]
+	}
 }

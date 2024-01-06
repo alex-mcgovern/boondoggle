@@ -186,7 +186,7 @@ export const FormFilterNumeric = ({
 							transformNumericToRaw
 								? transformNumericToRaw(
 										currentMin || currentMax,
-								  )
+									)
 								: currentMin || currentMax
 						}
 						maxValue={largestValue}
@@ -204,7 +204,7 @@ export const FormFilterNumeric = ({
 							transformNumericToRaw
 								? transformNumericToRaw(
 										currentMin || currentMax,
-								  )
+									)
 								: currentMin || currentMax
 						}
 						maxValue={largestValue}
@@ -222,7 +222,7 @@ export const FormFilterNumeric = ({
 							transformNumericToRaw
 								? transformNumericToRaw(
 										currentMax || currentMin,
-								  )
+									)
 								: currentMax || currentMin
 						}
 						maxValue={largestValue}

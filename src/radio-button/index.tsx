@@ -1,5 +1,3 @@
-
-
 import type { HTMLProps } from "react";
 
 import { Box } from "../box";

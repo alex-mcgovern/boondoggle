@@ -35,4 +35,3 @@ export const DefaultValue: Story = {
 		items: RADIO_BUTTONS_MOCK,
 	},
 };
-

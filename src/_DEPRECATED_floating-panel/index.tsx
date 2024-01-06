@@ -1,4 +1,4 @@
-import type { ForwardedRef, HTMLAttributes, ReactNode} from "react";
+import type { ForwardedRef, HTMLAttributes, ReactNode } from "react";
 
 import clsx from "clsx";
 import { forwardRef } from "react";
@@ -20,7 +20,7 @@ const BaseFloatingPanel = (
 		className?: string;
 		isOpen: boolean | undefined;
 	},
-	ref: ForwardedRef<HTMLDivElement>,
+		ref: ForwardedRef<HTMLDivElement>,
 ) => {
 	return (
 		<div

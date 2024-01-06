@@ -1,5 +1,5 @@
 import type { Column } from "@tanstack/react-table";
-import type { ChangeEvent} from "react";
+import type { ChangeEvent } from "react";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -67,7 +67,7 @@ export function ColumnMultiFilter<TRowData>({
 	column: Column<TRowData>;
 	strFilterDialogTitle: string;
 	strFilterPillText: string;
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	transformValueToString?: (value: any) => string;
 }) {
 	const [isOpen, setIsOpen] = useState(false);

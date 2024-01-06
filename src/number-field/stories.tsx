@@ -76,9 +76,7 @@ export const ExampleComposedCurrencyField: Story = {
 		name: "amount",
 	},
 	render: () => {
-		const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">(
-			"EUR",
-		);
+		const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">("EUR");
 		return (
 			<div
 				className={sprinkles({

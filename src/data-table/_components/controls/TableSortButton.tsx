@@ -27,9 +27,9 @@ export function TableSortButton<TData>({
 						style={{ transform: "rotate(180deg)" }}
 					/>
 				),
-		  }[header.column.getIsSorted() as string] ?? (
+			}[header.column.getIsSorted() as string] ?? (
 				<Icon className={sortIconStyle} icon={faSort} />
-		  )
+			)
 		: undefined;
 
 	return (

@@ -4,15 +4,11 @@ import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 
-import type {
-	TV2DataTableRowActions} from ".";
-import type { MockTableData} from "./_mocks/data-table.mock";
+import type { TV2DataTableRowActions } from ".";
+import type { MockTableData } from "./_mocks/data-table.mock";
 import type { TableNumberRangeFilterMode } from "./types";
 
-import {
-	DataTable as StoryComp,
-	TableRowMenuButton,
-} from ".";
+import { DataTable as StoryComp, TableRowMenuButton } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";

@@ -1,4 +1,4 @@
-import type { Dispatch, ForwardedRef, ReactNode, SetStateAction} from "react";
+import type { Dispatch, ForwardedRef, ReactNode, SetStateAction } from "react";
 
 import {
 	FloatingFocusManager,

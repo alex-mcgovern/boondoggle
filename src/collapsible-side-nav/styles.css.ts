@@ -46,10 +46,10 @@ export const collapsibleNavOuterCSS = style([
 	}),
 	{
 		selectors: {
-			"&[data-state=\"closed\"]": {
+			'&[data-state="closed"]': {
 				animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
-			"&[data-state=\"open\"]": {
+			'&[data-state="open"]': {
 				animation: `${open} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
 		},

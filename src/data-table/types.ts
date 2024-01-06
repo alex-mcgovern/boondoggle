@@ -38,7 +38,7 @@ export type FilteringOptions<TRowData extends RowData> = {
 			| {
 					strFilterDialogTitle: string;
 					strFilterPillText: string;
-					
+
 					transformValueToString?: (value: any) => string;
 					type: "MULTI_SELECT";
 			  }
@@ -149,7 +149,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					| {
 							strFilterDialogTitle: string;
 							strFilterPillText: string;
-							
+
 							transformNumericFromRaw: (value: any) => string;
 							type: "MULTI_SELECT";
 					  }
@@ -170,7 +170,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 					{
 						strFilterDialogTitle: string;
 						strFilterPillText: string;
-						
+
 						transformNumericFromRaw: (value: any) => string;
 					}
 				>

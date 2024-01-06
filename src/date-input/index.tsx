@@ -1,5 +1,4 @@
-import type {
-	DateInputProps as RACDateInputProps} from "react-aria-components";
+import type { DateInputProps as RACDateInputProps } from "react-aria-components";
 
 import clsx from "clsx";
 import {

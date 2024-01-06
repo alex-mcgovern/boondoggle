@@ -1,6 +1,6 @@
 "use client";
 
-import type { Dispatch, ReactNode, SetStateAction} from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 
 import { faSidebar } from "@fortawesome/pro-solid-svg-icons/faSidebar";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";

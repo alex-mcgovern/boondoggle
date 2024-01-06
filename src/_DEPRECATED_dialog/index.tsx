@@ -125,35 +125,35 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-}
+									}
 								: undefined
 						}
 						onMouseLeave={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.close();
-}
+									}
 								: undefined
 						}
 						onPointerEnter={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-}
+									}
 								: undefined
 						}
 						onPointerLeave={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-}
+									}
 								: undefined
 						}
 						onPointerOver={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-}
+									}
 								: undefined
 						}
 						ref={triggerRef}

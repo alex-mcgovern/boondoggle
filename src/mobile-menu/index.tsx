@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactNode} from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
@@ -31,7 +31,11 @@ export const V2MobileMenuHeader = ({
 	children,
 	close,
 	title,
-}: { children?: ReactNode; close: () => void; title?: string }) => {
+}: {
+	children?: ReactNode;
+	close: () => void;
+	title?: string;
+}) => {
 	return (
 		<header className={mobileMenuHeaderCSS}>
 			{children}
@@ -63,16 +67,16 @@ export const V2MobileMenuHeader = ({
  */
 export const V2ScrollableMobileMenuContent = ({
 	children,
-}: { children: ReactNode }) => {
+}: {
+	children: ReactNode;
+}) => {
 	return <div className={mobileMenuContentCSS}>{children}</div>;
 };
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export const V2MobileMenuFooter = ({
-	children,
-}: { children: ReactNode }) => {
+export const V2MobileMenuFooter = ({ children }: { children: ReactNode }) => {
 	return <footer className={mobileMenuFooterCSS}>{children}</footer>;
 };
 

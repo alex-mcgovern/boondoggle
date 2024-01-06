@@ -32,9 +32,7 @@ import { ToastProvider } from "../toast";
  * ------------------------------------------------------------------------------- */
 
 const NumberFieldWithCurrencySelect = () => {
-	const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">(
-		"EUR",
-	);
+	const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">("EUR");
 
 	return (
 		<div

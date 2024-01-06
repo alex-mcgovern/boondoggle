@@ -10,6 +10,7 @@ module.exports = {
 		"plugin:react/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:perfectionist/recommended-natural",
+		"prettier",
 	],
 	overrides: [
 		{
@@ -33,9 +34,6 @@ module.exports = {
 			"error",
 			{ prefer: "type-imports" },
 		],
-		"linebreak-style": ["error", "unix"],
-		quotes: ["error", "double"],
 		"react/display-name": "off",
-		semi: ["error", "always"],
 	},
 };

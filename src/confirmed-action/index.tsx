@@ -1,11 +1,11 @@
-import type { ReactNode} from "react";
+import type { ReactNode } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { forwardRef, useState } from "react";
 import { z } from "zod";
 
-import type { ColorOverlay} from "../index.css";
+import type { ColorOverlay } from "../index.css";
 
 import { Box } from "../box";
 import { Form } from "../form";
@@ -19,7 +19,10 @@ import { FormTextField } from "../text-field";
 const getZodSchema = ({
 	strConfirmText,
 	strInvalid,
-}: { strConfirmText: string; strInvalid: string }) => {
+}: {
+	strConfirmText: string;
+	strInvalid: string;
+}) => {
 	return z.object({
 		confirm_text: z.literal(strConfirmText, {
 			errorMap: () => {
@@ -39,11 +42,7 @@ type ConfirmedActionProps = {
 	strPromptSuffix: string;
 };
 
-export const ConfirmedAction = forwardRef<
-	HTMLDivElement,
-	ConfirmedActionProps
-
->(
+export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
 	(
 		{
 			buttonContent,
@@ -60,8 +59,6 @@ export const ConfirmedAction = forwardRef<
 
 		return (
 			<Box ref={ref}>
-
-
 				<Form
 					handleSubmit={() => {
 						onConfirmed?.();
@@ -73,36 +70,34 @@ export const ConfirmedAction = forwardRef<
 				>
 					<FormTextField
 						autoComplete="off"
-						className={clsx(sprinkles({ marginBottom: "space_2" }), colorOverlay && variantColorOverlay[colorOverlay])}
+						className={clsx(
+							sprinkles({ marginBottom: "space_2" }),
+							colorOverlay && variantColorOverlay[colorOverlay],
+						)}
 						name="confirm_text"
 						onChange={setUserConfirmText}
 					>
 						<Label>
 							<span>{strPromptPrefix}</span>{" "}
-							<b>
-								{strConfirmText}
-							</b>{" "}
+							<b>{strConfirmText}</b>{" "}
 							<span>{strPromptSuffix}</span>
-							</Label>
+						</Label>
 						<Input />
 					</FormTextField>
 
 					<FormSubmitButton
-
 						appearance="primary"
 						aria-disabled={userConfirmText !== strConfirmText}
 						className={sprinkles({
-							width: "100%"
+							width: "100%",
 						})}
 						colorOverlay={colorOverlay}
 						size="sm"
 					>
-						
 						{buttonContent}
-						
-						</FormSubmitButton>
+					</FormSubmitButton>
 				</Form>
 			</Box>
 		);
-	}
+	},
 );

@@ -1,5 +1,4 @@
-import type {
-	DatePickerProps as RACDatePickerProps} from "react-aria-components";
+import type { DatePickerProps as RACDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-regular-svg-icons/faCalendar";
 import { type CalendarDate, parseDate } from "@internationalized/date";

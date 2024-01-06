@@ -3,7 +3,7 @@ import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
 import clsx from "clsx";
-import { forwardRef, useState, useCallback, useMemo } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import {
 	ButtonContext as FieldButtonContext,
 	TextField as RACTextField,
@@ -98,9 +98,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			props.value || props.defaultValue,
 		);
 
-		const [type, setType] = useState<TextFieldProps["type"]>(
-			props.type,
-		);
+		const [type, setType] = useState<TextFieldProps["type"]>(props.type);
 
 		const toastState = useToastContext();
 
@@ -115,14 +113,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 		const copyValue = useCallback(() => {
 			if (!value) return;
 
-			return navigator.clipboard.writeText(value).then(() =>
-				toastState?.add(
-					{
-						level: "success",
-						title: i18n.copied_to_clipboard,
-					},
-					{ timeout: 5000 },
-				),
+			return navigator.clipboard.writeText(value).then(
+				() =>
+					toastState?.add(
+						{
+							level: "success",
+							title: i18n.copied_to_clipboard,
+						},
+						{ timeout: 5000 },
+					),
 			);
 		}, [toastState, value]);
 

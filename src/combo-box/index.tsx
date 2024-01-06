@@ -1,4 +1,4 @@
-import type { ForwardedRef} from "react";
+import type { ForwardedRef } from "react";
 
 import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
@@ -9,7 +9,7 @@ import {
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
-import type { IterableListBoxItem} from "../list-box";
+import type { IterableListBoxItem } from "../list-box";
 
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";

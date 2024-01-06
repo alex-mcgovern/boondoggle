@@ -4,6 +4,7 @@
 		"slysherz.comment-box",
 		"wix.vscode-import-cost",
 		"orta.vscode-twoslash-queries",
-		"dbaeumer.vscode-eslint"
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode"
 	]
 }

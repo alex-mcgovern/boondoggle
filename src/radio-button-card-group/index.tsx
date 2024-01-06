@@ -62,10 +62,8 @@ export const RadioButtonCardGroup = forwardRef(
 			id,
 			inputProps,
 			invalid,
-			isLabelVisible,
 			items,
 			label,
-			labelTooltip,
 			name,
 			onChange,
 			required,
@@ -130,7 +128,7 @@ export const RadioButtonCardGroup = forwardRef(
 					})}
 				</Box>
 				{invalid && errorMessage && (
-					<FieldError  >{errorMessage}</FieldError>
+					<FieldError>{errorMessage}</FieldError>
 				)}
 				{description && !invalid && (
 					<FieldDescription>{description}</FieldDescription>

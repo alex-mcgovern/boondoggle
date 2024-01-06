@@ -9,7 +9,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import type { Sprinkles} from "../sprinkles/index.css";
+import type { Sprinkles } from "../sprinkles/index.css";
 import type {
 	PolymorphicComponentPropWithRef,
 	PolymorphicRef,

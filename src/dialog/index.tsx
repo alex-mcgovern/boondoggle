@@ -30,7 +30,10 @@ import {
 export const V2DialogHeader = ({
 	close,
 	title,
-}: { close: () => void; title: string }) => {
+}: {
+	close: () => void;
+	title: string;
+}) => {
 	return (
 		<header className={dialogHeaderCSS}>
 			<ReactAriaHeading className={dialogTitleCSS} slot="title">
@@ -59,7 +62,9 @@ export const V2DialogHeader = ({
  */
 export const V2ScrollableDialogContent = ({
 	children,
-}: { children: ReactNode }) => {
+}: {
+	children: ReactNode;
+}) => {
 	return <div className={dialogContentCSS}>{children}</div>;
 };
 

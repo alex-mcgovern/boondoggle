@@ -1,9 +1,6 @@
-import type {
-	SectionProps as ReactAriaSectionProps} from "react-aria-components";
+import type { SectionProps as ReactAriaSectionProps } from "react-aria-components";
 
-import {
-	Section as ReactAriaSection
-} from "react-aria-components";
+import { Section as ReactAriaSection } from "react-aria-components";
 
 import { menuSectionCSS } from "../_css/menu.css";
 

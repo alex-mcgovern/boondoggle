@@ -188,7 +188,7 @@ export const TooltipTrigger = forwardRef<
 				...props,
 				...children.props,
 				"data-state": context.open ? "open" : "closed",
-			})
+			}),
 		);
 	}
 
@@ -203,8 +203,6 @@ export const TooltipTrigger = forwardRef<
 		</button>
 	);
 });
-
-
 
 /**
  * Content for a tooltip.

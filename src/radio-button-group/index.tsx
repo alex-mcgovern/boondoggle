@@ -1,4 +1,4 @@
-import type { ComponentProps, Ref} from "react";
+import type { ComponentProps, Ref } from "react";
 
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
@@ -27,7 +27,6 @@ export type RadioButtonGroupProps = Sprinkles &
 		defaultValue?: number | string;
 
 		id: string;
-
 
 		items: Array<ComponentProps<typeof RadioButton>>;
 
@@ -64,18 +63,19 @@ export const RadioButtonGroup = forwardRef(
 		}: RadioButtonGroupProps,
 		ref: Ref<HTMLDivElement>,
 	) => {
-		const controlledItems: Array<ComponentProps<typeof RadioButton>> = useMemo(() => {
-			if (!Array.isArray(items) || items.length < 1) {
-				return [];
-			}
-			return items.map((item) => {
-				return {
-					...item,
-					checked:
-						defaultValue === item.value || value === item.value,
-				};
-			});
-		}, [defaultValue, items, value]);
+		const controlledItems: Array<ComponentProps<typeof RadioButton>> =
+			useMemo(() => {
+				if (!Array.isArray(items) || items.length < 1) {
+					return [];
+				}
+				return items.map((item) => {
+					return {
+						...item,
+						checked:
+							defaultValue === item.value || value === item.value,
+					};
+				});
+			}, [defaultValue, items, value]);
 
 		if (!Array.isArray(controlledItems) || controlledItems.length < 1) {
 			return null;
@@ -115,9 +115,7 @@ export const RadioButtonGroup = forwardRef(
 					})}
 				</Box>
 				{invalid && errorMessage && (
-					<FieldError >
-						{errorMessage} 
-					</FieldError>
+					<FieldError>{errorMessage}</FieldError>
 				)}
 				{description && !invalid && (
 					<FieldDescription>{description}</FieldDescription>

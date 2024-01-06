@@ -29,7 +29,7 @@ export const tableActionsCSS = style([
 	{
 		"@container": {
 			[CONTAINER_LG]: {
-				gridTemplateAreas: "\"globalFilter columnFilters actions\"",
+				gridTemplateAreas: '"globalFilter columnFilters actions"',
 				gridTemplateColumns: "12rem 1fr min-content",
 			},
 			[CONTAINER_MD]: {

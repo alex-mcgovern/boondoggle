@@ -1,10 +1,7 @@
-import type {
-	SwitchProps as ReactAriaSwitchProps} from "react-aria-components";
+import type { SwitchProps as ReactAriaSwitchProps } from "react-aria-components";
 
 import { forwardRef } from "react";
-import {
-	Switch as ReactAriaSwitch
-} from "react-aria-components";
+import { Switch as ReactAriaSwitch } from "react-aria-components";
 
 import { switchCSS, switchIndicatorCSS, switchLabelCSS } from "./styles.css";
 

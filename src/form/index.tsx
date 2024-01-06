@@ -1,13 +1,14 @@
-import type { ForwardedRef, ReactNode} from "react";
-import type { DefaultValues, FieldErrors, FieldValues ,
+import type { ForwardedRef, ReactNode } from "react";
+import type {
+	DefaultValues,
+	FieldErrors,
+	FieldValues,
 	Resolver,
-	WatchObserver} from "react-hook-form";
+	WatchObserver,
+} from "react-hook-form";
 
 import { forwardRef } from "react";
-import {
-	FormProvider,
-	useForm,
-} from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 import type { BoxProps } from "../box";
 
@@ -67,7 +68,6 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 	 */
 	name: string;
 
-	
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	resolver?: Resolver<TFieldValues, any>;
 

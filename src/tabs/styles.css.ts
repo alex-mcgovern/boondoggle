@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { Sprinkles} from "../sprinkles/index.css";
+import type { Sprinkles } from "../sprinkles/index.css";
 
 import { withPrefersMotion } from "../css-utils";
 import {

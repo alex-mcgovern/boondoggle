@@ -179,7 +179,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		quart_in_out: "cubic-bezier(0.76, 0, 0.24, 1)",
 	},
 	fontFamily: {
-		body: "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"",
+		body: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
 	},
 	fontSize: {
 		bodyLg: "1rem", // 16px
@@ -630,7 +630,7 @@ globalStyle("input, button, textarea, select", {
 	},
 });
 
-globalStyle("input[type=\"search\"]", {
+globalStyle('input[type="search"]', {
 	"@layer": {
 		[resetLayer]: {
 			appearance: "none",

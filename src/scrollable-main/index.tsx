@@ -7,11 +7,7 @@ import type { WithSize } from "../types";
 import { scrollableMainCSS, scrollableMainInnerCSS } from "./styles.css";
 import { nonScrollableWrapperCSS } from "./styles.css";
 
-export const NonScrollableWrapper = ({
-	children,
-}: {
-	children: ReactNode;
-}) => {
+export const NonScrollableWrapper = ({ children }: { children: ReactNode }) => {
 	return <div className={nonScrollableWrapperCSS}>{children}</div>;
 };
 

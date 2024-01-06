@@ -3,13 +3,12 @@ import type {
 	FilterFn,
 	RowData,
 	SortingState,
-	VisibilityState} from "@tanstack/react-table";
+	VisibilityState,
+} from "@tanstack/react-table";
 import type { JSXElementConstructor, ReactNode } from "react";
 
 import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
-import {
-	flexRender,
-} from "@tanstack/react-table";
+import { flexRender } from "@tanstack/react-table";
 import { Fragment } from "react";
 
 import type {
@@ -85,7 +84,6 @@ export type DataTableProps<TRowData extends RowData> =
 		 */
 		columnVisibility?: VisibilityState;
 
-		
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		columns: Array<ColumnDef<TRowData, any>>;
 
@@ -195,7 +193,7 @@ export function DataTable<TRowData extends RowData>({
 								: flexRender(
 										h.column.columnDef.header,
 										h.getContext(),
-								  );
+									);
 
 							if (isSortable) {
 								return (

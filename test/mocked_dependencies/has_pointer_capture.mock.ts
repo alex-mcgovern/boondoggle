@@ -22,7 +22,6 @@ class MockPointerEvent extends Event {
 	}
 }
 
-
 window.PointerEvent = MockPointerEvent as any;
 
 window.HTMLElement.prototype.scrollIntoView = jest.fn();
