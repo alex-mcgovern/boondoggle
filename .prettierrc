@@ -1,6 +1,6 @@
 {
-	"tabWidth": 4,
-	"useTabs": true,
-	"semi": true,
-	"singleQuote": false
+    "arrowParens": "always",
+    "proseWrap": "always",
+    "tabWidth": 4,
+    "singleAttributePerLine": true
 }

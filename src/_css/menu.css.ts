@@ -4,12 +4,12 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../css-utils";
 import {
-	a11yDisabled,
-	a11yFocus,
-	elementPaddingRaw,
-	floatingMenu,
-	variantColorOverlay,
-	vars,
+    a11yDisabled,
+    a11yFocus,
+    elementPaddingRaw,
+    floatingMenu,
+    variantColorOverlay,
+    vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
@@ -18,22 +18,22 @@ import { sprinkles } from "../sprinkles/index.css";
  * ------------------------------------------------------------------------------- */
 
 export const menuCSS = style([
-	sprinkles({
-		background: "background",
-		border: "border_rule",
-		boxShadow: "md",
-		overflowY: "auto",
-	}),
-	{
-		borderRadius: floatingMenu.container.radius,
-		maxHeight: "20rem",
-		padding: floatingMenu.container.padding,
-		selectors: {
-			"&:focus": {
-				outline: "none",
-			},
-		},
-	},
+    sprinkles({
+        background: "background",
+        border: "border_rule",
+        boxShadow: "md",
+        overflowY: "auto",
+    }),
+    {
+        borderRadius: floatingMenu.container.radius,
+        maxHeight: "20rem",
+        padding: floatingMenu.container.padding,
+        selectors: {
+            "&:focus": {
+                outline: "none",
+            },
+        },
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -41,23 +41,23 @@ export const menuCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuSectionCSS = style([
-	{
-		selectors: {
-			"&:not(:last-child)::after": {
-				background: vars.color.border_rule,
-				content: "",
+    {
+        selectors: {
+            "&:not(:last-child)::after": {
+                background: vars.color.border_rule,
+                content: "",
 
-				display: "block",
-				height: "1px",
+                display: "block",
+                height: "1px",
 
-				marginBottom: elementPaddingRaw.sm.y,
-				marginLeft: floatingMenu.item.paddingX,
+                marginBottom: elementPaddingRaw.sm.y,
+                marginLeft: floatingMenu.item.paddingX,
 
-				marginRight: floatingMenu.item.paddingX,
-				marginTop: elementPaddingRaw.sm.y,
-			},
-		},
-	},
+                marginRight: floatingMenu.item.paddingX,
+                marginTop: elementPaddingRaw.sm.y,
+            },
+        },
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -65,65 +65,65 @@ export const menuSectionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuItemCSS = recipe({
-	base: [
-		sprinkles({
-			alignItems: "center",
-			color: "text_high_contrast",
-			display: "flex",
-			flexShrink: "0",
-			fontStyle: "bodySm",
+    base: [
+        sprinkles({
+            alignItems: "center",
+            color: "text_high_contrast",
+            display: "flex",
+            flexShrink: "0",
+            fontStyle: "bodySm",
 
-			fontWeight: "normal",
-			gap: "space_2",
-			textAlign: "left",
-			textDecoration: "none",
-			width: "100%",
-		}),
-		a11yDisabled,
-		a11yFocus,
-		withPrefersMotion({
-			transition: `background ${vars.transitionDuration.short} ease`,
-		}),
-		{
-			borderRadius: floatingMenu.item.radius,
-			minHeight: floatingMenu.item.height,
+            fontWeight: "normal",
+            gap: "space_2",
+            textAlign: "left",
+            textDecoration: "none",
+            width: "100%",
+        }),
+        a11yDisabled,
+        a11yFocus,
+        withPrefersMotion({
+            transition: `background ${vars.transitionDuration.short} ease`,
+        }),
+        {
+            borderRadius: floatingMenu.item.radius,
+            minHeight: floatingMenu.item.height,
 
-			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
-			selectors: {
-				"&[data-focused]": {
-					background: vars.color.tint_hover,
-					cursor: "pointer",
-					outline: 0,
-				},
-				"&[data-hovered]": {
-					background: vars.color.tint_hover,
-					cursor: "pointer",
-				},
-				"&[data-selected]": {
-					fontWeight: "medium",
-				},
-			},
-		},
-	],
-	variants: {
-		colorOverlay: variantColorOverlay,
-	},
+            padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
+            selectors: {
+                "&[data-focused]": {
+                    background: vars.color.tint_hover,
+                    cursor: "pointer",
+                    outline: 0,
+                },
+                "&[data-hovered]": {
+                    background: vars.color.tint_hover,
+                    cursor: "pointer",
+                },
+                "&[data-selected]": {
+                    fontWeight: "medium",
+                },
+            },
+        },
+    ],
+    variants: {
+        colorOverlay: variantColorOverlay,
+    },
 });
 
 export const menuItemNameCSS = style([
-	sprinkles({
-		color: "text_high_contrast",
-		display: "block",
-		fontStyle: "bodySm",
-	}),
+    sprinkles({
+        color: "text_high_contrast",
+        display: "block",
+        fontStyle: "bodySm",
+    }),
 ]);
 
 export const menuItemDescriptionCSS = style([
-	sprinkles({
-		color: "text_low_contrast",
-		display: "block",
-		fontStyle: "bodySm",
-	}),
+    sprinkles({
+        color: "text_low_contrast",
+        display: "block",
+        fontStyle: "bodySm",
+    }),
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -131,23 +131,23 @@ export const menuItemDescriptionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuHeaderCSS = style([
-	sprinkles({
-		alignItems: "center",
-		color: "text_low_contrast",
-		display: "flex",
-		fontStyle: "bodySm",
+    sprinkles({
+        alignItems: "center",
+        color: "text_low_contrast",
+        display: "flex",
+        fontStyle: "bodySm",
 
-		fontWeight: "normal",
-		textAlign: "left",
-	}),
-	{
-		height: calc.subtract(
-			floatingMenu.item.height,
-			floatingMenu.container.padding,
-		),
-		paddingLeft: floatingMenu.item.paddingX,
-		paddingRight: floatingMenu.item.paddingX,
-	},
+        fontWeight: "normal",
+        textAlign: "left",
+    }),
+    {
+        height: calc.subtract(
+            floatingMenu.item.height,
+            floatingMenu.container.padding,
+        ),
+        paddingLeft: floatingMenu.item.paddingX,
+        paddingRight: floatingMenu.item.paddingX,
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -155,15 +155,15 @@ export const menuHeaderCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuSeparatorCSS = style([
-	sprinkles({}),
-	{
-		background: vars.color.border_rule,
-		height: "1px",
+    sprinkles({}),
+    {
+        background: vars.color.border_rule,
+        height: "1px",
 
-		marginBottom: vars.spacing.space_1,
-		marginLeft: floatingMenu.item.paddingX,
+        marginBottom: vars.spacing.space_1,
+        marginLeft: floatingMenu.item.paddingX,
 
-		marginRight: floatingMenu.item.paddingX,
-		marginTop: vars.spacing.space_1,
-	},
+        marginRight: floatingMenu.item.paddingX,
+        marginTop: vars.spacing.space_1,
+    },
 ]);

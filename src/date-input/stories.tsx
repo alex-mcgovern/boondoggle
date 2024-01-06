@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { DateInput } from ".";
 
 const meta = {
-	args: {},
-	component: DateInput,
-	title: "DateInput",
+    args: {},
+    component: DateInput,
+    title: "DateInput",
 } satisfies Meta<typeof DateInput>;
 
 export default meta;

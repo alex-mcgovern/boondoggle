@@ -3,8 +3,8 @@ import { faPlus } from "@fortawesome/pro-regular-svg-icons/faPlus";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
-	NumberField as RACNumberField,
-	type NumberFieldProps as RACNumberFieldProps,
+    NumberField as RACNumberField,
+    type NumberFieldProps as RACNumberFieldProps,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
@@ -18,11 +18,11 @@ import { numberFieldCSS } from "./styles.css";
  * ------------------------------------------------------------------------------- */
 
 export const NumberFieldIncrementButton = () => {
-	return (
-		<FieldButton slot="increment">
-			<Icon icon={faPlus} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton slot="increment">
+            <Icon icon={faPlus} />
+        </FieldButton>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -30,11 +30,11 @@ export const NumberFieldIncrementButton = () => {
  * ------------------------------------------------------------------------------- */
 
 export const NumberFieldDecrementButton = () => {
-	return (
-		<FieldButton slot="decrement">
-			<Icon icon={faMinus} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton slot="decrement">
+            <Icon icon={faMinus} />
+        </FieldButton>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -49,15 +49,15 @@ export type NumberFieldProps = RACNumberFieldProps;
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  */
 export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
-	(props, ref) => {
-		return (
-			<RACNumberField
-				{...props}
-				className={clsx(props.className, numberFieldCSS)}
-				ref={ref}
-			/>
-		);
-	},
+    (props, ref) => {
+        return (
+            <RACNumberField
+                {...props}
+                className={clsx(props.className, numberFieldCSS)}
+                ref={ref}
+            />
+        );
+    },
 );
 
 /** -----------------------------------------------------------------------------
@@ -70,39 +70,39 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  */
 export function FormNumberField({ children, ...props }: NumberFieldProps) {
-	if (!props.name) {
-		throw new Error("FormNumberField requires a name prop");
-	}
+    if (!props.name) {
+        throw new Error("FormNumberField requires a name prop");
+    }
 
-	const { control } = useFormContext();
+    const { control } = useFormContext();
 
-	const {
-		field: { disabled: isDisabled, ref, value = "", ...field },
-		fieldState: { error, invalid },
-	} = useController({
-		control,
-		defaultValue: props.defaultValue,
-		name: props.name,
-	});
+    const {
+        field: { disabled: isDisabled, ref, value = "", ...field },
+        fieldState: { error, invalid },
+    } = useController({
+        control,
+        defaultValue: props.defaultValue,
+        name: props.name,
+    });
 
-	return (
-		<NumberField
-			{...props}
-			{...field}
-			isDisabled={isDisabled}
-			isInvalid={invalid}
-			ref={ref}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			value={value}
-		>
-			{() => {
-				return (
-					<>
-						{children}
-						<FieldError>{error?.message}</FieldError>
-					</>
-				);
-			}}
-		</NumberField>
-	);
+    return (
+        <NumberField
+            {...props}
+            {...field}
+            isDisabled={isDisabled}
+            isInvalid={invalid}
+            ref={ref}
+            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+            value={value}
+        >
+            {() => {
+                return (
+                    <>
+                        {children}
+                        <FieldError>{error?.message}</FieldError>
+                    </>
+                );
+            }}
+        </NumberField>
+    );
 }

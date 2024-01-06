@@ -1,6 +1,6 @@
 import {
-	Group as RACGroup,
-	type GroupProps as RACGroupProps,
+    Group as RACGroup,
+    type GroupProps as RACGroupProps,
 } from "react-aria-components";
 
 import { groupCSS } from "./styles.css";
@@ -11,13 +11,13 @@ import { groupCSS } from "./styles.css";
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Group.html)
  */
 export const Group = ({ children, isDisabled, isInvalid }: RACGroupProps) => {
-	return (
-		<RACGroup
-			className={groupCSS}
-			isDisabled={isDisabled}
-			isInvalid={isInvalid}
-		>
-			{children}
-		</RACGroup>
-	);
+    return (
+        <RACGroup
+            className={groupCSS}
+            isDisabled={isDisabled}
+            isInvalid={isInvalid}
+        >
+            {children}
+        </RACGroup>
+    );
 };

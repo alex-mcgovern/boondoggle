@@ -7,32 +7,32 @@ import { sprinkles } from "../sprinkles/index.css";
  * ------------------------------------------------------------------------------- */
 
 const commonCellCSS = style([
-	sprinkles({
-		alignItems: "center",
-		borderBottom: "border_rule",
-		display: "flex",
+    sprinkles({
+        alignItems: "center",
+        borderBottom: "border_rule",
+        display: "flex",
 
-		fontStyle: "bodyMd",
-		justifyContent: "start",
-		paddingX: "space_4",
+        fontStyle: "bodyMd",
+        justifyContent: "start",
+        paddingX: "space_4",
 
-		paddingY: "space_2",
-	}),
-	{
-		minWidth: "0", // Ensure that children with class `overflowEllipsis` work correctly
-	},
+        paddingY: "space_2",
+    }),
+    {
+        minWidth: "0", // Ensure that children with class `overflowEllipsis` work correctly
+    },
 ]);
 
 export const tableCellCSS = style([
-	commonCellCSS,
-	sprinkles({
-		minHeight: "space_8",
-	}),
+    commonCellCSS,
+    sprinkles({
+        minHeight: "space_8",
+    }),
 ]);
 
 export const tableHeaderCellCSS = style([
-	commonCellCSS,
-	sprinkles({
-		height: "space_8",
-	}),
+    commonCellCSS,
+    sprinkles({
+        height: "space_8",
+    }),
 ]);

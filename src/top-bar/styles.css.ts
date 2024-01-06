@@ -3,25 +3,25 @@ import { style } from "@vanilla-extract/css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const topBarStyle = style([
-	style([
-		sprinkles({
-			alignItems: "center",
-			background: "tint_default",
+    style([
+        sprinkles({
+            alignItems: "center",
+            background: "tint_default",
 
-			borderBottom: "border_rule",
-			display: "flex",
+            borderBottom: "border_rule",
+            display: "flex",
 
-			gap: "space_4",
-			height: "topBar",
+            gap: "space_4",
+            height: "topBar",
 
-			paddingX: "space_4",
-			paddingY: "space_2",
+            paddingX: "space_4",
+            paddingY: "space_2",
 
-			position: "sticky",
-			top: "0",
+            position: "sticky",
+            top: "0",
 
-			zIndex: "1",
-		}),
-		{ scrollbarGutter: "stable" },
-	]),
+            zIndex: "1",
+        }),
+        { scrollbarGutter: "stable" },
+    ]),
 ]);

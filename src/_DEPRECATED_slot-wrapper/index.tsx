@@ -9,64 +9,64 @@ import { Box } from "../box";
 import { slotCSS } from "./styles.css";
 
 export type SlotWrapperProps = BoxProps &
-	WithSlots & {
-		children?: ReactNode;
+    WithSlots & {
+        children?: ReactNode;
 
-		className?: string;
+        className?: string;
 
-		slotProps?: BoxProps;
-	};
+        slotProps?: BoxProps;
+    };
 
 export const SlotWrapper = forwardRef(
-	(
-		{
-			children,
-			className: userClassName,
-			gap = "space_2",
-			slotLeft,
-			slotProps,
-			slotRight,
-			...rest
-		}: SlotWrapperProps,
-		ref: Ref<HTMLDivElement>,
-	) => {
-		return (
-			<Box
-				alignItems="center"
-				className={userClassName}
-				display="flex"
-				gap={gap}
-				ref={ref}
-				{...rest}
-			>
-				{slotLeft && (
-					<Box
-						{...slotProps}
-						className={slotCSS}
-						color="inherit"
-						flexShrink="0"
-					>
-						{Children.map(slotLeft, (child) => {
-							return child;
-						})}
-					</Box>
-				)}
+    (
+        {
+            children,
+            className: userClassName,
+            gap = "space_2",
+            slotLeft,
+            slotProps,
+            slotRight,
+            ...rest
+        }: SlotWrapperProps,
+        ref: Ref<HTMLDivElement>,
+    ) => {
+        return (
+            <Box
+                alignItems="center"
+                className={userClassName}
+                display="flex"
+                gap={gap}
+                ref={ref}
+                {...rest}
+            >
+                {slotLeft && (
+                    <Box
+                        {...slotProps}
+                        className={slotCSS}
+                        color="inherit"
+                        flexShrink="0"
+                    >
+                        {Children.map(slotLeft, (child) => {
+                            return child;
+                        })}
+                    </Box>
+                )}
 
-				{children}
+                {children}
 
-				{slotRight && (
-					<Box
-						{...slotProps}
-						className={slotCSS}
-						color="inherit"
-						flexShrink="0"
-					>
-						{Children.map(slotRight, (child) => {
-							return child;
-						})}
-					</Box>
-				)}
-			</Box>
-		);
-	},
+                {slotRight && (
+                    <Box
+                        {...slotProps}
+                        className={slotCSS}
+                        color="inherit"
+                        flexShrink="0"
+                    >
+                        {Children.map(slotRight, (child) => {
+                            return child;
+                        })}
+                    </Box>
+                )}
+            </Box>
+        );
+    },
 );

@@ -1,34 +1,34 @@
 {
-	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"importHelpers": true,
-		"jsx": "react-jsx",
-		"lib": ["dom", "esnext"],
-		"module": "esnext",
-		"moduleResolution": "node",
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"outDir": "dist",
-		"rootDir": "src",
-		"skipLibCheck": true,
-		"strict": true
-	},
-	"include": [
-		"src/index.css.ts",
-		"src/sprinkles/index.css.ts",
-		"src/v2-icon-flag/*.tsx",
-		"src/**/index.tsx",
-		"src/**/index.ts"
-	],
-	"exclude": [
-		"src/**/*mock.*",
-		"src/**/spec.*",
-		"src/**/stories.*",
-		"src/**/styles.css.ts",
-		"src/**/test.*"
-	]
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "importHelpers": true,
+        "jsx": "react-jsx",
+        "lib": ["dom", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "skipLibCheck": true,
+        "strict": true
+    },
+    "include": [
+        "src/index.css.ts",
+        "src/sprinkles/index.css.ts",
+        "src/v2-icon-flag/*.tsx",
+        "src/**/index.tsx",
+        "src/**/index.ts"
+    ],
+    "exclude": [
+        "src/**/*mock.*",
+        "src/**/spec.*",
+        "src/**/stories.*",
+        "src/**/styles.css.ts",
+        "src/**/test.*"
+    ]
 }

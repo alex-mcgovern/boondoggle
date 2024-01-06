@@ -6,42 +6,42 @@ import { tHeadStyles, thStyles, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
 const baseHeadStyle = style([
-	sprinkles({
-		borderTop: "border_rule",
-	}),
+    sprinkles({
+        borderTop: "border_rule",
+    }),
 ]);
 
 const isSelectable = styleVariants({
-	false: {},
-	true: {},
+    false: {},
+    true: {},
 });
 
 const hasRowActions = styleVariants({
-	false: {},
-	true: {},
+    false: {},
+    true: {},
 });
 
 export const getHeadStyle = recipe({
-	base: [baseHeadStyle, tHeadStyles],
-	variants: {
-		hasRowActions,
-		isSelectable,
-	},
+    base: [baseHeadStyle, tHeadStyles],
+    variants: {
+        hasRowActions,
+        isSelectable,
+    },
 });
 
 globalStyle(
-	`${isSelectable.true} th:first-child, ${isSelectable.true} ${thStyles}:first-child`,
-	{
-		width: vars.spacing.space_1,
-	},
+    `${isSelectable.true} th:first-child, ${isSelectable.true} ${thStyles}:first-child`,
+    {
+        width: vars.spacing.space_1,
+    },
 );
 
 globalStyle(
-	`${hasRowActions.true} th:last-child, ${hasRowActions.true} ${thStyles}:last-child`,
-	{
-		width: calc.add(
-			calc.multiply(vars.spacing.space_5, 2),
-			vars.spacing.space_12,
-		),
-	},
+    `${hasRowActions.true} th:last-child, ${hasRowActions.true} ${thStyles}:last-child`,
+    {
+        width: calc.add(
+            calc.multiply(vars.spacing.space_5, 2),
+            vars.spacing.space_12,
+        ),
+    },
 );

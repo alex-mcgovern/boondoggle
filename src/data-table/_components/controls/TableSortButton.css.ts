@@ -8,50 +8,50 @@ import { sprinkles } from "../../../sprinkles/index.css";
 const sortControlBase = style({});
 
 export const getSortControlStyle = recipe({
-	base: [
-		sortControlBase,
-		sprinkles({
-			alignItems: "center",
-			color: "text_low_contrast",
-			display: "flex",
-			flexShrink: "0",
-			gap: "space_2",
-			marginRight: "auto",
-		}),
-		withPrefersMotion({
-			transition: `color ${vars.transitionDuration.short} ease`,
-		}),
-		{
-			[`&${HOVER}`]: {
-				color: vars.color.text_high_contrast,
-			},
-		},
-	],
-	variants: {
-		isSorted: {
-			false: {},
-			true: {},
-		},
-	},
+    base: [
+        sortControlBase,
+        sprinkles({
+            alignItems: "center",
+            color: "text_low_contrast",
+            display: "flex",
+            flexShrink: "0",
+            gap: "space_2",
+            marginRight: "auto",
+        }),
+        withPrefersMotion({
+            transition: `color ${vars.transitionDuration.short} ease`,
+        }),
+        {
+            [`&${HOVER}`]: {
+                color: vars.color.text_high_contrast,
+            },
+        },
+    ],
+    variants: {
+        isSorted: {
+            false: {},
+            true: {},
+        },
+    },
 });
 
 export const sortIconStyle = style({
-	opacity: 0.4,
-	...withPrefersMotion({
-		transition: `opacity ${vars.transitionDuration.short} ease`,
-	}),
+    opacity: 0.4,
+    ...withPrefersMotion({
+        transition: `opacity ${vars.transitionDuration.short} ease`,
+    }),
 
-	/**
-	 * @note There was a bug with the table actions wrapper which
-	 * caused the sort icon to appear over dropdowns. This is
-	 * an ugly fix to make sure the sort icon is always behind.
-	 */
-	zIndex: -1,
+    /**
+     * @note There was a bug with the table actions wrapper which
+     * caused the sort icon to appear over dropdowns. This is
+     * an ugly fix to make sure the sort icon is always behind.
+     */
+    zIndex: -1,
 });
 
 globalStyle(
-	`${getSortControlStyle({ isSorted: false })}:hover ${sortIconStyle}`,
-	{
-		opacity: 0.7,
-	},
+    `${getSortControlStyle({ isSorted: false })}:hover ${sortIconStyle}`,
+    {
+        opacity: 0.7,
+    },
 );

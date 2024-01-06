@@ -9,27 +9,27 @@ import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { iconCSS } from "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {
-	className?: string;
-	icon: IconProp;
+    className?: string;
+    icon: IconProp;
 } & Sprinkles;
 
 export function Icon({
-	className: userClassName,
-	color = "currentColor",
-	icon,
-	...rest
+    className: userClassName,
+    color = "currentColor",
+    icon,
+    ...rest
 }: IconProps) {
-	const { atomProps, otherProps } = extractAtomsFromProps(rest, sprinkles);
+    const { atomProps, otherProps } = extractAtomsFromProps(rest, sprinkles);
 
-	return (
-		<FontAwesomeIcon
-			className={clsx(
-				iconCSS,
-				userClassName,
-				sprinkles({ ...atomProps, color, flexShrink: "0" }),
-			)}
-			icon={icon}
-			{...otherProps}
-		/>
-	);
+    return (
+        <FontAwesomeIcon
+            className={clsx(
+                iconCSS,
+                userClassName,
+                sprinkles({ ...atomProps, color, flexShrink: "0" }),
+            )}
+            icon={icon}
+            {...otherProps}
+        />
+    );
 }

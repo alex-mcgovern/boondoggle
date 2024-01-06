@@ -5,17 +5,17 @@ import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle"
 import clsx from "clsx";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 import {
-	ButtonContext as FieldButtonContext,
-	TextField as RACTextField,
-	type TextFieldProps as RACTextFieldProps,
-	useSlottedContext,
+    ButtonContext as FieldButtonContext,
+    TextField as RACTextField,
+    type TextFieldProps as RACTextFieldProps,
+    useSlottedContext,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
 import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
 } from "../_DEPRECATED_tooltip";
 import { i18n } from "../_i18n";
 import { FieldButton, type FieldButtonProps } from "../field-button";
@@ -29,16 +29,16 @@ import { textFieldCSS } from "./styles.css";
  * ------------------------------------------------------------------------------- */
 
 export const TextFieldClearButton = () => {
-	return (
-		<Tooltip placement="top">
-			<TooltipTrigger asChild>
-				<FieldButton slot="clear">
-					<Icon icon={faTimesCircle} />
-				</FieldButton>
-			</TooltipTrigger>
-			<TooltipContent>{i18n.clear}</TooltipContent>
-		</Tooltip>
-	);
+    return (
+        <Tooltip placement="top">
+            <TooltipTrigger asChild>
+                <FieldButton slot="clear">
+                    <Icon icon={faTimesCircle} />
+                </FieldButton>
+            </TooltipTrigger>
+            <TooltipContent>{i18n.clear}</TooltipContent>
+        </Tooltip>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -46,16 +46,19 @@ export const TextFieldClearButton = () => {
  * ------------------------------------------------------------------------------- */
 
 export const TextFieldCopyButton = (props: FieldButtonProps) => {
-	return (
-		<Tooltip placement="top">
-			<TooltipTrigger asChild>
-				<FieldButton {...props} slot="copy">
-					<Icon icon={faClipboard} />
-				</FieldButton>
-			</TooltipTrigger>
-			<TooltipContent>{i18n.copy_to_clipboard}</TooltipContent>
-		</Tooltip>
-	);
+    return (
+        <Tooltip placement="top">
+            <TooltipTrigger asChild>
+                <FieldButton
+                    {...props}
+                    slot="copy"
+                >
+                    <Icon icon={faClipboard} />
+                </FieldButton>
+            </TooltipTrigger>
+            <TooltipContent>{i18n.copy_to_clipboard}</TooltipContent>
+        </Tooltip>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -63,22 +66,25 @@ export const TextFieldCopyButton = (props: FieldButtonProps) => {
  * ------------------------------------------------------------------------------- */
 
 export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
-	const context = useSlottedContext(FieldButtonContext, "visibility");
+    const context = useSlottedContext(FieldButtonContext, "visibility");
 
-	return (
-		<Tooltip placement="top">
-			<TooltipTrigger asChild>
-				<FieldButton {...props} slot="visibility">
-					<Icon
-						icon={context?.value === "hidden" ? faEyeSlash : faEye}
-					/>
-				</FieldButton>
-			</TooltipTrigger>
-			<TooltipContent>
-				{context?.value === "hidden" ? i18n.hide : i18n.show}
-			</TooltipContent>
-		</Tooltip>
-	);
+    return (
+        <Tooltip placement="top">
+            <TooltipTrigger asChild>
+                <FieldButton
+                    {...props}
+                    slot="visibility"
+                >
+                    <Icon
+                        icon={context?.value === "hidden" ? faEyeSlash : faEye}
+                    />
+                </FieldButton>
+            </TooltipTrigger>
+            <TooltipContent>
+                {context?.value === "hidden" ? i18n.hide : i18n.show}
+            </TooltipContent>
+        </Tooltip>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -93,76 +99,76 @@ export type TextFieldProps = RACTextFieldProps;
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
  */
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-	(props, ref) => {
-		const [value, setValue] = useState<TextFieldProps["value"]>(
-			props.value || props.defaultValue,
-		);
+    (props, ref) => {
+        const [value, setValue] = useState<TextFieldProps["value"]>(
+            props.value || props.defaultValue,
+        );
 
-		const [type, setType] = useState<TextFieldProps["type"]>(props.type);
+        const [type, setType] = useState<TextFieldProps["type"]>(props.type);
 
-		const toastState = useToastContext();
+        const toastState = useToastContext();
 
-		const clearValue = useCallback(() => {
-			setValue("");
-		}, [setValue]);
+        const clearValue = useCallback(() => {
+            setValue("");
+        }, [setValue]);
 
-		const toggleVisibility = useCallback(() => {
-			setType((c) => (c === "password" ? "text" : "password"));
-		}, [setType]);
+        const toggleVisibility = useCallback(() => {
+            setType((c) => (c === "password" ? "text" : "password"));
+        }, [setType]);
 
-		const copyValue = useCallback(() => {
-			if (!value) return;
+        const copyValue = useCallback(() => {
+            if (!value) return;
 
-			return navigator.clipboard.writeText(value).then(
-				() =>
-					toastState?.add(
-						{
-							level: "success",
-							title: i18n.copied_to_clipboard,
-						},
-						{ timeout: 5000 },
-					),
-			);
-		}, [toastState, value]);
+            return navigator.clipboard.writeText(value).then(
+                () =>
+                    toastState?.add(
+                        {
+                            level: "success",
+                            title: i18n.copied_to_clipboard,
+                        },
+                        { timeout: 5000 },
+                    ),
+            );
+        }, [toastState, value]);
 
-		const buttonContext: Record<
-			"slots",
-			Record<string, FieldButtonProps>
-		> = useMemo(() => {
-			return {
-				slots: {
-					clear: {
-						isDisabled: !value,
-						onPress: clearValue,
-					},
-					copy: {
-						isDisabled: !value,
-						onPress: copyValue,
-					},
-					visibility: {
-						onPress: toggleVisibility,
-						value: type === "password" ? "hidden" : "visible",
-					},
-				},
-			};
-		}, [clearValue, copyValue, toggleVisibility, value, type]);
+        const buttonContext: Record<
+            "slots",
+            Record<string, FieldButtonProps>
+        > = useMemo(() => {
+            return {
+                slots: {
+                    clear: {
+                        isDisabled: !value,
+                        onPress: clearValue,
+                    },
+                    copy: {
+                        isDisabled: !value,
+                        onPress: copyValue,
+                    },
+                    visibility: {
+                        onPress: toggleVisibility,
+                        value: type === "password" ? "hidden" : "visible",
+                    },
+                },
+            };
+        }, [clearValue, copyValue, toggleVisibility, value, type]);
 
-		return (
-			<FieldButtonContext.Provider value={buttonContext}>
-				<RACTextField
-					{...props}
-					className={clsx(props.className, textFieldCSS)}
-					onChange={(v) => {
-						setValue(v);
-						props.onChange?.(v);
-					}}
-					ref={ref}
-					type={type}
-					value={value}
-				/>
-			</FieldButtonContext.Provider>
-		);
-	},
+        return (
+            <FieldButtonContext.Provider value={buttonContext}>
+                <RACTextField
+                    {...props}
+                    className={clsx(props.className, textFieldCSS)}
+                    onChange={(v) => {
+                        setValue(v);
+                        props.onChange?.(v);
+                    }}
+                    ref={ref}
+                    type={type}
+                    value={value}
+                />
+            </FieldButtonContext.Provider>
+        );
+    },
 );
 
 /** -----------------------------------------------------------------------------
@@ -175,43 +181,43 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
  */
 export function FormTextField({ children, ...props }: TextFieldProps) {
-	if (!props.name) {
-		throw new Error("FormTextField requires a name prop");
-	}
+    if (!props.name) {
+        throw new Error("FormTextField requires a name prop");
+    }
 
-	const { control } = useFormContext();
+    const { control } = useFormContext();
 
-	const {
-		field: { disabled: isDisabled, onChange, ref, value = "", ...field },
-		fieldState: { error, invalid },
-	} = useController({
-		control,
-		defaultValue: props.defaultValue,
-		name: props.name,
-	});
+    const {
+        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        fieldState: { error, invalid },
+    } = useController({
+        control,
+        defaultValue: props.defaultValue,
+        name: props.name,
+    });
 
-	return (
-		<TextField
-			{...props}
-			{...field}
-			isDisabled={isDisabled}
-			isInvalid={invalid}
-			onChange={(v) => {
-				onChange(v);
-				props.onChange?.(v);
-			}}
-			ref={ref}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			value={value}
-		>
-			{() => {
-				return (
-					<>
-						{children}
-						<FieldError>{error?.message}</FieldError>
-					</>
-				);
-			}}
-		</TextField>
-	);
+    return (
+        <TextField
+            {...props}
+            {...field}
+            isDisabled={isDisabled}
+            isInvalid={invalid}
+            onChange={(v) => {
+                onChange(v);
+                props.onChange?.(v);
+            }}
+            ref={ref}
+            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+            value={value}
+        >
+            {() => {
+                return (
+                    <>
+                        {children}
+                        <FieldError>{error?.message}</FieldError>
+                    </>
+                );
+            }}
+        </TextField>
+    );
 }

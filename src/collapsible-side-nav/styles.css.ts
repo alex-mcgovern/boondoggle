@@ -9,69 +9,69 @@ import { sprinkles } from "../sprinkles/index.css";
  */
 
 const open = keyframes({
-	from: {
-		overflow: "hidden",
-		transform: "translateX(-100%)",
-	},
-	to: {},
+    from: {
+        overflow: "hidden",
+        transform: "translateX(-100%)",
+    },
+    to: {},
 });
 
 const close = keyframes({
-	from: {
-		overflow: "hidden",
-		position: "absolute",
-	},
-	to: {
-		overflow: "hidden",
-		position: "absolute",
-		transform: "translateX(-100%)",
-	},
+    from: {
+        overflow: "hidden",
+        position: "absolute",
+    },
+    to: {
+        overflow: "hidden",
+        position: "absolute",
+        transform: "translateX(-100%)",
+    },
 });
 
 export const collapsibleNavButtonCSS = style([
-	sprinkles({}),
-	{
-		"@media": {
-			[MEDIA_QUERY_MOBILE]: {
-				display: "none",
-			},
-		},
-		display: "flex",
-	},
+    sprinkles({}),
+    {
+        "@media": {
+            [MEDIA_QUERY_MOBILE]: {
+                display: "none",
+            },
+        },
+        display: "flex",
+    },
 ]);
 export const collapsibleNavOuterCSS = style([
-	sprinkles({
-		borderRight: "border_rule",
-		zIndex: "1",
-	}),
-	{
-		selectors: {
-			'&[data-state="closed"]': {
-				animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
-			},
-			'&[data-state="open"]': {
-				animation: `${open} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
-			},
-		},
-	},
+    sprinkles({
+        borderRight: "border_rule",
+        zIndex: "1",
+    }),
+    {
+        selectors: {
+            '&[data-state="closed"]': {
+                animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
+            },
+            '&[data-state="open"]': {
+                animation: `${open} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
+            },
+        },
+    },
 ]);
 
 export const collapsibleNavInnerCSS = style([
-	sprinkles({
-		background: "background",
+    sprinkles({
+        background: "background",
 
-		display: "flex",
-		flexDirection: "column",
+        display: "flex",
+        flexDirection: "column",
 
-		paddingX: "space_4",
-		paddingY: "space_2",
+        paddingX: "space_4",
+        paddingY: "space_2",
 
-		position: "sticky",
-		top: "0",
-		zIndex: "1",
-	}),
-	{
-		height: calc.subtract("100dvh", vars.height.topBar),
-		width: vars.width.sideBar,
-	},
+        position: "sticky",
+        top: "0",
+        zIndex: "1",
+    }),
+    {
+        height: calc.subtract("100dvh", vars.height.topBar),
+        width: vars.width.sideBar,
+    },
 ]);

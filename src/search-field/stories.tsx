@@ -5,18 +5,18 @@ import { Input } from "../input";
 import { Label } from "../label";
 
 const meta = {
-	args: {},
-	component: SearchField,
-	render: (args) => {
-		return (
-			<SearchField {...args}>
-				<SearchFieldIcon />
-				<Label>Label</Label>
-				<Input />
-			</SearchField>
-		);
-	},
-	title: "SearchField",
+    args: {},
+    component: SearchField,
+    render: (args) => {
+        return (
+            <SearchField {...args}>
+                <SearchFieldIcon />
+                <Label>Label</Label>
+                <Input />
+            </SearchField>
+        );
+    },
+    title: "SearchField",
 } satisfies Meta<typeof SearchField>;
 
 export default meta;

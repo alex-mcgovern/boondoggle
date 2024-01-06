@@ -10,27 +10,27 @@ import { floatingPanel } from "./styles.css";
  * @private Is a base component that should be wrapped with `ForwardRef`.
  */
 const BaseFloatingPanel = (
-	{
-		children,
-		className,
-		isOpen,
-		...rest
-	}: HTMLAttributes<HTMLDivElement> & {
-		children: ReactNode;
-		className?: string;
-		isOpen: boolean | undefined;
-	},
-		ref: ForwardedRef<HTMLDivElement>,
+    {
+        children,
+        className,
+        isOpen,
+        ...rest
+    }: HTMLAttributes<HTMLDivElement> & {
+        children: ReactNode;
+        className?: string;
+        isOpen: boolean | undefined;
+    },
+    ref: ForwardedRef<HTMLDivElement>,
 ) => {
-	return (
-		<div
-			className={clsx(className, floatingPanel({ isOpen }))}
-			ref={ref}
-			{...rest}
-		>
-			{children}
-		</div>
-	);
+    return (
+        <div
+            className={clsx(className, floatingPanel({ isOpen }))}
+            ref={ref}
+            {...rest}
+        >
+            {children}
+        </div>
+    );
 };
 
 export const FloatingPanel = forwardRef(BaseFloatingPanel);

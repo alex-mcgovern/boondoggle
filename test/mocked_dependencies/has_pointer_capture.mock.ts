@@ -5,21 +5,21 @@
  * https://github.com/jsdom/jsdom/pull/2666
  */
 class MockPointerEvent extends Event {
-	button: number;
+    button: number;
 
-	ctrlKey: boolean;
+    ctrlKey: boolean;
 
-	pointerType: string;
+    pointerType: string;
 
-	constructor(type: string, props: PointerEventInit) {
-		super(type, props);
+    constructor(type: string, props: PointerEventInit) {
+        super(type, props);
 
-		this.button = props.button || 0;
+        this.button = props.button || 0;
 
-		this.ctrlKey = props.ctrlKey || false;
+        this.ctrlKey = props.ctrlKey || false;
 
-		this.pointerType = props.pointerType || "mouse";
-	}
+        this.pointerType = props.pointerType || "mouse";
+    }
 }
 
 window.PointerEvent = MockPointerEvent as any;

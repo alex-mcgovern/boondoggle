@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import {
-	Button as RACButton,
-	type ButtonProps as RACButtonProps,
+    Button as RACButton,
+    type ButtonProps as RACButtonProps,
 } from "react-aria-components";
 
 import { fieldButtonCSS } from "./styles.css";
@@ -14,14 +14,14 @@ export type FieldButtonProps = RACButtonProps;
  * button to the field.
  */
 export const FieldButton = forwardRef<HTMLButtonElement, FieldButtonProps>(
-	(props: RACButtonProps, ref) => {
-		return (
-			<RACButton
-				{...props}
-				className={fieldButtonCSS}
-				excludeFromTabOrder
-				ref={ref}
-			/>
-		);
-	},
+    (props: RACButtonProps, ref) => {
+        return (
+            <RACButton
+                {...props}
+                className={fieldButtonCSS}
+                excludeFromTabOrder
+                ref={ref}
+            />
+        );
+    },
 );

@@ -1,6 +1,6 @@
 import type {
-	ButtonProps as RACButtonProps,
-	LinkProps as RACLinkProps,
+    ButtonProps as RACButtonProps,
+    LinkProps as RACLinkProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
@@ -18,28 +18,28 @@ import { buttonCSS } from "./styles.css";
 export type ButtonProps = RACButtonProps & ButtonVariants;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	(
-		{
-			alignment = "center",
-			appearance = "primary",
-			className,
-			colorOverlay,
-			size = "sm",
-			...props
-		},
-		ref,
-	) => {
-		return (
-			<RACButton
-				{...props}
-				className={clsx(
-					className,
-					buttonCSS({ alignment, appearance, colorOverlay, size }),
-				)}
-				ref={ref}
-			/>
-		);
-	},
+    (
+        {
+            alignment = "center",
+            appearance = "primary",
+            className,
+            colorOverlay,
+            size = "sm",
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <RACButton
+                {...props}
+                className={clsx(
+                    className,
+                    buttonCSS({ alignment, appearance, colorOverlay, size }),
+                )}
+                ref={ref}
+            />
+        );
+    },
 );
 
 /** -----------------------------------------------------------------------------
@@ -49,26 +49,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 export type LinkButtonProps = RACLinkProps & ButtonVariants;
 
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
-	(
-		{
-			alignment = "center",
-			appearance = "primary",
-			className,
-			colorOverlay,
-			size = "sm",
-			...props
-		},
-		ref,
-	) => {
-		return (
-			<RACLink
-				{...props}
-				className={clsx(
-					className,
-					buttonCSS({ alignment, appearance, colorOverlay, size }),
-				)}
-				ref={ref}
-			/>
-		);
-	},
+    (
+        {
+            alignment = "center",
+            appearance = "primary",
+            className,
+            colorOverlay,
+            size = "sm",
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <RACLink
+                {...props}
+                className={clsx(
+                    className,
+                    buttonCSS({ alignment, appearance, colorOverlay, size }),
+                )}
+                ref={ref}
+            />
+        );
+    },
 );

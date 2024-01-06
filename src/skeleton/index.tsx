@@ -6,19 +6,19 @@ import { Box } from "../box";
 import { loadingStyles } from "./styles.css";
 
 export function Skeleton({
-	borderRadius = "sm",
-	className,
-	height = "space_6",
-	width = "100%",
-	...rest
+    borderRadius = "sm",
+    className,
+    height = "space_6",
+    width = "100%",
+    ...rest
 }: BoxProps) {
-	return (
-		<Box
-			borderRadius={borderRadius}
-			className={clsx(className, loadingStyles)}
-			height={height}
-			width={width}
-			{...rest}
-		/>
-	);
+    return (
+        <Box
+            borderRadius={borderRadius}
+            className={clsx(className, loadingStyles)}
+            height={height}
+            width={width}
+            {...rest}
+        />
+    );
 }

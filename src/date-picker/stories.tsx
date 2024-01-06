@@ -6,22 +6,22 @@ import { Group } from "../group";
 import { Label } from "../label";
 
 const meta = {
-	args: {
-		onChange: (v) => {
-			alert(v);
-		},
-	},
-	component: DatePicker,
-	render: (args) => (
-		<DatePicker {...args}>
-			<Label>Date</Label>
-			<Group>
-				<DateInput />
-				<DatePickerButton />
-			</Group>
-		</DatePicker>
-	),
-	title: "DatePicker",
+    args: {
+        onChange: (v) => {
+            alert(v);
+        },
+    },
+    component: DatePicker,
+    render: (args) => (
+        <DatePicker {...args}>
+            <Label>Date</Label>
+            <Group>
+                <DateInput />
+                <DatePickerButton />
+            </Group>
+        </DatePicker>
+    ),
+    title: "DatePicker",
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;

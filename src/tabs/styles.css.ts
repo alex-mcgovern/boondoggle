@@ -6,12 +6,12 @@ import type { Sprinkles } from "../sprinkles/index.css";
 
 import { withPrefersMotion } from "../css-utils";
 import {
-	HOVER,
-	NOT_DISABLED,
-	a11yDisabled,
-	hideScrollbar,
-	variantColorOverlay,
-	vars,
+    HOVER,
+    NOT_DISABLED,
+    a11yDisabled,
+    hideScrollbar,
+    variantColorOverlay,
+    vars,
 } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
@@ -27,51 +27,51 @@ const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
  * ------------------------------------------------------------------------------- */
 
 export const tabListOuterCSS = style([
-	sprinkles({
-		marginY: "space_2",
-		position: "relative",
-	}),
-	{
-		selectors: {
-			"&:after": {
-				borderBottom: `1px solid ${vars.color.border_rule}`,
-				content: "",
-				inset: 0,
-				position: "absolute",
-				width: "inherit",
-				zIndex: -10,
-			},
-		},
-	},
+    sprinkles({
+        marginY: "space_2",
+        position: "relative",
+    }),
+    {
+        selectors: {
+            "&:after": {
+                borderBottom: `1px solid ${vars.color.border_rule}`,
+                content: "",
+                inset: 0,
+                position: "absolute",
+                width: "inherit",
+                zIndex: -10,
+            },
+        },
+    },
 ]);
 
 export const tabListInnerCSS = recipe({
-	base: [
-		sprinkles({
-			alignItems: "center",
-			display: "flex",
-			gap: "space_6",
-			paddingBottom: "space_1",
-		}),
-		{
-			overflowX: "scroll",
-			overflowY: "visible",
-		},
-		hideScrollbar,
-	],
-	defaultVariants: {
-		justify: "start",
-	},
-	variants: {
-		justify: {
-			"space-evenly": {
-				justifyContent: "space-evenly",
-			},
-			start: {
-				justifyContent: "flex-start",
-			},
-		},
-	},
+    base: [
+        sprinkles({
+            alignItems: "center",
+            display: "flex",
+            gap: "space_6",
+            paddingBottom: "space_1",
+        }),
+        {
+            overflowX: "scroll",
+            overflowY: "visible",
+        },
+        hideScrollbar,
+    ],
+    defaultVariants: {
+        justify: "start",
+    },
+    variants: {
+        justify: {
+            "space-evenly": {
+                justifyContent: "space-evenly",
+            },
+            start: {
+                justifyContent: "flex-start",
+            },
+        },
+    },
 });
 
 /** -----------------------------------------------------------------------------
@@ -79,73 +79,73 @@ export const tabListInnerCSS = recipe({
  * ------------------------------------------------------------------------------- */
 
 export const tabOuterCSS = style([
-	a11yDisabled,
-	sprinkles({
-		borderRadius: "md",
+    a11yDisabled,
+    sprinkles({
+        borderRadius: "md",
 
-		color: "text_low_contrast",
-		display: "inline-flex",
-		flexShrink: "0",
+        color: "text_low_contrast",
+        display: "inline-flex",
+        flexShrink: "0",
 
-		fontStyle: "bodyMd",
-		fontWeight: "medium",
+        fontStyle: "bodyMd",
+        fontWeight: "medium",
 
-		paddingY: "space_0.25",
-		placeItems: "center",
-		position: "relative",
+        paddingY: "space_0.25",
+        placeItems: "center",
+        position: "relative",
 
-		textDecoration: "none",
-		whiteSpace: "nowrap",
-	}),
-	withPrefersMotion({
-		transitionDuration: vars.transitionDuration.short,
-		transitionProperty: "color, background",
-		transitionTimingFunction: vars.ease.quart_in_out,
-	}),
-	{
-		height: TAB_HEIGHT,
+        textDecoration: "none",
+        whiteSpace: "nowrap",
+    }),
+    withPrefersMotion({
+        transitionDuration: vars.transitionDuration.short,
+        transitionProperty: "color, background",
+        transitionTimingFunction: vars.ease.quart_in_out,
+    }),
+    {
+        height: TAB_HEIGHT,
 
-		outline: "none",
+        outline: "none",
 
-		selectors: {
-			"&[data-selected]": {
-				color: vars.color.button_default,
-			},
+        selectors: {
+            "&[data-selected]": {
+                color: vars.color.button_default,
+            },
 
-			[`&${NOT_DISABLED}${HOVER}`]: {
-				color: vars.color.text_high_contrast,
-				cursor: "pointer",
-			},
-			[`&[data-selected]${HOVER}`]: {
-				color: vars.color.button_default,
-			},
-		},
-	},
+            [`&${NOT_DISABLED}${HOVER}`]: {
+                color: vars.color.text_high_contrast,
+                cursor: "pointer",
+            },
+            [`&[data-selected]${HOVER}`]: {
+                color: vars.color.button_default,
+            },
+        },
+    },
 ]);
 
 export const tabInnerCSS = style([
-	sprinkles({
-		alignItems: "center",
-		display: "flex",
-		gap: "space_1",
-	}),
+    sprinkles({
+        alignItems: "center",
+        display: "flex",
+        gap: "space_1",
+    }),
 ]);
 
 export const tabIndicatorCSS = style([
-	sprinkles({
-		background: "button_default",
-		position: "absolute",
-		zIndex: "-1",
-	}),
-	{
-		height: TAB_INDICATOR_HEIGHT,
+    sprinkles({
+        background: "button_default",
+        position: "absolute",
+        zIndex: "-1",
+    }),
+    {
+        height: TAB_INDICATOR_HEIGHT,
 
-		inset: 0,
-		pointerEvents: "none",
+        inset: 0,
+        pointerEvents: "none",
 
-		top: calc.add("100%", TAB_INDICATOR_HEIGHT),
-		userSelect: "none",
-	},
+        top: calc.add("100%", TAB_INDICATOR_HEIGHT),
+        userSelect: "none",
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -153,44 +153,44 @@ export const tabIndicatorCSS = style([
  * ------------------------------------------------------------------------------- */
 
 const TAB_COUNT_SIZE = "space_4" satisfies
-	| Sprinkles["height"]
-	| Sprinkles["maxWidth"]
-	| Sprinkles["width"];
+    | Sprinkles["height"]
+    | Sprinkles["maxWidth"]
+    | Sprinkles["width"];
 
 export const tabCountCSS = style([
-	variantColorOverlay.blue,
-	sprinkles({
-		alignItems: "center",
-		background: "button_tint",
-		borderRadius: "pill",
+    variantColorOverlay.blue,
+    sprinkles({
+        alignItems: "center",
+        background: "button_tint",
+        borderRadius: "pill",
 
-		color: "text_low_contrast",
-		display: "flex",
-		flexGrow: "0",
-		flexShrink: "0",
-		fontWeight: "semibold",
+        color: "text_low_contrast",
+        display: "flex",
+        flexGrow: "0",
+        flexShrink: "0",
+        fontWeight: "semibold",
 
-		height: TAB_COUNT_SIZE,
-		justifyContent: "center",
+        height: TAB_COUNT_SIZE,
+        justifyContent: "center",
 
-		marginX: "space_0.5",
-		minWidth: TAB_COUNT_SIZE,
+        marginX: "space_0.5",
+        minWidth: TAB_COUNT_SIZE,
 
-		paddingX: "space_1",
-		paddingY: "space_0.5",
-		textAlign: "center",
-	}),
-	{
-		fontSize: "0.625rem",
-		lineHeight: "0.625rem",
-	},
+        paddingX: "space_1",
+        paddingY: "space_0.5",
+        textAlign: "center",
+    }),
+    {
+        fontSize: "0.625rem",
+        lineHeight: "0.625rem",
+    },
 ]);
 export const tabCountIconCSS = style([
-	sprinkles({
-		color: "inherit",
-		height: TAB_COUNT_SIZE,
-		padding: "space_0.5",
+    sprinkles({
+        color: "inherit",
+        height: TAB_COUNT_SIZE,
+        padding: "space_0.5",
 
-		width: TAB_COUNT_SIZE,
-	}),
+        width: TAB_COUNT_SIZE,
+    }),
 ]);

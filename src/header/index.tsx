@@ -8,34 +8,37 @@ import { actionsCSS, headerCSS } from "./styles.css";
  * Header HTML element.
  */
 export function Header({
-	actions,
-	children,
-	className,
-	tabs,
-	...rest
+    actions,
+    children,
+    className,
+    tabs,
+    ...rest
 }: HTMLProps<HTMLElement> & {
-	/**
-	 * Actions to be displayed on the right side of the header.
-	 */
-	actions?: ReactNode;
+    /**
+     * Actions to be displayed on the right side of the header.
+     */
+    actions?: ReactNode;
 
-	/**
-	 * Main content.
-	 */
-	children: ReactNode;
+    /**
+     * Main content.
+     */
+    children: ReactNode;
 
-	/**
-	 * Tabs to be displayed underneath the header.
-	 */
-	tabs?: ReactNode;
+    /**
+     * Tabs to be displayed underneath the header.
+     */
+    tabs?: ReactNode;
 }) {
-	return (
-		<>
-			<header className={clsx(className, headerCSS)} {...rest}>
-				{children}
-				{actions && <div className={actionsCSS}>{actions}</div>}
-			</header>
-			{tabs && tabs}
-		</>
-	);
+    return (
+        <>
+            <header
+                className={clsx(className, headerCSS)}
+                {...rest}
+            >
+                {children}
+                {actions && <div className={actionsCSS}>{actions}</div>}
+            </header>
+            {tabs && tabs}
+        </>
+    );
 }

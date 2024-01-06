@@ -7,19 +7,19 @@ import { Input } from "../input";
 import { Label } from "../label";
 
 const meta = {
-	component: ComboBoxCountry,
-	render: (args) => {
-		return (
-			<ComboBoxCountry {...args}>
-				<Label>Country/Region</Label>
-				<Group>
-					<Input />
-					<ComboBoxButton />
-				</Group>
-			</ComboBoxCountry>
-		);
-	},
-	title: "ComboBoxCountry",
+    component: ComboBoxCountry,
+    render: (args) => {
+        return (
+            <ComboBoxCountry {...args}>
+                <Label>Country/Region</Label>
+                <Group>
+                    <Input />
+                    <ComboBoxButton />
+                </Group>
+            </ComboBoxCountry>
+        );
+    },
+    title: "ComboBoxCountry",
 } satisfies Meta<typeof ComboBoxCountry>;
 
 export default meta;

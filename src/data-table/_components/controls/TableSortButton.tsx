@@ -8,39 +8,47 @@ import { Icon } from "../../../icon";
 import { getSortControlStyle, sortIconStyle } from "./TableSortButton.css";
 
 export function TableSortButton<TData>({
-	children,
-	header,
+    children,
+    header,
 }: {
-	children: ReactNode;
-	header: Header<TData, unknown>;
+    children: ReactNode;
+    header: Header<TData, unknown>;
 }) {
-	const canSort = header.column.getCanSort();
-	const isSorted = !!header.column.getIsSorted();
+    const canSort = header.column.getCanSort();
+    const isSorted = !!header.column.getIsSorted();
 
-	const slotRight = canSort
-		? {
-				asc: <Icon className={sortIconStyle} icon={faSortUp} />,
-				desc: (
-					<Icon
-						className={sortIconStyle}
-						icon={faSortUp}
-						style={{ transform: "rotate(180deg)" }}
-					/>
-				),
-			}[header.column.getIsSorted() as string] ?? (
-				<Icon className={sortIconStyle} icon={faSort} />
-			)
-		: undefined;
+    const slotRight = canSort
+        ? {
+              asc: (
+                  <Icon
+                      className={sortIconStyle}
+                      icon={faSortUp}
+                  />
+              ),
+              desc: (
+                  <Icon
+                      className={sortIconStyle}
+                      icon={faSortUp}
+                      style={{ transform: "rotate(180deg)" }}
+                  />
+              ),
+          }[header.column.getIsSorted() as string] ?? (
+              <Icon
+                  className={sortIconStyle}
+                  icon={faSort}
+              />
+          )
+        : undefined;
 
-	return (
-		<button
-			className={getSortControlStyle({ isSorted })}
-			name={`sort_${header.column.id}`}
-			onClick={header.column.getToggleSortingHandler()}
-			type="button"
-		>
-			{children}
-			{slotRight}
-		</button>
-	);
+    return (
+        <button
+            className={getSortControlStyle({ isSorted })}
+            name={`sort_${header.column.id}`}
+            onClick={header.column.getToggleSortingHandler()}
+            type="button"
+        >
+            {children}
+            {slotRight}
+        </button>
+    );
 }

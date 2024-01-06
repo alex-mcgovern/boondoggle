@@ -4,17 +4,17 @@ import { ACTIVE, FOCUS, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const inputBg = style([
-	sprinkles({
-		background: "text_field_background",
-	}),
-	{
-		selectors: {
-			[`&:${ACTIVE}`]: {
-				background: vars.color.text_field_background_highlighted,
-			},
-			[`&:${FOCUS}`]: {
-				background: vars.color.text_field_background_highlighted,
-			},
-		},
-	},
+    sprinkles({
+        background: "text_field_background",
+    }),
+    {
+        selectors: {
+            [`&:${ACTIVE}`]: {
+                background: vars.color.text_field_background_highlighted,
+            },
+            [`&:${FOCUS}`]: {
+                background: vars.color.text_field_background_highlighted,
+            },
+        },
+    },
 ]);

@@ -10,32 +10,40 @@ import { Icon } from "../icon";
 import { sprinkles } from "../sprinkles/index.css";
 
 export default {
-	component: StoryComp,
-	title: "Collapsible",
+    component: StoryComp,
+    title: "Collapsible",
 };
 
 const TriggerNode = (
-	<button
-		className={sprinkles({
-			alignItems: "center",
-			color: "text_high_contrast",
-			display: "flex",
-			width: "100%",
-		})}
-		type="button"
-	>
-		Open collapsible
-		<Icon icon={faAngleDown} marginLeft="auto" />
-	</button>
+    <button
+        className={sprinkles({
+            alignItems: "center",
+            color: "text_high_contrast",
+            display: "flex",
+            width: "100%",
+        })}
+        type="button"
+    >
+        Open collapsible
+        <Icon
+            icon={faAngleDown}
+            marginLeft="auto"
+        />
+    </button>
 );
 
 const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
-	return <StoryComp {...rest} triggerNode={TriggerNode} />;
+    return (
+        <StoryComp
+            {...rest}
+            triggerNode={TriggerNode}
+        />
+    );
 };
 
 export const Default: StoryObj<StoryCompProps> = {
-	args: {
-		children: LOREM.title_xl,
-	},
-	render: Template,
+    args: {
+        children: LOREM.title_xl,
+    },
+    render: Template,
 };

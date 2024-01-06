@@ -3,8 +3,8 @@ import type { DatePickerProps as RACDatePickerProps } from "react-aria-component
 import { faCalendar } from "@fortawesome/pro-regular-svg-icons/faCalendar";
 import { type CalendarDate, parseDate } from "@internationalized/date";
 import {
-	DatePicker as RACDatePicker,
-	Dialog as RACDialog,
+    DatePicker as RACDatePicker,
+    Dialog as RACDialog,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
@@ -20,11 +20,11 @@ import { Popover } from "../popover";
  * ------------------------------------------------------------------------------- */
 
 export const DatePickerButton = () => {
-	return (
-		<FieldButton>
-			<Icon icon={faCalendar} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton>
+            <Icon icon={faCalendar} />
+        </FieldButton>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -39,27 +39,30 @@ export const DatePickerButton = () => {
 export type DatePickerProps = RACDatePickerProps<CalendarDate>;
 
 export const DatePicker = ({
-	children,
-	...props
+    children,
+    ...props
 }: RACDatePickerProps<CalendarDate>) => {
-	return (
-		<RACDatePicker {...props}>
-			{(values) => {
-				return (
-					<>
-						{typeof children === "function"
-							? children(values)
-							: children}
-						<Popover className={menuCSS} placement="bottom end">
-							<RACDialog>
-								<Calendar />
-							</RACDialog>
-						</Popover>
-					</>
-				);
-			}}
-		</RACDatePicker>
-	);
+    return (
+        <RACDatePicker {...props}>
+            {(values) => {
+                return (
+                    <>
+                        {typeof children === "function"
+                            ? children(values)
+                            : children}
+                        <Popover
+                            className={menuCSS}
+                            placement="bottom end"
+                        >
+                            <RACDialog>
+                                <Calendar />
+                            </RACDialog>
+                        </Popover>
+                    </>
+                );
+            }}
+        </RACDatePicker>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -72,41 +75,41 @@ export const DatePicker = ({
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
  */
 export function FormDatePicker({ children, ...props }: DatePickerProps) {
-	if (!props.name) {
-		throw new Error("FormDatePicker requires a name prop");
-	}
+    if (!props.name) {
+        throw new Error("FormDatePicker requires a name prop");
+    }
 
-	const { control } = useFormContext();
+    const { control } = useFormContext();
 
-	const {
-		field: { disabled: isDisabled, onChange, ref, value = null, ...field },
-		fieldState: { error, invalid },
-	} = useController({
-		control,
-		defaultValue: props.defaultValue,
-		name: props.name,
-	});
+    const {
+        field: { disabled: isDisabled, onChange, ref, value = null, ...field },
+        fieldState: { error, invalid },
+    } = useController({
+        control,
+        defaultValue: props.defaultValue,
+        name: props.name,
+    });
 
-	return (
-		<DatePicker
-			{...props}
-			{...field}
-			isInvalid={invalid}
-			onChange={(v) => {
-				onChange(v.toString());
-				props.onChange?.(v);
-			}}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			value={value ? parseDate(value) : value}
-		>
-			{() => {
-				return (
-					<>
-						{children}
-						<FieldError>{error?.message}</FieldError>
-					</>
-				);
-			}}
-		</DatePicker>
-	);
+    return (
+        <DatePicker
+            {...props}
+            {...field}
+            isInvalid={invalid}
+            onChange={(v) => {
+                onChange(v.toString());
+                props.onChange?.(v);
+            }}
+            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+            value={value ? parseDate(value) : value}
+        >
+            {() => {
+                return (
+                    <>
+                        {children}
+                        <FieldError>{error?.message}</FieldError>
+                    </>
+                );
+            }}
+        </DatePicker>
+    );
 }

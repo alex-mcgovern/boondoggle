@@ -5,7 +5,12 @@ import { Section as ReactAriaSection } from "react-aria-components";
 import { menuSectionCSS } from "../_css/menu.css";
 
 export function Section<TItem extends object = object>(
-	props: ReactAriaSectionProps<TItem>,
+    props: ReactAriaSectionProps<TItem>,
 ) {
-	return <ReactAriaSection className={menuSectionCSS} {...props} />;
+    return (
+        <ReactAriaSection
+            className={menuSectionCSS}
+            {...props}
+        />
+    );
 }

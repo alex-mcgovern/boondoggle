@@ -11,143 +11,143 @@ import { Button } from "../button";
 import { Icon } from "../icon";
 import { MEDIA_QUERY_MOBILE } from "../index.css";
 import {
-	collapsibleNavButtonCSS,
-	collapsibleNavInnerCSS,
-	collapsibleNavOuterCSS,
+    collapsibleNavButtonCSS,
+    collapsibleNavInnerCSS,
+    collapsibleNavOuterCSS,
 } from "./styles.css";
 
 function useMatchMedia(
-	queries: string[],
-	defaultValues: boolean[] = [],
+    queries: string[],
+    defaultValues: boolean[] = [],
 ): boolean[] {
-	const initialValues = defaultValues.length
-		? defaultValues
-		: Array(queries.length).fill(false);
+    const initialValues = defaultValues.length
+        ? defaultValues
+        : Array(queries.length).fill(false);
 
-	if (typeof window === "undefined") return initialValues;
+    if (typeof window === "undefined") return initialValues;
 
-	const mediaQueryLists = queries.map((q) => window.matchMedia(q));
-	const getValue = () => mediaQueryLists.map((mql) => mql.matches);
+    const mediaQueryLists = queries.map((q) => window.matchMedia(q));
+    const getValue = () => mediaQueryLists.map((mql) => mql.matches);
 
-	const [value, setValue] = useState(getValue);
+    const [value, setValue] = useState(getValue);
 
-	useLayoutEffect(() => {
-		const handler = (): void => setValue(getValue);
+    useLayoutEffect(() => {
+        const handler = (): void => setValue(getValue);
 
-		for (const mql of mediaQueryLists) {
-			mql.addEventListener("change", handler);
-		}
-		return (): void => {
-			for (const mql of mediaQueryLists) {
-				mql.removeEventListener("change", handler);
-			}
-		};
-	}, [mediaQueryLists, getValue]);
+        for (const mql of mediaQueryLists) {
+            mql.addEventListener("change", handler);
+        }
+        return (): void => {
+            for (const mql of mediaQueryLists) {
+                mql.removeEventListener("change", handler);
+            }
+        };
+    }, [mediaQueryLists, getValue]);
 
-	return value;
+    return value;
 }
 
 /**
  * React context provider that allows toggling the open state of a collapsible UI element from anywhere in the app.
  */
 export const CollapsibleSideNavContext = createContext<
-	[boolean, Dispatch<SetStateAction<boolean>>] | undefined
+    [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
 export const CollapsibleSideNavProvider = ({
-	children,
+    children,
 }: {
-	children: ReactNode;
+    children: ReactNode;
 }) => {
-	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
-	const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
+    const [isOpen, setIsOpen] = useState<boolean>(true);
 
-	useLayoutEffect(() => {
-		if (isMobile) {
-			return setIsOpen(false);
-		}
-		return setIsOpen(true);
-	}, [isMobile, setIsOpen]);
+    useLayoutEffect(() => {
+        if (isMobile) {
+            return setIsOpen(false);
+        }
+        return setIsOpen(true);
+    }, [isMobile, setIsOpen]);
 
-	return (
-		<CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
-			{children}
-		</CollapsibleSideNavContext.Provider>
-	);
+    return (
+        <CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
+            {children}
+        </CollapsibleSideNavContext.Provider>
+    );
 };
 
 /**
  * Hook for consuming the CollapsibleSideNavContext.
  */
 export const useCollapsibleSideNav = () => {
-	const context = useContext(CollapsibleSideNavContext);
+    const context = useContext(CollapsibleSideNavContext);
 
-	if (context == null) {
-		throw new Error(
-			"CollapsibleSideNavContext must be used within a CollapsibleSideNavProvider",
-		);
-	}
+    if (context == null) {
+        throw new Error(
+            "CollapsibleSideNavContext must be used within a CollapsibleSideNavProvider",
+        );
+    }
 
-	return context;
+    return context;
 };
 
 /**
  * Button for toggling the side nav
  */
 export const ButtonToggleCollapsibleNav = () => {
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [_, setIsOpen] = useCollapsibleSideNav();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setIsOpen] = useCollapsibleSideNav();
 
-	return (
-		<Button
-			appearance="ghost"
-			className={collapsibleNavButtonCSS}
-			name="mobile_menu"
-			onPress={() => setIsOpen((c) => !c)}
-			size="square_sm"
-		>
-			<Icon icon={faSidebar} />
-		</Button>
-	);
+    return (
+        <Button
+            appearance="ghost"
+            className={collapsibleNavButtonCSS}
+            name="mobile_menu"
+            onPress={() => setIsOpen((c) => !c)}
+            size="square_sm"
+        >
+            <Icon icon={faSidebar} />
+        </Button>
+    );
 };
 
 export function CollapsibleSideNav({
-	children,
-	isOpen: controlledIsOpen,
-	onOpenChange: controlledOnOpenChange,
+    children,
+    isOpen: controlledIsOpen,
+    onOpenChange: controlledOnOpenChange,
 }: {
-	children: Array<ReactNode> | ReactNode;
-	isOpen?: boolean;
-	onOpenChange?: (openState: boolean) => void;
+    children: Array<ReactNode> | ReactNode;
+    isOpen?: boolean;
+    onOpenChange?: (openState: boolean) => void;
 }) {
-	const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
+    const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
 
-	const [isOpen, setIsOpen] = useCollapsibleSideNav();
+    const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
-	useLayoutEffect(() => {
-		if (controlledIsOpen !== undefined) {
-			return setIsOpen(controlledIsOpen);
-		}
+    useLayoutEffect(() => {
+        if (controlledIsOpen !== undefined) {
+            return setIsOpen(controlledIsOpen);
+        }
 
-		if (isMobile) {
-			return setIsOpen(false);
-		}
-		return setIsOpen(true);
-	}, [isMobile, setIsOpen, controlledIsOpen]);
+        if (isMobile) {
+            return setIsOpen(false);
+        }
+        return setIsOpen(true);
+    }, [isMobile, setIsOpen, controlledIsOpen]);
 
-	return (
-		<RadixCollapsible.Root
-			onOpenChange={controlledOnOpenChange}
-			open={isOpen}
-		>
-			<RadixCollapsible.Content
-				asChild
-				className={collapsibleNavOuterCSS}
-			>
-				<aside>
-					<nav className={collapsibleNavInnerCSS}>{children}</nav>
-				</aside>
-			</RadixCollapsible.Content>
-		</RadixCollapsible.Root>
-	);
+    return (
+        <RadixCollapsible.Root
+            onOpenChange={controlledOnOpenChange}
+            open={isOpen}
+        >
+            <RadixCollapsible.Content
+                asChild
+                className={collapsibleNavOuterCSS}
+            >
+                <aside>
+                    <nav className={collapsibleNavInnerCSS}>{children}</nav>
+                </aside>
+            </RadixCollapsible.Content>
+        </RadixCollapsible.Root>
+    );
 }

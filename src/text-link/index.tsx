@@ -15,13 +15,13 @@ export type TextLinkProps = RACLinkProps;
  */
 
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-	(props, ref) => {
-		return (
-			<RACLink
-				{...props}
-				className={clsx(props.className, textLinkCSS)}
-				ref={ref}
-			/>
-		);
-	},
+    (props, ref) => {
+        return (
+            <RACLink
+                {...props}
+                className={clsx(props.className, textLinkCSS)}
+                ref={ref}
+            />
+        );
+    },
 );

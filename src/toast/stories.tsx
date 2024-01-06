@@ -6,49 +6,49 @@ import { ToastProvider, useToastContext } from ".";
 import { Button } from "../button";
 
 const meta = {
-	args: {},
-	component: ToastProvider,
-	decorators: [
-		(Story) => (
-			<ToastProvider>
-				<Story />
-			</ToastProvider>
-		),
-	],
-	render: () => {
-		const state = useToastContext();
+    args: {},
+    component: ToastProvider,
+    decorators: [
+        (Story) => (
+            <ToastProvider>
+                <Story />
+            </ToastProvider>
+        ),
+    ],
+    render: () => {
+        const state = useToastContext();
 
-		return (
-			<>
-				<Button
-					appearance="secondary"
-					onPress={() => {
-						state.add(
-							{
-								description: faker.lorem.sentence(7),
-								level: faker.helpers.arrayElement([
-									"info",
-									"success",
-									"warning",
-									"error",
-								]),
-								title: faker.lorem.sentence(3),
-							},
-							{ timeout: 5000 },
-						);
-					}}
-				>
-					Show toast
-				</Button>
-			</>
-		);
-	},
-	title: "ToastProvider",
+        return (
+            <>
+                <Button
+                    appearance="secondary"
+                    onPress={() => {
+                        state.add(
+                            {
+                                description: faker.lorem.sentence(7),
+                                level: faker.helpers.arrayElement([
+                                    "info",
+                                    "success",
+                                    "warning",
+                                    "error",
+                                ]),
+                                title: faker.lorem.sentence(3),
+                            },
+                            { timeout: 5000 },
+                        );
+                    }}
+                >
+                    Show toast
+                </Button>
+            </>
+        );
+    },
+    title: "ToastProvider",
 } satisfies Meta<typeof ToastProvider>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {},
+    args: {},
 };

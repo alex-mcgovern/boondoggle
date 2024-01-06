@@ -3,17 +3,20 @@ import type { Row, RowData } from "@tanstack/react-table";
 import { Box } from "../../../box";
 
 export function TableSelectableCell<TData extends RowData>({
-	row,
+    row,
 }: {
-	row: Row<TData>;
+    row: Row<TData>;
 }) {
-	return (
-		<Box alignItems="center" display="flex">
-			<input
-				defaultChecked={row.getIsSelected()}
-				onChange={row.getToggleSelectedHandler()}
-				type="checkbox"
-			/>
-		</Box>
-	);
+    return (
+        <Box
+            alignItems="center"
+            display="flex"
+        >
+            <input
+                defaultChecked={row.getIsSelected()}
+                onChange={row.getToggleSelectedHandler()}
+                type="checkbox"
+            />
+        </Box>
+    );
 }

@@ -3,8 +3,8 @@ import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle"
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
-	SearchField as RACSearchField,
-	type SearchFieldProps as RACSearchFieldProps,
+    SearchField as RACSearchField,
+    type SearchFieldProps as RACSearchFieldProps,
 } from "react-aria-components";
 
 import { FieldButton } from "../field-button";
@@ -17,11 +17,11 @@ import { textFieldCSS } from "./styles.css";
  * ------------------------------------------------------------------------------- */
 
 export const SearchFieldClearButton = () => {
-	return (
-		<FieldButton>
-			<Icon icon={faTimesCircle} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton>
+            <Icon icon={faTimesCircle} />
+        </FieldButton>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -29,18 +29,18 @@ export const SearchFieldClearButton = () => {
  * ------------------------------------------------------------------------------- */
 
 export const SearchFieldIcon = () => {
-	return (
-		<Icon
-			className={sprinkles({
-				color: "text_low_contrast",
-				flexShrink: "0",
-				height: "space_6",
-				width: "space_6",
-			})}
-			color="text_low_contrast"
-			icon={faSearch}
-		/>
-	);
+    return (
+        <Icon
+            className={sprinkles({
+                color: "text_low_contrast",
+                flexShrink: "0",
+                height: "space_6",
+                width: "space_6",
+            })}
+            color="text_low_contrast"
+            icon={faSearch}
+        />
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -55,13 +55,13 @@ export type SearchFieldProps = RACSearchFieldProps;
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/SearchField.html)
  */
 export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
-	(props, ref) => {
-		return (
-			<RACSearchField
-				{...props}
-				className={clsx(props.className, textFieldCSS)}
-				ref={ref}
-			/>
-		);
-	},
+    (props, ref) => {
+        return (
+            <RACSearchField
+                {...props}
+                className={clsx(props.className, textFieldCSS)}
+                ref={ref}
+            />
+        );
+    },
 );

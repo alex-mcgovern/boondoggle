@@ -7,13 +7,13 @@ import { FieldError as RACFieldError } from "react-aria-components";
 import { fieldErrorCss } from "./styles.css";
 
 export const FieldError = forwardRef<HTMLDivElement, RACFieldErrorProps>(
-	(props, ref) => {
-		return (
-			<RACFieldError
-				{...props}
-				className={clsx(props.className, fieldErrorCss)}
-				ref={ref}
-			/>
-		);
-	},
+    (props, ref) => {
+        return (
+            <RACFieldError
+                {...props}
+                className={clsx(props.className, fieldErrorCss)}
+                ref={ref}
+            />
+        );
+    },
 );

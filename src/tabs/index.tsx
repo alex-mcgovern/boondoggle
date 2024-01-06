@@ -1,31 +1,31 @@
 import type { ReactNode } from "react";
 import type {
-	TabListProps as ReactAriaTabListProps,
-	TabPanelProps as ReactAriaTabPanelProps,
-	TabProps as ReactAriaTabProps,
-	TabsProps as ReactAriaTabsProps,
+    TabListProps as ReactAriaTabListProps,
+    TabPanelProps as ReactAriaTabPanelProps,
+    TabProps as ReactAriaTabProps,
+    TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import { motion } from "framer-motion";
 import { useLayoutEffect, useState } from "react";
 import {
-	Tab as ReactAriaTab,
-	TabList as ReactAriaTabList,
-	TabPanel as ReactAriaTabPanel,
-	Tabs as ReactAriaTabs,
+    Tab as ReactAriaTab,
+    TabList as ReactAriaTabList,
+    TabPanel as ReactAriaTabPanel,
+    Tabs as ReactAriaTabs,
 } from "react-aria-components";
 
 import { Icon } from "../icon";
 import { Loader } from "../loader";
 import {
-	tabCountCSS,
-	tabCountIconCSS,
-	tabIndicatorCSS,
-	tabInnerCSS,
-	tabListInnerCSS,
-	tabListOuterCSS,
-	tabOuterCSS,
+    tabCountCSS,
+    tabCountIconCSS,
+    tabIndicatorCSS,
+    tabInnerCSS,
+    tabListInnerCSS,
+    tabListOuterCSS,
+    tabOuterCSS,
 } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -33,30 +33,35 @@ import {
  * ------------------------------------------------------------------------------- */
 
 export const V2TabCount = ({
-	count,
-	isError,
-	isLoading,
+    count,
+    isError,
+    isLoading,
 }: {
-	count?: number;
-	isError?: boolean;
-	isLoading?: boolean;
+    count?: number;
+    isError?: boolean;
+    isLoading?: boolean;
 }) => {
-	if (isError) {
-		return (
-			<Icon
-				className={tabCountIconCSS}
-				icon={faExclamationCircle}
-				size="sm"
-			/>
-		);
-	}
-	if (isLoading) {
-		return <Loader className={tabCountIconCSS} size="sm" />;
-	}
-	if (!isLoading && !count) {
-		return <div className={tabCountCSS}>0</div>;
-	}
-	return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
+    if (isError) {
+        return (
+            <Icon
+                className={tabCountIconCSS}
+                icon={faExclamationCircle}
+                size="sm"
+            />
+        );
+    }
+    if (isLoading) {
+        return (
+            <Loader
+                className={tabCountIconCSS}
+                size="sm"
+            />
+        );
+    }
+    if (!isLoading && !count) {
+        return <div className={tabCountCSS}>0</div>;
+    }
+    return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
 };
 
 /** -----------------------------------------------------------------------------
@@ -64,49 +69,53 @@ export const V2TabCount = ({
  * ------------------------------------------------------------------------------- */
 
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
-	animationKey: string;
-	label?: string;
-	slotLeft?: ReactNode;
-	slotRight?: ReactNode;
+    animationKey: string;
+    label?: string;
+    slotLeft?: ReactNode;
+    slotRight?: ReactNode;
 };
 
 const V2Tab = ({
-	animationKey,
-	id,
-	label,
-	slotLeft,
-	slotRight,
-	...props
+    animationKey,
+    id,
+    label,
+    slotLeft,
+    slotRight,
+    ...props
 }: V2TabProps) => {
-	return (
-		<ReactAriaTab className={tabOuterCSS} id={id} {...props}>
-			{({ isSelected }) => {
-				return (
-					<>
-						{isSelected ? (
-							<motion.span
-								className={tabIndicatorCSS}
-								layoutId={animationKey}
-								style={{
-									originY: "0px", // prevent vertical movement
-								}}
-								transition={{
-									damping: 75,
-									stiffness: 750,
-									type: "spring",
-								}}
-							/>
-						) : null}
-						<div className={tabInnerCSS}>
-							{slotLeft}
-							{label}
-							{slotRight}
-						</div>
-					</>
-				);
-			}}
-		</ReactAriaTab>
-	);
+    return (
+        <ReactAriaTab
+            className={tabOuterCSS}
+            id={id}
+            {...props}
+        >
+            {({ isSelected }) => {
+                return (
+                    <>
+                        {isSelected ? (
+                            <motion.span
+                                className={tabIndicatorCSS}
+                                layoutId={animationKey}
+                                style={{
+                                    originY: "0px", // prevent vertical movement
+                                }}
+                                transition={{
+                                    damping: 75,
+                                    stiffness: 750,
+                                    type: "spring",
+                                }}
+                            />
+                        ) : null}
+                        <div className={tabInnerCSS}>
+                            {slotLeft}
+                            {label}
+                            {slotRight}
+                        </div>
+                    </>
+                );
+            }}
+        </ReactAriaTab>
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -114,26 +123,31 @@ const V2Tab = ({
  * ------------------------------------------------------------------------------- */
 
 export function V2TabList({
-	items,
-	justify = "start",
-	...props
+    items,
+    justify = "start",
+    ...props
 }: Omit<
-	ReactAriaTabListProps<Omit<V2TabProps, "animationKey">>,
-	"className"
+    ReactAriaTabListProps<Omit<V2TabProps, "animationKey">>,
+    "className"
 > & {
-	justify?: "space-evenly" | "start";
+    justify?: "space-evenly" | "start";
 }) {
-	return (
-		<div className={tabListOuterCSS}>
-			<ReactAriaTabList
-				className={tabListInnerCSS({ justify })}
-				items={items}
-				{...props}
-			>
-				{(tab) => <V2Tab animationKey={justify} {...tab} />}
-			</ReactAriaTabList>
-		</div>
-	);
+    return (
+        <div className={tabListOuterCSS}>
+            <ReactAriaTabList
+                className={tabListInnerCSS({ justify })}
+                items={items}
+                {...props}
+            >
+                {(tab) => (
+                    <V2Tab
+                        animationKey={justify}
+                        {...tab}
+                    />
+                )}
+            </ReactAriaTabList>
+        </div>
+    );
 }
 
 /** -----------------------------------------------------------------------------
@@ -141,9 +155,9 @@ export function V2TabList({
  * ------------------------------------------------------------------------------- */
 
 export const V2TabPanel = (
-	props: Omit<ReactAriaTabPanelProps, "className">,
+    props: Omit<ReactAriaTabPanelProps, "className">,
 ) => {
-	return <ReactAriaTabPanel {...props} />;
+    return <ReactAriaTabPanel {...props} />;
 };
 
 /** -----------------------------------------------------------------------------
@@ -151,35 +165,35 @@ export const V2TabPanel = (
  * ------------------------------------------------------------------------------- */
 
 export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
-	const {
-		onSelectionChange: controlledOnSelectionChange,
-		selectedKey: controlledSelectedKey,
-		...tabsProps
-	} = props || {};
+    const {
+        onSelectionChange: controlledOnSelectionChange,
+        selectedKey: controlledSelectedKey,
+        ...tabsProps
+    } = props || {};
 
-	const [selectedKey, setSelectedKey] = useState(controlledSelectedKey);
+    const [selectedKey, setSelectedKey] = useState(controlledSelectedKey);
 
-	useLayoutEffect(() => {
-		if (controlledSelectedKey !== selectedKey) {
-			setSelectedKey(controlledSelectedKey);
-		}
-	}, [
-		controlledSelectedKey,
-		controlledSelectedKey,
-		selectedKey,
-		setSelectedKey,
-	]);
+    useLayoutEffect(() => {
+        if (controlledSelectedKey !== selectedKey) {
+            setSelectedKey(controlledSelectedKey);
+        }
+    }, [
+        controlledSelectedKey,
+        controlledSelectedKey,
+        selectedKey,
+        setSelectedKey,
+    ]);
 
-	return (
-		<ReactAriaTabs
-			{...tabsProps}
-			onSelectionChange={(k) => {
-				setSelectedKey(k);
-				controlledOnSelectionChange?.(k);
-			}}
-			selectedKey={selectedKey}
-		>
-			{children}
-		</ReactAriaTabs>
-	);
+    return (
+        <ReactAriaTabs
+            {...tabsProps}
+            onSelectionChange={(k) => {
+                setSelectedKey(k);
+                controlledOnSelectionChange?.(k);
+            }}
+            selectedKey={selectedKey}
+        >
+            {children}
+        </ReactAriaTabs>
+    );
 };

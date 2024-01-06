@@ -12,19 +12,23 @@ import { type IterableListBoxItem } from "../list-box";
  * ------------------------------------------------------------------------------- */
 
 const getFlagComponent = (iso_code: TCountryCode) => {
-	if (iso_code in FLAGS === false) {
-		return undefined;
-	}
-	const FlagComponent =
-		iso_code in FLAGS ? FLAGS[iso_code as TCountryCode] : null;
+    if (iso_code in FLAGS === false) {
+        return undefined;
+    }
+    const FlagComponent =
+        iso_code in FLAGS ? FLAGS[iso_code as TCountryCode] : null;
 
-	if (!FlagComponent) {
-		return undefined;
-	}
+    if (!FlagComponent) {
+        return undefined;
+    }
 
-	return (
-		<FlagComponent border="border_rule" height="space_4" width="space_4" />
-	);
+    return (
+        <FlagComponent
+            border="border_rule"
+            height="space_4"
+            width="space_4"
+        />
+    );
 };
 
 /** -----------------------------------------------------------------------------
@@ -32,17 +36,17 @@ const getFlagComponent = (iso_code: TCountryCode) => {
  * ------------------------------------------------------------------------------- */
 
 const getCountryItem = ({
-	iso,
-	name,
+    iso,
+    name,
 }: {
-	iso: TCountryCode;
-	name: string;
+    iso: TCountryCode;
+    name: string;
 }): IterableListBoxItem<TCountryCode> => {
-	return {
-		id: iso,
-		name,
-		slotLeft: getFlagComponent(iso),
-	};
+    return {
+        id: iso,
+        name,
+        slotLeft: getFlagComponent(iso),
+    };
 };
 
 /** -----------------------------------------------------------------------------
@@ -50,7 +54,7 @@ const getCountryItem = ({
  * ------------------------------------------------------------------------------- */
 
 const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
-	countries,
+    countries,
 ).map(([iso, { name }]) => getCountryItem({ iso: iso as TCountryCode, name }));
 
 /** -----------------------------------------------------------------------------
@@ -58,17 +62,21 @@ const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
  * ------------------------------------------------------------------------------- */
 
 export type ComboBoxCountryProps = Omit<
-	ComboBoxProps<TCountryCode>,
-	"defaultItems" | "items"
+    ComboBoxProps<TCountryCode>,
+    "defaultItems" | "items"
 >;
 
 export const ComboBoxCountry = forwardRef<
-	HTMLInputElement,
-	ComboBoxCountryProps
+    HTMLInputElement,
+    ComboBoxCountryProps
 >((props, ref) => {
-	return (
-		<ComboBox<TCountryCode> ref={ref} {...props} defaultItems={COUNTRIES} />
-	);
+    return (
+        <ComboBox<TCountryCode>
+            ref={ref}
+            {...props}
+            defaultItems={COUNTRIES}
+        />
+    );
 });
 
 /** -----------------------------------------------------------------------------
@@ -81,43 +89,43 @@ export const ComboBoxCountry = forwardRef<
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
  */
 export function FormComboBoxCountry({
-	children,
-	...props
+    children,
+    ...props
 }: ComboBoxCountryProps) {
-	if (!props.name) {
-		throw new Error("FormComboBox requires a name prop");
-	}
+    if (!props.name) {
+        throw new Error("FormComboBox requires a name prop");
+    }
 
-	const { control } = useFormContext();
+    const { control } = useFormContext();
 
-	const {
-		field: { disabled: isDisabled, onChange, ref, value = "", ...field },
-		fieldState: { error, invalid },
-	} = useController({
-		control,
-		defaultValue: props.selectedKey,
-		name: props.name,
-	});
+    const {
+        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        fieldState: { error, invalid },
+    } = useController({
+        control,
+        defaultValue: props.selectedKey,
+        name: props.name,
+    });
 
-	return (
-		<ComboBoxCountry
-			{...props}
-			{...field}
-			isDisabled={isDisabled}
-			isInvalid={invalid}
-			onSelectionChange={onChange}
-			ref={ref}
-			selectedKey={value}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-		>
-			{() => {
-				return (
-					<>
-						{children}
-						<FieldError>{error?.message}</FieldError>
-					</>
-				);
-			}}
-		</ComboBoxCountry>
-	);
+    return (
+        <ComboBoxCountry
+            {...props}
+            {...field}
+            isDisabled={isDisabled}
+            isInvalid={invalid}
+            onSelectionChange={onChange}
+            ref={ref}
+            selectedKey={value}
+            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+        >
+            {() => {
+                return (
+                    <>
+                        {children}
+                        <FieldError>{error?.message}</FieldError>
+                    </>
+                );
+            }}
+        </ComboBoxCountry>
+    );
 }

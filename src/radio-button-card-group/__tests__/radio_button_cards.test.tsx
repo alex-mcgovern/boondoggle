@@ -12,39 +12,39 @@ import { RADIO_BUTTON_CARDS_MOCK } from "../__mocks__/radio_button_cards.mock";
 const onChangeMock = jest.fn();
 
 const PROPS: RadioButtonCardGroupProps = {
-	id: "test",
-	items: RADIO_BUTTON_CARDS_MOCK,
-	label: "test",
-	name: "test",
-	onChange: onChangeMock,
+    id: "test",
+    items: RADIO_BUTTON_CARDS_MOCK,
+    label: "test",
+    name: "test",
+    onChange: onChangeMock,
 };
 
 const renderComponent = ({ ...props }: RadioButtonCardGroupProps) => {
-	return render(<RadioButtonCardGroup {...props} />);
+    return render(<RadioButtonCardGroup {...props} />);
 };
 
 describe("<RadioButtonCardGroup />", () => {
-	describe("Basic smoke tests", () => {
-		test("should render without throwing", () => {
-			const { container } = renderComponent(PROPS);
+    describe("Basic smoke tests", () => {
+        test("should render without throwing", () => {
+            const { container } = renderComponent(PROPS);
 
-			expect(container).not.toBeNull();
-		});
-	});
+            expect(container).not.toBeNull();
+        });
+    });
 });
 
 describe("<RadioButtonCardGroup />", () => {
-	describe("On change functionality", () => {
-		test("should call onChange when item is selected", async () => {
-			const { getAllByRole } = renderComponent(PROPS);
+    describe("On change functionality", () => {
+        test("should call onChange when item is selected", async () => {
+            const { getAllByRole } = renderComponent(PROPS);
 
-			const firstRadioItem = getAllByRole("radio")[0];
+            const firstRadioItem = getAllByRole("radio")[0];
 
-			await userEvent.click(firstRadioItem);
+            await userEvent.click(firstRadioItem);
 
-			expect(onChangeMock).toBeCalledWith(
-				RADIO_BUTTON_CARDS_MOCK[0].value,
-			);
-		});
-	});
+            expect(onChangeMock).toBeCalledWith(
+                RADIO_BUTTON_CARDS_MOCK[0].value,
+            );
+        });
+    });
 });

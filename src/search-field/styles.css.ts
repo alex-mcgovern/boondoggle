@@ -5,36 +5,36 @@ import { makeTheme } from "../css-utils";
 import { vars } from "../index.css";
 
 export const textFieldCSS = style([
-	{
-		selectors: {
-			/**
-			 * Whether the search field is empty.
-			 */
+    {
+        selectors: {
+            /**
+             * Whether the search field is empty.
+             */
 
-			/**
-			 * Whether the search field is disabled.
-			 */
-			"&[data-disabled]": {
-				cursor: "not-allowed !important",
-				opacity: 0.5,
-			},
+            /**
+             * Whether the search field is disabled.
+             */
+            "&[data-disabled]": {
+                cursor: "not-allowed !important",
+                opacity: 0.5,
+            },
 
-			"&[data-empty]": {},
+            "&[data-empty]": {},
 
-			/**
-			 * Whether the search field is invalid.
-			 */
-			"&[data-invalid]": {
-				vars: assignVars(
-					vars.color,
-					makeTheme({
-						alpha: redA,
-						isOverlay: true,
-						primary: red,
-						secondary: red,
-					}),
-				),
-			},
-		},
-	},
+            /**
+             * Whether the search field is invalid.
+             */
+            "&[data-invalid]": {
+                vars: assignVars(
+                    vars.color,
+                    makeTheme({
+                        alpha: redA,
+                        isOverlay: true,
+                        primary: red,
+                        secondary: red,
+                    }),
+                ),
+            },
+        },
+    },
 ]);
