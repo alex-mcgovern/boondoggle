@@ -1,4 +1,7 @@
 {
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "commentBox.styles": {
         "h1": {
             "bottomEdgeToken": "-",
@@ -92,8 +95,5 @@
     "turboConsoleLog.insertEnclosingClass": false,
     "turboConsoleLog.insertEnclosingFunction": false,
     "turboConsoleLog.logMessagePrefix": "debug",
-    "turboConsoleLog.logType": "debug",
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    "turboConsoleLog.logType": "debug"
 }
