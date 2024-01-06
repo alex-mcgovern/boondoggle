@@ -1,34 +1,56 @@
-import { type TCountryCode, countries } from "countries-list";
-import * as React from "react";
-import { useController, useFormContext } from "react-hook-form";
-import { capitalize } from "../_lib/capitalize";
 import { ComboBox, type ComboBoxProps } from "../combo-box";
 import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
 import { type IterableListBoxItem } from "../list-box";
+import { type TCountryCode, countries } from "countries-list";
+import * as React from "react";
+import { useController, useFormContext } from "react-hook-form";
+
+/** -----------------------------------------------------------------------------
+ * @util get a flag icon component
+ * ------------------------------------------------------------------------------- */
+
+const getFlagComponent = (iso_code: TCountryCode) => {
+	if (iso_code in FLAGS === false) {
+		return undefined;
+	}
+	const FlagComponent =
+		iso_code in FLAGS ? FLAGS[iso_code as TCountryCode] : null;
+
+	if (!FlagComponent) {
+		return undefined;
+	}
+
+	return (
+		<FlagComponent width="space_4" height="space_4" border="border_rule" />
+	);
+};
+
+/** -----------------------------------------------------------------------------
+ * @util get a country menu item
+ * ------------------------------------------------------------------------------- */
+
+const getCountryItem = ({
+	iso,
+	name,
+}: {
+	iso: TCountryCode;
+	name: string;
+}): IterableListBoxItem<TCountryCode> => {
+	return {
+		name,
+		slotLeft: getFlagComponent(iso),
+		id: iso,
+	};
+};
+
+/** -----------------------------------------------------------------------------
+ * @constant list of country items
+ * ------------------------------------------------------------------------------- */
 
 const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
-	countries,
-)
-	.sort(([_a, { name: a }], [_b, { name: b }]) => {
-		return a > b ? 1 : -1;
-	})
-	.map(([iso_code, { name }]) => {
-		const FlagComponent =
-			iso_code in FLAGS ? FLAGS[iso_code as TCountryCode] : null;
-
-		return {
-			name: capitalize(name),
-			slotLeft: FlagComponent ? (
-				<FlagComponent
-					width="space_4"
-					height="space_4"
-					border="border_rule"
-				/>
-			) : null,
-			id: iso_code,
-		};
-	});
+	countries
+).map(([iso, { name }]) => getCountryItem({ iso: iso as TCountryCode, name }));
 
 /** -----------------------------------------------------------------------------
  * ComboBoxCountry
