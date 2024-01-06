@@ -13,7 +13,7 @@ import { dialogAlertSlotCSS, dialogAlertWrapperCSS } from "./styles.css";
 export function V2DialogAlert({
     colorOverlay = "amber",
     description,
-    slotLeft = [<Icon icon={faInfoCircle} />],
+    slotLeft = <Icon icon={faInfoCircle} />,
     slotRight,
     title,
 }: WithSlots &

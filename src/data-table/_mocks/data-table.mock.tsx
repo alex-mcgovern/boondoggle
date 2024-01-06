@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Faker, en } from "@faker-js/faker";
 import { createColumnHelper } from "@tanstack/react-table";
 

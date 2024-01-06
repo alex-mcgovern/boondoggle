@@ -12,6 +12,15 @@ module.exports = {
         "plugin:perfectionist/recommended-natural",
         "prettier",
     ],
+    ignorePatterns: [
+        ".git",
+        "build",
+        "dist",
+        "docs",
+        "node_modules",
+        "storybook-static",
+        "tmp",
+    ],
     overrides: [
         {
             env: {
@@ -35,5 +44,10 @@ module.exports = {
             { prefer: "type-imports" },
         ],
         "react/display-name": "off",
+    },
+    settings: {
+        react: {
+            version: "detect",
+        },
     },
 };

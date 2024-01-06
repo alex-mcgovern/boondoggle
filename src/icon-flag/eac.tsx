@@ -101,10 +101,6 @@ export function FlagEac({
                     fontFamily="Times New Roman"
                     fontSize={52.1}
                     fontWeight={700}
-                    // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
-                    // style={{
-                    //     InkscapeFontSpecification: "&quot",
-                    // }}
                     transform="matrix(.18901 0 0 .21163 219.5 -590.5)"
                 />
                 <g

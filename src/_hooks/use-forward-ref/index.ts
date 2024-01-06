@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 export const useForwardRef = <T>(
     ref: ForwardedRef<T> | undefined,
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     initialValue: any = null,
 ) => {
     const targetRef = useRef<T>(initialValue);

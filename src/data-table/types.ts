@@ -38,7 +38,7 @@ export type FilteringOptions<TRowData extends RowData> = {
             | {
                   strFilterDialogTitle: string;
                   strFilterPillText: string;
-
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   transformValueToString?: (value: any) => string;
                   type: "MULTI_SELECT";
               }
@@ -150,6 +150,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
                         strFilterDialogTitle: string;
                         strFilterPillText: string;
 
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         transformNumericFromRaw: (value: any) => string;
                         type: "MULTI_SELECT";
                     }
@@ -170,7 +171,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
                   {
                       strFilterDialogTitle: string;
                       strFilterPillText: string;
-
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       transformNumericFromRaw: (value: any) => string;
                   }
               >

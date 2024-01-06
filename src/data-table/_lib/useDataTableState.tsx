@@ -30,7 +30,7 @@ import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
     row: Row<TRowData>,
     column_id: string,
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     filter_value: any,
 ) {
     const cell_value = row.getValue(column_id);
@@ -44,7 +44,7 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 
 type UseDataTableStateProps<TRowData extends RowData> = {
     columnVisibility: VisibilityState | undefined;
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     columns: Array<ColumnDef<TRowData, any>>;
     data: Array<TRowData> | undefined;
     enableMultiRowSelection: boolean | undefined;

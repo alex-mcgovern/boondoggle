@@ -279,22 +279,26 @@ export const With1Action: Story = {
 
 export const With2Actions: Story = {
     args: {
-        actions: [
-            <Button
-                appearance="secondary"
-                name="secondary_action"
-                size="square_sm"
-            >
-                <Icon icon={faEllipsis} />
-            </Button>,
-            <Button
-                name="primary_action"
-                size="sm"
-            >
-                <Icon icon={faPlus} />
-                Primary action
-            </Button>,
-        ],
+        actions: (
+            <>
+                <Button
+                    appearance="secondary"
+                    name="secondary_action"
+                    size="square_sm"
+                >
+                    <Icon icon={faEllipsis} />
+                </Button>
+
+                <Button
+                    name="primary_action"
+                    size="sm"
+                >
+                    <Icon icon={faPlus} />
+                    Primary action
+                </Button>
+            </>
+        ),
+
         strNoResults: "No results",
     },
 };
@@ -319,22 +323,25 @@ export const WithRowActionItemsShortList: Story = {
 export const KitchenSink: Story = {
     args: {
         RowActions: MockRowActionsComponent,
-        actions: [
-            <Button
-                appearance="secondary"
-                name="secondary_action"
-                size="square_sm"
-            >
-                <Icon icon={faEllipsis} />
-            </Button>,
-            <Button
-                name="primary_action"
-                size="sm"
-            >
-                <Icon icon={faPlus} />
-                Primary action
-            </Button>,
-        ],
+        actions: (
+            <>
+                <Button
+                    appearance="secondary"
+                    name="secondary_action"
+                    size="square_sm"
+                >
+                    <Icon icon={faEllipsis} />
+                </Button>
+                ,
+                <Button
+                    name="primary_action"
+                    size="sm"
+                >
+                    <Icon icon={faPlus} />
+                    Primary action
+                </Button>
+            </>
+        ),
         filteringOptions: {
             columnFilterConfig: {
                 balance: {

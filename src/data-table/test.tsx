@@ -19,18 +19,20 @@ const renderComponent = ({ ...props }: DataTableProps<MockTableData>) => {
 const MOCK_DATA = Array.from({ length: 40 }, mockColumn);
 
 const PROPS: DataTableProps<MockTableData> = {
-    actions: [
-        <Button
-            appearance="secondary"
-            name="secondary_action"
-        >
-            Secondary action
-        </Button>,
-        <Button name="primary_action">
-            <Icon icon={faPlus} />
-            Primary action
-        </Button>,
-    ],
+    actions: (
+        <>
+            <Button
+                appearance="secondary"
+                name="secondary_action"
+            >
+                Secondary action
+            </Button>
+            <Button name="primary_action">
+                <Icon icon={faPlus} />
+                Primary action
+            </Button>
+        </>
+    ),
     columns: COLUMNS,
     data: MOCK_DATA,
     filteringOptions: {
