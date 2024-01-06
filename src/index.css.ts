@@ -22,6 +22,7 @@ import {
 	styleVariants,
 } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+
 import { makeTheme, withPrefersMotion } from "./css-utils";
 
 /** -----------------------------------------------------------------------------
@@ -55,7 +56,7 @@ export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
 
 const SELECTOR_IS_HOVER_FOCUS = ":is(:hover, :focus-visible)";
 
-const SELECTOR_IS_ACTIVE = `:is(:active, [data-active='true'])`;
+const SELECTOR_IS_ACTIVE = ":is(:active, [data-active='true'])";
 
 /**
  * Button/link/input: hover
@@ -138,12 +139,6 @@ export const sprinklesLayer = globalLayer("sprinkles");
  */
 
 export const vars = createGlobalTheme(":root, ::backdrop", {
-	color: makeTheme({
-		primary: blue,
-		secondary: slate,
-		alpha: slateA,
-		isOverlay: false,
-	}),
 	aspectRatio: {
 		extraWide: "10 / 3",
 		square: "1 / 1",
@@ -163,6 +158,12 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		sm: `${blackA.blackA1} 0px 5px 10px`,
 		xs: `${blackA.blackA1} 0px 2px 1px`,
 	},
+	color: makeTheme({
+		alpha: slateA,
+		isOverlay: false,
+		primary: blue,
+		secondary: slate,
+	}),
 	display: {
 		block: "block",
 		flex: "flex",
@@ -174,11 +175,11 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		table: "table",
 		"table-cell": "table-cell",
 	},
-	fontFamily: {
-		body: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"`,
-	},
 	ease: {
 		quart_in_out: "cubic-bezier(0.76, 0, 0.24, 1)",
+	},
+	fontFamily: {
+		body: "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"",
 	},
 	fontSize: {
 		bodyLg: "1rem", // 16px
@@ -227,13 +228,13 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100%": "100%",
 		"100dvh": "100dvh",
 		auto: "auto",
-		"min-content": "min-content",
+		element_lg: "3rem",
 
 		// Bespoke, non-reusable heights
 
-		element_sm: "2rem",
 		element_md: "2.5rem",
-		element_lg: "3rem",
+		element_sm: "2rem",
+		"min-content": "min-content",
 
 		topBar: "3rem",
 	},
@@ -254,8 +255,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		none: "0",
 
 		space_0: "0",
-		"space_0.25": "0.0625rem",
 		"space_0.5": "0.125rem",
+		"space_0.25": "0.0625rem",
 		space_1: "0.25rem",
 		space_2: "0.5rem",
 		space_3: "0.75rem",
@@ -282,12 +283,12 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 		"100%": "100%",
 		"100vw": "100vw",
 		auto: "auto",
-		sideBar: "15rem",
 		main_lg: "75rem",
 		main_md: "55.5rem",
 		main_sm: "30rem",
 		"max-content": "max-content",
 		"min-content": "min-content",
+		sideBar: "15rem",
 	},
 });
 
@@ -333,10 +334,10 @@ export const variantColorOverlay = styleVariants({
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: amber,
-						secondary: amber,
 						alpha: amberA,
 						isOverlay: true,
+						primary: amber,
+						secondary: amber,
 					}),
 				),
 			},
@@ -348,10 +349,10 @@ export const variantColorOverlay = styleVariants({
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: blue,
-						secondary: blue,
 						alpha: blueA,
 						isOverlay: true,
+						primary: blue,
+						secondary: blue,
 					}),
 				),
 			},
@@ -363,10 +364,10 @@ export const variantColorOverlay = styleVariants({
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: blue,
-						secondary: slate,
 						alpha: slateA,
 						isOverlay: false,
+						primary: blue,
+						secondary: slate,
 					}),
 				),
 			},
@@ -378,10 +379,10 @@ export const variantColorOverlay = styleVariants({
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: green,
-						secondary: green,
 						alpha: greenA,
 						isOverlay: true,
+						primary: green,
+						secondary: green,
 					}),
 				),
 			},
@@ -393,10 +394,10 @@ export const variantColorOverlay = styleVariants({
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: slate,
-						secondary: slate,
 						alpha: slateA,
 						isOverlay: true,
+						primary: slate,
+						secondary: slate,
 					}),
 				),
 			},
@@ -408,10 +409,10 @@ export const variantColorOverlay = styleVariants({
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: red,
-						secondary: red,
 						alpha: redA,
 						isOverlay: true,
+						primary: red,
+						secondary: red,
 					}),
 				),
 			},
@@ -449,11 +450,11 @@ export const a11yDisabled = style({
 	"@layer": {
 		[themeLayer]: {
 			selectors: {
-				[`&${DISABLED}`]: {
-					opacity: 0.5,
-				},
 				[`&${DISABLED}:hover`]: {
 					cursor: "not-allowed !important",
+				},
+				[`&${DISABLED}`]: {
+					opacity: 0.5,
 				},
 			},
 		},
@@ -482,9 +483,9 @@ export const overflowEllipsis = style([
 	{
 		"@layer": {
 			[themeLayer]: {
+				overflow: "hidden",
 				textOverflow: "ellipsis",
 				whiteSpace: "nowrap",
-				overflow: "hidden",
 			},
 		},
 	},
@@ -629,7 +630,7 @@ globalStyle("input, button, textarea, select", {
 	},
 });
 
-globalStyle(`input[type="search"]`, {
+globalStyle("input[type=\"search\"]", {
 	"@layer": {
 		[resetLayer]: {
 			appearance: "none",
@@ -742,9 +743,9 @@ globalStyle("html, body", {
 globalStyle("body", {
 	"@layer": {
 		[baseLayer]: {
+			WebkitFontSmoothing: "antialiased",
 			color: vars.color.text_high_contrast,
 			lineHeight: vars.lineHeight.bodyMd,
-			WebkitFontSmoothing: "antialiased",
 		},
 	},
 });
@@ -780,10 +781,10 @@ globalStyle("a:focus-visible", {
 globalStyle("button", {
 	"@layer": {
 		[baseLayer]: {
+			WebkitAppearance: "none",
 			background: "none",
 			border: "none",
 			textDecoration: "none",
-			WebkitAppearance: "none",
 		},
 	},
 });
@@ -946,8 +947,8 @@ globalStyle(
 	{
 		"@layer": {
 			[baseLayer]: {
-				margin: 0,
 				WebkitAppearance: "none",
+				margin: 0,
 			},
 		},
 	},
@@ -1012,8 +1013,8 @@ globalStyle("ul, ol", {
 		[baseLayer]: {
 			marginBlockEnd: 0,
 			marginBlockStart: 0,
-			paddingInlineStart: 0,
 			marginInlineStart: vars.spacing.space_3,
+			paddingInlineStart: 0,
 		},
 	},
 });
@@ -1140,9 +1141,9 @@ export const thStyles = style({
 
 export const tdStyles = style({
 	display: "table-cell",
+	overflow: "hidden",
 	textOverflow: "ellipsis",
 	whiteSpace: "nowrap",
-	overflow: "hidden",
 	...tableCellStyleRule,
 });
 
@@ -1210,15 +1211,15 @@ export const unstyledInput = style([
 		margin: 0,
 
 		selectors: {
-			"&:focus": {
-				outline: "none",
+			"&::-webkit-inner-spin-button, &::-webkit-outer-spin-button": {
+				display: "none",
 			},
 			"&::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration":
 				{
 					display: "none",
 				},
-			"&::-webkit-inner-spin-button, &::-webkit-outer-spin-button": {
-				display: "none",
+			"&:focus": {
+				outline: "none",
 			},
 		},
 	},
@@ -1272,8 +1273,8 @@ const FM_RADIUS = vars.borderRadius.md;
 
 export const floatingMenu = createGlobalTheme(":root, ::backdrop", {
 	container: {
-		radius: FM_RADIUS,
 		padding: FM_PADDING,
+		radius: FM_RADIUS,
 	},
 	item: {
 		height: elementHeight.sm,

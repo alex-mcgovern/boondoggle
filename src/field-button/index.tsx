@@ -3,6 +3,7 @@ import {
 	Button as RACButton,
 	type ButtonProps as RACButtonProps,
 } from "react-aria-components";
+
 import { fieldButtonCSS } from "./styles.css";
 
 export type FieldButtonProps = RACButtonProps;
@@ -19,9 +20,9 @@ export const FieldButton = React.forwardRef<
 	return (
 		<RACButton
 			{...props}
-			ref={ref}
 			className={fieldButtonCSS}
 			excludeFromTabOrder
+			ref={ref}
 		/>
 	);
 });

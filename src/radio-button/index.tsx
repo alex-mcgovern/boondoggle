@@ -1,4 +1,5 @@
-import * as React from "react";
+import type * as React from "react";
+
 import { Box } from "../box";
 import {
 	radioButtonInputStyles,
@@ -16,6 +17,15 @@ export function RadioButton({
 	title,
 	value,
 }: {
+	checked?: boolean;
+
+	description: string;
+
+	inputProps?: Omit<
+		React.HTMLProps<HTMLInputElement>,
+		"className" | "id" | "name" | "required" | "type" | "value"
+	>;
+
 	/**
 	 * Unique name for the element.
 	 * @important Should be a *snake_case* string.
@@ -23,18 +33,9 @@ export function RadioButton({
 	 */
 	name: string;
 
-	inputProps?: Omit<
-		React.HTMLProps<HTMLInputElement>,
-		"className" | "id" | "name" | "required" | "type" | "value"
-	>;
-
 	onChange?: (value: string) => void;
 
 	required?: boolean;
-
-	checked?: boolean;
-
-	description: string;
 
 	title: string;
 

@@ -1,12 +1,13 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faker } from "@faker-js/faker";
-import { Meta, StoryObj } from "@storybook/react";
+
 import { ToastProvider, useToastContext } from ".";
 import { Button } from "../button";
 
 const meta = {
-	title: "ToastProvider",
-	component: ToastProvider,
 	args: {},
+	component: ToastProvider,
 	decorators: [
 		(Story) => (
 			<ToastProvider>
@@ -24,6 +25,7 @@ const meta = {
 					onPress={() => {
 						state.add(
 							{
+								description: faker.lorem.sentence(7),
 								level: faker.helpers.arrayElement([
 									"info",
 									"success",
@@ -31,7 +33,6 @@ const meta = {
 									"error",
 								]),
 								title: faker.lorem.sentence(3),
-								description: faker.lorem.sentence(7),
 							},
 							{ timeout: 5000 },
 						);
@@ -42,6 +43,7 @@ const meta = {
 			</>
 		);
 	},
+	title: "ToastProvider",
 } satisfies Meta<typeof ToastProvider>;
 
 export default meta;

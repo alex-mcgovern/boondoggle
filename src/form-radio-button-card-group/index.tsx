@@ -1,12 +1,14 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { RadioButtonCardGroup } from "../radio-button-card-group";
+
 import type { RadioButtonCardGroupProps } from "../radio-button-card-group";
 import type { WithFormFieldProps } from "../types";
 
+import { RadioButtonCardGroup } from "../radio-button-card-group";
+
 export type FormRadioButtonCardGroupProps = RadioButtonCardGroupProps &
 	WithFormFieldProps & {
-		defaultValue?: string | number;
+		defaultValue?: number | string;
 	};
 
 export function FormRadioButtonCardGroup({

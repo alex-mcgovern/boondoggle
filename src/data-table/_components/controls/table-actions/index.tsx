@@ -1,5 +1,7 @@
-import { Children } from "react";
 import type { ReactNode } from "react";
+
+import { Children } from "react";
+
 import {
 	actionsCSS,
 	columnFiltersCSS,
@@ -9,13 +11,13 @@ import {
 } from "./styles.css";
 
 export function TableActions({
-	globalFilter,
-	columnFilters,
 	actions,
+	columnFilters,
+	globalFilter,
 }: {
-	globalFilter?: ReactNode;
-	columnFilters: ReactNode;
 	actions?: ReactNode;
+	columnFilters: ReactNode;
+	globalFilter?: ReactNode;
 }) {
 	if (!globalFilter && !columnFilters && !actions) {
 		return null;

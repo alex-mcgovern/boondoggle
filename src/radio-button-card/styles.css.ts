@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+
 import { withPrefersMotion } from "../css-utils";
 import { a11yFocus, a11yFocusStyleRule, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -21,9 +22,9 @@ export const radioButtonCardLabelStyles = style([
 		border: "border_rule",
 		borderRadius: "sm",
 		display: "flex",
-		gap: "space_4",
-		flexShrink: "1",
 		flexGrow: "1",
+		flexShrink: "1",
+		gap: "space_4",
 		justifyContent: "center",
 		padding: "space_4",
 	}),

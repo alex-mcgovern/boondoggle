@@ -6,9 +6,10 @@ import type {
 	ReactNode,
 } from "react";
 import type { RegisterOptions } from "react-hook-form";
-import { BoxProps } from "./box";
-import { ColorOverlay, ElementSizeEnum } from "./index.css";
-import { Label } from "./label";
+
+import type { BoxProps } from "./box";
+import type { ColorOverlay, ElementSizeEnum } from "./index.css";
+import type { Label } from "./label";
 
 declare module "react" {
 	function forwardRef<T, P = Record<string, unknown>>(
@@ -80,7 +81,7 @@ type IsNotCopyable = BaseIsCopyable & {
 	strCopy?: never;
 };
 
-/* eslint-enable jsdoc/require-jsdoc */
+
 
 export type WithOptionalIsCopyable = IsCopyable | IsNotCopyable;
 
@@ -93,11 +94,11 @@ export const getOptionalIsCopyableProps = ({
 	return readOnly && isCopyable && strCopy && strCopied
 		? { isCopyable, readOnly, strCopied, strCopy }
 		: {
-				isCopyable: undefined,
-				readOnly,
-				strCopied: undefined,
-				strCopy: undefined,
-		  };
+			isCopyable: undefined,
+			readOnly,
+			strCopied: undefined,
+			strCopy: undefined,
+		};
 };
 
 type BaseIsVisibilityToggleable = {
@@ -136,7 +137,7 @@ type WithoutIsVisibilityToggleable = BaseIsVisibilityToggleable & {
 	strShow?: never;
 };
 
-/* eslint-enable jsdoc/require-jsdoc */
+
 
 export type WithOptionalIsVisibilityToggleable =
 	| WithIsVisibilityToggleable
@@ -186,7 +187,7 @@ type IsNotClearable = BaseIsClearable & {
 	strClear?: never;
 };
 
-/* eslint-enable jsdoc/require-jsdoc */
+
 
 export type WithOptionalIsClearable = IsClearable | IsNotClearable;
 
@@ -239,16 +240,16 @@ export type WithReadOnly = {
  * @note All fields should have a label, if the label is not visible, use the `hidden` prop.
  */
 export type V2Label =
-	| string
 	| {
-			text: string;
-			isHidden?: boolean;
-			tooltip?: string;
-			props?: Omit<
-				ComponentPropsWithoutRef<typeof Label>,
-				"children" | "htmlFor"
-			>;
-	  };
+		isHidden?: boolean;
+		props?: Omit<
+			ComponentPropsWithoutRef<typeof Label>,
+			"children" | "htmlFor"
+		>;
+		text: string;
+		tooltip?: string;
+	}
+	| string;
 
 export type WithSize = {
 	/**

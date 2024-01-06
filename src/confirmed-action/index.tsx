@@ -2,10 +2,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { forwardRef, useState } from "react";
 import { z } from "zod";
+
+import type { ColorOverlay} from "../index.css";
+
 import { Box } from "../box";
 import { Form } from "../form";
 import { FormSubmitButton } from "../form-submit-button";
-import { ColorOverlay, variantColorOverlay } from "../index.css";
+import { variantColorOverlay } from "../index.css";
 import { Input } from "../input";
 import { Label } from "../label";
 import { sprinkles } from "../sprinkles/index.css";
@@ -27,7 +30,7 @@ const getZodSchema = ({
 type ConfirmedActionProps = {
 	buttonContent: React.ReactNode;
 	colorOverlay?: ColorOverlay;
-	onConfirmed?: (() => unknown) | (() => Promise<unknown>);
+	onConfirmed?: (() => Promise<unknown>) | (() => unknown);
 	strConfirmText: string;
 	strInvalid: string;
 	strPromptPrefix: string;
@@ -43,9 +46,9 @@ export const ConfirmedAction = forwardRef<
 		{
 			buttonContent,
 			colorOverlay,
-			strInvalid,
-			strConfirmText,
 			onConfirmed,
+			strConfirmText,
+			strInvalid,
 			strPromptPrefix,
 			strPromptSuffix,
 		},
@@ -68,9 +71,9 @@ export const ConfirmedAction = forwardRef<
 				>
 					<FormTextField
 						autoComplete="off"
+						className={clsx(sprinkles({ marginBottom: "space_2" }), colorOverlay && variantColorOverlay[colorOverlay])}
 						name="confirm_text"
 						onChange={setUserConfirmText}
-						className={clsx(sprinkles({ marginBottom: "space_2" }), colorOverlay && variantColorOverlay[colorOverlay])}
 					>
 						<Label>
 							<span>{strPromptPrefix}</span>{" "}
@@ -84,13 +87,13 @@ export const ConfirmedAction = forwardRef<
 
 					<FormSubmitButton
 
-						size="sm"
+						appearance="primary"
+						aria-disabled={userConfirmText !== strConfirmText}
 						className={sprinkles({
 							width: "100%"
 						})}
-						appearance="primary"
 						colorOverlay={colorOverlay}
-						aria-disabled={userConfirmText !== strConfirmText}
+						size="sm"
 					>
 						
 						{buttonContent}

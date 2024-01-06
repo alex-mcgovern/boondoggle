@@ -1,5 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { Button } from "react-aria-components";
+
 import { Card as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
@@ -8,8 +10,6 @@ import { SkeletonInput } from "../skeleton-input";
 import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
-	title: "Card",
-	component: StoryComp,
 	args: {
 		children: (
 			<>
@@ -22,6 +22,8 @@ const meta = {
 			</>
 		),
 	},
+	component: StoryComp,
+	title: "Card",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -37,8 +39,8 @@ export const WithTitle: Story = {
 
 export const WithTitleAndDescription: Story = {
 	args: {
-		title: LOREM.text_xxs,
 		description: LOREM.text_md,
+		title: LOREM.text_xxs,
 	},
 };
 
@@ -50,8 +52,8 @@ export const WithHeader: Story = {
 					Title
 				</Box>{" "}
 				<Button
-					name="action"
 					className={sprinkles({ marginLeft: "auto" })}
+					name="action"
 				>
 					Action
 				</Button>

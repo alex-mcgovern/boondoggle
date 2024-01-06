@@ -1,5 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { withPrefersMotion } from "../../../css-utils";
 import { HOVER, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
@@ -10,12 +11,12 @@ export const getSortControlStyle = recipe({
 	base: [
 		sortControlBase,
 		sprinkles({
-			flexShrink: "0",
-			display: "flex",
 			alignItems: "center",
 			color: "text_low_contrast",
-			marginRight: "auto",
+			display: "flex",
+			flexShrink: "0",
 			gap: "space_2",
+			marginRight: "auto",
 		}),
 		withPrefersMotion({
 			transition: `color ${vars.transitionDuration.short} ease`,

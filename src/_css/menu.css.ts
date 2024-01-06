@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { withPrefersMotion } from "../css-utils";
 import {
 	a11yDisabled,
@@ -24,14 +25,14 @@ export const menuCSS = style([
 		overflowY: "auto",
 	}),
 	{
-		padding: floatingMenu.container.padding,
 		borderRadius: floatingMenu.container.radius,
+		maxHeight: "20rem",
+		padding: floatingMenu.container.padding,
 		selectors: {
 			"&:focus": {
 				outline: "none",
 			},
 		},
-		maxHeight: "20rem",
 	},
 ]);
 
@@ -43,17 +44,17 @@ export const menuSectionCSS = style([
 	{
 		selectors: {
 			"&:not(:last-child)::after": {
-				content: "",
-				display: "block",
-
-				marginTop: elementPaddingRaw.sm.y,
-				marginBottom: elementPaddingRaw.sm.y,
-
 				background: vars.color.border_rule,
+				content: "",
+
+				display: "block",
 				height: "1px",
 
+				marginBottom: elementPaddingRaw.sm.y,
 				marginLeft: floatingMenu.item.paddingX,
+
 				marginRight: floatingMenu.item.paddingX,
+				marginTop: elementPaddingRaw.sm.y,
 			},
 		},
 	},
@@ -66,17 +67,17 @@ export const menuSectionCSS = style([
 export const menuItemCSS = recipe({
 	base: [
 		sprinkles({
-			width: "100%",
-			display: "flex",
 			alignItems: "center",
-			gap: "space_2",
-			flexShrink: "0",
-
-			fontStyle: "bodySm",
-			fontWeight: "normal",
 			color: "text_high_contrast",
+			display: "flex",
+			flexShrink: "0",
+			fontStyle: "bodySm",
+
+			fontWeight: "normal",
+			gap: "space_2",
 			textAlign: "left",
 			textDecoration: "none",
+			width: "100%",
 		}),
 		a11yDisabled,
 		a11yFocus,
@@ -84,19 +85,19 @@ export const menuItemCSS = recipe({
 			transition: `background ${vars.transitionDuration.short} ease`,
 		}),
 		{
-			minHeight: floatingMenu.item.height,
-			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
-
 			borderRadius: floatingMenu.item.radius,
+			minHeight: floatingMenu.item.height,
+
+			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
 			selectors: {
-				"&[data-hovered]": {
-					cursor: "pointer",
-					background: vars.color.tint_hover,
-				},
 				"&[data-focused]": {
-					outline: 0,
-					cursor: "pointer",
 					background: vars.color.tint_hover,
+					cursor: "pointer",
+					outline: 0,
+				},
+				"&[data-hovered]": {
+					background: vars.color.tint_hover,
+					cursor: "pointer",
 				},
 				"&[data-selected]": {
 					fontWeight: "medium",
@@ -111,16 +112,16 @@ export const menuItemCSS = recipe({
 
 export const menuItemNameCSS = style([
 	sprinkles({
-		display: "block",
 		color: "text_high_contrast",
+		display: "block",
 		fontStyle: "bodySm",
 	}),
 ]);
 
 export const menuItemDescriptionCSS = style([
 	sprinkles({
-		display: "block",
 		color: "text_low_contrast",
+		display: "block",
 		fontStyle: "bodySm",
 	}),
 ]);
@@ -131,13 +132,13 @@ export const menuItemDescriptionCSS = style([
 
 export const menuHeaderCSS = style([
 	sprinkles({
+		alignItems: "center",
 		color: "text_low_contrast",
+		display: "flex",
 		fontStyle: "bodySm",
+
 		fontWeight: "normal",
 		textAlign: "left",
-
-		display: "flex",
-		alignItems: "center",
 	}),
 	{
 		height: calc.subtract(
@@ -156,13 +157,13 @@ export const menuHeaderCSS = style([
 export const menuSeparatorCSS = style([
 	sprinkles({}),
 	{
-		marginTop: vars.spacing.space_1,
-		marginBottom: vars.spacing.space_1,
-
 		background: vars.color.border_rule,
 		height: "1px",
 
+		marginBottom: vars.spacing.space_1,
 		marginLeft: floatingMenu.item.paddingX,
+
 		marginRight: floatingMenu.item.paddingX,
+		marginTop: vars.spacing.space_1,
 	},
 ]);

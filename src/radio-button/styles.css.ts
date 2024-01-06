@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+
 import { withPrefersMotion } from "../css-utils";
 import { a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -19,8 +20,8 @@ export const radioButtonInputStyles = style([
 
 export const radioButtonLabelStyles = style([
 	sprinkles({
-		position: "relative",
 		fontSize: "bodyMd",
+		position: "relative",
 	}),
 	{
 		lineHeight: "1.25",

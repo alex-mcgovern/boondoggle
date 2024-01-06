@@ -1,12 +1,17 @@
+import type {
+	ButtonProps as RACButtonProps,
+	LinkProps as RACLinkProps} from "react-aria-components";
+
 import clsx from "clsx";
 import * as React from "react";
 import {
 	Button as RACButton,
-	ButtonProps as RACButtonProps,
-	Link as RACLink,
-	LinkProps as RACLinkProps,
+	Link as RACLink
 } from "react-aria-components";
-import { ButtonVariants, buttonCSS } from "./styles.css";
+
+import type { ButtonVariants} from "./styles.css";
+
+import { buttonCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * Button
@@ -20,8 +25,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			alignment = "center",
 			appearance = "primary",
 			className,
-			size = "sm",
 			colorOverlay,
+			size = "sm",
 			...props
 		},
 		ref,
@@ -29,11 +34,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		return (
 			<RACButton
 				{...props}
-				ref={ref}
 				className={clsx(
 					className,
-					buttonCSS({ appearance, size, alignment, colorOverlay }),
+					buttonCSS({ alignment, appearance, colorOverlay, size }),
 				)}
+				ref={ref}
 			/>
 		);
 	},
@@ -51,8 +56,8 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
 			alignment = "center",
 			appearance = "primary",
 			className,
-			size = "sm",
 			colorOverlay,
+			size = "sm",
 			...props
 		},
 		ref,
@@ -60,11 +65,11 @@ export const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
 		return (
 			<RACLink
 				{...props}
-				ref={ref}
 				className={clsx(
 					className,
-					buttonCSS({ appearance, size, alignment, colorOverlay }),
+					buttonCSS({ alignment, appearance, colorOverlay, size }),
 				)}
+				ref={ref}
 			/>
 		);
 	},

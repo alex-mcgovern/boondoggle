@@ -1,17 +1,14 @@
 import { faBars } from "@fortawesome/pro-regular-svg-icons/faBars";
 import { type Meta, type StoryObj } from "@storybook/react";
+
 import { MenuButton } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
 
 const meta = {
-	title: "MenuButton",
-	component: MenuButton,
 	args: {
 		items: [
 			{
-				name: "Europe",
-				id: "europe",
 				children: [
 					{
 						id: "france",
@@ -26,10 +23,10 @@ const meta = {
 						name: "Spain",
 					},
 				],
+				id: "europe",
+				name: "Europe",
 			},
 			{
-				name: "MENA",
-				id: "mena",
 				children: [
 					{
 						id: "uae",
@@ -44,9 +41,12 @@ const meta = {
 						name: "Oman",
 					},
 				],
+				id: "mena",
+				name: "MENA",
 			},
 		],
 	},
+	component: MenuButton,
 	render: (args) => {
 		return (
 			<MenuButton {...args}>
@@ -56,6 +56,7 @@ const meta = {
 			</MenuButton>
 		);
 	},
+	title: "MenuButton",
 } satisfies Meta<typeof MenuButton>;
 
 export default meta;

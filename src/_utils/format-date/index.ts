@@ -4,7 +4,7 @@
  */
 
 export const formatDate = (
-	date?: string | number | readonly string[],
+	date?: number | readonly string[] | string,
 	locale?: Intl.LocalesArgument,
 ) => {
 	if (typeof date !== "string") {

@@ -1,21 +1,23 @@
 import clsx from "clsx";
-import { Box } from "../box";
+
 import type { BoxProps } from "../box";
+
+import { Box } from "../box";
 import { loadingStyles } from "./styles.css";
 
 export function Skeleton({
-	className,
-	width = "100%",
-	height = "space_6",
 	borderRadius = "sm",
+	className,
+	height = "space_6",
+	width = "100%",
 	...rest
 }: BoxProps) {
 	return (
 		<Box
-			width={width}
-			height={height}
 			borderRadius={borderRadius}
 			className={clsx(className, loadingStyles)}
+			height={height}
+			width={width}
 			{...rest}
 		/>
 	);

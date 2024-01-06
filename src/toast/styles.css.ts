@@ -1,35 +1,36 @@
 import { keyframes, style } from "@vanilla-extract/css";
+
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const toastRegionCSS = style([
 	sprinkles({
+		alignItems: "center",
 		display: "flex",
 		flexDirection: "column",
-		alignItems: "center",
 		gap: "space_2",
 	}),
 	{
-		zIndex: 10,
-		position: "fixed",
 		bottom: vars.spacing.space_4,
-		right: vars.spacing.space_4,
 		left: vars.spacing.space_4,
 		outline: "none",
+		position: "fixed",
+		right: vars.spacing.space_4,
+		zIndex: 10,
 	},
 ]);
 
 const kfToastIn = keyframes({
 	"0%": {
-		zIndex: 1,
 		opacity: 0,
 		transform: `translateY(${vars.spacing.space_4})`,
+		zIndex: 1,
 	},
 	"100%": { opacity: 1 },
 });
 const kfToastOut = keyframes({
-	"0%": { opacity: 1, position: "absolute", bottom: "100%" },
+	"0%": { bottom: "100%", opacity: 1, position: "absolute" },
 	"100%": {
 		opacity: 0,
 		transform: `translateY(${vars.spacing.space_4})`,
@@ -43,19 +44,19 @@ const kfToastNoAnim = keyframes({
 export const toastCSS = style([
 	a11yFocus,
 	sprinkles({
-		display: "flex",
-		gap: "space_4",
 		alignItems: "center",
-
-		paddingY: "space_2",
-		paddingLeft: "space_4",
-		paddingRight: "space_2",
-
+		background: "toast_background",
 		borderRadius: "md",
 
-		background: "toast_background",
-		color: "white",
 		boxShadow: "lg",
+		color: "white",
+		display: "flex",
+
+		gap: "space_4",
+
+		paddingLeft: "space_4",
+		paddingRight: "space_2",
+		paddingY: "space_2",
 	}),
 	{
 		selectors: {
@@ -81,11 +82,11 @@ export const toastCSS = style([
 export const toastCloseButtonCSS = style([
 	a11yFocus,
 	sprinkles({
-		width: "space_8",
-		height: "space_8",
 		borderRadius: "md",
 		color: "toast_text",
+		height: "space_8",
 		marginLeft: "auto",
+		width: "space_8",
 	}),
 	{
 		...withPrefersMotion({
@@ -101,9 +102,9 @@ export const toastCloseButtonCSS = style([
 
 export const toastTitleCSS = style([
 	sprinkles({
-		fontWeight: "semibold",
 		color: "toast_text",
 		fontStyle: "bodyMd",
+		fontWeight: "semibold",
 	}),
 ]);
 

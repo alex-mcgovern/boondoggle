@@ -2,17 +2,21 @@ import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDow
 import clsx from "clsx";
 import * as React from "react";
 import {
+	FieldError,
 	Button as RACButton,
 	type ButtonProps as RACButtonProps,
-	FieldError,
 	Select as RACSelect,
 	type SelectProps as RACSelectProps,
 	SelectValue as RACSelectValue,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
+
+import type { IterableListBoxItem} from "../list-box";
+import type { PopoverProps } from "../popover";
+
 import { Icon } from "../icon";
-import { IterableListBoxItem, ListBox } from "../list-box";
-import { Popover, PopoverProps } from "../popover";
+import { ListBox } from "../list-box";
+import { Popover } from "../popover";
 import { sprinkles } from "../sprinkles/index.css";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 
@@ -21,7 +25,7 @@ import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
  * ------------------------------------------------------------------------------- */
 
 export type SelectTriggerProps = RACButtonProps & {
-	variant?: "default" | "borderless";
+	variant?: "borderless" | "default";
 };
 
 function _SelectButton<TItemId extends string = string>(
@@ -31,11 +35,11 @@ function _SelectButton<TItemId extends string = string>(
 	return (
 		<RACButton
 			{...props}
-			ref={ref}
 			className={clsx(
 				props.className,
 				selectButtonCSS({ variant: variant }),
 			)}
+			ref={ref}
 		>
 			<RACSelectValue<IterableListBoxItem<TItemId>>
 				className={selectValueCSS}
@@ -69,8 +73,8 @@ function _Select<TItemId extends string = string>(
 	return (
 		<RACSelect<IterableListBoxItem<TItemId>>
 			{...props}
-			ref={ref}
 			className={clsx(props.className, selectCSS)}
+			ref={ref}
 		>
 			{(values) => (
 				<>
@@ -109,7 +113,7 @@ export function FormSelect<TItemId extends string = string>({
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, onChange, ...field },
+		field: { disabled: isDisabled, onChange, ref, value = "", ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -121,13 +125,15 @@ export function FormSelect<TItemId extends string = string>({
 		<Select<TItemId>
 			{...props}
 			{...field}
+			isDisabled={isDisabled}
+			isInvalid={invalid}
 			onSelectionChange={(k) => {
 				onChange(k);
 				props.onSelectionChange?.(k);
 			}}
+			ref={ref}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			isInvalid={invalid}
 		>
 			{() => {
 				return (

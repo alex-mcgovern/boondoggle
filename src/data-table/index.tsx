@@ -1,13 +1,22 @@
-import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
-import {
+import type {
 	ColumnDef,
 	FilterFn,
 	RowData,
 	SortingState,
-	VisibilityState,
+	VisibilityState} from "@tanstack/react-table";
+
+import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
+import {
 	flexRender,
 } from "@tanstack/react-table";
 import * as React from "react";
+
+import type {
+	FilteringOptions,
+	PaginationOptions,
+	WithTableOptionalSelectableRows,
+} from "./types";
+
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
@@ -22,11 +31,6 @@ import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
 import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
-import {
-	FilteringOptions,
-	PaginationOptions,
-	WithTableOptionalSelectableRows,
-} from "./types";
 declare module "@tanstack/table-core" {
 	interface FilterFns {
 		multiSelect: FilterFn<unknown>;
@@ -71,11 +75,16 @@ export type DataTableProps<TRowData extends RowData> =
 		/**
 		 * Up to 2 react nodes to render as actions for the table
 		 */
-		actions?: React.ReactNode | [React.ReactNode?, React.ReactNode?];
+		actions?: [React.ReactNode?, React.ReactNode?] | React.ReactNode;
 
 		/**
 		 * Column definitions for the tabular data
 		 */
+		/**
+		 * Options related to column visibility.
+		 */
+		columnVisibility?: VisibilityState;
+
 		// biome-ignore lint/suspicious/noExplicitAny: required to be this way
 		columns: Array<ColumnDef<TRowData, any>>;
 
@@ -83,6 +92,16 @@ export type DataTableProps<TRowData extends RowData> =
 		 * An array of objects describing each row in the table
 		 */
 		data: Array<TRowData> | undefined;
+
+		/**
+		 * Options related to filtering.
+		 */
+		filteringOptions?: FilteringOptions<TRowData>;
+
+		/**
+		 * Grid template columns
+		 */
+		gridTemplateColumns: string;
 
 		/**
 		 * The initial sorting state of the table
@@ -95,29 +114,14 @@ export type DataTableProps<TRowData extends RowData> =
 		isSortable?: boolean;
 
 		/**
-		 * The title of the no results message
-		 */
-		strNoResults: string;
-
-		/**
 		 * Options related to pagination.
 		 */
 		paginationOptions?: PaginationOptions;
 
 		/**
-		 * Options related to column visibility.
+		 * The title of the no results message
 		 */
-		columnVisibility?: VisibilityState;
-
-		/**
-		 * Options related to filtering.
-		 */
-		filteringOptions?: FilteringOptions<TRowData>;
-
-		/**
-		 * Grid template columns
-		 */
-		gridTemplateColumns: string;
+		strNoResults: string;
 	};
 
 /**
@@ -125,32 +129,32 @@ export type DataTableProps<TRowData extends RowData> =
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
 export function DataTable<TRowData extends RowData>({
+	RowActions,
 	actions,
+	columnVisibility,
 	columns,
 	data,
 	enableMultiRowSelection = false,
+	filteringOptions,
+	gridTemplateColumns,
 	initialSorting,
 	isSelectable,
-	gridTemplateColumns,
 	isSortable,
 	onSelect,
-	RowActions,
-	columnVisibility,
-	strNoResults,
 	paginationOptions,
-	filteringOptions,
+	strNoResults,
 }: DataTableProps<TRowData>) {
 	const { table } = useDataTableState({
+		columnVisibility,
+		columns,
 		data,
 		enableMultiRowSelection,
-		columns,
-		initialSorting,
 		filteringOptions,
-		columnVisibility,
-		paginationOptions,
+		initialSorting,
 		isSelectable,
 		isSortable,
 		onSelect,
+		paginationOptions,
 	});
 
 	const hasData = arrayHasLength(table.getFilteredRowModel().rows);
@@ -158,30 +162,30 @@ export function DataTable<TRowData extends RowData>({
 	return (
 		<Box>
 			<TableActions
-				globalFilter={
-					<TableGlobalFilter<TRowData>
-						table={table}
-						filteringOptions={filteringOptions}
-					/>
-				}
+				actions={actions}
 				columnFilters={
 					<TableColumnFilters<TRowData>
-						table={table}
 						filteringOptions={filteringOptions}
+						table={table}
 					/>
 				}
-				actions={actions}
+				globalFilter={
+					<TableGlobalFilter<TRowData>
+						filteringOptions={filteringOptions}
+						table={table}
+					/>
+				}
 			/>
 
 			{hasData && (
 				<Box
-					display="grid"
-					borderTop="border_rule"
 					__gridTemplateColumns={
 						RowActions
 							? `${gridTemplateColumns} max-content`
 							: gridTemplateColumns
 					}
+					borderTop="border_rule"
+					display="grid"
 				>
 					{table.getHeaderGroups().map((hg) =>
 						hg.headers.map((h) => {
@@ -195,8 +199,8 @@ export function DataTable<TRowData extends RowData>({
 							if (isSortable) {
 								return (
 									<div
-										key={h.id}
 										className={tableHeaderCellCSS}
+										key={h.id}
 									>
 										<TableSortButton header={h}>
 											{headerContent}
@@ -206,7 +210,7 @@ export function DataTable<TRowData extends RowData>({
 							}
 
 							return (
-								<div key={h.id} className={tableHeaderCellCSS}>
+								<div className={tableHeaderCellCSS} key={h.id}>
 									{headerContent}
 								</div>
 							);
@@ -236,9 +240,9 @@ export function DataTable<TRowData extends RowData>({
 
 			{!hasData && (
 				<TableNoResults
-					table={table}
 					filteringOptions={filteringOptions}
 					strNoResults={strNoResults}
+					table={table}
 				/>
 			)}
 

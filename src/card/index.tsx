@@ -4,7 +4,7 @@ import { cardCSS, headerCSS } from "./styles.css";
 function CardActionsWrapper({
 	actions,
 }: {
-	actions?: React.ReactNode | [React.ReactNode?, React.ReactNode?];
+	actions?: [React.ReactNode?, React.ReactNode?] | React.ReactNode;
 }) {
 	if (!actions) {
 		return null;
@@ -21,7 +21,7 @@ export type CardProps = {
 	/**
 	 * Action shown on the right-hand side of a card.
 	 */
-	actions?: React.ReactNode | [React.ReactNode?, React.ReactNode?];
+	actions?: [React.ReactNode?, React.ReactNode?] | React.ReactNode;
 
 	/**
 	 * The components to render in the card
@@ -34,14 +34,14 @@ export type CardProps = {
 	description?: string;
 
 	/**
-	 * The header of the card
-	 */
-	header?: React.ReactNode;
-
-	/**
 	 * Whether the card has padding or not
 	 */
 	hasPadding?: boolean;
+
+	/**
+	 * The header of the card
+	 */
+	header?: React.ReactNode;
 
 	/**
 	 * The title of the card
@@ -63,7 +63,7 @@ export function Card({
 	return (
 		<>
 			{header && <header className={headerCSS}>{header}</header>}
-			<section className={cardCSS({ hasPadding, hasHeader: !!header })}>
+			<section className={cardCSS({ hasHeader: !!header, hasPadding })}>
 				{(title || actions) && (
 					<Box
 						alignItems="start"

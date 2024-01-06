@@ -1,7 +1,10 @@
-import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTriangleCircleSquare";
 import type { StoryFn, StoryObj } from "@storybook/react";
-import { Tag as StoryComp } from ".";
+
+import { faTriangleCircleSquare } from "@fortawesome/pro-solid-svg-icons/faTriangleCircleSquare";
+
 import type { TagProps as StoryCompProps } from ".";
+
+import { Tag as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
 import { Icon } from "../icon";

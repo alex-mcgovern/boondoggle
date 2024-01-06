@@ -1,6 +1,7 @@
+import type { TableNumberRangeFilterMode } from "../../../../types";
+
 import { exhaustiveSwitchGuard } from "../../../../../_lib/exhaustive-switch-guard";
 import { Box } from "../../../../../box";
-import { TableNumberRangeFilterMode } from "../../../../types";
 import { activeFilterStringCSS } from "../../column-filter-multi/styles.css";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
@@ -25,11 +26,11 @@ const getSeparator = (filterMode: TableNumberRangeFilterMode) => {
 };
 
 const getValue = ({
-	filterMode,
 	currentFilters,
+	filterMode,
 }: {
-	filterMode: TableNumberRangeFilterMode;
 	currentFilters: [number | undefined, number | undefined];
+	filterMode: TableNumberRangeFilterMode;
 }) => {
 	switch (filterMode) {
 		case "is_between": {
@@ -51,11 +52,11 @@ const getValue = ({
 };
 
 export const PillTextFilterNumberRange = ({
-	strFilterPillText,
 	currentFilters,
+	strFilterPillText,
 }: {
-	strFilterPillText: string;
 	currentFilters: [number | undefined, number | undefined];
+	strFilterPillText: string;
 }) => {
 	const [filterMode] = useNumericFilterMode();
 
@@ -69,7 +70,7 @@ export const PillTextFilterNumberRange = ({
 				className={activeFilterStringCSS}
 				color="button_default"
 			>
-				{getValue({ filterMode, currentFilters })}
+				{getValue({ currentFilters, filterMode })}
 			</Box>
 		</Box>
 	);

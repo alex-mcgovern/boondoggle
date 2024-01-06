@@ -1,5 +1,6 @@
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
+
 import { makeTheme } from "../css-utils";
 import { vars } from "../index.css";
 
@@ -10,8 +11,8 @@ export const comboBoxCSS = style([
 			 * Whether the text field is disabled.
 			 */
 			"&[data-disabled]": {
-				opacity: 0.5,
 				cursor: "not-allowed !important",
+				opacity: 0.5,
 			},
 
 			/**
@@ -21,10 +22,10 @@ export const comboBoxCSS = style([
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: red,
-						secondary: red,
 						alpha: redA,
 						isOverlay: true,
+						primary: red,
+						secondary: red,
 					}),
 				),
 			},

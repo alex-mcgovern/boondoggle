@@ -1,9 +1,9 @@
+import type { ForwardedRef } from "react";
+
 import { createRef, useCallback } from "react";
 
 import { useClickOutside } from "../../_hooks/use-click-outside";
 import { useForwardRef } from "../../_hooks/use-forward-ref";
-
-import type { ForwardedRef } from "react";
 
 type UseDialogModalStateArgs = {
 	/**

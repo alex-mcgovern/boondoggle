@@ -1,4 +1,5 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+
 import {
 	MEDIA_QUERY_DESKTOP,
 	MEDIA_QUERY_TABLET,
@@ -7,9 +8,9 @@ import {
 } from "../index.css";
 
 const border = {
-	border_rule: `1px solid ${vars.color.border_rule}`,
 	border_element: `1px solid ${vars.color.border_element}`,
 	border_element_active: `1px solid ${vars.color.border_element_active}`,
+	border_rule: `1px solid ${vars.color.border_rule}`,
 };
 
 export const properties = defineProperties({
@@ -17,7 +18,6 @@ export const properties = defineProperties({
 	properties: {
 		alignItems: ["stretch", "start", "center", "end", "baseline"],
 		alignSelf: ["stretch", "start", "center", "end", "baseline"],
-		justifySelf: ["stretch", "start", "center", "end", "baseline"],
 		aspectRatio: vars.aspectRatio,
 		background: {
 			...vars.color,
@@ -27,9 +27,9 @@ export const properties = defineProperties({
 		border: border,
 		borderBottom: border,
 		borderLeft: border,
-		borderTop: border,
-		borderRight: border,
 		borderRadius: vars.borderRadius,
+		borderRight: border,
+		borderTop: border,
 		bottom: ["0"],
 		boxShadow: vars.boxShadow,
 		color: {
@@ -54,6 +54,7 @@ export const properties = defineProperties({
 			"space-around",
 			"space-between",
 		],
+		justifySelf: ["stretch", "start", "center", "end", "baseline"],
 		left: ["0"],
 		lineHeight: vars.lineHeight,
 		margin: vars.spacing,
@@ -69,9 +70,9 @@ export const properties = defineProperties({
 		overflowY: ["hidden", "auto", "visible", "scroll"],
 		right: ["0"],
 		textAlign: ["center", "left", "right"],
-		textWrap: ["balance"],
 		textDecoration: ["underline", "none", "line-through"],
 		textTransform: ["capitalize", "uppercase", "lowercase"],
+		textWrap: ["balance"],
 		top: ["0"],
 		whiteSpace: ["nowrap", "normal"],
 		zIndex: ["-1", "1"],
@@ -87,12 +88,12 @@ export const properties = defineProperties({
 
 export const responsiveProperties = defineProperties({
 	conditions: {
+		desktop: {
+			"@media": MEDIA_QUERY_DESKTOP,
+		},
 		mobile: {},
 		tablet: {
 			"@media": MEDIA_QUERY_TABLET,
-		},
-		desktop: {
-			"@media": MEDIA_QUERY_DESKTOP,
 		},
 	},
 	defaultCondition: "mobile",

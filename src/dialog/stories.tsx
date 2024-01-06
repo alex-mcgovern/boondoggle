@@ -1,5 +1,7 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faker } from "@faker-js/faker";
-import { Meta, StoryObj } from "@storybook/react";
+
 import {
 	V2Dialog as StoryComp,
 	V2DialogFooter,
@@ -12,12 +14,7 @@ import { V2DialogErrorMessage } from "../dialog-error-message";
 import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
-	title: "Dialog",
-	component: StoryComp,
 	args: {
-		modalOverlayProps: {
-			isDismissable: true,
-		},
 		buttonProps: {
 			children: "Open Dialog",
 		},
@@ -33,7 +30,7 @@ const meta = {
 							</a>
 						</p>
 						{Array.from({ length: 10 }, () => {
-							return <p>{faker.lorem.paragraphs(1)}</p>;
+							return <p key={faker.string.alphanumeric(4)}>{faker.lorem.paragraphs(1)}</p>;
 						})}
 					</>
 				</V2ScrollableDialogContent>
@@ -50,7 +47,12 @@ const meta = {
 				</V2DialogFooter>
 			</>
 		),
+		modalOverlayProps: {
+			isDismissable: true,
+		},
 	},
+	component: StoryComp,
+	title: "Dialog",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -72,30 +74,27 @@ export const WidthLg: Story = {
 
 export const WithDialogErrorMessage: Story = {
 	args: {
-		dialogTriggerProps: {
-			defaultOpen: true,
-		},
-		colorOverlay: "red",
 		children: ({ close }) => (
 			<>
 				<V2DialogHeader close={close} title="Dialog Title" />
 				<V2DialogErrorMessage
-					strCancel="Cancel"
-					strTryAgain="Try Again"
 					error={{ message: "This is an error message" }}
 					onPressCancel={close}
 					onPressTryAgain={close}
+					strCancel="Cancel"
+					strTryAgain="Try Again"
 				/>
 			</>
 		),
+		colorOverlay: "red",
+		dialogTriggerProps: {
+			defaultOpen: true,
+		},
 	},
 };
 
 export const WithDialogAlert: Story = {
 	args: {
-		dialogTriggerProps: {
-			defaultOpen: true,
-		},
 		children: ({ close }) => (
 			<>
 				<V2DialogHeader close={close} title="Dialog Title" />
@@ -130,5 +129,8 @@ export const WithDialogAlert: Story = {
 				</V2DialogFooter>
 			</>
 		),
+		dialogTriggerProps: {
+			defaultOpen: true,
+		},
 	},
 };

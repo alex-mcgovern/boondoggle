@@ -1,8 +1,11 @@
+import type {
+	TextProps as RACTextProps} from "react-aria-components";
+
 import clsx from "clsx";
 import {
-	Text as ReactAriaText,
-	TextProps as RACTextProps,
+	Text as ReactAriaText
 } from "react-aria-components";
+
 import { descriptionCSS } from "./styles.css";
 
 export function FieldDescription(props: RACTextProps) {

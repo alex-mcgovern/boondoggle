@@ -1,6 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { tHeadStyles, thStyles, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
@@ -11,20 +12,20 @@ const baseHeadStyle = style([
 ]);
 
 const isSelectable = styleVariants({
-	true: {},
 	false: {},
+	true: {},
 });
 
 const hasRowActions = styleVariants({
-	true: {},
 	false: {},
+	true: {},
 });
 
 export const getHeadStyle = recipe({
 	base: [baseHeadStyle, tHeadStyles],
 	variants: {
-		isSelectable,
 		hasRowActions,
+		isSelectable,
 	},
 });
 

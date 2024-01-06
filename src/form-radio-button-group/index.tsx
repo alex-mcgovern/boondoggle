@@ -1,12 +1,14 @@
 import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
-import { RadioButtonGroup } from "../radio-button-group";
+
 import type { RadioButtonGroupProps } from "../radio-button-group";
 import type { WithFormFieldProps } from "../types";
 
+import { RadioButtonGroup } from "../radio-button-group";
+
 export type FormRadioButtonGroupProps = RadioButtonGroupProps &
 	WithFormFieldProps & {
-		defaultValue?: string | number;
+		defaultValue?: number | string;
 	};
 
 export function FormRadioButtonGroup({
@@ -46,8 +48,8 @@ export function FormRadioButtonGroup({
 		<RadioButtonGroup
 			defaultValue={defaultValue}
 			errorMessage={error?.message}
-			items={wrappedItems}
 			invalid={invalid || !!error}
+			items={wrappedItems}
 			name={name}
 			onChange={handleChange}
 			ref={ref}

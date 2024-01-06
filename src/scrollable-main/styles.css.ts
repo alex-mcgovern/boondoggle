@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
@@ -12,10 +13,10 @@ export const nonScrollableWrapperCSS = style({
 export const scrollableMainCSS = recipe({
 	base: [
 		sprinkles({
-			paddingX: "space_4",
-			overflowY: "auto",
-			overflowX: "hidden",
 			height: "100dvh",
+			overflowX: "hidden",
+			overflowY: "auto",
+			paddingX: "space_4",
 			width: "100%",
 		}),
 		{

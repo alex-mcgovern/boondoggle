@@ -11,6 +11,7 @@ import {
 	useSlottedContext,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
+
 import {
 	Tooltip,
 	TooltipContent,
@@ -132,12 +133,12 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 			return {
 				slots: {
 					clear: {
-						onPress: clearValue,
 						isDisabled: !value,
+						onPress: clearValue,
 					},
 					copy: {
-						onPress: copyValue,
 						isDisabled: !value,
+						onPress: copyValue,
 					},
 					visibility: {
 						onPress: toggleVisibility,
@@ -152,13 +153,13 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
 				<RACTextField
 					{...props}
 					className={clsx(props.className, textFieldCSS)}
-					value={value}
 					onChange={(v) => {
 						setValue(v);
 						props.onChange?.(v);
 					}}
-					type={type}
 					ref={ref}
+					type={type}
+					value={value}
 				/>
 			</FieldButtonContext.Provider>
 		);
@@ -182,7 +183,7 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, onChange, ...field },
+		field: { disabled: isDisabled, onChange, ref, value = "", ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -194,13 +195,15 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
 		<TextField
 			{...props}
 			{...field}
+			isDisabled={isDisabled}
+			isInvalid={invalid}
 			onChange={(v) => {
 				onChange(v);
 				props.onChange?.(v);
 			}}
-			value={value}
+			ref={ref}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			isInvalid={invalid}
+			value={value}
 		>
 			{() => {
 				return (

@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+
 import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
@@ -7,15 +8,15 @@ import { sprinkles } from "../sprinkles/index.css";
 
 const commonCellCSS = style([
 	sprinkles({
-		borderBottom: "border_rule",
-		paddingY: "space_2",
-		paddingX: "space_4",
-
-		display: "flex",
 		alignItems: "center",
-		justifyContent: "start",
+		borderBottom: "border_rule",
+		display: "flex",
 
 		fontStyle: "bodyMd",
+		justifyContent: "start",
+		paddingX: "space_4",
+
+		paddingY: "space_2",
 	}),
 	{
 		minWidth: "0", // Ensure that children with class `overflowEllipsis` work correctly

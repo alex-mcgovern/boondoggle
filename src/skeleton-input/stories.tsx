@@ -1,11 +1,11 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { SkeletonInput as StoryComp } from ".";
 
-import { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
-	title: "SkeletonInput",
-	component: StoryComp,
 	args: {},
+	component: StoryComp,
+	title: "SkeletonInput",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

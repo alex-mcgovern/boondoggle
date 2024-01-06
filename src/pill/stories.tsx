@@ -1,15 +1,17 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faCircleSmall } from "@fortawesome/pro-solid-svg-icons/faCircleSmall";
-import { Meta, StoryObj } from "@storybook/react";
+
 import { Pill } from ".";
 import { Icon } from "../icon";
 
 const meta = {
-	title: "Pill",
-	component: Pill,
 	args: {
 		children: "Pill",
 		slotLeft: <Icon icon={faCircleSmall} />,
 	},
+	component: Pill,
+	title: "Pill",
 } satisfies Meta<typeof Pill>;
 
 export default meta;

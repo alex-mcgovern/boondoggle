@@ -1,31 +1,33 @@
+import type { Ref } from "react";
+
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
-import type { Ref } from "react";
-import { Box } from "../box";
-import { FieldDescription } from "../field-description";
-import { variantColorOverlay } from "../index.css";
-import {
+
+import type {
+	RadioButtonCardShape,
+	RadioButtonInputProps,
+} from "../radio-button-card";
+import type { Sprinkles } from "../sprinkles/index.css";
+import type {
 	WithDescription,
 	WithName,
 	WithStateInvalid,
 	WithWrapperProps,
 } from "../types";
 
+import { Box } from "../box";
+import { FieldDescription } from "../field-description";
 import { FieldError } from "../field-error";
+import { variantColorOverlay } from "../index.css";
 import { Label } from "../label";
 import { RadioButtonCard } from "../radio-button-card";
-import type {
-	RadioButtonCardShape,
-	RadioButtonInputProps,
-} from "../radio-button-card";
-import { Sprinkles } from "../sprinkles/index.css";
 
 export type RadioButtonCardGroupProps = Sprinkles &
 	WithWrapperProps &
 	WithStateInvalid &
 	WithName &
 	WithDescription & {
-		defaultValue?: string | number;
+		defaultValue?: number | string;
 
 		id: string;
 
@@ -37,6 +39,11 @@ export type RadioButtonCardGroupProps = Sprinkles &
 
 		items: Array<RadioButtonCardShape>;
 
+		/**
+		 * Label config for the field.
+		 */
+		label?: string;
+
 		labelTooltip?: string;
 
 		onChange?: (value: string) => void;
@@ -44,11 +51,6 @@ export type RadioButtonCardGroupProps = Sprinkles &
 		required?: boolean;
 
 		value?: string;
-
-		/**
-		 * Label config for the field.
-		 */
-		label?: string;
 	};
 
 export const RadioButtonCardGroup = forwardRef(

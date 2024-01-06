@@ -1,5 +1,7 @@
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
+
 import { Tooltip, TooltipContent, TooltipTrigger } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";

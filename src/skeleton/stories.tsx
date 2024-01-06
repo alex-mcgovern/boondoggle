@@ -1,6 +1,6 @@
-import { Skeleton as StoryComp } from ".";
-
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Skeleton as StoryComp } from ".";
 
 const meta = {
 	component: StoryComp,

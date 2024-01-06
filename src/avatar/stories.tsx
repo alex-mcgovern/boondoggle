@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { Avatar as StoryComp } from ".";
 import { MOCK_AVATAR } from "../../mocks/mock_avatar";
 

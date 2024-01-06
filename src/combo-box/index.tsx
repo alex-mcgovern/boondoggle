@@ -2,14 +2,17 @@ import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDow
 import clsx from "clsx";
 import React from "react";
 import {
-	ComboBox as RACCombobox,
 	type ComboBoxProps as RACComboBoxProps,
+	ComboBox as RACCombobox,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
+
+import type { IterableListBoxItem} from "../list-box";
+
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
-import { IterableListBoxItem, ListBox } from "../list-box";
+import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import { comboBoxCSS } from "./styles.css";
 
@@ -81,7 +84,7 @@ export function FormComboBox<TItemId extends string = string>({
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, onChange, ...field },
+		field: { disabled: isDisabled, onChange, ref, value = "", ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -93,10 +96,10 @@ export function FormComboBox<TItemId extends string = string>({
 		<ComboBox
 			{...props}
 			{...field}
+			isInvalid={invalid}
 			onSelectionChange={onChange}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			isInvalid={invalid}
 		>
 			{() => {
 				return (

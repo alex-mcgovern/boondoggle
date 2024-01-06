@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 
 import { Box } from "../box";
+import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { flagStyles } from "./styles.css";
 
 export function FlagAf({

@@ -1,26 +1,28 @@
-import clsx from "clsx";
 import type { HTMLProps } from "react";
+
+import clsx from "clsx";
+
 import { actionsCSS, headerCSS } from "./styles.css";
 
 /**
  * Header HTML element.
  */
 export function Header({
+	actions,
 	children,
 	className,
-	actions,
 	tabs,
 	...rest
 }: HTMLProps<HTMLElement> & {
 	/**
-	 * Main content.
-	 */
-	children: React.ReactNode;
-
-	/**
 	 * Actions to be displayed on the right side of the header.
 	 */
 	actions?: React.ReactNode;
+
+	/**
+	 * Main content.
+	 */
+	children: React.ReactNode;
 
 	/**
 	 * Tabs to be displayed underneath the header.

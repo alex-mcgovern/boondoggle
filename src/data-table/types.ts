@@ -1,4 +1,4 @@
-import { RowData } from "@tanstack/react-table";
+import type { RowData } from "@tanstack/react-table";
 
 export type TableNumberRangeFilterMode =
 	| "is_between"
@@ -30,6 +30,33 @@ export type PaginationOptions = {
 
 export type FilteringOptions<TRowData extends RowData> = {
 	/**
+	 * A key-value map of column IDs to their filter configurations.
+	 */
+	columnFilterConfig?: Partial<
+		Record<
+			keyof TRowData,
+			| {
+					strFilterDialogTitle: string;
+					strFilterPillText: string;
+					// biome-ignore lint/suspicious/noExplicitAny: Using any here because we don't know what the type of the data is
+					transformValueToString?: (value: any) => string;
+					type: "MULTI_SELECT";
+			  }
+			| {
+					strFilterDialogTitle: string;
+					strFilterPillText: string;
+					transformNumericFromRaw?: (
+						value: number | undefined,
+					) => number | undefined;
+					transformNumericToRaw?: (
+						value: number | undefined,
+					) => number | undefined;
+					type: "NUMBER_RANGE";
+			  }
+		>
+	>;
+
+	/**
 	 * The text to display for the clear filters button.
 	 */
 	strClearAllFilters: string;
@@ -44,33 +71,6 @@ export type FilteringOptions<TRowData extends RowData> = {
 	 * String to use for filter field placeholder
 	 */
 	strFilterPlaceholder: string;
-
-	/**
-	 * A key-value map of column IDs to their filter configurations.
-	 */
-	columnFilterConfig?: Partial<
-		Record<
-			keyof TRowData,
-			| {
-					type: "MULTI_SELECT";
-					strFilterDialogTitle: string;
-					strFilterPillText: string;
-					// biome-ignore lint/suspicious/noExplicitAny: Using any here because we don't know what the type of the data is
-					transformValueToString?: (value: any) => string;
-			  }
-			| {
-					type: "NUMBER_RANGE";
-					strFilterDialogTitle: string;
-					strFilterPillText: string;
-					transformNumericFromRaw?: (
-						value: number | undefined,
-					) => number | undefined;
-					transformNumericToRaw?: (
-						value: number | undefined,
-					) => number | undefined;
-			  }
-		>
-	>;
 };
 
 // ===== OLD TYPES ====
@@ -141,6 +141,42 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 	 */
 	| {
 			/**
+			 * A key-value map of column IDs to their filter configurations.
+			 */
+			columnFilterConfig: Partial<
+				Record<
+					keyof TRowData,
+					| {
+							strFilterDialogTitle: string;
+							strFilterPillText: string;
+							// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+							transformNumericFromRaw: (value: any) => string;
+							type: "MULTI_SELECT";
+					  }
+					| {
+							transformNumericFromRaw: (value: number) => number;
+							transformNumericToRaw: (value: number) => number;
+							type: "NUMBER_RANGE";
+					  }
+				>
+			>;
+
+			/**
+			 * A map of column IDs to their string representations.
+			 */
+			filterColumnStrMap: Partial<
+				Record<
+					keyof TRowData,
+					{
+						strFilterDialogTitle: string;
+						strFilterPillText: string;
+						// biome-ignore lint/suspicious/noExplicitAny: no better alternative
+						transformNumericFromRaw: (value: any) => string;
+					}
+				>
+			>;
+
+			/**
 			 * Whether the table should be filterable
 			 */
 			isGlobalFilterEnabled: true;
@@ -166,42 +202,6 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 			strFilterPlaceholder: string;
 
 			/**
-			 * A key-value map of column IDs to their filter configurations.
-			 */
-			columnFilterConfig: Partial<
-				Record<
-					keyof TRowData,
-					| {
-							type: "MULTI_SELECT";
-							strFilterDialogTitle: string;
-							strFilterPillText: string;
-							// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-							transformNumericFromRaw: (value: any) => string;
-					  }
-					| {
-							type: "NUMBER_RANGE";
-							transformNumericFromRaw: (value: number) => number;
-							transformNumericToRaw: (value: number) => number;
-					  }
-				>
-			>;
-
-			/**
-			 * A map of column IDs to their string representations.
-			 */
-			filterColumnStrMap: Partial<
-				Record<
-					keyof TRowData,
-					{
-						strFilterDialogTitle: string;
-						strFilterPillText: string;
-						// biome-ignore lint/suspicious/noExplicitAny: no better alternative
-						transformNumericFromRaw: (value: any) => string;
-					}
-				>
-			>;
-
-			/**
 			 * A map of strings used in the numeric filter mode.
 			 */
 			strMapNumericFilterMode: Record<TableNumberRangeFilterMode, string>;
@@ -210,6 +210,11 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 	 * If `isGlobalFilterEnabled` is `false` or `undefined`, `strFilterPlaceholder` should not be passed.
 	 */
 	| {
+			/**
+			 * A map of column IDs to their string representations.
+			 */
+			filterColumnStrMap?: never;
+
 			/**
 			 * Whether the table should be filterable
 			 */
@@ -234,11 +239,6 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
 			 * String to use for filter field placeholder
 			 */
 			strFilterPlaceholder?: never;
-
-			/**
-			 * A map of column IDs to their string representations.
-			 */
-			filterColumnStrMap?: never;
 
 			/**
 			 * A map of strings used in the numeric filter mode.

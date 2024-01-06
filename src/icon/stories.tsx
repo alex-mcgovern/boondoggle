@@ -1,9 +1,10 @@
+import type { StoryFn, StoryObj } from "@storybook/react";
+
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 
-import { Icon as StoryComp } from ".";
-
-import type { StoryFn, StoryObj } from "@storybook/react";
 import type { IconProps as StoryCompProps } from ".";
+
+import { Icon as StoryComp } from ".";
 
 export default {
 	component: StoryComp,

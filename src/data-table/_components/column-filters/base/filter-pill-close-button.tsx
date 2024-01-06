@@ -1,4 +1,5 @@
 import { faCirclePlus } from "@fortawesome/pro-solid-svg-icons/faCirclePlus";
+
 import {
 	Tooltip,
 	TooltipContent,
@@ -19,12 +20,12 @@ export const FilterPillCloseButton = ({
 			<TooltipContent>Clear filter</TooltipContent>
 			<TooltipTrigger asChild>
 				<button
-					type="button"
+					className={closeButtonCSS}
 					onClick={() => {
 						clearFilters();
 						setIsOpen(false);
 					}}
-					className={closeButtonCSS}
+					type="button"
 				>
 					<Icon className={closeIconCSS} icon={faCirclePlus} />
 				</button>

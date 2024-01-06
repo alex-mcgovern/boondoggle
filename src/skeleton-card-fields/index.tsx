@@ -7,7 +7,7 @@ export function SkeletonCardFields({ withTitle }: { withTitle?: boolean }) {
 	return (
 		<Card>
 			{withTitle ? (
-				<Skeleton marginBottom="space_8" __maxWidth="10rem" />
+				<Skeleton __maxWidth="10rem" marginBottom="space_8" />
 			) : null}
 
 			<FieldsGrid>

@@ -1,15 +1,16 @@
-import { Button } from ".";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
-import { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from ".";
 import { Icon } from "../icon";
 
 const meta = {
-	title: "Button",
-	component: Button,
 	args: {
 		children: "Button",
 	},
+	component: Button,
+	title: "Button",
 } satisfies Meta<typeof Button>;
 
 export default meta;

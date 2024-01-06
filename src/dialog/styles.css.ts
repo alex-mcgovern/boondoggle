@@ -1,5 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { withPrefersMotion } from "../css-utils";
 import {
 	MEDIA_QUERY_MOBILE,
@@ -24,15 +25,15 @@ const kfModalOverlayOut = keyframes({
 
 export const modalOverlayCSS = style([
 	sprinkles({
+		background: "backdrop",
 		display: "flex",
 		placeItems: "center",
-		background: "backdrop",
 	}),
 	{
+		inset: "0",
 		minHeight: "100dvh",
 		minWidth: "100vw",
 		position: "fixed",
-		inset: "0",
 		zIndex: 10,
 
 		...withPrefersMotion({
@@ -71,8 +72,8 @@ export const modalCSS = recipe({
 	base: [
 		sprinkles({
 			background: "background",
-			borderRadius: "md",
 			border: "border_rule",
+			borderRadius: "md",
 			boxShadow: "lg",
 			maxWidth: "100vw",
 		}),
@@ -129,15 +130,14 @@ export const modalCSS = recipe({
 
 export const dialogCSS = style([
 	sprinkles({
-		position: "relative",
-
-		// Use flex to allow footer element to
 		// stick to bottom of container
 		display: "flex",
+
+		// Use flex to allow footer element to
 		flexDirection: "column",
+		position: "relative",
 	}),
 	{
-		outline: 0,
 		"@media": {
 			[MEDIA_QUERY_MOBILE]: {
 				height: "100vh",
@@ -147,42 +147,43 @@ export const dialogCSS = style([
 				maxHeight: "75dvh",
 			},
 		},
+		outline: 0,
 	},
 ]);
 
 export const dialogHeaderCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
+		borderBottom: "border_rule",
+		display: "flex",
+
 		justifyContent: "space-between",
 
 		maxWidth: "100%",
-
 		paddingLeft: "space_4",
 		paddingRight: "space_2",
+
 		paddingY: "space_2",
-
 		position: "sticky",
-		top: "0",
 
-		borderBottom: "border_rule",
+		top: "0",
 	}),
 ]);
 
 export const dialogTitleCSS = style([
 	sprinkles({
+		color: "text_high_contrast",
+		fontStyle: "bodyLg",
 		fontWeight: "semibold",
 		marginY: "none",
-		fontStyle: "bodyLg",
-		color: "text_high_contrast",
 	}),
 ]);
 
 export const dialogContentCSS = style([
 	sprinkles({
 		overflowY: "auto",
-		paddingY: "space_4",
 		paddingX: "space_4",
+		paddingY: "space_4",
 	}),
 ]);
 

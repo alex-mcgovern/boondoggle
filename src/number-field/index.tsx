@@ -7,6 +7,7 @@ import {
 	type NumberFieldProps as RACNumberFieldProps,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
+
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
@@ -76,7 +77,7 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, ...field },
+		field: { disabled: isDisabled, ref, value = "", ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -88,9 +89,9 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
 		<NumberField
 			{...props}
 			{...field}
-			value={value}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
 			isInvalid={invalid}
+			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+			value={value}
 		>
 			{() => {
 				return (

@@ -6,8 +6,10 @@ import {
 	MenuItem as ReactAriaMenuItem,
 	type MenuProps as ReactAriaMenuProps,
 } from "react-aria-components";
+
+import type { ColorOverlay } from "../index.css";
+
 import { menuCSS, menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
-import { ColorOverlay } from "../index.css";
 import { Section } from "../section";
 
 type SingleMenuItem<TItemId extends string = string> = {
@@ -22,7 +24,6 @@ type SingleMenuItem<TItemId extends string = string> = {
 };
 
 export type IterableMenuItem<TItemId extends string = string> =
-	| SingleMenuItem<TItemId>
 	| {
 			children: Array<SingleMenuItem<TItemId>>;
 			colorOverlay?: never;
@@ -31,7 +32,8 @@ export type IterableMenuItem<TItemId extends string = string> =
 			name?: string;
 			slotLeft?: never;
 			type?: never;
-	  };
+	  }
+	| SingleMenuItem<TItemId>;
 
 export type MenuProps<TItemId extends string = string> = ReactAriaMenuProps<
 	IterableMenuItem<TItemId>

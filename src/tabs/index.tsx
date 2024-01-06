@@ -11,6 +11,7 @@ import {
 	Tabs as ReactAriaTabs,
 	type TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
+
 import { Icon } from "../icon";
 import { Loader } from "../loader";
 import {
@@ -29,20 +30,20 @@ import {
 
 export const V2TabCount = ({
 	count,
-	isLoading,
 	isError,
-}: { count?: number; isLoading?: boolean; isError?: boolean }) => {
+	isLoading,
+}: { count?: number; isError?: boolean; isLoading?: boolean }) => {
 	if (isError) {
 		return (
 			<Icon
-				size="sm"
-				icon={faExclamationCircle}
 				className={tabCountIconCSS}
+				icon={faExclamationCircle}
+				size="sm"
 			/>
 		);
 	}
 	if (isLoading) {
-		return <Loader size="sm" className={tabCountIconCSS} />;
+		return <Loader className={tabCountIconCSS} size="sm" />;
 	}
 	if (!isLoading && !count) {
 		return <div className={tabCountCSS}>0</div>;
@@ -55,36 +56,36 @@ export const V2TabCount = ({
  * ------------------------------------------------------------------------------- */
 
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
+	animationKey: string;
 	label?: string;
 	slotLeft?: React.ReactNode;
 	slotRight?: React.ReactNode;
-	animationKey: string;
 };
 
 const V2Tab = ({
+	animationKey,
 	id,
 	label,
 	slotLeft,
 	slotRight,
-	animationKey,
 	...props
 }: V2TabProps) => {
 	return (
-		<ReactAriaTab id={id} className={tabOuterCSS} {...props}>
+		<ReactAriaTab className={tabOuterCSS} id={id} {...props}>
 			{({ isSelected }) => {
 				return (
 					<>
 						{isSelected ? (
 							<motion.span
-								layoutId={animationKey}
 								className={tabIndicatorCSS}
-								transition={{
-									type: "spring",
-									stiffness: 750,
-									damping: 75,
-								}}
+								layoutId={animationKey}
 								style={{
 									originY: "0px", // prevent vertical movement
+								}}
+								transition={{
+									damping: 75,
+									stiffness: 750,
+									type: "spring",
 								}}
 							/>
 						) : null}
@@ -112,7 +113,7 @@ export function V2TabList({
 	ReactAriaTabListProps<Omit<V2TabProps, "animationKey">>,
 	"className"
 > & {
-	justify?: "start" | "space-evenly";
+	justify?: "space-evenly" | "start";
 }) {
 	return (
 		<div className={tabListOuterCSS}>
@@ -143,8 +144,8 @@ export const V2TabPanel = (
 
 export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
 	const {
-		selectedKey: controlledSelectedKey,
 		onSelectionChange: controlledOnSelectionChange,
+		selectedKey: controlledSelectedKey,
 		...tabsProps
 	} = props || {};
 
@@ -164,11 +165,11 @@ export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
 	return (
 		<ReactAriaTabs
 			{...tabsProps}
-			selectedKey={selectedKey}
 			onSelectionChange={(k) => {
 				setSelectedKey(k);
 				controlledOnSelectionChange?.(k);
 			}}
+			selectedKey={selectedKey}
 		>
 			{children}
 		</ReactAriaTabs>

@@ -1,6 +1,7 @@
 import { type TCountryCode, countries } from "countries-list";
 import * as React from "react";
 import { useController, useFormContext } from "react-hook-form";
+
 import { ComboBox, type ComboBoxProps } from "../combo-box";
 import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
@@ -22,7 +23,7 @@ const getFlagComponent = (iso_code: TCountryCode) => {
 	}
 
 	return (
-		<FlagComponent width="space_4" height="space_4" border="border_rule" />
+		<FlagComponent border="border_rule" height="space_4" width="space_4" />
 	);
 };
 
@@ -38,9 +39,9 @@ const getCountryItem = ({
 	name: string;
 }): IterableListBoxItem<TCountryCode> => {
 	return {
+		id: iso,
 		name,
 		slotLeft: getFlagComponent(iso),
-		id: iso,
 	};
 };
 
@@ -90,7 +91,7 @@ export function FormComboBoxCountry({
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = "", disabled: isDisabled, onChange, ...field },
+		field: { disabled: isDisabled, onChange, ref, value = "", ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -102,10 +103,10 @@ export function FormComboBoxCountry({
 		<ComboBoxCountry
 			{...props}
 			{...field}
+			isInvalid={invalid}
 			onSelectionChange={onChange}
 			selectedKey={value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			isInvalid={invalid}
 		>
 			{() => {
 				return (

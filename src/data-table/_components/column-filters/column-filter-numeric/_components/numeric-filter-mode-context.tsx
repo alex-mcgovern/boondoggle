@@ -1,5 +1,6 @@
 import * as React from "react";
-import { TableNumberRangeFilterMode } from "../../../../types";
+
+import type { TableNumberRangeFilterMode } from "../../../../types";
 
 export const NumericFilterModeContext = React.createContext<
 	| [

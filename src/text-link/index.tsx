@@ -1,9 +1,12 @@
+import type {
+	LinkProps as RACLinkProps} from "react-aria-components";
+
 import clsx from "clsx";
 import * as React from "react";
 import {
-	Link as RACLink,
-	LinkProps as RACLinkProps,
+	Link as RACLink
 } from "react-aria-components";
+
 import { textLinkCSS } from "./styles.css";
 
 export type TextLinkProps = RACLinkProps;
@@ -22,11 +25,11 @@ export const TextLink = React.forwardRef<HTMLAnchorElement, TextLinkProps>(
 		return (
 			<RACLink
 				{...props}
-				ref={ref}
 				className={clsx(
 					props.className,
 					textLinkCSS,
 				)}
+				ref={ref}
 			/>
 		);
 	},

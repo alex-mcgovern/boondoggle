@@ -5,11 +5,11 @@ import { sprinkles } from "../sprinkles/index.css";
 export const topBarStyle = style([
 	style([
 		sprinkles({
-			display: "flex",
 			alignItems: "center",
-
 			background: "tint_default",
+
 			borderBottom: "border_rule",
+			display: "flex",
 
 			gap: "space_4",
 			height: "topBar",

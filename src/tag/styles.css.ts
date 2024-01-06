@@ -1,4 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
+
 import { withPrefersMotion } from "../css-utils";
 import { a11yFocus, variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -7,23 +8,23 @@ export const getTagStyle = recipe({
 	base: [
 		sprinkles({
 			alignItems: "center",
+			background: "tint_hover",
+			borderRadius: "md",
+			color: "text_low_contrast",
+
 			display: "inline-flex",
-			gap: "space_1",
+
 			flexShrink: "0",
 
-			width: "max-content",
-
-			borderRadius: "md",
-
 			fontStyle: "bodySm",
-			textDecoration: "none",
-			whiteSpace: "nowrap",
-
-			color: "text_low_contrast",
-			background: "tint_hover",
-
+			gap: "space_1",
 			paddingX: "space_2",
+
 			paddingY: "space_1",
+			textDecoration: "none",
+
+			whiteSpace: "nowrap",
+			width: "max-content",
 		}),
 		a11yFocus,
 		withPrefersMotion({

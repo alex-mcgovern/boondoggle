@@ -1,20 +1,21 @@
+import type { MutableRefObject, RefObject } from "react";
+
 import { useEffect } from "react";
 
-import type { MutableRefObject, RefObject } from "react";
 import type { ElementTypeArg } from "../../types";
 
 type UseOpenDialogWithKeyboardArgs<TTriggerType extends ElementTypeArg> = {
 	callback: () => void;
 
 	dialogRef:
-		| RefObject<HTMLDialogElement | undefined>
-		| MutableRefObject<HTMLDialogElement | undefined>;
+		| MutableRefObject<HTMLDialogElement | undefined>
+		| RefObject<HTMLDialogElement | undefined>;
 
 	preventOpenOnKeydown?: boolean;
 
 	triggerRef:
-		| RefObject<TTriggerType | undefined>
-		| MutableRefObject<TTriggerType | undefined>;
+		| MutableRefObject<TTriggerType | undefined>
+		| RefObject<TTriggerType | undefined>;
 };
 
 export function useOpenDialogWithKeyboard<TTriggerType extends ElementTypeArg>({

@@ -7,7 +7,7 @@ export const SkeletonInput = () => {
 			<div className={sprinkles({ paddingY: "space_1" })}>
 				<Skeleton height="space_4" marginBottom="space_1" width="25%" />
 			</div>
-			<Skeleton height="space_10" borderRadius="md" />
+			<Skeleton borderRadius="md" height="space_10" />
 		</div>
 	);
 };

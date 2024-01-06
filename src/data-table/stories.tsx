@@ -1,16 +1,21 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
-import type { Meta, StoryObj } from "@storybook/react";
+
+import type {
+	TV2DataTableRowActions} from ".";
+import type { MockTableData} from "./_mocks/data-table.mock";
+import type { TableNumberRangeFilterMode } from "./types";
+
 import {
 	DataTable as StoryComp,
-	TV2DataTableRowActions,
 	TableRowMenuButton,
 } from ".";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { COLUMNS, MockTableData, mockColumn } from "./_mocks/data-table.mock";
-import { TableNumberRangeFilterMode } from "./types";
+import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
 
 const meta = {
 	args: {
@@ -34,6 +39,11 @@ type Story = StoryObj<typeof meta>;
  * ------------------------------------------------------------------------------- */
 
 export const MOCK_FILTER_STRINGS = {
+	balance: {
+		strFilterDialogTitle: "Filter by balance",
+		strFilterPillText: "Balance",
+		transformNumericFromRaw: (value: string) => value,
+	},
 	email_address: {
 		strFilterDialogTitle: "Filter by email address",
 		strFilterPillText: "Email address",
@@ -44,6 +54,11 @@ export const MOCK_FILTER_STRINGS = {
 		strFilterPillText: "First name",
 		transformNumericFromRaw: (value: string) => value,
 	},
+	id: {
+		strFilterDialogTitle: "Filter by ID",
+		strFilterPillText: "ID",
+		transformNumericFromRaw: (value: string) => value,
+	},
 	last_name: {
 		strFilterDialogTitle: "Filter by last name",
 		strFilterPillText: "Last name",
@@ -52,16 +67,6 @@ export const MOCK_FILTER_STRINGS = {
 	phone_number: {
 		strFilterDialogTitle: "Filter by phone number",
 		strFilterPillText: "Phone number",
-		transformNumericFromRaw: (value: string) => value,
-	},
-	id: {
-		strFilterDialogTitle: "Filter by ID",
-		strFilterPillText: "ID",
-		transformNumericFromRaw: (value: string) => value,
-	},
-	balance: {
-		strFilterDialogTitle: "Filter by balance",
-		strFilterPillText: "Balance",
 		transformNumericFromRaw: (value: string) => value,
 	},
 	status: {
@@ -95,9 +100,6 @@ export const MOCK_FILTER_MODE_STRINGS: Record<
 const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
 	return (
 		<TableRowMenuButton
-			onAction={(id) => {
-				alert(`Action ${id} clicked`);
-			}}
 			items={[
 				{
 					description: faker.lorem.sentence(3),
@@ -116,6 +118,9 @@ const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
 					name: "Delete",
 				},
 			]}
+			onAction={(id) => {
+				alert(`Action ${id} clicked`);
+			}}
 		/>
 	);
 };
@@ -162,12 +167,12 @@ export const IsGlobalFilterEnabled: Story = {
 
 export const IsGlobalFilterEnabledWithNoResults: Story = {
 	args: {
+		data: [],
 		filteringOptions: {
 			strClearAllFilters: "Clear all filters",
 			strClearFilterInput: "Clear filter input",
 			strFilterPlaceholder: "Filter results...",
 		},
-		data: [],
 		strNoResults: "No results",
 	},
 };
@@ -175,29 +180,7 @@ export const IsGlobalFilterEnabledWithNoResults: Story = {
 export const IsColumnFilterEnabled: Story = {
 	args: {
 		filteringOptions: {
-			strClearAllFilters: "Clear all filters",
-			strClearFilterInput: "Clear filter input",
-			strFilterPlaceholder: "Filter results...",
 			columnFilterConfig: {
-				status: {
-					strFilterDialogTitle: "Filter by status",
-					strFilterPillText: "Status",
-					type: "MULTI_SELECT",
-					transformValueToString: (
-						value: MockTableData["status"],
-					) => {
-						switch (value) {
-							case "active":
-								return "Active";
-							case "inactive":
-								return "Inactive";
-							case "invited":
-								return "Invited";
-							default:
-								return value;
-						}
-					},
-				},
 				balance: {
 					strFilterDialogTitle: "Filter by balance",
 					strFilterPillText: "Balance",
@@ -212,7 +195,29 @@ export const IsColumnFilterEnabled: Story = {
 					strFilterPillText: "Points",
 					type: "NUMBER_RANGE",
 				},
+				status: {
+					strFilterDialogTitle: "Filter by status",
+					strFilterPillText: "Status",
+					transformValueToString: (
+						value: MockTableData["status"],
+					) => {
+						switch (value) {
+							case "active":
+								return "Active";
+							case "inactive":
+								return "Inactive";
+							case "invited":
+								return "Invited";
+							default:
+								return value;
+						}
+					},
+					type: "MULTI_SELECT",
+				},
 			},
+			strClearAllFilters: "Clear all filters",
+			strClearFilterInput: "Clear filter input",
+			strFilterPlaceholder: "Filter results...",
 		},
 		isSortable: true,
 		strNoResults: "No results",
@@ -221,24 +226,24 @@ export const IsColumnFilterEnabled: Story = {
 
 export const IsSelectable: Story = {
 	args: {
+		gridTemplateColumns: "min-content 1fr repeat(3, min-content)",
 		isSelectable: true,
 		onSelect: (rowSelection) => {
 			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
 		},
 		strNoResults: "No results",
-		gridTemplateColumns: "min-content 1fr repeat(3, min-content)",
 	},
 };
 
 export const IsSelectableWithEnableMultiRowSelection: Story = {
 	args: {
 		enableMultiRowSelection: true,
+		gridTemplateColumns: "min-content 1fr repeat(3, min-content)",
 		isSelectable: true,
 		onSelect: (rowSelection) => {
 			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
 		},
 		strNoResults: "No results",
-		gridTemplateColumns: "min-content 1fr repeat(3, min-content)",
 	},
 };
 
@@ -264,7 +269,7 @@ export const WithInitialSorting: Story = {
 export const With1Action: Story = {
 	args: {
 		actions: (
-			<Button size="sm" name="primary_action">
+			<Button name="primary_action" size="sm">
 				<Icon icon={faPlus} />
 				Primary action
 			</Button>
@@ -277,13 +282,13 @@ export const With2Actions: Story = {
 	args: {
 		actions: [
 			<Button
-				size="square_sm"
 				appearance="secondary"
 				name="secondary_action"
+				size="square_sm"
 			>
 				<Icon icon={faEllipsis} />
 			</Button>,
-			<Button size="sm" name="primary_action">
+			<Button name="primary_action" size="sm">
 				<Icon icon={faPlus} />
 				Primary action
 			</Button>,
@@ -295,59 +300,38 @@ export const With2Actions: Story = {
 export const WithRowActionItems: Story = {
 	args: {
 		RowActions: MockRowActionsComponent,
-		strNoResults: "No results",
 		gridTemplateColumns: "1fr repeat(3, min-content)",
+		strNoResults: "No results",
 	},
 };
 
 export const WithRowActionItemsShortList: Story = {
 	args: {
-		data: Array.from({ length: 1 }, mockColumn),
 		RowActions: MockRowActionsComponent,
-		strNoResults: "No results",
+		data: Array.from({ length: 1 }, mockColumn),
 		gridTemplateColumns: "1fr repeat(3, min-content)",
+		strNoResults: "No results",
 	},
 };
 
 export const KitchenSink: Story = {
 	args: {
+		RowActions: MockRowActionsComponent,
 		actions: [
 			<Button
-				size="square_sm"
 				appearance="secondary"
 				name="secondary_action"
+				size="square_sm"
 			>
 				<Icon icon={faEllipsis} />
 			</Button>,
-			<Button size="sm" name="primary_action">
+			<Button name="primary_action" size="sm">
 				<Icon icon={faPlus} />
 				Primary action
 			</Button>,
 		],
 		filteringOptions: {
-			strClearAllFilters: "Clear all filters",
-			strClearFilterInput: "Clear filter input",
-			strFilterPlaceholder: "Filter results...",
 			columnFilterConfig: {
-				status: {
-					strFilterDialogTitle: "Filter by status",
-					strFilterPillText: "Status",
-					type: "MULTI_SELECT",
-					transformValueToString: (
-						value: MockTableData["status"],
-					) => {
-						switch (value) {
-							case "active":
-								return "Active";
-							case "inactive":
-								return "Inactive";
-							case "invited":
-								return "Invited";
-							default:
-								return value;
-						}
-					},
-				},
 				balance: {
 					strFilterDialogTitle: "Filter by balance",
 					strFilterPillText: "Balance",
@@ -362,7 +346,35 @@ export const KitchenSink: Story = {
 					strFilterPillText: "Points",
 					type: "NUMBER_RANGE",
 				},
+				status: {
+					strFilterDialogTitle: "Filter by status",
+					strFilterPillText: "Status",
+					transformValueToString: (
+						value: MockTableData["status"],
+					) => {
+						switch (value) {
+							case "active":
+								return "Active";
+							case "inactive":
+								return "Inactive";
+							case "invited":
+								return "Invited";
+							default:
+								return value;
+						}
+					},
+					type: "MULTI_SELECT",
+				},
 			},
+			strClearAllFilters: "Clear all filters",
+			strClearFilterInput: "Clear filter input",
+			strFilterPlaceholder: "Filter results...",
+		},
+		gridTemplateColumns: "min-content 1fr repeat(4, min-content)",
+		isSelectable: true,
+		isSortable: true,
+		onSelect: (rowSelection) => {
+			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
 		},
 		paginationOptions: {
 			strNext: "Next",
@@ -370,13 +382,6 @@ export const KitchenSink: Story = {
 			strPrev: "Previous",
 			strResults: "Results",
 		},
-		isSelectable: true,
-		isSortable: true,
-		onSelect: (rowSelection) => {
-			alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-		},
-		RowActions: MockRowActionsComponent,
 		strNoResults: "No results",
-		gridTemplateColumns: "min-content 1fr repeat(4, min-content)",
 	},
 };

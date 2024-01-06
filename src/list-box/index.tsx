@@ -1,3 +1,20 @@
+import type {
+	ListBoxItemProps as ReactAriaListBoxItemProps,
+	ListBoxProps as ReactAriaListBoxProps,
+} from "react-aria-components";
+
+import { faCheck } from "@fortawesome/pro-solid-svg-icons";
+import * as React from "react";
+import {
+	Collection as ReactAriaCollection,
+	Header as ReactAriaHeader,
+	ListBox as ReactAriaListBox,
+	ListBoxItem as ReactAriaListBoxItem,
+	Text as ReactAriaText,
+} from "react-aria-components";
+
+import type { ColorOverlay } from "../index.css";
+
 import {
 	menuCSS,
 	menuHeaderCSS,
@@ -6,19 +23,7 @@ import {
 	menuItemNameCSS,
 } from "../_css/menu.css";
 import { Icon } from "../icon";
-import { ColorOverlay } from "../index.css";
 import { Section } from "../section";
-import { faCheck } from "@fortawesome/pro-solid-svg-icons";
-import * as React from "react";
-import {
-	Collection as ReactAriaCollection,
-	Header as ReactAriaHeader,
-	ListBox as ReactAriaListBox,
-	ListBoxItem as ReactAriaListBoxItem,
-	ListBoxItemProps as ReactAriaListBoxItemProps,
-	type ListBoxProps as ReactAriaListBoxProps,
-	Text as ReactAriaText,
-} from "react-aria-components";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;
@@ -32,7 +37,6 @@ type SingleListBoxItem<TItemId extends string = string> = {
 };
 
 export type IterableListBoxItem<TItemId extends string = string> =
-	| SingleListBoxItem<TItemId>
 	| {
 			children: Array<SingleListBoxItem<TItemId>>;
 			colorOverlay?: never;
@@ -41,7 +45,8 @@ export type IterableListBoxItem<TItemId extends string = string> =
 			name?: string;
 			slotLeft?: never;
 			type?: never;
-	  };
+	  }
+	| SingleListBoxItem<TItemId>;
 
 function ListBoxItem<TItemId extends string = string>({
 	value,
@@ -71,10 +76,10 @@ function ListBoxItem<TItemId extends string = string>({
 					</div>
 					{isSelected ? (
 						<Icon
-							marginLeft="auto"
-							marginRight="space_1"
 							color="text_low_contrast"
 							icon={faCheck}
+							marginLeft="auto"
+							marginRight="space_1"
 						/>
 					) : null}
 				</>
@@ -107,12 +112,12 @@ function BaseListBox<TItemId extends string = string>(
 
 						<ReactAriaCollection items={item.children}>
 							{(i) => (
-								<ListBoxItem value={i} textValue={i.name} />
+								<ListBoxItem textValue={i.name} value={i} />
 							)}
 						</ReactAriaCollection>
 					</Section>
 				) : (
-					<ListBoxItem value={item} textValue={item.name} />
+					<ListBoxItem textValue={item.name} value={item} />
 				);
 			}}
 		</ReactAriaListBox>

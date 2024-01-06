@@ -1,14 +1,16 @@
 import type { RowData, Table } from "@tanstack/react-table";
+
+import type { PaginationOptions } from "../../types";
+
 import { Box } from "../../../box";
 import { Button } from "../../../button";
-import { PaginationOptions } from "../../types";
 
 export function TablePagination<TRowData extends RowData>({
-	table,
 	paginationOptions,
+	table,
 }: {
-	table: Table<TRowData>;
 	paginationOptions: PaginationOptions | undefined;
+	table: Table<TRowData>;
 }) {
 	if (!paginationOptions) {
 		return null;

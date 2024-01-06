@@ -1,7 +1,9 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
 import { z } from "zod";
+
 import { Form } from ".";
 import { Button } from "../button";
 import { ComboBoxButton, FormComboBox } from "../combo-box";
@@ -30,7 +32,7 @@ import { ToastProvider } from "../toast";
  * ------------------------------------------------------------------------------- */
 
 const NumberFieldWithCurrencySelect = () => {
-	const [currency, setCurrency] = React.useState<"EUR" | "USD" | "GBP">(
+	const [currency, setCurrency] = React.useState<"EUR" | "GBP" | "USD">(
 		"EUR",
 	);
 
@@ -43,32 +45,26 @@ const NumberFieldWithCurrencySelect = () => {
 			<Label htmlFor="amount">Amount</Label>
 			<div
 				className={sprinkles({
-					display: "flex",
 					alignItems: "start",
+					display: "flex",
 					gap: "space_2",
 				})}
 			>
 				<FormNumberField
-					name="amount"
-					id="amount"
 					className={sprinkles({ width: "100%" })}
 					formatOptions={{
 						currency,
-						style: "currency",
 						currencyDisplay: "code",
+						style: "currency",
 					}}
+					id="amount"
+					name="amount"
 				>
 					<Input />
 				</FormNumberField>
 
-				<FormSelect<"EUR" | "USD" | "GBP">
-					selectedKey={currency}
+				<FormSelect<"EUR" | "GBP" | "USD">
 					aria-label="Currency"
-					placement="bottom end"
-					onSelectionChange={(k) => {
-						setCurrency(k as typeof currency);
-					}}
-					name="currency"
 					items={[
 						{
 							id: "EUR",
@@ -92,6 +88,12 @@ const NumberFieldWithCurrencySelect = () => {
 							),
 						},
 					]}
+					name="currency"
+					onSelectionChange={(k) => {
+						setCurrency(k as typeof currency);
+					}}
+					placement="bottom end"
+					selectedKey={currency}
 				>
 					<SelectButton />
 				</FormSelect>
@@ -105,16 +107,24 @@ const NumberFieldWithCurrencySelect = () => {
  * ------------------------------------------------------------------------------- */
 
 const meta = {
-	component: Form,
-	title: "Form",
 	args: {
+		className: sprinkles({ width: "main_sm" }),
 		handleSubmit: (fieldValues) => {
 			alert(
 				`Form submitted successfully \n ${JSON.stringify(fieldValues)}`,
 			);
 		},
-		className: sprinkles({ width: "main_sm" }),
 	},
+	component: Form,
+	decorators: [
+		(Story) => {
+			return (
+				<ToastProvider>
+					<Story />
+				</ToastProvider>
+			);
+		},
+	],
 	render: (args) => {
 		return (
 			<Form {...args}>
@@ -136,10 +146,10 @@ const meta = {
 					 * ----------------------------------------------- */}
 
 					<FormTextField
+						autoComplete="off"
 						className={sprinkles({ marginBottom: "space_2" })}
 						name="email_address"
 						type="email"
-						autoComplete="off"
 					>
 						<Label>Email address</Label>
 						<Input />
@@ -150,10 +160,10 @@ const meta = {
 					 * ----------------------------------------------- */}
 
 					<FormTextField
+						autoComplete="off"
 						className={sprinkles({ marginBottom: "space_2" })}
 						name="password"
 						type="password"
-						autoComplete="off"
 					>
 						<Label>Password</Label>
 						<Group>
@@ -204,28 +214,25 @@ const meta = {
 					 * @example Combobox
 					 * ----------------------------------------------- */}
 
-					<FormComboBox<"apple" | "tomato" | "carrot" | "lettuce">
+					<FormComboBox<"apple" | "carrot" | "lettuce" | "tomato">
 						className={sprinkles({ marginBottom: "space_2" })}
-						name="favourite_food"
 						defaultItems={[
 							{
-								name: "Fruits",
-								id: "fruits",
 								children: [
 									{
 										id: "apple",
 										name: "Apple",
 									},
 									{
+										description: "Yes, it's a fruit",
 										id: "tomato",
 										name: "Tomato",
-										description: "Yes, it's a fruit",
 									},
 								],
+								id: "fruits",
+								name: "Fruits",
 							},
 							{
-								name: "Vegetables",
-								id: "vegetables",
 								children: [
 									{
 										id: "carrot",
@@ -236,8 +243,11 @@ const meta = {
 										name: "Lettuce",
 									},
 								],
+								id: "vegetables",
+								name: "Vegetables",
 							},
 						]}
+						name="favourite_food"
 					>
 						<Label>Favourite food</Label>
 						<Group>
@@ -283,15 +293,7 @@ const meta = {
 			</Form>
 		);
 	},
-	decorators: [
-		(Story) => {
-			return (
-				<ToastProvider>
-					<Story />
-				</ToastProvider>
-			);
-		},
-	],
+	title: "Form",
 } satisfies Meta<typeof Form>;
 
 export default meta;
@@ -304,21 +306,21 @@ export const WithZod: Story = {
 	args: {
 		resolver: zodResolver(
 			z.object({
-				full_name: z.string().min(1).max(30),
-				email_address: z.string().email(),
+				amount: z.number(),
+				count: z.number(),
+				country: z.string(),
+				currency: z.enum(["EUR", "USD", "GBP"]),
 				date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+				description: z.string().min(1).max(20),
+				email_address: z.string().email(),
 				favourite_food: z.enum([
 					"apple",
 					"tomato",
 					"carrot",
 					"lettuce",
 				]),
+				full_name: z.string().min(1).max(30),
 				password: z.string(),
-				count: z.number(),
-				amount: z.number(),
-				currency: z.enum(["EUR", "USD", "GBP"]),
-				country: z.string(),
-				description: z.string().min(1).max(20),
 			}),
 		),
 	},

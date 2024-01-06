@@ -1,5 +1,6 @@
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
+
 import { makeTheme, withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -11,8 +12,8 @@ export const numberFieldCSS = style([
 			 * Whether the text field is disabled.
 			 */
 			"&[data-disabled]": {
-				opacity: 0.5,
 				cursor: "not-allowed !important",
+				opacity: 0.5,
 			},
 
 			/**
@@ -22,10 +23,10 @@ export const numberFieldCSS = style([
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: red,
-						secondary: red,
 						alpha: redA,
 						isOverlay: true,
+						primary: red,
+						secondary: red,
 					}),
 				),
 			},
@@ -35,18 +36,18 @@ export const numberFieldCSS = style([
 
 export const textFieldButtonCSS = style([
 	sprinkles({
+		borderRadius: "sm",
+
 		color: "text_low_contrast",
-
-		width: "space_6",
-		height: "space_6",
-
 		flexShrink: "0",
 
-		borderRadius: "sm",
+		height: "space_6",
+
+		width: "space_6",
 	}),
 	withPrefersMotion({
-		transitionProperty: "background, color",
 		transitionDuration: vars.transitionDuration.short,
+		transitionProperty: "background, color",
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
@@ -59,40 +60,40 @@ export const textFieldButtonCSS = style([
 			},
 
 			/**
-			 * Whether the button is currently hovered with a mouse.
+			 * Whether the button is disabled.
 			 */
-			"&[data-hovered]": {
-				color: vars.color.text_high_contrast,
-				background: vars.color.btn_secondary_bg_highlighted,
-			},
-			/**
-			 * Whether the button is currently in a pressed state.
-			 */
-			"&[data-pressed]": {
-				color: vars.color.text_high_contrast,
-				background: vars.color.btn_secondary_bg_highlighted,
-			},
-			/**
-			 * Whether the button is focused, either via a mouse or keyboard.
-			 */
-			"&[data-focused]": {
-				color: vars.color.text_high_contrast,
-				background: vars.color.btn_secondary_bg_highlighted,
-				outline: 0,
+			"&[data-disabled]": {
+				opacity: 0.5,
 			},
 			/**
 			 * Whether the button is keyboard focused.
 			 */
 			"&[data-focus-visible]": {
-				color: vars.color.text_high_contrast,
 				background: vars.color.btn_secondary_bg_highlighted,
+				color: vars.color.text_high_contrast,
 				outline: 0,
 			},
 			/**
-			 * Whether the button is disabled.
+			 * Whether the button is focused, either via a mouse or keyboard.
 			 */
-			"&[data-disabled]": {
-				opacity: 0.5,
+			"&[data-focused]": {
+				background: vars.color.btn_secondary_bg_highlighted,
+				color: vars.color.text_high_contrast,
+				outline: 0,
+			},
+			/**
+			 * Whether the button is currently hovered with a mouse.
+			 */
+			"&[data-hovered]": {
+				background: vars.color.btn_secondary_bg_highlighted,
+				color: vars.color.text_high_contrast,
+			},
+			/**
+			 * Whether the button is currently in a pressed state.
+			 */
+			"&[data-pressed]": {
+				background: vars.color.btn_secondary_bg_highlighted,
+				color: vars.color.text_high_contrast,
 			},
 		},
 	},

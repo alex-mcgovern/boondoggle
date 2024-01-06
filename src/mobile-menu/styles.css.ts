@@ -1,4 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
+
 import { withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -13,10 +14,10 @@ export const mobileMenuOverlayCSS = style([
 		placeItems: "center",
 	}),
 	{
+		inset: "0",
 		minHeight: "100dvh",
 		minWidth: "100vw",
 		position: "fixed",
-		inset: "0",
 		zIndex: 10,
 	},
 ]);
@@ -65,14 +66,14 @@ export const mobileMenuModalCSS = style([
 
 export const mobileMenuCSS = style([
 	sprinkles({
-		position: "relative",
-
-		height: "100dvh",
-
-		// Use flex to allow footer element to
 		// stick to bottom of container
 		display: "flex",
+
 		flexDirection: "column",
+
+		// Use flex to allow footer element to
+		height: "100dvh",
+		position: "relative",
 	}),
 	{
 		outline: 0,
@@ -81,11 +82,11 @@ export const mobileMenuCSS = style([
 
 export const mobileMenuHeaderCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
-
 		background: "tint_default",
+
 		borderBottom: "border_rule",
+		display: "flex",
 
 		gap: "space_4",
 		height: "topBar",
@@ -100,18 +101,18 @@ export const mobileMenuHeaderCSS = style([
 
 export const mobileMenuTitleCSS = style([
 	sprinkles({
+		color: "text_high_contrast",
+		fontStyle: "bodyLg",
 		fontWeight: "semibold",
 		marginY: "none",
-		fontStyle: "bodyLg",
-		color: "text_high_contrast",
 	}),
 ]);
 
 export const mobileMenuContentCSS = style([
 	sprinkles({
 		overflowY: "auto",
-		paddingY: "space_4",
 		paddingX: "space_4",
+		paddingY: "space_4",
 	}),
 ]);
 

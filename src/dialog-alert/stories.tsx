@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { V2DialogAlert as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 

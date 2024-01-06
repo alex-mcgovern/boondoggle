@@ -1,6 +1,6 @@
-import { LoaderFullScreen as StoryComp } from ".";
-
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { LoaderFullScreen as StoryComp } from ".";
 
 const meta = {
 	args: {},

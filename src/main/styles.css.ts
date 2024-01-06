@@ -1,4 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
+
 import { sprinkles } from "../sprinkles/index.css";
 
 export const mainCSS = recipe({

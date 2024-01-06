@@ -1,14 +1,17 @@
+import type { ReactNode } from "react";
+
 import * as RadixSlot from "@radix-ui/react-slot";
 import clsx from "clsx";
 import { createRef, forwardRef, useCallback } from "react";
-import type { ReactNode } from "react";
+
+import type { BoxProps } from "../box";
+import type { DialogPlacementEnum } from "./styles.css";
+
 import { useClickOutside } from "../_hooks/use-click-outside";
 import { useForwardRef } from "../_hooks/use-forward-ref";
 import { useOpenDialogWithKeyboard } from "../_hooks/use-open-dialog-with-keyboard";
 import { Box } from "../box";
-import type { BoxProps } from "../box";
 import { getDialogStyles } from "./styles.css";
-import type { DialogPlacementEnum } from "./styles.css";
 
 export type DialogProps = BoxProps & {
 	/**
@@ -122,35 +125,35 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-								  }
+}
 								: undefined
 						}
 						onMouseLeave={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.close();
-								  }
+}
 								: undefined
 						}
 						onPointerEnter={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-								  }
+}
 								: undefined
 						}
 						onPointerLeave={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-								  }
+}
 								: undefined
 						}
 						onPointerOver={
 							openOn === "hover"
 								? () => {
 										return dialogRef.current?.show();
-								  }
+}
 								: undefined
 						}
 						ref={triggerRef}

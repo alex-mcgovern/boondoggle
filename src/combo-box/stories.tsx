@@ -1,58 +1,58 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { ComboBox, ComboBoxButton } from ".";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
 
 const meta = {
-	title: "ComboBox",
-	component: ComboBox,
 	args: {
 		defaultItems: [
 			{
-				name: "Europe",
-				id: "europe",
 				children: [
 					{
+						description: "This is a description",
 						id: "france",
 						name: "France",
-						description: "This is a description",
 					},
 					{
+						description: "This is a description",
 						id: "germany",
 						name: "Germany",
-						description: "This is a description",
 					},
 					{
+						description: "This is a description",
 						id: "spain",
 						name: "Spain",
-						description: "This is a description",
 					},
 				],
+				id: "europe",
+				name: "Europe",
 			},
 			{
-				name: "MENA",
-				id: "mena",
 				children: [
 					{
+						description: "This is a description",
 						id: "uae",
 						name: "United Arab Emirates",
-						description: "This is a description",
 					},
 					{
+						description: "This is a description",
 						id: "saudi_arabia",
 						name: "Saudi Arabia",
-						description: "This is a description",
 					},
 					{
+						description: "This is a description",
 						id: "oman",
 						name: "Oman",
-						description: "This is a description",
 					},
 				],
+				id: "mena",
+				name: "MENA",
 			},
 		],
 	},
+	component: ComboBox,
 	render: (args) => {
 		return (
 			<ComboBox {...args}>
@@ -64,6 +64,7 @@ const meta = {
 			</ComboBox>
 		);
 	},
+	title: "ComboBox",
 } satisfies Meta<typeof ComboBox>;
 
 export default meta;

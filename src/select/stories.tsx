@@ -1,6 +1,6 @@
-import { Select, SelectButton } from ".";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Meta, StoryObj } from "@storybook/react";
+import { Select, SelectButton } from ".";
 import { FlagAe } from "../icon-flag/ae";
 import { FlagDe } from "../icon-flag/de";
 import { FlagEs } from "../icon-flag/es";
@@ -9,14 +9,9 @@ import { FlagOm } from "../icon-flag/om";
 import { FlagSa } from "../icon-flag/sa";
 
 const meta = {
-	title: "Select",
-	component: Select,
 	args: {
-		placeholder: "Select a country",
 		items: [
 			{
-				name: "Europe",
-				id: "europe",
 				children: [
 					{
 						id: "france",
@@ -34,10 +29,10 @@ const meta = {
 						slotLeft: <FlagEs height="space_4" width="space_4" />,
 					},
 				],
+				id: "europe",
+				name: "Europe",
 			},
 			{
-				name: "MENA",
-				id: "mena",
 				children: [
 					{
 						id: "uae",
@@ -55,9 +50,13 @@ const meta = {
 						slotLeft: <FlagOm height="space_4" width="space_4" />,
 					},
 				],
+				id: "mena",
+				name: "MENA",
 			},
 		],
+		placeholder: "Select a country",
 	},
+	component: Select,
 	render: (args) => {
 		return (
 			<Select {...args}>
@@ -65,6 +64,7 @@ const meta = {
 			</Select>
 		);
 	},
+	title: "Select",
 } satisfies Meta<typeof Select>;
 
 export default meta;

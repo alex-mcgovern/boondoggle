@@ -1,4 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
+
 import { vars } from "../index.css";
 
 /**
@@ -18,10 +19,10 @@ const close = keyframes({
 export const collapsibleContentAnimation = style({
 	overflow: "hidden",
 	selectors: {
-		'&[data-state="closed"]': {
+		"&[data-state=\"closed\"]": {
 			animation: `${close} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		},
-		'&[data-state="open"]': {
+		"&[data-state=\"open\"]": {
 			animation: `${open} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
 		},
 	},

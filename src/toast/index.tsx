@@ -1,16 +1,18 @@
+import type { AriaToastRegionProps } from "@react-aria/toast";
+import type { AriaToastProps } from "@react-aria/toast";
+import type { ToastState } from "@react-stately/toast";
+
 import { faCircleCheck } from "@fortawesome/pro-solid-svg-icons/faCircleCheck";
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { faWarning } from "@fortawesome/pro-solid-svg-icons/faWarning";
-import type { AriaToastRegionProps } from "@react-aria/toast";
 import { useToastRegion } from "@react-aria/toast";
-import type { AriaToastProps } from "@react-aria/toast";
 import { useToast } from "@react-aria/toast";
 import { useToastState } from "@react-stately/toast";
-import type { ToastState } from "@react-stately/toast";
 import * as React from "react";
 import { Button as ReactAriaButton } from "react-aria-components";
+
 import { exhaustiveSwitchGuard } from "../_lib/exhaustive-switch-guard";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
@@ -23,9 +25,9 @@ import {
 } from "./styles.css";
 
 export type ToastContent = {
-	title: string;
 	description?: string;
-	level: "info" | "success" | "warning" | "error";
+	level: "error" | "info" | "success" | "warning";
+	title: string;
 };
 
 const ToastContext = React.createContext<ToastState<ToastContent> | null>(null);
@@ -50,12 +52,12 @@ function ToastRegion({
 	const { regionProps } = useToastRegion(props, state, ref);
 
 	return (
-		<div {...regionProps} ref={ref} className={toastRegionCSS}>
+		<div {...regionProps} className={toastRegionCSS} ref={ref}>
 			{state.visibleToasts.map((toast, index) => (
 				<Toast
 					key={`${toast.key}-${index}`}
-					toast={toast}
 					state={state}
+					toast={toast}
 				/>
 			))}
 		</div>
@@ -110,7 +112,7 @@ function Toast({
 	state: ToastState<ToastContent>;
 }) {
 	const ref = React.useRef(null);
-	const { toastProps, titleProps, descriptionProps, closeButtonProps } =
+	const { closeButtonProps, descriptionProps, titleProps, toastProps } =
 		useToast(props, state, ref);
 
 	return (
@@ -141,9 +143,9 @@ function Toast({
 				) : null}
 			</div>
 			<ReactAriaButton
-				type="button"
-				name="close_toast"
 				className={toastCloseButtonCSS}
+				name="close_toast"
+				type="button"
 				{...closeButtonProps}
 			>
 				<Icon icon={faTimes} />
@@ -157,8 +159,8 @@ export function ToastProvider({
 	...props
 }: AriaToastRegionProps & { children?: React.ReactNode }) {
 	const state = useToastState<ToastContent>({
-		maxVisibleToasts: 3,
 		hasExitAnimation: true,
+		maxVisibleToasts: 3,
 	});
 
 	return (

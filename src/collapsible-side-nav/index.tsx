@@ -1,10 +1,12 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import { faSidebar } from "@fortawesome/pro-solid-svg-icons/faSidebar";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useState } from "react";
-import type { ReactNode } from "react";
 import * as React from "react";
+
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { MEDIA_QUERY_MOBILE } from "../index.css";
@@ -97,11 +99,11 @@ export const ButtonToggleCollapsibleNav = () => {
 
 	return (
 		<Button
-			size="square_sm"
-			className={collapsibleNavButtonCSS}
 			appearance="ghost"
-			onPress={() => setIsOpen((c) => !c)}
+			className={collapsibleNavButtonCSS}
 			name="mobile_menu"
+			onPress={() => setIsOpen((c) => !c)}
+			size="square_sm"
 		>
 			<Icon icon={faSidebar} />
 		</Button>
@@ -110,10 +112,10 @@ export const ButtonToggleCollapsibleNav = () => {
 
 export function CollapsibleSideNav({
 	children,
-	onOpenChange: controlledOnOpenChange,
 	isOpen: controlledIsOpen,
+	onOpenChange: controlledOnOpenChange,
 }: {
-	children: ReactNode | Array<ReactNode>;
+	children: Array<ReactNode> | ReactNode;
 	isOpen?: boolean;
 	onOpenChange?: (openState: boolean) => void;
 }) {
@@ -138,8 +140,8 @@ export function CollapsibleSideNav({
 			open={isOpen}
 		>
 			<RadixCollapsible.Content
-				className={collapsibleNavOuterCSS}
 				asChild
+				className={collapsibleNavOuterCSS}
 			>
 				<aside>
 					<nav className={collapsibleNavInnerCSS}>{children}</nav>

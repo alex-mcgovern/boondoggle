@@ -1,6 +1,6 @@
-import { SkeletonCardFields as StoryComp } from ".";
-
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { SkeletonCardFields as StoryComp } from ".";
 
 const meta = {
 	args: {},

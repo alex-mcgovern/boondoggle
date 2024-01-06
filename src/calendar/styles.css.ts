@@ -1,11 +1,12 @@
 import { style } from "@vanilla-extract/css";
+
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const calendarCSS = style([
 	sprinkles({
-		maxWidth: "100%",
 		color: "text_high_contrast",
+		maxWidth: "100%",
 	}),
 	{
 		width: "fit-content",
@@ -14,30 +15,30 @@ export const calendarCSS = style([
 
 export const calendarHeaderCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
-		marginX: "space_1",
+		display: "flex",
 		marginBottom: "space_1",
+		marginX: "space_1",
 	}),
 ]);
 
 export const calendarHeadingCSS = style([
 	sprinkles({
 		flexGrow: "1",
+		fontStyle: "bodyMd",
 		margin: "none",
 		textAlign: "center",
-		fontStyle: "bodyMd",
 	}),
 ]);
 
 export const calendarGridHeaderCellCSS = style([
 	sprinkles({
-		// width: "space_8",
-		height: "space_8",
+		fontStyle: "bodySm",
 		// aspectRatio: "square",
 
-		fontStyle: "bodySm",
 		fontWeight: "medium",
+		// width: "space_8",
+		height: "space_8",
 		textAlign: "center",
 
 		// display: "flex",
@@ -54,39 +55,39 @@ export const calendarGridHeaderCellCSS = style([
 
 export const calendarCellCSS = style([
 	sprinkles({
-		width: "space_8",
-		height: "space_8",
 		aspectRatio: "square",
-		fontStyle: "bodySm",
-		textAlign: "center",
 		borderRadius: "sm",
-
 		display: "flex",
+		fontStyle: "bodySm",
+		height: "space_8",
 		placeItems: "center",
+
+		textAlign: "center",
+		width: "space_8",
 	}),
 	{
 		cursor: "pointer",
-		outline: "none",
-		margin: "1px",
 		forcedColorAdjust: "none",
+		margin: "1px",
+		outline: "none",
 
 		selectors: {
-			"&[data-outside-month]": {
-				display: "none",
+			"&[data-focus-visible]": {
+				background: vars.color.btn_secondary_bg_highlighted,
+				borderColor: vars.color.focus_border,
+				outline: `2px solid ${vars.color.focus_ring}`,
 			},
 
 			"&[data-hovered]": {
 				background: vars.color.btn_secondary_bg_highlighted,
 			},
 
-			"&[data-pressed]": {
-				background: vars.color.btn_secondary_bg_highlighted,
+			"&[data-outside-month]": {
+				display: "none",
 			},
 
-			"&[data-focus-visible]": {
+			"&[data-pressed]": {
 				background: vars.color.btn_secondary_bg_highlighted,
-				borderColor: vars.color.focus_border,
-				outline: `2px solid ${vars.color.focus_ring}`,
 			},
 
 			"&[data-selected]": {

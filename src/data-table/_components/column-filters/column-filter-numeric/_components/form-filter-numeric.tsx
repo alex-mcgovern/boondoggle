@@ -1,16 +1,18 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
 import { z } from "zod";
+
+import type { IterableListBoxItem } from "../../../../../list-box";
+import type { TableNumberRangeFilterMode } from "../../../../types";
+
 import { i18n } from "../../../../../_i18n";
 import { Box } from "../../../../../box";
 import { Form } from "../../../../../form";
 import { FormSubmitButton } from "../../../../../form-submit-button";
 import { Input } from "../../../../../input";
-import { IterableListBoxItem } from "../../../../../list-box";
 import { FormNumberField } from "../../../../../number-field";
 import { FormSelect, SelectButton } from "../../../../../select";
 import { sprinkles } from "../../../../../sprinkles/index.css";
-import type { TableNumberRangeFilterMode } from "../../../../types";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
 /** -----------------------------------------------------------------------------
@@ -19,20 +21,20 @@ import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
 const MODES: Array<IterableListBoxItem<TableNumberRangeFilterMode>> = [
 	{
-		name: i18n.is_between,
 		id: "is_between",
+		name: i18n.is_between,
 	},
 	{
-		name: i18n.is_equal_to,
 		id: "is_equal_to",
+		name: i18n.is_equal_to,
 	},
 	{
-		name: i18n.is_greater_than,
 		id: "is_greater_than",
+		name: i18n.is_greater_than,
 	},
 	{
-		name: i18n.is_less_than,
 		id: "is_less_than",
+		name: i18n.is_less_than,
 	},
 ];
 
@@ -47,10 +49,10 @@ const errorMap = () => {
 const zodFilter = z.discriminatedUnion("filter_mode", [
 	z.object({
 		filter_mode: z.literal("is_between"),
-		min: z.coerce.number({
+		max: z.coerce.number({
 			errorMap,
 		}),
-		max: z.coerce.number({
+		min: z.coerce.number({
 			errorMap,
 		}),
 	}),
@@ -84,15 +86,15 @@ export const FormFilterNumeric = ({
 	currentMax,
 	currentMin,
 	largestValue,
-	smallestValue,
 	setFilter,
+	smallestValue,
 	transformNumericToRaw,
 }: {
 	currentMax: number | undefined;
 	currentMin: number | undefined;
 	largestValue: number;
-	smallestValue: number;
 	setFilter: (v: [number | undefined, number | undefined]) => void;
+	smallestValue: number;
 	transformNumericToRaw?: (value: number | undefined) => number | undefined;
 }) => {
 	const [parentFilterMode, setParentFilterMode] = useNumericFilterMode();
@@ -102,7 +104,6 @@ export const FormFilterNumeric = ({
 
 	return (
 		<Form<FieldValuesFilterNumberRange>
-			name="filter_number_range"
 			handleSubmit={(fieldValues) => {
 				setParentFilterMode(fieldValues.filter_mode);
 				switch (fieldValues.filter_mode) {
@@ -129,48 +130,49 @@ export const FormFilterNumeric = ({
 					}
 				}
 			}}
+			name="filter_number_range"
 			resolver={zodResolver(zodFilter)}
 		>
 			<Box paddingX="space_4">
 				<FormSelect<TableNumberRangeFilterMode>
 					className={sprinkles({ marginBottom: "space_2" })}
-					name="filter_mode"
 					items={MODES}
-					selectedKey={localFilterMode}
+					name="filter_mode"
 					onSelectionChange={(k) => {
 						alert(k);
 						setLocalFilterMode(k as TableNumberRangeFilterMode);
 					}}
+					selectedKey={localFilterMode}
 				>
 					<SelectButton />
 				</FormSelect>
 
 				{localFilterMode === "is_between" && (
-					<Box display="grid" gridTemplateColumns="2x" gap="space_2">
+					<Box display="grid" gap="space_2" gridTemplateColumns="2x">
 						<FormNumberField
-							className={sprinkles({ marginBottom: "space_2" })}
-							name="min"
 							aria-label="min"
-							minValue={0}
+							className={sprinkles({ marginBottom: "space_2" })}
 							defaultValue={
 								transformNumericToRaw
 									? transformNumericToRaw(currentMin)
 									: currentMin
 							}
+							minValue={0}
+							name="min"
 						>
 							<Input />
 						</FormNumberField>
 
 						<FormNumberField
-							className={sprinkles({ marginBottom: "space_2" })}
-							name="max"
 							aria-label="max"
-							minValue={0}
+							className={sprinkles({ marginBottom: "space_2" })}
 							defaultValue={
 								transformNumericToRaw
 									? transformNumericToRaw(currentMax)
 									: currentMax
 							}
+							minValue={0}
+							name="max"
 						>
 							<Input />
 						</FormNumberField>
@@ -178,6 +180,7 @@ export const FormFilterNumeric = ({
 				)}
 				{localFilterMode === "is_equal_to" && (
 					<FormNumberField
+						aria-label="Is equal to"
 						className={sprinkles({ marginBottom: "space_2" })}
 						defaultValue={
 							transformNumericToRaw
@@ -186,16 +189,16 @@ export const FormFilterNumeric = ({
 								  )
 								: currentMin || currentMax
 						}
-						aria-label="Is equal to"
-						name="is_equal_to"
-						minValue={smallestValue}
 						maxValue={largestValue}
+						minValue={smallestValue}
+						name="is_equal_to"
 					>
 						<Input />
 					</FormNumberField>
 				)}
 				{localFilterMode === "is_greater_than" && (
 					<FormNumberField
+						aria-label="Is greater than"
 						className={sprinkles({ marginBottom: "space_2" })}
 						defaultValue={
 							transformNumericToRaw
@@ -204,16 +207,16 @@ export const FormFilterNumeric = ({
 								  )
 								: currentMin || currentMax
 						}
-						aria-label="Is greater than"
-						name="is_greater_than"
-						minValue={smallestValue}
 						maxValue={largestValue}
+						minValue={smallestValue}
+						name="is_greater_than"
 					>
 						<Input />
 					</FormNumberField>
 				)}
 				{localFilterMode === "is_less_than" && (
 					<FormNumberField
+						aria-label="Is less than"
 						className={sprinkles({ marginBottom: "space_2" })}
 						defaultValue={
 							transformNumericToRaw
@@ -222,10 +225,9 @@ export const FormFilterNumeric = ({
 								  )
 								: currentMax || currentMin
 						}
-						aria-label="Is less than"
-						name="is_less_than"
-						minValue={smallestValue}
 						maxValue={largestValue}
+						minValue={smallestValue}
+						name="is_less_than"
 					>
 						<Input />
 					</FormNumberField>
@@ -234,11 +236,11 @@ export const FormFilterNumeric = ({
 
 			<Box paddingX="space_4">
 				<FormSubmitButton
-					size="sm"
 					className={sprinkles({
 						marginBottom: "space_4",
 						width: "100%",
 					})}
+					size="sm"
 				>
 					{i18n.apply_filter}
 				</FormSubmitButton>

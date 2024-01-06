@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { Box } from "../box";
 import { avatarCSS } from "./styles.css";
 
@@ -39,19 +40,19 @@ function getInitials({
  * Renders an avatar. Falls back to initial letters if no image is provided.
  */
 export function Avatar({
+	appearance = "circle",
 	firstName,
 	fullName,
+	imageSrc,
 	lastName,
 	size = 64,
-	imageSrc,
-	appearance = "circle",
 }: {
+	appearance?: "circle" | "square";
 	firstName?: string;
 	fullName?: string;
+	imageSrc?: null | string;
 	lastName?: string;
 	size?: number;
-	imageSrc?: string | null;
-	appearance?: "circle" | "square";
 }) {
 	const initials: string | undefined = getInitials({
 		firstName,

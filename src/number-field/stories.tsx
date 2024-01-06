@@ -1,5 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import React from "react";
+
 import {
 	NumberField,
 	NumberFieldDecrementButton,
@@ -16,17 +18,8 @@ import { sprinkles } from "../sprinkles/index.css";
 import { ToastProvider } from "../toast";
 
 const meta = {
-	title: "NumberField",
-	component: NumberField,
 	args: {},
-	render: (args) => {
-		return (
-			<NumberField {...args}>
-				<Label>Label</Label>
-				<Input />
-			</NumberField>
-		);
-	},
+	component: NumberField,
 	decorators: [
 		(Story) => {
 			return (
@@ -36,6 +29,15 @@ const meta = {
 			);
 		},
 	],
+	render: (args) => {
+		return (
+			<NumberField {...args}>
+				<Label>Label</Label>
+				<Input />
+			</NumberField>
+		);
+	},
+	title: "NumberField",
 } satisfies Meta<typeof NumberField>;
 
 export default meta;
@@ -70,11 +72,11 @@ export const KitchenSink: Story = {
 export const ExampleComposedCurrencyField: Story = {
 	args: {
 		defaultValue: 42000.69,
-		name: "amount",
 		id: "amount",
+		name: "amount",
 	},
 	render: () => {
-		const [currency, setCurrency] = React.useState<"EUR" | "USD" | "GBP">(
+		const [currency, setCurrency] = React.useState<"EUR" | "GBP" | "USD">(
 			"EUR",
 		);
 		return (
@@ -86,31 +88,26 @@ export const ExampleComposedCurrencyField: Story = {
 				<Label htmlFor="amount">Amount</Label>
 				<div
 					className={sprinkles({
-						display: "flex",
 						alignItems: "center",
+						display: "flex",
 						gap: "space_2",
 					})}
 				>
 					<NumberField
-						name="amount"
-						id="amount"
 						defaultValue={42000.69}
 						formatOptions={{
 							currency,
-							style: "currency",
 							currencyDisplay: "code",
+							style: "currency",
 						}}
+						id="amount"
+						name="amount"
 					>
 						<Input />
 					</NumberField>
 
-					<Select<"EUR" | "USD" | "GBP">
-						selectedKey={currency}
+					<Select<"EUR" | "GBP" | "USD">
 						aria-label="Currency"
-						placement="bottom end"
-						onSelectionChange={(k) => {
-							setCurrency(k as typeof currency);
-						}}
 						items={[
 							{
 								id: "EUR",
@@ -134,6 +131,11 @@ export const ExampleComposedCurrencyField: Story = {
 								),
 							},
 						]}
+						onSelectionChange={(k) => {
+							setCurrency(k as typeof currency);
+						}}
+						placement="bottom end"
+						selectedKey={currency}
 					>
 						<SelectButton />
 					</Select>

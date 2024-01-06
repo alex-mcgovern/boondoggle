@@ -1,10 +1,11 @@
 import { style } from "@vanilla-extract/css";
+
 import { sprinkles } from "../sprinkles/index.css";
 
 export const headerCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
+		display: "flex",
 		gap: "space_2",
 
 		height: "space_8",
@@ -15,8 +16,8 @@ export const headerCSS = style([
 
 export const actionsCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
+		display: "flex",
 		gap: "space_2",
 
 		marginLeft: "auto",

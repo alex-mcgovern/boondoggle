@@ -1,5 +1,7 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faker } from "@faker-js/faker";
-import { Meta, StoryObj } from "@storybook/react";
+
 import {
 	V2MobileMenu as StoryComp,
 	V2MobileMenuFooter,
@@ -10,12 +12,7 @@ import { Button } from "../button";
 import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
-	title: "MobileMenu",
-	component: StoryComp,
 	args: {
-		modalOverlayProps: {
-			isDismissable: true,
-		},
 		children: ({ close }) => (
 			<>
 				<V2MobileMenuHeader close={close} title="MobileMenu Title" />
@@ -28,7 +25,7 @@ const meta = {
 							</a>
 						</p>
 						{Array.from({ length: 10 }, () => {
-							return <p>{faker.lorem.paragraphs(1)}</p>;
+							return <p key={faker.string.alphanumeric(4)}>{faker.lorem.paragraphs(1)}</p>;
 						})}
 					</>
 				</V2ScrollableMobileMenuContent>
@@ -45,7 +42,12 @@ const meta = {
 				</V2MobileMenuFooter>
 			</>
 		),
+		modalOverlayProps: {
+			isDismissable: true,
+		},
 	},
+	component: StoryComp,
+	title: "MobileMenu",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

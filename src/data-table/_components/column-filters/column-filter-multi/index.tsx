@@ -1,5 +1,7 @@
-import { Column } from "@tanstack/react-table";
+import type { Column } from "@tanstack/react-table";
+
 import { useEffect, useMemo, useState } from "react";
+
 import { i18n } from "../../../../_i18n";
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
@@ -18,37 +20,37 @@ import {
 
 const ColumnMultiFilterItem = ({
 	defaultChecked,
+	handleSelection,
 	label,
 	value,
-	handleSelection,
 }: {
-	handleSelection: (value: string) => void;
 	defaultChecked: boolean | undefined;
+	handleSelection: (value: string) => void;
 	label?: string;
 	value: string;
 }) => {
 	return (
 		<Box
-			className={multiFilterItemCSS}
-			as="label"
-			htmlFor={`item_${value}`}
-			display="flex"
 			alignItems="center"
+			as="label"
+			className={multiFilterItemCSS}
+			display="flex"
 			fontStyle="bodyMd"
 			gap="space_2"
+			htmlFor={`item_${value}`}
 			marginBottom="space_4"
 		>
 			<Box
-				value={value}
 				as="input"
 				className={multiFilterItemCheckboxCSS}
 				defaultChecked={defaultChecked}
+				id={`item_${value}`}
 				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 					handleSelection(e.target.value)
 				}
 				// tabIndex={-1}
 				type="checkbox"
-				id={`item_${value}`}
+				value={value}
 			/>
 			<div className={multiFilterItemTextCSS}>{label}</div>
 		</Box>
@@ -56,10 +58,10 @@ const ColumnMultiFilterItem = ({
 };
 
 export function ColumnMultiFilter<TRowData>({
+	column,
 	strFilterDialogTitle,
 	strFilterPillText,
 	transformValueToString = (value) => value,
-	column,
 }: {
 	column: Column<TRowData>;
 	strFilterDialogTitle: string;
@@ -100,9 +102,9 @@ export function ColumnMultiFilter<TRowData>({
 				return (
 					<Box
 						as="span"
-						key={v ?? i}
 						className={activeFilterStringCSS}
 						color="button_default"
+						key={v ?? i}
 					>
 						{transformValueToString ? transformValueToString(v) : v}
 						{i < currentFilters.length - 1 ? ", " : ""}
@@ -130,13 +132,13 @@ export function ColumnMultiFilter<TRowData>({
 		return facetKeys.sort().map((v, i) => {
 			return (
 				<ColumnMultiFilterItem
+					defaultChecked={currentFilters?.includes(v)}
 					handleSelection={handleSelection}
+					key={v ?? i}
 					label={
 						transformValueToString ? transformValueToString(v) : v
 					}
-					key={v ?? i}
 					value={v}
-					defaultChecked={currentFilters?.includes(v)}
 				/>
 			);
 		});
@@ -155,11 +157,11 @@ export function ColumnMultiFilter<TRowData>({
 	return (
 		<FilterPillMenu
 			clearFilters={() => column.setFilterValue(undefined)}
-			isFiltered={isFiltered}
-			pillText={pillText}
 			disabled={!arrayHasLength(facetKeys)}
+			isFiltered={isFiltered}
 			isOpen={isOpen}
 			onIsOpenChange={setIsOpen}
+			pillText={pillText}
 		>
 			<FilterDialogTitle strFilterDialogTitle={strFilterDialogTitle} />
 
@@ -167,6 +169,11 @@ export function ColumnMultiFilter<TRowData>({
 
 			<Box paddingX="space_4">
 				<Button
+					className={sprinkles({
+						marginBottom: "space_4",
+						width: "100%",
+					})}
+					name="apply_filter"
 					onPress={() => {
 						column.setFilterValue(
 							arrayHasLength(selectedItems)
@@ -175,12 +182,7 @@ export function ColumnMultiFilter<TRowData>({
 						);
 						setIsOpen(false);
 					}}
-					className={sprinkles({
-						width: "100%",
-						marginBottom: "space_4",
-					})}
 					size="sm"
-					name="apply_filter"
 				>
 					{i18n.apply_filter}
 				</Button>

@@ -1,6 +1,8 @@
 import type { HTMLProps, ReactNode } from "react";
+
+import type { WithName } from "../types";
+
 import { Box } from "../box";
-import { WithName } from "../types";
 import {
 	radioButtonCardInputStyles,
 	radioButtonCardLabelStyles,

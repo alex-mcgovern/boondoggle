@@ -1,4 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
+
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 

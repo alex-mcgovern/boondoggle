@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Faker, en } from "@faker-js/faker";
 import { createColumnHelper } from "@tanstack/react-table";
+
 import { Avatar } from "../../avatar";
 import { Box } from "../../box";
 import { Pill } from "../../pill";
@@ -9,10 +10,10 @@ const faker = new Faker({ locale: [en] });
 faker.seed(42);
 
 export type MockTableData = {
+	balance: number;
 	email_address: string;
 	first_name: string;
 	last_name: string;
-	balance: number;
 	points: number;
 	status: "active" | "inactive" | "invited";
 };
@@ -22,12 +23,12 @@ export type MockTableData = {
  */
 export const mockColumn = (): MockTableData => {
 	return {
+		balance: faker.number.int(10000),
 		email_address: faker.internet.email(),
 		first_name: faker.person.firstName(),
 		last_name: faker.person.lastName(),
-		status: faker.helpers.arrayElement(["active", "inactive", "invited"]),
-		balance: faker.number.int(10000),
 		points: faker.number.int(10),
+		status: faker.helpers.arrayElement(["active", "inactive", "invited"]),
 	};
 };
 
@@ -48,7 +49,7 @@ export const COLUMNS = [
 							size={32}
 						/>
 						<Box>
-							<Box fontWeight="medium" fontStyle="bodySm">
+							<Box fontStyle="bodySm" fontWeight="medium">
 								{row.original.first_name}{" "}
 								{row.original.last_name}
 							</Box>

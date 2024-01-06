@@ -1,3 +1,6 @@
+import type { Placement } from "@floating-ui/react";
+import type { HTMLProps, ReactNode } from "react";
+
 import {
 	FloatingArrow,
 	FloatingPortal,
@@ -25,11 +28,8 @@ import {
 	useState,
 } from "react";
 
-import { tooltipTextStyle } from "./styles.css";
-
-import type { Placement } from "@floating-ui/react";
-import type { HTMLProps, ReactNode } from "react";
 import { vars } from "../index.css";
+import { tooltipTextStyle } from "./styles.css";
 
 const ARROW_WIDTH = 16;
 
@@ -174,7 +174,7 @@ export const TooltipTrigger = forwardRef<
 	HTMLProps<HTMLElement> & { asChild?: boolean }
 >(({ asChild = false, children, ...props }, propRef) => {
 	const context = useTooltipContext();
-	// biome-ignore lint/suspicious/noExplicitAny: required to be this way
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const childrenRef = (children as any).ref;
 
 	const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
@@ -188,7 +188,7 @@ export const TooltipTrigger = forwardRef<
 				...props,
 				...children.props,
 				"data-state": context.open ? "open" : "closed",
-			}),
+			})
 		);
 	}
 
@@ -203,6 +203,8 @@ export const TooltipTrigger = forwardRef<
 		</button>
 	);
 });
+
+
 
 /**
  * Content for a tooltip.
@@ -234,8 +236,8 @@ export const TooltipContent = forwardRef<
 					{props.children}
 
 					<FloatingArrow
-						fill={vars.color.black}
 						context={context.context}
+						fill={vars.color.black}
 						height={ARROW_HEIGHT}
 						ref={context.arrowRef}
 						width={ARROW_WIDTH}

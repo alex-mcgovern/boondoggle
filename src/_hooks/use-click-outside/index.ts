@@ -1,5 +1,7 @@
-import { useEffect } from "react";
 import type { MutableRefObject, RefObject } from "react";
+
+import { useEffect } from "react";
+
 import type { ElementTypeArg } from "../../types";
 
 type UseClickOutsideArgs<
@@ -9,12 +11,12 @@ type UseClickOutsideArgs<
 	callback: () => void;
 
 	contentRef:
-		| RefObject<TContentType | undefined>
-		| MutableRefObject<TContentType | undefined>;
+		| MutableRefObject<TContentType | undefined>
+		| RefObject<TContentType | undefined>;
 
 	triggerRef?:
-		| RefObject<TTriggerType | undefined>
-		| MutableRefObject<TTriggerType | undefined>;
+		| MutableRefObject<TTriggerType | undefined>
+		| RefObject<TTriggerType | undefined>;
 };
 
 export function useClickOutside<

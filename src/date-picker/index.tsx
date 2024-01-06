@@ -1,11 +1,14 @@
+import type {
+	DatePickerProps as RACDatePickerProps} from "react-aria-components";
+
 import { faCalendar } from "@fortawesome/pro-regular-svg-icons/faCalendar";
 import { type CalendarDate, parseDate } from "@internationalized/date";
 import {
 	DatePicker as RACDatePicker,
-	DatePickerProps as RACDatePickerProps,
 	Dialog as RACDialog,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
+
 import { menuCSS } from "../_css/menu.css";
 import { Calendar } from "../calendar";
 import { FieldButton } from "../field-button";
@@ -48,7 +51,7 @@ export const DatePicker = ({
 						{typeof children === "function"
 							? children(values)
 							: children}
-						<Popover placement="bottom end" className={menuCSS}>
+						<Popover className={menuCSS} placement="bottom end">
 							<RACDialog>
 								<Calendar />
 							</RACDialog>
@@ -77,7 +80,7 @@ export function FormDatePicker({ children, ...props }: DatePickerProps) {
 	const { control } = useFormContext();
 
 	const {
-		field: { ref, value = null, disabled: isDisabled, onChange, ...field },
+		field: { disabled: isDisabled, onChange, ref, value = null, ...field },
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -89,13 +92,13 @@ export function FormDatePicker({ children, ...props }: DatePickerProps) {
 		<DatePicker
 			{...props}
 			{...field}
+			isInvalid={invalid}
 			onChange={(v) => {
 				onChange(v.toString());
 				props.onChange?.(v);
 			}}
-			value={value ? parseDate(value) : value}
 			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			isInvalid={invalid}
+			value={value ? parseDate(value) : value}
 		>
 			{() => {
 				return (

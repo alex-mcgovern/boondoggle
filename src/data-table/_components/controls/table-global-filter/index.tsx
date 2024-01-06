@@ -1,4 +1,7 @@
-import { RowData, Table } from "@tanstack/react-table";
+import type { RowData, Table } from "@tanstack/react-table";
+
+import type { FilteringOptions } from "../../../types";
+
 import { Group } from "../../../../group";
 import { Input } from "../../../../input";
 import {
@@ -6,17 +9,16 @@ import {
 	SearchFieldClearButton,
 	SearchFieldIcon,
 } from "../../../../search-field";
-import { FilteringOptions } from "../../../types";
 import { tableGlobalFilterCSS } from "./styles.css";
 
 export function TableGlobalFilter<TRowData extends RowData>({
-	table,
 	disabled,
 	filteringOptions,
+	table,
 }: {
-	table: Table<TRowData>;
-	filteringOptions: FilteringOptions<TRowData> | undefined;
 	disabled?: boolean;
+	filteringOptions: FilteringOptions<TRowData> | undefined;
+	table: Table<TRowData>;
 }) {
 	if (!filteringOptions) {
 		return null;
@@ -26,11 +28,11 @@ export function TableGlobalFilter<TRowData extends RowData>({
 
 	return (
 		<SearchField
-			onChange={table.setGlobalFilter}
-			isDisabled={disabled}
-			className={tableGlobalFilterCSS}
-			value={table.getState().globalFilter ?? ""}
 			aria-label="Filter"
+			className={tableGlobalFilterCSS}
+			isDisabled={disabled}
+			onChange={table.setGlobalFilter}
+			value={table.getState().globalFilter ?? ""}
 		>
 			<Group>
 				<SearchFieldIcon />

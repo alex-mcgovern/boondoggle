@@ -1,12 +1,15 @@
+import type { StoryFn, StoryObj } from "@storybook/react";
+
 import { faCheckCircle } from "@fortawesome/pro-solid-svg-icons/faCheckCircle";
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
-import type { StoryFn, StoryObj } from "@storybook/react";
+
+import type { Sprinkles } from "../sprinkles/index.css";
+
 import { Box, type BoxProps } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Link } from "../../test/link.comp.mock";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
-import { Sprinkles } from "../sprinkles/index.css";
 
 export default {
 	component: Box,

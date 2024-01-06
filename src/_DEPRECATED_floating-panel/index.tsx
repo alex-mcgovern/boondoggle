@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
+
 import { floatingPanel } from "./styles.css";
 
 /**
@@ -8,21 +9,21 @@ import { floatingPanel } from "./styles.css";
  */
 const BaseFloatingPanel = (
 	{
-		isOpen,
 		children,
 		className,
+		isOpen,
 		...rest
 	}: React.HTMLAttributes<HTMLDivElement> & {
-		isOpen: boolean | undefined;
 		children: React.ReactNode;
 		className?: string;
+		isOpen: boolean | undefined;
 	},
 	ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
 	return (
 		<div
-			ref={ref}
 			className={clsx(className, floatingPanel({ isOpen }))}
+			ref={ref}
 			{...rest}
 		>
 			{children}

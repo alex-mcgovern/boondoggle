@@ -1,18 +1,20 @@
 import clsx from "clsx";
 import * as React from "react";
+
+import type { Sprinkles } from "../sprinkles/index.css";
+import type {
+	WithDescription,
+	WithName,
+	WithStateInvalid,
+	WithWrapperProps,
+} from "../types";
+
 import { Box } from "../box";
 import { FieldDescription } from "../field-description";
 import { FieldError } from "../field-error";
 import { variantColorOverlay } from "../index.css";
 import { Label } from "../label";
 import { RadioButton } from "../radio-button";
-import { Sprinkles } from "../sprinkles/index.css";
-import {
-	WithDescription,
-	WithName,
-	WithStateInvalid,
-	WithWrapperProps,
-} from "../types";
 
 export type RadioButtonGroupProps = Sprinkles &
 	WithWrapperProps &
@@ -20,7 +22,7 @@ export type RadioButtonGroupProps = Sprinkles &
 	WithName &
 	WithDescription &
 	WithStateInvalid & {
-		defaultValue?: string | number;
+		defaultValue?: number | string;
 
 		id: string;
 

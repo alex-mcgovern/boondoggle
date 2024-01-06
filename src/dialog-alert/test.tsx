@@ -3,6 +3,7 @@
  */
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { render } from "@testing-library/react";
+
 import { V2DialogAlert } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Icon } from "../icon";

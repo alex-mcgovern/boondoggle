@@ -1,6 +1,14 @@
-import {
+import type {
+	ColumnDef,
 	Row,
-	VisibilityState,
+	RowData,
+	RowSelectionState,
+	SortingState,
+
+	Updater,
+	VisibilityState} from "@tanstack/react-table";
+
+import {
 	createColumnHelper,
 	getCoreRowModel,
 	getFacetedMinMaxValues,
@@ -11,17 +19,12 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from "@tanstack/react-table";
-import type {
-	ColumnDef,
-	RowData,
-	RowSelectionState,
-	SortingState,
-	Updater,
-} from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
+
+import type { FilteringOptions, PaginationOptions } from "../types";
+
 import { arrayHasLength } from "../../_lib/array-has-length";
 import { TableSelectableCell } from "../_components/layout/TableSelectableCell";
-import { FilteringOptions, PaginationOptions } from "../types";
 import { dataTableFuzzyFilter } from "./dataTableFuzzyFilter";
 
 function dataTableFilterFnMultiSelect<TRowData extends RowData>(
@@ -40,32 +43,32 @@ function dataTableFilterFnMultiSelect<TRowData extends RowData>(
 }
 
 type UseDataTableStateProps<TRowData extends RowData> = {
-	data: Array<TRowData> | undefined;
-	enableMultiRowSelection: boolean | undefined;
+	columnVisibility: VisibilityState | undefined;
 	// biome-ignore lint/suspicious/noExplicitAny: This is a generic type.
 	columns: Array<ColumnDef<TRowData, any>>;
-	initialSorting: SortingState | undefined;
-	isSelectable: boolean | undefined;
-	isSortable: boolean | undefined;
-	onSelect: ((selection: TRowData[] | undefined) => void) | undefined;
-
+	data: Array<TRowData> | undefined;
+	enableMultiRowSelection: boolean | undefined;
 	// ==== NEW PROPS ====
 	filteringOptions: FilteringOptions<TRowData> | undefined;
+	initialSorting: SortingState | undefined;
+	isSelectable: boolean | undefined;
+
+	isSortable: boolean | undefined;
+	onSelect: ((selection: TRowData[] | undefined) => void) | undefined;
 	paginationOptions: PaginationOptions | undefined;
-	columnVisibility: VisibilityState | undefined;
 };
 
 export function useDataTableState<TRowData extends RowData>({
-	data,
-	enableMultiRowSelection,
 	columnVisibility,
 	columns: initColumns,
-	initialSorting,
-	paginationOptions,
+	data,
+	enableMultiRowSelection,
 	filteringOptions,
+	initialSorting,
 	isSelectable,
 	isSortable,
 	onSelect,
+	paginationOptions,
 }: UseDataTableStateProps<TRowData>) {
 	const [rowSelection, setRowSelection] = useState({});
 
@@ -117,9 +120,9 @@ export function useDataTableState<TRowData extends RowData>({
 		columns,
 		data: data || [],
 		getCoreRowModel: getCoreRowModel(),
+		getFacetedMinMaxValues: getFacetedMinMaxValues(),
 		getFacetedRowModel: getFacetedRowModel(),
 		getFacetedUniqueValues: getFacetedUniqueValues(),
-		getFacetedMinMaxValues: getFacetedMinMaxValues(),
 		getFilteredRowModel: getFilteredRowModel(),
 		...(!!filteringOptions?.columnFilterConfig && {
 			globalFilterFn: dataTableFuzzyFilter,
@@ -136,17 +139,17 @@ export function useDataTableState<TRowData extends RowData>({
 			onRowSelectionChange,
 		}),
 
-		initialState: {
-			pagination: {
-				pageSize: 25,
-			},
-			columnVisibility,
-			sorting: initialSorting,
-		},
 		defaultColumn: {
 			enableColumnFilter: false,
 		},
 		filterFromLeafRows: false,
+		initialState: {
+			columnVisibility,
+			pagination: {
+				pageSize: 25,
+			},
+			sorting: initialSorting,
+		},
 		state: {
 			...(isSelectable && {
 				rowSelection,

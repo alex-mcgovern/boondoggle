@@ -1,14 +1,15 @@
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { makeTheme, withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const selectValueCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
+		display: "flex",
 		gap: "space_2",
 	}),
 ]);
@@ -21,8 +22,8 @@ export const selectCSS = style([
 			 * Whether the select is disabled.
 			 */
 			"&[data-disabled]": {
-				opacity: 0.5,
 				cursor: "not-allowed !important",
+				opacity: 0.5,
 			},
 
 			/**
@@ -32,10 +33,10 @@ export const selectCSS = style([
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: red,
-						secondary: red,
 						alpha: redA,
 						isOverlay: true,
+						primary: red,
+						secondary: red,
 					}),
 				),
 			},
@@ -46,41 +47,41 @@ export const selectCSS = style([
 export const selectButtonCSS = recipe({
 	base: [
 		sprinkles({
-			height: "element_sm",
-			width: "100%",
-
-			paddingX: "space_2",
-
-			fontStyle: "bodySm",
-
+			alignItems: "center",
 			color: "text_high_contrast",
 
 			display: "flex",
-			alignItems: "center",
-			gap: "space_2",
+
 			flexShrink: "0",
+
+			fontStyle: "bodySm",
+
+			gap: "space_2",
+			height: "element_sm",
+			paddingX: "space_2",
+			width: "100%",
 		}),
 		withPrefersMotion({
+			transitionDuration: vars.transitionDuration.short,
 			transitionProperty:
 				"color, background, border-color, outline, opacity",
-			transitionDuration: vars.transitionDuration.short,
 			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
 		{
 			outline: "0px solid transparent",
 
 			selectors: {
-				"&[data-placeholder]": {
-					color: vars.color.text_low_contrast,
+				"&[data-disabled]": {
+					cursor: "not-allowed !important",
+					opacity: 0.5,
 				},
 
 				/**
 				 * Whether the select button is disabled.
 				 */
 
-				"&[data-disabled]": {
-					opacity: 0.5,
-					cursor: "not-allowed !important",
+				"&[data-placeholder]": {
+					color: vars.color.text_low_contrast,
 				},
 			},
 		},
@@ -90,17 +91,34 @@ export const selectButtonCSS = recipe({
 	},
 	variants: {
 		variant: {
+			borderless: {
+				selectors: {
+					/**
+					 * Whether the select button is keyboard focused.
+					 */
+					"&[data-focus-visible]": {
+						outline: 0,
+					},
+
+					/**
+					 * Whether the select button is focused, either via a mouse or keyboard.
+					 */
+					"&[data-focused]": {
+						outline: 0,
+					},
+				},
+			},
 			default: [
 				sprinkles({
-					border: "border_element",
-					borderRadius: "md",
-
 					background: "text_field_background",
+					border: "border_element",
+
+					borderRadius: "md",
 				}),
 				withPrefersMotion({
+					transitionDuration: vars.transitionDuration.short,
 					transitionProperty:
 						"color, background, border-color, outline, opacity",
-					transitionDuration: vars.transitionDuration.short,
 					transitionTimingFunction: vars.ease.quart_in_out,
 				}),
 				{
@@ -111,17 +129,16 @@ export const selectButtonCSS = recipe({
 						 * Whether the select button is currently hovered with a mouse.
 						 */
 
-						"&[data-hovered]": {
-							background:
-								vars.color.text_field_background_highlighted,
-							borderColor: vars.color.border_element_active,
+						"&[data-disabled]": {
+							cursor: "not-allowed !important",
+							opacity: 0.5,
 						},
 
 						/**
 						 * Whether the select button is currently in a pressed state.
 						 */
 
-						"&[data-pressed]": {
+						"&[data-focus-visible]": {
 							background:
 								vars.color.text_field_background_highlighted,
 							borderColor: vars.color.focus_border,
@@ -143,41 +160,25 @@ export const selectButtonCSS = recipe({
 						 * Whether the select button is keyboard focused.
 						 */
 
-						"&[data-focus-visible]": {
+						"&[data-hovered]": {
 							background:
 								vars.color.text_field_background_highlighted,
-							borderColor: vars.color.focus_border,
-							outline: `2px solid ${vars.color.focus_ring}`,
+							borderColor: vars.color.border_element_active,
 						},
 
 						/**
 						 * Whether the select button is disabled.
 						 */
 
-						"&[data-disabled]": {
-							opacity: 0.5,
-							cursor: "not-allowed !important",
+						"&[data-pressed]": {
+							background:
+								vars.color.text_field_background_highlighted,
+							borderColor: vars.color.focus_border,
+							outline: `2px solid ${vars.color.focus_ring}`,
 						},
 					},
 				},
 			],
-			borderless: {
-				selectors: {
-					/**
-					 * Whether the select button is focused, either via a mouse or keyboard.
-					 */
-					"&[data-focused]": {
-						outline: 0,
-					},
-
-					/**
-					 * Whether the select button is keyboard focused.
-					 */
-					"&[data-focus-visible]": {
-						outline: 0,
-					},
-				},
-			},
 		},
 	},
 });

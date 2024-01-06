@@ -1,6 +1,8 @@
+import type { Header } from "@tanstack/react-table";
+
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
-import type { Header } from "@tanstack/react-table";
+
 import { Icon } from "../../../icon";
 import { getSortControlStyle, sortIconStyle } from "./TableSortButton.css";
 
@@ -31,10 +33,10 @@ export function TableSortButton<TData>({
 
 	return (
 		<button
-			type="button"
 			className={getSortControlStyle({ isSorted })}
 			name={`sort_${header.column.id}`}
 			onClick={header.column.getToggleSortingHandler()}
+			type="button"
 		>
 			{children}
 			{slotRight}

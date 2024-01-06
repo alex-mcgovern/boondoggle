@@ -4,6 +4,7 @@ import {
 	TextArea as RACTextArea,
 	type TextAreaProps as RACTextAreaProps,
 } from "react-aria-components";
+
 import { textareaCSS } from "./styles.css";
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, RACTextAreaProps>(
@@ -11,8 +12,8 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, RACTextAreaProps>(
 		return (
 			<RACTextArea
 				{...props}
-				ref={ref}
 				className={clsx(props.className, textareaCSS)}
+				ref={ref}
 			/>
 		);
 	},

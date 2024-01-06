@@ -8,7 +8,6 @@ const config: StorybookConfig = {
 		// "@storybook/addon-interactions",
 		// "@storybook/addon-mdx-gfm",
 		// "storybook-addon-pseudo-states",
-		// "@whitespace/storybook-addon-html",
 	],
 	docs: {
 		autodocs: false,

@@ -1,5 +1,7 @@
-import { TCountryCode } from "countries-list";
-import { Sprinkles } from "../sprinkles/index.css";
+import type { TCountryCode } from "countries-list";
+
+import type { Sprinkles } from "../sprinkles/index.css";
+
 import { FlagAd } from "./ad";
 import { FlagAe } from "./ae";
 import { FlagAf } from "./af";

@@ -1,19 +1,19 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faker } from "@faker-js/faker";
-import { Meta, StoryObj } from "@storybook/react";
+
 import { V2TabCount, V2TabList, V2TabPanel, V2Tabs } from ".";
 
 const meta = {
-	title: "Tabs",
-	component: V2Tabs,
 	args: {
 		children: (
 			<>
 				<V2TabList
 					items={[
 						{
+							href: "/",
 							id: "tab_1",
 							label: "I am a link",
-							href: "/",
 						},
 						{
 							id: "tab_2",
@@ -66,6 +66,8 @@ const meta = {
 			</>
 		),
 	},
+	component: V2Tabs,
+	title: "Tabs",
 } satisfies Meta<typeof V2Tabs>;
 
 export default meta;
@@ -80,9 +82,9 @@ export const WithTabCount: Story = {
 				<V2TabList
 					items={[
 						{
+							href: "/",
 							id: "tab_1",
 							label: "I am a link",
-							href: "/",
 							slotRight: <V2TabCount count={1} />,
 						},
 						{

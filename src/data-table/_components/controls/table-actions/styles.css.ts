@@ -1,4 +1,5 @@
 import { createContainer, style } from "@vanilla-extract/css";
+
 import {
 	CONTAINER_LG,
 	CONTAINER_MD,
@@ -21,18 +22,15 @@ export const tableActionsContainerCSS = style([
 
 export const tableActionsCSS = style([
 	sprinkles({
+		alignItems: "start",
 		display: "grid",
 		gap: "space_2",
-		alignItems: "start",
 	}),
 	{
 		"@container": {
-			[CONTAINER_SM]: {
-				gridTemplateAreas: `
-				"actions"
-				"globalFilter"
-				"columnFilters"`,
-				gridTemplateColumns: "1fr",
+			[CONTAINER_LG]: {
+				gridTemplateAreas: "\"globalFilter columnFilters actions\"",
+				gridTemplateColumns: "12rem 1fr min-content",
 			},
 			[CONTAINER_MD]: {
 				gridTemplateAreas: `
@@ -40,9 +38,12 @@ export const tableActionsCSS = style([
 				"columnFilters columnFilters"`,
 				gridTemplateColumns: "1fr 1fr",
 			},
-			[CONTAINER_LG]: {
-				gridTemplateAreas: `"globalFilter columnFilters actions"`,
-				gridTemplateColumns: "12rem 1fr min-content",
+			[CONTAINER_SM]: {
+				gridTemplateAreas: `
+				"actions"
+				"globalFilter"
+				"columnFilters"`,
+				gridTemplateColumns: "1fr",
 			},
 		},
 	},
@@ -54,10 +55,10 @@ export const globalFilterCSS = style({
 
 export const columnFiltersCSS = style([
 	sprinkles({
-		display: "flex",
-		gap: "space_2",
 		alignItems: "center",
+		display: "flex",
 		flexWrap: "wrap",
+		gap: "space_2",
 	}),
 	{
 		gridArea: "columnFilters",
@@ -66,18 +67,18 @@ export const columnFiltersCSS = style([
 
 export const actionsCSS = style([
 	sprinkles({
+		alignItems: "center",
 		display: "flex",
 		gap: "space_2",
-		alignItems: "center",
 		justifyContent: "end",
 	}),
 	{
-		gridArea: "actions",
 		"@container": {
 			[CONTAINER_SM]: {
-				paddingBottom: vars.spacing.space_2,
 				borderBottom: `1px solid ${vars.color.border_rule}`,
+				paddingBottom: vars.spacing.space_2,
 			},
 		},
+		gridArea: "actions",
 	},
 ]);

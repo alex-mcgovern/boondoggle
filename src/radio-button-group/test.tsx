@@ -4,10 +4,10 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+import type { RadioButtonGroupProps } from ".";
+
 import { RadioButtonGroup } from ".";
 import { RADIO_BUTTONS_MOCK } from "./mock";
-
-import type { RadioButtonGroupProps } from ".";
 
 const onChangeMock = jest.fn();
 

@@ -7,11 +7,11 @@ export const FilterDialogTitle = ({
 }) => {
 	return (
 		<Box
-			paddingX="space_4"
-			paddingTop="space_3"
-			marginBottom="space_2"
 			as="h3"
 			fontStyle="bodyMd"
+			marginBottom="space_2"
+			paddingTop="space_3"
+			paddingX="space_4"
 		>
 			{strFilterDialogTitle}
 		</Box>

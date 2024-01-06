@@ -1,16 +1,4 @@
 {
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
 	"commentBox.styles": {
 		"h1": {
 			"bottomEdgeToken": "-",
@@ -82,6 +70,11 @@
 		"Toggleable",
 		"vars"
 	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
 	"git.ignoreLimitWarning": true,
 	"mdx.experimentalLanguageServer": true,
 	"search.exclude": {
@@ -100,6 +93,7 @@
 	"turboConsoleLog.insertEnclosingFunction": false,
 	"turboConsoleLog.logMessagePrefix": "debug",
 	"turboConsoleLog.logType": "debug",
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

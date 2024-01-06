@@ -1,14 +1,16 @@
-import { RowData, Table } from "@tanstack/react-table";
-import { FilteringOptions } from "../../types";
+import type { RowData, Table } from "@tanstack/react-table";
+
+import type { FilteringOptions } from "../../types";
+
 import { ColumnMultiFilter } from "./column-filter-multi";
 import { ColumnFilterNumeric } from "./column-filter-numeric";
 
 export function TableColumnFilters<TRowData extends RowData>({
-	table,
 	filteringOptions,
+	table,
 }: {
-	table: Table<TRowData>;
 	filteringOptions: FilteringOptions<TRowData> | undefined;
+	table: Table<TRowData>;
 }) {
 	if (!filteringOptions?.columnFilterConfig) {
 		return null;
@@ -39,14 +41,14 @@ export function TableColumnFilters<TRowData extends RowData>({
 					return (
 						<ColumnMultiFilter<TRowData>
 							column={column}
-							transformValueToString={
-								columnConfig.transformValueToString
-							}
+							key={column.id}
 							strFilterDialogTitle={
 								columnConfig.strFilterDialogTitle
 							}
 							strFilterPillText={columnConfig.strFilterPillText}
-							key={column.id}
+							transformValueToString={
+								columnConfig.transformValueToString
+							}
 						/>
 					);
 				}
@@ -64,12 +66,12 @@ export function TableColumnFilters<TRowData extends RowData>({
 
 					return (
 						<ColumnFilterNumeric<TRowData>
+							column={column}
+							key={column.id}
 							strFilterDialogTitle={strFilterDialogTitle}
 							strFilterPillText={strFilterPillText}
 							transformNumericFromRaw={transformNumericFromRaw}
 							transformNumericToRaw={transformNumericToRaw}
-							column={column}
-							key={column.id}
 						/>
 					);
 				}

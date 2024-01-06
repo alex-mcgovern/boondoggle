@@ -1,6 +1,8 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
-import { Meta, StoryObj } from "@storybook/react";
 import * as React from "react";
+
 import {
 	TextField,
 	TextFieldClearButton,
@@ -21,17 +23,8 @@ import { sprinkles } from "../sprinkles/index.css";
 import { ToastProvider } from "../toast";
 
 const meta = {
-	title: "TextField",
-	component: TextField,
 	args: {},
-	render: (args) => {
-		return (
-			<TextField {...args}>
-				<Label>Label</Label>
-				<Input />
-			</TextField>
-		);
-	},
+	component: TextField,
 	decorators: [
 		(Story) => {
 			return (
@@ -41,6 +34,15 @@ const meta = {
 			);
 		},
 	],
+	render: (args) => {
+		return (
+			<TextField {...args}>
+				<Label>Label</Label>
+				<Input />
+			</TextField>
+		);
+	},
+	title: "TextField",
 } satisfies Meta<typeof TextField>;
 
 export default meta;

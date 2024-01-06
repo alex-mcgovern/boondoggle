@@ -1,12 +1,12 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { SearchField, SearchFieldIcon } from ".";
 import { Input } from "../input";
 import { Label } from "../label";
 
 const meta = {
-	title: "SearchField",
-	component: SearchField,
 	args: {},
+	component: SearchField,
 	render: (args) => {
 		return (
 			<SearchField {...args}>
@@ -16,6 +16,7 @@ const meta = {
 			</SearchField>
 		);
 	},
+	title: "SearchField",
 } satisfies Meta<typeof SearchField>;
 
 export default meta;

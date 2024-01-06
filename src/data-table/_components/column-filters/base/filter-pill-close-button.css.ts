@@ -1,5 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+
 import { withPrefersMotion } from "../../../../css-utils";
 import {
 	SELECTOR_LINK_BUTTON_INPUT_HOVER,
@@ -11,20 +12,20 @@ import { sprinkles } from "../../../../sprinkles/index.css";
 export const closeButtonCSS = style([
 	a11yFocus,
 	sprinkles({
-		color: "text_low_contrast",
-		fontStyle: "bodyMd",
-
-		display: "flex",
 		alignItems: "center",
-		justifyContent: "center",
-
-		paddingX: "space_2",
-		paddingY: "space_1",
-
-		borderRadius: "pill",
 		aspectRatio: "square",
 
+		borderRadius: "pill",
+		color: "text_low_contrast",
+		display: "flex",
+
 		flexShrink: "0",
+		fontStyle: "bodyMd",
+
+		justifyContent: "center",
+		paddingX: "space_2",
+
+		paddingY: "space_1",
 	}),
 	{
 		marginRight: calc.multiply(vars.spacing.space_2, -1),
@@ -45,7 +46,7 @@ const rotateInKeyframes = keyframes({
 });
 
 export const closeIconCSS = style([
-	sprinkles({ fontStyle: "bodyLg", width: "space_4", height: "space_4" }),
+	sprinkles({ fontStyle: "bodyLg", height: "space_4", width: "space_4" }),
 	{
 		...withPrefersMotion({
 			animation: `${rotateInKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,

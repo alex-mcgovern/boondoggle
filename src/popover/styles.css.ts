@@ -1,5 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+
 import { withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 
@@ -70,32 +71,32 @@ export const popoverCSS = style([
 	{
 		...withPrefersMotion({
 			selectors: {
+				"&[data-entering][data-placement='bottom']": {
+					animation: `${keyframesInFromTop} ${DURATION} ${EASING} forwards`,
+				},
+				"&[data-entering][data-placement='left']": {
+					animation: `${keyframesInFromRight} ${DURATION} ${EASING} forwards`,
+				},
+
 				"&[data-entering][data-placement='right']": {
 					animation: `${keyframesInFromLeft} ${DURATION} ${EASING} forwards`,
 				},
-				"&[data-exiting][data-placement='right']": {
-					animation: `${keyframesOutToLeft} ${DURATION} ${EASING} forwards`,
+				"&[data-entering][data-placement='top']": {
+					animation: `${keyframesInFromBottom} ${DURATION} ${EASING} forwards`,
 				},
 
-				"&[data-entering][data-placement='left']": {
-					animation: `${keyframesInFromRight} ${DURATION} ${EASING} forwards`,
+				"&[data-exiting][data-placement='bottom']": {
+					animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
 				},
 				"&[data-exiting][data-placement='left']": {
 					animation: `${keyframesOutToRight} ${DURATION} ${EASING} forwards`,
 				},
 
-				"&[data-entering][data-placement='top']": {
-					animation: `${keyframesInFromBottom} ${DURATION} ${EASING} forwards`,
+				"&[data-exiting][data-placement='right']": {
+					animation: `${keyframesOutToLeft} ${DURATION} ${EASING} forwards`,
 				},
 				"&[data-exiting][data-placement='top']": {
 					animation: `${keyframesOutToBottom} ${DURATION} ${EASING} forwards`,
-				},
-
-				"&[data-entering][data-placement='bottom']": {
-					animation: `${keyframesInFromTop} ${DURATION} ${EASING} forwards`,
-				},
-				"&[data-exiting][data-placement='bottom']": {
-					animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
 				},
 
 				"&[data-trigger=ComboBox]": {

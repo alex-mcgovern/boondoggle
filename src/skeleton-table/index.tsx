@@ -7,22 +7,22 @@ function random(min: number, max: number) {
 }
 
 function SkeletonSearch() {
-	return <Skeleton height="space_8" borderRadius="md" __width="12rem" />;
+	return <Skeleton __width="12rem" borderRadius="md" height="space_8" />;
 }
 
 function SkeletonFilterPill() {
 	return (
 		<Skeleton
-			height="space_8"
-			borderRadius="pill"
 			__width={`${random(4, 8)}rem`}
+			borderRadius="pill"
+			height="space_8"
 		/>
 	);
 }
 
 function SkeletonFilters() {
 	return (
-		<Box gap="space_2" display="flex" alignItems="center" marginY="space_3">
+		<Box alignItems="center" display="flex" gap="space_2" marginY="space_3">
 			<SkeletonSearch />
 			<SkeletonFilterPill />
 			<SkeletonFilterPill />
@@ -35,9 +35,9 @@ function SkeletonHeaderCell() {
 	return (
 		<div className={tableHeaderCellCSS}>
 			<Skeleton
-				height="space_4"
-				borderRadius="sm"
 				__width={`${random(4, 8)}rem`}
+				borderRadius="sm"
+				height="space_4"
 			/>
 		</div>
 	);
@@ -47,9 +47,9 @@ function SkeletonCell() {
 	return (
 		<div className={tableCellCSS}>
 			<Skeleton
-				height="space_4"
-				borderRadius="sm"
 				__width={`${random(4, 8)}rem`}
+				borderRadius="sm"
+				height="space_4"
 			/>
 		</div>
 	);
@@ -57,12 +57,12 @@ function SkeletonCell() {
 
 function SkeletonCellWithAvatar() {
 	return (
-		<Box gap="space_3" className={tableCellCSS}>
-			<Skeleton height="space_8" width="space_8" borderRadius="50%" />
+		<Box className={tableCellCSS} gap="space_3">
+			<Skeleton borderRadius="50%" height="space_8" width="space_8" />
 			<Skeleton
-				height="space_4"
-				borderRadius="sm"
 				__width={`${random(4, 12)}rem`}
+				borderRadius="sm"
+				height="space_4"
 			/>
 		</Box>
 	);
@@ -95,9 +95,9 @@ export const SkeletonTable = () => {
 		<>
 			<SkeletonFilters />
 			<Box
+				__gridTemplateColumns="2fr min-content min-content min-content"
 				borderTop="border_rule"
 				display="grid"
-				__gridTemplateColumns="2fr min-content min-content min-content"
 			>
 				<SkeletonHeaderRow />
 				<SkeletonRow />

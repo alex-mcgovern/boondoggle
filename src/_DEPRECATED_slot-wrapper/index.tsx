@@ -1,8 +1,11 @@
-import { Children, forwardRef } from "react";
 import type { ReactNode, Ref } from "react";
-import { Box } from "../box";
+
+import { Children, forwardRef } from "react";
+
 import type { BoxProps } from "../box";
-import { WithSlots } from "../types";
+import type { WithSlots } from "../types";
+
+import { Box } from "../box";
 import { slotCSS } from "./styles.css";
 
 export type SlotWrapperProps = BoxProps &
@@ -19,8 +22,8 @@ export const SlotWrapper = forwardRef(
 		{
 			children,
 			className: userClassName,
-			slotLeft,
 			gap = "space_2",
+			slotLeft,
 			slotProps,
 			slotRight,
 			...rest

@@ -1,8 +1,11 @@
+import type { ReactNode } from "react";
+
 import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
-import type { ReactNode } from "react";
+
+import type { ColorOverlay } from "../index.css";
+
 import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
-import { ColorOverlay } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 import { pillCSS } from "./styles.css";
 
@@ -20,7 +23,7 @@ export const Pill = ({
 	className?: string;
 	colorOverlay?: ColorOverlay;
 	id?: string;
-	size?: "sm" | "md" | "lg";
+	size?: "lg" | "md" | "sm";
 	slotLeft?: ReactNode;
 	slotRight?: ReactNode;
 }) => {

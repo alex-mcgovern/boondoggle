@@ -9,6 +9,7 @@ import {
 	useInteractions,
 } from "@floating-ui/react";
 import * as React from "react";
+
 import { FloatingPanel } from "../../../../_DEPRECATED_floating-panel";
 import { useForwardRef } from "../../../../_hooks/use-forward-ref";
 import { Box } from "../../../../box";
@@ -64,7 +65,7 @@ function PrivateFilterPillMenu(
 		}
 	}, [controlledIsOpen, setIsOpen, isOpen]);
 
-	const { floatingStyles, refs, context } = useFloating({
+	const { context, floatingStyles, refs } = useFloating({
 		elements: {
 			reference: ref.current,
 		},
@@ -75,11 +76,11 @@ function PrivateFilterPillMenu(
 				fallbackAxisSideDirection: "start",
 			}),
 		],
-		open: isOpen,
 		onOpenChange: (o) => {
 			setIsOpen(o);
 			onIsOpenChange?.(o);
 		},
+		open: isOpen,
 		placement: "bottom-start",
 		whileElementsMounted: autoUpdate,
 	});
@@ -87,13 +88,13 @@ function PrivateFilterPillMenu(
 	const dismiss = useDismiss(context);
 	const focus = useFocus(context);
 
-	const { getReferenceProps, getFloatingProps } = useInteractions([
+	const { getFloatingProps, getReferenceProps } = useInteractions([
 		dismiss,
 		focus,
 	]);
 
 	return (
-		<Box position="relative" flexShrink="0">
+		<Box flexShrink="0" position="relative">
 			<FilterPillGroup
 				isFiltered={isFiltered}
 				ref={ref}
@@ -109,11 +110,11 @@ function PrivateFilterPillMenu(
 					/>
 				) : null}
 				<FilterPillOpenButton
-					wasFiltered={wasFiltered}
 					disabled={disabled}
 					isFiltered={isFiltered}
 					pillText={pillText}
 					toggleIsOpen={toggleIsOpen}
+					wasFiltered={wasFiltered}
 				/>
 			</FilterPillGroup>
 
@@ -122,8 +123,8 @@ function PrivateFilterPillMenu(
 					<FloatingPanel
 						className={filterMenuCSS}
 						isOpen={isOpen}
-						style={floatingStyles}
 						ref={isOpen ? refs.setFloating : undefined}
+						style={floatingStyles}
 						{...getFloatingProps()}
 					>
 						{children}

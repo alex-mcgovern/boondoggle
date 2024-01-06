@@ -1,6 +1,9 @@
-import clsx from "clsx";
 import type { HTMLProps } from "react";
-import { WithSize } from "../types";
+
+import clsx from "clsx";
+
+import type { WithSize } from "../types";
+
 import { scrollableMainCSS, scrollableMainInnerCSS } from "./styles.css";
 import { nonScrollableWrapperCSS } from "./styles.css";
 
@@ -15,8 +18,8 @@ export const NonScrollableWrapper = ({
 export function ScrollableMain({
 	children,
 	className,
-	size = "lg",
 	headers,
+	size = "lg",
 	...rest
 }: Omit<HTMLProps<HTMLElement>, "size"> &
 	WithSize & {

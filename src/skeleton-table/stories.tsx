@@ -1,11 +1,11 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { SkeletonTable } from ".";
 
-import { Meta, StoryObj } from "@storybook/react";
-
 const meta = {
-	title: "SkeletonTable",
-	component: SkeletonTable,
 	args: {},
+	component: SkeletonTable,
+	title: "SkeletonTable",
 } satisfies Meta<typeof SkeletonTable>;
 
 export default meta;

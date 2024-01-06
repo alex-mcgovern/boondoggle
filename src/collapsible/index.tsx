@@ -1,13 +1,15 @@
+import type { ReactNode } from "react";
+
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
-import type { ReactNode } from "react";
+
 import { collapsibleContentAnimation } from "./styles.css";
 
 export type CollapsibleProps = {
 	/**
 	 * Dialog content
 	 */
-	children: ReactNode | Array<ReactNode>;
+	children: Array<ReactNode> | ReactNode;
 
 	/**
 	 * Allow collapsible to act as a controlled component

@@ -6,6 +6,7 @@ import {
 	SearchField as RACSearchField,
 	type SearchFieldProps as RACSearchFieldProps,
 } from "react-aria-components";
+
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { sprinkles } from "../sprinkles/index.css";
@@ -31,10 +32,10 @@ export const SearchFieldIcon = () => {
 	return (
 		<Icon
 			className={sprinkles({
-				width: "space_6",
-				height: "space_6",
 				color: "text_low_contrast",
 				flexShrink: "0",
+				height: "space_6",
+				width: "space_6",
 			})}
 			color="text_low_contrast"
 			icon={faSearch}

@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+
 import { withPrefersMotion } from "../css-utils";
 import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -14,8 +15,8 @@ const SWITCH_WIDTH = calc.add(
 
 export const switchCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
+		display: "flex",
 		gap: "space_2",
 
 		/**
@@ -35,8 +36,8 @@ export const switchCSS = style([
 
 export const switchLabelCSS = style([
 	sprinkles({
-		fontStyle: "bodyMd",
 		color: "text_high_contrast",
+		fontStyle: "bodyMd",
 	}),
 ]);
 
@@ -46,31 +47,31 @@ export const switchIndicatorCSS = style([
 	}),
 	{
 		background: vars.color.switch_background,
-		width: SWITCH_WIDTH,
 		height: SWITCH_HEIGHT,
+		width: SWITCH_WIDTH,
 
 		...withPrefersMotion({
-			transitionProperty: "background",
 			transitionDuration: vars.transitionDuration.short,
+			transitionProperty: "background",
 			transitionTimingFunction: vars.ease.quart_in_out,
 		}),
 
 		selectors: {
 			"&::before": {
-				content: "",
-				display: "block",
-
-				margin: SWITCH_MARGIN,
-				width: DOT_SIZE,
-				height: DOT_SIZE,
-
 				background: vars.color.switch_foreground,
-
 				borderRadius: vars.borderRadius["50%"],
 
+				content: "",
+				display: "block",
+				height: DOT_SIZE,
+
+				margin: SWITCH_MARGIN,
+
+				width: DOT_SIZE,
+
 				...withPrefersMotion({
-					transitionProperty: "transform",
 					transitionDuration: vars.transitionDuration.short,
+					transitionProperty: "transform",
 					transitionTimingFunction: vars.ease.quart_in_out,
 				}),
 			},
@@ -90,25 +91,25 @@ export const switchIndicatorCSS = style([
 			 * SELECTED
 			 * ----------------------------------------------- */
 
-			[`${switchCSS}[data-selected] &`]: {
-				background: vars.color.switch_background_active,
-				// borderColor: vars.color.focus_ring,
-			},
-			[`${switchCSS}[data-selected] &::before`]: {
-				// background: vars.color.button_default,
-				transform: "translateX(100%)",
+			[`${switchCSS}[data-focused] &::before`]: {},
+			[`${switchCSS}[data-focused] &`]: {
+				...a11yFocusStyleRule,
+				// 	background: vars.color.switch_background_active,
+				// 	// borderColor: vars.color.focus_ring,
 			},
 
 			/** ---------------------------------------------
 			 * FOCUSED
 			 * ----------------------------------------------- */
 
-			[`${switchCSS}[data-focused] &`]: {
-				...a11yFocusStyleRule,
-				// 	background: vars.color.switch_background_active,
-				// 	// borderColor: vars.color.focus_ring,
+			[`${switchCSS}[data-selected] &::before`]: {
+				// background: vars.color.button_default,
+				transform: "translateX(100%)",
 			},
-			[`${switchCSS}[data-focused] &::before`]: {},
+			[`${switchCSS}[data-selected] &`]: {
+				background: vars.color.switch_background_active,
+				// borderColor: vars.color.focus_ring,
+			},
 		},
 	},
 ]);

@@ -1,6 +1,7 @@
 import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { tBodyStyles, tRowStyles, tdStyles, vars } from "../../../index.css";
 import { sprinkles } from "../../../sprinkles/index.css";
 
@@ -11,20 +12,20 @@ const baseBodyStyle = style([
 ]);
 
 const isSelectable = styleVariants({
-	true: {},
 	false: {},
+	true: {},
 });
 
 const hasRowActions = styleVariants({
-	true: {},
 	false: {},
+	true: {},
 });
 
 export const getBodyStyle = recipe({
 	base: [baseBodyStyle, tBodyStyles],
 	variants: {
-		isSelectable,
 		hasRowActions,
+		isSelectable,
 	},
 });
 
@@ -38,11 +39,11 @@ globalStyle(
 globalStyle(
 	`${hasRowActions.true} td:last-child, ${hasRowActions.true} ${tdStyles}:last-child`,
 	{
+		overflow: "visible",
 		width: calc.add(
 			calc.multiply(vars.spacing.space_4, 2),
 			vars.spacing.space_8,
 		),
-		overflow: "visible",
 	},
 );
 

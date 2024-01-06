@@ -1,20 +1,20 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { ConfirmedAction } from ".";
 import { ToastProvider } from "../toast";
 
 const meta = {
-	title: "ConfirmedAction",
-	component: ConfirmedAction,
 	args: {
 		buttonContent: "Confirm",
 		onConfirmed: () => {
 			alert("Confirmed!");
 		},
-		strPromptPrefix: "Type",
-		strPromptSuffix: "to confirm",
 		strConfirmText: "confirm",
 		strInvalid: "Invalid",
+		strPromptPrefix: "Type",
+		strPromptSuffix: "to confirm",
 	},
+	component: ConfirmedAction,
 	decorators: [
 		(Story) => {
 			return (
@@ -24,6 +24,7 @@ const meta = {
 			);
 		},
 	],
+	title: "ConfirmedAction",
 } satisfies Meta<typeof ConfirmedAction>;
 
 export default meta;

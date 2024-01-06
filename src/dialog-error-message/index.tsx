@@ -1,4 +1,5 @@
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
+
 import { Box } from "../box";
 import { Button } from "../button";
 import { V2DialogFooter } from "../dialog";
@@ -8,26 +9,26 @@ import { variantColorOverlay } from "../index.css";
 export const V2DialogErrorMessage = ({
 	error,
 	onPressCancel,
-	strCancel,
 	onPressTryAgain,
+	strCancel,
 	strTryAgain,
 }: {
 	error: { message: string };
-	onPressCancel: (() => unknown) | (() => Promise<unknown>);
+	onPressCancel: (() => Promise<unknown>) | (() => unknown);
+	onPressTryAgain: (() => Promise<unknown>) | (() => unknown);
 	strCancel: string;
-	onPressTryAgain: (() => unknown) | (() => Promise<unknown>);
 	strTryAgain: string;
 }) => {
 	return (
 		<>
 			<Box
-				paddingY="space_12"
-				width="100%"
+				className={variantColorOverlay.red}
 				display="flex"
-				placeItems="center"
 				flexDirection="column"
 				gap="space_4"
-				className={variantColorOverlay.red}
+				paddingY="space_12"
+				placeItems="center"
+				width="100%"
 			>
 				<Icon
 					color="text_low_contrast"
@@ -36,8 +37,8 @@ export const V2DialogErrorMessage = ({
 				/>
 
 				<Box
-					fontStyle="bodyLg"
 					color="text_low_contrast"
+					fontStyle="bodyLg"
 					fontWeight="semibold"
 				>
 					{error.message}
@@ -45,7 +46,7 @@ export const V2DialogErrorMessage = ({
 			</Box>
 
 			<V2DialogFooter>
-				<Box display="grid" gridTemplateColumns="2x" gap="space_2">
+				<Box display="grid" gap="space_2" gridTemplateColumns="2x">
 					<Button
 						appearance="secondary"
 						colorOverlay="red"

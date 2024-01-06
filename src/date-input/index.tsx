@@ -1,9 +1,12 @@
+import type {
+	DateInputProps as RACDateInputProps} from "react-aria-components";
+
 import clsx from "clsx";
 import {
 	DateInput as RACDateInput,
-	DateInputProps as RACDateInputProps,
 	DateSegment as RACDateSegment,
 } from "react-aria-components";
+
 import { dateInputCSS, dateSegmentCSS } from "./styles.css";
 
 export const DateInput = (props: Omit<RACDateInputProps, "children">) => {
@@ -14,7 +17,7 @@ export const DateInput = (props: Omit<RACDateInputProps, "children">) => {
 			data-can-group
 		>
 			{(segment) => (
-				<RACDateSegment segment={segment} className={dateSegmentCSS} />
+				<RACDateSegment className={dateSegmentCSS} segment={segment} />
 			)}
 		</RACDateInput>
 	);

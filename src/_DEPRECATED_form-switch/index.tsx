@@ -1,4 +1,5 @@
 import { useController, useFormContext } from "react-hook-form";
+
 import { Switch } from "../switch";
 
 export function FormSwitch({
@@ -24,14 +25,14 @@ export function FormSwitch({
 
 	return (
 		<Switch
-			ref={ref}
 			name={name}
-			value={controlledValue}
 			onBlur={onBlur}
 			onChange={(isSelected) => {
 				onChange?.(isSelected);
 				reactHookFormOnChange(isSelected);
 			}}
+			ref={ref}
+			value={controlledValue}
 			{...rest}
 		/>
 	);

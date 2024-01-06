@@ -1,9 +1,12 @@
+import type {
+	FieldErrorProps as RACFieldErrorProps} from "react-aria-components";
+
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
-	FieldError as RACFieldError,
-	FieldErrorProps as RACFieldErrorProps,
+	FieldError as RACFieldError
 } from "react-aria-components";
+
 import { fieldErrorCss } from "./styles.css";
 
 export const FieldError = forwardRef<HTMLDivElement, RACFieldErrorProps>(

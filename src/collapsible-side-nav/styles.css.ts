@@ -1,5 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+
 import { MEDIA_QUERY_MOBILE, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
@@ -30,12 +31,12 @@ const close = keyframes({
 export const collapsibleNavButtonCSS = style([
 	sprinkles({}),
 	{
-		display: "flex",
 		"@media": {
 			[MEDIA_QUERY_MOBILE]: {
 				display: "none",
 			},
 		},
+		display: "flex",
 	},
 ]);
 export const collapsibleNavOuterCSS = style([
@@ -45,10 +46,10 @@ export const collapsibleNavOuterCSS = style([
 	}),
 	{
 		selectors: {
-			'&[data-state="closed"]': {
+			"&[data-state=\"closed\"]": {
 				animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
-			'&[data-state="open"]': {
+			"&[data-state=\"open\"]": {
 				animation: `${open} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
 			},
 		},
@@ -59,11 +60,11 @@ export const collapsibleNavInnerCSS = style([
 	sprinkles({
 		background: "background",
 
+		display: "flex",
+		flexDirection: "column",
+
 		paddingX: "space_4",
 		paddingY: "space_2",
-
-		flexDirection: "column",
-		display: "flex",
 
 		position: "sticky",
 		top: "0",

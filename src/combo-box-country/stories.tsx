@@ -1,4 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { ComboBoxCountry } from ".";
 import { ComboBoxButton } from "../combo-box";
 import { Group } from "../group";
@@ -6,7 +7,6 @@ import { Input } from "../input";
 import { Label } from "../label";
 
 const meta = {
-	title: "ComboBoxCountry",
 	component: ComboBoxCountry,
 	render: (args) => {
 		return (
@@ -19,6 +19,7 @@ const meta = {
 			</ComboBoxCountry>
 		);
 	},
+	title: "ComboBoxCountry",
 } satisfies Meta<typeof ComboBoxCountry>;
 
 export default meta;

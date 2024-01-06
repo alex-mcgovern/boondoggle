@@ -1,27 +1,28 @@
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
+
 import { makeTheme, withPrefersMotion } from "../css-utils";
 import { vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
 export const inputCSS = style([
 	sprinkles({
-		height: "element_sm",
-		width: "100%",
-
+		background: "text_field_background",
 		border: "border_element",
-		borderRadius: "md",
 
-		paddingX: "space_2",
+		borderRadius: "md",
+		color: "text_high_contrast",
 
 		fontStyle: "bodySm",
 
-		color: "text_high_contrast",
-		background: "text_field_background",
+		height: "element_sm",
+
+		paddingX: "space_2",
+		width: "100%",
 	}),
 	withPrefersMotion({
-		transitionProperty: "color, background, border-color, outline, opacity",
 		transitionDuration: vars.transitionDuration.short,
+		transitionProperty: "color, background, border-color, outline, opacity",
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
@@ -32,23 +33,13 @@ export const inputCSS = style([
 			 * Whether the input is currently hovered with a mouse.
 			 */
 
-			"&[data-hovered]": {
-				background: vars.color.text_field_background_highlighted,
-				borderColor: vars.color.border_element_active,
+			"&[data-disabled]": {
+				cursor: "not-allowed !important",
+				opacity: 0.5,
 			},
 
 			/**
 			 * Whether the input is focused, either via a mouse or keyboard.
-			 */
-
-			"&[data-focused]": {
-				background: vars.color.text_field_background_highlighted,
-				borderColor: vars.color.focus_border,
-				outline: `2px solid ${vars.color.focus_ring}`,
-			},
-
-			/**
-			 * Whether the input is keyboard focused.
 			 */
 
 			"&[data-focus-visible]": {
@@ -58,12 +49,22 @@ export const inputCSS = style([
 			},
 
 			/**
+			 * Whether the input is keyboard focused.
+			 */
+
+			"&[data-focused]": {
+				background: vars.color.text_field_background_highlighted,
+				borderColor: vars.color.focus_border,
+				outline: `2px solid ${vars.color.focus_ring}`,
+			},
+
+			/**
 			 * Whether the input is disabled.
 			 */
 
-			"&[data-disabled]": {
-				opacity: 0.5,
-				cursor: "not-allowed !important",
+			"&[data-hovered]": {
+				background: vars.color.text_field_background_highlighted,
+				borderColor: vars.color.border_element_active,
 			},
 
 			/**
@@ -71,17 +72,17 @@ export const inputCSS = style([
 			 */
 
 			"&[data-invalid]": {
+				borderColor: vars.color.focus_border,
+				outline: `2px solid ${vars.color.focus_ring}`,
 				vars: assignVars(
 					vars.color,
 					makeTheme({
-						primary: red,
-						secondary: red,
 						alpha: redA,
 						isOverlay: true,
+						primary: red,
+						secondary: red,
 					}),
 				),
-				borderColor: vars.color.focus_border,
-				outline: `2px solid ${vars.color.focus_ring}`,
 			},
 		},
 	},

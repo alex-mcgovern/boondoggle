@@ -1,6 +1,9 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+
+import type { Sprinkles} from "../sprinkles/index.css";
+
 import { withPrefersMotion } from "../css-utils";
 import {
 	HOVER,
@@ -10,7 +13,7 @@ import {
 	variantColorOverlay,
 	vars,
 } from "../index.css";
-import { Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * CONFIG / CONSTANTS
@@ -25,17 +28,17 @@ const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
 
 export const tabListOuterCSS = style([
 	sprinkles({
-		position: "relative",
 		marginY: "space_2",
+		position: "relative",
 	}),
 	{
 		selectors: {
 			"&:after": {
-				content: "",
-				position: "absolute",
-				inset: 0,
-				width: "inherit",
 				borderBottom: `1px solid ${vars.color.border_rule}`,
+				content: "",
+				inset: 0,
+				position: "absolute",
+				width: "inherit",
 				zIndex: -10,
 			},
 		},
@@ -61,11 +64,11 @@ export const tabListInnerCSS = recipe({
 	},
 	variants: {
 		justify: {
-			start: {
-				justifyContent: "flex-start",
-			},
 			"space-evenly": {
 				justifyContent: "space-evenly",
+			},
+			start: {
+				justifyContent: "flex-start",
 			},
 		},
 	},
@@ -78,40 +81,40 @@ export const tabListInnerCSS = recipe({
 export const tabOuterCSS = style([
 	a11yDisabled,
 	sprinkles({
-		position: "relative",
+		borderRadius: "md",
 
+		color: "text_low_contrast",
 		display: "inline-flex",
-		placeItems: "center",
 		flexShrink: "0",
 
 		fontStyle: "bodyMd",
 		fontWeight: "medium",
 
-		color: "text_low_contrast",
+		paddingY: "space_0.25",
+		placeItems: "center",
+		position: "relative",
+
 		textDecoration: "none",
 		whiteSpace: "nowrap",
-
-		paddingY: "space_0.25",
-		borderRadius: "md",
 	}),
 	withPrefersMotion({
-		transitionProperty: "color, background",
 		transitionDuration: vars.transitionDuration.short,
+		transitionProperty: "color, background",
 		transitionTimingFunction: vars.ease.quart_in_out,
 	}),
 	{
-		outline: "none",
-
 		height: TAB_HEIGHT,
 
-		selectors: {
-			[`&${NOT_DISABLED}${HOVER}`]: {
-				cursor: "pointer",
-				color: vars.color.text_high_contrast,
-			},
+		outline: "none",
 
+		selectors: {
 			"&[data-selected]": {
 				color: vars.color.button_default,
+			},
+
+			[`&${NOT_DISABLED}${HOVER}`]: {
+				color: vars.color.text_high_contrast,
+				cursor: "pointer",
 			},
 			[`&[data-selected]${HOVER}`]: {
 				color: vars.color.button_default,
@@ -122,26 +125,26 @@ export const tabOuterCSS = style([
 
 export const tabInnerCSS = style([
 	sprinkles({
-		display: "flex",
 		alignItems: "center",
+		display: "flex",
 		gap: "space_1",
 	}),
 ]);
 
 export const tabIndicatorCSS = style([
 	sprinkles({
+		background: "button_default",
 		position: "absolute",
 		zIndex: "-1",
-		background: "button_default",
 	}),
 	{
 		height: TAB_INDICATOR_HEIGHT,
 
 		inset: 0,
-		top: calc.add("100%", TAB_INDICATOR_HEIGHT),
-
-		userSelect: "none",
 		pointerEvents: "none",
+
+		top: calc.add("100%", TAB_INDICATOR_HEIGHT),
+		userSelect: "none",
 	},
 ]);
 
@@ -150,32 +153,32 @@ export const tabIndicatorCSS = style([
  * ------------------------------------------------------------------------------- */
 
 const TAB_COUNT_SIZE = "space_4" satisfies
-	| Sprinkles["width"]
+	| Sprinkles["height"]
 	| Sprinkles["maxWidth"]
-	| Sprinkles["height"];
+	| Sprinkles["width"];
 
 export const tabCountCSS = style([
 	variantColorOverlay.blue,
 	sprinkles({
-		paddingY: "space_0.5",
-		paddingX: "space_1",
+		alignItems: "center",
+		background: "button_tint",
 		borderRadius: "pill",
 
+		color: "text_low_contrast",
 		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-		flexShrink: "0",
 		flexGrow: "0",
-
-		textAlign: "center",
+		flexShrink: "0",
 		fontWeight: "semibold",
 
-		color: "text_low_contrast",
-		background: "button_tint",
-
 		height: TAB_COUNT_SIZE,
-		minWidth: TAB_COUNT_SIZE,
+		justifyContent: "center",
+
 		marginX: "space_0.5",
+		minWidth: TAB_COUNT_SIZE,
+
+		paddingX: "space_1",
+		paddingY: "space_0.5",
+		textAlign: "center",
 	}),
 	{
 		fontSize: "0.625rem",
@@ -186,8 +189,8 @@ export const tabCountIconCSS = style([
 	sprinkles({
 		color: "inherit",
 		height: TAB_COUNT_SIZE,
-		width: TAB_COUNT_SIZE,
-
 		padding: "space_0.5",
+
+		width: TAB_COUNT_SIZE,
 	}),
 ]);

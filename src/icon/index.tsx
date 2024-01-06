@@ -1,8 +1,10 @@
-import { extractAtomsFromProps } from "@dessert-box/core";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+
+import { extractAtomsFromProps } from "@dessert-box/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
+
 import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
 import { iconCSS } from "./styles.css";
 

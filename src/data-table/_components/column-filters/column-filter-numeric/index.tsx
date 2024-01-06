@@ -1,5 +1,7 @@
-import { Column, RowData } from "@tanstack/react-table";
+import type { Column, RowData } from "@tanstack/react-table";
+
 import { useState } from "react";
+
 import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { FilterDialogTitle } from "../base/filter-dialog-title";
@@ -51,16 +53,16 @@ function getSmallestLargestValues<TRowData extends RowData>({
 				: undefined;
 	}
 
-	return { smallestValue, largestValue };
+	return { largestValue, smallestValue };
 }
 
 function getMinMax<TRowData extends RowData>({
 	column,
-	transformNumericFromRaw,
 	currentFilters,
+	transformNumericFromRaw,
 }: {
-	currentFilters: NumberRangeFilterValue;
 	column: Column<TRowData>;
+	currentFilters: NumberRangeFilterValue;
 	transformNumericFromRaw?: (value: number | undefined) => number | undefined;
 }) {
 	let currentMin = column.getIsFiltered() ? currentFilters[0] : undefined;
@@ -77,13 +79,13 @@ function getMinMax<TRowData extends RowData>({
 				: undefined;
 	}
 
-	return { currentMin, currentMax };
+	return { currentMax, currentMin };
 }
 
 export function ColumnFilterNumeric<TRowData extends RowData>({
+	column,
 	strFilterDialogTitle,
 	strFilterPillText,
-	column,
 	transformNumericFromRaw,
 	transformNumericToRaw,
 }: {
@@ -109,7 +111,7 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 		transformNumericFromRaw,
 	});
 
-	const { currentMin, currentMax } = getMinMax<TRowData>({
+	const { currentMax, currentMin } = getMinMax<TRowData>({
 		column,
 		currentFilters,
 		transformNumericFromRaw,
@@ -136,11 +138,11 @@ export function ColumnFilterNumeric<TRowData extends RowData>({
 		<NumericFilterModeProvider>
 			<FilterPillMenu
 				clearFilters={() => column.setFilterValue(undefined)}
-				isFiltered={isFiltered}
-				pillText={pillText}
 				disabled={!arrayHasLength(facetKeys)}
+				isFiltered={isFiltered}
 				isOpen={isOpen}
 				onIsOpenChange={setIsOpen}
+				pillText={pillText}
 			>
 				<FilterDialogTitle
 					strFilterDialogTitle={strFilterDialogTitle}

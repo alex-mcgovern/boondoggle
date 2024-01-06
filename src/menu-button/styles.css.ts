@@ -1,5 +1,6 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { withPrefersMotion } from "../css-utils";
 import { a11yFocus, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
@@ -12,18 +13,18 @@ export const menuButtonCSS = recipe({
 	base: [
 		a11yFocus,
 		sprinkles({
-			flexShrink: "0",
-			background: "background",
-			flexGrow: "1",
-			border: "border_element",
-
-			fontStyle: "bodyMd",
-			display: "flex",
-			gap: "space_1",
 			alignItems: "center",
-			justifyContent: "center",
-			color: "text_high_contrast",
+			background: "background",
+			border: "border_element",
 			borderRadius: "md",
+
+			color: "text_high_contrast",
+			display: "flex",
+			flexGrow: "1",
+			flexShrink: "0",
+			fontStyle: "bodyMd",
+			gap: "space_1",
+			justifyContent: "center",
 		}),
 		{
 			selectors: {
@@ -90,9 +91,6 @@ export const popoverCSS = style([
 					animation: `${kfPopoverOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
 				}),
 			},
-			"&[data-placement='top']": {
-				transformOrigin: "bottom center",
-			},
 			"&[data-placement='bottom']": {
 				transformOrigin: "top center",
 			},
@@ -101,6 +99,9 @@ export const popoverCSS = style([
 			},
 			"&[data-placement='right']": {
 				transformOrigin: "left center",
+			},
+			"&[data-placement='top']": {
+				transformOrigin: "bottom center",
 			},
 		},
 	},

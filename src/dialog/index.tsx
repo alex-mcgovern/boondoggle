@@ -6,9 +6,11 @@ import {
 	Modal as ReactAriaModal,
 	ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
+
+import type { ColorOverlay } from "../index.css";
+
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { ColorOverlay } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 import {
 	dialogCSS,
@@ -29,7 +31,7 @@ export const V2DialogHeader = ({
 }: { close: () => void; title: string }) => {
 	return (
 		<header className={dialogHeaderCSS}>
-			<ReactAriaHeading slot="title" className={dialogTitleCSS}>
+			<ReactAriaHeading className={dialogTitleCSS} slot="title">
 				{title}
 			</ReactAriaHeading>
 
@@ -68,26 +70,26 @@ export const V2DialogFooter = ({ children }: { children: React.ReactNode }) => {
 
 export const V2Dialog = ({
 	buttonProps,
+	children,
 	colorOverlay,
 	dialogTriggerProps,
-	width = "sm",
-	children,
-	modalProps,
 	modalOverlayProps,
+	modalProps,
+	width = "sm",
 }: {
 	buttonProps?: React.ComponentProps<typeof Button>;
+	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
 	colorOverlay?: ColorOverlay;
 	dialogTriggerProps?: Omit<
 		React.ComponentProps<typeof ReactAriaDialogTrigger>,
 		"children"
 	>;
-	width?: "sm" | "lg";
-	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
-	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
 	modalOverlayProps?: Omit<
 		React.ComponentProps<typeof ReactAriaModalOverlay>,
 		"className"
 	>;
+	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
+	width?: "lg" | "sm";
 }) => {
 	return (
 		<ReactAriaDialogTrigger {...dialogTriggerProps}>

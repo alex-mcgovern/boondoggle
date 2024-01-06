@@ -8,6 +8,7 @@ import {
 	Modal as ReactAriaModal,
 	ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
+
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { sprinkles } from "../sprinkles/index.css";
@@ -25,15 +26,15 @@ import {
  * Wrapper to render the dialog header.
  */
 export const V2MobileMenuHeader = ({
+	children,
 	close,
 	title,
-	children,
-}: { close: () => void; title?: string; children?: React.ReactNode }) => {
+}: { children?: React.ReactNode; close: () => void; title?: string }) => {
 	return (
 		<header className={mobileMenuHeaderCSS}>
 			{children}
 			{title ? (
-				<ReactAriaHeading slot="title" className={mobileMenuTitleCSS}>
+				<ReactAriaHeading className={mobileMenuTitleCSS} slot="title">
 					{title}
 				</ReactAriaHeading>
 			) : null}
@@ -74,21 +75,21 @@ export const V2MobileMenuFooter = ({
 };
 
 export const V2MobileMenu = ({
-	dialogTriggerProps,
 	children,
-	modalProps,
+	dialogTriggerProps,
 	modalOverlayProps,
+	modalProps,
 }: {
+	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
 	dialogTriggerProps?: Omit<
 		React.ComponentProps<typeof ReactAriaDialogTrigger>,
 		"children"
 	>;
-	children: React.ComponentProps<typeof ReactAriaDialog>["children"];
-	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
 	modalOverlayProps?: Omit<
 		React.ComponentProps<typeof ReactAriaModalOverlay>,
 		"className"
 	>;
+	modalProps?: Omit<React.ComponentProps<typeof ReactAriaModal>, "className">;
 }) => {
 	const [isOpen, setIsOpen] = React.useState(dialogTriggerProps?.isOpen);
 
@@ -102,13 +103,13 @@ export const V2MobileMenu = ({
 			}}
 		>
 			<Button
+				appearance="ghost"
 				className={sprinkles({
 					display: {
-						mobile: "inline-flex",
 						desktop: "none",
+						mobile: "inline-flex",
 					},
 				})}
-				appearance="ghost"
 				size="square_md"
 			>
 				<Icon icon={isOpen ? faTimes : faBars} />
