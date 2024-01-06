@@ -218,6 +218,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     },
     height: {
         "": "0",
+        "100%": "100%",
+        "100dvh": "100dvh",
         "25%": "25%",
         "25dvh": "25dvh",
         "50%": "50%",
@@ -225,8 +227,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         "75%": "75%",
         "75dvh": "75dvh",
         "90dvh": "90dvh",
-        "100%": "100%",
-        "100dvh": "100dvh",
         auto: "auto",
         element_lg: "3rem",
 
@@ -255,17 +255,17 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         none: "0",
 
         space_0: "0",
-        "space_0.5": "0.125rem",
         "space_0.25": "0.0625rem",
+        "space_0.5": "0.125rem",
         space_1: "0.25rem",
+        space_10: "2.5rem",
+        space_12: "3rem",
         space_2: "0.5rem",
         space_3: "0.75rem",
         space_4: "1rem",
         space_5: "1.25rem",
         space_6: "1.5rem",
         space_8: "2rem",
-        space_10: "2.5rem",
-        space_12: "3rem",
     },
     transitionDuration: {
         long: "600ms",
@@ -278,10 +278,10 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     },
     width: {
         "": "0",
-        "25%": "25%",
-        "50%": "50%",
         "100%": "100%",
         "100vw": "100vw",
+        "25%": "25%",
+        "50%": "50%",
         auto: "auto",
         main_lg: "75rem",
         main_md: "55.5rem",
@@ -466,12 +466,12 @@ export const a11yFocus = style([
         "@layer": {
             [themeLayer]: {
                 selectors: {
-                    [`&${FOCUS}:not(${FOCUS_VISIBLE})`]: {
-                        outline: "none",
-                    },
-
                     [`&:not(${DISABLED})${FOCUS_VISIBLE}`]: {
                         ...a11yFocusStyleRule,
+                    },
+
+                    [`&${FOCUS}:not(${FOCUS_VISIBLE})`]: {
+                        outline: "none",
                     },
                 },
             },
@@ -743,9 +743,9 @@ globalStyle("html, body", {
 globalStyle("body", {
     "@layer": {
         [baseLayer]: {
-            WebkitFontSmoothing: "antialiased",
             color: vars.color.text_high_contrast,
             lineHeight: vars.lineHeight.bodyMd,
+            WebkitFontSmoothing: "antialiased",
         },
     },
 });
@@ -781,10 +781,10 @@ globalStyle("a:focus-visible", {
 globalStyle("button", {
     "@layer": {
         [baseLayer]: {
-            WebkitAppearance: "none",
             background: "none",
             border: "none",
             textDecoration: "none",
+            WebkitAppearance: "none",
         },
     },
 });
@@ -947,8 +947,8 @@ globalStyle(
     {
         "@layer": {
             [baseLayer]: {
-                WebkitAppearance: "none",
                 margin: 0,
+                WebkitAppearance: "none",
             },
         },
     },
