@@ -1,6 +1,7 @@
 import type { Column } from "@tanstack/react-table";
 import type { ChangeEvent } from "react";
 
+import { useCallback } from "react";
 import { useEffect, useMemo, useState } from "react";
 
 import { i18n } from "../../../../_i18n";
@@ -77,7 +78,7 @@ export function ColumnMultiFilter<TRowData>({
     const [selectedItems, setSelectedItems] =
         useState<Array<string>>(currentFilters);
 
-    const handleSelection = (value: string) => {
+    const handleSelection = useCallback((value: string) => {
         setSelectedItems((current) => {
             if (current?.includes(value)) {
                 return current.filter((item) => item !== value);
@@ -85,7 +86,7 @@ export function ColumnMultiFilter<TRowData>({
 
             return [...(current ?? []), value];
         });
-    };
+    }, []);
 
     useEffect(() => {
         setSelectedItems(currentFilters);
@@ -124,9 +125,11 @@ export function ColumnMultiFilter<TRowData>({
      * FILTER SELECT ITEMS
      * ------------------------------------------------------------------------------- */
 
-    const facetKeys = column.getCanFilter()
-        ? Array.from(column.getFacetedUniqueValues().keys())
-        : [];
+    const facetKeys = useMemo(() => {
+        return column.getCanFilter()
+            ? Array.from(column.getFacetedUniqueValues().keys())
+            : [];
+    }, [column]);
 
     const items = useMemo(() => {
         if (!column.getCanFilter()) {

@@ -105,6 +105,7 @@ export const TestRef: Story = {
         value: "Hello world",
     },
     render: (args) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const ref = useRef<HTMLInputElement>(null);
 
         return (

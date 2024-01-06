@@ -76,6 +76,7 @@ export const ExampleComposedCurrencyField: Story = {
         name: "amount",
     },
     render: () => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">("EUR");
         return (
             <div

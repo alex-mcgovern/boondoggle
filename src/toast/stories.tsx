@@ -16,6 +16,7 @@ const meta = {
         ),
     ],
     render: () => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const state = useToastContext();
 
         return (

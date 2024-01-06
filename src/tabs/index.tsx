@@ -177,12 +177,7 @@ export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
         if (controlledSelectedKey !== selectedKey) {
             setSelectedKey(controlledSelectedKey);
         }
-    }, [
-        controlledSelectedKey,
-        controlledSelectedKey,
-        selectedKey,
-        setSelectedKey,
-    ]);
+    }, [controlledSelectedKey, selectedKey, setSelectedKey]);
 
     return (
         <ReactAriaTabs

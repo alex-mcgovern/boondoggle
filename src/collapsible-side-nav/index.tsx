@@ -4,6 +4,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 
 import { faSidebar } from "@fortawesome/pro-solid-svg-icons/faSidebar";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
+import { useCallback } from "react";
 import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
 
@@ -24,10 +25,11 @@ function useMatchMedia(
         ? defaultValues
         : Array(queries.length).fill(false);
 
-    if (typeof window === "undefined") return initialValues;
-
     const mediaQueryLists = queries.map((q) => window.matchMedia(q));
-    const getValue = () => mediaQueryLists.map((mql) => mql.matches);
+    const getValue = useCallback(
+        () => mediaQueryLists.map((mql) => mql.matches),
+        [mediaQueryLists],
+    );
 
     const [value, setValue] = useState(getValue);
 
@@ -43,6 +45,8 @@ function useMatchMedia(
             }
         };
     }, [mediaQueryLists, getValue]);
+
+    if (typeof window === "undefined") return initialValues;
 
     return value;
 }
