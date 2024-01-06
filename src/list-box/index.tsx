@@ -1,3 +1,13 @@
+import {
+	menuCSS,
+	menuHeaderCSS,
+	menuItemCSS,
+	menuItemDescriptionCSS,
+	menuItemNameCSS,
+} from "../_css/menu.css";
+import { Icon } from "../icon";
+import { ColorOverlay } from "../index.css";
+import { Section } from "../section";
 import { faCheck } from "@fortawesome/pro-solid-svg-icons";
 import * as React from "react";
 import {
@@ -9,16 +19,6 @@ import {
 	type ListBoxProps as ReactAriaListBoxProps,
 	Text as ReactAriaText,
 } from "react-aria-components";
-import {
-	menuCSS,
-	menuHeaderCSS,
-	menuItemCSS,
-	menuItemDescriptionCSS,
-	menuItemNameCSS,
-} from "../_css/menu.css";
-import { Icon } from "../icon";
-import { ColorOverlay } from "../index.css";
-import { Section } from "../section";
 
 type SingleListBoxItem<TItemId extends string = string> = {
 	children?: never;
@@ -88,7 +88,7 @@ export type ListBoxProps<TItemId extends string = string> =
 
 function BaseListBox<TItemId extends string = string>(
 	props: ListBoxProps<TItemId>,
-	ref: React.ForwardedRef<HTMLDivElement>,
+	ref: React.ForwardedRef<HTMLDivElement>
 ) {
 	return (
 		<ReactAriaListBox<IterableListBoxItem<TItemId>>
