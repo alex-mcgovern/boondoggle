@@ -83,7 +83,6 @@ const meta = {
         return (
             <Form<FieldValues> {...args}>
                 {({ currency }) => {
-                    // console.debug("fieldValues", formMethods.getValues());
                     return (
                         <>
                             {/** --------------------------------------------
