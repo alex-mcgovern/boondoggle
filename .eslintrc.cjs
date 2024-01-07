@@ -51,6 +51,7 @@ module.exports = {
             },
         ],
         "react/display-name": "off",
+        "react/prop-types": "off",
     },
     settings: {
         react: {
