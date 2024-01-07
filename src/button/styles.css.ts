@@ -75,14 +75,14 @@ export const buttonCSS = recipe({
                     whiteSpace: "nowrap",
                 }),
                 {
-                    background: vars.color.button_default,
+                    background: vars.color.bg_button_primary,
                     color: vars.color.white,
                     selectors: {
                         [`&${ACTIVE}`]: {
-                            background: vars.color.button_active,
+                            background: vars.color.bg_button_primary_active,
                         },
                         [`&${HOVER}`]: {
-                            background: vars.color.button_hover,
+                            background: vars.color.bg_button_primary_active,
                             color: vars.color.white,
                         },
                     },
@@ -96,12 +96,11 @@ export const buttonCSS = recipe({
                 }),
                 {
                     border: "1px solid",
-                    borderColor: vars.color.border_element,
+                    borderColor: vars.color.border_field,
                     color: vars.color.text_high_contrast,
                     selectors: {
                         "&[data-focus-visible]": {
-                            background:
-                                vars.color.text_field_background_highlighted,
+                            background: vars.color.bg_field_active,
                             borderColor: vars.color.focus_border,
                             outline: `2px solid ${vars.color.focus_ring}`,
                         },
@@ -110,8 +109,7 @@ export const buttonCSS = recipe({
                          */
 
                         "&[data-focused]": {
-                            background:
-                                vars.color.text_field_background_highlighted,
+                            background: vars.color.bg_field_active,
                             borderColor: vars.color.focus_border,
                             outline: `2px solid ${vars.color.focus_ring}`,
                         },
@@ -122,11 +120,11 @@ export const buttonCSS = recipe({
 
                         [`&${ACTIVE}`]: {
                             background: vars.color.tint_hover,
-                            borderColor: vars.color.border_element_active,
+                            borderColor: vars.color.border_field_active,
                         },
                         [`&${HOVER}`]: {
                             background: vars.color.tint_hover,
-                            borderColor: vars.color.border_element_active,
+                            borderColor: vars.color.border_field_active,
                         },
                     },
                 },

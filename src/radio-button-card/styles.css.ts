@@ -32,19 +32,19 @@ export const radioButtonCardLabelStyles = style([
         ...withPrefersMotion({
             transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
         }),
-        accentColor: vars.color.button_default,
+        accentColor: vars.color.bg_button_primary,
         selectors: {
             "&:has(input:checked)": {
                 background: vars.color.tint_default,
-                border: `1px solid ${vars.color.border_element_active}`,
+                border: `1px solid ${vars.color.border_field_active}`,
             },
             "&:has(input:focus)": {
                 ...a11yFocusStyleRule,
-                border: `1px solid ${vars.color.button_default}`,
+                border: `1px solid ${vars.color.bg_button_primary}`,
             },
             "&:hover": {
                 background: vars.color.tint_default,
-                border: `1px solid ${vars.color.border_element}`,
+                border: `1px solid ${vars.color.border_field}`,
                 cursor: "pointer",
             },
         },

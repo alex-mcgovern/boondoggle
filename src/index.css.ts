@@ -435,7 +435,7 @@ export const a11yError = style([
     {
         "@layer": {
             [themeLayer]: {
-                borderColor: vars.color.button_default,
+                borderColor: vars.color.bg_button_primary,
                 selectors: {
                     "&:is(&:focus, &:focus-visible), &:focus-within": {
                         ...a11yFocusStyleRule,
@@ -723,7 +723,7 @@ globalStyle("*", {
 globalStyle("html", {
     "@layer": {
         [baseLayer]: {
-            accentColor: vars.color.button_default,
+            accentColor: vars.color.bg_button_primary,
             background: vars.color.background,
             fontSize: vars.fontSize.root,
         },
@@ -753,7 +753,7 @@ globalStyle("body", {
 globalStyle("a", {
     "@layer": {
         [baseLayer]: {
-            color: vars.color.button_default,
+            color: vars.color.bg_button_primary,
             margin: 0,
             padding: 0,
             textDecoration: "none",
@@ -764,7 +764,7 @@ globalStyle("a", {
 globalStyle("a:hover, a:focus, a:focus-visible", {
     "@layer": {
         [baseLayer]: {
-            color: vars.color.button_active,
+            color: vars.color.bg_button_primary_active,
             textDecoration: "underline",
         },
     },
@@ -792,7 +792,7 @@ globalStyle("button", {
 globalStyle("input[type=checkbox]", {
     "@layer": {
         [baseLayer]: {
-            accentColor: vars.color.button_default,
+            accentColor: vars.color.bg_button_primary,
             cursor: "pointer",
             height: vars.spacing.space_4,
             width: vars.spacing.space_4,
@@ -976,7 +976,7 @@ globalStyle(
         "@layer": {
             [baseLayer]: {
                 // background: vars.color.tint_default,
-                // borderColor: vars.color.border_element_active,
+                // borderColor: vars.color.border_field_active,
             },
         },
     },

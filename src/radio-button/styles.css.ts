@@ -28,7 +28,7 @@ export const radioButtonLabelStyles = style([
         ...withPrefersMotion({
             transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
         }),
-        accentColor: vars.color.button_default,
+        accentColor: vars.color.bg_button_primary,
         selectors: {
             "&:hover": {
                 cursor: "pointer",

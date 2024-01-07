@@ -6,7 +6,7 @@ export const textLinkCSS = style([
     sprinkles({
         alignItems: "center",
 
-        color: "button_default",
+        color: "bg_button_primary",
         display: "flex",
         gap: "space_1",
     }),

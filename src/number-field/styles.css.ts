@@ -69,7 +69,7 @@ export const textFieldButtonCSS = style([
              * Whether the button is keyboard focused.
              */
             "&[data-focus-visible]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
                 color: vars.color.text_high_contrast,
                 outline: 0,
             },
@@ -77,7 +77,7 @@ export const textFieldButtonCSS = style([
              * Whether the button is focused, either via a mouse or keyboard.
              */
             "&[data-focused]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
                 color: vars.color.text_high_contrast,
                 outline: 0,
             },
@@ -85,14 +85,14 @@ export const textFieldButtonCSS = style([
              * Whether the button is currently hovered with a mouse.
              */
             "&[data-hovered]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
                 color: vars.color.text_high_contrast,
             },
             /**
              * Whether the button is currently in a pressed state.
              */
             "&[data-pressed]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
                 color: vars.color.text_high_contrast,
             },
         },

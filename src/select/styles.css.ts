@@ -110,8 +110,8 @@ export const selectButtonCSS = recipe({
             },
             default: [
                 sprinkles({
-                    background: "text_field_background",
-                    border: "border_element",
+                    background: "bg_field",
+                    border: "border_field",
 
                     borderRadius: "md",
                 }),
@@ -139,8 +139,7 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-focus-visible]": {
-                            background:
-                                vars.color.text_field_background_highlighted,
+                            background: vars.color.bg_field_active,
                             borderColor: vars.color.focus_border,
                             outline: `2px solid ${vars.color.focus_ring}`,
                         },
@@ -150,8 +149,7 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-focused]": {
-                            background:
-                                vars.color.text_field_background_highlighted,
+                            background: vars.color.bg_field_active,
                             borderColor: vars.color.focus_border,
                             outline: `2px solid ${vars.color.focus_ring}`,
                         },
@@ -161,9 +159,8 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-hovered]": {
-                            background:
-                                vars.color.text_field_background_highlighted,
-                            borderColor: vars.color.border_element_active,
+                            background: vars.color.bg_field_active,
+                            borderColor: vars.color.border_field_active,
                         },
 
                         /**
@@ -171,8 +168,7 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-pressed]": {
-                            background:
-                                vars.color.text_field_background_highlighted,
+                            background: vars.color.bg_field_active,
                             borderColor: vars.color.focus_border,
                             outline: `2px solid ${vars.color.focus_ring}`,
                         },

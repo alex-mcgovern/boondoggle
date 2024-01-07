@@ -71,7 +71,7 @@ export const PillTextFilterNumberRange = ({
             <Box
                 as="span"
                 className={activeFilterStringCSS}
-                color="button_default"
+                color="bg_button_primary"
             >
                 {getValue({ currentFilters, filterMode })}
             </Box>

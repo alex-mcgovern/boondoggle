@@ -25,7 +25,7 @@ export const pillGroupCSS = recipe({
             false: [
                 {
                     background: "transparent",
-                    border: `1px dashed ${vars.color.border_element}`,
+                    border: `1px dashed ${vars.color.border_field}`,
                     selectors: {
                         "&:not(:has(button[disabled])):hover": {
                             background: vars.color.tint_default,
@@ -36,7 +36,7 @@ export const pillGroupCSS = recipe({
             true: [
                 sprinkles({
                     background: "tint_default",
-                    border: "border_element_active",
+                    border: "border_field_active",
                 }),
                 {
                     selectors: {

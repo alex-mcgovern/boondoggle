@@ -109,7 +109,7 @@ export const tabOuterCSS = style([
 
         selectors: {
             "&[data-selected]": {
-                color: vars.color.button_default,
+                color: vars.color.bg_button_primary,
             },
 
             [`&${NOT_DISABLED}${HOVER}`]: {
@@ -117,7 +117,7 @@ export const tabOuterCSS = style([
                 cursor: "pointer",
             },
             [`&[data-selected]${HOVER}`]: {
-                color: vars.color.button_default,
+                color: vars.color.bg_button_primary,
             },
         },
     },
@@ -133,7 +133,7 @@ export const tabInnerCSS = style([
 
 export const tabIndicatorCSS = style([
     sprinkles({
-        background: "button_default",
+        background: "bg_button_primary",
         position: "absolute",
         zIndex: "-1",
     }),

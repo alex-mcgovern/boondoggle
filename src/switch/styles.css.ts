@@ -46,7 +46,7 @@ export const switchIndicatorCSS = style([
         borderRadius: "pill",
     }),
     {
-        background: vars.color.switch_background,
+        background: vars.color.bg_switch,
         height: SWITCH_HEIGHT,
         width: SWITCH_WIDTH,
 
@@ -81,7 +81,7 @@ export const switchIndicatorCSS = style([
              * ----------------------------------------------- */
 
             // [`${switchCSS}[data-pressed] &`]: {
-            // 	borderColor: vars.color.border_element_active,
+            // 	borderColor: vars.color.border_field_active,
             // },
             // [`${switchCSS}[data-pressed] &::before`]: {
             // 	background: vars.color.tint_active,
@@ -94,7 +94,7 @@ export const switchIndicatorCSS = style([
             [`${switchCSS}[data-focused] &::before`]: {},
             [`${switchCSS}[data-focused] &`]: {
                 ...a11yFocusStyleRule,
-                // 	background: vars.color.switch_background_active,
+                // 	background: vars.color.bg_switch_active,
                 // 	// borderColor: vars.color.focus_ring,
             },
 
@@ -103,11 +103,11 @@ export const switchIndicatorCSS = style([
              * ----------------------------------------------- */
 
             [`${switchCSS}[data-selected] &::before`]: {
-                // background: vars.color.button_default,
+                // background: vars.color.bg_button_primary,
                 transform: "translateX(100%)",
             },
             [`${switchCSS}[data-selected] &`]: {
-                background: vars.color.switch_background_active,
+                background: vars.color.bg_switch_active,
                 // borderColor: vars.color.focus_ring,
             },
         },

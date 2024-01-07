@@ -73,13 +73,13 @@ export const calendarCellCSS = style([
 
         selectors: {
             "&[data-focus-visible]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
 
             "&[data-hovered]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
             },
 
             "&[data-outside-month]": {
@@ -87,12 +87,12 @@ export const calendarCellCSS = style([
             },
 
             "&[data-pressed]": {
-                background: vars.color.btn_secondary_bg_highlighted,
+                background: vars.color.bg_button_secondary_active,
             },
 
             "&[data-selected]": {
                 background: vars.color.button_tint,
-                color: vars.color.button_default,
+                color: vars.color.bg_button_primary,
             },
         },
     },

@@ -108,7 +108,7 @@ export function ColumnMultiFilter<TRowData>({
                     <Box
                         as="span"
                         className={activeFilterStringCSS}
-                        color="button_default"
+                        color="bg_button_primary"
                         key={v ?? i}
                     >
                         {transformValueToString ? transformValueToString(v) : v}

@@ -15,7 +15,7 @@ export const menuButtonCSS = recipe({
         sprinkles({
             alignItems: "center",
             background: "background",
-            border: "border_element",
+            border: "border_field",
             borderRadius: "md",
 
             color: "text_high_contrast",

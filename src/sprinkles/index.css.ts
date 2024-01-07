@@ -9,8 +9,8 @@ import {
 } from "../index.css";
 
 const border = {
-    border_element: `1px solid ${vars.color.border_element}`,
-    border_element_active: `1px solid ${vars.color.border_element_active}`,
+    border_field: `1px solid ${vars.color.border_field}`,
+    border_field_active: `1px solid ${vars.color.border_field_active}`,
     border_rule: `1px solid ${vars.color.border_rule}`,
     focus: `1px solid ${vars.color.focus_border} !important`,
 };

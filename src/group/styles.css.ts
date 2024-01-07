@@ -11,7 +11,7 @@ export const groupCSS = style([
     inputBg,
     sprinkles({
         alignItems: "center",
-        border: "border_element",
+        border: "border_field",
 
         borderRadius: "md",
         display: "flex",
@@ -49,7 +49,7 @@ export const groupCSS = style([
              */
 
             "&[data-focus-visible]": {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
@@ -59,7 +59,7 @@ export const groupCSS = style([
              */
 
             "&[data-focus-within]": {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
@@ -69,8 +69,8 @@ export const groupCSS = style([
              */
 
             "&[data-hovered]": {
-                background: vars.color.text_field_background_highlighted,
-                borderColor: vars.color.border_element_active,
+                background: vars.color.bg_field_active,
+                borderColor: vars.color.border_field_active,
             },
 
             /**

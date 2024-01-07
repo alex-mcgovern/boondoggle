@@ -8,7 +8,7 @@ export const avatarCSS = recipe({
         sprinkles({
             alignItems: "center",
             background: "button_tint",
-            color: "button_default",
+            color: "bg_button_primary",
             display: "flex",
             flexShrink: "0",
             fontWeight: "medium",

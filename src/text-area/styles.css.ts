@@ -8,9 +8,9 @@ import { sprinkles } from "../sprinkles/index.css";
 
 export const textareaCSS = style([
     sprinkles({
-        background: "text_field_background",
+        background: "bg_field",
 
-        border: "border_element",
+        border: "border_field",
         borderRadius: "md",
 
         color: "text_high_contrast",
@@ -43,7 +43,7 @@ export const textareaCSS = style([
              * Whether the text-area is keyboard focused.
              */
             "&[data-focus-visible]": {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
@@ -51,7 +51,7 @@ export const textareaCSS = style([
              * Whether the text-area is focused, either via a mouse or keyboard.
              */
             "&[data-focused]": {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
@@ -59,8 +59,8 @@ export const textareaCSS = style([
              * Whether the text-area is currently hovered with a mouse.
              */
             "&[data-hovered]": {
-                background: vars.color.text_field_background_highlighted,
-                borderColor: vars.color.border_element_active,
+                background: vars.color.bg_field_active,
+                borderColor: vars.color.border_field_active,
             },
 
             /**

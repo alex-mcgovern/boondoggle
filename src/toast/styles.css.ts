@@ -45,17 +45,18 @@ export const toastCSS = style([
     a11yFocus,
     sprinkles({
         alignItems: "center",
-        background: "toast_background",
+        background: "bg_toast",
         borderRadius: "md",
 
         boxShadow: "lg",
         color: "white",
+
         display: "flex",
-
         gap: "space_4",
-
         paddingLeft: "space_4",
+
         paddingRight: "space_2",
+
         paddingY: "space_2",
     }),
     {

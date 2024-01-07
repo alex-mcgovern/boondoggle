@@ -8,9 +8,9 @@ import { sprinkles } from "../sprinkles/index.css";
 export const dateInputCSS = style([
     sprinkles({
         alignItems: "center",
-        background: "text_field_background",
+        background: "bg_field",
 
-        border: "border_element",
+        border: "border_field",
         borderRadius: "md",
 
         color: "text_high_contrast",
@@ -46,7 +46,7 @@ export const dateInputCSS = style([
              */
 
             "&[data-focus-visible]": {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
@@ -56,7 +56,7 @@ export const dateInputCSS = style([
              */
 
             "&[data-focus-within]": {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
                 borderColor: vars.color.focus_border,
                 outline: `2px solid ${vars.color.focus_ring}`,
             },
@@ -66,8 +66,8 @@ export const dateInputCSS = style([
              */
 
             "&[data-hovered]": {
-                background: vars.color.text_field_background_highlighted,
-                borderColor: vars.color.border_element_active,
+                background: vars.color.bg_field_active,
+                borderColor: vars.color.border_field_active,
             },
 
             /**
@@ -103,7 +103,7 @@ export const dateSegmentCSS = style([
                 background: vars.color.button_tint,
                 borderRadius: vars.borderRadius.sm,
                 caretColor: "transparent",
-                color: vars.color.button_active,
+                color: vars.color.bg_button_primary_active,
                 outline: "none",
             },
             "&[data-placeholder]": {

@@ -10,8 +10,8 @@ import { sprinkles } from "../sprinkles/index.css";
 export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
     base: [
         sprinkles({
-            background: "text_field_background",
-            border: "border_element",
+            background: "bg_field",
+            border: "border_field",
             borderRadius: "md",
             color: "text_high_contrast",
             fontStyle: "bodySm",
@@ -30,7 +30,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         isFocused: {
             false: {},
             true: sprinkles({
-                background: "text_field_background_highlighted",
+                background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
             }),
@@ -38,7 +38,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         isFocusVisible: {
             false: {},
             true: sprinkles({
-                background: "text_field_background_highlighted",
+                background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
             }),
@@ -46,8 +46,8 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         isHovered: {
             false: {},
             true: sprinkles({
-                background: "text_field_background_highlighted",
-                border: "border_element_active",
+                background: "bg_field_active",
+                border: "border_field_active",
             }),
         },
         isInvalid: {

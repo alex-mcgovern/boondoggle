@@ -5,15 +5,15 @@ import { sprinkles } from "../sprinkles/index.css";
 
 export const inputBg = style([
     sprinkles({
-        background: "text_field_background",
+        background: "bg_field",
     }),
     {
         selectors: {
             [`&:${ACTIVE}`]: {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
             },
             [`&:${FOCUS}`]: {
-                background: vars.color.text_field_background_highlighted,
+                background: vars.color.bg_field_active,
             },
         },
     },
