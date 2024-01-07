@@ -1,5 +1,10 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import type { PopoverRenderProps } from "react-aria-components";
+
+import { keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
+import { recipe } from "@vanilla-extract/recipes";
+
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { withPrefersMotion } from "../_css-utils";
 import { vars } from "../index.css";
@@ -16,6 +21,7 @@ const keyframesInFromLeft = keyframes({
     },
     "100%": { opacity: 1 },
 });
+
 const keyframesOutToLeft = keyframes({
     "0%": { opacity: 1 },
     "100%": {
@@ -23,6 +29,7 @@ const keyframesOutToLeft = keyframes({
         transform: `translateX(${TRANSLATE_DISTANCE_NEGATIVE})`,
     },
 });
+
 const keyframesInFromRight = keyframes({
     "0%": {
         opacity: 0,
@@ -30,6 +37,7 @@ const keyframesInFromRight = keyframes({
     },
     "100%": { opacity: 1 },
 });
+
 const keyframesOutToRight = keyframes({
     "0%": { opacity: 1 },
     "100%": {
@@ -37,6 +45,7 @@ const keyframesOutToRight = keyframes({
         transform: `translateX(${TRANSLATE_DISTANCE})`,
     },
 });
+
 const keyframesInFromTop = keyframes({
     "0%": {
         opacity: 0,
@@ -44,6 +53,7 @@ const keyframesInFromTop = keyframes({
     },
     "100%": { opacity: 1 },
 });
+
 const keyframesOutToTop = keyframes({
     "0%": { opacity: 1 },
     "100%": {
@@ -51,6 +61,7 @@ const keyframesOutToTop = keyframes({
         transform: `translateY(${TRANSLATE_DISTANCE_NEGATIVE})`,
     },
 });
+
 const keyframesInFromBottom = keyframes({
     "0%": {
         opacity: 0,
@@ -67,45 +78,131 @@ const keyframesOutToBottom = keyframes({
     },
 });
 
-export const popoverCSS = style([
-    {
-        ...withPrefersMotion({
-            selectors: {
-                "&[data-entering][data-placement='bottom']": {
-                    animation: `${keyframesInFromTop} ${DURATION} ${EASING} forwards`,
-                },
-                "&[data-entering][data-placement='left']": {
-                    animation: `${keyframesInFromRight} ${DURATION} ${EASING} forwards`,
-                },
+export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
+    base: [],
+    compoundVariants: [
+        /**
+         * @placement top
+         */
 
-                "&[data-entering][data-placement='right']": {
-                    animation: `${keyframesInFromLeft} ${DURATION} ${EASING} forwards`,
-                },
-                "&[data-entering][data-placement='top']": {
-                    animation: `${keyframesInFromBottom} ${DURATION} ${EASING} forwards`,
-                },
-
-                "&[data-exiting][data-placement='bottom']": {
-                    animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
-                },
-                "&[data-exiting][data-placement='left']": {
-                    animation: `${keyframesOutToRight} ${DURATION} ${EASING} forwards`,
-                },
-
-                "&[data-exiting][data-placement='right']": {
-                    animation: `${keyframesOutToLeft} ${DURATION} ${EASING} forwards`,
-                },
-                "&[data-exiting][data-placement='top']": {
-                    animation: `${keyframesOutToBottom} ${DURATION} ${EASING} forwards`,
-                },
-
-                "&[data-trigger=ComboBox]": {
-                    width: "var(--trigger-width)",
-                },
-                "&[data-trigger=DatePicker]": {
-                    width: "unset",
-                },
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesInFromBottom} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isEntering: true,
+                placement: "top",
             },
-        }),
+        },
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesOutToBottom} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isExiting: true,
+                placement: "top",
+            },
+        },
+
+        /**
+         * @placement right
+         */
+
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesInFromLeft} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isEntering: true,
+                placement: "right",
+            },
+        },
+
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesOutToLeft} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isExiting: true,
+                placement: "right",
+            },
+        },
+
+        /**
+         * @placement bottom
+         */
+
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesInFromTop} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isEntering: true,
+                placement: "bottom",
+            },
+        },
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesOutToTop} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isExiting: true,
+                placement: "bottom",
+            },
+        },
+        /**
+         * @placement left
+         */
+
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesInFromRight} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isEntering: true,
+                placement: "left",
+            },
+        },
+        {
+            style: withPrefersMotion({
+                animation: `${keyframesOutToRight} ${DURATION} ${EASING} forwards`,
+            }),
+            variants: {
+                isExiting: true,
+                placement: "left",
+            },
+        },
+    ],
+
+    variants: {
+        isEntering: {
+            false: {},
+            true: {},
+        },
+
+        isExiting: {
+            false: {},
+            true: {},
+        },
+
+        placement: {
+            bottom: {},
+            center: {},
+            left: {},
+            right: {},
+            top: {},
+        },
+
+        trigger: {
+            ComboBox: {
+                width: "var(--trigger-width)",
+            },
+            DatePicker: {
+                width: "unset",
+            },
+            Select: {
+                width: "var(--trigger-width)",
+            },
+        },
     },
-]);
+});

@@ -1,13 +1,15 @@
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
-export type ReactAriaRecipe<TRenderProps> = Record<
-    keyof TRenderProps,
-    Record<
-        TRenderProps[keyof TRenderProps] extends boolean
+export type ReactAriaRecipe<TRenderProps extends object> = {
+    [State in keyof TRenderProps]: Record<
+        Exclude<TRenderProps[State], null> extends boolean
             ? "false" | "true"
-            : TRenderProps[keyof TRenderProps] extends number | string
-              ? TRenderProps[keyof TRenderProps]
+            : Exclude<TRenderProps[State], null> extends
+                    | number
+                    | string
+                    | symbol
+              ? Exclude<TRenderProps[State], null>
               : never,
         ComplexStyleRule | string
-    >
->;
+    >;
+};
