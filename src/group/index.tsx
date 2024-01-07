@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import {
     Group as RACGroup,
     type GroupProps as RACGroupProps,
@@ -10,14 +11,11 @@ import { groupCSS } from "./styles.css";
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Group.html)
  */
-export const Group = ({ children, isDisabled, isInvalid }: RACGroupProps) => {
+export const Group = (props: RACGroupProps) => {
     return (
         <RACGroup
-            className={groupCSS}
-            isDisabled={isDisabled}
-            isInvalid={isInvalid}
-        >
-            {children}
-        </RACGroup>
+            {...props}
+            className={(p) => clsx(props.className, groupCSS(p))}
+        ></RACGroup>
     );
 };

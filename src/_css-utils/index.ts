@@ -49,8 +49,8 @@ export const makeTheme = ({
         bg_toast: step(secondary, 12),
 
         black: step(secondary, 12),
-        border_field: step(secondary, isOverlay ? 7 : 6),
 
+        border_field: step(secondary, isOverlay ? 7 : 6),
         border_field_active: step(secondary, isOverlay ? 8 : 7),
 
         border_rule: step(secondary, isOverlay ? 6 : 5),

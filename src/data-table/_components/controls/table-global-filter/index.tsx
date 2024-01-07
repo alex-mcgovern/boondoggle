@@ -36,7 +36,10 @@ export function TableGlobalFilter<TRowData extends RowData>({
         >
             <Group>
                 <SearchFieldIcon />
-                <Input placeholder={strFilterPlaceholder} />
+                <Input
+                    placeholder={strFilterPlaceholder}
+                    variant="unstyled"
+                />
                 <SearchFieldClearButton />
             </Group>
         </SearchField>

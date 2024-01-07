@@ -195,13 +195,13 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
 
         trigger: {
             ComboBox: {
-                width: "var(--trigger-width)",
+                minWidth: "var(--trigger-width)",
             },
             DatePicker: {
                 width: "unset",
             },
             Select: {
-                width: "var(--trigger-width)",
+                minWidth: "var(--trigger-width)",
             },
         },
     },

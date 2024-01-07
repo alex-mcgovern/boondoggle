@@ -92,7 +92,7 @@ export const TypePassword: Story = {
             <TextField {...args}>
                 <Label>Label</Label>
                 <Group>
-                    <Input />
+                    <Input variant="unstyled" />
                     <TextFieldVisibilityButton />
                 </Group>
             </TextField>
@@ -116,13 +116,12 @@ export const TestRef: Story = {
                     ref={ref}
                 >
                     <Label>Label</Label>
-                    <Input />
+                    <Input ref={ref} />
                 </TextField>
                 <Button
                     appearance="secondary"
                     className={sprinkles({ width: "100%" })}
                     onPress={() => {
-                        console.log(ref.current);
                         ref.current?.focus();
                     }}
                 >
@@ -142,7 +141,7 @@ export const KitchenSink: Story = {
             <TextField {...args}>
                 <Label>Label</Label>
                 <Group>
-                    <Input />
+                    <Input variant="unstyled" />
                     <TextFieldClearButton />
                     <TextFieldCopyButton />
                     <TextFieldVisibilityButton />

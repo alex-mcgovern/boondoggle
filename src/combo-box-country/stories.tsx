@@ -13,7 +13,7 @@ const meta = {
             <ComboBoxCountry {...args}>
                 <Label>Country/Region</Label>
                 <Group>
-                    <Input />
+                    <Input variant="unstyled" />
                     <ComboBoxButton />
                 </Group>
             </ComboBoxCountry>

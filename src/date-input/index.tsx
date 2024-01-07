@@ -8,12 +8,20 @@ import {
 
 import { dateInputCSS, dateSegmentCSS } from "./styles.css";
 
-export const DateInput = (props: Omit<RACDateInputProps, "children">) => {
+export type DateInputProps = Omit<RACDateInputProps, "children"> & {
+    variant?: "default" | "unstyled";
+};
+
+export const DateInput = (props: DateInputProps) => {
     return (
         <RACDateInput
             {...props}
-            className={clsx(props.className, dateInputCSS)}
-            data-can-group
+            className={(p) =>
+                clsx(
+                    props.className,
+                    dateInputCSS({ ...p, variant: props.variant }),
+                )
+            }
         >
             {(segment) => (
                 <RACDateSegment

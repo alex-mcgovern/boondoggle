@@ -16,7 +16,7 @@ const meta = {
         <DatePicker {...args}>
             <Label>Date</Label>
             <Group>
-                <DateInput />
+                <DateInput variant="unstyled" />
                 <DatePickerButton />
             </Group>
         </DatePicker>

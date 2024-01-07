@@ -121,6 +121,25 @@ const meta = {
                 `Form submitted successfully \n ${JSON.stringify(fieldValues)}`,
             );
         },
+        resolver: zodResolver(
+            z.object({
+                amount: z.number(),
+                count: z.number(),
+                country: z.string(),
+                currency: z.enum(["EUR", "USD", "GBP"]),
+                date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+                description: z.string().min(1).max(20),
+                email_address: z.string().email(),
+                favourite_food: z.enum([
+                    "apple",
+                    "tomato",
+                    "carrot",
+                    "lettuce",
+                ]),
+                full_name: z.string().min(1).max(30),
+                password: z.string(),
+            }),
+        ),
     },
     component: Form,
     decorators: [
@@ -174,7 +193,7 @@ const meta = {
                     >
                         <Label>Password</Label>
                         <Group>
-                            <Input />
+                            <Input variant="unstyled" />
                             <TextFieldVisibilityButton />
                         </Group>
                     </FormTextField>
@@ -189,7 +208,7 @@ const meta = {
                     >
                         <Label>Date of birth</Label>
                         <Group>
-                            <DateInput />
+                            <DateInput variant="unstyled" />
                             <DatePickerButton />
                         </Group>
                     </FormDatePicker>
@@ -205,7 +224,7 @@ const meta = {
                     >
                         <Label>Count</Label>
                         <Group>
-                            <Input />
+                            <Input variant="unstyled" />
                             <NumberFieldDecrementButton />
                             <NumberFieldIncrementButton />
                         </Group>
@@ -258,7 +277,10 @@ const meta = {
                     >
                         <Label>Favourite food</Label>
                         <Group>
-                            <Input placeholder="Type a food..." />
+                            <Input
+                                placeholder="Type a food..."
+                                variant="unstyled"
+                            />
                             <ComboBoxButton />
                         </Group>
                     </FormComboBox>
@@ -273,7 +295,10 @@ const meta = {
                     >
                         <Label>Country</Label>
                         <Group>
-                            <Input placeholder="Type a country..." />
+                            <Input
+                                placeholder="Type a country..."
+                                variant="unstyled"
+                            />
                             <ComboBoxButton />
                         </Group>
                     </FormComboBoxCountry>
@@ -308,27 +333,3 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
-
-export const WithZod: Story = {
-    args: {
-        resolver: zodResolver(
-            z.object({
-                amount: z.number(),
-                count: z.number(),
-                country: z.string(),
-                currency: z.enum(["EUR", "USD", "GBP"]),
-                date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-                description: z.string().min(1).max(20),
-                email_address: z.string().email(),
-                favourite_food: z.enum([
-                    "apple",
-                    "tomato",
-                    "carrot",
-                    "lettuce",
-                ]),
-                full_name: z.string().min(1).max(30),
-                password: z.string(),
-            }),
-        ),
-    },
-};

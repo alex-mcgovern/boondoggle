@@ -1,95 +1,129 @@
-import { red, redA } from "@radix-ui/colors";
-import { assignVars, style } from "@vanilla-extract/css";
+import type { DateInputRenderProps } from "react-aria-components";
 
-import { makeTheme, withPrefersMotion } from "../_css-utils";
-import { vars } from "../index.css";
+import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
+
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+
+import { variantColorOverlay, vars } from "../index.css";
 import { sprinkles } from "../sprinkles/index.css";
 
-export const dateInputCSS = style([
-    sprinkles({
-        alignItems: "center",
-        background: "bg_field",
+export const dateInputCSS = recipe<
+    ReactAriaRecipe<
+        DateInputRenderProps & { isInvalid: boolean } // Bug in react-aria-components, this type is missing — https://github.com/adobe/react-spectrum/issues/5662
+    >
+>({
+    base: [
+        sprinkles({
+            alignItems: "center",
+            color: "text_high_contrast",
+            display: "flex",
+            fontStyle: "bodySm",
 
-        border: "border_field",
-        borderRadius: "md",
-
-        color: "text_high_contrast",
-        display: "flex",
-
-        fontStyle: "bodySm",
-
-        height: "element_sm",
-
-        paddingX: "space_2",
-        width: "100%",
-    }),
-    withPrefersMotion({
-        transitionDuration: vars.transitionDuration.short,
-        transitionProperty: "color, background, border-color, outline, opacity",
-        transitionTimingFunction: vars.ease.quart_in_out,
-    }),
-    {
-        outline: "0px solid transparent",
-
-        selectors: {
-            /**
-             * Whether the date input is currently hovered with a mouse.
-             */
-
-            "&[data-disabled]": {
-                cursor: "not-allowed !important",
-                opacity: 0.5,
-            },
-
-            /**
-             * Whether an element within the date input is focused, either via a mouse or keyboard.
-             */
-
-            "&[data-focus-visible]": {
-                background: vars.color.bg_field_active,
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
-            },
-
-            /**
-             * Whether an element within the date input is keyboard focused.
-             */
-
-            "&[data-focus-within]": {
-                background: vars.color.bg_field_active,
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
-            },
-
-            /**
-             * Whether the date input is disabled.
-             */
-
-            "&[data-hovered]": {
-                background: vars.color.bg_field_active,
-                borderColor: vars.color.border_field_active,
-            },
-
-            /**
-             * Whether the date input is invalid.
-             */
-
-            "&[data-invalid]": {
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
-                vars: assignVars(
-                    vars.color,
-                    makeTheme({
-                        alpha: redA,
-                        isOverlay: true,
-                        primary: red,
-                        secondary: red,
-                    }),
-                ),
+            height: "element_sm",
+            width: "100%",
+        }),
+    ],
+    compoundVariants: [
+        {
+            style: sprinkles({ cursor: "not-allowed", opacity: "0.5" }),
+            variants: {
+                isDisabled: true,
+                variant: "default",
             },
         },
+        {
+            style: sprinkles({
+                background: "bg_field_active",
+                border: "focus",
+                outline: "focus",
+            }),
+            variants: {
+                isFocusWithin: true,
+                variant: "default",
+            },
+        },
+        {
+            style: sprinkles({
+                background: "bg_field_active",
+                border: "focus",
+                outline: "focus",
+            }),
+            variants: {
+                isFocusVisible: true,
+                variant: "default",
+            },
+        },
+        {
+            style: sprinkles({
+                background: "bg_field_active",
+                border: "border_field_active",
+            }),
+            variants: {
+                isHovered: true,
+                variant: "default",
+            },
+        },
+        {
+            style: [
+                variantColorOverlay.red,
+                sprinkles({
+                    border: "focus",
+                    outline: "focus",
+                }),
+            ],
+            variants: {
+                isInvalid: true,
+                variant: "default",
+            },
+        },
+    ],
+    defaultVariants: {
+        variant: "default",
     },
-]);
+    variants: {
+        isDisabled: {
+            false: {},
+            true: {},
+        },
+
+        isFocusVisible: {
+            false: {},
+            true: {},
+        },
+
+        isFocusWithin: {
+            false: {},
+            true: {},
+        },
+
+        isHovered: {
+            false: {},
+            true: {},
+        },
+
+        isInvalid: {
+            false: {},
+            true: {},
+        },
+
+        variant: {
+            default: sprinkles({
+                background: "bg_field",
+                border: "border_field",
+                borderRadius: "md",
+                outline: "none",
+                paddingX: "space_2",
+                transition: "short",
+            }),
+            unstyled: sprinkles({
+                background: "transparent",
+                border: "none",
+                outline: "none",
+            }),
+        },
+    },
+});
 
 export const dateSegmentCSS = style([
     sprinkles({

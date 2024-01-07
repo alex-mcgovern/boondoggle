@@ -72,7 +72,7 @@ export const KitchenSink: Story = {
                 <Label>Label</Label>
                 <Group>
                     <NumberFieldDecrementButton />
-                    <Input />
+                    <Input variant="unstyled" />
                     <NumberFieldIncrementButton />
                 </Group>
             </NumberField>
