@@ -7,6 +7,8 @@ import type {
     WatchObserver,
 } from "react-hook-form";
 
+import { useEffect } from "react";
+import { useState } from "react";
 import { forwardRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -29,7 +31,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
     /**
      * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
      */
-    children: ((values: TFieldValues) => ReactNode) | ReactNode;
+    children: ((values: Partial<TFieldValues>) => ReactNode) | ReactNode;
 
     /**
      * Class name for the form.
@@ -110,6 +112,15 @@ function _Form<TFieldValues extends FieldValues>(
         formMethods.watch(watchCallback);
     }
 
+    const [formState, setFormState] = useState<Partial<TFieldValues>>({});
+
+    useEffect(() => {
+        const subscription = formMethods.watch((v) => {
+            setFormState(v);
+        });
+        return () => subscription.unsubscribe();
+    }, [formMethods]);
+
     return (
         <FormProvider {...formMethods}>
             <form
@@ -124,7 +135,7 @@ function _Form<TFieldValues extends FieldValues>(
                 ref={ref}
             >
                 {typeof children === "function"
-                    ? children(formMethods.getValues())
+                    ? children(formState)
                     : children}
             </form>
         </FormProvider>
