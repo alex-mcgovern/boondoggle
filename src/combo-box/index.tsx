@@ -19,7 +19,7 @@ import { Popover } from "../popover";
 import { comboBoxCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
- * COMBOBOX BUTTON
+ * ComboBoxButton
  * ------------------------------------------------------------------------------- */
 
 export const ComboBoxButton = () => {
@@ -90,7 +90,7 @@ export function FormComboBox<TItemId extends string = string>({
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.selectedKey,
+        defaultValue: props.selectedKey || props.defaultSelectedKey,
         name: props.name,
     });
 

@@ -25,7 +25,7 @@ import { sprinkles } from "../sprinkles/index.css";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
- * SelectTrigger
+ * SelectButton
  * ------------------------------------------------------------------------------- */
 
 export type SelectTriggerProps = RACButtonProps & {
@@ -121,7 +121,7 @@ export function FormSelect<TItemId extends string = string>({
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.selectedKey,
+        defaultValue: props.selectedKey || props.defaultSelectedKey,
         name: props.name,
     });
 
