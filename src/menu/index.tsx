@@ -1,4 +1,5 @@
 import type { ForwardedRef, ReactNode } from "react";
+import type { MenuProps as ReactAriaMenuProps } from "react-aria-components";
 
 import { forwardRef } from "react";
 import {
@@ -6,7 +7,6 @@ import {
     Header as ReactAriaHeader,
     Menu as ReactAriaMenu,
     MenuItem as ReactAriaMenuItem,
-    type MenuProps as ReactAriaMenuProps,
 } from "react-aria-components";
 
 import type { ColorOverlay } from "../index.css";

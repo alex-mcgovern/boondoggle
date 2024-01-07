@@ -5,7 +5,9 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 
-import { type Css, css } from "../css/index.css";
+import type { Css } from "../css/index.css";
+
+import { css } from "../css/index.css";
 import { iconCSS } from "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {

@@ -1,7 +1,9 @@
 import clsx from "clsx";
 
+import type { Css } from "../css/index.css";
+
 import { Box } from "../box";
-import { type Css, css } from "../css/index.css";
+import { css } from "../css/index.css";
 import { flagStyles } from "./styles.css";
 
 export function FlagIc({

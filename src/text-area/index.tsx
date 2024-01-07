@@ -1,9 +1,8 @@
+import type { TextAreaProps as RACTextAreaProps } from "react-aria-components";
+
 import clsx from "clsx";
 import { forwardRef } from "react";
-import {
-    TextArea as RACTextArea,
-    type TextAreaProps as RACTextAreaProps,
-} from "react-aria-components";
+import { TextArea as RACTextArea } from "react-aria-components";
 
 import { textareaCSS } from "./styles.css";
 

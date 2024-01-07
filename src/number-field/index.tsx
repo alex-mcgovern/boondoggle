@@ -1,5 +1,5 @@
-import { faMinus } from "@fortawesome/pro-regular-svg-icons/faMinus";
-import { faPlus } from "@fortawesome/pro-regular-svg-icons/faPlus";
+import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
+import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {

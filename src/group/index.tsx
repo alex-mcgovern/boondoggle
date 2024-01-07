@@ -1,8 +1,7 @@
+import type { GroupProps as RACGroupProps } from "react-aria-components";
+
 import clsx from "clsx";
-import {
-    Group as RACGroup,
-    type GroupProps as RACGroupProps,
-} from "react-aria-components";
+import { Group as RACGroup } from "react-aria-components";
 
 import { groupCSS } from "./styles.css";
 

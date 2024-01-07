@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons/faInfoCircle";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { useRef } from "react";
 
 import {

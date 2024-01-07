@@ -1,5 +1,5 @@
-import { faSearch } from "@fortawesome/pro-regular-svg-icons/faSearch";
-import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
+import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
+import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {

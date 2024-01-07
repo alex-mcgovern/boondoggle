@@ -1,12 +1,14 @@
-import {
-    type MenuProps as RACMenuProps,
-    MenuTrigger as RACMenuTrigger,
-    type MenuTriggerProps as RACMenuTriggerProps,
+import type {
+    MenuProps as RACMenuProps,
+    MenuTriggerProps as RACMenuTriggerProps,
 } from "react-aria-components";
 
+import { MenuTrigger as RACMenuTrigger } from "react-aria-components";
+
+import type { IterableMenuItem } from "../menu";
 import type { PopoverProps } from "../popover";
 
-import { type IterableMenuItem, Menu } from "../menu";
+import { Menu } from "../menu";
 import { Popover } from "../popover";
 
 export type MenuButtonProps<TItemId extends string = string> =

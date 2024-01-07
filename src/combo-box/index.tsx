@@ -1,12 +1,10 @@
 import type { ForwardedRef } from "react";
+import type { ComboBoxProps as RACComboBoxProps } from "react-aria-components";
 
-import { faAnglesUpDown } from "@fortawesome/pro-regular-svg-icons/faAnglesUpDown";
+import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import {
-    type ComboBoxProps as RACComboBoxProps,
-    ComboBox as RACCombobox,
-} from "react-aria-components";
+import { ComboBox as RACCombobox } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";

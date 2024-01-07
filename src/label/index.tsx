@@ -1,8 +1,7 @@
+import type { LabelProps as RACLabelProps } from "react-aria-components";
+
 import clsx from "clsx";
-import {
-    Label as RACLabel,
-    type LabelProps as RACLabelProps,
-} from "react-aria-components";
+import { Label as RACLabel } from "react-aria-components";
 
 import { labelCSS } from "./styles.css";
 

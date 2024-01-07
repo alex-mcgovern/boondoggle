@@ -7,10 +7,11 @@ import type {
 } from "@tanstack/react-table";
 import type { JSXElementConstructor, ReactNode } from "react";
 
-import { faEllipsis } from "@fortawesome/pro-regular-svg-icons/faEllipsis";
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { flexRender } from "@tanstack/react-table";
 import { Fragment } from "react";
 
+import type { MenuButtonProps } from "../menu-button";
 import type {
     FilteringOptions,
     PaginationOptions,
@@ -21,7 +22,7 @@ import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
-import { MenuButton, type MenuButtonProps } from "../menu-button";
+import { MenuButton } from "../menu-button";
 import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";

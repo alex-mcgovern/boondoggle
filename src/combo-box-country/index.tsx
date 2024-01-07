@@ -1,11 +1,15 @@
-import { type TCountryCode, countries } from "countries-list";
+import type { TCountryCode } from "countries-list";
+
+import { countries } from "countries-list";
 import { forwardRef } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
-import { ComboBox, type ComboBoxProps } from "../combo-box";
+import type { ComboBoxProps } from "../combo-box";
+import type { IterableListBoxItem } from "../list-box";
+
+import { ComboBox } from "../combo-box";
 import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
-import { type IterableListBoxItem } from "../list-box";
 
 /** -----------------------------------------------------------------------------
  * @util get a flag icon component

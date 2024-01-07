@@ -1,8 +1,7 @@
+import type { ButtonProps as RACButtonProps } from "react-aria-components";
+
 import { forwardRef } from "react";
-import {
-    Button as RACButton,
-    type ButtonProps as RACButtonProps,
-} from "react-aria-components";
+import { Button as RACButton } from "react-aria-components";
 
 import { fieldButtonCSS } from "./styles.css";
 

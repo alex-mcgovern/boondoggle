@@ -1,5 +1,6 @@
-import { faBars } from "@fortawesome/pro-regular-svg-icons/faBars";
-import { type Meta, type StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 
 import { MenuButton } from ".";
 import { Button } from "../button";

@@ -1,7 +1,7 @@
-import { faClipboard } from "@fortawesome/pro-regular-svg-icons/faClipboard";
-import { faEye } from "@fortawesome/pro-regular-svg-icons/faEye";
-import { faEyeSlash } from "@fortawesome/pro-regular-svg-icons/faEyeSlash";
-import { faTimesCircle } from "@fortawesome/pro-regular-svg-icons/faTimesCircle";
+import { faClipboard } from "@fortawesome/pro-solid-svg-icons/faClipboard";
+import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
+import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
+import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
 import { forwardRef, useCallback, useMemo, useState } from "react";
 import {

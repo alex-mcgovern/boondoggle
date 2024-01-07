@@ -1,7 +1,10 @@
-import type { CalendarProps as RACCalendarProps } from "react-aria-components";
+import type {
+    CalendarProps as RACCalendarProps,
+    DateValue as RACDateValue,
+} from "react-aria-components";
 
-import { faAngleLeft } from "@fortawesome/pro-regular-svg-icons/faAngleLeft";
-import { faAngleRight } from "@fortawesome/pro-regular-svg-icons/faAngleRight";
+import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
+import { faAngleRight } from "@fortawesome/pro-solid-svg-icons/faAngleRight";
 import clsx from "clsx";
 import {
     Calendar as RACCalendar,
@@ -10,7 +13,6 @@ import {
     CalendarGridBody as RACCalendarGridBody,
     CalendarGridHeader as RACCalendarGridHeader,
     CalendarHeaderCell as RACCalendarHeaderCell,
-    type DateValue as RACDateValue,
     Heading as RACHeading,
 } from "react-aria-components";
 
