@@ -34,6 +34,7 @@ type SingleListBoxItem<TItemId extends string = string> = {
     id: TItemId;
     name: string;
     slotLeft?: ReactNode;
+    tags?: Array<string>;
     type?: never;
 };
 
@@ -45,6 +46,7 @@ export type IterableListBoxItem<TItemId extends string = string> =
           id: string;
           name?: string;
           slotLeft?: never;
+          tags?: never;
           type?: never;
       }
     | SingleListBoxItem<TItemId>;
