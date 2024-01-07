@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { RadioButtonCardGroupProps } from "../radio-button-card-group";
@@ -30,15 +29,6 @@ export function FormRadioButtonCardGroup({
         name,
     });
 
-    const handleChange = useCallback(
-        (value: string) => {
-            onChange(value);
-
-            onChangeParent?.(value);
-        },
-        [onChange, onChangeParent],
-    );
-
     return (
         <RadioButtonCardGroup
             defaultValue={defaultValue}
@@ -46,10 +36,12 @@ export function FormRadioButtonCardGroup({
             inputProps={{
                 onBlur,
             }}
-            // onBlur={onBlur}
             invalid={invalid || !!error}
             name={name}
-            onChange={handleChange}
+            onChange={(k: string) => {
+                onChange(k);
+                onChangeParent?.(k);
+            }}
             ref={ref}
             value={controlledValue}
             wrapperProps={wrapperProps}

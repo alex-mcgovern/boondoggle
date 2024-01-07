@@ -98,7 +98,10 @@ export function FormComboBox<TItemId extends string = string>({
             {...field}
             isDisabled={isDisabled}
             isInvalid={invalid}
-            onSelectionChange={onChange}
+            onSelectionChange={(k) => {
+                onChange(k);
+                props.onSelectionChange?.(k);
+            }}
             ref={ref}
             selectedKey={value}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.

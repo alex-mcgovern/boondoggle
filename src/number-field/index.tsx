@@ -77,7 +77,7 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
     const { control } = useFormContext();
 
     const {
-        field: { disabled: isDisabled, ref, value = "", ...field },
+        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
         fieldState: { error, invalid },
     } = useController({
         control,
@@ -91,6 +91,10 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
             {...field}
             isDisabled={isDisabled}
             isInvalid={invalid}
+            onChange={(k) => {
+                onChange(k);
+                props.onChange?.(k);
+            }}
             ref={ref}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
             value={value}
