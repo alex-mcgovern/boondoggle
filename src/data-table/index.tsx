@@ -55,7 +55,7 @@ export function TableRowMenuButton<TActionId extends string>(
         <MenuButton {...props}>
             <Button
                 appearance="secondary"
-                size="square_md"
+                size="square_sm"
             >
                 <Icon icon={faEllipsis} />
             </Button>
