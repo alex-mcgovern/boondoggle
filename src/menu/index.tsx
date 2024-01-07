@@ -22,7 +22,7 @@ type SingleMenuItem<TItemId extends string = string> = {
     id: TItemId;
     name: string;
     slotLeft?: ReactNode;
-    tags?: Array<string>;
+    // tags?: Array<string>;
     type?: never;
 };
 
@@ -34,7 +34,7 @@ export type IterableMenuItem<TItemId extends string = string> =
           id: string;
           name?: string;
           slotLeft?: never;
-          tags?: never;
+          //   tags?: never;
           type?: never;
       }
     | SingleMenuItem<TItemId>;
