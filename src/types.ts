@@ -5,6 +5,7 @@ import type {
     PropsWithChildren,
     ReactNode,
 } from "react";
+import type * as React from "react";
 import type { RegisterOptions } from "react-hook-form";
 
 import type { BoxProps } from "./box";
@@ -13,8 +14,8 @@ import type { Label } from "./label";
 
 declare module "react" {
     function forwardRef<T, P = Record<string, unknown>>(
-        render: (props: P, ref: Ref<T>) => ReactElement | null,
-    ): (props: P & RefAttributes<T>) => ReactElement | null;
+        render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
+    ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
 }
 
 export type WithDescription = {
