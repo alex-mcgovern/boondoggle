@@ -305,24 +305,23 @@ export const With2Actions: Story = {
 
 export const WithRowActionItems: Story = {
     args: {
-        RowActions: MockRowActionsComponent,
         gridTemplateColumns: "1fr repeat(3, min-content)",
+        RowActions: MockRowActionsComponent,
         strNoResults: "No results",
     },
 };
 
 export const WithRowActionItemsShortList: Story = {
     args: {
-        RowActions: MockRowActionsComponent,
         data: Array.from({ length: 1 }, mockColumn),
         gridTemplateColumns: "1fr repeat(3, min-content)",
+        RowActions: MockRowActionsComponent,
         strNoResults: "No results",
     },
 };
 
 export const KitchenSink: Story = {
     args: {
-        RowActions: MockRowActionsComponent,
         actions: (
             <>
                 <Button
@@ -394,6 +393,7 @@ export const KitchenSink: Story = {
             strPrev: "Previous",
             strResults: "Results",
         },
+        RowActions: MockRowActionsComponent,
         strNoResults: "No results",
     },
 };

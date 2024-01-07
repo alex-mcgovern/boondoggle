@@ -59,8 +59,8 @@ type UseDataTableStateProps<TRowData extends RowData> = {
 };
 
 export function useDataTableState<TRowData extends RowData>({
-    columnVisibility,
     columns: initColumns,
+    columnVisibility,
     data,
     enableMultiRowSelection,
     filteringOptions,

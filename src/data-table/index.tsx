@@ -131,10 +131,9 @@ export type DataTableProps<TRowData extends RowData> =
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
 export function DataTable<TRowData extends RowData>({
-    RowActions,
     actions,
-    columnVisibility,
     columns,
+    columnVisibility,
     data,
     enableMultiRowSelection = false,
     filteringOptions,
@@ -144,11 +143,12 @@ export function DataTable<TRowData extends RowData>({
     isSortable,
     onSelect,
     paginationOptions,
+    RowActions,
     strNoResults,
 }: DataTableProps<TRowData>) {
     const { table } = useDataTableState({
-        columnVisibility,
         columns,
+        columnVisibility,
         data,
         enableMultiRowSelection,
         filteringOptions,

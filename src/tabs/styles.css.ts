@@ -112,12 +112,12 @@ export const tabOuterCSS = style([
                 color: vars.color.bg_button_primary,
             },
 
+            [`&[data-selected]${HOVER}`]: {
+                color: vars.color.bg_button_primary,
+            },
             [`&${NOT_DISABLED}${HOVER}`]: {
                 color: vars.color.text_high_contrast,
                 cursor: "pointer",
-            },
-            [`&[data-selected]${HOVER}`]: {
-                color: vars.color.bg_button_primary,
             },
         },
     },
