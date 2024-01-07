@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
+import { css } from "../css/index.css";
 import { ACTIVE, FOCUS, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const inputBg = style([
-    sprinkles({
+    css({
         background: "bg_field",
     }),
     {

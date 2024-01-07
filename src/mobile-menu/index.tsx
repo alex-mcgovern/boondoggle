@@ -12,8 +12,8 @@ import {
 } from "react-aria-components";
 
 import { Button } from "../button";
+import { css } from "../css/index.css";
 import { Icon } from "../icon";
-import { sprinkles } from "../sprinkles/index.css";
 import {
     mobileMenuCSS,
     mobileMenuContentCSS,
@@ -51,7 +51,7 @@ export const V2MobileMenuHeader = ({
             <Button
                 appearance="ghost"
                 aria-label="Close"
-                className={sprinkles({
+                className={css({
                     marginLeft: "auto",
                 })}
                 name="close"
@@ -113,7 +113,7 @@ export const V2MobileMenu = ({
         >
             <Button
                 appearance="ghost"
-                className={sprinkles({
+                className={css({
                     display: {
                         desktop: "none",
                         mobile: "inline-flex",

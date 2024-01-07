@@ -4,12 +4,12 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
+import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
     base: [
-        sprinkles({
+        css({
             color: "text_high_contrast",
             fontStyle: "bodySm",
             height: "element_sm",
@@ -18,14 +18,14 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
     ],
     compoundVariants: [
         {
-            style: sprinkles({ cursor: "not-allowed", opacity: "0.5" }),
+            style: css({ cursor: "not-allowed", opacity: "0.5" }),
             variants: {
                 isDisabled: true,
                 variant: "default",
             },
         },
         {
-            style: sprinkles({
+            style: css({
                 background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
@@ -36,7 +36,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
             },
         },
         {
-            style: sprinkles({
+            style: css({
                 background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
@@ -47,7 +47,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
             },
         },
         {
-            style: sprinkles({
+            style: css({
                 background: "bg_field_active",
                 border: "border_field_active",
             }),
@@ -59,7 +59,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         {
             style: [
                 variantColorOverlay.red,
-                sprinkles({
+                css({
                     border: "focus",
                     outline: "focus",
                 }),
@@ -95,7 +95,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
             true: {},
         },
         variant: {
-            default: sprinkles({
+            default: css({
                 background: "bg_field",
                 border: "border_field",
                 borderRadius: "md",
@@ -103,7 +103,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 paddingX: "space_2",
                 transition: "short",
             }),
-            unstyled: sprinkles({
+            unstyled: css({
                 background: "transparent",
                 border: "none",
                 outline: "none",

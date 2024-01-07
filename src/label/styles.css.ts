@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 export const labelCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         color: "text_high_contrast",
         display: "flex",

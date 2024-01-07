@@ -12,8 +12,8 @@ import {
 import type { ColorOverlay } from "../index.css";
 
 import { Button } from "../button";
+import { css } from "../css/index.css";
 import { Icon } from "../icon";
-import { sprinkles } from "../sprinkles/index.css";
 import {
     dialogCSS,
     dialogContentCSS,
@@ -46,7 +46,7 @@ export const V2DialogHeader = ({
             <Button
                 appearance="ghost"
                 aria-label="Close"
-                className={sprinkles({
+                className={css({
                     marginLeft: "auto",
                 })}
                 name="close"

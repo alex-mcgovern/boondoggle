@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const calendarCSS = style([
-    sprinkles({
+    css({
         color: "text_high_contrast",
         maxWidth: "100%",
     }),
@@ -14,7 +14,7 @@ export const calendarCSS = style([
 ]);
 
 export const calendarHeaderCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         marginBottom: "space_1",
@@ -23,7 +23,7 @@ export const calendarHeaderCSS = style([
 ]);
 
 export const calendarHeadingCSS = style([
-    sprinkles({
+    css({
         flexGrow: "1",
         fontStyle: "bodyMd",
         margin: "none",
@@ -32,7 +32,7 @@ export const calendarHeadingCSS = style([
 ]);
 
 export const calendarGridHeaderCellCSS = style([
-    sprinkles({
+    css({
         fontStyle: "bodySm",
         // aspectRatio: "square",
 
@@ -54,7 +54,7 @@ export const calendarGridHeaderCellCSS = style([
 ]);
 
 export const calendarCellCSS = style([
-    sprinkles({
+    css({
         aspectRatio: "square",
         borderRadius: "sm",
         display: "flex",

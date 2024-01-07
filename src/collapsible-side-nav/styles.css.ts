@@ -1,8 +1,8 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
+import { css } from "../css/index.css";
 import { MEDIA_QUERY_MOBILE, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 /**
  * Shared styles used for collapsible open/close state
@@ -29,7 +29,7 @@ const close = keyframes({
 });
 
 export const collapsibleNavButtonCSS = style([
-    sprinkles({}),
+    css({}),
     {
         "@media": {
             [MEDIA_QUERY_MOBILE]: {
@@ -40,7 +40,7 @@ export const collapsibleNavButtonCSS = style([
     },
 ]);
 export const collapsibleNavOuterCSS = style([
-    sprinkles({
+    css({
         borderRight: "border_rule",
         zIndex: "1",
     }),
@@ -57,7 +57,7 @@ export const collapsibleNavOuterCSS = style([
 ]);
 
 export const collapsibleNavInnerCSS = style([
-    sprinkles({
+    css({
         background: "background",
 
         display: "flex",

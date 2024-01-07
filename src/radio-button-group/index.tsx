@@ -3,7 +3,7 @@ import type { ComponentProps, Ref } from "react";
 import clsx from "clsx";
 import { forwardRef, useMemo } from "react";
 
-import type { Sprinkles } from "../sprinkles/index.css";
+import type { Css } from "../css/index.css";
 import type {
     WithDescription,
     WithName,
@@ -18,7 +18,7 @@ import { variantColorOverlay } from "../index.css";
 import { Label } from "../label";
 import { RadioButton } from "../radio-button";
 
-export type RadioButtonGroupProps = Sprinkles &
+export type RadioButtonGroupProps = Css &
     WithWrapperProps &
     WithStateInvalid &
     WithName &

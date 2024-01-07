@@ -1,6 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import {
     ACTIVE,
     HOVER,
@@ -9,13 +10,12 @@ import {
     variantColorOverlay,
     vars,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const buttonCSS = recipe({
     base: [
         a11yFocus,
         a11yDisabled,
-        sprinkles({
+        css({
             alignItems: "center",
             borderRadius: "md",
             display: "inline-flex",
@@ -45,14 +45,12 @@ export const buttonCSS = recipe({
 
     variants: {
         alignment: {
-            center: [
-                sprinkles({ justifyContent: "center", textAlign: "center" }),
-            ],
-            left: [sprinkles({ justifyContent: "start", textAlign: "left" })],
+            center: [css({ justifyContent: "center", textAlign: "center" })],
+            left: [css({ justifyContent: "start", textAlign: "left" })],
         },
         appearance: {
             ghost: [
-                sprinkles({
+                css({
                     fontWeight: "medium",
                     whiteSpace: "nowrap",
                 }),
@@ -70,7 +68,7 @@ export const buttonCSS = recipe({
             ],
 
             primary: [
-                sprinkles({
+                css({
                     fontWeight: "medium",
                     whiteSpace: "nowrap",
                 }),
@@ -90,7 +88,7 @@ export const buttonCSS = recipe({
             ],
 
             secondary: [
-                sprinkles({
+                css({
                     fontWeight: "medium",
                     whiteSpace: "nowrap",
                 }),
@@ -133,28 +131,28 @@ export const buttonCSS = recipe({
         colorOverlay: variantColorOverlay,
         size: {
             lg: [
-                sprinkles({
+                css({
                     height: "space_12",
                     paddingX: "space_6",
                     paddingY: "space_3",
                 }),
             ],
             md: [
-                sprinkles({
+                css({
                     height: "space_10",
                     paddingX: "space_4",
                     paddingY: "space_3",
                 }),
             ],
             sm: [
-                sprinkles({
+                css({
                     height: "space_8",
                     paddingX: "space_3",
                     paddingY: "space_1",
                 }),
             ],
             square_lg: [
-                sprinkles({
+                css({
                     aspectRatio: "square",
                     flexGrow: "0",
                     height: "space_12",
@@ -162,7 +160,7 @@ export const buttonCSS = recipe({
                 }),
             ],
             square_md: [
-                sprinkles({
+                css({
                     aspectRatio: "square",
                     flexGrow: "0",
                     height: "space_10",
@@ -170,7 +168,7 @@ export const buttonCSS = recipe({
                 }),
             ],
             square_sm: [
-                sprinkles({
+                css({
                     aspectRatio: "square",
                     flexGrow: "0",
                     height: "space_8",
@@ -178,7 +176,7 @@ export const buttonCSS = recipe({
                 }),
             ],
             square_xs: [
-                sprinkles({
+                css({
                     aspectRatio: "square",
                     flexGrow: "0",
                     height: "space_6",
@@ -186,7 +184,7 @@ export const buttonCSS = recipe({
                 }),
             ],
             xs: [
-                sprinkles({
+                css({
                     height: "space_6",
                     paddingX: "space_3",
                     paddingY: "space_0",

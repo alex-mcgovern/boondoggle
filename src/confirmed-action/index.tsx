@@ -8,12 +8,12 @@ import { z } from "zod";
 import type { ColorOverlay } from "../index.css";
 
 import { Box } from "../box";
+import { css } from "../css/index.css";
 import { Form } from "../form";
 import { FormSubmitButton } from "../form-submit-button";
 import { variantColorOverlay } from "../index.css";
 import { Input } from "../input";
 import { Label } from "../label";
-import { sprinkles } from "../sprinkles/index.css";
 import { FormTextField } from "../text-field";
 
 const getZodSchema = ({
@@ -71,7 +71,7 @@ export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
                     <FormTextField
                         autoComplete="off"
                         className={clsx(
-                            sprinkles({ marginBottom: "space_2" }),
+                            css({ marginBottom: "space_2" }),
                             colorOverlay && variantColorOverlay[colorOverlay],
                         )}
                         name="confirm_text"
@@ -88,7 +88,7 @@ export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
                     <FormSubmitButton
                         appearance="primary"
                         aria-disabled={userConfirmText !== strConfirmText}
-                        className={sprinkles({
+                        className={css({
                             width: "100%",
                         })}
                         colorOverlay={colorOverlay}

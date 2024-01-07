@@ -3,11 +3,11 @@ import { assignVars, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { makeTheme, withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const selectValueCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         gap: "space_2",
@@ -15,7 +15,7 @@ export const selectValueCSS = style([
 ]);
 
 export const selectCSS = style([
-    sprinkles({ flexShrink: "0" }),
+    css({ flexShrink: "0" }),
     {
         selectors: {
             /**
@@ -46,7 +46,7 @@ export const selectCSS = style([
 
 export const selectButtonCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             color: "text_high_contrast",
 
@@ -109,7 +109,7 @@ export const selectButtonCSS = recipe({
                 },
             },
             default: [
-                sprinkles({
+                css({
                     background: "bg_field",
                     border: "border_field",
 

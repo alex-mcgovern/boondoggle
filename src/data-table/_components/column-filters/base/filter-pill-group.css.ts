@@ -1,12 +1,12 @@
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../../../../_css-utils";
+import { css } from "../../../../css/index.css";
 import { variantColorOverlay, vars } from "../../../../index.css";
-import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const pillGroupCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             borderRadius: "pill",
             display: "inline-flex",
@@ -34,7 +34,7 @@ export const pillGroupCSS = recipe({
                 },
             ],
             true: [
-                sprinkles({
+                css({
                     background: "tint_default",
                     border: "border_field_active",
                 }),

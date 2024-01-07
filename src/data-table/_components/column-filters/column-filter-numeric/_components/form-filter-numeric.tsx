@@ -7,12 +7,12 @@ import type { TableNumberRangeFilterMode } from "../../../../types";
 
 import { i18n } from "../../../../../_i18n";
 import { Box } from "../../../../../box";
+import { css } from "../../../../../css/index.css";
 import { Form } from "../../../../../form";
 import { FormSubmitButton } from "../../../../../form-submit-button";
 import { Input } from "../../../../../input";
 import { FormNumberField } from "../../../../../number-field";
 import { FormSelect, SelectButton } from "../../../../../select";
-import { sprinkles } from "../../../../../sprinkles/index.css";
 import { useNumericFilterMode } from "./numeric-filter-mode-context";
 
 /** -----------------------------------------------------------------------------
@@ -135,7 +135,7 @@ export const FormFilterNumeric = ({
         >
             <Box paddingX="space_4">
                 <FormSelect<TableNumberRangeFilterMode>
-                    className={sprinkles({ marginBottom: "space_2" })}
+                    className={css({ marginBottom: "space_2" })}
                     items={MODES}
                     name="filter_mode"
                     onSelectionChange={(k) => {
@@ -155,7 +155,7 @@ export const FormFilterNumeric = ({
                     >
                         <FormNumberField
                             aria-label="min"
-                            className={sprinkles({ marginBottom: "space_2" })}
+                            className={css({ marginBottom: "space_2" })}
                             defaultValue={
                                 transformNumericToRaw
                                     ? transformNumericToRaw(currentMin)
@@ -169,7 +169,7 @@ export const FormFilterNumeric = ({
 
                         <FormNumberField
                             aria-label="max"
-                            className={sprinkles({ marginBottom: "space_2" })}
+                            className={css({ marginBottom: "space_2" })}
                             defaultValue={
                                 transformNumericToRaw
                                     ? transformNumericToRaw(currentMax)
@@ -185,7 +185,7 @@ export const FormFilterNumeric = ({
                 {localFilterMode === "is_equal_to" && (
                     <FormNumberField
                         aria-label="Is equal to"
-                        className={sprinkles({ marginBottom: "space_2" })}
+                        className={css({ marginBottom: "space_2" })}
                         defaultValue={
                             transformNumericToRaw
                                 ? transformNumericToRaw(
@@ -203,7 +203,7 @@ export const FormFilterNumeric = ({
                 {localFilterMode === "is_greater_than" && (
                     <FormNumberField
                         aria-label="Is greater than"
-                        className={sprinkles({ marginBottom: "space_2" })}
+                        className={css({ marginBottom: "space_2" })}
                         defaultValue={
                             transformNumericToRaw
                                 ? transformNumericToRaw(
@@ -221,7 +221,7 @@ export const FormFilterNumeric = ({
                 {localFilterMode === "is_less_than" && (
                     <FormNumberField
                         aria-label="Is less than"
-                        className={sprinkles({ marginBottom: "space_2" })}
+                        className={css({ marginBottom: "space_2" })}
                         defaultValue={
                             transformNumericToRaw
                                 ? transformNumericToRaw(
@@ -240,7 +240,7 @@ export const FormFilterNumeric = ({
 
             <Box paddingX="space_4">
                 <FormSubmitButton
-                    className={sprinkles({
+                    className={css({
                         marginBottom: "space_4",
                         width: "100%",
                     })}

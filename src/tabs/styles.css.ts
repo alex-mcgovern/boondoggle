@@ -2,9 +2,10 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { Sprinkles } from "../sprinkles/index.css";
+import type { Css } from "../css/index.css";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import {
     HOVER,
     NOT_DISABLED,
@@ -13,7 +14,6 @@ import {
     variantColorOverlay,
     vars,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * CONFIG / CONSTANTS
@@ -27,7 +27,7 @@ const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
  * ------------------------------------------------------------------------------- */
 
 export const tabListOuterCSS = style([
-    sprinkles({
+    css({
         marginY: "space_2",
         position: "relative",
     }),
@@ -47,7 +47,7 @@ export const tabListOuterCSS = style([
 
 export const tabListInnerCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             display: "flex",
             gap: "space_6",
@@ -80,7 +80,7 @@ export const tabListInnerCSS = recipe({
 
 export const tabOuterCSS = style([
     a11yDisabled,
-    sprinkles({
+    css({
         borderRadius: "md",
 
         color: "text_low_contrast",
@@ -124,7 +124,7 @@ export const tabOuterCSS = style([
 ]);
 
 export const tabInnerCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         gap: "space_1",
@@ -132,7 +132,7 @@ export const tabInnerCSS = style([
 ]);
 
 export const tabIndicatorCSS = style([
-    sprinkles({
+    css({
         background: "bg_button_primary",
         position: "absolute",
         zIndex: "-1",
@@ -153,13 +153,13 @@ export const tabIndicatorCSS = style([
  * ------------------------------------------------------------------------------- */
 
 const TAB_COUNT_SIZE = "space_4" satisfies
-    | Sprinkles["height"]
-    | Sprinkles["maxWidth"]
-    | Sprinkles["width"];
+    | Css["height"]
+    | Css["maxWidth"]
+    | Css["width"];
 
 export const tabCountCSS = style([
     variantColorOverlay.blue,
-    sprinkles({
+    css({
         alignItems: "center",
         background: "button_tint",
         borderRadius: "pill",
@@ -186,7 +186,7 @@ export const tabCountCSS = style([
     },
 ]);
 export const tabCountIconCSS = style([
-    sprinkles({
+    css({
         color: "inherit",
         height: TAB_COUNT_SIZE,
         padding: "space_0.5",

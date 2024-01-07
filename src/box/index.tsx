@@ -2,10 +2,10 @@ import type { ComponentPropsWithoutRef } from "react";
 
 import { createBox } from "@dessert-box/react";
 
-import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { type Css, css } from "../css/index.css";
 
 export const Box = createBox({
-    atoms: sprinkles,
+    atoms: css,
 });
 
-export type BoxProps = ComponentPropsWithoutRef<typeof Box> & Sprinkles;
+export type BoxProps = ComponentPropsWithoutRef<typeof Box> & Css;

@@ -1,15 +1,15 @@
 import { keyframes, style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MODAL OVERLAY
  * ------------------------------------------------------------------------------- */
 
 export const mobileMenuOverlayCSS = style([
-    sprinkles({
+    css({
         display: "flex",
         placeItems: "center",
     }),
@@ -36,7 +36,7 @@ const kfMobileMenuModalOut = keyframes({
 });
 
 export const mobileMenuModalCSS = style([
-    sprinkles({
+    css({
         background: "background",
         boxShadow: "lg",
         width: "100vw",
@@ -65,7 +65,7 @@ export const mobileMenuModalCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const mobileMenuCSS = style([
-    sprinkles({
+    css({
         // stick to bottom of container
         display: "flex",
 
@@ -81,7 +81,7 @@ export const mobileMenuCSS = style([
 ]);
 
 export const mobileMenuHeaderCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         background: "tint_default",
 
@@ -100,7 +100,7 @@ export const mobileMenuHeaderCSS = style([
 ]);
 
 export const mobileMenuTitleCSS = style([
-    sprinkles({
+    css({
         color: "text_high_contrast",
         fontStyle: "bodyLg",
         fontWeight: "semibold",
@@ -109,7 +109,7 @@ export const mobileMenuTitleCSS = style([
 ]);
 
 export const mobileMenuContentCSS = style([
-    sprinkles({
+    css({
         overflowY: "auto",
         paddingX: "space_4",
         paddingY: "space_4",
@@ -117,7 +117,7 @@ export const mobileMenuContentCSS = style([
 ]);
 
 export const mobileMenuFooterCSS = style([
-    sprinkles({
+    css({
         borderTop: "border_rule",
         marginTop: "auto",
         paddingX: "space_4",

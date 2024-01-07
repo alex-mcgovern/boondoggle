@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const dialogAlertWrapperCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "start",
             background: "tint_default",
 
@@ -25,7 +25,7 @@ export const dialogAlertWrapperCSS = recipe({
 });
 
 export const dialogAlertSlotCSS = style([
-    sprinkles({
+    css({
         color: "text_low_contrast",
         flexShrink: "0",
         width: "space_4",

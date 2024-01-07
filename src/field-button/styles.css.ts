@@ -1,11 +1,11 @@
 import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const fieldButtonCSS = style([
-    sprinkles({
+    css({
         borderRadius: "sm",
 
         color: "text_low_contrast",

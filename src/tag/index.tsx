@@ -9,7 +9,7 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import type { Sprinkles } from "../sprinkles/index.css";
+import type { Css } from "../css/index.css";
 import type {
     PolymorphicComponentPropWithRef,
     PolymorphicRef,
@@ -20,11 +20,11 @@ import type {
 } from "../types";
 
 import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
+import { css } from "../css/index.css";
 import { a11yFocus } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 import { getTagStyle } from "./styles.css";
 
-type BaseTagProps<TPolymorphicAs extends ElementType> = Sprinkles &
+type BaseTagProps<TPolymorphicAs extends ElementType> = Css &
     PolymorphicComponentPropWithRef<
         TPolymorphicAs,
         WithColorOverlay &
@@ -72,10 +72,7 @@ export const Tag: TagComponent = forwardRef(
         /**
          * Separate `GetSprinklesArgs` from other spread props, so we don't break Vanilla Extract
          */
-        const { atomProps, otherProps } = extractAtomsFromProps(
-            rest,
-            sprinkles,
-        );
+        const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
         const Component = as || "div";
 
@@ -85,7 +82,7 @@ export const Tag: TagComponent = forwardRef(
                     className: clsx(
                         userClassName,
                         getTagStyle({ colorOverlay }),
-                        sprinkles(atomProps),
+                        css(atomProps),
                         a11yFocus,
                     ),
                     id,

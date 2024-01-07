@@ -2,11 +2,11 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
 import { withPrefersMotion } from "../../../../_css-utils";
+import { css } from "../../../../css/index.css";
 import { a11yFocusStyleRule, vars } from "../../../../index.css";
-import { sprinkles } from "../../../../sprinkles/index.css";
 
 export const activeFilterStringCSS = style([
-    sprinkles({ display: "inline-block" }),
+    css({ display: "inline-block" }),
     {
         maxWidth: "5rem",
         overflow: "hidden",
@@ -16,7 +16,7 @@ export const activeFilterStringCSS = style([
 ]);
 
 export const multiFilterListCSS = style([
-    sprinkles({
+    css({
         marginY: "space_2",
         paddingX: "space_4",
     }),
@@ -27,7 +27,7 @@ export const multiFilterListCSS = style([
 ]);
 
 export const multiFilterItemCSS = style([
-    sprinkles({
+    css({
         borderRadius: "md",
         paddingX: "space_2",
         paddingY: "space_1",
@@ -64,7 +64,7 @@ export const multiFilterItemCheckboxCSS = style([
 ]);
 
 export const multiFilterItemTextCSS = style([
-    sprinkles({
+    css({
         overflow: "hidden",
         whiteSpace: "nowrap",
     }),

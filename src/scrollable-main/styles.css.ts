@@ -2,8 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const nonScrollableWrapperCSS = style({
     height: "100dvh",
@@ -12,7 +12,7 @@ export const nonScrollableWrapperCSS = style({
 
 export const scrollableMainCSS = recipe({
     base: [
-        sprinkles({
+        css({
             height: "100dvh",
             overflowX: "hidden",
             overflowY: "auto",
@@ -47,7 +47,7 @@ export const scrollableMainCSS = recipe({
 
 export const scrollableMainInnerCSS = recipe({
     base: [
-        sprinkles({
+        css({
             marginX: "auto",
         }),
     ],
@@ -56,9 +56,9 @@ export const scrollableMainInnerCSS = recipe({
     },
     variants: {
         size: {
-            lg: [sprinkles({ maxWidth: "main_lg" })],
-            md: [sprinkles({ maxWidth: "main_md" })],
-            sm: [sprinkles({ maxWidth: "main_sm" })],
+            lg: [css({ maxWidth: "main_lg" })],
+            md: [css({ maxWidth: "main_md" })],
+            sm: [css({ maxWidth: "main_sm" })],
         },
     },
 });

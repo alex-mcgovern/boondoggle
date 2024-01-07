@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 export const confirmTextCSS = style([
-    sprinkles({
+    css({
         display: "inline-block",
         fontSize: "bodyMd",
         lineHeight: "bodySm",

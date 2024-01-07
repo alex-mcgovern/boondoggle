@@ -139,6 +139,6 @@ export const responsiveProperties = defineProperties({
     },
 });
 
-export const sprinkles = createSprinkles(properties, responsiveProperties);
+export const css = createSprinkles(properties, responsiveProperties);
 
-export type Sprinkles = Parameters<typeof sprinkles>[0];
+export type Css = Parameters<typeof css>[0];

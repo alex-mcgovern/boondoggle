@@ -3,11 +3,11 @@ import { assignVars, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
 import { makeTheme, withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const textareaCSS = style([
-    sprinkles({
+    css({
         background: "bg_field",
 
         border: "border_field",

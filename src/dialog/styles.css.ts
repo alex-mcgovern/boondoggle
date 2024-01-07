@@ -2,13 +2,13 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import {
     MEDIA_QUERY_MOBILE,
     MEDIA_QUERY_TABLET,
     variantColorOverlay,
     vars,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MODAL OVERLAY
@@ -24,7 +24,7 @@ const kfModalOverlayOut = keyframes({
 });
 
 export const modalOverlayCSS = style([
-    sprinkles({
+    css({
         background: "backdrop",
         display: "flex",
         placeItems: "center",
@@ -70,7 +70,7 @@ const kfModalOut = keyframes({
 
 export const modalCSS = recipe({
     base: [
-        sprinkles({
+        css({
             background: "background",
             border: "border_rule",
             borderRadius: "md",
@@ -129,7 +129,7 @@ export const modalCSS = recipe({
  * ------------------------------------------------------------------------------- */
 
 export const dialogCSS = style([
-    sprinkles({
+    css({
         // stick to bottom of container
         display: "flex",
 
@@ -152,7 +152,7 @@ export const dialogCSS = style([
 ]);
 
 export const dialogHeaderCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         borderBottom: "border_rule",
         display: "flex",
@@ -171,7 +171,7 @@ export const dialogHeaderCSS = style([
 ]);
 
 export const dialogTitleCSS = style([
-    sprinkles({
+    css({
         color: "text_high_contrast",
         fontStyle: "bodyLg",
         fontWeight: "semibold",
@@ -180,7 +180,7 @@ export const dialogTitleCSS = style([
 ]);
 
 export const dialogContentCSS = style([
-    sprinkles({
+    css({
         overflowY: "auto",
         paddingX: "space_4",
         paddingY: "space_4",
@@ -188,7 +188,7 @@ export const dialogContentCSS = style([
 ]);
 
 export const dialogFooterCSS = style([
-    sprinkles({
+    css({
         borderTop: "border_rule",
         marginTop: "auto",
         paddingX: "space_4",

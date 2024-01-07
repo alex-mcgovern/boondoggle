@@ -1,13 +1,13 @@
 import { style } from "@vanilla-extract/css";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 /** -----------------------------------------------------------------------------
  * TABLE CELLS
  * ------------------------------------------------------------------------------- */
 
 const commonCellCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         borderBottom: "border_rule",
         display: "flex",
@@ -25,14 +25,14 @@ const commonCellCSS = style([
 
 export const tableCellCSS = style([
     commonCellCSS,
-    sprinkles({
+    css({
         minHeight: "space_8",
     }),
 ]);
 
 export const tableHeaderCellCSS = style([
     commonCellCSS,
-    sprinkles({
+    css({
         height: "space_8",
     }),
 ]);

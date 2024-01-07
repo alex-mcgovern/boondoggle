@@ -9,9 +9,9 @@ import {
     V2ScrollableDialogContent,
 } from ".";
 import { Button } from "../button";
+import { css } from "../css/index.css";
 import { V2DialogAlert } from "../dialog-alert";
 import { V2DialogErrorMessage } from "../dialog-error-message";
-import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
     args: {
@@ -43,7 +43,7 @@ const meta = {
                 </V2ScrollableDialogContent>
                 <V2DialogFooter>
                     <Button
-                        className={sprinkles({ width: "100%" })}
+                        className={css({ width: "100%" })}
                         onPress={() => {
                             alert("Confirmed");
                             close();
@@ -135,7 +135,7 @@ export const WithDialogAlert: Story = {
                 </V2ScrollableDialogContent>
                 <V2DialogFooter>
                     <Button
-                        className={sprinkles({ width: "100%" })}
+                        className={css({ width: "100%" })}
                         onPress={() => {
                             alert("Confirmed");
                             close();

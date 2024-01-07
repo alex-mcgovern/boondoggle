@@ -12,7 +12,7 @@
     "vanilla-extract style": {
         "scope": "typescript,css",
         "prefix": "VE Style",
-        "body": ["export const ${1}CSS = style([sprinkles({}), {}])"],
+        "body": ["export const ${1}CSS = style([css({}), {}])"],
         "description": "Vanilla Extract style"
     },
     "vanilla-extract recipe": {

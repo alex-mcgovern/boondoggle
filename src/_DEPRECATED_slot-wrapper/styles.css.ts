@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 export const slotCSS = style([
     {
         pointerEvents: "none",
     },
-    sprinkles({
+    css({
         alignItems: "center",
         color: "text_low_contrast",
         display: "flex",

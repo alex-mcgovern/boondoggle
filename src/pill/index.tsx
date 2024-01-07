@@ -6,7 +6,7 @@ import clsx from "clsx";
 import type { ColorOverlay } from "../index.css";
 
 import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 import { pillCSS } from "./styles.css";
 
 export const Pill = ({
@@ -27,7 +27,7 @@ export const Pill = ({
     slotLeft?: ReactNode;
     slotRight?: ReactNode;
 }) => {
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, sprinkles);
+    const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
     return (
         <div
@@ -35,7 +35,7 @@ export const Pill = ({
                 className: clsx(
                     userClassName,
                     pillCSS({ colorOverlay }),
-                    sprinkles({
+                    css({
                         ...atomProps,
                         paddingLeft: slotLeft ? "space_1" : "space_2",
                         paddingRight: slotRight ? "space_1" : "space_2",

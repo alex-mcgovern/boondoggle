@@ -19,7 +19,7 @@
     },
     "include": [
         "src/index.css.ts",
-        "src/sprinkles/index.css.ts",
+        "src/css/index.css.ts",
         "src/v2-icon-flag/*.tsx",
         "src/**/index.tsx",
         "src/**/index.ts"

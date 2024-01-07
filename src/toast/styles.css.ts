@@ -1,11 +1,11 @@
 import { keyframes, style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { HOVER, a11yFocus, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const toastRegionCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         flexDirection: "column",
@@ -43,7 +43,7 @@ const kfToastNoAnim = keyframes({
 
 export const toastCSS = style([
     a11yFocus,
-    sprinkles({
+    css({
         alignItems: "center",
         background: "bg_toast",
         borderRadius: "md",
@@ -82,7 +82,7 @@ export const toastCSS = style([
 
 export const toastCloseButtonCSS = style([
     a11yFocus,
-    sprinkles({
+    css({
         borderRadius: "md",
         color: "toast_text",
         height: "space_8",
@@ -102,7 +102,7 @@ export const toastCloseButtonCSS = style([
 ]);
 
 export const toastTitleCSS = style([
-    sprinkles({
+    css({
         color: "toast_text",
         fontStyle: "bodyMd",
         fontWeight: "semibold",
@@ -110,7 +110,7 @@ export const toastTitleCSS = style([
 ]);
 
 export const toastDescriptionCSS = style([
-    sprinkles({
+    css({
         color: "toast_text",
         fontStyle: "bodyMd",
     }),

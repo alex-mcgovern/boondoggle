@@ -2,8 +2,8 @@ import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 
 import { makeTheme, withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const numberFieldCSS = style([
     {
@@ -35,7 +35,7 @@ export const numberFieldCSS = style([
 ]);
 
 export const textFieldButtonCSS = style([
-    sprinkles({
+    css({
         borderRadius: "sm",
 
         color: "text_low_contrast",

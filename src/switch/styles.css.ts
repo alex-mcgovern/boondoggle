@@ -2,8 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 const DOT_SIZE = vars.spacing.space_4;
 const SWITCH_MARGIN = vars.spacing["space_0.5"];
@@ -14,7 +14,7 @@ const SWITCH_WIDTH = calc.add(
 );
 
 export const switchCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         gap: "space_2",
@@ -35,14 +35,14 @@ export const switchCSS = style([
 ]);
 
 export const switchLabelCSS = style([
-    sprinkles({
+    css({
         color: "text_high_contrast",
         fontStyle: "bodyMd",
     }),
 ]);
 
 export const switchIndicatorCSS = style([
-    sprinkles({
+    css({
         borderRadius: "pill",
     }),
     {

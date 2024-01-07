@@ -7,9 +7,9 @@ import {
     type SearchFieldProps as RACSearchFieldProps,
 } from "react-aria-components";
 
+import { css } from "../css/index.css";
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
-import { sprinkles } from "../sprinkles/index.css";
 import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ export const SearchFieldClearButton = () => {
 export const SearchFieldIcon = () => {
     return (
         <Icon
-            className={sprinkles({
+            className={css({
                 color: "text_low_contrast",
                 flexShrink: "0",
                 height: "space_6",

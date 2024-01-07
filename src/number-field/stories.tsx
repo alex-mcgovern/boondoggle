@@ -7,6 +7,7 @@ import {
     NumberFieldDecrementButton,
     NumberFieldIncrementButton,
 } from ".";
+import { css } from "../css/index.css";
 import { Group } from "../group";
 import { FlagEu } from "../icon-flag/eu";
 import { FlagGb } from "../icon-flag/gb";
@@ -14,7 +15,6 @@ import { FlagUs } from "../icon-flag/us";
 import { Input } from "../input";
 import { Label } from "../label";
 import { Select, SelectButton } from "../select";
-import { sprinkles } from "../sprinkles/index.css";
 import { ToastProvider } from "../toast";
 
 const meta = {
@@ -91,13 +91,13 @@ export const ExampleComposedCurrencyField: Story = {
         const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">("EUR");
         return (
             <div
-                className={sprinkles({
+                className={css({
                     marginBottom: "space_2",
                 })}
             >
                 <Label htmlFor="amount">Amount</Label>
                 <div
-                    className={sprinkles({
+                    className={css({
                         alignItems: "center",
                         display: "flex",
                         gap: "space_2",

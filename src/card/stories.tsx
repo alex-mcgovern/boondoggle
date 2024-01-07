@@ -5,9 +5,9 @@ import { Button } from "react-aria-components";
 import { Card as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { Box } from "../box";
+import { css } from "../css/index.css";
 import { FieldsGrid } from "../fields-grid";
 import { SkeletonInput } from "../skeleton-input";
-import { sprinkles } from "../sprinkles/index.css";
 
 const meta = {
     args: {
@@ -56,7 +56,7 @@ export const WithHeader: Story = {
                     Title
                 </Box>{" "}
                 <Button
-                    className={sprinkles({ marginLeft: "auto" })}
+                    className={css({ marginLeft: "auto" })}
                     name="action"
                 >
                     Action

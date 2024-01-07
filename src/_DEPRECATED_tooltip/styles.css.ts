@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
+import { css } from "../css/index.css";
 import { animateFadeIn, variantColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const tooltipTextStyle = style([
     variantColorOverlay.grey,
     animateFadeIn,
-    sprinkles({
+    css({
         background: "black",
         borderRadius: "md",
         color: "white",

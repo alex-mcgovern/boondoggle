@@ -1,12 +1,12 @@
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { a11yFocus, variantColorOverlay, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const getTagStyle = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             background: "tint_hover",
             borderRadius: "md",

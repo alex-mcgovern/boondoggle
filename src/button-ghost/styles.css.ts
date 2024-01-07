@@ -4,11 +4,11 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 export const buttonGhostCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             background: "transparent",
             borderRadius: "md",
@@ -31,14 +31,14 @@ export const buttonGhostCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
     variants: {
         isDisabled: {
             false: {},
-            true: sprinkles({
+            true: css({
                 cursor: "not-allowed",
                 opacity: "0.5",
             }),
         },
         isFocused: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_button_secondary_active",
                 border: "focus",
                 outline: "focus",
@@ -46,7 +46,7 @@ export const buttonGhostCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
         },
         isFocusVisible: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_button_secondary_active",
                 border: "focus",
                 outline: "focus",
@@ -54,13 +54,13 @@ export const buttonGhostCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
         },
         isHovered: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_button_secondary_active",
             }),
         },
         isPressed: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_button_secondary_active",
                 border: "border_field_active",
             }),

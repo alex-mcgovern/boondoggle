@@ -9,7 +9,7 @@ import { arrayHasLength } from "../../../../_lib/array-has-length";
 import { isTruthy } from "../../../../_lib/is-truthy";
 import { Box } from "../../../../box";
 import { Button } from "../../../../button";
-import { sprinkles } from "../../../../sprinkles/index.css";
+import { css } from "../../../../css/index.css";
 import { FilterDialogTitle } from "../base/filter-dialog-title";
 import { FilterPillMenu } from "../base/filter-pill-menu";
 import {
@@ -176,7 +176,7 @@ export function ColumnMultiFilter<TRowData>({
 
             <Box paddingX="space_4">
                 <Button
-                    className={sprinkles({
+                    className={css({
                         marginBottom: "space_4",
                         width: "100%",
                     })}

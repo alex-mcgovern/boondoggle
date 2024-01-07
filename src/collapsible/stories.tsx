@@ -6,8 +6,8 @@ import type { CollapsibleProps as StoryCompProps } from ".";
 
 import { Collapsible as StoryComp } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
+import { css } from "../css/index.css";
 import { Icon } from "../icon";
-import { sprinkles } from "../sprinkles/index.css";
 
 export default {
     component: StoryComp,
@@ -16,7 +16,7 @@ export default {
 
 const TriggerNode = (
     <button
-        className={sprinkles({
+        className={css({
             alignItems: "center",
             color: "text_high_contrast",
             display: "flex",

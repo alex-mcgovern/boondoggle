@@ -13,15 +13,15 @@
     },
     "type": "module",
     "exports": {
-        "./css": {
+        "./styles": {
             "import": "./dist/index.css.js",
             "require": "./dist/index.css.js",
             "types": "./dist/index.css.d.ts"
         },
-        "./sprinkles": {
-            "import": "./dist/sprinkles/index.css.js",
-            "require": "./dist/sprinkles/index.css.js",
-            "types": "./dist/sprinkles/index.css.d.ts"
+        "./css": {
+            "import": "./dist/css/index.css.js",
+            "require": "./dist/css/index.css.js",
+            "types": "./dist/css/index.css.d.ts"
         },
         "./icon-flag/*": {
             "import": "./dist/icon-flag/*.js",

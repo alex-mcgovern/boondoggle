@@ -2,15 +2,15 @@ import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../../../_css-utils";
+import { css } from "../../../css/index.css";
 import { HOVER, vars } from "../../../index.css";
-import { sprinkles } from "../../../sprinkles/index.css";
 
 const sortControlBase = style({});
 
 export const getSortControlStyle = recipe({
     base: [
         sortControlBase,
-        sprinkles({
+        css({
             alignItems: "center",
             color: "text_low_contrast",
             display: "flex",

@@ -1,11 +1,11 @@
 import { recipe } from "@vanilla-extract/recipes";
 
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const avatarCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             background: "button_tint",
             color: "bg_button_primary",
@@ -21,8 +21,8 @@ export const avatarCSS = recipe({
     ],
     variants: {
         appearance: {
-            circle: [sprinkles({ borderRadius: "50%" })],
-            square: [sprinkles({ borderRadius: "md" })],
+            circle: [css({ borderRadius: "50%" })],
+            square: [css({ borderRadius: "md" })],
         },
     },
 });

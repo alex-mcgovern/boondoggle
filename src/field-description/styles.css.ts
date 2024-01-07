@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 export const descriptionCSS = style([
-    sprinkles({
+    css({
         color: "text_low_contrast",
         fontStyle: "bodySm",
 

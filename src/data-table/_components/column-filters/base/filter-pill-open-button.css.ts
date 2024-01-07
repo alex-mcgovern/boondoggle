@@ -2,8 +2,8 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../../../../_css-utils";
+import { css } from "../../../../css/index.css";
 import { a11yFocus, vars } from "../../../../index.css";
-import { sprinkles } from "../../../../sprinkles/index.css";
 
 const rotateOutKeyframes = keyframes({
     "0%": { transform: "rotate(45deg)" },
@@ -12,7 +12,7 @@ const rotateOutKeyframes = keyframes({
 
 export const openButtonCSS = style([
     a11yFocus,
-    sprinkles({
+    css({
         alignItems: "center",
         borderRadius: "pill",
         color: "text_low_contrast",
@@ -30,7 +30,7 @@ export const openButtonCSS = style([
 ]);
 
 export const openIconCSS = recipe({
-    base: [sprinkles({ fontStyle: "bodyLg" })],
+    base: [css({ fontStyle: "bodyLg" })],
     variants: {
         shouldAnimate: {
             false: {},

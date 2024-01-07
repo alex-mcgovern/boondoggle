@@ -15,11 +15,11 @@ import {
     TooltipTrigger,
 } from "../_DEPRECATED_tooltip";
 import { Button } from "../button";
+import { css } from "../css/index.css";
 import { Group } from "../group";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { Label } from "../label";
-import { sprinkles } from "../sprinkles/index.css";
 import { ToastProvider } from "../toast";
 
 const meta = {
@@ -112,7 +112,7 @@ export const TestRef: Story = {
             <>
                 <TextField
                     {...args}
-                    className={sprinkles({ marginBottom: "space_2" })}
+                    className={css({ marginBottom: "space_2" })}
                     ref={ref}
                 >
                     <Label>Label</Label>
@@ -120,7 +120,7 @@ export const TestRef: Story = {
                 </TextField>
                 <Button
                     appearance="secondary"
-                    className={sprinkles({ width: "100%" })}
+                    className={css({ width: "100%" })}
                     onPress={() => {
                         ref.current?.focus();
                     }}

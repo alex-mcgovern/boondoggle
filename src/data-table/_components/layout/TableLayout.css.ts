@@ -2,11 +2,11 @@ import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { css } from "../../../css/index.css";
 import { tBodyStyles, tRowStyles, tdStyles, vars } from "../../../index.css";
-import { sprinkles } from "../../../sprinkles/index.css";
 
 const baseBodyStyle = style([
-    sprinkles({
+    css({
         marginY: "space_3",
     }),
 ]);
@@ -52,7 +52,7 @@ const baseRowStyles = style({});
 export const rowStyles = style([
     tRowStyles,
     baseRowStyles,
-    sprinkles({
+    css({
         color: "text_high_contrast",
         textDecoration: "none",
     }),

@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 export const textLinkCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
 
         color: "bg_button_primary",

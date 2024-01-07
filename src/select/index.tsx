@@ -18,10 +18,10 @@ import { useController, useFormContext } from "react-hook-form";
 import type { IterableListBoxItem } from "../list-box";
 import type { PopoverProps } from "../popover";
 
+import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
-import { sprinkles } from "../sprinkles/index.css";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ function _SelectButton<TItemId extends string = string>(
                 className={selectValueCSS}
             />
             <Icon
-                className={sprinkles({ marginLeft: "auto" })}
+                className={css({ marginLeft: "auto" })}
                 color="text_low_contrast"
                 icon={faAnglesUpDown}
             />

@@ -3,6 +3,7 @@ import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import {
     a11yDisabled,
     a11yFocus,
@@ -11,14 +12,13 @@ import {
     variantColorOverlay,
     vars,
 } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MENU CSS
  * ------------------------------------------------------------------------------- */
 
 export const menuCSS = style([
-    sprinkles({
+    css({
         background: "background",
         border: "border_rule",
         boxShadow: "md",
@@ -66,7 +66,7 @@ export const menuSectionCSS = style([
 
 export const menuItemCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             color: "text_high_contrast",
             display: "flex",
@@ -111,7 +111,7 @@ export const menuItemCSS = recipe({
 });
 
 export const menuItemNameCSS = style([
-    sprinkles({
+    css({
         color: "text_high_contrast",
         display: "block",
         fontStyle: "bodySm",
@@ -119,7 +119,7 @@ export const menuItemNameCSS = style([
 ]);
 
 export const menuItemDescriptionCSS = style([
-    sprinkles({
+    css({
         color: "text_low_contrast",
         display: "block",
         fontStyle: "bodySm",
@@ -131,7 +131,7 @@ export const menuItemDescriptionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuHeaderCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         color: "text_low_contrast",
         display: "flex",
@@ -155,7 +155,7 @@ export const menuHeaderCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuSeparatorCSS = style([
-    sprinkles({}),
+    css({}),
     {
         background: vars.color.border_rule,
         height: "1px",

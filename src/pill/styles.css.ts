@@ -1,11 +1,11 @@
 import { recipe } from "@vanilla-extract/recipes";
 
+import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const pillCSS = recipe({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             background: "tint_hover",
 

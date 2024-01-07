@@ -5,8 +5,8 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
+import { css } from "../css/index.css";
 import { variantColorOverlay, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const dateInputCSS = recipe<
     ReactAriaRecipe<
@@ -14,7 +14,7 @@ export const dateInputCSS = recipe<
     >
 >({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             color: "text_high_contrast",
             display: "flex",
@@ -26,14 +26,14 @@ export const dateInputCSS = recipe<
     ],
     compoundVariants: [
         {
-            style: sprinkles({ cursor: "not-allowed", opacity: "0.5" }),
+            style: css({ cursor: "not-allowed", opacity: "0.5" }),
             variants: {
                 isDisabled: true,
                 variant: "default",
             },
         },
         {
-            style: sprinkles({
+            style: css({
                 background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
@@ -44,7 +44,7 @@ export const dateInputCSS = recipe<
             },
         },
         {
-            style: sprinkles({
+            style: css({
                 background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
@@ -55,7 +55,7 @@ export const dateInputCSS = recipe<
             },
         },
         {
-            style: sprinkles({
+            style: css({
                 background: "bg_field_active",
                 border: "border_field_active",
             }),
@@ -67,7 +67,7 @@ export const dateInputCSS = recipe<
         {
             style: [
                 variantColorOverlay.red,
-                sprinkles({
+                css({
                     border: "focus",
                     outline: "focus",
                 }),
@@ -108,7 +108,7 @@ export const dateInputCSS = recipe<
         },
 
         variant: {
-            default: sprinkles({
+            default: css({
                 background: "bg_field",
                 border: "border_field",
                 borderRadius: "md",
@@ -116,7 +116,7 @@ export const dateInputCSS = recipe<
                 paddingX: "space_2",
                 transition: "short",
             }),
-            unstyled: sprinkles({
+            unstyled: css({
                 background: "transparent",
                 border: "none",
                 outline: "none",
@@ -126,7 +126,7 @@ export const dateInputCSS = recipe<
 });
 
 export const dateSegmentCSS = style([
-    sprinkles({
+    css({
         color: "text_high_contrast",
         paddingX: "space_0.5",
     }),

@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { a11yFocus, a11yFocusStyleRule, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const radioButtonCardInputStyles = style({
     position: "absolute",
@@ -17,7 +17,7 @@ export const radioButtonCardInputStyles = style({
 
 export const radioButtonCardLabelStyles = style([
     a11yFocus,
-    sprinkles({
+    css({
         alignItems: "center",
         border: "border_rule",
         borderRadius: "sm",

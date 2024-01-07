@@ -2,8 +2,8 @@ import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { a11yFocus, vars } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MENU BUTTON STYLES
@@ -12,7 +12,7 @@ import { sprinkles } from "../sprinkles/index.css";
 export const menuButtonCSS = recipe({
     base: [
         a11yFocus,
-        sprinkles({
+        css({
             alignItems: "center",
             background: "background",
             border: "border_field",
@@ -41,21 +41,21 @@ export const menuButtonCSS = recipe({
     variants: {
         size: {
             lg: [
-                sprinkles({
+                css({
                     height: "space_12",
                     minWidth: "space_12",
                     paddingX: "space_4",
                 }),
             ],
             md: [
-                sprinkles({
+                css({
                     height: "space_10",
                     minWidth: "space_10",
                     paddingX: "space_3",
                 }),
             ],
             sm: [
-                sprinkles({
+                css({
                     height: "space_8",
                     minWidth: "space_8",
                     paddingX: "space_2",

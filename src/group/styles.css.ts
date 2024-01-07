@@ -4,12 +4,12 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
+import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
-import { sprinkles } from "../sprinkles/index.css";
 
 export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     base: [
-        sprinkles({
+        css({
             alignItems: "center",
             background: "bg_field",
             border: "border_field",
@@ -29,11 +29,11 @@ export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     variants: {
         isDisabled: {
             false: {},
-            true: sprinkles({ cursor: "not-allowed", opacity: "0.5" }),
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
         },
         isFocusVisible: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
@@ -41,7 +41,7 @@ export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
         },
         isFocusWithin: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_field_active",
                 border: "focus",
                 outline: "focus",
@@ -49,7 +49,7 @@ export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
         },
         isHovered: {
             false: {},
-            true: sprinkles({
+            true: css({
                 background: "bg_field_active",
                 border: "border_field_active",
             }),
@@ -58,7 +58,7 @@ export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
             false: {},
             true: [
                 variantColorOverlay.red,
-                sprinkles({
+                css({
                     border: "focus",
                     outline: "focus",
                 }),

@@ -1,17 +1,17 @@
 import { createContainer, style } from "@vanilla-extract/css";
 
+import { css } from "../../../../css/index.css";
 import {
     CONTAINER_LG,
     CONTAINER_MD,
     CONTAINER_SM,
     vars,
 } from "../../../../index.css";
-import { sprinkles } from "../../../../sprinkles/index.css";
 
 const tableActionsContainer = createContainer();
 
 export const tableActionsContainerCSS = style([
-    sprinkles({
+    css({
         marginY: "space_3",
     }),
     {
@@ -21,7 +21,7 @@ export const tableActionsContainerCSS = style([
 ]);
 
 export const tableActionsCSS = style([
-    sprinkles({
+    css({
         alignItems: "start",
         display: "grid",
         gap: "space_2",
@@ -54,7 +54,7 @@ export const globalFilterCSS = style({
 });
 
 export const columnFiltersCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         flexWrap: "wrap",
@@ -66,7 +66,7 @@ export const columnFiltersCSS = style([
 ]);
 
 export const actionsCSS = style([
-    sprinkles({
+    css({
         alignItems: "center",
         display: "flex",
         gap: "space_2",

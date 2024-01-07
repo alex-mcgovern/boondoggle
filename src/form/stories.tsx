@@ -7,6 +7,7 @@ import { Form } from ".";
 import { Button } from "../button";
 import { ComboBoxButton, FormComboBox } from "../combo-box";
 import { FormComboBoxCountry } from "../combo-box-country";
+import { css } from "../css/index.css";
 import { DateInput } from "../date-input";
 import { DatePickerButton, FormDatePicker } from "../date-picker";
 import { Group } from "../group";
@@ -21,7 +22,6 @@ import {
     NumberFieldIncrementButton,
 } from "../number-field";
 import { FormSelect, SelectButton } from "../select";
-import { sprinkles } from "../sprinkles/index.css";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
 import { ToastProvider } from "../toast";
@@ -43,7 +43,7 @@ type FieldValues = z.infer<typeof zodSchema>;
 
 const meta = {
     args: {
-        className: sprinkles({ width: "main_sm" }),
+        className: css({ width: "main_sm" }),
         handleSubmit: (fieldValues) => {
             alert(
                 `Form submitted successfully \n ${JSON.stringify(fieldValues)}`,
@@ -90,7 +90,7 @@ const meta = {
                              * ----------------------------------------------- */}
 
                             <FormTextField
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="full_name"
@@ -105,7 +105,7 @@ const meta = {
 
                             <FormTextField
                                 autoComplete="off"
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="email_address"
@@ -121,7 +121,7 @@ const meta = {
 
                             <FormTextField
                                 autoComplete="off"
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="password"
@@ -139,7 +139,7 @@ const meta = {
                              * ----------------------------------------------- */}
 
                             <FormDatePicker
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="date_of_birth"
@@ -156,7 +156,7 @@ const meta = {
                              * ----------------------------------------------- */}
 
                             <FormNumberField
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="count"
@@ -175,20 +175,20 @@ const meta = {
                              * ----------------------------------------------- */}
 
                             <div
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                             >
                                 <Label htmlFor="amount">Amount</Label>
                                 <div
-                                    className={sprinkles({
+                                    className={css({
                                         alignItems: "start",
                                         display: "flex",
                                         gap: "space_2",
                                     })}
                                 >
                                     <FormNumberField
-                                        className={sprinkles({ width: "100%" })}
+                                        className={css({ width: "100%" })}
                                         formatOptions={{
                                             currency: currency ?? "GBP",
                                             currencyDisplay: "code",
@@ -249,7 +249,7 @@ const meta = {
                             <FormComboBox<
                                 "apple" | "carrot" | "lettuce" | "tomato"
                             >
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 defaultItems={[
@@ -301,7 +301,7 @@ const meta = {
                              * ----------------------------------------------- */}
 
                             <FormComboBoxCountry
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="country"
@@ -321,7 +321,7 @@ const meta = {
                              * ----------------------------------------------- */}
 
                             <FormTextField
-                                className={sprinkles({
+                                className={css({
                                     marginBottom: "space_2",
                                 })}
                                 name="description"
@@ -331,7 +331,7 @@ const meta = {
                             </FormTextField>
 
                             <Button
-                                className={sprinkles({ width: "100%" })}
+                                className={css({ width: "100%" })}
                                 type="submit"
                             >
                                 Submit

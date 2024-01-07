@@ -5,13 +5,13 @@ import { extractAtomsFromProps } from "@dessert-box/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 
-import { type Sprinkles, sprinkles } from "../sprinkles/index.css";
+import { type Css, css } from "../css/index.css";
 import { iconCSS } from "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {
     className?: string;
     icon: IconProp;
-} & Sprinkles;
+} & Css;
 
 export function Icon({
     className: userClassName,
@@ -19,14 +19,14 @@ export function Icon({
     icon,
     ...rest
 }: IconProps) {
-    const { atomProps, otherProps } = extractAtomsFromProps(rest, sprinkles);
+    const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
     return (
         <FontAwesomeIcon
             className={clsx(
                 iconCSS,
                 userClassName,
-                sprinkles({ ...atomProps, color, flexShrink: "0" }),
+                css({ ...atomProps, color, flexShrink: "0" }),
             )}
             icon={icon}
             {...otherProps}

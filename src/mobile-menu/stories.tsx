@@ -9,7 +9,7 @@ import {
     V2ScrollableMobileMenuContent,
 } from ".";
 import { Button } from "../button";
-import { sprinkles } from "../sprinkles/index.css";
+import { css } from "../css/index.css";
 
 const meta = {
     args: {
@@ -38,7 +38,7 @@ const meta = {
                 </V2ScrollableMobileMenuContent>
                 <V2MobileMenuFooter>
                     <Button
-                        className={sprinkles({ width: "100%" })}
+                        className={css({ width: "100%" })}
                         onPress={() => {
                             alert("Confirmed");
                             close();
