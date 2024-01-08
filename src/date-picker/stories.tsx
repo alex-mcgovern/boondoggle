@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { parseDate } from "@internationalized/date";
+
 import { DatePicker, DatePickerButton } from ".";
 import { DateInput } from "../date-input";
 import { Group } from "../group";
@@ -28,3 +30,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+export const DefaultValue: Story = {
+    args: {
+        defaultValue: parseDate("2023-12-16"),
+    },
+};

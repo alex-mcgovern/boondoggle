@@ -90,7 +90,9 @@ export function FormDatePicker({ children, ...props }: DatePickerProps) {
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.defaultValue,
+        defaultValue: props.defaultValue
+            ? props.defaultValue.toString()
+            : props.defaultValue,
         disabled: props.isDisabled,
         name: props.name,
     });
@@ -99,6 +101,7 @@ export function FormDatePicker({ children, ...props }: DatePickerProps) {
         <DatePicker
             {...props}
             {...field}
+            defaultValue={props.defaultValue}
             isDisabled={isDisabled}
             isInvalid={invalid}
             onChange={(v) => {
