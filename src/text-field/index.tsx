@@ -200,6 +200,7 @@ export function FormTextField({ children, ...props }: TextFieldProps) {
         <TextField
             {...props}
             {...field}
+            defaultValue={value}
             isDisabled={isDisabled}
             isInvalid={invalid}
             onChange={(v) => {

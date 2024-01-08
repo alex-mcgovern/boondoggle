@@ -237,7 +237,7 @@ const meta = {
                                         name="currency"
                                         placement="bottom end"
                                     >
-                                        <SelectButton />
+                                        <SelectButton aria-label="Currency" />
                                     </FormSelect>
                                 </div>
                             </div>
@@ -350,3 +350,41 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const DebugControlledInput: Story = {
+    args: {
+        resolver: zodResolver(
+            z.object({
+                full_name: z.string().min(1).max(30),
+            }),
+        ),
+    },
+    render: (args) => {
+        return (
+            <Form<FieldValues> {...args}>
+                {() => {
+                    return (
+                        <>
+                            <FormTextField
+                                className={css({
+                                    marginBottom: "space_2",
+                                })}
+                                name="full_name"
+                            >
+                                <Label>Full name</Label>
+                                <Input />
+                            </FormTextField>
+
+                            <Button
+                                className={css({ width: "100%" })}
+                                type="submit"
+                            >
+                                Submit
+                            </Button>
+                        </>
+                    );
+                }}
+            </Form>
+        );
+    },
+};
