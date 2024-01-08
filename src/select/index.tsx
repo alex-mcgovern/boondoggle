@@ -46,7 +46,9 @@ function _SelectButton<TItemId extends string = string>(
             ref={ref}
         >
             <RACSelectValue<IterableListBoxItem<TItemId>>
-                className={selectValueCSS}
+                className={({ isPlaceholder }) =>
+                    selectValueCSS({ isPlaceholder })
+                }
             />
             <Icon
                 className={css({ marginLeft: "auto" })}

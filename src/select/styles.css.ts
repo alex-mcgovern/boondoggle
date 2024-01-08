@@ -1,18 +1,32 @@
+import type { SelectValueRenderProps } from "react-aria-components";
+
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { makeTheme, withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
-export const selectValueCSS = style([
-    css({
-        alignItems: "center",
-        display: "flex",
-        gap: "space_2",
-    }),
-]);
+export const selectValueCSS = recipe<
+    ReactAriaRecipe<SelectValueRenderProps<string>>
+>({
+    base: [
+        css({
+            alignItems: "center",
+            display: "flex",
+            gap: "space_2",
+        }),
+    ],
+    variants: {
+        isPlaceholder: {
+            false: {},
+            true: css({ color: "text_low_contrast" }),
+        },
+    },
+});
 
 export const selectCSS = style([
     css({ flexShrink: "0" }),
