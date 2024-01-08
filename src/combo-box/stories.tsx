@@ -4,6 +4,7 @@ import { ComboBox, ComboBoxButton } from ".";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
+import { SearchFieldIcon } from "../search-field";
 
 const meta = {
     args: {
@@ -71,3 +72,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const WithSearchIcon: Story = {
+    render: (args) => {
+        return (
+            <ComboBox {...args}>
+                <Label>Country/Region</Label>
+                <Group>
+                    <SearchFieldIcon />
+                    <Input variant="unstyled" />
+                    <ComboBoxButton />
+                </Group>
+            </ComboBox>
+        );
+    },
+};
