@@ -35,8 +35,8 @@ export function TableGlobalFilter<TRowData extends RowData>({
             value={table.getState().globalFilter ?? ""}
         >
             <Group>
-                <SearchFieldIcon />
                 <Input
+                    icon={<SearchFieldIcon />}
                     placeholder={strFilterPlaceholder}
                     variant="unstyled"
                 />
