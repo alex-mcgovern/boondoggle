@@ -29,6 +29,26 @@ export const menuCSS = style([
         maxHeight: "20rem",
         padding: floatingMenu.container.padding,
         selectors: {
+            "&::-webkit-scrollbar": {
+                backgroundColor: "transparent",
+                borderBottomRightRadius: vars.borderRadius.sm,
+                borderTopRightRadius: vars.borderRadius.sm,
+                width: vars.spacing.space_4,
+            },
+
+            "&::-webkit-scrollbar-button": {
+                display: "none",
+            },
+
+            "&::-webkit-scrollbar-thumb": {
+                backgroundColor: vars.color.bg_button_secondary_active,
+                border: `4px solid ${vars.color.background}`,
+                borderRadius: vars.borderRadius.md,
+            },
+            "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+            },
+
             "&:focus": {
                 outline: "none",
             },
