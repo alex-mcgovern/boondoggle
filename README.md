@@ -76,3 +76,4 @@ and focus attention on styling and enabling application features.
 - [ ] Fix bug where type is not known when using `onSelectionChange` callback
         in `Select` and `MenuButton` components
 - [ ] Use RAC render props type to add type-safety to recipe variants
+- [ ] Add type safety for forms a-la <https://github.com/jsun969/react-hook-form-antd/blob/main/src/FormItem.tsx>
