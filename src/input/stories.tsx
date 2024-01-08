@@ -13,4 +13,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const IsDisabled: Story = {};
+export const IsDisabled: Story = {
+    args: {
+        disabled: true,
+    },
+};
