@@ -1,4 +1,4 @@
-import { faClipboard } from "@fortawesome/pro-solid-svg-icons/faClipboard";
+import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
@@ -53,7 +53,7 @@ export const TextFieldCopyButton = (props: FieldButtonProps) => {
                     {...props}
                     slot="copy"
                 >
-                    <Icon icon={faClipboard} />
+                    <Icon icon={faCopy} />
                 </FieldButton>
             </TooltipTrigger>
             <TooltipContent>{i18n.copy_to_clipboard}</TooltipContent>
