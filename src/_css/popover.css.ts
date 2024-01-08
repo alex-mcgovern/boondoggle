@@ -8,49 +8,49 @@ const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
 const DURATION = vars.transitionDuration.short;
 const EASING = vars.ease.quart_in_out;
 
-const keyframesInFromLeft = keyframes({
+export const keyframesInFromLeft = keyframes({
 	"0%": {
 		opacity: 0,
 		transform: `translateX(${TRANSLATE_DISTANCE_NEGATIVE})`,
 	},
 	"100%": { opacity: 1 },
 });
-const keyframesOutToLeft = keyframes({
+export const keyframesOutToLeft = keyframes({
 	"0%": { opacity: 1 },
 	"100%": {
 		opacity: 0,
 		transform: `translateX(${TRANSLATE_DISTANCE_NEGATIVE})`,
 	},
 });
-const keyframesInFromRight = keyframes({
+export const keyframesInFromRight = keyframes({
 	"0%": {
 		opacity: 0,
 		transform: `translateX(${TRANSLATE_DISTANCE})`,
 	},
 	"100%": { opacity: 1 },
 });
-const keyframesOutToRight = keyframes({
+export const keyframesOutToRight = keyframes({
 	"0%": { opacity: 1 },
 	"100%": {
 		opacity: 0,
 		transform: `translateX(${TRANSLATE_DISTANCE})`,
 	},
 });
-const keyframesInFromTop = keyframes({
+export const keyframesInFromTop = keyframes({
 	"0%": {
 		opacity: 0,
 		transform: `translateY(${TRANSLATE_DISTANCE_NEGATIVE})`,
 	},
 	"100%": { opacity: 1 },
 });
-const keyframesOutToTop = keyframes({
+export const keyframesOutToTop = keyframes({
 	"0%": { opacity: 1 },
 	"100%": {
 		opacity: 0,
 		transform: `translateY(${TRANSLATE_DISTANCE_NEGATIVE})`,
 	},
 });
-const keyframesInFromBottom = keyframes({
+export const keyframesInFromBottom = keyframes({
 	"0%": {
 		opacity: 0,
 		transform: `translateY(${TRANSLATE_DISTANCE})`,
@@ -58,7 +58,7 @@ const keyframesInFromBottom = keyframes({
 	"100%": { opacity: 1 },
 });
 
-const keyframesOutToBottom = keyframes({
+export const keyframesOutToBottom = keyframes({
 	"0%": { opacity: 1 },
 	"100%": {
 		opacity: 0,

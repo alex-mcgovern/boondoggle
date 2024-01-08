@@ -7,18 +7,20 @@ export const tooltipTextStyle = style([
 	animateFadeIn,
 	sprinkles({
 		background: "black",
-		borderRadius: "md",
 		color: "white",
+
+		borderRadius: "md",
+
 		fontStyle: "bodySm",
 		fontWeight: "normal",
-		overflow: "hidden",
-		padding: "space_2",
 		textAlign: "center",
 		whiteSpace: "normal",
+
+		padding: "space_2",
 		width: "max-content",
+		overflow: "hidden",
 	}),
 	{
 		maxWidth: "12rem",
-		zIndex: "99999",
 	},
 ]);
