@@ -19,7 +19,6 @@ export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
             height: "space_8",
             outline: "none",
             overflow: "hidden",
-            paddingX: "space_1",
             position: "relative",
             transition: "short",
             width: "100%",

@@ -1,5 +1,11 @@
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
+type RecipeStyleRule = ComplexStyleRule | string;
+
+type VariantDefinitions = Record<string, RecipeStyleRule>;
+
+type VariantGroups = Record<string, VariantDefinitions>;
+
 export type ReactAriaRecipe<TRenderProps extends object> =
     | {
           [State in keyof TRenderProps]: Record<
@@ -14,4 +20,4 @@ export type ReactAriaRecipe<TRenderProps extends object> =
               ComplexStyleRule | string
           >;
       }
-    | Record<string, Record<string, ComplexStyleRule | string>>;
+    | VariantGroups;

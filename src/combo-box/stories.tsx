@@ -79,8 +79,10 @@ export const WithSearchIcon: Story = {
             <ComboBox {...args}>
                 <Label>Country/Region</Label>
                 <Group>
-                    <SearchFieldIcon />
-                    <Input variant="unstyled" />
+                    <Input
+                        icon={<SearchFieldIcon />}
+                        variant="unstyled"
+                    />
                     <ComboBoxButton />
                 </Group>
             </ComboBox>

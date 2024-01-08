@@ -19,8 +19,8 @@ export const dateInputCSS = recipe<
             color: "text_high_contrast",
             display: "flex",
             fontStyle: "bodySm",
-
             height: "element_sm",
+            paddingX: "space_2",
             width: "100%",
         }),
     ],
@@ -113,7 +113,6 @@ export const dateInputCSS = recipe<
                 border: "border_field",
                 borderRadius: "md",
                 outline: "none",
-                paddingX: "space_2",
                 transition: "short",
             }),
             unstyled: css({

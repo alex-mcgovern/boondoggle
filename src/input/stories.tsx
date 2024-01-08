@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Input } from ".";
+import { SearchFieldIcon } from "../search-field";
 
 const meta = {
     args: {},
@@ -16,5 +17,11 @@ export const Default: Story = {};
 export const IsDisabled: Story = {
     args: {
         disabled: true,
+    },
+};
+
+export const Icon: Story = {
+    args: {
+        icon: <SearchFieldIcon />,
     },
 };

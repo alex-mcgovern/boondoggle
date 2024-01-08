@@ -1,11 +1,32 @@
 import type { InputRenderProps } from "react-aria-components";
 
+import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
+
+export const inputContainerCSS = css({
+    display: "inline-flex",
+    position: "relative",
+    width: "100%",
+});
+
+export const inputIconCSS = style([
+    css({
+        bottom: "0",
+        display: "flex",
+        height: "100%",
+        left: "0",
+        placeItems: "center",
+        position: "absolute",
+        top: "0",
+        width: "space_8",
+    }),
+    { pointerEvents: "none" },
+]);
 
 export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
     base: [
@@ -74,6 +95,15 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         variant: "default",
     },
     variants: {
+        hasIcon: {
+            false: css({
+                paddingX: "space_2",
+            }),
+            true: css({
+                paddingLeft: "space_8",
+                paddingRight: "space_2",
+            }),
+        },
         isDisabled: {
             false: {},
             true: {},
