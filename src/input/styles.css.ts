@@ -17,6 +17,7 @@ export const inputContainerCSS = css({
 export const inputIconCSS = style([
     css({
         bottom: "0",
+        color: "text_low_contrast",
         display: "flex",
         height: "100%",
         left: "0",
