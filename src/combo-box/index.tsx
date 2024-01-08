@@ -44,7 +44,6 @@ function _ComboBox<TItemId extends string = string>(
         <RACCombobox
             {...props}
             className={clsx(props.className, comboBoxCSS)}
-            menuTrigger="input"
             ref={ref}
         >
             {(values) => (
