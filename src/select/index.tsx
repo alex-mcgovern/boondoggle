@@ -8,7 +8,6 @@ import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown"
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
-    FieldError,
     Button as RACButton,
     Select as RACSelect,
     SelectValue as RACSelectValue,
@@ -19,6 +18,7 @@ import type { IterableListBoxItem } from "../list-box";
 import type { PopoverProps } from "../popover";
 
 import { css } from "../css/index.css";
+import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
