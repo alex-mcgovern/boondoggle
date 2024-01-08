@@ -139,7 +139,6 @@ export const FormFilterNumeric = ({
                     items={MODES}
                     name="filter_mode"
                     onSelectionChange={(k) => {
-                        alert(k);
                         setLocalFilterMode(k as TableNumberRangeFilterMode);
                     }}
                     selectedKey={localFilterMode}
