@@ -10,7 +10,7 @@ import {
 import { css } from "../css/index.css";
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
-import { textFieldCSS } from "./styles.css";
+import { searchFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * SearchFieldClearButton
@@ -59,7 +59,12 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
         return (
             <RACSearchField
                 {...props}
-                className={clsx(props.className, textFieldCSS)}
+                className={({ isDisabled, isEmpty, isInvalid }) =>
+                    clsx(
+                        props.className,
+                        searchFieldCSS({ isDisabled, isEmpty, isInvalid }),
+                    )
+                }
                 ref={ref}
             />
         );

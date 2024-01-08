@@ -1,40 +1,32 @@
-import { red, redA } from "@radix-ui/colors";
-import { assignVars, style } from "@vanilla-extract/css";
+import type { SearchFieldRenderProps } from "react-aria-components";
 
-import { makeTheme } from "../_css-utils";
-import { vars } from "../index.css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const textFieldCSS = style([
-    {
-        selectors: {
-            /**
-             * Whether the search field is empty.
-             */
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
-            /**
-             * Whether the search field is disabled.
-             */
-            "&[data-disabled]": {
-                cursor: "not-allowed !important",
-                opacity: 0.5,
-            },
+import { css } from "../css/index.css";
+import { variantColorOverlay } from "../index.css";
 
-            "&[data-empty]": {},
-
-            /**
-             * Whether the search field is invalid.
-             */
-            "&[data-invalid]": {
-                vars: assignVars(
-                    vars.color,
-                    makeTheme({
-                        alpha: redA,
-                        isOverlay: true,
-                        primary: red,
-                        secondary: red,
-                    }),
-                ),
-            },
+export const searchFieldCSS = recipe<ReactAriaRecipe<SearchFieldRenderProps>>({
+    base: [],
+    variants: {
+        isDisabled: {
+            false: {},
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
+        },
+        isEmpty: {
+            false: {},
+            true: {},
+        },
+        isInvalid: {
+            false: {},
+            true: [
+                variantColorOverlay.red,
+                css({
+                    border: "focus",
+                    outline: "focus",
+                }),
+            ],
         },
     },
-]);
+});

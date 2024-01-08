@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SearchField, SearchFieldIcon } from ".";
+import { SearchField, SearchFieldClearButton, SearchFieldIcon } from ".";
+import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
 
@@ -10,9 +11,12 @@ const meta = {
     render: (args) => {
         return (
             <SearchField {...args}>
-                <SearchFieldIcon />
                 <Label>Label</Label>
-                <Input />
+                <Group>
+                    <SearchFieldIcon />
+                    <Input variant="unstyled" />
+                    <SearchFieldClearButton />
+                </Group>
             </SearchField>
         );
     },
