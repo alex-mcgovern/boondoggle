@@ -28,7 +28,7 @@ export function Icon({
             className={clsx(
                 iconCSS,
                 userClassName,
-                css({ ...atomProps, color, flexShrink: "0" }),
+                css({ ...atomProps, color }),
             )}
             icon={icon}
             {...otherProps}
