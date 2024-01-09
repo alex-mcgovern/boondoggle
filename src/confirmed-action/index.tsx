@@ -33,6 +33,7 @@ const getZodSchema = ({
 };
 
 type ConfirmedActionProps = {
+    autoFocus?: boolean;
     buttonContent: ReactNode;
     colorOverlay?: ColorOverlay;
     onConfirmed?: (() => Promise<unknown>) | (() => unknown);
@@ -45,6 +46,7 @@ type ConfirmedActionProps = {
 export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
     (
         {
+            autoFocus,
             buttonContent,
             colorOverlay,
             onConfirmed,
@@ -70,6 +72,7 @@ export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
                 >
                     <FormTextField
                         autoComplete="off"
+                        autoFocus={autoFocus}
                         className={clsx(
                             css({ marginBottom: "space_2" }),
                             colorOverlay && variantColorOverlay[colorOverlay],
@@ -77,10 +80,23 @@ export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
                         name="confirm_text"
                         onChange={setUserConfirmText}
                     >
-                        <Label>
-                            <span>{strPromptPrefix}</span>{" "}
-                            <b>{strConfirmText}</b>{" "}
-                            <span>{strPromptSuffix}</span>
+                        <Label
+                            style={{
+                                userSelect: "none",
+                            }}
+                        >
+                            <span>
+                                <span>{strPromptPrefix}</span>
+                                {' "'}
+                                <Box
+                                    as="span"
+                                    fontWeight="bold"
+                                >
+                                    {strConfirmText}
+                                </Box>
+                                {'" '}
+                                <span>{strPromptSuffix}</span>
+                            </span>
                         </Label>
                         <Input />
                     </FormTextField>
