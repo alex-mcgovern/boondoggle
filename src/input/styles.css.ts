@@ -91,19 +91,51 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 variant: "default",
             },
         },
+        {
+            style: css({
+                paddingLeft: "space_6",
+                paddingRight: "space_2",
+            }),
+            variants: {
+                hasIcon: "true",
+                variant: "default",
+            },
+        },
+        {
+            style: css({
+                paddingX: "space_2",
+            }),
+            variants: {
+                hasIcon: "false",
+                variant: "default",
+            },
+        },
+        {
+            style: css({
+                paddingLeft: "space_6",
+            }),
+            variants: {
+                hasIcon: "true",
+                variant: "unstyled",
+            },
+        },
+        {
+            style: css({
+                paddingLeft: "space_2",
+            }),
+            variants: {
+                hasIcon: "false",
+                variant: "unstyled",
+            },
+        },
     ],
     defaultVariants: {
         variant: "default",
     },
     variants: {
         hasIcon: {
-            false: css({
-                paddingX: "space_2",
-            }),
-            true: css({
-                paddingLeft: "space_6",
-                paddingRight: "space_2",
-            }),
+            false: {},
+            true: {},
         },
         isDisabled: {
             false: {},

@@ -157,7 +157,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             <FieldButtonContext.Provider value={buttonContext}>
                 <RACTextField
                     {...props}
-                    className={clsx(props.className, textFieldCSS)}
+                    className={(p) => clsx(props.className, textFieldCSS(p))}
                     onChange={(v) => {
                         setValue(v);
                         props.onChange?.(v);
