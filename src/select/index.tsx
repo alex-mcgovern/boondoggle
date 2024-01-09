@@ -51,7 +51,13 @@ function _SelectButton<TItemId extends string = string>(
                 }
             />
             <Icon
-                className={css({ marginLeft: "auto" })}
+                className={css({
+                    fontStyle: "bodyMd",
+                    height: "space_6",
+                    marginLeft: "auto",
+                    marginRight: "space_1",
+                    width: "space_6",
+                })}
                 color="text_low_contrast"
                 icon={faAnglesUpDown}
             />

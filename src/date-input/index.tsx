@@ -25,7 +25,25 @@ export const DateInput = (props: DateInputProps) => {
         >
             {(segment) => (
                 <RACDateSegment
-                    className={dateSegmentCSS}
+                    className={({
+                        isFocused,
+                        isFocusVisible,
+                        isHovered,
+                        isInvalid,
+                        isPlaceholder,
+                        isReadOnly,
+                        type,
+                    }) =>
+                        dateSegmentCSS({
+                            isFocused,
+                            isFocusVisible,
+                            isHovered,
+                            isInvalid,
+                            isPlaceholder,
+                            isReadOnly,
+                            type,
+                        })
+                    }
                     segment={segment}
                 />
             )}

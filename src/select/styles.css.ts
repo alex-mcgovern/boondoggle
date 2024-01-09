@@ -18,6 +18,7 @@ export const selectValueCSS = recipe<
             alignItems: "center",
             display: "flex",
             gap: "space_2",
+            paddingX: "space_2",
         }),
     ],
     variants: {
@@ -70,9 +71,7 @@ export const selectButtonCSS = recipe({
 
             fontStyle: "bodySm",
 
-            gap: "space_2",
             height: "element_sm",
-            paddingX: "space_2",
             width: "100%",
         }),
         withPrefersMotion({

@@ -1,4 +1,7 @@
-import type { DateInputRenderProps } from "react-aria-components";
+import type {
+    DateInputRenderProps,
+    DateSegmentRenderProps,
+} from "react-aria-components";
 
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -124,30 +127,78 @@ export const dateInputCSS = recipe<
     },
 });
 
-export const dateSegmentCSS = style([
-    css({
-        color: "text_high_contrast",
-        paddingX: "space_0.5",
-    }),
-    {
-        fontVariantNumeric: "tabular-nums",
-        selectors: {
-            "&:focus": {
-                background: vars.color.button_tint,
-                borderRadius: vars.borderRadius.sm,
-                caretColor: "transparent",
-                color: vars.color.bg_button_primary_active,
-                outline: "none",
-            },
-            "&[data-placeholder]": {
-                color: vars.color.text_low_contrast,
-            },
-
-            "&[data-type=literal]": {
-                padding: 0,
-            },
+export const dateSegmentCSS = recipe<ReactAriaRecipe<DateSegmentRenderProps>>({
+    base: [
+        css({
+            borderRadius: "sm",
+            color: "text_high_contrast",
+            display: "flex",
+            height: "space_6",
+            paddingX: "space_0.5",
+            placeItems: "center",
+            transition: "short",
+        }),
+        {
+            fontVariantNumeric: "tabular-nums",
+            textAlign: "end",
         },
-
-        textAlign: "end",
+    ],
+    variants: {
+        isFocused: {
+            false: {},
+            true: [
+                variantColorOverlay.blue,
+                css({
+                    background: "tint_hover",
+                    color: "text_high_contrast",
+                    outline: "none",
+                }),
+                {
+                    caretColor: "transparent",
+                },
+            ],
+        },
+        isFocusVisible: {
+            false: {},
+            true: [
+                variantColorOverlay.blue,
+                css({
+                    background: "tint_hover",
+                    color: "text_high_contrast",
+                    outline: "none",
+                }),
+                {
+                    caretColor: "transparent",
+                },
+            ],
+        },
+        isHovered: {
+            false: {},
+            true: css({
+                background: "tint_hover",
+                color: "text_high_contrast",
+            }),
+        },
+        isInvalid: {
+            false: {},
+            true: [
+                css({ color: "text_low_contrast" }),
+                variantColorOverlay.red,
+            ],
+        },
+        isPlaceholder: { false: {}, true: css({ color: "text_low_contrast" }) },
+        isReadOnly: { false: {}, true: {} },
+        type: {
+            day: {},
+            dayPeriod: {},
+            era: {},
+            hour: {},
+            literal: css({ padding: "none" }),
+            minute: {},
+            month: {},
+            second: {},
+            timeZoneName: {},
+            year: {},
+        },
     },
-]);
+});
