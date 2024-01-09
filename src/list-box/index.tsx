@@ -23,6 +23,8 @@ import {
     menuItemDescriptionCSS,
     menuItemNameCSS,
 } from "../_css/menu.css";
+import { i18n } from "../_i18n";
+import { Box } from "../box";
 import { Icon } from "../icon";
 import { Section } from "../section";
 
@@ -105,6 +107,17 @@ function BaseListBox<TItemId extends string = string>(
         <ReactAriaListBox<IterableListBoxItem<TItemId>>
             className={menuCSS}
             ref={ref}
+            renderEmptyState={() => (
+                <Box
+                    color="text_low_contrast"
+                    display="flex"
+                    fontStyle="bodySm"
+                    placeItems="center"
+                    whiteSpace="nowrap"
+                >
+                    {i18n.no_results}
+                </Box>
+            )}
             {...props}
         >
             {(item) => {
