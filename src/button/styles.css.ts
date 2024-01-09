@@ -284,7 +284,7 @@ export const buttonCSS = recipe<
     },
 });
 
-export type ButtonVariants = Parameters<typeof buttonCSS>[0] & {
+export type ButtonVariants = {
     alignment?: "center" | "left";
     appearance?: "ghost" | "primary" | "secondary";
     colorOverlay?: ColorOverlay;
