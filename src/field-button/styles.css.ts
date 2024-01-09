@@ -10,10 +10,10 @@ export const fieldButtonCSS = style([
 
         color: "text_low_contrast",
         flexShrink: "0",
+        fontStyle: "bodyLg",
 
-        height: "space_6",
-
-        width: "space_6",
+        height: "space_7",
+        width: "space_7",
     }),
     withPrefersMotion({
         transitionDuration: vars.transitionDuration.short,

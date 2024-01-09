@@ -10,7 +10,7 @@ import {
 import { css } from "../css/index.css";
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
-import { searchFieldCSS } from "./styles.css";
+import { searchFieldCSS, searchFieldClearButtonCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * SearchFieldClearButton
@@ -18,7 +18,7 @@ import { searchFieldCSS } from "./styles.css";
 
 export const SearchFieldClearButton = () => {
     return (
-        <FieldButton>
+        <FieldButton className={searchFieldClearButtonCSS}>
             <Icon icon={faTimesCircle} />
         </FieldButton>
     );

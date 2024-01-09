@@ -1,5 +1,6 @@
 import type { ButtonProps as RACButtonProps } from "react-aria-components";
 
+import clsx from "clsx";
 import { forwardRef } from "react";
 import { Button as RACButton } from "react-aria-components";
 
@@ -17,7 +18,7 @@ export const FieldButton = forwardRef<HTMLButtonElement, FieldButtonProps>(
         return (
             <RACButton
                 {...props}
-                className={fieldButtonCSS}
+                className={clsx(props.className, fieldButtonCSS)}
                 excludeFromTabOrder
                 ref={ref}
             />

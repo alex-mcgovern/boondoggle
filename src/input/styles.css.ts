@@ -24,7 +24,7 @@ export const inputIconCSS = style([
         placeItems: "center",
         position: "absolute",
         top: "0",
-        width: "space_8",
+        width: "space_7",
     }),
     { pointerEvents: "none" },
 ]);
@@ -101,7 +101,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 paddingX: "space_2",
             }),
             true: css({
-                paddingLeft: "space_8",
+                paddingLeft: "space_7",
                 paddingRight: "space_2",
             }),
         },

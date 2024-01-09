@@ -34,7 +34,7 @@ export const MEDIA_QUERY_TABLET = "only screen and (min-width: 496px)";
 export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 31rem)";
 
 export const CONTAINER_LG = "(width > 992px)";
-export const CONTAINER_MD = "(width >= 496px)";
+export const CONTAINER_MD = "(width >= 496px) and (width <= 991px)";
 export const CONTAINER_SM = "(width < 496px)";
 
 /** -----------------------------------------------------------------------------
@@ -265,6 +265,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         space_4: "1rem",
         space_5: "1.25rem",
         space_6: "1.5rem",
+        space_7: "1.75rem",
         space_8: "2rem",
     },
     transitionDuration: {

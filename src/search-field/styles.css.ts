@@ -1,5 +1,6 @@
 import type { SearchFieldRenderProps } from "react-aria-components";
 
+import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
@@ -27,6 +28,14 @@ export const searchFieldCSS = recipe<ReactAriaRecipe<SearchFieldRenderProps>>({
                     outline: "focus",
                 }),
             ],
+        },
+    },
+});
+
+export const searchFieldClearButtonCSS = style({
+    selectors: {
+        "[data-empty=true] &": {
+            display: "none",
         },
     },
 });
