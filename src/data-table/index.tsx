@@ -53,7 +53,10 @@ export function TableRowMenuButton<TActionId extends string>(
     props: MenuButtonProps<TActionId>,
 ) {
     return (
-        <MenuButton {...props}>
+        <MenuButton
+            {...props}
+            placement="bottom end"
+        >
             <Button
                 appearance="secondary"
                 name="row_actions"
