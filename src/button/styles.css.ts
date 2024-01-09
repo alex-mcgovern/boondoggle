@@ -1,20 +1,17 @@
+import type { ButtonRenderProps, LinkRenderProps } from "react-aria-components";
+
 import { recipe } from "@vanilla-extract/recipes";
 
-import { withPrefersMotion } from "../_css-utils";
-import { css } from "../css/index.css";
-import {
-    ACTIVE,
-    HOVER,
-    a11yDisabled,
-    a11yFocus,
-    variantColorOverlay,
-    vars,
-} from "../index.css";
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { ColorOverlay } from "../index.css";
 
-export const buttonCSS = recipe({
+import { css } from "../css/index.css";
+import { variantColorOverlay } from "../index.css";
+
+export const buttonCSS = recipe<
+    ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
+>({
     base: [
-        a11yFocus,
-        a11yDisabled,
         css({
             alignItems: "center",
             borderRadius: "md",
@@ -22,176 +19,282 @@ export const buttonCSS = recipe({
             flexShrink: "0",
 
             fontStyle: "bodyMd",
-            gap: "space_2",
+            fontWeight: "medium",
 
+            gap: "space_2",
+            outline: "none",
             textDecoration: "none",
-        }),
-        {
-            outline: "0px solid transparent",
-        },
-        withPrefersMotion({
-            transitionDuration: vars.transitionDuration.short,
-            transitionProperty:
-                "color, background, border-color, outline, opacity",
-            transitionTimingFunction: vars.ease.quart_in_out,
+            transition: "short",
+            whiteSpace: "nowrap",
         }),
     ],
 
+    compoundVariants: [
+        /** ---------------------------------------------
+         * Primary
+         * ----------------------------------------------- */
+        {
+            style: css({
+                background: "bg_button_primary_active",
+            }),
+            variants: {
+                appearance: "primary",
+                isHovered: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_primary_active",
+            }),
+            variants: {
+                appearance: "primary",
+                isPressed: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_primary_active",
+            }),
+            variants: {
+                appearance: "primary",
+                isCurrent: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_primary_active",
+                outline: "focus",
+            }),
+            variants: {
+                appearance: "primary",
+                isFocused: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_primary_active",
+                outline: "focus",
+            }),
+            variants: {
+                appearance: "primary",
+                isFocusVisible: true,
+            },
+        },
+        /** ---------------------------------------------
+         * Secondary
+         * ----------------------------------------------- */
+        {
+            style: css({
+                background: "bg_button_secondary_active",
+                border: "border_field_active",
+            }),
+            variants: {
+                appearance: "secondary",
+                isHovered: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_secondary_active",
+                border: "border_field_active",
+            }),
+            variants: {
+                appearance: "secondary",
+                isPressed: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_secondary_active",
+                border: "border_field_active",
+            }),
+            variants: {
+                appearance: "secondary",
+                isCurrent: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_secondary_active",
+                border: "focus",
+                outline: "focus",
+            }),
+            variants: {
+                appearance: "secondary",
+                isFocused: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_secondary_active",
+                border: "focus",
+                outline: "focus",
+            }),
+            variants: {
+                appearance: "secondary",
+                isFocusVisible: true,
+            },
+        },
+        /** ---------------------------------------------
+         * Ghost
+         * ----------------------------------------------- */
+        {
+            style: css({
+                background: "bg_button_ghost_active",
+            }),
+            variants: {
+                appearance: "ghost",
+                isHovered: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_ghost_active",
+            }),
+            variants: {
+                appearance: "ghost",
+                isPressed: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_ghost_active",
+            }),
+            variants: {
+                appearance: "ghost",
+                isCurrent: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_ghost_active",
+                outline: "focus",
+            }),
+            variants: {
+                appearance: "ghost",
+                isFocused: true,
+            },
+        },
+        {
+            style: css({
+                background: "bg_button_ghost_active",
+                outline: "focus",
+            }),
+            variants: {
+                appearance: "ghost",
+                isFocusVisible: true,
+            },
+        },
+    ],
     defaultVariants: {
         alignment: "center",
         appearance: "primary",
         size: "sm",
     },
-
     variants: {
         alignment: {
             center: [css({ justifyContent: "center", textAlign: "center" })],
             left: [css({ justifyContent: "start", textAlign: "left" })],
         },
         appearance: {
-            ghost: [
-                css({
-                    fontWeight: "medium",
-                    whiteSpace: "nowrap",
-                }),
-                {
-                    color: vars.color.text_high_contrast,
-                    selectors: {
-                        [`&${ACTIVE}`]: {
-                            background: vars.color.tint_hover,
-                        },
-                        [`&${HOVER}`]: {
-                            background: vars.color.tint_hover,
-                        },
-                    },
-                },
-            ],
+            ghost: css({
+                background: "bg_button_ghost",
+                color: "text_high_contrast",
+            }),
+            primary: css({
+                background: "bg_button_primary",
+                color: "white",
+            }),
 
-            primary: [
-                css({
-                    fontWeight: "medium",
-                    whiteSpace: "nowrap",
-                }),
-                {
-                    background: vars.color.bg_button_primary,
-                    color: vars.color.white,
-                    selectors: {
-                        [`&${ACTIVE}`]: {
-                            background: vars.color.bg_button_primary_active,
-                        },
-                        [`&${HOVER}`]: {
-                            background: vars.color.bg_button_primary_active,
-                            color: vars.color.white,
-                        },
-                    },
-                },
-            ],
-
-            secondary: [
-                css({
-                    fontWeight: "medium",
-                    whiteSpace: "nowrap",
-                }),
-                {
-                    border: "1px solid",
-                    borderColor: vars.color.border_field,
-                    color: vars.color.text_high_contrast,
-                    selectors: {
-                        "&[data-focus-visible]": {
-                            background: vars.color.bg_field_active,
-                            borderColor: vars.color.focus_border,
-                            outline: `2px solid ${vars.color.focus_ring}`,
-                        },
-                        /**
-                         * Whether the button is focused, either via a mouse or keyboard.
-                         */
-
-                        "&[data-focused]": {
-                            background: vars.color.bg_field_active,
-                            borderColor: vars.color.focus_border,
-                            outline: `2px solid ${vars.color.focus_ring}`,
-                        },
-
-                        /**
-                         * Whether the button is keyboard focused.
-                         */
-
-                        [`&${ACTIVE}`]: {
-                            background: vars.color.tint_hover,
-                            borderColor: vars.color.border_field_active,
-                        },
-                        [`&${HOVER}`]: {
-                            background: vars.color.tint_hover,
-                            borderColor: vars.color.border_field_active,
-                        },
-                    },
-                },
-            ],
+            secondary: css({
+                border: "border_field",
+                color: "text_high_contrast",
+            }),
         },
         colorOverlay: variantColorOverlay,
+        isCurrent: {
+            false: {},
+            true: {},
+        },
+        isDisabled: {
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
+        },
+        isFocused: {
+            false: {},
+            true: {},
+        },
+        isFocusVisible: {
+            false: {},
+            true: {},
+        },
+        isHovered: {
+            false: {},
+            true: {},
+        },
+        isPressed: {
+            false: {},
+            true: {},
+        },
         size: {
-            lg: [
-                css({
-                    height: "space_12",
-                    paddingX: "space_6",
-                    paddingY: "space_3",
-                }),
-            ],
-            md: [
-                css({
-                    height: "space_10",
-                    paddingX: "space_4",
-                    paddingY: "space_3",
-                }),
-            ],
-            sm: [
-                css({
-                    height: "space_8",
-                    paddingX: "space_3",
-                    paddingY: "space_1",
-                }),
-            ],
-            square_lg: [
-                css({
-                    aspectRatio: "square",
-                    flexGrow: "0",
-                    height: "space_12",
-                    width: "space_12",
-                }),
-            ],
-            square_md: [
-                css({
-                    aspectRatio: "square",
-                    flexGrow: "0",
-                    height: "space_10",
-                    width: "space_10",
-                }),
-            ],
-            square_sm: [
-                css({
-                    aspectRatio: "square",
-                    flexGrow: "0",
-                    height: "space_8",
-                    width: "space_8",
-                }),
-            ],
-            square_xs: [
-                css({
-                    aspectRatio: "square",
-                    flexGrow: "0",
-                    height: "space_6",
-                    width: "space_6",
-                }),
-            ],
-            xs: [
-                css({
-                    height: "space_6",
-                    paddingX: "space_3",
-                    paddingY: "space_0",
-                }),
-            ],
+            lg: css({
+                height: "space_12",
+                paddingX: "space_6",
+                paddingY: "space_3",
+            }),
+            md: css({
+                height: "space_10",
+                paddingX: "space_4",
+                paddingY: "space_3",
+            }),
+            sm: css({
+                height: "space_8",
+                paddingX: "space_3",
+                paddingY: "space_1",
+            }),
+            square_lg: css({
+                aspectRatio: "square",
+                flexGrow: "0",
+                height: "space_12",
+                width: "space_12",
+            }),
+            square_md: css({
+                aspectRatio: "square",
+                flexGrow: "0",
+                height: "space_10",
+                width: "space_10",
+            }),
+            square_sm: css({
+                aspectRatio: "square",
+                flexGrow: "0",
+                height: "space_8",
+                width: "space_8",
+            }),
+            square_xs: css({
+                aspectRatio: "square",
+                flexGrow: "0",
+                height: "space_6",
+                width: "space_6",
+            }),
+            xs: css({
+                height: "space_6",
+                paddingX: "space_3",
+                paddingY: "space_0",
+            }),
         },
     },
 });
 
-export type ButtonVariants = Parameters<typeof buttonCSS>[0];
+export type ButtonVariants = Parameters<typeof buttonCSS>[0] & {
+    alignment?: "center" | "left";
+    appearance?: "ghost" | "primary" | "secondary";
+    colorOverlay?: ColorOverlay;
+    size?:
+        | "lg"
+        | "md"
+        | "sm"
+        | "square_lg"
+        | "square_md"
+        | "square_sm"
+        | "square_xs"
+        | "xs";
+};

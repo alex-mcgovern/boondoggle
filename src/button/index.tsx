@@ -32,10 +32,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <RACButton
                 {...props}
-                className={clsx(
-                    className,
-                    buttonCSS({ alignment, appearance, colorOverlay, size }),
-                )}
+                className={(renderProps) =>
+                    clsx(
+                        className,
+                        buttonCSS({
+                            ...renderProps,
+                            alignment,
+                            appearance,
+                            colorOverlay,
+                            size,
+                        }),
+                    )
+                }
                 ref={ref}
             />
         );
@@ -63,10 +71,18 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
         return (
             <RACLink
                 {...props}
-                className={clsx(
-                    className,
-                    buttonCSS({ alignment, appearance, colorOverlay, size }),
-                )}
+                className={(renderProps) =>
+                    clsx(
+                        className,
+                        buttonCSS({
+                            ...renderProps,
+                            alignment,
+                            appearance,
+                            colorOverlay,
+                            size,
+                        }),
+                    )
+                }
                 ref={ref}
             />
         );

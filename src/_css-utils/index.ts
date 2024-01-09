@@ -34,6 +34,9 @@ export const makeTheme = ({
 
         background: step(secondary, 1),
 
+        bg_button_ghost: "transparent",
+        bg_button_ghost_active: step(secondary, isOverlay ? 4 : 3),
+
         bg_button_primary: step(primary, 9),
         bg_button_primary_active: step(primary, 10),
 
