@@ -21,6 +21,7 @@ export const inputIconCSS = style([
         display: "flex",
         height: "100%",
         left: "0",
+        marginLeft: "space_1",
         placeItems: "center",
         position: "absolute",
         top: "0",
@@ -93,7 +94,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         },
         {
             style: css({
-                paddingLeft: "space_6",
+                paddingLeft: "space_7",
                 paddingRight: "space_2",
             }),
             variants: {
@@ -112,7 +113,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         },
         {
             style: css({
-                paddingLeft: "space_6",
+                paddingLeft: "space_7",
             }),
             variants: {
                 hasIcon: "true",

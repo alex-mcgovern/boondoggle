@@ -32,10 +32,9 @@ export const SearchFieldIcon = () => {
     return (
         <Icon
             className={css({
-                color: "text_low_contrast",
                 flexShrink: "0",
                 height: "space_6",
-                width: "space_6",
+                minWidth: "space_6",
             })}
             color="text_low_contrast"
             icon={faSearch}
