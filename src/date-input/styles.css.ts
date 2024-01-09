@@ -3,13 +3,12 @@ import type {
     DateSegmentRenderProps,
 } from "react-aria-components";
 
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
-import { variantColorOverlay, vars } from "../index.css";
+import { variantColorOverlay } from "../index.css";
 
 export const dateInputCSS = recipe<
     ReactAriaRecipe<
