@@ -1,84 +1,70 @@
-import { red, redA } from "@radix-ui/colors";
-import { assignVars, style } from "@vanilla-extract/css";
+import type { InputRenderProps } from "react-aria-components";
+
 import { calc } from "@vanilla-extract/css-utils";
+import { recipe } from "@vanilla-extract/recipes";
 
-import { makeTheme, withPrefersMotion } from "../_css-utils";
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+
 import { css } from "../css/index.css";
-import { vars } from "../index.css";
+import { variantColorOverlay, vars } from "../index.css";
 
-export const textareaCSS = style([
-    css({
-        background: "bg_field",
+export const textareaCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
+    base: [
+        css({
+            background: "bg_field",
+            border: "border_field",
+            borderRadius: "md",
+            color: "text_high_contrast",
+            fontStyle: "bodySm",
+            outline: "none",
+            paddingX: "space_2",
+            transition: "short",
+            width: "100%",
+        }),
+        {
+            minHeight: calc.multiply(vars.height.element_sm, 4),
+            outline: "0px solid transparent",
 
-        border: "border_field",
-        borderRadius: "md",
-
-        color: "text_high_contrast",
-
-        fontStyle: "bodySm",
-
-        paddingX: "space_2",
-        width: "100%",
-    }),
-    withPrefersMotion({
-        transitionDuration: vars.transitionDuration.short,
-        transitionProperty: "color, background, border-color, outline, opacity",
-        transitionTimingFunction: vars.ease.quart_in_out,
-    }),
-    {
-        minHeight: calc.multiply(vars.height.element_sm, 4),
-        outline: "0px solid transparent",
-
-        resize: "none",
-
-        selectors: {
-            /**
-             * Whether the text-area is disabled.
-             */
-            "&[data-disabled]": {
-                cursor: "not-allowed !important",
-                opacity: 0.5,
-            },
-            /**
-             * Whether the text-area is keyboard focused.
-             */
-            "&[data-focus-visible]": {
-                background: vars.color.bg_field_active,
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
-            },
-            /**
-             * Whether the text-area is focused, either via a mouse or keyboard.
-             */
-            "&[data-focused]": {
-                background: vars.color.bg_field_active,
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
-            },
-            /**
-             * Whether the text-area is currently hovered with a mouse.
-             */
-            "&[data-hovered]": {
-                background: vars.color.bg_field_active,
-                borderColor: vars.color.border_field_active,
-            },
-
-            /**
-             * Whether the text-area is invalid.
-             */
-            "&[data-invalid]": {
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
-                vars: assignVars(
-                    vars.color,
-                    makeTheme({
-                        alpha: redA,
-                        isOverlay: true,
-                        primary: red,
-                        secondary: red,
-                    }),
-                ),
-            },
+            resize: "none",
+        },
+    ],
+    variants: {
+        isDisabled: {
+            false: {},
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
+        },
+        isFocused: {
+            false: {},
+            true: css({
+                background: "bg_field_active",
+                border: "focus",
+                outline: "focus",
+            }),
+        },
+        isFocusVisible: {
+            false: {},
+            true: css({
+                background: "bg_field_active",
+                border: "focus",
+                outline: "focus",
+            }),
+        },
+        isHovered: {
+            false: {},
+            true: css({
+                background: "bg_field_active",
+                border: "border_field_active",
+            }),
+        },
+        isInvalid: {
+            false: {},
+            true: [
+                variantColorOverlay.red,
+                css({
+                    border: "focus",
+                    outline: "focus",
+                }),
+            ],
         },
     },
-]);
+});

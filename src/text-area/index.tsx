@@ -11,7 +11,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, RACTextAreaProps>(
         return (
             <RACTextArea
                 {...props}
-                className={clsx(props.className, textareaCSS)}
+                className={(renderProps) =>
+                    clsx(props.className, textareaCSS(renderProps))
+                }
                 ref={ref}
             />
         );
