@@ -663,39 +663,18 @@ globalStyle("input[type=search]::-ms-clear, input[type=search]::-ms-reveal", {
     },
 });
 
-// INPUT DATE STYLES
-
-globalStyle("input[type='date']::-webkit-calendar-picker-indicator", {
-    display: "none",
-});
-
-// UNUSED: Styles the background of the input date field
-// globalStyle(`input::-webkit-datetime-edit`, {});
-
-// UNUSED: Styles the background of the text within the input date field
-// globalStyle(`input::-webkit-datetime-edit-fields-wrapper `, {});
-
-// UNUSED: Styles the text within the input date field
-// globalStyle(`input::-webkit-datetime-edit-text `, {});
-
-// UNUSED: Styles the month text within the input date field
-// globalStyle(`input::-webkit-datetime-edit-month-field`, { color: "blue" });
-
-// UNUSED: Styles the day text within the input date field
-// globalStyle(`input::-webkit-datetime-edit-day-field`, {});
-
-// UNUSED: Styles the year text within the input date field
-// globalStyle(`input::-webkit-datetime-edit-year-field`, {});
-
-// UNUSED: Styles the year text within the input date field
-// globalStyle(`input::-webkit-inner-spin-button`, { display: "none" });
-
-// globalStyle(`input::-webkit-calendar-picker-indicator`, { color: "red" });
-
-globalStyle("button:not([disabled]), input[type='button']:not([disabled])", {
+globalStyle("button, input[type='button']", {
     "@layer": {
         [resetLayer]: {
             cursor: "pointer",
+        },
+    },
+});
+
+globalStyle("a:focus-visible", {
+    "@layer": {
+        [resetLayer]: {
+            outlineOffset: 0,
         },
     },
 });
