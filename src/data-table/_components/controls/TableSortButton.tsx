@@ -3,9 +3,10 @@ import type { ReactNode } from "react";
 
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
+import { Button as RACButton } from "react-aria-components";
 
 import { Icon } from "../../../icon";
-import { getSortControlStyle, sortIconStyle } from "./TableSortButton.css";
+import { sortIconStyle, tableSortButtonCSS } from "./TableSortButton.css";
 
 export function TableSortButton<TData>({
     children,
@@ -41,14 +42,18 @@ export function TableSortButton<TData>({
         : undefined;
 
     return (
-        <button
-            className={getSortControlStyle({ isSorted })}
+        <RACButton
+            className={(renderProps) =>
+                tableSortButtonCSS({
+                    ...renderProps,
+                    isSorted: isSorted ? "true" : "false",
+                })
+            }
             name={`sort_${header.column.id}`}
-            onClick={header.column.getToggleSortingHandler()}
-            type="button"
+            onPress={header.column.getToggleSortingHandler()}
         >
             {children}
             {slotRight}
-        </button>
+        </RACButton>
     );
 }

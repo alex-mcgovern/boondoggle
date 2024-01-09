@@ -62,8 +62,7 @@ export const buttonCSS = recipe<
         },
         {
             style: css({
-                background: "bg_button_primary_active",
-                outline: "focus",
+                outline: "none",
             }),
             variants: {
                 appearance: "primary",
@@ -115,9 +114,7 @@ export const buttonCSS = recipe<
         },
         {
             style: css({
-                background: "bg_button_secondary_active",
-                border: "focus",
-                outline: "focus",
+                outline: "none",
             }),
             variants: {
                 appearance: "secondary",
@@ -167,8 +164,7 @@ export const buttonCSS = recipe<
         },
         {
             style: css({
-                background: "bg_button_ghost_active",
-                outline: "focus",
+                outline: "none",
             }),
             variants: {
                 appearance: "ghost",
