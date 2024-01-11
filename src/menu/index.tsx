@@ -72,7 +72,9 @@ export const Menu = forwardRef(_Menu);
  * MenuItem
  * ------------------------------------------------------------------------------- */
 
-export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem>;
+export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
+    colorOverlay?: ColorOverlay;
+};
 
 function _MenuItem<TItem extends object>(
     props: MenuItemProps<TItem>,
@@ -81,7 +83,12 @@ function _MenuItem<TItem extends object>(
     return (
         <RACMenuItem
             {...props}
-            className={clsx(props.className, menuCSS)}
+            className={clsx(
+                props.className,
+                menuItemCSS({
+                    colorOverlay: props.colorOverlay,
+                }),
+            )}
             ref={ref}
         />
     );
@@ -119,9 +126,7 @@ function _DynamicMenu<TItemId extends string = string>(
                         <RACCollection items={item.children}>
                             {(childItem) => (
                                 <MenuItem<IterableMenuItem<TItemId>>
-                                    className={menuItemCSS({
-                                        colorOverlay: childItem.colorOverlay,
-                                    })}
+                                    colorOverlay={childItem.colorOverlay}
                                     href={childItem.href}
                                 >
                                     {childItem.slotLeft}
@@ -132,9 +137,7 @@ function _DynamicMenu<TItemId extends string = string>(
                     </Section>
                 ) : (
                     <MenuItem<IterableMenuItem<TItemId>>
-                        className={menuItemCSS({
-                            colorOverlay: item.colorOverlay,
-                        })}
+                        colorOverlay={item.colorOverlay}
                         href={item.href}
                     >
                         {item.slotLeft}
