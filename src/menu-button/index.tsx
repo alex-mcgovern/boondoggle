@@ -4,7 +4,7 @@ import type { IterableMenuItem } from "../menu";
 import type { MenuTriggerProps } from "../menu-trigger";
 import type { PopoverProps } from "../popover";
 
-import { Menu } from "../menu";
+import { DynamicMenu } from "../menu";
 import { MenuTrigger } from "../menu-trigger";
 import { Popover } from "../popover";
 
@@ -22,7 +22,7 @@ export function MenuButton<TItemId extends string = string>({
         <MenuTrigger {...props}>
             {children}
             <Popover placement={props.placement}>
-                <Menu {...props} />
+                <DynamicMenu {...props} />
             </Popover>
         </MenuTrigger>
     );

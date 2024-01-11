@@ -1,18 +1,26 @@
 import type { ForwardedRef, ReactNode } from "react";
-import type { MenuProps as ReactAriaMenuProps } from "react-aria-components";
+import type {
+    MenuItemProps as RACMenuItemProps,
+    MenuProps as RACMenuProps,
+} from "react-aria-components";
 
+import clsx from "clsx";
 import { forwardRef } from "react";
 import {
-    Collection as ReactAriaCollection,
-    Header as ReactAriaHeader,
-    Menu as ReactAriaMenu,
-    MenuItem as ReactAriaMenuItem,
+    Collection as RACCollection,
+    Header as RACHeader,
+    Menu as RACMenu,
+    MenuItem as RACMenuItem,
 } from "react-aria-components";
 
 import type { ColorOverlay } from "../index.css";
 
 import { menuCSS, menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
 import { Section } from "../section";
+
+/** -----------------------------------------------------------------------------
+ * IterableMenuItem
+ * ------------------------------------------------------------------------------- */
 
 type SingleMenuItem<TItemId extends string = string> = {
     children?: never;
@@ -39,16 +47,62 @@ export type IterableMenuItem<TItemId extends string = string> =
       }
     | SingleMenuItem<TItemId>;
 
-export type MenuProps<TItemId extends string = string> = ReactAriaMenuProps<
-    IterableMenuItem<TItemId>
->;
+/** -----------------------------------------------------------------------------
+ * Menu
+ * ------------------------------------------------------------------------------- */
 
-function _Menu<TItemId extends string = string>(
-    props: MenuProps<TItemId>,
+export type MenuProps<TItem extends object = object> = RACMenuProps<TItem>;
+
+function _Menu<TItem extends object = object>(
+    props: MenuProps<TItem>,
     ref: ForwardedRef<HTMLDivElement>,
 ) {
     return (
-        <ReactAriaMenu<IterableMenuItem<TItemId>>
+        <RACMenu<TItem>
+            className={menuCSS}
+            ref={ref}
+            {...props}
+        />
+    );
+}
+
+export const Menu = forwardRef(_Menu);
+
+/** -----------------------------------------------------------------------------
+ * MenuItem
+ * ------------------------------------------------------------------------------- */
+
+export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem>;
+
+function _MenuItem<TItem extends object>(
+    props: MenuItemProps<TItem>,
+    ref: ForwardedRef<HTMLDivElement>,
+) {
+    return (
+        <RACMenuItem
+            {...props}
+            className={clsx(props.className, menuCSS)}
+            ref={ref}
+        />
+    );
+}
+
+export const MenuItem = forwardRef(_MenuItem);
+
+/** -----------------------------------------------------------------------------
+ * DynamicMenu
+ * ------------------------------------------------------------------------------- */
+
+export type DynamicMenuProps<TItemId extends string = string> = RACMenuProps<
+    IterableMenuItem<TItemId>
+>;
+
+function _DynamicMenu<TItemId extends string = string>(
+    props: DynamicMenuProps<TItemId>,
+    ref: ForwardedRef<HTMLDivElement>,
+) {
+    return (
+        <Menu<IterableMenuItem<TItemId>>
             className={menuCSS}
             ref={ref}
             {...props}
@@ -57,14 +111,14 @@ function _Menu<TItemId extends string = string>(
                 return item.children ? (
                     <Section>
                         {item.name ? (
-                            <ReactAriaHeader className={menuHeaderCSS}>
+                            <RACHeader className={menuHeaderCSS}>
                                 {item.name}
-                            </ReactAriaHeader>
+                            </RACHeader>
                         ) : null}
 
-                        <ReactAriaCollection items={item.children}>
+                        <RACCollection items={item.children}>
                             {(childItem) => (
-                                <ReactAriaMenuItem
+                                <MenuItem<IterableMenuItem<TItemId>>
                                     className={menuItemCSS({
                                         colorOverlay: childItem.colorOverlay,
                                     })}
@@ -72,12 +126,12 @@ function _Menu<TItemId extends string = string>(
                                 >
                                     {childItem.slotLeft}
                                     {childItem.name}
-                                </ReactAriaMenuItem>
+                                </MenuItem>
                             )}
-                        </ReactAriaCollection>
+                        </RACCollection>
                     </Section>
                 ) : (
-                    <ReactAriaMenuItem
+                    <MenuItem<IterableMenuItem<TItemId>>
                         className={menuItemCSS({
                             colorOverlay: item.colorOverlay,
                         })}
@@ -85,11 +139,11 @@ function _Menu<TItemId extends string = string>(
                     >
                         {item.slotLeft}
                         {item.name}
-                    </ReactAriaMenuItem>
+                    </MenuItem>
                 );
             }}
-        </ReactAriaMenu>
+        </Menu>
     );
 }
 
-export const Menu = forwardRef(_Menu);
+export const DynamicMenu = forwardRef(_DynamicMenu);
