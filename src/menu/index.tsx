@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactNode } from "react";
+import type { ForwardedRef, HtmlHTMLAttributes, ReactNode } from "react";
 import type {
     MenuItemProps as RACMenuItemProps,
     MenuProps as RACMenuProps,
@@ -22,17 +22,18 @@ import { Section } from "../section";
  * IterableMenuItem
  * ------------------------------------------------------------------------------- */
 
-type SingleMenuItem<TItemId extends string = string> = {
-    children?: never;
-    colorOverlay?: ColorOverlay;
-    description?: string;
-    href?: string;
-    id: TItemId;
-    name: string;
-    slotLeft?: ReactNode;
-    tags?: Array<string>;
-    type?: never;
-};
+type SingleMenuItem<TItemId extends string = string> =
+    HtmlHTMLAttributes<HTMLAnchorElement> & {
+        children?: never;
+        colorOverlay?: ColorOverlay;
+        description?: string;
+        href?: string;
+        id: TItemId;
+        name: string;
+        slotLeft?: ReactNode;
+        tags?: Array<string>;
+        type?: never;
+    };
 
 export type IterableMenuItem<TItemId extends string = string> =
     | {
@@ -126,8 +127,7 @@ function _DynamicMenu<TItemId extends string = string>(
                         <RACCollection items={item.children}>
                             {(childItem) => (
                                 <MenuItem<IterableMenuItem<TItemId>>
-                                    colorOverlay={childItem.colorOverlay}
-                                    href={childItem.href}
+                                    {...childItem}
                                 >
                                     {childItem.slotLeft}
                                     {childItem.name}
@@ -136,10 +136,7 @@ function _DynamicMenu<TItemId extends string = string>(
                         </RACCollection>
                     </Section>
                 ) : (
-                    <MenuItem<IterableMenuItem<TItemId>>
-                        colorOverlay={item.colorOverlay}
-                        href={item.href}
-                    >
+                    <MenuItem<IterableMenuItem<TItemId>> {...item}>
                         {item.slotLeft}
                         {item.name}
                     </MenuItem>
