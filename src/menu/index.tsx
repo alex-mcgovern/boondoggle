@@ -1,4 +1,4 @@
-import type { ForwardedRef, HtmlHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ForwardedRef, ReactNode } from "react";
 import type {
     MenuItemProps as RACMenuItemProps,
     MenuProps as RACMenuProps,
@@ -23,7 +23,7 @@ import { Section } from "../section";
  * ------------------------------------------------------------------------------- */
 
 type SingleMenuItem<TItemId extends string = string> =
-    HtmlHTMLAttributes<HTMLAnchorElement> & {
+    AnchorHTMLAttributes<HTMLAnchorElement> & {
         children?: never;
         colorOverlay?: ColorOverlay;
         description?: string;
