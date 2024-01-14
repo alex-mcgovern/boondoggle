@@ -43,7 +43,9 @@ function _ComboBox<TItemId extends string = string>(
     return (
         <RACCombobox
             {...props}
-            className={clsx(props.className, comboBoxCSS)}
+            className={(renderProps) =>
+                clsx(props.className, comboBoxCSS(renderProps))
+            }
             ref={ref}
         >
             {(values) => (

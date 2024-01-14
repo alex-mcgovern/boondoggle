@@ -1,34 +1,30 @@
-import { red, redA } from "@radix-ui/colors";
-import { assignVars, style } from "@vanilla-extract/css";
+import type { ComboBoxRenderProps } from "react-aria-components";
 
-import { makeTheme } from "../_css-utils";
-import { vars } from "../index.css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const comboBoxCSS = style([
-    {
-        selectors: {
-            /**
-             * Whether the text field is disabled.
-             */
-            "&[data-disabled]": {
-                cursor: "not-allowed !important",
-                opacity: 0.5,
-            },
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
-            /**
-             * Whether the value is invalid.
-             */
-            "&[data-invalid]": {
-                vars: assignVars(
-                    vars.color,
-                    makeTheme({
-                        alpha: redA,
-                        isOverlay: true,
-                        primary: red,
-                        secondary: red,
-                    }),
-                ),
-            },
+import { css } from "../css/index.css";
+import { variantColorOverlay } from "../index.css";
+
+export const comboBoxCSS = recipe<ReactAriaRecipe<ComboBoxRenderProps>>({
+    base: [],
+    variants: {
+        isDisabled: {
+            false: {},
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
+        },
+        isInvalid: {
+            false: {},
+            true: variantColorOverlay.red,
+        },
+        isOpen: {
+            false: {},
+            true: {},
+        },
+        isRequired: {
+            false: {},
+            true: {},
         },
     },
-]);
+});
