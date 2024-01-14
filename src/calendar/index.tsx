@@ -21,6 +21,7 @@ import { Icon } from "../icon";
 import {
     calendarCSS,
     calendarCellCSS,
+    calendarGridHeaderCSS,
     calendarGridHeaderCellCSS,
     calendarHeaderCSS,
     calendarHeadingCSS,
@@ -50,7 +51,7 @@ export const Calendar = <TDateValue extends RACDateValue>(
                 </Button>
             </header>
             <RACCalendarGrid>
-                <RACCalendarGridHeader>
+                <RACCalendarGridHeader className={calendarGridHeaderCSS}>
                     {(day) => (
                         <RACCalendarHeaderCell
                             className={calendarGridHeaderCellCSS}
@@ -62,7 +63,35 @@ export const Calendar = <TDateValue extends RACDateValue>(
                 <RACCalendarGridBody>
                     {(date) => (
                         <RACCalendarCell
-                            className={calendarCellCSS}
+                            className={({
+                                isDisabled,
+                                isFocused,
+                                isFocusVisible,
+                                isHovered,
+                                isInvalid,
+                                isOutsideMonth,
+                                isOutsideVisibleRange,
+                                isPressed,
+                                isSelected,
+                                isSelectionEnd,
+                                isSelectionStart,
+                                isUnavailable,
+                            }) =>
+                                calendarCellCSS({
+                                    isDisabled,
+                                    isFocused,
+                                    isFocusVisible,
+                                    isHovered,
+                                    isInvalid,
+                                    isOutsideMonth,
+                                    isOutsideVisibleRange,
+                                    isPressed,
+                                    isSelected,
+                                    isSelectionEnd,
+                                    isSelectionStart,
+                                    isUnavailable,
+                                })
+                            }
                             date={date}
                         />
                     )}

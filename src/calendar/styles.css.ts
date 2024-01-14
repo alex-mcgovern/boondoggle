@@ -1,7 +1,12 @@
+import type { CalendarCellRenderProps } from "react-aria-components";
+
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
+
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
-import { vars } from "../index.css";
+import { variantColorOverlay } from "../index.css";
 
 export const calendarCSS = style([
     css({
@@ -31,69 +36,109 @@ export const calendarHeadingCSS = style([
     }),
 ]);
 
+export const calendarGridHeaderCSS = style([
+    css({
+        borderBottom: "border_rule",
+    }),
+]);
+
 export const calendarGridHeaderCellCSS = style([
     css({
+        color: "text_low_contrast",
         fontStyle: "bodySm",
-        // aspectRatio: "square",
-
         fontWeight: "medium",
-        // width: "space_8",
         height: "space_8",
         textAlign: "center",
-
-        // display: "flex",
-        // placeItems: "center",
     }),
     {
         verticalAlign: "middle",
-        // outline: "none",
-        // cursor: "default",
-        // margin: "1px",
-        // forcedColorAdjust: "none",
     },
 ]);
 
-export const calendarCellCSS = style([
-    css({
-        aspectRatio: "square",
-        borderRadius: "sm",
-        display: "flex",
-        fontStyle: "bodySm",
-        height: "space_8",
-        placeItems: "center",
-
-        textAlign: "center",
-        width: "space_8",
-    }),
+export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
     {
-        cursor: "pointer",
-        forcedColorAdjust: "none",
-        margin: "1px",
-        outline: "none",
-
-        selectors: {
-            "&[data-focus-visible]": {
-                background: vars.color.bg_button_secondary_active,
-                borderColor: vars.color.focus_border,
-                outline: `2px solid ${vars.color.focus_ring}`,
+        base: [
+            css({
+                aspectRatio: "square",
+                borderRadius: "50%",
+                cursor: "pointer",
+                display: "flex",
+                fontStyle: "bodySm",
+                height: "space_8",
+                margin: "space_0.25",
+                outline: "none",
+                placeItems: "center",
+                textAlign: "center",
+                width: "space_8",
+            }),
+        ],
+        variants: {
+            isDisabled: {
+                false: {},
+                true: css({ cursor: "not-allowed", opacity: "0.5" }),
             },
-
-            "&[data-hovered]": {
-                background: vars.color.bg_button_secondary_active,
+            isFocused: {
+                false: {},
+                true: css({
+                    background: "button_tint",
+                    color: "bg_button_primary",
+                    outline: "focus",
+                }),
             },
-
-            "&[data-outside-month]": {
-                display: "none",
+            isFocusVisible: {
+                false: {},
+                true: css({
+                    background: "button_tint",
+                    color: "bg_button_primary",
+                    outline: "focus",
+                }),
             },
-
-            "&[data-pressed]": {
-                background: vars.color.bg_button_secondary_active,
+            isHovered: {
+                false: {},
+                true: css({
+                    background: "button_tint",
+                    color: "bg_button_primary",
+                }),
             },
-
-            "&[data-selected]": {
-                background: vars.color.button_tint,
-                color: vars.color.bg_button_primary,
+            isInvalid: {
+                false: {},
+                true: variantColorOverlay.red,
+            },
+            isOutsideMonth: {
+                false: {},
+                true: css({ cursor: "default", opacity: "0.5" }),
+            },
+            isOutsideVisibleRange: {
+                false: {},
+                true: css({ cursor: "default", opacity: "0.5" }),
+            },
+            isPressed: {
+                false: {},
+                true: css({
+                    background: "button_tint",
+                    color: "bg_button_primary",
+                }),
+            },
+            isSelected: {
+                false: {},
+                true: css({
+                    background: "button_tint",
+                    border: "focus",
+                    color: "bg_button_primary",
+                }),
+            },
+            isSelectionEnd: {
+                false: {},
+                true: {},
+            },
+            isSelectionStart: {
+                false: {},
+                true: {},
+            },
+            isUnavailable: {
+                false: {},
+                true: css({ cursor: "not-allowed", opacity: "0.5" }),
             },
         },
     },
-]);
+);
