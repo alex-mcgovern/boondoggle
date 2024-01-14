@@ -2,7 +2,6 @@ import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import {
     a11yDisabled,
@@ -101,9 +100,6 @@ export const menuItemCSS = recipe({
         }),
         a11yDisabled,
         a11yFocus,
-        withPrefersMotion({
-            transition: `background ${vars.transitionDuration.short} ease`,
-        }),
         {
             borderRadius: floatingMenu.item.radius,
             minHeight: floatingMenu.item.height,
