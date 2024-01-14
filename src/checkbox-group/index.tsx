@@ -2,10 +2,10 @@ import type { CheckboxGroupProps as RACCheckboxGroupProps } from "react-aria-com
 
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { FieldError } from "react-aria-components";
 import { CheckboxGroup as RACCheckboxGroup } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
+import { FieldError } from "../field-error";
 import { checkboxGroupCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ export function FormCheckboxGroup({ children, ...props }: CheckboxGroupProps) {
     const { control } = useFormContext();
 
     const {
-        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        field: { disabled: isDisabled, onChange, ref, value = [], ...field },
         fieldState: { error, invalid },
     } = useController({
         control,

@@ -88,6 +88,7 @@ export const checkboxCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
         borderRadius: "sm",
         display: "flex",
         height: "space_5",
+        padding: "space_0.75",
         placeItems: "center",
         transition: "short",
         width: "space_5",

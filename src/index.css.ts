@@ -257,6 +257,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         space_0: "0",
         "space_0.25": "0.0625rem",
         "space_0.5": "0.125rem",
+        "space_0.75": "0.1875rem",
         space_1: "0.25rem",
         space_10: "2.5rem",
         space_12: "3rem",

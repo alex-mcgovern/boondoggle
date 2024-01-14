@@ -5,6 +5,8 @@ import { z } from "zod";
 
 import { Form } from ".";
 import { Button } from "../button";
+import { Checkbox } from "../checkbox";
+import { FormCheckboxGroup } from "../checkbox-group";
 import { ComboBoxButton, FormComboBox } from "../combo-box";
 import { FormComboBoxCountry } from "../combo-box-country";
 import { css } from "../css/index.css";
@@ -35,7 +37,8 @@ const zodSchema = z.object({
     description: z.string().min(1).max(20),
     email_address: z.string().email(),
     favourite_food: z.enum(["apple", "tomato", "carrot", "lettuce"]),
-    full_name: z.string().min(1).max(30),
+    fruits: z.enum(["apple", "orange", "lemon"]).array().nonempty(),
+    full_name: z.string(),
     password: z.string(),
 });
 
@@ -49,25 +52,7 @@ const meta = {
                 `Form submitted successfully \n ${JSON.stringify(fieldValues)}`,
             );
         },
-        resolver: zodResolver(
-            z.object({
-                amount: z.number(),
-                count: z.number(),
-                country: z.string(),
-                currency: z.enum(["EUR", "USD", "GBP"]),
-                date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-                description: z.string().min(1).max(20),
-                email_address: z.string().email(),
-                favourite_food: z.enum([
-                    "apple",
-                    "tomato",
-                    "carrot",
-                    "lettuce",
-                ]),
-                full_name: z.string().min(1).max(30),
-                password: z.string(),
-            }),
-        ),
+        resolver: zodResolver(zodSchema),
     },
     component: Form,
     decorators: [
@@ -133,6 +118,43 @@ const meta = {
                                     <TextFieldVisibilityButton />
                                 </Group>
                             </FormTextField>
+
+                            {/** --------------------------------------------
+                             * @example Check box group
+                             * ----------------------------------------------- */}
+
+                            <FormCheckboxGroup
+                                className={css({
+                                    marginBottom: "space_2",
+                                })}
+                                name="fruits"
+                            >
+                                <Label>Fruits</Label>
+                                <Checkbox
+                                    className={css({
+                                        marginBottom: "space_2",
+                                    })}
+                                    value="apple"
+                                >
+                                    Apple
+                                </Checkbox>
+                                <Checkbox
+                                    className={css({
+                                        marginBottom: "space_2",
+                                    })}
+                                    value="orange"
+                                >
+                                    Orange
+                                </Checkbox>
+                                <Checkbox
+                                    className={css({
+                                        marginBottom: "space_2",
+                                    })}
+                                    value="lemon"
+                                >
+                                    Lemon
+                                </Checkbox>
+                            </FormCheckboxGroup>
 
                             {/** --------------------------------------------
                              * @example Date picker field
