@@ -1,7 +1,7 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Parameters, Preview } from "@storybook/react";
-
-import { ToastProvider } from "../src/toast";
+import { Toaster } from "../src/toaster";
+import React from "react";
 
 export const parameters: Parameters = {
     actions: {
@@ -26,9 +26,10 @@ export const preview: Preview = {
     decorators: [
         (Story) => {
             return (
-                <ToastProvider>
+                <>
+                    <Toaster />
                     <Story />
-                </ToastProvider>
+                </>
             );
         },
     ],

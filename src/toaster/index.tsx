@@ -1,5 +1,6 @@
 import { Toaster as SonnerToaster, toast as sonnerToast } from "sonner";
 
+import { css } from "../css/index.css";
 import {
     toastCSS,
     toastCloseButtonCSS,
@@ -12,8 +13,9 @@ export const toast = sonnerToast;
 export const Toaster = () => {
     return (
         <SonnerToaster
+            className={css({ display: "flex", justifyContent: "center" })}
             closeButton
-            position="top-right"
+            position="bottom-center"
             toastOptions={{
                 classNames: {
                     closeButton: toastCloseButtonCSS,
