@@ -12,8 +12,6 @@ import { useState } from "react";
 import { forwardRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import type { BoxProps } from "../box";
-
 const debugFormErrors = (errors: FieldErrors) => {
     if (process.env.NODE_ENV === "production") {
         return;
@@ -24,10 +22,7 @@ const debugFormErrors = (errors: FieldErrors) => {
     }
 };
 
-export type FormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
-    BoxProps,
-    "children"
-> & {
+export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
     /**
      * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
      */
