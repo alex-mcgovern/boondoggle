@@ -36,10 +36,6 @@ const kfToastOut = keyframes({
         transform: `translateY(${vars.spacing.space_4})`,
     },
 });
-const kfToastNoAnim = keyframes({
-    "0%": {},
-    "100%": {},
-});
 
 export const toastCSS = style([
     a11yFocus,
