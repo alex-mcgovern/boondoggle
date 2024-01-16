@@ -92,9 +92,9 @@ function ToastRegion({
             className={toastRegionCSS}
             ref={ref}
         >
-            {state.visibleToasts.map((toast, index) => (
+            {state.visibleToasts.map((toast) => (
                 <Toast
-                    key={`${toast.key}-${index}`}
+                    key={toast.key}
                     state={state}
                     toast={toast}
                 />

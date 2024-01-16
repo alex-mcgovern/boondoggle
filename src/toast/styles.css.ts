@@ -61,19 +61,14 @@ export const toastCSS = style([
     }),
     {
         selectors: {
-            "&:last-child[data-animation=entering]": {
+            "&[data-animation=entering]": {
                 ...withPrefersMotion({
                     animation: `${kfToastIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards `,
                 }),
             },
-            "&:last-child[data-animation=exiting]": {
+            "&[data-animation=exiting]": {
                 ...withPrefersMotion({
                     animation: `${kfToastOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-                }),
-            },
-            "&:not(:last-child)[data-animation=exiting]": {
-                ...withPrefersMotion({
-                    animation: `${kfToastNoAnim} 0 ${vars.ease.quart_in_out} forwards`,
                 }),
             },
         },
