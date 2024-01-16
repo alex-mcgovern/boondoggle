@@ -46,12 +46,14 @@ type FieldValues = z.infer<typeof zodSchema>;
 
 const meta = {
     args: {
+        children: null,
         className: css({ width: "main_sm" }),
         handleSubmit: (fieldValues) => {
             alert(
                 `Form submitted successfully \n ${JSON.stringify(fieldValues)}`,
             );
         },
+        name: "form",
         resolver: zodResolver(zodSchema),
     },
     component: Form,
