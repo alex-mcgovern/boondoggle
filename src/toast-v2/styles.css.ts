@@ -24,3 +24,27 @@ export const toastCloseButtonCSS = style([
         },
     },
 ]);
+
+export const toastCSS = css({
+    alignItems: "center",
+    background: "bg_toast",
+    borderRadius: "md",
+    boxShadow: "lg",
+    color: "white",
+    display: "flex",
+    gap: "space_1",
+    justifySelf: "end",
+    paddingX: "space_3",
+    paddingY: "space_2",
+});
+
+export const toastTitleCSS = css({
+    color: "toast_text",
+    fontStyle: "bodyMd",
+    fontWeight: "semibold",
+});
+
+export const toastDescriptionCSS = css({
+    color: "toast_text",
+    fontStyle: "bodyMd",
+});
