@@ -21,7 +21,7 @@ import { i18n } from "../_i18n";
 import { FieldButton, type FieldButtonProps } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
-import { toast } from "../toast-v2";
+import { toast } from "../toaster";
 import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------

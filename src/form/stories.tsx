@@ -26,7 +26,7 @@ import {
 import { FormSelect, SelectButton } from "../select";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
-import { Toaster } from "../toast-v2";
+import { Toaster } from "../toaster";
 
 const zodSchema = z.object({
     amount: z.number(),

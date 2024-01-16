@@ -20,7 +20,7 @@ import { Group } from "../group";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { Label } from "../label";
-import { Toaster } from "../toast-v2";
+import { Toaster } from "../toaster";
 
 const meta = {
     args: {},

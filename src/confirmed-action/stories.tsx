@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ConfirmedAction } from ".";
-import { Toaster } from "../toast-v2";
+import { Toaster } from "../toaster";
 
 const meta = {
     args: {

@@ -15,7 +15,7 @@ import { FlagUs } from "../icon-flag/us";
 import { Input } from "../input";
 import { Label } from "../label";
 import { Select, SelectButton } from "../select";
-import { Toaster } from "../toast-v2";
+import { Toaster } from "../toaster";
 
 const meta = {
     args: {},
