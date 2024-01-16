@@ -21,7 +21,7 @@ import { i18n } from "../_i18n";
 import { FieldButton, type FieldButtonProps } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
-import { useToastContext } from "../toast";
+import { toast } from "../toast-v2";
 import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -106,8 +106,6 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
         const [type, setType] = useState<TextFieldProps["type"]>(props.type);
 
-        const toastState = useToastContext();
-
         const clearValue = useCallback(() => {
             setValue("");
         }, [setValue]);
@@ -119,17 +117,10 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         const copyValue = useCallback(() => {
             if (!value) return;
 
-            return navigator.clipboard.writeText(value).then(
-                () =>
-                    toastState?.add(
-                        {
-                            level: "success",
-                            title: i18n.copied_to_clipboard,
-                        },
-                        { timeout: 5000 },
-                    ),
-            );
-        }, [toastState, value]);
+            return navigator.clipboard
+                .writeText(value)
+                .then(() => toast.success(i18n.copied_to_clipboard));
+        }, [value]);
 
         const buttonContext: Record<
             "slots",

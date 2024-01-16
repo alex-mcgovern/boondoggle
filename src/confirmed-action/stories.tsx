@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ConfirmedAction } from ".";
-import { ToastProvider } from "../toast";
+import { Toaster } from "../toast-v2";
 
 const meta = {
     args: {
@@ -18,9 +18,10 @@ const meta = {
     decorators: [
         (Story) => {
             return (
-                <ToastProvider>
+                <>
+                    <Toaster />
                     <Story />
-                </ToastProvider>
+                </>
             );
         },
     ],

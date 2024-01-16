@@ -15,7 +15,7 @@ import { FlagUs } from "../icon-flag/us";
 import { Input } from "../input";
 import { Label } from "../label";
 import { Select, SelectButton } from "../select";
-import { ToastProvider } from "../toast";
+import { Toaster } from "../toast-v2";
 
 const meta = {
     args: {},
@@ -23,9 +23,10 @@ const meta = {
     decorators: [
         (Story) => {
             return (
-                <ToastProvider>
+                <>
+                    <Toaster />
                     <Story />
-                </ToastProvider>
+                </>
             );
         },
     ],

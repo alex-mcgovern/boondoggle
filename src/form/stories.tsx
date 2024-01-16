@@ -26,7 +26,7 @@ import {
 import { FormSelect, SelectButton } from "../select";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
-import { ToastProvider } from "../toast";
+import { Toaster } from "../toast-v2";
 
 const zodSchema = z.object({
     amount: z.number(),
@@ -60,9 +60,10 @@ const meta = {
     decorators: [
         (Story) => {
             return (
-                <ToastProvider>
+                <>
+                    <Toaster />
                     <Story />
-                </ToastProvider>
+                </>
             );
         },
     ],

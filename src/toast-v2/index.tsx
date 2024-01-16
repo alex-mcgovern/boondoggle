@@ -13,7 +13,7 @@ export const Toaster = () => {
     return (
         <SonnerToaster
             closeButton
-            position="bottom-center"
+            position="top-right"
             toastOptions={{
                 classNames: {
                     closeButton: toastCloseButtonCSS,

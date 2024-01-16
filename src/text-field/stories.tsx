@@ -20,7 +20,7 @@ import { Group } from "../group";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { Label } from "../label";
-import { ToastProvider } from "../toast";
+import { Toaster } from "../toast-v2";
 
 const meta = {
     args: {},
@@ -28,9 +28,10 @@ const meta = {
     decorators: [
         (Story) => {
             return (
-                <ToastProvider>
+                <>
+                    <Toaster />
                     <Story />
-                </ToastProvider>
+                </>
             );
         },
     ],
