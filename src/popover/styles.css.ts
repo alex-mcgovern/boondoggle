@@ -1,18 +1,64 @@
-import type { PopoverRenderProps } from "react-aria-components";
+import type {
+    OverlayArrowRenderProps,
+    PopoverRenderProps,
+} from "react-aria-components";
 
-import { keyframes } from "@vanilla-extract/css";
+import { createVar, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
 const TRANSLATE_DISTANCE = vars.spacing.space_2;
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
 const DURATION = vars.transitionDuration.short;
 const EASING = vars.ease.quart_in_out;
+
+/** -----------------------------------------------------------------------------
+ * OverlayArrow
+ * ------------------------------------------------------------------------------- */
+
+export const overlayArrowCSS = css({ height: "space_3", width: "space_3" });
+
+export const overlayArrowSvgCSS = recipe<
+    ReactAriaRecipe<OverlayArrowRenderProps>
+>({
+    base: [
+        css({
+            display: "block",
+        }),
+        {
+            fill: vars.color.background,
+            stroke: vars.color.border_rule,
+            strokeWidth: 1,
+        },
+    ],
+    variants: {
+        placement: {
+            bottom: {
+                transform: "rotate(180deg)",
+            },
+            center: {},
+            left: {
+                transform: "rotate(-90deg)",
+            },
+            right: {
+                transform: "rotate(90deg)",
+            },
+            top: {},
+        },
+    },
+});
+
+/** -----------------------------------------------------------------------------
+ * Keyframes
+ * ------------------------------------------------------------------------------- */
+
+const origin = createVar();
 
 const keyframesInFromLeft = keyframes({
     "0%": {
@@ -79,7 +125,14 @@ const keyframesOutToBottom = keyframes({
 });
 
 export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
-    base: [],
+    base: [
+        css({
+            background: "background",
+            border: "border_rule",
+            borderRadius: "md",
+            boxShadow: "md",
+        }),
+    ],
     compoundVariants: [
         /**
          * @placement top
@@ -186,11 +239,53 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
         },
 
         placement: {
-            bottom: {},
+            bottom: {
+                selectors: {
+                    [`&:has(${overlayArrowSvgCSS()})`]: {
+                        marginTop: vars.spacing.space_1,
+                    },
+                },
+
+                vars: {
+                    [origin]: `translateY(${calc.multiply(
+                        vars.spacing.space_2,
+                        -1,
+                    )})`,
+                },
+            },
             center: {},
-            left: {},
-            right: {},
-            top: {},
+            left: {
+                selectors: {
+                    [`&:has(${overlayArrowSvgCSS()})`]: {
+                        marginRight: vars.spacing.space_1,
+                    },
+                },
+
+                vars: {
+                    [origin]: `translateX(${calc.multiply(
+                        vars.spacing.space_2,
+                        -1,
+                    )})`,
+                },
+            },
+            right: {
+                selectors: {
+                    [`&:has(${overlayArrowSvgCSS()})`]: {
+                        marginLeft: vars.spacing.space_1,
+                    },
+                },
+
+                vars: { [origin]: `translateX(${vars.spacing.space_2})` },
+            },
+            top: {
+                selectors: {
+                    [`&:has(${overlayArrowSvgCSS()})`]: {
+                        marginBottom: vars.spacing.space_1,
+                    },
+                },
+
+                vars: { [origin]: `translateY(${vars.spacing.space_2})` },
+            },
         },
 
         trigger: {

@@ -3,14 +3,11 @@ import type { DatePickerProps as RACDatePickerProps } from "react-aria-component
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
 import { forwardRef } from "react";
-import {
-    DatePicker as RACDatePicker,
-    Dialog as RACDialog,
-} from "react-aria-components";
+import { DatePicker as RACDatePicker } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
-import { menuCSS } from "../_css/menu.css";
 import { Calendar } from "../calendar";
+import { Dialog } from "../dialog";
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
@@ -52,13 +49,10 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
                             {typeof children === "function"
                                 ? children(values)
                                 : children}
-                            <Popover
-                                className={menuCSS}
-                                placement="bottom end"
-                            >
-                                <RACDialog>
+                            <Popover placement="bottom end">
+                                <Dialog>
                                     <Calendar />
-                                </RACDialog>
+                                </Dialog>
                             </Popover>
                         </>
                     );

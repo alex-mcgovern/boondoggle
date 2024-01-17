@@ -17,7 +17,6 @@ import {
 import type { ColorOverlay } from "../index.css";
 
 import {
-    menuCSS,
     menuHeaderCSS,
     menuItemCSS,
     menuItemDescriptionCSS,
@@ -27,6 +26,7 @@ import { i18n } from "../_i18n";
 import { Box } from "../box";
 import { Icon } from "../icon";
 import { Section } from "../section";
+import { listBoxCSS } from "./styles.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;
@@ -105,7 +105,7 @@ function BaseListBox<TItemId extends string = string>(
 ) {
     return (
         <ReactAriaListBox<IterableListBoxItem<TItemId>>
-            className={menuCSS}
+            className={listBoxCSS}
             ref={ref}
             renderEmptyState={() => (
                 <Box

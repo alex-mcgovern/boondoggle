@@ -1263,3 +1263,31 @@ export const floatingMenu = createGlobalTheme(":root, ::backdrop", {
         radius: calc.subtract(FM_RADIUS, FM_PADDING),
     },
 });
+
+/** -----------------------------------------------------------------------------
+ * Scrollbar styles
+ * ------------------------------------------------------------------------------- */
+
+export const unobtrusiveScrollBar = style({
+    selectors: {
+        "&::-webkit-scrollbar": {
+            backgroundColor: "transparent",
+            borderBottomRightRadius: vars.borderRadius.sm,
+            borderTopRightRadius: vars.borderRadius.sm,
+            width: vars.spacing.space_2,
+        },
+
+        "&::-webkit-scrollbar-button": {
+            display: "none",
+        },
+
+        "&::-webkit-scrollbar-thumb": {
+            backgroundColor: vars.color.bg_button_secondary_active,
+            border: `2px solid ${vars.color.background}`,
+            borderRadius: vars.borderRadius.md,
+        },
+        "&::-webkit-scrollbar-track": {
+            backgroundColor: "transparent",
+        },
+    },
+});

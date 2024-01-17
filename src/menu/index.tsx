@@ -15,8 +15,9 @@ import {
 
 import type { ColorOverlay } from "../index.css";
 
-import { menuCSS, menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
+import { menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
 import { Section } from "../section";
+import { menuCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * IterableMenuItem
@@ -60,7 +61,7 @@ function _Menu<TItem extends object = object>(
 ) {
     return (
         <RACMenu<TItem>
-            className={menuCSS}
+            className={clsx(props.className, menuCSS)}
             ref={ref}
             {...props}
         />
@@ -111,7 +112,6 @@ function _DynamicMenu<TItemId extends string = string>(
 ) {
     return (
         <Menu<IterableMenuItem<TItemId>>
-            className={menuCSS}
             ref={ref}
             {...props}
         >

@@ -1,12 +1,14 @@
 import type { ComponentProps, ReactNode } from "react";
+import type { DialogProps as RACDialogProps } from "react-aria-components";
 
 import { faTimes } from "@fortawesome/pro-solid-svg-icons";
+import clsx from "clsx";
 import {
-    Dialog as ReactAriaDialog,
-    DialogTrigger as ReactAriaDialogTrigger,
-    Heading as ReactAriaHeading,
-    Modal as ReactAriaModal,
-    ModalOverlay as ReactAriaModalOverlay,
+    Dialog as RACDialog,
+    DialogTrigger as RACDialogTrigger,
+    Heading as RACHeading,
+    Modal as RACModal,
+    ModalOverlay as RACModalOverlay,
 } from "react-aria-components";
 
 import type { ColorOverlay } from "../index.css";
@@ -19,14 +21,31 @@ import {
     dialogContentCSS,
     dialogFooterCSS,
     dialogHeaderCSS,
+    dialogModalCSS,
     dialogTitleCSS,
     modalCSS,
     modalOverlayCSS,
 } from "./styles.css";
 
-/**
- * Wrapper to render the dialog header.
- */
+/** -----------------------------------------------------------------------------
+ * Dialog
+ * ------------------------------------------------------------------------------- */
+
+export type DialogProps = RACDialogProps;
+
+export const Dialog = (props: DialogProps) => {
+    return (
+        <RACDialog
+            {...props}
+            className={clsx(props.className, dialogCSS)}
+        />
+    );
+};
+
+/** -----------------------------------------------------------------------------
+ * DialogHeader
+ * ------------------------------------------------------------------------------- */
+
 export const V2DialogHeader = ({
     close,
     title,
@@ -36,12 +55,12 @@ export const V2DialogHeader = ({
 }) => {
     return (
         <header className={dialogHeaderCSS}>
-            <ReactAriaHeading
+            <RACHeading
                 className={dialogTitleCSS}
                 slot="title"
             >
                 {title}
-            </ReactAriaHeading>
+            </RACHeading>
 
             <Button
                 appearance="ghost"
@@ -88,35 +107,33 @@ export const V2Dialog = ({
     width = "sm",
 }: {
     buttonProps?: ComponentProps<typeof Button>;
-    children: ComponentProps<typeof ReactAriaDialog>["children"];
+    children: ComponentProps<typeof RACDialog>["children"];
     colorOverlay?: ColorOverlay;
     dialogTriggerProps?: Omit<
-        ComponentProps<typeof ReactAriaDialogTrigger>,
+        ComponentProps<typeof RACDialogTrigger>,
         "children"
     >;
     modalOverlayProps?: Omit<
-        ComponentProps<typeof ReactAriaModalOverlay>,
+        ComponentProps<typeof RACModalOverlay>,
         "className"
     >;
-    modalProps?: Omit<ComponentProps<typeof ReactAriaModal>, "className">;
+    modalProps?: Omit<ComponentProps<typeof RACModal>, "className">;
     width?: "lg" | "sm";
 }) => {
     return (
-        <ReactAriaDialogTrigger {...dialogTriggerProps}>
+        <RACDialogTrigger {...dialogTriggerProps}>
             {buttonProps ? <Button {...buttonProps} /> : null}
-            <ReactAriaModalOverlay
+            <RACModalOverlay
                 className={modalOverlayCSS}
                 {...modalOverlayProps}
             >
-                <ReactAriaModal
+                <RACModal
                     className={modalCSS({ colorOverlay, width })}
                     {...modalProps}
                 >
-                    <ReactAriaDialog className={dialogCSS}>
-                        {children}
-                    </ReactAriaDialog>
-                </ReactAriaModal>
-            </ReactAriaModalOverlay>
-        </ReactAriaDialogTrigger>
+                    <Dialog className={dialogModalCSS}>{children}</Dialog>
+                </RACModal>
+            </RACModalOverlay>
+        </RACDialogTrigger>
     );
 };

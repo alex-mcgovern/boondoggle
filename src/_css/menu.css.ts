@@ -24,9 +24,6 @@ export const menuCSS = style([
         overflowY: "auto",
     }),
     {
-        borderRadius: floatingMenu.container.radius,
-        maxHeight: "20rem",
-        padding: floatingMenu.container.padding,
         selectors: {
             "&::-webkit-scrollbar": {
                 backgroundColor: "transparent",

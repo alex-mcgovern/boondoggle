@@ -6,6 +6,7 @@ import type { PopoverProps } from "../popover";
 
 import { DynamicMenu } from "../menu";
 import { MenuTrigger } from "../menu-trigger";
+import { PopoverOverlayArrow } from "../popover";
 import { Popover } from "../popover";
 
 export type MenuButtonProps<TItemId extends string = string> =
@@ -22,6 +23,7 @@ export function MenuButton<TItemId extends string = string>({
         <MenuTrigger {...props}>
             {children}
             <Popover placement={props.placement}>
+                <PopoverOverlayArrow />
                 <DynamicMenu {...props} />
             </Popover>
         </MenuTrigger>
