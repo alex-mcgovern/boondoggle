@@ -167,6 +167,7 @@ const meta = {
                                 className={css({
                                     marginBottom: "space_2",
                                 })}
+                                mode="date"
                                 name="date_of_birth"
                             >
                                 <Label>Date of birth</Label>
