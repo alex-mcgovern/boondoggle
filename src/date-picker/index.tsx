@@ -2,7 +2,6 @@ import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
 import type { DatePickerProps as RACDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
-import { parseAbsoluteToLocal, parseDate } from "@internationalized/date";
 import { forwardRef } from "react";
 import {
     DatePicker as RACDatePicker,
@@ -80,9 +79,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
  */
 export function FormDatePicker({
     children,
-    mode = "date",
+    defaultValue,
     ...props
-}: DatePickerProps & { mode?: "date" | "datetime" }) {
+}: DatePickerProps) {
     if (!props.name) {
         throw new Error("FormDatePicker requires a name prop");
     }
@@ -90,13 +89,11 @@ export function FormDatePicker({
     const { control } = useFormContext();
 
     const {
-        field: { disabled: isDisabled, onChange, ref, value = null, ...field },
+        field: { disabled: isDisabled, onChange, ref, value, ...field },
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.defaultValue
-            ? props.defaultValue.toString()
-            : props.defaultValue,
+        defaultValue: defaultValue,
         disabled: props.isDisabled,
         name: props.name,
     });
@@ -105,22 +102,15 @@ export function FormDatePicker({
         <DatePicker
             {...props}
             {...field}
-            defaultValue={props.defaultValue}
             isDisabled={isDisabled}
             isInvalid={invalid}
             onChange={(v) => {
-                onChange(v.toString());
+                onChange(v);
                 props.onChange?.(v);
             }}
             ref={ref}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-            value={
-                value
-                    ? mode === "date"
-                        ? parseDate(value)
-                        : parseAbsoluteToLocal(value)
-                    : value
-            }
+            value={value}
         >
             {() => {
                 return (

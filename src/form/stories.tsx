@@ -1,6 +1,8 @@
+import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { parseAbsoluteToLocal } from "@internationalized/date";
 import { z } from "zod";
 
 import { Form } from ".";
@@ -33,7 +35,12 @@ const zodSchema = z.object({
     count: z.number(),
     country: z.string(),
     currency: z.enum(["EUR", "USD", "GBP"]),
-    date_of_birth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    date_of_birth: z.custom<CalendarDate>().transform((v) => {
+        return v.toString();
+    }),
+    date_time: z.custom<ZonedDateTime>().transform((v) => {
+        return v.toString();
+    }),
     description: z.string().min(1).max(20),
     email_address: z.string().email(),
     favourite_food: z.enum(["apple", "tomato", "carrot", "lettuce"]),
@@ -160,17 +167,36 @@ const meta = {
                             </FormCheckboxGroup>
 
                             {/** --------------------------------------------
-                             * @example Date picker field
+                             * @example Date picker field with date
                              * ----------------------------------------------- */}
 
                             <FormDatePicker
                                 className={css({
                                     marginBottom: "space_2",
                                 })}
-                                mode="date"
                                 name="date_of_birth"
                             >
                                 <Label>Date of birth</Label>
+                                <Group>
+                                    <DateInput variant="unstyled" />
+                                    <DatePickerButton />
+                                </Group>
+                            </FormDatePicker>
+
+                            {/** --------------------------------------------
+                             * @example Date picker field with datetime
+                             * ----------------------------------------------- */}
+
+                            <FormDatePicker
+                                className={css({
+                                    marginBottom: "space_2",
+                                })}
+                                defaultValue={parseAbsoluteToLocal(
+                                    new Date().toISOString(),
+                                )}
+                                name="date_time"
+                            >
+                                <Label>Date/time</Label>
                                 <Group>
                                     <DateInput variant="unstyled" />
                                     <DatePickerButton />
