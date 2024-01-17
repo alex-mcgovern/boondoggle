@@ -2,8 +2,7 @@ import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
 import type { DatePickerProps as RACDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
-import { parseDate } from "@internationalized/date";
-import { parseZonedDateTime } from "@internationalized/date";
+import { parseAbsoluteToLocal, parseDate } from "@internationalized/date";
 import { forwardRef } from "react";
 import {
     DatePicker as RACDatePicker,
@@ -81,9 +80,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
  */
 export function FormDatePicker({
     children,
-    mode,
+    mode = "date",
     ...props
-}: DatePickerProps & { mode: "date" | "datetime" }) {
+}: DatePickerProps & { mode?: "date" | "datetime" }) {
     if (!props.name) {
         throw new Error("FormDatePicker requires a name prop");
     }
@@ -119,7 +118,7 @@ export function FormDatePicker({
                 value
                     ? mode === "date"
                         ? parseDate(value)
-                        : parseZonedDateTime(value)
+                        : parseAbsoluteToLocal(value)
                     : value
             }
         >
