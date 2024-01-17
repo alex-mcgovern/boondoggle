@@ -1,8 +1,9 @@
-import type { CalendarDate } from "@internationalized/date";
+import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
 import type { DatePickerProps as RACDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
 import { parseDate } from "@internationalized/date";
+import { parseZonedDateTime } from "@internationalized/date";
 import { forwardRef } from "react";
 import {
     DatePicker as RACDatePicker,
@@ -38,7 +39,7 @@ export const DatePickerButton = () => {
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
  */
 
-export type DatePickerProps = RACDatePickerProps<CalendarDate>;
+export type DatePickerProps = RACDatePickerProps<CalendarDate | ZonedDateTime>;
 
 export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     ({ children, ...props }, ref) => {
@@ -78,7 +79,11 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
  */
-export function FormDatePicker({ children, ...props }: DatePickerProps) {
+export function FormDatePicker({
+    children,
+    mode,
+    ...props
+}: DatePickerProps & { mode: "date" | "datetime" }) {
     if (!props.name) {
         throw new Error("FormDatePicker requires a name prop");
     }
@@ -110,7 +115,13 @@ export function FormDatePicker({ children, ...props }: DatePickerProps) {
             }}
             ref={ref}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-            value={value ? parseDate(value) : value}
+            value={
+                value
+                    ? mode === "date"
+                        ? parseDate(value)
+                        : parseZonedDateTime(value)
+                    : value
+            }
         >
             {() => {
                 return (
