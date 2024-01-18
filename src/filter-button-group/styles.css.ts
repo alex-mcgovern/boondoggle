@@ -159,7 +159,6 @@ export const filterButtonCSS = recipe<
             display: "inline-flex",
             flexShrink: "0",
             fontStyle: "bodySm",
-            fontWeight: "medium",
             gap: "space_2",
             height: "space_6",
             outline: "none",
