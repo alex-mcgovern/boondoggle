@@ -154,7 +154,7 @@ export const filterButtonCSS = recipe<
     base: [
         css({
             alignItems: "center",
-            color: "bg_button_primary",
+            color: "text_high_contrast",
             display: "inline-flex",
             flexShrink: "0",
             fontStyle: "bodySm",
@@ -167,8 +167,8 @@ export const filterButtonCSS = recipe<
         {
             selectors: {
                 "&:first-child": {
-                    borderBottomRightRadius: vars.borderRadius.pill,
-                    borderTopRightRadius: vars.borderRadius.pill,
+                    borderBottomLeftRadius: vars.borderRadius.pill,
+                    borderTopLeftRadius: vars.borderRadius.pill,
                 },
                 "&:last-child": {
                     borderBottomRightRadius: vars.borderRadius.pill,
