@@ -19,9 +19,10 @@ import { variantColorOverlay, vars } from "../index.css";
 export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     base: [
         css({
-            alignItems: "center",
+            alignItems: "stretch",
             borderRadius: "pill",
             display: "inline-flex",
+            height: "space_6",
         }),
         {
             gap: 1,
@@ -77,9 +78,7 @@ export const filterButtonGroupLabelCSS = style([
         display: "inline-flex",
         fontStyle: "bodySm",
         gap: "space_1",
-        height: "space_8",
-        paddingLeft: "space_3",
-        paddingRight: "space_2",
+        paddingX: "space_1",
     }),
     {
         borderBottomLeftRadius: vars.borderRadius.pill,
@@ -102,10 +101,9 @@ export const removeFilterButtonCSS = recipe<
             fontStyle: "bodySm",
             fontWeight: "medium",
             gap: "space_2",
-            height: "space_8",
             outline: "none",
-            paddingLeft: "space_2",
-            paddingRight: "space_3",
+            paddingLeft: "space_1",
+            paddingRight: "space_1",
             placeItems: "center",
             whiteSpace: "nowrap",
             // width: "space_6",
@@ -155,13 +153,11 @@ export const filterButtonCSS = recipe<
     base: [
         css({
             alignItems: "center",
-
             color: "bg_button_primary",
             display: "inline-flex",
             flexShrink: "0",
             fontStyle: "bodySm",
             gap: "space_2",
-            height: "space_8",
             outline: "none",
             paddingX: "space_2",
             textDecoration: "none",

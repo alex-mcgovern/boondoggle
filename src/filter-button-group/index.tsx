@@ -4,7 +4,7 @@ import type {
     GroupProps as RACGroupProps,
 } from "react-aria-components";
 
-import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
+import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import { Button as RACButton, Group as RACGroup } from "react-aria-components";
@@ -43,7 +43,7 @@ export const FilterButtonGroup = ({
                     props.className,
                     filterButtonGroupCSS({
                         ...renderProps,
-                        isFilterApplied,
+                        isFilterApplied: isFilterApplied ? "true" : "false",
                     }),
                 )
             }
@@ -81,7 +81,7 @@ export const RemoveFilterButton = forwardRef<
             }
             ref={ref}
         >
-            <Icon icon={faTimes} />
+            <Icon icon={faTimesCircle} />
         </RACButton>
     );
 });
