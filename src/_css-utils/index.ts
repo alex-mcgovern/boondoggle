@@ -40,8 +40,8 @@ export const makeTheme = ({
         bg_button_primary: step(primary, 9),
         bg_button_primary_active: step(primary, 10),
 
-        bg_button_secondary: step(secondary, isOverlay ? 3 : 2),
-        bg_button_secondary_active: step(secondary, isOverlay ? 4 : 3),
+        bg_button_secondary: step(secondary, isOverlay ? 4 : 3),
+        bg_button_secondary_active: step(secondary, isOverlay ? 5 : 4),
 
         bg_field: step(secondary, isOverlay ? 3 : 2),
         bg_field_active: step(secondary, 1),

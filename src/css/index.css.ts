@@ -14,6 +14,7 @@ const border = {
     border_rule: `1px solid ${vars.color.border_rule}`,
     focus: `1px solid ${vars.color.focus_border} !important`,
     none: "0px solid transparent",
+    transparent: "1px solid transparent",
 };
 
 export const properties = defineProperties({
@@ -76,7 +77,7 @@ export const properties = defineProperties({
             none: "0px solid transparent",
 
             // Group: Focus outline should come last to allow overriding
-            focus: `2px solid ${vars.color.focus_ring} !important`,
+            focus: `1px solid ${vars.color.focus_ring} !important`,
         },
         overflowX: ["hidden", "auto", "visible", "scroll"],
         overflowY: ["hidden", "auto", "visible", "scroll"],
@@ -88,13 +89,19 @@ export const properties = defineProperties({
         top: ["0"],
         transition: {
             long: withPrefersMotion({
-                transition: `all ${vars.transitionDuration.long} ${vars.ease.quart_in_out}`,
+                transitionDuration: vars.transitionDuration.long,
+                transitionProperty: "background, color, border-color",
+                transitionTimingFunction: vars.ease.quart_in_out,
             }),
             medium: withPrefersMotion({
-                transition: `all ${vars.transitionDuration.medium} ${vars.ease.quart_in_out}`,
+                transitionDuration: vars.transitionDuration.medium,
+                transitionProperty: "background, color, border-color",
+                transitionTimingFunction: vars.ease.quart_in_out,
             }),
             short: withPrefersMotion({
-                transition: `all ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+                transitionDuration: vars.transitionDuration.short,
+                transitionProperty: "background, color, border-color",
+                transitionTimingFunction: vars.ease.quart_in_out,
             }),
         },
         whiteSpace: ["nowrap", "normal"],

@@ -13,7 +13,7 @@ import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
-const TRANSLATE_DISTANCE = vars.spacing.space_2;
+const TRANSLATE_DISTANCE = vars.spacing.space_1;
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
 const DURATION = vars.transitionDuration.short;
 const EASING = vars.ease.quart_in_out;

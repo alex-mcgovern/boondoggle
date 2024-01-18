@@ -271,8 +271,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     },
     transitionDuration: {
         long: "600ms",
-        medium: "400ms",
-        short: "200ms",
+        medium: "300s",
+        short: "150ms",
 
         // Bespoke durations
 
