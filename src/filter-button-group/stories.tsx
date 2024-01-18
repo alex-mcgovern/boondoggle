@@ -13,7 +13,7 @@ const meta = {
     component: FilterButtonGroup,
     render: (args) => (
         <FilterButtonGroup {...args}>
-            <FilterButtonGroupLabel title="Filter by" />
+            <FilterButtonGroupLabel>Filter by</FilterButtonGroupLabel>
             <MenuButton
                 items={[
                     { id: "item_1", name: "Item 1" },
