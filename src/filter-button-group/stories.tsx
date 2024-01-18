@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { faClock } from "@fortawesome/pro-solid-svg-icons";
+
 import {
     FilterButton,
     FilterButtonGroup,
     FilterButtonGroupLabel,
     RemoveFilterButton,
 } from ".";
+import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
 
 const meta = {
@@ -13,7 +16,10 @@ const meta = {
     component: FilterButtonGroup,
     render: (args) => (
         <FilterButtonGroup {...args}>
-            <FilterButtonGroupLabel>Filter by</FilterButtonGroupLabel>
+            <FilterButtonGroupLabel>
+                <Icon icon={faClock} />
+                Timestamp
+            </FilterButtonGroupLabel>
             <MenuButton
                 items={[
                     { id: "item_1", name: "Item 1" },

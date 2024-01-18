@@ -27,14 +27,25 @@ import {
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Group.html)
  */
 
-export type FilterButtonGroupProps = RACGroupProps;
+export type FilterButtonGroupProps = RACGroupProps & {
+    isFilterApplied: boolean;
+};
 
-export const FilterButtonGroup = (props: FilterButtonGroupProps) => {
+export const FilterButtonGroup = ({
+    isFilterApplied,
+    ...props
+}: FilterButtonGroupProps) => {
     return (
         <RACGroup
             {...props}
             className={(renderProps) =>
-                clsx(props.className, filterButtonGroupCSS(renderProps))
+                clsx(
+                    props.className,
+                    filterButtonGroupCSS({
+                        ...renderProps,
+                        isFilterApplied,
+                    }),
+                )
             }
         />
     );

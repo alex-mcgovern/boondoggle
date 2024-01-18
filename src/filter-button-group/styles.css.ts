@@ -20,10 +20,12 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     base: [
         css({
             alignItems: "center",
+            borderRadius: "pill",
             display: "inline-flex",
         }),
         {
             gap: 1,
+            padding: 1,
         },
     ],
     defaultVariants: {
@@ -35,8 +37,8 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
             true: css({ cursor: "not-allowed", opacity: "0.5" }),
         },
         isFilterApplied: {
-            false: {},
-            true: [css({})],
+            false: [css({ border: "border_field" })],
+            true: [css({ border: "border_field" })],
         },
         isFocusVisible: {
             false: {},
@@ -71,7 +73,6 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
 export const filterButtonGroupLabelCSS = style([
     css({
         alignItems: "center",
-        background: "bg_filter_button",
         color: "text_low_contrast",
         display: "inline-flex",
         fontStyle: "bodySm",
@@ -95,7 +96,6 @@ export const removeFilterButtonCSS = recipe<
 >({
     base: [
         css({
-            background: "bg_filter_button",
             color: "text_low_contrast",
             display: "inline-flex",
             flexShrink: "0",
@@ -126,20 +126,20 @@ export const removeFilterButtonCSS = recipe<
         isFocusVisible: {
             false: {},
             true: css({
-                background: "bg_filter_button_active",
+                background: "bg_button_secondary_active",
                 outline: "focus",
             }),
         },
         isHovered: {
             false: {},
             true: css({
-                background: "bg_filter_button_active",
+                background: "bg_button_secondary_active",
             }),
         },
         isPressed: {
             false: {},
             true: css({
-                background: "bg_filter_button_active",
+                background: "bg_button_secondary_active",
             }),
         },
     },
@@ -155,7 +155,7 @@ export const filterButtonCSS = recipe<
     base: [
         css({
             alignItems: "center",
-            background: "bg_filter_button",
+
             color: "bg_button_primary",
             display: "inline-flex",
             flexShrink: "0",
@@ -191,20 +191,20 @@ export const filterButtonCSS = recipe<
         isFocusVisible: {
             false: {},
             true: css({
-                background: "bg_filter_button_active",
+                background: "bg_button_secondary_active",
                 outline: "focus",
             }),
         },
         isHovered: {
             false: {},
             true: css({
-                background: "bg_filter_button_active",
+                background: "bg_button_secondary_active",
             }),
         },
         isPressed: {
             false: {},
             true: css({
-                background: "bg_filter_button_active",
+                background: "bg_button_secondary_active",
             }),
         },
     },
