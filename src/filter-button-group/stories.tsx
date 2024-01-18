@@ -37,4 +37,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    args: {
+        isFilterApplied: false,
+    },
+};
+
+export const isFilterApplied: Story = {
+    args: {
+        isFilterApplied: true,
+    },
+};
