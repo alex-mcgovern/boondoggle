@@ -72,7 +72,7 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
 export const filterButtonGroupLabelCSS = style([
     css({
         alignItems: "center",
-        background: "bg_button_secondary",
+        background: "bg_filter_button",
         color: "text_low_contrast",
 
         display: "inline-flex",
@@ -95,7 +95,7 @@ export const removeFilterButtonCSS = recipe<
 >({
     base: [
         css({
-            background: "bg_button_secondary",
+            background: "bg_filter_button",
             color: "text_low_contrast",
             display: "inline-flex",
             flexShrink: "0",
@@ -125,20 +125,20 @@ export const removeFilterButtonCSS = recipe<
         isFocusVisible: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "bg_filter_button_active",
                 outline: "focus",
             }),
         },
         isHovered: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "bg_filter_button_active",
             }),
         },
         isPressed: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "bg_filter_button_active",
             }),
         },
     },
@@ -154,7 +154,7 @@ export const filterButtonCSS = recipe<
     base: [
         css({
             alignItems: "center",
-            background: "bg_button_secondary",
+            background: "bg_filter_button",
             color: "bg_button_primary",
             display: "inline-flex",
             flexShrink: "0",
@@ -191,20 +191,20 @@ export const filterButtonCSS = recipe<
         isFocusVisible: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "bg_filter_button_active",
                 outline: "focus",
             }),
         },
         isHovered: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "bg_filter_button_active",
             }),
         },
         isPressed: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "bg_filter_button_active",
             }),
         },
     },
