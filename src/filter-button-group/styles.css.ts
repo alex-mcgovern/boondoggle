@@ -74,9 +74,9 @@ export const filterButtonGroupLabelCSS = style([
         alignItems: "center",
         background: "bg_filter_button",
         color: "text_low_contrast",
-
         display: "inline-flex",
         fontStyle: "bodySm",
+        gap: "space_1",
         height: "space_6",
         paddingX: "space_2",
     }),
