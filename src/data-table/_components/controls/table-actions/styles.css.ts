@@ -48,7 +48,7 @@ export const tableActionsCSS = style([
         },
 
         selectors: {
-            "&[empty]": {
+            "&:empty": {
                 display: "none",
             },
         },
