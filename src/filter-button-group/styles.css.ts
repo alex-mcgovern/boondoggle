@@ -22,7 +22,7 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
             alignItems: "stretch",
             borderRadius: "pill",
             display: "inline-flex",
-            height: "space_6",
+            height: "space_8",
         }),
         {
             gap: 1,
@@ -81,7 +81,7 @@ export const filterButtonGroupLabelCSS = style([
         display: "inline-flex",
         fontStyle: "bodySm",
         gap: "space_1",
-        paddingX: "space_1",
+        paddingX: "space_2",
     }),
     {
         borderBottomLeftRadius: vars.borderRadius.pill,
@@ -105,11 +105,9 @@ export const removeFilterButtonCSS = recipe<
             fontWeight: "medium",
             gap: "space_2",
             outline: "none",
-            paddingLeft: "space_1",
-            paddingRight: "space_1",
+            paddingX: "space_2",
             placeItems: "center",
             whiteSpace: "nowrap",
-            // width: "space_6",
         }),
         {
             borderBottomRightRadius: vars.borderRadius.pill,
