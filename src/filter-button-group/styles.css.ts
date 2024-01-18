@@ -38,7 +38,10 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
             true: css({ cursor: "not-allowed", opacity: "0.5" }),
         },
         isFilterApplied: {
-            false: [css({ border: "border_field" })],
+            false: {
+                background: "transparent",
+                border: `1px dashed ${vars.color.border_field}`,
+            },
             true: [css({ border: "border_field" })],
         },
         isFocusVisible: {
