@@ -46,6 +46,12 @@ export const tableActionsCSS = style([
                 gridTemplateColumns: "1fr",
             },
         },
+
+        selectors: {
+            "&[empty]": {
+                display: "none",
+            },
+        },
     },
 ]);
 
