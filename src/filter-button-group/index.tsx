@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type {
     ButtonProps as RACButtonProps,
     GroupProps as RACGroupProps,
@@ -43,12 +44,12 @@ export const FilterButtonGroup = (props: FilterButtonGroupProps) => {
  * FilterButtonGroupLabel
  * ------------------------------------------------------------------------------- */
 
-export type FilterButtonGroupLabelProps = { title: string };
+export type FilterButtonGroupLabelProps = { children: ReactNode };
 
 export const FilterButtonGroupLabel = ({
-    title,
+    children,
 }: FilterButtonGroupLabelProps) => {
-    return <div className={filterButtonGroupLabelCSS}>{title}</div>;
+    return <div className={filterButtonGroupLabelCSS}>{children}</div>;
 };
 
 /** -----------------------------------------------------------------------------
