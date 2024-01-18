@@ -167,6 +167,18 @@ export const filterButtonCSS = recipe<
             textDecoration: "none",
             whiteSpace: "nowrap",
         }),
+        {
+            selectors: {
+                "&:first-child": {
+                    borderBottomRightRadius: vars.borderRadius.sm,
+                    borderTopRightRadius: vars.borderRadius.sm,
+                },
+                "&:last-child": {
+                    borderBottomRightRadius: vars.borderRadius.sm,
+                    borderTopRightRadius: vars.borderRadius.sm,
+                },
+            },
+        },
     ],
     variants: {
         isDisabled: {
