@@ -20,8 +20,7 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     base: [
         css({
             alignItems: "center",
-            display: "flex",
-            width: "100%",
+            display: "inline-flex",
         }),
         {
             gap: 1,
