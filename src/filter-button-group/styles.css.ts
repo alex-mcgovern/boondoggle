@@ -76,12 +76,13 @@ export const filterButtonGroupLabelCSS = style([
         display: "inline-flex",
         fontStyle: "bodySm",
         gap: "space_1",
-        height: "space_6",
-        paddingX: "space_2",
+        height: "space_8",
+        paddingLeft: "space_3",
+        paddingRight: "space_2",
     }),
     {
-        borderBottomLeftRadius: vars.borderRadius.sm,
-        borderTopLeftRadius: vars.borderRadius.sm,
+        borderBottomLeftRadius: vars.borderRadius.pill,
+        borderTopLeftRadius: vars.borderRadius.pill,
     },
 ]);
 
@@ -101,16 +102,17 @@ export const removeFilterButtonCSS = recipe<
             fontStyle: "bodySm",
             fontWeight: "medium",
             gap: "space_2",
-            height: "space_6",
+            height: "space_8",
             outline: "none",
-            paddingX: "space_1",
+            paddingLeft: "space_2",
+            paddingRight: "space_3",
             placeItems: "center",
             whiteSpace: "nowrap",
-            width: "space_6",
+            // width: "space_6",
         }),
         {
-            borderBottomRightRadius: vars.borderRadius.sm,
-            borderTopRightRadius: vars.borderRadius.sm,
+            borderBottomRightRadius: vars.borderRadius.pill,
+            borderTopRightRadius: vars.borderRadius.pill,
         },
     ],
     variants: {
@@ -159,7 +161,7 @@ export const filterButtonCSS = recipe<
             flexShrink: "0",
             fontStyle: "bodySm",
             gap: "space_2",
-            height: "space_6",
+            height: "space_8",
             outline: "none",
             paddingX: "space_2",
             textDecoration: "none",
@@ -168,12 +170,12 @@ export const filterButtonCSS = recipe<
         {
             selectors: {
                 "&:first-child": {
-                    borderBottomRightRadius: vars.borderRadius.sm,
-                    borderTopRightRadius: vars.borderRadius.sm,
+                    borderBottomRightRadius: vars.borderRadius.pill,
+                    borderTopRightRadius: vars.borderRadius.pill,
                 },
                 "&:last-child": {
-                    borderBottomRightRadius: vars.borderRadius.sm,
-                    borderTopRightRadius: vars.borderRadius.sm,
+                    borderBottomRightRadius: vars.borderRadius.pill,
+                    borderTopRightRadius: vars.borderRadius.pill,
                 },
             },
         },
