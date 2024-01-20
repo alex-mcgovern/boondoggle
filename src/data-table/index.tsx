@@ -23,11 +23,11 @@ import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
-// import { TableColumnFilters } from "./_components/column-filters";
+import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
-// import { TableActions } from "./_components/controls/table-actions";
-// import { TableGlobalFilter } from "./_components/controls/table-global-filter";
+import { TableActions } from "./_components/controls/table-actions";
+import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
 import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
@@ -136,7 +136,7 @@ export type DataTableProps<TRowData extends RowData> =
  * Uses the `@tanstack/react-table` library to manage state and render the table.
  */
 export function DataTable<TRowData extends RowData>({
-    // actions,
+    actions,
     columns,
     columnVisibility,
     data,
@@ -168,7 +168,7 @@ export function DataTable<TRowData extends RowData>({
 
     return (
         <Box>
-            {/* <TableActions
+            <TableActions
                 actions={actions}
                 columnFilters={
                     <TableColumnFilters<TRowData>
@@ -182,7 +182,7 @@ export function DataTable<TRowData extends RowData>({
                         table={table}
                     />
                 }
-            /> */}
+            />
 
             {hasData && (
                 <Box

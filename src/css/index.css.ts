@@ -41,7 +41,7 @@ export const properties = defineProperties({
             currentColor: "currentColor",
             inherit: "inherit",
         },
-        cursor: ["pointer", "default", "not-allowed"],
+        cursor: ["pointer", "default", "not-allowed", "grab"],
         flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
         flexGrow: ["0", "1"],
         flexShrink: ["0", "1"],

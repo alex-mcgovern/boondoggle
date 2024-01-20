@@ -286,6 +286,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         "25%": "25%",
         "50%": "50%",
         auto: "auto",
+        "fit-content": "fit-content",
         main_lg: "75rem",
         main_md: "55.5rem",
         main_sm: "30rem",
