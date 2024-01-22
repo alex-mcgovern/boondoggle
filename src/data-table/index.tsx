@@ -168,21 +168,23 @@ export function DataTable<TRowData extends RowData>({
 
     return (
         <Box>
-            <TableActions
-                actions={actions}
-                columnFilters={
-                    <TableColumnFilters<TRowData>
-                        filteringOptions={filteringOptions}
-                        table={table}
-                    />
-                }
-                globalFilter={
-                    <TableGlobalFilter<TRowData>
-                        filteringOptions={filteringOptions}
-                        table={table}
-                    />
-                }
-            />
+            {actions || filteringOptions ? (
+                <TableActions
+                    actions={actions}
+                    columnFilters={
+                        <TableColumnFilters<TRowData>
+                            filteringOptions={filteringOptions}
+                            table={table}
+                        />
+                    }
+                    globalFilter={
+                        <TableGlobalFilter<TRowData>
+                            filteringOptions={filteringOptions}
+                            table={table}
+                        />
+                    }
+                />
+            ) : null}
 
             {hasData && (
                 <Box
