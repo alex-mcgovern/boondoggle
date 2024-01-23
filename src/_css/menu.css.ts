@@ -1,39 +1,55 @@
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
+
+import { css } from "../css/index.css";
 import {
-	NOT_DISABLED,
-	a11yDisabled,
-	a11yFocus,
-	elementPaddingRaw,
-	floatingMenu,
-	variantColorOverlay,
-	vars,
+    a11yDisabled,
+    a11yFocus,
+    elementPaddingRaw,
+    floatingMenu,
+    variantColorOverlay,
+    vars,
 } from "../index.css";
-import { withPrefersMotion } from "../v1/css-utils";
-import { sprinkles } from "../v1/sprinkles/index.css";
 
 /** -----------------------------------------------------------------------------
  * MENU CSS
  * ------------------------------------------------------------------------------- */
 
 export const menuCSS = style([
-	sprinkles({
-		background: "background",
-		border: "border_rule",
-		boxShadow: "md",
-		overflowY: "auto",
-	}),
-	{
-		padding: floatingMenu.container.padding,
-		borderRadius: floatingMenu.container.radius,
-		selectors: {
-			"&:focus": {
-				outline: "none",
-			},
-		},
-		maxHeight: "20rem",
-	},
+    css({
+        background: "background",
+        border: "border_rule",
+        boxShadow: "md",
+        overflowY: "auto",
+    }),
+    {
+        selectors: {
+            "&::-webkit-scrollbar": {
+                backgroundColor: "transparent",
+                borderBottomRightRadius: vars.borderRadius.sm,
+                borderTopRightRadius: vars.borderRadius.sm,
+                width: vars.spacing.space_4,
+            },
+
+            "&::-webkit-scrollbar-button": {
+                display: "none",
+            },
+
+            "&::-webkit-scrollbar-thumb": {
+                backgroundColor: vars.color.bg_button_secondary_active,
+                border: `4px solid ${vars.color.background}`,
+                borderRadius: vars.borderRadius.md,
+            },
+            "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+            },
+
+            "&:focus": {
+                outline: "none",
+            },
+        },
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -41,23 +57,23 @@ export const menuCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuSectionCSS = style([
-	{
-		selectors: {
-			"&:not(:last-child)::after": {
-				content: "",
-				display: "block",
+    {
+        selectors: {
+            "&:not(:last-child)::after": {
+                background: vars.color.border_rule,
+                content: "",
 
-				marginTop: elementPaddingRaw.sm.y,
-				marginBottom: elementPaddingRaw.sm.y,
+                display: "block",
+                height: "1px",
 
-				background: vars.color.border_rule,
-				height: "1px",
+                marginBottom: elementPaddingRaw.sm.y,
+                marginLeft: floatingMenu.item.paddingX,
 
-				marginLeft: floatingMenu.item.paddingX,
-				marginRight: floatingMenu.item.paddingX,
-			},
-		},
-	},
+                marginRight: floatingMenu.item.paddingX,
+                marginTop: elementPaddingRaw.sm.y,
+            },
+        },
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -65,68 +81,62 @@ export const menuSectionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuItemCSS = recipe({
-	base: [
-		sprinkles({
-			width: "100%",
-			display: "flex",
-			alignItems: "center",
-			gap: "space_2",
-			flexShrink: "0",
+    base: [
+        css({
+            alignItems: "center",
+            color: "text_high_contrast",
+            display: "flex",
+            flexShrink: "0",
+            fontStyle: "bodySm",
 
-			fontStyle: "bodyMd",
-			fontWeight: "normal",
-			color: "text_high_contrast",
-			textAlign: "left",
-			textDecoration: "none",
-		}),
-		a11yDisabled,
-		a11yFocus,
-		withPrefersMotion({
-			transition: `background ${vars.transitionDuration.short} ease`,
-		}),
-		{
-			minHeight: floatingMenu.item.height,
-			padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
+            fontWeight: "normal",
+            gap: "space_2",
+            textAlign: "left",
+            textDecoration: "none",
+            width: "100%",
+        }),
+        a11yDisabled,
+        a11yFocus,
+        {
+            borderRadius: floatingMenu.item.radius,
+            minHeight: floatingMenu.item.height,
 
-			borderRadius: floatingMenu.item.radius,
-			selectors: {
-				[`&${NOT_DISABLED}:is(:hover,[data-hovered])`]: {
-					cursor: "pointer",
-					background: vars.color.tint_hover,
-				},
-				[`&${NOT_DISABLED}:is(:focus,[data-focused])`]: {
-					outline: 0,
-					cursor: "pointer",
-					background: vars.color.tint_hover,
-				},
-				[`&${NOT_DISABLED}:is(:active,[data-selected])`]: {
-					background: vars.color.tint_hover,
-				},
-				"&:not(:last-child)": {
-					marginBottom: floatingMenu.container.padding,
-				},
-			},
-		},
-	],
-	variants: {
-		colorOverlay: variantColorOverlay,
-	},
+            padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
+            selectors: {
+                "&[data-focused]": {
+                    background: vars.color.tint_hover,
+                    cursor: "pointer",
+                    outline: 0,
+                },
+                "&[data-hovered]": {
+                    background: vars.color.tint_hover,
+                    cursor: "pointer",
+                },
+                "&[data-selected]": {
+                    fontWeight: "medium",
+                },
+            },
+        },
+    ],
+    variants: {
+        colorOverlay: variantColorOverlay,
+    },
 });
 
 export const menuItemNameCSS = style([
-	sprinkles({
-		display: "block",
-		color: "text_high_contrast",
-		fontStyle: "bodyMd",
-	}),
+    css({
+        color: "text_high_contrast",
+        display: "block",
+        fontStyle: "bodySm",
+    }),
 ]);
 
 export const menuItemDescriptionCSS = style([
-	sprinkles({
-		display: "block",
-		color: "text_low_contrast",
-		fontStyle: "bodySm",
-	}),
+    css({
+        color: "text_low_contrast",
+        display: "block",
+        fontStyle: "bodySm",
+    }),
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -134,23 +144,23 @@ export const menuItemDescriptionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuHeaderCSS = style([
-	sprinkles({
-		color: "text_low_contrast",
-		fontStyle: "bodyMd",
-		fontWeight: "normal",
-		textAlign: "left",
+    css({
+        alignItems: "center",
+        color: "text_low_contrast",
+        display: "flex",
+        fontStyle: "bodySm",
 
-		display: "flex",
-		alignItems: "center",
-	}),
-	{
-		height: calc.subtract(
-			floatingMenu.item.height,
-			floatingMenu.container.padding,
-		),
-		paddingLeft: floatingMenu.item.paddingX,
-		paddingRight: floatingMenu.item.paddingX,
-	},
+        fontWeight: "normal",
+        textAlign: "left",
+    }),
+    {
+        height: calc.subtract(
+            floatingMenu.item.height,
+            floatingMenu.container.padding,
+        ),
+        paddingLeft: floatingMenu.item.paddingX,
+        paddingRight: floatingMenu.item.paddingX,
+    },
 ]);
 
 /** -----------------------------------------------------------------------------
@@ -158,15 +168,15 @@ export const menuHeaderCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuSeparatorCSS = style([
-	sprinkles({}),
-	{
-		marginTop: vars.spacing.space_1,
-		marginBottom: vars.spacing.space_1,
+    css({}),
+    {
+        background: vars.color.border_rule,
+        height: "1px",
 
-		background: vars.color.border_rule,
-		height: "1px",
+        marginBottom: vars.spacing.space_1,
+        marginLeft: floatingMenu.item.paddingX,
 
-		marginLeft: floatingMenu.item.paddingX,
-		marginRight: floatingMenu.item.paddingX,
-	},
+        marginRight: floatingMenu.item.paddingX,
+        marginTop: vars.spacing.space_1,
+    },
 ]);

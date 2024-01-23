@@ -4,12 +4,12 @@
  */
 
 export const formatDate = (
-	date?: string | number | readonly string[],
-	locale?: Intl.LocalesArgument,
+    date?: number | readonly string[] | string,
+    locale?: Intl.LocalesArgument,
 ) => {
-	if (typeof date !== "string") {
-		return undefined;
-	}
+    if (typeof date !== "string") {
+        return undefined;
+    }
 
-	return date ? new Date(date).toLocaleDateString(locale) : undefined;
+    return date ? new Date(date).toLocaleDateString(locale) : undefined;
 };

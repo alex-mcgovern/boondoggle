@@ -1,33 +1,33 @@
 name: Build docs
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
+    workflow_dispatch:
+    push:
+        branches:
+            - master
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-        with:
-          persist-credentials: false
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              with:
+                  persist-credentials: false
 
-      - name: "Create .npmrc"
-        shell: bash
-        run: |
-          echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
-          echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
+            - name: "Create .npmrc"
+              shell: bash
+              run: |
+                  echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc
+                  echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
 
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build:docs
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: master
-          FOLDER: build
-          CLEAN: true
-          TARGET_FOLDER: docs
+            - name: Install and Build
+              run: |
+                  npm install
+                  npm run build:docs
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@3.6.2
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: master
+                  FOLDER: build
+                  CLEAN: true
+                  TARGET_FOLDER: docs

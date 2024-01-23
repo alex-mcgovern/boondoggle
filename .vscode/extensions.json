@@ -1,8 +1,10 @@
 {
-	"recommendations": [
-		"streetsidesoftware.code-spell-checker",
-		"slysherz.comment-box",
-		"wix.vscode-import-cost",
-		"orta.vscode-twoslash-queries"
-	]
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "slysherz.comment-box",
+        "wix.vscode-import-cost",
+        "orta.vscode-twoslash-queries",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+    ]
 }

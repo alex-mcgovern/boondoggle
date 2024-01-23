@@ -2,18 +2,17 @@
     "Helper function": {
         "scope": "javascript,typescript",
         "prefix": "JS Fn",
-        "body": ["export function functionName({ argument }) {", "\treturn argument;", "}"]
+        "body": [
+            "export function functionName({ argument }) {",
+            "\treturn argument;",
+            "}"
+        ]
     },
 
     "vanilla-extract style": {
         "scope": "typescript,css",
         "prefix": "VE Style",
-        "body": [
-            "import { style } from \"@vanilla-extract/css\";",
-            "export const className = style({",
-            "\t",
-            "})"
-        ],
+        "body": ["export const ${1}CSS = style([css({}), {}])"],
         "description": "Vanilla Extract style"
     },
     "vanilla-extract recipe": {
@@ -39,7 +38,12 @@
     "jest suite boilerplate": {
         "scope": "javascript,typescript",
         "prefix": "Jest",
-        "body": ["test(\"XXXXX\", () => {", "  expect(YYYYYY).toBe(ZZZZZ)", "});", ""]
+        "body": [
+            "test(\"XXXXX\", () => {",
+            "  expect(YYYYYY).toBe(ZZZZZ)",
+            "});",
+            ""
+        ]
     },
 
     "testing-library boilerplate": {
@@ -98,7 +102,7 @@
             "import { Meta, StoryObj } from \"@storybook/react\";",
             "",
             "const meta = {",
-            "  title: \"Components/${1:Component}\",",
+            "  title: \"${1:Component}\",",
             "  component: ${1:Component},",
             "  args: {  },",
             "} satisfies Meta<typeof ${1:Component}>;",
