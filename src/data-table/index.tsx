@@ -23,10 +23,15 @@ import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
+import {
+    TableActionsContainer,
+    TableFiltersContainer,
+    TableHeader,
+    TableSearchContainer,
+} from "../table-header";
 import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
-import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { useDataTableState } from "./_lib/useDataTableState";
@@ -169,21 +174,27 @@ export function DataTable<TRowData extends RowData>({
     return (
         <Box>
             {actions || filteringOptions ? (
-                <TableActions
-                    actions={actions}
-                    columnFilters={
-                        <TableColumnFilters<TRowData>
-                            filteringOptions={filteringOptions}
-                            table={table}
-                        />
-                    }
-                    globalFilter={
-                        <TableGlobalFilter<TRowData>
-                            filteringOptions={filteringOptions}
-                            table={table}
-                        />
-                    }
-                />
+                <TableHeader>
+                    {filteringOptions && (
+                        <TableSearchContainer>
+                            <TableGlobalFilter<TRowData>
+                                filteringOptions={filteringOptions}
+                                table={table}
+                            />
+                        </TableSearchContainer>
+                    )}
+                    {filteringOptions && (
+                        <TableFiltersContainer>
+                            <TableColumnFilters<TRowData>
+                                filteringOptions={filteringOptions}
+                                table={table}
+                            />
+                        </TableFiltersContainer>
+                    )}
+                    {actions && (
+                        <TableActionsContainer>{actions}</TableActionsContainer>
+                    )}
+                </TableHeader>
             ) : null}
 
             {hasData && (

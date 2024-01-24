@@ -1,26 +1,21 @@
 import { createContainer, style } from "@vanilla-extract/css";
 
-import { css } from "../../../../css/index.css";
-import {
-    CONTAINER_LG,
-    CONTAINER_MD,
-    CONTAINER_SM,
-    vars,
-} from "../../../../index.css";
+import { css } from "../css/index.css";
+import { CONTAINER_LG, CONTAINER_MD, CONTAINER_SM, vars } from "../index.css";
 
-const tableActionsContainer = createContainer();
+const TableHeader = createContainer();
 
-export const tableActionsContainerCSS = style([
+export const tableHeaderContainerCSS = style([
     css({
         marginY: "space_3",
     }),
     {
-        containerName: tableActionsContainer,
+        containerName: TableHeader,
         containerType: "inline-size",
     },
 ]);
 
-export const tableActionsCSS = style([
+export const tableHeaderGridCSS = style([
     css({
         alignItems: "start",
         display: "grid",
@@ -55,11 +50,11 @@ export const tableActionsCSS = style([
     },
 ]);
 
-export const globalFilterCSS = style({
+export const searchContainerCSS = style({
     gridArea: "globalFilter",
 });
 
-export const columnFiltersCSS = style([
+export const filtersContainerCSS = style([
     css({
         alignItems: "center",
         display: "flex",
@@ -71,7 +66,7 @@ export const columnFiltersCSS = style([
     },
 ]);
 
-export const actionsCSS = style([
+export const actionsContainerCSS = style([
     css({
         alignItems: "center",
         display: "flex",
