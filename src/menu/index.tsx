@@ -172,6 +172,7 @@ function _DynamicMenu<TItemId extends string = string>(
                         <RACCollection items={item.children}>
                             {(childItem) => (
                                 <MenuItem<IterableMenuItem<TItemId>>
+                                    {...childItem}
                                     icon={childItem.slotLeft}
                                     value={item}
                                 >
