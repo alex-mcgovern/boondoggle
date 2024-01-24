@@ -6,7 +6,6 @@ import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 
 import type { TV2DataTableRowActions } from ".";
 import type { MockTableData } from "./_mocks/data-table.mock";
-import type { TableNumberRangeFilterMode } from "./types";
 
 import { DataTable as StoryComp, TableRowMenuButton } from ".";
 import { Button } from "../button";
@@ -76,16 +75,6 @@ export const MOCK_FILTER_STRINGS = {
     },
 } as const;
 
-export const MOCK_FILTER_MODE_STRINGS: Record<
-    TableNumberRangeFilterMode,
-    string
-> = {
-    is_between: "Is between",
-    is_equal_to: "Is equal to",
-    is_greater_than: "Is greater than",
-    is_less_than: "Is less than",
-};
-
 const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
     return (
         <TableRowMenuButton
@@ -120,17 +109,6 @@ const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
 
 export const Default: Story = {
     args: {},
-};
-
-export const IsPaginated: Story = {
-    args: {
-        paginationOptions: {
-            strNext: "Next",
-            strPage: "Page",
-            strPrev: "Previous",
-            strResults: "Results",
-        },
-    },
 };
 
 export const IsGlobalFilterEnabled: Story = {
@@ -226,12 +204,7 @@ export const KitchenSink: Story = {
         ),
 
         gridTemplateColumns: "min-content 1fr repeat(4, min-content)",
-        paginationOptions: {
-            strNext: "Next",
-            strPage: "Page",
-            strPrev: "Previous",
-            strResults: "Results",
-        },
+
         RowActions: MockRowActionsComponent,
     },
 };

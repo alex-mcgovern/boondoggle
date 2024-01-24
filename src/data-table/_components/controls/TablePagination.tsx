@@ -1,23 +1,14 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
-import type { PaginationOptions } from "../../types";
-
+import { i18n } from "../../../_i18n";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 
 export function TablePagination<TRowData extends RowData>({
-    paginationOptions,
     table,
 }: {
-    paginationOptions: PaginationOptions | undefined;
     table: Table<TRowData>;
 }) {
-    if (!paginationOptions) {
-        return null;
-    }
-
-    const { strNext, strPage, strPrev, strResults } = paginationOptions;
-
     return (
         <Box
             alignItems="center"
@@ -38,11 +29,11 @@ export function TablePagination<TRowData extends RowData>({
                 <Box fontWeight="semibold">
                     {table.getPrePaginationRowModel().rows.length}
                 </Box>
-                <Box>{strResults}.</Box>
+                <Box>{i18n.results}.</Box>
 
                 {!!table.getPageCount() && (
                     <>
-                        <Box>{strPage}</Box>
+                        <Box>{i18n.page}</Box>
                         <Box
                             fontWeight="semibold"
                             whiteSpace="nowrap"
@@ -66,7 +57,7 @@ export function TablePagination<TRowData extends RowData>({
                     onPress={() => table.previousPage()}
                     size="sm"
                 >
-                    {strPrev}
+                    {i18n.prev}
                 </Button>
                 <Button
                     appearance="secondary"
@@ -75,7 +66,7 @@ export function TablePagination<TRowData extends RowData>({
                     onPress={() => table.nextPage()}
                     size="sm"
                 >
-                    {strNext}
+                    {i18n.next}
                 </Button>
             </Box>
         </Box>

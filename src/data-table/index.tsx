@@ -25,7 +25,6 @@ import { useMemo } from "react";
 import { Fragment } from "react";
 
 import type { MenuButtonProps } from "../menu-button";
-import type { PaginationOptions } from "./types";
 
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
@@ -149,11 +148,6 @@ export type DataTableProps<TRowData extends RowData> = {
     isFuzzySearchable?: boolean;
 
     /**
-     * Options related to pagination.
-     */
-    paginationOptions?: PaginationOptions;
-
-    /**
      * A string to fuzzy search rows in the table
      */
     strFuzzyFilter?: string;
@@ -171,7 +165,6 @@ export function DataTable<TRowData extends RowData>({
     gridTemplateColumns,
     initialSorting,
     isFuzzySearchable,
-    paginationOptions,
     RowActions,
     strFuzzyFilter,
 }: DataTableProps<TRowData>) {
@@ -307,13 +300,9 @@ export function DataTable<TRowData extends RowData>({
 
             {!hasData && <TableNoResults table={table} />}
 
-            {paginationOptions &&
-                table.getFilteredRowModel().rows.length > 25 && (
-                    <TablePagination
-                        paginationOptions={paginationOptions}
-                        table={table}
-                    />
-                )}
+            {table.getFilteredRowModel().rows.length > 25 && (
+                <TablePagination table={table} />
+            )}
         </Box>
     );
 }
