@@ -1,16 +1,53 @@
 import type {
     TooltipProps as RACTooltipProps,
-    TooltipTriggerComponentProps as RACTooltipTriggerComponentProps} from "react-aria-components";
+    TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
+} from "react-aria-components";
+import type { ButtonProps as RACButtonProps } from "react-aria-components";
 
 import clsx from "clsx";
+import { forwardRef } from "react";
 import {
     OverlayArrow as RACOverlayArrow,
     Tooltip as RACTooltip,
-    TooltipTrigger as RACTooltipTrigger
+    TooltipTrigger as RACTooltipTrigger,
 } from "react-aria-components";
+import { Button as RACButton } from "react-aria-components";
 
 import { overlayArrowCSS } from "../../popover/styles.css";
-import { overlayArrowSvgCSS, tooltipCSS } from "./styles.css";
+import {
+    overlayArrowSvgCSS,
+    tooltipCSS,
+    tooltipFieldButtonCSS,
+} from "./styles.css";
+
+/** ---------------------------------------------
+ * Trigger Button
+ * ----------------------------------------------- */
+
+export type TriggerButtonProps = RACButtonProps;
+
+/**
+ * A field button is a button that is intended to be used inside a `Group` component
+ * to add additional functionality to a field. The `slot` prop is used to connect the
+ * button to the field.
+ */
+export const TooltipFieldButton = forwardRef<
+    HTMLButtonElement,
+    TriggerButtonProps
+>((props: RACButtonProps, ref) => {
+    return (
+        <RACButton
+            {...props}
+            className={clsx(props.className, tooltipFieldButtonCSS)}
+            excludeFromTabOrder
+            ref={ref}
+        />
+    );
+});
+
+/** ---------------------------------------------
+ * Tooltip
+ * ----------------------------------------------- */
 
 export type TooltipProps = RACTooltipTriggerComponentProps & {
     placement?: RACTooltipProps["placement"];
@@ -21,7 +58,6 @@ export const Tooltip = (props: TooltipProps) => {
     return (
         <RACTooltipTrigger {...props}>
             {props.children}
-
             <RACTooltip
                 {...props}
                 className={({ isEntering, isExiting, placement }) =>
