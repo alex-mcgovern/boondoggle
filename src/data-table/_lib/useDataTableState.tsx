@@ -19,7 +19,7 @@ import {
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import type { FilteringOptions, PaginationOptions } from "../types";
 
@@ -75,6 +75,12 @@ export function useDataTableState<TRowData extends RowData>({
     const [globalFilter, setGlobalFilter] = useState<string | undefined>(
         strFuzzyFilter,
     );
+
+    useEffect(() => {
+        if (strFuzzyFilter && strFuzzyFilter !== globalFilter) {
+            setGlobalFilter(strFuzzyFilter);
+        }
+    }, [globalFilter, strFuzzyFilter]);
 
     const [rowSelection, setRowSelection] = useState({});
 
