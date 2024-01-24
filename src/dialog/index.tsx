@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { DialogProps as RACDialogProps } from "react-aria-components";
 
-import { faTimes } from "@fortawesome/pro-solid-svg-icons";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import {
     Dialog as RACDialog,

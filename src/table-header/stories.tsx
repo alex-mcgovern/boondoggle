@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { faClock, faEllipsis, faPlus } from "@fortawesome/pro-solid-svg-icons";
+import { faClock } from "@fortawesome/pro-solid-svg-icons/faClock";
+import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
+import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 
 import {
     TableActionsContainer,
