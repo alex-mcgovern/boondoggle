@@ -131,6 +131,11 @@ export type DataTableProps<TRowData extends RowData> =
         paginationOptions?: PaginationOptions;
 
         /**
+         * A string to fuzzy search rows in the table
+         */
+        strFuzzyFilter?: string;
+
+        /**
          * The title of the no results message
          */
         strNoResults: string;
@@ -154,6 +159,7 @@ export function DataTable<TRowData extends RowData>({
     onSelect,
     paginationOptions,
     RowActions,
+    strFuzzyFilter,
     strNoResults,
 }: DataTableProps<TRowData>) {
     const { table } = useDataTableState({
@@ -167,6 +173,7 @@ export function DataTable<TRowData extends RowData>({
         isSortable,
         onSelect,
         paginationOptions,
+        strFuzzyFilter,
     });
 
     const hasData = arrayHasLength(table.getFilteredRowModel().rows);

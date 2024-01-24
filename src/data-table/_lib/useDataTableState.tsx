@@ -56,6 +56,7 @@ type UseDataTableStateProps<TRowData extends RowData> = {
     isSortable: boolean | undefined;
     onSelect: ((selection: TRowData[] | undefined) => void) | undefined;
     paginationOptions: PaginationOptions | undefined;
+    strFuzzyFilter: string | undefined;
 };
 
 export function useDataTableState<TRowData extends RowData>({
@@ -69,7 +70,12 @@ export function useDataTableState<TRowData extends RowData>({
     isSortable,
     onSelect,
     paginationOptions,
+    strFuzzyFilter,
 }: UseDataTableStateProps<TRowData>) {
+    const [globalFilter, setGlobalFilter] = useState<string | undefined>(
+        strFuzzyFilter,
+    );
+
     const [rowSelection, setRowSelection] = useState({});
 
     const onRowSelectionChange = useCallback(
@@ -145,15 +151,18 @@ export function useDataTableState<TRowData extends RowData>({
         filterFromLeafRows: false,
         initialState: {
             columnVisibility,
+            globalFilter,
             pagination: {
                 pageSize: 25,
             },
             sorting: initialSorting,
         },
+        onGlobalFilterChange: setGlobalFilter,
         state: {
             ...(isSelectable && {
                 rowSelection,
             }),
+            globalFilter,
         },
     });
 
