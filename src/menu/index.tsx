@@ -16,6 +16,7 @@ import {
 import type { ColorOverlay } from "../index.css";
 
 import { menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
+import { Checkbox } from "../checkbox";
 import { Section } from "../section";
 import { menuCSS } from "./styles.css";
 
@@ -76,6 +77,7 @@ export const Menu = forwardRef(_Menu);
 
 export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
     colorOverlay?: ColorOverlay;
+    icon?: ReactNode;
 };
 
 function _MenuItem<TItem extends object>(
@@ -85,14 +87,57 @@ function _MenuItem<TItem extends object>(
     return (
         <RACMenuItem
             {...props}
-            className={clsx(
-                props.className,
-                menuItemCSS({
-                    colorOverlay: props.colorOverlay,
-                }),
-            )}
+            className={({
+                allowsDragging,
+                isDisabled,
+                isDragging,
+                isDropTarget,
+                isFocused,
+                isFocusVisible,
+                isHovered,
+                isPressed,
+                isSelected,
+                selectionBehavior,
+                selectionMode,
+            }) =>
+                clsx(
+                    props.className,
+                    menuItemCSS({
+                        allowsDragging: allowsDragging ? "true" : "false",
+                        colorOverlay: props.colorOverlay,
+                        hasIcon: props.icon ? "true" : "false",
+                        isDisabled: isDisabled ? "true" : "false",
+                        isDragging: isDragging ? "true" : "false",
+                        isDropTarget: isDropTarget ? "true" : "false",
+                        isFocused: isFocused ? "true" : "false",
+                        isFocusVisible: isFocusVisible ? "true" : "false",
+                        isHovered: isHovered ? "true" : "false",
+                        isPressed: isPressed ? "true" : "false",
+                        isSelected: isSelected ? "true" : "false",
+                        selectionBehavior,
+                        selectionMode,
+                    }),
+                )
+            }
             ref={ref}
-        />
+        >
+            {(renderProps) => {
+                return (
+                    <>
+                        {props.icon}
+                        {typeof props.children === "function"
+                            ? props.children(renderProps)
+                            : props.children}
+                        {renderProps.selectionMode !== "none" ? (
+                            <Checkbox
+                                isIndeterminate
+                                isSelected={renderProps.isSelected}
+                            />
+                        ) : null}
+                    </>
+                );
+            }}
+        </RACMenuItem>
     );
 }
 
@@ -127,17 +172,20 @@ function _DynamicMenu<TItemId extends string = string>(
                         <RACCollection items={item.children}>
                             {(childItem) => (
                                 <MenuItem<IterableMenuItem<TItemId>>
-                                    {...childItem}
+                                    icon={childItem.slotLeft}
+                                    value={item}
                                 >
-                                    {childItem.slotLeft}
                                     {childItem.name}
                                 </MenuItem>
                             )}
                         </RACCollection>
                     </Section>
                 ) : (
-                    <MenuItem<IterableMenuItem<TItemId>> {...item}>
-                        {item.slotLeft}
+                    <MenuItem<IterableMenuItem<TItemId>>
+                        {...item}
+                        icon={item.slotLeft}
+                        value={item}
+                    >
                         {item.name}
                     </MenuItem>
                 );

@@ -1,6 +1,7 @@
 import type {
     ColumnDef,
     FilterFn,
+    Row,
     RowData,
     SortingState,
     VisibilityState,
@@ -8,19 +9,28 @@ import type {
 import type { JSXElementConstructor, ReactNode } from "react";
 
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
+import {
+    getCoreRowModel,
+    getFacetedMinMaxValues,
+    getFacetedRowModel,
+    getFacetedUniqueValues,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+} from "@tanstack/react-table";
+import { useReactTable } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
+import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { Fragment } from "react";
 
 import type { MenuButtonProps } from "../menu-button";
-import type {
-    FilteringOptions,
-    PaginationOptions,
-    WithTableOptionalSelectableRows,
-} from "./types";
+import type { PaginationOptions } from "./types";
 
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
+import { DataTableMultiFilter } from "../data-table-multi-filter";
 import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
 import {
@@ -29,13 +39,32 @@ import {
     TableHeader,
     TableSearchContainer,
 } from "../table-header";
-import { TableColumnFilters } from "./_components/column-filters";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableNoResults } from "./_components/layout/TableNoResults";
-import { useDataTableState } from "./_lib/useDataTableState";
+import { dataTableFuzzyFilter } from "./_lib/dataTableFuzzyFilter";
 import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
+
+/** -----------------------------------------------------------------------------
+ * Extend the `@tanstack/react-table` library to add a new filter function:
+ * ------------------------------------------------------------------------------- */
+
+function dataTableFilterFnMultiSelect<TRowData extends RowData>(
+    row: Row<TRowData>,
+    column_id: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    filter_value: any,
+) {
+    const cell_value = row.getValue(column_id);
+
+    if (!arrayHasLength(filter_value)) {
+        return false;
+    }
+
+    return filter_value.includes(cell_value as string);
+}
+
 declare module "@tanstack/table-core" {
     interface FilterFns {
         multiSelect: FilterFn<unknown>;
@@ -77,69 +106,58 @@ export function TableRowMenuButton<TActionId extends string>(
  * DataTable
  * ------------------------------------------------------------------------------- */
 
-export type DataTableProps<TRowData extends RowData> =
-    WithTableOptionalSelectableRows<TRowData> & {
-        /**
-         * React component to render a list of actions on each row
-         */
-        RowActions?: TV2DataTableRowActions<TRowData>;
+export type DataTableProps<TRowData extends RowData> = {
+    /**
+     * React component to render a list of actions on each row
+     */
+    RowActions?: TV2DataTableRowActions<TRowData>;
 
-        /**
-         * Up to 2 react nodes to render as actions for the table
-         */
-        actions?: [ReactNode?, ReactNode?] | ReactNode;
+    /**
+     * Up to 2 react nodes to render as actions for the table
+     */
+    actions?: [ReactNode?, ReactNode?] | ReactNode;
 
-        /**
-         * Column definitions for the tabular data
-         */
-        /**
-         * Options related to column visibility.
-         */
-        columnVisibility?: VisibilityState;
+    /**
+     * Column definitions for the tabular data
+     */
+    /**
+     * Options related to column visibility.
+     */
+    columnVisibility?: VisibilityState;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        columns: Array<ColumnDef<TRowData, any>>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    columns: Array<ColumnDef<TRowData, any>>;
 
-        /**
-         * An array of objects describing each row in the table
-         */
-        data: Array<TRowData> | undefined;
+    /**
+     * An array of objects describing each row in the table
+     */
+    data: Array<TRowData> | undefined;
 
-        /**
-         * Options related to filtering.
-         */
-        filteringOptions?: FilteringOptions<TRowData>;
+    /**
+     * Grid template columns
+     */
+    gridTemplateColumns: string;
 
-        /**
-         * Grid template columns
-         */
-        gridTemplateColumns: string;
+    /**
+     * The initial sorting state of the table
+     */
+    initialSorting?: SortingState;
 
-        /**
-         * The initial sorting state of the table
-         */
-        initialSorting?: SortingState;
+    /**
+     * Whether to enable fuzzy searching
+     */
+    isFuzzySearchable?: boolean;
 
-        /**
-         * Whether the table should be sortable and show sorting controls
-         */
-        isSortable?: boolean;
+    /**
+     * Options related to pagination.
+     */
+    paginationOptions?: PaginationOptions;
 
-        /**
-         * Options related to pagination.
-         */
-        paginationOptions?: PaginationOptions;
-
-        /**
-         * A string to fuzzy search rows in the table
-         */
-        strFuzzyFilter?: string;
-
-        /**
-         * The title of the no results message
-         */
-        strNoResults: string;
-    };
+    /**
+     * A string to fuzzy search rows in the table
+     */
+    strFuzzyFilter?: string;
+};
 
 /**
  * Component to render tabular data with filtering/sorting controls.
@@ -150,54 +168,83 @@ export function DataTable<TRowData extends RowData>({
     columns,
     columnVisibility,
     data,
-    enableMultiRowSelection = false,
-    filteringOptions,
     gridTemplateColumns,
     initialSorting,
-    isSelectable,
-    isSortable,
-    onSelect,
+    isFuzzySearchable,
     paginationOptions,
     RowActions,
     strFuzzyFilter,
-    strNoResults,
 }: DataTableProps<TRowData>) {
-    const { table } = useDataTableState({
-        columns,
-        columnVisibility,
-        data,
-        enableMultiRowSelection,
-        filteringOptions,
-        initialSorting,
-        isSelectable,
-        isSortable,
-        onSelect,
-        paginationOptions,
+    const [globalFilter, setGlobalFilter] = useState<string | undefined>(
         strFuzzyFilter,
+    );
+
+    useEffect(() => {
+        if (strFuzzyFilter && strFuzzyFilter !== globalFilter) {
+            setGlobalFilter(strFuzzyFilter);
+        }
+    }, [globalFilter, strFuzzyFilter]);
+
+    const table = useReactTable<TRowData>({
+        columns,
+        data: data || [],
+        defaultColumn: {
+            enableColumnFilter: false,
+        },
+        filterFns: {
+            multiSelect: dataTableFilterFnMultiSelect,
+        },
+        filterFromLeafRows: false,
+        getCoreRowModel: getCoreRowModel(),
+        getFacetedMinMaxValues: getFacetedMinMaxValues(),
+        getFacetedRowModel: getFacetedRowModel(),
+        getFacetedUniqueValues: getFacetedUniqueValues(),
+        getFilteredRowModel: getFilteredRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        globalFilterFn: dataTableFuzzyFilter,
+        initialState: {
+            columnVisibility,
+            globalFilter,
+            pagination: {
+                pageSize: 25,
+            },
+            sorting: initialSorting,
+        },
+        onGlobalFilterChange: setGlobalFilter,
+        state: {
+            globalFilter,
+        },
     });
 
     const hasData = arrayHasLength(table.getFilteredRowModel().rows);
 
+    const filterableColumns = useMemo(
+        () => table.getAllColumns().filter((c) => c.getCanFilter()),
+        [table],
+    );
+
     return (
         <Box>
-            {actions || filteringOptions ? (
+            {actions ||
+            isFuzzySearchable ||
+            arrayHasLength(filterableColumns) ? (
                 <TableHeader>
-                    {filteringOptions && (
-                        <TableSearchContainer>
-                            <TableGlobalFilter<TRowData>
-                                filteringOptions={filteringOptions}
-                                table={table}
-                            />
-                        </TableSearchContainer>
-                    )}
-                    {filteringOptions && (
+                    <TableSearchContainer>
+                        <TableGlobalFilter<TRowData> table={table} />
+                    </TableSearchContainer>
+
+                    {arrayHasLength(filterableColumns) && (
                         <TableFiltersContainer>
-                            <TableColumnFilters<TRowData>
-                                filteringOptions={filteringOptions}
-                                table={table}
-                            />
+                            {filterableColumns.map((c) => (
+                                <DataTableMultiFilter<TRowData>
+                                    column={c}
+                                    key={c.id}
+                                />
+                            ))}
                         </TableFiltersContainer>
                     )}
+
                     {actions && (
                         <TableActionsContainer>{actions}</TableActionsContainer>
                     )}
@@ -216,32 +263,19 @@ export function DataTable<TRowData extends RowData>({
                 >
                     {table.getHeaderGroups().map((hg) =>
                         hg.headers.map((h) => {
-                            const headerContent = h.isPlaceholder
-                                ? null
-                                : flexRender(
-                                      h.column.columnDef.header,
-                                      h.getContext(),
-                                  );
-
-                            if (isSortable) {
-                                return (
-                                    <div
-                                        className={tableHeaderCellCSS}
-                                        key={h.id}
-                                    >
-                                        <TableSortButton header={h}>
-                                            {headerContent}
-                                        </TableSortButton>
-                                    </div>
-                                );
-                            }
-
                             return (
                                 <div
                                     className={tableHeaderCellCSS}
                                     key={h.id}
                                 >
-                                    {headerContent}
+                                    <TableSortButton header={h}>
+                                        {h.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                  h.column.columnDef.header,
+                                                  h.getContext(),
+                                              )}
+                                    </TableSortButton>
                                 </div>
                             );
                         }),
@@ -271,13 +305,7 @@ export function DataTable<TRowData extends RowData>({
                 </Box>
             )}
 
-            {!hasData && (
-                <TableNoResults
-                    filteringOptions={filteringOptions}
-                    strNoResults={strNoResults}
-                    table={table}
-                />
-            )}
+            {!hasData && <TableNoResults table={table} />}
 
             {paginationOptions &&
                 table.getFilteredRowModel().rows.length > 25 && (

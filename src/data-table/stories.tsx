@@ -36,38 +36,31 @@ type Story = StoryObj<typeof meta>;
 
 export const MOCK_FILTER_STRINGS = {
     balance: {
-        strFilterDialogTitle: "Filter by balance",
-        strFilterPillText: "Balance",
+        filterButtonText: "Filter by balance",
         transformNumericFromRaw: (value: string) => value,
     },
     email_address: {
-        strFilterDialogTitle: "Filter by email address",
-        strFilterPillText: "Email address",
+        filterButtonText: "Filter by email address",
         transformNumericFromRaw: (value: string) => value,
     },
     first_name: {
-        strFilterDialogTitle: "Filter by first name",
-        strFilterPillText: "First name",
+        filterButtonText: "Filter by first name",
         transformNumericFromRaw: (value: string) => value,
     },
     id: {
-        strFilterDialogTitle: "Filter by ID",
-        strFilterPillText: "ID",
+        filterButtonText: "Filter by ID",
         transformNumericFromRaw: (value: string) => value,
     },
     last_name: {
-        strFilterDialogTitle: "Filter by last name",
-        strFilterPillText: "Last name",
+        filterButtonText: "Filter by last name",
         transformNumericFromRaw: (value: string) => value,
     },
     phone_number: {
-        strFilterDialogTitle: "Filter by phone number",
-        strFilterPillText: "Phone number",
+        filterButtonText: "Filter by phone number",
         transformNumericFromRaw: (value: string) => value,
     },
     status: {
-        strFilterDialogTitle: "Filter by status",
-        strFilterPillText: "Status",
+        filterButtonText: "Status",
         transformNumericFromRaw: (value: MockTableData["status"]) => {
             switch (value) {
                 case "active":
@@ -126,9 +119,7 @@ const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
  * ------------------------------------------------------------------------------- */
 
 export const Default: Story = {
-    args: {
-        strNoResults: "No results",
-    },
+    args: {},
 };
 
 export const IsPaginated: Story = {
@@ -139,113 +130,12 @@ export const IsPaginated: Story = {
             strPrev: "Previous",
             strResults: "Results",
         },
-        strNoResults: "No results",
-    },
-};
-
-export const IsSortable: Story = {
-    args: {
-        isSortable: true,
-        strNoResults: "No results",
     },
 };
 
 export const IsGlobalFilterEnabled: Story = {
     args: {
-        filteringOptions: {
-            strClearAllFilters: "Clear all filters",
-            strClearFilterInput: "Clear filter input",
-            strFilterPlaceholder: "Filter results...",
-        },
-        strNoResults: "No results",
-    },
-};
-
-export const IsGlobalFilterEnabledWithNoResults: Story = {
-    args: {
-        data: [],
-        filteringOptions: {
-            strClearAllFilters: "Clear all filters",
-            strClearFilterInput: "Clear filter input",
-            strFilterPlaceholder: "Filter results...",
-        },
-        strNoResults: "No results",
-    },
-};
-
-export const IsColumnFilterEnabled: Story = {
-    args: {
-        filteringOptions: {
-            columnFilterConfig: {
-                balance: {
-                    strFilterDialogTitle: "Filter by balance",
-                    strFilterPillText: "Balance",
-                    transformNumericFromRaw: (value: number | undefined) =>
-                        value !== undefined ? value / 100 : undefined,
-                    transformNumericToRaw: (value: number | undefined) =>
-                        value !== undefined ? value * 100 : undefined,
-                    type: "NUMBER_RANGE",
-                },
-                points: {
-                    strFilterDialogTitle: "Filter by points",
-                    strFilterPillText: "Points",
-                    type: "NUMBER_RANGE",
-                },
-                status: {
-                    strFilterDialogTitle: "Filter by status",
-                    strFilterPillText: "Status",
-                    transformValueToString: (
-                        value: MockTableData["status"],
-                    ) => {
-                        switch (value) {
-                            case "active":
-                                return "Active";
-                            case "inactive":
-                                return "Inactive";
-                            case "invited":
-                                return "Invited";
-                            default:
-                                return value;
-                        }
-                    },
-                    type: "MULTI_SELECT",
-                },
-            },
-            strClearAllFilters: "Clear all filters",
-            strClearFilterInput: "Clear filter input",
-            strFilterPlaceholder: "Filter results...",
-        },
-        isSortable: true,
-        strNoResults: "No results",
-    },
-};
-
-export const IsSelectable: Story = {
-    args: {
-        gridTemplateColumns: "min-content 1fr repeat(3, min-content)",
-        isSelectable: true,
-        onSelect: (rowSelection) => {
-            alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-        },
-        strNoResults: "No results",
-    },
-};
-
-export const IsSelectableWithEnableMultiRowSelection: Story = {
-    args: {
-        enableMultiRowSelection: true,
-        gridTemplateColumns: "min-content 1fr repeat(3, min-content)",
-        isSelectable: true,
-        onSelect: (rowSelection) => {
-            alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-        },
-        strNoResults: "No results",
-    },
-};
-
-export const WithAggregatedCell: Story = {
-    args: {
-        strNoResults: "No results",
+        isFuzzySearchable: true,
     },
 };
 
@@ -257,8 +147,6 @@ export const WithInitialSorting: Story = {
                 id: "last_name",
             },
         ],
-        isSortable: true,
-        strNoResults: "No results",
     },
 };
 
@@ -273,7 +161,6 @@ export const With1Action: Story = {
                 Primary action
             </Button>
         ),
-        strNoResults: "No results",
     },
 };
 
@@ -298,8 +185,6 @@ export const With2Actions: Story = {
                 </Button>
             </>
         ),
-
-        strNoResults: "No results",
     },
 };
 
@@ -307,7 +192,6 @@ export const WithRowActionItems: Story = {
     args: {
         gridTemplateColumns: "1fr repeat(3, min-content)",
         RowActions: MockRowActionsComponent,
-        strNoResults: "No results",
     },
 };
 
@@ -316,7 +200,6 @@ export const WithRowActionItemsShortList: Story = {
         data: Array.from({ length: 1 }, mockColumn),
         gridTemplateColumns: "1fr repeat(3, min-content)",
         RowActions: MockRowActionsComponent,
-        strNoResults: "No results",
     },
 };
 
@@ -341,52 +224,8 @@ export const KitchenSink: Story = {
                 </Button>
             </>
         ),
-        filteringOptions: {
-            columnFilterConfig: {
-                balance: {
-                    strFilterDialogTitle: "Filter by balance",
-                    strFilterPillText: "Balance",
-                    transformNumericFromRaw: (value: number | undefined) =>
-                        value !== undefined ? value / 100 : undefined,
-                    transformNumericToRaw: (value: number | undefined) =>
-                        value !== undefined ? value * 100 : undefined,
-                    type: "NUMBER_RANGE",
-                },
-                points: {
-                    strFilterDialogTitle: "Filter by points",
-                    strFilterPillText: "Points",
-                    type: "NUMBER_RANGE",
-                },
-                status: {
-                    strFilterDialogTitle: "Filter by status",
-                    strFilterPillText: "Status",
-                    transformValueToString: (
-                        value: MockTableData["status"],
-                    ) => {
-                        switch (value) {
-                            case "active":
-                                return "Active";
-                            case "inactive":
-                                return "Inactive";
-                            case "invited":
-                                return "Invited";
-                            default:
-                                return value;
-                        }
-                    },
-                    type: "MULTI_SELECT",
-                },
-            },
-            strClearAllFilters: "Clear all filters",
-            strClearFilterInput: "Clear filter input",
-            strFilterPlaceholder: "Filter results...",
-        },
+
         gridTemplateColumns: "min-content 1fr repeat(4, min-content)",
-        isSelectable: true,
-        isSortable: true,
-        onSelect: (rowSelection) => {
-            alert(`Selected rows \n ${JSON.stringify(rowSelection, null, 2)}`);
-        },
         paginationOptions: {
             strNext: "Next",
             strPage: "Page",
@@ -394,6 +233,5 @@ export const KitchenSink: Story = {
             strResults: "Results",
         },
         RowActions: MockRowActionsComponent,
-        strNoResults: "No results",
     },
 };

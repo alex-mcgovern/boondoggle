@@ -17,9 +17,9 @@ export const checkboxTickCSS = recipe({
             strokeWidth: vars.spacing.space_1,
         },
         css({
-            height: "space_4",
+            height: "space_3",
             transition: "medium",
-            width: "space_4",
+            width: "space_3",
         }),
     ],
     variants: {
@@ -87,11 +87,11 @@ export const checkboxCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
         border: "border_field",
         borderRadius: "sm",
         display: "flex",
-        height: "space_5",
+        height: "space_4",
         padding: "space_0.75",
         placeItems: "center",
         transition: "short",
-        width: "space_5",
+        width: "space_4",
     }),
     compoundVariants: [
         {

@@ -28,34 +28,7 @@ export type PaginationOptions = {
     strResults: string;
 };
 
-export type FilteringOptions<TRowData extends RowData> = {
-    /**
-     * A key-value map of column IDs to their filter configurations.
-     */
-    columnFilterConfig?: Partial<
-        Record<
-            keyof TRowData,
-            | {
-                  strFilterDialogTitle: string;
-                  strFilterPillText: string;
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  transformValueToString?: (value: any) => string;
-                  type: "MULTI_SELECT";
-              }
-            | {
-                  strFilterDialogTitle: string;
-                  strFilterPillText: string;
-                  transformNumericFromRaw?: (
-                      value: number | undefined,
-                  ) => number | undefined;
-                  transformNumericToRaw?: (
-                      value: number | undefined,
-                  ) => number | undefined;
-                  type: "NUMBER_RANGE";
-              }
-        >
-    >;
-
+export type Filters = {
     /**
      * The text to display for the clear filters button.
      */
@@ -143,11 +116,11 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
           /**
            * A key-value map of column IDs to their filter configurations.
            */
-          columnFilterConfig: Partial<
+          columns: Partial<
               Record<
                   keyof TRowData,
                   | {
-                        strFilterDialogTitle: string;
+                        filterButtonText: string;
                         strFilterPillText: string;
 
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -169,7 +142,7 @@ export type WithTableOptionalFiltering<TRowData extends RowData> =
               Record<
                   keyof TRowData,
                   {
-                      strFilterDialogTitle: string;
+                      filterButtonText: string;
                       strFilterPillText: string;
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       transformNumericFromRaw: (value: any) => string;

@@ -44,6 +44,33 @@ module.exports = {
             "error",
             { prefer: "type-imports" },
         ],
+        "no-restricted-imports": [
+            "error",
+            {
+                paths: [
+                    {
+                        message:
+                            "Use deep import, e.g. `@fortawesome/pro-solid-svg-icons/faCheck`",
+                        name: "@fortawesome/pro-solid-svg-icons",
+                    },
+                    {
+                        message:
+                            "Use deep import, e.g. `@fortawesome/pro-solid-svg-icons/faCheck`",
+                        name: "@fortawesome/pro-regular-svg-icons",
+                    },
+                    {
+                        message:
+                            "Use deep import, e.g. `@fortawesome/pro-duotone-svg-icons/faCheck`",
+                        name: "@fortawesome/pro-duotone-svg-icons",
+                    },
+                    {
+                        message:
+                            "Use deep import, e.g. `@fortawesome/free-brands-svg-icons/faCheck`",
+                        name: "@fortawesome/free-brands-svg-icons",
+                    },
+                ],
+            },
+        ],
         "perfectionist/sort-objects": [
             "error",
             {
