@@ -7,11 +7,11 @@ import { createVar, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../../_css-utils/react-aria-recipe";
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
-import { withPrefersMotion } from "../../_css-utils";
-import { css } from "../../css/index.css";
-import { vars } from "../../index.css";
+import { withPrefersMotion } from "../_css-utils";
+import { css } from "../css/index.css";
+import { vars } from "../index.css";
 
 const TRANSLATE_DISTANCE = vars.spacing.space_1;
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
