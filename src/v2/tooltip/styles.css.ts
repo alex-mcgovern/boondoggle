@@ -299,8 +299,8 @@ export const tooltipFieldButtonCSS = style([
         flexShrink: "0",
         fontStyle: "bodyMd",
 
-        height: "space_6",
-        width: "space_6",
+        height: "100%",
+        width: "100%",
     }),
     withPrefersMotion({
         transitionDuration: vars.transitionDuration.short,

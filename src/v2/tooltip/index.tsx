@@ -57,7 +57,7 @@ export type TooltipProps = RACTooltipTriggerComponentProps & {
 export const Tooltip = (props: TooltipProps) => {
     return (
         <RACTooltipTrigger {...props}>
-            {props.children}
+            <TooltipFieldButton>{props.children}</TooltipFieldButton>
             <RACTooltip
                 {...props}
                 className={({ isEntering, isExiting, placement }) =>
@@ -69,7 +69,7 @@ export const Tooltip = (props: TooltipProps) => {
                         }),
                     )
                 }
-                offset={10}
+                offset={6}
                 placement={props.placement}
             >
                 <RACOverlayArrow className={clsx(overlayArrowCSS)}>
@@ -83,7 +83,7 @@ export const Tooltip = (props: TooltipProps) => {
                                 viewBox="0 0 8 8"
                                 width={12}
                             >
-                                <path d="M2 0 L4 5 L6 0" />
+                                <path d="M2 0 L4 4 L6 0" />
                             </svg>
                         );
                     }}
