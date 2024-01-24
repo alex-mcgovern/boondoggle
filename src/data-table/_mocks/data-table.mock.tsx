@@ -79,8 +79,6 @@ export const COLUMNS = [
         cell: (info) => {
             return <Pill>{info.getValue()}</Pill>;
         },
-        enableColumnFilter: true,
-        filterFn: "multiSelect",
         header: () => {
             return "Status";
         },
