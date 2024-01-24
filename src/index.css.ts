@@ -41,10 +41,7 @@ export const CONTAINER_SM = "(width < 496px)";
  * SELECTORS
  * ------------------------------------------------------------------------------- */
 
-const SELECTOR_IS_LINK_BUTTON_INPUT = ":is(a,button,input)";
-
-export const DISABLED =
-    ":is([disabled], [aria-disabled='true'], [data-disabled])";
+const DISABLED = ":is([disabled], [aria-disabled='true'], [data-disabled])";
 export const NOT_DISABLED = `:not(${DISABLED})`;
 
 export const HOVER = ":is(:hover,[data-hovered])";
@@ -53,59 +50,6 @@ export const FOCUS = ":is(:focus,[data-focused])";
 export const FOCUS_VISIBLE = ":is(:focus-visible,[data-focus-visible])";
 
 export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
-
-const SELECTOR_IS_HOVER_FOCUS = ":is(:hover, :focus-visible)";
-
-const SELECTOR_IS_ACTIVE = ":is(:active, [data-active='true'])";
-
-/**
- * Button/link/input: hover
- */
-const hoverSelectorArray = [
-    "&",
-    SELECTOR_IS_LINK_BUTTON_INPUT,
-    NOT_DISABLED,
-    HOVER,
-];
-
-export const SELECTOR_LINK_BUTTON_INPUT_HOVER = hoverSelectorArray.join("");
-
-/**
- * Button/link/input: focus
- */
-const focusSelectorArray = [
-    "&",
-    SELECTOR_IS_LINK_BUTTON_INPUT,
-    NOT_DISABLED,
-    SELECTOR_IS_FOCUS,
-];
-
-export const SELECTOR_LINK_BUTTON_INPUT_FOCUS = focusSelectorArray.join("");
-
-/**
- * Button/link/input: hover/focus
- */
-const hoverFocusSelectorArray = [
-    "&",
-    SELECTOR_IS_LINK_BUTTON_INPUT,
-    NOT_DISABLED,
-    SELECTOR_IS_HOVER_FOCUS,
-];
-
-export const SELECTOR_LINK_BUTTON_INPUT_HOVER_FOCUS =
-    hoverFocusSelectorArray.join("");
-
-/**
- * Button/link/input: active
- */
-const activeSelectorArray = [
-    "&",
-    SELECTOR_IS_LINK_BUTTON_INPUT,
-    NOT_DISABLED,
-    SELECTOR_IS_ACTIVE,
-];
-
-export const SELECTOR_LINK_BUTTON_INPUT_ACTIVE = activeSelectorArray.join("");
 
 /** -----------------------------------------------------------------------------
  * UTILITY CLASSES
@@ -122,9 +66,9 @@ globalStyle(`${hideLastpassStyle} div[data-lastpass-icon-root]`, {
  * CSS LAYERS
  * ------------------------------------------------------------------------------- */
 
-export const resetLayer = globalLayer("reset");
-export const baseLayer = globalLayer("base");
-export const themeLayer = globalLayer("theme");
+const resetLayer = globalLayer("reset");
+const baseLayer = globalLayer("base");
+const themeLayer = globalLayer("theme");
 export const sprinklesLayer = globalLayer("sprinkles");
 
 /** -----------------------------------------------------------------------------
@@ -300,11 +244,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
  * ANIMATIONS
  * ------------------------------------------------------------------------------- */
 
-export const fadeInBackdropKeyframes = keyframes({
-    "0%": { background: "transparent" },
-    "100%": { background: vars.color.backdrop },
-});
-
 const fadeInKeyframes = keyframes({
     "0%": { opacity: 0 },
     "100%": { opacity: 1 },
@@ -313,17 +252,6 @@ const fadeInKeyframes = keyframes({
 export const animateFadeIn = style([
     withPrefersMotion({
         animation: `${fadeInKeyframes} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-    }),
-]);
-
-const slideUpKeyframes = keyframes({
-    "0%": { opacity: 0, transform: `translateY(${vars.spacing.space_10})` },
-    "100%": { opacity: 1 },
-});
-
-export const animateSlideUp = style([
-    withPrefersMotion({
-        animation: `${slideUpKeyframes} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
     }),
 ]);
 
@@ -434,36 +362,6 @@ export const a11yFocusStyleRule: StyleRule = {
     borderColor: vars.color.focus_border,
     outline: `2px solid ${vars.color.focus_ring} `,
 };
-
-export const a11yError = style([
-    {
-        "@layer": {
-            [themeLayer]: {
-                borderColor: vars.color.bg_button_primary,
-                selectors: {
-                    "&:is(&:focus, &:focus-visible), &:focus-within": {
-                        ...a11yFocusStyleRule,
-                    },
-                },
-            },
-        },
-    },
-]);
-
-export const a11yDisabled = style({
-    "@layer": {
-        [themeLayer]: {
-            selectors: {
-                [`&${DISABLED}:hover`]: {
-                    cursor: "not-allowed !important",
-                },
-                [`&${DISABLED}`]: {
-                    opacity: 0.5,
-                },
-            },
-        },
-    },
-});
 
 export const a11yFocus = style([
     {
@@ -888,105 +786,6 @@ globalStyle("hr", {
     },
 });
 
-export const textFieldStyleRule: StyleRule = {
-    background: vars.color.background,
-    border: `1px solid ${vars.color.border_rule}`,
-    borderRadius: vars.borderRadius.md,
-    color: vars.color.text_high_contrast,
-    fontWeight: vars.fontWeight.normal,
-    padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
-    ...withPrefersMotion({
-        transition: `ease ${vars.transitionDuration.short} ease`,
-        transitionProperty: "color, background-color, border-color",
-    }),
-};
-
-globalStyle("textarea", {
-    "@layer": {
-        [baseLayer]: {
-            ...textFieldStyleRule,
-        },
-    },
-});
-
-globalStyle("select", {
-    "@layer": {
-        [baseLayer]: {
-            ...textFieldStyleRule,
-        },
-    },
-});
-
-globalStyle("textarea[readonly]", {
-    "@layer": {
-        [baseLayer]: {
-            background: vars.color.tint_default,
-        },
-    },
-});
-
-globalStyle(
-    "input::-webkit-outer-spin-button, input::-webkit-inner-spin-button",
-    {
-        "@layer": {
-            [baseLayer]: {
-                margin: 0,
-                WebkitAppearance: "none",
-            },
-        },
-    },
-);
-
-globalStyle("input[type=number]", {
-    "@layer": {
-        [baseLayer]: {
-            MozAppearance: "textfield",
-        },
-    },
-});
-
-globalStyle("input::placeholder, textarea::placeholder", {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.text_low_contrast,
-        },
-    },
-});
-
-globalStyle(
-    "input:not([disabled]):is(:hover), textarea:not([disabled]):is(:hover)",
-    {
-        "@layer": {
-            [baseLayer]: {
-                // background: vars.color.tint_default,
-                // borderColor: vars.color.border_field_active,
-            },
-        },
-    },
-);
-
-globalStyle(
-    "input:not([disabled]):is(:focus-visible), textarea:not([disabled]):is(:focus-visible)",
-    {
-        "@layer": {
-            [baseLayer]: {
-                // ...a11yFocusStyleRule,
-            },
-        },
-    },
-);
-
-globalStyle(
-    "input[disabled]:is(:focus-visible, :focus), textarea[disabled]:is(:focus-visible, :focus)",
-    {
-        "@layer": {
-            [baseLayer]: {
-                outline: "none",
-            },
-        },
-    },
-);
-
 /** -----------------------------------------------------------------------------
  * LIST ELEMENTS
  * ------------------------------------------------------------------------------- */
@@ -1050,41 +849,11 @@ globalStyle("p", {
  * Some re-usable style rules that can apply table styling to different elements.
  */
 
-const tableStyleRule: StyleRule = {
-    borderCollapse: "collapse",
-    borderSpacing: 0,
-    tableLayout: "fixed",
-    width: "100%",
-};
 const tHeadStyleRule: StyleRule = {
     fontSize: vars.fontSize.bodySm,
     fontWeight: vars.fontWeight.semibold,
 };
 
-/**
- * Styles for outer table element.
- */
-// globalStyle("table", {
-// 	"@layer": {
-// 		[baseLayer]: {
-// 			...tableStyleRule,
-// 		},
-// 	},
-// });
-export const tableStyles = style({
-    display: "table",
-    ...tableStyleRule,
-});
-/**
- * Table head cell styles
- */
-// globalStyle("thead", {
-// 	"@layer": {
-// 		[baseLayer]: {
-// 			...tHeadStyleRule,
-// 		},
-// 	},
-// });
 export const tHeadStyles = style({
     display: "table-header-group",
     ...tHeadStyleRule,
@@ -1130,22 +899,6 @@ export const tdStyles = style({
     ...tableCellStyleRule,
 });
 
-// globalStyle("thead th", {
-// 	"@layer": {
-// 		[baseLayer]: {
-// 			whiteSpace: "nowrap",
-// 		},
-// 	},
-// });
-
-// globalStyle(`${tHeadStyles} ${thStyles}`, {
-// 	"@layer": {
-// 		[baseLayer]: {
-// 			whiteSpace: "nowrap",
-// 		},
-// 	},
-// });
-
 // Display table classes
 
 export const tBodyStyles = style({
@@ -1155,58 +908,6 @@ export const tBodyStyles = style({
 export const tRowStyles = style({
     display: "table-row",
 });
-
-// Ensure that table cells have border bottom, unless they are the last row
-
-// const tableCellBorderStyleRule: StyleRule = {
-// 	borderBottom: `1px solid ${vars.color.border_rule}`,
-// };
-
-// globalStyle(
-// 	`${tHeadStyles}:not(:last-child) ${thStyles}, ${tRowStyles}:not(:last-of-type) ${tdStyles}`,
-// 	{
-// 		"@layer": {
-// 			[baseLayer]: {
-// 				...tableCellBorderStyleRule,
-// 			},
-// 		},
-// 	},
-// );
-
-// globalStyle("thead:not(:last-child) th, tr:not(:last-of-type) td", {
-// 	"@layer": {
-// 		[baseLayer]: {
-// 			...tableCellBorderStyleRule,
-// 		},
-// 	},
-// });
-
-/** -----------------------------------------------------------------------------
- * REUSABLE: UNSTYLED INPUT
- * ------------------------------------------------------------------------------- */
-
-export const unstyledInput = style([
-    {
-        appearance: "none",
-        background: "none",
-        border: "none",
-        font: "inherit",
-        margin: 0,
-
-        selectors: {
-            "&::-webkit-inner-spin-button, &::-webkit-outer-spin-button": {
-                display: "none",
-            },
-            "&::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration":
-                {
-                    display: "none",
-                },
-            "&:focus": {
-                outline: "none",
-            },
-        },
-    },
-]);
 
 /** -----------------------------------------------------------------------------
  * ELEMENT SIZING

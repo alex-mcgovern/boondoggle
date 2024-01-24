@@ -17,7 +17,7 @@ const border = {
     transparent: "1px solid transparent",
 };
 
-export const properties = defineProperties({
+const properties = defineProperties({
     "@layer": sprinklesLayer,
     properties: {
         alignItems: ["stretch", "start", "center", "end", "baseline"],
@@ -116,7 +116,7 @@ export const properties = defineProperties({
     },
 });
 
-export const responsiveProperties = defineProperties({
+const responsiveProperties = defineProperties({
     conditions: {
         desktop: {
             "@media": MEDIA_QUERY_DESKTOP,
