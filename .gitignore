@@ -73,5 +73,3 @@ tmp
 # storybook build output
 storybook-static
 
-# npmrc with credentials
-.npmrc
