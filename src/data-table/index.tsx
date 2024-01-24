@@ -1,7 +1,5 @@
 import type {
     ColumnDef,
-    FilterFn,
-    Row,
     RowData,
     SortingState,
     VisibilityState,
@@ -11,9 +9,6 @@ import type { JSXElementConstructor, ReactNode } from "react";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import {
     getCoreRowModel,
-    getFacetedMinMaxValues,
-    getFacetedRowModel,
-    getFacetedUniqueValues,
     getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
@@ -21,7 +16,6 @@ import {
 import { useReactTable } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
-import { useMemo } from "react";
 import { Fragment } from "react";
 
 import type { MenuButtonProps } from "../menu-button";
@@ -29,12 +23,10 @@ import type { MenuButtonProps } from "../menu-button";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
-import { DataTableMultiFilter } from "../data-table-multi-filter";
 import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
 import {
     TableActionsContainer,
-    TableFiltersContainer,
     TableHeader,
     TableSearchContainer,
 } from "../table-header";
@@ -44,31 +36,6 @@ import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableNoResults } from "./_components/layout/TableNoResults";
 import { dataTableFuzzyFilter } from "./_lib/dataTableFuzzyFilter";
 import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
-
-/** -----------------------------------------------------------------------------
- * Extend the `@tanstack/react-table` library to add a new filter function:
- * ------------------------------------------------------------------------------- */
-
-function dataTableFilterFnMultiSelect<TRowData extends RowData>(
-    row: Row<TRowData>,
-    column_id: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    filter_value: any,
-) {
-    const cell_value = row.getValue(column_id);
-
-    if (!arrayHasLength(filter_value)) {
-        return false;
-    }
-
-    return filter_value.includes(cell_value as string);
-}
-
-declare module "@tanstack/table-core" {
-    interface FilterFns {
-        multiSelect: FilterFn<unknown>;
-    }
-}
 
 /** -----------------------------------------------------------------------------
  * TableRowMenuButton
@@ -112,8 +79,10 @@ export type DataTableProps<TRowData extends RowData> = {
     RowActions?: TV2DataTableRowActions<TRowData>;
 
     /**
+     * @deprecated
      * Up to 2 react nodes to render as actions for the table
      */
+
     actions?: [ReactNode?, ReactNode?] | ReactNode;
 
     /**
@@ -143,6 +112,7 @@ export type DataTableProps<TRowData extends RowData> = {
     initialSorting?: SortingState;
 
     /**
+     * @deprecated
      * Whether to enable fuzzy searching
      */
     isFuzzySearchable?: boolean;
@@ -181,17 +151,8 @@ export function DataTable<TRowData extends RowData>({
     const table = useReactTable<TRowData>({
         columns,
         data: data || [],
-        defaultColumn: {
-            enableColumnFilter: false,
-        },
-        filterFns: {
-            multiSelect: dataTableFilterFnMultiSelect,
-        },
         filterFromLeafRows: false,
         getCoreRowModel: getCoreRowModel(),
-        getFacetedMinMaxValues: getFacetedMinMaxValues(),
-        getFacetedRowModel: getFacetedRowModel(),
-        getFacetedUniqueValues: getFacetedUniqueValues(),
         getFilteredRowModel: getFilteredRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
@@ -212,31 +173,13 @@ export function DataTable<TRowData extends RowData>({
 
     const hasData = arrayHasLength(table.getFilteredRowModel().rows);
 
-    const filterableColumns = useMemo(
-        () => table.getAllColumns().filter((c) => c.getCanFilter()),
-        [table],
-    );
-
     return (
         <Box>
-            {actions ||
-            isFuzzySearchable ||
-            arrayHasLength(filterableColumns) ? (
+            {actions || isFuzzySearchable ? (
                 <TableHeader>
                     <TableSearchContainer>
                         <TableGlobalFilter<TRowData> table={table} />
                     </TableSearchContainer>
-
-                    {arrayHasLength(filterableColumns) && (
-                        <TableFiltersContainer>
-                            {filterableColumns.map((c) => (
-                                <DataTableMultiFilter<TRowData>
-                                    column={c}
-                                    key={c.id}
-                                />
-                            ))}
-                        </TableFiltersContainer>
-                    )}
 
                     {actions && (
                         <TableActionsContainer>{actions}</TableActionsContainer>
