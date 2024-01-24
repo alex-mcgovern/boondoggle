@@ -57,7 +57,7 @@ export type TooltipProps = RACTooltipTriggerComponentProps & {
 export const Tooltip = (props: TooltipProps) => {
     return (
         <RACTooltipTrigger {...props}>
-            <TooltipFieldButton>{props.children}</TooltipFieldButton>
+            {props.children}
             <RACTooltip
                 {...props}
                 className={({ isEntering, isExiting, placement }) =>
