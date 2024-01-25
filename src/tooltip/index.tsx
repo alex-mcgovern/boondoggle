@@ -20,7 +20,7 @@ import {
     tooltipFieldButtonCSS,
 } from "./styles.css";
 import { Icon } from "../icon";
-import { faInfoCircle } from "@fortawesome/pro-duotone-svg-icons";
+import { faQuestionCircle } from "@fortawesome/pro-duotone-svg-icons";
 
 /** ---------------------------------------------
  * Trigger Button
@@ -44,7 +44,7 @@ export const TooltipTriggerButton = forwardRef<
             excludeFromTabOrder
             ref={ref}
         >
-            <Icon icon={faInfoCircle} />
+            <Icon icon={faQuestionCircle} />
         </RACButton>
     );
 });
