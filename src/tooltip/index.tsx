@@ -13,7 +13,7 @@ import {
 } from "react-aria-components";
 import { Button as RACButton } from "react-aria-components";
 
-import { overlayArrowCSS } from "../../popover/styles.css";
+import { overlayArrowCSS } from "../popover/styles.css";
 import {
     overlayArrowSvgCSS,
     tooltipCSS,

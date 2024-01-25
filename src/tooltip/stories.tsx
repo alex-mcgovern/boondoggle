@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Tooltip } from ".";
-import { Button } from "../../button";
+import { Button } from "../button";
 
 const meta = {
     args: {
+        delay: 0,
         children: <Button>Tooltip</Button>,
         tooltipContent: "Tooltip text",
     },
     component: Tooltip,
-    title: "Components/Tooltip",
+    title: "Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
