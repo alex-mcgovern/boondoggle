@@ -24,16 +24,16 @@ import {
  * Trigger Button
  * ----------------------------------------------- */
 
-export type TriggerButtonProps = RACButtonProps;
+export type TooltipTriggerButtonProps = RACButtonProps;
 
 /**
  * A field button is a button that is intended to be used inside a `Group` component
  * to add additional functionality to a field. The `slot` prop is used to connect the
  * button to the field.
  */
-export const TooltipFieldButton = forwardRef<
+export const TooltipTriggerButton = forwardRef<
     HTMLButtonElement,
-    TriggerButtonProps
+    TooltipTriggerButtonProps
 >((props: RACButtonProps, ref) => {
     return (
         <RACButton

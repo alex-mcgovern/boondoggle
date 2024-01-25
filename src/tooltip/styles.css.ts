@@ -309,16 +309,6 @@ export const tooltipFieldButtonCSS = style([
     {
         selectors: {
             /**
-             * Ensure spacing between field-buttons within a group.
-             */
-            "&:first-of-type": {
-                marginLeft: vars.spacing.space_1,
-            },
-            "&:last-of-type": {
-                marginRight: vars.spacing.space_1,
-            },
-
-            /**
              * Whether the button is disabled.
              */
             "&[data-disabled]": {
