@@ -5,8 +5,8 @@ import { Button } from "../button";
 
 const meta = {
     args: {
-        delay: 0,
         children: <Button>Tooltip</Button>,
+        delay: 0,
         tooltipContent: "Tooltip text",
     },
     component: Tooltip,

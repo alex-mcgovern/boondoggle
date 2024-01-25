@@ -1,10 +1,11 @@
 import type {
+    ButtonProps as RACButtonProps,
     TooltipProps as RACTooltipProps,
     TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
-    ButtonProps as RACButtonProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
+import { forwardRef } from "react";
 import {
     Button as RACButton,
     OverlayArrow as RACOverlayArrow,
@@ -18,7 +19,6 @@ import {
     tooltipCSS,
     tooltipFieldButtonCSS,
 } from "./styles.css";
-import { forwardRef } from "react";
 
 /** ---------------------------------------------
  * Trigger Button
