@@ -4,6 +4,7 @@ import type {
     TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
 } from "react-aria-components";
 
+import { faQuestionCircle } from "@fortawesome/pro-duotone-svg-icons/faQuestionCircle";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
@@ -13,14 +14,13 @@ import {
     TooltipTrigger as RACTooltipTrigger,
 } from "react-aria-components";
 
+import { Icon } from "../icon";
 import {
     overlayArrowCSS,
     overlayArrowSvgCSS,
     tooltipCSS,
     tooltipFieldButtonCSS,
 } from "./styles.css";
-import { Icon } from "../icon";
-import { faQuestionCircle } from "@fortawesome/pro-duotone-svg-icons";
 
 /** ---------------------------------------------
  * Trigger Button
