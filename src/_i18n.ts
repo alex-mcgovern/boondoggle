@@ -4,6 +4,7 @@ export const i18n = {
     clear_all_filters: "Clear all filters",
     copied_to_clipboard: "Copied to clipboard",
     copy_to_clipboard: "Copy to clipboard",
+    filter_placeholder: "Filter...",
     hide: "Hide",
     is_between: "Is between",
     is_equal_to: "Is equal to",

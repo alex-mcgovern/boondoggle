@@ -79,8 +79,6 @@ export const COLUMNS = [
         cell: (info) => {
             return <Pill>{info.getValue()}</Pill>;
         },
-        enableColumnFilter: true,
-        filterFn: "multiSelect",
         header: () => {
             return "Status";
         },
@@ -89,14 +87,12 @@ export const COLUMNS = [
         cell: (info) => {
             return info.getValue() / 100;
         },
-        enableColumnFilter: true,
         header: "Balance",
     }),
     columnHelper.accessor("points", {
         cell: (info) => {
             return info.getValue();
         },
-        enableColumnFilter: true,
         header: "Points",
     }),
 ];

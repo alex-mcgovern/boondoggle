@@ -4,7 +4,7 @@ import type {
     ListBoxProps as ReactAriaListBoxProps,
 } from "react-aria-components";
 
-import { faCheck } from "@fortawesome/pro-solid-svg-icons";
+import { faCheck } from "@fortawesome/pro-solid-svg-icons/faCheck";
 import { forwardRef } from "react";
 import {
     Collection as ReactAriaCollection,

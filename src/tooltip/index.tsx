@@ -1,24 +1,24 @@
 import type {
     TooltipProps as RACTooltipProps,
     TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
+    ButtonProps as RACButtonProps,
 } from "react-aria-components";
-import type { ButtonProps as RACButtonProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
 import {
+    Button as RACButton,
     OverlayArrow as RACOverlayArrow,
     Tooltip as RACTooltip,
     TooltipTrigger as RACTooltipTrigger,
 } from "react-aria-components";
-import { Button as RACButton } from "react-aria-components";
 
-import { overlayArrowCSS } from "../popover/styles.css";
 import {
+    overlayArrowCSS,
     overlayArrowSvgCSS,
     tooltipCSS,
     tooltipFieldButtonCSS,
 } from "./styles.css";
+import { forwardRef } from "react";
 
 /** ---------------------------------------------
  * Trigger Button
@@ -54,10 +54,14 @@ export type TooltipProps = RACTooltipTriggerComponentProps & {
     tooltipContent: React.ReactNode;
 };
 
-export const Tooltip = (props: TooltipProps) => {
+export const Tooltip = ({ delay = 0, ...props }: TooltipProps) => {
     return (
-        <RACTooltipTrigger {...props}>
+        <RACTooltipTrigger
+            {...props}
+            delay={delay}
+        >
             {props.children}
+
             <RACTooltip
                 {...props}
                 className={({ isEntering, isExiting, placement }) =>

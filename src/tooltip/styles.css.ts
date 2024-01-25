@@ -32,9 +32,8 @@ export const overlayArrowSvgCSS = recipe<
             display: "block",
         }),
         {
-            fill: vars.color.background,
-            stroke: vars.color.border_rule,
-            strokeWidth: 1,
+            fill: vars.color.black,
+            strokeWidth: 0,
         },
     ],
     variants: {
@@ -127,10 +126,10 @@ const keyframesOutToBottom = keyframes({
 export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
     base: [
         css({
-            background: "background",
-            border: "border_rule",
+            background: "black",
             borderRadius: "md",
             boxShadow: "md",
+            color: "white",
             fontSize: "bodySm",
             paddingX: "space_2",
         }),

@@ -6,14 +6,7 @@ import type { Css } from "../css/index.css";
 
 import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
-import {
-    HOVER,
-    NOT_DISABLED,
-    a11yDisabled,
-    hideScrollbar,
-    variantColorOverlay,
-    vars,
-} from "../index.css";
+import { hideScrollbar, variantColorOverlay, vars } from "../index.css";
 
 /** -----------------------------------------------------------------------------
  * CONFIG / CONSTANTS
@@ -79,7 +72,6 @@ export const tabListInnerCSS = recipe({
  * ------------------------------------------------------------------------------- */
 
 export const tabOuterCSS = style([
-    a11yDisabled,
     css({
         borderRadius: "md",
 
@@ -112,12 +104,12 @@ export const tabOuterCSS = style([
                 color: vars.color.bg_button_primary,
             },
 
-            [`&[data-selected]${HOVER}`]: {
-                color: vars.color.bg_button_primary,
-            },
-            [`&${NOT_DISABLED}${HOVER}`]: {
+            [`&[data-hovered]`]: {
                 color: vars.color.text_high_contrast,
                 cursor: "pointer",
+            },
+            [`&[data-selected][data-hovered]`]: {
+                color: vars.color.bg_button_primary,
             },
         },
     },

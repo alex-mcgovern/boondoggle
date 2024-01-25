@@ -1,56 +1,18 @@
+import type { MenuItemRenderProps } from "react-aria-components";
+
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+
 import { css } from "../css/index.css";
 import {
-    a11yDisabled,
-    a11yFocus,
     elementPaddingRaw,
     floatingMenu,
     variantColorOverlay,
     vars,
 } from "../index.css";
-
-/** -----------------------------------------------------------------------------
- * MENU CSS
- * ------------------------------------------------------------------------------- */
-
-export const menuCSS = style([
-    css({
-        background: "background",
-        border: "border_rule",
-        boxShadow: "md",
-        overflowY: "auto",
-    }),
-    {
-        selectors: {
-            "&::-webkit-scrollbar": {
-                backgroundColor: "transparent",
-                borderBottomRightRadius: vars.borderRadius.sm,
-                borderTopRightRadius: vars.borderRadius.sm,
-                width: vars.spacing.space_4,
-            },
-
-            "&::-webkit-scrollbar-button": {
-                display: "none",
-            },
-
-            "&::-webkit-scrollbar-thumb": {
-                backgroundColor: vars.color.bg_button_secondary_active,
-                border: `4px solid ${vars.color.background}`,
-                borderRadius: vars.borderRadius.md,
-            },
-            "&::-webkit-scrollbar-track": {
-                backgroundColor: "transparent",
-            },
-
-            "&:focus": {
-                outline: "none",
-            },
-        },
-    },
-]);
 
 /** -----------------------------------------------------------------------------
  * MENU CSS
@@ -80,46 +42,142 @@ export const menuSectionCSS = style([
  * MENU ITEM CSS
  * ------------------------------------------------------------------------------- */
 
-export const menuItemCSS = recipe({
+export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
     base: [
         css({
             alignItems: "center",
+            borderRadius: "sm",
             color: "text_high_contrast",
+            cursor: "pointer",
             display: "flex",
             flexShrink: "0",
             fontStyle: "bodySm",
-
             fontWeight: "normal",
             gap: "space_2",
+            minHeight: "space_8",
+            paddingX: "space_2",
+            paddingY: "space_1",
             textAlign: "left",
             textDecoration: "none",
             width: "100%",
         }),
-        a11yDisabled,
-        a11yFocus,
         {
-            borderRadius: floatingMenu.item.radius,
-            minHeight: floatingMenu.item.height,
-
-            padding: `${elementPaddingRaw.sm.y} ${floatingMenu.item.paddingX}`,
             selectors: {
-                "&[data-focused]": {
-                    background: vars.color.tint_hover,
-                    cursor: "pointer",
-                    outline: 0,
-                },
-                "&[data-hovered]": {
-                    background: vars.color.tint_hover,
-                    cursor: "pointer",
-                },
-                "&[data-selected]": {
-                    fontWeight: "medium",
+                "&:first-letter": {
+                    textTransform: "capitalize",
                 },
             },
         },
     ],
+    compoundVariants: [
+        {
+            style: {
+                display: "grid",
+                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
+            },
+            variants: {
+                hasIcon: "true",
+                selectionMode: "single",
+            },
+        },
+        {
+            style: {
+                display: "grid",
+                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
+            },
+            variants: {
+                hasIcon: "true",
+                selectionMode: "multiple",
+            },
+        },
+        {
+            style: {
+                display: "grid",
+                gridTemplateColumns: `${vars.spacing.space_5} 1fr`,
+            },
+            variants: {
+                hasIcon: "true",
+                selectionMode: "none",
+            },
+        },
+        {
+            style: {
+                display: "grid",
+                gridTemplateColumns: `1fr ${vars.spacing.space_5}`,
+            },
+            variants: {
+                hasIcon: "false",
+                selectionMode: "single",
+            },
+        },
+        {
+            style: {
+                display: "grid",
+                gridTemplateColumns: `1fr ${vars.spacing.space_5}`,
+            },
+            variants: {
+                hasIcon: "false",
+                selectionMode: "multiple",
+            },
+        },
+    ],
     variants: {
+        allowsDragging: {
+            false: {},
+            true: {},
+        },
         colorOverlay: variantColorOverlay,
+        hasIcon: {
+            false: {},
+            true: {},
+        },
+        isDisabled: {
+            false: {},
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
+        },
+        isDragging: {
+            false: {},
+            true: {},
+        },
+        isDropTarget: {
+            false: {},
+            true: {},
+        },
+        isFocused: {
+            false: {},
+            true: css({
+                background: "tint_hover",
+                outline: "none",
+            }),
+        },
+        isFocusVisible: {
+            false: {},
+            true: css({
+                background: "tint_hover",
+                outline: "none",
+            }),
+        },
+        isHovered: {
+            false: {},
+            true: {},
+        },
+        isPressed: {
+            false: {},
+            true: {},
+        },
+        isSelected: {
+            false: {},
+            true: css({ fontWeight: "medium" }),
+        },
+        selectionBehavior: {
+            replace: {},
+            toggle: {},
+        },
+        selectionMode: {
+            multiple: {},
+            none: {},
+            single: {},
+        },
     },
 });
 
@@ -160,23 +218,5 @@ export const menuHeaderCSS = style([
         ),
         paddingLeft: floatingMenu.item.paddingX,
         paddingRight: floatingMenu.item.paddingX,
-    },
-]);
-
-/** -----------------------------------------------------------------------------
- * MENU SEPARATOR
- * ------------------------------------------------------------------------------- */
-
-export const menuSeparatorCSS = style([
-    css({}),
-    {
-        background: vars.color.border_rule,
-        height: "1px",
-
-        marginBottom: vars.spacing.space_1,
-        marginLeft: floatingMenu.item.paddingX,
-
-        marginRight: floatingMenu.item.paddingX,
-        marginTop: vars.spacing.space_1,
     },
 ]);

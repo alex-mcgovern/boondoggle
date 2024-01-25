@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { faClock } from "@fortawesome/pro-solid-svg-icons";
+import { faClock } from "@fortawesome/pro-solid-svg-icons/faClock";
 
 import { FilterButton, FilterButtonGroup, RemoveFilterButton } from ".";
 import { Icon } from "../icon";

@@ -1,6 +1,5 @@
 import type {
     ColumnDef,
-    FilterFn,
     RowData,
     SortingState,
     VisibilityState,
@@ -8,34 +7,35 @@ import type {
 import type { JSXElementConstructor, ReactNode } from "react";
 
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
+import {
+    getCoreRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+} from "@tanstack/react-table";
+import { useReactTable } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
+import { useEffect, useState } from "react";
 import { Fragment } from "react";
 
 import type { MenuButtonProps } from "../menu-button";
-import type {
-    FilteringOptions,
-    PaginationOptions,
-    WithTableOptionalSelectableRows,
-} from "./types";
 
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
-import { TableColumnFilters } from "./_components/column-filters";
+import {
+    TableActionsContainer,
+    TableHeader,
+    TableSearchContainer,
+} from "../table-header";
 import { TablePagination } from "./_components/controls/TablePagination";
 import { TableSortButton } from "./_components/controls/TableSortButton";
-import { TableActions } from "./_components/controls/table-actions";
 import { TableGlobalFilter } from "./_components/controls/table-global-filter";
 import { TableNoResults } from "./_components/layout/TableNoResults";
-import { useDataTableState } from "./_lib/useDataTableState";
+import { dataTableFuzzyFilter } from "./_lib/dataTableFuzzyFilter";
 import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
-declare module "@tanstack/table-core" {
-    interface FilterFns {
-        multiSelect: FilterFn<unknown>;
-    }
-}
 
 /** -----------------------------------------------------------------------------
  * TableRowMenuButton
@@ -72,64 +72,56 @@ export function TableRowMenuButton<TActionId extends string>(
  * DataTable
  * ------------------------------------------------------------------------------- */
 
-export type DataTableProps<TRowData extends RowData> =
-    WithTableOptionalSelectableRows<TRowData> & {
-        /**
-         * React component to render a list of actions on each row
-         */
-        RowActions?: TV2DataTableRowActions<TRowData>;
+export type DataTableProps<TRowData extends RowData> = {
+    /**
+     * React component to render a list of actions on each row
+     */
+    RowActions?: TV2DataTableRowActions<TRowData>;
 
-        /**
-         * Up to 2 react nodes to render as actions for the table
-         */
-        actions?: [ReactNode?, ReactNode?] | ReactNode;
+    /**
+     * @deprecated
+     * Up to 2 react nodes to render as actions for the table
+     */
 
-        /**
-         * Column definitions for the tabular data
-         */
-        /**
-         * Options related to column visibility.
-         */
-        columnVisibility?: VisibilityState;
+    actions?: [ReactNode?, ReactNode?] | ReactNode;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        columns: Array<ColumnDef<TRowData, any>>;
+    /**
+     * Column definitions for the tabular data
+     */
+    /**
+     * Options related to column visibility.
+     */
+    columnVisibility?: VisibilityState;
 
-        /**
-         * An array of objects describing each row in the table
-         */
-        data: Array<TRowData> | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    columns: Array<ColumnDef<TRowData, any>>;
 
-        /**
-         * Options related to filtering.
-         */
-        filteringOptions?: FilteringOptions<TRowData>;
+    /**
+     * An array of objects describing each row in the table
+     */
+    data: Array<TRowData> | undefined;
 
-        /**
-         * Grid template columns
-         */
-        gridTemplateColumns: string;
+    /**
+     * Grid template columns
+     */
+    gridTemplateColumns: string;
 
-        /**
-         * The initial sorting state of the table
-         */
-        initialSorting?: SortingState;
+    /**
+     * The initial sorting state of the table
+     */
+    initialSorting?: SortingState;
 
-        /**
-         * Whether the table should be sortable and show sorting controls
-         */
-        isSortable?: boolean;
+    /**
+     * @deprecated
+     * Whether to enable fuzzy searching
+     */
+    isFuzzySearchable?: boolean;
 
-        /**
-         * Options related to pagination.
-         */
-        paginationOptions?: PaginationOptions;
-
-        /**
-         * The title of the no results message
-         */
-        strNoResults: string;
-    };
+    /**
+     * A string to fuzzy search rows in the table
+     */
+    strFuzzyFilter?: string;
+};
 
 /**
  * Component to render tabular data with filtering/sorting controls.
@@ -140,50 +132,59 @@ export function DataTable<TRowData extends RowData>({
     columns,
     columnVisibility,
     data,
-    enableMultiRowSelection = false,
-    filteringOptions,
     gridTemplateColumns,
     initialSorting,
-    isSelectable,
-    isSortable,
-    onSelect,
-    paginationOptions,
+    isFuzzySearchable,
     RowActions,
-    strNoResults,
+    strFuzzyFilter,
 }: DataTableProps<TRowData>) {
-    const { table } = useDataTableState({
+    const [globalFilter, setGlobalFilter] = useState<string | undefined>(
+        strFuzzyFilter,
+    );
+
+    useEffect(() => {
+        if (strFuzzyFilter && strFuzzyFilter !== globalFilter) {
+            setGlobalFilter(strFuzzyFilter);
+        }
+    }, [globalFilter, strFuzzyFilter]);
+
+    const table = useReactTable<TRowData>({
         columns,
-        columnVisibility,
-        data,
-        enableMultiRowSelection,
-        filteringOptions,
-        initialSorting,
-        isSelectable,
-        isSortable,
-        onSelect,
-        paginationOptions,
+        data: data || [],
+        filterFromLeafRows: false,
+        getCoreRowModel: getCoreRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        globalFilterFn: dataTableFuzzyFilter,
+        initialState: {
+            columnVisibility,
+            globalFilter,
+            pagination: {
+                pageSize: 25,
+            },
+            sorting: initialSorting,
+        },
+        onGlobalFilterChange: setGlobalFilter,
+        state: {
+            globalFilter,
+        },
     });
 
     const hasData = arrayHasLength(table.getFilteredRowModel().rows);
 
     return (
         <Box>
-            {actions || filteringOptions ? (
-                <TableActions
-                    actions={actions}
-                    columnFilters={
-                        <TableColumnFilters<TRowData>
-                            filteringOptions={filteringOptions}
-                            table={table}
-                        />
-                    }
-                    globalFilter={
-                        <TableGlobalFilter<TRowData>
-                            filteringOptions={filteringOptions}
-                            table={table}
-                        />
-                    }
-                />
+            {actions || isFuzzySearchable ? (
+                <TableHeader>
+                    <TableSearchContainer>
+                        <TableGlobalFilter<TRowData> table={table} />
+                    </TableSearchContainer>
+
+                    {actions && (
+                        <TableActionsContainer>{actions}</TableActionsContainer>
+                    )}
+                </TableHeader>
             ) : null}
 
             {hasData && (
@@ -198,32 +199,19 @@ export function DataTable<TRowData extends RowData>({
                 >
                     {table.getHeaderGroups().map((hg) =>
                         hg.headers.map((h) => {
-                            const headerContent = h.isPlaceholder
-                                ? null
-                                : flexRender(
-                                      h.column.columnDef.header,
-                                      h.getContext(),
-                                  );
-
-                            if (isSortable) {
-                                return (
-                                    <div
-                                        className={tableHeaderCellCSS}
-                                        key={h.id}
-                                    >
-                                        <TableSortButton header={h}>
-                                            {headerContent}
-                                        </TableSortButton>
-                                    </div>
-                                );
-                            }
-
                             return (
                                 <div
                                     className={tableHeaderCellCSS}
                                     key={h.id}
                                 >
-                                    {headerContent}
+                                    <TableSortButton header={h}>
+                                        {h.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                  h.column.columnDef.header,
+                                                  h.getContext(),
+                                              )}
+                                    </TableSortButton>
                                 </div>
                             );
                         }),
@@ -253,21 +241,11 @@ export function DataTable<TRowData extends RowData>({
                 </Box>
             )}
 
-            {!hasData && (
-                <TableNoResults
-                    filteringOptions={filteringOptions}
-                    strNoResults={strNoResults}
-                    table={table}
-                />
-            )}
+            {!hasData && <TableNoResults table={table} />}
 
-            {paginationOptions &&
-                table.getFilteredRowModel().rows.length > 25 && (
-                    <TablePagination
-                        paginationOptions={paginationOptions}
-                        table={table}
-                    />
-                )}
+            {table.getFilteredRowModel().rows.length > 25 && (
+                <TablePagination table={table} />
+            )}
         </Box>
     );
 }

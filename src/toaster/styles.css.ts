@@ -32,7 +32,7 @@ export const toastCSS = css({
     boxShadow: "lg",
     color: "white",
     display: "flex",
-    gap: "space_1",
+    gap: "space_0.5",
     justifySelf: "end",
     paddingX: "space_3",
     paddingY: "space_2",

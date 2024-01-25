@@ -3,12 +3,7 @@ import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 import { merge } from "webpack-merge";
 
 const config: StorybookConfig = {
-    addons: [
-        "@storybook/addon-essentials",
-        // "@storybook/addon-interactions",
-        // "@storybook/addon-mdx-gfm",
-        // "storybook-addon-pseudo-states",
-    ],
+    addons: ["@storybook/addon-essentials"],
     docs: {
         autodocs: false,
     },

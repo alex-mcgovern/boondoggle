@@ -2,20 +2,15 @@ import type { RowData, Table } from "@tanstack/react-table";
 
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
-import type { FilteringOptions } from "../../types";
-
+import { i18n } from "../../../_i18n";
 import { arrayHasLength } from "../../../_lib/array-has-length";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 
 export function TableNoResults<TRowData extends RowData>({
-    filteringOptions,
-    strNoResults,
     table,
 }: {
-    filteringOptions: FilteringOptions<TRowData> | undefined;
-    strNoResults: string;
     table: Table<TRowData>;
 }) {
     const isFiltered =
@@ -44,10 +39,10 @@ export function TableNoResults<TRowData extends RowData>({
                 fontStyle="bodyLg"
                 fontWeight="semibold"
             >
-                {strNoResults}
+                {i18n.no_results_found}
             </Box>
 
-            {filteringOptions && isFiltered && (
+            {isFiltered && (
                 <Button
                     appearance="secondary"
                     name="clear_filters"
@@ -57,7 +52,7 @@ export function TableNoResults<TRowData extends RowData>({
                     }}
                     size="sm"
                 >
-                    {filteringOptions.strClearAllFilters}
+                    {i18n.clear_all_filters}
                 </Button>
             )}
         </Box>
