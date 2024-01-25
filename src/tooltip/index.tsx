@@ -19,6 +19,8 @@ import {
     tooltipCSS,
     tooltipFieldButtonCSS,
 } from "./styles.css";
+import { Icon } from "../icon";
+import { faInfoCircle } from "@fortawesome/pro-duotone-svg-icons";
 
 /** ---------------------------------------------
  * Trigger Button
@@ -34,14 +36,16 @@ export type TooltipTriggerButtonProps = RACButtonProps;
 export const TooltipTriggerButton = forwardRef<
     HTMLButtonElement,
     TooltipTriggerButtonProps
->((props: RACButtonProps, ref) => {
+>((props: Omit<RACButtonProps, "children">, ref) => {
     return (
         <RACButton
             {...props}
             className={clsx(props.className, tooltipFieldButtonCSS)}
             excludeFromTabOrder
             ref={ref}
-        />
+        >
+            <Icon icon={faInfoCircle} />
+        </RACButton>
     );
 });
 
