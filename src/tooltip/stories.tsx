@@ -6,10 +6,11 @@ import { Button } from "../button";
 const meta = {
     args: {
         children: <Button>Tooltip</Button>,
+        delay: 0,
         tooltipContent: "Tooltip text",
     },
     component: Tooltip,
-    title: "Components/Tooltip",
+    title: "Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
