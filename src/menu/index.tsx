@@ -15,10 +15,10 @@ import {
 
 import type { ColorOverlay } from "../index.css";
 
-import { menuHeaderCSS, menuItemCSS } from "../_css/menu.css";
+import { menuHeaderCSS } from "../_css/menu.css";
 import { Checkbox } from "../checkbox";
 import { Section } from "../section";
-import { menuCSS } from "./styles.css";
+import { menuCSS, menuItemCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * IterableMenuItem
@@ -128,7 +128,7 @@ function _MenuItem<TItem extends object>(
                         {typeof props.children === "function"
                             ? props.children(renderProps)
                             : props.children}
-                        {renderProps.selectionMode !== "none" ? (
+                        {renderProps.selectionMode === "multiple" ? (
                             <Checkbox
                                 isIndeterminate
                                 isSelected={renderProps.isSelected}

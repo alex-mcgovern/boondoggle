@@ -4,7 +4,7 @@ import type {
     ListBoxProps as ReactAriaListBoxProps,
 } from "react-aria-components";
 
-import { faCheck } from "@fortawesome/pro-solid-svg-icons/faCheck";
+import clsx from "clsx";
 import { forwardRef } from "react";
 import {
     Collection as ReactAriaCollection,
@@ -18,15 +18,14 @@ import type { ColorOverlay } from "../index.css";
 
 import {
     menuHeaderCSS,
-    menuItemCSS,
     menuItemDescriptionCSS,
     menuItemNameCSS,
 } from "../_css/menu.css";
 import { i18n } from "../_i18n";
 import { Box } from "../box";
-import { Icon } from "../icon";
+import { Checkbox } from "../checkbox";
 import { Section } from "../section";
-import { listBoxCSS } from "./styles.css";
+import { listBoxCSS, listBoxItemCSS } from "./styles.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;
@@ -53,45 +52,84 @@ export type IterableListBoxItem<TItemId extends string = string> =
       }
     | SingleListBoxItem<TItemId>;
 
+/** -----------------------------------------------------------------------------
+ * ListBoxItem
+ * ------------------------------------------------------------------------------- */
+
+export type ListBoxItemProps<TItemId extends string = string> =
+    ReactAriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
+        colorOverlay?: ColorOverlay;
+        icon?: ReactNode;
+    };
+
 function ListBoxItem<TItemId extends string = string>({
     value,
     ...props
-}: ReactAriaListBoxItemProps<SingleListBoxItem<TItemId>>) {
+}: ListBoxItemProps<TItemId>) {
     return (
         <ReactAriaListBoxItem
-            className={menuItemCSS({
-                colorOverlay: value?.colorOverlay,
-            })}
+            className={({
+                allowsDragging,
+                isDisabled,
+                isDragging,
+                isDropTarget,
+                isFocused,
+                isFocusVisible,
+                isHovered,
+                isPressed,
+                isSelected,
+                selectionBehavior,
+                selectionMode,
+            }) =>
+                clsx(
+                    props.className,
+                    listBoxItemCSS({
+                        allowsDragging: allowsDragging ? "true" : "false",
+                        colorOverlay: props.colorOverlay,
+                        hasIcon: props.icon ? "true" : "false",
+                        isDisabled: isDisabled ? "true" : "false",
+                        isDragging: isDragging ? "true" : "false",
+                        isDropTarget: isDropTarget ? "true" : "false",
+                        isFocused: isFocused ? "true" : "false",
+                        isFocusVisible: isFocusVisible ? "true" : "false",
+                        isHovered: isHovered ? "true" : "false",
+                        isPressed: isPressed ? "true" : "false",
+                        isSelected: isSelected ? "true" : "false",
+                        selectionBehavior,
+                        selectionMode,
+                    }),
+                )
+            }
             href={value?.href}
             {...props}
         >
-            {({ isSelected }) => (
-                <>
-                    {value?.slotLeft}
-                    <div>
-                        <ReactAriaText
-                            className={menuItemNameCSS}
-                            slot="label"
-                        >
-                            {value?.name}
-                        </ReactAriaText>
-                        <ReactAriaText
-                            className={menuItemDescriptionCSS}
-                            slot="description"
-                        >
-                            {value?.description}
-                        </ReactAriaText>
-                    </div>
-                    {isSelected ? (
-                        <Icon
-                            color="text_low_contrast"
-                            icon={faCheck}
-                            marginLeft="auto"
-                            marginRight="space_1"
-                        />
-                    ) : null}
-                </>
-            )}
+            {(renderProps) => {
+                return (
+                    <>
+                        {props.icon}
+                        <div>
+                            <ReactAriaText
+                                className={menuItemNameCSS}
+                                slot="label"
+                            >
+                                {value?.name}
+                            </ReactAriaText>
+                            <ReactAriaText
+                                className={menuItemDescriptionCSS}
+                                slot="description"
+                            >
+                                {value?.description}
+                            </ReactAriaText>
+                        </div>
+                        {renderProps.selectionMode === "multiple" ? (
+                            <Checkbox
+                                isIndeterminate
+                                isSelected={renderProps.isSelected}
+                            />
+                        ) : null}
+                    </>
+                );
+            }}
         </ReactAriaListBoxItem>
     );
 }
@@ -132,6 +170,8 @@ function BaseListBox<TItemId extends string = string>(
                         <ReactAriaCollection items={item.children}>
                             {(i) => (
                                 <ListBoxItem
+                                    colorOverlay={i.colorOverlay}
+                                    icon={i.slotLeft}
                                     textValue={i.name}
                                     value={i}
                                 />
@@ -140,6 +180,8 @@ function BaseListBox<TItemId extends string = string>(
                     </Section>
                 ) : (
                     <ListBoxItem
+                        colorOverlay={item.colorOverlay}
+                        icon={item.slotLeft}
                         textValue={item.name}
                         value={item}
                     />
