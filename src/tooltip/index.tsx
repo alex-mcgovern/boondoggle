@@ -4,6 +4,7 @@ import type {
     TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
 } from "react-aria-components";
 
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
@@ -13,6 +14,7 @@ import {
     TooltipTrigger as RACTooltipTrigger,
 } from "react-aria-components";
 
+import { Icon } from "../icon";
 import {
     overlayArrowCSS,
     overlayArrowSvgCSS,
@@ -34,7 +36,7 @@ export type TooltipTriggerButtonProps = RACButtonProps;
 export const TooltipTriggerButton = forwardRef<
     HTMLButtonElement,
     TooltipTriggerButtonProps
->((props: RACButtonProps, ref) => {
+>((props: Omit<RACButtonProps, "children">, ref) => {
     return (
         <RACButton
             slot="clear"
@@ -43,7 +45,10 @@ export const TooltipTriggerButton = forwardRef<
             excludeFromTabOrder
             ref={ref}
         >
-            {props.children}
+            <Icon
+                color="text_low_contrast"
+                icon={faInfoCircle}
+            />
         </RACButton>
     );
 });
