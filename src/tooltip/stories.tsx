@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { useRef } from "react";
 import { Link } from "react-aria-components";
 
 import { Tooltip, TooltipTriggerButton } from ".";
 import { Button } from "../button";
+import { Tag } from "../tag";
 
 const meta = {
     args: {
@@ -18,11 +20,28 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const TagThatNeedsTooltip = () => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    return (
+        <Tooltip
+            tooltipContent="I am tooltip content"
+            triggerRef={ref}
+        >
+            <Tag ref={ref}>Hello</Tag>
+        </Tooltip>
+    );
+};
+
 export const Default: Story = {
     args: {
         children: <TooltipTriggerButton />,
         placement: "top",
     },
+};
+
+export const NonInteractiveTrigger: Story = {
+    render: () => <TagThatNeedsTooltip />,
 };
 
 export const WithLinkAsTrigger: Story = {
