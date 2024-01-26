@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tooltip } from ".";
+import { Tooltip, TooltipTriggerButton } from ".";
 import { Button } from "../button";
 
 const meta = {
@@ -16,7 +16,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    args: {
+        children: <TooltipTriggerButton slot="clear" />,
+    },
+};
 
 export const PlacementTop: Story = {
     args: {
