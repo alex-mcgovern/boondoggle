@@ -1,3 +1,4 @@
+import type { RefObject } from "react";
 import type {
     ButtonProps as RACButtonProps,
     TooltipProps as RACTooltipProps,
@@ -60,9 +61,10 @@ export const TooltipTriggerButton = forwardRef<
 export type TooltipProps = RACTooltipTriggerComponentProps & {
     placement?: RACTooltipProps["placement"];
     tooltipContent: React.ReactNode;
+    triggerRef?: RefObject<HTMLElement>;
 };
 
-export const Tooltip = ({ delay = 0, ...props }: TooltipProps) => {
+export const Tooltip = ({ delay = 0, triggerRef, ...props }: TooltipProps) => {
     return (
         <RACTooltipTrigger
             {...props}
@@ -83,6 +85,7 @@ export const Tooltip = ({ delay = 0, ...props }: TooltipProps) => {
                 }
                 offset={6}
                 placement={props.placement}
+                triggerRef={triggerRef}
             >
                 <RACOverlayArrow className={clsx(overlayArrowCSS)}>
                     {(renderProps) => {
