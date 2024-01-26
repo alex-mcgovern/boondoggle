@@ -136,6 +136,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                         isDisabled: !value,
                         onPress: copyValue,
                     },
+                    tooltip_trigger: {},
                     visibility: {
                         onPress: toggleVisibility,
                         value: type === "password" ? "hidden" : "visible",
