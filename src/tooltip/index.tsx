@@ -4,7 +4,7 @@ import type {
     TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
 } from "react-aria-components";
 
-import { faQuestionCircle } from "@fortawesome/pro-duotone-svg-icons/faQuestionCircle";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
@@ -39,12 +39,16 @@ export const TooltipTriggerButton = forwardRef<
 >((props: Omit<RACButtonProps, "children">, ref) => {
     return (
         <RACButton
+            slot="clear"
             {...props}
             className={clsx(props.className, tooltipFieldButtonCSS)}
             excludeFromTabOrder
             ref={ref}
         >
-            <Icon icon={faQuestionCircle} />
+            <Icon
+                color="text_low_contrast"
+                icon={faInfoCircle}
+            />
         </RACButton>
     );
 });
