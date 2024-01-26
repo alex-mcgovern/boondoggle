@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
+
 import { Tooltip, TooltipTriggerButton } from ".";
 import { Button } from "../button";
+import { Icon } from "../icon";
 
 const meta = {
     args: {
@@ -18,7 +21,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        children: <TooltipTriggerButton slot="clear" />,
+        children: (
+            <TooltipTriggerButton>
+                <button type="button">
+                    <Icon
+                        color="text_low_contrast"
+                        icon={faInfoCircle}
+                    />
+                </button>
+            </TooltipTriggerButton>
+        ),
+        placement: "top",
     },
 };
 
