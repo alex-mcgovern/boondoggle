@@ -292,14 +292,9 @@ export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
 
 export const tooltipFieldButtonCSS = style([
     css({
-        borderRadius: "sm",
-
-        color: "text_low_contrast",
-        flexShrink: "0",
+        display: "flex",
         fontStyle: "bodyMd",
-
-        height: "100%",
-        width: "100%",
+        width: "fit-content",
     }),
     withPrefersMotion({
         transitionDuration: vars.transitionDuration.short,
