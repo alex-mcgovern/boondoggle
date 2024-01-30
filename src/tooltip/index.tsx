@@ -1,4 +1,3 @@
-import type { RefObject } from "react";
 import type {
     ButtonProps as RACButtonProps,
     TooltipProps as RACTooltipProps,
@@ -20,7 +19,7 @@ import {
     overlayArrowCSS,
     overlayArrowSvgCSS,
     tooltipCSS,
-    tooltipFieldButtonCSS,
+    tooltipTriggerButtonCSS,
 } from "./styles.css";
 
 /** ---------------------------------------------
@@ -42,14 +41,13 @@ export const TooltipTriggerButton = forwardRef<
         <RACButton
             slot="clear"
             {...props}
-            className={clsx(props.className, tooltipFieldButtonCSS)}
+            className={(renderProps) =>
+                clsx(props.className, tooltipTriggerButtonCSS(renderProps))
+            }
             excludeFromTabOrder
             ref={ref}
         >
-            <Icon
-                color="text_low_contrast"
-                icon={faInfoCircle}
-            />
+            <Icon icon={faInfoCircle} />
         </RACButton>
     );
 });
@@ -61,13 +59,18 @@ export const TooltipTriggerButton = forwardRef<
 export type TooltipProps = RACTooltipTriggerComponentProps & {
     placement?: RACTooltipProps["placement"];
     tooltipContent: React.ReactNode;
-    triggerRef?: RefObject<HTMLElement>;
 };
 
-export const Tooltip = ({ delay = 0, triggerRef, ...props }: TooltipProps) => {
+export const Tooltip = ({
+    closeDelay = 0,
+    delay = 0,
+    placement = "top",
+    ...props
+}: TooltipProps) => {
     return (
         <RACTooltipTrigger
             {...props}
+            closeDelay={closeDelay}
             delay={delay}
         >
             {props.children}
@@ -84,8 +87,7 @@ export const Tooltip = ({ delay = 0, triggerRef, ...props }: TooltipProps) => {
                     )
                 }
                 offset={6}
-                placement={props.placement}
-                triggerRef={triggerRef}
+                placement={placement}
             >
                 <RACOverlayArrow className={clsx(overlayArrowCSS)}>
                     {(renderProps) => {
@@ -94,11 +96,11 @@ export const Tooltip = ({ delay = 0, triggerRef, ...props }: TooltipProps) => {
                                 className={overlayArrowSvgCSS({
                                     ...renderProps,
                                 })}
-                                height={12}
+                                height={8}
                                 viewBox="0 0 8 8"
-                                width={12}
+                                width={8}
                             >
-                                <path d="M2 0 L4 4 L6 0" />
+                                <path d="M0 0 L4 4 L8 0" />
                             </svg>
                         );
                     }}

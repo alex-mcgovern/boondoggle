@@ -1,9 +1,10 @@
 import type {
+    ButtonRenderProps,
     OverlayArrowRenderProps,
     TooltipRenderProps,
 } from "react-aria-components";
 
-import { createVar, keyframes, style } from "@vanilla-extract/css";
+import { createVar, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -127,7 +128,7 @@ export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
     base: [
         css({
             background: "black",
-            borderRadius: "md",
+            borderRadius: "sm",
             boxShadow: "md",
             color: "white",
             fontSize: "bodySm",
@@ -290,54 +291,34 @@ export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
  * Trigger Button
  * ------------------------------------------------------------------------------- */
 
-export const tooltipFieldButtonCSS = style([
-    css({
-        display: "flex",
+export const tooltipTriggerButtonCSS = recipe<
+    ReactAriaRecipe<ButtonRenderProps>
+>({
+    base: css({
+        color: "text_low_contrast",
         fontStyle: "bodyMd",
+        transition: "short",
     }),
-    withPrefersMotion({
-        transitionDuration: vars.transitionDuration.short,
-        transitionProperty: "background, color",
-        transitionTimingFunction: vars.ease.quart_in_out,
-    }),
-    {
-        selectors: {
-            /**
-             * Whether the button is disabled.
-             */
-            "&[data-disabled]": {
-                opacity: 0.5,
-            },
-            /**
-             * Whether the button is keyboard focused.
-             */
-            "&[data-focus-visible]": {
-                background: vars.color.background,
-                color: vars.color.text_high_contrast,
-                outline: 0,
-            },
-            /**
-             * Whether the button is focused, either via a mouse or keyboard.
-             */
-            "&[data-focused]": {
-                background: vars.color.background,
-                color: vars.color.text_high_contrast,
-                outline: 0,
-            },
-            /**
-             * Whether the button is currently hovered with a mouse.
-             */
-            "&[data-hovered]": {
-                background: vars.color.background,
-                color: vars.color.text_high_contrast,
-            },
-            /**
-             * Whether the button is currently in a pressed state.
-             */
-            "&[data-pressed]": {
-                background: vars.color.background,
-                color: vars.color.text_high_contrast,
-            },
+    variants: {
+        isDisabled: {
+            false: {},
+            true: css({ color: "text_high_contrast" }),
+        },
+        isFocused: {
+            false: {},
+            true: css({ color: "text_high_contrast", outline: "none" }),
+        },
+        isFocusVisible: {
+            false: {},
+            true: css({ color: "text_high_contrast", outline: "none" }),
+        },
+        isHovered: {
+            false: {},
+            true: css({ color: "text_high_contrast" }),
+        },
+        isPressed: {
+            false: {},
+            true: css({ color: "text_high_contrast" }),
         },
     },
-]);
+});
