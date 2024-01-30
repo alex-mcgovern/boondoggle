@@ -54,7 +54,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
  * LinkButton
  * ------------------------------------------------------------------------------- */
 
-export type LinkButtonProps = RACLinkProps & ButtonVariants;
+export type LinkButtonProps = RACLinkProps &
+    ButtonVariants & { isCurrent?: boolean };
 
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
     (
@@ -79,6 +80,7 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
                             alignment,
                             appearance,
                             colorOverlay,
+                            isCurrent: props.isCurrent || renderProps.isCurrent,
                             size,
                         }),
                     )
