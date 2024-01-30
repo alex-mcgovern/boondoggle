@@ -17,7 +17,6 @@ import {
     createGlobalTheme,
     globalLayer,
     globalStyle,
-    keyframes,
     style,
     styleVariants,
 } from "@vanilla-extract/css";
@@ -239,21 +238,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         sideBar: "15rem",
     },
 });
-
-/** -----------------------------------------------------------------------------
- * ANIMATIONS
- * ------------------------------------------------------------------------------- */
-
-const fadeInKeyframes = keyframes({
-    "0%": { opacity: 0 },
-    "100%": { opacity: 1 },
-});
-
-export const animateFadeIn = style([
-    withPrefersMotion({
-        animation: `${fadeInKeyframes} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
-    }),
-]);
 
 /** -----------------------------------------------------------------------------
  * COLOR OVERLAY VARIANT

@@ -125,8 +125,3 @@ export type PolymorphicComponentPropWithRef<
 
 export type PolymorphicRef<TPolymorphicAs extends ElementType> =
     ComponentPropsWithRef<TPolymorphicAs>["ref"];
-
-// Enum of all HTML element types
-export type ElementTypeArg =
-    | HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
-    | undefined;
