@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { useRef } from "react";
 
 import {
@@ -9,18 +8,13 @@ import {
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from ".";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "../_DEPRECATED_tooltip";
 import { Button } from "../button";
 import { css } from "../css/index.css";
 import { Group } from "../group";
-import { Icon } from "../icon";
 import { Input } from "../input";
 import { Label } from "../label";
 import { Toaster } from "../toaster";
+import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "../tooltip";
 
 const meta = {
     args: {},
@@ -63,19 +57,12 @@ export const WithLabelTooltip: Story = {
             <TextField {...args}>
                 <Label>
                     Label
-                    <Tooltip placement="right">
-                        <TooltipTrigger asChild>
-                            <button type="button">
-                                <Icon
-                                    color="text_low_contrast"
-                                    icon={faInfoCircle}
-                                />
-                            </button>
-                        </TooltipTrigger>
-                        <TooltipContent>
+                    <TooltipTrigger>
+                        <TooltipTriggerButton />
+                        <Tooltip placement="right">
                             Provide additional info about the field
-                        </TooltipContent>
-                    </Tooltip>
+                        </Tooltip>
+                    </TooltipTrigger>
                 </Label>
                 <Input />
             </TextField>

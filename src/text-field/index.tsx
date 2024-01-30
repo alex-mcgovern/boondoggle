@@ -12,16 +12,12 @@ import {
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "../_DEPRECATED_tooltip";
 import { i18n } from "../_i18n";
 import { FieldButton, type FieldButtonProps } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { toast } from "../toaster";
+import { Tooltip, TooltipTrigger } from "../tooltip";
 import { textFieldCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -30,14 +26,12 @@ import { textFieldCSS } from "./styles.css";
 
 export const TextFieldClearButton = () => {
     return (
-        <Tooltip placement="top">
-            <TooltipTrigger asChild>
-                <FieldButton slot="clear">
-                    <Icon icon={faTimesCircle} />
-                </FieldButton>
-            </TooltipTrigger>
-            <TooltipContent>{i18n.clear}</TooltipContent>
-        </Tooltip>
+        <TooltipTrigger>
+            <FieldButton slot="clear">
+                <Icon icon={faTimesCircle} />
+            </FieldButton>
+            <Tooltip placement="top">{i18n.clear}</Tooltip>
+        </TooltipTrigger>
     );
 };
 
@@ -47,17 +41,15 @@ export const TextFieldClearButton = () => {
 
 export const TextFieldCopyButton = (props: FieldButtonProps) => {
     return (
-        <Tooltip placement="top">
-            <TooltipTrigger asChild>
-                <FieldButton
-                    {...props}
-                    slot="copy"
-                >
-                    <Icon icon={faCopy} />
-                </FieldButton>
-            </TooltipTrigger>
-            <TooltipContent>{i18n.copy_to_clipboard}</TooltipContent>
-        </Tooltip>
+        <TooltipTrigger>
+            <FieldButton
+                {...props}
+                slot="copy"
+            >
+                <Icon icon={faCopy} />
+            </FieldButton>
+            <Tooltip placement="top">{i18n.copy_to_clipboard}</Tooltip>
+        </TooltipTrigger>
     );
 };
 
@@ -69,21 +61,17 @@ export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
     const context = useSlottedContext(FieldButtonContext, "visibility");
 
     return (
-        <Tooltip placement="top">
-            <TooltipTrigger asChild>
-                <FieldButton
-                    {...props}
-                    slot="visibility"
-                >
-                    <Icon
-                        icon={context?.value === "hidden" ? faEyeSlash : faEye}
-                    />
-                </FieldButton>
-            </TooltipTrigger>
-            <TooltipContent>
+        <TooltipTrigger>
+            <FieldButton
+                {...props}
+                slot="visibility"
+            >
+                <Icon icon={context?.value === "hidden" ? faEyeSlash : faEye} />
+            </FieldButton>
+            <Tooltip placement="top">
                 {context?.value === "hidden" ? i18n.hide : i18n.show}
-            </TooltipContent>
-        </Tooltip>
+            </Tooltip>
+        </TooltipTrigger>
     );
 };
 
