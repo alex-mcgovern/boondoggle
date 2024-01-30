@@ -2,34 +2,51 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Link } from "react-aria-components";
 
-import { Tooltip, TooltipTriggerButton } from ".";
+import { Tooltip, TooltipTrigger, TooltipTriggerButton } from ".";
 import { Button } from "../button";
 
 const meta = {
     args: {
-        children: <Button>Tooltip</Button>,
-        delay: 0,
-        tooltipContent: "Tooltip text",
+        children: "Tooltip text",
     },
     component: Tooltip,
+    render: (args) => (
+        <TooltipTrigger>
+            <TooltipTriggerButton />
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
     title: "Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {
-        children: <TooltipTriggerButton />,
-        placement: "top",
-    },
+export const WithTooltipTriggerButton: Story = {
+    render: (args) => (
+        <TooltipTrigger>
+            <TooltipTriggerButton />
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
+};
+
+export const WithButtonAsTrigger: Story = {
+    render: (args) => (
+        <TooltipTrigger>
+            <Button>Test</Button>
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
 };
 
 export const WithLinkAsTrigger: Story = {
-    args: {
-        children: <Link>Test</Link>,
-        placement: "top",
-    },
+    render: (args) => (
+        <TooltipTrigger>
+            <Link>Test</Link>
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
 };
 
 export const PlacementTop: Story = {

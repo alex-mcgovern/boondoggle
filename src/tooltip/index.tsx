@@ -23,16 +23,11 @@ import {
 } from "./styles.css";
 
 /** ---------------------------------------------
- * Trigger Button
+ * TooltipTriggerButton
  * ----------------------------------------------- */
 
 export type TooltipTriggerButtonProps = RACButtonProps;
 
-/**
- * A field button is a button that is intended to be used inside a `Group` component
- * to add additional functionality to a field. The `slot` prop is used to connect the
- * button to the field.
- */
 export const TooltipTriggerButton = forwardRef<
     HTMLButtonElement,
     TooltipTriggerButtonProps
@@ -53,20 +48,16 @@ export const TooltipTriggerButton = forwardRef<
 });
 
 /** ---------------------------------------------
- * Tooltip
+ * TooltipTrigger
  * ----------------------------------------------- */
 
-export type TooltipProps = RACTooltipTriggerComponentProps & {
-    placement?: RACTooltipProps["placement"];
-    tooltipContent: React.ReactNode;
-};
+export type TooltipTriggerProps = RACTooltipTriggerComponentProps;
 
-export const Tooltip = ({
+export const TooltipTrigger = ({
     closeDelay = 0,
     delay = 0,
-    placement = "top",
     ...props
-}: TooltipProps) => {
+}: TooltipTriggerProps) => {
     return (
         <RACTooltipTrigger
             {...props}
@@ -74,40 +65,57 @@ export const Tooltip = ({
             delay={delay}
         >
             {props.children}
-
-            <RACTooltip
-                {...props}
-                className={({ isEntering, isExiting, placement }) =>
-                    clsx(
-                        tooltipCSS({
-                            isEntering,
-                            isExiting,
-                            placement,
-                        }),
-                    )
-                }
-                offset={6}
-                placement={placement}
-            >
-                <RACOverlayArrow className={clsx(overlayArrowCSS)}>
-                    {(renderProps) => {
-                        return (
-                            <svg
-                                className={overlayArrowSvgCSS({
-                                    ...renderProps,
-                                })}
-                                height={8}
-                                viewBox="0 0 8 8"
-                                width={8}
-                            >
-                                <path d="M0 0 L4 4 L8 0" />
-                            </svg>
-                        );
-                    }}
-                </RACOverlayArrow>
-
-                {props.tooltipContent}
-            </RACTooltip>
         </RACTooltipTrigger>
+    );
+};
+
+/** -----------------------------------------------------------------------------
+ * Tooltip
+ * ------------------------------------------------------------------------------- */
+
+export type TooltipProps = RACTooltipProps;
+
+export const Tooltip = (props: TooltipProps) => {
+    return (
+        <RACTooltip
+            {...props}
+            className={({ isEntering, isExiting, placement }) =>
+                clsx(
+                    tooltipCSS({
+                        isEntering,
+                        isExiting,
+                        placement,
+                    }),
+                )
+            }
+            offset={6}
+        >
+            {(renderProps) => {
+                return (
+                    <>
+                        <RACOverlayArrow className={clsx(overlayArrowCSS)}>
+                            {(renderProps) => {
+                                return (
+                                    <svg
+                                        className={overlayArrowSvgCSS(
+                                            renderProps,
+                                        )}
+                                        height={8}
+                                        viewBox="0 0 8 8"
+                                        width={8}
+                                    >
+                                        <path d="M0 0 L4 4 L8 0" />
+                                    </svg>
+                                );
+                            }}
+                        </RACOverlayArrow>
+
+                        {typeof props.children === "function"
+                            ? props.children(renderProps)
+                            : props.children}
+                    </>
+                );
+            }}
+        </RACTooltip>
     );
 };

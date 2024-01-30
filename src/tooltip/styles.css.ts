@@ -23,7 +23,7 @@ const EASING = vars.ease.quart_in_out;
  * OverlayArrow
  * ------------------------------------------------------------------------------- */
 
-export const overlayArrowCSS = css({ height: "space_3", width: "space_3" });
+export const overlayArrowCSS = css({ height: "space_2", width: "space_2" });
 
 export const overlayArrowSvgCSS = recipe<
     ReactAriaRecipe<OverlayArrowRenderProps>
