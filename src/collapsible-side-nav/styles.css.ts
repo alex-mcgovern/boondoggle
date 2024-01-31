@@ -1,35 +1,18 @@
-import { keyframes, style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
+import type { LinkRenderProps } from "react-aria-components";
+
+import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
+
+import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
-import { MEDIA_QUERY_MOBILE, vars } from "../index.css";
-
-/**
- * Shared styles used for collapsible open/close state
- */
-
-const open = keyframes({
-    from: {
-        overflow: "hidden",
-        transform: "translateX(-100%)",
-    },
-    to: {},
-});
-
-const close = keyframes({
-    from: {
-        overflow: "hidden",
-        position: "absolute",
-    },
-    to: {
-        overflow: "hidden",
-        position: "absolute",
-        transform: "translateX(-100%)",
-    },
-});
+import { MEDIA_QUERY_MOBILE } from "../index.css";
 
 export const collapsibleNavButtonCSS = style([
-    css({}),
+    css({
+        marginLeft: "auto",
+        marginTop: "auto",
+    }),
     {
         "@media": {
             [MEDIA_QUERY_MOBILE]: {
@@ -39,39 +22,96 @@ export const collapsibleNavButtonCSS = style([
         display: "flex",
     },
 ]);
-export const collapsibleNavOuterCSS = style([
-    css({
-        borderRight: "border_rule",
-        zIndex: "1",
-    }),
-    {
-        selectors: {
-            '&[data-state="closed"]': {
-                animation: `${close} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
-            },
-            '&[data-state="open"]': {
-                animation: `${open} ${vars.transitionDuration.sideBarShowHide} ${vars.ease.quart_in_out} forwards`,
-            },
+
+export const sideNavLinkCSS = recipe<ReactAriaRecipe<LinkRenderProps>>({
+    base: [
+        css({
+            alignItems: "center",
+            background: "bg_button_ghost",
+            borderRadius: "md",
+            color: "text_high_contrast",
+            display: "inline-flex",
+            flexShrink: "0",
+            fontStyle: "bodySm",
+            fontWeight: "medium",
+            gap: "space_2",
+            height: "space_8",
+            justifyContent: "start",
+            marginBottom: "space_1",
+            minWidth: "space_8",
+            outline: "none",
+            padding: "space_2",
+            textAlign: "left",
+            textDecoration: "none",
+            transition: "short",
+            whiteSpace: "nowrap",
+        }),
+    ],
+
+    variants: {
+        isCurrent: {
+            false: {},
+            true: css({
+                background: "tint_active",
+            }),
+        },
+        isDisabled: {
+            true: css({ cursor: "not-allowed", opacity: "0.5" }),
+        },
+        isFocused: {
+            false: {},
+            true: {},
+        },
+        isFocusVisible: {
+            false: {},
+            true: css({
+                background: "bg_button_ghost_active",
+                outline: "focus",
+            }),
+        },
+        isHovered: {
+            false: {},
+            true: css({
+                background: "bg_button_ghost_active",
+            }),
+        },
+        isPressed: {
+            false: {},
+            true: css({
+                background: "bg_button_ghost_active",
+            }),
         },
     },
-]);
+});
 
-export const collapsibleNavInnerCSS = style([
-    css({
-        background: "background",
+export const iconCSS = style([css({ minWidth: "space_4" })]);
 
-        display: "flex",
-        flexDirection: "column",
+export const collapsibleNavOuterCSS = recipe({
+    base: [
+        css({
+            background: "background",
+            borderRight: "border_rule",
+            display: "flex",
+            flexDirection: "column",
+            flexShrink: "0",
 
-        paddingX: "space_4",
-        paddingY: "space_2",
+            height: "100dvh",
+            overflowX: "hidden",
+            // maxWidth: "sideBar",
 
-        position: "sticky",
-        top: "0",
-        zIndex: "1",
-    }),
-    {
-        height: calc.subtract("100dvh", vars.height.topBar),
-        width: vars.width.sideBar,
+            padding: "space_2",
+            transition: "medium",
+            zIndex: "1",
+        }),
+    ],
+    variants: {
+        isOpen: {
+            false: css({
+                width: "space_12",
+            }),
+            true: css({
+                width: "sideBar",
+            }),
+        },
     },
-]);
+});

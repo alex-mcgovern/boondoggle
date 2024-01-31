@@ -90,17 +90,17 @@ const properties = defineProperties({
         transition: {
             long: withPrefersMotion({
                 transitionDuration: vars.transitionDuration.long,
-                transitionProperty: "background, color, border-color",
+                transitionProperty: "all",
                 transitionTimingFunction: vars.ease.quart_in_out,
             }),
             medium: withPrefersMotion({
                 transitionDuration: vars.transitionDuration.medium,
-                transitionProperty: "background, color, border-color",
+                transitionProperty: "all",
                 transitionTimingFunction: vars.ease.quart_in_out,
             }),
             short: withPrefersMotion({
                 transitionDuration: vars.transitionDuration.short,
-                transitionProperty: "background, color, border-color",
+                transitionProperty: "all",
                 transitionTimingFunction: vars.ease.quart_in_out,
             }),
         },

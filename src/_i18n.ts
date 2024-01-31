@@ -18,4 +18,6 @@ export const i18n = {
     prev: "Prev",
     results: "Results",
     show: "Show",
+    sidebar_hide: "Hide sidebar",
+    sidebar_show: "Show sidebar",
 };

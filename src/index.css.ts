@@ -205,6 +205,8 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         "space_1.5": "0.375rem",
         space_10: "2.5rem",
         space_12: "3rem",
+        space_14: "3.5rem",
+        space_16: "4rem",
         space_2: "0.5rem",
         space_3: "0.75rem",
         space_4: "1rem",
@@ -215,7 +217,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     },
     transitionDuration: {
         long: "600ms",
-        medium: "300s",
+        medium: "300ms",
         short: "150ms",
 
         // Bespoke durations
@@ -235,7 +237,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         main_sm: "30rem",
         "max-content": "max-content",
         "min-content": "min-content",
-        sideBar: "15rem",
+        sideBar: "10rem",
     },
 });
 

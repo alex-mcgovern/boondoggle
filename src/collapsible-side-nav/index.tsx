@@ -1,20 +1,26 @@
 "use client";
 
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
+import type { LinkProps } from "react-aria-components";
 
-import { faSidebar } from "@fortawesome/pro-solid-svg-icons/faSidebar";
-import * as RadixCollapsible from "@radix-ui/react-collapsible";
+import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
+import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
 import { useCallback } from "react";
 import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-aria-components";
 
 import { Button } from "../button";
+import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import { MEDIA_QUERY_MOBILE } from "../index.css";
+import { Tooltip, TooltipTrigger } from "../tooltip";
 import {
     collapsibleNavButtonCSS,
-    collapsibleNavInnerCSS,
     collapsibleNavOuterCSS,
+    iconCSS,
+    sideNavLinkCSS,
 } from "./styles.css";
 
 function useMatchMedia(
@@ -99,59 +105,102 @@ export const useCollapsibleSideNav = () => {
  * Button for toggling the side nav
  */
 export const ButtonToggleCollapsibleNav = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setIsOpen] = useCollapsibleSideNav();
+    const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
     return (
-        <Button
-            appearance="ghost"
-            className={collapsibleNavButtonCSS}
-            name="mobile_menu"
-            onPress={() => setIsOpen((c) => !c)}
-            size="square_sm"
-        >
-            <Icon icon={faSidebar} />
-        </Button>
+        <TooltipTrigger>
+            <Button
+                appearance="ghost"
+                className={collapsibleNavButtonCSS}
+                name="mobile_menu"
+                onPress={() => setIsOpen((c) => !c)}
+                size="square_sm"
+            >
+                <Icon icon={isOpen ? faAngleDoubleLeft : faAngleDoubleRight} />
+            </Button>
+            <Tooltip placement="right">
+                {isOpen ? "Collapse" : "Expand"}
+            </Tooltip>
+        </TooltipTrigger>
     );
 };
 
-export function CollapsibleSideNav({
-    children,
-    isOpen: controlledIsOpen,
-    onOpenChange: controlledOnOpenChange,
-}: {
-    children: Array<ReactNode> | ReactNode;
-    isOpen?: boolean;
-    onOpenChange?: (openState: boolean) => void;
-}) {
-    const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
+export function AppShell({ children }: { children: ReactNode }) {
+    return (
+        <div
+            className={css({
+                alignItems: "start",
+                display: "flex",
+                width: "100%",
+            })}
+        >
+            {children}
+        </div>
+    );
+}
 
-    const [isOpen, setIsOpen] = useCollapsibleSideNav();
+/** -----------------------------------------------------------------------------
+ * SideNavLink
+ * ------------------------------------------------------------------------------- */
 
-    useLayoutEffect(() => {
-        if (controlledIsOpen !== undefined) {
-            return setIsOpen(controlledIsOpen);
-        }
+export type SideNavLinkProps = LinkProps & {
+    icon: IconProp;
+    isCurrent?: boolean;
+};
 
-        if (isMobile) {
-            return setIsOpen(false);
-        }
-        return setIsOpen(true);
-    }, [isMobile, setIsOpen, controlledIsOpen]);
+export function SideNavLink({ icon, isCurrent, ...props }: SideNavLinkProps) {
+    const [isOpen] = useCollapsibleSideNav();
 
     return (
-        <RadixCollapsible.Root
-            onOpenChange={controlledOnOpenChange}
-            open={isOpen}
-        >
-            <RadixCollapsible.Content
-                asChild
-                className={collapsibleNavOuterCSS}
+        <TooltipTrigger isDisabled={isOpen}>
+            <Link
+                className={(renderProps) =>
+                    sideNavLinkCSS({
+                        ...renderProps,
+                        isCurrent: !!isCurrent || !!renderProps.isCurrent,
+                    })
+                }
             >
-                <aside>
-                    <nav className={collapsibleNavInnerCSS}>{children}</nav>
-                </aside>
-            </RadixCollapsible.Content>
-        </RadixCollapsible.Root>
+                {(renderProps) => (
+                    <>
+                        <Icon
+                            className={iconCSS}
+                            color={
+                                !!isCurrent || !!renderProps.isCurrent
+                                    ? "text_high_contrast"
+                                    : "text_low_contrast"
+                            }
+                            icon={icon}
+                        />
+                        {isOpen &&
+                            (typeof props.children === "function"
+                                ? props.children(renderProps)
+                                : props.children)}
+                    </>
+                )}
+            </Link>
+            <Tooltip placement="right">
+                {typeof props.children === "string" ? props.children : null}
+            </Tooltip>
+        </TooltipTrigger>
+    );
+}
+
+/** -----------------------------------------------------------------------------
+ * CollapsibleSideNav
+ * ------------------------------------------------------------------------------- */
+
+export function CollapsibleSideNav(props: { children: ReactNode }) {
+    const [isOpen] = useCollapsibleSideNav();
+
+    return (
+        <nav
+            className={collapsibleNavOuterCSS({
+                isOpen: isOpen ? true : false,
+            })}
+        >
+            {props.children}
+            <ButtonToggleCollapsibleNav />
+        </nav>
     );
 }
