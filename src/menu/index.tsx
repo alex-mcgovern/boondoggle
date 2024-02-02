@@ -3,9 +3,11 @@ import type {
     MenuItemProps as RACMenuItemProps,
     MenuProps as RACMenuProps,
 } from "react-aria-components";
+import type { SectionProps as RACSectionProps } from "react-aria-components";
 
 import clsx from "clsx";
 import { forwardRef } from "react";
+import { Section as RACSection } from "react-aria-components";
 import {
     Collection as RACCollection,
     Header as RACHeader,
@@ -16,9 +18,28 @@ import {
 import type { ColorOverlay } from "../index.css";
 
 import { menuHeaderCSS } from "../_css/menu.css";
+import { menuSectionCSS } from "../_css/menu.css";
 import { Checkbox } from "../checkbox";
 import { Section } from "../section";
 import { menuCSS, menuItemCSS } from "./styles.css";
+
+/** -----------------------------------------------------------------------------
+ * Util for checking presence of Icons in MenuItems
+ * ------------------------------------------------------------------------------- */
+
+// function hasSlotLeftKey(arr: IterableMenuItem<string>[]): boolean {
+//     for (const item of arr) {
+//         if ("slotLeft" in item) {
+//             return true;
+//         }
+
+//         if (item.children && hasSlotLeftKey(item.children)) {
+//             return true;
+//         }
+//     }
+
+//     return false;
+// }
 
 /** -----------------------------------------------------------------------------
  * IterableMenuItem
@@ -72,12 +93,28 @@ function _Menu<TItem extends object = object>(
 export const Menu = forwardRef(_Menu);
 
 /** -----------------------------------------------------------------------------
+ * MenuSection
+ * ------------------------------------------------------------------------------- */
+
+export function MenuSection<TItem extends object = object>(
+    props: RACSectionProps<TItem>,
+) {
+    return (
+        <RACSection
+            className={menuSectionCSS}
+            {...props}
+        />
+    );
+}
+
+/** -----------------------------------------------------------------------------
  * MenuItem
  * ------------------------------------------------------------------------------- */
 
 export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
     colorOverlay?: ColorOverlay;
     icon?: ReactNode;
+    shouldOffsetIcon?: boolean;
 };
 
 function _MenuItem<TItem extends object>(
@@ -155,6 +192,10 @@ function _DynamicMenu<TItemId extends string = string>(
     props: DynamicMenuProps<TItemId>,
     ref: ForwardedRef<HTMLDivElement>,
 ) {
+    // const anyItemHasIcon = useMemo(() => {
+    //     return props.items ? hasSlotLeftKey(Array.from(props.items)) : false;
+    // }, [props.items]);
+
     return (
         <Menu<IterableMenuItem<TItemId>>
             ref={ref}
@@ -174,6 +215,7 @@ function _DynamicMenu<TItemId extends string = string>(
                                 <MenuItem<IterableMenuItem<TItemId>>
                                     {...childItem}
                                     icon={childItem.slotLeft}
+                                    // shouldOffsetIcon={anyItemHasIcon}
                                     value={item}
                                 >
                                     {childItem.name}
@@ -185,6 +227,7 @@ function _DynamicMenu<TItemId extends string = string>(
                     <MenuItem<IterableMenuItem<TItemId>>
                         {...item}
                         icon={item.slotLeft}
+                        // shouldOffsetIcon={anyItemHasIcon}
                         value={item}
                     >
                         {item.name}

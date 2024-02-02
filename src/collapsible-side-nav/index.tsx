@@ -2,25 +2,31 @@
 
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import type { LinkProps } from "react-aria-components";
+import type {
+    ButtonProps as RACButtonProps,
+    LinkProps as RACLinkProps,
+} from "react-aria-components";
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
+import clsx from "clsx";
 import { useCallback } from "react";
 import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-aria-components";
+import { Link, Button as RACButton } from "react-aria-components";
 
-import { Button } from "../button";
+import { Avatar } from "../avatar";
 import { css } from "../css/index.css";
 import { Icon } from "../icon";
-import { MEDIA_QUERY_MOBILE } from "../index.css";
+import { MEDIA_QUERY_MOBILE, overflowEllipsis } from "../index.css";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import {
     collapsibleNavButtonCSS,
     collapsibleNavOuterCSS,
     iconCSS,
+    sideNavButtonCSS,
     sideNavLinkCSS,
+    sideNavUserMenuTriggerCSS,
 } from "./styles.css";
 
 function useMatchMedia(
@@ -108,20 +114,13 @@ export const ButtonToggleCollapsibleNav = () => {
     const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
     return (
-        <TooltipTrigger>
-            <Button
-                appearance="ghost"
-                className={collapsibleNavButtonCSS}
-                name="mobile_menu"
-                onPress={() => setIsOpen((c) => !c)}
-                size="square_sm"
-            >
-                <Icon icon={isOpen ? faAngleDoubleLeft : faAngleDoubleRight} />
-            </Button>
-            <Tooltip placement="right">
-                {isOpen ? "Collapse" : "Expand"}
-            </Tooltip>
-        </TooltipTrigger>
+        <SideNavButton
+            className={collapsibleNavButtonCSS}
+            icon={isOpen ? faAngleDoubleLeft : faAngleDoubleRight}
+            onPress={() => setIsOpen((c) => !c)}
+        >
+            {isOpen ? "Collapse" : "Expand"}
+        </SideNavButton>
     );
 };
 
@@ -143,7 +142,85 @@ export function AppShell({ children }: { children: ReactNode }) {
  * SideNavLink
  * ------------------------------------------------------------------------------- */
 
-export type SideNavLinkProps = LinkProps & {
+export type SideNavButtonProps = RACButtonProps & {
+    icon: IconProp;
+    isCurrent?: boolean;
+};
+
+export function SideNavButton({ icon, ...props }: SideNavButtonProps) {
+    const [isOpen] = useCollapsibleSideNav();
+
+    return (
+        <TooltipTrigger isDisabled={isOpen}>
+            <RACButton
+                {...props}
+                className={(renderProps) =>
+                    clsx(props.className, sideNavButtonCSS(renderProps))
+                }
+            >
+                {(renderProps) => (
+                    <>
+                        <Icon
+                            className={iconCSS}
+                            icon={icon}
+                        />
+                        {isOpen &&
+                            (typeof props.children === "function"
+                                ? props.children(renderProps)
+                                : props.children)}
+                    </>
+                )}
+            </RACButton>
+            <Tooltip placement="right">
+                {typeof props.children === "string" ? props.children : null}
+            </Tooltip>
+        </TooltipTrigger>
+    );
+}
+
+export type SideNavUserMenuTriggerProps = RACButtonProps & {
+    image: string;
+    isCurrent?: boolean;
+    name: string;
+};
+
+export function SideNavUserMenuTrigger({
+    ...props
+}: SideNavUserMenuTriggerProps) {
+    const [isOpen] = useCollapsibleSideNav();
+
+    return (
+        <TooltipTrigger isDisabled={isOpen}>
+            <RACButton
+                {...props}
+                className={(renderProps) =>
+                    clsx(
+                        props.className,
+                        sideNavUserMenuTriggerCSS({
+                            ...renderProps,
+                            isMenuExpanded: isOpen ? "true" : "false",
+                        }),
+                    )
+                }
+            >
+                <Avatar
+                    appearance="square"
+                    firstName="Alex"
+                    // imageSrc={props.image}
+                    size={28}
+                ></Avatar>
+                {isOpen && <div className={overflowEllipsis}>{props.name}</div>}
+            </RACButton>
+            <Tooltip placement="right">Signed in as {props.name}</Tooltip>
+        </TooltipTrigger>
+    );
+}
+
+/** -----------------------------------------------------------------------------
+ * SideNavLink
+ * ------------------------------------------------------------------------------- */
+
+export type SideNavLinkProps = RACLinkProps & {
     icon: IconProp;
     isCurrent?: boolean;
 };
@@ -154,11 +231,15 @@ export function SideNavLink({ icon, isCurrent, ...props }: SideNavLinkProps) {
     return (
         <TooltipTrigger isDisabled={isOpen}>
             <Link
+                {...props}
                 className={(renderProps) =>
-                    sideNavLinkCSS({
-                        ...renderProps,
-                        isCurrent: !!isCurrent || !!renderProps.isCurrent,
-                    })
+                    clsx(
+                        props.className,
+                        sideNavLinkCSS({
+                            ...renderProps,
+                            isCurrent: !!isCurrent || !!renderProps.isCurrent,
+                        }),
+                    )
                 }
             >
                 {(renderProps) => (
@@ -200,7 +281,17 @@ export function CollapsibleSideNav(props: { children: ReactNode }) {
             })}
         >
             {props.children}
-            <ButtonToggleCollapsibleNav />
+            <div
+                className={css({
+                    borderTop: "border_rule",
+                    bottom: "0",
+                    marginTop: "space_2",
+                    paddingTop: "space_2",
+                    position: "sticky",
+                })}
+            >
+                <ButtonToggleCollapsibleNav />
+            </div>
         </nav>
     );
 }

@@ -6,7 +6,33 @@ import { recipe } from "@vanilla-extract/recipes";
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
-import { unobtrusiveScrollBar, variantColorOverlay, vars } from "../index.css";
+import {
+    elementPaddingRaw,
+    floatingMenu,
+    unobtrusiveScrollBar,
+    variantColorOverlay,
+    vars,
+} from "../index.css";
+
+export const menuSectionCSS = style([
+    {
+        selectors: {
+            "&:not(:last-child)::after": {
+                background: vars.color.border_rule,
+                content: "",
+
+                display: "block",
+                height: "1px",
+
+                marginBottom: elementPaddingRaw.sm.y,
+                marginLeft: floatingMenu.item.paddingX,
+
+                marginRight: floatingMenu.item.paddingX,
+                marginTop: elementPaddingRaw.sm.y,
+            },
+        },
+    },
+]);
 
 export const menuCSS = style([
     css({
@@ -29,7 +55,7 @@ export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
             flexShrink: "0",
             fontStyle: "bodySm",
             fontWeight: "normal",
-            gap: "space_2",
+            gap: "space_1",
             minHeight: "space_8",
             paddingX: "space_2",
             paddingY: "space_1",
@@ -49,7 +75,7 @@ export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
+                gridTemplateColumns: `${vars.spacing.space_4} 1fr ${vars.spacing.space_5}`,
             },
             variants: {
                 hasIcon: "true",
@@ -59,7 +85,7 @@ export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
+                gridTemplateColumns: `${vars.spacing.space_4} 1fr ${vars.spacing.space_5}`,
             },
             variants: {
                 hasIcon: "true",
@@ -69,7 +95,7 @@ export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr`,
+                gridTemplateColumns: `${vars.spacing.space_4} 1fr`,
             },
             variants: {
                 hasIcon: "true",
