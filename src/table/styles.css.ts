@@ -9,7 +9,7 @@ import type {
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
@@ -28,7 +28,7 @@ export const tableContainerCSS = style([
  * TableContainer
  * ------------------------------------------------------------------------------- */
 
-export const tableCSS = recipe<ReactAriaRecipe<TableRenderProps>>({
+export const tableCSS = recipe<RACRecipe<TableRenderProps>>({
     base: {
         borderSpacing: "0",
     },
@@ -43,7 +43,7 @@ export const tableCSS = recipe<ReactAriaRecipe<TableRenderProps>>({
  * Column
  * ------------------------------------------------------------------------------- */
 
-export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
+export const columnCSS = recipe<RACRecipe<ColumnRenderProps>>({
     base: css({
         borderBottom: "border_rule",
         color: "text_low_contrast",
@@ -99,7 +99,7 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
  * Cell
  * ------------------------------------------------------------------------------- */
 
-export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
+export const cellCSS = recipe<RACRecipe<CellRenderProps>>({
     base: css({
         borderBottom: "border_rule",
         color: "text_high_contrast",
@@ -135,7 +135,7 @@ export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
  * Row
  * ------------------------------------------------------------------------------- */
 
-export const rowCSS = recipe<ReactAriaRecipe<RowRenderProps>>({
+export const rowCSS = recipe<RACRecipe<RowRenderProps>>({
     base: [
         css({
             color: "text_high_contrast",
@@ -221,7 +221,7 @@ export const rowCSS = recipe<ReactAriaRecipe<RowRenderProps>>({
     },
 });
 
-export const tableSortButtonCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
+export const tableSortButtonCSS = recipe<RACRecipe<ButtonRenderProps>>({
     base: [
         css({
             alignItems: "center",

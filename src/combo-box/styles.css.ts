@@ -2,12 +2,12 @@ import type { ComboBoxRenderProps } from "react-aria-components";
 
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
 
-export const comboBoxCSS = recipe<ReactAriaRecipe<ComboBoxRenderProps>>({
+export const comboBoxCSS = recipe<RACRecipe<ComboBoxRenderProps>>({
     base: [],
     variants: {
         isDisabled: {

@@ -5,13 +5,13 @@ import type {
 
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
 
 export const dateInputCSS = recipe<
-    ReactAriaRecipe<
+    RACRecipe<
         DateInputRenderProps & { isInvalid: boolean } // Bug in react-aria-components, this type is missing — https://github.com/adobe/react-spectrum/issues/5662
     >
 >({
@@ -126,7 +126,7 @@ export const dateInputCSS = recipe<
     },
 });
 
-export const dateSegmentCSS = recipe<ReactAriaRecipe<DateSegmentRenderProps>>({
+export const dateSegmentCSS = recipe<RACRecipe<DateSegmentRenderProps>>({
     base: [
         css({
             borderRadius: "sm",

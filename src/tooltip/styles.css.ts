@@ -8,7 +8,7 @@ import { createVar, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
@@ -25,9 +25,7 @@ const EASING = vars.ease.quart_in_out;
 
 export const overlayArrowCSS = css({ height: "space_2", width: "space_2" });
 
-export const overlayArrowSvgCSS = recipe<
-    ReactAriaRecipe<OverlayArrowRenderProps>
->({
+export const overlayArrowSvgCSS = recipe<RACRecipe<OverlayArrowRenderProps>>({
     base: [
         css({
             display: "block",
@@ -124,7 +122,7 @@ const keyframesOutToBottom = keyframes({
     },
 });
 
-export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
+export const tooltipCSS = recipe<RACRecipe<TooltipRenderProps>>({
     base: [
         css({
             background: "black",
@@ -291,9 +289,7 @@ export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
  * Trigger Button
  * ------------------------------------------------------------------------------- */
 
-export const tooltipTriggerButtonCSS = recipe<
-    ReactAriaRecipe<ButtonRenderProps>
->({
+export const tooltipTriggerButtonCSS = recipe<RACRecipe<ButtonRenderProps>>({
     base: css({
         color: "text_low_contrast",
         fontStyle: "bodyMd",

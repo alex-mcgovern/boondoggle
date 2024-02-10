@@ -23,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                         props.className,
                         inputCSS({
                             ...renderProps,
-                            hasIcon: props.icon ? "true" : "false",
+                            hasIcon: !!props.icon,
                             variant: props.variant ?? "default",
                         }),
                     )

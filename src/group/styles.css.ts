@@ -2,12 +2,12 @@ import type { GroupRenderProps } from "react-aria-components";
 
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
 
-export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
+export const groupCSS = recipe<RACRecipe<GroupRenderProps>>({
     base: [
         css({
             alignItems: "center",

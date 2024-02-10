@@ -3,7 +3,7 @@ import type { ButtonRenderProps } from "react-aria-components";
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../../../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../../../_css-utils/react-aria-recipe";
 
 import { withPrefersMotion } from "../../../_css-utils";
 import { css } from "../../../css/index.css";
@@ -11,7 +11,7 @@ import { HOVER, vars } from "../../../index.css";
 
 const sortControlBase = style({});
 
-export const tableSortButtonCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
+export const tableSortButtonCSS = recipe<RACRecipe<ButtonRenderProps>>({
     base: [
         sortControlBase,
         css({

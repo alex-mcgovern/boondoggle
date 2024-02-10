@@ -3,12 +3,12 @@ import type { InputRenderProps } from "react-aria-components";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay, vars } from "../index.css";
 
-export const textareaCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
+export const textareaCSS = recipe<RACRecipe<InputRenderProps>>({
     base: [
         css({
             background: "bg_field",

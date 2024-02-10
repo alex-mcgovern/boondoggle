@@ -3,12 +3,12 @@ import type { SearchFieldRenderProps } from "react-aria-components";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
 
-export const searchFieldCSS = recipe<ReactAriaRecipe<SearchFieldRenderProps>>({
+export const searchFieldCSS = recipe<RACRecipe<SearchFieldRenderProps>>({
     base: [],
     variants: {
         isDisabled: {

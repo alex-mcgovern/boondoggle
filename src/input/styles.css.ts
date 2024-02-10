@@ -3,8 +3,7 @@ import type { InputRenderProps } from "react-aria-components";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
-
+import { racRecipeHelper } from "../_css-utils/react-aria-recipe";
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
 
@@ -30,7 +29,7 @@ export const inputIconCSS = style([
     { pointerEvents: "none" },
 ]);
 
-export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
+export const inputCSS = recipe({
     base: [
         css({
             color: "text_high_contrast",
@@ -98,7 +97,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 paddingRight: "space_2",
             }),
             variants: {
-                hasIcon: "true",
+                hasIcon: true,
                 variant: "default",
             },
         },
@@ -107,7 +106,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 paddingX: "space_2",
             }),
             variants: {
-                hasIcon: "false",
+                hasIcon: false,
                 variant: "default",
             },
         },
@@ -116,7 +115,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 paddingLeft: "space_7",
             }),
             variants: {
-                hasIcon: "true",
+                hasIcon: true,
                 variant: "unstyled",
             },
         },
@@ -125,7 +124,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
                 paddingLeft: "space_2",
             }),
             variants: {
-                hasIcon: "false",
+                hasIcon: false,
                 variant: "unstyled",
             },
         },
@@ -134,30 +133,33 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         variant: "default",
     },
     variants: {
+        ...racRecipeHelper<InputRenderProps>({
+            isDisabled: {
+                false: {},
+                true: {},
+            },
+            isFocused: {
+                false: {},
+                true: {},
+            },
+            isFocusVisible: {
+                false: {},
+                true: {},
+            },
+            isHovered: {
+                false: {},
+                true: {},
+            },
+            isInvalid: {
+                false: {},
+                true: {},
+            },
+        }),
         hasIcon: {
             false: {},
             true: {},
         },
-        isDisabled: {
-            false: {},
-            true: {},
-        },
-        isFocused: {
-            false: {},
-            true: {},
-        },
-        isFocusVisible: {
-            false: {},
-            true: {},
-        },
-        isHovered: {
-            false: {},
-            true: {},
-        },
-        isInvalid: {
-            false: {},
-            true: {},
-        },
+
         variant: {
             default: css({
                 background: "bg_field",

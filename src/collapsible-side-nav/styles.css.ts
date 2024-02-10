@@ -3,7 +3,7 @@ import type { ButtonRenderProps, LinkRenderProps } from "react-aria-components";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 
@@ -11,7 +11,7 @@ export const collapsibleNavButtonCSS = css({
     marginTop: "auto",
 });
 
-export const sideNavButtonCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
+export const sideNavButtonCSS = recipe<RACRecipe<ButtonRenderProps>>({
     base: [
         css({
             alignItems: "center",
@@ -68,9 +68,7 @@ export const sideNavButtonCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
     },
 });
 
-export const sideNavUserMenuTriggerCSS = recipe<
-    ReactAriaRecipe<ButtonRenderProps>
->({
+export const sideNavUserMenuTriggerCSS = recipe<RACRecipe<ButtonRenderProps>>({
     base: [
         css({
             alignItems: "center",
@@ -157,7 +155,7 @@ export const sideNavUserMenuTriggerCSS = recipe<
     },
 });
 
-export const sideNavLinkCSS = recipe<ReactAriaRecipe<LinkRenderProps>>({
+export const sideNavLinkCSS = recipe<RACRecipe<LinkRenderProps>>({
     base: [
         css({
             alignItems: "center",

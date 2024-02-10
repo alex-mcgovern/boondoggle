@@ -3,7 +3,7 @@ import type { ListBoxItemRenderProps } from "react-aria-components";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { unobtrusiveScrollBar, variantColorOverlay, vars } from "../index.css";
@@ -20,7 +20,7 @@ export const listBoxCSS = style([
     unobtrusiveScrollBar,
 ]);
 
-export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
+export const listBoxItemCSS = recipe<RACRecipe<ListBoxItemRenderProps>>({
     base: [
         css({
             alignItems: "center",

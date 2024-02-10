@@ -7,7 +7,7 @@ import { createVar, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
@@ -24,9 +24,7 @@ const EASING = vars.ease.quart_in_out;
 
 export const overlayArrowCSS = css({ height: "space_3", width: "space_3" });
 
-export const overlayArrowSvgCSS = recipe<
-    ReactAriaRecipe<OverlayArrowRenderProps>
->({
+export const overlayArrowSvgCSS = recipe<RACRecipe<OverlayArrowRenderProps>>({
     base: [
         css({
             display: "block",
@@ -124,7 +122,7 @@ const keyframesOutToBottom = keyframes({
     },
 });
 
-export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
+export const popoverCSS = recipe<RACRecipe<PopoverRenderProps>>({
     base: [
         css({
             background: "background",

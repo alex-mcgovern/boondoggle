@@ -2,7 +2,7 @@ import type { CheckboxRenderProps } from "react-aria-components";
 
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { RACRecipe } from "../_css-utils/react-aria-recipe";
 
 import { css } from "../css/index.css";
 import { variantColorOverlay, vars } from "../index.css";
@@ -32,7 +32,7 @@ export const checkboxTickCSS = recipe({
     },
 });
 
-export const checkboxWrapperCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
+export const checkboxWrapperCSS = recipe<RACRecipe<CheckboxRenderProps>>({
     base: css({
         alignItems: "center",
         color: "text_high_contrast",
@@ -81,7 +81,7 @@ export const checkboxWrapperCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
     },
 });
 
-export const checkboxCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
+export const checkboxCSS = recipe<RACRecipe<CheckboxRenderProps>>({
     base: css({
         alignItems: "center",
         border: "border_field",
