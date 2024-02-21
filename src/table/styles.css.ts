@@ -20,7 +20,7 @@ import { HOVER, unobtrusiveScrollBar, vars } from "../index.css";
  * ------------------------------------------------------------------------------- */
 
 export const tableContainerCSS = style([
-    css({ overflowX: "auto", width: "main_lg" }),
+    css({ overflowX: "auto" }),
     unobtrusiveScrollBar,
 ]);
 

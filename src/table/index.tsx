@@ -2,6 +2,7 @@ import type { ForwardedRef } from "react";
 import type {
     CellProps as RACCellProps,
     ColumnProps as RACColumnProps,
+    ResizableTableContainerProps as RACResizableTableContainerProps,
     RowProps as RACRowProps,
     TableBodyProps as RACTableBodyProps,
     TableHeaderProps as RACTableHeaderProps,
@@ -12,10 +13,10 @@ import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faGripDots } from "@fortawesome/pro-solid-svg-icons/faGripDots";
 import { clsx } from "clsx";
 import { forwardRef } from "react";
-import { ResizableTableContainer } from "react-aria-components";
 import {
     Cell as RACCell,
     Collection as RACCollection,
+    ResizableTableContainer as RACResizableTableContainer,
     Row as RACRow,
     Table as RACTable,
     TableBody as RACTableBody,
@@ -270,25 +271,40 @@ export type TableProps = RACTableProps;
 export const Table = forwardRef<HTMLTableElement, TableProps>(
     (props: TableProps, ref) => {
         return (
-            <ResizableTableContainer className={tableContainerCSS}>
-                <RACTable
-                    {...props}
-                    className={({ isDropTarget, isFocused, isFocusVisible }) =>
-                        clsx(
-                            props.className,
-                            tableCSS({
-                                isDropTarget,
-                                isFocused,
-                                isFocusVisible,
-                            }),
-                        )
-                    }
-                    ref={ref}
-                    style={{ tableLayout: "auto" }}
-                >
-                    {props.children}
-                </RACTable>
-            </ResizableTableContainer>
+            <RACTable
+                {...props}
+                className={({ isDropTarget, isFocused, isFocusVisible }) =>
+                    clsx(
+                        props.className,
+                        tableCSS({
+                            isDropTarget,
+                            isFocused,
+                            isFocusVisible,
+                        }),
+                    )
+                }
+                ref={ref}
+                style={{ ...props.style, tableLayout: "auto" }}
+            >
+                {props.children}
+            </RACTable>
         );
     },
 );
+
+/** -----------------------------------------------------------------------------
+ * ResizableTableContainer
+ * ------------------------------------------------------------------------------- */
+
+export type ResizableTableContainerProps = RACResizableTableContainerProps;
+
+export const ResizableTableContainer = (
+    props: RACResizableTableContainerProps,
+) => {
+    return (
+        <RACResizableTableContainer
+            {...props}
+            className={clsx(props.className, tableContainerCSS)}
+        />
+    );
+};
