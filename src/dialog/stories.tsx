@@ -12,6 +12,11 @@ import { Button } from "../button";
 import { css } from "../css/index.css";
 import { V2DialogAlert } from "../dialog-alert";
 import { V2DialogErrorMessage } from "../dialog-error-message";
+import { Form } from "../form";
+import { FormSubmitButton } from "../form-submit-button";
+import { Label } from "../label";
+import { TextArea } from "../text-area";
+import { FormTextField } from "../text-field";
 
 const meta = {
     args: {
@@ -76,6 +81,52 @@ export const WidthSm: Story = {
 export const WidthLg: Story = {
     args: {
         width: "lg",
+    },
+};
+
+export const WithForm: Story = {
+    args: {
+        children: ({ close }) => {
+            return (
+                <Form
+                    className={css({
+                        display: "flex",
+                        flexDirection: "column",
+                        position: "relative",
+                    })}
+                    handleSubmit={(fieldValues: unknown) =>
+                        alert(JSON.stringify(fieldValues))
+                    }
+                    name="close_account"
+                >
+                    <V2DialogHeader
+                        close={close}
+                        title="Form"
+                    />
+
+                    <V2ScrollableDialogContent>
+                        <FormTextField
+                            className={css({
+                                marginBottom: "space_4",
+                            })}
+                            name="reason"
+                        >
+                            <Label>Description</Label>
+                            <TextArea />
+                        </FormTextField>
+                    </V2ScrollableDialogContent>
+
+                    <V2DialogFooter>
+                        <FormSubmitButton
+                            appearance="primary"
+                            className={css({ width: "100%" })}
+                        >
+                            Submit
+                        </FormSubmitButton>
+                    </V2DialogFooter>
+                </Form>
+            );
+        },
     },
 };
 
