@@ -297,13 +297,15 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 
 export type ResizableTableContainerProps = RACResizableTableContainerProps;
 
-export const ResizableTableContainer = (
-    props: RACResizableTableContainerProps,
-) => {
+export const ResizableTableContainer = forwardRef<
+    HTMLDivElement,
+    ResizableTableContainerProps
+>((props, ref) => {
     return (
         <RACResizableTableContainer
             {...props}
             className={clsx(props.className, tableContainerCSS)}
+            ref={ref}
         />
     );
-};
+});
