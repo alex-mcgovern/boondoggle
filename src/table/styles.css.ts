@@ -101,16 +101,22 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
  * ------------------------------------------------------------------------------- */
 
 export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
-    base: css({
-        borderBottom: "border_rule",
-        color: "text_high_contrast",
-        fontStyle: "bodySm",
-        outline: "none",
-        paddingX: "space_2",
-        paddingY: "space_2",
-        textAlign: "left",
-        transition: "short",
-    }),
+    base: [
+        css({
+            borderBottom: "border_rule",
+            color: "text_high_contrast",
+            fontStyle: "bodySm",
+            outline: "none",
+            paddingX: "space_2",
+            paddingY: "space_2",
+            textAlign: "left",
+            transition: "short",
+        }),
+        {
+            verticalAlign: "middle",
+        },
+    ],
+
     variants: {
         isFocused: {
             false: {},
