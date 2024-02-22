@@ -54,6 +54,7 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
         paddingY: "space_2",
         textAlign: "left",
         transition: "short",
+        whiteSpace: "nowrap",
     }),
     compoundVariants: [
         {
