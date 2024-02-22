@@ -143,7 +143,7 @@ export const rowCSS = recipe<ReactAriaRecipe<RowRenderProps>>({
             paddingX: "space_8",
             paddingY: "space_1",
             textAlign: "left",
-            transition: "short",
+            // transition: "short",
         }),
         {
             selectors: {

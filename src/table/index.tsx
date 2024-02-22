@@ -284,7 +284,6 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
                     )
                 }
                 ref={ref}
-                style={{ ...props.style, tableLayout: "auto" }}
             >
                 {props.children}
             </RACTable>
