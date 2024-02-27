@@ -131,6 +131,7 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
             border: "border_rule",
             borderRadius: "md",
             boxShadow: "md",
+            maxWidth: "50%",
         }),
     ],
     compoundVariants: [
