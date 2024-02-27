@@ -131,7 +131,6 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
             border: "border_rule",
             borderRadius: "md",
             boxShadow: "md",
-            maxWidth: "50%",
         }),
     ],
     compoundVariants: [
@@ -291,16 +290,13 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
 
         trigger: {
             ComboBox: {
-                minWidth: calc.add(
-                    "var(--trigger-width)",
-                    vars.spacing.space_1,
-                ),
+                width: calc.add("var(--trigger-width)", vars.spacing.space_1),
             },
             DatePicker: {
                 width: "unset",
             },
             Select: {
-                minWidth: "var(--trigger-width)",
+                width: "var(--trigger-width)",
             },
         },
     },
