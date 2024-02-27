@@ -20,7 +20,7 @@ import { HOVER, unobtrusiveScrollBar, vars } from "../index.css";
  * ------------------------------------------------------------------------------- */
 
 export const tableContainerCSS = style([
-    css({ overflowX: "auto", width: "main_lg" }),
+    css({ overflowX: "auto" }),
     unobtrusiveScrollBar,
 ]);
 
@@ -54,6 +54,7 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
         paddingY: "space_2",
         textAlign: "left",
         transition: "short",
+        whiteSpace: "nowrap",
     }),
     compoundVariants: [
         {
@@ -100,16 +101,22 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
  * ------------------------------------------------------------------------------- */
 
 export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
-    base: css({
-        borderBottom: "border_rule",
-        color: "text_high_contrast",
-        fontStyle: "bodySm",
-        outline: "none",
-        paddingX: "space_2",
-        paddingY: "space_2",
-        textAlign: "left",
-        transition: "short",
-    }),
+    base: [
+        css({
+            borderBottom: "border_rule",
+            color: "text_high_contrast",
+            fontStyle: "bodySm",
+            outline: "none",
+            paddingX: "space_2",
+            paddingY: "space_2",
+            textAlign: "left",
+            transition: "short",
+        }),
+        {
+            verticalAlign: "middle",
+        },
+    ],
+
     variants: {
         isFocused: {
             false: {},
@@ -143,7 +150,7 @@ export const rowCSS = recipe<ReactAriaRecipe<RowRenderProps>>({
             paddingX: "space_8",
             paddingY: "space_1",
             textAlign: "left",
-            transition: "short",
+            // transition: "short",
         }),
         {
             selectors: {
