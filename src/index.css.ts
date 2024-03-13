@@ -597,12 +597,11 @@ globalStyle("html", {
     },
 });
 
-globalStyle("html, body", {
+globalStyle("html", {
     "@layer": {
         [baseLayer]: {
             fontFamily: vars.fontFamily.body,
             fontSize: vars.fontSize.root,
-            height: "100%",
         },
     },
 });
@@ -611,7 +610,9 @@ globalStyle("body", {
     "@layer": {
         [baseLayer]: {
             color: vars.color.text_high_contrast,
-            lineHeight: vars.lineHeight.bodyMd,
+            fontSize: vars.fontSize.bodyLg,
+            height: "100%",
+            lineHeight: vars.lineHeight.bodyLg,
             WebkitFontSmoothing: "antialiased",
         },
     },
@@ -819,8 +820,8 @@ globalStyle("menu", {
 globalStyle("p", {
     "@layer": {
         [baseLayer]: {
-            fontSize: vars.fontSize.bodyMd,
-            lineHeight: vars.lineHeight.bodyMd,
+            fontSize: vars.fontSize.bodyLg,
+            lineHeight: vars.lineHeight.bodyLg,
             marginBottom: vars.spacing.space_2,
             overflowWrap: "break-word",
         },
