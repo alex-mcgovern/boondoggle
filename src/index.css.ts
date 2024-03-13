@@ -791,8 +791,8 @@ globalStyle("ul, ol", {
 globalStyle("ul li, ol li", {
     "@layer": {
         [baseLayer]: {
-            fontSize: vars.fontSize.bodyMd,
-            lineHeight: vars.lineHeight.bodyMd,
+            fontSize: vars.fontSize.bodyLg,
+            lineHeight: vars.lineHeight.bodyLg,
             marginBottom: 0,
         },
     },
