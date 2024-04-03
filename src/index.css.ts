@@ -158,6 +158,7 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         "6x": "repeat(6, 1fr)",
         "7_5": "7fr 5fr",
         "7x": "repeat(7, 1fr)",
+        "8x": "repeat(8, 1fr)",
     },
     height: {
         "": "0",
@@ -244,6 +245,17 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
 /** -----------------------------------------------------------------------------
  * COLOR OVERLAY VARIANT
  * ------------------------------------------------------------------------------- */
+
+/**
+ * Color overlay, used to convey semantic meaning.
+ * -   `amber`: To indicate caution, or warning actions
+ * -   `blue`: To indicate information, or neutral actions
+ * -   `green`: To indicate success, or confirmatory actions
+ * -   `grey`: When a subtle, neutral color is needed
+ * -   `red`: To warn of potentially destructive actions
+ * -   `default`: To reset the color overlay if inherited from a parent
+ */
+export type ColorOverlay = keyof typeof variantColorOverlay;
 
 export const variantColorOverlay = styleVariants({
     amber: {
@@ -337,8 +349,6 @@ export const variantColorOverlay = styleVariants({
         },
     },
 });
-
-export type ColorOverlay = keyof typeof variantColorOverlay;
 
 /** -----------------------------------------------------------------------------
  * A11Y STYLES
@@ -610,9 +620,9 @@ globalStyle("body", {
     "@layer": {
         [baseLayer]: {
             color: vars.color.text_high_contrast,
-            fontSize: vars.fontSize.bodyLg,
+            fontSize: vars.fontSize.bodyMd,
             height: "100%",
-            lineHeight: vars.lineHeight.bodyLg,
+            lineHeight: vars.lineHeight.bodyMd,
             WebkitFontSmoothing: "antialiased",
         },
     },
@@ -791,8 +801,8 @@ globalStyle("ul, ol", {
 globalStyle("ul li, ol li", {
     "@layer": {
         [baseLayer]: {
-            fontSize: vars.fontSize.bodyLg,
-            lineHeight: vars.lineHeight.bodyLg,
+            fontSize: vars.fontSize.bodyMd,
+            lineHeight: vars.lineHeight.bodyMd,
             marginBottom: 0,
         },
     },
@@ -820,8 +830,8 @@ globalStyle("menu", {
 globalStyle("p", {
     "@layer": {
         [baseLayer]: {
-            fontSize: vars.fontSize.bodyLg,
-            lineHeight: vars.lineHeight.bodyLg,
+            fontSize: vars.fontSize.bodyMd,
+            lineHeight: vars.lineHeight.bodyMd,
             marginBottom: vars.spacing.space_2,
             overflowWrap: "break-word",
         },

@@ -27,6 +27,15 @@ import { menuCSS, menuItemCSS } from "./styles.css";
 type SingleMenuItem<TItemId extends string = string> =
     AnchorHTMLAttributes<HTMLAnchorElement> & {
         children?: never;
+        /**
+         * Color overlay, used to convey semantic meaning.
+         * -   `amber`: To indicate caution, or warning actions
+         * -   `blue`: To indicate information, or neutral actions
+         * -   `green`: To indicate success, or confirmatory actions
+         * -   `grey`: When a subtle, neutral color is needed
+         * -   `red`: To warn of potentially destructive actions
+         * -   `default`: To reset the color overlay if inherited from a parent
+         */
         colorOverlay?: ColorOverlay;
         description?: string;
         href?: string;
@@ -76,6 +85,15 @@ export const Menu = forwardRef(_Menu);
  * ------------------------------------------------------------------------------- */
 
 export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
+    /**
+     * Color overlay, used to convey semantic meaning.
+     * -   `amber`: To indicate caution, or warning actions
+     * -   `blue`: To indicate information, or neutral actions
+     * -   `green`: To indicate success, or confirmatory actions
+     * -   `grey`: When a subtle, neutral color is needed
+     * -   `red`: To warn of potentially destructive actions
+     * -   `default`: To reset the color overlay if inherited from a parent
+     */
     colorOverlay?: ColorOverlay;
     icon?: ReactNode;
 };

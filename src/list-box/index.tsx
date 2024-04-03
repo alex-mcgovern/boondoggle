@@ -29,6 +29,15 @@ import { listBoxCSS, listBoxItemCSS } from "./styles.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;
+    /**
+     * Color overlay, used to convey semantic meaning.
+     * -   `amber`: To indicate caution, or warning actions
+     * -   `blue`: To indicate information, or neutral actions
+     * -   `green`: To indicate success, or confirmatory actions
+     * -   `grey`: When a subtle, neutral color is needed
+     * -   `red`: To warn of potentially destructive actions
+     * -   `default`: To reset the color overlay if inherited from a parent
+     */
     colorOverlay?: ColorOverlay;
     description?: string;
     href?: string;
@@ -58,6 +67,15 @@ export type IterableListBoxItem<TItemId extends string = string> =
 
 export type ListBoxItemProps<TItemId extends string = string> =
     ReactAriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
+        /**
+         * Color overlay, used to convey semantic meaning.
+         * -   `amber`: To indicate caution, or warning actions
+         * -   `blue`: To indicate information, or neutral actions
+         * -   `green`: To indicate success, or confirmatory actions
+         * -   `grey`: When a subtle, neutral color is needed
+         * -   `red`: To warn of potentially destructive actions
+         * -   `default`: To reset the color overlay if inherited from a parent
+         */
         colorOverlay?: ColorOverlay;
         icon?: ReactNode;
     };
