@@ -10,6 +10,7 @@ import {
 } from ".";
 import { Button } from "../button";
 import { css } from "../css/index.css";
+import { FieldError } from "../field-error";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
@@ -51,7 +52,22 @@ export const Invalid: Story = {
     },
 };
 
-export const WithLabelTooltip: Story = {
+export const InvalidWithError: Story = {
+    args: {
+        isInvalid: true,
+    },
+    render: (args) => {
+        return (
+            <TextField {...args}>
+                <Label>Label</Label>
+                <Input />
+                <FieldError>Error message</FieldError>
+            </TextField>
+        );
+    },
+};
+
+export const LabelTooltip: Story = {
     render: (args) => {
         return (
             <TextField {...args}>
@@ -70,10 +86,10 @@ export const WithLabelTooltip: Story = {
     },
 };
 
-export const TypePassword: Story = {
+export const Visibilty: Story = {
     args: {
         type: "password",
-        value: "Hello world",
+        value: "my-secret-value",
     },
     render: (args) => {
         return (

@@ -84,7 +84,12 @@ export type TextFieldProps = RACTextFieldProps;
 /**
  * A text field allows a user to enter a plain text value with a keyboard.
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
+ * It is a thin layer on top of the
+ * [React Aria TextField component](https://react-spectrum.adobe.com/react-aria/TextField.html)
+ * with some additional props for styling / variants.
+ *
+ * **Note:** `TextField` is built with composition in mind — meaning that you need to combine it with
+ * other components like `Label`, `Input`, `FieldError`, etc. to create a complete form field.
  */
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     (props, ref) => {

@@ -639,6 +639,14 @@ globalStyle("a", {
     },
 });
 
+globalStyle("b, strong", {
+    "@layer": {
+        [baseLayer]: {
+            fontWeight: vars.fontWeight.bold,
+        },
+    },
+});
+
 globalStyle("a:hover, a:focus, a:focus-visible", {
     "@layer": {
         [baseLayer]: {

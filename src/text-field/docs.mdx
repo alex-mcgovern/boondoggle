@@ -1,0 +1,76 @@
+import {
+    ArgTypes,
+    Canvas,
+    Controls,
+    Meta,
+    Story,
+    Source,
+    Description,
+} from "@storybook/blocks";
+
+import { TextField } from ".";
+import * as stories from "./stories.tsx";
+
+<Meta of={stories} />
+
+# TextField
+
+<Description of={TextField} />
+
+## Usage
+
+### Basic usage
+
+<Canvas
+    sourceState="shown"
+    of={stories.Default}
+/>
+
+### Validation`
+
+You can mark the field as invalid by passing the `isInvalid` prop. This will
+apply the red `colorOverlay` to the field.
+
+<Canvas
+    sourceState="shown"
+    of={stories.Invalid}
+/>
+
+Additionally, you can provide an error message to be displayed below the field
+using the `FieldError` component.
+
+**Note**: The `FieldError` may also be used without any children, in the context
+of a `Form` component, in which case you can pass an object of errors to the
+`Form`.
+
+<Canvas
+    sourceState="shown"
+    of={stories.InvalidWithError}
+/>
+
+### Adding a tooltip
+
+A common UI pattern is to provide additional information about a field, such as
+formatting requirements or examples. This can be done by adding a `Tooltip`
+component to the label.
+
+<Canvas
+    sourceState="shown"
+    of={stories.LabelTooltip}
+/>
+
+### Password / visibility
+
+For password fields, or other secret fields, you can compose an input with a
+button to toggle visibility. Under the hood, the `TextFieldVisibilityButton`
+leverages the `slot` pattern from React Aria.
+[(documentation)](https://react-spectrum.adobe.com/react-aria/advanced.html#slots)
+
+**Note:** This implementation uses the `password` type for the input to leverage
+native masking of the value, meaning password managers will pick this up as a
+password field.
+
+<Canvas
+    sourceState="shown"
+    of={stories.Visibilty}
+/>
