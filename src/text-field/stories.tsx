@@ -10,6 +10,7 @@ import {
 } from ".";
 import { Button } from "../button";
 import { css } from "../css/index.css";
+import { FieldDescription } from "../field-description";
 import { FieldError } from "../field-error";
 import { Group } from "../group";
 import { Input } from "../input";
@@ -46,6 +47,52 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const CopyButton: Story = {
+    args: {
+        value: "7CDF1B04-2E38-4369-B0AE-A91D9F9B346D",
+    },
+    render: (args) => {
+        return (
+            <TextField {...args}>
+                <Label>Reference number</Label>
+                <Group>
+                    <Input variant="unstyled" />
+                    <TextFieldCopyButton />
+                </Group>
+            </TextField>
+        );
+    },
+};
+
+export const ClearButton: Story = {
+    args: {
+        value: "Hello world",
+    },
+    render: (args) => {
+        return (
+            <TextField {...args}>
+                <Label>Search</Label>
+                <Group>
+                    <Input variant="unstyled" />
+                    <TextFieldClearButton />
+                </Group>
+            </TextField>
+        );
+    },
+};
+
+export const Description: Story = {
+    render: (args) => {
+        return (
+            <TextField {...args}>
+                <Label>Preferred name</Label>
+                <Input />
+                <FieldDescription>What should we call you?</FieldDescription>
+            </TextField>
+        );
+    },
+};
+
 export const Invalid: Story = {
     args: {
         isInvalid: true,
@@ -59,9 +106,9 @@ export const InvalidWithError: Story = {
     render: (args) => {
         return (
             <TextField {...args}>
-                <Label>Label</Label>
+                <Label>First name</Label>
                 <Input />
-                <FieldError>Error message</FieldError>
+                <FieldError>This field is required</FieldError>
             </TextField>
         );
     },
@@ -89,7 +136,7 @@ export const LabelTooltip: Story = {
 export const Visibilty: Story = {
     args: {
         type: "password",
-        value: "my-secret-value",
+        value: "HYo2G$8Vvz",
     },
     render: (args) => {
         return (
