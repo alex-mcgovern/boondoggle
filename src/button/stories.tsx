@@ -108,81 +108,33 @@ export const Default: Story = {
     },
 };
 
-export const Appearance: Story = {
-    render: (props) => {
-        return (
-            <Box
-                __gridTemplateColumns="1fr 1fr 1fr"
-                alignItems="center"
-                display="grid"
-                gap="space_2"
-            >
-                <Button
-                    {...props}
-                    appearance="primary"
-                />
-                <Button
-                    {...props}
-                    appearance="secondary"
-                />
-                <Button
-                    {...props}
-                    appearance="ghost"
-                />
-            </Box>
-        );
-    },
+export const AppearancePrimary: Story = {
+    args: { appearance: "primary", children: "Primary" },
+};
+export const AppearanceSecondary: Story = {
+    args: { appearance: "secondary", children: "Secondary" },
+};
+export const AppearanceGhost: Story = {
+    args: { appearance: "ghost", children: "Ghost" },
 };
 
-const ColorsWrapper = (props: ButtonProps) => {
-    const colors: ButtonProps["colorOverlay"][] = [
-        "amber",
-        "blue",
-        "green",
-        "grey",
-        "red",
-        "default",
-    ];
-
-    return (
-        <>
-            {colors.map((color) => {
-                return (
-                    <Button
-                        {...props}
-                        colorOverlay={color}
-                        key={color}
-                    />
-                );
-            })}
-        </>
-    );
+export const ColorAmber: Story = {
+    args: { children: "Amber", colorOverlay: "amber" },
 };
-
-export const Colors: Story = {
-    render: (props) => {
-        return (
-            <Box
-                alignItems="center"
-                display="grid"
-                gap="space_2"
-                gridTemplateColumns="6x"
-            >
-                <ColorsWrapper
-                    {...props}
-                    appearance="primary"
-                />
-                <ColorsWrapper
-                    {...props}
-                    appearance="secondary"
-                />
-                <ColorsWrapper
-                    {...props}
-                    appearance="ghost"
-                />
-            </Box>
-        );
-    },
+export const ColorBlue: Story = {
+    args: { children: "Blue", colorOverlay: "blue" },
+};
+export const ColorGreen: Story = {
+    args: { children: "Green", colorOverlay: "green" },
+};
+export const ColorGrey: Story = {
+    args: { children: "Grey", colorOverlay: "grey" },
+};
+export const ColorRed: Story = {
+    args: { children: "Red", colorOverlay: "red" },
+};
+export const ColorDefault: Story = {
+    args: { children: "Default", colorOverlay: "default" },
 };
 
 export const Size: Story = {

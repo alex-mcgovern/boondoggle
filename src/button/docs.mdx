@@ -25,15 +25,8 @@ with some additional props for styling / variants.
 
 ## Example
 
-<Source
-    code={`\
-import { Button } from "boondoggle/button";
-    
-<Button onPress={() => alert("Hello, world!")}>Press me</Button>`}
-    language="tsx"
-/>
 <Canvas
-    sourceState="none"
+    sourceState="shown"
     of={stories.Example}
 />
 
@@ -54,10 +47,24 @@ UI libraries, and supports the following options:
 -   `ghost`: For a ghost button, e.g. for a secondary action that should be less
     prominent
 
-<Canvas
-    sourceState="none"
-    of={stories.Appearance}
-/>
+<Box
+    display="grid"
+    gridTemplateColumns={{ mobile: "1x", tablet: "3x", desktop: "3x" }}
+    gap="space_4"
+>
+    <Canvas
+        sourceState="shown"
+        of={stories.AppearancePrimary}
+    />
+    <Canvas
+        sourceState="shown"
+        of={stories.AppearanceSecondary}
+    />
+    <Canvas
+        sourceState="shown"
+        of={stories.AppearanceGhost}
+    />
+</Box>
 
 ### Color
 
@@ -71,10 +78,19 @@ intended to be used to convey semantic meaning, e.g.
 -   `red`: To warn of potentially destructive actions
 -   `default`: To reset the color overlay if inherited from a parent
 
-<Canvas
-    sourceState="none"
-    of={stories.Colors}
-/>
+<Box
+    display="grid"
+    gridTemplateColumns={{ mobile: "1x", tablet: "3x", desktop: "3x" }}
+    gap="space_4"
+>
+    <Canvas of={stories.ColorAmber} />
+    <Canvas of={stories.ColorBlue} />
+    <Canvas of={stories.ColorGreen} />
+    <Canvas of={stories.ColorGrey} />
+    <Canvas of={stories.ColorRed} />
+    <Canvas of={stories.ColorDefault} />
+
+</Box>
 
 ### Size
 

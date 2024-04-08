@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { faker } from "@faker-js/faker";
 
 import { Cell, Column, Row, Table, TableBody, TableHeader } from ".";
-import { formatDate } from "../_utils/format-date";
 import { Avatar } from "../avatar";
 import { Box } from "../box";
+import { css } from "../css/index.css";
 
 /** -----------------------------------------------------------------------------
  * MockUserCell
@@ -19,7 +19,7 @@ const MockUserCell = () => {
         <Box
             alignItems="center"
             display="flex"
-            gap="space_2"
+            gap="space_3"
         >
             <Avatar
                 firstName={firstName}
@@ -59,51 +59,31 @@ const meta = {
             <>
                 <Table
                     aria-label="Files"
+                    className={css({ width: "100%" })}
                     {...props}
                 >
                     <TableHeader>
                         <Column
                             isRowHeader
-                            width={300}
+                            width="2fr"
                         >
                             User
                         </Column>
-                        <Column width={300}>Phone number</Column>
-                        <Column width={150}>Job type</Column>
-                        <Column width={150}>Job area</Column>
-                        <Column width={300}>Job title</Column>
-                        <Column width={150}>Job description</Column>
-                        <Column width={150}>Zodiac sign</Column>
-                        <Column width={300}>Bio</Column>
-                        <Column
-                            allowsSorting
-                            width={150}
-                        >
-                            Date of birth
-                        </Column>
+
+                        <Column width="1fr">Job type</Column>
+                        <Column width="1fr">Job area</Column>
                     </TableHeader>
 
                     <TableBody>
-                        {Array.from({ length: 20 }).map((_, index) => {
+                        {Array.from({ length: 5 }).map((_, index) => {
                             return (
                                 <Row key={index}>
                                     <Cell>
                                         <MockUserCell />
                                     </Cell>
-                                    <Cell>{faker.phone.number()}</Cell>
+
                                     <Cell>{faker.person.jobType()}</Cell>
                                     <Cell>{faker.person.jobArea()}</Cell>
-                                    <Cell>{faker.person.jobTitle()}</Cell>
-                                    <Cell>{faker.person.jobDescriptor()}</Cell>
-                                    <Cell>{faker.person.zodiacSign()}</Cell>
-                                    <Cell>{faker.person.bio()}</Cell>
-                                    <Cell>
-                                        {formatDate(
-                                            faker.date
-                                                .birthdate()
-                                                .toISOString(),
-                                        )}
-                                    </Cell>
                                 </Row>
                             );
                         })}
@@ -135,23 +115,13 @@ export const RowsAsLinks: Story = {
                         >
                             User
                         </Column>
-                        <Column width={300}>Phone number</Column>
+
                         <Column width={150}>Job type</Column>
                         <Column width={150}>Job area</Column>
-                        <Column width={300}>Job title</Column>
-                        <Column width={150}>Job description</Column>
-                        <Column width={150}>Zodiac sign</Column>
-                        <Column width={300}>Bio</Column>
-                        <Column
-                            allowsSorting
-                            width={150}
-                        >
-                            Date of birth
-                        </Column>
                     </TableHeader>
 
                     <TableBody>
-                        {Array.from({ length: 20 }).map((_, index) => {
+                        {Array.from({ length: 5 }).map((_, index) => {
                             return (
                                 <Row
                                     href={faker.internet.url()}
@@ -160,20 +130,8 @@ export const RowsAsLinks: Story = {
                                     <Cell>
                                         <MockUserCell />
                                     </Cell>
-                                    <Cell>{faker.phone.number()}</Cell>
-                                    <Cell>{faker.person.jobType()}</Cell>
                                     <Cell>{faker.person.jobArea()}</Cell>
                                     <Cell>{faker.person.jobTitle()}</Cell>
-                                    <Cell>{faker.person.jobDescriptor()}</Cell>
-                                    <Cell>{faker.person.zodiacSign()}</Cell>
-                                    <Cell>{faker.person.bio()}</Cell>
-                                    <Cell>
-                                        {formatDate(
-                                            faker.date
-                                                .birthdate()
-                                                .toISOString(),
-                                        )}
-                                    </Cell>
                                 </Row>
                             );
                         })}
