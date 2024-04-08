@@ -3,7 +3,11 @@ import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 import { merge } from "webpack-merge";
 
 const config: StorybookConfig = {
-    addons: ["@storybook/addon-essentials"],
+    addons: [
+        "@storybook/addon-essentials",
+        "@storybook/addon-mdx-gfm",
+        "@storybook/addon-webpack5-compiler-swc",
+    ],
     docs: {
         autodocs: false,
     },
@@ -11,11 +15,16 @@ const config: StorybookConfig = {
         name: "@storybook/react-webpack5",
         options: {},
     },
-    stories: [
-        "../(src|documentation)/**/*.stories.tsx",
-        "../(src|documentation)/**/stories.tsx",
-        "../(src|documentation)/**/*.mdx",
-    ],
+    stories: ["../src/**/stories.tsx", "../(src|documentation)/**/*.mdx"],
+    swc: () => ({
+        jsc: {
+            transform: {
+                react: {
+                    runtime: "automatic",
+                },
+            },
+        },
+    }),
     typescript: {
         check: false,
         checkOptions: {},
@@ -25,9 +34,9 @@ const config: StorybookConfig = {
                 allowSyntheticDefaultImports: false,
                 esModuleInterop: false,
             },
+            shouldExtractLiteralValuesFromEnum: false,
             shouldIncludeExpression: false,
             shouldRemoveUndefinedFromOptional: true,
-            shouldExtractLiteralValuesFromEnum: false,
         },
     },
     webpackFinal: async (config) =>

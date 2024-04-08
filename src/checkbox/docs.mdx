@@ -1,0 +1,32 @@
+import {
+    ArgTypes,
+    Canvas,
+    Controls,
+    Meta,
+    Story,
+    Source,
+} from "@storybook/blocks";
+
+import { Checkbox } from ".";
+import * as stories from "./stories.tsx";
+
+<Meta of={stories} />
+
+# Checkbox
+
+A checkbox allows a user to select multiple items from a list of individual
+items, or to mark one individual item as selected.
+
+It is a thin layer on top of the
+[React Aria Checkbox component](https://react-spectrum.adobe.com/react-aria/Checkbox.html).
+
+## Example
+
+<Canvas
+    sourceState="shown"
+    of={stories.Default}
+/>
+
+## Props
+
+<ArgTypes of={Checkbox} />

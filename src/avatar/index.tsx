@@ -3,72 +3,79 @@ import { useState } from "react";
 import { Box } from "../box";
 import { avatarCSS } from "./styles.css";
 
-function getInitials({
-    firstName,
-    fullName,
-    lastName,
-}: {
-    firstName?: string;
-    fullName?: string;
-    lastName?: string;
-}) {
-    if (fullName && !firstName && !lastName) {
-        const [first, last] = fullName.split(" ");
-
-        if (!last) {
-            return `${first[0]}`;
-        }
-        return `${first[0]}${last[0]}`;
+function getInitials(name?: string) {
+    if (!name) {
+        return "?";
     }
 
-    if (firstName && lastName) {
-        return `${firstName[0]}${lastName[0]}`;
-    }
+    const [first, last] = name.split(" ");
 
-    if (firstName) {
-        return firstName[0];
+    if (!last) {
+        return `${first[0]}`;
     }
-
-    if (lastName) {
-        return lastName[0];
-    }
-
-    return "";
+    return `${first[0]}${last[0]}`.toUpperCase();
 }
+
+type AvatarProps = {
+    /**
+     * A pixel value for the height and width of the avatar.
+     */
+    size?: number;
+    /**
+     * Controls the shape of the avatar.
+     */
+    variant?: "circle" | "square";
+} & (
+    | {
+          /**
+           * The name of the person the avatar represents.
+           * If the name is provided, the avatar will display the initials of the name.
+           * If the name contains a space, the initials will be the first letter of the first 2 words.
+           * **Note:** If no `src` is provided, a `name` must be provided.
+           */
+          name: string;
+          /**
+           * The URL of the image to display in the avatar. May be a remote URL or a data URL.
+           * **Note:** If no `name` is provided, an `src` must be provided.
+           */
+          src?: never;
+      }
+    | {
+          /**
+           * The name of the person the avatar represents.
+           * If the name is provided, the avatar will display the initials of the name.
+           * If the name contains a space, the initials will be the first letter of the first 2 words.
+           * **Note:** If no `src` is provided, a `name` must be provided.
+           */
+          name?: never;
+          /**
+           * The URL of the image to display in the avatar. May be a remote URL or a data URL.
+           * **Note:** If no `name` is provided, an `src` must be provided.
+           */
+          src: string;
+      }
+);
 
 /**
  * Renders an avatar. Falls back to initial letters if no image is provided.
  */
 export function Avatar({
-    appearance = "circle",
-    firstName,
-    fullName,
-    imageSrc,
-    lastName,
+    name,
     size = 64,
-}: {
-    appearance?: "circle" | "square";
-    firstName?: string;
-    fullName?: string;
-    imageSrc?: null | string;
-    lastName?: string;
-    size?: number;
-}) {
-    const initials: string | undefined = getInitials({
-        firstName,
-        fullName,
-        lastName,
-    });
+    src,
+    variant = "circle",
+}: AvatarProps) {
+    const initials: string | undefined = getInitials(name);
 
-    const [src] = useState(imageSrc);
+    const [img_src] = useState(src);
 
-    if (src) {
+    if (img_src) {
         return (
             <img
                 alt="avatar"
-                className={avatarCSS({ appearance })}
+                className={avatarCSS({ variant })}
                 height={size}
-                src={src}
+                src={img_src}
                 width={size}
             />
         );
@@ -79,7 +86,7 @@ export function Avatar({
             <Box
                 __height={size}
                 __width={size}
-                className={avatarCSS({ appearance })}
+                className={avatarCSS({ variant })}
             />
         );
     }
@@ -88,9 +95,9 @@ export function Avatar({
         <Box
             __height={size}
             __width={size}
-            className={avatarCSS({ appearance })}
+            className={avatarCSS({ variant })}
         >
-            {initials.toUpperCase()}
+            {initials}
         </Box>
     );
 }

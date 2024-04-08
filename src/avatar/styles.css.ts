@@ -11,16 +11,19 @@ export const avatarCSS = recipe({
             color: "bg_button_primary",
             display: "flex",
             flexShrink: "0",
-            fontWeight: "medium",
+            fontWeight: "semibold",
             justifyContent: "center",
             overflow: "hidden",
         }),
         {
-            fontSize: `max(${vars.fontSize.bodySm}, 100%)`,
+            fontSize: `max(${vars.fontSize.bodyLg}, 100%)`,
         },
     ],
+    defaultVariants: {
+        variant: "circle",
+    },
     variants: {
-        appearance: {
+        variant: {
             circle: [css({ borderRadius: "50%" })],
             square: [css({ borderRadius: "md" })],
         },
