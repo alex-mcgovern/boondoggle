@@ -5,7 +5,6 @@ import clsx from "clsx";
 
 import type { ColorOverlay } from "../index.css";
 
-import { SlotWrapper } from "../_DEPRECATED_slot-wrapper";
 import { css } from "../css/index.css";
 import { pillCSS } from "./styles.css";
 
@@ -14,7 +13,6 @@ export const Pill = ({
     className: userClassName,
     colorOverlay,
     id,
-    size = "sm",
     slotLeft,
     slotRight,
     ...rest
@@ -54,15 +52,7 @@ export const Pill = ({
                 ...otherProps,
             }}
         >
-            <SlotWrapper
-                color="inherit"
-                gap={"space_0"}
-                size={size}
-                slotLeft={slotLeft}
-                slotRight={slotRight}
-            >
-                {children}
-            </SlotWrapper>
+            {children}
         </div>
     );
 };
