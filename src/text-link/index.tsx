@@ -13,7 +13,6 @@ export type TextLinkProps = RACLinkProps;
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Link.html)
  */
-
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
     (props, ref) => {
         return (

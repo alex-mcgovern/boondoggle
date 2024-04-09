@@ -13,10 +13,9 @@ import { css } from "../css/index.css";
 import { V2DialogAlert } from "../dialog-alert";
 import { V2DialogErrorMessage } from "../dialog-error-message";
 import { Form } from "../form";
-import { FormSubmitButton } from "../form-submit-button";
 import { Label } from "../label";
 import { TextArea } from "../text-area";
-import { FormTextField } from "../text-field";
+import { TextField } from "../text-field";
 
 const meta = {
     args: {
@@ -53,6 +52,7 @@ const meta = {
                             alert("Confirmed");
                             close();
                         }}
+                        type="submit"
                     >
                         Confirm
                     </Button>
@@ -94,10 +94,7 @@ export const WithForm: Story = {
                         flexDirection: "column",
                         position: "relative",
                     })}
-                    handleSubmit={(fieldValues: unknown) =>
-                        alert(JSON.stringify(fieldValues))
-                    }
-                    name="close_account"
+                    onSubmit={(e) => alert(JSON.stringify(e))}
                 >
                     <V2DialogHeader
                         close={close}
@@ -105,7 +102,7 @@ export const WithForm: Story = {
                     />
 
                     <V2ScrollableDialogContent>
-                        <FormTextField
+                        <TextField
                             className={css({
                                 marginBottom: "space_4",
                             })}
@@ -113,16 +110,17 @@ export const WithForm: Story = {
                         >
                             <Label>Description</Label>
                             <TextArea />
-                        </FormTextField>
+                        </TextField>
                     </V2ScrollableDialogContent>
 
                     <V2DialogFooter>
-                        <FormSubmitButton
+                        <Button
                             appearance="primary"
                             className={css({ width: "100%" })}
+                            type="submit"
                         >
                             Submit
-                        </FormSubmitButton>
+                        </Button>
                     </V2DialogFooter>
                 </Form>
             );

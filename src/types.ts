@@ -6,7 +6,6 @@ import type {
     ReactNode,
 } from "react";
 import type * as React from "react";
-import type { RegisterOptions } from "react-hook-form";
 
 import type { BoxProps } from "./box";
 import type { ColorOverlay, ElementSizeEnum } from "./index.css";
@@ -29,13 +28,6 @@ export type WithColorOverlay = {
      * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
      */
     colorOverlay?: ColorOverlay;
-};
-
-export type WithFormFieldProps = {
-    /**
-     * Function to validate field value
-     */
-    validate?: RegisterOptions["validate"];
 };
 
 export type WithWrapperProps = {

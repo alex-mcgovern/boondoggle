@@ -12,13 +12,11 @@ import {
     Select as RACSelect,
     SelectValue as RACSelectValue,
 } from "react-aria-components";
-import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";
 import type { PopoverProps } from "../popover";
 
 import { css } from "../css/index.css";
-import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
@@ -96,53 +94,3 @@ function _Select<TItemId extends string = string>(
 }
 
 export const Select = forwardRef(_Select);
-
-/**
- * A `FormSelect` connects a `Select` to a `Form` component using `react-hook-form`.
- *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Select.html)
- */
-export function FormSelect<TItemId extends string = string>({
-    children,
-    ...props
-}: SelectProps<TItemId>) {
-    if (!props.name) {
-        throw new Error("FormSelect requires a name prop");
-    }
-
-    const { control } = useFormContext();
-
-    const {
-        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
-        fieldState: { error, invalid },
-    } = useController({
-        control,
-        defaultValue: props.selectedKey || props.defaultSelectedKey,
-        name: props.name,
-    });
-
-    return (
-        <Select<TItemId>
-            {...props}
-            {...field}
-            isDisabled={isDisabled}
-            isInvalid={invalid}
-            onSelectionChange={(k) => {
-                onChange(k);
-                props.onSelectionChange?.(k);
-            }}
-            ref={ref}
-            selectedKey={value}
-            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-        >
-            {() => {
-                return (
-                    <>
-                        {children}
-                        <FieldError>{error?.message}</FieldError>
-                    </>
-                );
-            }}
-        </Select>
-    );
-}
