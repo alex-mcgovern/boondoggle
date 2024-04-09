@@ -27,7 +27,7 @@ import {
 /**
  * Wrapper to render the dialog header.
  */
-export const V2MobileMenuHeader = ({
+export function V2MobileMenuHeader({
     children,
     close,
     title,
@@ -35,7 +35,7 @@ export const V2MobileMenuHeader = ({
     children?: ReactNode;
     close: () => void;
     title?: string;
-}) => {
+}) {
     return (
         <header className={mobileMenuHeaderCSS}>
             {children}
@@ -63,27 +63,27 @@ export const V2MobileMenuHeader = ({
             </Button>
         </header>
     );
-};
+}
 
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export const V2ScrollableMobileMenuContent = ({
+export function V2ScrollableMobileMenuContent({
     children,
 }: {
     children: ReactNode;
-}) => {
+}) {
     return <div className={mobileMenuContentCSS}>{children}</div>;
-};
+}
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export const V2MobileMenuFooter = ({ children }: { children: ReactNode }) => {
+export function V2MobileMenuFooter({ children }: { children: ReactNode }) {
     return <footer className={mobileMenuFooterCSS}>{children}</footer>;
-};
+}
 
-export const V2MobileMenu = ({
+export function V2MobileMenu({
     children,
     dialogTriggerProps,
     modalOverlayProps,
@@ -99,7 +99,7 @@ export const V2MobileMenu = ({
         "className"
     >;
     modalProps?: Omit<ComponentProps<typeof ReactAriaModal>, "className">;
-}) => {
+}) {
     const [isOpen, setIsOpen] = useState(dialogTriggerProps?.isOpen);
 
     return (
@@ -138,4 +138,4 @@ export const V2MobileMenu = ({
             </ReactAriaModalOverlay>
         </ReactAriaDialogTrigger>
     );
-};
+}

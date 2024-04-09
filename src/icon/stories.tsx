@@ -1,23 +1,21 @@
-import type { StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 
-import type { IconProps as StoryCompProps } from ".";
+import { Icon } from ".";
 
-import { Icon as StoryComp } from ".";
-
-export default {
-    component: StoryComp,
+const meta = {
+    args: {},
+    component: Icon,
     title: "Icon",
-};
+} satisfies Meta<typeof Icon>;
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
-    return <StoryComp {...rest} />;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: StoryObj<StoryCompProps> = {
+export const Default: Story = {
+    // @ts-expect-error font-awesome is shit sometimes
     args: {
         icon: faShapes,
     },
-    render: Template,
 };

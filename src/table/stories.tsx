@@ -7,7 +7,7 @@ import { Avatar } from "../avatar";
 import { Box } from "../box";
 import { css } from "../css/index.css";
 
-const MockUserCell = () => {
+function MockUserCell() {
     const name = faker.person.fullName();
 
     return (
@@ -36,7 +36,7 @@ const MockUserCell = () => {
             </Box>
         </Box>
     );
-};
+}
 
 const meta = {
     args: {},

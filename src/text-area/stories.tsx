@@ -7,7 +7,6 @@ import { TextField } from "../text-field";
 const meta = {
     args: {},
     component: TextArea,
-    title: "TextArea",
     render: (args) => {
         return (
             <TextField>
@@ -16,6 +15,7 @@ const meta = {
             </TextField>
         );
     },
+    title: "TextArea",
 } satisfies Meta<typeof TextArea>;
 
 export default meta;

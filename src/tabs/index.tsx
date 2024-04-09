@@ -28,7 +28,7 @@ import {
     tabOuterCSS,
 } from "./styles.css";
 
-export const V2TabCount = ({
+export function V2TabCount({
     count,
     isError,
     isLoading,
@@ -36,7 +36,7 @@ export const V2TabCount = ({
     count?: number;
     isError?: boolean;
     isLoading?: boolean;
-}) => {
+}) {
     if (isError) {
         return (
             <Icon
@@ -58,7 +58,7 @@ export const V2TabCount = ({
         return <div className={tabCountCSS}>0</div>;
     }
     return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
-};
+}
 
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
     animationKey: string;
@@ -67,14 +67,14 @@ export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
     slotRight?: ReactNode;
 };
 
-const V2Tab = ({
+function V2Tab({
     animationKey,
     id,
     label,
     slotLeft,
     slotRight,
     ...props
-}: V2TabProps) => {
+}: V2TabProps) {
     return (
         <ReactAriaTab
             className={tabOuterCSS}
@@ -108,7 +108,7 @@ const V2Tab = ({
             }}
         </ReactAriaTab>
     );
-};
+}
 
 export function V2TabList({
     items,
@@ -138,13 +138,11 @@ export function V2TabList({
     );
 }
 
-export const V2TabPanel = (
-    props: Omit<ReactAriaTabPanelProps, "className">,
-) => {
+export function V2TabPanel(props: Omit<ReactAriaTabPanelProps, "className">) {
     return <ReactAriaTabPanel {...props} />;
-};
+}
 
-export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
+export function V2Tabs({ children, ...props }: ReactAriaTabsProps) {
     const {
         onSelectionChange: controlledOnSelectionChange,
         selectedKey: controlledSelectedKey,
@@ -171,4 +169,4 @@ export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
             {children}
         </ReactAriaTabs>
     );
-};
+}

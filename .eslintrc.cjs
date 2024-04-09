@@ -73,6 +73,7 @@ module.exports = {
             },
         ],
         "react/display-name": "off",
+        "react/function-component-definition": "error",
         "react/prop-types": "off",
     },
     settings: {

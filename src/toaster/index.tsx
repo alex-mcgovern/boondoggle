@@ -10,7 +10,7 @@ import {
 
 export const toast = sonnerToast;
 
-export const Toaster = () => {
+export function Toaster() {
     return (
         <SonnerToaster
             className={css({ display: "flex", justifyContent: "center" })}
@@ -27,4 +27,4 @@ export const Toaster = () => {
             }}
         />
     );
-};
+}

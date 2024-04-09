@@ -1,7 +1,7 @@
 import { css } from "../css/index.css";
 import { Skeleton } from "../skeleton";
 
-export const SkeletonInput = () => {
+export function SkeletonInput() {
     return (
         <div className={css({ marginBottom: "space_4" })}>
             <div className={css({ paddingY: "space_1" })}>
@@ -17,4 +17,4 @@ export const SkeletonInput = () => {
             />
         </div>
     );
-};
+}

@@ -32,9 +32,9 @@ import {
  *
  * > [Built with React Aria Calendar](https://react-spectrum.adobe.com/react-aria/Calendar.html)
  */
-export const Calendar = <TDateValue extends RACDateValue>(
+export function Calendar<TDateValue extends RACDateValue>(
     props: RACCalendarProps<TDateValue>,
-) => {
+) {
     return (
         <RACCalendar
             {...props}
@@ -104,4 +104,4 @@ export const Calendar = <TDateValue extends RACDateValue>(
             </RACCalendarGrid>
         </RACCalendar>
     );
-};
+}

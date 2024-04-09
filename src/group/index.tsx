@@ -10,11 +10,11 @@ import { groupCSS } from "./styles.css";
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Group.html)
  */
-export const Group = (props: RACGroupProps) => {
+export function Group(props: RACGroupProps) {
     return (
         <RACGroup
             {...props}
             className={(p) => clsx(props.className, groupCSS(p))}
         />
     );
-};
+}

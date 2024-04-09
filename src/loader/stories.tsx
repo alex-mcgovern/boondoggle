@@ -1,18 +1,13 @@
-import type { StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import type { LoaderProps as StoryCompProps } from ".";
+import { Loader } from ".";
 
-import { Loader as StoryComp } from ".";
-
-export default {
-    component: StoryComp,
+const meta = {
+    component: Loader,
     title: "Loader",
-};
+} satisfies Meta<typeof Loader>;
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
-    return <StoryComp {...rest} />;
-};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: StoryObj<StoryCompProps> = {
-    render: Template,
-};
+export const Default: Story = {};

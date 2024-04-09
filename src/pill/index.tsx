@@ -8,7 +8,7 @@ import type { ColorOverlay } from "../index.css";
 import { css } from "../css/index.css";
 import { pillCSS } from "./styles.css";
 
-export const Pill = ({
+export function Pill({
     children,
     className: userClassName,
     colorOverlay,
@@ -33,7 +33,7 @@ export const Pill = ({
     size?: "lg" | "md" | "sm";
     slotLeft?: ReactNode;
     slotRight?: ReactNode;
-}) => {
+}) {
     const { atomProps, otherProps } = extractAtomsFromProps(rest, css);
 
     return (
@@ -55,4 +55,4 @@ export const Pill = ({
             {children}
         </div>
     );
-};
+}

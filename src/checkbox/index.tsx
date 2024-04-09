@@ -7,7 +7,7 @@ import { checkboxCSS, checkboxTickCSS, checkboxWrapperCSS } from "./styles.css";
 
 export type CheckboxProps = RACCheckboxProps;
 
-const CheckboxTick = ({ isSelected }: { isSelected: boolean }) => {
+function CheckboxTick({ isSelected }: { isSelected: boolean }) {
     return (
         <svg
             aria-hidden="true"
@@ -17,9 +17,9 @@ const CheckboxTick = ({ isSelected }: { isSelected: boolean }) => {
             <polyline points="1 9 7 14 15 4" />
         </svg>
     );
-};
+}
 
-export const Checkbox = (props: CheckboxProps) => {
+export function Checkbox(props: CheckboxProps) {
     return (
         <RACCheckbox
             {...props}
@@ -41,4 +41,4 @@ export const Checkbox = (props: CheckboxProps) => {
             }}
         </RACCheckbox>
     );
-};
+}

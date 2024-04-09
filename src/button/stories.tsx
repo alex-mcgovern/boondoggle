@@ -32,7 +32,7 @@ export const Example: Story = {
     },
 };
 
-const SizesWrapper = (props: ButtonProps) => {
+function SizesWrapper(props: ButtonProps) {
     const sizes: ButtonProps["size"][] = [
         "xs",
         "sm",
@@ -65,7 +65,7 @@ const SizesWrapper = (props: ButtonProps) => {
             })}
         </>
     );
-};
+}
 
 export const KitchenSink: Story = {
     args: {

@@ -65,7 +65,6 @@ export const Percent: Story = {
 
 export const IncrementDecrement: Story = {
     args: {
-        step: 100,
         children: (
             <>
                 <Label>Count</Label>
@@ -76,6 +75,7 @@ export const IncrementDecrement: Story = {
                 </Group>
             </>
         ),
+        step: 100,
     },
     render: (args) => {
         return <NumberField {...args}></NumberField>;

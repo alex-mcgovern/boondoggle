@@ -18,7 +18,7 @@ import { toast } from "../toaster";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import { textFieldCSS } from "./styles.css";
 
-export const TextFieldClearButton = () => {
+export function TextFieldClearButton() {
     return (
         <TooltipTrigger>
             <FieldButton slot="clear">
@@ -27,9 +27,9 @@ export const TextFieldClearButton = () => {
             <Tooltip placement="top">{i18n.clear}</Tooltip>
         </TooltipTrigger>
     );
-};
+}
 
-export const TextFieldCopyButton = (props: FieldButtonProps) => {
+export function TextFieldCopyButton(props: FieldButtonProps) {
     return (
         <TooltipTrigger>
             <FieldButton
@@ -41,9 +41,9 @@ export const TextFieldCopyButton = (props: FieldButtonProps) => {
             <Tooltip placement="top">{i18n.copy_to_clipboard}</Tooltip>
         </TooltipTrigger>
     );
-};
+}
 
-export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
+export function TextFieldVisibilityButton(props: FieldButtonProps) {
     const context = useSlottedContext(FieldButtonContext, "visibility");
 
     return (
@@ -59,7 +59,7 @@ export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
             </Tooltip>
         </TooltipTrigger>
     );
-};
+}
 
 export type TextFieldProps = RACTextFieldProps;
 

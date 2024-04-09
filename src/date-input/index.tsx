@@ -12,7 +12,7 @@ export type DateInputProps = Omit<RACDateInputProps, "children"> & {
     variant?: "default" | "unstyled";
 };
 
-export const DateInput = (props: DateInputProps) => {
+export function DateInput(props: DateInputProps) {
     return (
         <RACDateInput
             {...props}
@@ -49,4 +49,4 @@ export const DateInput = (props: DateInputProps) => {
             )}
         </RACDateInput>
     );
-};
+}

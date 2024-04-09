@@ -1,16 +1,16 @@
-import type { StoryFn, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
 
-import type { CollapsibleProps as StoryCompProps } from ".";
+import type { CollapsibleProps } from ".";
 
-import { Collapsible as StoryComp } from ".";
+import { Collapsible } from ".";
 import { LOREM } from "../../mocks/LOREM.mock";
 import { css } from "../css/index.css";
 import { Icon } from "../icon";
 
 export default {
-    component: StoryComp,
+    component: Collapsible,
     title: "Collapsible",
 };
 
@@ -32,18 +32,14 @@ const TriggerNode = (
     </button>
 );
 
-const Template: StoryFn<StoryCompProps> = ({ ...rest }: StoryCompProps) => {
-    return (
-        <StoryComp
-            {...rest}
-            triggerNode={TriggerNode}
-        />
-    );
-};
-
-export const Default: StoryObj<StoryCompProps> = {
+export const Default: StoryObj<CollapsibleProps> = {
     args: {
         children: LOREM.title_xl,
     },
-    render: Template,
+    render: (args) => (
+        <Collapsible
+            {...args}
+            triggerNode={TriggerNode}
+        />
+    ),
 };

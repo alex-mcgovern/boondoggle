@@ -64,11 +64,11 @@ export const CollapsibleSideNavContext = createContext<
     [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
-export const CollapsibleSideNavProvider = ({
+export function CollapsibleSideNavProvider({
     children,
 }: {
     children: ReactNode;
-}) => {
+}) {
     const [isMobile] = useMatchMedia([MEDIA_QUERY_MOBILE], [true]);
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
@@ -84,7 +84,7 @@ export const CollapsibleSideNavProvider = ({
             {children}
         </CollapsibleSideNavContext.Provider>
     );
-};
+}
 
 /**
  * Hook for consuming the CollapsibleSideNavContext.
@@ -104,7 +104,7 @@ export const useCollapsibleSideNav = () => {
 /**
  * Button for toggling the side nav
  */
-export const ButtonToggleCollapsibleNav = () => {
+export function ButtonToggleCollapsibleNav() {
     const [isOpen, setIsOpen] = useCollapsibleSideNav();
 
     return (
@@ -123,7 +123,7 @@ export const ButtonToggleCollapsibleNav = () => {
             </Tooltip>
         </TooltipTrigger>
     );
-};
+}
 
 export function AppShell({ children }: { children: ReactNode }) {
     return (

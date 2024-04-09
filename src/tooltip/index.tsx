@@ -45,11 +45,11 @@ export const TooltipTriggerButton = forwardRef<
 
 export type TooltipTriggerProps = RACTooltipTriggerComponentProps;
 
-export const TooltipTrigger = ({
+export function TooltipTrigger({
     closeDelay = 0,
     delay = 0,
     ...props
-}: TooltipTriggerProps) => {
+}: TooltipTriggerProps) {
     return (
         <RACTooltipTrigger
             {...props}
@@ -59,7 +59,7 @@ export const TooltipTrigger = ({
             {props.children}
         </RACTooltipTrigger>
     );
-};
+}
 
 export type TooltipProps = RACTooltipProps;
 
@@ -68,7 +68,7 @@ export type TooltipProps = RACTooltipProps;
  *
  * > [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
  */
-export const Tooltip = (props: TooltipProps) => {
+export function Tooltip(props: TooltipProps) {
     return (
         <RACTooltip
             {...props}
@@ -111,4 +111,4 @@ export const Tooltip = (props: TooltipProps) => {
             }}
         </RACTooltip>
     );
-};
+}

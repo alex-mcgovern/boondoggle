@@ -11,21 +11,21 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { numberFieldCSS } from "./styles.css";
 
-export const NumberFieldIncrementButton = () => {
+export function NumberFieldIncrementButton() {
     return (
         <FieldButton slot="increment">
             <Icon icon={faPlus} />
         </FieldButton>
     );
-};
+}
 
-export const NumberFieldDecrementButton = () => {
+export function NumberFieldDecrementButton() {
     return (
         <FieldButton slot="decrement">
             <Icon icon={faMinus} />
         </FieldButton>
     );
-};
+}
 
 export type NumberFieldProps = RACNumberFieldProps;
 

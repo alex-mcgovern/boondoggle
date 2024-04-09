@@ -12,13 +12,13 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { Popover } from "../popover";
 
-export const DatePickerButton = () => {
+export function DatePickerButton() {
     return (
         <FieldButton>
             <Icon icon={faCalendar} />
         </FieldButton>
     );
-};
+}
 
 /**
  * A date picker combines a DateField and a Calendar popover to allow users to enter or select a date and time value.

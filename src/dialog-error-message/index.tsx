@@ -6,7 +6,7 @@ import { V2DialogFooter } from "../dialog";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
 
-export const V2DialogErrorMessage = ({
+export function V2DialogErrorMessage({
     error,
     onPressCancel,
     onPressTryAgain,
@@ -18,7 +18,7 @@ export const V2DialogErrorMessage = ({
     onPressTryAgain: (() => Promise<unknown>) | (() => unknown);
     strCancel: string;
     strTryAgain: string;
-}) => {
+}) {
     return (
         <>
             <Box
@@ -68,4 +68,4 @@ export const V2DialogErrorMessage = ({
             </V2DialogFooter>
         </>
     );
-};
+}

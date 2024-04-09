@@ -14,13 +14,13 @@ import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import { comboBoxCSS } from "./styles.css";
 
-export const ComboBoxButton = () => {
+export function ComboBoxButton() {
     return (
         <FieldButton>
             <Icon icon={faAnglesUpDown} />
         </FieldButton>
     );
-};
+}
 
 export type ComboBoxProps<TItemId extends string = string> = RACComboBoxProps<
     IterableListBoxItem<TItemId>

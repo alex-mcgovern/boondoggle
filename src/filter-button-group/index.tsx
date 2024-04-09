@@ -27,10 +27,10 @@ export type FilterButtonGroupProps = RACGroupProps & {
     isFilterApplied: boolean;
 };
 
-export const FilterButtonGroup = ({
+export function FilterButtonGroup({
     isFilterApplied,
     ...props
-}: FilterButtonGroupProps) => {
+}: FilterButtonGroupProps) {
     return (
         <RACGroup
             {...props}
@@ -45,15 +45,15 @@ export const FilterButtonGroup = ({
             }
         />
     );
-};
+}
 
 export type FilterButtonGroupLabelProps = { children: ReactNode };
 
-export const FilterButtonGroupLabel = ({
+export function FilterButtonGroupLabel({
     children,
-}: FilterButtonGroupLabelProps) => {
+}: FilterButtonGroupLabelProps) {
     return <div className={filterButtonGroupLabelCSS}>{children}</div>;
-};
+}
 
 export type RemoveFilterButtonProps = Omit<RACButtonProps, "children">;
 

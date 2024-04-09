@@ -29,22 +29,22 @@ import {
 
 export type DialogProps = RACDialogProps;
 
-export const Dialog = (props: DialogProps) => {
+export function Dialog(props: DialogProps) {
     return (
         <RACDialog
             {...props}
             className={clsx(props.className, dialogCSS)}
         />
     );
-};
+}
 
-export const V2DialogHeader = ({
+export function V2DialogHeader({
     close,
     title,
 }: {
     close: () => void;
     title: string;
-}) => {
+}) {
     return (
         <header className={dialogHeaderCSS}>
             <RACHeading
@@ -69,27 +69,27 @@ export const V2DialogHeader = ({
             </Button>
         </header>
     );
-};
+}
 
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export const V2ScrollableDialogContent = ({
+export function V2ScrollableDialogContent({
     children,
 }: {
     children: ReactNode;
-}) => {
+}) {
     return <div className={dialogContentCSS}>{children}</div>;
-};
+}
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export const V2DialogFooter = ({ children }: { children: ReactNode }) => {
+export function V2DialogFooter({ children }: { children: ReactNode }) {
     return <footer className={dialogFooterCSS}>{children}</footer>;
-};
+}
 
-export const V2Dialog = ({
+export function V2Dialog({
     buttonProps,
     children,
     colorOverlay,
@@ -120,7 +120,7 @@ export const V2Dialog = ({
     >;
     modalProps?: Omit<ComponentProps<typeof RACModal>, "className">;
     width?: "lg" | "sm";
-}) => {
+}) {
     return (
         <RACDialogTrigger {...dialogTriggerProps}>
             {buttonProps ? <Button {...buttonProps} /> : null}
@@ -137,4 +137,4 @@ export const V2Dialog = ({
             </RACModalOverlay>
         </RACDialogTrigger>
     );
-};
+}

@@ -100,7 +100,7 @@ function SkeletonHeaderRow() {
     );
 }
 
-export const SkeletonTable = () => {
+export function SkeletonTable() {
     return (
         <>
             <SkeletonFilters />
@@ -125,4 +125,4 @@ export const SkeletonTable = () => {
             </Box>
         </>
     );
-};
+}
