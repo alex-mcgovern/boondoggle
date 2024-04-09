@@ -24,10 +24,10 @@ if (import.meta.vitest) {
             expect(getInitials("Alex")).toBe("A");
         });
         it("two word name", () => {
-            expect(getInitials("Alex McGovern")).toBe("A");
+            expect(getInitials("Alex McGovern")).toBe("AM");
         });
         it("three word name", () => {
-            expect(getInitials("Alex McGovern Smith")).toBe("A");
+            expect(getInitials("Alex McGovern Smith")).toBe("AM");
         });
         it("undefined", () => {
             expect(getInitials(undefined)).toBe("?");

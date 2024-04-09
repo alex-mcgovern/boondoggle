@@ -36,6 +36,25 @@ const fieldCSS = css({
 });
 
 const meta = {
+    component: Form,
+    decorators: [
+        (Story) => {
+            return (
+                <>
+                    <Toaster />
+                    <Story />
+                </>
+            );
+        },
+    ],
+    title: "Form",
+} satisfies Meta<typeof Form>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
     args: {
         children: (
             <>
@@ -102,39 +121,16 @@ const meta = {
             alert(`Form submitted successfully \n ${JSON.stringify(e)}`);
         },
     },
-    component: Form,
-    decorators: [
-        (Story) => {
-            return (
-                <>
-                    <Toaster />
-                    <Story />
-                </>
-            );
-        },
-    ],
-    title: "Form",
-} satisfies Meta<typeof Form>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+};
 
 /**
  * Here is an example of composing a form with a text field that requires a specific value to be entered before allowing submission.
  * This pattern is useful for confirming destructive actions, such as deleting a user account.
  */
-export const ValidationAction: Story = {
-    render: () => {
-        return (
-            <Form
-                onSubmit={(e) => {
-                    e.preventDefault(); // Prevent navigation
-                    alert("Submitted");
-                }}
-            >
+export const ConfirmAction: Story = {
+    args: {
+        children: (
+            <>
                 <TextField
                     autoComplete="off"
                     className={clsx(
@@ -172,7 +168,11 @@ export const ValidationAction: Story = {
                 >
                     Submit
                 </Button>
-            </Form>
-        );
+            </>
+        ),
+        onSubmit: (e) => {
+            e.preventDefault(); // Prevent navigation
+            alert("Submitted");
+        },
     },
 };

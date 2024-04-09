@@ -5,6 +5,7 @@ import { merge } from "webpack-merge";
 const config: StorybookConfig = {
     addons: [
         "@storybook/addon-essentials",
+        "@storybook/addon-links",
         "@storybook/addon-mdx-gfm",
         "@storybook/addon-webpack5-compiler-swc",
     ],

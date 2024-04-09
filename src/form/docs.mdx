@@ -1,0 +1,53 @@
+import {
+    ArgTypes,
+    Description,
+    Canvas,
+    Controls,
+    Meta,
+    Story,
+    Source,
+} from "@storybook/blocks";
+import LinkTo from "@storybook/addon-links/react";
+
+import { Form } from ".";
+import * as stories from "./stories.tsx";
+import { textLinkCSS } from "../text-link/styles.css";
+
+<Meta of={stories} />
+
+# Form
+
+A form is a group of inputs that allows users to submit data to a server, with
+support for providing field validation errors.
+
+It is a thin layer on top of the
+[React Aria Form component](https://react-spectrum.adobe.com/react-aria/Form.html).
+
+## Usage
+
+### Example: Kitchen sink
+
+This is a "kitchen sink" example of a form with various field types.
+
+It composes the following components:
+
+<LinkTo
+    kind="TextField"
+    story="docs"
+    className={textLinkCSS}
+>
+    TextField
+</LinkTo>
+
+<Description of={stories.Default} />
+<Canvas of={stories.Default} />
+
+### Example: Composing a "confirm action" UI
+
+<Description of={stories.ConfirmAction} />
+<Canvas of={stories.ConfirmAction} />
+
+## Props
+
+<ArgTypes of={Form} />
+import {TextField} from "react-aria-components"
