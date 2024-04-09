@@ -15,6 +15,6 @@ export const Group = (props: RACGroupProps) => {
         <RACGroup
             {...props}
             className={(p) => clsx(props.className, groupCSS(p))}
-        ></RACGroup>
+        />
     );
 };

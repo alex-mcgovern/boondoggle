@@ -27,6 +27,11 @@ import {
     calendarHeadingCSS,
 } from "./styles.css";
 
+/**
+ * Calendars display a grid of days in one or more months and allow users to select a single date.
+ *
+ * > [Built with React Aria Calendar](https://react-spectrum.adobe.com/react-aria/Calendar.html)
+ */
 export const Calendar = <TDateValue extends RACDateValue>(
     props: RACCalendarProps<TDateValue>,
 ) => {

@@ -63,6 +63,11 @@ export const TooltipTrigger = ({
 
 export type TooltipProps = RACTooltipProps;
 
+/**
+ * A tooltip displays a description of an element on hover or focus.
+ *
+ * > [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ */
 export const Tooltip = (props: TooltipProps) => {
     return (
         <RACTooltip

@@ -22,7 +22,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const WithTooltipTriggerButton: Story = {
+export const Default: Story = {
     render: (args) => (
         <TooltipTrigger>
             <TooltipTriggerButton />

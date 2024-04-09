@@ -2,17 +2,19 @@ import {
     ArgTypes,
     Canvas,
     Controls,
+    Description,
     Meta,
-    Story,
     Source,
+    Story,
+    Title,
 } from "@storybook/blocks";
 
-import { CheckboxGroup } from ".";
+import { Group } from ".";
 import * as stories from "./stories.tsx";
 
 <Meta of={stories} />
 <Title of={stories} />
-<Description of={CheckboxGroup} />
+<Description of={Group} />
 
 ## Example
 
@@ -20,7 +22,3 @@ import * as stories from "./stories.tsx";
     sourceState="shown"
     of={stories.Default}
 />
-
-## Props
-
-<ArgTypes of={CheckboxGroup} />
