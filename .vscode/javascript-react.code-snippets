@@ -9,6 +9,41 @@
         ]
     },
 
+    "Docs": {
+        "prefix": "docs",
+        "body": [
+            "import {",
+            "\tArgTypes,",
+            "\tCanvas,",
+            "\tControls,",
+            "\tMeta,",
+            "\tStory,",
+            "\tSource,",
+            "} from \"@storybook/blocks\";",
+            "",
+            "import { ${1:Component} } from \".\";",
+            "import * as stories from \"./stories.tsx\";",
+            "",
+            "<Meta of={stories} />",
+            "",
+            "# ${1:Component}",
+            "",
+            "A `${1:component}` allows a user to perform an action, with mouse, touch, and keyboard",
+            "interactions.",
+            "",
+            "It is a thin layer on top of the",
+            "[React Aria ${1:Component} component](https://react-spectrum.adobe.com/react-aria/${1:Component}.html)",
+            "with some additional props for styling / variants.",
+            "",
+            "## Example",
+            "",
+            "<Canvas",
+            "\tsourceState=\"shown\"",
+            "\tof={stories.Default}",
+            "/>"
+        ]
+    },
+
     "vanilla-extract style": {
         "scope": "typescript,css",
         "prefix": "VE Style",

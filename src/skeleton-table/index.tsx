@@ -1,5 +1,4 @@
 import { Box } from "../box";
-import { tableCellCSS, tableHeaderCellCSS } from "../data-table/styles.css";
 import { Skeleton } from "../skeleton";
 
 function random(min: number, max: number) {
@@ -44,34 +43,27 @@ function SkeletonFilters() {
 
 function SkeletonHeaderCell() {
     return (
-        <div className={tableHeaderCellCSS}>
-            <Skeleton
-                __width={`${random(4, 8)}rem`}
-                borderRadius="sm"
-                height="space_4"
-            />
-        </div>
+        <Skeleton
+            __width={`${random(4, 8)}rem`}
+            borderRadius="sm"
+            height="space_4"
+        />
     );
 }
 
 function SkeletonCell() {
     return (
-        <div className={tableCellCSS}>
-            <Skeleton
-                __width={`${random(4, 8)}rem`}
-                borderRadius="sm"
-                height="space_4"
-            />
-        </div>
+        <Skeleton
+            __width={`${random(4, 8)}rem`}
+            borderRadius="sm"
+            height="space_4"
+        />
     );
 }
 
 function SkeletonCellWithAvatar() {
     return (
-        <Box
-            className={tableCellCSS}
-            gap="space_3"
-        >
+        <>
             <Skeleton
                 borderRadius="50%"
                 height="space_8"
@@ -82,7 +74,7 @@ function SkeletonCellWithAvatar() {
                 borderRadius="sm"
                 height="space_4"
             />
-        </Box>
+        </>
     );
 }
 
