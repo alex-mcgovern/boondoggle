@@ -8,6 +8,9 @@ import type { ColorOverlay } from "../index.css";
 import { css } from "../css/index.css";
 import { pillCSS } from "./styles.css";
 
+/**
+ * Pill component
+ */
 export function Pill({
     children,
     className: userClassName,

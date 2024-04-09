@@ -19,9 +19,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * A simple button with no additional props.
- */
 export const Default: Story = {
     args: {
         children: "Press me",
@@ -34,19 +31,14 @@ export const Default: Story = {
     },
 };
 
-/** For a primary action, e.g. submitting a form **(default)**, use the `primary` variant. */
 export const Primary: Story = {
     args: { appearance: "primary", children: "Primary" },
 };
-/**
- * For a secondary action, e.g. canceling a form submission, use the `secondary` variant.
- */
+
 export const Secondary: Story = {
     args: { appearance: "secondary", children: "Secondary" },
 };
-/**
- * For a tertiary action, e.g. a link to another page, use the `tertiary` variant.
- */
+
 export const Ghost: Story = {
     args: { appearance: "ghost", children: "Ghost" },
 };
@@ -54,18 +46,23 @@ export const Ghost: Story = {
 export const ColorAmber: Story = {
     args: { children: "Amber", colorOverlay: "amber" },
 };
+
 export const ColorBlue: Story = {
     args: { children: "Blue", colorOverlay: "blue" },
 };
+
 export const ColorGreen: Story = {
     args: { children: "Green", colorOverlay: "green" },
 };
+
 export const ColorGrey: Story = {
     args: { children: "Grey", colorOverlay: "grey" },
 };
+
 export const ColorRed: Story = {
     args: { children: "Red", colorOverlay: "red" },
 };
+
 export const ColorDefault: Story = {
     args: { children: "Default", colorOverlay: "default" },
 };

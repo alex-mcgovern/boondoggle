@@ -3,9 +3,6 @@ import { recipe } from "@vanilla-extract/recipes";
 import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
-/**
- * Styles for the avatar component
- */
 export const avatarCSS = recipe({
     base: [
         css({

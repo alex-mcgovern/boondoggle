@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 /// <reference types="vitest" />
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "vitest/config";

@@ -123,10 +123,6 @@ export const Default: Story = {
     },
 };
 
-/**
- * Here is an example of composing a form with a text field that requires a specific value to be entered before allowing submission.
- * This pattern is useful for confirming destructive actions, such as deleting a user account.
- */
 export const ConfirmAction: Story = {
     args: {
         children: (

@@ -2,10 +2,6 @@ import { keyframes, style } from "@vanilla-extract/css";
 
 import { vars } from "../index.css";
 
-/**
- * Shared styles used for collapsible open/close state
- */
-
 const open = keyframes({
     from: { height: 0 },
     to: { height: "var(--radix-collapsible-content-height)" },

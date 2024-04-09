@@ -1,5 +1,8 @@
 import { defineConfig } from "tsup";
 
+/**
+ * Config for tsup bundler
+ */
 export default defineConfig({
     banner: {
         js: '"use client"',

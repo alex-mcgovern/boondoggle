@@ -32,7 +32,14 @@ module.exports = {
                 sourceType: "script",
             },
         },
+        {
+            files: ["**/*.css.ts", "**/stories.tsx"],
+            rules: {
+                "jsdoc/require-jsdoc": "off",
+            },
+        },
     ],
+
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaVersion: "latest",
@@ -56,7 +63,7 @@ module.exports = {
         //     },
         // ],
         "jsdoc/require-jsdoc": [
-            "warn",
+            "error",
             {
                 checkGetters: true,
                 contexts: [

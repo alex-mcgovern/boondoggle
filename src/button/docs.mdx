@@ -2,9 +2,9 @@ import {
     ArgTypes,
     Canvas,
     Controls,
-    Description,
     Meta,
-    Title,
+    Story,
+    Source,
 } from "@storybook/blocks";
 
 import { Button } from ".";
@@ -32,13 +32,16 @@ there are some additional props for customizing the appearance of the button,
 
 ### Appearance
 
-<Description of={stories.Primary} />
+The `appearance` prop corresponds to the `variant` prop usually found in other
+UI libraries, and supports the following options:
+
+-   `primary`: For a primary action, e.g. submitting a form **(default)**
+-   `secondary`: For a secondary action, e.g. canceling a form
+-   `ghost`: For a ghost button, e.g. for a secondary action that should be less
+    prominent
+
 <Canvas of={stories.Primary} />
-
-<Description of={stories.Secondary} />
 <Canvas of={stories.Secondary} />
-
-<Description of={stories.Ghost} />
 <Canvas of={stories.Ghost} />
 
 ### Color
@@ -53,19 +56,12 @@ intended to be used to convey semantic meaning, e.g.
 -   `red`: To warn of potentially destructive actions
 -   `default`: To reset the color overlay if inherited from a parent
 
-<Box
-    display="grid"
-    gridTemplateColumns={{ mobile: "1x", tablet: "3x", desktop: "3x" }}
-    gap="space_4"
->
-    <Canvas of={stories.ColorAmber} />
-    <Canvas of={stories.ColorBlue} />
-    <Canvas of={stories.ColorGreen} />
-    <Canvas of={stories.ColorGrey} />
-    <Canvas of={stories.ColorRed} />
-    <Canvas of={stories.ColorDefault} />
-
-</Box>
+<Canvas of={stories.ColorAmber} />
+<Canvas of={stories.ColorBlue} />
+<Canvas of={stories.ColorGreen} />
+<Canvas of={stories.ColorGrey} />
+<Canvas of={stories.ColorRed} />
+<Canvas of={stories.ColorDefault} />
 
 ### Size
 
