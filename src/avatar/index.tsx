@@ -16,6 +16,29 @@ function getInitials(name?: string) {
     return `${first[0]}${last[0]}`.toUpperCase();
 }
 
+if (import.meta.vitest) {
+    const { describe, expect, it } = import.meta.vitest;
+
+    describe("getInitials", () => {
+        it("single word name", () => {
+            expect(getInitials("Alex")).toBe("A");
+        });
+        it("two word name", () => {
+            expect(getInitials("Alex McGovern")).toBe("A");
+        });
+        it("three word name", () => {
+            expect(getInitials("Alex McGovern Smith")).toBe("A");
+        });
+        it("undefined", () => {
+            expect(getInitials(undefined)).toBe("?");
+        });
+        it("null", () => {
+            // @ts-expect-error test case
+            expect(getInitials(null)).toBe("?");
+        });
+    });
+}
+
 type AvatarProps = {
     /**
      * A pixel value for the height and width of the avatar.

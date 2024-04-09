@@ -54,11 +54,6 @@ export function Collapsible({
             onOpenChange={handleOpenChange}
             open={localOpenState}
         >
-            {/**
-             * Allow custom trigger node. Must accept a ref.
-             * ToDo: Figure out a tidy way to require triggerNode to accept ref,
-             * or to wrap triggerNode so it is always able to accept a ref.
-             */}
             <RadixCollapsible.Trigger asChild>
                 {triggerNode}
             </RadixCollapsible.Trigger>

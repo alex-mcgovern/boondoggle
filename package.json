@@ -143,6 +143,7 @@
     "ts-loader": "9.4.4",
     "tsup": "6.7.0",
     "typescript": "5.0.4",
+    "vitest": "1.4.0",
     "webpack-merge": "5.8.0"
   }
 }
