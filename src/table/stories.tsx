@@ -12,8 +12,7 @@ import { css } from "../css/index.css";
  * ------------------------------------------------------------------------------- */
 
 const MockUserCell = () => {
-    const firstName = faker.person.firstName();
-    const lastName = faker.person.lastName();
+    const name = faker.person.fullName();
 
     return (
         <Box
@@ -22,8 +21,7 @@ const MockUserCell = () => {
             gap="space_3"
         >
             <Avatar
-                firstName={firstName}
-                lastName={lastName}
+                name={name}
                 size={32}
             />
             <Box flexShrink="0">
@@ -31,7 +29,7 @@ const MockUserCell = () => {
                     fontStyle="bodySm"
                     fontWeight="medium"
                 >
-                    {firstName} {lastName}
+                    {name}
                 </Box>
                 <Box
                     color="text_low_contrast"
