@@ -14,6 +14,9 @@ import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import { comboBoxCSS } from "./styles.css";
 
+/**
+ * Button for triggering the ComboBox.
+ */
 export function ComboBoxButton() {
     return (
         <FieldButton>

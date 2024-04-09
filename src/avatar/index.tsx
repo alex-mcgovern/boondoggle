@@ -3,6 +3,12 @@ import { useState } from "react";
 import { Box } from "../box";
 import { avatarCSS } from "./styles.css";
 
+/**
+ * Get the initials from a given name.
+ * @example
+ * getInitials("Alex") // "A"
+ * getInitials("Alex McGovern") // "AM"
+ */
 function getInitials(name?: string) {
     if (!name) {
         return "?";

@@ -19,6 +19,11 @@ function CheckboxTick({ isSelected }: { isSelected: boolean }) {
     );
 }
 
+/**
+ * A checkbox group allows a user to select multiple items from a list of options.
+ *
+ * > [Built with React Aria Checkbox](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
+ */
 export function Checkbox(props: CheckboxProps) {
     return (
         <RACCheckbox

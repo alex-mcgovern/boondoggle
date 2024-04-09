@@ -13,6 +13,11 @@ import { buttonCSS } from "./styles.css";
 
 export type ButtonProps = RACButtonProps & ButtonVariants;
 
+/**
+ * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
+ *
+ * > [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
@@ -47,8 +52,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 export type LinkButtonProps = RACLinkProps &
-    ButtonVariants & { isCurrent?: boolean };
+    ButtonVariants & {
+        /**
+         * Whether the link points to the current page or resource.
+         */
+        isCurrent?: boolean;
+    };
 
+/**
+ * A link allows a user to navigate to another page or resource within a web page or application.
+ *
+ * > [Built with React Aria Link](https://react-spectrum.adobe.com/react-aria/Link.html)
+ */
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
     (
         {

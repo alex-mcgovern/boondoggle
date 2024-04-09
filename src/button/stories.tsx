@@ -20,7 +20,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
+/**
+ * A simple button with no additional props.
+ */
+export const Default: Story = {
     args: {
         children: "Press me",
         onPress: () => {
@@ -67,54 +70,20 @@ function SizesWrapper(props: ButtonProps) {
     );
 }
 
-export const KitchenSink: Story = {
-    args: {
-        appearance: "primary",
-        onPress: () => {
-            alert("Hi there");
-        },
-    },
-    render: (props) => {
-        return (
-            <Box
-                __gridTemplateColumns="1fr 1fr 1fr 1fr auto auto auto auto"
-                alignItems="center"
-                display="grid"
-                gap="space_2"
-            >
-                <SizesWrapper
-                    {...props}
-                    appearance="primary"
-                />
-                <SizesWrapper
-                    {...props}
-                    appearance="secondary"
-                />
-                <SizesWrapper
-                    {...props}
-                    appearance="ghost"
-                />
-            </Box>
-        );
-    },
-};
-
-export const Default: Story = {
-    args: {
-        appearance: "primary",
-    },
-    render: (props) => {
-        return <Button {...props} />;
-    },
-};
-
-export const AppearancePrimary: Story = {
+/** For a primary action, e.g. submitting a form **(default)**, use the `primary` variant. */
+export const Primary: Story = {
     args: { appearance: "primary", children: "Primary" },
 };
-export const AppearanceSecondary: Story = {
+/**
+ * For a secondary action, e.g. canceling a form submission, use the `secondary` variant.
+ */
+export const Secondary: Story = {
     args: { appearance: "secondary", children: "Secondary" },
 };
-export const AppearanceGhost: Story = {
+/**
+ * For a tertiary action, e.g. a link to another page, use the `tertiary` variant.
+ */
+export const Ghost: Story = {
     args: { appearance: "ghost", children: "Ghost" },
 };
 

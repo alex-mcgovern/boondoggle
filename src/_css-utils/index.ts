@@ -1,5 +1,9 @@
 import type { StyleRule } from "@vanilla-extract/css";
 
+/**
+ * A utility function to wrap a @link {StyleRule} with a media query
+ * that checks if the user prefers reduced motion.
+ */
 export function withPrefersMotion({ ...styleRules }: StyleRule): StyleRule {
     return {
         "@media": {
@@ -14,10 +18,16 @@ type PaletteKey = `${string}${number}`;
 
 type PaletteShape = Record<PaletteKey, string>;
 
-const step = (palette: Record<PaletteKey, string>, target_step: number) => {
+/**
+ * A utility function to get a specific step from a palette.
+ */
+function step(palette: Record<PaletteKey, string>, target_step: number) {
     return palette[Object.keys(palette)[target_step - 1] as PaletteKey];
-};
+}
 
+/**
+ * A utility function to generate a theme definition from a set of palettes.
+ */
 export const makeTheme = ({
     alpha,
     isOverlay,

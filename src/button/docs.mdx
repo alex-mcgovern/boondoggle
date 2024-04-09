@@ -2,9 +2,9 @@ import {
     ArgTypes,
     Canvas,
     Controls,
+    Description,
     Meta,
-    Story,
-    Source,
+    Title,
 } from "@storybook/blocks";
 
 import { Button } from ".";
@@ -20,7 +20,7 @@ import { css } from "../css/index.css.ts";
 
 <Canvas
     sourceState="shown"
-    of={stories.Example}
+    of={stories.Default}
 />
 
 ## Customization
@@ -32,32 +32,14 @@ there are some additional props for customizing the appearance of the button,
 
 ### Appearance
 
-The `appearance` prop corresponds to the `variant` prop usually found in other
-UI libraries, and supports the following options:
+<Description of={stories.Primary} />
+<Canvas of={stories.Primary} />
 
--   `primary`: For a primary action, e.g. submitting a form **(default)**
--   `secondary`: For a secondary action, e.g. canceling a form
--   `ghost`: For a ghost button, e.g. for a secondary action that should be less
-    prominent
+<Description of={stories.Secondary} />
+<Canvas of={stories.Secondary} />
 
-<Box
-    display="grid"
-    gridTemplateColumns={{ mobile: "1x", tablet: "3x", desktop: "3x" }}
-    gap="space_4"
->
-    <Canvas
-        sourceState="shown"
-        of={stories.AppearancePrimary}
-    />
-    <Canvas
-        sourceState="shown"
-        of={stories.AppearanceSecondary}
-    />
-    <Canvas
-        sourceState="shown"
-        of={stories.AppearanceGhost}
-    />
-</Box>
+<Description of={stories.Ghost} />
+<Canvas of={stories.Ghost} />
 
 ### Color
 

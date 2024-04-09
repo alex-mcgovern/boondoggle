@@ -38,11 +38,52 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
     },
-    plugins: ["@typescript-eslint", "react"],
+    plugins: ["@typescript-eslint", "react", "jsdoc"],
     rules: {
         "@typescript-eslint/consistent-type-imports": [
             "error",
             { prefer: "type-imports" },
+        ],
+        // "jsdoc/require-description": [
+        //     "warn",
+        //     {
+        //         contexts: [
+        //             // "TSInterfaceDeclaration",
+        //             // "ObjectExpression",
+        //             // "ArrowFunctionExpression",
+        //         ],
+        //         descriptionStyle: "body",
+        //     },
+        // ],
+        "jsdoc/require-jsdoc": [
+            "warn",
+            {
+                checkGetters: true,
+                contexts: [
+                    "ArrowFunctionExpression",
+                    "FunctionDeclaration",
+                    "FunctionExpression",
+                    "MethodDefinition",
+                    "Property",
+                    "TSDeclareFunction",
+                    "TSEnumDeclaration",
+                    "TSInterfaceDeclaration",
+                    "TSMethodSignature",
+                    "TSPropertySignature",
+                    // "TSTypeAliasDeclaration",
+                    "VariableDeclaration",
+                ],
+                enableFixer: false,
+                publicOnly: true,
+                require: {
+                    ArrowFunctionExpression: true,
+                    ClassDeclaration: true,
+                    ClassExpression: true,
+                    FunctionDeclaration: true,
+                    FunctionExpression: true,
+                    MethodDefinition: true,
+                },
+            },
         ],
         "no-restricted-imports": [
             "error",
@@ -66,6 +107,7 @@ module.exports = {
                 ],
             },
         ],
+        // "jsdoc/require-description-complete-sentence": "error",
         "perfectionist/sort-objects": [
             "error",
             {

@@ -1,10 +1,10 @@
 import {
     ArgTypes,
+    Description,
     Canvas,
     Controls,
+    Title,
     Meta,
-    Story,
-    Source,
 } from "@storybook/blocks";
 import { Avatar } from ".";
 import * as stories from "./stories.tsx";
@@ -15,19 +15,15 @@ import * as stories from "./stories.tsx";
 
 ## Usage
 
-If you have a URL for an image, you can use the `src` prop to display it.
-
+<Description of={stories.WithSrc} />
 <Canvas of={stories.WithSrc} />
 
-If you don't have an image URL, you can use the `name` prop to display the
-user's initials instead.
-
+<Description of={stories.Name} />
 <Canvas of={stories.Name} />
 
 ### Size
 
-You can customize the size of the `Avatar` by passing a pixel value to the
-`size` prop.
+<Description of={stories.Size} />
 
 <Canvas of={stories.Size} />
 <Controls
@@ -37,9 +33,7 @@ You can customize the size of the `Avatar` by passing a pixel value to the
 
 ### Variants
 
-In addition to the default circular variant, you can also use the `square`
-variant, which uses the same border radius used for button and input elements.
-
+<Description of={stories.Square} />
 <Canvas of={stories.Square} />
 <Controls
     of={stories.Square}

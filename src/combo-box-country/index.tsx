@@ -9,6 +9,9 @@ import type { IterableListBoxItem } from "../list-box";
 import { ComboBox } from "../combo-box";
 import { FLAGS } from "../icon-flag/_map";
 
+/**
+ * Get the flag component for a given country code.
+ */
 const getFlagComponent = (iso_code: TCountryCode) => {
     if (iso_code in FLAGS === false) {
         return undefined;
@@ -29,11 +32,20 @@ const getFlagComponent = (iso_code: TCountryCode) => {
     );
 };
 
+/**
+ * Get a country item for the list box.
+ */
 const getCountryItem = ({
     iso,
     name,
 }: {
+    /**
+     * The ISO country code. Primarily, we use the 2 character code, though some countries have a 3 character code.
+     */
     iso: TCountryCode;
+    /**
+     * The name of the country.
+     */
     name: string;
 }): IterableListBoxItem<TCountryCode> => {
     return {

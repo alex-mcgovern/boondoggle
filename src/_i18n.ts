@@ -1,3 +1,6 @@
+/**
+ * This file contains commonly used strings for the component library.
+ */
 export const i18n = {
     apply_filter: "Apply filter",
     clear: "Clear",

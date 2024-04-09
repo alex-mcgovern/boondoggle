@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { actionsCSS, headerCSS } from "./styles.css";
 
 /**
- * Header HTML element.
+ * A header is used at the top of a page, and usually contains a title, actions, and tabs.
  */
 export function Header({
     actions,
@@ -26,6 +26,7 @@ export function Header({
 
     /**
      * Tabs to be displayed underneath the header.
+     * @deprecated Compose tabs outside the scope of the header instead.
      */
     tabs?: ReactNode;
 }) {
