@@ -80,10 +80,6 @@ const meta = {
                 {({ currency }) => {
                     return (
                         <>
-                            {/** --------------------------------------------
-                             * @example Text field
-                             * ----------------------------------------------- */}
-
                             <FormTextField
                                 className={css({
                                     marginBottom: "space_2",
@@ -93,10 +89,6 @@ const meta = {
                                 <Label>Full name</Label>
                                 <Input />
                             </FormTextField>
-
-                            {/** --------------------------------------------
-                             * @example Text field with email validation
-                             * ----------------------------------------------- */}
 
                             <FormTextField
                                 autoComplete="off"
@@ -109,10 +101,6 @@ const meta = {
                                 <Label>Email address</Label>
                                 <Input />
                             </FormTextField>
-
-                            {/** --------------------------------------------
-                             * @example Text field with visibility toggle
-                             * ----------------------------------------------- */}
 
                             <FormTextField
                                 autoComplete="off"
@@ -128,10 +116,6 @@ const meta = {
                                     <TextFieldVisibilityButton />
                                 </Group>
                             </FormTextField>
-
-                            {/** --------------------------------------------
-                             * @example Check box group
-                             * ----------------------------------------------- */}
 
                             <FormCheckboxGroup
                                 className={css({
@@ -166,10 +150,6 @@ const meta = {
                                 </Checkbox>
                             </FormCheckboxGroup>
 
-                            {/** --------------------------------------------
-                             * @example Date picker field with date
-                             * ----------------------------------------------- */}
-
                             <FormDatePicker
                                 className={css({
                                     marginBottom: "space_2",
@@ -182,10 +162,6 @@ const meta = {
                                     <DatePickerButton />
                                 </Group>
                             </FormDatePicker>
-
-                            {/** --------------------------------------------
-                             * @example Date picker field with datetime
-                             * ----------------------------------------------- */}
 
                             <FormDatePicker
                                 className={css({
@@ -203,10 +179,6 @@ const meta = {
                                 </Group>
                             </FormDatePicker>
 
-                            {/** --------------------------------------------
-                             * @example Number field
-                             * ----------------------------------------------- */}
-
                             <FormNumberField
                                 className={css({
                                     marginBottom: "space_2",
@@ -221,10 +193,6 @@ const meta = {
                                     <NumberFieldIncrementButton />
                                 </Group>
                             </FormNumberField>
-
-                            {/** --------------------------------------------
-                             * @example Number field with currency select
-                             * ----------------------------------------------- */}
 
                             <div
                                 className={css({
@@ -294,10 +262,6 @@ const meta = {
                                 </div>
                             </div>
 
-                            {/** --------------------------------------------
-                             * @example Combobox
-                             * ----------------------------------------------- */}
-
                             <FormComboBox<
                                 "apple" | "carrot" | "lettuce" | "tomato"
                             >
@@ -348,10 +312,6 @@ const meta = {
                                 </Group>
                             </FormComboBox>
 
-                            {/** --------------------------------------------
-                             * @example Combobox with country list
-                             * ----------------------------------------------- */}
-
                             <FormComboBoxCountry
                                 className={css({
                                     marginBottom: "space_2",
@@ -367,10 +327,6 @@ const meta = {
                                     <ComboBoxButton />
                                 </Group>
                             </FormComboBoxCountry>
-
-                            {/** --------------------------------------------
-                             * @example Text area
-                             * ----------------------------------------------- */}
 
                             <FormTextField
                                 className={css({

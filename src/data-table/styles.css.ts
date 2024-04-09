@@ -2,10 +2,6 @@ import { style } from "@vanilla-extract/css";
 
 import { css } from "../css/index.css";
 
-/** -----------------------------------------------------------------------------
- * TABLE CELLS
- * ------------------------------------------------------------------------------- */
-
 const commonCellCSS = style([
     css({
         alignItems: "center",

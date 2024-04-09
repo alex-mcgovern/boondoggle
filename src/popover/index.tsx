@@ -12,10 +12,6 @@ import {
 
 import { overlayArrowCSS, overlayArrowSvgCSS, popoverCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * PopoverOverlayArrow
- * ------------------------------------------------------------------------------- */
-
 export type PopoverOverlayArrowProps = RACOverlayArrowProps;
 
 export const PopoverOverlayArrow = forwardRef<
@@ -43,10 +39,6 @@ export const PopoverOverlayArrow = forwardRef<
         </RACOverlayArrow>
     );
 });
-
-/** -----------------------------------------------------------------------------
- * Popover
- * ------------------------------------------------------------------------------- */
 
 export type PopoverProps = RACPopoverProps;
 

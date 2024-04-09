@@ -5,10 +5,6 @@ import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { a11yFocus, vars } from "../index.css";
 
-/** -----------------------------------------------------------------------------
- * MENU BUTTON STYLES
- * ------------------------------------------------------------------------------- */
-
 export const menuButtonCSS = recipe({
     base: [
         a11yFocus,
@@ -64,10 +60,6 @@ export const menuButtonCSS = recipe({
         },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * POPOVER
- * ------------------------------------------------------------------------------- */
 
 const kfPopoverIn = keyframes({
     "0%": { opacity: 0, transform: "scale(0.95)" },

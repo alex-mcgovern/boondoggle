@@ -12,10 +12,6 @@ import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
 import { css } from "../css/index.css";
 import { variantColorOverlay, vars } from "../index.css";
 
-/** -----------------------------------------------------------------------------
- * FilterButtonGroup
- * ------------------------------------------------------------------------------- */
-
 export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     base: [
         css({
@@ -70,10 +66,6 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     },
 });
 
-/** -----------------------------------------------------------------------------
- * FilterButtonGroupLabel
- * ------------------------------------------------------------------------------- */
-
 export const filterButtonGroupLabelCSS = style([
     css({
         alignItems: "center",
@@ -88,10 +80,6 @@ export const filterButtonGroupLabelCSS = style([
         borderTopLeftRadius: vars.borderRadius.pill,
     },
 ]);
-
-/** -----------------------------------------------------------------------------
- * RemoveFilterButton
- * ------------------------------------------------------------------------------- */
 
 export const removeFilterButtonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
@@ -143,10 +131,6 @@ export const removeFilterButtonCSS = recipe<
         },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * FilterButton
- * ------------------------------------------------------------------------------- */
 
 export const filterButtonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>

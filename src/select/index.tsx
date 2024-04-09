@@ -24,10 +24,6 @@ import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * SelectButton
- * ------------------------------------------------------------------------------- */
-
 export type SelectTriggerProps = RACButtonProps & {
     variant?: "borderless" | "default";
 };
@@ -67,10 +63,6 @@ function _SelectButton<TItemId extends string = string>(
 
 export const SelectButton = forwardRef(_SelectButton);
 
-/** -----------------------------------------------------------------------------
- * Select
- * ------------------------------------------------------------------------------- */
-
 export type SelectProps<TItemId extends string = string> = RACSelectProps<
     IterableListBoxItem<TItemId>
 > & {
@@ -104,10 +96,6 @@ function _Select<TItemId extends string = string>(
 }
 
 export const Select = forwardRef(_Select);
-
-/** -----------------------------------------------------------------------------
- * FormSelect
- * ------------------------------------------------------------------------------- */
 
 /**
  * A `FormSelect` connects a `Select` to a `Form` component using `react-hook-form`.

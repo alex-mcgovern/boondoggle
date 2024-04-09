@@ -28,10 +28,6 @@ import {
     tabOuterCSS,
 } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * TAB COUNT
- * ------------------------------------------------------------------------------- */
-
 export const V2TabCount = ({
     count,
     isError,
@@ -63,10 +59,6 @@ export const V2TabCount = ({
     }
     return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
 };
-
-/** -----------------------------------------------------------------------------
- * TAB
- * ------------------------------------------------------------------------------- */
 
 export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
     animationKey: string;
@@ -118,10 +110,6 @@ const V2Tab = ({
     );
 };
 
-/** -----------------------------------------------------------------------------
- * TAB LIST
- * ------------------------------------------------------------------------------- */
-
 export function V2TabList({
     items,
     justify = "start",
@@ -150,19 +138,11 @@ export function V2TabList({
     );
 }
 
-/** -----------------------------------------------------------------------------
- * TAB PANEL
- * ------------------------------------------------------------------------------- */
-
 export const V2TabPanel = (
     props: Omit<ReactAriaTabPanelProps, "className">,
 ) => {
     return <ReactAriaTabPanel {...props} />;
 };
-
-/** -----------------------------------------------------------------------------
- * TABS
- * ------------------------------------------------------------------------------- */
 
 export const V2Tabs = ({ children, ...props }: ReactAriaTabsProps) => {
     const {

@@ -139,10 +139,6 @@ export function AppShell({ children }: { children: ReactNode }) {
     );
 }
 
-/** -----------------------------------------------------------------------------
- * SideNavLink
- * ------------------------------------------------------------------------------- */
-
 export type SideNavLinkProps = LinkProps & {
     icon: IconProp;
     isCurrent?: boolean;
@@ -185,10 +181,6 @@ export function SideNavLink({ icon, isCurrent, ...props }: SideNavLinkProps) {
         </TooltipTrigger>
     );
 }
-
-/** -----------------------------------------------------------------------------
- * CollapsibleSideNav
- * ------------------------------------------------------------------------------- */
 
 export function CollapsibleSideNav(props: { children: ReactNode }) {
     const [isOpen] = useCollapsibleSideNav();

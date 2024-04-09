@@ -20,10 +20,6 @@ import { toast } from "../toaster";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import { textFieldCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * TextFieldClearButton
- * ------------------------------------------------------------------------------- */
-
 export const TextFieldClearButton = () => {
     return (
         <TooltipTrigger>
@@ -34,10 +30,6 @@ export const TextFieldClearButton = () => {
         </TooltipTrigger>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * TextFieldCopyButton
- * ------------------------------------------------------------------------------- */
 
 export const TextFieldCopyButton = (props: FieldButtonProps) => {
     return (
@@ -52,10 +44,6 @@ export const TextFieldCopyButton = (props: FieldButtonProps) => {
         </TooltipTrigger>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * TEXT FIELD VISIBILITY BUTTON
- * ------------------------------------------------------------------------------- */
 
 export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
     const context = useSlottedContext(FieldButtonContext, "visibility");
@@ -74,10 +62,6 @@ export const TextFieldVisibilityButton = (props: FieldButtonProps) => {
         </TooltipTrigger>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * TextField
- * ------------------------------------------------------------------------------- */
 
 export type TextFieldProps = RACTextFieldProps;
 
@@ -152,10 +136,6 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * FormTextField
- * ------------------------------------------------------------------------------- */
 
 /**
  * A form text field connects a `TextField` to a `Form` component using `react-hook-form`.

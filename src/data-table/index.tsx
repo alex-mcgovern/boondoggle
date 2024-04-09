@@ -37,10 +37,6 @@ import { TableNoResults } from "./_components/layout/TableNoResults";
 import { dataTableFuzzyFilter } from "./_lib/dataTableFuzzyFilter";
 import { tableCellCSS, tableHeaderCellCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * TableRowMenuButton
- * ------------------------------------------------------------------------------- */
-
 export type TV2DataTableRowActions<TData extends RowData> =
     JSXElementConstructor<{
         /**
@@ -67,10 +63,6 @@ export function TableRowMenuButton<TActionId extends string>(
         </MenuButton>
     );
 }
-
-/** -----------------------------------------------------------------------------
- * DataTable
- * ------------------------------------------------------------------------------- */
 
 export type DataTableProps<TRowData extends RowData> = {
     /**

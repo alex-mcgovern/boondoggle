@@ -19,10 +19,6 @@ const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
 const DURATION = vars.transitionDuration.short;
 const EASING = vars.ease.quart_in_out;
 
-/** -----------------------------------------------------------------------------
- * OverlayArrow
- * ------------------------------------------------------------------------------- */
-
 export const overlayArrowCSS = css({ height: "space_2", width: "space_2" });
 
 export const overlayArrowSvgCSS = recipe<
@@ -53,10 +49,6 @@ export const overlayArrowSvgCSS = recipe<
         },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * Keyframes
- * ------------------------------------------------------------------------------- */
 
 const origin = createVar();
 
@@ -286,10 +278,6 @@ export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
         },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * Trigger Button
- * ------------------------------------------------------------------------------- */
 
 export const tooltipTriggerButtonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps>

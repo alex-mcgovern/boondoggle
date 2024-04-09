@@ -11,10 +11,6 @@ import { ComboBox } from "../combo-box";
 import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
 
-/** -----------------------------------------------------------------------------
- * @util get a flag icon component
- * ------------------------------------------------------------------------------- */
-
 const getFlagComponent = (iso_code: TCountryCode) => {
     if (iso_code in FLAGS === false) {
         return undefined;
@@ -35,10 +31,6 @@ const getFlagComponent = (iso_code: TCountryCode) => {
     );
 };
 
-/** -----------------------------------------------------------------------------
- * @util get a country menu item
- * ------------------------------------------------------------------------------- */
-
 const getCountryItem = ({
     iso,
     name,
@@ -53,17 +45,9 @@ const getCountryItem = ({
     };
 };
 
-/** -----------------------------------------------------------------------------
- * @constant list of country items
- * ------------------------------------------------------------------------------- */
-
 const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
     countries,
 ).map(([iso, { name }]) => getCountryItem({ iso: iso as TCountryCode, name }));
-
-/** -----------------------------------------------------------------------------
- * ComboBoxCountry
- * ------------------------------------------------------------------------------- */
 
 export type ComboBoxCountryProps = Omit<
     ComboBoxProps<TCountryCode>,
@@ -82,10 +66,6 @@ export const ComboBoxCountry = forwardRef<
         />
     );
 });
-
-/** -----------------------------------------------------------------------------
- * FormComboBox
- * ------------------------------------------------------------------------------- */
 
 /**
  * A `FormComboBoxCountry` connects a `ComboBoxCountry` to a `Form` component using `react-hook-form`.

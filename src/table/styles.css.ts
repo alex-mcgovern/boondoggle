@@ -15,18 +15,10 @@ import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { HOVER, unobtrusiveScrollBar, vars } from "../index.css";
 
-/** -----------------------------------------------------------------------------
- * TableContainer
- * ------------------------------------------------------------------------------- */
-
 export const tableContainerCSS = style([
     css({ overflowX: "auto" }),
     unobtrusiveScrollBar,
 ]);
-
-/** -----------------------------------------------------------------------------
- * TableContainer
- * ------------------------------------------------------------------------------- */
 
 export const tableCSS = recipe<ReactAriaRecipe<TableRenderProps>>({
     base: {
@@ -38,10 +30,6 @@ export const tableCSS = recipe<ReactAriaRecipe<TableRenderProps>>({
         isFocusVisible: { false: {}, true: {} },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * Column
- * ------------------------------------------------------------------------------- */
 
 export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
     base: css({
@@ -96,10 +84,6 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
     },
 });
 
-/** -----------------------------------------------------------------------------
- * Cell
- * ------------------------------------------------------------------------------- */
-
 export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
     base: [
         css({
@@ -137,10 +121,6 @@ export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
         isPressed: { false: {}, true: {} },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * Row
- * ------------------------------------------------------------------------------- */
 
 export const rowCSS = recipe<ReactAriaRecipe<RowRenderProps>>({
     base: [

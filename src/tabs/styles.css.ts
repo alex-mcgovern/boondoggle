@@ -8,16 +8,8 @@ import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { hideScrollbar, variantColorOverlay, vars } from "../index.css";
 
-/** -----------------------------------------------------------------------------
- * CONFIG / CONSTANTS
- * ------------------------------------------------------------------------------- */
-
 const TAB_HEIGHT = vars.spacing.space_8;
 const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
-
-/** -----------------------------------------------------------------------------
- * TAB LIST
- * ------------------------------------------------------------------------------- */
 
 export const tabListOuterCSS = style([
     css({
@@ -66,10 +58,6 @@ export const tabListInnerCSS = recipe({
         },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * TAB
- * ------------------------------------------------------------------------------- */
 
 export const tabOuterCSS = style([
     css({
@@ -139,10 +127,6 @@ export const tabIndicatorCSS = style([
         userSelect: "none",
     },
 ]);
-
-/** -----------------------------------------------------------------------------
- * TAB COUNT
- * ------------------------------------------------------------------------------- */
 
 const TAB_COUNT_SIZE = "space_4" satisfies
     | Css["height"]

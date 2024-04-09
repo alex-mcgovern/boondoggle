@@ -20,10 +20,6 @@ import { Checkbox } from "../checkbox";
 import { Section } from "../section";
 import { menuCSS, menuItemCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * IterableMenuItem
- * ------------------------------------------------------------------------------- */
-
 type SingleMenuItem<TItemId extends string = string> =
     AnchorHTMLAttributes<HTMLAnchorElement> & {
         children?: never;
@@ -59,10 +55,6 @@ export type IterableMenuItem<TItemId extends string = string> =
       }
     | SingleMenuItem<TItemId>;
 
-/** -----------------------------------------------------------------------------
- * Menu
- * ------------------------------------------------------------------------------- */
-
 export type MenuProps<TItem extends object = object> = RACMenuProps<TItem>;
 
 function _Menu<TItem extends object = object>(
@@ -79,10 +71,6 @@ function _Menu<TItem extends object = object>(
 }
 
 export const Menu = forwardRef(_Menu);
-
-/** -----------------------------------------------------------------------------
- * MenuItem
- * ------------------------------------------------------------------------------- */
 
 export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
     /**
@@ -160,10 +148,6 @@ function _MenuItem<TItem extends object>(
 }
 
 export const MenuItem = forwardRef(_MenuItem);
-
-/** -----------------------------------------------------------------------------
- * DynamicMenu
- * ------------------------------------------------------------------------------- */
 
 export type DynamicMenuProps<TItemId extends string = string> = RACMenuProps<
     IterableMenuItem<TItemId>

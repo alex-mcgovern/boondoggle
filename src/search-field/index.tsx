@@ -12,10 +12,6 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { searchFieldCSS, searchFieldClearButtonCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * SearchFieldClearButton
- * ------------------------------------------------------------------------------- */
-
 export const SearchFieldClearButton = () => {
     return (
         <FieldButton className={searchFieldClearButtonCSS}>
@@ -23,10 +19,6 @@ export const SearchFieldClearButton = () => {
         </FieldButton>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * SearchFieldClearButton
- * ------------------------------------------------------------------------------- */
 
 export const SearchFieldIcon = () => {
     return (
@@ -41,10 +33,6 @@ export const SearchFieldIcon = () => {
         />
     );
 };
-
-/** -----------------------------------------------------------------------------
- * SearchField
- * ------------------------------------------------------------------------------- */
 
 export type SearchFieldProps = RACSearchFieldProps;
 

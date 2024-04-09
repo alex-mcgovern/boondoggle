@@ -4,10 +4,6 @@ import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
-/** -----------------------------------------------------------------------------
- * MODAL OVERLAY
- * ------------------------------------------------------------------------------- */
-
 export const mobileMenuOverlayCSS = style([
     css({
         display: "flex",
@@ -21,10 +17,6 @@ export const mobileMenuOverlayCSS = style([
         zIndex: 10,
     },
 ]);
-
-/** -----------------------------------------------------------------------------
- * MODAL
- * ------------------------------------------------------------------------------- */
 
 const kfMobileMenuModalIn = keyframes({
     "0%": { opacity: 0 },
@@ -59,10 +51,6 @@ export const mobileMenuModalCSS = style([
         },
     },
 ]);
-
-/** -----------------------------------------------------------------------------
- * DIALOG
- * ------------------------------------------------------------------------------- */
 
 export const mobileMenuCSS = style([
     css({

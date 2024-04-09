@@ -37,10 +37,6 @@ import {
     tableContainerCSS,
 } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * Column
- * ------------------------------------------------------------------------------- */
-
 export type ColumnProps = RACColumnProps;
 
 export const Column = forwardRef<HTMLTableCellElement, ColumnProps>(
@@ -100,10 +96,6 @@ export const Column = forwardRef<HTMLTableCellElement, ColumnProps>(
     },
 );
 
-/** -----------------------------------------------------------------------------
- * TableHeader
- * ------------------------------------------------------------------------------- */
-
 type TableHeaderProps<T extends object> = RACTableHeaderProps<T>;
 
 function _TableHeader<T extends object>(
@@ -138,10 +130,6 @@ function _TableHeader<T extends object>(
 
 export const TableHeader = forwardRef(_TableHeader);
 
-/** -----------------------------------------------------------------------------
- * Cell
- * ------------------------------------------------------------------------------- */
-
 type CellProps = RACCellProps;
 
 export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
@@ -170,10 +158,6 @@ export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * TableRow
- * ------------------------------------------------------------------------------- */
 
 type RowProps<T extends object> = RACRowProps<T>;
 
@@ -240,10 +224,6 @@ function _Row<T extends object>(
 
 export const Row = forwardRef(_Row);
 
-/** -----------------------------------------------------------------------------
- * TableBody
- * ------------------------------------------------------------------------------- */
-
 export type TableBodyProps<T extends object> = RACTableBodyProps<T>;
 
 function _TableBody<T extends object>(
@@ -261,10 +241,6 @@ function _TableBody<T extends object>(
 }
 
 export const TableBody = forwardRef(_TableBody);
-
-/** -----------------------------------------------------------------------------
- * Table
- * ------------------------------------------------------------------------------- */
 
 export type TableProps = RACTableProps;
 
@@ -290,10 +266,6 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * ResizableTableContainer
- * ------------------------------------------------------------------------------- */
 
 export type ResizableTableContainerProps = RACResizableTableContainerProps;
 

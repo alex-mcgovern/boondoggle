@@ -30,9 +30,6 @@ export const buttonCSS = recipe<
     ],
 
     compoundVariants: [
-        /** ---------------------------------------------
-         * Primary
-         * ----------------------------------------------- */
         {
             style: css({
                 background: "bg_button_primary_active",
@@ -79,9 +76,7 @@ export const buttonCSS = recipe<
                 isFocusVisible: true,
             },
         },
-        /** ---------------------------------------------
-         * Secondary
-         * ----------------------------------------------- */
+
         {
             style: css({
                 background: "bg_button_secondary_active",
@@ -132,9 +127,7 @@ export const buttonCSS = recipe<
                 isFocusVisible: true,
             },
         },
-        /** ---------------------------------------------
-         * Ghost
-         * ----------------------------------------------- */
+
         {
             style: css({
                 background: "bg_button_ghost_active",

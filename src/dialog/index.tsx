@@ -27,10 +27,6 @@ import {
     modalOverlayCSS,
 } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * Dialog
- * ------------------------------------------------------------------------------- */
-
 export type DialogProps = RACDialogProps;
 
 export const Dialog = (props: DialogProps) => {
@@ -41,10 +37,6 @@ export const Dialog = (props: DialogProps) => {
         />
     );
 };
-
-/** -----------------------------------------------------------------------------
- * DialogHeader
- * ------------------------------------------------------------------------------- */
 
 export const V2DialogHeader = ({
     close,

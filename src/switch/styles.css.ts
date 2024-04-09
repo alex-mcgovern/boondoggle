@@ -76,10 +76,6 @@ export const switchIndicatorCSS = style([
                 }),
             },
 
-            /** ---------------------------------------------
-             * PRESSED
-             * ----------------------------------------------- */
-
             // [`${switchCSS}[data-pressed] &`]: {
             // 	borderColor: vars.color.border_field_active,
             // },
@@ -87,20 +83,12 @@ export const switchIndicatorCSS = style([
             // 	background: vars.color.tint_active,
             // },
 
-            /** ---------------------------------------------
-             * SELECTED
-             * ----------------------------------------------- */
-
             [`${switchCSS}[data-focused] &::before`]: {},
             [`${switchCSS}[data-focused] &`]: {
                 ...a11yFocusStyleRule,
                 // 	background: vars.color.bg_switch_active,
                 // 	// borderColor: vars.color.focus_ring,
             },
-
-            /** ---------------------------------------------
-             * FOCUSED
-             * ----------------------------------------------- */
 
             [`${switchCSS}[data-selected] &::before`]: {
                 // background: vars.color.bg_button_primary,

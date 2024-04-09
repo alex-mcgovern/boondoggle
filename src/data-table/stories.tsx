@@ -29,10 +29,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/** -----------------------------------------------------------------------------
- * MOCK DATA
- * ------------------------------------------------------------------------------- */
-
 export const MOCK_FILTER_STRINGS = {
     balance: {
         filterButtonText: "Filter by balance",
@@ -102,10 +98,6 @@ const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
         />
     );
 };
-
-/** -----------------------------------------------------------------------------
- * STORIES
- * ------------------------------------------------------------------------------- */
 
 export const Default: Story = {
     args: {},

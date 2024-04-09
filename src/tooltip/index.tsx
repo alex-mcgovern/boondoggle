@@ -22,10 +22,6 @@ import {
     tooltipTriggerButtonCSS,
 } from "./styles.css";
 
-/** ---------------------------------------------
- * TooltipTriggerButton
- * ----------------------------------------------- */
-
 export type TooltipTriggerButtonProps = RACButtonProps;
 
 export const TooltipTriggerButton = forwardRef<
@@ -47,10 +43,6 @@ export const TooltipTriggerButton = forwardRef<
     );
 });
 
-/** ---------------------------------------------
- * TooltipTrigger
- * ----------------------------------------------- */
-
 export type TooltipTriggerProps = RACTooltipTriggerComponentProps;
 
 export const TooltipTrigger = ({
@@ -68,10 +60,6 @@ export const TooltipTrigger = ({
         </RACTooltipTrigger>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * Tooltip
- * ------------------------------------------------------------------------------- */
 
 export type TooltipProps = RACTooltipProps;
 

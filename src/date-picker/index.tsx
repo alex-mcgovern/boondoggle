@@ -14,10 +14,6 @@ import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { Popover } from "../popover";
 
-/** -----------------------------------------------------------------------------
- * DatePickerButton
- * ------------------------------------------------------------------------------- */
-
 export const DatePickerButton = () => {
     return (
         <FieldButton>
@@ -25,10 +21,6 @@ export const DatePickerButton = () => {
         </FieldButton>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * DatePicker
- * ------------------------------------------------------------------------------- */
 
 /**
  * A date picker combines a DateField and a Calendar popover to allow users to enter or select a date and time value.
@@ -65,10 +57,6 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * FormDatePicker
- * ------------------------------------------------------------------------------- */
 
 /**
  * A `FormDatePicker` connects a `DatePicker` to a `Form` component using `react-hook-form`.

@@ -24,10 +24,6 @@ import { calc } from "@vanilla-extract/css-utils";
 
 import { makeTheme, withPrefersMotion } from "./_css-utils";
 
-/** -----------------------------------------------------------------------------
- * MEDIA QUERIES
- * ------------------------------------------------------------------------------- */
-
 export const MEDIA_QUERY_DESKTOP = "only screen and (min-width: 992px)";
 export const MEDIA_QUERY_TABLET = "only screen and (min-width: 496px)";
 export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 31rem)";
@@ -35,10 +31,6 @@ export const MEDIA_QUERY_MOBILE = "only screen and (max-width: 31rem)";
 export const CONTAINER_LG = "(width > 992px)";
 export const CONTAINER_MD = "(width >= 496px) and (width <= 991px)";
 export const CONTAINER_SM = "(width < 496px)";
-
-/** -----------------------------------------------------------------------------
- * SELECTORS
- * ------------------------------------------------------------------------------- */
 
 const DISABLED = ":is([disabled], [aria-disabled='true'], [data-disabled])";
 export const NOT_DISABLED = `:not(${DISABLED})`;
@@ -50,10 +42,6 @@ export const FOCUS_VISIBLE = ":is(:focus-visible,[data-focus-visible])";
 
 export const SELECTOR_IS_FOCUS = ":is(:focus-visible)";
 
-/** -----------------------------------------------------------------------------
- * UTILITY CLASSES
- * ------------------------------------------------------------------------------- */
-
 export const hideLastpassStyle = style({});
 
 globalStyle(`${hideLastpassStyle} div[data-lastpass-icon-root]`, {
@@ -61,18 +49,10 @@ globalStyle(`${hideLastpassStyle} div[data-lastpass-icon-root]`, {
     visibility: "hidden",
 });
 
-/** -----------------------------------------------------------------------------
- * CSS LAYERS
- * ------------------------------------------------------------------------------- */
-
 const resetLayer = globalLayer("reset");
 const baseLayer = globalLayer("base");
 const themeLayer = globalLayer("theme");
 export const sprinklesLayer = globalLayer("sprinkles");
-
-/** -----------------------------------------------------------------------------
- * CSS VARS
- * ------------------------------------------------------------------------------- */
 
 /**
  * Global variables (css vars)
@@ -242,10 +222,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     },
 });
 
-/** -----------------------------------------------------------------------------
- * COLOR OVERLAY VARIANT
- * ------------------------------------------------------------------------------- */
-
 /**
  * Color overlay, used to convey semantic meaning.
  * -   `amber`: To indicate caution, or warning actions
@@ -350,10 +326,6 @@ export const variantColorOverlay = styleVariants({
     },
 });
 
-/** -----------------------------------------------------------------------------
- * A11Y STYLES
- * ------------------------------------------------------------------------------- */
-
 export const a11yFocusStyleRule: StyleRule = {
     borderColor: vars.color.focus_border,
     outline: `2px solid ${vars.color.focus_ring} `,
@@ -401,10 +373,6 @@ export const hideScrollbar = style([
         },
     },
 ]);
-
-/** -----------------------------------------------------------------------------
- * GLOBAL STYLESHEET
- * ------------------------------------------------------------------------------- */
 
 /**
  * Based on Eric Meyer's Reset CSS https://meyerweb.com/eric/tools/css/reset/
@@ -791,10 +759,6 @@ globalStyle("hr", {
     },
 });
 
-/** -----------------------------------------------------------------------------
- * LIST ELEMENTS
- * ------------------------------------------------------------------------------- */
-
 globalStyle("ul, ol", {
     "@layer": {
         [baseLayer]: {
@@ -845,10 +809,6 @@ globalStyle("p", {
         },
     },
 });
-
-/** -----------------------------------------------------------------------------
- * TABLE ELEMENTS
- * ------------------------------------------------------------------------------- */
 
 /**
  * Some re-usable style rules that can apply table styling to different elements.
@@ -914,10 +874,6 @@ export const tRowStyles = style({
     display: "table-row",
 });
 
-/** -----------------------------------------------------------------------------
- * ELEMENT SIZING
- * ------------------------------------------------------------------------------- */
-
 export const elementHeight = {
     lg: vars.spacing.space_12,
     md: vars.spacing.space_10,
@@ -953,10 +909,6 @@ export const elementPadding = styleVariants({
 
 export type ElementSizeEnum = "lg" | "md" | "sm";
 
-/** -----------------------------------------------------------------------------
- * LAYOUT: FLOATING MENU
- * ------------------------------------------------------------------------------- */
-
 const FM_PADDING = vars.spacing.space_1;
 const FM_RADIUS = vars.borderRadius.md;
 
@@ -971,10 +923,6 @@ export const floatingMenu = createGlobalTheme(":root, ::backdrop", {
         radius: calc.subtract(FM_RADIUS, FM_PADDING),
     },
 });
-
-/** -----------------------------------------------------------------------------
- * Scrollbar styles
- * ------------------------------------------------------------------------------- */
 
 export const unobtrusiveScrollBar = style({
     selectors: {

@@ -16,10 +16,6 @@ import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import { comboBoxCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * ComboBoxButton
- * ------------------------------------------------------------------------------- */
-
 export const ComboBoxButton = () => {
     return (
         <FieldButton>
@@ -27,10 +23,6 @@ export const ComboBoxButton = () => {
         </FieldButton>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * ComboBox
- * ------------------------------------------------------------------------------- */
 
 export type ComboBoxProps<TItemId extends string = string> = RACComboBoxProps<
     IterableListBoxItem<TItemId>
@@ -64,10 +56,6 @@ function _ComboBox<TItemId extends string = string>(
 }
 
 export const ComboBox = forwardRef(_ComboBox);
-
-/** -----------------------------------------------------------------------------
- * FormComboBox
- * ------------------------------------------------------------------------------- */
 
 /**
  * A `FormComboBox` connects a `ComboBox` to a `Form` component using `react-hook-form`.

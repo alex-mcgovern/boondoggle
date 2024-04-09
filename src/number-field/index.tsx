@@ -13,10 +13,6 @@ import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { numberFieldCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * NumberFieldIncrementButton
- * ------------------------------------------------------------------------------- */
-
 export const NumberFieldIncrementButton = () => {
     return (
         <FieldButton slot="increment">
@@ -25,10 +21,6 @@ export const NumberFieldIncrementButton = () => {
     );
 };
 
-/** -----------------------------------------------------------------------------
- * NumberFieldDecrementButton
- * ------------------------------------------------------------------------------- */
-
 export const NumberFieldDecrementButton = () => {
     return (
         <FieldButton slot="decrement">
@@ -36,10 +28,6 @@ export const NumberFieldDecrementButton = () => {
         </FieldButton>
     );
 };
-
-/** -----------------------------------------------------------------------------
- * NumberField
- * ------------------------------------------------------------------------------- */
 
 export type NumberFieldProps = RACNumberFieldProps;
 
@@ -59,10 +47,6 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * FormNumberField
- * ------------------------------------------------------------------------------- */
 
 /**
  * A form number field connects a `NumberField` to a `Form` component using `react-hook-form`.

@@ -4,10 +4,6 @@ import { calc } from "@vanilla-extract/css-utils";
 import { css } from "../css/index.css";
 import { elementPaddingRaw, floatingMenu, vars } from "../index.css";
 
-/** -----------------------------------------------------------------------------
- * MENU CSS
- * ------------------------------------------------------------------------------- */
-
 export const menuSectionCSS = style([
     {
         selectors: {
@@ -28,10 +24,6 @@ export const menuSectionCSS = style([
     },
 ]);
 
-/** -----------------------------------------------------------------------------
- * MENU ITEM CSS
- * ------------------------------------------------------------------------------- */
-
 export const menuItemNameCSS = style([
     css({
         color: "text_high_contrast",
@@ -47,10 +39,6 @@ export const menuItemDescriptionCSS = style([
         fontStyle: "bodySm",
     }),
 ]);
-
-/** -----------------------------------------------------------------------------
- * MENU SECTION HEADER
- * ------------------------------------------------------------------------------- */
 
 export const menuHeaderCSS = style([
     css({

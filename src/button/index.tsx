@@ -11,10 +11,6 @@ import type { ButtonVariants } from "./styles.css";
 
 import { buttonCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * Button
- * ------------------------------------------------------------------------------- */
-
 export type ButtonProps = RACButtonProps & ButtonVariants;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -49,10 +45,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * LinkButton
- * ------------------------------------------------------------------------------- */
 
 export type LinkButtonProps = RACLinkProps &
     ButtonVariants & { isCurrent?: boolean };

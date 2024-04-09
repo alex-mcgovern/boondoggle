@@ -8,10 +8,6 @@ import { useController, useFormContext } from "react-hook-form";
 import { FieldError } from "../field-error";
 import { checkboxGroupCSS } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * CheckboxGroup
- * ------------------------------------------------------------------------------- */
-
 export type CheckboxGroupProps = RACCheckboxGroupProps;
 
 export const CheckboxGroup = forwardRef<HTMLDivElement, RACCheckboxGroupProps>(
@@ -40,10 +36,6 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, RACCheckboxGroupProps>(
         );
     },
 );
-
-/** -----------------------------------------------------------------------------
- * FormCheckboxGroup
- * ------------------------------------------------------------------------------- */
 
 /**
  * A form text field connects a `CheckboxGroup` to a `Form` component using `react-hook-form`.

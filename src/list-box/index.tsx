@@ -61,10 +61,6 @@ export type IterableListBoxItem<TItemId extends string = string> =
       }
     | SingleListBoxItem<TItemId>;
 
-/** -----------------------------------------------------------------------------
- * ListBoxItem
- * ------------------------------------------------------------------------------- */
-
 export type ListBoxItemProps<TItemId extends string = string> =
     ReactAriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
         /**

@@ -17,10 +17,6 @@ import {
     removeFilterButtonCSS,
 } from "./styles.css";
 
-/** -----------------------------------------------------------------------------
- * FilterButtonGroup
- * ------------------------------------------------------------------------------- */
-
 /**
  * A group represents a set of related UI controls, and supports interactive states for styling.
  *
@@ -51,10 +47,6 @@ export const FilterButtonGroup = ({
     );
 };
 
-/** -----------------------------------------------------------------------------
- * FilterButtonGroupLabel
- * ------------------------------------------------------------------------------- */
-
 export type FilterButtonGroupLabelProps = { children: ReactNode };
 
 export const FilterButtonGroupLabel = ({
@@ -62,10 +54,6 @@ export const FilterButtonGroupLabel = ({
 }: FilterButtonGroupLabelProps) => {
     return <div className={filterButtonGroupLabelCSS}>{children}</div>;
 };
-
-/** -----------------------------------------------------------------------------
- * RemoveFilterButton
- * ------------------------------------------------------------------------------- */
 
 export type RemoveFilterButtonProps = Omit<RACButtonProps, "children">;
 
@@ -85,10 +73,6 @@ export const RemoveFilterButton = forwardRef<
         </RACButton>
     );
 });
-
-/** -----------------------------------------------------------------------------
- * FilterButton
- * ------------------------------------------------------------------------------- */
 
 export type FilterButtonProps = RACButtonProps;
 
