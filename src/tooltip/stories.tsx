@@ -16,7 +16,7 @@ const meta = {
             <Tooltip {...args} />
         </TooltipTrigger>
     ),
-    title: "Tooltip",
+    title: "Components/Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;

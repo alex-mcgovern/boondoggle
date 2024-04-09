@@ -31,7 +31,7 @@ const meta = {
             );
         },
     ],
-    title: "TextField",
+    title: "Components/TextField",
 } satisfies Meta<typeof TextField>;
 
 export default meta;

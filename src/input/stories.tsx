@@ -6,7 +6,7 @@ import { SearchFieldIcon } from "../search-field";
 const meta = {
     args: {},
     component: Input,
-    title: "Input",
+    title: "Components/Input",
 } satisfies Meta<typeof Input>;
 
 export default meta;

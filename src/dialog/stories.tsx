@@ -3,15 +3,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { faker } from "@faker-js/faker";
 
 import {
-    V2Dialog as StoryComp,
-    V2DialogFooter,
-    V2DialogHeader,
-    V2ScrollableDialogContent,
+    DialogFooter,
+    DialogHeader,
+    ScrollableDialogContent,
+    DialogOld as StoryComp,
 } from ".";
 import { Button } from "../button";
 import { css } from "../css/index.css";
-import { V2DialogAlert } from "../dialog-alert";
-import { V2DialogErrorMessage } from "../dialog-error-message";
+import { DialogAlert } from "../dialog-alert";
+import { DialogErrorMessage } from "../dialog-error-message";
 import { Form } from "../form";
 import { Label } from "../label";
 import { TextArea } from "../text-area";
@@ -24,11 +24,11 @@ const meta = {
         },
         children: ({ close }) => (
             <>
-                <V2DialogHeader
+                <DialogHeader
                     close={close}
                     title="Dialog Title"
                 />
-                <V2ScrollableDialogContent>
+                <ScrollableDialogContent>
                     <>
                         <p>
                             A modal dialog component powered by{" "}
@@ -44,8 +44,8 @@ const meta = {
                             );
                         })}
                     </>
-                </V2ScrollableDialogContent>
-                <V2DialogFooter>
+                </ScrollableDialogContent>
+                <DialogFooter>
                     <Button
                         className={css({ width: "100%" })}
                         onPress={() => {
@@ -56,7 +56,7 @@ const meta = {
                     >
                         Confirm
                     </Button>
-                </V2DialogFooter>
+                </DialogFooter>
             </>
         ),
         modalOverlayProps: {
@@ -64,7 +64,7 @@ const meta = {
         },
     },
     component: StoryComp,
-    title: "Dialog",
+    title: "Components/Dialog",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -96,12 +96,12 @@ export const WithForm: Story = {
                     })}
                     onSubmit={(e) => alert(JSON.stringify(e))}
                 >
-                    <V2DialogHeader
+                    <DialogHeader
                         close={close}
                         title="Form"
                     />
 
-                    <V2ScrollableDialogContent>
+                    <ScrollableDialogContent>
                         <TextField
                             className={css({
                                 marginBottom: "space_4",
@@ -111,9 +111,9 @@ export const WithForm: Story = {
                             <Label>Description</Label>
                             <TextArea />
                         </TextField>
-                    </V2ScrollableDialogContent>
+                    </ScrollableDialogContent>
 
-                    <V2DialogFooter>
+                    <DialogFooter>
                         <Button
                             appearance="primary"
                             className={css({ width: "100%" })}
@@ -121,7 +121,7 @@ export const WithForm: Story = {
                         >
                             Submit
                         </Button>
-                    </V2DialogFooter>
+                    </DialogFooter>
                 </Form>
             );
         },
@@ -132,11 +132,11 @@ export const WithDialogErrorMessage: Story = {
     args: {
         children: ({ close }) => (
             <>
-                <V2DialogHeader
+                <DialogHeader
                     close={close}
                     title="Dialog Title"
                 />
-                <V2DialogErrorMessage
+                <DialogErrorMessage
                     error={{ message: "This is an error message" }}
                     onPressCancel={close}
                     onPressTryAgain={close}
@@ -156,16 +156,16 @@ export const WithDialogAlert: Story = {
     args: {
         children: ({ close }) => (
             <>
-                <V2DialogHeader
+                <DialogHeader
                     close={close}
                     title="Dialog Title"
                 />
-                <V2DialogAlert
+                <DialogAlert
                     colorOverlay="red"
                     description="This is a description for the alert"
                     title="This is an alert"
                 />
-                <V2ScrollableDialogContent>
+                <ScrollableDialogContent>
                     <>
                         <p>
                             A modal dialog component powered by{" "}
@@ -181,8 +181,8 @@ export const WithDialogAlert: Story = {
                             );
                         })}
                     </>
-                </V2ScrollableDialogContent>
-                <V2DialogFooter>
+                </ScrollableDialogContent>
+                <DialogFooter>
                     <Button
                         className={css({ width: "100%" })}
                         onPress={() => {
@@ -192,7 +192,7 @@ export const WithDialogAlert: Story = {
                     >
                         Confirm
                     </Button>
-                </V2DialogFooter>
+                </DialogFooter>
             </>
         ),
         dialogTriggerProps: {

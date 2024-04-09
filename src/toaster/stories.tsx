@@ -44,7 +44,7 @@ const meta = {
             </>
         );
     },
-    title: "Toaster",
+    title: "Components/Toaster",
 } satisfies Meta<typeof Toaster>;
 
 export default meta;

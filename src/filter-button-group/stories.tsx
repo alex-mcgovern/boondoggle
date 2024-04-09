@@ -28,7 +28,7 @@ const meta = {
             <RemoveFilterButton />
         </FilterButtonGroup>
     ),
-    title: "FilterButtonGroup",
+    title: "Components/FilterButtonGroup",
 } satisfies Meta<typeof FilterButtonGroup>;
 
 export default meta;

@@ -63,7 +63,7 @@ module.exports = {
         //     },
         // ],
         "jsdoc/require-jsdoc": [
-            "error",
+            "warn",
             {
                 checkGetters: true,
                 contexts: [

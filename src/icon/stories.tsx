@@ -7,7 +7,7 @@ import { Icon } from ".";
 const meta = {
     args: {},
     component: Icon,
-    title: "Icon",
+    title: "Components/Icon",
 } satisfies Meta<typeof Icon>;
 
 export default meta;

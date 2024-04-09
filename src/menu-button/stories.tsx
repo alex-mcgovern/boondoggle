@@ -102,7 +102,7 @@ const meta = {
             </MenuButton>
         );
     },
-    title: "MenuButton",
+    title: "Components/MenuButton",
 } satisfies Meta<typeof MenuButton>;
 
 export default meta;

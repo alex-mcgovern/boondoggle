@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { faker } from "@faker-js/faker";
 
 import {
-    V2MobileMenu,
-    V2MobileMenuFooter,
-    V2MobileMenuHeader,
-    V2ScrollableMobileMenuContent,
+    MobileMenu,
+    MobileMenuFooter,
+    MobileMenuHeader,
+    ScrollableMobileMenuContent,
 } from ".";
 import { Button } from "../button";
 import { css } from "../css/index.css";
@@ -15,11 +15,11 @@ const meta = {
     args: {
         children: ({ close }) => (
             <>
-                <V2MobileMenuHeader
+                <MobileMenuHeader
                     close={close}
                     title="MobileMenu Title"
                 />
-                <V2ScrollableMobileMenuContent>
+                <ScrollableMobileMenuContent>
                     <>
                         <p>
                             A modal MobileMenu component powered by{" "}
@@ -35,8 +35,8 @@ const meta = {
                             );
                         })}
                     </>
-                </V2ScrollableMobileMenuContent>
-                <V2MobileMenuFooter>
+                </ScrollableMobileMenuContent>
+                <MobileMenuFooter>
                     <Button
                         className={css({ width: "100%" })}
                         onPress={() => {
@@ -46,16 +46,16 @@ const meta = {
                     >
                         Confirm
                     </Button>
-                </V2MobileMenuFooter>
+                </MobileMenuFooter>
             </>
         ),
         modalOverlayProps: {
             isDismissable: true,
         },
     },
-    component: V2MobileMenu,
-    title: "MobileMenu",
-} satisfies Meta<typeof V2MobileMenu>;
+    component: MobileMenu,
+    title: "Components/MobileMenu",
+} satisfies Meta<typeof MobileMenu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

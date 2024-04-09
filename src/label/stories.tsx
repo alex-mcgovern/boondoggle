@@ -4,7 +4,7 @@ import { Label } from ".";
 
 const meta = {
     component: Label,
-    title: "Label",
+    title: "Components/Label",
 } satisfies Meta<typeof Label>;
 
 export default meta;

@@ -7,7 +7,7 @@ import { Main } from ".";
 const meta = {
     args: {},
     component: Main,
-    title: "Main",
+    title: "Components/Main",
 } satisfies Meta<typeof Main>;
 
 export default meta;

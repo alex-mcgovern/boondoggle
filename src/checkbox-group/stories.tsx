@@ -11,7 +11,7 @@ const fieldCSS = css({
 
 const meta = {
     component: CheckboxGroup,
-    title: "CheckboxGroup",
+    title: "Components/CheckboxGroup",
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;

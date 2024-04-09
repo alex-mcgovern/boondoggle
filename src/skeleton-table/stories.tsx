@@ -5,7 +5,7 @@ import { SkeletonTable } from ".";
 const meta = {
     args: {},
     component: SkeletonTable,
-    title: "SkeletonTable",
+    title: "Components/SkeletonTable",
 } satisfies Meta<typeof SkeletonTable>;
 
 export default meta;

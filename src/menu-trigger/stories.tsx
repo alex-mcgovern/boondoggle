@@ -5,7 +5,7 @@ import { MenuTrigger } from ".";
 const meta = {
     args: {},
     component: MenuTrigger,
-    title: "MenuTrigger",
+    title: "Components/MenuTrigger",
 } satisfies Meta<typeof MenuTrigger>;
 
 export default meta;

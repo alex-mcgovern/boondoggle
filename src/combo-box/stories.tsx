@@ -8,7 +8,7 @@ import { SearchFieldIcon } from "../search-field";
 
 const meta = {
     component: ComboBox,
-    title: "ComboBox",
+    title: "Components/ComboBox",
 } satisfies Meta<typeof ComboBox>;
 
 export default meta;

@@ -13,7 +13,7 @@ const meta = {
         children: "Button",
     },
     component: Button,
-    title: "Button",
+    title: "Components/Button",
 } satisfies Meta<typeof Button>;
 
 export default meta;

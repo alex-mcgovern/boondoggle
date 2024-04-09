@@ -10,7 +10,7 @@ import { dialogAlertSlotCSS, dialogAlertWrapperCSS } from "./styles.css";
 /**
  * Renders an inline alert for use ina  Dialog component.
  */
-export function V2DialogAlert({
+export function DialogAlert({
     colorOverlay = "amber",
     description,
     slotLeft = <Icon icon={faInfoCircle} />,

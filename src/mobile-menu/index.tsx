@@ -27,7 +27,7 @@ import {
 /**
  * Wrapper to render the dialog header.
  */
-export function V2MobileMenuHeader({
+export function MobileMenuHeader({
     children,
     close,
     title,
@@ -68,7 +68,7 @@ export function V2MobileMenuHeader({
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export function V2ScrollableMobileMenuContent({
+export function ScrollableMobileMenuContent({
     children,
 }: {
     children: ReactNode;
@@ -79,11 +79,11 @@ export function V2ScrollableMobileMenuContent({
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export function V2MobileMenuFooter({ children }: { children: ReactNode }) {
+export function MobileMenuFooter({ children }: { children: ReactNode }) {
     return <footer className={mobileMenuFooterCSS}>{children}</footer>;
 }
 
-export function V2MobileMenu({
+export function MobileMenu({
     children,
     dialogTriggerProps,
     modalOverlayProps,

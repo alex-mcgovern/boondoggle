@@ -2,11 +2,11 @@ import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleEx
 
 import { Box } from "../box";
 import { Button } from "../button";
-import { V2DialogFooter } from "../dialog";
+import { DialogFooter } from "../dialog";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
 
-export function V2DialogErrorMessage({
+export function DialogErrorMessage({
     error,
     onPressCancel,
     onPressTryAgain,
@@ -45,7 +45,7 @@ export function V2DialogErrorMessage({
                 </Box>
             </Box>
 
-            <V2DialogFooter>
+            <DialogFooter>
                 <Box
                     display="grid"
                     gap="space_2"
@@ -65,7 +65,7 @@ export function V2DialogErrorMessage({
                         {strTryAgain}
                     </Button>
                 </Box>
-            </V2DialogFooter>
+            </DialogFooter>
         </>
     );
 }

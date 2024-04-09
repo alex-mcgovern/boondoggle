@@ -5,7 +5,7 @@ import { FlagIe as StoryComp } from "./ie";
 const meta = {
     args: {},
     component: StoryComp,
-    title: "IconFlag",
+    title: "Components/IconFlag",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

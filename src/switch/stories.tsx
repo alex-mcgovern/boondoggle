@@ -8,7 +8,7 @@ const meta = {
         name: "switch",
     },
     component: StoryComp,
-    title: "Switch",
+    title: "Components/Switch",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

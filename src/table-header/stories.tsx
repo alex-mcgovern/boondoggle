@@ -83,7 +83,7 @@ const meta = {
     parameters: {
         layout: "padded",
     },
-    title: "TableHeader",
+    title: "Components/TableHeader",
 } satisfies Meta<typeof TableHeader>;
 
 export default meta;

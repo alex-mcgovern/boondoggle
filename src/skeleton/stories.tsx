@@ -4,7 +4,7 @@ import { Skeleton as StoryComp } from ".";
 
 const meta = {
     component: StoryComp,
-    title: "Skeleton",
+    title: "Components/Skeleton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

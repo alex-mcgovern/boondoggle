@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { faker } from "@faker-js/faker";
 
-import { V2TabCount, V2TabList, V2TabPanel, V2Tabs } from ".";
+import { TabCount, TabList, TabPanel, Tabs } from ".";
 
 const meta = {
     args: {
         children: (
             <>
-                <V2TabList
+                <TabList
                     items={[
                         {
                             href: "/",
@@ -53,22 +53,22 @@ const meta = {
                         },
                     ]}
                 />
-                <V2TabPanel id="tab_1">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_2">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_3">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_4">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_5">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_6">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_7">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_8">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_9">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_10">{faker.lorem.paragraphs(5)}</V2TabPanel>
+                <TabPanel id="tab_1">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_2">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_3">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_4">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_5">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_6">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_7">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_8">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_9">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_10">{faker.lorem.paragraphs(5)}</TabPanel>
             </>
         ),
     },
-    component: V2Tabs,
-    title: "Tabs",
-} satisfies Meta<typeof V2Tabs>;
+    component: Tabs,
+    title: "Components/Tabs",
+} satisfies Meta<typeof Tabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -79,29 +79,29 @@ export const WithTabCount: Story = {
     args: {
         children: (
             <>
-                <V2TabList
+                <TabList
                     items={[
                         {
                             href: "/",
                             id: "tab_1",
                             label: "I am a link",
-                            slotRight: <V2TabCount count={1} />,
+                            slotRight: <TabCount count={1} />,
                         },
                         {
                             id: "tab_2",
                             label: faker.lorem.words(2),
-                            slotRight: <V2TabCount isLoading />,
+                            slotRight: <TabCount isLoading />,
                         },
                         {
                             id: "tab_3",
                             label: faker.lorem.words(3),
-                            slotRight: <V2TabCount count={42069} />,
+                            slotRight: <TabCount count={42069} />,
                         },
                     ]}
                 />
-                <V2TabPanel id="tab_1">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_2">{faker.lorem.paragraphs(5)}</V2TabPanel>
-                <V2TabPanel id="tab_3">{faker.lorem.paragraphs(5)}</V2TabPanel>
+                <TabPanel id="tab_1">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_2">{faker.lorem.paragraphs(5)}</TabPanel>
+                <TabPanel id="tab_3">{faker.lorem.paragraphs(5)}</TabPanel>
             </>
         ),
     },

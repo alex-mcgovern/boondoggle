@@ -94,7 +94,7 @@ const meta = {
             </Select>
         );
     },
-    title: "Select",
+    title: "Components/Select",
 } satisfies Meta<typeof Select>;
 
 export default meta;

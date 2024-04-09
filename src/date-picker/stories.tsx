@@ -9,7 +9,7 @@ import { Label } from "../label";
 
 const meta = {
     component: DatePicker,
-    title: "DatePicker",
+    title: "Components/DatePicker",
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;

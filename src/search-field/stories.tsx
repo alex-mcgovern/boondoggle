@@ -20,7 +20,7 @@ const meta = {
             </SearchField>
         );
     },
-    title: "SearchField",
+    title: "Components/SearchField",
 } satisfies Meta<typeof SearchField>;
 
 export default meta;

@@ -47,7 +47,7 @@ const meta = {
             );
         },
     ],
-    title: "Form",
+    title: "Components/Form",
 } satisfies Meta<typeof Form>;
 
 export default meta;

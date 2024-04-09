@@ -5,7 +5,7 @@ import { DateInput } from ".";
 const meta = {
     args: {},
     component: DateInput,
-    title: "DateInput",
+    title: "Components/DateInput",
 } satisfies Meta<typeof DateInput>;
 
 export default meta;

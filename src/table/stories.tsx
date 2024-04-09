@@ -82,7 +82,7 @@ const meta = {
             </>
         );
     },
-    title: "Table",
+    title: "Components/Table",
 } satisfies Meta<typeof Table>;
 
 export default meta;

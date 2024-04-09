@@ -38,7 +38,7 @@ export function Dialog(props: DialogProps) {
     );
 }
 
-export function V2DialogHeader({
+export function DialogHeader({
     close,
     title,
 }: {
@@ -74,22 +74,18 @@ export function V2DialogHeader({
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export function V2ScrollableDialogContent({
-    children,
-}: {
-    children: ReactNode;
-}) {
+export function ScrollableDialogContent({ children }: { children: ReactNode }) {
     return <div className={dialogContentCSS}>{children}</div>;
 }
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export function V2DialogFooter({ children }: { children: ReactNode }) {
+export function DialogFooter({ children }: { children: ReactNode }) {
     return <footer className={dialogFooterCSS}>{children}</footer>;
 }
 
-export function V2Dialog({
+export function DialogOld({
     buttonProps,
     children,
     colorOverlay,

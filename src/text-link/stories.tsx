@@ -5,7 +5,7 @@ import { TextLink } from ".";
 const meta = {
     args: {},
     component: TextLink,
-    title: "TextLink",
+    title: "Components/TextLink",
 } satisfies Meta<typeof TextLink>;
 
 export default meta;

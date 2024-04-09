@@ -5,7 +5,7 @@ import { SkeletonCardFields as StoryComp } from ".";
 const meta = {
     args: {},
     component: StoryComp,
-    title: "SkeletonCardFields",
+    title: "Components/SkeletonCardFields",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

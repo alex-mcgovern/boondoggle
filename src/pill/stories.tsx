@@ -11,7 +11,7 @@ const meta = {
         slotLeft: <Icon icon={faCircleSmall} />,
     },
     component: Pill,
-    title: "Pill",
+    title: "Components/Pill",
 } satisfies Meta<typeof Pill>;
 
 export default meta;

@@ -11,7 +11,7 @@ import { Icon } from "../icon";
 
 export default {
     component: Collapsible,
-    title: "Collapsible",
+    title: "Components/Collapsible",
 };
 
 const TriggerNode = (

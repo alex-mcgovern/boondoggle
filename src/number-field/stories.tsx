@@ -38,7 +38,7 @@ const meta = {
             </NumberField>
         );
     },
-    title: "NumberField",
+    title: "Components/NumberField",
 } satisfies Meta<typeof NumberField>;
 
 export default meta;

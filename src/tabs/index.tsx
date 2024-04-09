@@ -28,7 +28,7 @@ import {
     tabOuterCSS,
 } from "./styles.css";
 
-export function V2TabCount({
+export function TabCount({
     count,
     isError,
     isLoading,
@@ -60,21 +60,21 @@ export function V2TabCount({
     return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
 }
 
-export type V2TabProps = Omit<ReactAriaTabProps, "className"> & {
+export type TabProps = Omit<ReactAriaTabProps, "className"> & {
     animationKey: string;
     label?: string;
     slotLeft?: ReactNode;
     slotRight?: ReactNode;
 };
 
-function V2Tab({
+function Tab({
     animationKey,
     id,
     label,
     slotLeft,
     slotRight,
     ...props
-}: V2TabProps) {
+}: TabProps) {
     return (
         <ReactAriaTab
             className={tabOuterCSS}
@@ -110,14 +110,11 @@ function V2Tab({
     );
 }
 
-export function V2TabList({
+export function TabList({
     items,
     justify = "start",
     ...props
-}: Omit<
-    ReactAriaTabListProps<Omit<V2TabProps, "animationKey">>,
-    "className"
-> & {
+}: Omit<ReactAriaTabListProps<Omit<TabProps, "animationKey">>, "className"> & {
     justify?: "space-evenly" | "start";
 }) {
     return (
@@ -128,7 +125,7 @@ export function V2TabList({
                 {...props}
             >
                 {(tab) => (
-                    <V2Tab
+                    <Tab
                         animationKey={justify}
                         {...tab}
                     />
@@ -138,11 +135,11 @@ export function V2TabList({
     );
 }
 
-export function V2TabPanel(props: Omit<ReactAriaTabPanelProps, "className">) {
+export function TabPanel(props: Omit<ReactAriaTabPanelProps, "className">) {
     return <ReactAriaTabPanel {...props} />;
 }
 
-export function V2Tabs({ children, ...props }: ReactAriaTabsProps) {
+export function Tabs({ children, ...props }: ReactAriaTabsProps) {
     const {
         onSelectionChange: controlledOnSelectionChange,
         selectedKey: controlledSelectedKey,

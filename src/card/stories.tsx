@@ -23,7 +23,7 @@ const meta = {
         ),
     },
     component: StoryComp,
-    title: "Card",
+    title: "Components/Card",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

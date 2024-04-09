@@ -7,7 +7,7 @@ import { ScrollableMain } from ".";
 const meta = {
     args: {},
     component: ScrollableMain,
-    title: "ScrollableMain",
+    title: "Components/ScrollableMain",
 } satisfies Meta<typeof ScrollableMain>;
 
 export default meta;

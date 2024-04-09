@@ -5,7 +5,7 @@ import { Menu } from ".";
 const meta = {
     args: {},
     component: Menu,
-    title: "Menu",
+    title: "Components/Menu",
 } satisfies Meta<typeof Menu>;
 
 export default meta;

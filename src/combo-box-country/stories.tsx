@@ -8,7 +8,7 @@ import { Label } from "../label";
 
 const meta = {
     component: ComboBoxCountry,
-    title: "ComboBoxCountry",
+    title: "Components/ComboBoxCountry",
 } satisfies Meta<typeof ComboBoxCountry>;
 
 export default meta;
