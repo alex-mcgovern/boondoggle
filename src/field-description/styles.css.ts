@@ -6,7 +6,6 @@ export const descriptionCSS = style([
     css({
         color: "text_low_contrast",
         fontStyle: "bodySm",
-
         marginY: "space_1",
     }),
 ]);
