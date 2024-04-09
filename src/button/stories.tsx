@@ -5,7 +5,6 @@ import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import type { ButtonProps } from ".";
 
 import { Button } from ".";
-import { capitalize } from "../_lib/string";
 import { Box } from "../box";
 import { Icon } from "../icon";
 
@@ -34,41 +33,6 @@ export const Default: Story = {
         return <Button {...props} />;
     },
 };
-
-function SizesWrapper(props: ButtonProps) {
-    const sizes: ButtonProps["size"][] = [
-        "xs",
-        "sm",
-        "md",
-        "lg",
-        "square_xs",
-        "square_sm",
-        "square_md",
-        "square_lg",
-    ];
-
-    return (
-        <>
-            {sizes.map((size) => {
-                return (
-                    <Button
-                        {...props}
-                        key={size}
-                        size={size}
-                    >
-                        {size?.startsWith("square") ? (
-                            <Icon icon={faShapes} />
-                        ) : (
-                            `${capitalize(
-                                props.appearance as string,
-                            )} ${size?.toLocaleUpperCase()}`
-                        )}
-                    </Button>
-                );
-            })}
-        </>
-    );
-}
 
 /** For a primary action, e.g. submitting a form **(default)**, use the `primary` variant. */
 export const Primary: Story = {
