@@ -47,8 +47,7 @@ export const COLUMNS = [
                         gap="space_2"
                     >
                         <Avatar
-                            firstName={row.original.first_name}
-                            lastName={row.original.last_name}
+                            name={row.original.first_name}
                             size={32}
                         />
                         <Box>
