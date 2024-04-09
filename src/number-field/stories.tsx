@@ -63,25 +63,26 @@ export const Percent: Story = {
     },
 };
 
-export const KitchenSink: Story = {
+export const IncrementDecrement: Story = {
     args: {
-        defaultValue: 42000.69,
-    },
-    render: (args) => {
-        return (
-            <NumberField {...args}>
-                <Label>Label</Label>
+        step: 100,
+        children: (
+            <>
+                <Label>Count</Label>
                 <Group>
-                    <NumberFieldDecrementButton />
                     <Input variant="unstyled" />
+                    <NumberFieldDecrementButton />
                     <NumberFieldIncrementButton />
                 </Group>
-            </NumberField>
-        );
+            </>
+        ),
+    },
+    render: (args) => {
+        return <NumberField {...args}></NumberField>;
     },
 };
 
-export const ExampleComposedCurrencyField: Story = {
+export const WithCurrencySelect: Story = {
     args: {
         defaultValue: 42000.69,
         id: "amount",

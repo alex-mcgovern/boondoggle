@@ -55,11 +55,6 @@ module.exports = {
                     },
                     {
                         message:
-                            "Use deep import, e.g. `@fortawesome/pro-solid-svg-icons/faCheck`",
-                        name: "@fortawesome/pro-regular-svg-icons",
-                    },
-                    {
-                        message:
                             "Use deep import, e.g. `@fortawesome/pro-duotone-svg-icons/faCheck`",
                         name: "@fortawesome/pro-duotone-svg-icons",
                     },

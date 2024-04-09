@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { parseAbsoluteToLocal, parseDate } from "@internationalized/date";
+import { parseAbsoluteToLocal } from "@internationalized/date";
 
 import { DatePicker, DatePickerButton } from ".";
 import { DateInput } from "../date-input";
@@ -8,37 +8,44 @@ import { Group } from "../group";
 import { Label } from "../label";
 
 const meta = {
-    args: {
-        onChange: (v) => {
-            alert(v);
-        },
-    },
     component: DatePicker,
-    render: (args) => (
-        <DatePicker {...args}>
-            <Label>Date</Label>
-            <Group>
-                <DateInput variant="unstyled" />
-                <DatePickerButton />
-            </Group>
-        </DatePicker>
-    ),
     title: "DatePicker",
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
-
-export const DefaultValue: Story = {
+export const Default: Story = {
     args: {
-        defaultValue: parseDate("2023-12-16"),
+        children: (
+            <>
+                <Label>Date/time</Label>
+                <Group>
+                    <DateInput variant="unstyled" />
+                    <DatePickerButton />
+                </Group>
+            </>
+        ),
+        onChange: (v) => {
+            alert(v);
+        },
     },
 };
 
-export const DefaultValueISO: Story = {
+export const WithTime: Story = {
     args: {
+        children: (
+            <>
+                <Label>Date/time</Label>
+                <Group>
+                    <DateInput variant="unstyled" />
+                    <DatePickerButton />
+                </Group>
+            </>
+        ),
         defaultValue: parseAbsoluteToLocal(new Date().toISOString()),
+        onChange: (v) => {
+            alert(v);
+        },
     },
 };

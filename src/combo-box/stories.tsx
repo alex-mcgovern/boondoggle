@@ -7,85 +7,78 @@ import { Label } from "../label";
 import { SearchFieldIcon } from "../search-field";
 
 const meta = {
-    args: {
-        defaultItems: [
-            {
-                children: [
-                    {
-                        description: "This is a description",
-                        id: "france",
-                        name: "France",
-                    },
-                    {
-                        description: "This is a description",
-                        id: "germany",
-                        name: "Germany",
-                    },
-                    {
-                        description: "This is a description",
-                        id: "spain",
-                        name: "Spain",
-                    },
-                ],
-                id: "europe",
-                name: "Europe",
-            },
-            {
-                children: [
-                    {
-                        description: "This is a description",
-                        id: "uae",
-                        name: "United Arab Emirates",
-                    },
-                    {
-                        description: "This is a description",
-                        id: "saudi_arabia",
-                        name: "Saudi Arabia",
-                    },
-                    {
-                        description: "This is a description",
-                        id: "oman",
-                        name: "Oman",
-                    },
-                ],
-                id: "mena",
-                name: "MENA",
-            },
-        ],
-    },
     component: ComboBox,
-    render: (args) => {
-        return (
-            <ComboBox {...args}>
-                <Label>Country/Region</Label>
-                <Group>
-                    <Input variant="unstyled" />
-                    <ComboBoxButton />
-                </Group>
-            </ComboBox>
-        );
-    },
     title: "ComboBox",
 } satisfies Meta<typeof ComboBox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+const ITEMS = [
+    {
+        children: [
+            {
+                id: "apple",
+                name: "Apple",
+            },
+            {
+                description: "Yes, it's a fruit",
+                id: "tomato",
+                name: "Tomato",
+            },
+        ],
+        id: "fruits",
+        name: "Fruits",
+    },
+    {
+        children: [
+            {
+                id: "carrot",
+                name: "Carrot",
+            },
+            {
+                id: "lettuce",
+                name: "Lettuce",
+            },
+        ],
+        id: "vegetables",
+        name: "Vegetables",
+    },
+];
 
-export const WithSearchIcon: Story = {
-    render: (args) => {
-        return (
-            <ComboBox {...args}>
-                <Label>Country/Region</Label>
+export const Default: Story = {
+    args: {
+        children: (
+            <>
+                <Label>Favourite food</Label>
                 <Group>
                     <Input
-                        icon={<SearchFieldIcon />}
+                        placeholder="Type a food..."
                         variant="unstyled"
                     />
                     <ComboBoxButton />
                 </Group>
-            </ComboBox>
-        );
+            </>
+        ),
+        defaultItems: ITEMS,
+    },
+};
+
+export const WithSearchIcon: Story = {
+    args: {
+        children: (
+            <>
+                <Label>Favourite food</Label>
+                <Group>
+                    <Input
+                        icon={<SearchFieldIcon />}
+                        placeholder="Type a food..."
+                        variant="unstyled"
+                    />
+                    <ComboBoxButton />
+                </Group>
+            </>
+        ),
+        defaultItems: ITEMS,
     },
 };

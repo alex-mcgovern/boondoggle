@@ -1,10 +1,4 @@
-import type {
-    ComponentPropsWithRef,
-    ComponentPropsWithoutRef,
-    ElementType,
-    PropsWithChildren,
-    ReactNode,
-} from "react";
+import type { ReactNode } from "react";
 import type * as React from "react";
 
 import type { BoxProps } from "./box";
@@ -65,13 +59,6 @@ export type WithSlots = {
     slotRight?: ReactNode;
 };
 
-export type WithStateDisabled = {
-    /**
-     * Whether the component is disabled.
-     */
-    disabled?: boolean;
-};
-
 export type WithStateInvalid = {
     /**
      * Message shown when field fails validation.
@@ -83,37 +70,3 @@ export type WithStateInvalid = {
      */
     invalid?: boolean;
 };
-
-type PolyMorphicAsProp<TPolymorphicAs extends ElementType> = {
-    /**
-     * Pass an HTML tag or custom component to this prop to merge the original component props with the supplied element/component props and change the DOM node.
-     */
-    as?: TPolymorphicAs;
-};
-
-type PropsToOmit<
-    TPolymorphicAs extends ElementType,
-    P,
-> = keyof (PolyMorphicAsProp<TPolymorphicAs> & P);
-
-type PolymorphicComponentProp<
-    TPolymorphicAs extends ElementType,
-    Props = Record<string, unknown>,
-> = PropsWithChildren<Props & PolyMorphicAsProp<TPolymorphicAs>> &
-    Omit<
-        ComponentPropsWithoutRef<TPolymorphicAs>,
-        PropsToOmit<TPolymorphicAs, Props>
-    >;
-
-export type PolymorphicComponentPropWithRef<
-    TPolymorphicAs extends ElementType,
-    Props = Record<string, unknown>,
-> = PolymorphicComponentProp<TPolymorphicAs, Props> & {
-    /**
-     * The React ref for the polymorphic component.
-     */
-    ref?: PolymorphicRef<TPolymorphicAs>;
-};
-
-export type PolymorphicRef<TPolymorphicAs extends ElementType> =
-    ComponentPropsWithRef<TPolymorphicAs>["ref"];

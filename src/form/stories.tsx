@@ -4,20 +4,123 @@ import clsx from "clsx";
 
 import { Form } from ".";
 import { Button } from "../button";
+import { CheckboxGroup } from "../checkbox-group";
+import { Default as CheckboxGroupStory } from "../checkbox-group/stories";
+import { ComboBox } from "../combo-box";
+import { Default as ComboBoxStory } from "../combo-box/stories";
+import { ComboBoxCountry } from "../combo-box-country";
+import { Default as ComboBoxCountryStory } from "../combo-box-country/stories";
 import { css } from "../css/index.css";
+import { DatePicker } from "../date-picker";
+import {
+    Default as DatePickerStory,
+    WithTime as DatePickerWithTimeStory,
+} from "../date-picker/stories";
 import { FieldError } from "../field-error";
 import { variantColorOverlay } from "../index.css";
 import { Input } from "../input";
 import { Label } from "../label";
+import { NumberField } from "../number-field";
+import { IncrementDecrement as NumberFieldIncrementDecrement } from "../number-field/stories";
 import { TextField } from "../text-field";
+import {
+    Email as TextFieldEmailStory,
+    Default as TextFieldStory,
+    WithTextArea as TextFieldTextAreaStory,
+    Visibility as TextFieldVisibilityStory,
+} from "../text-field/stories";
+import { Toaster } from "../toaster";
+
+const fieldCSS = css({
+    marginBottom: "space_2",
+});
 
 const meta = {
     args: {
-        children: "Form (V2)",
+        children: (
+            <>
+                <TextField
+                    {...TextFieldStory.args}
+                    className={fieldCSS}
+                    name="full_name"
+                />
+                <TextField
+                    {...TextFieldEmailStory.args}
+                    className={fieldCSS}
+                    name="email_address"
+                />
+                <TextField
+                    {...TextFieldVisibilityStory.args}
+                    className={fieldCSS}
+                    name="password"
+                />
+                <CheckboxGroup
+                    {...CheckboxGroupStory.args}
+                    className={fieldCSS}
+                    name="fruits"
+                />
+                <DatePicker
+                    {...DatePickerStory.args}
+                    className={fieldCSS}
+                    name="date_of_birth"
+                />
+                <DatePicker
+                    {...DatePickerWithTimeStory.args}
+                    className={fieldCSS}
+                    name="date_time"
+                />
+                <NumberField
+                    {...NumberFieldIncrementDecrement.args}
+                    className={fieldCSS}
+                    name="count"
+                />
+                <ComboBox
+                    {...ComboBoxStory.args}
+                    className={fieldCSS}
+                    name="favourite_food"
+                />
+                <ComboBoxCountry
+                    {...ComboBoxCountryStory.args}
+                    className={fieldCSS}
+                    name="country"
+                />
+                <TextField
+                    {...TextFieldTextAreaStory.args}
+                    className={fieldCSS}
+                    name="description"
+                />
+                <Button
+                    className={css({ width: "100%" })}
+                    type="submit"
+                >
+                    Submit
+                </Button>
+            </>
+        ),
+        className: css({ width: "main_sm" }),
+        onSubmit: (e) => {
+            alert(`Form submitted successfully \n ${JSON.stringify(e)}`);
+        },
     },
     component: Form,
-    title: "Form (V2)",
+    decorators: [
+        (Story) => {
+            return (
+                <>
+                    <Toaster />
+                    <Story />
+                </>
+            );
+        },
+    ],
+    title: "Form",
 } satisfies Meta<typeof Form>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
 
 /**
  * Here is an example of composing a form with a text field that requires a specific value to be entered before allowing submission.
@@ -73,6 +176,3 @@ export const ValidationAction: Story = {
         );
     },
 };
-
-export default meta;
-type Story = StoryObj<typeof meta>;

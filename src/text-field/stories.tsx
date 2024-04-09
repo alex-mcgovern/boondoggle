@@ -15,11 +15,11 @@ import { FieldError } from "../field-error";
 import { Group } from "../group";
 import { Input } from "../input";
 import { Label } from "../label";
+import { TextArea } from "../text-area";
 import { Toaster } from "../toaster";
 import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "../tooltip";
 
 const meta = {
-    args: {},
     component: TextField,
     decorators: [
         (Story) => {
@@ -31,21 +31,22 @@ const meta = {
             );
         },
     ],
-    render: (args) => {
-        return (
-            <TextField {...args}>
-                <Label>Label</Label>
-                <Input />
-            </TextField>
-        );
-    },
     title: "TextField",
 } satisfies Meta<typeof TextField>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    args: {
+        children: (
+            <>
+                <Label>Full name</Label>
+                <Input />
+            </>
+        ),
+    },
+};
 
 export const CopyButton: Story = {
     args: {
@@ -133,21 +134,33 @@ export const LabelTooltip: Story = {
     },
 };
 
-export const Visibilty: Story = {
+export const Email: Story = {
     args: {
-        type: "password",
-        value: "HYo2G$8Vvz",
+        autoComplete: "off",
+        children: (
+            <>
+                <Label>Email address</Label>
+                <Input />
+            </>
+        ),
+        type: "email",
     },
-    render: (args) => {
-        return (
-            <TextField {...args}>
-                <Label>Label</Label>
+};
+
+export const Visibility: Story = {
+    args: {
+        autoComplete: "off",
+        children: (
+            <>
+                <Label>Password</Label>
                 <Group>
                     <Input variant="unstyled" />
                     <TextFieldVisibilityButton />
                 </Group>
-            </TextField>
-        );
+            </>
+        ),
+        type: "password",
+        value: "HYo2G$8Vvz",
     },
 };
 
@@ -180,6 +193,17 @@ export const TestRef: Story = {
                 </Button>
             </>
         );
+    },
+};
+
+export const WithTextArea: Story = {
+    args: {
+        children: (
+            <>
+                <Label>Description of your issue</Label>
+                <TextArea />
+            </>
+        ),
     },
 };
 
