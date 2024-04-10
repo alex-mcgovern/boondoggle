@@ -55,11 +55,11 @@
         "build-storybook": "storybook build",
         "storybook": "storybook dev -p 6006",
         "=== CHECKS ===": "",
-        "check": "concurrently -n PRETTIER,ESLINT,TSC,JEST -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:check-jest\"",
+        "check": "concurrently -n PRETTIER,ESLINT,TSC,VITEST -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:vitest\"",
         "check-prettier": "prettier . --check",
         "eslint": "eslint .",
         "tsc": "tsc",
-        "check-jest": "jest",
+        "vitest": "vitest run",
         "=== FIXES ===": "",
         "fix": "concurrently -n PRETTIER,ESLINT -c \"bgYellow.bold,bgRed.bold\" \"npm:fix-prettier\" \"npm:fix-eslint\"",
         "fix-prettier": "prettier . --write",
@@ -67,7 +67,7 @@
         "=== TESTING ===": "",
         "cy:open": "cypress open",
         "cy:run": "cypress run --component",
-        "test:watch": "jest --watch"
+        "test:watch": "vitest --watch"
     },
     "dependencies": {
         "@dessert-box/core": "0.2.0",
@@ -89,7 +89,7 @@
         "react": "18.2.0",
         "react-aria-components": "1.1.1",
         "react-dom": "18.2.0",
-        "sonner": "1.4.41"
+        "sonner": "1.3.1"
     },
     "devDependencies": {
         "@faker-js/faker": "8.0.2",
