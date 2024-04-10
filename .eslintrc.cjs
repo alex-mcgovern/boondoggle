@@ -33,7 +33,7 @@ module.exports = {
             },
         },
         {
-            files: ["**/*.css.ts", "**/*stories.tsx"],
+            files: ["**/*.css.ts", "**/*stories.tsx", "vitest.config.ts"],
             rules: {
                 "jsdoc/require-jsdoc": "off",
             },

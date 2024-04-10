@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import type {
     TabListProps as ReactAriaTabListProps,
     TabPanelProps as ReactAriaTabPanelProps,
@@ -6,7 +5,6 @@ import type {
     TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import { motion } from "framer-motion";
 import { useLayoutEffect, useState } from "react";
 import {
@@ -16,11 +14,7 @@ import {
     Tabs as ReactAriaTabs,
 } from "react-aria-components";
 
-import { Icon } from "../icon";
-import { Loader } from "../loader";
 import {
-    tabCountCSS,
-    tabCountIconCSS,
     tabIndicatorCSS,
     tabInnerCSS,
     tabListInnerCSS,
@@ -28,53 +22,18 @@ import {
     tabOuterCSS,
 } from "./styles.css";
 
-export function TabCount({
-    count,
-    isError,
-    isLoading,
-}: {
-    count?: number;
-    isError?: boolean;
-    isLoading?: boolean;
-}) {
-    if (isError) {
-        return (
-            <Icon
-                className={tabCountIconCSS}
-                icon={faExclamationCircle}
-                size="sm"
-            />
-        );
-    }
-    if (isLoading) {
-        return (
-            <Loader
-                className={tabCountIconCSS}
-                size="sm"
-            />
-        );
-    }
-    if (!isLoading && !count) {
-        return <div className={tabCountCSS}>0</div>;
-    }
-    return <div className={tabCountCSS}>{isLoading ? <Loader /> : count}</div>;
-}
-
 export type TabProps = Omit<ReactAriaTabProps, "className"> & {
+    /**
+     * A unique key for the tab that is used to animate the indicator.
+     */
     animationKey: string;
+    /**
+     * The label of the tab.
+     */
     label?: string;
-    slotLeft?: ReactNode;
-    slotRight?: ReactNode;
 };
 
-function Tab({
-    animationKey,
-    id,
-    label,
-    slotLeft,
-    slotRight,
-    ...props
-}: TabProps) {
+function Tab({ animationKey, id, label, ...props }: TabProps) {
     return (
         <ReactAriaTab
             className={tabOuterCSS}
@@ -98,11 +57,7 @@ function Tab({
                                 }}
                             />
                         ) : null}
-                        <div className={tabInnerCSS}>
-                            {slotLeft}
-                            {label}
-                            {slotRight}
-                        </div>
+                        <div className={tabInnerCSS}>{label}</div>
                     </>
                 );
             }}
@@ -110,6 +65,10 @@ function Tab({
     );
 }
 
+/**
+ * A list of tabs that can be selected to display a corresponding panel.
+ * A function passed as the children of the `Collection` component returns a corresponding `<Tab>` for each tab.
+ */
 export function TabList({
     items,
     justify = "start",
@@ -135,10 +94,28 @@ export function TabList({
     );
 }
 
+/**
+ * A panel that corresponds to a tab. A function passed as the children of the `Collection` component returns a corresponding `<TabPanel>` for each tab.
+ */
 export function TabPanel(props: Omit<ReactAriaTabPanelProps, "className">) {
     return <ReactAriaTabPanel {...props} />;
 }
 
+/**
+ * Tabs organize content into multiple sections and allow users to navigate between them. [Built with React Aria Tabs](https://react-spectrum.adobe.com/react-aria/Tabs.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Tabs, type TabsProps } from "boondoggle/tabs"
+ * ```
+ */
 export function Tabs({ children, ...props }: ReactAriaTabsProps) {
     const {
         onSelectionChange: controlledOnSelectionChange,

@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Section } from "..";
 
 const meta = {
-    args: {},
     component: Section,
     title: "Components/Section",
 } satisfies Meta<typeof Section>;

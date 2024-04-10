@@ -5,30 +5,30 @@ import clsx from "clsx";
 import { Form } from "..";
 import { Button } from "../../button";
 import { CheckboxGroup } from "../../checkbox-group";
-import { Default as CheckboxGroupStory } from "../../checkbox-group/stories";
+import { Default as CheckboxGroupStory } from "../../checkbox-group/__storybook__/stories";
 import { ComboBox } from "../../combo-box";
-import { Default as ComboBoxStory } from "../../combo-box/stories";
+import { Default as ComboBoxStory } from "../../combo-box/__storybook__/stories";
 import { ComboBoxCountry } from "../../combo-box-country";
-import { Default as ComboBoxCountryStory } from "../../combo-box-country/stories";
+import { Default as ComboBoxCountryStory } from "../../combo-box-country/__storybook__/stories";
 import { css } from "../../css/index.css";
 import { DatePicker } from "../../date-picker";
 import {
     Default as DatePickerStory,
     WithTime as DatePickerWithTimeStory,
-} from "../../date-picker/stories";
+} from "../../date-picker/__storybook__/stories";
 import { FieldError } from "../../field-error";
 import { variantColorOverlay } from "../../index.css";
 import { Input } from "../../input";
 import { Label } from "../../label";
 import { NumberField } from "../../number-field";
-import { IncrementDecrement as NumberFieldIncrementDecrement } from "../../number-field/stories";
+import { IncrementDecrement as NumberFieldIncrementDecrement } from "../../number-field/__storybook__/stories";
 import { TextField } from "../../text-field";
 import {
     Email as TextFieldEmailStory,
     Default as TextFieldStory,
     WithTextArea as TextFieldTextAreaStory,
     Visibility as TextFieldVisibilityStory,
-} from "../../text-field/stories";
+} from "../../text-field/__storybook__/stories";
 import { Toaster } from "../../toaster";
 
 const fieldCSS = css({

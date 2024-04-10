@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FlagIe as StoryComp } from "./ie";
+import { FlagIe as StoryComp } from "../ie";
 
 const meta = {
     args: {},

@@ -26,9 +26,19 @@ export function SwitchIndicator() {
 export type SwitchProps = ReactAriaSwitchProps;
 
 /**
- * A switch allows a user to turn a setting on or off.
+ * A switch allows a user to turn a setting on or off. [Built with React Aria Switch](https://react-spectrum.adobe.com/react-aria/Switch.html)
  *
- * > [Built with React Aria Switch](https://react-spectrum.adobe.com/react-aria/Switch.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Switch, type SwitchProps } from "boondoggle/switch"
+ * ```
  */
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
     (props, ref) => {

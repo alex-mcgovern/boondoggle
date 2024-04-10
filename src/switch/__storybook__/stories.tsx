@@ -4,7 +4,6 @@ import { Switch, SwitchIndicator, SwitchLabel } from "..";
 
 const meta = {
     component: Switch,
-    subcomponents: { SwitchIndicator, SwitchLabel },
     title: "Components/Switch",
 } satisfies Meta<typeof Switch>;
 

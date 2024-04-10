@@ -11,12 +11,12 @@ export const avatarCSS = recipe({
             color: "bg_button_primary",
             display: "flex",
             flexShrink: "0",
-            fontWeight: "semibold",
+            fontWeight: "medium",
             justifyContent: "center",
             overflow: "hidden",
         }),
         {
-            fontSize: `max(${vars.fontSize.bodyLg}, 100%)`,
+            fontSize: `max(${vars.fontSize.bodyMd}, 100%)`,
         },
     ],
     defaultVariants: {

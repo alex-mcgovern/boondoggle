@@ -153,7 +153,7 @@
         "prefix": "story",
         "description": "Simple Storybook story",
         "body": [
-            "import { ${1:Component} } from \".\";",
+            "import { ${1:Component} } from \"..\";",
             "",
             "import { Meta, StoryObj } from \"@storybook/react\";",
             "",

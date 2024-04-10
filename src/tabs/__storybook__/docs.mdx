@@ -9,16 +9,30 @@ import {
     Title,
 } from "@storybook/blocks";
 
-import { Tabs } from "..";
-import * as stories from "./stories.tsx";
+import { TabList, Tabs, TabPanel } from "..";
+import * as stories from "./tabs.stories.tsx";
 
 <Meta of={stories} />
 <Title of={stories} />
 <Description of={Tabs} />
 
-## Example
+### Example
 
 <Canvas
     sourceState="shown"
     of={stories.Default}
 />
+
+### Props
+
+#### Tabs
+
+<ArgTypes of={Tabs} />
+
+#### TabList
+
+<ArgTypes of={TabList} />
+
+#### TabPanel
+
+<ArgTypes of={TabPanel} />
