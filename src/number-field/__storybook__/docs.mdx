@@ -1,0 +1,24 @@
+import {
+    ArgTypes,
+    Canvas,
+    Controls,
+    Description,
+    Meta,
+    Source,
+    Story,
+    Title,
+} from "@storybook/blocks";
+
+import { NumberField } from "..";
+import * as stories from "./stories.tsx";
+
+<Meta of={stories} />
+<Title of={stories} />
+<Description of={NumberField} />
+
+## Example
+
+<Canvas
+    sourceState="shown"
+    of={stories.Default}
+/>

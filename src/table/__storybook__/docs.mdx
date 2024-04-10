@@ -1,0 +1,30 @@
+import {
+    ArgTypes,
+    Canvas,
+    Controls,
+    Meta,
+    Story,
+    Source,
+} from "@storybook/blocks";
+
+import { Table } from "..";
+import { Box } from "../../box";
+import * as stories from "./stories.tsx";
+import { css } from "../../css/index.css.ts";
+
+<Meta of={stories} />
+
+A table displays data in rows and columns and enables a user to navigate its
+contents via directional navigation keys, and optionally supports row selection
+and sorting.
+
+It is a thin layer on top of the
+[React Aria Table component](https://react-spectrum.adobe.com/react-aria/Table.html)
+with some additional props for styling / variants.
+
+## Examples
+
+<Canvas
+    sourceState="shown"
+    of={stories.Default}
+/>

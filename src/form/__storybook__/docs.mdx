@@ -1,0 +1,44 @@
+import {
+    ArgTypes,
+    Description,
+    Canvas,
+    Title,
+    Controls,
+    Meta,
+    Story,
+    Source,
+} from "@storybook/blocks";
+import LinkTo from "@storybook/addon-links/react";
+
+import { Form } from "..";
+import * as stories from "./stories.tsx";
+import { textLinkCSS } from "../../text-link/styles.css";
+
+<Meta of={stories} />
+<Title of={stories} />
+<Description of={Form} />
+
+## Usage
+
+### Example: Kitchen sink
+
+This is a "kitchen sink" example of a form with various field types.
+
+<Description of={stories.Default} />
+<Canvas of={stories.Default} />
+
+### Example: Composing a "confirm action" UI
+
+Here is an example of composing a form with a text field that requires a
+specific value to be entered before allowing submission.
+
+This pattern is useful for confirming destructive actions, such as deleting a
+user account.
+
+<Description of={stories.ConfirmAction} />
+<Canvas of={stories.ConfirmAction} />
+
+## Props
+
+<ArgTypes of={Form} />
+import {TextField} from "react-aria-components"
