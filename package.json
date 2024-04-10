@@ -104,6 +104,7 @@
         "@typescript-eslint/eslint-plugin": "6.17.0",
         "@typescript-eslint/parser": "6.17.0",
         "@vanilla-extract/vite-plugin": "4.0.7",
+        "@vitejs/plugin-react-swc": "3.6.0",
         "concurrently": "8.2.2",
         "cypress": "13.1.0",
         "eslint": "8.56.0",
