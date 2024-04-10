@@ -83,6 +83,9 @@ export function MobileMenuFooter({ children }: { children: ReactNode }) {
     return <footer className={mobileMenuFooterCSS}>{children}</footer>;
 }
 
+/**
+ * A pre-composed mobile menu component.
+ */
 export function MobileMenu({
     children,
     dialogTriggerProps,

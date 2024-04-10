@@ -21,6 +21,9 @@ export type IconProps = FontAwesomeIconProps & {
     icon: IconProp;
 } & Css;
 
+/**
+ * A wrapper around the FontAwesome icon component.
+ */
 export function Icon({
     className: userClassName,
     color = "currentColor",

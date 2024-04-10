@@ -6,6 +6,10 @@ import { DialogFooter } from "../dialog";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
 
+/**
+ * A dialog to display an error message with a try again and cancel button.
+ * @deprecated
+ */
 export function DialogErrorMessage({
     error,
     onPressCancel,

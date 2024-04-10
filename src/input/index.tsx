@@ -21,6 +21,9 @@ export type InputProps = RACInputProps & {
     variant?: "default" | "unstyled";
 };
 
+/**
+ * An `Input` component, for use with a `TextField` component. [Built with React Aria Input component](https://react-spectrum.adobe.com/react-aria/TextField.html#input)
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     return (
         <div className={inputContainerCSS}>

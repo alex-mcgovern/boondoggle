@@ -1,3 +1,6 @@
+/**
+ * Mock data for Storybook & testing.
+ */
 export const LOREM = {
     button: "Do the thing",
     dateFormatted: "02/06/1993",

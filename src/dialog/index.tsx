@@ -29,6 +29,9 @@ import {
 
 export type DialogProps = RACDialogProps;
 
+/**
+ * A dialog is an overlay shown above other content in an application. [Built with React Aria Dialog component](https://react-spectrum.adobe.com/react-aria/Dialog.html)
+ */
 export function Dialog(props: DialogProps) {
     return (
         <RACDialog
@@ -38,6 +41,9 @@ export function Dialog(props: DialogProps) {
     );
 }
 
+/**
+ * Wrapper to render the dialog header.
+ */
 export function DialogHeader({
     close,
     title,
@@ -85,6 +91,10 @@ export function DialogFooter({ children }: { children: ReactNode }) {
     return <footer className={dialogFooterCSS}>{children}</footer>;
 }
 
+/**
+ * Wrapper to render a dialog with a button trigger.
+ * @deprecated
+ */
 export function DialogOld({
     buttonProps,
     children,
