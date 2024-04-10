@@ -16,9 +16,31 @@ import * as stories from "./stories.tsx";
 <Title of={stories} />
 <Description of={Switch} />
 
-## Example
+## Usage
+
+The Switch component has a compositional API comprising of 3 components:
+
+-   `Switch` - the main component that wraps the `SwitchInput` and
+    `SwitchLabel`, and provides the state management and switch functionality.
+-   `SwitchIndicator` - the visual representation of the switch state.
+-   `SwitchLabel` - the label for the switch.
 
 <Canvas
     sourceState="shown"
     of={stories.Default}
 />
+
+The positioning of the `SwitchIndicator` relative to the `SwitchLabel` can be
+controlled by composing the components differently.
+
+> ⚠️ **Typically, the correct way is to label the switch with whatever the "on"
+> state is, and position that label to the right of the switch.**
+
+<Canvas
+    sourceState="shown"
+    of={stories.Reversed}
+/>
+
+## Props
+
+<ArgTypes of={Switch} />

@@ -1,22 +1,13 @@
-import { StorybookConfig } from "@storybook/react-webpack5";
-import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
-import { merge } from "webpack-merge";
+import { StorybookConfig } from "storybook";
+import { mergeConfig } from "vite";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 const config: StorybookConfig = {
-    addons: [
-        "@storybook/addon-essentials",
-        "@storybook/addon-links",
-        "@storybook/addon-mdx-gfm",
-        "@storybook/addon-webpack5-compiler-swc",
-    ],
-    docs: {
-        autodocs: false,
-    },
+    addons: ["@storybook/addon-essentials"],
     framework: {
-        name: "@storybook/react-webpack5",
-        options: {},
+        name: "@storybook/react-vite",
     },
-    stories: ["../src/**/stories.tsx", "../(src|documentation)/**/*.mdx"],
+    stories: ["../src/**/stories.tsx", "../src/**/*.mdx"],
     swc: () => ({
         jsc: {
             transform: {
@@ -28,27 +19,18 @@ const config: StorybookConfig = {
     }),
     typescript: {
         check: false,
-        checkOptions: {},
         reactDocgen: "react-docgen-typescript",
-        reactDocgenTypescriptOptions: {
-            compilerOptions: {
-                allowSyntheticDefaultImports: false,
-                esModuleInterop: false,
-            },
-            shouldExtractLiteralValuesFromEnum: false,
-            shouldIncludeExpression: false,
-            shouldRemoveUndefinedFromOptional: true,
-        },
     },
-    webpackFinal: async (config) =>
-        merge(config, {
+    async viteFinal(config, { configType }) {
+        return mergeConfig(config, {
             plugins: [
-                new VanillaExtractPlugin({
-                    identifiers: "short",
-                    outputCss: true,
+                vanillaExtractPlugin({
+                    identifiers: "debug",
+                    unstable_mode: "emitCss",
                 }),
             ],
-        }),
+        });
+    },
 };
 
 export default config;

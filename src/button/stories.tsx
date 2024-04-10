@@ -9,9 +9,6 @@ import { Box } from "../box";
 import { Icon } from "../icon";
 
 const meta = {
-    args: {
-        children: "Button",
-    },
     component: Button,
     title: "Components/Button",
 } satisfies Meta<typeof Button>;
@@ -19,6 +16,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**
+ * GOD I HATE YOU 🍆
+ */
 export const Default: Story = {
     args: {
         children: "Press me",
@@ -26,14 +26,27 @@ export const Default: Story = {
             alert("Hello world!");
         },
     },
-    render: (props) => {
-        return <Button {...props} />;
+};
+
+/**
+ * GOD I HATE YOU 🍆
+ */
+const _Primary: Story = {
+    args: { appearance: "primary", children: "Primary" },
+    parameters: {
+        docs: {
+            description: {
+                // story: "This is the primary button",
+            },
+        },
     },
 };
 
-export const Primary: Story = {
-    args: { appearance: "primary", children: "Primary" },
-};
+/**
+ * # Primary Button
+ * This is the primary button
+ */
+export const Primary = _Primary;
 
 export const Secondary: Story = {
     args: { appearance: "secondary", children: "Secondary" },
