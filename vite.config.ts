@@ -32,6 +32,7 @@ export default defineConfig({
         react(),
         vanillaExtractPlugin({
             identifiers: "short",
+            unstable_mode: "emitCss",
         }),
     ],
 });
