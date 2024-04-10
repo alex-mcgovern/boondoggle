@@ -92,30 +92,19 @@
         "sonner": "1.4.41"
     },
     "devDependencies": {
-        "@babel/core": "7.23.3",
-        "@babel/preset-env": "7.23.3",
-        "@babel/preset-react": "7.23.3",
-        "@babel/preset-typescript": "7.23.3",
         "@faker-js/faker": "8.0.2",
         "@storybook/addon-essentials": "^8.0.6",
-        "@storybook/addon-interactions": "^8.0.6",
-        "@storybook/addon-links": "8.0.6",
-        "@storybook/addon-mdx-gfm": "8.0.6",
         "@storybook/blocks": "^8.0.6",
-        "@storybook/builder-vite": "8.0.6",
         "@storybook/manager-api": "8.0.6",
         "@storybook/react": "^8.0.6",
         "@storybook/react-vite": "8.0.6",
         "@storybook/theming": "8.0.6",
-        "@testing-library/dom": "9.3.0",
         "@types/react": "18.2.75",
         "@types/react-dom": "18.2.24",
         "@typescript-eslint/eslint-plugin": "6.17.0",
         "@typescript-eslint/parser": "6.17.0",
         "@vanilla-extract/vite-plugin": "4.0.7",
-        "@vanilla-extract/webpack-plugin": "2.3.1",
         "concurrently": "8.2.2",
-        "css-loader": "6.8.1",
         "cypress": "13.1.0",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
@@ -128,11 +117,9 @@
         "prettier": "3.1.1",
         "react": "18.2.0",
         "storybook": "^8.0.6",
-        "ts-loader": "9.4.4",
         "tsup": "6.7.0",
         "typescript": "5.0.4",
         "vite": "5.2.8",
-        "vitest": "1.4.0",
-        "webpack-merge": "5.8.0"
+        "vitest": "1.4.0"
     }
 }
