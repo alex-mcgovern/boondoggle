@@ -33,7 +33,7 @@ module.exports = {
             },
         },
         {
-            files: ["**/*.css.ts", "**/stories.tsx"],
+            files: ["**/*.css.ts", "**/*stories.tsx"],
             rules: {
                 "jsdoc/require-jsdoc": "off",
             },
@@ -51,19 +51,8 @@ module.exports = {
             "error",
             { prefer: "type-imports" },
         ],
-        // "jsdoc/require-description": [
-        //     "warn",
-        //     {
-        //         contexts: [
-        //             // "TSInterfaceDeclaration",
-        //             // "ObjectExpression",
-        //             // "ArrowFunctionExpression",
-        //         ],
-        //         descriptionStyle: "body",
-        //     },
-        // ],
         "jsdoc/require-jsdoc": [
-            "warn",
+            "error",
             {
                 checkGetters: true,
                 contexts: [

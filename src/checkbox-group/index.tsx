@@ -9,9 +9,19 @@ import { checkboxGroupCSS } from "./styles.css";
 export type CheckboxGroupProps = RACCheckboxGroupProps;
 
 /**
- * A checkbox group allows a user to select multiple items from a list of options.
+ * A checkbox group allows a user to select multiple items from a list of options. [Built with React Aria CheckboxGroup](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
  *
- * > [Built with React Aria CheckboxGroup](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { CheckboxGroup, type CheckboxGroupProps } from "boondoggle/checkbox-group"
+ * ```
  */
 export const CheckboxGroup = forwardRef<HTMLDivElement, RACCheckboxGroupProps>(
     (props, ref) => {

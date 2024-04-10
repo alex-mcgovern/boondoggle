@@ -9,9 +9,19 @@ import { textLinkCSS } from "./styles.css";
 export type TextLinkProps = RACLinkProps;
 
 /**
- * A link allows a user to navigate to another page or resource within a web page or application.
+ * A link allows a user to navigate to another page or resource within a web page or application. [Built with React Aria](https://react-spectrum.adobe.com/react-aria/Link.html)
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Link.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Link, type LinkProps } from "boondoggle/link"
+ * ```
  */
 export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
     (props, ref) => {

@@ -1,20 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Toaster, toast } from ".";
-import { Box } from "../box";
+import { Toaster as ToasterComponent, toast } from ".";
 import { Button } from "../button";
 
 const meta = {
-    args: {},
-    component: Toaster,
-    render: () => {
+    component: ToasterComponent,
+    title: "Components/Toaster",
+} satisfies Meta<typeof ToasterComponent>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Toaster: Story = {
+    render: (args) => {
         return (
             <>
-                <Toaster />
-
-                <Box
-                    display="grid"
-                    gap="space_1"
+                <ToasterComponent {...args} />
+                <div
+                    style={{
+                        display: "grid",
+                        gap: 8,
+                        gridTemplateColumns: "repeat(3, 1fr)",
+                    }}
                 >
                     <Button
                         appearance="secondary"
@@ -40,14 +47,8 @@ const meta = {
                     >
                         Success toast
                     </Button>
-                </Box>
+                </div>
             </>
         );
     },
-    title: "Components/Toaster",
-} satisfies Meta<typeof Toaster>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+};

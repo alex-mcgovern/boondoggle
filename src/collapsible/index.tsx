@@ -28,7 +28,21 @@ export type CollapsibleProps = {
 };
 
 /**
+ * @deprecated
+ *
  * An unstyled, primitive component for creating a collapsible UI element.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Collapsible, type CollapsibleProps } from "boondoggle/collapsible"
+ * ```
  */
 export function Collapsible({
     children,

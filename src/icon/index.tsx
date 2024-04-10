@@ -11,7 +11,13 @@ import { css } from "../css/index.css";
 import { iconCSS } from "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {
+    /**
+     * An optional class name to apply to the icon.
+     */
     className?: string;
+    /**
+     * The FontAwesome icon definition to render.
+     */
     icon: IconProp;
 } & Css;
 

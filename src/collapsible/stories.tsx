@@ -1,16 +1,19 @@
 import type { StoryObj } from "@storybook/react";
 
+import { faker } from "@faker-js/faker";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
 
 import type { CollapsibleProps } from ".";
 
 import { Collapsible } from ".";
-import { LOREM } from "../../mocks/LOREM.mock";
 import { css } from "../css/index.css";
 import { Icon } from "../icon";
 
 export default {
     component: Collapsible,
+    parameters: {
+        layout: "padded",
+    },
     title: "Components/Collapsible",
 };
 
@@ -34,7 +37,7 @@ const TriggerNode = (
 
 export const Default: StoryObj<CollapsibleProps> = {
     args: {
-        children: LOREM.title_xl,
+        children: faker.lorem.paragraphs(3),
     },
     render: (args) => (
         <Collapsible

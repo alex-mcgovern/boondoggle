@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     framework: {
         name: "@storybook/react-vite",
     },
-    stories: ["../src/**/stories.tsx", "../src/**/*.mdx"],
+    stories: ["../src/**/*stories.tsx", "../src/**/*.mdx"],
     swc: () => ({
         jsc: {
             transform: {
@@ -19,7 +19,18 @@ const config: StorybookConfig = {
     }),
     typescript: {
         check: false,
+        checkOptions: {},
         reactDocgen: "react-docgen-typescript",
+        reactDocgenTypescriptOptions: {
+            compilerOptions: {
+                allowSyntheticDefaultImports: false,
+                esModuleInterop: false,
+            },
+            shouldExtractLiteralValuesFromEnum: false,
+            shouldIncludeExpression: false,
+            shouldRemoveUndefinedFromOptional: true,
+            propFilter: () => true,
+        },
     },
     async viteFinal(config, { configType }) {
         return mergeConfig(config, {

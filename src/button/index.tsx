@@ -15,8 +15,19 @@ export type ButtonProps = RACButtonProps & ButtonVariants;
 
 /**
  * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
+ * [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
  *
- * > [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Button, type ButtonProps } from "boondoggle/button"
+ * ```
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
@@ -62,7 +73,19 @@ export type LinkButtonProps = RACLinkProps &
 /**
  * A link allows a user to navigate to another page or resource within a web page or application.
  *
- * > [Built with React Aria Link](https://react-spectrum.adobe.com/react-aria/Link.html)
+ * [Built with React Aria Link](https://react-spectrum.adobe.com/react-aria/Link.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { LinkButton, type LinkButtonProps } from "boondoggle/button"
+ * ```
  */
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
     (

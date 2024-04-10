@@ -6,7 +6,24 @@ import { FieldError as RACFieldError } from "react-aria-components";
 
 import { fieldErrorCss } from "./styles.css";
 
-export const FieldError = forwardRef<HTMLDivElement, RACFieldErrorProps>(
+export type FieldErrorProps = RACFieldErrorProps;
+
+/**
+ * A <FieldError> displays validation errors.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { FieldError, type FieldErrorProps } from "boondoggle/field-error"
+ * ```
+ */
+export const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
     (props, ref) => {
         return (
             <RACFieldError

@@ -5,8 +5,6 @@ import { Checkbox as RACCheckbox } from "react-aria-components";
 
 import { checkboxCSS, checkboxTickCSS, checkboxWrapperCSS } from "./styles.css";
 
-export type CheckboxProps = RACCheckboxProps;
-
 function CheckboxTick({ isSelected }: { isSelected: boolean }) {
     return (
         <svg
@@ -19,10 +17,22 @@ function CheckboxTick({ isSelected }: { isSelected: boolean }) {
     );
 }
 
+export type CheckboxProps = RACCheckboxProps;
+
 /**
- * A checkbox group allows a user to select multiple items from a list of options.
+ * A checkbox group allows a user to select multiple items from a list of options. [Built with React Aria Checkbox](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
  *
- * > [Built with React Aria Checkbox](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Checkbox, type CheckboxProps } from "boondoggle/checkbox"
+ * ```
  */
 export function Checkbox(props: CheckboxProps) {
     return (

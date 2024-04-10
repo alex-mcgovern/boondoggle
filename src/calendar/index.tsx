@@ -28,9 +28,19 @@ import {
 } from "./styles.css";
 
 /**
- * Calendars display a grid of days in one or more months and allow users to select a single date.
+ * Calendars display a grid of days in one or more months and allow users to select a single date. [Built with React Aria Calendar](https://react-spectrum.adobe.com/react-aria/Calendar.html)
  *
- * > [Built with React Aria Calendar](https://react-spectrum.adobe.com/react-aria/Calendar.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Calendar, type CalendarProps } from "boondoggle/calendar"
+ * ```
  */
 export function Calendar<TDateValue extends RACDateValue>(
     props: RACCalendarProps<TDateValue>,

@@ -64,6 +64,24 @@ export type ComboBoxCountryProps = Omit<
     "defaultItems" | "items"
 >;
 
+/**
+ * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+ *
+ * This combo box is pre-populated with a list of countries, and displays a flag icon next to each country.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { ComboBoxCountry, ComboBoxButton, type ComboBoxCountryProps } from "boondoggle/combobox-country"
+ * import { ComboBoxButton } from "boondoggle/combobox"
+ * ```
+ */
 export const ComboBoxCountry = forwardRef<
     HTMLInputElement,
     ComboBoxCountryProps

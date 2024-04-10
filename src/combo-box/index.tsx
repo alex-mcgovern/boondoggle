@@ -56,4 +56,19 @@ function _ComboBox<TItemId extends string = string>(
     );
 }
 
+/**
+ * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * import { ComboBox, ComboBoxButton } from "boondoggle/combobox";
+ * ```
+ */
 export const ComboBox = forwardRef(_ComboBox);

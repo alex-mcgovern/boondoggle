@@ -1,21 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { useState } from "react";
 import { Link } from "react-aria-components";
+
+import type { TooltipProps } from ".";
 
 import { Tooltip, TooltipTrigger, TooltipTriggerButton } from ".";
 import { Button } from "../button";
 
 const meta = {
-    args: {
-        children: "Tooltip text",
-    },
     component: Tooltip,
-    render: (args) => (
-        <TooltipTrigger>
-            <TooltipTriggerButton />
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
     title: "Components/Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
@@ -24,11 +18,58 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => (
-        <TooltipTrigger>
+        <TooltipTrigger delay={0}>
             <TooltipTriggerButton />
             <Tooltip {...args} />
         </TooltipTrigger>
     ),
+};
+
+export const Delay: Story = {
+    render: (args) => (
+        <div style={{ display: "flex", gap: 8 }}>
+            <TooltipTrigger>
+                <Button appearance="secondary">Hover me</Button>
+                <Tooltip {...args}>I come up after a delay.</Tooltip>
+            </TooltipTrigger>
+            <TooltipTrigger>
+                <Button appearance="secondary">Then hover me</Button>
+                <Tooltip {...args}>
+                    If you did it quickly, I appear immediately.
+                </Tooltip>
+            </TooltipTrigger>
+        </div>
+    ),
+};
+
+export const Trigger: Story = {
+    render: (args) => (
+        <TooltipTrigger trigger="focus">
+            <Button appearance="secondary">Focus me</Button>
+            <Tooltip {...args}>I come up when the button is focused.</Tooltip>
+        </TooltipTrigger>
+    ),
+};
+
+export function ControlledOpenStateTemplate(args: TooltipProps) {
+    const [isOpen, setOpen] = useState(false);
+
+    return (
+        <div style={{ alignItems: "center", display: "flex", gap: 8 }}>
+            <TooltipTrigger
+                isOpen={isOpen}
+                onOpenChange={setOpen}
+            >
+                <Button appearance="secondary">Focus me</Button>
+                <Tooltip {...args}>Notifications</Tooltip>
+            </TooltipTrigger>
+            <span>Tooltip is {isOpen ? "showing" : "not showing"}</span>
+        </div>
+    );
+}
+
+export const ControlledOpenState: Story = {
+    render: ControlledOpenStateTemplate,
 };
 
 export const WithButtonAsTrigger: Story = {
@@ -49,26 +90,14 @@ export const WithLinkAsTrigger: Story = {
     ),
 };
 
-export const PlacementTop: Story = {
+export const Placement: Story = {
     args: {
         placement: "top",
     },
-};
-
-export const PlacementBottom: Story = {
-    args: {
-        placement: "bottom",
-    },
-};
-
-export const PlacementRight: Story = {
-    args: {
-        placement: "right",
-    },
-};
-
-export const PlacementLeft: Story = {
-    args: {
-        placement: "left",
-    },
+    render: (args) => (
+        <TooltipTrigger delay={0}>
+            <TooltipTriggerButton />
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
 };

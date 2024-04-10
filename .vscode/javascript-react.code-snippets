@@ -27,7 +27,6 @@
             "import * as stories from \"./stories.tsx\";",
             "",
             "<Meta of={stories} />",
-            "",
             "<Title of={stories} />",
             "<Description of={${1:Component}} />",
             "",
@@ -127,6 +126,28 @@
             "}"
         ]
     },
+
+    "component docs": {
+        "prefix": "comp-doc",
+        "body": [
+            "/**",
+            " * ${1:comment}",
+            " *",
+            " * ## Install",
+            " *",
+            " * ```sh",
+            " * npm i boondoggle",
+            " * ```",
+            " *",
+            " * ## Usage",
+            " *",
+            " * ```ts",
+            " * import { ${2:component}, type ${2:component}Props } from \"boondoggle/${2:component}\"",
+            " * ```",
+            " */"
+        ]
+    },
+
     "Storybook story": {
         "scope": "typescriptreact",
         "prefix": "story",
@@ -137,7 +158,7 @@
             "import { Meta, StoryObj } from \"@storybook/react\";",
             "",
             "const meta = {",
-            "  title: \"${1:Component}\",",
+            "  title: \"Components/${1:Component}\",",
             "  component: ${1:Component},",
             "  args: {  },",
             "} satisfies Meta<typeof ${1:Component}>;",

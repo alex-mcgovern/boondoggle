@@ -14,6 +14,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         children: "Click me",
-        href: "https://boondoggle.design",
+        href: "/?path=/docs/components-textlink--docs",
     },
 };

@@ -9,20 +9,15 @@ import {
     Title,
 } from "@storybook/blocks";
 
-import { TextLink } from ".";
+import { ComboBox } from ".";
 import * as stories from "./stories.tsx";
 
 <Meta of={stories} />
 <Title of={stories} />
-<Description of={TextLink} />
+<Description of={ComboBox} />
 
-## Example
-
-<Canvas
-    sourceState="shown"
-    of={stories.Default}
-/>
+<Canvas of={stories.Default} />
 
 ## Props
 
-<ArgTypes of={TextLink} />
+<ArgTypes of={ComboBox} />

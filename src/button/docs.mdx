@@ -44,7 +44,6 @@ UI libraries, and supports the following options:
 -   `ghost`: For a ghost button, e.g. for a secondary action that should be less
     prominent
 
-<Description of={stories.Primary} />
 <Canvas of={stories.Primary} />
 
 <Canvas of={stories.Secondary} />
@@ -54,21 +53,13 @@ UI libraries, and supports the following options:
 ### Color
 
 Button can be customized with the globally available `colorOverlay`, this is
-intended to be used to convey semantic meaning, e.g.
+intended to be used to convey semantic meaning.
 
--   `amber`: To indicate caution, or warning actions
--   `blue`: To indicate information, or neutral actions
--   `green`: To indicate success, or confirmatory actions
--   `grey`: When a subtle, neutral color is needed
--   `red`: To warn of potentially destructive actions
--   `default`: To reset the color overlay if inherited from a parent
-
-<Canvas of={stories.ColorAmber} />
-<Canvas of={stories.ColorBlue} />
-<Canvas of={stories.ColorGreen} />
-<Canvas of={stories.ColorGrey} />
-<Canvas of={stories.ColorRed} />
-<Canvas of={stories.ColorDefault} />
+<Canvas of={stories.Color} />
+<Controls
+    of={stories.Color}
+    include={["colorOverlay"]}
+/>
 
 ### Size
 

@@ -16,9 +16,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * GOD I HATE YOU 🍆
- */
 export const Default: Story = {
     args: {
         children: "Press me",
@@ -28,25 +25,9 @@ export const Default: Story = {
     },
 };
 
-/**
- * GOD I HATE YOU 🍆
- */
-const _Primary: Story = {
+export const Primary: Story = {
     args: { appearance: "primary", children: "Primary" },
-    parameters: {
-        docs: {
-            description: {
-                // story: "This is the primary button",
-            },
-        },
-    },
 };
-
-/**
- * # Primary Button
- * This is the primary button
- */
-export const Primary = _Primary;
 
 export const Secondary: Story = {
     args: { appearance: "secondary", children: "Secondary" },
@@ -56,28 +37,8 @@ export const Ghost: Story = {
     args: { appearance: "ghost", children: "Ghost" },
 };
 
-export const ColorAmber: Story = {
-    args: { children: "Amber", colorOverlay: "amber" },
-};
-
-export const ColorBlue: Story = {
-    args: { children: "Blue", colorOverlay: "blue" },
-};
-
-export const ColorGreen: Story = {
-    args: { children: "Green", colorOverlay: "green" },
-};
-
-export const ColorGrey: Story = {
-    args: { children: "Grey", colorOverlay: "grey" },
-};
-
-export const ColorRed: Story = {
-    args: { children: "Red", colorOverlay: "red" },
-};
-
-export const ColorDefault: Story = {
-    args: { children: "Default", colorOverlay: "default" },
+export const Color: Story = {
+    args: { children: "Click me", colorOverlay: "red" },
 };
 
 export const Size: Story = {

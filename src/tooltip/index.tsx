@@ -1,7 +1,7 @@
 import type {
     ButtonProps as RACButtonProps,
     TooltipProps as RACTooltipProps,
-    TooltipTriggerComponentProps as RACTooltipTriggerComponentProps,
+    TooltipTriggerComponentProps as RACTooltipTriggerProps,
 } from "react-aria-components";
 
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
@@ -24,6 +24,9 @@ import {
 
 export type TooltipTriggerButtonProps = RACButtonProps;
 
+/**
+ * The TooltipTriggerButton component is a default button with an info icon that can be composed with a TooltipTrigger to show a tooltip.
+ */
 export const TooltipTriggerButton = forwardRef<
     HTMLButtonElement,
     TooltipTriggerButtonProps
@@ -43,11 +46,15 @@ export const TooltipTriggerButton = forwardRef<
     );
 });
 
-export type TooltipTriggerProps = RACTooltipTriggerComponentProps;
+export type TooltipTriggerProps = RACTooltipTriggerProps;
 
+/**
+ * The TooltipTrigger component does not render any DOM elements itself, but instead triggers a tooltip to appear when hovered or focused.
+ * [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/TooltipTrigger.html)
+ */
 export function TooltipTrigger({
-    closeDelay = 0,
-    delay = 0,
+    closeDelay,
+    delay,
     ...props
 }: TooltipTriggerProps) {
     return (
@@ -64,9 +71,19 @@ export function TooltipTrigger({
 export type TooltipProps = RACTooltipProps;
 
 /**
- * A tooltip displays a description of an element on hover or focus.
+ * A tooltip displays a description of an element on hover or focus. [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
  *
- * > [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Tooltip, TooltipTriggerButton, TooltipTrigger, type TooltipProps } from "boondoggle/tooltip"
+ * ```
  */
 export function Tooltip(props: TooltipProps) {
     return (

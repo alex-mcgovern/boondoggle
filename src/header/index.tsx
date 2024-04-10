@@ -6,6 +6,18 @@ import { actionsCSS, headerCSS } from "./styles.css";
 
 /**
  * A header is used at the top of a page, and usually contains a title, actions, and tabs.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Header, type HeaderProps } from "boondoggle/header"
+ * ```
  */
 export function Header({
     actions,

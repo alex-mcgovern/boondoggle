@@ -87,6 +87,18 @@ type AvatarProps = {
 
 /**
  * Renders an avatar. Falls back to initial letters if no image is provided.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Avatar, type AvatarProps } from "boondoggle/avatar"
+ * ```
  */
 export function Avatar({
     name,

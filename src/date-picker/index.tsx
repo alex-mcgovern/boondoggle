@@ -12,6 +12,9 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { Popover } from "../popover";
 
+/**
+ * Button for triggering the DatePicker.
+ */
 export function DatePickerButton() {
     return (
         <FieldButton>
@@ -20,13 +23,24 @@ export function DatePickerButton() {
     );
 }
 
-/**
- * A date picker combines a DateField and a Calendar popover to allow users to enter or select a date and time value.
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
- */
-
 export type DatePickerProps = RACDatePickerProps<CalendarDate | ZonedDateTime>;
 
+/**
+ * A date picker combines a DateField and a Calendar popover to allow users to enter or select a date and time value.
+ * [Built with React Aria DatePicker](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { DatePicker, DatePickerButton type DatePickerProps } from "boondoggle/date-picker"
+ * ```
+ */
 export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     ({ children, ...props }, ref) => {
         return (
