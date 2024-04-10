@@ -7,18 +7,12 @@ import { LOREM } from "../../../mocks/LOREM.mock";
 import { Box } from "../../box";
 import { css } from "../../css/index.css";
 import { FieldsGrid } from "../../fields-grid";
-import { SkeletonInput } from "../../skeleton-input";
 
 const meta = {
     args: {
         children: (
             <>
-                <FieldsGrid>
-                    <SkeletonInput />
-                    <SkeletonInput />
-                    <SkeletonInput />
-                    <SkeletonInput />
-                </FieldsGrid>
+                <FieldsGrid>Test</FieldsGrid>
             </>
         ),
     },
