@@ -23,6 +23,11 @@ import { Popover } from "../popover";
 import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
 
 export type SelectTriggerProps = RACButtonProps & {
+    /**
+     * The variant of the select button.
+     * - `"borderless"` - A select button with no border.
+     * - `"default"` - A select button with a border.
+     */
     variant?: "borderless" | "default";
 };
 
@@ -59,12 +64,21 @@ function _SelectButton<TItemId extends string = string>(
     );
 }
 
+/**
+ * A `SelectButton` component, for use with a `Select` component. [Built with React Aria SelectButton component](https://react-spectrum.adobe.com/react-aria/Select.html#button)
+ */
 export const SelectButton = forwardRef(_SelectButton);
 
 export type SelectProps<TItemId extends string = string> = RACSelectProps<
     IterableListBoxItem<TItemId>
 > & {
+    /**
+     * The items to display in the select popover.
+     */
     items: Iterable<IterableListBoxItem<TItemId>>;
+    /**
+     * The placement of the select popover.
+     */
     placement?: PopoverProps["placement"];
 };
 
@@ -93,4 +107,19 @@ function _Select<TItemId extends string = string>(
     );
 }
 
+/**
+ * A select displays a collapsible list of options and allows a user to select one of them. [Built with React Aria Select component](https://react-spectrum.adobe.com/react-aria/Select.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Select, type SelectProps } from "boondoggle/select"
+ * ```
+ */
 export const Select = forwardRef(_Select);

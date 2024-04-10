@@ -18,6 +18,9 @@ import { toast } from "../toaster";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import { textFieldCSS } from "./styles.css";
 
+/**
+ * A `FieldButton` to clear the text field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function TextFieldClearButton() {
     return (
         <TooltipTrigger>
@@ -29,6 +32,9 @@ export function TextFieldClearButton() {
     );
 }
 
+/**
+ * A `FieldButton` to copy the text field value to the clipboard. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function TextFieldCopyButton(props: FieldButtonProps) {
     return (
         <TooltipTrigger>
@@ -43,6 +49,9 @@ export function TextFieldCopyButton(props: FieldButtonProps) {
     );
 }
 
+/**
+ * A `FieldButton` to toggle the visibility of the text field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function TextFieldVisibilityButton(props: FieldButtonProps) {
     const context = useSlottedContext(FieldButtonContext, "visibility");
 

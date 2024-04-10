@@ -254,6 +254,9 @@ import { FlagZa } from "./za";
 import { FlagZm } from "./zm";
 import { FlagZw } from "./zw";
 
+/**
+ * A map of country codes to flag components.
+ */
 export const FLAGS: Record<TCountryCode, JSXElementConstructor<Css>> = {
     // AC: FlagAc,
     AD: FlagAd,

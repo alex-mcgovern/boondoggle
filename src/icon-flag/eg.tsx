@@ -6,6 +6,9 @@ import { Box } from "../box";
 import { css } from "../css/index.css";
 import { flagStyles } from "./styles.css";
 
+/**
+ * A flag component
+ */
 export function FlagEg({
     height = "space_8",
     width = "space_8",

@@ -33,24 +33,75 @@ type SingleMenuItem<TItemId extends string = string> =
          * -   `default`: To reset the color overlay if inherited from a parent
          */
         colorOverlay?: ColorOverlay;
+        /**
+         * A description of the menu item, that is shown in the UI to the user.
+         */
         description?: string;
+        /**
+         * A href to navigate to when the item is clicked.
+         */
         href?: string;
+        /**
+         * The unique identifier for the menu item.
+         */
         id: TItemId;
+        /**
+         * The name of the menu item, that is shown in the UI to the user.
+         */
         name: string;
+        /**
+         * The icon to display on the left side of the menu item.
+         */
         slotLeft?: ReactNode;
+        /**
+         * Tags used to filter the menu items.
+         */
         tags?: Array<string>;
+        /**
+         * @deprecated
+         */
         type?: never;
     };
 
 export type IterableMenuItem<TItemId extends string = string> =
     | {
+          /**
+           * The children of the menu item. If this is present, the item is considered a section.
+           */
           children: Array<SingleMenuItem<TItemId>>;
+          /**
+           * Color overlay, used to convey semantic meaning.
+           * -   `amber`: To indicate caution, or warning actions
+           * -   `blue`: To indicate information, or neutral actions
+           * -   `green`: To indicate success, or confirmatory actions
+           * -   `grey`: When a subtle, neutral color is needed
+           * -   `red`: To warn of potentially destructive actions
+           * -   `default`: To reset the color overlay if inherited from a parent
+           */
           colorOverlay?: never;
+          /**
+           * A href to navigate to when the item is clicked.
+           */
           href?: never;
+          /**
+           * The unique identifier for the menu item.
+           */
           id: string;
+          /**
+           * The name of the menu item, that is shown in the UI to the user.
+           */
           name?: string;
+          /**
+           * The icon to display on the left side of the menu item.
+           */
           slotLeft?: never;
+          /**
+           * Tags used to filter the menu items.
+           */
           tags?: never;
+          /**
+           * @deprecated
+           */
           type?: never;
       }
     | SingleMenuItem<TItemId>;
@@ -70,6 +121,9 @@ function _Menu<TItem extends object = object>(
     );
 }
 
+/**
+ * A menu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
+ */
 export const Menu = forwardRef(_Menu);
 
 export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
@@ -83,6 +137,9 @@ export type MenuItemProps<TItem extends object> = RACMenuItemProps<TItem> & {
      * -   `default`: To reset the color overlay if inherited from a parent
      */
     colorOverlay?: ColorOverlay;
+    /**
+     * The icon to display on the left side of the menu item.
+     */
     icon?: ReactNode;
 };
 
@@ -147,6 +204,9 @@ function _MenuItem<TItem extends object>(
     );
 }
 
+/**
+ * A menu item represents an action or option that a user can choose. [Built with React Aria MenuItem component](https://react-spectrum.adobe.com/react-aria/Menu.html#menuitem)
+ */
 export const MenuItem = forwardRef(_MenuItem);
 
 export type DynamicMenuProps<TItemId extends string = string> = RACMenuProps<
@@ -197,4 +257,19 @@ function _DynamicMenu<TItemId extends string = string>(
     );
 }
 
+/**
+ * A DynamicMenu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { DynamicMenu, type DynamicMenuProps } from "boondoggle/DynamicMenu"
+ * ```
+ */
 export const DynamicMenu = forwardRef(_DynamicMenu);

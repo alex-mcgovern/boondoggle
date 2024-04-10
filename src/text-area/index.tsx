@@ -6,6 +6,9 @@ import { TextArea as RACTextArea } from "react-aria-components";
 
 import { textareaCSS } from "./styles.css";
 
+/**
+ * A `TextArea` component, for use with a `TextField` component. [Built with React Aria TextArea component](https://react-spectrum.adobe.com/react-aria/TextField.html#textarea)
+ */
 export const TextArea = forwardRef<HTMLTextAreaElement, RACTextAreaProps>(
     (props, ref) => {
         return (

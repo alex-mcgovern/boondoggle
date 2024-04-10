@@ -11,6 +11,9 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { numberFieldCSS } from "./styles.css";
 
+/**
+ * A `FieldButton` to decrement the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function NumberFieldIncrementButton() {
     return (
         <FieldButton slot="increment">
@@ -19,6 +22,9 @@ export function NumberFieldIncrementButton() {
     );
 }
 
+/**
+ * A `FieldButton` to increment the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function NumberFieldDecrementButton() {
     return (
         <FieldButton slot="decrement">
@@ -30,9 +36,19 @@ export function NumberFieldDecrementButton() {
 export type NumberFieldProps = RACNumberFieldProps;
 
 /**
- * A number field allows a user to enter a number, and increment or decrement the value using stepper buttons.
+ * A number field allows a user to enter a number, and increment or decrement the value using stepper buttons. [Built with React Aria NumberField component](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { NumberField, type NumberFieldProps } from "boondoggle/number-field"
+ * ```
  */
 export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     (props, ref) => {

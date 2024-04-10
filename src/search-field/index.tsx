@@ -12,6 +12,9 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { searchFieldCSS, searchFieldClearButtonCSS } from "./styles.css";
 
+/**
+ * A `FieldButton` to clear the search field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function SearchFieldClearButton() {
     return (
         <FieldButton className={searchFieldClearButtonCSS}>
@@ -20,6 +23,9 @@ export function SearchFieldClearButton() {
     );
 }
 
+/**
+ * A `FieldButton` to copy the search field value to the clipboard. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
+ */
 export function SearchFieldIcon() {
     return (
         <Icon
@@ -37,9 +43,19 @@ export function SearchFieldIcon() {
 export type SearchFieldProps = RACSearchFieldProps;
 
 /**
- * A search field allows a user to enter and clear a search query.
+ * A search field allows a user to enter and clear a search query. [Built with React Aria SearchField component](https://react-spectrum.adobe.com/react-aria/SearchField.html)
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/SearchField.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { SearchField, type SearchFieldProps } from "boondoggle/search-field"
+ * ```
  */
 export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
     (props, ref) => {
