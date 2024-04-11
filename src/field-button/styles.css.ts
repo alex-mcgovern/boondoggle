@@ -16,9 +16,9 @@ export const fieldButtonCSS = style([
         width: "space_6",
     }),
     withPrefersMotion({
-        transitionDuration: vars.transitionDuration.short,
+        transitionDuration: "var(--dur-short)",
         transitionProperty: "background, color",
-        transitionTimingFunction: vars.ease.quart_in_out,
+        transitionTimingFunction: "var(--ease-quart-in-out)",
     }),
     {
         selectors: {
@@ -26,10 +26,10 @@ export const fieldButtonCSS = style([
              * Ensure spacing between field-buttons within a group.
              */
             "&:first-of-type": {
-                marginLeft: vars.spacing.space_1,
+                marginLeft: "var(--space-1)",
             },
             "&:last-of-type": {
-                marginRight: vars.spacing.space_1,
+                marginRight: "var(--space-1)",
             },
 
             /**
@@ -42,31 +42,31 @@ export const fieldButtonCSS = style([
              * Whether the button is keyboard focused.
              */
             "&[data-focus-visible]": {
-                background: vars.color.bg_button_secondary_active,
-                color: vars.color.text_high_contrast,
+                background: "var(--clr-bg_button_secondary_active)",
+                color: "var(--clr-text_high_contrast)",
                 outline: 0,
             },
             /**
              * Whether the button is focused, either via a mouse or keyboard.
              */
             "&[data-focused]": {
-                background: vars.color.bg_button_secondary_active,
-                color: vars.color.text_high_contrast,
+                background: "var(--clr-bg_button_secondary_active)",
+                color: "var(--clr-text_high_contrast)",
                 outline: 0,
             },
             /**
              * Whether the button is currently hovered with a mouse.
              */
             "&[data-hovered]": {
-                background: vars.color.bg_button_secondary_active,
-                color: vars.color.text_high_contrast,
+                background: "var(--clr-bg_button_secondary_active)",
+                color: "var(--clr-text_high_contrast)",
             },
             /**
              * Whether the button is currently in a pressed state.
              */
             "&[data-pressed]": {
-                background: vars.color.bg_button_secondary_active,
-                color: vars.color.text_high_contrast,
+                background: "var(--clr-bg_button_secondary_active)",
+                color: "var(--clr-text_high_contrast)",
             },
         },
     },

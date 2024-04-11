@@ -6,10 +6,10 @@ import type { Css } from "../css/index.css";
 
 import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
-import { hideScrollbar, variantColorOverlay, vars } from "../index.css";
+import { hideScrollbar, variantColorOverlay } from "../index.css";
 
-const TAB_HEIGHT = vars.spacing.space_8;
-const TAB_INDICATOR_HEIGHT = vars.spacing["space_0.5"];
+const TAB_HEIGHT = "var(--space-8)";
+const TAB_INDICATOR_HEIGHT = "var(--space-0/.5)";
 
 export const tabListOuterCSS = style([
     css({
@@ -19,7 +19,7 @@ export const tabListOuterCSS = style([
     {
         selectors: {
             "&:after": {
-                borderBottom: `1px solid ${vars.color.border_rule}`,
+                borderBottom: `1px solid var(--clr-border_rule)`,
                 content: "",
                 inset: 0,
                 position: "absolute",
@@ -78,9 +78,9 @@ export const tabOuterCSS = style([
         whiteSpace: "nowrap",
     }),
     withPrefersMotion({
-        transitionDuration: vars.transitionDuration.short,
+        transitionDuration: "var(--dur-short)",
         transitionProperty: "color, background",
-        transitionTimingFunction: vars.ease.quart_in_out,
+        transitionTimingFunction: "var(--ease-quart-in-out)",
     }),
     {
         height: TAB_HEIGHT,
@@ -89,15 +89,15 @@ export const tabOuterCSS = style([
 
         selectors: {
             "&[data-selected]": {
-                color: vars.color.bg_button_primary,
+                color: "var(--clr-bg_button_primary)",
             },
 
             [`&[data-hovered]`]: {
-                color: vars.color.text_high_contrast,
+                color: "var(--clr-text_high_contrast)",
                 cursor: "pointer",
             },
             [`&[data-selected][data-hovered]`]: {
-                color: vars.color.bg_button_primary,
+                color: "var(--clr-bg_button_primary)",
             },
         },
     },

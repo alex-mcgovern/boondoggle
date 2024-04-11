@@ -3,10 +3,10 @@ import { calc } from "@vanilla-extract/css-utils";
 
 import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
-import { HOVER, a11yFocusStyleRule, vars } from "../index.css";
+import { HOVER, a11yFocusStyleRule } from "../index.css";
 
-const DOT_SIZE = vars.spacing.space_4;
-const SWITCH_MARGIN = vars.spacing["space_0.5"];
+const DOT_SIZE = "var(--space-4)";
+const SWITCH_MARGIN = "var(--space-0/.5)";
 const SWITCH_HEIGHT = calc.add(DOT_SIZE, calc.multiply(SWITCH_MARGIN, 2));
 const SWITCH_WIDTH = calc.add(
     calc.multiply(DOT_SIZE, 2),
@@ -46,20 +46,20 @@ export const switchIndicatorCSS = style([
         borderRadius: "pill",
     }),
     {
-        background: vars.color.bg_switch,
+        background: "var(--clr-bg_switch)",
         height: SWITCH_HEIGHT,
         width: SWITCH_WIDTH,
 
         ...withPrefersMotion({
-            transitionDuration: vars.transitionDuration.short,
+            transitionDuration: "var(--dur-short)",
             transitionProperty: "background",
-            transitionTimingFunction: vars.ease.quart_in_out,
+            transitionTimingFunction: "var(--ease-quart-in-out)",
         }),
 
         selectors: {
             "&::before": {
-                background: vars.color.switch_foreground,
-                borderRadius: vars.borderRadius["50%"],
+                background: "var(--clr-switch_foreground)",
+                borderRadius: "var(--radius-round)",
 
                 content: "",
                 display: "block",
@@ -70,33 +70,33 @@ export const switchIndicatorCSS = style([
                 width: DOT_SIZE,
 
                 ...withPrefersMotion({
-                    transitionDuration: vars.transitionDuration.short,
+                    transitionDuration: "var(--dur-short)",
                     transitionProperty: "transform",
-                    transitionTimingFunction: vars.ease.quart_in_out,
+                    transitionTimingFunction: "var(--ease-quart-in-out)",
                 }),
             },
 
             // [`${switchCSS}[data-pressed] &`]: {
-            // 	borderColor: vars.color.border_field_active,
+            // 	borderColor: "var(--clr-border_field_active)",
             // },
             // [`${switchCSS}[data-pressed] &::before`]: {
-            // 	background: vars.color.tint_active,
+            // 	background: "var(--clr-tint_active)",
             // },
 
             [`${switchCSS}[data-focused] &::before`]: {},
             [`${switchCSS}[data-focused] &`]: {
                 ...a11yFocusStyleRule,
-                // 	background: vars.color.bg_switch_active,
-                // 	// borderColor: vars.color.focus_ring,
+                // 	background: "var(--clr-bg_switch_active)",
+                // 	// borderColor: "var(--clr-focus_ring)",
             },
 
             [`${switchCSS}[data-selected] &::before`]: {
-                // background: vars.color.bg_button_primary,
+                // background: "var(--clr-bg_button_primary)",
                 transform: "translateX(100%)",
             },
             [`${switchCSS}[data-selected] &`]: {
-                background: vars.color.bg_switch_active,
-                // borderColor: vars.color.focus_ring,
+                background: "var(--clr-bg_switch_active)",
+                // borderColor: "var(--clr-focus_ring)",
             },
         },
     },

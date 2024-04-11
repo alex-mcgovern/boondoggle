@@ -15,11 +15,11 @@ export const toastCloseButtonCSS = style([
     }),
     {
         ...withPrefersMotion({
-            transition: `background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, color ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+            transition: `background var(--dur-short) var(--ease-quart-in-out), color var(--dur-short) var(--ease-quart-in-out)`,
         }),
         selectors: {
             [`&${HOVER}`]: {
-                background: vars.color.text_low_contrast,
+                background: "var(--clr-text_low_contrast)",
             },
         },
     },

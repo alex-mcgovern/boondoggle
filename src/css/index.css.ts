@@ -9,10 +9,10 @@ import {
 } from "../index.css";
 
 const border = {
-    border_field: `1px solid ${vars.color.border_field}`,
-    border_field_active: `1px solid ${vars.color.border_field_active}`,
-    border_rule: `1px solid ${vars.color.border_rule}`,
-    focus: `1px solid ${vars.color.focus_border} !important`,
+    border_field: `1px solid var(--clr-border_field)`,
+    border_field_active: `1px solid var(--clr-border_field_active)`,
+    border_rule: `1px solid var(--clr-border_rule)`,
+    focus: `1px solid var(--clr-focus_border) !important`,
     none: "0px solid transparent",
     transparent: "1px solid transparent",
 };
@@ -77,7 +77,7 @@ const properties = defineProperties({
             none: "0px solid transparent",
 
             // Group: Focus outline should come last to allow overriding
-            focus: `1px solid ${vars.color.focus_ring} !important`,
+            focus: `1px solid var(--clr-focus_ring) !important`,
         },
         overflowX: ["hidden", "auto", "visible", "scroll"],
         overflowY: ["hidden", "auto", "visible", "scroll"],
@@ -89,19 +89,19 @@ const properties = defineProperties({
         top: ["0"],
         transition: {
             long: withPrefersMotion({
-                transitionDuration: vars.transitionDuration.long,
+                transitionDuration: "var(--dur-long)",
                 transitionProperty: "all",
-                transitionTimingFunction: vars.ease.quart_in_out,
+                transitionTimingFunction: "var(--ease-quart-in-out)",
             }),
             medium: withPrefersMotion({
-                transitionDuration: vars.transitionDuration.medium,
+                transitionDuration: "var(--dur-medium)",
                 transitionProperty: "all",
-                transitionTimingFunction: vars.ease.quart_in_out,
+                transitionTimingFunction: "var(--ease-quart-in-out)",
             }),
             short: withPrefersMotion({
-                transitionDuration: vars.transitionDuration.short,
+                transitionDuration: "var(--dur-short)",
                 transitionProperty: "all",
-                transitionTimingFunction: vars.ease.quart_in_out,
+                transitionTimingFunction: "var(--ease-quart-in-out)",
             }),
         },
         whiteSpace: ["nowrap", "normal"],

@@ -75,12 +75,12 @@ export const popoverCSS = style([
         selectors: {
             "&[data-entering]": {
                 ...withPrefersMotion({
-                    animation: `${kfPopoverIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+                    animation: `${kfPopoverIn} var(--dur-short) var(--ease-quart-in-out) forwards`,
                 }),
             },
             "&[data-exiting]": {
                 ...withPrefersMotion({
-                    animation: `${kfPopoverOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+                    animation: `${kfPopoverOut} var(--dur-short) var(--ease-quart-in-out) forwards`,
                 }),
             },
             "&[data-placement='bottom']": {

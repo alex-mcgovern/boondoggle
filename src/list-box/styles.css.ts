@@ -51,7 +51,7 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
+                gridTemplateColumns: `${"var(--space-5)"} 1fr ${"var(--space-5)"}`,
             },
             variants: {
                 hasIcon: "true",
@@ -61,7 +61,7 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
+                gridTemplateColumns: `${"var(--space-5)"} 1fr ${"var(--space-5)"}`,
             },
             variants: {
                 hasIcon: "true",
@@ -71,7 +71,7 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr`,
+                gridTemplateColumns: `${"var(--space-5)"} 1fr`,
             },
             variants: {
                 hasIcon: "true",
@@ -81,7 +81,7 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `1fr ${vars.spacing.space_5}`,
+                gridTemplateColumns: `1fr ${"var(--space-5)"}`,
             },
             variants: {
                 hasIcon: "false",
@@ -91,7 +91,7 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
         {
             style: {
                 display: "grid",
-                gridTemplateColumns: `1fr ${vars.spacing.space_5}`,
+                gridTemplateColumns: `1fr ${"var(--space-5)"}`,
             },
             variants: {
                 hasIcon: "false",

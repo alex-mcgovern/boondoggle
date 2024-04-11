@@ -185,7 +185,7 @@ export const rowCSS = recipe<ReactAriaRecipe<RowRenderProps>>({
                 {
                     selectors: {
                         "&[data-href]": {
-                            background: vars.color.bg_button_secondary_active,
+                            background: "var(--clr-bg_button_secondary_active)",
                         },
                     },
                 },
@@ -220,11 +220,11 @@ export const tableSortButtonCSS = recipe<ReactAriaRecipe<ButtonRenderProps>>({
             marginRight: "auto",
         }),
         withPrefersMotion({
-            transition: `color ${vars.transitionDuration.short} ease`,
+            transition: `color var(--dur-short) ease`,
         }),
         {
             [`&${HOVER}`]: {
-                color: vars.color.text_high_contrast,
+                color: "var(--clr-text_high_contrast)",
             },
         },
     ],

@@ -75,10 +75,10 @@ export const selectButtonCSS = recipe({
             width: "100%",
         }),
         withPrefersMotion({
-            transitionDuration: vars.transitionDuration.short,
+            transitionDuration: "var(--dur-short)",
             transitionProperty:
                 "color, background, border-color, outline, opacity",
-            transitionTimingFunction: vars.ease.quart_in_out,
+            transitionTimingFunction: "var(--ease-quart-in-out)",
         }),
         {
             outline: "0px solid transparent",
@@ -94,7 +94,7 @@ export const selectButtonCSS = recipe({
                  */
 
                 "&[data-placeholder]": {
-                    color: vars.color.text_low_contrast,
+                    color: "var(--clr-text_low_contrast)",
                 },
             },
         },
@@ -129,10 +129,10 @@ export const selectButtonCSS = recipe({
                     borderRadius: "md",
                 }),
                 withPrefersMotion({
-                    transitionDuration: vars.transitionDuration.short,
+                    transitionDuration: "var(--dur-short)",
                     transitionProperty:
                         "color, background, border-color, outline, opacity",
-                    transitionTimingFunction: vars.ease.quart_in_out,
+                    transitionTimingFunction: "var(--ease-quart-in-out)",
                 }),
                 {
                     outline: "0px solid transparent",
@@ -152,9 +152,9 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-focus-visible]": {
-                            background: vars.color.bg_field_active,
-                            borderColor: vars.color.focus_border,
-                            outline: `2px solid ${vars.color.focus_ring}`,
+                            background: "var(--clr-bg_field_active)",
+                            borderColor: "var(--clr-focus_border)",
+                            outline: `2px solid var(--clr-focus_ring)`,
                         },
 
                         /**
@@ -162,9 +162,9 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-focused]": {
-                            background: vars.color.bg_field_active,
-                            borderColor: vars.color.focus_border,
-                            outline: `2px solid ${vars.color.focus_ring}`,
+                            background: "var(--clr-bg_field_active)",
+                            borderColor: "var(--clr-focus_border)",
+                            outline: `2px solid var(--clr-focus_ring)`,
                         },
 
                         /**
@@ -172,8 +172,8 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-hovered]": {
-                            background: vars.color.bg_field_active,
-                            borderColor: vars.color.border_field_active,
+                            background: "var(--clr-bg_field_active)",
+                            borderColor: "var(--clr-border_field_active)",
                         },
 
                         /**
@@ -181,9 +181,9 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-pressed]": {
-                            background: vars.color.bg_field_active,
-                            borderColor: vars.color.focus_border,
-                            outline: `2px solid ${vars.color.focus_ring}`,
+                            background: "var(--clr-bg_field_active)",
+                            borderColor: "var(--clr-focus_border)",
+                            outline: `2px solid var(--clr-focus_ring)`,
                         },
                     },
                 },

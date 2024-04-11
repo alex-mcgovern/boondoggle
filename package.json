@@ -12,33 +12,12 @@
         "url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
     },
     "type": "module",
-    "exports": {
-        "./styles": {
-            "import": "./dist/index.css.js",
-            "require": "./dist/index.css.js",
-            "types": "./dist/index.css.d.ts"
-        },
-        "./css": {
-            "import": "./dist/css/index.css.js",
-            "require": "./dist/css/index.css.js",
-            "types": "./dist/css/index.css.d.ts"
-        },
-        "./icon-flag/*": {
-            "import": "./dist/icon-flag/*.js",
-            "require": "./dist/icon-flag/*.js",
-            "types": "./dist/icon-flag/*.d.ts"
-        },
-        "./*": {
-            "import": "./dist/*/index.js",
-            "require": "./dist/*/index.js",
-            "types": "./dist/*/index.d.ts"
-        }
-    },
+    "main": "dist/index.js",
     "scripts": {
         "=== BUILD ===": "",
         "build": "concurrently -n JS,DTS -c \"bgGreen.bold,bgBlue.bold\" \"npm:build-js\" \"npm:build-types\"",
         "build-js": "vite build",
-        "build-types": "tsc --project tsconfig.build.json  --declaration --emitDeclarationOnly --outDir \"./dist\"",
+        "build-types": "tsc tsconfig.build.json  --declaration --emitDeclarationOnly --outDir \"./dist\"",
         "prebuild": "npm run check",
         "=== BUILD (OLD) ===": "",
         "build:dev": "rm -rf lib && tsup --watch",

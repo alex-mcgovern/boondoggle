@@ -12,6 +12,6 @@ export const fieldsGridCSS = style([
         },
     }),
     {
-        columnGap: vars.spacing.space_4,
+        columnGap: "var(--space-4)",
     },
 ]);

@@ -1,0 +1,110 @@
+:root {
+    --space-0: 0;
+    --space-0\.25: 0.0625rem;
+    --space-0\.5: 0.125rem;
+    --space-0\.75: 0.1875rem;
+    --space-1: 0.25rem;
+    --space-1\.5: 0.375rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-14: 3.5rem;
+    --space-16: 4rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 1.75rem;
+    --space-8: 2rem;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-pill: 99999px;
+    --radius-round: 50%;
+
+    --dur-short: 150ms;
+    --dur-medium: 300ms;
+    --dur-long: 600ms;
+
+    --ease-quart-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+    --shadow-xs: rgba(0, 0, 0, 0.05) 0px 2px 1px;
+    --shadow-sm: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    --shadow-md: rgba(0, 0, 0, 0.1) 0px 5px 20px;
+    --shadow-lg: rgba(0, 0, 0, 0.15) 0px 5px 40px;
+
+    --clr-backdrop: #0007149f;
+    --clr-background: #fcfcfd;
+    --clr-bg_button_ghost: transparent;
+    --clr-bg_button_ghost_active: #f0f0f3;
+    --clr-bg_button_primary: #0090ff;
+    --clr-bg_button_primary_active: #0588f0;
+    --clr-bg_button_secondary: #f9f9fb;
+    --clr-bg_button_secondary_active: #f0f0f3;
+    --clr-bg_field: #f9f9fb;
+    --clr-bg_field_active: #fcfcfd;
+    --clr-bg_filter_button: #f0f0f3;
+    --clr-bg_filter_button_active: #e8e8ec;
+    --clr-bg_switch: #cdced6;
+    --clr-bg_switch_active: #0090ff;
+    --clr-bg_toast: #1c2024;
+    --clr-black: #1c2024;
+    --clr-border_field: #d9d9e0;
+    --clr-border_field_active: #cdced6;
+    --clr-border_rule: #e0e1e6;
+    --clr-button_tint: #c2e5ff;
+    --clr-focus_border: #5eb1ef;
+    --clr-focus_ring: #acd8fc;
+    --clr-switch_foreground: #fcfcfd;
+    --clr-tab_hover_color: #f0f0f3;
+    --clr-tab_selected_color: #e6f4fe;
+    --clr-text_high_contrast: #1c2024;
+    --clr-text_low_contrast: #60646c;
+    --clr-tint_active: #e8e8ec;
+    --clr-tint_default: #f9f9fb;
+    --clr-tint_hover: #f0f0f3;
+    --clr-toast_icon: #8ec8f6;
+    --clr-toast_text: #fbfdff;
+    --clr-white: #fcfcfd;
+
+    --fontFamily-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+    --fontSize-root: 16px;
+    --lineHeight-root: 1.5rem;
+
+    --fontSize-bodyLg: 1rem;
+    --lineHeight-bodyLg: 1.5rem;
+
+    --fontSize-bodyMd: 0.875rem;
+    --lineHeight-bodyMd: 1.5rem;
+
+    --fontSize-bodySm: 0.8125rem;
+    --lineHeight-bodySm: 1rem;
+
+    --fontSize-h1: 2.5rem;
+    --lineHeight-h1: 3rem;
+
+    --fontSize-h2: 2rem;
+    --lineHeight-h2: 2.5rem;
+
+    --fontSize-h3: 1.75rem;
+    --lineHeight-h3: 2rem;
+
+    --fontSize-h4: 1.5rem;
+    --lineHeight-h4: 1.75rem;
+
+    --fontSize-h5: 1.25rem;
+    --lineHeight-h5: 1.5rem;
+
+    --fontSize-h6: 1.125rem;
+    --lineHeight-h6: 1.5rem;
+
+    --fontWeight-bold: 700;
+    --fontWeight-extrabold: 800;
+    --fontWeight-light: 300;
+    --fontWeight-medium: 500;
+    --fontWeight-normal: 400;
+    --fontWeight-semibold: 600;
+}

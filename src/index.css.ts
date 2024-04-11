@@ -327,8 +327,8 @@ export const variantColorOverlay = styleVariants({
 });
 
 export const a11yFocusStyleRule: StyleRule = {
-    borderColor: vars.color.focus_border,
-    outline: `2px solid ${vars.color.focus_ring} `,
+    borderColor: "var(--clr-focus_border)",
+    outline: `2px solid var(--clr-focus_ring) `,
 };
 
 export const a11yFocus = style([
@@ -568,8 +568,8 @@ globalStyle("*", {
 globalStyle("html", {
     "@layer": {
         [baseLayer]: {
-            accentColor: vars.color.bg_button_primary,
-            background: vars.color.background,
+            accentColor: "var(--clr-bg_button_primary)",
+            background: "var(--clr-background)",
             fontSize: vars.fontSize.root,
         },
     },
@@ -587,7 +587,7 @@ globalStyle("html", {
 globalStyle("body", {
     "@layer": {
         [baseLayer]: {
-            color: vars.color.text_high_contrast,
+            color: "var(--clr-text_high_contrast)",
             fontSize: vars.fontSize.bodyMd,
             height: "100%",
             lineHeight: vars.lineHeight.bodyMd,
@@ -599,7 +599,7 @@ globalStyle("body", {
 globalStyle("a", {
     "@layer": {
         [baseLayer]: {
-            color: vars.color.bg_button_primary,
+            color: "var(--clr-bg_button_primary)",
             margin: 0,
             padding: 0,
             textDecoration: "none",
@@ -618,7 +618,7 @@ globalStyle("b, strong", {
 globalStyle("a:hover, a:focus, a:focus-visible", {
     "@layer": {
         [baseLayer]: {
-            color: vars.color.bg_button_primary_active,
+            color: "var(--clr-bg_button_primary_active)",
             textDecoration: "underline",
         },
     },
@@ -646,12 +646,12 @@ globalStyle("button", {
 globalStyle("input[type=checkbox]", {
     "@layer": {
         [baseLayer]: {
-            accentColor: vars.color.bg_button_primary,
+            accentColor: "var(--clr-bg_button_primary)",
             cursor: "pointer",
-            height: vars.spacing.space_4,
-            width: vars.spacing.space_4,
+            height: "var(--space-4)",
+            width: "var(--space-4)",
             ...withPrefersMotion({
-                transition: `all ${vars.transitionDuration.long} ease`,
+                transition: `all var(--dur-long) ease`,
             }),
         },
     },
@@ -670,12 +670,12 @@ globalStyle("code", {
 globalStyle("pre:has(code)", {
     "@layer": {
         [baseLayer]: {
-            background: vars.color.tint_default,
-            borderRadius: vars.borderRadius.md,
-            marginBottom: vars.spacing.space_6,
-            marginTop: vars.spacing.space_6,
+            background: "var(--clr-tint_default)",
+            borderRadius: "var(--radius-md)",
+            marginBottom: "var(--space-6)",
+            marginTop: "var(--space-6)",
             overflow: "auto",
-            padding: vars.spacing.space_6,
+            padding: "var(--space-6)",
         },
     },
 });
@@ -686,7 +686,7 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
             display: "block",
             fontWeight: vars.fontWeight.medium,
             lineHeight: 1.4,
-            marginBottom: vars.spacing.space_2,
+            marginBottom: "var(--space-2)",
             overflowWrap: "break-word",
         },
     },
@@ -750,11 +750,11 @@ globalStyle("hr", {
     "@layer": {
         [baseLayer]: {
             border: "none",
-            borderColor: `${vars.color.border_rule} !important`,
+            borderColor: `var(--clr-border_rule) !important`,
             borderTop: "1px solid",
             margin: "0",
-            marginBottom: vars.spacing.space_6,
-            marginTop: vars.spacing.space_6,
+            marginBottom: "var(--space-6)",
+            marginTop: "var(--space-6)",
         },
     },
 });
@@ -764,7 +764,7 @@ globalStyle("ul, ol", {
         [baseLayer]: {
             marginBlockEnd: 0,
             marginBlockStart: 0,
-            marginInlineStart: vars.spacing.space_3,
+            marginInlineStart: "var(--space-3)",
             paddingInlineStart: 0,
         },
     },
@@ -783,7 +783,7 @@ globalStyle("ul li, ol li", {
 globalStyle("ul li::marker, ol li::marker", {
     "@layer": {
         [baseLayer]: {
-            color: vars.color.text_low_contrast,
+            color: "var(--clr-text_low_contrast)",
             fontWeight: vars.fontWeight.semibold,
         },
     },
@@ -804,7 +804,7 @@ globalStyle("p", {
         [baseLayer]: {
             fontSize: vars.fontSize.bodyMd,
             lineHeight: vars.lineHeight.bodyMd,
-            marginBottom: vars.spacing.space_2,
+            marginBottom: "var(--space-2)",
             overflowWrap: "break-word",
         },
     },
@@ -829,7 +829,7 @@ export const tHeadStyles = style({
  */
 const tableCellStyleRule: StyleRule = {
     fontSize: vars.fontSize.bodyMd,
-    padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
+    padding: `${"var(--space-2)"} ${"var(--space-4)"}`,
     // textAlign: "left",
     verticalAlign: "middle",
 };
@@ -875,23 +875,23 @@ export const tRowStyles = style({
 });
 
 export const elementHeight = {
-    lg: vars.spacing.space_12,
-    md: vars.spacing.space_10,
-    sm: vars.spacing.space_8,
+    lg: "var(--space-12)",
+    md: "var(--space-10)",
+    sm: "var(--space-8)",
 };
 
 export const elementPaddingRaw = {
     lg: {
-        x: vars.spacing.space_6,
-        y: vars.spacing.space_3,
+        x: "var(--space-6)",
+        y: "var(--space-3)",
     },
     md: {
-        x: vars.spacing.space_4,
-        y: vars.spacing.space_2,
+        x: "var(--space-4)",
+        y: "var(--space-2)",
     },
     sm: {
-        x: vars.spacing.space_3,
-        y: vars.spacing.space_1,
+        x: "var(--space-3)",
+        y: "var(--space-1)",
     },
 };
 
@@ -909,8 +909,8 @@ export const elementPadding = styleVariants({
 
 export type ElementSizeEnum = "lg" | "md" | "sm";
 
-const FM_PADDING = vars.spacing.space_1;
-const FM_RADIUS = vars.borderRadius.md;
+const FM_PADDING = "var(--space-1)";
+const FM_RADIUS = "var(--radius-md)";
 
 export const floatingMenu = createGlobalTheme(":root, ::backdrop", {
     container: {
@@ -928,9 +928,9 @@ export const unobtrusiveScrollBar = style({
     selectors: {
         "&::-webkit-scrollbar": {
             backgroundColor: "transparent",
-            borderBottomRightRadius: vars.borderRadius.sm,
-            borderTopRightRadius: vars.borderRadius.sm,
-            width: vars.spacing.space_2,
+            borderBottomRightRadius: "var(--radius-sm)",
+            borderTopRightRadius: "var(--radius-sm)",
+            width: "var(--space-2)",
         },
 
         "&::-webkit-scrollbar-button": {
@@ -938,9 +938,9 @@ export const unobtrusiveScrollBar = style({
         },
 
         "&::-webkit-scrollbar-thumb": {
-            backgroundColor: vars.color.bg_button_secondary_active,
-            border: `2px solid ${vars.color.background}`,
-            borderRadius: vars.borderRadius.md,
+            backgroundColor: "var(--clr-bg_button_secondary_active)",
+            border: `2px solid var(--clr-background)`,
+            borderRadius: "var(--radius-md)",
         },
         "&::-webkit-scrollbar-track": {
             backgroundColor: "transparent",

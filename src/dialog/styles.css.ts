@@ -35,18 +35,18 @@ export const modalOverlayCSS = style([
         zIndex: 10,
 
         ...withPrefersMotion({
-            transition: `opacity ${vars.transitionDuration.short} ${vars.ease.quart_in_out}, background ${vars.transitionDuration.short} ${vars.ease.quart_in_out}`,
+            transition: `opacity var(--dur-short) var(--ease-quart-in-out), background var(--dur-short) var(--ease-quart-in-out)`,
         }),
 
         selectors: {
             "&[data-entering]": {
                 ...withPrefersMotion({
-                    animation: `${kfModalOverlayIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+                    animation: `${kfModalOverlayIn} var(--dur-short) var(--ease-quart-in-out) forwards`,
                 }),
             },
             "&[data-exiting]": {
                 ...withPrefersMotion({
-                    animation: `${kfModalOverlayOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+                    animation: `${kfModalOverlayOut} var(--dur-short) var(--ease-quart-in-out) forwards`,
                 }),
             },
         },
@@ -77,12 +77,12 @@ export const modalCSS = recipe({
             selectors: {
                 "&[data-entering]": {
                     ...withPrefersMotion({
-                        animation: `${kfModalIn} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+                        animation: `${kfModalIn} var(--dur-short) var(--ease-quart-in-out) forwards`,
                     }),
                 },
                 "&[data-exiting]": {
                     ...withPrefersMotion({
-                        animation: `${kfModalOut} ${vars.transitionDuration.short} ${vars.ease.quart_in_out} forwards`,
+                        animation: `${kfModalOut} var(--dur-short) var(--ease-quart-in-out) forwards`,
                     }),
                 },
             },

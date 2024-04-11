@@ -18,13 +18,7 @@
         "strict": true,
         "types": ["vitest/importMeta"]
     },
-    "include": [
-        "src/index.css.ts",
-        "src/css/index.css.ts",
-        "src/v2-icon-flag/*.tsx",
-        "src/**/index.tsx",
-        "src/**/index.ts"
-    ],
+    "include": ["src/index.ts"],
     "exclude": [
         "src/**/*mock.*",
         "src/**/spec.*",

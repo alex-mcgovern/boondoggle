@@ -13,10 +13,10 @@ import { withPrefersMotion } from "../_css-utils";
 import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
-const TRANSLATE_DISTANCE = vars.spacing.space_1;
+const TRANSLATE_DISTANCE = "var(--space-1)";
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
-const DURATION = vars.transitionDuration.short;
-const EASING = vars.ease.quart_in_out;
+const DURATION = "var(--dur-short)";
+const EASING = "var(--ease-quart-in-out)";
 
 export const overlayArrowCSS = css({ height: "space_3", width: "space_3" });
 
@@ -28,8 +28,8 @@ export const overlayArrowSvgCSS = recipe<
             display: "block",
         }),
         {
-            fill: vars.color.background,
-            stroke: vars.color.border_rule,
+            fill: "var(--clr-background)",
+            stroke: "var(--clr-border_rule)",
             strokeWidth: 1,
         },
     ],
@@ -234,13 +234,13 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
             bottom: {
                 selectors: {
                     [`&:has(${overlayArrowSvgCSS()})`]: {
-                        marginTop: vars.spacing.space_1,
+                        marginTop: "var(--space-1)",
                     },
                 },
 
                 vars: {
                     [origin]: `translateY(${calc.multiply(
-                        vars.spacing.space_2,
+                        "var(--space-2)",
                         -1,
                     )})`,
                 },
@@ -249,13 +249,13 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
             left: {
                 selectors: {
                     [`&:has(${overlayArrowSvgCSS()})`]: {
-                        marginRight: vars.spacing.space_1,
+                        marginRight: "var(--space-1)",
                     },
                 },
 
                 vars: {
                     [origin]: `translateX(${calc.multiply(
-                        vars.spacing.space_2,
+                        "var(--space-2)",
                         -1,
                     )})`,
                 },
@@ -263,26 +263,26 @@ export const popoverCSS = recipe<ReactAriaRecipe<PopoverRenderProps>>({
             right: {
                 selectors: {
                     [`&:has(${overlayArrowSvgCSS()})`]: {
-                        marginLeft: vars.spacing.space_1,
+                        marginLeft: "var(--space-1)",
                     },
                 },
 
-                vars: { [origin]: `translateX(${vars.spacing.space_2})` },
+                vars: { [origin]: `translateX(${"var(--space-2)"})` },
             },
             top: {
                 selectors: {
                     [`&:has(${overlayArrowSvgCSS()})`]: {
-                        marginBottom: vars.spacing.space_1,
+                        marginBottom: "var(--space-1)",
                     },
                 },
 
-                vars: { [origin]: `translateY(${vars.spacing.space_2})` },
+                vars: { [origin]: `translateY(${"var(--space-2)"})` },
             },
         },
 
         trigger: {
             ComboBox: {
-                width: calc.add("var(--trigger-width)", vars.spacing.space_1),
+                width: calc.add("var(--trigger-width)", "var(--space-1)"),
             },
             DatePicker: {
                 width: "unset",

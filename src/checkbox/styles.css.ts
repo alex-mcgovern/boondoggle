@@ -11,10 +11,10 @@ export const checkboxTickCSS = recipe({
     base: [
         {
             fill: "none",
-            stroke: vars.color.white,
+            stroke: "var(--clr-white)",
             strokeDasharray: 22,
             strokeDashoffset: "66px",
-            strokeWidth: vars.spacing.space_1,
+            strokeWidth: "var(--space-1)",
         },
         css({
             height: "space_3",

@@ -40,12 +40,12 @@ export const mobileMenuModalCSS = style([
         selectors: {
             "&[data-entering]": {
                 ...withPrefersMotion({
-                    animation: `${kfMobileMenuModalIn} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
+                    animation: `${kfMobileMenuModalIn} var(--dur-medium) var(--ease-quart-in-out) forwards`,
                 }),
             },
             "&[data-exiting]": {
                 ...withPrefersMotion({
-                    animation: `${kfMobileMenuModalOut} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
+                    animation: `${kfMobileMenuModalOut} var(--dur-medium) var(--ease-quart-in-out) forwards`,
                 }),
             },
         },

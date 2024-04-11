@@ -36,7 +36,7 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
         isFilterApplied: {
             false: {
                 background: "transparent",
-                border: `1px dashed ${vars.color.border_field}`,
+                border: `1px dashed var(--clr-border_field)`,
             },
             true: [css({ border: "border_field" })],
         },
@@ -76,8 +76,8 @@ export const filterButtonGroupLabelCSS = style([
         paddingX: "space_2",
     }),
     {
-        borderBottomLeftRadius: vars.borderRadius.pill,
-        borderTopLeftRadius: vars.borderRadius.pill,
+        borderBottomLeftRadius: "var(--radius-pill)",
+        borderTopLeftRadius: "var(--radius-pill)",
     },
 ]);
 
@@ -98,8 +98,8 @@ export const removeFilterButtonCSS = recipe<
             whiteSpace: "nowrap",
         }),
         {
-            borderBottomRightRadius: vars.borderRadius.pill,
-            borderTopRightRadius: vars.borderRadius.pill,
+            borderBottomRightRadius: "var(--radius-pill)",
+            borderTopRightRadius: "var(--radius-pill)",
         },
     ],
     variants: {
@@ -151,12 +151,12 @@ export const filterButtonCSS = recipe<
         {
             selectors: {
                 "&:first-child": {
-                    borderBottomLeftRadius: vars.borderRadius.pill,
-                    borderTopLeftRadius: vars.borderRadius.pill,
+                    borderBottomLeftRadius: "var(--radius-pill)",
+                    borderTopLeftRadius: "var(--radius-pill)",
                 },
                 "&:last-child": {
-                    borderBottomRightRadius: vars.borderRadius.pill,
-                    borderTopRightRadius: vars.borderRadius.pill,
+                    borderBottomRightRadius: "var(--radius-pill)",
+                    borderTopRightRadius: "var(--radius-pill)",
                 },
             },
         },

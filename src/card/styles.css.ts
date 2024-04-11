@@ -4,7 +4,7 @@ import { recipe } from "@vanilla-extract/recipes";
 import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
-const MARGIN_TOP = vars.spacing.space_3;
+const MARGIN_TOP = "var(--space-3)";
 
 export const headerCSS = style([
     css({
@@ -15,8 +15,8 @@ export const headerCSS = style([
         padding: "space_4",
     }),
     {
-        borderTopLeftRadius: vars.borderRadius.lg,
-        borderTopRightRadius: vars.borderRadius.lg,
+        borderTopLeftRadius: "var(--radius-lg)",
+        borderTopRightRadius: "var(--radius-lg)",
         marginTop: MARGIN_TOP,
     },
 ]);
@@ -38,11 +38,11 @@ export const cardCSS = recipe({
             ],
             true: [
                 {
-                    borderBottom: `1px solid ${vars.color.border_rule}`,
-                    borderBottomLeftRadius: vars.borderRadius.lg,
-                    borderBottomRightRadius: vars.borderRadius.lg,
-                    borderLeft: `1px solid ${vars.color.border_rule}`,
-                    borderRight: `1px solid ${vars.color.border_rule}`,
+                    borderBottom: `1px solid var(--clr-border_rule)`,
+                    borderBottomLeftRadius: "var(--radius-lg)",
+                    borderBottomRightRadius: "var(--radius-lg)",
+                    borderLeft: `1px solid var(--clr-border_rule)`,
+                    borderRight: `1px solid var(--clr-border_rule)`,
                 },
             ],
         },
