@@ -22,16 +22,13 @@ export default defineConfig({
                     "react-dom": "ReactDOM",
                     "react/jsx-runtime": "react/jsx-runtime",
                 },
-                hoistTransitiveImports: true,
-                preserveModules: true,
-                preserveModulesRoot: "src",
             },
         },
     },
     plugins: [
         react(),
         vanillaExtractPlugin({
-            identifiers: "short",
+            identifiers: "debug",
             unstable_mode: "emitCss",
         }),
     ],
