@@ -43,11 +43,13 @@ const properties = defineProperties({
         },
         cursor: ["pointer", "default", "not-allowed", "grab"],
         flex: ["0 1 auto", "1 1 auto", "1 1 0%", "1 1 100%"],
+        flexDirection: ["row", "column", "row-reverse", "column-reverse"],
         flexGrow: ["0", "1"],
         flexShrink: ["0", "1"],
         flexWrap: ["wrap", "nowrap"],
         fontSize: vars.fontSize,
         fontWeight: vars.fontWeight,
+        gap: vars.spacing,
         height: { ...vars.height, ...vars.spacing },
         inset: ["0"],
         isolation: ["isolate"],
@@ -70,6 +72,7 @@ const properties = defineProperties({
         maxHeight: { ...vars.height, ...vars.spacing },
         maxWidth: { ...vars.width, ...vars.spacing },
         minHeight: { ...vars.height, ...vars.spacing },
+
         minWidth: { ...vars.width, ...vars.spacing },
         opacity: ["0", "0.3", "0.5", "0.8", "1"],
         outline: {
@@ -81,6 +84,12 @@ const properties = defineProperties({
         },
         overflowX: ["hidden", "auto", "visible", "scroll"],
         overflowY: ["hidden", "auto", "visible", "scroll"],
+        padding: vars.spacing,
+        paddingBottom: vars.spacing,
+        paddingLeft: vars.spacing,
+        paddingRight: vars.spacing,
+        paddingTop: vars.spacing,
+        position: ["relative", "absolute", "sticky", "static"],
         right: ["0"],
         textAlign: ["center", "left", "right"],
         textDecoration: ["underline", "none", "line-through"],
@@ -112,6 +121,8 @@ const properties = defineProperties({
         marginX: ["marginLeft", "marginRight"],
         marginY: ["marginTop", "marginBottom"],
         overflow: ["overflowX", "overflowY"],
+        paddingX: ["paddingLeft", "paddingRight"],
+        paddingY: ["paddingTop", "paddingBottom"],
         placeItems: ["alignItems", "justifyContent"],
     },
 });
@@ -129,21 +140,10 @@ const responsiveProperties = defineProperties({
     defaultCondition: "mobile",
     properties: {
         display: vars.display,
-        flexDirection: ["row", "column", "row-reverse", "column-reverse"],
-        gap: vars.spacing,
         gridTemplateColumns: vars.gridTemplateColumns,
-        padding: vars.spacing,
-        paddingBottom: vars.spacing,
-        paddingLeft: vars.spacing,
-        paddingRight: vars.spacing,
-        paddingTop: vars.spacing,
-        position: ["relative", "absolute", "sticky", "static"],
         width: { ...vars.width, ...vars.spacing },
     },
-    shorthands: {
-        paddingX: ["paddingLeft", "paddingRight"],
-        paddingY: ["paddingTop", "paddingBottom"],
-    },
+    shorthands: {},
 });
 
 export const css = createSprinkles(properties, responsiveProperties);
