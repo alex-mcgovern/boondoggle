@@ -1,0 +1,89 @@
+.date-input {
+    --date-input-background: var(--clr-bg_field);
+    --date-input-color: var(--clr-text_high_contrast);
+
+    --date-input-border-color: transparent;
+    --date-input-border-size: 0;
+
+    --date-input-font-size: var(--fontSize-bodyMd);
+    --date-input-font-weight: var(--fontWeight-medium);
+    --date-input-line-height: var(--lineHeight-bodyMd);
+
+    --date-input-outline-color: transparent;
+    --date-input-outline-size: 2px;
+
+    --date-input-padding: 0 var(--space-2);
+    --date-input-radius: var(--radius-md);
+    --date-input-height: var(--space-8);
+
+    display: flex;
+    align-items: center;
+
+    padding: var(--date-input-padding);
+    border: var(--date-input-border-size) solid var(--date-input-border-color);
+    border-radius: var(--date-input-radius);
+    background: var(--date-input-background);
+    width: fit-content;
+    height: var(--date-input-height);
+    min-width: 150px;
+    white-space: nowrap;
+    forced-color-adjust: none;
+
+    outline: var(--date-input-outline-size) solid
+        var(--date-input-outline-color);
+
+    &.default {
+        --date-input-color: var(--clr-text_high_contrast);
+        --date-input-border-color: var(--clr-border_field);
+        --date-input-border-size: 1px;
+
+        &[data-focus-within],
+        &[data-focus-visible] {
+            --date-input-background: var(--clr-bg_field_active);
+            --date-input-outline-color: var(clr-focus_ring);
+        }
+    }
+
+    &.unstyled {
+        --date-input-background: transparent;
+        border: 0;
+        outline: 0;
+    }
+
+    &[data-disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .date-segment {
+        padding: 0 2px;
+        font-variant-numeric: tabular-nums;
+        text-align: end;
+        color: var(--text-color);
+
+        &[data-type="literal"] {
+            padding: 0;
+        }
+
+        &[data-placeholder] {
+            color: var(--clr-text_low_contrast);
+        }
+
+        &:focus {
+            color: var(--highlight-foreground);
+            background: var(--highlight-background);
+            outline: none;
+            border-radius: 4px;
+            caret-color: transparent;
+        }
+
+        &[data-invalid] {
+            color: var(--invalid-color);
+
+            &:focus {
+                background: var(--highlight-background-invalid);
+                color: var(--highlight-foreground);
+            }
+        }
+    }
+}

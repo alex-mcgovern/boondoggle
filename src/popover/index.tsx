@@ -10,7 +10,7 @@ import {
     Popover as RACPopover,
 } from "react-aria-components";
 
-import { overlayArrowCSS, overlayArrowSvgCSS, popoverCSS } from "./styles.css";
+import "./styles.css";
 
 export type PopoverOverlayArrowProps = RACOverlayArrowProps;
 
@@ -23,22 +23,17 @@ export const PopoverOverlayArrow = forwardRef<
 >((props, ref) => {
     return (
         <RACOverlayArrow
-            className={clsx(props.className, overlayArrowCSS)}
+            className={clsx(props.className, "overlay-arrow")}
             {...props}
             ref={ref}
         >
-            {(renderProps) => {
-                return (
-                    <svg
-                        className={overlayArrowSvgCSS({ ...renderProps })}
-                        height={12}
-                        viewBox="0 0 12 12"
-                        width={12}
-                    >
-                        <path d="M0 0 L6 6 L12 0" />
-                    </svg>
-                );
-            }}
+            <svg
+                height={12}
+                viewBox="0 0 12 12"
+                width={12}
+            >
+                <path d="M0 0 L6 6 L12 0" />
+            </svg>
         </RACOverlayArrow>
     );
 });
@@ -64,17 +59,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     (props, ref) => (
         <RACPopover
             {...props}
-            className={({ isEntering, isExiting, placement, trigger }) =>
-                clsx(
-                    props.className,
-                    popoverCSS({
-                        isEntering,
-                        isExiting,
-                        placement,
-                        trigger: trigger || undefined,
-                    }),
-                )
-            }
+            className={clsx(props.className, "popover")}
             ref={ref}
         />
     ),

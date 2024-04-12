@@ -1,0 +1,100 @@
+@import "../stylesheet.css";
+
+.checkbox-wrapper {
+    --selected-color: var(--highlight-background);
+    --selected-color-pressed: var(--highlight-background-pressed);
+    --checkmark-color: var(--highlight-foreground);
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    font-size: var(--fontSize-bodySm);
+    color: var(--text-color);
+
+    forced-color-adjust: none;
+
+    .checkbox {
+        width: var(--space-4);
+        height: var(--space-4);
+
+        border: 1px solid var(--clr-border_field);
+        border-radius: var(--radius-sm);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: all var(--dur-short) var(--ease-quart-in-out);
+    }
+
+    svg {
+        fill: none;
+        stroke: var(--clr-white);
+        stroke-dasharray: 22;
+        stroke-dashoffset: 66;
+        stroke-width: var(--space-1);
+    }
+
+    &[data-pressed] .checkbox {
+        background-color: var(--clr-btn_primary_bg);
+    }
+
+    &[data-focus-visible] .checkbox {
+        outline: 2px solid var(--clr-focus_ring);
+    }
+
+    &[data-selected],
+    &[data-indeterminate] {
+        .checkbox {
+            border-color: var(--selected-color);
+            background: var(--selected-color);
+        }
+
+        &[data-pressed] .checkbox {
+            border-color: var(--selected-color-pressed);
+            background: var(--selected-color-pressed);
+        }
+
+        svg {
+            stroke-dashoffset: 44;
+        }
+    }
+
+    &[data-indeterminate] {
+        & svg {
+            stroke: none;
+            fill: var(--checkmark-color);
+        }
+    }
+
+    &[data-invalid] {
+        .checkbox {
+            --checkmark-color: var(--gray-50);
+            border-color: var(--invalid-color);
+        }
+
+        &[data-pressed] .checkbox {
+            border-color: var(--invalid-color-pressed);
+        }
+
+        &[data-selected],
+        &[data-indeterminate] {
+            .checkbox {
+                background: var(--invalid-color);
+            }
+
+            &[data-pressed] .checkbox {
+                background: var(--invalid-color-pressed);
+            }
+        }
+    }
+
+    &[data-disabled] {
+        color: var(--text-color-disabled);
+
+        .checkbox {
+            border-color: var(--border-color-disabled);
+        }
+    }
+}

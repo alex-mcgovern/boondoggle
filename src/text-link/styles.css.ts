@@ -6,7 +6,7 @@ export const textLinkCSS = style([
     css({
         alignItems: "center",
 
-        color: "bg_button_primary",
+        color: "btn_primary_bg",
         display: "flex",
         gap: "space_1",
     }),

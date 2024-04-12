@@ -7,9 +7,25 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { Button as RACButton, Link as RACLink } from "react-aria-components";
 
-import type { ButtonVariants } from "./styles.css";
+import "./styles.css";
 
-import { buttonCSS } from "./styles.css";
+type ButtonVariants = {
+    /**
+     * The appearance of the button.
+     */
+    appearance?: "ghost" | "primary" | "secondary";
+    /**
+     * The size of the button.
+     */
+    size?:
+        | "lg"
+        | "md"
+        | "sm"
+        | "square_lg"
+        | "square_md"
+        | "square_sm"
+        | "square_xs";
+};
 
 export type ButtonProps = RACButtonProps & ButtonVariants;
 
@@ -30,32 +46,11 @@ export type ButtonProps = RACButtonProps & ButtonVariants;
  * ```
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    (
-        {
-            alignment = "center",
-            appearance = "primary",
-            className,
-            colorOverlay,
-            size = "sm",
-            ...props
-        },
-        ref,
-    ) => {
+    ({ appearance = "primary", className, size, ...props }, ref) => {
         return (
             <RACButton
                 {...props}
-                className={(renderProps) =>
-                    clsx(
-                        className,
-                        buttonCSS({
-                            ...renderProps,
-                            alignment,
-                            appearance,
-                            colorOverlay,
-                            size,
-                        }),
-                    )
-                }
+                className={clsx("btn", className, appearance, size)}
                 ref={ref}
             />
         );
@@ -88,33 +83,11 @@ export type LinkButtonProps = RACLinkProps &
  * ```
  */
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
-    (
-        {
-            alignment = "center",
-            appearance = "primary",
-            className,
-            colorOverlay,
-            size = "sm",
-            ...props
-        },
-        ref,
-    ) => {
+    ({ appearance = "primary", className, size, ...props }, ref) => {
         return (
             <RACLink
                 {...props}
-                className={(renderProps) =>
-                    clsx(
-                        className,
-                        buttonCSS({
-                            ...renderProps,
-                            alignment,
-                            appearance,
-                            colorOverlay,
-                            isCurrent: props.isCurrent || renderProps.isCurrent,
-                            size,
-                        }),
-                    )
-                }
+                className={clsx("btn", className, appearance, size)}
                 ref={ref}
             />
         );

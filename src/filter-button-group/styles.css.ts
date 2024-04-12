@@ -113,20 +113,20 @@ export const removeFilterButtonCSS = recipe<
         isFocusVisible: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "btn_bg_secondary_active",
                 outline: "focus",
             }),
         },
         isHovered: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "btn_bg_secondary_active",
             }),
         },
         isPressed: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "btn_bg_secondary_active",
             }),
         },
     },
@@ -172,20 +172,20 @@ export const filterButtonCSS = recipe<
         isFocusVisible: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "btn_bg_secondary_active",
                 outline: "focus",
             }),
         },
         isHovered: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "btn_bg_secondary_active",
             }),
         },
         isPressed: {
             false: {},
             true: css({
-                background: "bg_button_secondary_active",
+                background: "btn_bg_secondary_active",
             }),
         },
     },

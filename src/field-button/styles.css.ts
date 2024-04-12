@@ -42,7 +42,7 @@ export const fieldButtonCSS = style([
              * Whether the button is keyboard focused.
              */
             "&[data-focus-visible]": {
-                background: "var(--clr-bg_button_secondary_active)",
+                background: "var(--clr-btn_bg_secondary_active)",
                 color: "var(--clr-text_high_contrast)",
                 outline: 0,
             },
@@ -50,7 +50,7 @@ export const fieldButtonCSS = style([
              * Whether the button is focused, either via a mouse or keyboard.
              */
             "&[data-focused]": {
-                background: "var(--clr-bg_button_secondary_active)",
+                background: "var(--clr-btn_bg_secondary_active)",
                 color: "var(--clr-text_high_contrast)",
                 outline: 0,
             },
@@ -58,14 +58,14 @@ export const fieldButtonCSS = style([
              * Whether the button is currently hovered with a mouse.
              */
             "&[data-hovered]": {
-                background: "var(--clr-bg_button_secondary_active)",
+                background: "var(--clr-btn_bg_secondary_active)",
                 color: "var(--clr-text_high_contrast)",
             },
             /**
              * Whether the button is currently in a pressed state.
              */
             "&[data-pressed]": {
-                background: "var(--clr-bg_button_secondary_active)",
+                background: "var(--clr-btn_bg_secondary_active)",
                 color: "var(--clr-text_high_contrast)",
             },
         },

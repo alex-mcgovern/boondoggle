@@ -19,6 +19,7 @@ export const dateInputCSS = recipe<
         css({
             alignItems: "center",
             color: "text_high_contrast",
+
             display: "flex",
             fontStyle: "bodySm",
             height: "element_sm",

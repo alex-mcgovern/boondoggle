@@ -36,12 +36,12 @@
 
     --clr-backdrop: #0007149f;
     --clr-background: #fcfcfd;
-    --clr-bg_button_ghost: transparent;
-    --clr-bg_button_ghost_active: #f0f0f3;
-    --clr-bg_button_primary: #0090ff;
-    --clr-bg_button_primary_active: #0588f0;
-    --clr-bg_button_secondary: #f9f9fb;
-    --clr-bg_button_secondary_active: #f0f0f3;
+    --clr-btn_bg_ghost: transparent;
+    --clr-btn_bg_ghost_active: #f0f0f3;
+    --clr-btn_primary_bg: #0090ff;
+    --clr-btn_primary_bg_active: #0588f0;
+    --clr-btn_bg_secondary: #f9f9fb;
+    --clr-btn_bg_secondary_active: #f0f0f3;
     --clr-bg_field: #f9f9fb;
     --clr-bg_field_active: #fcfcfd;
     --clr-bg_filter_button: #f0f0f3;

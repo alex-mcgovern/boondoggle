@@ -6,7 +6,7 @@ import {
     DateSegment as RACDateSegment,
 } from "react-aria-components";
 
-import { dateInputCSS, dateSegmentCSS } from "./styles.css";
+import "./styles.css";
 
 export type DateInputProps = Omit<RACDateInputProps, "children"> & {
     /**
@@ -33,38 +33,15 @@ export type DateInputProps = Omit<RACDateInputProps, "children"> & {
  * import { DateInput, type DateInputProps } from "boondoggle/date-input"
  * ```
  */
-export function DateInput(props: DateInputProps) {
+export function DateInput({ variant = "default", ...props }: DateInputProps) {
     return (
         <RACDateInput
             {...props}
-            className={(p) =>
-                clsx(
-                    props.className,
-                    dateInputCSS({ ...p, variant: props.variant }),
-                )
-            }
+            className={clsx("date-input", variant, props.className)}
         >
             {(segment) => (
                 <RACDateSegment
-                    className={({
-                        isFocused,
-                        isFocusVisible,
-                        isHovered,
-                        isInvalid,
-                        isPlaceholder,
-                        isReadOnly,
-                        type,
-                    }) =>
-                        dateSegmentCSS({
-                            isFocused,
-                            isFocusVisible,
-                            isHovered,
-                            isInvalid,
-                            isPlaceholder,
-                            isReadOnly,
-                            type,
-                        })
-                    }
+                    className="date-segment"
                     segment={segment}
                 />
             )}

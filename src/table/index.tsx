@@ -28,17 +28,9 @@ import { Column as RACColumn } from "react-aria-components";
 import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
-import {
-    cellCSS,
-    columnCSS,
-    rowCSS,
-    sortIconStyle,
-    tableCSS,
-    tableContainerCSS,
-} from "./styles.css";
 
 export type ColumnProps = RACColumnProps;
-
+import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
@@ -47,24 +39,7 @@ export const Column = forwardRef<HTMLTableCellElement, ColumnProps>(
         return (
             <RACColumn
                 {...props}
-                className={({
-                    allowsSorting,
-                    isFocused,
-                    isFocusVisible,
-                    isHovered,
-                    isResizing,
-                }) =>
-                    clsx(
-                        props.className,
-                        columnCSS({
-                            allowsSorting,
-                            isFocused,
-                            isFocusVisible,
-                            isHovered,
-                            isResizing,
-                        }),
-                    )
-                }
+                className={clsx(props.className, "column")}
                 ref={ref}
             >
                 {(renderProps) => (
@@ -80,12 +55,12 @@ export const Column = forwardRef<HTMLTableCellElement, ColumnProps>(
                             >
                                 {renderProps.sortDirection === "ascending" ? (
                                     <Icon
-                                        className={sortIconStyle}
+                                        className="sort-icon"
                                         icon={faSortUp}
                                     />
                                 ) : (
                                     <Icon
-                                        className={sortIconStyle}
+                                        className="sort-icon"
                                         icon={faSortUp}
                                         style={{ transform: "rotate(180deg)" }}
                                     />
@@ -146,22 +121,7 @@ export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
         return (
             <RACCell
                 {...props}
-                className={({
-                    isFocused,
-                    isFocusVisible,
-                    isHovered,
-                    isPressed,
-                }) =>
-                    clsx(
-                        props.className,
-                        cellCSS({
-                            isFocused,
-                            isFocusVisible,
-                            isHovered,
-                            isPressed,
-                        }),
-                    )
-                }
+                className={clsx(props.className, "cell")}
                 ref={ref}
             />
         );
@@ -179,33 +139,7 @@ function _Row<T extends object>(
     return (
         <RACRow
             {...props}
-            className={({
-                // allowsDragging,
-                isDisabled,
-                // isDragging,
-                // isDropTarget,
-                isFocused,
-                isFocusVisible,
-                isHovered,
-                isPressed,
-                isSelected,
-                selectionBehavior,
-                selectionMode,
-            }) =>
-                clsx(
-                    props.className,
-                    rowCSS({
-                        isDisabled,
-                        isFocused,
-                        isFocusVisible,
-                        isHovered,
-                        isPressed,
-                        isSelected,
-                        selectionBehavior,
-                        selectionMode,
-                    }),
-                )
-            }
+            className={clsx(props.className, "row")}
             ref={ref}
         >
             {allowsDragging && (
@@ -245,6 +179,7 @@ function _TableBody<T extends object>(
     return (
         <RACTableBody
             {...props}
+            className={clsx(props.className, "table-body")}
             ref={ref}
         >
             {props.children}
@@ -288,16 +223,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         return (
             <RACTable
                 {...props}
-                className={({ isDropTarget, isFocused, isFocusVisible }) =>
-                    clsx(
-                        props.className,
-                        tableCSS({
-                            isDropTarget,
-                            isFocused,
-                            isFocusVisible,
-                        }),
-                    )
-                }
+                className={clsx(props.className, "table")}
                 ref={ref}
             >
                 {props.children}
@@ -318,7 +244,7 @@ export const ResizableTableContainer = forwardRef<
     return (
         <RACResizableTableContainer
             {...props}
-            className={clsx(props.className, tableContainerCSS)}
+            className={clsx(props.className, "resizable-table-container")}
             ref={ref}
         />
     );

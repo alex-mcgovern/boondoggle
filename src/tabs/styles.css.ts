@@ -89,7 +89,7 @@ export const tabOuterCSS = style([
 
         selectors: {
             "&[data-selected]": {
-                color: "var(--clr-bg_button_primary)",
+                color: "var(--clr-btn_primary_bg)",
             },
 
             [`&[data-hovered]`]: {
@@ -97,7 +97,7 @@ export const tabOuterCSS = style([
                 cursor: "pointer",
             },
             [`&[data-selected][data-hovered]`]: {
-                color: "var(--clr-bg_button_primary)",
+                color: "var(--clr-btn_primary_bg)",
             },
         },
     },
@@ -113,7 +113,7 @@ export const tabInnerCSS = style([
 
 export const tabIndicatorCSS = style([
     css({
-        background: "bg_button_primary",
+        background: "btn_primary_bg",
         position: "absolute",
         zIndex: "-1",
     }),

@@ -81,7 +81,7 @@ export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
                 false: {},
                 true: css({
                     background: "button_tint",
-                    color: "bg_button_primary",
+                    color: "btn_primary_bg",
                     outline: "focus",
                 }),
             },
@@ -89,7 +89,7 @@ export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
                 false: {},
                 true: css({
                     background: "button_tint",
-                    color: "bg_button_primary",
+                    color: "btn_primary_bg",
                     outline: "focus",
                 }),
             },
@@ -97,7 +97,7 @@ export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
                 false: {},
                 true: css({
                     background: "button_tint",
-                    color: "bg_button_primary",
+                    color: "btn_primary_bg",
                 }),
             },
             isInvalid: {
@@ -116,7 +116,7 @@ export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
                 false: {},
                 true: css({
                     background: "button_tint",
-                    color: "bg_button_primary",
+                    color: "btn_primary_bg",
                 }),
             },
             isSelected: {
@@ -124,7 +124,7 @@ export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
                 true: css({
                     background: "button_tint",
                     border: "focus",
-                    color: "bg_button_primary",
+                    color: "btn_primary_bg",
                 }),
             },
             isSelectionEnd: {

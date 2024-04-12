@@ -54,6 +54,7 @@ const meta = {
                 >
                     <TableHeader>
                         <Column
+                            allowsSorting
                             isRowHeader
                             width="2fr"
                         >

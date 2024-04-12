@@ -15,12 +15,7 @@ import {
 } from "react-aria-components";
 
 import { Icon } from "../icon";
-import {
-    overlayArrowCSS,
-    overlayArrowSvgCSS,
-    tooltipCSS,
-    tooltipTriggerButtonCSS,
-} from "./styles.css";
+import "./styles.css";
 
 export type TooltipTriggerButtonProps = RACButtonProps;
 
@@ -35,9 +30,7 @@ export const TooltipTriggerButton = forwardRef<
         <RACButton
             slot="clear"
             {...props}
-            className={(renderProps) =>
-                clsx(props.className, tooltipTriggerButtonCSS(renderProps))
-            }
+            className={clsx(props.className, "tooltip-trigger-btn")}
             excludeFromTabOrder
             ref={ref}
         >
@@ -89,35 +82,20 @@ export function Tooltip(props: TooltipProps) {
     return (
         <RACTooltip
             {...props}
-            className={({ isEntering, isExiting, placement }) =>
-                clsx(
-                    tooltipCSS({
-                        isEntering,
-                        isExiting,
-                        placement,
-                    }),
-                )
-            }
+            className="tooltip"
             offset={6}
         >
             {(renderProps) => {
                 return (
                     <>
-                        <RACOverlayArrow className={clsx(overlayArrowCSS)}>
-                            {(renderProps) => {
-                                return (
-                                    <svg
-                                        className={overlayArrowSvgCSS(
-                                            renderProps,
-                                        )}
-                                        height={8}
-                                        viewBox="0 0 8 8"
-                                        width={8}
-                                    >
-                                        <path d="M0 0 L4 4 L8 0" />
-                                    </svg>
-                                );
-                            }}
+                        <RACOverlayArrow className="overlay-arrow">
+                            <svg
+                                height={8}
+                                viewBox="0 0 8 8"
+                                width={8}
+                            >
+                                <path d="M0 0 L4 4 L8 0" />
+                            </svg>
                         </RACOverlayArrow>
 
                         {typeof props.children === "function"

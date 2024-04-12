@@ -95,14 +95,14 @@ export const checkboxCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
     }),
     compoundVariants: [
         {
-            style: css({ background: "bg_button_primary_active" }),
+            style: css({ background: "btn_primary_bg_active" }),
             variants: {
                 isHovered: true,
                 isSelected: true,
             },
         },
         {
-            style: css({ background: "bg_button_secondary_active" }),
+            style: css({ background: "btn_bg_secondary_active" }),
             variants: {
                 isHovered: true,
                 isSelected: false,
@@ -133,7 +133,7 @@ export const checkboxCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
         },
         isPressed: {
             false: {},
-            true: css({ background: "bg_button_primary" }),
+            true: css({ background: "btn_primary_bg" }),
         },
         isReadOnly: {
             false: {},
@@ -144,8 +144,8 @@ export const checkboxCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
             true: {},
         },
         isSelected: {
-            false: css({ background: "bg_button_secondary" }),
-            true: css({ background: "bg_button_primary", border: "focus" }),
+            false: css({ background: "btn_bg_secondary" }),
+            true: css({ background: "btn_primary_bg", border: "focus" }),
         },
     },
 });

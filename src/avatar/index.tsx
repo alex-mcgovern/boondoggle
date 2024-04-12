@@ -1,7 +1,8 @@
+import clsx from "clsx";
 import { useState } from "react";
 
 import { Box } from "../box";
-import { avatarCSS } from "./styles.css";
+import "./styles.css";
 
 /**
  * Get the initials from a given name.
@@ -114,7 +115,7 @@ export function Avatar({
         return (
             <img
                 alt="avatar"
-                className={avatarCSS({ variant })}
+                className={clsx("avatar", variant)}
                 height={size}
                 src={img_src}
                 width={size}
@@ -127,7 +128,7 @@ export function Avatar({
             <Box
                 __height={size}
                 __width={size}
-                className={avatarCSS({ variant })}
+                className={clsx("avatar", variant)}
             />
         );
     }
@@ -136,7 +137,7 @@ export function Avatar({
         <Box
             __height={size}
             __width={size}
-            className={avatarCSS({ variant })}
+            className={clsx("avatar", variant)}
         >
             {initials}
         </Box>

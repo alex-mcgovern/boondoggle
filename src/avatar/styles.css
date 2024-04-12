@@ -1,0 +1,25 @@
+.avatar {
+    --avatar-background: var(--clr-button_tint);
+    --avatar-color: var(--clr-btn_primary_bg);
+
+    background: var(--avatar-background);
+
+    font-size: max(var(--fontSize-bodyMd), 100%);
+    font-weight: medium;
+    color: var(--avatar-color);
+
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+
+    overflow: hidden;
+
+    &.circle {
+        border-radius: var(--radius-round);
+    }
+
+    &.square {
+        border-radius: var(--radius-md);
+    }
+}

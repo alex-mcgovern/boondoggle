@@ -9,6 +9,9 @@ import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "..";
 import { Button } from "../../button";
 
 const meta = {
+    args: {
+        children: "I am a tooltip",
+    },
     component: Tooltip,
     title: "Components/Tooltip",
 } satisfies Meta<typeof Tooltip>;

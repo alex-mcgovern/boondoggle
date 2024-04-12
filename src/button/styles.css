@@ -1,0 +1,113 @@
+.btn {
+    --btn-background: var(--clr-btn_primary_bg);
+    --btn-background-active: var(--clr-btn_primary_bg_active);
+    --btn-color: var(--clr-white);
+
+    --btn-border-color: transparent;
+    --btn-border-size: 1px;
+
+    --btn-font-size: var(--fontSize-bodyMd);
+    --btn-font-weight: var(--fontWeight-medium);
+    --btn-line-height: var(--lineHeight-bodyMd);
+
+    --btn-outline-color: transparent;
+    --btn-outline-size: 2px;
+
+    --btn-padding: var(--space-1) var(--space-3);
+    --btn-radius: var(--radius-md);
+    --btn-height: var(--space-8);
+
+    background-color: var(--btn-background);
+
+    color: var(--btn-color);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    line-height: var(--btn-line-height);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+
+    border-radius: var(--btn-radius);
+    border: var(--btn-border-size) solid var(--btn-border-color);
+    outline: var(--btn-outline-size) solid var(--btn-outline-color);
+
+    height: var(--btn-height);
+    padding: var(--btn-padding);
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition-duration: var(--dur-short);
+        transition-property: background-color, border-color, color, outline;
+        transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    &[data-disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &[data-focus-visible],
+    &[data-hovered],
+    &[data-pressed] {
+        background-color: var(--btn-background-active);
+    }
+
+    &[data-focus-visible] {
+        --btn-outline-color: var(--clr-focus_ring);
+    }
+
+    &[data-focused] {
+        outline: 0;
+    }
+
+    &.secondary {
+        --btn-background-active: var(--clr-btn_bg_secondary_active);
+        --btn-background: var(--clr-btn_bg_secondary);
+        --btn-border-color: var(--clr-border_field);
+        --btn-color: var(--clr-text_high_contrast);
+    }
+
+    &.ghost {
+        --btn-background-active: var(--clr-btn_bg_ghost_active);
+        --btn-background: var(--clr-btn_bg_ghost);
+        --btn-color: var(--clr-text_high_contrast);
+    }
+
+    &.sm {
+        --btn-padding: var(--space-1) var(--space-3);
+        --btn-height: var(--space-8);
+    }
+
+    &.md {
+        --btn-padding: var(--space-3) var(--space-4);
+        --btn-height: var(--space-10);
+    }
+
+    &.lg {
+        --btn-padding: var(--space-3) var(--space-6);
+        --btn-height: var(--space-12);
+    }
+
+    &.square {
+        aspect-ratio: 1 / 1;
+        flex-grow: 0;
+
+        &-sm {
+            --btn-height: var(--space-6);
+            width: var(--space-6);
+        }
+
+        &-sm {
+            width: var(--space-8);
+        }
+
+        &-md {
+            width: var(--space-10);
+        }
+
+        &-lg {
+            width: var(--space-12);
+        }
+    }
+}

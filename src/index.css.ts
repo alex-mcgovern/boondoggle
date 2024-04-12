@@ -568,7 +568,7 @@ globalStyle("*", {
 globalStyle("html", {
     "@layer": {
         [baseLayer]: {
-            accentColor: "var(--clr-bg_button_primary)",
+            accentColor: "var(--clr-btn_primary_bg)",
             background: "var(--clr-background)",
             fontSize: vars.fontSize.root,
         },
@@ -599,7 +599,7 @@ globalStyle("body", {
 globalStyle("a", {
     "@layer": {
         [baseLayer]: {
-            color: "var(--clr-bg_button_primary)",
+            color: "var(--clr-btn_primary_bg)",
             margin: 0,
             padding: 0,
             textDecoration: "none",
@@ -618,7 +618,7 @@ globalStyle("b, strong", {
 globalStyle("a:hover, a:focus, a:focus-visible", {
     "@layer": {
         [baseLayer]: {
-            color: "var(--clr-bg_button_primary_active)",
+            color: "var(--clr-btn_primary_bg_active)",
             textDecoration: "underline",
         },
     },
@@ -646,7 +646,7 @@ globalStyle("button", {
 globalStyle("input[type=checkbox]", {
     "@layer": {
         [baseLayer]: {
-            accentColor: "var(--clr-bg_button_primary)",
+            accentColor: "var(--clr-btn_primary_bg)",
             cursor: "pointer",
             height: "var(--space-4)",
             width: "var(--space-4)",
@@ -938,7 +938,7 @@ export const unobtrusiveScrollBar = style({
         },
 
         "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "var(--clr-bg_button_secondary_active)",
+            backgroundColor: "var(--clr-btn_bg_secondary_active)",
             border: `2px solid var(--clr-background)`,
             borderRadius: "var(--radius-md)",
         },

@@ -44,14 +44,14 @@ export const makeTheme = ({
 
         background: step(secondary, 1),
 
-        bg_button_ghost: "transparent",
-        bg_button_ghost_active: step(secondary, isOverlay ? 4 : 3),
+        btn_bg_ghost: "transparent",
+        btn_bg_ghost_active: step(secondary, isOverlay ? 4 : 3),
 
-        bg_button_primary: step(primary, 9),
-        bg_button_primary_active: step(primary, 10),
+        btn_primary_bg: step(primary, 9),
+        btn_primary_bg_active: step(primary, 10),
 
-        bg_button_secondary: step(secondary, isOverlay ? 3 : 2),
-        bg_button_secondary_active: step(secondary, isOverlay ? 4 : 3),
+        btn_bg_secondary: step(secondary, isOverlay ? 3 : 2),
+        btn_bg_secondary_active: step(secondary, isOverlay ? 4 : 3),
 
         bg_field: step(secondary, isOverlay ? 3 : 2),
         bg_field_active: step(secondary, 1),

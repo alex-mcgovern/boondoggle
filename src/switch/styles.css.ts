@@ -91,7 +91,7 @@ export const switchIndicatorCSS = style([
             },
 
             [`${switchCSS}[data-selected] &::before`]: {
-                // background: "var(--clr-bg_button_primary)",
+                // background: "var(--clr-btn_primary_bg)",
                 transform: "translateX(100%)",
             },
             [`${switchCSS}[data-selected] &`]: {
