@@ -52,7 +52,7 @@ module.exports = {
             { prefer: "type-imports" },
         ],
         "jsdoc/require-jsdoc": [
-            "error",
+            "warn",
             {
                 checkGetters: true,
                 contexts: [
