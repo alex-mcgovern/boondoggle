@@ -3,7 +3,6 @@ import type { RowData, Table } from "@tanstack/react-table";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
 import { i18n } from "../../../_i18n";
-import { arrayHasLength } from "../../../_lib/array-has-length";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
 import { Icon } from "../../../icon";
@@ -15,7 +14,7 @@ export function TableNoResults<TRowData extends RowData>({
 }) {
     const isFiltered =
         table.getState().globalFilter ||
-        arrayHasLength(table.getState().columnFilters);
+        table.getState().columnFilters.length > 0;
 
     return (
         <Box

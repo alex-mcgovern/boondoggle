@@ -20,7 +20,6 @@ import { Fragment } from "react";
 
 import type { MenuButtonProps } from "../menu-button";
 
-import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Button } from "../button";
 import { Icon } from "../icon";
@@ -171,7 +170,7 @@ export function DataTable<TRowData extends RowData>({
         },
     });
 
-    const hasData = arrayHasLength(table.getFilteredRowModel().rows);
+    const hasData = table.getFilteredRowModel().rows.length > 0;
 
     return (
         <Box>
