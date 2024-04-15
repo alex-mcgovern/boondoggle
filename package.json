@@ -57,7 +57,7 @@
         "=== CHECKS ===": "",
         "check": "concurrently -n PRETTIER,ESLINT,TSC,VITEST -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:vitest\"",
         "check-prettier": "prettier . --check",
-        "eslint": "eslint .",
+        "eslint": "eslint . --quiet",
         "tsc": "tsc",
         "vitest": "vitest run",
         "=== FIXES ===": "",
