@@ -4,7 +4,6 @@ import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 
-import type { TV2DataTableRowActions } from ".";
 import type { MockTableData } from "./_mocks/data-table.mock";
 
 import { DataTable as StoryComp, TableRowMenuButton } from ".";
@@ -75,7 +74,7 @@ export const MOCK_FILTER_STRINGS = {
     },
 } as const;
 
-const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
+function MockRowActionsComponent() {
     return (
         <TableRowMenuButton
             items={[
@@ -101,7 +100,7 @@ const MockRowActionsComponent: TV2DataTableRowActions<MockTableData> = () => {
             }}
         />
     );
-};
+}
 
 /** -----------------------------------------------------------------------------
  * STORIES
