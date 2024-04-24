@@ -14,9 +14,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const IsDisabled: Story = {
+export const Disabled: Story = {
     args: {
         disabled: true,
+    },
+};
+
+export const Invalid: Story = {
+    args: {
+        "aria-invalid": true,
     },
 };
 

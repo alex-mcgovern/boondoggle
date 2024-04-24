@@ -1,0 +1,22 @@
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: var(--space-2);
+
+    background: var(--clr-tint_hover);
+    color: var(--clr-text_low_contrast);
+
+    border-radius: var(--radius-pill);
+
+    font-size: var(--fontSize-bodySm);
+    font-weight: var(--fontWeight-medium);
+
+    height: var(--space-6);
+    min-width: var(--space-6);
+
+    padding: var(--space-1) var(--space-2);
+
+    white-space: nowrap;
+}

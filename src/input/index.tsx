@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { Input as RACInput } from "react-aria-components";
 
-import { inputCSS, inputContainerCSS, inputIconCSS } from "./styles.css";
+import "./styles.css";
 
 export type InputProps = RACInputProps & {
     /**
@@ -26,20 +26,14 @@ export type InputProps = RACInputProps & {
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     return (
-        <div className={inputContainerCSS}>
-            {props.icon && <div className={inputIconCSS}>{props.icon}</div>}
+        <div className="input-container">
+            {props.icon && <div className="icon">{props.icon}</div>}
             <RACInput
                 {...props}
-                className={(renderProps) =>
-                    clsx(
-                        props.className,
-                        inputCSS({
-                            ...renderProps,
-                            hasIcon: props.icon ? "true" : "false",
-                            variant: props.variant ?? "default",
-                        }),
-                    )
-                }
+                className={clsx(props.className, "input", {
+                    "has-icon": !!props.icon,
+                    unstyled: props.variant === "unstyled",
+                })}
                 ref={ref}
             />
         </div>

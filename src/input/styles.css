@@ -1,0 +1,96 @@
+.input-container {
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: var(--clr-text_low_contrast);
+
+        height: 100%;
+        width: var(--space-5);
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        top: 0;
+
+        pointer-events: none;
+
+        margin-left: var(--space-1);
+    }
+
+    .input {
+        --input-bg: var(--clr-bg_field);
+        --input-color: var(--clr-text_high_contrast);
+
+        --input-height: var(--space-8);
+
+        --input-border-width: 1px;
+        --input-border-color: var(--clr-border_field);
+        --input-border-radius: var(--radius-md);
+
+        --input-outline-width: 2px;
+        --input-outline-color: transparent;
+
+        --input-padding: 0 var(--space-2);
+
+        color: var(--input-color);
+        font-size: var(--fontSize-bodySm);
+        line-height: var(--lineHeight-bodySm);
+
+        width: 100%;
+        height: var(--input-height);
+
+        border: var(--input-border-width) solid var(--input-border-color);
+        border-radius: var(--input-border-radius);
+
+        outline: var(--input-outline-width) solid var(--input-outline-color);
+
+        padding: var(--input-padding);
+
+        @media (prefers-reduced-motion: no-preference) {
+            transition-duration: var(--dur-short);
+            transition-property: background-color, border-color, color, outline;
+            transition-timing-function: var(--ease-quart-in-out);
+        }
+
+        &.unstyled {
+            --input-bg: transparent;
+            --input-border-color: transparent;
+            --input-border-radius: 0;
+            --input-border-width: 0;
+        }
+
+        &.has-icon {
+            --input-padding: 0 var(--space-2) 0 var(--space-6);
+        }
+
+        &:not(.unstyled)[data-hovered] {
+            --input-bg: var(--clr-bg_field_active);
+            --input-border-color: var(--clr-border_field_active);
+        }
+
+        &:not(.unstyled)[data-focused],
+        &:not(.unstyled)[data-focus-visible] {
+            --input-bg: var(--clr-bg_field_active);
+            --input-border-color: var(--clr-focus_border);
+            --input-outline-color: var(--clr-focus_ring);
+        }
+
+        &[data-invalid] {
+            --input-bg: var(--clr-red-bg_field);
+            --input-color: var(--clr-red-text_low_contrast);
+            --input-border-color: var(--clr-red-focus_border);
+            --input-outline-color: var(--clr-red-focus_ring);
+        }
+
+        &[data-disabled] {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}

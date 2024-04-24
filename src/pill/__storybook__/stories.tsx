@@ -6,10 +6,6 @@ import { Pill } from "..";
 import { Icon } from "../../icon";
 
 const meta = {
-    args: {
-        children: "Pill",
-        slotLeft: <Icon icon={faCircleSmall} />,
-    },
     component: Pill,
     title: "Components/Pill",
 } satisfies Meta<typeof Pill>;
@@ -17,20 +13,46 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    render: (args) => (
+        <Pill {...args}>
+            <Icon icon={faCircleSmall} />I am a pill
+        </Pill>
+    ),
+};
 
 export const ColorOverlayRed: Story = {
-    args: { colorOverlay: "red" },
+    args: { className: "red" },
+    render: (args) => (
+        <Pill {...args}>
+            <Icon icon={faCircleSmall} />I am a pill
+        </Pill>
+    ),
 };
 
 export const ColorOverlayBlue: Story = {
-    args: { colorOverlay: "blue" },
+    args: { className: "blue" },
+    render: (args) => (
+        <Pill {...args}>
+            <Icon icon={faCircleSmall} />I am a pill
+        </Pill>
+    ),
 };
 
 export const ColorOverlayGreen: Story = {
-    args: { colorOverlay: "green" },
+    args: { className: "green" },
+    render: (args) => (
+        <Pill {...args}>
+            <Icon icon={faCircleSmall} />I am a pill
+        </Pill>
+    ),
 };
 
 export const ColorOverlayAmber: Story = {
-    args: { colorOverlay: "amber" },
+    args: { className: "amber" },
+    render: (args) => (
+        <Pill {...args}>
+            <Icon icon={faCircleSmall} />I am a pill
+        </Pill>
+    ),
 };

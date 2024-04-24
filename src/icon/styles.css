@@ -1,0 +1,10 @@
+.icon {
+    flex-shrink: 0;
+    color: currentColor;
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition-duration: var(--dur-short);
+        transition-property: all;
+        transition-timing-function: var(--ease-quart-in-out);
+    }
+}

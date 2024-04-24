@@ -16,7 +16,7 @@ import { FieldButton, type FieldButtonProps } from "../field-button";
 import { Icon } from "../icon";
 import { toast } from "../toaster";
 import { Tooltip, TooltipTrigger } from "../tooltip";
-import { textFieldCSS } from "./styles.css";
+import "./styles.css";
 
 /**
  * A `FieldButton` to clear the text field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
@@ -130,7 +130,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             <FieldButtonContext.Provider value={buttonContext}>
                 <RACTextField
                     {...props}
-                    className={(p) => clsx(props.className, textFieldCSS(p))}
+                    className={clsx(props.className, "text-field")}
                     onChange={(v) => {
                         setValue(v);
                         props.onChange?.(v);
