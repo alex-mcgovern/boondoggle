@@ -1,7 +1,7 @@
 import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import {
     NumberField as RACNumberField,
     type NumberFieldProps as RACNumberFieldProps,
@@ -81,9 +81,13 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.value || props.defaultValue,
+        defaultValue: props.defaultValue,
         name: props.name,
     });
+
+    useEffect(() => {
+        onChange(value);
+    }, [onChange, value]);
 
     return (
         <NumberField
