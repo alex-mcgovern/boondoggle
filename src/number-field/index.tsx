@@ -81,7 +81,7 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.defaultValue,
+        defaultValue: props.value || props.defaultValue,
         name: props.name,
     });
 
