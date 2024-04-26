@@ -94,7 +94,7 @@ export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
         },
         {
             style: css({
-                paddingLeft: "space_7",
+                paddingLeft: "space_8",
                 paddingRight: "space_2",
             }),
             variants: {
