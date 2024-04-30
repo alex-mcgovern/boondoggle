@@ -1,9 +1,13 @@
 import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
 import type { Meta, StoryObj } from "@storybook/react";
+// import type { FormProps } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { parseAbsoluteToLocal } from "@internationalized/date";
+import { useState } from "react";
 import { z } from "zod";
+
+import type { FormProps } from ".";
 
 import { Form } from ".";
 import { Button } from "../button";
@@ -402,3 +406,40 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+const ControlledFormNumberFieldTemplate = (args: FormProps<FieldValues>) => {
+    const [value, setValue] = useState<number>(0);
+    return (
+        <>
+            <Button onPress={() => setValue(value + 1)}>Increment</Button>
+            {value}
+            <Form<FieldValues>
+                {...args}
+                handleSubmit={(fieldValues) => {
+                    console.log(fieldValues);
+                }}
+                name="controlled-form-number-field"
+            >
+                <FormNumberField
+                    className={css({
+                        marginBottom: "space_2",
+                    })}
+                    name="count"
+                    onChange={setValue}
+                    value={value}
+                >
+                    <Label>Count</Label>
+                    <Group>
+                        <Input variant="unstyled" />
+                        <NumberFieldDecrementButton />
+                        <NumberFieldIncrementButton />
+                    </Group>
+                </FormNumberField>
+            </Form>
+        </>
+    );
+};
+
+export const ControlledFormNumberField: Story = {
+    render: ControlledFormNumberFieldTemplate,
+};

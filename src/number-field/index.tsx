@@ -93,8 +93,8 @@ export function FormNumberField({ children, ...props }: NumberFieldProps) {
     });
 
     useEffect(() => {
-        onChange(value);
-    }, [onChange, value]);
+        onChange(props.value);
+    }, [onChange, props.value]);
 
     return (
         <NumberField
