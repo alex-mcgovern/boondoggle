@@ -9,7 +9,7 @@ import {
 
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
-import { numberFieldCSS } from "./styles.css";
+import "./styles.css";
 
 /**
  * A `FieldButton` to decrement the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
@@ -55,7 +55,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
         return (
             <RACNumberField
                 {...props}
-                className={clsx(props.className, numberFieldCSS)}
+                className={clsx(props.className, "number-field")}
                 ref={ref}
             />
         );

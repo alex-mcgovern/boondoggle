@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 
-import { Header as StoryComp } from "..";
+import { PageHeader as StoryComp } from "..";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
@@ -12,7 +12,7 @@ const meta = {
     parameters: {
         layout: "padded",
     },
-    title: "Components/Header",
+    title: "Components/PageHeader",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

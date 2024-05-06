@@ -2,10 +2,6 @@ import type { HTMLProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
-import type { WithSize } from "../types";
-
-import { mainCSS } from "./styles.css";
-
 /**
  * Main HTML element.
  */
@@ -14,16 +10,20 @@ export function Main({
     className,
     size = "lg",
     ...rest
-}: Omit<HTMLProps<HTMLElement>, "size"> &
-    WithSize & {
-        /**
-         * Main content.
-         */
-        children: ReactNode;
-    }) {
+}: Omit<HTMLProps<HTMLElement>, "size"> & {
+    /**
+     * Main content.
+     */
+    children: ReactNode;
+
+    /**
+     * Width of the main element.
+     */
+    size?: "lg" | "md" | "sm";
+}) {
     return (
         <main
-            className={clsx(className, mainCSS({ size }))}
+            className={clsx(className, "main", size)}
             {...rest}
         >
             {children}

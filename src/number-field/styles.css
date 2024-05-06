@@ -1,4 +1,4 @@
-.text-field {
+.number-field {
     position: relative;
 
     &[data-disabled] {

@@ -1,4 +1,8 @@
 :root {
+    --bp-sm: 496px;
+    --bp-md: 768px;
+    --bp-lg: 992px;
+
     --space-0: 0;
     --space-0\.25: 0.0625rem;
     --space-0\.5: 0.125rem;
@@ -16,6 +20,10 @@
     --space-6: 1.5rem;
     --space-7: 1.75rem;
     --space-8: 2rem;
+
+    --width-main-lg: 75rem;
+    --width-main-md: 55.5rem;
+    --width-main-sm: 40rem;
 
     --radius-sm: 4px;
     --radius-md: 8px;

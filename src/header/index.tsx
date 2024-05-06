@@ -2,10 +2,10 @@ import type { HTMLProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
-import { actionsCSS, headerCSS } from "./styles.css";
+import "./styles.css";
 
 /**
- * A header is used at the top of a page, and usually contains a title, actions, and tabs.
+ * A PageHeader is used at the top of a page, and usually contains a title, actions, and tabs.
  *
  * ## Install
  *
@@ -16,18 +16,17 @@ import { actionsCSS, headerCSS } from "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Header, type HeaderProps } from "boondoggle/header"
+ * import { PageHeader, type PageHeaderProps } from "boondoggle/pageheader"
  * ```
  */
-export function Header({
+export function PageHeader({
     actions,
     children,
     className,
-    tabs,
     ...rest
 }: HTMLProps<HTMLElement> & {
     /**
-     * Actions to be displayed on the right side of the header.
+     * Actions to be displayed on the right side of the pageheader.
      */
     actions?: ReactNode;
 
@@ -35,23 +34,14 @@ export function Header({
      * Main content.
      */
     children: ReactNode;
-
-    /**
-     * Tabs to be displayed underneath the header.
-     * @deprecated Compose tabs outside the scope of the header instead.
-     */
-    tabs?: ReactNode;
 }) {
     return (
-        <>
-            <header
-                className={clsx(className, headerCSS)}
-                {...rest}
-            >
-                {children}
-                {actions && <div className={actionsCSS}>{actions}</div>}
-            </header>
-            {tabs && tabs}
-        </>
+        <header
+            className={clsx(className, "page-header")}
+            {...rest}
+        >
+            {children}
+            {actions && <div className="actions">{actions}</div>}
+        </header>
     );
 }

@@ -1,0 +1,89 @@
+.calendar {
+    --cell-outline-width: 2px;
+    --cell-outline-color: transparent;
+    --cell-bg: transparent;
+    --cell-color: var(--clr-text_low_contrast);
+    --cell-size: var(--space-8);
+
+    color: var(--clr-text_high_contrast);
+    max-width: 100%;
+    width: fit-content;
+
+    .header {
+        display: flex;
+        align-items: center;
+
+        margin: 0 var(--space-1) var(--space-1) var(--space-1);
+    }
+
+    .heading {
+        flex-grow: 1;
+
+        font-size: var(--fontSize-bodyMd);
+        line-height: var(--lineHeight-bodyMd);
+        text-align: center;
+
+        margin: 0;
+    }
+
+    .cell {
+        font-size: var(--fontSize-bodySm);
+        line-height: var(--lineHeight-bodySm);
+        font-weight: var(--fontWeight-medium);
+
+        text-align: center;
+        vertical-align: middle;
+
+        width: var(--cell-size);
+        height: var(--cell-size);
+        aspect-ratio: 1 / 1;
+    }
+
+    .grid-header {
+        border-bottom: 1px solid var(--clr-border_rule);
+
+        .cell {
+            color: var(--clr-text_low_contrast);
+        }
+    }
+
+    .grid-body {
+        .cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: var(--radius-round);
+            cursor: pointer;
+
+            background-color: var(--cell-bg);
+            color: var(--cell-color);
+
+            outline: var(--cell-outline-width) solid var(--cell-outline-color);
+
+            font-variant-numeric: tabular-nums;
+
+            @media (prefers-reduced-motion: no-preference) {
+                transition-duration: var(--dur-short);
+                transition-property: background-color, opacity, color, outline;
+                transition-timing-function: var(--ease-quart-in-out);
+            }
+
+            &[data-disabled] {
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+
+            &[data-focused],
+            &[data-focus-visible] {
+                --cell-color: var(--clr-btn_primary_bg);
+                --cell-bg: var(--clr-button_tint);
+            }
+
+            &[data-selected] {
+                --cell-bg: var(--clr-btn_primary_bg);
+                --cell-color: var(--clr-white);
+            }
+        }
+    }
+}

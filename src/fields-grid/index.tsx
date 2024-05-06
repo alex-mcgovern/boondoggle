@@ -1,15 +1,18 @@
 import type { ReactNode } from "react";
 
-import type { BoxProps } from "../box";
+import clsx from "clsx";
 
-import { Box } from "../box";
-import { fieldsGridCSS } from "./styles.css";
+import "./styles.css";
 
-export type FieldsGridProps = BoxProps & {
+export type FieldsGridProps = {
     /**
      * The children of the FieldsGrid.
      */
     children: ReactNode;
+    /**
+     * CSS class name.
+     */
+    className?: string;
 };
 
 /**
@@ -27,13 +30,13 @@ export type FieldsGridProps = BoxProps & {
  * import { FieldsGrid, type FieldsGridProps } from "boondoggle/fields-grid"
  * ```
  */
-export function FieldsGrid({ children, ...rest }: FieldsGridProps) {
+export function FieldsGrid({ children, ...props }: FieldsGridProps) {
     return (
-        <Box
-            className={fieldsGridCSS}
-            {...rest}
+        <div
+            className={clsx(props.className, "fields-grid")}
+            {...props}
         >
             {children}
-        </Box>
+        </div>
     );
 }

@@ -5,6 +5,7 @@ import type {
     TabsProps as ReactAriaTabsProps,
 } from "react-aria-components";
 
+import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useLayoutEffect, useState } from "react";
 import {
@@ -14,13 +15,7 @@ import {
     Tabs as ReactAriaTabs,
 } from "react-aria-components";
 
-import {
-    tabIndicatorCSS,
-    tabInnerCSS,
-    tabListInnerCSS,
-    tabListOuterCSS,
-    tabOuterCSS,
-} from "./styles.css";
+import "./styles.css";
 
 export type TabProps = Omit<ReactAriaTabProps, "className"> & {
     /**
@@ -36,7 +31,7 @@ export type TabProps = Omit<ReactAriaTabProps, "className"> & {
 function Tab({ animationKey, id, label, ...props }: TabProps) {
     return (
         <ReactAriaTab
-            className={tabOuterCSS}
+            className="tab"
             id={id}
             {...props}
         >
@@ -45,7 +40,7 @@ function Tab({ animationKey, id, label, ...props }: TabProps) {
                     <>
                         {isSelected ? (
                             <motion.span
-                                className={tabIndicatorCSS}
+                                className="indicator"
                                 layoutId={animationKey}
                                 style={{
                                     originY: "0px", // prevent vertical movement
@@ -57,7 +52,7 @@ function Tab({ animationKey, id, label, ...props }: TabProps) {
                                 }}
                             />
                         ) : null}
-                        <div className={tabInnerCSS}>{label}</div>
+                        <div className="inner">{label}</div>
                     </>
                 );
             }}
@@ -77,9 +72,9 @@ export function TabList({
     justify?: "space-evenly" | "start";
 }) {
     return (
-        <div className={tabListOuterCSS}>
+        <div className="tab-list">
             <ReactAriaTabList
-                className={tabListInnerCSS({ justify })}
+                className={clsx("inner", justify)}
                 items={items}
                 {...props}
             >

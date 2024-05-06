@@ -1,3 +1,5 @@
+import type { TextFieldProps as RACTextFieldProps } from "react-aria-components";
+
 import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
@@ -7,7 +9,6 @@ import { forwardRef, useCallback, useMemo, useState } from "react";
 import {
     ButtonContext as FieldButtonContext,
     TextField as RACTextField,
-    type TextFieldProps as RACTextFieldProps,
     useSlottedContext,
 } from "react-aria-components";
 

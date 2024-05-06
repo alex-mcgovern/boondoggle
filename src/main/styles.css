@@ -1,0 +1,16 @@
+main.main {
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+
+    scrollbar-gutter: stable;
+
+    &.lg {
+        max-width: var(--width-main-lg);
+    }
+    &.md {
+        max-width: var(--width-main-md);
+    }
+    &.sm {
+        max-width: var(--width-main-sm);
+    }
+}

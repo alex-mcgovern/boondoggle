@@ -18,14 +18,7 @@ import {
 
 import { Button } from "../button";
 import { Icon } from "../icon";
-import {
-    calendarCSS,
-    calendarCellCSS,
-    calendarGridHeaderCSS,
-    calendarGridHeaderCellCSS,
-    calendarHeaderCSS,
-    calendarHeadingCSS,
-} from "./styles.css";
+import "./styles.css";
 
 /**
  * Calendars display a grid of days in one or more months and allow users to select a single date. [Built with React Aria Calendar](https://react-spectrum.adobe.com/react-aria/Calendar.html)
@@ -48,65 +41,37 @@ export function Calendar<TDateValue extends RACDateValue>(
     return (
         <RACCalendar
             {...props}
-            className={clsx(props.className, calendarCSS)}
+            className={clsx(props.className, "calendar")}
         >
-            <header className={calendarHeaderCSS}>
+            <header className="header">
                 <Button
                     appearance="ghost"
                     slot="previous"
+                    size="square_sm"
                 >
                     <Icon icon={faAngleLeft} />
                 </Button>
-                <RACHeading className={calendarHeadingCSS} />
+                <RACHeading className="heading" />
                 <Button
                     appearance="ghost"
                     slot="next"
+                    size="square_sm"
                 >
                     <Icon icon={faAngleRight} />
                 </Button>
             </header>
             <RACCalendarGrid>
-                <RACCalendarGridHeader className={calendarGridHeaderCSS}>
+                <RACCalendarGridHeader className="grid-header">
                     {(day) => (
-                        <RACCalendarHeaderCell
-                            className={calendarGridHeaderCellCSS}
-                        >
+                        <RACCalendarHeaderCell className="cell">
                             {day}
                         </RACCalendarHeaderCell>
                     )}
                 </RACCalendarGridHeader>
-                <RACCalendarGridBody>
+                <RACCalendarGridBody className="grid-body">
                     {(date) => (
                         <RACCalendarCell
-                            className={({
-                                isDisabled,
-                                isFocused,
-                                isFocusVisible,
-                                isHovered,
-                                isInvalid,
-                                isOutsideMonth,
-                                isOutsideVisibleRange,
-                                isPressed,
-                                isSelected,
-                                isSelectionEnd,
-                                isSelectionStart,
-                                isUnavailable,
-                            }) =>
-                                calendarCellCSS({
-                                    isDisabled,
-                                    isFocused,
-                                    isFocusVisible,
-                                    isHovered,
-                                    isInvalid,
-                                    isOutsideMonth,
-                                    isOutsideVisibleRange,
-                                    isPressed,
-                                    isSelected,
-                                    isSelectionEnd,
-                                    isSelectionStart,
-                                    isUnavailable,
-                                })
-                            }
+                            className="cell"
                             date={date}
                         />
                     )}

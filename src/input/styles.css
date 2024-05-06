@@ -38,6 +38,7 @@
 
         --input-padding: 0 var(--space-2);
 
+        background-color: var(--input-bg);
         color: var(--input-color);
         font-size: var(--fontSize-bodySm);
         line-height: var(--lineHeight-bodySm);
@@ -82,10 +83,13 @@
         }
 
         &[data-invalid] {
-            --input-bg: var(--clr-red-bg_field);
-            --input-color: var(--clr-red-text_low_contrast);
-            --input-border-color: var(--clr-red-focus_border);
-            --input-outline-color: var(--clr-red-focus_ring);
+            --clr-bg_field_active: var(--clr-red-bg_field_active);
+            --clr-bg_field: var(--clr-red-bg_field);
+            --clr-border_field_active: var(--clr-red-border_field_active);
+            --clr-border_field: var(--clr-red-border_field);
+            --clr-focus_border: var(--clr-red-focus_border);
+            --clr-focus_ring: var(--clr-red-focus_ring);
+            --clr-text_high_contrast: var(--clr-red-text_high_contrast);
         }
 
         &[data-disabled] {
