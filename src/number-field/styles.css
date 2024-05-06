@@ -6,40 +6,4 @@
         cursor: not-allowed;
         opacity: 0.5;
     }
-
-    &[data-invalid] {
-        --clr-backdrop: var(--clr-red-backdrop);
-        --clr-background: var(--clr-red-background);
-        --clr-bg_field_active: var(--clr-red-bg_field_active);
-        --clr-bg_field: var(--clr-red-bg_field);
-        --clr-bg_filter_button_active: var(--clr-red-bg_filter_button_active);
-        --clr-bg_filter_button: var(--clr-red-bg_filter_button);
-        --clr-bg_switch_active: var(--clr-red-bg_switch_active);
-        --clr-bg_switch: var(--clr-red-bg_switch);
-        --clr-bg_toast: var(--clr-red-bg_toast);
-        --clr-black: var(--clr-red-black);
-        --clr-border_field_active: var(--clr-red-border_field_active);
-        --clr-border_field: var(--clr-red-border_field);
-        --clr-border_rule: var(--clr-red-border_rule);
-        --clr-btn_bg_ghost_active: var(--clr-red-btn_bg_ghost_active);
-        --clr-btn_bg_ghost: var(--clr-red-btn_bg_ghost);
-        --clr-btn_bg_secondary_active: var(--clr-red-btn_bg_secondary_active);
-        --clr-btn_bg_secondary: var(--clr-red-btn_bg_secondary);
-        --clr-btn_primary_bg_active: var(--clr-red-btn_primary_bg_active);
-        --clr-btn_primary_bg: var(--clr-red-btn_primary_bg);
-        --clr-button_tint: var(--clr-red-button_tint);
-        --clr-focus_border: var(--clr-red-focus_border);
-        --clr-focus_ring: var(--clr-red-focus_ring);
-        --clr-switch_foreground: var(--clr-red-switch_foreground);
-        --clr-tab_hover_color: var(--clr-red-tab_hover_color);
-        --clr-tab_selected_color: var(--clr-red-tab_selected_color);
-        --clr-text_high_contrast: var(--clr-red-text_high_contrast);
-        --clr-text_low_contrast: var(--clr-red-text_low_contrast);
-        --clr-tint_active: var(--clr-red-tint_active);
-        --clr-tint_default: var(--clr-red-tint_default);
-        --clr-tint_hover: var(--clr-red-tint_hover);
-        --clr-toast_icon: var(--clr-red-toast_icon);
-        --clr-toast_text: var(--clr-red-toast_text);
-        --clr-white: var(--clr-red-white);
-    }
 }

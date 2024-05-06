@@ -36,7 +36,7 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
         isFilterApplied: {
             false: {
                 background: "transparent",
-                border: `1px dashed var(--clr-border_field)`,
+                border: `1px dashed var(--slate-6)`,
             },
             true: [css({ border: "border_field" })],
         },

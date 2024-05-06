@@ -9,10 +9,10 @@ import {
 } from "../index.css";
 
 const border = {
-    border_field: `1px solid var(--clr-border_field)`,
-    border_field_active: `1px solid var(--clr-border_field_active)`,
-    border_rule: `1px solid var(--clr-border_rule)`,
-    focus: `1px solid var(--clr-focus_border) !important`,
+    border_field: `1px solid var(--slate-6)`,
+    border_field_active: `1px solid var(--slate-7)`,
+    border_rule: `1px solid var(--slate-5)`,
+    focus: `1px solid var(--blue-8) !important`,
     none: "0px solid transparent",
     transparent: "1px solid transparent",
 };
@@ -77,7 +77,7 @@ const properties = defineProperties({
             none: "0px solid transparent",
 
             // Group: Focus outline should come last to allow overriding
-            focus: `1px solid var(--clr-focus_ring) !important`,
+            focus: `1px solid var(--blue-6) !important`,
         },
         overflowX: ["hidden", "auto", "visible", "scroll"],
         overflowY: ["hidden", "auto", "visible", "scroll"],

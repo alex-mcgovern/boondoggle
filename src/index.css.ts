@@ -327,8 +327,8 @@ export const variantColorOverlay = styleVariants({
 });
 
 export const a11yFocusStyleRule: StyleRule = {
-    borderColor: "var(--clr-focus_border)",
-    outline: `2px solid var(--clr-focus_ring) `,
+    borderColor: "var(--blue-8)",
+    outline: `2px solid var(--blue-6) `,
 };
 
 export const a11yFocus = style([
@@ -568,8 +568,8 @@ globalStyle("*", {
 globalStyle("html", {
     "@layer": {
         [baseLayer]: {
-            accentColor: "var(--clr-btn_primary_bg)",
-            background: "var(--clr-background)",
+            accentColor: "var(--blue-9)",
+            background: "var(--slate-1)",
             fontSize: vars.fontSize.root,
         },
     },
@@ -587,7 +587,7 @@ globalStyle("html", {
 globalStyle("body", {
     "@layer": {
         [baseLayer]: {
-            color: "var(--clr-text_high_contrast)",
+            color: "var(--slate-12)",
             fontSize: vars.fontSize.bodyMd,
             height: "100%",
             lineHeight: vars.lineHeight.bodyMd,
@@ -599,7 +599,7 @@ globalStyle("body", {
 globalStyle("a", {
     "@layer": {
         [baseLayer]: {
-            color: "var(--clr-btn_primary_bg)",
+            color: "var(--blue-9)",
             margin: 0,
             padding: 0,
             textDecoration: "none",
@@ -618,7 +618,7 @@ globalStyle("b, strong", {
 globalStyle("a:hover, a:focus, a:focus-visible", {
     "@layer": {
         [baseLayer]: {
-            color: "var(--clr-btn_primary_bg_active)",
+            color: "var(--blue-10)",
             textDecoration: "underline",
         },
     },
@@ -646,7 +646,7 @@ globalStyle("button", {
 globalStyle("input[type=checkbox]", {
     "@layer": {
         [baseLayer]: {
-            accentColor: "var(--clr-btn_primary_bg)",
+            accentColor: "var(--blue-9)",
             cursor: "pointer",
             height: "var(--space-4)",
             width: "var(--space-4)",
@@ -670,7 +670,7 @@ globalStyle("code", {
 globalStyle("pre:has(code)", {
     "@layer": {
         [baseLayer]: {
-            background: "var(--clr-tint_default)",
+            background: "var(--slate-2)",
             borderRadius: "var(--radius-md)",
             marginBottom: "var(--space-6)",
             marginTop: "var(--space-6)",
@@ -750,7 +750,7 @@ globalStyle("hr", {
     "@layer": {
         [baseLayer]: {
             border: "none",
-            borderColor: `var(--clr-border_rule) !important`,
+            borderColor: `var(--slate-5) !important`,
             borderTop: "1px solid",
             margin: "0",
             marginBottom: "var(--space-6)",
@@ -783,7 +783,7 @@ globalStyle("ul li, ol li", {
 globalStyle("ul li::marker, ol li::marker", {
     "@layer": {
         [baseLayer]: {
-            color: "var(--clr-text_low_contrast)",
+            color: "var(--slate-11)",
             fontWeight: vars.fontWeight.semibold,
         },
     },
@@ -938,8 +938,8 @@ export const unobtrusiveScrollBar = style({
         },
 
         "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "var(--clr-btn_bg_secondary_active)",
-            border: `2px solid var(--clr-background)`,
+            backgroundColor: "var(--slate-3)",
+            border: `2px solid var(--slate-1)`,
             borderRadius: "var(--radius-md)",
         },
         "&::-webkit-scrollbar-track": {

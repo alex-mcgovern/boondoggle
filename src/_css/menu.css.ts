@@ -8,7 +8,7 @@ export const menuSectionCSS = style([
     {
         selectors: {
             "&:not(:last-child)::after": {
-                background: "var(--clr-border_rule)",
+                background: "var(--slate-5)",
                 content: "",
 
                 display: "block",

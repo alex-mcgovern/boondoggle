@@ -1,11 +1,11 @@
 .text-area {
-    --text-area-bg: var(--clr-bg_field);
-    --text-area-color: var(--clr-text_high_contrast);
+    --text-area-bg: var(--slate-2);
+    --text-area-color: var(--slate-12);
 
     --text-area-height: calc(var(--space-8) * 3);
 
     --text-area-border-width: 1px;
-    --text-area-border-color: var(--clr-border_field);
+    --text-area-border-color: var(--slate-6);
     --text-area-border-radius: var(--radius-md);
 
     --text-area-outline-width: 2px;
@@ -35,22 +35,33 @@
     }
 
     &[data-hovered] {
-        --text-area-bg: var(--clr-bg_field_active);
-        --text-area-border-color: var(--clr-border_field_active);
+        --text-area-bg: var(--slate-1);
+        --text-area-border-color: var(--slate-7);
     }
 
     &[data-focused],
     &[data-focus-visible] {
-        --text-area-bg: var(--clr-bg_field_active);
-        --text-area-border-color: var(--clr-focus_border);
-        --text-area-outline-color: var(--clr-focus_ring);
+        --text-area-bg: var(--slate-1);
+        --text-area-border-color: var(--blue-8);
+        --text-area-outline-color: var(--blue-6);
     }
 
     &[data-invalid] {
-        --text-area-bg: var(--clr-red-bg_field);
-        --text-area-color: var(--clr-red-text_low_contrast);
-        --text-area-border-color: var(--clr-red-focus_border);
-        --text-area-outline-color: var(--clr-red-focus_ring);
+        --text-area-bg: var(--red-2);
+        --text-area-text-color: var(--red-12);
+        --text-area-border-color: var(--red-6);
+
+        &[data-hovered] {
+            --text-area-bg: var(--red-1);
+            --text-area-border-color: var(--red-7);
+        }
+
+        &[data-focused],
+        &[data-focus-visible] {
+            --text-area-bg: var(--red-1);
+            --text-area-border-color: var(--red-8);
+            --text-area-outline-color: var(--red-6);
+        }
     }
 
     &[data-disabled] {

@@ -38,11 +38,11 @@ export const cardCSS = recipe({
             ],
             true: [
                 {
-                    borderBottom: `1px solid var(--clr-border_rule)`,
+                    borderBottom: `1px solid var(--slate-5)`,
                     borderBottomLeftRadius: "var(--radius-lg)",
                     borderBottomRightRadius: "var(--radius-lg)",
-                    borderLeft: `1px solid var(--clr-border_rule)`,
-                    borderRight: `1px solid var(--clr-border_rule)`,
+                    borderLeft: `1px solid var(--slate-5)`,
+                    borderRight: `1px solid var(--slate-5)`,
                 },
             ],
         },

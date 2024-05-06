@@ -1,4 +1,4 @@
-.text-field {
+.checkbox-group {
     position: relative;
 
     &[data-disabled] {

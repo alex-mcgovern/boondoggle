@@ -19,7 +19,7 @@ export const toastCloseButtonCSS = style([
         }),
         selectors: {
             [`&${HOVER}`]: {
-                background: "var(--clr-text_low_contrast)",
+                background: "var(--slate-11)",
             },
         },
     },

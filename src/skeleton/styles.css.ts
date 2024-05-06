@@ -16,8 +16,8 @@ export const loadingStyles = style([
       rgba(255, 255, 255, 0) 40%,
       rgba(255, 255, 255, .5) 50%,
       rgba(255, 255, 255, 0) 60%
-    ) var(--clr-tint_active)`,
-        backgroundColor: "var(--clr-tint_hover)",
+    ) var(--slate-4)`,
+        backgroundColor: "var(--slate-3)",
         backgroundPositionX: "180%",
         backgroundSize: "200% 100%",
     },

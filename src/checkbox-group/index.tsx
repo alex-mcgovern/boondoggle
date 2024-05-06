@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { CheckboxGroup as RACCheckboxGroup } from "react-aria-components";
 
-import { checkboxGroupCSS } from "./styles.css";
+import "./styles.css";
 
 export type CheckboxGroupProps = RACCheckboxGroupProps;
 
@@ -28,22 +28,7 @@ export const CheckboxGroup = forwardRef<HTMLDivElement, RACCheckboxGroupProps>(
         return (
             <RACCheckboxGroup
                 {...props}
-                className={({
-                    isDisabled,
-                    isInvalid,
-                    isReadOnly,
-                    isRequired,
-                }) =>
-                    clsx(
-                        props.className,
-                        checkboxGroupCSS({
-                            isDisabled,
-                            isInvalid,
-                            isReadOnly,
-                            isRequired,
-                        }),
-                    )
-                }
+                className={clsx(props.className, "checkbox-group")}
                 ref={ref}
             />
         );

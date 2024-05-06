@@ -1,0 +1,22 @@
+.select {
+    flex-shrink: 0;
+
+    &[data-disabled] {
+        cursor: "not-allowed !important";
+        opacity: 0.5;
+    }
+
+    .select-button {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        color: var(--slate-12);
+
+        font-size: var(--var-fontSize-bodySm);
+        line-height: var(--var-lineHeight-bodySm);
+
+        height: var(--space-8);
+        width: 100%;
+    }
+}

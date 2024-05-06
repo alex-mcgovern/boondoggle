@@ -1,5 +1,5 @@
 .table {
-    --table-border-color: var(--clr-border_rule);
+    --table-border-color: var(--slate-5);
     --table-border-width: 1px;
 
     --table-font-size: var(--fontSize-bodySm);
@@ -15,12 +15,12 @@
     forced-color-adjust: none;
 
     /* &[data-focus-visible] {
-        outline: 2px solid var(--clr-focus_ring);
+        outline: 2px solid var(--blue-6);
         outline-offset: -1px;
     } */
 
     .table-header {
-        color: var(--clr-text_high_contrast);
+        color: var(--slate-12);
 
         &:after {
             content: "";
@@ -37,7 +37,7 @@
     .row {
         outline: none;
         cursor: default;
-        color: var(--clr-text_high_contrast);
+        color: var(--slate-12);
         font-size: var(--table-font-size);
         line-height: var(--table-line-height);
         position: relative;
@@ -45,12 +45,12 @@
         padding: var(--space-1) var(--space-8);
 
         &[data-focus-visible] {
-            outline: 2px solid var(--clr-focus_ring);
+            outline: 2px solid var(--blue-6);
             outline-offset: -2px;
         }
 
         &[data-pressed] {
-            background: var(--clr-tint_default);
+            background: var(--slate-2);
         }
 
         &[data-selected] {
@@ -65,7 +65,8 @@
         }
 
         &[data-disabled] {
-            color: var(--clr-text_high_contrast-disabled);
+            opacity: 0.5;
+            cursor: not-allowed;
         }
     }
 
@@ -77,13 +78,13 @@
         border-bottom: var(--table-border-width) solid var(--table-border-color);
 
         &[data-focus-visible] {
-            outline: 2px solid var(--clr-focus_ring);
+            outline: 2px solid var(--blue-6);
             outline-offset: -2px;
         }
     }
 
     .column {
-        color: var(--clr-text_low_contrast);
+        color: var(--slate-11);
         font-weight: var(--fontWeight-medium);
 
         .sort-icon {
@@ -178,7 +179,7 @@
         }
 
         &:focus-visible {
-            outline: 2px solid var(--clr-focus_ring);
+            outline: 2px solid var(--blue-6);
         }
     }
 
@@ -207,11 +208,11 @@
         }
 
         &[data-focus-visible] {
-            background-color: var(--clr-focus_ring);
+            background-color: var(--blue-6);
         }
 
         &[data-resizing] {
-            border-color: var(--clr-focus_ring);
+            border-color: var(--blue-6);
             background-color: transparent;
         }
     }
@@ -237,7 +238,7 @@
 
         &[data-focus-visible] {
             border-radius: 4px;
-            outline: 2px solid var(--clr-focus_ring);
+            outline: 2px solid var(--blue-6);
         }
     }
 }

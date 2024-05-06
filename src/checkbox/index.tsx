@@ -4,19 +4,6 @@ import clsx from "clsx";
 import { Checkbox as RACCheckbox } from "react-aria-components";
 
 import "./styles.css";
-// import { checkboxCSS, checkboxTickCSS, checkboxWrapperCSS } from "./styles.css";
-
-function CheckboxTick({ isSelected }: { isSelected: boolean }) {
-    return (
-        <svg
-            aria-hidden="true"
-            // className={checkboxTickCSS({ isSelected })}
-            viewBox="0 0 18 18"
-        >
-            <polyline points="1 9 7 14 15 4" />
-        </svg>
-    );
-}
 
 export type CheckboxProps = RACCheckboxProps;
 
@@ -45,7 +32,21 @@ export function Checkbox(props: CheckboxProps) {
                 return (
                     <>
                         <div className="checkbox">
-                            <CheckboxTick isSelected={renderProps.isSelected} />
+                            <svg
+                                aria-hidden="true"
+                                viewBox="0 0 18 18"
+                            >
+                                {props.isIndeterminate ? (
+                                    <rect
+                                        height={3}
+                                        width={15}
+                                        x={1}
+                                        y={7.5}
+                                    />
+                                ) : (
+                                    <polyline points="1 9 7 14 15 4" />
+                                )}
+                            </svg>
                         </div>
                         {typeof props.children === "function"
                             ? props.children(renderProps)

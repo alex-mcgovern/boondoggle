@@ -1,0 +1,44 @@
+.field-button {
+    --btn-bg: transparent;
+    --btn-color: var(--slate-11);
+
+    border-radius: var(--radius-sm);
+
+    flex-shrink: 0;
+
+    font-size: var(--fontSize-bodyMd);
+    line-height: var(--lineHeight-bodyMd);
+
+    color: var(--btn-color);
+    background-color: var(--btn-bg);
+
+    outline: 0;
+
+    width: var(--space-6);
+    height: var(--space-6);
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition-duration: var(--dur-short);
+        transition-property: background-color, color;
+        transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    /* Ensure spacing between field-buttons within a group. */
+    &:first-of-type {
+        margin-left: var(--space-1);
+    }
+    &:last-of-type {
+        margin-right: var(--space-1);
+    }
+
+    &[data-disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &[data-hovered],
+    &[data-pressed] {
+        --btn-bg: var(--slate-3);
+        --btn-color: var(--slate-12);
+    }
+}

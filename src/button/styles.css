@@ -1,7 +1,7 @@
 .btn {
-    --btn-background: var(--clr-btn_primary_bg);
-    --btn-background-active: var(--clr-btn_primary_bg_active);
-    --btn-color: var(--clr-white);
+    --btn-background: var(--blue-9);
+    --btn-background-active: var(--blue-10);
+    --btn-text-color: var(--slate-1);
 
     --btn-border-color: transparent;
     --btn-border-size: 1px;
@@ -19,7 +19,7 @@
 
     background-color: var(--btn-background);
 
-    color: var(--btn-color);
+    color: var(--btn-text-color);
     font-size: var(--btn-font-size);
     font-weight: var(--btn-font-weight);
     line-height: var(--btn-line-height);
@@ -54,7 +54,7 @@
     }
 
     &[data-focus-visible] {
-        --btn-outline-color: var(--clr-focus_ring);
+        --btn-outline-color: var(--blue-6);
     }
 
     &[data-focused] {
@@ -62,16 +62,16 @@
     }
 
     &.secondary {
-        --btn-background-active: var(--clr-btn_bg_secondary_active);
-        --btn-background: var(--clr-btn_bg_secondary);
-        --btn-border-color: var(--clr-border_field);
-        --btn-color: var(--clr-text_high_contrast);
+        --btn-background-active: var(--slate-3);
+        --btn-background: var(--slate-2);
+        --btn-border-color: var(--slate-6);
+        --btn-text-color: var(--slate-12);
     }
 
     &.ghost {
-        --btn-background-active: var(--clr-btn_bg_ghost_active);
-        --btn-background: var(--clr-btn_bg_ghost);
-        --btn-color: var(--clr-text_high_contrast);
+        --btn-background-active: var(--slate-3);
+        --btn-background: transparent;
+        --btn-text-color: var(--slate-12);
     }
 
     &.sm {

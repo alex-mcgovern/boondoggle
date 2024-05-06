@@ -1,17 +1,17 @@
 .avatar {
-    --avatar-background: var(--clr-button_tint);
-    --avatar-color: var(--clr-btn_primary_bg);
+    --avatar-bg: var(--blue-5);
+    --avatar-text-color: var(--blue-9);
 
-    background: var(--avatar-background);
+    background: var(--avatar-bg);
+    color: var(--avatar-text-color);
 
     font-size: max(var(--fontSize-bodyMd), 100%);
-    font-weight: medium;
-    color: var(--avatar-color);
+    font-weight: var(--font-weight-medium);
 
     display: flex;
     align-items: center;
-    flex-shrink: 0;
     justify-content: center;
+    flex-shrink: 0;
 
     overflow: hidden;
 

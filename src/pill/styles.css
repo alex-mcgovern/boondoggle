@@ -5,8 +5,8 @@
     flex-shrink: 0;
     gap: var(--space-2);
 
-    background: var(--clr-tint_hover);
-    color: var(--clr-text_low_contrast);
+    background: var(--slate-3);
+    color: var(--slate-11);
 
     border-radius: var(--radius-pill);
 

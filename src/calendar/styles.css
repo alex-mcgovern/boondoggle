@@ -2,10 +2,10 @@
     --cell-outline-width: 2px;
     --cell-outline-color: transparent;
     --cell-bg: transparent;
-    --cell-color: var(--clr-text_low_contrast);
+    --cell-color: var(--slate-11);
     --cell-size: var(--space-8);
 
-    color: var(--clr-text_high_contrast);
+    color: var(--slate-12);
     max-width: 100%;
     width: fit-content;
 
@@ -40,10 +40,10 @@
     }
 
     .grid-header {
-        border-bottom: 1px solid var(--clr-border_rule);
+        border-bottom: 1px solid var(--slate-5);
 
         .cell {
-            color: var(--clr-text_low_contrast);
+            color: var(--slate-11);
         }
     }
 
@@ -76,13 +76,13 @@
 
             &[data-focused],
             &[data-focus-visible] {
-                --cell-color: var(--clr-btn_primary_bg);
-                --cell-bg: var(--clr-button_tint);
+                --cell-color: var(--blue-9);
+                --cell-bg: var(--blue-5);
             }
 
             &[data-selected] {
-                --cell-bg: var(--clr-btn_primary_bg);
-                --cell-color: var(--clr-white);
+                --cell-bg: var(--blue-9);
+                --cell-color: var(--slate-1);
             }
         }
     }

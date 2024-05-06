@@ -9,7 +9,7 @@
     position: relative;
 
     &:after {
-        border-bottom: 1px solid var(--clr-border_rule);
+        border-bottom: 1px solid var(--slate-5);
         content: "";
         inset: 0;
         position: absolute;
@@ -61,7 +61,7 @@
 
         outline: 0;
 
-        color: var(--clr-text_low_contrast);
+        color: var(--slate-11);
 
         @media (prefers-reduced-motion: no-preference) {
             transition-duration: var(--dur-short);
@@ -70,15 +70,15 @@
         }
 
         &[data-selected] {
-            color: var(--clr-btn_primary_bg);
+            color: var(--blue-9);
         }
 
         &[data-hovered] {
-            color: var(--clr-btn_primary_bg);
+            color: var(--blue-9);
         }
 
         &[data-selected][data-hovered] {
-            color: var(--clr-btn_primary_bg);
+            color: var(--blue-9);
         }
 
         .inner {
@@ -92,11 +92,11 @@
         }
 
         &[data-focus-visible] .inner {
-            --tab-outline-color: var(--clr-focus_ring);
+            --tab-outline-color: var(--blue-6);
         }
 
         .indicator {
-            background-color: var(--clr-btn_primary_bg);
+            background-color: var(--blue-9);
             height: var(--tab-indicator-height);
 
             position: absolute;

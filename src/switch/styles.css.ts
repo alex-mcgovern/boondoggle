@@ -46,7 +46,7 @@ export const switchIndicatorCSS = style([
         borderRadius: "pill",
     }),
     {
-        background: "var(--clr-bg_switch)",
+        background: "var(--slate-7)",
         height: SWITCH_HEIGHT,
         width: SWITCH_WIDTH,
 
@@ -58,7 +58,7 @@ export const switchIndicatorCSS = style([
 
         selectors: {
             "&::before": {
-                background: "var(--clr-switch_foreground)",
+                background: "var(--slate-1)",
                 borderRadius: "var(--radius-round)",
 
                 content: "",
@@ -77,26 +77,26 @@ export const switchIndicatorCSS = style([
             },
 
             // [`${switchCSS}[data-pressed] &`]: {
-            // 	borderColor: "var(--clr-border_field_active)",
+            // 	borderColor: "var(--slate-7)",
             // },
             // [`${switchCSS}[data-pressed] &::before`]: {
-            // 	background: "var(--clr-tint_active)",
+            // 	background: "var(--slate-4)",
             // },
 
             [`${switchCSS}[data-focused] &::before`]: {},
             [`${switchCSS}[data-focused] &`]: {
                 ...a11yFocusStyleRule,
-                // 	background: "var(--clr-bg_switch_active)",
-                // 	// borderColor: "var(--clr-focus_ring)",
+                // 	background: "var(--slate-9)",
+                // 	// borderColor: "var(--blue-6)",
             },
 
             [`${switchCSS}[data-selected] &::before`]: {
-                // background: "var(--clr-btn_primary_bg)",
+                // background: "var(--blue-9)",
                 transform: "translateX(100%)",
             },
             [`${switchCSS}[data-selected] &`]: {
-                background: "var(--clr-bg_switch_active)",
-                // borderColor: "var(--clr-focus_ring)",
+                background: "var(--slate-9)",
+                // borderColor: "var(--blue-6)",
             },
         },
     },

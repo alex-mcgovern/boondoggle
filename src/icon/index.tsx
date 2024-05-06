@@ -4,7 +4,7 @@ import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 
-import type { Css } from "../css/index.css";
+import "./styles.css";
 
 export type IconProps = FontAwesomeIconProps & {
     /**
@@ -15,7 +15,7 @@ export type IconProps = FontAwesomeIconProps & {
      * The FontAwesome icon definition to render.
      */
     icon: IconProp;
-} & Css;
+};
 
 /**
  * A wrapper around the FontAwesome icon component.

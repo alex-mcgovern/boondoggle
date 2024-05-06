@@ -1,23 +1,21 @@
+import type { SearchFieldProps as RACSearchFieldProps } from "react-aria-components";
+
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import {
-    SearchField as RACSearchField,
-    type SearchFieldProps as RACSearchFieldProps,
-} from "react-aria-components";
+import { SearchField as RACSearchField } from "react-aria-components";
 
-import { css } from "../css/index.css";
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
-import { searchFieldCSS, searchFieldClearButtonCSS } from "./styles.css";
+import "./styles.css";
 
 /**
  * A `FieldButton` to clear the search field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 export function SearchFieldClearButton() {
     return (
-        <FieldButton className={searchFieldClearButtonCSS}>
+        <FieldButton className="search-field-clear-button">
             <Icon icon={faTimesCircle} />
         </FieldButton>
     );
@@ -29,12 +27,7 @@ export function SearchFieldClearButton() {
 export function SearchFieldIcon() {
     return (
         <Icon
-            className={css({
-                flexShrink: "0",
-                height: "space_6",
-                minWidth: "space_6",
-            })}
-            color="text_low_contrast"
+            className="search-field-icon"
             icon={faSearch}
         />
     );
@@ -62,12 +55,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
         return (
             <RACSearchField
                 {...props}
-                className={({ isDisabled, isEmpty, isInvalid }) =>
-                    clsx(
-                        props.className,
-                        searchFieldCSS({ isDisabled, isEmpty, isInvalid }),
-                    )
-                }
+                className={clsx(props.className, "search-field")}
                 ref={ref}
             />
         );

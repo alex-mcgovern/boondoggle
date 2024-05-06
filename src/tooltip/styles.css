@@ -1,11 +1,11 @@
 .tooltip {
-    --tooltip-bg: var(--clr-black);
-    --tooltip-color: var(--clr-white);
+    --tooltip-bg: var(--slate-12);
+    --tooltip-color: var(--slate-1);
 
     background: var(--tooltip-bg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
-    color: var(--clr-white);
+    color: var(--slate-1);
     font-size: var(--fontSize-bodySm);
     padding: 0 var(--space-2);
 
@@ -76,7 +76,7 @@
 
 .tooltip-trigger-btn {
     --btn-background: transparent;
-    --btn-color: var(--clr-text_low_contrast);
+    --btn-color: var(--slate-11);
 
     --btn-outline-color: transparent;
     --btn-outline-size: 2px;
@@ -104,11 +104,11 @@
     &[data-focus-visible],
     &[data-hovered],
     &[data-pressed] {
-        --btn-color: var(--clr-text_high_contrast);
+        --btn-color: var(--slate-12);
     }
 
     &[data-focus-visible] {
-        --btn-outline-color: var(--clr-focus_ring);
+        --btn-outline-color: var(--blue-6);
     }
 
     &[data-focused] {

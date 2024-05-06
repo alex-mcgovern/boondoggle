@@ -94,7 +94,7 @@ export const selectButtonCSS = recipe({
                  */
 
                 "&[data-placeholder]": {
-                    color: "var(--clr-text_low_contrast)",
+                    color: "var(--slate-11)",
                 },
             },
         },
@@ -152,9 +152,9 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-focus-visible]": {
-                            background: "var(--clr-bg_field_active)",
-                            borderColor: "var(--clr-focus_border)",
-                            outline: `2px solid var(--clr-focus_ring)`,
+                            background: "var(--slate-1)",
+                            borderColor: "var(--blue-8)",
+                            outline: `2px solid var(--blue-6)`,
                         },
 
                         /**
@@ -162,9 +162,9 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-focused]": {
-                            background: "var(--clr-bg_field_active)",
-                            borderColor: "var(--clr-focus_border)",
-                            outline: `2px solid var(--clr-focus_ring)`,
+                            background: "var(--slate-1)",
+                            borderColor: "var(--blue-8)",
+                            outline: `2px solid var(--blue-6)`,
                         },
 
                         /**
@@ -172,8 +172,8 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-hovered]": {
-                            background: "var(--clr-bg_field_active)",
-                            borderColor: "var(--clr-border_field_active)",
+                            background: "var(--slate-1)",
+                            borderColor: "var(--slate-7)",
                         },
 
                         /**
@@ -181,9 +181,9 @@ export const selectButtonCSS = recipe({
                          */
 
                         "&[data-pressed]": {
-                            background: "var(--clr-bg_field_active)",
-                            borderColor: "var(--clr-focus_border)",
-                            outline: `2px solid var(--clr-focus_ring)`,
+                            background: "var(--slate-1)",
+                            borderColor: "var(--blue-8)",
+                            outline: `2px solid var(--blue-6)`,
                         },
                     },
                 },

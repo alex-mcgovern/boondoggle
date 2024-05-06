@@ -14,15 +14,7 @@ import {
 import { Button } from "../button";
 import { css } from "../css/index.css";
 import { Icon } from "../icon";
-import {
-    mobileMenuCSS,
-    mobileMenuContentCSS,
-    mobileMenuFooterCSS,
-    mobileMenuHeaderCSS,
-    mobileMenuModalCSS,
-    mobileMenuOverlayCSS,
-    mobileMenuTitleCSS,
-} from "./styles.css";
+import "./styles.css";
 
 /**
  * Wrapper to render the dialog header.
@@ -37,11 +29,11 @@ export function MobileMenuHeader({
     title?: string;
 }) {
     return (
-        <header className={mobileMenuHeaderCSS}>
+        <header className="mobile-menu-header">
             {children}
             {title ? (
                 <ReactAriaHeading
-                    className={mobileMenuTitleCSS}
+                    className="mobile-menu-title"
                     slot="title"
                 >
                     {title}
@@ -73,14 +65,14 @@ export function ScrollableMobileMenuContent({
 }: {
     children: ReactNode;
 }) {
-    return <div className={mobileMenuContentCSS}>{children}</div>;
+    return <div className="mobile-menu-content">{children}</div>;
 }
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
 export function MobileMenuFooter({ children }: { children: ReactNode }) {
-    return <footer className={mobileMenuFooterCSS}>{children}</footer>;
+    return <footer className="mobile-menu-footer">{children}</footer>;
 }
 
 /**
@@ -127,14 +119,14 @@ export function MobileMenu({
                 <Icon icon={isOpen ? faTimes : faBars} />
             </Button>
             <ReactAriaModalOverlay
-                className={mobileMenuOverlayCSS}
+                className="mobile-menu-overlay"
                 {...modalOverlayProps}
             >
                 <ReactAriaModal
-                    className={mobileMenuModalCSS}
+                    className="mobile-menu-modal"
                     {...modalProps}
                 >
-                    <ReactAriaDialog className={mobileMenuCSS}>
+                    <ReactAriaDialog className="mobile-menu">
                         {children}
                     </ReactAriaDialog>
                 </ReactAriaModal>

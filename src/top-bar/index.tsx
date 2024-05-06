@@ -2,7 +2,7 @@ import type { HTMLProps } from "react";
 
 import clsx from "clsx";
 
-import { topBarStyle } from "./styles.css";
+import "./styles.css";
 
 /**
  * Top bar HTML element.
@@ -14,7 +14,7 @@ export function TopBar({
 }: HTMLProps<HTMLElement>) {
     return (
         <header
-            className={clsx(className, topBarStyle)}
+            className={clsx(className, "top-bar")}
             {...rest}
         >
             {children}

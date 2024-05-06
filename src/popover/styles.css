@@ -1,8 +1,8 @@
 .popover {
-    --popover-bg: var(--clr-background);
-    --popover-text-color: var(--clr-text_high_contrast);
+    --popover-bg: var(--slate-1);
+    --popover-text-color: var(--slate-12);
 
-    --popover-border-color: var(--clr-border_rule);
+    --popover-border-color: var(--slate-5);
     --popover-border-width: 1px;
     --popover-border-radius: var(--radius-md);
 

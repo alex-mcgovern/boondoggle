@@ -1,5 +1,5 @@
 .text-link {
-    --link-color: var(--clr-btn_primary_bg);
+    --link-color: var(--blue-9);
     --link-outline-color: transparent;
     --link-outline-size: 2px;
     --link-radius: var(--radius-md);
@@ -22,7 +22,7 @@
 
     &[data-hovered],
     &[data-pressed] {
-        --link-color: var(--clr-btn_primary_bg_active);
+        --link-color: var(--blue-10);
         text-decoration: underline;
     }
 
@@ -32,6 +32,6 @@
     }
 
     &[data-focus-visible] {
-        --btn-outline-color: var(--clr-focus_ring);
+        --btn-outline-color: var(--blue-6);
     }
 }
