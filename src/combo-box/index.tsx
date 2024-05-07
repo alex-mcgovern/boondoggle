@@ -12,7 +12,7 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
-import { comboBoxCSS } from "./styles.css";
+import "./styles.css";
 
 /**
  * Button for triggering the ComboBox.
@@ -36,9 +36,7 @@ function _ComboBox<TItemId extends string = string>(
     return (
         <RACCombobox
             {...props}
-            className={(renderProps) =>
-                clsx(props.className, comboBoxCSS(renderProps))
-            }
+            className={clsx(props.className, "combobox")}
             ref={ref}
         >
             {(values) => (

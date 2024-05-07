@@ -1,12 +1,6 @@
 import { Toaster as SonnerToaster, toast as sonnerToast } from "sonner";
 
-import { css } from "../css/index.css";
-import {
-    toastCSS,
-    toastCloseButtonCSS,
-    toastDescriptionCSS,
-    toastTitleCSS,
-} from "./styles.css";
+import "./styles.css";
 
 /**
  * A function that creates a toast notification using the
@@ -60,15 +54,15 @@ export const toast = sonnerToast;
 export function Toaster() {
     return (
         <SonnerToaster
-            className={css({ display: "flex", justifyContent: "center" })}
+            className="toast"
             closeButton
             position="bottom-center"
             toastOptions={{
                 classNames: {
-                    closeButton: toastCloseButtonCSS,
-                    description: toastDescriptionCSS,
-                    title: toastTitleCSS,
-                    toast: toastCSS,
+                    closeButton: "toast-close-button",
+                    description: "toast-description",
+                    title: "toast-title",
+                    toast: "toast-body",
                 },
                 unstyled: true,
             }}

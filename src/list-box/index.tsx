@@ -25,7 +25,7 @@ import { i18n } from "../_i18n";
 import { Box } from "../box";
 import { Checkbox } from "../checkbox";
 import { Section } from "../section";
-import { listBoxCSS, listBoxItemCSS } from "./styles.css";
+import "./styles.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;
@@ -136,38 +136,9 @@ function ListBoxItem<TItemId extends string = string>({
 }: ListBoxItemProps<TItemId>) {
     return (
         <ReactAriaListBoxItem
-            className={({
-                allowsDragging,
-                isDisabled,
-                isDragging,
-                isDropTarget,
-                isFocused,
-                isFocusVisible,
-                isHovered,
-                isPressed,
-                isSelected,
-                selectionBehavior,
-                selectionMode,
-            }) =>
-                clsx(
-                    props.className,
-                    listBoxItemCSS({
-                        allowsDragging: allowsDragging ? "true" : "false",
-                        colorOverlay: props.colorOverlay,
-                        hasIcon: props.icon ? "true" : "false",
-                        isDisabled: isDisabled ? "true" : "false",
-                        isDragging: isDragging ? "true" : "false",
-                        isDropTarget: isDropTarget ? "true" : "false",
-                        isFocused: isFocused ? "true" : "false",
-                        isFocusVisible: isFocusVisible ? "true" : "false",
-                        isHovered: isHovered ? "true" : "false",
-                        isPressed: isPressed ? "true" : "false",
-                        isSelected: isSelected ? "true" : "false",
-                        selectionBehavior,
-                        selectionMode,
-                    }),
-                )
-            }
+            className={clsx(props.className, "list-box-item", {
+                "has-icon": !!props.icon,
+            })}
             href={value?.href}
             {...props}
         >
@@ -211,7 +182,7 @@ function BaseListBox<TItemId extends string = string>(
 ) {
     return (
         <ReactAriaListBox<IterableListBoxItem<TItemId>>
-            className={listBoxCSS}
+            className="list-box"
             ref={ref}
             renderEmptyState={() => (
                 <Box

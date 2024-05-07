@@ -20,7 +20,7 @@ import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
-import { selectButtonCSS, selectCSS, selectValueCSS } from "./styles.css";
+import "./styles.css";
 
 export type SelectTriggerProps = RACButtonProps & {
     /**
@@ -38,16 +38,11 @@ function _SelectButton<TItemId extends string = string>(
     return (
         <RACButton
             {...props}
-            className={clsx(
-                props.className,
-                selectButtonCSS({ variant: variant }),
-            )}
+            className={clsx(props.className, "select-button", variant)}
             ref={ref}
         >
             <RACSelectValue<IterableListBoxItem<TItemId>>
-                className={({ isPlaceholder }) =>
-                    selectValueCSS({ isPlaceholder })
-                }
+                className={"select-value"}
             />
             <Icon
                 className={css({
@@ -89,7 +84,7 @@ function _Select<TItemId extends string = string>(
     return (
         <RACSelect<IterableListBoxItem<TItemId>>
             {...props}
-            className={clsx(props.className, selectCSS)}
+            className={clsx(props.className, "select")}
             ref={ref}
         >
             {(values) => (
