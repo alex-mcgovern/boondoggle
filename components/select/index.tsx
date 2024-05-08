@@ -16,7 +16,7 @@ import {
 import type { IterableListBoxItem } from "../list-box";
 import type { PopoverProps } from "../popover";
 
-import { css } from "../css/index.css";
+// import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
@@ -45,13 +45,13 @@ function _SelectButton<TItemId extends string = string>(
                 className={"select-value"}
             />
             <Icon
-                className={css({
-                    fontStyle: "bodyMd",
-                    height: "space_6",
-                    marginLeft: "auto",
-                    marginRight: "space_1",
-                    width: "space_6",
-                })}
+                // className={css({
+                //     fontStyle: "bodyMd",
+                //     height: "space_6",
+                //     marginLeft: "auto",
+                //     marginRight: "space_1",
+                //     width: "space_6",
+                // })}
                 color="text_low_contrast"
                 icon={faAnglesUpDown}
             />

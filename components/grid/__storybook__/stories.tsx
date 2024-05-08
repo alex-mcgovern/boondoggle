@@ -1,16 +1,16 @@
-import { FieldsGrid, TextField } from "../..";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Meta, StoryObj } from "@storybook/react";
+import { Grid, TextField } from "../..";
 import {
     Email as TextFieldEmailStory,
     Default as TextFieldStory,
 } from "../../text-field/__storybook__/stories";
 
 const meta = {
-    title: "Components/FieldsGrid",
-    component: FieldsGrid,
     args: {},
-} satisfies Meta<typeof FieldsGrid>;
+    component: Grid,
+    title: "Components/Grid",
+} satisfies Meta<typeof Grid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

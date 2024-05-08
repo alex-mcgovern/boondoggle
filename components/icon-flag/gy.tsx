@@ -11,7 +11,7 @@ export function FlagGy({
     /**
      * CSS classname applied to the icon
      */
-    className: string;
+    className?: string;
 }) {
     return (
         <svg

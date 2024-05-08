@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 
 import { PageHeader as StoryComp } from "..";
-import { Box } from "../../box";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
 
@@ -22,14 +21,13 @@ export const Default: Story = {
     args: {
         children: (
             <>
-                <Box
-                    as="h1"
+                <h1
                     fontStyle="h4"
                     fontWeight="semibold"
                     marginBottom="none"
                 >
                     Title
-                </Box>
+                </h1>
             </>
         ),
     },
@@ -63,14 +61,13 @@ export const WithActions: Story = {
         ),
         children: (
             <>
-                <Box
-                    as="h1"
+                <h1
                     fontStyle="h4"
                     fontWeight="semibold"
                     marginBottom="none"
                 >
                     Title
-                </Box>
+                </h1>
             </>
         ),
     },

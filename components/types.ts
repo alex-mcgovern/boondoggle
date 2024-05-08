@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import type * as React from "react";
 
-import type { BoxProps } from "./box";
 import type { ColorOverlay, ElementSizeEnum } from "./index.css";
 
 declare module "react" {
@@ -28,7 +27,7 @@ export type WithWrapperProps = {
     /**
      * Props for the wrapper component.
      */
-    wrapperProps?: BoxProps;
+    // wrapperProps?: BoxProps;
 };
 
 export type WithName = {

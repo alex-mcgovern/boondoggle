@@ -6,7 +6,6 @@ import { forwardRef } from "react";
 import { DatePicker as RACDatePicker } from "react-aria-components";
 
 import { Calendar } from "../calendar";
-import { css } from "../css/index.css";
 import { Dialog } from "../dialog";
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
@@ -55,7 +54,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
                                 ? children(values)
                                 : children}
                             <Popover
-                                className={css({ padding: "space_2" })}
+                                className="p2"
                                 placement="bottom end"
                             >
                                 <Dialog>

@@ -12,7 +12,6 @@ import {
 } from "react-aria-components";
 
 import { Button } from "../button";
-import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import "./styles.css";
 
@@ -43,9 +42,7 @@ export function MobileMenuHeader({
             <Button
                 appearance="ghost"
                 aria-label="Close"
-                className={css({
-                    marginLeft: "auto",
-                })}
+                className="ml-auto"
                 name="close"
                 onPress={close}
                 size="square_md"

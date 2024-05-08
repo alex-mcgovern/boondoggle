@@ -14,18 +14,8 @@ import {
 import type { ColorOverlay } from "../index.css";
 
 import { Button } from "../button";
-import { css } from "../css/index.css";
 import { Icon } from "../icon";
-import {
-    dialogCSS,
-    dialogContentCSS,
-    dialogFooterCSS,
-    dialogHeaderCSS,
-    dialogModalCSS,
-    dialogTitleCSS,
-    modalCSS,
-    modalOverlayCSS,
-} from "./styles.css";
+import "./styles.css";
 
 export type DialogProps = RACDialogProps;
 
@@ -36,7 +26,7 @@ export function Dialog(props: DialogProps) {
     return (
         <RACDialog
             {...props}
-            className={clsx(props.className, dialogCSS)}
+            className={clsx(props.className, "dialog")}
         />
     );
 }
@@ -52,9 +42,9 @@ export function DialogHeader({
     title: string;
 }) {
     return (
-        <header className={dialogHeaderCSS}>
+        <header className="dialog-header">
             <RACHeading
-                className={dialogTitleCSS}
+                className="dialog-title"
                 slot="title"
             >
                 {title}
@@ -63,9 +53,7 @@ export function DialogHeader({
             <Button
                 appearance="ghost"
                 aria-label="Close"
-                className={css({
-                    marginLeft: "auto",
-                })}
+                className="ml-auto"
                 name="close"
                 onPress={close}
                 size="square_sm"
@@ -81,14 +69,14 @@ export function DialogHeader({
  * Wrapper to render scrollable content within the dialog.
  */
 export function ScrollableDialogContent({ children }: { children: ReactNode }) {
-    return <div className={dialogContentCSS}>{children}</div>;
+    return <div className="dialog-content">{children}</div>;
 }
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
 export function DialogFooter({ children }: { children: ReactNode }) {
-    return <footer className={dialogFooterCSS}>{children}</footer>;
+    return <footer className="dialog-footer">{children}</footer>;
 }
 
 /**
@@ -131,14 +119,14 @@ export function DialogOld({
         <RACDialogTrigger {...dialogTriggerProps}>
             {buttonProps ? <Button {...buttonProps} /> : null}
             <RACModalOverlay
-                className={modalOverlayCSS}
+                className="dialog-overlay"
                 {...modalOverlayProps}
             >
                 <RACModal
-                    className={modalCSS({ colorOverlay, width })}
+                    className="dialog-modal"
                     {...modalProps}
                 >
-                    <Dialog className={dialogModalCSS}>{children}</Dialog>
+                    <Dialog className={width}>{children}</Dialog>
                 </RACModal>
             </RACModalOverlay>
         </RACDialogTrigger>

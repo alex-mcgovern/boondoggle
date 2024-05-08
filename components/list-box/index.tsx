@@ -20,7 +20,6 @@ import type { ColorOverlay } from "../index.css";
 
 import "../../styles/dropdown-menu.css";
 import { i18n } from "../_i18n";
-import { Box } from "../box";
 import { Checkbox } from "../checkbox";
 
 type SingleListBoxItem<TItemId extends string = string> = {
@@ -197,7 +196,7 @@ function BaseListBox<TItemId extends string = string>(
             className="dropdown-menu"
             ref={ref}
             renderEmptyState={() => (
-                <Box
+                <div
                     color="text_low_contrast"
                     display="flex"
                     fontStyle="bodySm"
@@ -205,7 +204,7 @@ function BaseListBox<TItemId extends string = string>(
                     whiteSpace="nowrap"
                 >
                     {i18n.no_results}
-                </Box>
+                </div>
             )}
             {...props}
         >

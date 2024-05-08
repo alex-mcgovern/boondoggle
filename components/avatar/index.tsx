@@ -1,7 +1,6 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { Box } from "../box";
 import "./styles.css";
 
 /**
@@ -109,7 +108,19 @@ export function Avatar({
 }: AvatarProps) {
     const initials: string | undefined = getInitials(name);
 
-    const [img_src] = useState(src);
+    const [img_src, setImgSrc] = useState(src);
+
+    useEffect(() => {
+        if (src) {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                setImgSrc(src);
+            };
+        }
+    }, [src]);
+
+    const style = { height: size, width: size };
 
     if (img_src) {
         return (
@@ -125,21 +136,19 @@ export function Avatar({
 
     if (!initials) {
         return (
-            <Box
-                __height={size}
-                __width={size}
+            <div
                 className={clsx("avatar", variant)}
+                style={style}
             />
         );
     }
 
     return (
-        <Box
-            __height={size}
-            __width={size}
+        <div
             className={clsx("avatar", variant)}
+            style={style}
         >
             {initials}
-        </Box>
+        </div>
     );
 }

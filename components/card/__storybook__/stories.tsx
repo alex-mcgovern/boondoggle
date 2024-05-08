@@ -2,16 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Card as StoryComp } from "..";
 import { LOREM } from "../../../mocks/LOREM.mock";
-import { Box } from "../../box";
 import { Button } from "../../button";
-import { css } from "../../css/index.css";
-import { FieldsGrid } from "../../fields-grid";
+import { Grid } from "../../grid";
 
 const meta = {
     args: {
         children: (
             <>
-                <FieldsGrid>Test</FieldsGrid>
+                <Grid>Test</Grid>
             </>
         ),
     },
@@ -44,15 +42,9 @@ export const WithHeader: Story = {
     args: {
         header: (
             <>
-                <Box
-                    as="h3"
-                    fontStyle="h5"
-                    marginBottom="none"
-                >
-                    Title
-                </Box>{" "}
+                <h3 className="mb-none">Title</h3>{" "}
                 <Button
-                    className={css({ marginLeft: "auto" })}
+                    className="ml-auto"
                     name="action"
                 >
                     Action

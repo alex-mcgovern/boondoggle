@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { FieldError as RACFieldError } from "react-aria-components";
 
-import { fieldErrorCss } from "./styles.css";
+import "./styles.css";
 
 export type FieldErrorProps = RACFieldErrorProps;
 
@@ -28,7 +28,7 @@ export const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
         return (
             <RACFieldError
                 {...props}
-                className={clsx(props.className, fieldErrorCss)}
+                className={clsx(props.className, "field-error")}
                 ref={ref}
             />
         );

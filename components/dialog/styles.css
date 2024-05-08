@@ -1,0 +1,120 @@
+.dialog-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    min-height: 100dvh;
+    min-width: 100vw;
+
+    background: var(--slate-alpha-11);
+
+    @media (prefers-reduced-motion: no-preference) {
+        &[data-entering] {
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) forwards;
+        }
+        &[data-exiting] {
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) reverse;
+        }
+    }
+}
+
+.dialog-modal {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    max-height: 75dvh;
+
+    @media (max-width: 767px) {
+        height: 100dvh;
+        max-height: 100dvh;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        &[data-entering] {
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) forwards;
+        }
+        &[data-exiting] {
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) reverse;
+        }
+    }
+}
+
+.dialog {
+    background: var(--slate-1);
+
+    border: 1px solid var(--slate-6);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-lg);
+
+    max-width: 100vw;
+    outline: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+        &[data-entering] {
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) forwards;
+        }
+        &[data-exiting] {
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) reverse;
+        }
+    }
+
+    &.lg {
+        width: 100vw;
+
+        @media (min-width: 768px) {
+            width: 50rem;
+        }
+    }
+
+    &.sm {
+        width: 100vw;
+
+        @media (min-width: 768px) {
+            width: 30rem;
+        }
+    }
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    border-bottom: 1px solid var(--slate-6);
+
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+
+    max-width: 100%;
+}
+
+.dialog-title {
+    color: var(--slate-12);
+
+    font-size: var(--fontSize-bodyLg);
+    line-height: var(--lineHeight-bodyLg);
+    font-weight: var(--fontWeight-semibold);
+
+    margin: 0;
+}
+
+.dialog-content {
+    overflow-y: auto;
+    padding: var(--space-4);
+}
+
+.dialog-footer {
+    margin-top: auto;
+
+    border-top: 1px solid var(--slate-6);
+
+    padding: var(--space-3) var(--space-4);
+}

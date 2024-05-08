@@ -5,7 +5,7 @@ import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import type { ButtonProps } from "..";
 
 import { Button } from "..";
-import { Box } from "../../box";
+import { Grid } from "../../grid";
 import { Icon } from "../../icon";
 
 const meta = {
@@ -58,12 +58,7 @@ export const Size: Story = {
         ];
 
         return (
-            <Box
-                __gridTemplateColumns="1fr 1fr 1fr 1fr auto auto auto auto"
-                alignItems="center"
-                display="grid"
-                gap="space_2"
-            >
+            <Grid columns={4}>
                 {sizes.map((size) => {
                     return (
                         <Button
@@ -79,7 +74,7 @@ export const Size: Story = {
                         </Button>
                     );
                 })}
-            </Box>
+            </Grid>
         );
     },
 };

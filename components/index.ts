@@ -32,7 +32,6 @@ export { DialogTrigger, type DialogTriggerProps } from "./dialog-trigger";
 export { FieldButton, type FieldButtonProps } from "./field-button";
 export { FieldDescription } from "./field-description";
 export { FieldError } from "./field-error";
-export { FieldsGrid, type FieldsGridProps } from "./fields-grid";
 export {
     FilterButton,
     FilterButtonGroup,
@@ -44,6 +43,7 @@ export {
     type RemoveFilterButtonProps,
 } from "./filter-button-group";
 export { Form, type FormProps } from "./form";
+export { Grid, type GridProps } from "./grid";
 export { Group } from "./group";
 export { Header } from "./header";
 export { Icon, type IconProps } from "./icon";

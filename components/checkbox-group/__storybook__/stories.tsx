@@ -2,12 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { CheckboxGroup } from "..";
 import { Checkbox } from "../../checkbox";
-import { css } from "../../css/index.css";
 import { Label } from "../../label";
-
-const fieldCSS = css({
-    marginBottom: "space_2",
-});
 
 const meta = {
     component: CheckboxGroup,
@@ -23,19 +18,19 @@ export const Default: Story = {
             <>
                 <Label>Fruits</Label>
                 <Checkbox
-                    className={fieldCSS}
+                    className="mb-2"
                     value="apple"
                 >
                     Apple
                 </Checkbox>
                 <Checkbox
-                    className={fieldCSS}
+                    className="mb-2"
                     value="orange"
                 >
                     Orange
                 </Checkbox>
                 <Checkbox
-                    className={fieldCSS}
+                    className="mb-2"
                     value="lemon"
                 >
                     Lemon

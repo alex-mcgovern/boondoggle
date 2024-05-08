@@ -10,7 +10,6 @@ import { ComboBox } from "../../combo-box";
 import { Default as ComboBoxStory } from "../../combo-box/__storybook__/stories";
 import { ComboBoxCountry } from "../../combo-box-country";
 import { Default as ComboBoxCountryStory } from "../../combo-box-country/__storybook__/stories";
-import { css } from "../../css/index.css";
 import { DatePicker } from "../../date-picker";
 import {
     Default as DatePickerStory,
@@ -30,10 +29,6 @@ import {
     Visibility as TextFieldVisibilityStory,
 } from "../../text-field/__storybook__/stories";
 import { Toaster } from "../../toaster";
-
-const fieldCSS = css({
-    marginBottom: "space_2",
-});
 
 const meta = {
     component: Form,
@@ -60,52 +55,52 @@ export const Default: Story = {
             <>
                 <TextField
                     {...TextFieldStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="full_name"
                 />
                 <TextField
                     {...TextFieldEmailStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="email_address"
                 />
                 <TextField
                     {...TextFieldVisibilityStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="password"
                 />
                 <CheckboxGroup
                     {...CheckboxGroupStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="fruits"
                 />
                 <DatePicker
                     {...DatePickerStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="date_of_birth"
                 />
                 <DatePicker
                     {...DatePickerWithTimeStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="date_time"
                 />
                 <NumberField
                     {...NumberFieldIncrementDecrement.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="count"
                 />
                 <ComboBox
                     {...ComboBoxStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="favourite_food"
                 />
                 <ComboBoxCountry
                     {...ComboBoxCountryStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="country"
                 />
                 <TextField
                     {...TextFieldTextAreaStory.args}
-                    className={fieldCSS}
+                    className="mb-2"
                     name="description"
                 />
                 <Button

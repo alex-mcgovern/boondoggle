@@ -9,7 +9,6 @@ import {
     ScrollableMobileMenuContent,
 } from "..";
 import { Button } from "../../button";
-import { css } from "../../css/index.css";
 
 const meta = {
     args: {
@@ -38,7 +37,7 @@ const meta = {
                 </ScrollableMobileMenuContent>
                 <MobileMenuFooter>
                     <Button
-                        className={css({ width: "100%" })}
+                        // className={css({ width: "100%" })}
                         onPress={() => {
                             alert("Confirmed");
                             close();

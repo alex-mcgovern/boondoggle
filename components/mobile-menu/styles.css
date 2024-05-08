@@ -11,16 +11,6 @@
     min-width: 100vw;
 }
 
-@keyframes modal-fade {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 .mobile-menu-modal {
     background: var(--slate-1);
     box-shadow: var(--shadow-md);
@@ -28,12 +18,10 @@
 
     @media (prefers-reduced-motion: no-preference) {
         &[data-entering] {
-            animation: modal-fade var(--dur-medium) var(--ease-quart-in-out)
-                forwards;
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) forwards;
         }
         &[data-exiting] {
-            animation: modal-fade var(--dur-medium) var(--ease-quart-in-out)
-                reverse;
+            animation: fade var(--dur-medium) var(--ease-quart-in-out) reverse;
         }
     }
 }

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import clsx from "clsx";
 import { useState } from "react";
 
 import {
@@ -7,7 +8,6 @@ import {
     NumberFieldDecrementButton,
     NumberFieldIncrementButton,
 } from "..";
-import { css } from "../../css/index.css";
 import { Group } from "../../group";
 import { FlagEu } from "../../icon-flag/eu";
 import { FlagGb } from "../../icon-flag/gb";
@@ -92,19 +92,9 @@ export const WithCurrencySelect: Story = {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const [currency, setCurrency] = useState<"EUR" | "GBP" | "USD">("EUR");
         return (
-            <div
-                className={css({
-                    marginBottom: "space_2",
-                })}
-            >
+            <div className="mb-2">
                 <Label htmlFor="amount">Amount</Label>
-                <div
-                    className={css({
-                        alignItems: "center",
-                        display: "flex",
-                        gap: "space_2",
-                    })}
-                >
+                <div className={clsx("flex", "gap-2", "align-center")}>
                     <NumberField
                         defaultValue={42000.69}
                         formatOptions={{
@@ -124,32 +114,17 @@ export const WithCurrencySelect: Story = {
                             {
                                 id: "EUR",
                                 name: "EUR",
-                                slotLeft: (
-                                    <FlagEu
-                                        height="space_4"
-                                        width="space_4"
-                                    />
-                                ),
+                                slotLeft: <FlagEu />,
                             },
                             {
                                 id: "USD",
                                 name: "USD",
-                                slotLeft: (
-                                    <FlagUs
-                                        height="space_4"
-                                        width="space_4"
-                                    />
-                                ),
+                                slotLeft: <FlagUs />,
                             },
                             {
                                 id: "GBP",
                                 name: "GBP",
-                                slotLeft: (
-                                    <FlagGb
-                                        height="space_4"
-                                        width="space_4"
-                                    />
-                                ),
+                                slotLeft: <FlagGb />,
                             },
                         ]}
                         onSelectionChange={(k) => {
