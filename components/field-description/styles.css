@@ -1,0 +1,8 @@
+.description {
+    color: var(--slate-11);
+
+    font-size: var(--fontSize-bodySm);
+    line-height: var(--lineHeight-bodySm);
+
+    margin-top: var(--space-2);
+}

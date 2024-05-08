@@ -1,7 +1,7 @@
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../src/stylesheet.css";
+import "../styles/index.css";
 import { Parameters, Preview } from "@storybook/react";
-import { Toaster } from "../src/toaster";
+import { Toaster } from "../components/toaster";
 import React from "react";
 import theme from "./theme";
 

@@ -1,0 +1,104 @@
+.popover {
+    --popover-bg: var(--slate-1);
+    --popover-text-color: var(--slate-12);
+
+    --popover-border-color: var(--slate-5);
+    --popover-border-width: 1px;
+    --popover-border-radius: var(--radius-md);
+
+    border: var(--popover-border-width) solid var(--popover-border-color);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--popover-border-radius);
+    background: var(--popover-bg);
+    color: var(--popover-text-color);
+    outline: none;
+    box-sizing: border-box;
+
+    .overlay-arrow {
+        height: var(--space-3);
+        width: var(--space-3);
+        svg {
+            display: block;
+            fill: var(--popover-bg);
+            stroke: var(--popover-border-color);
+            stroke-width: var(--popover-border-width);
+        }
+    }
+
+    &[data-trigger="ComboBox"] {
+        width: calc(var(--trigger-width) + var(--space-1));
+    }
+
+    &[data-trigger="DatePicker"] {
+        width: unset;
+    }
+
+    &[data-trigger="Select"] {
+        width: var(--trigger-width);
+    }
+
+    &[data-placement="top"] {
+        --origin: translateY(var(--space-2));
+
+        &:has(.overlay-arrow) {
+            margin-bottom: var(--space-1);
+        }
+    }
+
+    &[data-placement="bottom"] {
+        --origin: translateY(calc(var(--space-2) * -1));
+
+        &:has(.overlay-arrow) {
+            margin-top: var(--space-1);
+        }
+
+        .overlay-arrow svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &[data-placement="right"] {
+        --origin: translateX(calc(var(--space-2) * -1));
+
+        &:has(.overlay-arrow) {
+            margin-left: var(--space-1);
+        }
+
+        .overlay-arrow svg {
+            transform: rotate(90deg);
+        }
+    }
+
+    &[data-placement="left"] {
+        --origin: translateX(var(--space-2));
+
+        &:has(.overlay-arrow) {
+            margin-right: var(--space-1);
+        }
+
+        .overlay-arrow svg {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &[data-entering] {
+        animation: popover-slide var(--dur-short);
+    }
+
+    &[data-exiting] {
+        animation: popover-slide var(--dur-short) reverse
+            var(--ease-quart-in-out);
+    }
+}
+
+@keyframes popover-slide {
+    from {
+        transform: var(--origin);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

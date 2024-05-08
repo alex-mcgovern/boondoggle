@@ -1,0 +1,6 @@
+.icon-flag {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}

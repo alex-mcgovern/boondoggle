@@ -1,0 +1,8 @@
+@import "@radix-ui/colors/slate.css";
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/red.css";
+
+@import "./reset.css";
+@import "./vars.css";
+@import "./base.css";
