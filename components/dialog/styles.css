@@ -112,6 +112,10 @@
 }
 
 .dialog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
     margin-top: auto;
 
     border-top: 1px solid var(--slate-6);

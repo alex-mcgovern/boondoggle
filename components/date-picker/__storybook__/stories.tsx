@@ -26,9 +26,6 @@ export const Default: Story = {
                 </Group>
             </>
         ),
-        onChange: (v) => {
-            alert(v);
-        },
     },
 };
 
@@ -44,8 +41,5 @@ export const WithTime: Story = {
             </>
         ),
         defaultValue: parseAbsoluteToLocal(new Date().toISOString()),
-        onChange: (v) => {
-            alert(v);
-        },
     },
 };

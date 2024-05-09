@@ -1,3 +1,15 @@
+@keyframes slide {
+    from {
+        transform: var(--origin);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .tooltip {
     --tooltip-bg: var(--slate-12);
     --tooltip-color: var(--slate-1);
@@ -7,7 +19,7 @@
     box-shadow: var(--shadow-md);
     color: var(--slate-1);
     font-size: var(--fontSize-bodySm);
-    padding: 0 var(--space-2);
+    padding: var(--space-2);
 
     /* fixes FF gap */
     transform: translate3d(0, 0, 0);
@@ -59,18 +71,6 @@
 
     &[data-exiting] {
         animation: slide var(--dur-short) reverse var(--ease-quart-in-out);
-    }
-}
-
-@keyframes slide {
-    from {
-        transform: var(--origin);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
     }
 }
 

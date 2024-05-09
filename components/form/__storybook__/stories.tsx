@@ -39,6 +39,9 @@ const meta = {
             );
         },
     ],
+    parameters: {
+        layout: "padded",
+    },
     title: "Components/Form",
 } satisfies Meta<typeof Form>;
 
@@ -52,52 +55,52 @@ export const Default: Story = {
             <>
                 <TextField
                     {...TextFieldStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="full_name"
                 />
                 <TextField
                     {...TextFieldEmailStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="email_address"
                 />
                 <TextField
                     {...TextFieldVisibilityStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="password"
                 />
                 <CheckboxGroup
                     {...CheckboxGroupStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="fruits"
                 />
                 <DatePicker
                     {...DatePickerStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="date_of_birth"
                 />
                 <DatePicker
                     {...DatePickerWithTimeStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="date_time"
                 />
                 <NumberField
                     {...NumberFieldIncrementDecrement.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="count"
                 />
                 <ComboBox
                     {...ComboBoxStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="favourite_food"
                 />
                 <ComboBoxCountry
                     {...ComboBoxCountryStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="country"
                 />
                 <TextField
                     {...TextFieldTextAreaStory.args}
-                    className="mb-2"
+                    className="mb-4"
                     name="description"
                 />
                 <Button type="submit">Submit</Button>
