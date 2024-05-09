@@ -13,17 +13,17 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "outDir": "dist",
-        "rootDir": "src",
+        "rootDir": "components",
         "skipLibCheck": true,
         "strict": true,
         "types": ["vitest/importMeta"]
     },
-    "include": ["src/index.ts"],
+    "include": ["components/index.ts"],
     "exclude": [
-        "src/**/*mock.*",
-        "src/**/spec.*",
-        "src/**/stories.*",
-        "src/**/styles.css.ts",
-        "src/**/test.*"
+        "components/**/*mock.*",
+        "components/**/spec.*",
+        "components/**/stories.*",
+        "components/**/styles.css.ts",
+        "components/**/test.*"
     ]
 }

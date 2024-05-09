@@ -23,10 +23,11 @@
     },
     "exclude": [
         "cypress.config.ts",
+        "tsconfig.build.json",
         "cypress/**/*.ts",
         "node_modules/cypress*/*.ts",
         "**/*/spec.tsx",
         "dist"
     ],
-    "include": ["./**/*"]
+    "include": ["./components/**/*"]
 }
