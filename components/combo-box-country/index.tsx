@@ -23,13 +23,7 @@ const getFlagComponent = (iso_code: TCountryCode) => {
         return undefined;
     }
 
-    return (
-        <FlagComponent
-            border="border_rule"
-            height="space_4"
-            width="space_4"
-        />
-    );
+    return <FlagComponent />;
 };
 
 /**

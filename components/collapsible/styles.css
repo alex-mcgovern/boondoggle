@@ -1,0 +1,23 @@
+@keyframes collapsible {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-collapsible-content-height);
+    }
+}
+
+.collapsible {
+    overflow: hidden;
+
+    @media (prefers-reduced-motion: no-preference) {
+        &[data-state="open"] {
+            animation: collapsible var(--dur-medium) var(--ease-quart-in-out)
+                forwards;
+        }
+        &[data-state="closed"] {
+            animation: collapsible var(--dur-medium) var(--ease-quart-in-out)
+                reverse;
+        }
+    }
+}

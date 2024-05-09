@@ -1,8 +1,6 @@
 import type { TCountryCode } from "countries-list";
 import type { JSXElementConstructor } from "react";
 
-import type { Css } from "../css/index.css";
-
 import { FlagAd } from "./ad";
 import { FlagAe } from "./ae";
 import { FlagAf } from "./af";
@@ -257,7 +255,7 @@ import { FlagZw } from "./zw";
 /**
  * A map of country codes to flag components.
  */
-export const FLAGS: Record<TCountryCode, JSXElementConstructor<Css>> = {
+export const FLAGS: Record<TCountryCode, JSXElementConstructor<{}>> = {
     // AC: FlagAc,
     AD: FlagAd,
     AE: FlagAe,

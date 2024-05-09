@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
 
-import { collapsibleContentAnimation } from "./styles.css";
+import "./styles.css";
 
 export type CollapsibleProps = {
     /**
@@ -72,7 +72,7 @@ export function Collapsible({
                 {triggerNode}
             </RadixCollapsible.Trigger>
 
-            <RadixCollapsible.Content className={collapsibleContentAnimation}>
+            <RadixCollapsible.Content className="collapsible">
                 {children}
             </RadixCollapsible.Content>
         </RadixCollapsible.Root>

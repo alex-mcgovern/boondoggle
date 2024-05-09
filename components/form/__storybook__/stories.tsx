@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import clsx from "clsx";
-
 import { Form } from "..";
 import { Button } from "../../button";
 import { CheckboxGroup } from "../../checkbox-group";
@@ -16,7 +14,6 @@ import {
     WithTime as DatePickerWithTimeStory,
 } from "../../date-picker/__storybook__/stories";
 import { FieldError } from "../../field-error";
-import { variantColorOverlay } from "../../index.css";
 import { Input } from "../../input";
 import { Label } from "../../label";
 import { NumberField } from "../../number-field";
@@ -103,15 +100,9 @@ export const Default: Story = {
                     className="mb-2"
                     name="description"
                 />
-                <Button
-                    className={css({ width: "100%" })}
-                    type="submit"
-                >
-                    Submit
-                </Button>
+                <Button type="submit">Submit</Button>
             </>
         ),
-        className: css({ width: "main_sm" }),
         onSubmit: (e) => {
             alert(`Form submitted successfully \n ${JSON.stringify(e)}`);
         },
@@ -124,10 +115,6 @@ export const ConfirmAction: Story = {
             <>
                 <TextField
                     autoComplete="off"
-                    className={clsx(
-                        css({ marginBottom: "space_2" }),
-                        variantColorOverlay.red,
-                    )}
                     name="confirm_text"
                     validate={(v) => {
                         if (v !== "confirm") {
@@ -150,10 +137,6 @@ export const ConfirmAction: Story = {
 
                 <Button
                     appearance="primary"
-                    className={css({
-                        width: "100%",
-                    })}
-                    colorOverlay="red"
                     size="sm"
                     type="submit"
                 >

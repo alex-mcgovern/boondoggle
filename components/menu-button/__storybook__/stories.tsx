@@ -20,32 +20,17 @@ const meta = {
                     {
                         id: "france",
                         name: "France",
-                        slotLeft: (
-                            <FlagFr
-                                height="space_4"
-                                width="space_4"
-                            />
-                        ),
+                        slotLeft: <FlagFr />,
                     },
                     {
                         id: "germany",
                         name: "Germany",
-                        slotLeft: (
-                            <FlagDe
-                                height="space_4"
-                                width="space_4"
-                            />
-                        ),
+                        slotLeft: <FlagDe />,
                     },
                     {
                         id: "spain",
                         name: "Spain",
-                        slotLeft: (
-                            <FlagEs
-                                height="space_4"
-                                width="space_4"
-                            />
-                        ),
+                        slotLeft: <FlagEs />,
                     },
                 ],
                 id: "europe",
@@ -56,32 +41,17 @@ const meta = {
                     {
                         id: "uae",
                         name: "United Arab Emirates",
-                        slotLeft: (
-                            <FlagAe
-                                height="space_4"
-                                width="space_4"
-                            />
-                        ),
+                        slotLeft: <FlagAe />,
                     },
                     {
                         id: "saudi_arabia",
                         name: "Saudi Arabia",
-                        slotLeft: (
-                            <FlagSa
-                                height="space_4"
-                                width="space_4"
-                            />
-                        ),
+                        slotLeft: <FlagSa />,
                     },
                     {
                         id: "oman",
                         name: "Oman",
-                        slotLeft: (
-                            <FlagOm
-                                height="space_4"
-                                width="space_4"
-                            />
-                        ),
+                        slotLeft: <FlagOm />,
                     },
                 ],
                 id: "mena",

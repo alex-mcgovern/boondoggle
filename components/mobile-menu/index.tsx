@@ -105,12 +105,6 @@ export function MobileMenu({
         >
             <Button
                 appearance="ghost"
-                className={css({
-                    display: {
-                        desktop: "none",
-                        mobile: "inline-flex",
-                    },
-                })}
                 size="square_md"
             >
                 <Icon icon={isOpen ? faTimes : faBars} />

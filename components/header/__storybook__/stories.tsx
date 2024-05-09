@@ -21,13 +21,7 @@ export const Default: Story = {
     args: {
         children: (
             <>
-                <h1
-                    fontStyle="h4"
-                    fontWeight="semibold"
-                    marginBottom="none"
-                >
-                    Title
-                </h1>
+                <h1>Title</h1>
             </>
         ),
     },
@@ -61,13 +55,7 @@ export const WithActions: Story = {
         ),
         children: (
             <>
-                <h1
-                    fontStyle="h4"
-                    fontWeight="semibold"
-                    marginBottom="none"
-                >
-                    Title
-                </h1>
+                <h1>Title</h1>
             </>
         ),
     },

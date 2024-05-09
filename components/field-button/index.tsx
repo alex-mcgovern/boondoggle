@@ -1,12 +1,12 @@
-import type { ButtonProps as RACButtonProps } from "react-aria-components";
+import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { Button as RACButton } from "react-aria-components";
+import { Button as AriaButton } from "react-aria-components";
 
 import "./styles.css";
 
-export type FieldButtonProps = RACButtonProps;
+export type FieldButtonProps = AriaButtonProps;
 
 /**
  * A field button is a button that is intended to be used inside a `Group` component
@@ -26,9 +26,9 @@ export type FieldButtonProps = RACButtonProps;
  * ```
  */
 export const FieldButton = forwardRef<HTMLButtonElement, FieldButtonProps>(
-    (props: RACButtonProps, ref) => {
+    (props: AriaButtonProps, ref) => {
         return (
-            <RACButton
+            <AriaButton
                 {...props}
                 className={clsx(props.className, "field-button")}
                 excludeFromTabOrder

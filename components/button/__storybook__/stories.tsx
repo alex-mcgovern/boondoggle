@@ -38,7 +38,7 @@ export const Ghost: Story = {
 };
 
 export const Color: Story = {
-    args: { children: "Click me", colorOverlay: "red" },
+    args: { children: "Click me" },
 };
 
 export const Size: Story = {
@@ -47,7 +47,6 @@ export const Size: Story = {
     },
     render: (props) => {
         const sizes: ButtonProps["size"][] = [
-            "xs",
             "sm",
             "md",
             "lg",

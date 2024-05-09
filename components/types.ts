@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type * as React from "react";
 
-import type { ColorOverlay, ElementSizeEnum } from "./index.css";
+// import type { ColorOverlay, ElementSizeEnum } from "./index.css";
 
 declare module "react" {
     function forwardRef<T, P = Record<string, unknown>>(
@@ -20,7 +20,7 @@ export type WithColorOverlay = {
     /**
      * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
      */
-    colorOverlay?: ColorOverlay;
+    // colorOverlay?: ColorOverlay;
 };
 
 export type WithWrapperProps = {
@@ -43,7 +43,7 @@ export type WithSize = {
     /**
      * Consistent size option shared across multiple components.
      */
-    size?: ElementSizeEnum;
+    // size?: ElementSizeEnum;
 };
 
 export type WithSlots = {

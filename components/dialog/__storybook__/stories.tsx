@@ -9,9 +9,6 @@ import {
     DialogOld as StoryComp,
 } from "..";
 import { Button } from "../../button";
-import { css } from "../../css/index.css";
-import { DialogAlert } from "../../dialog-alert";
-import { DialogErrorMessage } from "../../dialog-error-message";
 import { Form } from "../../form";
 import { Label } from "../../label";
 import { TextArea } from "../../text-area";
@@ -47,7 +44,6 @@ const meta = {
                 </ScrollableDialogContent>
                 <DialogFooter>
                     <Button
-                        className={css({ width: "100%" })}
                         onPress={() => {
                             alert("Confirmed");
                             close();
@@ -88,14 +84,7 @@ export const WithForm: Story = {
     args: {
         children: ({ close }) => {
             return (
-                <Form
-                    className={css({
-                        display: "flex",
-                        flexDirection: "column",
-                        position: "relative",
-                    })}
-                    onSubmit={(e) => alert(JSON.stringify(e))}
-                >
+                <Form onSubmit={(e) => alert(JSON.stringify(e))}>
                     <DialogHeader
                         close={close}
                         title="Form"
@@ -103,9 +92,7 @@ export const WithForm: Story = {
 
                     <ScrollableDialogContent>
                         <TextField
-                            className={css({
-                                marginBottom: "space_4",
-                            })}
+                            className={"mb-4"}
                             name="reason"
                         >
                             <Label>Description</Label>
@@ -116,7 +103,6 @@ export const WithForm: Story = {
                     <DialogFooter>
                         <Button
                             appearance="primary"
-                            className={css({ width: "100%" })}
                             type="submit"
                         >
                             Submit
@@ -128,30 +114,6 @@ export const WithForm: Story = {
     },
 };
 
-export const WithDialogErrorMessage: Story = {
-    args: {
-        children: ({ close }) => (
-            <>
-                <DialogHeader
-                    close={close}
-                    title="Dialog Title"
-                />
-                <DialogErrorMessage
-                    error={{ message: "This is an error message" }}
-                    onPressCancel={close}
-                    onPressTryAgain={close}
-                    strCancel="Cancel"
-                    strTryAgain="Try Again"
-                />
-            </>
-        ),
-        colorOverlay: "red",
-        dialogTriggerProps: {
-            defaultOpen: true,
-        },
-    },
-};
-
 export const WithDialogAlert: Story = {
     args: {
         children: ({ close }) => (
@@ -159,11 +121,6 @@ export const WithDialogAlert: Story = {
                 <DialogHeader
                     close={close}
                     title="Dialog Title"
-                />
-                <DialogAlert
-                    colorOverlay="red"
-                    description="This is a description for the alert"
-                    title="This is an alert"
                 />
                 <ScrollableDialogContent>
                     <>
@@ -184,7 +141,6 @@ export const WithDialogAlert: Story = {
                 </ScrollableDialogContent>
                 <DialogFooter>
                     <Button
-                        className={css({ width: "100%" })}
                         onPress={() => {
                             alert("Confirmed");
                             close();

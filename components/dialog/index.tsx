@@ -11,8 +11,6 @@ import {
     ModalOverlay as RACModalOverlay,
 } from "react-aria-components";
 
-import type { ColorOverlay } from "../index.css";
-
 import { Button } from "../button";
 import { Icon } from "../icon";
 import "./styles.css";
@@ -86,7 +84,6 @@ export function DialogFooter({ children }: { children: ReactNode }) {
 export function DialogOld({
     buttonProps,
     children,
-    colorOverlay,
     dialogTriggerProps,
     modalOverlayProps,
     modalProps,
@@ -94,16 +91,6 @@ export function DialogOld({
 }: {
     buttonProps?: ComponentProps<typeof Button>;
     children: ComponentProps<typeof RACDialog>["children"];
-    /**
-     * Color overlay, used to convey semantic meaning.
-     * -   `amber`: To indicate caution, or warning actions
-     * -   `blue`: To indicate information, or neutral actions
-     * -   `green`: To indicate success, or confirmatory actions
-     * -   `grey`: When a subtle, neutral color is needed
-     * -   `red`: To warn of potentially destructive actions
-     * -   `default`: To reset the color overlay if inherited from a parent
-     */
-    colorOverlay?: ColorOverlay;
     dialogTriggerProps?: Omit<
         ComponentProps<typeof RACDialogTrigger>,
         "children"

@@ -15,24 +15,12 @@ import {
     Section as AriaSection,
 } from "react-aria-components";
 
-import type { ColorOverlay } from "../index.css";
-
 import "../../styles/dropdown-menu.css";
 import { Checkbox } from "../checkbox";
 
 type SingleMenuItem<TItemId extends string = string> =
     AnchorHTMLAttributes<HTMLAnchorElement> & {
         children?: never;
-        /**
-         * Color overlay, used to convey semantic meaning.
-         * -   `amber`: To indicate caution, or warning actions
-         * -   `blue`: To indicate information, or neutral actions
-         * -   `green`: To indicate success, or confirmatory actions
-         * -   `grey`: When a subtle, neutral color is needed
-         * -   `red`: To warn of potentially destructive actions
-         * -   `default`: To reset the color overlay if inherited from a parent
-         */
-        colorOverlay?: ColorOverlay;
         /**
          * A description of the menu item, that is shown in the UI to the user.
          */
@@ -69,16 +57,6 @@ export type IterableMenuItem<TItemId extends string = string> =
            * The children of the menu item. If this is present, the item is considered a section.
            */
           children: Array<SingleMenuItem<TItemId>>;
-          /**
-           * Color overlay, used to convey semantic meaning.
-           * -   `amber`: To indicate caution, or warning actions
-           * -   `blue`: To indicate information, or neutral actions
-           * -   `green`: To indicate success, or confirmatory actions
-           * -   `grey`: When a subtle, neutral color is needed
-           * -   `red`: To warn of potentially destructive actions
-           * -   `default`: To reset the color overlay if inherited from a parent
-           */
-          colorOverlay?: never;
           /**
            * A href to navigate to when the item is clicked.
            */
@@ -127,16 +105,6 @@ function _Menu<TItem extends object = object>(
 export const Menu = forwardRef(_Menu);
 
 export type MenuItemProps<TItem extends object> = AriaMenuItemProps<TItem> & {
-    /**
-     * Color overlay, used to convey semantic meaning.
-     * -   `amber`: To indicate caution, or warning actions
-     * -   `blue`: To indicate information, or neutral actions
-     * -   `green`: To indicate success, or confirmatory actions
-     * -   `grey`: When a subtle, neutral color is needed
-     * -   `red`: To warn of potentially destructive actions
-     * -   `default`: To reset the color overlay if inherited from a parent
-     */
-    colorOverlay?: ColorOverlay;
     /**
      * The icon to display on the left side of the menu item.
      */
