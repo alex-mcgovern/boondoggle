@@ -1,9 +1,12 @@
 {
+    "include": ["./**/*"],
     "compilerOptions": {
+        // "incremental": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "importHelpers": true,
+        "target": "ESNext",
         "jsx": "react-jsx",
         "lib": ["dom", "esnext"],
         "module": "esnext",
@@ -18,16 +21,13 @@
         "rootDir": ".",
         "skipLibCheck": true,
         "strict": true,
-        "target": "ESNext",
         "types": ["vitest/importMeta"]
     },
     "exclude": [
         "cypress.config.ts",
-        "tsconfig.build.json",
         "cypress/**/*.ts",
         "node_modules/cypress*/*.ts",
         "**/*/spec.tsx",
         "dist"
-    ],
-    "include": ["./components/**/*"]
+    ]
 }

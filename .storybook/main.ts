@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     framework: {
         name: "@storybook/react-vite",
     },
-    stories: ["../components/**/*stories.tsx", "../components/**/*.mdx"],
+    stories: ["../src/**/*stories.tsx", "../src/**/*.mdx"],
     swc: () => ({
         jsc: {
             transform: {

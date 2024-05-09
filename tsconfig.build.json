@@ -13,17 +13,20 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "outDir": "dist",
-        "rootDir": "components",
+        "rootDir": "src",
         "skipLibCheck": true,
-        "strict": true,
-        "types": ["vitest/importMeta"]
+        "types": ["vitest/importMeta"],
+        "strict": true
     },
-    "include": ["components/index.ts"],
+    "include": [
+        "src/v2-icon-flag/*.tsx",
+        "src/**/index.tsx",
+        "src/**/index.ts"
+    ],
     "exclude": [
-        "components/**/*mock.*",
-        "components/**/spec.*",
-        "components/**/stories.*",
-        "components/**/styles.css.ts",
-        "components/**/test.*"
+        "src/**/*mock.*",
+        "src/**/spec.*",
+        "src/**/stories.*",
+        "src/**/test.*"
     ]
 }

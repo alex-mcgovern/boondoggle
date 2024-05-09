@@ -11,6 +11,8 @@
         "type": "git",
         "url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
     },
+    "source": "src/index.ts",
+    "types": "dist/types.d.ts",
     "type": "module",
     "main": "dist/index.js",
     "scripts": {
@@ -61,6 +63,7 @@
         "clsx": "2.1.0",
         "countries-list": "3.1.0",
         "framer-motion": "11.0.25",
+        "parcel": "2.12.0",
         "react": "18.2.0",
         "react-aria-components": "1.1.1",
         "react-dom": "18.2.0",
@@ -68,6 +71,8 @@
     },
     "devDependencies": {
         "@faker-js/faker": "8.0.2",
+        "@parcel/packager-ts": "2.12.0",
+        "@parcel/transformer-typescript-types": "2.12.0",
         "@storybook/addon-essentials": "^8.0.6",
         "@storybook/blocks": "^8.0.6",
         "@storybook/manager-api": "8.0.6",
