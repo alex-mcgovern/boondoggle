@@ -255,7 +255,10 @@ import { FlagZw } from "./zw";
 /**
  * A map of country codes to flag components.
  */
-export const FLAGS: Record<TCountryCode, JSXElementConstructor<{}>> = {
+export const FLAGS: Record<
+    TCountryCode,
+    JSXElementConstructor<Record<string, unknown>>
+> = {
     // AC: FlagAc,
     AD: FlagAd,
     AE: FlagAe,
