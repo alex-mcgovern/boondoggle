@@ -18,7 +18,7 @@
     "scripts": {
         "=== BUILD ===": "",
         "build": "concurrently -n JS,DTS -c \"bgGreen.bold,bgBlue.bold\" \"npm:build-js\" \"npm:build-types\"",
-        "build-js": "vite build",
+        "build-js": "parcel build",
         "build-types": "tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --outDir \"./dist\"",
         "prebuild": "npm run check",
         "=== BUILD (OLD) ===": "",
