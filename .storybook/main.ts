@@ -1,6 +1,5 @@
 import { StorybookConfig } from "storybook";
 import { mergeConfig } from "vite";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 const config: StorybookConfig = {
     addons: ["@storybook/addon-essentials"],
@@ -31,16 +30,6 @@ const config: StorybookConfig = {
             shouldRemoveUndefinedFromOptional: true,
             propFilter: () => true,
         },
-    },
-    async viteFinal(config, { configType }) {
-        return mergeConfig(config, {
-            plugins: [
-                vanillaExtractPlugin({
-                    identifiers: "debug",
-                    unstable_mode: "emitCss",
-                }),
-            ],
-        });
     },
 };
 

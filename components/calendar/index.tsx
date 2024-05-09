@@ -46,16 +46,16 @@ export function Calendar<TDateValue extends RACDateValue>(
             <header className="header">
                 <Button
                     appearance="ghost"
-                    slot="previous"
                     size="square_sm"
+                    slot="previous"
                 >
                     <Icon icon={faAngleLeft} />
                 </Button>
                 <RACHeading className="heading" />
                 <Button
                     appearance="ghost"
-                    slot="next"
                     size="square_sm"
+                    slot="next"
                 >
                     <Icon icon={faAngleRight} />
                 </Button>
