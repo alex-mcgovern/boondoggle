@@ -1,7 +1,4 @@
-import type { ReactNode } from "react";
 import type * as React from "react";
-
-// import type { ColorOverlay, ElementSizeEnum } from "./index.css";
 
 declare module "react" {
     function forwardRef<T, P = Record<string, unknown>>(
@@ -9,63 +6,65 @@ declare module "react" {
     ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
 }
 
-export type WithDescription = {
-    /**
-     * Description shown under the field (when there is no error message).
-     */
-    description?: ReactNode;
-};
-
-export type WithColorOverlay = {
-    /**
-     * Allows setting a color to indicate semantic meaning associated with an action. Redefines color variables via CSS custom properties.
-     */
-    // colorOverlay?: ColorOverlay;
-};
-
-export type WithWrapperProps = {
-    /**
-     * Props for the wrapper component.
-     */
-    // wrapperProps?: BoxProps;
-};
-
-export type WithName = {
-    /**
-     * Unique name for the element.
-     * @important Should be a *snake_case* string.
-     * @important This will be used as the HTML element ID.
-     */
-    name: string;
-};
-
-export type WithSize = {
-    /**
-     * Consistent size option shared across multiple components.
-     */
-    // size?: ElementSizeEnum;
-};
-
-export type WithSlots = {
-    /**
-     * React node(s) rendered on the left-hand side.
-     */
-    slotLeft?: ReactNode;
-
-    /**
-     * React node(s) rendered on the right-hand side.
-     */
-    slotRight?: ReactNode;
-};
-
-export type WithStateInvalid = {
-    /**
-     * Message shown when field fails validation.
-     */
-    errorMessage?: ReactNode;
-
-    /**
-     * Whether the value of the field fails validation.
-     */
-    invalid?: boolean;
-};
+declare global {
+    // eslint-disable-next-line @typescript-eslint/no-namespace
+    namespace Intl {
+        interface NumberFormatOptions {
+            compactDisplay?: "long" | "short" | undefined;
+            currencyDisplay?: string | undefined;
+            currencySign?: string | undefined;
+            notation?:
+                | "compact"
+                | "engineering"
+                | "scientific"
+                | "standard"
+                | undefined;
+            roundingIncrement?:
+                | 1
+                | 2
+                | 5
+                | 10
+                | 20
+                | 25
+                | 50
+                | 100
+                | 200
+                | 250
+                | 500
+                | 1000
+                | 2000
+                | 2500
+                | 5000
+                | undefined;
+            roundingMode?:
+                | "ceil"
+                | "expand"
+                | "floor"
+                | "halfCeil"
+                | "halfEven"
+                | "halfExpand"
+                | "halfFloor"
+                | "halfTrunc"
+                | "trunc"
+                | undefined;
+            roundingPriority?:
+                | "auto"
+                | "lessPrecision"
+                | "morePrecision"
+                | undefined;
+            signDisplay?:
+                | "always"
+                | "auto"
+                | "exceptZero"
+                | "never"
+                | undefined;
+            trailingZeroDisplay?:
+                | "auto"
+                | "lessPrecision"
+                | "stripIfInteger"
+                | undefined;
+            unit?: string | undefined;
+            unitDisplay?: "long" | "narrow" | "short" | undefined;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import "../styles/index.css";
+import "./types";
 
 export { Avatar } from "./avatar";
 export {
