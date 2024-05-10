@@ -112,7 +112,7 @@
         }
     }
 
-    &.left {
+    &.start {
         justify-content: flex-start;
     }
     &.center {
