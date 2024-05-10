@@ -60,11 +60,6 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
      */
     isDisabled?: boolean;
 
-    /**
-     * Name of the form.
-     */
-    name: string;
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, jsdoc/require-jsdoc
     resolver?: Resolver<TFieldValues, any>;
 
@@ -90,7 +85,6 @@ function _Form<TFieldValues extends FieldValues>(
         handleErrors = debugFormErrors,
         handleSubmit,
         isDisabled,
-        name,
         resolver,
         shouldResetOnSubmit = false,
         watchCallback,
@@ -120,7 +114,6 @@ function _Form<TFieldValues extends FieldValues>(
         <FormProvider {...formMethods}>
             <form
                 className={className}
-                name={name}
                 onSubmit={formMethods.handleSubmit((fieldValues) => {
                     handleSubmit(fieldValues);
                     if (shouldResetOnSubmit) {

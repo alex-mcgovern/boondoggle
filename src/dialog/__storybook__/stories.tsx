@@ -84,7 +84,7 @@ export const WithForm: Story = {
     args: {
         children: ({ close }) => {
             return (
-                <Form onSubmit={(e) => alert(JSON.stringify(e))}>
+                <Form handleSubmit={(e) => alert(JSON.stringify(e))}>
                     <DialogHeader
                         close={close}
                         title="Form"
