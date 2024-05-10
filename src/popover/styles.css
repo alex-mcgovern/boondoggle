@@ -37,6 +37,10 @@
         width: var(--trigger-width);
     }
 
+    &[data-trigger="MenuTrigger"] {
+        min-width: var(--trigger-width);
+    }
+
     &[data-placement="top"] {
         --origin: translateY(var(--space-2));
 

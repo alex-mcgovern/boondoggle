@@ -2,20 +2,28 @@ import type { AnchorHTMLAttributes, ForwardedRef, ReactNode } from "react";
 import type {
     MenuItemProps as AriaMenuItemProps,
     MenuProps as AriaMenuProps,
+    MenuTriggerProps as AriaMenuTriggerProps,
     SectionProps as AriaSectionProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
 import {
-    Collection as AriaCollection,
     Header as AriaHeader,
     Menu as AriaMenu,
     MenuItem as AriaMenuItem,
+    MenuTrigger as AriaMenuTrigger,
     Section as AriaSection,
 } from "react-aria-components";
 
 import "../../styles/dropdown-menu.css";
 import { Checkbox } from "../checkbox";
+
+/**
+ * A `Trigger` component, for use with a `Menu` component. [Built with React Aria Trigger component](https://react-spectrum.adobe.com/react-aria/Menu.html#menutrigger)
+ */
+function Trigger(props: AriaMenuTriggerProps) {
+    return <AriaMenuTrigger {...props} />;
+}
 
 type SingleMenuItem<TItemId extends string = string> =
     AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -86,7 +94,7 @@ export type IterableMenuItem<TItemId extends string = string> =
 /**
  * A menu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
  */
-export function Menu<TItem extends object = object>({
+function DropdownMenu<TItem extends object = object>({
     ref,
     ...props
 }: AriaMenuProps<TItem> & {
@@ -104,7 +112,7 @@ export function Menu<TItem extends object = object>({
 /**
  * A menu item represents an action or option that a user can choose. [Built with React Aria MenuItem component](https://react-spectrum.adobe.com/react-aria/Menu.html#menuitem)
  */
-export function MenuItem<TItem extends object>({
+function Item<TItem extends object>({
     ref,
     ...props
 }: AriaMenuItemProps<TItem> & {
@@ -114,7 +122,7 @@ export function MenuItem<TItem extends object>({
     icon?: ReactNode;
 
     /**
-     * React ref to the MenuItem element.
+     * React ref to the Item element.
      */
     ref?: ForwardedRef<HTMLDivElement>;
 }) {
@@ -162,63 +170,11 @@ function Section<TItem extends object = object>(
     );
 }
 
-/**
- * A DynamicMenu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { DynamicMenu, type DynamicMenuProps } from "boondoggle/DynamicMenu"
- * ```
- */
-export function DynamicMenu<TItemId extends string = string>({
-    ref,
-    ...props
-}: AriaMenuProps<IterableMenuItem<TItemId>> & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
-    return (
-        <Menu<IterableMenuItem<TItemId>>
-            ref={ref}
-            {...props}
-        >
-            {(item) => {
-                return item.children ? (
-                    <Section>
-                        {item.name ? (
-                            <AriaHeader className="dropdown-menu-section-header">
-                                {item.name}
-                            </AriaHeader>
-                        ) : null}
-
-                        <AriaCollection items={item.children}>
-                            {(childItem) => (
-                                <MenuItem<IterableMenuItem<TItemId>>
-                                    {...childItem}
-                                    icon={childItem.slotLeft}
-                                    value={item}
-                                >
-                                    {childItem.name}
-                                </MenuItem>
-                            )}
-                        </AriaCollection>
-                    </Section>
-                ) : (
-                    <MenuItem<IterableMenuItem<TItemId>>
-                        {...item}
-                        icon={item.slotLeft}
-                        value={item}
-                    >
-                        {item.name}
-                    </MenuItem>
-                );
-            }}
-        </Menu>
-    );
+function SectionHeader({ children }: { children: ReactNode }) {
+    return <AriaHeader className="dropdown-menu-header">{children}</AriaHeader>;
 }
+
+/**
+ *
+ */
+export const Menu = { DropdownMenu, Item, Section, SectionHeader, Trigger };
