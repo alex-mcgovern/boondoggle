@@ -34,7 +34,7 @@ import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
-export const Column = forwardRef<HTMLTableCellElement, ColumnProps>(
+const Column = forwardRef<HTMLTableCellElement, ColumnProps>(
     (props: ColumnProps, ref) => {
         return (
             <RACColumn
@@ -109,24 +109,22 @@ function _TableHeader<T extends object>(
 /**
  * A `TableHeader` component, for use with a `Table` component. [Built with React Aria TableHeader component](https://react-spectrum.adobe.com/react-aria/Table.html#tableheader)
  */
-export const TableHeader = forwardRef(_TableHeader);
+const TableHeader = forwardRef(_TableHeader);
 
 type CellProps = RACCellProps;
 
 /**
  * A `Cell` component, for use with a `Row` component. [Built with React Aria Cell component](https://react-spectrum.adobe.com/react-aria/Table.html#cell)
  */
-export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
-    (props, ref) => {
-        return (
-            <RACCell
-                {...props}
-                className={clsx(props.className, "cell")}
-                ref={ref}
-            />
-        );
-    },
-);
+const Cell = forwardRef<HTMLTableCellElement, CellProps>((props, ref) => {
+    return (
+        <RACCell
+            {...props}
+            className={clsx(props.className, "cell")}
+            ref={ref}
+        />
+    );
+});
 
 type RowProps<T extends object> = RACRowProps<T>;
 
@@ -168,7 +166,7 @@ function _Row<T extends object>(
 /**
  * A `Row` component, for use with a `TableBody` component. [Built with React Aria Row component](https://react-spectrum.adobe.com/react-aria/Table.html#row)
  */
-export const Row = forwardRef(_Row);
+const Row = forwardRef(_Row);
 
 export type TableBodyProps<T extends object> = RACTableBodyProps<T>;
 
@@ -190,7 +188,7 @@ function _TableBody<T extends object>(
 /**
  * A `TableBody` component, for use with a `Table` component. [Built with React Aria TableBody component](https://react-spectrum.adobe.com/react-aria/Table.html#tablebody)
  */
-export const TableBody = forwardRef(_TableBody);
+const TableBody = forwardRef(_TableBody);
 
 export type TableProps = RACTableProps;
 
@@ -218,7 +216,7 @@ export type TableProps = RACTableProps;
  * } from "booondoggle/table"
  * ```
  */
-export const Table = forwardRef<HTMLTableElement, TableProps>(
+const TableRoot = forwardRef<HTMLTableElement, TableProps>(
     (props: TableProps, ref) => {
         return (
             <RACTable
@@ -237,7 +235,7 @@ export type ResizableTableContainerProps = RACResizableTableContainerProps;
 /**
  * A `ResizableTableContainer` component, for use with a `Table` component. [Built with React Aria ResizableTableContainer component](https://react-spectrum.adobe.com/react-aria/Table.html#resizabletablecontainer)
  */
-export const ResizableTableContainer = forwardRef<
+const ResizableTableContainer = forwardRef<
     HTMLDivElement,
     ResizableTableContainerProps
 >((props, ref) => {
@@ -249,3 +247,16 @@ export const ResizableTableContainer = forwardRef<
         />
     );
 });
+
+/**
+ * A table displays data in rows and columns and enables a user to navigate its contents via directional navigation keys,
+ */
+export const Table = {
+    Body: TableBody,
+    Cell,
+    Column,
+    Header: TableHeader,
+    ResizableContainer: ResizableTableContainer,
+    Root: TableRoot,
+    Row,
+};

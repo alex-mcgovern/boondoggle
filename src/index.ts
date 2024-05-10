@@ -91,19 +91,7 @@ export {
 } from "./select";
 export { Skeleton } from "./skeleton";
 export { Switch, type SwitchProps } from "./switch";
-export {
-    Cell,
-    Column,
-    type ColumnProps,
-    ResizableTableContainer,
-    type ResizableTableContainerProps,
-    Row,
-    Table,
-    TableBody,
-    type TableBodyProps,
-    TableHeader,
-    type TableProps,
-} from "./table";
+export { Table } from "./table";
 export { TabList, TabPanel, type TabProps, Tabs } from "./tabs";
 export { TextArea } from "./text-area";
 export {
