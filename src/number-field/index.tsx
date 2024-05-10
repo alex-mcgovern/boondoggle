@@ -1,10 +1,12 @@
+import type { ComponentProps, ForwardedRef } from "react";
+
 import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
-import { forwardRef, useEffect } from "react";
+import { useEffect } from "react";
 import {
-    NumberField as RACNumberField,
-    type NumberFieldProps as RACNumberFieldProps,
+    NumberField as AriaNumberField,
+    type NumberFieldProps as AriaNumberFieldProps,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
@@ -35,8 +37,6 @@ export function NumberFieldDecrementButton() {
     );
 }
 
-export type NumberFieldProps = RACNumberFieldProps;
-
 /**
  * A number field allows a user to enter a number, and increment or decrement the value using stepper buttons. [Built with React Aria NumberField component](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  *
@@ -52,17 +52,18 @@ export type NumberFieldProps = RACNumberFieldProps;
  * import { NumberField, type NumberFieldProps } from "boondoggle/number-field"
  * ```
  */
-export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
-    (props, ref) => {
-        return (
-            <RACNumberField
-                {...props}
-                className={clsx(props.className, "number-field")}
-                ref={ref}
-            />
-        );
-    },
-);
+export function NumberField({
+    ref,
+    ...props
+}: AriaNumberFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
+    return (
+        <AriaNumberField
+            {...props}
+            className={clsx(props.className, "number-field")}
+            ref={ref}
+        />
+    );
+}
 
 /** -----------------------------------------------------------------------------
  * FormNumberField
@@ -73,7 +74,10 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  */
-export function FormNumberField({ children, ...props }: NumberFieldProps) {
+export function FormNumberField({
+    children,
+    ...props
+}: ComponentProps<typeof NumberField>) {
     if (!props.name) {
         throw new Error("FormNumberField requires a name prop");
     }

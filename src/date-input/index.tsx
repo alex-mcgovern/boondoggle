@@ -1,21 +1,12 @@
-import type { DateInputProps as RACDateInputProps } from "react-aria-components";
+import type { DateInputProps as AriaDateInputProps } from "react-aria-components";
 
 import clsx from "clsx";
 import {
-    DateInput as RACDateInput,
-    DateSegment as RACDateSegment,
+    DateInput as AriaDateInput,
+    DateSegment as AriaDateSegment,
 } from "react-aria-components";
 
 import "./styles.css";
-
-export type DateInputProps = Omit<RACDateInputProps, "children"> & {
-    /**
-     * The variant of the input.
-     * - `default` is the default input style.
-     * - `unstyled` is for use within a `Group` component, and will remove all styles from the input.
-     */
-    variant?: "default" | "unstyled";
-};
 
 /**
  * The <DateInput> component renders a group of date segments. It accepts a function as its children, which is called to render a <DateSegment> for each segment.
@@ -33,18 +24,28 @@ export type DateInputProps = Omit<RACDateInputProps, "children"> & {
  * import { DateInput, type DateInputProps } from "boondoggle/date-input"
  * ```
  */
-export function DateInput({ variant = "default", ...props }: DateInputProps) {
+export function DateInput({
+    variant = "default",
+    ...props
+}: Omit<AriaDateInputProps, "children"> & {
+    /**
+     * The variant of the input.
+     * - `default` is the default input style.
+     * - `unstyled` is for use within a `Group` component, and will remove all styles from the input.
+     */
+    variant?: "default" | "unstyled";
+}) {
     return (
-        <RACDateInput
+        <AriaDateInput
             {...props}
             className={clsx("date-input", variant, props.className)}
         >
             {(segment) => (
-                <RACDateSegment
+                <AriaDateSegment
                     className="date-segment"
                     segment={segment}
                 />
             )}
-        </RACDateInput>
+        </AriaDateInput>
     );
 }

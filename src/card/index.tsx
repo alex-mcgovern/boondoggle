@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 
 import "./styles.css";
+
 function CardActionsWrapper({
     actions,
 }: {
@@ -15,7 +16,17 @@ function CardActionsWrapper({
     return <div className="card-actions">{actions}</div>;
 }
 
-export type CardProps = {
+/**
+ * The card component is used to group related content together.
+ */
+export function Card({
+    actions,
+    children,
+    description,
+    hasPadding = true,
+    header,
+    title,
+}: {
     /**
      * Action shown on the right-hand side of a card.
      */
@@ -45,19 +56,7 @@ export type CardProps = {
      * The title of the card
      */
     title?: ReactNode;
-};
-
-/**
- * The card component is used to group related content together.
- */
-export function Card({
-    actions,
-    children,
-    description,
-    hasPadding = true,
-    header,
-    title,
-}: CardProps) {
+}) {
     return (
         <>
             {header && <header className="card-header">{header}</header>}

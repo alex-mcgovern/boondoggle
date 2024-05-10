@@ -1,23 +1,29 @@
+import type { ComponentProps } from "react";
 import type {
-    TabListProps as ReactAriaTabListProps,
-    TabPanelProps as ReactAriaTabPanelProps,
-    TabProps as ReactAriaTabProps,
-    TabsProps as ReactAriaTabsProps,
+    TabListProps as AriaTabListProps,
+    TabPanelProps as AriaTabPanelProps,
+    TabProps as AriaTabProps,
+    TabsProps as AriaTabsProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useLayoutEffect, useState } from "react";
 import {
-    Tab as ReactAriaTab,
-    TabList as ReactAriaTabList,
-    TabPanel as ReactAriaTabPanel,
-    Tabs as ReactAriaTabs,
+    Tab as AriaTab,
+    TabList as AriaTabList,
+    TabPanel as AriaTabPanel,
+    Tabs as AriaTabs,
 } from "react-aria-components";
 
 import "./styles.css";
 
-export type TabProps = Omit<ReactAriaTabProps, "className"> & {
+function Tab({
+    animationKey,
+    id,
+    label,
+    ...props
+}: Omit<AriaTabProps, "className"> & {
     /**
      * A unique key for the tab that is used to animate the indicator.
      */
@@ -26,11 +32,9 @@ export type TabProps = Omit<ReactAriaTabProps, "className"> & {
      * The label of the tab.
      */
     label?: string;
-};
-
-function Tab({ animationKey, id, label, ...props }: TabProps) {
+}) {
     return (
-        <ReactAriaTab
+        <AriaTab
             className="tab"
             id={id}
             {...props}
@@ -56,7 +60,7 @@ function Tab({ animationKey, id, label, ...props }: TabProps) {
                     </>
                 );
             }}
-        </ReactAriaTab>
+        </AriaTab>
     );
 }
 
@@ -68,12 +72,15 @@ export function TabList({
     items,
     justify = "start",
     ...props
-}: Omit<ReactAriaTabListProps<Omit<TabProps, "animationKey">>, "className"> & {
+}: Omit<
+    AriaTabListProps<Omit<ComponentProps<typeof Tab>, "animationKey">>,
+    "className"
+> & {
     justify?: "space-evenly" | "start";
 }) {
     return (
         <div className="tab-list">
-            <ReactAriaTabList
+            <AriaTabList
                 className={clsx("inner", justify)}
                 items={items}
                 {...props}
@@ -84,7 +91,7 @@ export function TabList({
                         {...tab}
                     />
                 )}
-            </ReactAriaTabList>
+            </AriaTabList>
         </div>
     );
 }
@@ -92,8 +99,8 @@ export function TabList({
 /**
  * A panel that corresponds to a tab. A function passed as the children of the `Collection` component returns a corresponding `<TabPanel>` for each tab.
  */
-export function TabPanel(props: Omit<ReactAriaTabPanelProps, "className">) {
-    return <ReactAriaTabPanel {...props} />;
+export function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
+    return <AriaTabPanel {...props} />;
 }
 
 /**
@@ -111,7 +118,7 @@ export function TabPanel(props: Omit<ReactAriaTabPanelProps, "className">) {
  * import { Tabs, type TabsProps } from "boondoggle/tabs"
  * ```
  */
-export function Tabs({ children, ...props }: ReactAriaTabsProps) {
+export function Tabs({ children, ...props }: AriaTabsProps) {
     const {
         onSelectionChange: controlledOnSelectionChange,
         selectedKey: controlledSelectedKey,
@@ -127,7 +134,7 @@ export function Tabs({ children, ...props }: ReactAriaTabsProps) {
     }, [controlledSelectedKey, selectedKey, setSelectedKey]);
 
     return (
-        <ReactAriaTabs
+        <AriaTabs
             {...tabsProps}
             onSelectionChange={(k) => {
                 setSelectedKey(k);
@@ -136,6 +143,6 @@ export function Tabs({ children, ...props }: ReactAriaTabsProps) {
             selectedKey={selectedKey}
         >
             {children}
-        </ReactAriaTabs>
+        </AriaTabs>
     );
 }

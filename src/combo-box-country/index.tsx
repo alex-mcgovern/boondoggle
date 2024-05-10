@@ -1,9 +1,8 @@
 import type { TCountryCode } from "countries-list";
+import type { ComponentProps } from "react";
 
 import { countries } from "countries-list";
-import { forwardRef } from "react";
 
-import type { ComboBoxProps } from "../combo-box";
 import type { IterableListBoxItem } from "../list-box";
 
 import { ComboBox } from "../combo-box";
@@ -53,11 +52,6 @@ const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
     countries,
 ).map(([iso, { name }]) => getCountryItem({ iso: iso as TCountryCode, name }));
 
-export type ComboBoxCountryProps = Omit<
-    ComboBoxProps<TCountryCode>,
-    "defaultItems" | "items"
->;
-
 /**
  * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
  *
@@ -76,10 +70,13 @@ export type ComboBoxCountryProps = Omit<
  * import { ComboBoxButton } from "boondoggle/combobox"
  * ```
  */
-export const ComboBoxCountry = forwardRef<
-    HTMLInputElement,
-    ComboBoxCountryProps
->((props, ref) => {
+export function ComboBoxCountry({
+    ref,
+    ...props
+}: Omit<
+    ComponentProps<typeof ComboBox<TCountryCode>>,
+    "defaultItems" | "items"
+>) {
     return (
         <ComboBox<TCountryCode>
             ref={ref}
@@ -87,4 +84,4 @@ export const ComboBoxCountry = forwardRef<
             defaultItems={COUNTRIES}
         />
     );
-});
+}

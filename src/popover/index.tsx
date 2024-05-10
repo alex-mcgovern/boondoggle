@@ -1,28 +1,26 @@
+import type { ForwardedRef } from "react";
 import type {
-    OverlayArrowProps as RACOverlayArrowProps,
-    PopoverProps as RACPopoverProps,
+    OverlayArrowProps as AriaOverlayArrowProps,
+    PopoverProps as AriaPopoverProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
 import {
-    OverlayArrow as RACOverlayArrow,
-    Popover as RACPopover,
+    OverlayArrow as AriaOverlayArrow,
+    Popover as AriaPopover,
 } from "react-aria-components";
 
 import "./styles.css";
 
-export type PopoverOverlayArrowProps = RACOverlayArrowProps;
-
 /**
  * A `PopoverOverlayArrow` component, for use with a `Popover` component. [Built with React Aria PopoverOverlayArrow component](https://react-spectrum.adobe.com/react-aria/Popover.html#overlayarrow)
  */
-export const PopoverOverlayArrow = forwardRef<
-    HTMLDivElement,
-    PopoverOverlayArrowProps
->((props, ref) => {
+export function PopoverOverlayArrow({
+    ref,
+    ...props
+}: AriaOverlayArrowProps & { ref?: ForwardedRef<HTMLDivElement> }) {
     return (
-        <RACOverlayArrow
+        <AriaOverlayArrow
             className={clsx(props.className, "overlay-arrow")}
             {...props}
             ref={ref}
@@ -34,11 +32,9 @@ export const PopoverOverlayArrow = forwardRef<
             >
                 <path d="M0 0 L6 6 L12 0" />
             </svg>
-        </RACOverlayArrow>
+        </AriaOverlayArrow>
     );
-});
-
-export type PopoverProps = RACPopoverProps;
+}
 
 /**
  * A popover is an overlay element positioned relative to a trigger. [Built with React Aria Popover component](https://react-spectrum.adobe.com/react-aria/Popover.html)
@@ -55,12 +51,15 @@ export type PopoverProps = RACPopoverProps;
  * import { Popover, type PopoverProps } from "boondoggle/popover"
  * ```
  */
-export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-    (props, ref) => (
-        <RACPopover
+export function Popover({
+    ref,
+    ...props
+}: AriaPopoverProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+    return (
+        <AriaPopover
             {...props}
             className={clsx(props.className, "popover")}
             ref={ref}
         />
-    ),
-);
+    );
+}

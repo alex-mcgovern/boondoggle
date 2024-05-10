@@ -1,33 +1,13 @@
+import type { ForwardedRef } from "react";
 import type {
-    ButtonProps as RACButtonProps,
-    LinkProps as RACLinkProps,
+    ButtonProps as AriaButtonProps,
+    LinkProps as AriaLinkProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
-import { Button as RACButton, Link as RACLink } from "react-aria-components";
+import { Button as AriaButton, Link as AriaLink } from "react-aria-components";
 
 import "./styles.css";
-
-type ButtonVariants = {
-    /**
-     * The appearance of the button.
-     */
-    appearance?: "ghost" | "primary" | "secondary";
-    /**
-     * The size of the button.
-     */
-    size?:
-        | "lg"
-        | "md"
-        | "sm"
-        | "square_lg"
-        | "square_md"
-        | "square_sm"
-        | "square_xs";
-};
-
-export type ButtonProps = RACButtonProps & ButtonVariants;
 
 /**
  * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
@@ -45,25 +25,41 @@ export type ButtonProps = RACButtonProps & ButtonVariants;
  * import { Button, type ButtonProps } from "boondoggle/button"
  * ```
  */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ appearance = "primary", className, size, ...props }, ref) => {
-        return (
-            <RACButton
-                {...props}
-                className={clsx("btn", className, appearance, size)}
-                ref={ref}
-            />
-        );
-    },
-);
-
-export type LinkButtonProps = RACLinkProps &
-    ButtonVariants & {
-        /**
-         * Whether the link points to the current page or resource.
-         */
-        isCurrent?: boolean;
-    };
+export function Button({
+    appearance = "primary",
+    className,
+    ref,
+    size,
+    ...props
+}: AriaButtonProps & {
+    /**
+     * The appearance of the button.
+     */
+    appearance?: "ghost" | "primary" | "secondary";
+    /**
+     * React ref for the button element.
+     */
+    ref?: ForwardedRef<HTMLButtonElement>;
+    /**
+     * The size of the button.
+     */
+    size?:
+        | "lg"
+        | "md"
+        | "sm"
+        | "square_lg"
+        | "square_md"
+        | "square_sm"
+        | "square_xs";
+}) {
+    return (
+        <AriaButton
+            {...props}
+            className={clsx("btn", className, appearance, size)}
+            ref={ref}
+        />
+    );
+}
 
 /**
  * A link allows a user to navigate to another page or resource within a web page or application.
@@ -82,14 +78,42 @@ export type LinkButtonProps = RACLinkProps &
  * import { LinkButton, type LinkButtonProps } from "boondoggle/button"
  * ```
  */
-export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
-    ({ appearance = "primary", className, size, ...props }, ref) => {
-        return (
-            <RACLink
-                {...props}
-                className={clsx("btn", className, appearance, size)}
-                ref={ref}
-            />
-        );
-    },
-);
+export function LinkButton({
+    appearance = "primary",
+    className,
+    ref,
+    size,
+    ...props
+}: AriaLinkProps & {
+    /**
+     * The appearance of the button.
+     */
+    appearance?: "ghost" | "primary" | "secondary";
+    /**
+     * Whether the link points to the current page or resource.
+     */
+    isCurrent?: boolean;
+    /**
+     * React ref for the button element.
+     */
+    ref?: ForwardedRef<HTMLAnchorElement>;
+    /**
+     * The size of the button.
+     */
+    size?:
+        | "lg"
+        | "md"
+        | "sm"
+        | "square_lg"
+        | "square_md"
+        | "square_sm"
+        | "square_xs";
+}) {
+    return (
+        <AriaLink
+            {...props}
+            className={clsx("btn", className, appearance, size)}
+            ref={ref}
+        />
+    );
+}

@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { useState } from "react";
 import { Link } from "react-aria-components";
-
-import type { TooltipProps } from "..";
 
 import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "..";
 import { Button } from "../../button";
@@ -54,7 +53,9 @@ export const Trigger: Story = {
     ),
 };
 
-export function ControlledOpenStateTemplate(args: TooltipProps) {
+export function ControlledOpenStateTemplate(
+    args: ComponentProps<typeof Tooltip>,
+) {
     const [isOpen, setOpen] = useState(false);
 
     return (

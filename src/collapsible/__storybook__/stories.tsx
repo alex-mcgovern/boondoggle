@@ -1,9 +1,8 @@
 import type { StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { faker } from "@faker-js/faker";
 import { faAngleDown } from "@fortawesome/pro-solid-svg-icons/faAngleDown";
-
-import type { CollapsibleProps } from "..";
 
 import { Collapsible } from "..";
 import { Icon } from "../../icon";
@@ -29,7 +28,7 @@ const TriggerNode = (
     </button>
 );
 
-export const Default: StoryObj<CollapsibleProps> = {
+export const Default: StoryObj<ComponentProps<typeof Collapsible>> = {
     args: {
         children: faker.lorem.paragraphs(3),
     },

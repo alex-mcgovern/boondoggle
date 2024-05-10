@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
-
-import type { ButtonProps } from "..";
 
 import { Button } from "..";
 import { Grid } from "../../grid";
@@ -46,7 +45,7 @@ export const Size: Story = {
         appearance: "primary",
     },
     render: (props) => {
-        const sizes: ButtonProps["size"][] = [
+        const sizes: ComponentProps<typeof Button>["size"][] = [
             "sm",
             "md",
             "lg",

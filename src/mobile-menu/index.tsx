@@ -4,11 +4,11 @@ import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { useState } from "react";
 import {
-    Dialog as ReactAriaDialog,
-    DialogTrigger as ReactAriaDialogTrigger,
-    Heading as ReactAriaHeading,
-    Modal as ReactAriaModal,
-    ModalOverlay as ReactAriaModalOverlay,
+    Dialog as AriaDialog,
+    DialogTrigger as AriaDialogTrigger,
+    Heading as AriaHeading,
+    Modal as AriaModal,
+    ModalOverlay as AriaModalOverlay,
 } from "react-aria-components";
 
 import { Button } from "../button";
@@ -31,12 +31,12 @@ export function MobileMenuHeader({
         <header className="mobile-menu-header">
             {children}
             {title ? (
-                <ReactAriaHeading
+                <AriaHeading
                     className="mobile-menu-title"
                     slot="title"
                 >
                     {title}
-                </ReactAriaHeading>
+                </AriaHeading>
             ) : null}
 
             <Button
@@ -81,21 +81,21 @@ export function MobileMenu({
     modalOverlayProps,
     modalProps,
 }: {
-    children: ComponentProps<typeof ReactAriaDialog>["children"];
+    children: ComponentProps<typeof AriaDialog>["children"];
     dialogTriggerProps?: Omit<
-        ComponentProps<typeof ReactAriaDialogTrigger>,
+        ComponentProps<typeof AriaDialogTrigger>,
         "children"
     >;
     modalOverlayProps?: Omit<
-        ComponentProps<typeof ReactAriaModalOverlay>,
+        ComponentProps<typeof AriaModalOverlay>,
         "className"
     >;
-    modalProps?: Omit<ComponentProps<typeof ReactAriaModal>, "className">;
+    modalProps?: Omit<ComponentProps<typeof AriaModal>, "className">;
 }) {
     const [isOpen, setIsOpen] = useState(dialogTriggerProps?.isOpen);
 
     return (
-        <ReactAriaDialogTrigger
+        <AriaDialogTrigger
             {...dialogTriggerProps}
             isOpen={isOpen}
             onOpenChange={(isOpen) => {
@@ -109,19 +109,17 @@ export function MobileMenu({
             >
                 <Icon icon={isOpen ? faTimes : faBars} />
             </Button>
-            <ReactAriaModalOverlay
+            <AriaModalOverlay
                 className="mobile-menu-overlay"
                 {...modalOverlayProps}
             >
-                <ReactAriaModal
+                <AriaModal
                     className="mobile-menu-modal"
                     {...modalProps}
                 >
-                    <ReactAriaDialog className="mobile-menu">
-                        {children}
-                    </ReactAriaDialog>
-                </ReactAriaModal>
-            </ReactAriaModalOverlay>
-        </ReactAriaDialogTrigger>
+                    <AriaDialog className="mobile-menu">{children}</AriaDialog>
+                </AriaModal>
+            </AriaModalOverlay>
+        </AriaDialogTrigger>
     );
 }

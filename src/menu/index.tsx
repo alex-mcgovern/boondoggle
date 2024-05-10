@@ -6,7 +6,6 @@ import type {
 } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
 import {
     Collection as AriaCollection,
     Header as AriaHeader,
@@ -84,12 +83,15 @@ export type IterableMenuItem<TItemId extends string = string> =
       }
     | SingleMenuItem<TItemId>;
 
-export type MenuProps<TItem extends object = object> = AriaMenuProps<TItem>;
-
-function _Menu<TItem extends object = object>(
-    props: MenuProps<TItem>,
-    ref: ForwardedRef<HTMLDivElement>,
-) {
+/**
+ * A menu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
+ */
+export function Menu<TItem extends object = object>({
+    ref,
+    ...props
+}: AriaMenuProps<TItem> & {
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <AriaMenu<TItem>
             className={clsx(props.className, "dropdown-menu")}
@@ -100,21 +102,22 @@ function _Menu<TItem extends object = object>(
 }
 
 /**
- * A menu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
+ * A menu item represents an action or option that a user can choose. [Built with React Aria MenuItem component](https://react-spectrum.adobe.com/react-aria/Menu.html#menuitem)
  */
-export const Menu = forwardRef(_Menu);
-
-export type MenuItemProps<TItem extends object> = AriaMenuItemProps<TItem> & {
+export function MenuItem<TItem extends object>({
+    ref,
+    ...props
+}: AriaMenuItemProps<TItem> & {
     /**
      * The icon to display on the left side of the menu item.
      */
     icon?: ReactNode;
-};
 
-function _MenuItem<TItem extends object>(
-    props: MenuItemProps<TItem>,
-    ref: ForwardedRef<HTMLDivElement>,
-) {
+    /**
+     * React ref to the MenuItem element.
+     */
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <AriaMenuItem
             {...props}
@@ -144,11 +147,6 @@ function _MenuItem<TItem extends object>(
 }
 
 /**
- * A menu item represents an action or option that a user can choose. [Built with React Aria MenuItem component](https://react-spectrum.adobe.com/react-aria/Menu.html#menuitem)
- */
-export const MenuItem = forwardRef(_MenuItem);
-
-/**
  * A <Section> defines the child items for a section within a <ListBox>.
  * It may also contain an optional <Header> element.
  * If there is no header, then an aria-label must be provided to identify the section to assistive technologies.
@@ -164,14 +162,27 @@ function Section<TItem extends object = object>(
     );
 }
 
-export type DynamicMenuProps<TItemId extends string = string> = AriaMenuProps<
-    IterableMenuItem<TItemId>
->;
-
-function _DynamicMenu<TItemId extends string = string>(
-    props: DynamicMenuProps<TItemId>,
-    ref: ForwardedRef<HTMLDivElement>,
-) {
+/**
+ * A DynamicMenu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { DynamicMenu, type DynamicMenuProps } from "boondoggle/DynamicMenu"
+ * ```
+ */
+export function DynamicMenu<TItemId extends string = string>({
+    ref,
+    ...props
+}: AriaMenuProps<IterableMenuItem<TItemId>> & {
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <Menu<IterableMenuItem<TItemId>>
             ref={ref}
@@ -211,20 +222,3 @@ function _DynamicMenu<TItemId extends string = string>(
         </Menu>
     );
 }
-
-/**
- * A DynamicMenu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { DynamicMenu, type DynamicMenuProps } from "boondoggle/DynamicMenu"
- * ```
- */
-export const DynamicMenu = forwardRef(_DynamicMenu);

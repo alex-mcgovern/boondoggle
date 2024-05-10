@@ -1,12 +1,10 @@
-import type { FieldErrorProps as RACFieldErrorProps } from "react-aria-components";
+import type { ForwardedRef } from "react";
+import type { FieldErrorProps as AriaFieldErrorProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
-import { FieldError as RACFieldError } from "react-aria-components";
+import { FieldError as AriaFieldError } from "react-aria-components";
 
 import "./styles.css";
-
-export type FieldErrorProps = RACFieldErrorProps;
 
 /**
  * A <FieldError> displays validation errors.
@@ -23,14 +21,15 @@ export type FieldErrorProps = RACFieldErrorProps;
  * import { FieldError, type FieldErrorProps } from "boondoggle/field-error"
  * ```
  */
-export const FieldError = forwardRef<HTMLDivElement, FieldErrorProps>(
-    (props, ref) => {
-        return (
-            <RACFieldError
-                {...props}
-                className={clsx(props.className, "field-error")}
-                ref={ref}
-            />
-        );
-    },
-);
+export function FieldError({
+    ref,
+    ...props
+}: AriaFieldErrorProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+    return (
+        <AriaFieldError
+            {...props}
+            className={clsx(props.className, "field-error")}
+            ref={ref}
+        />
+    );
+}

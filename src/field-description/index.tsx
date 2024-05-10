@@ -1,7 +1,7 @@
-import type { TextProps as RACTextProps } from "react-aria-components";
+import type { TextProps as AriaTextProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { Text as RACText } from "react-aria-components";
+import { Text as AriaText } from "react-aria-components";
 
 import "./styles.css";
 
@@ -20,9 +20,9 @@ import "./styles.css";
  * import { FieldDescription, type FieldDescriptionProps } from "boondoggle/field-description"
  * ```
  */
-export function FieldDescription(props: RACTextProps) {
+export function FieldDescription(props: AriaTextProps) {
     return (
-        <RACText
+        <AriaText
             {...props}
             className={clsx(props.className, "description")}
             slot="description"

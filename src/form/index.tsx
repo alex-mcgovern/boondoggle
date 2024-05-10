@@ -9,7 +9,6 @@ import type {
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { forwardRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 const debugFormErrors = (errors: FieldErrors) => {
@@ -60,6 +59,11 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
      */
     isDisabled?: boolean;
 
+    /**
+     * React ref for the form element.
+     */
+    ref?: ForwardedRef<HTMLFormElement>;
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, jsdoc/require-jsdoc
     resolver?: Resolver<TFieldValues, any>;
 
@@ -77,20 +81,18 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
 /**
  * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
  */
-function _Form<TFieldValues extends FieldValues>(
-    {
-        children,
-        className,
-        defaultValues,
-        handleErrors = debugFormErrors,
-        handleSubmit,
-        isDisabled,
-        resolver,
-        shouldResetOnSubmit = false,
-        watchCallback,
-    }: FormProps<TFieldValues>,
-    ref: ForwardedRef<HTMLFormElement>,
-) {
+export function Form<TFieldValues extends FieldValues>({
+    children,
+    className,
+    defaultValues,
+    handleErrors = debugFormErrors,
+    handleSubmit,
+    isDisabled,
+    ref,
+    resolver,
+    shouldResetOnSubmit = false,
+    watchCallback,
+}: FormProps<TFieldValues>) {
     const formMethods = useForm<TFieldValues>({
         defaultValues,
         disabled: isDisabled,
@@ -129,8 +131,3 @@ function _Form<TFieldValues extends FieldValues>(
         </FormProvider>
     );
 }
-
-/**
- * Wrapper around react-hook-form form component.
- */
-export const Form = forwardRef(_Form);

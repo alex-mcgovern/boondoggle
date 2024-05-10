@@ -1,7 +1,7 @@
-import type { GroupProps as RACGroupProps } from "react-aria-components";
+import type { GroupProps as AriaGroupProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { Group as RACGroup } from "react-aria-components";
+import { Group as AriaGroup } from "react-aria-components";
 
 import "./styles.css";
 
@@ -20,9 +20,9 @@ import "./styles.css";
  * import { Group, type GroupProps } from "boondoggle/group"
  * ```
  */
-export function Group(props: RACGroupProps) {
+export function Group(props: AriaGroupProps) {
     return (
-        <RACGroup
+        <AriaGroup
             {...props}
             className={clsx(props.className, "group")}
         />

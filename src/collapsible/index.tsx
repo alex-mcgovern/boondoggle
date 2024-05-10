@@ -5,28 +5,6 @@ import { useCallback, useState } from "react";
 
 import "./styles.css";
 
-export type CollapsibleProps = {
-    /**
-     * Dialog content
-     */
-    children: Array<ReactNode> | ReactNode;
-
-    /**
-     * Allow collapsible to act as a controlled component
-     */
-    isOpen?: boolean;
-
-    /**
-     * Function called with new state when state changes.
-     */
-    onOpenChange?: (openState: boolean) => void;
-
-    /**
-     * Element to use as Dialog trigger. Note: Must accept a ref.
-     */
-    triggerNode: ReactNode;
-};
-
 /**
  * @deprecated
  *
@@ -49,7 +27,27 @@ export function Collapsible({
     isOpen,
     onOpenChange,
     triggerNode,
-}: CollapsibleProps) {
+}: {
+    /**
+     * Dialog content
+     */
+    children: Array<ReactNode> | ReactNode;
+
+    /**
+     * Allow collapsible to act as a controlled component
+     */
+    isOpen?: boolean;
+
+    /**
+     * Function called with new state when state changes.
+     */
+    onOpenChange?: (openState: boolean) => void;
+
+    /**
+     * Element to use as Dialog trigger. Note: Must accept a ref.
+     */
+    triggerNode: ReactNode;
+}) {
     const [localOpenState, setLocalOpenState] = useState(isOpen);
 
     const handleOpenChange = useCallback(

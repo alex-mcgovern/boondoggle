@@ -1,21 +1,22 @@
-import type { TextFieldProps as RACTextFieldProps } from "react-aria-components";
+import type { ComponentProps, ForwardedRef } from "react";
+import type { TextFieldProps as AriaTextFieldProps } from "react-aria-components";
 
 import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
+    TextField as AriaTextField,
     ButtonContext as FieldButtonContext,
-    TextField as RACTextField,
     useSlottedContext,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
-import { i18n } from "../_i18n";
-import { FieldButton, type FieldButtonProps } from "../field-button";
+import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
+import { i18n } from "../i18n";
 import { Icon } from "../icon";
 import { toast } from "../toaster";
 import { Tooltip, TooltipTrigger } from "../tooltip";
@@ -38,7 +39,7 @@ export function TextFieldClearButton() {
 /**
  * A `FieldButton` to copy the text field value to the clipboard. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
-export function TextFieldCopyButton(props: FieldButtonProps) {
+export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
     return (
         <TooltipTrigger>
             <FieldButton
@@ -55,7 +56,9 @@ export function TextFieldCopyButton(props: FieldButtonProps) {
 /**
  * A `FieldButton` to toggle the visibility of the text field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
-export function TextFieldVisibilityButton(props: FieldButtonProps) {
+export function TextFieldVisibilityButton(
+    props: ComponentProps<typeof FieldButton>,
+) {
     const context = useSlottedContext(FieldButtonContext, "visibility");
 
     return (
@@ -73,8 +76,6 @@ export function TextFieldVisibilityButton(props: FieldButtonProps) {
     );
 }
 
-export type TextFieldProps = RACTextFieldProps;
-
 /**
  * A text field allows a user to enter a plain text value with a keyboard.
  *
@@ -82,70 +83,71 @@ export type TextFieldProps = RACTextFieldProps;
  * [React Aria TextField component](https://react-spectrum.adobe.com/react-aria/TextField.html)
  * with some additional props for styling / variants.
  */
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-    (props, ref) => {
-        const [value, setValue] = useState<TextFieldProps["value"]>(
-            props.value || props.defaultValue,
-        );
+export function TextField({
+    ref,
+    ...props
+}: AriaTextFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
+    const [value, setValue] = useState<AriaTextFieldProps["value"]>(
+        props.value || props.defaultValue,
+    );
 
-        const [type, setType] = useState<TextFieldProps["type"]>(props.type);
+    const [type, setType] = useState<AriaTextFieldProps["type"]>(props.type);
 
-        const clearValue = useCallback(() => {
-            setValue("");
-        }, [setValue]);
+    const clearValue = useCallback(() => {
+        setValue("");
+    }, [setValue]);
 
-        const toggleVisibility = useCallback(() => {
-            setType((c) => (c === "password" ? "text" : "password"));
-        }, [setType]);
+    const toggleVisibility = useCallback(() => {
+        setType((c) => (c === "password" ? "text" : "password"));
+    }, [setType]);
 
-        const copyValue = useCallback(() => {
-            if (!value) return;
+    const copyValue = useCallback(() => {
+        if (!value) return;
 
-            return navigator.clipboard
-                .writeText(value)
-                .then(() => toast.success(i18n.copied_to_clipboard));
-        }, [value]);
+        return navigator.clipboard
+            .writeText(value)
+            .then(() => toast.success(i18n.copied_to_clipboard));
+    }, [value]);
 
-        const buttonContext: Record<
-            "slots",
-            Record<string, FieldButtonProps>
-        > = useMemo(() => {
-            return {
-                slots: {
-                    clear: {
-                        isDisabled: !value,
-                        onPress: clearValue,
-                    },
-                    copy: {
-                        isDisabled: !value,
-                        onPress: copyValue,
-                    },
-                    tooltip_trigger: {},
-                    visibility: {
-                        onPress: toggleVisibility,
-                        value: type === "password" ? "hidden" : "visible",
-                    },
+    const buttonContext: Record<
+        "slots",
+        Record<string, ComponentProps<typeof FieldButton>>
+    > = useMemo(() => {
+        return {
+            slots: {
+                clear: {
+                    isDisabled: !value,
+                    onPress: clearValue,
                 },
-            };
-        }, [clearValue, copyValue, toggleVisibility, value, type]);
+                copy: {
+                    isDisabled: !value,
+                    onPress: copyValue,
+                },
+                tooltip_trigger: {},
+                visibility: {
+                    onPress: toggleVisibility,
+                    value: type === "password" ? "hidden" : "visible",
+                },
+            },
+        };
+    }, [clearValue, copyValue, toggleVisibility, value, type]);
 
-        return (
-            <FieldButtonContext.Provider value={buttonContext}>
-                <RACTextField
-                    {...props}
-                    className={clsx(props.className, "text-field")}
-                    onChange={(v) => {
-                        setValue(v);
-                        props.onChange?.(v);
-                    }}
-                    ref={ref}
-                    type={type}
-                    value={value}
-                />
-            </FieldButtonContext.Provider>
-        );
-    },
-);
+    return (
+        <FieldButtonContext.Provider value={buttonContext}>
+            <AriaTextField
+                {...props}
+                className={clsx(props.className, "text-field")}
+                onChange={(v) => {
+                    setValue(v);
+                    props.onChange?.(v);
+                }}
+                ref={ref}
+                type={type}
+                value={value}
+            />
+        </FieldButtonContext.Provider>
+    );
+}
 
 /** -----------------------------------------------------------------------------
  * FormTextField
@@ -156,7 +158,10 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
  */
-export function FormTextField({ children, ...props }: TextFieldProps) {
+export function FormTextField({
+    children,
+    ...props
+}: ComponentProps<typeof TextField>) {
     if (!props.name) {
         throw new Error("FormTextField requires a name prop");
     }

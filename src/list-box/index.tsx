@@ -1,24 +1,23 @@
 import type { ForwardedRef, ReactNode } from "react";
 import type {
-    ListBoxItemProps as ReactAriaListBoxItemProps,
-    ListBoxProps as ReactAriaListBoxProps,
-    SectionProps as ReactAriaSectionProps,
+    ListBoxItemProps as AriaListBoxItemProps,
+    ListBoxProps as AriaListBoxProps,
+    SectionProps as AriaSectionProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
 import {
+    Collection as AriaCollection,
     Header as AriaHeader,
-    Collection as ReactAriaCollection,
-    ListBox as ReactAriaListBox,
-    ListBoxItem as ReactAriaListBoxItem,
-    Section as ReactAriaSection,
-    Text as ReactAriaText,
+    ListBox as AriaListBox,
+    ListBoxItem as AriaListBoxItem,
+    Section as AriaSection,
+    Text as AriaText,
 } from "react-aria-components";
 
 import "../../styles/dropdown-menu.css";
-import { i18n } from "../_i18n";
 import { Checkbox } from "../checkbox";
+import { i18n } from "../i18n";
 
 type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;
@@ -101,30 +100,27 @@ export type IterableListBoxItem<TItemId extends string = string> =
  * If there is no header, then an aria-label must be provided to identify the section to assistive technologies.
  */
 function Section<TItem extends object = object>(
-    props: ReactAriaSectionProps<TItem>,
+    props: AriaSectionProps<TItem>,
 ) {
     return (
-        <ReactAriaSection
+        <AriaSection
             className="dropdown-menu-section"
             {...props}
         />
     );
 }
 
-export type ListBoxItemProps<TItemId extends string = string> =
-    ReactAriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
-        /**
-         * The icon to display on the left side of the menu item.
-         */
-        icon?: ReactNode;
-    };
-
 function ListBoxItem<TItemId extends string = string>({
     value,
     ...props
-}: ListBoxItemProps<TItemId>) {
+}: AriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
+    /**
+     * The icon to display on the left side of the menu item.
+     */
+    icon?: ReactNode;
+}) {
     return (
-        <ReactAriaListBoxItem
+        <AriaListBoxItem
             className={clsx(props.className, "dropdown-menu-item", {
                 "has-icon": !!props.icon,
             })}
@@ -136,18 +132,18 @@ function ListBoxItem<TItemId extends string = string>({
                     <>
                         {props.icon}
                         <div>
-                            <ReactAriaText
+                            <AriaText
                                 className="dropdown-menu-item-name"
                                 slot="label"
                             >
                                 {value?.name}
-                            </ReactAriaText>
-                            <ReactAriaText
+                            </AriaText>
+                            <AriaText
                                 className="dropdown-menu-item-description"
                                 slot="description"
                             >
                                 {value?.description}
-                            </ReactAriaText>
+                            </AriaText>
                         </div>
                         {renderProps.selectionMode === "multiple" ? (
                             <Checkbox
@@ -158,19 +154,21 @@ function ListBoxItem<TItemId extends string = string>({
                     </>
                 );
             }}
-        </ReactAriaListBoxItem>
+        </AriaListBoxItem>
     );
 }
 
-export type ListBoxProps<TItemId extends string = string> =
-    ReactAriaListBoxProps<IterableListBoxItem<TItemId>>;
-
-function BaseListBox<TItemId extends string = string>(
-    props: ListBoxProps<TItemId>,
-    ref: ForwardedRef<HTMLDivElement>,
-) {
+/**
+ * A listbox displays a list of options and allows a user to select one or more of them. [Built with React Aria ListBox component](https://react-spectrum.adobe.com/react-aria/ListBox.html)
+ */
+export function ListBox<TItemId extends string = string>({
+    ref,
+    ...props
+}: AriaListBoxProps<IterableListBoxItem<TItemId>> & {
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
-        <ReactAriaListBox<IterableListBoxItem<TItemId>>
+        <AriaListBox<IterableListBoxItem<TItemId>>
             className="dropdown-menu"
             ref={ref}
             renderEmptyState={() => <div>{i18n.no_results}</div>}
@@ -185,7 +183,7 @@ function BaseListBox<TItemId extends string = string>(
                             </AriaHeader>
                         ) : null}
 
-                        <ReactAriaCollection items={item.children}>
+                        <AriaCollection items={item.children}>
                             {(i) => (
                                 <ListBoxItem
                                     icon={i.slotLeft}
@@ -193,7 +191,7 @@ function BaseListBox<TItemId extends string = string>(
                                     value={i}
                                 />
                             )}
-                        </ReactAriaCollection>
+                        </AriaCollection>
                     </Section>
                 ) : (
                     <ListBoxItem
@@ -203,11 +201,6 @@ function BaseListBox<TItemId extends string = string>(
                     />
                 );
             }}
-        </ReactAriaListBox>
+        </AriaListBox>
     );
 }
-
-/**
- * A listbox displays a list of options and allows a user to select one or more of them. [Built with React Aria ListBox component](https://react-spectrum.adobe.com/react-aria/ListBox.html)
- */
-export const ListBox = forwardRef(BaseListBox);

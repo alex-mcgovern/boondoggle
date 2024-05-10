@@ -1,11 +1,9 @@
-import type { CheckboxProps as RACCheckboxProps } from "react-aria-components";
+import type { CheckboxProps as AriaCheckboxProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { Checkbox as RACCheckbox } from "react-aria-components";
+import { Checkbox as AriaCheckbox } from "react-aria-components";
 
 import "./styles.css";
-
-export type CheckboxProps = RACCheckboxProps;
 
 /**
  * A checkbox group allows a user to select multiple items from a list of options. [Built with React Aria Checkbox](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
@@ -22,9 +20,9 @@ export type CheckboxProps = RACCheckboxProps;
  * import { Checkbox, type CheckboxProps } from "boondoggle/checkbox"
  * ```
  */
-export function Checkbox(props: CheckboxProps) {
+export function Checkbox(props: AriaCheckboxProps) {
     return (
-        <RACCheckbox
+        <AriaCheckbox
             {...props}
             className={clsx(props.className, "checkbox-wrapper")}
         >
@@ -54,6 +52,6 @@ export function Checkbox(props: CheckboxProps) {
                     </>
                 );
             }}
-        </RACCheckbox>
+        </AriaCheckbox>
     );
 }

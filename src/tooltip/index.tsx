@@ -1,33 +1,33 @@
+import type { ForwardedRef } from "react";
 import type {
-    ButtonProps as RACButtonProps,
-    TooltipProps as RACTooltipProps,
-    TooltipTriggerComponentProps as RACTooltipTriggerProps,
+    ButtonProps as AriaButtonProps,
+    TooltipProps as AriaTooltipProps,
+    TooltipTriggerComponentProps as AriaTooltipTriggerProps,
 } from "react-aria-components";
 
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import clsx from "clsx";
-import { forwardRef } from "react";
 import {
-    Button as RACButton,
-    OverlayArrow as RACOverlayArrow,
-    Tooltip as RACTooltip,
-    TooltipTrigger as RACTooltipTrigger,
+    Button as AriaButton,
+    OverlayArrow as AriaOverlayArrow,
+    Tooltip as AriaTooltip,
+    TooltipTrigger as AriaTooltipTrigger,
 } from "react-aria-components";
 
 import { Icon } from "../icon";
 import "./styles.css";
 
-export type TooltipTriggerButtonProps = RACButtonProps;
-
 /**
  * The TooltipTriggerButton component is a default button with an info icon that can be composed with a TooltipTrigger to show a tooltip.
  */
-export const TooltipTriggerButton = forwardRef<
-    HTMLButtonElement,
-    TooltipTriggerButtonProps
->((props: Omit<RACButtonProps, "children">, ref) => {
+export function TooltipTriggerButton({
+    ref,
+    ...props
+}: Omit<AriaButtonProps, "children"> & {
+    ref?: ForwardedRef<HTMLButtonElement>;
+}) {
     return (
-        <RACButton
+        <AriaButton
             slot="clear"
             {...props}
             className={clsx(props.className, "tooltip-trigger-btn")}
@@ -35,11 +35,9 @@ export const TooltipTriggerButton = forwardRef<
             ref={ref}
         >
             <Icon icon={faInfoCircle} />
-        </RACButton>
+        </AriaButton>
     );
-});
-
-export type TooltipTriggerProps = RACTooltipTriggerProps;
+}
 
 /**
  * The TooltipTrigger component does not render any DOM elements itself, but instead triggers a tooltip to appear when hovered or focused.
@@ -49,19 +47,17 @@ export function TooltipTrigger({
     closeDelay,
     delay,
     ...props
-}: TooltipTriggerProps) {
+}: AriaTooltipTriggerProps) {
     return (
-        <RACTooltipTrigger
+        <AriaTooltipTrigger
             {...props}
             closeDelay={closeDelay}
             delay={delay}
         >
             {props.children}
-        </RACTooltipTrigger>
+        </AriaTooltipTrigger>
     );
 }
-
-export type TooltipProps = RACTooltipProps;
 
 /**
  * A tooltip displays a description of an element on hover or focus. [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
@@ -78,9 +74,9 @@ export type TooltipProps = RACTooltipProps;
  * import { Tooltip, TooltipTriggerButton, TooltipTrigger, type TooltipProps } from "boondoggle/tooltip"
  * ```
  */
-export function Tooltip(props: TooltipProps) {
+export function Tooltip(props: AriaTooltipProps) {
     return (
-        <RACTooltip
+        <AriaTooltip
             {...props}
             className="tooltip"
             offset={6}
@@ -88,7 +84,7 @@ export function Tooltip(props: TooltipProps) {
             {(renderProps) => {
                 return (
                     <>
-                        <RACOverlayArrow className="overlay-arrow">
+                        <AriaOverlayArrow className="overlay-arrow">
                             <svg
                                 height={8}
                                 viewBox="0 0 8 8"
@@ -96,7 +92,7 @@ export function Tooltip(props: TooltipProps) {
                             >
                                 <path d="M0 0 L4 4 L8 0" />
                             </svg>
-                        </RACOverlayArrow>
+                        </AriaOverlayArrow>
 
                         {typeof props.children === "function"
                             ? props.children(renderProps)
@@ -104,6 +100,6 @@ export function Tooltip(props: TooltipProps) {
                     </>
                 );
             }}
-        </RACTooltip>
+        </AriaTooltip>
     );
 }

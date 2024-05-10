@@ -1,12 +1,10 @@
+import type { ForwardedRef } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
 import { Button as AriaButton } from "react-aria-components";
 
 import "./styles.css";
-
-export type FieldButtonProps = AriaButtonProps;
 
 /**
  * A field button is a button that is intended to be used inside a `Group` component
@@ -25,15 +23,16 @@ export type FieldButtonProps = AriaButtonProps;
  * import { FieldButton, type FieldButtonProps } from "boondoggle/field-button"
  * ```
  */
-export const FieldButton = forwardRef<HTMLButtonElement, FieldButtonProps>(
-    (props: AriaButtonProps, ref) => {
-        return (
-            <AriaButton
-                {...props}
-                className={clsx(props.className, "field-button")}
-                excludeFromTabOrder
-                ref={ref}
-            />
-        );
-    },
-);
+export function FieldButton({
+    ref,
+    ...props
+}: AriaButtonProps & { ref?: ForwardedRef<HTMLButtonElement> }) {
+    return (
+        <AriaButton
+            {...props}
+            className={clsx(props.className, "field-button")}
+            excludeFromTabOrder
+            ref={ref}
+        />
+    );
+}

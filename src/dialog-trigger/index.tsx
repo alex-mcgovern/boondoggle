@@ -1,8 +1,6 @@
-import type { DialogTriggerProps as RACDialogTriggerProps } from "react-aria-components";
+import type { DialogTriggerProps as AriaDialogTriggerProps } from "react-aria-components";
 
-import { DialogTrigger as RACDialogTrigger } from "react-aria-components";
-
-export type DialogTriggerProps = RACDialogTriggerProps;
+import { DialogTrigger as AriaDialogTrigger } from "react-aria-components";
 
 /**
  * A DialogTrigger can be used to open a dialog overlay in response to a user action, e.g. clicking a button. [Built with React Aria Dialog](https://react-spectrum.adobe.com/react-aria/Dialog.html)
@@ -18,6 +16,6 @@ export type DialogTriggerProps = RACDialogTriggerProps;
  * import { DialogTrigger, type DialogTriggerProps } from "boondoggle/dialog-trigger"
  * ```
  */
-export function DialogTrigger(props: RACDialogTriggerProps) {
-    return <RACDialogTrigger {...props} />;
+export function DialogTrigger(props: AriaDialogTriggerProps) {
+    return <AriaDialogTrigger {...props} />;
 }

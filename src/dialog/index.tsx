@@ -1,28 +1,26 @@
 import type { ComponentProps, ReactNode } from "react";
-import type { DialogProps as RACDialogProps } from "react-aria-components";
+import type { DialogProps as AriaDialogProps } from "react-aria-components";
 
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import {
-    Dialog as RACDialog,
-    DialogTrigger as RACDialogTrigger,
-    Heading as RACHeading,
-    Modal as RACModal,
-    ModalOverlay as RACModalOverlay,
+    Dialog as AriaDialog,
+    DialogTrigger as AriaDialogTrigger,
+    Heading as AriaHeading,
+    Modal as AriaModal,
+    ModalOverlay as AriaModalOverlay,
 } from "react-aria-components";
 
 import { Button } from "../button";
 import { Icon } from "../icon";
 import "./styles.css";
 
-export type DialogProps = RACDialogProps;
-
 /**
  * A dialog is an overlay shown above other content in an application. [Built with React Aria Dialog component](https://react-spectrum.adobe.com/react-aria/Dialog.html)
  */
-export function Dialog(props: DialogProps) {
+export function Dialog(props: AriaDialogProps) {
     return (
-        <RACDialog
+        <AriaDialog
             {...props}
             className={clsx(props.className, "dialog")}
         />
@@ -41,12 +39,12 @@ export function DialogHeader({
 }) {
     return (
         <header className="dialog-header">
-            <RACHeading
+            <AriaHeading
                 className="dialog-title"
                 slot="title"
             >
                 {title}
-            </RACHeading>
+            </AriaHeading>
 
             <Button
                 appearance="ghost"
@@ -90,32 +88,32 @@ export function DialogOld({
     width = "sm",
 }: {
     buttonProps?: ComponentProps<typeof Button>;
-    children: ComponentProps<typeof RACDialog>["children"];
+    children: ComponentProps<typeof AriaDialog>["children"];
     dialogTriggerProps?: Omit<
-        ComponentProps<typeof RACDialogTrigger>,
+        ComponentProps<typeof AriaDialogTrigger>,
         "children"
     >;
     modalOverlayProps?: Omit<
-        ComponentProps<typeof RACModalOverlay>,
+        ComponentProps<typeof AriaModalOverlay>,
         "className"
     >;
-    modalProps?: Omit<ComponentProps<typeof RACModal>, "className">;
+    modalProps?: Omit<ComponentProps<typeof AriaModal>, "className">;
     width?: "lg" | "sm";
 }) {
     return (
-        <RACDialogTrigger {...dialogTriggerProps}>
+        <AriaDialogTrigger {...dialogTriggerProps}>
             {buttonProps ? <Button {...buttonProps} /> : null}
-            <RACModalOverlay
+            <AriaModalOverlay
                 className="dialog-overlay"
                 {...modalOverlayProps}
             >
-                <RACModal
+                <AriaModal
                     className="dialog-modal"
                     {...modalProps}
                 >
                     <Dialog className={width}>{children}</Dialog>
-                </RACModal>
-            </RACModalOverlay>
-        </RACDialogTrigger>
+                </AriaModal>
+            </AriaModalOverlay>
+        </AriaDialogTrigger>
     );
 }

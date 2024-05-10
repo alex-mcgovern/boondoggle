@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { RouterProvider as RACRouterProvider } from "react-aria-components";
+import { RouterProvider as AriaRouterProvider } from "react-aria-components";
 
 /**
  * RouterProvider is a re-export of the RouterProvider component from
@@ -32,6 +32,6 @@ export function RouterProvider({
     navigate: (path: string) => void;
 }) {
     return (
-        <RACRouterProvider navigate={navigate}>{children}</RACRouterProvider>
+        <AriaRouterProvider navigate={navigate}>{children}</AriaRouterProvider>
     );
 }

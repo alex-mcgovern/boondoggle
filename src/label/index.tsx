@@ -1,16 +1,16 @@
-import type { LabelProps as RACLabelProps } from "react-aria-components";
+import type { LabelProps as AriaLabelProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { Label as RACLabel } from "react-aria-components";
+import { Label as AriaLabel } from "react-aria-components";
 
 import "./styles.css";
 
 /**
  * A `Label` component, for use with a `TextField` component. [Built with React Aria Label component](https://react-spectrum.adobe.com/react-aria/TextField.html#label)
  */
-export function Label(props: RACLabelProps) {
+export function Label(props: AriaLabelProps) {
     return (
-        <RACLabel
+        <AriaLabel
             {...props}
             className={clsx(props.className, "label")}
         />

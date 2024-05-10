@@ -1,19 +1,19 @@
 import type {
-    CalendarProps as RACCalendarProps,
-    DateValue as RACDateValue,
+    CalendarProps as AriaCalendarProps,
+    DateValue as AriaDateValue,
 } from "react-aria-components";
 
 import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
 import { faAngleRight } from "@fortawesome/pro-solid-svg-icons/faAngleRight";
 import clsx from "clsx";
 import {
-    Calendar as RACCalendar,
-    CalendarCell as RACCalendarCell,
-    CalendarGrid as RACCalendarGrid,
-    CalendarGridBody as RACCalendarGridBody,
-    CalendarGridHeader as RACCalendarGridHeader,
-    CalendarHeaderCell as RACCalendarHeaderCell,
-    Heading as RACHeading,
+    Calendar as AriaCalendar,
+    CalendarCell as AriaCalendarCell,
+    CalendarGrid as AriaCalendarGrid,
+    CalendarGridBody as AriaCalendarGridBody,
+    CalendarGridHeader as AriaCalendarGridHeader,
+    CalendarHeaderCell as AriaCalendarHeaderCell,
+    Heading as AriaHeading,
 } from "react-aria-components";
 
 import { Button } from "../button";
@@ -35,11 +35,11 @@ import "./styles.css";
  * import { Calendar, type CalendarProps } from "boondoggle/calendar"
  * ```
  */
-export function Calendar<TDateValue extends RACDateValue>(
-    props: RACCalendarProps<TDateValue>,
+export function Calendar<TDateValue extends AriaDateValue>(
+    props: AriaCalendarProps<TDateValue>,
 ) {
     return (
-        <RACCalendar
+        <AriaCalendar
             {...props}
             className={clsx(props.className, "calendar")}
         >
@@ -51,7 +51,7 @@ export function Calendar<TDateValue extends RACDateValue>(
                 >
                     <Icon icon={faAngleLeft} />
                 </Button>
-                <RACHeading className="heading" />
+                <AriaHeading className="heading" />
                 <Button
                     appearance="ghost"
                     size="square_sm"
@@ -60,23 +60,23 @@ export function Calendar<TDateValue extends RACDateValue>(
                     <Icon icon={faAngleRight} />
                 </Button>
             </header>
-            <RACCalendarGrid>
-                <RACCalendarGridHeader className="grid-header">
+            <AriaCalendarGrid>
+                <AriaCalendarGridHeader className="grid-header">
                     {(day) => (
-                        <RACCalendarHeaderCell className="cell">
+                        <AriaCalendarHeaderCell className="cell">
                             {day}
-                        </RACCalendarHeaderCell>
+                        </AriaCalendarHeaderCell>
                     )}
-                </RACCalendarGridHeader>
-                <RACCalendarGridBody className="grid-body">
+                </AriaCalendarGridHeader>
+                <AriaCalendarGridBody className="grid-body">
                     {(date) => (
-                        <RACCalendarCell
+                        <AriaCalendarCell
                             className="cell"
                             date={date}
                         />
                     )}
-                </RACCalendarGridBody>
-            </RACCalendarGrid>
-        </RACCalendar>
+                </AriaCalendarGridBody>
+            </AriaCalendarGrid>
+        </AriaCalendar>
     );
 }

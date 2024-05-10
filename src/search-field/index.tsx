@@ -1,10 +1,10 @@
-import type { SearchFieldProps as RACSearchFieldProps } from "react-aria-components";
+import type { ForwardedRef } from "react";
+import type { SearchFieldProps as AriaSearchFieldProps } from "react-aria-components";
 
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
-import { forwardRef } from "react";
-import { SearchField as RACSearchField } from "react-aria-components";
+import { SearchField as AriaSearchField } from "react-aria-components";
 
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
@@ -33,8 +33,6 @@ export function SearchFieldIcon() {
     );
 }
 
-export type SearchFieldProps = RACSearchFieldProps;
-
 /**
  * A search field allows a user to enter and clear a search query. [Built with React Aria SearchField component](https://react-spectrum.adobe.com/react-aria/SearchField.html)
  *
@@ -50,14 +48,15 @@ export type SearchFieldProps = RACSearchFieldProps;
  * import { SearchField, type SearchFieldProps } from "boondoggle/search-field"
  * ```
  */
-export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
-    (props, ref) => {
-        return (
-            <RACSearchField
-                {...props}
-                className={clsx(props.className, "search-field")}
-                ref={ref}
-            />
-        );
-    },
-);
+export function SearchField({
+    ref,
+    ...props
+}: AriaSearchFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
+    return (
+        <AriaSearchField
+            {...props}
+            className={clsx(props.className, "search-field")}
+            ref={ref}
+        />
+    );
+}

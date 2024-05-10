@@ -1,8 +1,7 @@
-import type { ReactNode } from "react";
-import type { SwitchProps as ReactAriaSwitchProps } from "react-aria-components";
+import type { ForwardedRef, ReactNode } from "react";
+import type { SwitchProps as AriaSwitchProps } from "react-aria-components";
 
-import { forwardRef } from "react";
-import { Switch as ReactAriaSwitch } from "react-aria-components";
+import { Switch as AriaSwitch } from "react-aria-components";
 
 import "./styles.css";
 
@@ -23,8 +22,6 @@ export function SwitchIndicator() {
     return <div className="switch-indicator" />;
 }
 
-export type SwitchProps = ReactAriaSwitchProps;
-
 /**
  * A switch allows a user to turn a setting on or off. [Built with React Aria Switch](https://react-spectrum.adobe.com/react-aria/Switch.html)
  *
@@ -40,14 +37,15 @@ export type SwitchProps = ReactAriaSwitchProps;
  * import { Switch, type SwitchProps } from "boondoggle/switch"
  * ```
  */
-export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
-    (props, ref) => {
-        return (
-            <ReactAriaSwitch
-                className="switch"
-                ref={ref}
-                {...props}
-            />
-        );
-    },
-);
+export function Switch({
+    ref,
+    ...props
+}: AriaSwitchProps & { ref?: ForwardedRef<HTMLLabelElement> }) {
+    return (
+        <AriaSwitch
+            className="switch"
+            ref={ref}
+            {...props}
+        />
+    );
+}

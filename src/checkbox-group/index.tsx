@@ -1,12 +1,10 @@
-import type { CheckboxGroupProps as RACCheckboxGroupProps } from "react-aria-components";
+import type { ForwardedRef } from "react";
+import type { CheckboxGroupProps as AriaCheckboxGroupProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
-import { CheckboxGroup as RACCheckboxGroup } from "react-aria-components";
+import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 
 import "./styles.css";
-
-export type CheckboxGroupProps = RACCheckboxGroupProps;
 
 /**
  * A checkbox group allows a user to select multiple items from a list of options. [Built with React Aria CheckboxGroup](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
@@ -23,14 +21,16 @@ export type CheckboxGroupProps = RACCheckboxGroupProps;
  * import { CheckboxGroup, type CheckboxGroupProps } from "boondoggle/checkbox-group"
  * ```
  */
-export const CheckboxGroup = forwardRef<HTMLDivElement, RACCheckboxGroupProps>(
-    (props, ref) => {
-        return (
-            <RACCheckboxGroup
-                {...props}
-                className={clsx(props.className, "checkbox-group")}
-                ref={ref}
-            />
-        );
-    },
-);
+export function CheckboxGroup({
+    className,
+    ref,
+    ...props
+}: AriaCheckboxGroupProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+    return (
+        <AriaCheckboxGroup
+            {...props}
+            className={clsx(className, "checkbox-group")}
+            ref={ref}
+        />
+    );
+}

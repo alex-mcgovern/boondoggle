@@ -1,12 +1,10 @@
-import type { LinkProps as RACLinkProps } from "react-aria-components";
+import type { ForwardedRef } from "react";
+import type { LinkProps as AriaLinkProps } from "react-aria-components";
 
 import clsx from "clsx";
-import { forwardRef } from "react";
-import { Link as RACLink } from "react-aria-components";
+import { Link as AriaLink } from "react-aria-components";
 
 import "./styles.css";
-
-export type TextLinkProps = RACLinkProps;
 
 /**
  * A link allows a user to navigate to another page or resource within a web page or application. [Built with React Aria](https://react-spectrum.adobe.com/react-aria/Link.html)
@@ -23,14 +21,15 @@ export type TextLinkProps = RACLinkProps;
  * import { Link, type LinkProps } from "boondoggle/link"
  * ```
  */
-export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(
-    (props, ref) => {
-        return (
-            <RACLink
-                {...props}
-                className={clsx(props.className, "text-link")}
-                ref={ref}
-            />
-        );
-    },
-);
+export function TextLink({
+    ref,
+    ...props
+}: AriaLinkProps & { ref?: ForwardedRef<HTMLAnchorElement> }) {
+    return (
+        <AriaLink
+            {...props}
+            className={clsx(props.className, "text-link")}
+            ref={ref}
+        />
+    );
+}
