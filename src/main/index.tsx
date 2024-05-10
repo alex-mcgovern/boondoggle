@@ -2,6 +2,8 @@ import type { HTMLProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
+import "./styles.css";
+
 /**
  * Main HTML element.
  */
