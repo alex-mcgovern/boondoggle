@@ -10,15 +10,10 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace Intl {
         interface NumberFormatOptions {
-            compactDisplay?: "long" | "short" | undefined;
-            currencyDisplay?: string | undefined;
-            currencySign?: string | undefined;
-            notation?:
-                | "compact"
-                | "engineering"
-                | "scientific"
-                | "standard"
-                | undefined;
+            compactDisplay?: "long" | "short";
+            currencyDisplay?: string;
+            currencySign?: string;
+            notation?: "compact" | "engineering" | "scientific" | "standard";
             roundingIncrement?:
                 | 1
                 | 2
@@ -34,8 +29,7 @@ declare global {
                 | 1000
                 | 2000
                 | 2500
-                | 5000
-                | undefined;
+                | 5000;
             roundingMode?:
                 | "ceil"
                 | "expand"
@@ -45,26 +39,12 @@ declare global {
                 | "halfExpand"
                 | "halfFloor"
                 | "halfTrunc"
-                | "trunc"
-                | undefined;
-            roundingPriority?:
-                | "auto"
-                | "lessPrecision"
-                | "morePrecision"
-                | undefined;
-            signDisplay?:
-                | "always"
-                | "auto"
-                | "exceptZero"
-                | "never"
-                | undefined;
-            trailingZeroDisplay?:
-                | "auto"
-                | "lessPrecision"
-                | "stripIfInteger"
-                | undefined;
-            unit?: string | undefined;
-            unitDisplay?: "long" | "narrow" | "short" | undefined;
+                | "trunc";
+            roundingPriority?: "auto" | "lessPrecision" | "morePrecision";
+            signDisplay?: "always" | "auto" | "exceptZero" | "never";
+            trailingZeroDisplay?: "auto" | "lessPrecision" | "stripIfInteger";
+            unit?: string;
+            unitDisplay?: "long" | "narrow" | "short";
         }
     }
 }
