@@ -31,8 +31,7 @@ export { Label } from "./label";
 export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";
 export { Main } from "./main";
-export { DynamicMenu, type IterableMenuItem, Menu, MenuItem } from "./menu";
-export { MenuButton } from "./menu-button";
+export { type IterableMenuItem, Menu } from "./menu";
 export { MenuTrigger } from "./menu-trigger";
 export {
     MobileMenu,
