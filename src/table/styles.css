@@ -2,8 +2,8 @@
     --table-border-color: var(--slate-5);
     --table-border-width: 1px;
 
-    --table-font-size: var(--fontSize-bodySm);
-    --table-line-height: var(--lineHeight-bodySm);
+    --table-font-size: var(--fontSize-bodyMd);
+    --table-line-height: var(--lineHeight-bodyMd);
 
     border-spacing: 0;
     outline: none;
