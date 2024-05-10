@@ -1,5 +1,10 @@
-@import "./reset.css";
+@import "../node_modules/@radix-ui/colors/slate.css";
+@import "../node_modules/@radix-ui/colors/blue.css";
+@import "../node_modules/@radix-ui/colors/green.css";
+@import "../node_modules/@radix-ui/colors/red.css";
+
 @import "./vars.css";
+@import "./reset.css";
 @import "./base.css";
 @import "./util.css";
 
