@@ -38,7 +38,10 @@
     }
 
     &[data-trigger="MenuTrigger"] {
-        min-width: var(--trigger-width);
+        &[data-placement="top"],
+        &[data-placement="bottom"] {
+            min-width: var(--trigger-width);
+        }
     }
 
     &[data-placement="top"] {
