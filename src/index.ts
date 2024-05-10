@@ -10,7 +10,12 @@ export { Card, type CardProps } from "./card";
 export { Checkbox, type CheckboxProps } from "./checkbox";
 export { CheckboxGroup, type CheckboxGroupProps } from "./checkbox-group";
 export { Collapsible, type CollapsibleProps } from "./collapsible";
-export { ComboBox, ComboBoxButton, type ComboBoxProps } from "./combo-box";
+export {
+    ComboBox,
+    ComboBoxButton,
+    type ComboBoxProps,
+    FormComboBox,
+} from "./combo-box";
 export {
     ComboBoxCountry,
     type ComboBoxCountryProps,
@@ -62,6 +67,7 @@ export {
     ScrollableMobileMenuContent,
 } from "./mobile-menu";
 export {
+    FormNumberField,
     NumberField,
     NumberFieldDecrementButton,
     NumberFieldIncrementButton,
@@ -95,6 +101,7 @@ export { Table } from "./table";
 export { TabList, TabPanel, type TabProps, Tabs } from "./tabs";
 export { TextArea } from "./text-area";
 export {
+    FormTextField,
     TextField,
     TextFieldClearButton,
     TextFieldCopyButton,
