@@ -1,9 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
+
 import { MenuTrigger } from "..";
+import { Button } from "../../button";
+import { Icon } from "../../icon";
 
 const meta = {
-    args: {},
+    args: {
+        children: (
+            <Button
+                appearance="secondary"
+                size="square_md"
+            >
+                <Icon icon={faBars} />
+            </Button>
+        ),
+    },
     component: MenuTrigger,
     title: "Components/MenuTrigger",
 } satisfies Meta<typeof MenuTrigger>;

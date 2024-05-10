@@ -14,6 +14,14 @@ import { FlagSa } from "../../icon-flag/sa";
 
 const meta = {
     args: {
+        children: (
+            <Button
+                appearance="secondary"
+                size="square_md"
+            >
+                <Icon icon={faBars} />
+            </Button>
+        ),
         items: [
             {
                 children: [
@@ -60,18 +68,6 @@ const meta = {
         ],
     },
     component: MenuButton,
-    render: (args) => {
-        return (
-            <MenuButton {...args}>
-                <Button
-                    appearance="secondary"
-                    size="square_md"
-                >
-                    <Icon icon={faBars} />
-                </Button>
-            </MenuButton>
-        );
-    },
     title: "Components/MenuButton",
 } satisfies Meta<typeof MenuButton>;
 
