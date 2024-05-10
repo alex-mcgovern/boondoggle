@@ -77,17 +77,17 @@
 
     &.sm {
         --btn-padding: var(--space-1) var(--space-3);
-        --btn-height: var(--space-8);
+        --btn-height: var(--space-6);
     }
 
     &.md {
         --btn-padding: var(--space-3) var(--space-4);
-        --btn-height: var(--space-10);
+        --btn-height: var(--space-8);
     }
 
     &.lg {
         --btn-padding: var(--space-3) var(--space-6);
-        --btn-height: var(--space-12);
+        --btn-height: var(--space-10);
     }
 
     &.square {
@@ -100,15 +100,15 @@
         }
 
         &-sm {
-            width: var(--space-8);
+            width: var(--space-6);
         }
 
         &-md {
-            width: var(--space-10);
+            width: var(--space-8);
         }
 
         &-lg {
-            width: var(--space-12);
+            width: var(--space-10);
         }
     }
 
