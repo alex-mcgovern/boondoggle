@@ -1,6 +1,7 @@
 main.main {
     margin: 0 auto;
     padding: 0 var(--space-4);
+    width: 100%;
 
     scrollbar-gutter: stable;
 
