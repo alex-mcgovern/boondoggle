@@ -1,3 +1,5 @@
+import "../styles/index.css";
+
 export { Avatar } from "./avatar";
 export {
     Button,
