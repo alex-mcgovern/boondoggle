@@ -18,11 +18,12 @@
     --btn-height: var(--space-8);
 
     background-color: var(--btn-background);
-
     color: var(--btn-text-color);
+
     font-size: var(--btn-font-size);
     font-weight: var(--btn-font-weight);
     line-height: var(--btn-line-height);
+    text-decoration: none;
 
     display: inline-flex;
     align-items: center;
@@ -109,5 +110,12 @@
         &-lg {
             width: var(--space-12);
         }
+    }
+
+    &.left {
+        justify-content: flex-start;
+    }
+    &.center {
+        justify-content: center;
     }
 }

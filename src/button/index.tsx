@@ -26,12 +26,17 @@ import "./styles.css";
  * ```
  */
 export function Button({
+    align,
     appearance = "primary",
     className,
     ref,
     size,
     ...props
 }: AriaButtonProps & {
+    /**
+     * Alignment for the LinkButton.
+     */
+    align?: "center" | "start";
     /**
      * The appearance of the button.
      */
@@ -55,7 +60,7 @@ export function Button({
     return (
         <AriaButton
             {...props}
-            className={clsx("btn", className, appearance, size)}
+            className={clsx("btn", className, appearance, size, align)}
             ref={ref}
         />
     );
@@ -79,12 +84,17 @@ export function Button({
  * ```
  */
 export function LinkButton({
+    align,
     appearance = "primary",
     className,
     ref,
     size,
     ...props
 }: AriaLinkProps & {
+    /**
+     * Alignment for the LinkButton.
+     */
+    align?: "center" | "start";
     /**
      * The appearance of the button.
      */
@@ -112,7 +122,7 @@ export function LinkButton({
     return (
         <AriaLink
             {...props}
-            className={clsx("btn", className, appearance, size)}
+            className={clsx("btn", className, appearance, size, align)}
             ref={ref}
         />
     );
