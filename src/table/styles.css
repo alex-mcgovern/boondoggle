@@ -14,6 +14,9 @@
     word-break: break-word;
     forced-color-adjust: none;
 
+    font-size: var(--table-font-size);
+    line-height: var(--table-line-height);
+
     /* &[data-focus-visible] {
         outline: 2px solid var(--blue-6);
         outline-offset: -1px;
@@ -38,8 +41,6 @@
         outline: none;
         cursor: default;
         color: var(--slate-12);
-        font-size: var(--table-font-size);
-        line-height: var(--table-line-height);
         position: relative;
         transform: scale(1);
         padding: var(--space-1) var(--space-8);
