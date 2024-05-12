@@ -30,3 +30,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const PlacementRightTop: Story = {
+    args: {
+        children: (
+            <>
+                <Button>Trigger</Button>
+                <Popover placement="right top">
+                    <Menu.DropdownMenu>
+                        <Menu.Section>
+                            <Menu.Item>Bananas</Menu.Item>
+                            <Menu.Item>Strawberries</Menu.Item>
+                            <Menu.Item>Passion fruit</Menu.Item>
+                        </Menu.Section>
+                        <Menu.Section>
+                            <Menu.SectionHeader>Premium</Menu.SectionHeader>
+                            <Menu.Item>Sour cherry</Menu.Item>
+                        </Menu.Section>
+                    </Menu.DropdownMenu>
+                </Popover>
+            </>
+        ),
+    },
+};

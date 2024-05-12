@@ -1,12 +1,14 @@
 .dropdown-menu {
-    --dropdown-menu-spacing-x: var(--space-0\.75);
-    --dropdown-menu-item-spacing-x: var(--space-1);
+    --dropdown-menu-spacing-x: var(--space-1);
+    --dropdown-menu-item-spacing-x: var(--space-2);
 
     --dropdown-menu-item-font-size: var(--fontSize-bodySm);
     --dropdown-menu-item-line-height: var(--lineHeight-bodySm);
 
     outline: 0;
     overflow-y: auto;
+    overflow-x: hidden;
+
     padding: var(--dropdown-menu-spacing-x);
     max-height: inherit;
 
@@ -36,8 +38,6 @@
 
         display: block;
         height: 1px;
-
-        margin: var(--dropdown-menu-spacing-x) var(--space-2);
     }
 
     .dropdown-menu-section-header {
@@ -54,11 +54,7 @@
 
     .dropdown-menu-section:not(:last-child)::after,
     .dropdown-menu-section-header {
-        margin: var(--space-2)
-            calc(
-                var(--dropdown-menu-spacing-x) +
-                    var(--dropdown-menu-item-spacing-x)
-            );
+        margin: var(--space-2) var(--dropdown-menu-item-spacing-x);
     }
 
     .dropdown-menu-item-name,
@@ -89,7 +85,7 @@
         text-align: left;
         text-decoration: none;
 
-        min-height: var(--space-7);
+        min-height: var(--space-8);
         width: 100%;
 
         padding: var(--space-1) var(--dropdown-menu-item-spacing-x);

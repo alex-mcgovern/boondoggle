@@ -1,3 +1,15 @@
+@keyframes popover-slide {
+    from {
+        transform: var(--origin);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .popover {
     --popover-bg: var(--slate-1);
     --popover-text-color: var(--slate-12);
@@ -6,6 +18,8 @@
     --popover-border-width: 1px;
     --popover-border-radius: var(--radius-md);
 
+    --animation-duration: var(--dur-medium);
+
     border: var(--popover-border-width) solid var(--popover-border-color);
     box-shadow: var(--shadow-md);
     border-radius: var(--popover-border-radius);
@@ -13,6 +27,18 @@
     color: var(--popover-text-color);
     outline: none;
     box-sizing: border-box;
+
+    @media (prefers-reduced-motion: no-preference) {
+        &[data-entering] {
+            animation: popover-slide var(--animation-duration) forwards
+                var(--ease-quart-in-out);
+        }
+
+        &[data-exiting] {
+            animation: popover-slide var(--animation-duration) reverse
+                var(--ease-quart-in-out);
+        }
+    }
 
     .overlay-arrow {
         height: var(--space-3);
@@ -86,26 +112,5 @@
         .overlay-arrow svg {
             transform: rotate(-90deg);
         }
-    }
-
-    &[data-entering] {
-        animation: popover-slide var(--dur-short);
-    }
-
-    &[data-exiting] {
-        animation: popover-slide var(--dur-short) reverse
-            var(--ease-quart-in-out);
-    }
-}
-
-@keyframes popover-slide {
-    from {
-        transform: var(--origin);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
     }
 }

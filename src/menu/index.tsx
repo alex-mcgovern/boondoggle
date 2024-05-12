@@ -171,7 +171,11 @@ function Section<TItem extends object = object>(
 }
 
 function SectionHeader({ children }: { children: ReactNode }) {
-    return <AriaHeader className="dropdown-menu-header">{children}</AriaHeader>;
+    return (
+        <AriaHeader className="dropdown-menu-section-header">
+            {children}
+        </AriaHeader>
+    );
 }
 
 /**
