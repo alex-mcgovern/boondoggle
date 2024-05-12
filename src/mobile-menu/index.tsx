@@ -45,7 +45,7 @@ export function MobileMenuHeader({
                 className="ml-auto"
                 name="close"
                 onPress={close}
-                size="square_md"
+                square
                 type="button"
             >
                 <Icon icon={faTimes} />
@@ -105,7 +105,7 @@ export function MobileMenu({
         >
             <Button
                 appearance="ghost"
-                size="square_md"
+                square
             >
                 <Icon icon={isOpen ? faTimes : faBars} />
             </Button>

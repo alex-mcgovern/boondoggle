@@ -11,7 +11,7 @@ const meta = {
         children: (
             <Button
                 appearance="secondary"
-                size="square_md"
+                square
             >
                 <Icon icon={faBars} />
             </Button>

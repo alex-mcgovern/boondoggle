@@ -49,10 +49,6 @@ export const Size: Story = {
             "sm",
             "md",
             "lg",
-            "square_xs",
-            "square_sm",
-            "square_md",
-            "square_lg",
         ];
 
         return (
