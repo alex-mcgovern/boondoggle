@@ -47,43 +47,26 @@ if (import.meta.vitest) {
 
 type AvatarProps = {
     /**
+     * The name of the person the avatar represents.
+     * If the name is provided, the avatar will display the initials of the name.
+     * If the name contains a space, the initials will be the first letter of the first 2 words.
+     * **Note:** If no `src` is provided, a `name` must be provided.
+     */
+    name?: string;
+    /**
      * A pixel value for the height and width of the avatar.
      */
     size?: number;
     /**
+     * The URL of the image to display in the avatar. May be a remote URL or a data URL.
+     * **Note:** If no `name` is provided, an `src` must be provided.
+     */
+    src?: string;
+    /**
      * Controls the shape of the avatar.
      */
     variant?: "circle" | "square";
-} & (
-    | {
-          /**
-           * The name of the person the avatar represents.
-           * If the name is provided, the avatar will display the initials of the name.
-           * If the name contains a space, the initials will be the first letter of the first 2 words.
-           * **Note:** If no `src` is provided, a `name` must be provided.
-           */
-          name: string;
-          /**
-           * The URL of the image to display in the avatar. May be a remote URL or a data URL.
-           * **Note:** If no `name` is provided, an `src` must be provided.
-           */
-          src?: never;
-      }
-    | {
-          /**
-           * The name of the person the avatar represents.
-           * If the name is provided, the avatar will display the initials of the name.
-           * If the name contains a space, the initials will be the first letter of the first 2 words.
-           * **Note:** If no `src` is provided, a `name` must be provided.
-           */
-          name?: never;
-          /**
-           * The URL of the image to display in the avatar. May be a remote URL or a data URL.
-           * **Note:** If no `name` is provided, an `src` must be provided.
-           */
-          src: string;
-      }
-);
+};
 
 /**
  * Renders an avatar. Falls back to initial letters if no image is provided.

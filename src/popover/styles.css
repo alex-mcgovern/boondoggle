@@ -18,7 +18,7 @@
     --popover-border-width: 1px;
     --popover-border-radius: var(--radius-md);
 
-    --animation-duration: var(--dur-medium);
+    --animation-duration: var(--dur-short);
 
     border: var(--popover-border-width) solid var(--popover-border-color);
     box-shadow: var(--shadow-md);
