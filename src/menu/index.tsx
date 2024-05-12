@@ -7,7 +7,7 @@ import type {
     SubmenuTriggerProps as AriaSubMenuTriggerProps,
 } from "react-aria-components";
 
-import { faChevronRight } from "@fortawesome/pro-solid-svg-icons/faChevronRight";
+import { faCaretRight } from "@fortawesome/pro-solid-svg-icons/faCaretRight";
 import clsx from "clsx";
 import {
     Header as AriaHeader,
@@ -158,9 +158,7 @@ function Item<TItem extends object>({
                                 isSelected={renderProps.isSelected}
                             />
                         ) : null}
-                        {renderProps.hasSubmenu && (
-                            <Icon icon={faChevronRight} />
-                        )}
+                        {renderProps.hasSubmenu && <Icon icon={faCaretRight} />}
                     </>
                 );
             }}

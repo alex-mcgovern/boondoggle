@@ -7,11 +7,11 @@ import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { faUser } from "@fortawesome/pro-solid-svg-icons/faUser";
 import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
 
-import { Navigation } from ".";
-import { Icon } from "../icon";
-import { Main } from "../main";
-import { Menu } from "../menu";
-import { Popover } from "../popover";
+import { Navigation } from "..";
+import { Icon } from "../../icon";
+import { Main } from "../../main";
+import { Menu } from "../../menu";
+import { Popover } from "../../popover";
 
 const meta = {
     args: {
