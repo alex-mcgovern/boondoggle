@@ -54,6 +54,7 @@
         font-size: var(--fontSize-bodyMd);
         line-height: var(--lineHeight-bodyMd);
         font-weight: var(--fontWeight-medium);
+        text-decoration: none;
 
         cursor: pointer;
 
