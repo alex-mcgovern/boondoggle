@@ -145,8 +145,8 @@ function Row<T extends object>({
                     <Button
                         appearance="ghost"
                         size="sm"
-                        square
                         slot="drag"
+                        square
                     >
                         <Icon icon={faGripDots} />
                     </Button>
