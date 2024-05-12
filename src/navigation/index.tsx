@@ -85,7 +85,7 @@ function Provider({ children }: { children: ReactNode }) {
 /**
  * Hook for consuming the CollapsibleSideNavContext.
  */
-export const useCollapsibleSideNav = () => {
+export const useSideNav = () => {
     const context = useContext(CollapsibleSideNavContext);
 
     if (context == null) {
@@ -101,7 +101,7 @@ export const useCollapsibleSideNav = () => {
  * Button for toggling the side nav
  */
 function ButtonToggleCollapsibleNav() {
-    const [isOpen, setIsOpen] = useCollapsibleSideNav();
+    const [isOpen, setIsOpen] = useSideNav();
 
     return (
         <NavButton
@@ -131,7 +131,7 @@ function NavButton({
     icon: IconProp;
     isCurrent?: boolean;
 }) {
-    const [isOpen] = useCollapsibleSideNav();
+    const [isOpen] = useSideNav();
 
     return (
         <TooltipTrigger isDisabled={isOpen}>
@@ -166,7 +166,7 @@ function UserMenuTrigger(
         name: string;
     },
 ) {
-    const [isOpen] = useCollapsibleSideNav();
+    const [isOpen] = useSideNav();
 
     return (
         <TooltipTrigger isDisabled={isOpen}>
@@ -219,7 +219,7 @@ function Link({
     icon: IconProp;
     isCurrent?: boolean;
 }) {
-    const [isOpen] = useCollapsibleSideNav();
+    const [isOpen] = useSideNav();
 
     return (
         <TooltipTrigger isDisabled={isOpen}>
@@ -255,7 +255,7 @@ function Link({
 }
 
 function SideBar(props: { children: ReactNode }) {
-    const [isOpen] = useCollapsibleSideNav();
+    const [isOpen] = useSideNav();
 
     return (
         <nav
@@ -278,4 +278,5 @@ export const Navigation = {
     SideBar,
     UserMenuHeader,
     UserMenuTrigger,
+    useSideNav,
 };
