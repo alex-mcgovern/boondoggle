@@ -217,6 +217,7 @@ function UserMenuHeader(props: {
             <Avatar
                 name={props.name}
                 size={32}
+                src={props.avatarSrc}
                 variant="square"
             />
             <div>
