@@ -72,4 +72,11 @@
         font-size: var(--font-size-h6);
         font-weight: var(--font-weight-semibold);
     }
+
+    hr {
+        border: 1px solid var(--slate-6);
+        border-width: 1px 0 0 0;
+
+        margin: var(--space-4) 0;
+    }
 }
