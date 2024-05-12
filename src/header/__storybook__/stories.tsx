@@ -34,7 +34,8 @@ export const WithActions: Story = {
                 <Button
                     appearance="secondary"
                     name="icon"
-                    size="square_sm"
+                    size="sm"
+                    square
                 >
                     <Icon icon={faEllipsis} />
                 </Button>

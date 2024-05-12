@@ -46,16 +46,18 @@ export function Calendar<TDateValue extends AriaDateValue>(
             <header className="header">
                 <Button
                     appearance="ghost"
-                    size="square_sm"
+                    size="sm"
                     slot="previous"
+                    square
                 >
                     <Icon icon={faAngleLeft} />
                 </Button>
                 <AriaHeading className="heading" />
                 <Button
                     appearance="ghost"
-                    size="square_sm"
+                    size="sm"
                     slot="next"
+                    square
                 >
                     <Icon icon={faAngleRight} />
                 </Button>

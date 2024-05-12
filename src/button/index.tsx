@@ -48,19 +48,18 @@ export function Button({
     /**
      * The size of the button.
      */
-    size?:
-        | "lg"
-        | "md"
-        | "sm"
-        | "square_lg"
-        | "square_md"
-        | "square_sm"
-        | "square_xs";
+    size?: "lg" | "md" | "sm";
+    /**
+     * Whether the button is square.
+     */
+    square?: boolean;
 }) {
     return (
         <AriaButton
             {...props}
-            className={clsx("btn", className, appearance, size, align)}
+            className={clsx("btn", className, appearance, size, align, {
+                square: props.square,
+            })}
             ref={ref}
         />
     );
@@ -110,19 +109,18 @@ export function LinkButton({
     /**
      * The size of the button.
      */
-    size?:
-        | "lg"
-        | "md"
-        | "sm"
-        | "square_lg"
-        | "square_md"
-        | "square_sm"
-        | "square_xs";
+    size?: "lg" | "md" | "sm";
+    /**
+     * Whether the button is square.
+     */
+    square?: boolean;
 }) {
     return (
         <AriaLink
             {...props}
-            className={clsx("btn", className, appearance, size, align)}
+            className={clsx("btn", className, appearance, size, align, {
+                square: props.square,
+            })}
             ref={ref}
         />
     );

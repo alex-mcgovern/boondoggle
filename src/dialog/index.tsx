@@ -52,7 +52,8 @@ export function DialogHeader({
                 className="ml-auto"
                 name="close"
                 onPress={close}
-                size="square_sm"
+                size="sm"
+                square
                 type="button"
             >
                 <Icon icon={faTimes} />

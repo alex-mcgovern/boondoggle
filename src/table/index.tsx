@@ -144,7 +144,8 @@ function Row<T extends object>({
                 <Cell>
                     <Button
                         appearance="ghost"
-                        size="square_sm"
+                        size="sm"
+                        square
                         slot="drag"
                     >
                         <Icon icon={faGripDots} />

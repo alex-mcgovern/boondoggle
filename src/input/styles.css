@@ -14,8 +14,8 @@
 
         color: var(--slate-11);
 
-        width: var(--icon-size);
-        height: var(--icon-size);
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
 
         position: absolute;
         bottom: 0;
@@ -78,7 +78,7 @@
 
         &.has-icon {
             --input-padding: 0 var(--space-2) 0
-                calc(var(--icon-size) + var(--input-icon-offset-x) * 2);
+                calc(var(--icon-size-sm) + var(--input-icon-offset-x) * 2);
         }
 
         &:not(.unstyled)[data-hovered] {

@@ -154,3 +154,7 @@
 .pl-4 {
     padding-left: var(--space-4);
 }
+
+.w100 {
+    width: 100%;
+}

@@ -7,6 +7,7 @@ import type {
     SubmenuTriggerProps as AriaSubMenuTriggerProps,
 } from "react-aria-components";
 
+import { faChevronRight } from "@fortawesome/pro-solid-svg-icons";
 import clsx from "clsx";
 import {
     Header as AriaHeader,
@@ -19,6 +20,7 @@ import {
 
 import "../../styles/dropdown-menu.css";
 import { Checkbox } from "../checkbox";
+import { Icon } from "../icon";
 
 /**
  * A `Trigger` component, for use with a `Menu` component. [Built with React Aria Trigger component](https://react-spectrum.adobe.com/react-aria/Menu.html#menutrigger)
@@ -156,10 +158,27 @@ function Item<TItem extends object>({
                                 isSelected={renderProps.isSelected}
                             />
                         ) : null}
+                        {renderProps.hasSubmenu && (
+                            <Icon icon={faChevronRight} />
+                        )}
                     </>
                 );
             }}
         </AriaMenuItem>
+    );
+}
+
+/**
+ * A <MenuDecorativeSection> defines a section within a
+ * `Popover` that is purely decorative and does not contain
+ * any interactive elements.
+ */
+function MenuDecorativeSection(props: { children: ReactNode }) {
+    return (
+        <div
+            className="p1 dropdown-menu-section"
+            {...props}
+        />
     );
 }
 
@@ -193,6 +212,7 @@ function SectionHeader({ children }: { children: ReactNode }) {
 export const Menu = {
     DropdownMenu,
     Item,
+    MenuDecorativeSection,
     Section,
     SectionHeader,
     SubMenuTrigger,
