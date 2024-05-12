@@ -18,28 +18,14 @@ import {
 
 import "./styles.css";
 
-function Tab({
-    // animationKey,
-    id,
-    label,
-    ...props
-}: Omit<AriaTabProps, "className"> & {
-    /**
-     * A unique key for the tab that is used to animate the indicator.
-     */
-    // animationKey: string;
-    /**
-     * The label of the tab.
-     */
-    label?: string;
-}) {
+function Tab({ id, ...props }: AriaTabProps) {
     return (
         <AriaTab
             className="tab"
             id={id}
             {...props}
         >
-            {({ isSelected }) => {
+            {({ defaultChildren, isSelected }) => {
                 return (
                     <>
                         {isSelected ? (
@@ -56,7 +42,7 @@ function Tab({
                                 }}
                             />
                         ) : null}
-                        <div className="inner">{label}</div>
+                        <div className="inner">{defaultChildren}</div>
                     </>
                 );
             }}
