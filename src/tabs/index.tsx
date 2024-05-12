@@ -25,13 +25,13 @@ function Tab({ id, ...props }: AriaTabProps) {
             id={id}
             {...props}
         >
-            {({ defaultChildren, isSelected }) => {
+            {(rp) => {
                 return (
                     <>
-                        {isSelected ? (
+                        {rp.isSelected ? (
                             <motion.span
                                 className="indicator"
-                                // layoutId={animationKey}
+                                layoutId="indicator"
                                 style={{
                                     originY: "0px", // prevent vertical movement
                                 }}
@@ -42,7 +42,11 @@ function Tab({ id, ...props }: AriaTabProps) {
                                 }}
                             />
                         ) : null}
-                        <div className="inner">{defaultChildren}</div>
+                        <div className="inner">
+                            {typeof props.children === "function"
+                                ? props.children(rp)
+                                : props.children}
+                        </div>
                     </>
                 );
             }}
