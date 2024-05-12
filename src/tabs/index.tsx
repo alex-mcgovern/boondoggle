@@ -143,7 +143,7 @@ function Container({ children, ...props }: AriaTabsProps) {
  * Tabs organize content into multiple sections and allow users to navigate between them. [Built with React Aria Tabs](https://react-spectrum.adobe.com/react-aria/Tabs.html)
  */
 export const Tabs = {
-    Container,
+    Container: Container,
     Content: TabPanel,
     Item: Tab,
     List: TabList,
