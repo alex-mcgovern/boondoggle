@@ -19,7 +19,7 @@ import {
 import "./styles.css";
 
 function Tab({
-    animationKey,
+    // animationKey,
     id,
     label,
     ...props
@@ -27,7 +27,7 @@ function Tab({
     /**
      * A unique key for the tab that is used to animate the indicator.
      */
-    animationKey: string;
+    // animationKey: string;
     /**
      * The label of the tab.
      */
@@ -45,7 +45,7 @@ function Tab({
                         {isSelected ? (
                             <motion.span
                                 className="indicator"
-                                layoutId={animationKey}
+                                // layoutId={animationKey}
                                 style={{
                                     originY: "0px", // prevent vertical movement
                                 }}
@@ -69,7 +69,6 @@ function Tab({
  * A function passed as the children of the `Collection` component returns a corresponding `<Tab>` for each tab.
  */
 function TabList({
-    items,
     justify = "start",
     ...props
 }: Omit<
@@ -82,7 +81,6 @@ function TabList({
         <div className="tab-list">
             <AriaTabList
                 className={clsx("inner", justify)}
-                items={items}
                 {...props}
             >
                 {props.children}
@@ -147,6 +145,6 @@ function Container({ children, ...props }: AriaTabsProps) {
 export const Tabs = {
     Container,
     Content: TabPanel,
+    Item: Tab,
     List: TabList,
-    Tab,
 };
