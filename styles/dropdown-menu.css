@@ -133,9 +133,9 @@
                     );
 
                 &.has-icon {
-                    grid-template-columns: var(--icon-size-sm) 1fr var(
-                            --space-5
-                        ) var(--icon-size-sm);
+                    grid-template-columns:
+                        var(--icon-size-sm) 1fr var(--space-5)
+                        var(--icon-size-sm);
                 }
             }
         }
