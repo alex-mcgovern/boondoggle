@@ -3,8 +3,8 @@ import type {
     MenuItemProps as AriaMenuItemProps,
     MenuProps as AriaMenuProps,
     MenuTriggerProps as AriaMenuTriggerProps,
-    SubmenuTriggerProps as AriaSubMenuTriggerProps,
     SectionProps as AriaSectionProps,
+    SubmenuTriggerProps as AriaSubMenuTriggerProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
@@ -12,9 +12,9 @@ import {
     Header as AriaHeader,
     Menu as AriaMenu,
     MenuItem as AriaMenuItem,
-    SubmenuTrigger as AriaSubMenuTrigger,
     MenuTrigger as AriaMenuTrigger,
     Section as AriaSection,
+    SubmenuTrigger as AriaSubMenuTrigger,
 } from "react-aria-components";
 
 import "../../styles/dropdown-menu.css";
