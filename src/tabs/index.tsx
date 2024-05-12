@@ -68,7 +68,7 @@ function Tab({
  * A list of tabs that can be selected to display a corresponding panel.
  * A function passed as the children of the `Collection` component returns a corresponding `<Tab>` for each tab.
  */
-export function TabList({
+function TabList({
     items,
     justify = "start",
     ...props
@@ -85,12 +85,7 @@ export function TabList({
                 items={items}
                 {...props}
             >
-                {(tab) => (
-                    <Tab
-                        animationKey={justify}
-                        {...tab}
-                    />
-                )}
+                {props.children}
             </AriaTabList>
         </div>
     );
@@ -99,12 +94,12 @@ export function TabList({
 /**
  * A panel that corresponds to a tab. A function passed as the children of the `Collection` component returns a corresponding `<TabPanel>` for each tab.
  */
-export function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
+function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
     return <AriaTabPanel {...props} />;
 }
 
 /**
- * Tabs organize content into multiple sections and allow users to navigate between them. [Built with React Aria Tabs](https://react-spectrum.adobe.com/react-aria/Tabs.html)
+ *
  *
  * ## Install
  *
@@ -118,7 +113,7 @@ export function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
  * import { Tabs, type TabsProps } from "boondoggle/tabs"
  * ```
  */
-export function Tabs({ children, ...props }: AriaTabsProps) {
+function Container({ children, ...props }: AriaTabsProps) {
     const {
         onSelectionChange: controlledOnSelectionChange,
         selectedKey: controlledSelectedKey,
@@ -146,3 +141,12 @@ export function Tabs({ children, ...props }: AriaTabsProps) {
         </AriaTabs>
     );
 }
+/**
+ * Tabs organize content into multiple sections and allow users to navigate between them. [Built with React Aria Tabs](https://react-spectrum.adobe.com/react-aria/Tabs.html)
+ */
+export const Tabs = {
+    Container,
+    Content: TabPanel,
+    List: TabList,
+    Tab,
+};

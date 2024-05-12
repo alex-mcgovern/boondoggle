@@ -58,7 +58,7 @@ export { Select, SelectButton } from "./select";
 export { Skeleton } from "./skeleton";
 export { Switch } from "./switch";
 export { Table } from "./table";
-export { TabList, TabPanel, Tabs } from "./tabs";
+export { Tabs } from "./tabs";
 export { TextArea } from "./text-area";
 export {
     FormTextField,
