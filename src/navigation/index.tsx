@@ -97,6 +97,24 @@ export const useSideNav = () => {
     return context;
 };
 
+export const useOpenOnMount = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setIsOpen] = useSideNav();
+
+    return useLayoutEffect(() => {
+        setIsOpen(true);
+    }, [setIsOpen]);
+};
+
+export const useCloseOnMount = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setIsOpen] = useSideNav();
+
+    return useLayoutEffect(() => {
+        setIsOpen(false);
+    }, [setIsOpen]);
+};
+
 /**
  * Button for toggling the side nav
  */
@@ -276,6 +294,8 @@ export const Navigation = {
     Link,
     Provider,
     SideBar,
+    useCloseOnMount,
+    useOpenOnMount,
     UserMenuHeader,
     UserMenuTrigger,
     useSideNav,
