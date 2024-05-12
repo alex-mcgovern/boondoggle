@@ -99,7 +99,7 @@
     }
 }
 
-.app-shell {
+.nav-container {
     display: flex;
     position: relative;
     height: 100dvh;

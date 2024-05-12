@@ -135,7 +135,7 @@ function ButtonToggleCollapsibleNav() {
 function Container({ children }: { children: ReactNode }) {
     return (
         <Provider>
-            <div className="app-shell">{children}</div>;
+            <div className="nav-container">{children}</div>;
         </Provider>
     );
 }
