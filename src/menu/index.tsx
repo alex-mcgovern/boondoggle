@@ -3,6 +3,7 @@ import type {
     MenuItemProps as AriaMenuItemProps,
     MenuProps as AriaMenuProps,
     MenuTriggerProps as AriaMenuTriggerProps,
+    SubmenuTriggerProps as AriaSubMenuTriggerProps,
     SectionProps as AriaSectionProps,
 } from "react-aria-components";
 
@@ -11,6 +12,7 @@ import {
     Header as AriaHeader,
     Menu as AriaMenu,
     MenuItem as AriaMenuItem,
+    SubmenuTrigger as AriaSubMenuTrigger,
     MenuTrigger as AriaMenuTrigger,
     Section as AriaSection,
 } from "react-aria-components";
@@ -23,6 +25,13 @@ import { Checkbox } from "../checkbox";
  */
 function Trigger(props: AriaMenuTriggerProps) {
     return <AriaMenuTrigger {...props} />;
+}
+
+/**
+ * A `Trigger` component, for use with a `Menu` component. [Built with React Aria Trigger component](https://react-spectrum.adobe.com/react-aria/Menu.html#menutrigger)
+ */
+function SubMenuTrigger(props: AriaSubMenuTriggerProps) {
+    return <AriaSubMenuTrigger {...props} />;
 }
 
 type SingleMenuItem<TItemId extends string = string> =
@@ -181,4 +190,11 @@ function SectionHeader({ children }: { children: ReactNode }) {
 /**
  *
  */
-export const Menu = { DropdownMenu, Item, Section, SectionHeader, Trigger };
+export const Menu = {
+    DropdownMenu,
+    Item,
+    Section,
+    SectionHeader,
+    SubMenuTrigger,
+    Trigger,
+};
