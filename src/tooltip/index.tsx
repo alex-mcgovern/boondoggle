@@ -45,7 +45,7 @@ export function TooltipTriggerButton({
  */
 export function TooltipTrigger({
     closeDelay,
-    delay,
+    delay = 0,
     ...props
 }: AriaTooltipTriggerProps) {
     return (
