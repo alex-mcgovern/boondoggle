@@ -59,6 +59,7 @@ export function Popover({
         <AriaPopover
             {...props}
             className={clsx(props.className, "popover")}
+            offset={4}
             ref={ref}
         />
     );
