@@ -1,5 +1,6 @@
 .input-container {
     --input-icon-offset-x: var(--space-1);
+    --input-height: var(--space-8);
 
     display: inline-flex;
     align-items: center;
@@ -7,15 +8,15 @@
     position: relative;
     width: 100%;
 
-    .icon {
+    .input-icon-container {
         display: flex;
         justify-content: center;
         align-items: center;
 
         color: var(--slate-11);
 
-        width: var(--icon-size-sm);
-        height: var(--icon-size-sm);
+        width: var(--input-height);
+        height: var(--input-height);
 
         position: absolute;
         bottom: 0;
@@ -23,16 +24,11 @@
         top: 0;
 
         pointer-events: none;
-
-        margin-left: var(--input-icon-offset-x);
-        margin-right: var(--input-icon-offset-x);
     }
 
     .input {
         --input-bg: var(--slate-2);
         --input-text-color: var(--slate-12);
-
-        --input-height: var(--space-8);
 
         --input-border-width: 1px;
         --input-border-color: var(--slate-6);
@@ -77,8 +73,7 @@
         }
 
         &.has-icon {
-            --input-padding: 0 var(--space-2) 0
-                calc(var(--icon-size-sm) + var(--input-icon-offset-x) * 2);
+            --input-padding: 0 var(--space-2) 0 var(--input-height);
         }
 
         &:not(.unstyled)[data-hovered] {
