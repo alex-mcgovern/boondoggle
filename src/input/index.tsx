@@ -25,11 +25,12 @@ export const Input = forwardRef<
          */
         variant?: "default" | "unstyled";
     }
->((props) => {
+>((props, ref) => {
     return (
         <div className="input-container">
             {props.icon && <div className="icon">{props.icon}</div>}
             <AriaInput
+                ref={ref}
                 {...props}
                 className={clsx(props.className, "input", {
                     "has-icon": !!props.icon,
