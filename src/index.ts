@@ -1,5 +1,6 @@
 import "./styles/index.css";
 
+export { Alert } from "./alert";
 export { Avatar } from "./avatar";
 export { Button, LinkButton } from "./button";
 export { Calendar } from "./calendar";
