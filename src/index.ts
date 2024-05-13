@@ -6,7 +6,7 @@ export { Calendar } from "./calendar";
 export { Card } from "./card";
 export { Checkbox } from "./checkbox";
 export { CheckboxGroup } from "./checkbox-group";
-export { Collapsible } from "./collapsible";
+export { Collapsible, CollapsibleTrigger } from "./collapsible";
 export { ComboBox, ComboBoxButton, FormComboBox } from "./combo-box";
 export { ComboBoxCountry, FormComboBoxCountry } from "./combo-box-country";
 export { DateInput } from "./date-input";
