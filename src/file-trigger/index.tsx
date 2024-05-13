@@ -44,17 +44,10 @@ export function FormFileTrigger(
             <FileTrigger
                 {...props}
                 onSelect={(e) => {
-                    console.debug("debug  e:", e);
                     if (props.onSelect) {
                         props.onSelect(e);
                     }
-                    const files = e ? Array.from(e) : [];
-
-                    if (files[0]) {
-                        onChange(files[0]);
-                    } else {
-                        onChange(null);
-                    }
+                    onChange(e?.item(0));
                 }}
                 ref={ref}
             />
