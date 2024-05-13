@@ -12,6 +12,10 @@
     color: var(--btn-color);
     background-color: var(--btn-bg);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     outline: 0;
 
     width: var(--space-6);
