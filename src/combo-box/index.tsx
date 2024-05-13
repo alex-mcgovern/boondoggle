@@ -81,11 +81,12 @@ export function FormComboBox<TItemId extends string = string>({
     const { control } = useFormContext();
 
     const {
-        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        field: { disabled, onChange, ref, value = "", ...field },
         fieldState: { error, invalid },
     } = useController({
         control,
         defaultValue: props.selectedKey || props.defaultSelectedKey,
+        disabled: props.isDisabled,
         name: props.name,
     });
 
@@ -93,7 +94,7 @@ export function FormComboBox<TItemId extends string = string>({
         <ComboBox
             {...props}
             {...field}
-            isDisabled={isDisabled}
+            isDisabled={disabled}
             isInvalid={invalid}
             onSelectionChange={(k) => {
                 onChange(k);
