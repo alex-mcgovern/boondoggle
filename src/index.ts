@@ -19,7 +19,7 @@ export {
     ScrollableDialogContent,
 } from "./dialog";
 export { DialogTrigger } from "./dialog-trigger";
-export { DropZone } from "./drop-zone";
+export { DropZone, FormDropZone } from "./drop-zone";
 export { FieldButton } from "./field-button";
 export { FieldDescription } from "./field-description";
 export { FieldError } from "./field-error";
