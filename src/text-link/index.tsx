@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type { LinkProps as AriaLinkProps } from "react-aria-components";
 
 import clsx from "clsx";
@@ -21,15 +20,11 @@ import "./styles.css";
  * import { Link, type LinkProps } from "boondoggle/link"
  * ```
  */
-export function TextLink({
-    ref,
-    ...props
-}: AriaLinkProps & { ref?: ForwardedRef<HTMLAnchorElement> }) {
+export function TextLink(props: AriaLinkProps) {
     return (
         <AriaLink
             {...props}
             className={clsx(props.className, "text-link")}
-            ref={ref}
         />
     );
 }

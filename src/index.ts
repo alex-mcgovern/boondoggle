@@ -26,7 +26,7 @@ export { Form, type FormProps } from "./form";
 export { Grid, type GridProps } from "./grid";
 export { Group } from "./group";
 export { Icon, type IconProps } from "./icon";
-export { Input, type InputProps } from "./input";
+export { Input } from "./input";
 export { Label } from "./label";
 export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";

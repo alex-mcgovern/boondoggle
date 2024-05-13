@@ -1,8 +1,9 @@
-import type { ComponentProps, ForwardedRef } from "react";
+import type { ComponentProps } from "react";
 
 import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
+import { forwardRef } from "react";
 import { useEffect } from "react";
 import {
     NumberField as AriaNumberField,
@@ -52,18 +53,17 @@ export function NumberFieldDecrementButton() {
  * import { NumberField, type NumberFieldProps } from "boondoggle/number-field"
  * ```
  */
-export function NumberField({
-    ref,
-    ...props
-}: AriaNumberFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
-    return (
-        <AriaNumberField
-            {...props}
-            className={clsx(props.className, "number-field")}
-            ref={ref}
-        />
-    );
-}
+export const NumberField = forwardRef<HTMLInputElement, AriaNumberFieldProps>(
+    (props, ref) => {
+        return (
+            <AriaNumberField
+                {...props}
+                className={clsx(props.className, "number-field")}
+                ref={ref}
+            />
+        );
+    },
+);
 
 /** -----------------------------------------------------------------------------
  * FormNumberField

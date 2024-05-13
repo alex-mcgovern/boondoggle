@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type { SearchFieldProps as AriaSearchFieldProps } from "react-aria-components";
 
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
@@ -48,15 +47,11 @@ export function SearchFieldIcon() {
  * import { SearchField, type SearchFieldProps } from "boondoggle/search-field"
  * ```
  */
-export function SearchField({
-    ref,
-    ...props
-}: AriaSearchFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
+export function SearchField(props: AriaSearchFieldProps) {
     return (
         <AriaSearchField
             {...props}
             className={clsx(props.className, "search-field")}
-            ref={ref}
         />
     );
 }

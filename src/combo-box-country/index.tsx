@@ -76,18 +76,15 @@ const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
 export const ComboBoxCountry = forwardRef<
     HTMLDivElement,
     Omit<ComponentProps<typeof ComboBox>, "defaultItems" | "items">
->(
-    ({
-        ...props
-    }: Omit<ComponentProps<typeof ComboBox>, "defaultItems" | "items">) => {
-        return (
-            <ComboBox
-                {...props}
-                defaultItems={COUNTRIES}
-            />
-        );
-    },
-);
+>((props, ref) => {
+    return (
+        <ComboBox
+            {...props}
+            defaultItems={COUNTRIES}
+            ref={ref}
+        />
+    );
+});
 
 /**
  * A `FormComboBoxCountry` connects a `ComboBoxCountry` to a `Form` component using `react-hook-form`.

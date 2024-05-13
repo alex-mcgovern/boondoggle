@@ -1,4 +1,4 @@
-import type { ComponentProps, ForwardedRef } from "react";
+import type { ComponentProps } from "react";
 import type { TextFieldProps as AriaTextFieldProps } from "react-aria-components";
 
 import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
@@ -6,6 +6,7 @@ import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
+import { forwardRef } from "react";
 import { useCallback, useMemo, useState } from "react";
 import {
     TextField as AriaTextField,
@@ -83,71 +84,72 @@ export function TextFieldVisibilityButton(
  * [React Aria TextField component](https://react-spectrum.adobe.com/react-aria/TextField.html)
  * with some additional props for styling / variants.
  */
-export function TextField({
-    ref,
-    ...props
-}: AriaTextFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
-    const [value, setValue] = useState<AriaTextFieldProps["value"]>(
-        props.value || props.defaultValue,
-    );
+export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
+    (props, ref) => {
+        const [value, setValue] = useState<AriaTextFieldProps["value"]>(
+            props.value || props.defaultValue,
+        );
 
-    const [type, setType] = useState<AriaTextFieldProps["type"]>(props.type);
+        const [type, setType] = useState<AriaTextFieldProps["type"]>(
+            props.type,
+        );
 
-    const clearValue = useCallback(() => {
-        setValue("");
-    }, [setValue]);
+        const clearValue = useCallback(() => {
+            setValue("");
+        }, [setValue]);
 
-    const toggleVisibility = useCallback(() => {
-        setType((c) => (c === "password" ? "text" : "password"));
-    }, [setType]);
+        const toggleVisibility = useCallback(() => {
+            setType((c) => (c === "password" ? "text" : "password"));
+        }, [setType]);
 
-    const copyValue = useCallback(() => {
-        if (!value) return;
+        const copyValue = useCallback(() => {
+            if (!value) return;
 
-        return navigator.clipboard
-            .writeText(value)
-            .then(() => toast.success(i18n.copied_to_clipboard));
-    }, [value]);
+            return navigator.clipboard
+                .writeText(value)
+                .then(() => toast.success(i18n.copied_to_clipboard));
+        }, [value]);
 
-    const buttonContext: Record<
-        "slots",
-        Record<string, ComponentProps<typeof FieldButton>>
-    > = useMemo(() => {
-        return {
-            slots: {
-                clear: {
-                    isDisabled: !value,
-                    onPress: clearValue,
+        const buttonContext: Record<
+            "slots",
+            Record<string, ComponentProps<typeof FieldButton>>
+        > = useMemo(() => {
+            return {
+                slots: {
+                    clear: {
+                        isDisabled: !value,
+                        onPress: clearValue,
+                    },
+                    copy: {
+                        isDisabled: !value,
+                        onPress: copyValue,
+                    },
+                    tooltip_trigger: {},
+                    visibility: {
+                        onPress: toggleVisibility,
+                        value: type === "password" ? "hidden" : "visible",
+                    },
                 },
-                copy: {
-                    isDisabled: !value,
-                    onPress: copyValue,
-                },
-                tooltip_trigger: {},
-                visibility: {
-                    onPress: toggleVisibility,
-                    value: type === "password" ? "hidden" : "visible",
-                },
-            },
-        };
-    }, [clearValue, copyValue, toggleVisibility, value, type]);
+            };
+        }, [clearValue, copyValue, toggleVisibility, value, type]);
 
-    return (
-        <FieldButtonContext.Provider value={buttonContext}>
-            <AriaTextField
-                {...props}
-                className={clsx(props.className, "text-field")}
-                onChange={(v) => {
-                    setValue(v);
-                    props.onChange?.(v);
-                }}
-                ref={ref}
-                type={type}
-                value={value}
-            />
-        </FieldButtonContext.Provider>
-    );
-}
+        return (
+            <FieldButtonContext.Provider value={buttonContext}>
+                <AriaTextField
+                    {...props}
+                    className={clsx(props.className, "text-field")}
+                    onChange={(v) => {
+                        setValue(v);
+                        props.onChange?.(v);
+                    }}
+                    ref={ref}
+                    type={type}
+                    value={value}
+                />
+            </FieldButtonContext.Provider>
+        );
+    },
+);
 
 /** -----------------------------------------------------------------------------
  * FormTextField

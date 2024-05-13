@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type {
     OverlayArrowProps as AriaOverlayArrowProps,
     PopoverProps as AriaPopoverProps,
@@ -15,15 +14,11 @@ import "./styles.css";
 /**
  * A `PopoverOverlayArrow` component, for use with a `Popover` component. [Built with React Aria PopoverOverlayArrow component](https://react-spectrum.adobe.com/react-aria/Popover.html#overlayarrow)
  */
-export function PopoverOverlayArrow({
-    ref,
-    ...props
-}: AriaOverlayArrowProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+export function PopoverOverlayArrow({ ...props }: AriaOverlayArrowProps) {
     return (
         <AriaOverlayArrow
             className={clsx(props.className, "overlay-arrow")}
             {...props}
-            ref={ref}
         >
             <svg
                 height={12}
@@ -51,16 +46,12 @@ export function PopoverOverlayArrow({
  * import { Popover, type PopoverProps } from "boondoggle/popover"
  * ```
  */
-export function Popover({
-    ref,
-    ...props
-}: AriaPopoverProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+export function Popover({ ...props }: AriaPopoverProps) {
     return (
         <AriaPopover
             {...props}
             className={clsx(props.className, "popover")}
             offset={4}
-            ref={ref}
         />
     );
 }

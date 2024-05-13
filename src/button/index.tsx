@@ -76,7 +76,6 @@ export function LinkButton({
     align,
     appearance = "primary",
     className,
-    ref,
     size,
     ...props
 }: AriaLinkProps & {
@@ -93,10 +92,6 @@ export function LinkButton({
      */
     isCurrent?: boolean;
     /**
-     * React ref for the button element.
-     */
-    ref?: ForwardedRef<HTMLAnchorElement>;
-    /**
      * The size of the button.
      */
     size?: "lg" | "md" | "sm";
@@ -111,7 +106,6 @@ export function LinkButton({
             className={clsx("btn", className, appearance, size, align, {
                 square: props.square,
             })}
-            ref={ref}
         />
     );
 }

@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type { FieldErrorProps as AriaFieldErrorProps } from "react-aria-components";
 
 import clsx from "clsx";
@@ -21,15 +20,11 @@ import "./styles.css";
  * import { FieldError, type FieldErrorProps } from "boondoggle/field-error"
  * ```
  */
-export function FieldError({
-    ref,
-    ...props
-}: AriaFieldErrorProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+export function FieldError(props: AriaFieldErrorProps) {
     return (
         <AriaFieldError
             {...props}
             className={clsx(props.className, "field-error")}
-            ref={ref}
         />
     );
 }

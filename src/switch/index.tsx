@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { SwitchProps as AriaSwitchProps } from "react-aria-components";
 
 import { Switch as AriaSwitch } from "react-aria-components";
@@ -37,14 +37,10 @@ export function SwitchIndicator() {
  * import { Switch, type SwitchProps } from "boondoggle/switch"
  * ```
  */
-export function Switch({
-    ref,
-    ...props
-}: AriaSwitchProps & { ref?: ForwardedRef<HTMLLabelElement> }) {
+export function Switch({ ...props }: AriaSwitchProps) {
     return (
         <AriaSwitch
             className="switch"
-            ref={ref}
             {...props}
         />
     );

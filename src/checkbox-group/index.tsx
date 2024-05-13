@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type { CheckboxGroupProps as AriaCheckboxGroupProps } from "react-aria-components";
 
 import clsx from "clsx";
@@ -21,16 +20,11 @@ import "./styles.css";
  * import { CheckboxGroup, type CheckboxGroupProps } from "boondoggle/checkbox-group"
  * ```
  */
-export function CheckboxGroup({
-    className,
-    ref,
-    ...props
-}: AriaCheckboxGroupProps & { ref?: ForwardedRef<HTMLDivElement> }) {
+export function CheckboxGroup({ className, ...props }: AriaCheckboxGroupProps) {
     return (
         <AriaCheckboxGroup
             {...props}
             className={clsx(className, "checkbox-group")}
-            ref={ref}
         />
     );
 }

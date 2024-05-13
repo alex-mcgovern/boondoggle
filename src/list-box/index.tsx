@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactNode } from "react";
+import type { ReactNode } from "react";
 import type {
     ListBoxItemProps as AriaListBoxItemProps,
     ListBoxProps as AriaListBoxProps,
@@ -162,15 +162,11 @@ function ListBoxItem<TItemId extends string = string>({
  * A listbox displays a list of options and allows a user to select one or more of them. [Built with React Aria ListBox component](https://react-spectrum.adobe.com/react-aria/ListBox.html)
  */
 export function ListBox<TItemId extends string = string>({
-    ref,
     ...props
-}: AriaListBoxProps<IterableListBoxItem<TItemId>> & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+}: AriaListBoxProps<IterableListBoxItem<TItemId>>) {
     return (
         <AriaListBox<IterableListBoxItem<TItemId>>
             className="dropdown-menu"
-            ref={ref}
             renderEmptyState={() => <div>{i18n.no_results}</div>}
             {...props}
         >

@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type {
     ButtonProps as AriaButtonProps,
     TooltipProps as AriaTooltipProps,
@@ -20,19 +19,13 @@ import "./styles.css";
 /**
  * The TooltipTriggerButton component is a default button with an info icon that can be composed with a TooltipTrigger to show a tooltip.
  */
-export function TooltipTriggerButton({
-    ref,
-    ...props
-}: Omit<AriaButtonProps, "children"> & {
-    ref?: ForwardedRef<HTMLButtonElement>;
-}) {
+export function TooltipTriggerButton(props: Omit<AriaButtonProps, "children">) {
     return (
         <AriaButton
             slot="clear"
             {...props}
             className={clsx(props.className, "tooltip-trigger-btn")}
             excludeFromTabOrder
-            ref={ref}
         >
             <Icon icon={faInfoCircle} />
         </AriaButton>

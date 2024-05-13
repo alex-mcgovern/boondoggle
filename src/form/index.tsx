@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactNode } from "react";
+import type { ReactNode } from "react";
 import type {
     DefaultValues,
     FieldErrors,
@@ -59,11 +59,6 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
      */
     isDisabled?: boolean;
 
-    /**
-     * React ref for the form element.
-     */
-    ref?: ForwardedRef<HTMLFormElement>;
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, jsdoc/require-jsdoc
     resolver?: Resolver<TFieldValues, any>;
 
@@ -88,7 +83,6 @@ export function Form<TFieldValues extends FieldValues>({
     handleErrors = debugFormErrors,
     handleSubmit,
     isDisabled,
-    ref,
     resolver,
     shouldResetOnSubmit = false,
     watchCallback,
@@ -122,7 +116,6 @@ export function Form<TFieldValues extends FieldValues>({
                         formMethods.reset(defaultValues);
                     }
                 }, handleErrors)}
-                ref={ref}
             >
                 {typeof children === "function"
                     ? children(formState)

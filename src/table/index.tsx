@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type {
     CellProps as AriaCellProps,
     ColumnProps as AriaColumnProps,
@@ -33,15 +32,11 @@ import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
-function Column({
-    ref,
-    ...props
-}: ColumnProps & { ref?: ForwardedRef<HTMLTableCellElement> }) {
+function Column(props: ColumnProps) {
     return (
         <AriaColumn
             {...props}
             className={clsx(props.className, "column")}
-            ref={ref}
         >
             {(renderProps) => (
                 <>
@@ -77,20 +72,12 @@ function Column({
 /**
  * A `TableHeader` component, for use with a `Table` component. [Built with React Aria TableHeader component](https://react-spectrum.adobe.com/react-aria/Table.html#tableheader)
  */
-function TableHeader<T extends object>({
-    ref,
-    ...props
-}: AriaTableHeaderProps<T> & {
-    ref?: ForwardedRef<HTMLTableSectionElement>;
-}) {
+function TableHeader<T extends object>(props: AriaTableHeaderProps<T>) {
     const { allowsDragging, selectionBehavior, selectionMode } =
         useTableOptions();
 
     return (
-        <AriaTableHeader
-            {...props}
-            ref={ref}
-        >
+        <AriaTableHeader {...props}>
             {allowsDragging && <Column />}
             {selectionBehavior === "toggle" && (
                 <Column
@@ -112,15 +99,11 @@ function TableHeader<T extends object>({
 /**
  * A `Cell` component, for use with a `Row` component. [Built with React Aria Cell component](https://react-spectrum.adobe.com/react-aria/Table.html#cell)
  */
-function Cell({
-    ref,
-    ...props
-}: AriaCellProps & { ref?: ForwardedRef<HTMLTableCellElement> }) {
+function Cell(props: AriaCellProps) {
     return (
         <AriaCell
             {...props}
             className={clsx(props.className, "cell")}
-            ref={ref}
         />
     );
 }
@@ -128,17 +111,13 @@ function Cell({
 /**
  * A `Row` component, for use with a `TableBody` component. [Built with React Aria Row component](https://react-spectrum.adobe.com/react-aria/Table.html#row)
  */
-function Row<T extends object>({
-    ref,
-    ...props
-}: AriaRowProps<T> & { ref?: ForwardedRef<HTMLTableRowElement> }) {
+function Row<T extends object>(props: AriaRowProps<T>) {
     const { allowsDragging, selectionBehavior } = useTableOptions();
 
     return (
         <AriaRow
             {...props}
             className={clsx(props.className, "row")}
-            ref={ref}
         >
             {allowsDragging && (
                 <Cell>
@@ -168,14 +147,12 @@ function Row<T extends object>({
  * A `TableBody` component, for use with a `Table` component. [Built with React Aria TableBody component](https://react-spectrum.adobe.com/react-aria/Table.html#tablebody)
  */
 export function TableBody<T extends object>({
-    ref,
     ...props
-}: AriaTableBodyProps<T> & { ref?: ForwardedRef<HTMLTableSectionElement> }) {
+}: AriaTableBodyProps<T>) {
     return (
         <AriaTableBody
             {...props}
             className={clsx(props.className, "table-body")}
-            ref={ref}
         >
             {props.children}
         </AriaTableBody>
@@ -206,17 +183,11 @@ export function TableBody<T extends object>({
  * } from "booondoggle/table"
  * ```
  */
-function TableRoot({
-    ref,
-    ...props
-}: AriaTableProps & {
-    ref?: ForwardedRef<HTMLTableElement>;
-}) {
+function TableRoot(props: AriaTableProps) {
     return (
         <AriaTable
             {...props}
             className={clsx(props.className, "table")}
-            ref={ref}
         >
             {props.children}
         </AriaTable>
@@ -229,16 +200,12 @@ export type ResizableTableContainerProps = AriaResizableTableContainerProps;
  * A `ResizableTableContainer` component, for use with a `Table` component. [Built with React Aria ResizableTableContainer component](https://react-spectrum.adobe.com/react-aria/Table.html#resizabletablecontainer)
  */
 function ResizableTableContainer({
-    ref,
     ...props
-}: AriaResizableTableContainerProps & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+}: AriaResizableTableContainerProps) {
     return (
         <AriaResizableTableContainer
             {...props}
             className={clsx(props.className, "resizable-table-container")}
-            ref={ref}
         />
     );
 }

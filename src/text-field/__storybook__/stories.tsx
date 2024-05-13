@@ -1,15 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { useRef } from "react";
-
 import {
     TextField,
     TextFieldClearButton,
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from "..";
-import { Button } from "../../button";
-// import { css } from "../../css/index.css";
 import { FieldDescription } from "../../field-description";
 import { FieldError } from "../../field-error";
 import { Group } from "../../group";
@@ -161,38 +157,6 @@ export const Visibility: Story = {
         ),
         type: "password",
         value: "HYo2G$8Vvz",
-    },
-};
-
-export const TestRef: Story = {
-    args: {
-        value: "Hello world",
-    },
-    render: (args) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const ref = useRef<HTMLInputElement>(null);
-
-        return (
-            <>
-                <TextField
-                    {...args}
-                    // className={css({ marginBottom: "space_2" })}
-                    ref={ref}
-                >
-                    <Label>Label</Label>
-                    <Input ref={ref} />
-                </TextField>
-                <Button
-                    appearance="secondary"
-                    // className={css({ width: "100%" })}
-                    onPress={() => {
-                        ref.current?.focus();
-                    }}
-                >
-                    Focus field
-                </Button>
-            </>
-        );
     },
 };
 

@@ -1,8 +1,9 @@
 import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
-import type { ComponentProps, ForwardedRef } from "react";
+import type { ComponentProps } from "react";
 import type { DatePickerProps as AriaDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
+import { forwardRef } from "react";
 import { FieldError } from "react-aria-components";
 import { DatePicker as AriaDatePicker } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
@@ -40,13 +41,10 @@ export function DatePickerButton() {
  * import { DatePicker, DatePickerButton type DatePickerProps } from "boondoggle/date-picker"
  * ```
  */
-export function DatePicker({
-    children,
-    ref,
-    ...props
-}: AriaDatePickerProps<CalendarDate | ZonedDateTime> & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+export const DatePicker = forwardRef<
+    HTMLDivElement,
+    AriaDatePickerProps<CalendarDate | ZonedDateTime>
+>((props, ref) => {
     return (
         <AriaDatePicker
             {...props}
@@ -55,9 +53,9 @@ export function DatePicker({
             {(values) => {
                 return (
                     <>
-                        {typeof children === "function"
-                            ? children(values)
-                            : children}
+                        {typeof props.children === "function"
+                            ? props.children(values)
+                            : props.children}
                         <Popover
                             className="p2"
                             placement="bottom end"
@@ -71,7 +69,7 @@ export function DatePicker({
             }}
         </AriaDatePicker>
     );
-}
+});
 
 /**
  * A `FormDatePicker` connects a `DatePicker` to a `Form` component using `react-hook-form`.

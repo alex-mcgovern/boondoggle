@@ -106,15 +106,11 @@ export type IterableMenuItem<TItemId extends string = string> =
  * A menu displays a list of actions or options that a user can choose. [Built with React Aria Menu component](https://react-spectrum.adobe.com/react-aria/Menu.html)
  */
 function DropdownMenu<TItem extends object = object>({
-    ref,
     ...props
-}: AriaMenuProps<TItem> & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+}: AriaMenuProps<TItem>) {
     return (
         <AriaMenu<TItem>
             className={clsx(props.className, "dropdown-menu")}
-            ref={ref}
             {...props}
         />
     );
@@ -123,27 +119,25 @@ function DropdownMenu<TItem extends object = object>({
 /**
  * A menu item represents an action or option that a user can choose. [Built with React Aria MenuItem component](https://react-spectrum.adobe.com/react-aria/Menu.html#menuitem)
  */
-function Item<TItem extends object>({
-    ref,
-    ...props
-}: AriaMenuItemProps<TItem> & {
-    /**
-     * The icon to display on the left side of the menu item.
-     */
-    icon?: ReactNode;
+function Item<TItem extends object>(
+    props: AriaMenuItemProps<TItem> & {
+        /**
+         * The icon to display on the left side of the menu item.
+         */
+        icon?: ReactNode;
 
-    /**
-     * React ref to the Item element.
-     */
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+        /**
+         * React ref to the Item element.
+         */
+        ref?: ForwardedRef<HTMLDivElement>;
+    },
+) {
     return (
         <AriaMenuItem
             {...props}
             className={clsx(props.className, "dropdown-menu-item", {
                 "has-icon": !!props.icon,
             })}
-            ref={ref}
         >
             {(renderProps) => {
                 return (

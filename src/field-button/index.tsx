@@ -1,4 +1,3 @@
-import type { ForwardedRef } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
 import clsx from "clsx";
@@ -23,16 +22,12 @@ import "./styles.css";
  * import { FieldButton, type FieldButtonProps } from "boondoggle/field-button"
  * ```
  */
-export function FieldButton({
-    ref,
-    ...props
-}: AriaButtonProps & { ref?: ForwardedRef<HTMLButtonElement> }) {
+export function FieldButton({ ...props }: AriaButtonProps) {
     return (
         <AriaButton
             {...props}
             className={clsx(props.className, "field-button")}
             excludeFromTabOrder
-            ref={ref}
         />
     );
 }

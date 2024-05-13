@@ -108,7 +108,7 @@ export const WithCurrencySelect: Story = {
                         <Input />
                     </NumberField>
 
-                    <Select<"EUR" | "GBP" | "USD">
+                    <Select
                         aria-label="Currency"
                         items={[
                             {
