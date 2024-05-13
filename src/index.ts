@@ -1,4 +1,4 @@
-import "../styles/index.css";
+import "./styles/index.css";
 
 export { Avatar } from "./avatar";
 export { Button, LinkButton } from "./button";

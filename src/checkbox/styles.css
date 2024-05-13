@@ -1,4 +1,4 @@
-@import "../../styles/vars.css";
+@import "../styles/vars.css";
 
 .checkbox-wrapper {
     --checkbox-bg: var(--slate-2);

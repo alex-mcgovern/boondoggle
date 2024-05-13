@@ -15,9 +15,9 @@ import {
     Text as AriaText,
 } from "react-aria-components";
 
-import "../../styles/dropdown-menu.css";
 import { Checkbox } from "../checkbox";
 import { i18n } from "../i18n";
+import "../styles/dropdown-menu.css";
 
 type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;

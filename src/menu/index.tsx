@@ -18,9 +18,9 @@ import {
     SubmenuTrigger as AriaSubMenuTrigger,
 } from "react-aria-components";
 
-import "../../styles/dropdown-menu.css";
 import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
+import "../styles/dropdown-menu.css";
 
 /**
  * A `Trigger` component, for use with a `Menu` component. [Built with React Aria Trigger component](https://react-spectrum.adobe.com/react-aria/Menu.html#menutrigger)

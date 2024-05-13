@@ -1,0 +1,18 @@
+@import "../../node_modules/@radix-ui/colors/slate.css";
+@import "../../node_modules/@radix-ui/colors/blue.css";
+@import "../../node_modules/@radix-ui/colors/green.css";
+@import "../../node_modules/@radix-ui/colors/red.css";
+
+@import "../../node_modules/@radix-ui/colors/slate-dark.css";
+@import "../../node_modules/@radix-ui/colors/blue-dark.css";
+@import "../../node_modules/@radix-ui/colors/green-dark.css";
+@import "../../node_modules/@radix-ui/colors/red-dark.css";
+
+@import "./vars.css";
+@import "./reset.css";
+@import "./base.css";
+@import "./util.css";
+
+@import "./animations.css";
+@import "./dropdown-menu.css";
+@import "./table.css";

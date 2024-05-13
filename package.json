@@ -7,9 +7,6 @@
     "files": [
         "dist"
     ],
-    "sideEffects": [
-        "src/types.d.ts"
-    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/alex-mcgovern/boondoggle.design.git"
