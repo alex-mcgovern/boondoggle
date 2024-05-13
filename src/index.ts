@@ -54,7 +54,7 @@ export {
     SearchFieldClearButton,
     SearchFieldIcon,
 } from "./search-field";
-export { Select, SelectButton } from "./select";
+export { FormSelect, Select, SelectButton } from "./select";
 export { Skeleton } from "./skeleton";
 export { Switch } from "./switch";
 export { Table } from "./table";
