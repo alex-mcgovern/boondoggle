@@ -1,3 +1,4 @@
+import type { ComponentProps } from "react";
 import type {
     DropZoneProps as AriaDropZoneProps,
     FileDropItem,
@@ -35,7 +36,9 @@ export const DropZone = forwardRef<HTMLDivElement, AriaDropZoneProps>(
 /**
  *
  */
-export function FormDropZone(props: AriaDropZoneProps & { name: string }) {
+export function FormDropZone(
+    props: ComponentProps<typeof DropZone> & { name: string },
+) {
     const { control } = useFormContext();
 
     const {
