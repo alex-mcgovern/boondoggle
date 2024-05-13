@@ -3,10 +3,12 @@ import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
+import { forwardRef } from "react";
 import { ComboBox as AriaCombobox } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";
+import type { IterableMenuItem } from "../menu";
 
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
@@ -26,31 +28,10 @@ export function ComboBoxButton() {
     );
 }
 
-/**
- * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```tsx
- * import { ComboBox, ComboBoxButton } from "boondoggle/combobox";
- * ```
- */
-export function ComboBox<TItemId extends string = string>({
-    children,
-    ref,
-    ...props
-}: AriaComboBoxProps<IterableListBoxItem<TItemId>> & {
-    /**
-     * React ref to the ComboBox element.
-     */
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+function _ComboBox<TItemId extends string = string>(
+    { children, ...props }: AriaComboBoxProps<IterableMenuItem<TItemId>>,
+    ref: ForwardedRef<HTMLDivElement>,
+) {
     return (
         <AriaCombobox
             {...props}
@@ -71,6 +52,23 @@ export function ComboBox<TItemId extends string = string>({
         </AriaCombobox>
     );
 }
+
+/**
+ * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * import { ComboBox, ComboBoxButton } from "boondoggle/combobox";
+ * ```
+ */
+export const ComboBox = forwardRef(_ComboBox);
 
 /**
  * A `FormComboBox` connects a `ComboBox` to a `Form` component using `react-hook-form`.
