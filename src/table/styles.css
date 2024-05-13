@@ -89,6 +89,7 @@
     .column {
         color: var(--slate-11);
         font-weight: var(--fontWeight-medium);
+        white-space: nowrap;
 
         .sort-icon {
             margin-left: var(--space-1);
