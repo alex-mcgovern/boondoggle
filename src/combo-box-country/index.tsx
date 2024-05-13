@@ -2,10 +2,12 @@ import type { TCountryCode } from "countries-list";
 import type { ComponentProps } from "react";
 
 import { countries } from "countries-list";
+import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";
 
 import { ComboBox } from "../combo-box";
+import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
 
 /**
@@ -83,5 +85,55 @@ export function ComboBoxCountry({
             {...props}
             defaultItems={COUNTRIES}
         />
+    );
+}
+
+/**
+ * A `FormComboBoxCountry` connects a `ComboBoxCountry` to a `Form` component using `react-hook-form`.
+ *
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
+ */
+export function FormComboBoxCountry({
+    children,
+    ...props
+}: ComponentProps<typeof ComboBoxCountry>) {
+    if (!props.name) {
+        throw new Error("FormComboBox requires a name prop");
+    }
+
+    const { control } = useFormContext();
+
+    const {
+        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        fieldState: { error, invalid },
+    } = useController({
+        control,
+        defaultValue: props.selectedKey,
+        name: props.name,
+    });
+
+    return (
+        <ComboBoxCountry
+            {...props}
+            {...field}
+            isDisabled={isDisabled}
+            isInvalid={invalid}
+            onSelectionChange={(k) => {
+                onChange(k);
+                props.onSelectionChange?.(k);
+            }}
+            ref={ref}
+            selectedKey={value}
+            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+        >
+            {() => {
+                return (
+                    <>
+                        {children}
+                        <FieldError>{error?.message}</FieldError>
+                    </>
+                );
+            }}
+        </ComboBoxCountry>
     );
 }

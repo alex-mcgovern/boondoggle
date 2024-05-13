@@ -8,7 +8,7 @@ export { Checkbox } from "./checkbox";
 export { CheckboxGroup } from "./checkbox-group";
 export { Collapsible } from "./collapsible";
 export { ComboBox, ComboBoxButton, FormComboBox } from "./combo-box";
-export { ComboBoxCountry } from "./combo-box-country";
+export { ComboBoxCountry, FormComboBoxCountry } from "./combo-box-country";
 export { DateInput } from "./date-input";
 export { DatePicker } from "./date-picker";
 export {
