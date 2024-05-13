@@ -3,6 +3,10 @@
     border-radius: var(--radius-md);
 
     background: var(--slate-2);
+    color: var(--slate-11);
+
+    font-size: var(--fontSize-bodySm);
+    line-height: var(--lineHeight-bodySm);
 
     padding: var(--space-4);
 
