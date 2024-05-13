@@ -44,6 +44,7 @@ export function FormFileTrigger(
             <FileTrigger
                 {...props}
                 onSelect={(e) => {
+                    console.debug("debug  e:", e);
                     if (props.onSelect) {
                         props.onSelect(e);
                     }
