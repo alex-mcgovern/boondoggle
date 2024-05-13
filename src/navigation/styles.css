@@ -36,7 +36,7 @@
     top: 0;
 
     @media (prefers-reduced-motion: no-preference) {
-        transition-duration: var(--dur-long);
+        transition-duration: var(--dur-medium);
         transition-property: width;
         transition-timing-function: var(--ease-quart-in-out);
     }
