@@ -1,9 +1,42 @@
-import type { ReactNode } from "react";
+import type { ForwardedRef, ReactNode } from "react";
+import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
+import { faChevronRight } from "@fortawesome/pro-solid-svg-icons/faChevronRight";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback, useState } from "react";
+import { Button } from "react-aria-components";
 
+import { Icon } from "../icon";
 import "./styles.css";
+
+/**
+ * A trigger component for a collapsible element.
+ */
+export function CollapsibleTrigger(
+    props: AriaButtonProps & { ref?: ForwardedRef<HTMLButtonElement> },
+) {
+    return (
+        <Button
+            {...props}
+            className="collapsible-trigger"
+            ref={props.ref}
+        >
+            {(rp) => {
+                return (
+                    <>
+                        <Icon
+                            className="collapsible-trigger-icon"
+                            icon={faChevronRight}
+                        />
+                        {typeof props.children === "function"
+                            ? props.children(rp)
+                            : props.children}
+                    </>
+                );
+            }}
+        </Button>
+    );
+}
 
 /**
  * @deprecated
@@ -63,6 +96,7 @@ export function Collapsible({
 
     return (
         <RadixCollapsible.Root
+            className="collapsible"
             onOpenChange={handleOpenChange}
             open={localOpenState}
         >
@@ -70,7 +104,7 @@ export function Collapsible({
                 {triggerNode}
             </RadixCollapsible.Trigger>
 
-            <RadixCollapsible.Content className="collapsible">
+            <RadixCollapsible.Content className="collapsible-content">
                 {children}
             </RadixCollapsible.Content>
         </RadixCollapsible.Root>
