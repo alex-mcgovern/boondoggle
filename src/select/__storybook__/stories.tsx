@@ -16,17 +16,17 @@ const meta = {
                     {
                         id: "france",
                         name: "France",
-                        slotLeft: <FlagFr />,
+                        slotLeft: <FlagFr className="select-icon" />,
                     },
                     {
                         id: "germany",
                         name: "Germany",
-                        slotLeft: <FlagDe />,
+                        slotLeft: <FlagDe className="select-icon" />,
                     },
                     {
                         id: "spain",
                         name: "Spain",
-                        slotLeft: <FlagEs />,
+                        slotLeft: <FlagEs className="select-icon" />,
                     },
                 ],
                 id: "europe",
@@ -37,17 +37,17 @@ const meta = {
                     {
                         id: "uae",
                         name: "United Arab Emirates",
-                        slotLeft: <FlagAe />,
+                        slotLeft: <FlagAe className="select-icon" />,
                     },
                     {
                         id: "saudi_arabia",
                         name: "Saudi Arabia",
-                        slotLeft: <FlagSa />,
+                        slotLeft: <FlagSa className="select-icon" />,
                     },
                     {
                         id: "oman",
                         name: "Oman",
-                        slotLeft: <FlagOm />,
+                        slotLeft: <FlagOm className="select-icon" />,
                     },
                 ],
                 id: "mena",

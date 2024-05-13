@@ -6,31 +6,6 @@
         opacity: 0.5;
     }
 
-    .select-value {
-        --select-value-text-color: var(--slate-12);
-
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
-        padding: 0 var(--space-2);
-        color: var(--select-value-text-color);
-
-        &[data-placeholder] {
-            --select-value-text-color: var(--slate-11);
-        }
-    }
-
-    .select-icon {
-        flex-shrink: 0;
-
-        height: var(--icon-size-sm);
-        width: var(--icon-size-sm);
-
-        color: var(--slate-11);
-
-        margin-right: var(--space-1);
-    }
-
     .select-button {
         --select-button-text-color: var(--slate-12);
 
@@ -49,8 +24,8 @@
 
         color: var(--select-button-text-color);
 
-        font-size: var(--var-fontSize-bodySm);
-        line-height: var(--var-lineHeight-bodySm);
+        font-size: var(--fontSize-bodySm);
+        line-height: var(--lineHeight-bodySm);
 
         border: var(--select-button-border-width) solid
             var(--select-button-border-color);
@@ -73,7 +48,7 @@
             opacity: 0.5;
         }
 
-        .borderless {
+        &.borderless {
             --select-button-border-color: transparent;
             --select-button-border-width: 0;
             --select-button-bg-color: transparent;
@@ -99,6 +74,36 @@
 
         &[data-placeholder] {
             --select-button-text-color: var(--slate-11);
+        }
+
+        .select-value {
+            --select-value-text-color: var(--slate-12);
+
+            font-size: var(--fontSize-bodySm);
+            line-height: var(--lineHeight-bodySm);
+
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            gap: var(--space-2);
+            padding: 0 var(--space-2);
+            color: var(--select-value-text-color);
+
+            &[data-placeholder] {
+                --select-value-text-color: var(--slate-11);
+            }
+        }
+
+        .select-icon {
+            flex-shrink: 0;
+
+            height: var(--icon-size-sm);
+            width: var(--icon-size-sm);
+
+            color: var(--slate-11);
+
+            margin-right: var(--space-2);
         }
     }
 }

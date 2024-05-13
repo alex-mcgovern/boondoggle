@@ -50,14 +50,7 @@ export function SelectButton<TItemId extends string = string>({
                 className={"select-value"}
             />
             <Icon
-                // className={css({
-                //     fontStyle: "bodyMd",
-                //     height: "space_6",
-                //     marginLeft: "auto",
-                //     marginRight: "space_1",
-                //     width: "space_6",
-                // })}
-                color="text_low_contrast"
+                className="select-icon"
                 icon={faAnglesUpDown}
             />
         </AriaButton>
