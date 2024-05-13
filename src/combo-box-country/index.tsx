@@ -2,6 +2,7 @@ import type { TCountryCode } from "countries-list";
 import type { ComponentProps } from "react";
 
 import { countries } from "countries-list";
+import { forwardRef } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";
@@ -72,21 +73,21 @@ const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
  * import { ComboBoxButton } from "boondoggle/combobox"
  * ```
  */
-export function ComboBoxCountry({
-    ref,
-    ...props
-}: Omit<
-    ComponentProps<typeof ComboBox<TCountryCode>>,
-    "defaultItems" | "items"
->) {
-    return (
-        <ComboBox<TCountryCode>
-            ref={ref}
-            {...props}
-            defaultItems={COUNTRIES}
-        />
-    );
-}
+export const ComboBoxCountry = forwardRef<
+    HTMLDivElement,
+    Omit<ComponentProps<typeof ComboBox>, "defaultItems" | "items">
+>(
+    ({
+        ...props
+    }: Omit<ComponentProps<typeof ComboBox>, "defaultItems" | "items">) => {
+        return (
+            <ComboBox
+                {...props}
+                defaultItems={COUNTRIES}
+            />
+        );
+    },
+);
 
 /**
  * A `FormComboBoxCountry` connects a `ComboBoxCountry` to a `Form` component using `react-hook-form`.

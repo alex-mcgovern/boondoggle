@@ -1,14 +1,3 @@
-import "../styles/index.css";
-
-/**
- * Module augmentation to allow `forwardRef` to work with TypeScript Generics.
- */
-declare module "react" {
-    function forwardRef<T, P = Record<string, unknown>>(
-        render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
-    ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
-}
-
 export { Avatar } from "./avatar";
 export { Button, LinkButton } from "./button";
 export { Calendar } from "./calendar";

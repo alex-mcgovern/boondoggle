@@ -10,14 +10,25 @@ import { Button as AriaButton, Link as AriaLink } from "react-aria-components";
 
 import "./styles.css";
 
-function _Button(
-    {
-        align,
-        appearance = "primary",
-        className,
-        size,
-        ...props
-    }: AriaButtonProps & {
+/**
+ * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
+ * [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Button } from "boondoggle"
+ * ```
+ */
+export const Button = forwardRef<
+    HTMLButtonElement,
+    AriaButtonProps & {
         /**
          * Alignment for the LinkButton.
          */
@@ -38,37 +49,23 @@ function _Button(
          * Whether the button is square.
          */
         square?: boolean;
+    }
+>(
+    (
+        { align, appearance = "primary", className, size, ...props },
+        ref: ForwardedRef<HTMLButtonElement>,
+    ) => {
+        return (
+            <AriaButton
+                {...props}
+                className={clsx("btn", className, appearance, size, align, {
+                    square: props.square,
+                })}
+                ref={ref}
+            />
+        );
     },
-    ref: ForwardedRef<HTMLButtonElement>,
-) {
-    return (
-        <AriaButton
-            {...props}
-            className={clsx("btn", className, appearance, size, align, {
-                square: props.square,
-            })}
-            ref={ref}
-        />
-    );
-}
-
-/**
- * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
- * [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { Button } from "boondoggle"
- * ```
- */
-export const Button = forwardRef(_Button);
+);
 
 /**
  * A link allows a user to navigate to another page or resource within a web page or application.
