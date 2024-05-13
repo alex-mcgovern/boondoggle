@@ -61,7 +61,7 @@ export function FormDropZone(
                         (file) => file.kind === "file",
                     ) as FileDropItem[];
                     if (files[0]) {
-                        onChange(files[0]);
+                        onChange(files[0].getFile());
                     } else {
                         onChange(null);
                     }
