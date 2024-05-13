@@ -49,7 +49,11 @@ export function FormDropZone(props: AriaDropZoneProps & { name: string }) {
     return (
         <>
             <DropZone
+                {...props}
                 onDrop={(e) => {
+                    if (props.onDrop) {
+                        props.onDrop(e);
+                    }
                     const files = e.items.filter(
                         (file) => file.kind === "file",
                     ) as FileDropItem[];

@@ -1,6 +1,9 @@
 .drop-zone {
     border: 1px dashed var(--slate-6);
     border-radius: var(--radius-md);
+
+    background: var(--slate-2);
+
     padding: var(--space-4);
 
     min-height: 15rem;
