@@ -79,7 +79,7 @@
     }
 
     &[data-open="false"] {
-        width: var(--space-12);
+        width: var(--space-8);
     }
     &[data-open="true"] {
         width: 12.5rem;
