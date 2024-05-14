@@ -37,10 +37,9 @@
         display: block;
 
         font-weight: var(--font-weight-medium);
-        line-height: 1.4;
         overflow-wrap: break-word;
 
-        margin-bottom: var(--space-2);
+        margin: 0;
     }
 
     h1 {
