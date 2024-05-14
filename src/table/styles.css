@@ -98,6 +98,14 @@
             outline: 2px solid var(--blue-6);
             outline-offset: -2px;
         }
+
+        &:first-child {
+            padding-left: var(--space-4);
+        }
+
+        &:last-child {
+            padding-right: var(--space-4);
+        }
     }
 
     .column {
