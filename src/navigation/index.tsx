@@ -4,6 +4,7 @@ import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type {
     ComponentProps,
     Dispatch,
+    HTMLProps,
     ReactNode,
     SetStateAction,
 } from "react";
@@ -11,6 +12,7 @@ import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
+import clsx from "clsx";
 import { useCallback } from "react";
 import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
@@ -296,13 +298,43 @@ function SideBar(props: { children: ReactNode }) {
     );
 }
 
+/**
+ * Top bar HTML element.
+ */
+function TopBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
+    return (
+        <header
+            className={clsx(className, "top-bar")}
+            {...rest}
+        >
+            {children}
+        </header>
+    );
+}
+
+/**
+ * Bottom bar HTML element.
+ */
+function BottomBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
+    return (
+        <header
+            className={clsx(className, "bottom-bar")}
+            {...rest}
+        >
+            {children}
+        </header>
+    );
+}
+
 export const Navigation = {
+    BottomBar,
     Button: NavButton,
     Container,
     Link,
     MainContent,
     Provider,
     SideBar,
+    TopBar,
     useCloseOnMount,
     useOpenOnMount,
     UserMenuHeader,

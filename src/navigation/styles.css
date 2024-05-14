@@ -172,3 +172,30 @@
         color: var(--slate-11);
     }
 }
+
+.top-bar,
+.bottom-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+
+    border-bottom: 1px solid var(--slate-5);
+    background: var(--slate-2);
+
+    height: var(--space-12);
+    padding: var(--space-2) var(--space-4);
+
+    scrollbar-gutter: stable;
+}
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.bottom-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
