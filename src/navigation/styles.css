@@ -33,7 +33,7 @@
 
     &::-webkit-scrollbar-thumb {
         background-color: var(--slate-5);
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         border-radius: var(--radius-md);
     }
     &::-webkit-scrollbar-track {
