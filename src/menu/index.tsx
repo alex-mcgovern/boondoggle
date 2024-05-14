@@ -142,7 +142,7 @@ function Item<TItem extends object>(
             {(renderProps) => {
                 return (
                     <>
-                        {props.icon}
+                        <div className="menu-item-icon">{props.icon}</div>
                         {typeof props.children === "function"
                             ? props.children(renderProps)
                             : props.children}

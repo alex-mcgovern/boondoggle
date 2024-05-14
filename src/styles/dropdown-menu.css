@@ -140,6 +140,10 @@
             }
         }
 
+        .menu-item-icon {
+            color: var(--slate-11);
+        }
+
         @media (prefers-reduced-motion: no-preference) {
             transition-duration: var(--dur-short);
             transition-property: background-color, border-color, color, outline;
