@@ -317,12 +317,12 @@ function TopBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
  */
 function BottomBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
     return (
-        <header
+        <footer
             className={clsx(className, "bottom-bar")}
             {...rest}
         >
             {children}
-        </header>
+        </footer>
     );
 }
 
@@ -334,7 +334,7 @@ export const Navigation = {
     MainContent,
     Provider,
     SideBar,
-    TopBar,
+    TopBar: TopBar,
     useCloseOnMount,
     useOpenOnMount,
     UserMenuHeader,
