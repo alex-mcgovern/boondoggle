@@ -1,24 +1,23 @@
 @import "./vars.css";
-@layer base;
-
-:root {
-    font-family: var(--font-family-body);
-    font-size: var(--font-size-root);
-    line-height: var(--line-height-body-md);
-    font-weight: var(--font-weight-normal);
-
-    color-scheme: light dark;
-    color: var(--slate-12);
-    background: var(--slate-1);
-    accent-color: var(--blue-9);
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 @layer base {
+    :root {
+        font-family: var(--font-family-body);
+        font-size: var(--font-size-root);
+        line-height: var(--line-height-body-md);
+        font-weight: var(--font-weight-normal);
+
+        color-scheme: light dark;
+        color: var(--slate-12);
+        background: var(--slate-1);
+        accent-color: var(--blue-9);
+
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
     body {
         height: 100%;
         overscroll-behavior-y: none;
