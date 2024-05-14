@@ -1,5 +1,4 @@
 /* eslint-disable jsdoc/require-jsdoc */
-"use client";
 
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type {

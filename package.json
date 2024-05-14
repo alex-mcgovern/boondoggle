@@ -4,6 +4,9 @@
     "description": "Boondoggle component library",
     "version": "2.0.0-91",
     "license": "MIT",
+    "sideEffects": [
+        "src/styles/index.css"
+    ],
     "files": [
         "dist"
     ],
