@@ -19,17 +19,17 @@
     .heading {
         flex-grow: 1;
 
-        font-size: var(--fontSize-bodyMd);
-        line-height: var(--lineHeight-bodyMd);
+        font-size: var(--font-size-body-md);
+        line-height: var(--line-height-body-md);
         text-align: center;
 
         margin: 0;
     }
 
     .cell {
-        font-size: var(--fontSize-bodySm);
-        line-height: var(--lineHeight-bodySm);
-        font-weight: var(--fontWeight-medium);
+        font-size: var(--font-size-body-sm);
+        line-height: var(--line-height-body-sm);
+        font-weight: var(--font-weight-medium);
 
         text-align: center;
         vertical-align: middle;

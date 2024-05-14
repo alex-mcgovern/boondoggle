@@ -99,9 +99,9 @@
 .dialog-title {
     color: var(--slate-12);
 
-    font-size: var(--fontSize-bodyLg);
-    line-height: var(--lineHeight-bodyLg);
-    font-weight: var(--fontWeight-semibold);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-body-lg);
+    font-weight: var(--font-weight-semibold);
 
     margin: 0;
 }

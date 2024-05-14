@@ -28,8 +28,8 @@
     margin-bottom: var(--space-3);
 
     .card-title {
-        font-size: var(--fontSize-bodyLg);
-        line-height: var(--lineHeight-bodyLg);
+        font-size: var(--font-size-body-lg);
+        line-height: var(--line-height-body-lg);
 
         margin-bottom: var(--space-1);
     }

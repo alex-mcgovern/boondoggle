@@ -36,13 +36,13 @@
 
     .toast-description,
     .toast-title {
-        font-size: var(--fontSize-bodyMd);
-        line-height: var(--lineHeight-bodyMd);
+        font-size: var(--font-size-body-md);
+        line-height: var(--line-height-body-md);
 
         color: var(--toast-text-color);
     }
 
     .toast-title {
-        font-weight: var(--fontWeight-semibold);
+        font-weight: var(--font-weight-semibold);
     }
 }

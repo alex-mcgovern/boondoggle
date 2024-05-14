@@ -16,8 +16,8 @@
     color: var(--text-area-color);
     background-color: var(--text-area-bg);
 
-    font-size: var(--fontSize-bodySm);
-    line-height: var(--lineHeight-bodySm);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
 
     width: 100%;
     min-height: var(--text-area-height);

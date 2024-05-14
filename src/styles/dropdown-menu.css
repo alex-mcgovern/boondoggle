@@ -2,8 +2,8 @@
     --dropdown-menu-spacing-x: var(--space-1);
     --dropdown-menu-item-spacing-x: var(--space-2);
 
-    --dropdown-menu-item-font-size: var(--fontSize-bodySm);
-    --dropdown-menu-item-line-height: var(--lineHeight-bodySm);
+    --dropdown-menu-item-font-size: var(--font-size-body-sm);
+    --dropdown-menu-item-line-height: var(--line-height-body-sm);
 
     outline: 0;
     overflow-y: auto;
@@ -48,7 +48,7 @@
 
         font-size: var(--dropdown-menu-item-font-size);
         line-height: var(--dropdown-menu-item-line-height);
-        font-weight: var(--fontWeight-medium);
+        font-weight: var(--font-weight-medium);
         text-align: left;
     }
 

@@ -51,9 +51,9 @@
 
         position: relative;
 
-        font-size: var(--fontSize-bodyMd);
-        line-height: var(--lineHeight-bodyMd);
-        font-weight: var(--fontWeight-medium);
+        font-size: var(--font-size-body-md);
+        line-height: var(--line-height-body-md);
+        font-weight: var(--font-weight-medium);
         text-decoration: none;
 
         cursor: pointer;

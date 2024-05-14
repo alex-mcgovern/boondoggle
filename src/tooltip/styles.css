@@ -18,7 +18,7 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     color: var(--slate-1);
-    font-size: var(--fontSize-bodySm);
+    font-size: var(--font-size-body-sm);
     padding: var(--space-2);
 
     /* fixes FF gap */

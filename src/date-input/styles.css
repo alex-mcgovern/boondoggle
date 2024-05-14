@@ -5,9 +5,9 @@
     --date-input-border-color: var(--slate-6);
     --date-input-border-size: 1px;
 
-    --date-input-font-size: var(--fontSize-bodyMd);
-    --date-input-font-weight: var(--fontWeight-medium);
-    --date-input-line-height: var(--lineHeight-bodyMd);
+    --date-input-font-size: var(--font-size-body-md);
+    --date-input-font-weight: var(--font-weight-medium);
+    --date-input-line-height: var(--line-height-body-md);
 
     --date-input-outline-color: transparent;
     --date-input-outline-size: 2px;

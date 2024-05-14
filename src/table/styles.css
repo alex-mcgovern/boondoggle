@@ -2,8 +2,8 @@
     --table-border-color: var(--slate-5);
     --table-border-width: 1px;
 
-    --table-font-size: var(--fontSize-bodyMd);
-    --table-line-height: var(--lineHeight-bodyMd);
+    --table-font-size: var(--font-size-body-md);
+    --table-line-height: var(--line-height-body-md);
 
     border-spacing: 0;
     outline: none;
@@ -110,7 +110,7 @@
 
     .column {
         color: var(--slate-11);
-        font-weight: var(--fontWeight-medium);
+        font-weight: var(--font-weight-medium);
         white-space: nowrap;
 
         .sort-icon {

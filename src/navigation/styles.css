@@ -118,8 +118,8 @@
 
         color: var(--slate-12);
 
-        font-size: var(--fontSize-bodyMd);
-        line-height: var(--lineHeight-bodyMd);
+        font-size: var(--font-size-body-md);
+        line-height: var(--line-height-body-md);
 
         transition: background var(--dur-short) var(--ease-quart-in-out);
 
@@ -160,12 +160,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
-        font-size: var(--fontSize-bodyMd);
-        line-height: var(--lineHeight-bodySm);
+        font-size: var(--font-size-body-md);
+        line-height: var(--line-height-body-sm);
     }
 
     .user-menu-header-name {
-        font-weight: var(--fontWeight-medium);
+        font-weight: var(--font-weight-medium);
         color: var(--slate-12);
     }
     .user-menu-header-org {

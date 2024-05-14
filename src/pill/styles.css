@@ -10,8 +10,8 @@
 
     border-radius: var(--radius-pill);
 
-    font-size: var(--fontSize-bodySm);
-    font-weight: var(--fontWeight-medium);
+    font-size: var(--font-size-body-sm);
+    font-weight: var(--font-weight-medium);
 
     height: var(--space-6);
     min-width: var(--space-6);

@@ -24,8 +24,8 @@
 
         color: var(--select-button-text-color);
 
-        font-size: var(--fontSize-bodySm);
-        line-height: var(--lineHeight-bodySm);
+        font-size: var(--font-size-body-sm);
+        line-height: var(--line-height-body-sm);
 
         border: var(--select-button-border-width) solid
             var(--select-button-border-color);
@@ -79,8 +79,8 @@
         .select-value {
             --select-value-text-color: var(--slate-12);
 
-            font-size: var(--fontSize-bodySm);
-            line-height: var(--lineHeight-bodySm);
+            font-size: var(--font-size-body-sm);
+            line-height: var(--line-height-body-sm);
 
             display: flex;
             align-items: center;

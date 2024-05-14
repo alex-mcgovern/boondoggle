@@ -8,9 +8,9 @@
     --btn-border-color: transparent;
     --btn-border-size: 1px;
 
-    --btn-font-size: var(--fontSize-bodyMd);
-    --btn-font-weight: var(--fontWeight-medium);
-    --btn-line-height: var(--lineHeight-bodyMd);
+    --btn-font-size: var(--font-size-body-md);
+    --btn-font-weight: var(--font-weight-medium);
+    --btn-line-height: var(--line-height-body-md);
 
     --btn-outline-color: transparent;
     --btn-outline-size: 2px;

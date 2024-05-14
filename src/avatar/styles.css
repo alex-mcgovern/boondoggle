@@ -5,7 +5,7 @@
     background: var(--avatar-bg);
     color: var(--avatar-text-color);
 
-    font-size: max(var(--fontSize-bodyMd), 100%);
+    font-size: max(var(--font-size-body-md), 100%);
     font-weight: var(--font-weight-medium);
 
     display: flex;
