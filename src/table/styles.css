@@ -161,20 +161,13 @@
 }
 
 .resizable-table-container {
-    max-width: 400px;
+    width: 100%;
     overflow: auto;
     position: relative;
-    border: 1px solid var(--table-border-color);
-    border-radius: 6px;
-    background: var(--background-color);
-
-    .table {
-        border: none;
-    }
 
     .column-name,
     .react-aria-Button {
-        --background-color: var(--overlay-background);
+        /* --background-color: var(--overlay-background);
         flex: 1;
         font: inherit;
         text-align: start;
@@ -194,7 +187,7 @@
 
         &:focus-visible {
             outline: 2px solid var(--blue-6);
-        }
+        } */
     }
 
     .columnResizer {

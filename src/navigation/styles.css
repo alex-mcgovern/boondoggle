@@ -82,7 +82,7 @@
         width: var(--space-8);
     }
     &[data-open="true"] {
-        width: 12.5rem;
+        width: 10rem;
     }
 
     .side-nav-link {
