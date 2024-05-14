@@ -47,13 +47,27 @@
         transform: scale(1);
         padding: var(--space-1) var(--space-8);
 
+        @media (prefers-reduced-motion: no-preference) {
+            transition-duration: var(--dur-short);
+            transition-property: background-color, outline;
+            transition-timing-function: var(--ease-quart-in-out);
+        }
+
+        &[data-href] {
+            cursor: pointer;
+
+            &[data-hovered] {
+                background: var(--slate-3);
+            }
+        }
+
         &[data-focus-visible] {
             outline: 2px solid var(--blue-6);
             outline-offset: -2px;
         }
 
         &[data-pressed] {
-            background: var(--slate-2);
+            background: var(--slate-3);
         }
 
         &[data-selected] {
@@ -137,10 +151,6 @@
     --selected-color-pressed: var(--highlight-foreground-pressed);
     --checkmark-color: var(--highlight-background);
     --background-color: var(--highlight-background);
-}
-
-.row[data-href] {
-    cursor: pointer;
 }
 
 .react-aria-TableBody {
