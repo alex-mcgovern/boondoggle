@@ -139,6 +139,14 @@ function Container({ children }: { children: ReactNode }) {
     );
 }
 
+function MainContent({ children }: { children: ReactNode }) {
+    return (
+        <Provider>
+            <div className="main-content">{children}</div>
+        </Provider>
+    );
+}
+
 function NavButton({
     align = "start",
     appearance = "ghost",
@@ -292,6 +300,7 @@ export const Navigation = {
     Button: NavButton,
     Container,
     Link,
+    MainContent,
     Provider,
     SideBar,
     useCloseOnMount,

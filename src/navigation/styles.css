@@ -1,6 +1,44 @@
 .nav-container {
     display: flex;
     position: relative;
+    height: 100dvh;
+
+    padding: var(--space-2);
+    gap: var(--space-2);
+
+    background: var(--slate-3);
+}
+
+.main-content {
+    height: calc(100dvh - var(--space-4));
+    width: 100%;
+
+    overflow-y: scroll;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--slate-6);
+
+    background: var(--slate-2);
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        border-bottom-right-radius: var(--radius-sm);
+        border-top-right-radius: var(--radius-sm);
+        width: var(--space-2);
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--slate-5);
+        border: 2px solid var(--slate-1);
+        border-radius: var(--radius-md);
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
 }
 
 .side-nav {
@@ -23,14 +61,13 @@
     flex-shrink: 0;
     gap: var(--space-1);
 
-    height: 100dvh;
-    padding: var(--space-2);
+    height: calc(100dvh - var(--space-4));
+    /* padding: var(--space-2); */
     z-index: 1;
 
     overflow-x: hidden;
 
-    background: var(--slate-2);
-    border-right: 1px solid var(--slate-6);
+    /* border-right: 1px solid var(--slate-6); */
 
     position: sticky;
     top: 0;

@@ -109,7 +109,9 @@ const meta = {
                         </Popover>
                     </Menu.Trigger>
                 </Navigation.SideBar>
-                <Main width="md">{faker.lorem.paragraphs(10)}</Main>
+                <Navigation.MainContent>
+                    <Main width="md">{faker.lorem.paragraphs(10)}</Main>
+                </Navigation.MainContent>
             </>
         ),
     },
