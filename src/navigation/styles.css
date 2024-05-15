@@ -20,33 +20,62 @@
 
     display: flex;
     flex-direction: column;
-}
 
-.main-content {
-    overflow-y: scroll;
+    .main-content {
+        background: var(--slate-2);
 
-    background: var(--slate-2);
+        flex-grow: 1;
 
-    flex-grow: 1;
+        overflow-y: scroll;
+        scrollbar-gutter: stable;
 
-    &::-webkit-scrollbar {
-        background-color: transparent;
-        border-bottom-right-radius: var(--radius-sm);
-        border-top-right-radius: var(--radius-sm);
-        width: var(--space-2);
+        &::-webkit-scrollbar {
+            background-color: var(--slate-3);
+            border-left: 1px solid var(--slate-6);
+
+            border-bottom-right-radius: var(--radius-sm);
+            border-top-right-radius: var(--radius-sm);
+
+            width: var(--space-1);
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--slate-5);
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
     }
 
-    &::-webkit-scrollbar-button {
-        display: none;
+    .top-bar,
+    .bottom-bar {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+
+        margin-top: auto;
+
+        height: var(--space-12);
+        padding: var(--space-2) var(--space-4);
+
+        position: sticky;
+        z-index: 1;
     }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--slate-5);
-        border: 2px solid transparent;
-        border-radius: var(--radius-md);
+    .top-bar {
+        border-bottom: 1px solid var(--slate-5);
+        top: 0;
     }
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
+
+    .bottom-bar {
+        border-top: 1px solid var(--slate-5);
+        bottom: 0;
     }
 }
 
@@ -180,34 +209,4 @@
     .user-menu-header-org {
         color: var(--slate-11);
     }
-}
-
-.top-bar,
-.bottom-bar {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-
-    margin-top: auto;
-
-    background: var(--slate-2);
-
-    height: var(--space-12);
-    padding: var(--space-2) var(--space-4);
-
-    scrollbar-gutter: stable;
-}
-
-.top-bar {
-    border-bottom: 1px solid var(--slate-5);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-.bottom-bar {
-    border-top: 1px solid var(--slate-5);
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
 }
