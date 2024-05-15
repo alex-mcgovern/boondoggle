@@ -73,4 +73,3 @@ export {
 export { TextLink } from "./text-link";
 export { Toaster, toast } from "./toaster";
 export { Tooltip, TooltipTrigger, TooltipTriggerButton } from "./tooltip";
-export { TopBar } from "./top-bar";
