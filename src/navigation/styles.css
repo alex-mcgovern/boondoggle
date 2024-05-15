@@ -190,7 +190,6 @@
 
     margin-top: auto;
 
-    border-top: 1px solid var(--slate-5);
     background: var(--slate-2);
 
     height: var(--space-12);
@@ -200,12 +199,14 @@
 }
 
 .top-bar {
+    border-bottom: 1px solid var(--slate-5);
     position: sticky;
     top: 0;
     z-index: 1;
 }
 
 .bottom-bar {
+    border-top: 1px solid var(--slate-5);
     position: sticky;
     bottom: 0;
     z-index: 1;
