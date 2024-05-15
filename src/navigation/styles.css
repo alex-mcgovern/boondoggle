@@ -22,7 +22,7 @@
     flex-direction: column;
 }
 
-.main-content-container {
+.main-content {
     overflow-y: scroll;
 
     background: var(--slate-2);
