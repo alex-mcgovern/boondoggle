@@ -177,7 +177,7 @@
 
 .resizable-table-container {
     width: 100%;
-    overflow: auto;
+    /* overflow: auto; */
     position: relative;
 
     .column-name,
