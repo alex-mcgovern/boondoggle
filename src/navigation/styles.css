@@ -9,16 +9,25 @@
     background: var(--slate-3);
 }
 
-.main-content {
+.main-content-container {
     height: calc(100dvh - var(--space-4));
     width: 100%;
-
-    overflow-y: scroll;
 
     border-radius: var(--radius-md);
     border: 1px solid var(--slate-6);
 
     background: var(--slate-2);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-container {
+    overflow-y: scroll;
+
+    background: var(--slate-2);
+
+    flex-grow: 1;
 
     &::-webkit-scrollbar {
         background-color: transparent;
@@ -179,7 +188,9 @@
     align-items: center;
     gap: var(--space-4);
 
-    border-bottom: 1px solid var(--slate-5);
+    margin-top: auto;
+
+    border-top: 1px solid var(--slate-5);
     background: var(--slate-2);
 
     height: var(--space-12);

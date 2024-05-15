@@ -141,14 +141,6 @@ function Container({ children }: { children: ReactNode }) {
     );
 }
 
-function MainContent({ children }: { children: ReactNode }) {
-    return (
-        <Provider>
-            <div className="main-content">{children}</div>
-        </Provider>
-    );
-}
-
 function NavButton({
     align = "start",
     appearance = "ghost",
@@ -326,12 +318,21 @@ function BottomBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
     );
 }
 
+function MainContentContainer({ children }: { children: ReactNode }) {
+    return <main className="main-content-container">{children}</main>;
+}
+
+function MainContent({ children }: { children: ReactNode }) {
+    return <section className="main-content">{children}</section>;
+}
+
 export const Navigation = {
     BottomBar,
     Button: NavButton,
     Container,
     Link,
     MainContent,
+    MainContentContainer,
     Provider,
     SideBar,
     TopBar: TopBar,
