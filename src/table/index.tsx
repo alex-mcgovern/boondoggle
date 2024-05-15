@@ -32,11 +32,13 @@ import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
-function Column(props: ColumnProps) {
+function Column(props: ColumnProps & { sticky?: boolean }) {
     return (
         <AriaColumn
             {...props}
-            className={clsx(props.className, "column")}
+            className={clsx(props.className, "column", {
+                sticky: props.sticky,
+            })}
         >
             {(renderProps) => (
                 <>
@@ -72,18 +74,14 @@ function Column(props: ColumnProps) {
 /**
  * A `TableHeader` component, for use with a `Table` component. [Built with React Aria TableHeader component](https://react-spectrum.adobe.com/react-aria/Table.html#tableheader)
  */
-function TableHeader<T extends object>(
-    props: AriaTableHeaderProps<T> & { sticky?: boolean },
-) {
+function TableHeader<T extends object>(props: AriaTableHeaderProps<T>) {
     const { allowsDragging, selectionBehavior, selectionMode } =
         useTableOptions();
 
     return (
         <AriaTableHeader
             {...props}
-            className={clsx(props.className, "table-header", {
-                sticky: props.sticky,
-            })}
+            className={clsx(props.className, "table-header")}
         >
             {allowsDragging && <Column />}
             {selectionBehavior === "toggle" && (
