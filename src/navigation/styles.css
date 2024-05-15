@@ -12,6 +12,7 @@
 .main-content-container {
     height: calc(100dvh - var(--space-4));
     width: 100%;
+    position: relative;
 
     border-radius: var(--radius-md);
     border: 1px solid var(--slate-6);
