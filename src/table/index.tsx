@@ -72,12 +72,19 @@ function Column(props: ColumnProps) {
 /**
  * A `TableHeader` component, for use with a `Table` component. [Built with React Aria TableHeader component](https://react-spectrum.adobe.com/react-aria/Table.html#tableheader)
  */
-function TableHeader<T extends object>(props: AriaTableHeaderProps<T>) {
+function TableHeader<T extends object>(
+    props: AriaTableHeaderProps<T> & { sticky?: boolean },
+) {
     const { allowsDragging, selectionBehavior, selectionMode } =
         useTableOptions();
 
     return (
-        <AriaTableHeader {...props}>
+        <AriaTableHeader
+            {...props}
+            className={clsx(props.className, "table-header", {
+                sticky: props.sticky,
+            })}
+        >
             {allowsDragging && <Column />}
             {selectionBehavior === "toggle" && (
                 <Column
