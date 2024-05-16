@@ -10,6 +10,8 @@
 }
 
 .main-content-container {
+    --bar-height: var(--bar-height);
+
     height: calc(100dvh - var(--space-4));
     width: 100%;
     position: relative;
@@ -54,13 +56,26 @@
         }
     }
 
+    &:has(.top-bar),
+    &:has(.bottom-bar) {
+        .main-content {
+            max-height: calc(100dvh - var(--bar-height));
+        }
+    }
+
+    &:has(.top-bar):has(.bottom-bar) {
+        .main-content {
+            max-height: calc(100dvh - (var(--bar-height) * 2));
+        }
+    }
+
     .top-bar,
     .bottom-bar {
         display: flex;
         align-items: center;
         gap: var(--space-2);
 
-        height: var(--space-10);
+        height: var(--bar-height);
         flex-shrink: 0;
 
         padding: 0 var(--space-4);
