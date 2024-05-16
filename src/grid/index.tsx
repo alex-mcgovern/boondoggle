@@ -41,13 +41,13 @@ export type GridProps = {
 export function Grid({ children, ...props }: GridProps) {
     return (
         <div
+            {...props}
             className={clsx(
                 props.className,
                 "grid",
                 `x${props.columns}`,
                 `gap-${props.gap}`,
             )}
-            {...props}
         >
             {children}
         </div>
