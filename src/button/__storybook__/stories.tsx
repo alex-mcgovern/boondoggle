@@ -36,8 +36,17 @@ export const Ghost: Story = {
     args: { appearance: "ghost", children: "Ghost" },
 };
 
-export const Color: Story = {
-    args: { children: "Click me" },
+export const Red: Story = {
+    args: { children: "Click me", color: "red" },
+};
+export const Green: Story = {
+    args: { children: "Click me", color: "green" },
+};
+export const Blue: Story = {
+    args: { children: "Click me", color: "blue" },
+};
+export const Amber: Story = {
+    args: { children: "Click me", color: "amber" },
 };
 
 export const Size: Story = {

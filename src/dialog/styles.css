@@ -10,7 +10,7 @@
     min-height: 100dvh;
     min-width: 100vw;
 
-    background: var(--slate-alpha-11);
+    background: var(--slate-a8);
 
     @media (prefers-reduced-motion: no-preference) {
         &[data-entering] {

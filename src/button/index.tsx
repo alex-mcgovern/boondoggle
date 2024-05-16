@@ -8,6 +8,8 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { Button as AriaButton, Link as AriaLink } from "react-aria-components";
 
+import type { Color } from "../types";
+
 import "./styles.css";
 
 /**
@@ -38,6 +40,10 @@ export const Button = forwardRef<
          */
         appearance?: "ghost" | "primary" | "secondary";
         /**
+         * The color of the button.
+         */
+        color?: Color;
+        /**
          * React ref for the button element.
          */
         ref?: ForwardedRef<HTMLButtonElement>;
@@ -45,6 +51,7 @@ export const Button = forwardRef<
          * The size of the button.
          */
         size?: "lg" | "md" | "sm";
+
         /**
          * Whether the button is square.
          */
@@ -52,15 +59,31 @@ export const Button = forwardRef<
     }
 >(
     (
-        { align, appearance = "primary", className, size, ...props },
+        {
+            align,
+            appearance = "primary",
+            className,
+            color,
+            size,
+            square,
+            ...props
+        },
         ref: ForwardedRef<HTMLButtonElement>,
     ) => {
         return (
             <AriaButton
                 {...props}
-                className={clsx("btn", className, appearance, size, align, {
-                    square: props.square,
-                })}
+                className={clsx(
+                    "btn",
+                    className,
+                    appearance,
+                    size,
+                    align,
+                    color,
+                    {
+                        square,
+                    },
+                )}
                 ref={ref}
             />
         );

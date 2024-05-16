@@ -121,4 +121,80 @@
             justify-content: center;
         }
     }
+
+    &.blue {
+        --btn-background: var(--blue-9);
+        --btn-background-active: var(--blue-10);
+        --btn-text-color: var(--blue-1);
+
+        &.secondary {
+            --btn-background-active: var(--blue-3);
+            --btn-background: var(--blue-2);
+            --btn-border-color: var(--blue-6);
+            --btn-text-color: var(--blue-11);
+        }
+
+        &.ghost {
+            --btn-background-active: var(--blue-3);
+            --btn-background: transparent;
+            --btn-text-color: var(--blue-11);
+        }
+    }
+
+    &.red {
+        --btn-background: var(--red-9);
+        --btn-background-active: var(--red-10);
+        --btn-text-color: var(--red-1);
+
+        &.secondary {
+            --btn-background-active: var(--red-3);
+            --btn-background: var(--red-2);
+            --btn-border-color: var(--red-6);
+            --btn-text-color: var(--red-11);
+        }
+
+        &.ghost {
+            --btn-background-active: var(--red-3);
+            --btn-background: transparent;
+            --btn-text-color: var(--red-11);
+        }
+    }
+
+    &.green {
+        --btn-background: var(--green-9);
+        --btn-background-active: var(--green-10);
+        --btn-text-color: var(--green-1);
+
+        &.secondary {
+            --btn-background-active: var(--green-3);
+            --btn-background: var(--green-2);
+            --btn-border-color: var(--green-6);
+            --btn-text-color: var(--green-11);
+        }
+
+        &.ghost {
+            --btn-background-active: var(--green-3);
+            --btn-background: transparent;
+            --btn-text-color: var(--green-11);
+        }
+    }
+
+    &.amber {
+        --btn-background: var(--amber-9);
+        --btn-background-active: var(--amber-10);
+        --btn-text-color: var(--amber-1);
+
+        &.secondary {
+            --btn-background-active: var(--amber-3);
+            --btn-background: var(--amber-2);
+            --btn-border-color: var(--amber-6);
+            --btn-text-color: var(--amber-10);
+        }
+
+        &.ghost {
+            --btn-background-active: var(--amber-3);
+            --btn-background: transparent;
+            --btn-text-color: var(--amber-10);
+        }
+    }
 }
