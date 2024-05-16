@@ -247,17 +247,18 @@ function Link({
                 {...props}
                 align={align}
                 appearance={appearance}
+                isCurrent={isCurrent}
                 size="sm"
                 square={!isOpen}
             >
                 {(renderProps) => (
                     <>
                         <Icon
-                            color={
-                                !!isCurrent || !!renderProps.isCurrent
-                                    ? "text_high_contrast"
-                                    : "text_low_contrast"
-                            }
+                            // color={
+                            //     !!isCurrent || !!renderProps.isCurrent
+                            //         ? "text_high_contrast"
+                            //         : "text_low_contrast"
+                            // }
                             icon={icon}
                         />
                         {isOpen &&
