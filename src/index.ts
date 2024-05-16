@@ -31,6 +31,7 @@ export { Group } from "./group";
 export { Icon } from "./icon";
 export { Input } from "./input";
 export { Label } from "./label";
+export { Layout } from "./layout";
 export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";
 export { type IterableMenuItem, Menu } from "./menu";
@@ -41,7 +42,6 @@ export {
     MobileMenuHeader,
     ScrollableMobileMenuContent,
 } from "./mobile-menu";
-export { Layout } from "./navigation";
 export {
     FormNumberField,
     NumberField,
