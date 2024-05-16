@@ -69,7 +69,7 @@ export const IncrementDecrement: Story = {
             <>
                 <Label>Count</Label>
                 <Group>
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <NumberFieldDecrementButton />
                     <NumberFieldIncrementButton />
                 </Group>

@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: (args) => (
         <Group {...args}>
-            <Input variant="unstyled" />
+            <Input unstyled />
             <TextFieldClearButton />
             <TextFieldCopyButton />
             <TextFieldVisibilityButton />

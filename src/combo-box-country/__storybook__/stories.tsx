@@ -20,7 +20,7 @@ export const Default: Story = {
             <>
                 <Label>Country/Region</Label>
                 <Group>
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <ComboBoxButton />
                 </Group>
             </>

@@ -21,7 +21,7 @@ export const Default: Story = {
                 <Group>
                     <Input
                         placeholder="Select a fruit..."
-                        variant="unstyled"
+                        unstyled
                     />
                     <ComboBoxButton />
                 </Group>

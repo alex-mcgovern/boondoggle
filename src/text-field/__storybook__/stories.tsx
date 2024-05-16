@@ -53,7 +53,7 @@ export const CopyButton: Story = {
             <TextField {...args}>
                 <Label>Reference number</Label>
                 <Group>
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <TextFieldCopyButton />
                 </Group>
             </TextField>
@@ -70,7 +70,7 @@ export const ClearButton: Story = {
             <TextField {...args}>
                 <Label>Search</Label>
                 <Group>
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <TextFieldClearButton />
                 </Group>
             </TextField>
@@ -150,7 +150,7 @@ export const Visibility: Story = {
             <>
                 <Label>Password</Label>
                 <Group>
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <TextFieldVisibilityButton />
                 </Group>
             </>
@@ -180,7 +180,7 @@ export const KitchenSink: Story = {
             <TextField {...args}>
                 <Label>Label</Label>
                 <Group>
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <TextFieldClearButton />
                     <TextFieldCopyButton />
                     <TextFieldVisibilityButton />

@@ -14,7 +14,7 @@ const meta = {
                 <Label>Label</Label>
                 <Group>
                     <SearchFieldIcon />
-                    <Input variant="unstyled" />
+                    <Input unstyled />
                     <SearchFieldClearButton />
                 </Group>
             </SearchField>
