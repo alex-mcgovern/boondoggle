@@ -28,7 +28,7 @@
         overflow-y: auto;
         scrollbar-gutter: stable;
 
-        max-height: auto;
+        max-height: 100dvh;
 
         &::-webkit-scrollbar {
             background-color: var(--slate-3);
