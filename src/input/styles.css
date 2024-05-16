@@ -65,6 +65,10 @@
             opacity: 0.5;
         }
 
+        &.right {
+            text-align: right;
+        }
+
         &.unstyled {
             --input-bg: transparent;
             --input-border-color: transparent;

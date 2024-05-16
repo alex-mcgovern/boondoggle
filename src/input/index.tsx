@@ -19,13 +19,16 @@ export const Input = forwardRef<
          */
         icon?: ReactNode;
         /**
-         * The variant of the input.
-         * - `default` is the default input style.
-         * - `unstyled` is for use within a `Group` component, and will remove all styles from the input.
+         * Aligns text to the right of the input
          */
-        variant?: "default" | "unstyled";
+        right?: boolean;
+
+        /**
+         * For use within a `Group` component, will remove all styles from the input.
+         */
+        unstyled?: boolean;
     }
->(({ icon, variant, ...props }, ref) => {
+>(({ icon, right, unstyled, ...props }, ref) => {
     return (
         <div className="input-container">
             {icon && <div className="input-icon-container">{icon}</div>}
@@ -34,7 +37,8 @@ export const Input = forwardRef<
                 {...props}
                 className={clsx(props.className, "input", {
                     "has-icon": !!icon,
-                    unstyled: variant === "unstyled",
+                    right,
+                    unstyled,
                 })}
             />
         </div>
