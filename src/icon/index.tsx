@@ -7,7 +7,15 @@ import clsx from "clsx";
 
 import "./styles.css";
 
-export type IconProps = FontAwesomeIconProps & {
+/**
+ * A wrapper around the FontAwesome icon component.
+ */
+export function Icon({
+    className,
+    color,
+    icon,
+    ...rest
+}: FontAwesomeIconProps & {
     /**
      * An optional class name to apply to the icon.
      */
@@ -21,12 +29,7 @@ export type IconProps = FontAwesomeIconProps & {
      * The FontAwesome icon definition to render.
      */
     icon: IconProp;
-};
-
-/**
- * A wrapper around the FontAwesome icon component.
- */
-export function Icon({ className, color, icon, ...rest }: IconProps) {
+}) {
     return (
         <FontAwesomeIcon
             className={clsx("icon", className, color)}

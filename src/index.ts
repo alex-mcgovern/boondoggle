@@ -28,7 +28,7 @@ export { FileTrigger, FormFileTrigger } from "./file-trigger";
 export { Form, type FormProps } from "./form";
 export { Grid, type GridProps } from "./grid";
 export { Group } from "./group";
-export { Icon, type IconProps } from "./icon";
+export { Icon } from "./icon";
 export { Input } from "./input";
 export { Label } from "./label";
 export { type IterableListBoxItem, ListBox } from "./list-box";
