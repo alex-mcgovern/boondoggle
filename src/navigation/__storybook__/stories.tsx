@@ -109,9 +109,9 @@ const meta = {
                     </Menu.Trigger>
                 </Layout.SideBar>
                 <Layout.MainContentContainer>
-                    <Layout.FocusedColumn>
+                    <Layout.Focused>
                         {faker.lorem.paragraphs(10)}
-                    </Layout.FocusedColumn>
+                    </Layout.Focused>
                 </Layout.MainContentContainer>
             </>
         ),
