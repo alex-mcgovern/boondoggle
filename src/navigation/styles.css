@@ -10,7 +10,7 @@
 }
 
 .main-content-container {
-    --bar-height: var(--bar-height);
+    --bar-height: var(--space-10);
 
     height: calc(100dvh - var(--space-4));
     width: 100%;
