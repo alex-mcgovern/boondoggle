@@ -106,6 +106,10 @@
         &:last-child {
             padding-right: var(--space-4);
         }
+
+        &.right {
+            text-align: right;
+        }
     }
 
     .column {

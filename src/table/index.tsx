@@ -32,11 +32,12 @@ import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
-function Column(props: ColumnProps & { sticky?: boolean }) {
+function Column(props: ColumnProps & { right?: boolean; sticky?: boolean }) {
     return (
         <AriaColumn
             {...props}
             className={clsx(props.className, "column", {
+                right: props.right,
                 sticky: props.sticky,
             })}
         >
@@ -104,11 +105,11 @@ function TableHeader<T extends object>(props: AriaTableHeaderProps<T>) {
 /**
  * A `Cell` component, for use with a `Row` component. [Built with React Aria Cell component](https://react-spectrum.adobe.com/react-aria/Table.html#cell)
  */
-function Cell(props: AriaCellProps) {
+function Cell(props: AriaCellProps & { right?: boolean }) {
     return (
         <AriaCell
             {...props}
-            className={clsx(props.className, "cell")}
+            className={clsx(props.className, "cell", { right: props.right })}
         />
     );
 }
