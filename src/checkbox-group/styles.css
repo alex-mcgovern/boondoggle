@@ -1,9 +1,3 @@
 .checkbox-group {
     position: relative;
-
-    &[data-disabled] {
-        pointer-events: none;
-        cursor: not-allowed;
-        opacity: 0.5;
-    }
 }

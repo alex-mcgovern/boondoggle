@@ -1,12 +1,6 @@
 .search-field {
     position: relative;
 
-    &[data-disabled] {
-        pointer-events: none;
-        cursor: not-allowed;
-        opacity: 0.5;
-    }
-
     .search-field-icon {
         flex-shrink: 0;
 
