@@ -293,10 +293,15 @@ function SideBar(props: { children: ReactNode }) {
 /**
  * Top bar HTML element.
  */
-function TopBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
+function TopBar({
+    center,
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLElement> & { center?: boolean }) {
     return (
         <header
-            className={clsx(className, "top-bar")}
+            className={clsx(className, "top-bar", { center })}
             {...rest}
         >
             {children}

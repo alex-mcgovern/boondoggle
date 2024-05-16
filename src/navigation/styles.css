@@ -72,6 +72,10 @@
     .top-bar {
         border-bottom: 1px solid var(--slate-5);
         top: 0;
+
+        &.center {
+            justify-content: center;
+        }
     }
 
     .bottom-bar {
