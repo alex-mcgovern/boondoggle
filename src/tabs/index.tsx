@@ -59,23 +59,21 @@ function Tab({ id, ...props }: AriaTabProps) {
  * A function passed as the children of the `Collection` component returns a corresponding `<Tab>` for each tab.
  */
 function TabList({
-    justify = "start",
+    center,
     ...props
 }: Omit<
     AriaTabListProps<Omit<ComponentProps<typeof Tab>, "animationKey">>,
     "className"
 > & {
-    justify?: "space-evenly" | "start";
+    center?: boolean;
 }) {
     return (
-        <div className="tab-list">
-            <AriaTabList
-                className={clsx("inner", justify)}
-                {...props}
-            >
-                {props.children}
-            </AriaTabList>
-        </div>
+        <AriaTabList
+            className={clsx("tab-list", { center })}
+            {...props}
+        >
+            {props.children}
+        </AriaTabList>
     );
 }
 
