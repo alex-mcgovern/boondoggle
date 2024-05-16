@@ -11,7 +11,7 @@
     height: var(--space-10);
 
     &:after {
-        border-bottom: 1px solid var(--slate-5);
+        /* border-bottom: 1px solid var(--slate-5); */
         content: "";
         inset: 0;
         position: absolute;
