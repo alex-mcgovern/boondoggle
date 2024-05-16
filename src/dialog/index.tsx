@@ -1,5 +1,9 @@
-import type { ComponentProps, ReactNode } from "react";
-import type { DialogProps as AriaDialogProps } from "react-aria-components";
+import type { ReactNode } from "react";
+import type {
+    DialogProps as AriaDialogProps,
+    DialogTriggerProps as AriaDialogTriggerProps,
+    ModalOverlayProps as AriaModalOverlayProps,
+} from "react-aria-components";
 
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
@@ -18,11 +22,14 @@ import "./styles.css";
 /**
  * A dialog is an overlay shown above other content in an application. [Built with React Aria Dialog component](https://react-spectrum.adobe.com/react-aria/Dialog.html)
  */
-export function Dialog(props: AriaDialogProps) {
+function DialogComponent({
+    width = "sm",
+    ...props
+}: AriaDialogProps & { width?: "lg" | "sm" }) {
     return (
         <AriaDialog
             {...props}
-            className={clsx(props.className, "dialog")}
+            className={clsx(props.className, "dialog", width)}
         />
     );
 }
@@ -30,13 +37,7 @@ export function Dialog(props: AriaDialogProps) {
 /**
  * Wrapper to render the dialog header.
  */
-export function DialogHeader({
-    close,
-    title,
-}: {
-    close: () => void;
-    title: string;
-}) {
+function DialogHeader({ close, title }: { close: () => void; title: string }) {
     return (
         <header className="dialog-header">
             <AriaHeading
@@ -65,56 +66,48 @@ export function DialogHeader({
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export function ScrollableDialogContent({ children }: { children: ReactNode }) {
+function ScrollableDialogContent({ children }: { children: ReactNode }) {
     return <div className="dialog-content">{children}</div>;
 }
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export function DialogFooter({ children }: { children: ReactNode }) {
+function DialogFooter({ children }: { children: ReactNode }) {
     return <footer className="dialog-footer">{children}</footer>;
 }
 
-/**
- * Wrapper to render a dialog with a button trigger.
- * @deprecated
- */
-export function DialogOld({
-    buttonProps,
-    children,
-    dialogTriggerProps,
-    modalOverlayProps,
-    modalProps,
-    width = "sm",
-}: {
-    buttonProps?: ComponentProps<typeof Button>;
-    children: ComponentProps<typeof AriaDialog>["children"];
-    dialogTriggerProps?: Omit<
-        ComponentProps<typeof AriaDialogTrigger>,
-        "children"
-    >;
-    modalOverlayProps?: Omit<
-        ComponentProps<typeof AriaModalOverlay>,
-        "className"
-    >;
-    modalProps?: Omit<ComponentProps<typeof AriaModal>, "className">;
-    width?: "lg" | "sm";
-}) {
+function DialogModal(props: AriaModalOverlayProps) {
     return (
-        <AriaDialogTrigger {...dialogTriggerProps}>
-            {buttonProps ? <Button {...buttonProps} /> : null}
-            <AriaModalOverlay
-                className="dialog-overlay"
-                {...modalOverlayProps}
-            >
-                <AriaModal
-                    className="dialog-modal"
-                    {...modalProps}
-                >
-                    <Dialog className={width}>{children}</Dialog>
-                </AriaModal>
-            </AriaModalOverlay>
-        </AriaDialogTrigger>
+        <AriaModal
+            {...props}
+            className={clsx(props.className, "modal")}
+        />
     );
 }
+
+function DialogModalOverlay(props: AriaModalOverlayProps) {
+    return (
+        <AriaModalOverlay
+            {...props}
+            className={clsx(props.className, "modal-overlay")}
+        />
+    );
+}
+
+function DialogTrigger(props: AriaDialogTriggerProps) {
+    return <AriaDialogTrigger {...props} />;
+}
+
+/**
+ * Dialog components built with React Aria Dialog component.
+ */
+export const Dialog = {
+    Content: ScrollableDialogContent,
+    Dialog: DialogComponent,
+    Footer: DialogFooter,
+    Header: DialogHeader,
+    Modal: DialogModal,
+    ModalOverlay: DialogModalOverlay,
+    Trigger: DialogTrigger,
+};

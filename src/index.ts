@@ -12,13 +12,7 @@ export { ComboBox, ComboBoxButton, FormComboBox } from "./combo-box";
 export { ComboBoxCountry, FormComboBoxCountry } from "./combo-box-country";
 export { DateInput } from "./date-input";
 export { DatePicker, DatePickerButton, FormDatePicker } from "./date-picker";
-export {
-    Dialog,
-    DialogFooter,
-    DialogHeader,
-    DialogOld,
-    ScrollableDialogContent,
-} from "./dialog";
+export { Dialog } from "./dialog";
 export { DialogTrigger } from "./dialog-trigger";
 export { DropZone, FormDropZone } from "./drop-zone";
 export { FieldButton } from "./field-button";
