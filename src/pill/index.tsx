@@ -25,7 +25,7 @@ export function Pill({
             className={clsx(className, "pill", color)}
             id={id}
         >
-            {icon ? <div className="pill-icon">{icon}</div> : null}
+            {icon ? <div className="pill-icon-container">{icon}</div> : null}
             {children}
         </div>
     );

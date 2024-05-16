@@ -3,7 +3,7 @@
     --pill-color: var(--slate-11);
     --pill-border-color: var(--slate-5);
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
@@ -48,7 +48,16 @@
         --pill-border-color: var(--amber-5);
     }
 
-    &:has(.pill-icon) {
+    .pill-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        min-width: var(--icon-size-sm);
+    }
+
+    &:has(.pill-icon-container) {
         padding-left: var(--space-1);
     }
 }
