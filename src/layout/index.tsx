@@ -333,7 +333,7 @@ function MainContent({ children }: { children: ReactNode }) {
 }
 
 function Focused({ children }: { children: ReactNode }) {
-    return <div className="focused-column">{children}</div>;
+    return <div className="layout-focused">{children}</div>;
 }
 
 export const Layout = {
