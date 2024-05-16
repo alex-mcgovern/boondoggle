@@ -332,10 +332,15 @@ function MainContent({ children }: { children: ReactNode }) {
     return <section className="main-content">{children}</section>;
 }
 
-export const Navigation = {
+function FocusedColumn({ children }: { children: ReactNode }) {
+    return <div className="focused-column">{children}</div>;
+}
+
+export const Layout = {
     BottomBar,
     Button: NavButton,
     Container,
+    FocusedColumn,
     Link,
     MainContent,
     MainContentContainer,

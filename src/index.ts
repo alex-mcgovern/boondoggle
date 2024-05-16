@@ -33,7 +33,6 @@ export { Input } from "./input";
 export { Label } from "./label";
 export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";
-export { Main } from "./main";
 export { type IterableMenuItem, Menu } from "./menu";
 export { MenuTrigger } from "./menu-trigger";
 export {
@@ -42,7 +41,7 @@ export {
     MobileMenuHeader,
     ScrollableMobileMenuContent,
 } from "./mobile-menu";
-export { Navigation } from "./navigation";
+export { Layout } from "./navigation";
 export {
     FormNumberField,
     NumberField,

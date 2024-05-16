@@ -7,9 +7,8 @@ import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { faUser } from "@fortawesome/pro-solid-svg-icons/faUser";
 import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
 
-import { Navigation } from "..";
+import { Layout } from "..";
 import { Icon } from "../../icon";
-import { Main } from "../../main";
 import { Menu } from "../../menu";
 import { Popover } from "../../popover";
 
@@ -17,15 +16,15 @@ const meta = {
     args: {
         children: (
             <>
-                <Navigation.SideBar>
+                <Layout.SideBar>
                     <Menu.Trigger>
-                        <Navigation.Button
+                        <Layout.Button
                             align="center"
                             appearance="secondary"
                             icon={faPlus}
                         >
                             Create a file
-                        </Navigation.Button>
+                        </Layout.Button>
                         <Popover placement="right top">
                             <Menu.DropdownMenu>
                                 <Menu.Section>
@@ -49,27 +48,27 @@ const meta = {
                         </Popover>
                     </Menu.Trigger>
 
-                    <Navigation.Link
+                    <Layout.Link
                         href=""
                         icon={faPerson}
                     >
                         Users
-                    </Navigation.Link>
-                    <Navigation.Link
+                    </Layout.Link>
+                    <Layout.Link
                         href=""
                         icon={faWallet}
                     >
                         Accounts
-                    </Navigation.Link>
+                    </Layout.Link>
 
                     <Menu.Trigger>
-                        <Navigation.UserMenuTrigger
+                        <Layout.UserMenuTrigger
                             image={undefined}
                             name="Alex McGovern Smith"
                         />
                         <Popover placement="right bottom">
                             <Menu.MenuDecorativeSection>
-                                <Navigation.UserMenuHeader
+                                <Layout.UserMenuHeader
                                     avatarSrc={undefined}
                                     name="Alex McGovern Smith"
                                     organization="Acme Inc."
@@ -108,19 +107,21 @@ const meta = {
                             </Menu.DropdownMenu>
                         </Popover>
                     </Menu.Trigger>
-                </Navigation.SideBar>
-                <Navigation.MainContentContainer>
-                    <Main width="md">{faker.lorem.paragraphs(10)}</Main>
-                </Navigation.MainContentContainer>
+                </Layout.SideBar>
+                <Layout.MainContentContainer>
+                    <Layout.FocusedColumn>
+                        {faker.lorem.paragraphs(10)}
+                    </Layout.FocusedColumn>
+                </Layout.MainContentContainer>
             </>
         ),
     },
-    component: Navigation.Container,
+    component: Layout.Container,
     parameters: {
         layout: "fullscreen",
     },
-    title: "Navigation",
-} satisfies Meta<typeof Navigation.Container>;
+    title: "Layout",
+} satisfies Meta<typeof Layout.Container>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

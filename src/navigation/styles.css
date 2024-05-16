@@ -100,6 +100,16 @@
     }
 }
 
+.focused-column {
+    margin: 0 auto;
+    padding: var(--space-2) var(--space-4);
+    width: 100%;
+
+    scrollbar-gutter: stable;
+
+    max-width: var(--width-main-sm);
+}
+
 .side-nav {
     --btn-background: transparent;
     --btn-text-color: var(--slate-12);
