@@ -40,11 +40,12 @@
         font-weight: var(--font-weight-medium);
         text-decoration: none;
 
+        outline: 0;
         cursor: pointer;
 
         padding: var(--space-0\.25) 0;
 
-        outline: 0;
+        height: var(--tab-height);
 
         color: var(--slate-11);
 
@@ -88,7 +89,7 @@
 
             position: absolute;
             inset: 0;
-            top: calc(var(--tab-indicator-height) + 100%);
+            top: calc(100% - var(--tab-indicator-height));
             z-index: -1;
 
             user-select: none;
