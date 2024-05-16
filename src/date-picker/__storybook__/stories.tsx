@@ -21,7 +21,7 @@ export const Default: Story = {
             <>
                 <Label>Date/time</Label>
                 <Group>
-                    <DateInput variant="unstyled" />
+                    <DateInput unstyled />
                     <DatePickerButton />
                 </Group>
             </>
@@ -35,7 +35,7 @@ export const WithTime: Story = {
             <>
                 <Label>Date/time</Label>
                 <Group>
-                    <DateInput variant="unstyled" />
+                    <DateInput unstyled />
                     <DatePickerButton />
                 </Group>
             </>
