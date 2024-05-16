@@ -25,20 +25,18 @@ import "./styles.css";
  * ```
  */
 export function DateInput({
-    variant = "default",
+    unstyled,
     ...props
 }: Omit<AriaDateInputProps, "children"> & {
     /**
-     * The variant of the input.
-     * - `default` is the default input style.
-     * - `unstyled` is for use within a `Group` component, and will remove all styles from the input.
+     * For use within a `Group` component, will remove all styles from the input.
      */
-    variant?: "default" | "unstyled";
+    unstyled?: boolean;
 }) {
     return (
         <AriaDateInput
             {...props}
-            className={clsx("date-input", variant, props.className)}
+            className={clsx(props.className, "date-input", { unstyled })}
         >
             {(segment) => (
                 <AriaDateSegment
