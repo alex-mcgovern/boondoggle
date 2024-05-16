@@ -1,5 +1,6 @@
 .tab-list {
     --tab-height: var(--ui-height-sm);
+    --tab-container-height: var(--space-10);
     --tab-indicator-height: var(--space-0\.5);
 
     --tab-outline-width: 2px;
@@ -45,7 +46,7 @@
 
         padding: var(--space-0\.25) 0;
 
-        height: var(--tab-height);
+        height: var(--tab-container-height);
 
         color: var(--slate-11);
 
