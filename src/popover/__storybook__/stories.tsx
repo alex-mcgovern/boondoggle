@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { faker } from "@faker-js/faker";
+import { Dialog } from "react-aria-components";
 
 import { Popover, PopoverOverlayArrow } from "..";
 import { Button } from "../../button";
-import { Dialog } from "../../dialog";
 import { DialogTrigger } from "../../dialog-trigger";
 
 const meta = {

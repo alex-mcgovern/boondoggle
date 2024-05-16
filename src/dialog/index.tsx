@@ -7,6 +7,8 @@ import type {
 
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
+import { useContext } from "react";
+import { OverlayTriggerStateContext } from "react-aria-components";
 import {
     Dialog as AriaDialog,
     DialogTrigger as AriaDialogTrigger,
@@ -37,7 +39,9 @@ function DialogComponent({
 /**
  * Wrapper to render the dialog header.
  */
-function DialogHeader({ close, title }: { close: () => void; title: string }) {
+function DialogHeader({ title }: { title: string }) {
+    const { close } = useContext(OverlayTriggerStateContext)!;
+
     return (
         <header className="dialog-header">
             <AriaHeading
@@ -81,7 +85,7 @@ function DialogModal(props: AriaModalOverlayProps) {
     return (
         <AriaModal
             {...props}
-            className={clsx(props.className, "modal")}
+            className={clsx(props.className, "dialog-modal")}
         />
     );
 }
@@ -90,7 +94,7 @@ function DialogModalOverlay(props: AriaModalOverlayProps) {
     return (
         <AriaModalOverlay
             {...props}
-            className={clsx(props.className, "modal-overlay")}
+            className={clsx(props.className, "dialog-modal-overlay")}
         />
     );
 }
@@ -104,10 +108,10 @@ function DialogTrigger(props: AriaDialogTriggerProps) {
  */
 export const Dialog = {
     Content: ScrollableDialogContent,
-    Dialog: DialogComponent,
     Footer: DialogFooter,
     Header: DialogHeader,
     Modal: DialogModal,
     ModalOverlay: DialogModalOverlay,
+    Root: DialogComponent,
     Trigger: DialogTrigger,
 };

@@ -4,12 +4,12 @@ import type { DatePickerProps as AriaDatePickerProps } from "react-aria-componen
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
 import { forwardRef } from "react";
+import { Dialog } from "react-aria-components";
 import { FieldError } from "react-aria-components";
 import { DatePicker as AriaDatePicker } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
 import { Calendar } from "../calendar";
-import { Dialog } from "../dialog";
 import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { Popover } from "../popover";
