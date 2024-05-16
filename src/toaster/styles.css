@@ -7,8 +7,8 @@
     --toast-bg-color: var(--slate-12);
 
     .toast-close-button {
-        height: var(--space-8);
-        width: var(--space-8);
+        height: var(--ui-height-sm);
+        width: var(--ui-height-sm);
 
         margin-left: auto;
 

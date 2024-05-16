@@ -85,7 +85,7 @@
         text-align: left;
         text-decoration: none;
 
-        min-height: var(--space-8);
+        min-height: var(--ui-height-sm);
         width: 100%;
 
         padding: var(--space-1) var(--dropdown-menu-item-spacing-x);

@@ -1,6 +1,6 @@
 .input-container {
     --input-icon-offset-x: var(--space-1);
-    --input-height: var(--space-8);
+    --input-height: var(--ui-height-sm);
 
     display: inline-flex;
     align-items: center;

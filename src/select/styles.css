@@ -34,7 +34,7 @@
         outline: var(--select-button-outline-width) solid
             var(--select-button-outline-color);
 
-        height: var(--space-8);
+        height: var(--ui-height-sm);
         width: 100%;
 
         @media (prefers-reduced-motion: no-preference) {

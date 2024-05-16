@@ -17,7 +17,7 @@
 
     --btn-padding: var(--space-1) var(--space-2);
     --btn-radius: var(--radius-md);
-    --btn-height: var(--space-8);
+    --btn-height: var(--ui-height-sm);
 
     background-color: var(--btn-background);
     color: var(--btn-text-color);
@@ -80,17 +80,17 @@
 
     &.sm {
         --btn-padding: var(--space-1) var(--space-2);
-        --btn-height: var(--space-8);
+        --btn-height: var(--ui-height-sm);
     }
 
     &.md {
         --btn-padding: var(--space-3) var(--space-4);
-        --btn-height: var(--space-10);
+        --btn-height: var(--ui-height-md);
     }
 
     &.lg {
         --btn-padding: var(--space-3) var(--space-6);
-        --btn-height: var(--space-12);
+        --btn-height: var(--ui-height-lg);
     }
 
     &.square {
@@ -99,17 +99,17 @@
 
         &.sm {
             --btn-padding: var(--space-1);
-            width: var(--space-8);
+            width: var(--ui-height-sm);
         }
 
         &.md {
             --btn-padding: var(--space-3);
-            width: var(--space-10);
+            width: var(--ui-height-md);
         }
 
         &.lg {
             --btn-padding: var(--space-3);
-            width: var(--space-12);
+            width: var(--ui-height-lg);
         }
     }
 

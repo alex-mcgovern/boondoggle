@@ -58,7 +58,7 @@
         align-items: center;
         gap: var(--space-4);
 
-        height: var(--space-10);
+        height: var(--space-12);
         padding: 0 var(--space-4);
 
         position: sticky;
@@ -86,7 +86,7 @@
     --btn-text-color: var(--slate-12);
 
     --btn-padding: var(--space-1) var(--space-3);
-    --btn-height: var(--space-8);
+    --btn-height: var(--ui-height-sm);
 
     --btn-radius: var(--radius-md);
 

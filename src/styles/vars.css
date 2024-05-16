@@ -22,6 +22,10 @@
         --space-14: 3.5rem;
         --space-16: 4rem;
 
+        --ui-height-sm: var(--space-7);
+        --ui-height-md: var(--space-9);
+        --ui-height-lg: var(--space-11);
+
         --icon-size-sm: var(--space-4);
 
         --width-main-lg: 75rem;

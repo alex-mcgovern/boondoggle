@@ -14,7 +14,7 @@
 
     --date-input-padding: 0 var(--space-1);
     --date-input-radius: var(--radius-md);
-    --date-input-height: var(--space-8);
+    --date-input-height: var(--ui-height-sm);
 
     display: inline-flex;
     align-items: center;

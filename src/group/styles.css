@@ -2,7 +2,7 @@
     --group-bg: var(--slate-2);
     --group-color: var(--slate-12);
 
-    --group-height: var(--space-8);
+    --group-height: var(--ui-height-sm);
 
     --group-border-width: 1px;
     --group-border-color: var(--slate-6);
@@ -25,7 +25,7 @@
     font-size: var(--font-size-body-sm);
     line-height: var(--line-height-body-sm);
 
-    height: var(--space-8);
+    height: var(--group-height);
     outline: var(--group-outline-width) solid var(--group-outline-color);
 
     overflow: hidden;

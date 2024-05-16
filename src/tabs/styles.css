@@ -1,5 +1,5 @@
 .tab-list {
-    --tab-height: var(--space-8);
+    --tab-height: var(--ui-height-sm);
     --tab-indicator-height: var(--space-0\.5);
 
     --tab-outline-width: 2px;
@@ -86,6 +86,8 @@
             display: flex;
             align-items: center;
             gap: var(--space-1);
+
+            height: var(--tab-height);
 
             outline: var(--tab-outline-width) solid var(--tab-outline-color);
 
