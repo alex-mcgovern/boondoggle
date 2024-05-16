@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { Color } from "react-aria-components";
 
 import clsx from "clsx";
 
@@ -16,7 +17,7 @@ export function Pill({
 }: {
     children?: ReactNode;
     className?: string;
-    color?: "amber" | "blue" | "green" | "red";
+    color?: Color;
     icon?: ReactNode;
     id?: string;
 }) {

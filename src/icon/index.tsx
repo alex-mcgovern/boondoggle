@@ -1,5 +1,6 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import type { Color } from "react-aria-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
@@ -12,6 +13,11 @@ export type IconProps = FontAwesomeIconProps & {
      */
     className?: string;
     /**
+     * The color of the icon.
+     */
+    color?: Color;
+
+    /**
      * The FontAwesome icon definition to render.
      */
     icon: IconProp;
@@ -20,10 +26,10 @@ export type IconProps = FontAwesomeIconProps & {
 /**
  * A wrapper around the FontAwesome icon component.
  */
-export function Icon({ className, icon, ...rest }: IconProps) {
+export function Icon({ className, color, icon, ...rest }: IconProps) {
     return (
         <FontAwesomeIcon
-            className={clsx("icon", className)}
+            className={clsx("icon", className, color)}
             icon={icon}
             {...rest}
         />

@@ -1,4 +1,6 @@
 .icon {
+    --icon-color: currentColor;
+
     flex-shrink: 0;
     color: currentColor;
 
@@ -6,5 +8,21 @@
         transition-duration: var(--dur-short);
         transition-property: color;
         transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    &.blue {
+        --icon-color: var(--blue-9);
+    }
+
+    &.red {
+        --icon-color: var(--red-9);
+    }
+
+    &.green {
+        --icon-color: var(--green-9);
+    }
+
+    &.amber {
+        --icon-color: var(--amber-9);
     }
 }

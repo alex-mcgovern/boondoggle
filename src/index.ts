@@ -73,3 +73,4 @@ export {
 export { TextLink } from "./text-link";
 export { Toaster, toast } from "./toaster";
 export { Tooltip, TooltipTrigger, TooltipTriggerButton } from "./tooltip";
+export type { Color } from "./types";
