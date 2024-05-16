@@ -8,6 +8,8 @@
     margin: var(--space-2) 0;
     position: relative;
 
+    height: var(--space-10);
+
     &:after {
         border-bottom: 1px solid var(--slate-5);
         content: "";
@@ -22,18 +24,18 @@
         justify-content: center;
         gap: var(--space-6);
 
-        padding-bottom: var(--space-1);
+        /* padding-bottom: var(--space-1); */
 
-        overflow-x: scroll;
-        overflow-y: visible;
+        /* overflow-x: scroll;
+        overflow-y: visible; */
 
         /* Hide scrollbar */
-        -ms-overflow-style: none;
+        /* -ms-overflow-style: none;
         scrollbar-gutter: none;
         scrollbar-width: none;
         &::-webkit-scrollbar {
             display: none;
-        }
+        } */
 
         &.space-evenly {
             justify-content: space-evenly;
