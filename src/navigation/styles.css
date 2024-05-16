@@ -23,8 +23,6 @@
     flex-direction: column;
 
     .main-content {
-        background: var(--slate-2);
-
         flex-grow: 1;
 
         overflow-y: scroll;
@@ -37,7 +35,7 @@
             border-bottom-right-radius: var(--radius-sm);
             border-top-right-radius: var(--radius-sm);
 
-            width: var(--space-1);
+            width: var(--space-2);
         }
 
         &::-webkit-scrollbar-button {
@@ -60,10 +58,8 @@
         align-items: center;
         gap: var(--space-4);
 
-        margin-top: auto;
-
-        height: var(--space-12);
-        padding: var(--space-2) var(--space-4);
+        height: var(--space-10);
+        padding: 0 var(--space-4);
 
         position: sticky;
         z-index: 1;
@@ -79,6 +75,7 @@
     }
 
     .bottom-bar {
+        margin-top: auto;
         border-top: 1px solid var(--slate-5);
         bottom: 0;
     }
