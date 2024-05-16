@@ -9,22 +9,19 @@ import "./styles.css";
  */
 export function Pill({
     children,
-    className: userClassName,
+    className,
+    color,
     id,
-    ...rest
 }: {
     children?: ReactNode;
     className?: string;
+    color?: "amber" | "blue" | "green" | "red";
     id?: string;
-    size?: "lg" | "md" | "sm";
 }) {
     return (
         <div
-            {...{
-                className: clsx(userClassName, "pill"),
-                id,
-                ...rest,
-            }}
+            className={clsx(className, "pill", color)}
+            id={id}
         >
             {children}
         </div>
