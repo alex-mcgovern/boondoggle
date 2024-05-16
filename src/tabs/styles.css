@@ -36,8 +36,8 @@
 
         position: relative;
 
-        font-size: var(--font-size-body-md);
-        line-height: var(--line-height-body-md);
+        font-size: var(--font-size-body-sm);
+        line-height: var(--line-height-body-sm);
         font-weight: var(--font-weight-medium);
         text-decoration: none;
 
