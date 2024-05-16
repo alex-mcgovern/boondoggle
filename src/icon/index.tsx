@@ -15,7 +15,7 @@ export function Icon({
     color,
     icon,
     ...rest
-}: FontAwesomeIconProps & {
+}: Omit<FontAwesomeIconProps, "color"> & {
     /**
      * An optional class name to apply to the icon.
      */
