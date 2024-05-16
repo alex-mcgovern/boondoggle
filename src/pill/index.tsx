@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
-import type { Color } from "react-aria-components";
 
 import clsx from "clsx";
+
+import type { Color } from "../types";
 
 import "./styles.css";
 

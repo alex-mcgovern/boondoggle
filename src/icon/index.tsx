@@ -1,9 +1,10 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import type { Color } from "react-aria-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
+
+import type { Color } from "../types";
 
 import "./styles.css";
 
