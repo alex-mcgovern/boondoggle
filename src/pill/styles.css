@@ -3,11 +3,10 @@
     --pill-color: var(--slate-11);
     --pill-border-color: var(--slate-5);
 
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    gap: var(--space-2);
 
     background: var(--pill-bg);
     color: var(--pill-color);
@@ -47,5 +46,9 @@
         --pill-bg: var(--amber-4);
         --pill-color: var(--amber-11);
         --pill-border-color: var(--amber-5);
+    }
+
+    &:has(.pill-icon) {
+        padding-left: var(--space-1);
     }
 }
