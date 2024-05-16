@@ -21,6 +21,9 @@
     body {
         height: 100%;
         overscroll-behavior-y: none;
+
+        font-size: var(--font-size-body-sm);
+        line-height: var(--line-height-body-sm);
     }
 
     * {
