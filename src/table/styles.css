@@ -8,8 +8,9 @@
     --table-cell-height: var(--space-10);
 
     border-spacing: 0;
+    border-collapse: collapse;
+
     outline: none;
-    border-spacing: 0;
     min-height: 100px;
     align-self: start;
     word-break: break-word;
@@ -29,13 +30,7 @@
     .table-header {
         color: var(--slate-12);
 
-        &:after {
-            content: "";
-            display: table-row;
-            height: 2px;
-        }
-
-        & tr:last-child .column {
+        & tr:last-child {
             border-bottom: 1px solid var(--table-border-color);
             cursor: default;
         }
