@@ -55,6 +55,11 @@
             transition-timing-function: var(--ease-quart-in-out);
         }
 
+        &:not(:last-child) {
+            border-bottom: var(--table-border-width) solid
+                var(--table-border-color);
+        }
+
         &[data-href] {
             cursor: pointer;
 
@@ -98,7 +103,6 @@
         text-align: left;
 
         outline: none;
-        border-bottom: var(--table-border-width) solid var(--table-border-color);
 
         &[data-focus-visible] {
             outline: 2px solid var(--blue-6);
