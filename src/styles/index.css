@@ -18,7 +18,6 @@
 
 @import "./animations.css";
 @import "./dropdown-menu.css";
-@import "./table.css";
 
 @layer vars;
 @layer reset;
