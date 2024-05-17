@@ -5,6 +5,8 @@
     --table-font-size: var(--font-size-body-md);
     --table-line-height: var(--line-height-body-md);
 
+    --table-cell-height: var(--space-10);
+
     border-spacing: 0;
     outline: none;
     border-spacing: 0;
@@ -89,10 +91,12 @@
 
     .column,
     .cell {
-        padding: var(--space-2) var(--space-2);
+        padding: var(--space-2);
         text-align: left;
         outline: none;
         border-bottom: var(--table-border-width) solid var(--table-border-color);
+
+        height: var(--table-cell-height);
 
         &[data-focus-visible] {
             outline: 2px solid var(--blue-6);
