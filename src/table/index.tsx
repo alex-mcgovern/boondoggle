@@ -190,11 +190,14 @@ export function TableBody<T extends object>({
  * } from "booondoggle/table"
  * ```
  */
-function TableRoot(props: AriaTableProps) {
+function TableRoot({
+    compact,
+    ...props
+}: AriaTableProps & { compact?: boolean }) {
     return (
         <AriaTable
             {...props}
-            className={clsx(props.className, "table")}
+            className={clsx(props.className, "table", { compact })}
         >
             {props.children}
         </AriaTable>
