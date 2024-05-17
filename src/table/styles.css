@@ -91,12 +91,14 @@
 
     .column,
     .cell {
-        padding: var(--space-2);
+        height: var(--table-cell-height);
+        padding: 0 var(--space-2);
+
+        vertical-align: middle;
         text-align: left;
+
         outline: none;
         border-bottom: var(--table-border-width) solid var(--table-border-color);
-
-        height: var(--table-cell-height);
 
         &[data-focus-visible] {
             outline: 2px solid var(--blue-6);
