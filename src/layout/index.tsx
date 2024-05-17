@@ -13,6 +13,7 @@ import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
 import clsx from "clsx";
+import { forwardRef } from "react";
 import { useCallback } from "react";
 import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
@@ -328,9 +329,18 @@ function MainContentContainer({ children }: { children: ReactNode }) {
     return <main className="main-content-container">{children}</main>;
 }
 
-function MainContent({ children }: { children: ReactNode }) {
-    return <section className="main-content">{children}</section>;
-}
+const MainContent = forwardRef<HTMLElement, { children: ReactNode }>(
+    ({ children }, ref) => {
+        return (
+            <section
+                className="main-content"
+                ref={ref}
+            >
+                {children}
+            </section>
+        );
+    },
+);
 
 function Focused({ children }: { children: ReactNode }) {
     return <div className="layout-focused">{children}</div>;
