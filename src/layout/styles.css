@@ -189,6 +189,7 @@
 
         font-size: var(--font-size-body-md);
         line-height: var(--line-height-body-md);
+        font-weight: var(--font-weight-medium);
 
         transition: background var(--dur-short) var(--ease-quart-in-out);
 
