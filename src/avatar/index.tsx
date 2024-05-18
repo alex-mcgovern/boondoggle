@@ -17,9 +17,9 @@ function getInitials(name?: string) {
     const [first, last] = name.split(" ");
 
     if (!last) {
-        return `${first[0]}`;
+        return first[0];
     }
-    return `${first[0]}${last[0]}`.toUpperCase();
+    return `${first[0]}${last[0]}`;
 }
 
 if (import.meta.vitest) {
