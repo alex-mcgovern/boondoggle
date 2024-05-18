@@ -159,4 +159,8 @@
     .w-100 {
         width: 100%;
     }
+
+    .color-gray {
+        color: var(--slate-11);
+    }
 }
