@@ -92,7 +92,7 @@
 
         display: flex;
         align-items: center;
-        gap: var(--space-2);
+        /* gap: var(--space-2); */
         flex-shrink: 0;
         outline: 0;
 
