@@ -196,7 +196,7 @@ function UserMenuTrigger(
             >
                 <Avatar
                     name={props.name}
-                    size={32}
+                    size={28}
                     src={props.image}
                     variant="square"
                 />
