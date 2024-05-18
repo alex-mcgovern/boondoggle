@@ -45,7 +45,32 @@ if (import.meta.vitest) {
     });
 }
 
-type AvatarProps = {
+/**
+ * Renders an avatar. Falls back to initial letters if no image is provided.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Avatar, type AvatarProps } from "boondoggle/avatar"
+ * ```
+ */
+export function Avatar({
+    gray,
+    name,
+    size = 64,
+    src,
+    variant = "circle",
+}: {
+    /**
+     * If true, the avatar will be displayed in grayscale.
+     */
+    gray?: boolean;
     /**
      * The name of the person the avatar represents.
      * If the name is provided, the avatar will display the initials of the name.
@@ -66,29 +91,7 @@ type AvatarProps = {
      * Controls the shape of the avatar.
      */
     variant?: "circle" | "square";
-};
-
-/**
- * Renders an avatar. Falls back to initial letters if no image is provided.
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { Avatar, type AvatarProps } from "boondoggle/avatar"
- * ```
- */
-export function Avatar({
-    name,
-    size = 64,
-    src,
-    variant = "circle",
-}: AvatarProps) {
+}) {
     const initials: string | undefined = getInitials(name);
 
     const [img_src, setImgSrc] = useState(src);
@@ -109,7 +112,7 @@ export function Avatar({
         return (
             <img
                 alt="avatar"
-                className={clsx("avatar", variant)}
+                className={clsx("avatar", variant, { gray })}
                 height={size}
                 src={img_src}
                 width={size}
@@ -120,7 +123,7 @@ export function Avatar({
     if (!initials) {
         return (
             <div
-                className={clsx("avatar", variant)}
+                className={clsx("avatar", variant, { gray })}
                 style={style}
             />
         );
@@ -128,7 +131,7 @@ export function Avatar({
 
     return (
         <div
-            className={clsx("avatar", variant)}
+            className={clsx("avatar", variant, { gray })}
             style={style}
         >
             {initials}

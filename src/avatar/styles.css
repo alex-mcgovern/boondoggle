@@ -23,4 +23,10 @@
     &.square {
         border-radius: var(--radius-md);
     }
+
+    &.gray {
+        --avatar-bg: var(--slate-5);
+        --avatar-text-color: var(--slate-9);
+        filter: grayscale(100%);
+    }
 }
