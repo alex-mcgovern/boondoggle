@@ -44,6 +44,7 @@ export {
 } from "./number-field";
 export { Pill } from "./pill";
 export { Popover, PopoverOverlayArrow } from "./popover";
+export { Radio } from "./radio";
 export { RouterProvider } from "./router-provider";
 export {
     SearchField,
