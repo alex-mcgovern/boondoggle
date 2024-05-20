@@ -61,6 +61,7 @@
         --dropdown-name-color: var(--slate-12);
         --dropdown-description-color: var(--slate-11);
 
+        --dropdown-highlight-bg: var(--slate-3);
         border-radius: var(--radius-sm);
         color: var(--slate-12);
 
@@ -97,26 +98,6 @@
 
         .dropdown-menu-item-description {
             color: var(--dropdown-description-color);
-        }
-
-        &.red {
-            --dropdown-name-color: var(--red-11);
-            --dropdown-description-color: var(--red-10);
-        }
-
-        &.green {
-            --dropdown-name-color: var(--green-11);
-            --dropdown-description-color: var(--green-10);
-        }
-
-        &.blue {
-            --dropdown-name-color: var(--blue-11);
-            --dropdown-description-color: var(--blue-10);
-        }
-
-        &.amber {
-            --dropdown-name-color: var(--amber-11);
-            --dropdown-description-color: var(--amber-10);
         }
 
         &:first-letter {
@@ -181,11 +162,35 @@
         &[data-hovered],
         &[data-focused],
         &[data-focus-visible] {
-            background-color: var(--slate-3);
+            background-color: var(--dropdown-highlight-bg);
         }
 
         &[data-selected] {
             font-weight: var(--font-weight-medium);
+        }
+
+        &.red {
+            --dropdown-name-color: var(--red-11);
+            --dropdown-description-color: var(--red-10);
+            --dropdown-highlight-bg: var(--red-3);
+        }
+
+        &.green {
+            --dropdown-name-color: var(--green-11);
+            --dropdown-description-color: var(--green-10);
+            --dropdown-highlight-bg: var(--green-3);
+        }
+
+        &.blue {
+            --dropdown-name-color: var(--blue-11);
+            --dropdown-description-color: var(--blue-10);
+            --dropdown-highlight-bg: var(--blue-3);
+        }
+
+        &.amber {
+            --dropdown-name-color: var(--amber-11);
+            --dropdown-description-color: var(--amber-10);
+            --dropdown-highlight-bg: var(--amber-3);
         }
     }
 }
