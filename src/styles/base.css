@@ -87,4 +87,8 @@
 
         margin: var(--space-4) 0;
     }
+
+    p {
+        color: var(--slate-11);
+    }
 }
