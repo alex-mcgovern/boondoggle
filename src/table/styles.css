@@ -91,7 +91,8 @@
 
     .column,
     .cell {
-        min-height: var(--table-cell-height);
+        height: var(--table-cell-height);
+
         padding: var(--space-1) var(--space-2);
 
         vertical-align: middle;
