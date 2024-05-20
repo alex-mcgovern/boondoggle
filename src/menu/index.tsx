@@ -18,6 +18,8 @@ import {
     SubmenuTrigger as AriaSubMenuTrigger,
 } from "react-aria-components";
 
+import type { Color } from "../types";
+
 import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
 import "../styles/dropdown-menu.css";
@@ -119,30 +121,38 @@ function DropdownMenu<TItem extends object = object>({
 /**
  * A menu item represents an action or option that a user can choose. [Built with React Aria MenuItem component](https://react-spectrum.adobe.com/react-aria/Menu.html#menuitem)
  */
-function Item<TItem extends object>(
-    props: AriaMenuItemProps<TItem> & {
-        /**
-         * The icon to display on the left side of the menu item.
-         */
-        icon?: ReactNode;
+function Item<TItem extends object>({
+    color,
+    icon,
+    ...props
+}: AriaMenuItemProps<TItem> & {
+    /**
+     * The color of the item.
+     */
+    color?: Color;
 
-        /**
-         * React ref to the Item element.
-         */
-        ref?: ForwardedRef<HTMLDivElement>;
-    },
-) {
+    /**
+     * The icon to display on the left side of the menu item.
+     */
+    icon?: ReactNode;
+
+    /**
+     * React ref to the Item element.
+     */
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <AriaMenuItem
             {...props}
             className={clsx(props.className, "dropdown-menu-item", {
-                "has-icon": !!props.icon,
+                color,
+                "has-icon": !!icon,
             })}
         >
             {(renderProps) => {
                 return (
                     <>
-                        <div className="menu-item-icon">{props.icon}</div>
+                        <div className="menu-item-icon">{icon}</div>
                         {typeof props.children === "function"
                             ? props.children(renderProps)
                             : props.children}
