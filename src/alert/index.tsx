@@ -11,7 +11,7 @@ import "./styles.css";
  */
 export function Alert({
     button_node,
-    color = "blue",
+    color,
     icon = faExclamationCircle,
     message,
     title,
