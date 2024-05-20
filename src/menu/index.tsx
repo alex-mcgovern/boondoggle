@@ -144,8 +144,7 @@ function Item<TItem extends object>({
     return (
         <AriaMenuItem
             {...props}
-            className={clsx(props.className, "dropdown-menu-item", {
-                color,
+            className={clsx(props.className, "dropdown-menu-item", color, {
                 "has-icon": !!icon,
             })}
         >
