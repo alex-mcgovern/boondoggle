@@ -42,8 +42,8 @@
 
     .alert-title,
     .alert-message {
-        font-size: var(--font-size-body-md);
-        line-height: var(--line-height-body-md);
+        font-size: var(--font-size-body-sm);
+        line-height: var(--line-height-body-sm);
     }
 
     .alert-title {
