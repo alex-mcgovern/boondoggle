@@ -27,6 +27,7 @@
     flex-direction: column;
     position: relative;
 
+    min-height: 25dvh;
     max-height: 75dvh;
 
     @media (max-width: 767px) {
