@@ -89,5 +89,5 @@ function FormGroup({
 export const Radio = {
     FormGroup: FormGroup,
     Group: RadioGroup,
-    Item: Item,
+    RadioItem: Item,
 };
