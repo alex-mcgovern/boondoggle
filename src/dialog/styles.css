@@ -52,6 +52,9 @@
     }
 
     .dialog {
+        display: flex;
+        flex-direction: column;
+
         background: var(--slate-1);
 
         border: 1px solid var(--slate-6);
