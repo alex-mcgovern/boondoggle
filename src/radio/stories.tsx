@@ -17,9 +17,9 @@ export const Default: Story = {
         children: (
             <>
                 <Label>Favorite pet</Label>
-                <Radio.Item value="dogs">Dog</Radio.Item>
-                <Radio.Item value="cats">Cat</Radio.Item>
-                <Radio.Item value="dragon">Dragon</Radio.Item>
+                <Radio.RadioItem value="dogs">Dog</Radio.RadioItem>
+                <Radio.RadioItem value="cats">Cat</Radio.RadioItem>
+                <Radio.RadioItem value="dragon">Dragon</Radio.RadioItem>
             </>
         ),
     },
