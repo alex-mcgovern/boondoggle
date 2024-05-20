@@ -44,6 +44,10 @@
     .alert-message {
         font-size: var(--font-size-body-sm);
         line-height: var(--line-height-body-sm);
+
+        &:first-letter {
+            text-transform: "capitalize";
+        }
     }
 
     .alert-title {
