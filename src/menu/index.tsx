@@ -152,9 +152,11 @@ function Item<TItem extends object>({
                 return (
                     <>
                         <div className="menu-item-icon">{icon}</div>
-                        {typeof props.children === "function"
-                            ? props.children(renderProps)
-                            : props.children}
+                        <span className="dropdown-menu-item-name">
+                            {typeof props.children === "function"
+                                ? props.children(renderProps)
+                                : props.children}
+                        </span>
                         {renderProps.selectionMode === "multiple" ? (
                             <Checkbox
                                 // isIndeterminate
