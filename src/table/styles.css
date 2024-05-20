@@ -119,6 +119,8 @@
     }
 
     &.compact {
+        --table-cell-height: var(--space-7);
+
         .column,
         .cell {
             &:first-child {
