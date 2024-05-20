@@ -91,4 +91,17 @@
     p {
         color: var(--slate-11);
     }
+
+    ul,
+    ol {
+        color: var(--slate-11);
+        list-style: inside;
+
+        li {
+            list-style-type: disc;
+            &::marker {
+                color: var(--slate-8);
+            }
+        }
+    }
 }
