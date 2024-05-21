@@ -5,6 +5,7 @@
     padding: 1px;
 
     height: var(--ui-height-sm);
+    border-radius: var(--radius-pill);
 
     &[data-disabled] {
         opacity: 0.5;
