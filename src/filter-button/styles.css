@@ -4,7 +4,12 @@
     gap: 1px;
     padding: 1px;
 
-    height: var(--ui-height-sm);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--slate-11);
+
+    height: var(--space-6);
     border-radius: var(--radius-pill);
 
     &[data-disabled] {
@@ -25,10 +30,6 @@
         align-items: center;
         gap: var(--space-1);
 
-        font-size: var(--font-size-body-sm);
-        line-height: var(--line-height-body-sm);
-        color: var(--slate-11);
-
         padding: 0 var(--space-2);
 
         border-bottom-left-radius: var(--radius-pill);
@@ -36,12 +37,10 @@
     }
 
     .remove-filter-button {
-        color: var(--slate-11);
         display: inline-flex;
         flex-shrink: 0;
-        font-size: var(--font-size-body-sm);
         line-height: var(--line-height-body-sm);
-        font-weight: var(--font-weight-medium);
+
         gap: var(--space-2);
         outline: 0;
         padding: 0 var(--space-2);
