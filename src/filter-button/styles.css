@@ -11,11 +11,11 @@
         pointer-events: none;
         cursor: not-allowed;
     }
-    &[data-is-filter-applied="false"] {
+    &[data-filter-applied="false"] {
         background: transparent;
         border: 1px dashed var(--slate-6);
     }
-    &[data-is-filter-applied="true"] {
+    &[data-filter-applied="true"] {
         border: 1px solid var(--slate-6);
     }
 
