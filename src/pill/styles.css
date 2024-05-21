@@ -17,8 +17,8 @@
     font-size: var(--font-size-body-sm);
     font-weight: var(--font-weight-medium);
 
-    height: var(--space-6);
-    min-width: var(--space-6);
+    height: var(--space-5);
+    min-width: var(--space-5);
 
     padding: var(--space-1) var(--space-2);
 
