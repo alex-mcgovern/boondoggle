@@ -151,7 +151,9 @@ function Item<TItem extends object>({
             {(renderProps) => {
                 return (
                     <>
-                        <div className="menu-item-icon">{icon}</div>
+                        {icon ? (
+                            <div className="menu-item-icon">{icon}</div>
+                        ) : null}
                         <span className="dropdown-menu-item-name">
                             {typeof props.children === "function"
                                 ? props.children(renderProps)
