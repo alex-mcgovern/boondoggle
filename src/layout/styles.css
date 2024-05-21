@@ -30,14 +30,14 @@
         &:has(.bottom-bar) {
             --main-content-height: calc(
                 100dvh - var(--layout-bar-height) -
-                    (var(--layout-bar-height) * 2)
+                    (var(--layout-container-padding) * 2)
             );
         }
 
         &:has(.top-bar):has(.bottom-bar) {
             --main-content-height: calc(
                 100dvh - (var(--layout-bar-height) * 2) -
-                    (var(--layout-bar-height) * 2)
+                    (var(--layout-container-padding) * 2)
             );
         }
 
