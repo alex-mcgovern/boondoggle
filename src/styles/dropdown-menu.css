@@ -111,6 +111,8 @@
         }
 
         &.has-icon {
+            gap: var(--space-2);
+            padding-left: var(--space-1);
             grid-template-columns: var(--icon-size-sm) 1fr;
 
             &[data-has-submenu="true"] {
@@ -146,6 +148,11 @@
 
         .menu-item-icon {
             color: var(--slate-11);
+            width: var(--space-4);
+            height: var(--space-4);
+
+            display: flex;
+            align-items: center;
         }
 
         @media (prefers-reduced-motion: no-preference) {
