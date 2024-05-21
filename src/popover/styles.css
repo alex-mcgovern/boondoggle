@@ -14,6 +14,8 @@
     --popover-bg: var(--slate-1);
     --popover-text-color: var(--slate-12);
 
+    --animation-distance: var(--space-1);
+
     --popover-border-color: var(--slate-5);
     --popover-border-width: 1px;
     --popover-border-radius: var(--radius-md);
@@ -71,7 +73,7 @@
     }
 
     &[data-placement="top"] {
-        --origin: translateY(var(--space-2));
+        --origin: translateY(var(--animation-distance));
 
         &:has(.overlay-arrow) {
             margin-bottom: var(--space-1);
@@ -79,7 +81,7 @@
     }
 
     &[data-placement="bottom"] {
-        --origin: translateY(calc(var(--space-2) * -1));
+        --origin: translateY(calc(var(--animation-distance) * -1));
 
         &:has(.overlay-arrow) {
             margin-top: var(--space-1);
@@ -91,7 +93,7 @@
     }
 
     &[data-placement="right"] {
-        --origin: translateX(calc(var(--space-2) * -1));
+        --origin: translateX(calc(var(--animation-distance) * -1));
 
         &:has(.overlay-arrow) {
             margin-left: var(--space-1);
@@ -103,7 +105,7 @@
     }
 
     &[data-placement="left"] {
-        --origin: translateX(var(--space-2));
+        --origin: translateX(var(--animation-distance));
 
         &:has(.overlay-arrow) {
             margin-right: var(--space-1);
