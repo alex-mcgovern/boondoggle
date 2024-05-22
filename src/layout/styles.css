@@ -197,10 +197,10 @@
         }
 
         &[data-open="false"] {
-            width: var(--space-14);
+            width: var(--space-10);
         }
         &[data-open="true"] {
-            width: 10rem;
+            width: 12rem;
         }
 
         .side-nav-link {
