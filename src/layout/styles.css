@@ -87,17 +87,18 @@
         width: 100%;
         position: relative;
 
-        /* border-radius: var(--radius-md);
-        border: 1px solid var(--slate-6); */
-
         display: flex;
         flex-direction: column;
 
-        flex: 1 1 100%;
+        flex-shrink: 1;
 
         .main-content {
             overflow-y: auto;
             scrollbar-gutter: stable;
+
+            /* Parent is flex + column, it should grow to fill the space */
+            flex-grow: 1;
+            flex-shrink: 0;
 
             max-height: var(--main-content-height);
 
