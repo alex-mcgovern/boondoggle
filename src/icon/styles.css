@@ -15,7 +15,7 @@
     }
 
     &.grey {
-        --icon-color: var(--slate-9);
+        --icon-color: var(--slate-11);
     }
 
     &.red {
