@@ -142,6 +142,10 @@ function Container({ children }: { children: ReactNode }) {
     );
 }
 
+function Body({ children }: { children: ReactNode }) {
+    return <div className="layout-body">{children}</div>;
+}
+
 function NavButton({
     align = "start",
     appearance = "ghost",
@@ -295,7 +299,26 @@ function SideBar(props: { children: ReactNode }) {
 /**
  * Top bar HTML element.
  */
-function TopBar({
+function TopNav({
+    center,
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLElement> & { center?: boolean }) {
+    return (
+        <nav
+            className={clsx(className, "layout-top-nav", { center })}
+            {...rest}
+        >
+            {children}
+        </nav>
+    );
+}
+
+/**
+ * Top bar HTML element.
+ */
+function Header({
     center,
     children,
     className,
@@ -303,7 +326,7 @@ function TopBar({
 }: HTMLProps<HTMLElement> & { center?: boolean }) {
     return (
         <header
-            className={clsx(className, "top-bar", { center })}
+            className={clsx(className, "layout-header", { center })}
             {...rest}
         >
             {children}
@@ -314,10 +337,10 @@ function TopBar({
 /**
  * Bottom bar HTML element.
  */
-function BottomBar({ children, className, ...rest }: HTMLProps<HTMLElement>) {
+function Footer({ children, className, ...rest }: HTMLProps<HTMLElement>) {
     return (
         <footer
-            className={clsx(className, "bottom-bar")}
+            className={clsx(className, "layout-footer")}
             {...rest}
         >
             {children}
@@ -347,16 +370,18 @@ function Focused({ children }: { children: ReactNode }) {
 }
 
 export const Layout = {
-    BottomBar,
+    Body: Body,
     Button: NavButton,
     Container,
     Focused,
+    Footer,
+    Header: Header,
     Link,
     MainContent,
     MainContentContainer,
     Provider,
     SideBar,
-    TopBar: TopBar,
+    TopNav: TopNav,
     useCloseOnMount,
     useOpenOnMount,
     UserMenuHeader,
