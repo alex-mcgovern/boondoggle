@@ -25,6 +25,8 @@
     }
 
     &.center {
+        margin-left: var(--focused-margin-left);
+        margin-right: var(--focused-margin-right);
         justify-content: space-evenly;
     }
 
