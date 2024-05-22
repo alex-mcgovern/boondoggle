@@ -252,6 +252,7 @@ function Link({
                 {...props}
                 align={align}
                 appearance={appearance}
+                className={clsx("side-nav-link", props.className)}
                 isCurrent={isCurrent}
                 size="sm"
                 square={!isOpen}
@@ -289,9 +290,9 @@ function SideBar(props: { children: ReactNode }) {
             data-open={isOpen}
         >
             {props.children}
-            <div className="btn-collapse-container">
+            <SideNavFooter>
                 <ButtonToggleCollapsibleNav />
-            </div>
+            </SideNavFooter>
         </nav>
     );
 }
@@ -409,6 +410,60 @@ function Focused({ children }: { children: ReactNode }) {
     return <div className="layout-focused">{children}</div>;
 }
 
+/**
+ * Top bar HTML element.
+ */
+function SideNavHeader({
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLDivElement>) {
+    return (
+        <div
+            className={clsx(className, "side-nav-header")}
+            {...rest}
+        >
+            {children}
+        </div>
+    );
+}
+
+/**
+ * Bottom bar HTML element.
+ */
+function SideNavFooter({
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLDivElement>) {
+    return (
+        <div
+            className={clsx(className, "side-nav-footer")}
+            {...rest}
+        >
+            {children}
+        </div>
+    );
+}
+
+/**
+ * Bottom bar HTML element.
+ */
+function SideNavSection({
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLElement>) {
+    return (
+        <section
+            className={clsx(className, "side-nav-section")}
+            {...rest}
+        >
+            {children}
+        </section>
+    );
+}
+
 export const Layout = {
     Body: Body,
     Button: NavButton,
@@ -421,6 +476,9 @@ export const Layout = {
     MainContentContainer,
     Provider,
     SideBar,
+    SideNavFooter: SideNavFooter,
+    SideNavHeader: SideNavHeader,
+    SideNavSection: SideNavSection,
     TopNav: TopNav,
     TopNavCenter: TopNavCenter,
     TopNavLeft: TopNavLeft,

@@ -33,13 +33,13 @@ const meta = {
 
                     <Layout.TopNavRight>
                         <Layout.Link
-                            href=""
+                            href="https://boondoggle.design"
                             icon={faPerson}
                         >
                             Users
                         </Layout.Link>
                         <Layout.Link
-                            href=""
+                            href="https://boondoggle.design"
                             icon={faWallet}
                         >
                             Accounts
@@ -48,51 +48,60 @@ const meta = {
                 </Layout.TopNav>
                 <Layout.Body>
                     <Layout.SideBar>
-                        <Menu.Trigger>
-                            <Layout.Button
-                                align="center"
-                                appearance="secondary"
-                                icon={faPlus}
+                        <Layout.SideNavHeader>
+                            Org info goes here
+                        </Layout.SideNavHeader>
+                        <Layout.SideNavSection>
+                            <Menu.Trigger>
+                                <Layout.Button
+                                    align="center"
+                                    appearance="secondary"
+                                    icon={faPlus}
+                                >
+                                    Create a file
+                                </Layout.Button>
+                                <Popover placement="right top">
+                                    <Menu.DropdownMenu>
+                                        <Menu.Section>
+                                            <Menu.Item>
+                                                Create new document
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                Create new folder
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                Create a collection
+                                            </Menu.Item>
+                                        </Menu.Section>
+                                        <Menu.Section>
+                                            <Menu.SectionHeader>
+                                                Import
+                                            </Menu.SectionHeader>
+                                            <Menu.Item>
+                                                Import an existing file
+                                            </Menu.Item>
+                                            <Menu.Item>
+                                                Import an existing folder
+                                            </Menu.Item>
+                                        </Menu.Section>
+                                    </Menu.DropdownMenu>
+                                </Popover>
+                            </Menu.Trigger>
+                        </Layout.SideNavSection>
+                        <Layout.SideNavSection>
+                            <Layout.Link
+                                href="https://boondoggle.design"
+                                icon={faPerson}
                             >
-                                Create a file
-                            </Layout.Button>
-                            <Popover placement="right top">
-                                <Menu.DropdownMenu>
-                                    <Menu.Section>
-                                        <Menu.Item>
-                                            Create new document
-                                        </Menu.Item>
-                                        <Menu.Item>Create new folder</Menu.Item>
-                                        <Menu.Item>
-                                            Create a collection
-                                        </Menu.Item>
-                                    </Menu.Section>
-                                    <Menu.Section>
-                                        <Menu.SectionHeader>
-                                            Import
-                                        </Menu.SectionHeader>
-                                        <Menu.Item>
-                                            Import an existing file
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            Import an existing folder
-                                        </Menu.Item>
-                                    </Menu.Section>
-                                </Menu.DropdownMenu>
-                            </Popover>
-                        </Menu.Trigger>
-                        <Layout.Link
-                            href=""
-                            icon={faPerson}
-                        >
-                            Users
-                        </Layout.Link>
-                        <Layout.Link
-                            href=""
-                            icon={faWallet}
-                        >
-                            Accounts
-                        </Layout.Link>
+                                Users
+                            </Layout.Link>
+                            <Layout.Link
+                                href="https://boondoggle.design"
+                                icon={faWallet}
+                            >
+                                Accounts
+                            </Layout.Link>
+                        </Layout.SideNavSection>
                     </Layout.SideBar>
                     <Layout.MainContentContainer>
                         <Layout.Header>
