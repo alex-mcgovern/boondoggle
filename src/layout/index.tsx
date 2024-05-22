@@ -299,19 +299,59 @@ function SideBar(props: { children: ReactNode }) {
 /**
  * Top bar HTML element.
  */
-function TopNav({
-    center,
-    children,
-    className,
-    ...rest
-}: HTMLProps<HTMLElement> & { center?: boolean }) {
+function TopNav({ children, className, ...rest }: HTMLProps<HTMLElement>) {
     return (
         <nav
-            className={clsx(className, "layout-top-nav", { center })}
+            className={clsx(className, "layout-top-nav")}
             {...rest}
         >
             {children}
         </nav>
+    );
+}
+
+function TopNavLeft({
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLDivElement>) {
+    return (
+        <div
+            className={clsx(className, "layout-top-nav-left")}
+            {...rest}
+        >
+            {children}
+        </div>
+    );
+}
+
+function TopNavCenter({
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLDivElement>) {
+    return (
+        <div
+            className={clsx(className, "layout-top-nav-center")}
+            {...rest}
+        >
+            {children}
+        </div>
+    );
+}
+
+function TopNavRight({
+    children,
+    className,
+    ...rest
+}: HTMLProps<HTMLDivElement>) {
+    return (
+        <div
+            className={clsx(className, "layout-top-nav-right")}
+            {...rest}
+        >
+            {children}
+        </div>
     );
 }
 
@@ -382,6 +422,9 @@ export const Layout = {
     Provider,
     SideBar,
     TopNav: TopNav,
+    TopNavCenter: TopNavCenter,
+    TopNavLeft: TopNavLeft,
+    TopNavRight: TopNavRight,
     useCloseOnMount,
     useOpenOnMount,
     UserMenuHeader,
