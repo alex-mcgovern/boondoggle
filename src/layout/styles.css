@@ -218,7 +218,7 @@
             flex-direction: column;
             gap: var(--space-1);
 
-            padding: var(--side-nav-padding);
+            padding: var(--space-1) var(--side-nav-padding);
         }
 
         .side-nav-header,
