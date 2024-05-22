@@ -205,7 +205,7 @@
         }
 
         &[data-open="false"] {
-            width: var(--space-10);
+            width: var(--space-12);
         }
         &[data-open="true"] {
             width: 12rem;
