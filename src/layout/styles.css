@@ -29,7 +29,6 @@
         /* margin-bottom: var(--space-1); */
 
         height: var(--layout-bar-height);
-        flex-shrink: 0;
     }
 
     &:has(.layout-top-nav) {
@@ -70,9 +69,9 @@
         display: flex;
         flex-direction: column;
 
-        .main-content {
-            flex-grow: 1;
+        flex: 1 1 100%;
 
+        .main-content {
             overflow-y: auto;
             scrollbar-gutter: stable;
 
@@ -165,15 +164,9 @@
         gap: var(--space-1);
 
         height: var(--side-nav-height);
-        /* padding: var(--space-2); */
         z-index: 1;
 
         overflow-x: hidden;
-
-        /* border-right: 1px solid var(--slate-6); */
-
-        position: sticky;
-        top: 0;
 
         @media (prefers-reduced-motion: no-preference) {
             transition-duration: var(--dur-short);
