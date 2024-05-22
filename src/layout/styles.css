@@ -16,13 +16,17 @@
     --scrollbar-gutter-width: var(--space-2);
 
     --focused-width: var(--width-main-sm);
+
+    --focused-offset-lg: calc((100vw - var(--focused-width)) / 2);
+    --focused-offset-sm: calc((50% - var(--focused-width)) / 2);
+    --focused-offset: max(var(--focused-offset-lg), var(--focused-offset-sm));
+
     --focused-margin-left: calc(
-        (100vw - var(--focused-width)) / 2 - var(--side-nav-open-width) -
+        var(--focused-offset) - var(--side-nav-open-width) -
             (var(--layout-container-padding) * 2)
     );
     --focused-margin-right: calc(
-        (100vw - var(--focused-width)) / 2 -
-            (var(--layout-container-padding) * 2) -
+        var(--focused-offset) - (var(--layout-container-padding) * 2) -
             var(--scrollbar-gutter-width) ;
     );
 
@@ -179,7 +183,7 @@
     }
 
     .layout-focused {
-        margin-left: var(--focused-margin-left);
+        margin-left: max(var(--focused-margin-left), var(--space-2));
         margin-right: var(--focused-margin-right);
         padding: var(--space-4);
         width: 100%;
