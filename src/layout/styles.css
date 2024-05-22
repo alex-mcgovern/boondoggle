@@ -36,6 +36,14 @@
 
         height: var(--layout-bar-height);
 
+        .layout-top-nav-left,
+        .layout-top-nav-center,
+        .layout-top-nav-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
         .layout-top-nav-left {
             justify-self: start;
         }
