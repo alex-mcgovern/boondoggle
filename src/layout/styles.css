@@ -10,6 +10,22 @@
     --main-content-height: calc(100dvh - (var(--layout-container-padding) * 2));
     --side-nav-height: calc(100dvh - var(--layout-container-padding));
 
+    --side-nav-open-width: 12rem;
+    --side-nav-closed-width: var(--space-12);
+
+    --scrollbar-gutter-width: var(--space-2);
+
+    --focused-width: var(--width-main-sm);
+    --focused-margin-left: calc(
+        (100vw - var(--focused-width)) / 2 - var(--side-nav-open-width) -
+            (var(--layout-container-padding) * 2)
+    );
+    --focused-margin-right: calc(
+        (100vw - var(--focused-width)) / 2 -
+            (var(--layout-container-padding) * 2) -
+            var(--scrollbar-gutter-width) ;
+    );
+
     height: 100dvh;
 
     padding: 0 var(--layout-container-padding);
@@ -163,13 +179,14 @@
     }
 
     .layout-focused {
-        margin: 0 auto;
+        margin-left: var(--focused-margin-left);
+        margin-right: var(--focused-margin-right);
         padding: var(--space-4);
         width: 100%;
 
         scrollbar-gutter: stable;
 
-        max-width: var(--width-main-sm);
+        max-width: var(--focused-width);
     }
 
     .side-nav {
@@ -211,10 +228,10 @@
         }
 
         &[data-open="false"] {
-            width: var(--space-12);
+            width: var(--side-nav-closed-width);
         }
         &[data-open="true"] {
-            width: 12rem;
+            width: var(--side-nav-open-width);
         }
 
         .side-nav-section {
