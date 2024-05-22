@@ -1,9 +1,15 @@
+import type { ComponentProps } from "react";
 import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
-import { forwardRef } from "react";
-import { ComboBox as AriaCombobox } from "react-aria-components";
+import { forwardRef, useContext } from "react";
+import { InputContext } from "react-aria-components";
+import {
+    ComboBox as AriaCombobox,
+    ComboBoxStateContext,
+    useContextProps,
+} from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";
@@ -11,6 +17,7 @@ import type { IterableListBoxItem } from "../list-box";
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
+import { Input } from "../input";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import "./styles.css";
@@ -25,6 +32,26 @@ export function ComboBoxButton() {
         </FieldButton>
     );
 }
+
+/**
+ * Input for the ComboBox.
+ */
+export const ComboBoxInput = forwardRef<
+    HTMLInputElement,
+    ComponentProps<typeof Input>
+>((props, ref) => {
+    const state = useContext(ComboBoxStateContext);
+    const { isOpen, setOpen } = state || {};
+    [props, ref] = useContextProps(props, ref, InputContext);
+
+    return (
+        <Input
+            {...props}
+            onClick={() => setOpen(!isOpen)}
+            ref={ref}
+        />
+    );
+});
 
 /**
  * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.

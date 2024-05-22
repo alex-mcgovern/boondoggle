@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ComboBox, ComboBoxButton } from "..";
+import { ComboBox, ComboBoxButton, ComboBoxInput } from "..";
 import { Group } from "../../group";
-import { Input } from "../../input";
 import { Label } from "../../label";
 
 const meta = {
@@ -19,7 +18,7 @@ export const Default: Story = {
             <>
                 <Label>Pick a fruit</Label>
                 <Group>
-                    <Input
+                    <ComboBoxInput
                         placeholder="Select a fruit..."
                         unstyled
                     />
