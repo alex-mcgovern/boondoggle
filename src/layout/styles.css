@@ -89,8 +89,12 @@
 
         display: flex;
         flex-direction: column;
-
         flex-shrink: 1;
+
+        background: var(--slate-1);
+
+        border-top-right-radius: var(--radius-md);
+        border-bottom-right-radius: var(--radius-md);
 
         .main-content {
             overflow-y: auto;
@@ -183,7 +187,7 @@
         --btn-outline-color: transparent;
         --btn-outline-size: 2px;
 
-        background: var(--slate-3);
+        background: var(--slate-2);
 
         border-top-left-radius: var(--radius-md);
         border-bottom-left-radius: var(--radius-md);
