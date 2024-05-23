@@ -14,8 +14,7 @@ import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubl
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { useCallback } from "react";
-import { createContext, useContext, useLayoutEffect } from "react";
+import { createContext, useContext } from "react";
 import { useState } from "react";
 import { Button as AriaButton } from "react-aria-components";
 
@@ -25,40 +24,6 @@ import { Icon } from "../icon";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import "./styles.css";
 
-function useMatchMedia(
-    queries: string[],
-    defaultValues: boolean[] = [],
-): boolean[] {
-    const initialValues = defaultValues.length
-        ? defaultValues
-        : Array(queries.length).fill(false);
-
-    const mediaQueryLists = queries.map((q) => window.matchMedia(q));
-    const getValue = useCallback(
-        () => mediaQueryLists.map((mql) => mql.matches),
-        [mediaQueryLists],
-    );
-
-    const [value, setValue] = useState(getValue);
-
-    useLayoutEffect(() => {
-        const handler = (): void => setValue(getValue);
-
-        for (const mql of mediaQueryLists) {
-            mql.addEventListener("change", handler);
-        }
-        return (): void => {
-            for (const mql of mediaQueryLists) {
-                mql.removeEventListener("change", handler);
-            }
-        };
-    }, [mediaQueryLists, getValue]);
-
-    if (typeof window === "undefined") return initialValues;
-
-    return value;
-}
-
 /**
  * React context provider that allows toggling the open state of a collapsible UI element from anywhere in the app.
  */
@@ -67,15 +32,7 @@ export const CollapsibleSideNavContext = createContext<
 >(undefined);
 
 function Provider({ children }: { children: ReactNode }) {
-    const [isMobile] = useMatchMedia(["@media (max-width: 767px)"], [true]);
     const [isOpen, setIsOpen] = useState<boolean>(true);
-
-    useLayoutEffect(() => {
-        if (isMobile) {
-            return setIsOpen(false);
-        }
-        return setIsOpen(true);
-    }, [isMobile, setIsOpen]);
 
     return (
         <CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
@@ -97,24 +54,6 @@ export const useSideNav = () => {
     }
 
     return context;
-};
-
-export const useOpenOnMount = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setIsOpen] = useSideNav();
-
-    return useLayoutEffect(() => {
-        setIsOpen(true);
-    }, [setIsOpen]);
-};
-
-export const useCloseOnMount = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setIsOpen] = useSideNav();
-
-    return useLayoutEffect(() => {
-        setIsOpen(false);
-    }, [setIsOpen]);
 };
 
 /**
@@ -484,8 +423,6 @@ export const Layout = {
     TopNavCenter: TopNavCenter,
     TopNavLeft: TopNavLeft,
     TopNavRight: TopNavRight,
-    useCloseOnMount,
-    useOpenOnMount,
     UserMenuHeader,
     UserMenuTrigger,
     useSideNav,

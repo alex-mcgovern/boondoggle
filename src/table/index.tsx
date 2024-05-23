@@ -28,7 +28,6 @@ import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
 
 export type ColumnProps = AriaColumnProps;
-import { useSideNav } from "../layout";
 import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
@@ -210,13 +209,10 @@ function TableRoot({
 function ResizableTableContainer({
     ...props
 }: AriaResizableTableContainerProps) {
-    const [isOpen] = useSideNav();
-
     return (
         <AriaResizableTableContainer
             {...props}
             className={clsx(props.className, "resizable-table-container")}
-            key={isOpen ? "side-nav-open" : "side-nav-closed"}
         />
     );
 }
