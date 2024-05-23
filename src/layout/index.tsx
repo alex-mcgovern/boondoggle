@@ -125,6 +125,7 @@ function ButtonToggleCollapsibleNav() {
 
     return (
         <NavButton
+            aria-label="Collapse/expand side-nav"
             className="w-100"
             icon={isOpen ? faAngleDoubleLeft : faAngleDoubleRight}
             onPress={() => setIsOpen((c) => !c)}
