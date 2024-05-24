@@ -255,7 +255,7 @@ import { FlagZw } from "./zw";
 /**
  * A map of country codes to flag components.
  */
-export const FLAGS: Record<
+export const Flag: Record<
     TCountryCode,
     JSXElementConstructor<Record<string, unknown>>
 > = {

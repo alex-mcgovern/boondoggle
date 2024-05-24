@@ -9,17 +9,17 @@ import type { IterableListBoxItem } from "../list-box";
 
 import { ComboBox } from "../combo-box";
 import { FieldError } from "../field-error";
-import { FLAGS } from "../icon-flag/_map";
+import { Flag } from "../icon-flag/_map";
 
 /**
  * Get the flag component for a given country code.
  */
 const getFlagComponent = (iso_code: TCountryCode) => {
-    if (iso_code in FLAGS === false) {
+    if (iso_code in Flag === false) {
         return undefined;
     }
     const FlagComponent =
-        iso_code in FLAGS ? FLAGS[iso_code as TCountryCode] : null;
+        iso_code in Flag ? Flag[iso_code as TCountryCode] : null;
 
     if (!FlagComponent) {
         return undefined;

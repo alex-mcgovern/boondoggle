@@ -29,6 +29,7 @@ export { Form, type FormProps } from "./form";
 export { Grid, type GridProps } from "./grid";
 export { Group } from "./group";
 export { Icon } from "./icon";
+export { Flag } from "./icon-flag/_map";
 export { Input } from "./input";
 export { Label } from "./label";
 export { Layout } from "./layout";
