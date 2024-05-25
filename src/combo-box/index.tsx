@@ -4,11 +4,9 @@ import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
 import { forwardRef, useContext } from "react";
-import { InputContext } from "react-aria-components";
 import {
     ComboBox as AriaCombobox,
     ComboBoxStateContext,
-    useContextProps,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
@@ -42,7 +40,6 @@ export const ComboBoxInput = forwardRef<
 >((props, ref) => {
     const state = useContext(ComboBoxStateContext);
     const { isOpen, setOpen } = state || {};
-    [props, ref] = useContextProps(props, ref, InputContext);
 
     return (
         <Input

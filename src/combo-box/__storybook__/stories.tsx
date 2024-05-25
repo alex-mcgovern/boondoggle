@@ -35,6 +35,14 @@ export const Default: Story = {
                 id: "banana",
                 name: "Banana",
             },
+            {
+                id: "cherry",
+                name: "Cherry",
+            },
+            {
+                id: "date",
+                name: "Date",
+            },
         ],
     },
 };
