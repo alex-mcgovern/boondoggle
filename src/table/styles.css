@@ -56,7 +56,7 @@
             cursor: pointer;
 
             &[data-hovered] {
-                background: var(--slate-3);
+                background: var(--slate-2);
             }
         }
 
