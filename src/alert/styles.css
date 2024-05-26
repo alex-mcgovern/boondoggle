@@ -1,7 +1,7 @@
 .alert {
     --text-color: var(--slate-11);
     --background-color: var(--slate-2);
-    --border-color: var(--slate-6);
+    --border-color: var(--slate-5);
 
     display: flex;
     gap: var(--space-2);

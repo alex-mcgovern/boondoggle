@@ -41,7 +41,7 @@
         /* gap: var(--space-2); */
 
         border-radius: var(--radius-md);
-        border: 1px solid var(--slate-6);
+        border: 1px solid var(--slate-5);
 
         position: relative;
 
@@ -127,7 +127,7 @@
 
             &::-webkit-scrollbar {
                 background-color: var(--slate-3);
-                border-left: 1px solid var(--slate-6);
+                border-left: 1px solid var(--slate-5);
                 overflow: hidden;
 
                 border-bottom-right-radius: var(--radius-sm);
@@ -217,7 +217,7 @@
         flex-shrink: 0;
         /* padding: var(--space-2) var(--space-2) 0 var(--space-2); */
 
-        border-right: 1px solid var(--slate-6);
+        border-right: 1px solid var(--slate-5);
 
         height: var(--side-nav-height);
         z-index: 1;
@@ -284,7 +284,7 @@
         }
 
         .btn-collapse-container {
-            border-top: 1px solid var(--slate-6);
+            border-top: 1px solid var(--slate-5);
 
             position: sticky;
             bottom: 0;
@@ -347,7 +347,7 @@
 
     padding: var(--space-2) 0;
 
-    /* border-bottom: 1px solid var(--slate-6); */
+    /* border-bottom: 1px solid var(--slate-5); */
 
     .user-menu-header-name,
     .user-menu-header-org {

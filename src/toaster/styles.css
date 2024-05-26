@@ -1,7 +1,7 @@
 .toast {
     --close-button-size: var(--space-8);
     --close-button-border-width: 1px;
-    --close-button-border-color: var(--slate-6);
+    --close-button-border-color: var(--slate-5);
 
     --toast-text-color: var(--slate-1);
     --toast-bg-color: var(--slate-12);

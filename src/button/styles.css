@@ -68,7 +68,7 @@
     &.secondary {
         --btn-background-active: var(--slate-3);
         --btn-background: var(--slate-2);
-        --btn-border-color: var(--slate-6);
+        --btn-border-color: var(--slate-5);
         --btn-text-color: var(--slate-12);
     }
 

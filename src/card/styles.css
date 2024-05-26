@@ -1,5 +1,5 @@
 .card-header {
-    border: 1px solid var(--slate-6);
+    border: 1px solid var(--slate-5);
     border-top-left-radius: var(--radius-lg);
     border-top-right-radius: var(--radius-lg);
 
@@ -51,7 +51,7 @@
 
     &:not(.has-header) {
         border-radius: var(--radius-lg);
-        border: 1px solid var(--slate-6);
+        border: 1px solid var(--slate-5);
 
         margin-top: var(--space-6);
     }

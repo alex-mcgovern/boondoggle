@@ -57,7 +57,7 @@
 
         background: var(--slate-1);
 
-        border: 1px solid var(--slate-6);
+        border: 1px solid var(--slate-5);
         border-radius: var(--radius-md);
 
         box-shadow: var(--shadow-lg);
@@ -102,7 +102,7 @@
             position: sticky;
             top: 0;
 
-            border-bottom: 1px solid var(--slate-6);
+            border-bottom: 1px solid var(--slate-5);
 
             padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
 
@@ -131,7 +131,7 @@
 
             margin-top: auto;
 
-            border-top: 1px solid var(--slate-6);
+            border-top: 1px solid var(--slate-5);
 
             padding: var(--space-3) var(--space-4);
         }
