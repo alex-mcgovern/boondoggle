@@ -50,11 +50,6 @@
             transition-timing-function: var(--ease-quart-in-out);
         }
 
-        &:not(:last-child) {
-            border-bottom: var(--table-border-width) solid
-                var(--table-border-color);
-        }
-
         &[data-href] {
             cursor: pointer;
 
@@ -86,6 +81,14 @@
         &[data-disabled] {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+
+        &:not(:last-child) {
+            .column,
+            .cell {
+                border-bottom: var(--table-border-width) solid
+                    var(--table-border-color);
+            }
         }
     }
 
