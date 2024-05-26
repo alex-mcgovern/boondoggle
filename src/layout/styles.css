@@ -79,8 +79,7 @@
 
     &:has(.layout-top-nav) {
         --main-content-height: calc(
-            100dvh - var(--layout-bar-height) -
-                (var(--layout-container-padding) * 2)
+            100dvh - var(--layout-bar-height) - var(--layout-container-padding)
         );
         --side-nav-height: calc(
             100dvh - var(--layout-bar-height) - var(--layout-container-padding)
