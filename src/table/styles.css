@@ -31,8 +31,10 @@
         color: var(--slate-12);
 
         & tr:last-child {
-            border-bottom: 1px solid var(--table-border-color);
-            cursor: default;
+            .column {
+                border-bottom: var(--table-border-width) solid
+                    var(--table-border-color);
+            }
         }
     }
 
@@ -84,7 +86,6 @@
         }
 
         &:not(:last-child) {
-            .column,
             .cell {
                 border-bottom: var(--table-border-width) solid
                     var(--table-border-color);
