@@ -50,7 +50,7 @@
 
     .layout-top-nav {
         display: grid;
-        grid-template-columns: 1fr max-content 1fr;
+        grid-template-columns: 1fr var(--focused-width) 1fr;
         align-items: center;
         gap: var(--space-2);
 
