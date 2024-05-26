@@ -70,7 +70,7 @@
             justify-self: start;
         }
         .layout-top-nav-center {
-            justify-self: center;
+            /* justify-self: center; */
         }
         .layout-top-nav-right {
             justify-self: right;
