@@ -99,6 +99,7 @@ export function LinkButton({
     align,
     appearance = "primary",
     className,
+    color,
     size,
     ...props
 }: AriaLinkProps & {
@@ -110,6 +111,10 @@ export function LinkButton({
      * The appearance of the button.
      */
     appearance?: "ghost" | "primary" | "secondary";
+    /**
+     * The color of the button.
+     */
+    color?: Color;
     /**
      * Whether the link points to the current page or resource.
      */
@@ -126,7 +131,7 @@ export function LinkButton({
     return (
         <AriaLink
             {...props}
-            className={clsx("btn", className, appearance, size, align, {
+            className={clsx("btn", className, appearance, size, align, color, {
                 square: props.square,
             })}
         />
