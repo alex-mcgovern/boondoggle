@@ -122,7 +122,7 @@
         }
 
         &[data-has-submenu="true"] {
-            grid-template-columns: var(--icon-size-sm) 1fr;
+            grid-template-columns: 1fr var(--icon-size-sm);
         }
 
         &[data-selection-mode="multiple"] {
