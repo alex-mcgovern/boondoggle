@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
+import { Loader } from "../loader";
 import "./styles.css";
 
 /**
@@ -62,15 +63,21 @@ if (import.meta.vitest) {
  */
 export function Avatar({
     gray,
+    isLoading,
     name,
     size = 64,
     src,
     variant = "circle",
 }: {
     /**
-     * If true, the avatar will be displayed in grayscale.
+     * If true, a loading icon will be shown instead.
      */
     gray?: boolean;
+
+    /**
+     * If true, the avatar will be displayed in grayscale.
+     */
+    isLoading?: boolean;
     /**
      * The name of the person the avatar represents.
      * If the name is provided, the avatar will display the initials of the name.
@@ -107,6 +114,19 @@ export function Avatar({
     }, [src]);
 
     const style = { height: size, width: size };
+
+    if (isLoading) {
+        return (
+            <div
+                className={clsx("avatar", "flex", "align-center", variant, {
+                    gray,
+                })}
+                style={style}
+            >
+                <Loader />
+            </div>
+        );
+    }
 
     if (img_src) {
         return (

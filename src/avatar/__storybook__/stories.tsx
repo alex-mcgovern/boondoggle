@@ -31,6 +31,13 @@ export const Size: Story = {
     },
 };
 
+export const Loading: Story = {
+    args: {
+        isLoading: true,
+        variant: "square",
+    },
+};
+
 export const Square: Story = {
     args: {
         src: MOCK_AVATAR,
