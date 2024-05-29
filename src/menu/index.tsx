@@ -7,7 +7,7 @@ import type {
     SubmenuTriggerProps as AriaSubMenuTriggerProps,
 } from "react-aria-components";
 
-import { faCaretRight } from "@fortawesome/pro-solid-svg-icons/faCaretRight";
+import { faAngleRight } from "@fortawesome/pro-solid-svg-icons/faAngleRight";
 import clsx from "clsx";
 import {
     Header as AriaHeader,
@@ -170,7 +170,7 @@ function Item<TItem extends object>({
 
                         {renderProps.hasSubmenu ? (
                             <div className="menu-item-icon">
-                                <Icon icon={faCaretRight} />
+                                <Icon icon={faAngleRight} />
                             </div>
                         ) : null}
                     </>
