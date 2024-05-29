@@ -21,6 +21,8 @@
     --focused-offset-sm: calc((50% - var(--focused-width)) / 2);
     --focused-offset: max(var(--focused-offset-lg), var(--focused-offset-sm));
 
+    --layout-focused-padding-y: var(--space-4);
+
     --focused-margin-left: calc(
         var(--focused-offset) - var(--side-nav-open-width) -
             (var(--layout-container-padding) * 2)
@@ -184,7 +186,10 @@
     .layout-focused {
         margin-left: max(var(--focused-margin-left), var(--space-2));
         margin-right: var(--focused-margin-right);
-        padding: var(--space-4);
+
+        padding-top: var(--layout-focused-padding-y);
+        padding-bottom: var(--layout-focused-padding-y);
+
         width: 100%;
 
         scrollbar-gutter: stable;
