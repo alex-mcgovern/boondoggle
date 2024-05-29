@@ -89,14 +89,14 @@
         &:has(.layout-footer) {
             --main-content-height: calc(
                 100dvh - (var(--layout-bar-height) * 2) -
-                    (var(--layout-container-padding) * 2)
+                    var(--layout-container-padding)
             );
         }
 
         &:has(.layout-header):has(.layout-footer) {
             --main-content-height: calc(
                 100dvh - (var(--layout-bar-height) * 3) -
-                    (var(--layout-container-padding) * 2)
+                    var(--layout-container-padding)
             );
         }
     }
