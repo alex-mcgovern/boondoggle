@@ -154,18 +154,25 @@ function Item<TItem extends object>({
                         {icon ? (
                             <div className="menu-item-icon">{icon}</div>
                         ) : null}
+
                         <span className="dropdown-menu-item-name">
                             {typeof props.children === "function"
                                 ? props.children(renderProps)
                                 : props.children}
                         </span>
+
                         {renderProps.selectionMode === "multiple" ? (
                             <Checkbox
                                 // isIndeterminate
                                 isSelected={renderProps.isSelected}
                             />
                         ) : null}
-                        {renderProps.hasSubmenu && <Icon icon={faCaretRight} />}
+
+                        {renderProps.hasSubmenu ? (
+                            <div className="menu-item-icon">
+                                <Icon icon={faCaretRight} />
+                            </div>
+                        ) : null}
                     </>
                 );
             }}
