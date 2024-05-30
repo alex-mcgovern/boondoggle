@@ -8,7 +8,6 @@ import type {
     ReactNode,
     SetStateAction,
 } from "react";
-import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
@@ -16,11 +15,11 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
-import { Button as AriaButton } from "react-aria-components";
 
 import { Avatar } from "../avatar";
 import { Button, LinkButton } from "../button";
 import { Icon } from "../icon";
+import { Skeleton } from "../skeleton";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import "./styles.css";
 
@@ -106,10 +105,11 @@ function NavButton({
                 {(renderProps) => (
                     <>
                         <Icon icon={icon} />
-                        {isOpen &&
-                            (typeof props.children === "function"
+                        <div className="hidden-when-collapsed">
+                            {typeof props.children === "function"
                                 ? props.children(renderProps)
-                                : props.children)}
+                                : props.children}
+                        </div>
                     </>
                 )}
             </Button>
@@ -120,33 +120,33 @@ function NavButton({
     );
 }
 
-function UserMenuTrigger(
-    props: Omit<AriaButtonProps, "children"> & {
-        image: string | undefined;
-        isCurrent?: boolean;
-        name: string;
-    },
-) {
-    const [isOpen] = useSideNav();
-
+function OrgDisplay({
+    className,
+    image,
+    isLoading,
+    name,
+}: {
+    className?: string;
+    image: string | undefined;
+    isLoading?: boolean;
+    name: string;
+}) {
     return (
-        <TooltipTrigger isDisabled={isOpen}>
-            <AriaButton
-                {...props}
-                className="user-menu-trigger"
-            >
-                <Avatar
-                    name={props.name}
-                    size={28}
-                    src={props.image}
-                    variant="square"
-                />
-                {isOpen && (
-                    <div className="user-menu-trigger-name">{props.name}</div>
-                )}
-            </AriaButton>
-            <Tooltip placement="right">Signed in as {props.name}</Tooltip>
-        </TooltipTrigger>
+        <div className={clsx(className, "org-display")}>
+            <Avatar
+                name={name}
+                size={28}
+                src={image}
+                variant="square"
+            />
+            {isLoading ? (
+                <Skeleton className="w-100" />
+            ) : (
+                <div className="org-display-name hidden-when-collapsed">
+                    {name}
+                </div>
+            )}
+        </div>
     );
 }
 
@@ -204,10 +204,11 @@ function Link({
                             // }
                             icon={icon}
                         />
-                        {isOpen &&
-                            (typeof props.children === "function"
+                        <div className="hidden-when-collapsed">
+                            {typeof props.children === "function"
                                 ? props.children(renderProps)
-                                : props.children)}
+                                : props.children}
+                        </div>
                     </>
                 )}
             </LinkButton>
@@ -411,6 +412,7 @@ export const Layout = {
     Link,
     MainContent,
     MainContentContainer,
+    OrgDisplay: OrgDisplay,
     SideBar,
     SideNavFooter: SideNavFooter,
     SideNavHeader: SideNavHeader,
@@ -420,6 +422,5 @@ export const Layout = {
     TopNavLeft: TopNavLeft,
     TopNavRight: TopNavRight,
     UserMenuHeader,
-    UserMenuTrigger,
     useSideNav,
 };

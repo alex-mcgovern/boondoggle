@@ -52,7 +52,10 @@ const meta = {
                 <Layout.Body>
                     <Layout.SideBar>
                         <Layout.SideNavHeader>
-                            Org info goes here
+                            <Layout.OrgDisplay
+                                image={undefined}
+                                name="Acme Inc."
+                            />
                         </Layout.SideNavHeader>
                         <Layout.SideNavSection>
                             <Menu.Trigger>
