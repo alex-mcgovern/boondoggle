@@ -5,6 +5,12 @@
     grid-template-rows: var(--layout-bar-height) var(--main-content-height);
 }
 
+.tab-panel {
+    display: grid;
+    grid-column: back-button / wide-content-right;
+    grid-template-columns: subgrid;
+}
+
 .tab-list {
     --tab-height: var(--ui-height-sm);
     --tab-container-height: var(--space-10);

@@ -81,7 +81,12 @@ function TabList({
  * A panel that corresponds to a tab. A function passed as the children of the `Collection` component returns a corresponding `<TabPanel>` for each tab.
  */
 function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
-    return <AriaTabPanel {...props} />;
+    return (
+        <AriaTabPanel
+            {...props}
+            className="tab-panel"
+        />
+    );
 }
 
 /**
