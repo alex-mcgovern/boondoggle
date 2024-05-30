@@ -276,10 +276,11 @@
 
         .layout-footer {
             grid-column: back-button / wide-content-right;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
 
-            /* margin-top: auto; */
             border-top: 1px solid var(--slate-5);
-            /* bottom: 0; */
         }
     }
 
