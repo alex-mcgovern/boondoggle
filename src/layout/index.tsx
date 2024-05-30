@@ -12,6 +12,7 @@ import type {
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
 import clsx from "clsx";
+import { useCallback } from "react";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
@@ -45,6 +46,32 @@ export const useSideNav = () => {
     return context;
 };
 
+function Container({ children }: { children: ReactNode }) {
+    const [isOpen, setIsOpen] = useState<boolean>(
+        () =>
+            localStorage.getItem("sideNavOpen") === "true" ||
+            window.innerWidth > 992,
+    );
+
+    const toggleSideNav = useCallback(() => {
+        setIsOpen((c) => {
+            localStorage.setItem("sideNavOpen", String(!c));
+            return !c;
+        });
+    }, []);
+
+    return (
+        <CollapsibleSideNavContext.Provider value={[isOpen, toggleSideNav]}>
+            <div
+                className="layout-container"
+                data-is-side-nav-open={isOpen}
+            >
+                {children}
+            </div>
+        </CollapsibleSideNavContext.Provider>
+    );
+}
+
 /**
  * Button for toggling the side nav
  */
@@ -60,21 +87,6 @@ function ButtonToggleCollapsibleNav() {
         >
             {isOpen ? "Collapse" : "Expand"}
         </NavButton>
-    );
-}
-
-function Container({ children }: { children: ReactNode }) {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
-
-    return (
-        <CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
-            <div
-                className="layout-container"
-                data-is-side-nav-open={isOpen}
-            >
-                {children}
-            </div>
-        </CollapsibleSideNavContext.Provider>
     );
 }
 
