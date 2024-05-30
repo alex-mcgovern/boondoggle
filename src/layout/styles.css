@@ -46,10 +46,16 @@
     padding: 0 var(--layout-container-padding);
     background: var(--slate-3);
 
+    @media (prefers-reduced-motion: no-preference) {
+        transition-duration: var(--dur-short);
+        transition-property: grid;
+        transition-timing-function: var(--ease-quart-in-out);
+    }
+
     /* Grid layout */
 
     --grid-side-nav: var(--side-nav-width);
-    --grid-back-button: 0;
+    --grid-back-button: 0px;
     --grid-wide-content-left: auto;
     --grid-focused: var(--focused-width);
     --grid-wide-content-right: auto;

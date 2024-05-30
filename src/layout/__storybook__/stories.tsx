@@ -322,7 +322,7 @@ export const WithTable: Story = {
                 <Layout.Body>
                     <SideNav />
                     <Layout.MainContentContainer>
-                        <Layout.Header backHref="/">
+                        <Layout.Header>
                             <h1>Table</h1>
                             <Button className="ml-auto">Action button</Button>
                         </Layout.Header>
