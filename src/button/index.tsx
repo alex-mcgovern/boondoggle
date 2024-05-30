@@ -100,6 +100,7 @@ export function LinkButton({
     appearance = "primary",
     className,
     color,
+    isCurrent,
     size,
     ...props
 }: AriaLinkProps & {
@@ -130,6 +131,7 @@ export function LinkButton({
 }) {
     return (
         <AriaLink
+            data-is-current={isCurrent}
             {...props}
             className={clsx("btn", className, appearance, size, align, color, {
                 square: props.square,

@@ -285,7 +285,8 @@
         .side-nav-link {
             display: flex;
 
-            &[data-hovered] {
+            &[data-hovered],
+            &[data-is-current="true"] {
                 background: var(--slate-5);
             }
         }
