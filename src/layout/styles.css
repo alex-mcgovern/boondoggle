@@ -46,13 +46,6 @@
     padding: 0 var(--layout-container-padding);
     background: var(--slate-3);
 
-    @media (prefers-reduced-motion: no-preference) {
-        will-change: grid;
-        transition-duration: var(--dur-long);
-        transition-property: grid;
-        transition-timing-function: var(--ease-quart-in-out);
-    }
-
     /* Grid layout */
 
     --grid-side-nav: var(--side-nav-width);
@@ -84,6 +77,13 @@
         display: grid;
         grid-column: side-nav / wide-content-right;
         grid-template-columns: subgrid;
+
+        @media (prefers-reduced-motion: no-preference) {
+            will-change: grid;
+            transition-duration: var(--dur-long);
+            transition-property: grid;
+            transition-timing-function: var(--ease-quart-in-out);
+        }
 
         /* gap: var(--space-2); */
 
