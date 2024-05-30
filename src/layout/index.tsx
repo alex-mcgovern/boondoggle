@@ -338,7 +338,7 @@ function Header({
 
             <div className="layout-header-content">
                 {title ? (
-                    <h1 className="layout-header-title">{title}</h1>
+                    <h1 className="layout-header-title mr-4">{title}</h1>
                 ) : null}
                 {children}
             </div>
