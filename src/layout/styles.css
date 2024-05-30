@@ -255,8 +255,15 @@
                 display: flex;
                 align-items: center;
                 grid-column: wide-content-left / wide-content-right;
+                gap: var(--space-2);
 
-                padding-right: var(--space-2);
+                padding: var(--space-2);
+            }
+
+            &:has(.header-back-button) {
+                .layout-header-content:not(:has(.tab-list.center)) {
+                    padding-left: 0;
+                }
             }
         }
 
