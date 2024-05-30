@@ -64,9 +64,9 @@
 
     /** Responsive properties for grid layout */
 
-    &:not:has(.header-back-button) {
-        --grid-back-button: 0px;
-    }
+    /* &:has(.header-back-button) {
+        --grid-back-button: var(--layout-bar-height);
+    } */
 
     display: grid;
     /* prettier-ignore */
