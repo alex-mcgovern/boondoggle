@@ -42,15 +42,6 @@
         }
     }
 
-    --focused-margin-left: calc(
-        var(--focused-offset) - var(--side-nav-width) -
-            (var(--layout-container-padding) * 2)
-    );
-    --focused-margin-right: calc(
-        var(--focused-offset) - (var(--layout-container-padding) * 2) -
-            var(--scrollbar-gutter-width) ;
-    );
-
     height: 100dvh;
     padding: 0 var(--layout-container-padding);
     background: var(--slate-3);
@@ -62,6 +53,14 @@
     --grid-wide-content-left: auto;
     --grid-focused: var(--focused-width);
     --grid-wide-content-right: auto;
+
+    /** Calculations for grid layout */
+
+    --half-focused-width: calc(var(--focused-width) / 2);
+
+    /* prettier-ignore */
+    --grid-wide-content-left: calc(50% - var(--half-focused-width) - var(--side-nav-width) - var(--grid-back-button));
+    --grid-wide-content-right: calc(50% - var(--half-focused-width));
 
     /** Responsive properties for grid layout */
 
@@ -278,9 +277,6 @@
     }
 
     .layout-focused {
-        /* margin-left: max(var(--focused-margin-left), var(--space-2));
-        margin-right: var(--focused-margin-right); */
-
         grid-area: focused;
 
         padding-top: var(--layout-focused-padding-y);

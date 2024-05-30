@@ -43,10 +43,6 @@
         grid-column: focused;
 
         width: 100%;
-        /* max-width: var(--focused-width); */
-
-        /* margin-left: var(--focused-margin-left); */
-        /* margin-right: var(--focused-margin-right); */
 
         display: grid;
         grid-auto-flow: column;
