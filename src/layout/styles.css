@@ -47,7 +47,7 @@
     background: var(--slate-3);
 
     @media (prefers-reduced-motion: no-preference) {
-        transition-duration: var(--dur-short);
+        transition-duration: var(--dur-long);
         transition-property: grid;
         transition-timing-function: var(--ease-quart-in-out);
     }
@@ -323,8 +323,6 @@
         border-right: 1px solid var(--slate-5);
 
         height: var(--side-nav-height);
-        width: var(--side-nav-width);
-
         z-index: 1;
 
         overflow-x: hidden;
