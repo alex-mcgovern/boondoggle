@@ -257,7 +257,8 @@
                 grid-column: wide-content-left / wide-content-right;
                 gap: var(--space-2);
 
-                padding: var(--space-2);
+                padding-left: var(--space-2);
+                padding-right: var(--space-2);
             }
 
             &:has(.header-back-button) {
