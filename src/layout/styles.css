@@ -73,17 +73,17 @@
     grid-template-columns: var(--grid-side-nav) var(--grid-back-button) var(--grid-wide-content-left) var(--grid-focused) var(--grid-wide-content-right);
     grid-template-areas: "side-nav back-button wide-content-left focused wide-content-right";
 
+    @media (prefers-reduced-motion: no-preference) {
+        will-change: grid;
+        transition-duration: var(--dur-long);
+        transition-property: grid;
+        transition-timing-function: var(--ease-quart-in-out);
+    }
+
     .layout-body {
         display: grid;
         grid-column: side-nav / wide-content-right;
         grid-template-columns: subgrid;
-
-        @media (prefers-reduced-motion: no-preference) {
-            will-change: grid;
-            transition-duration: var(--dur-long);
-            transition-property: grid;
-            transition-timing-function: var(--ease-quart-in-out);
-        }
 
         /* gap: var(--space-2); */
 
