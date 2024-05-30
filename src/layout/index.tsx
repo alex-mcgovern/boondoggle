@@ -313,14 +313,18 @@ function Header({
     center,
     children,
     className,
+    title,
     ...rest
-}: HTMLProps<HTMLElement> & { backHref?: string; center?: boolean }) {
+}: HTMLProps<HTMLElement> & {
+    backHref?: string;
+    center?: boolean;
+    title?: string;
+}) {
     return (
         <header
             className={clsx(className, "layout-header", { center })}
             {...rest}
         >
-            {/* {backHref ? ( */}
             <div className="header-back-button">
                 <LinkButton
                     appearance="ghost"
@@ -331,8 +335,13 @@ function Header({
                     <Icon icon={faAngleLeft} />
                 </LinkButton>
             </div>
-            {/* ) : null} */}
-            <div className="layout-header-content">{children}</div>
+
+            <div className="layout-header-content">
+                {title ? (
+                    <h1 className="layout-header-title">{title}</h1>
+                ) : null}
+                {children}
+            </div>
         </header>
     );
 }

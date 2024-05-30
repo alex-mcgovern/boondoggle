@@ -147,7 +147,10 @@ export const WithTabs: Story = {
                     <SideNav />
                     <Layout.MainContentContainer>
                         <Tabs.Container>
-                            <Layout.Header backHref="/">
+                            <Layout.Header
+                                backHref="/"
+                                title="Upload a file"
+                            >
                                 <Tabs.List center>
                                     <Tabs.Item id="a">Lorem ipsum</Tabs.Item>
                                     <Tabs.Item id="b">Dolores sit</Tabs.Item>
@@ -322,8 +325,7 @@ export const WithTable: Story = {
                 <Layout.Body>
                     <SideNav />
                     <Layout.MainContentContainer>
-                        <Layout.Header>
-                            <h1>Table</h1>
+                        <Layout.Header title="Table view lorem ipsum">
                             <Button className="ml-auto">Action button</Button>
                         </Layout.Header>
                         <Layout.MainContent>
