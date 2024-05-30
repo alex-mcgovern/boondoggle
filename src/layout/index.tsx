@@ -320,17 +320,18 @@ function Header({
             className={clsx(className, "layout-header", { center })}
             {...rest}
         >
-            {backHref ? (
-                <div className="header-back-button">
-                    <LinkButton
-                        appearance="ghost"
-                        href={backHref}
-                        square
-                    >
-                        <Icon icon={faAngleLeft} />
-                    </LinkButton>
-                </div>
-            ) : null}
+            {/* {backHref ? ( */}
+            <div className="header-back-button">
+                <LinkButton
+                    appearance="ghost"
+                    href={backHref}
+                    isDisabled={!backHref}
+                    square
+                >
+                    <Icon icon={faAngleLeft} />
+                </LinkButton>
+            </div>
+            {/* ) : null} */}
             <div className="layout-header-content">{children}</div>
         </header>
     );
