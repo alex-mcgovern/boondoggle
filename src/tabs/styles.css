@@ -1,3 +1,10 @@
+.tabs-container {
+    display: grid;
+    grid-column: back-button / wide-content-right;
+    grid-template-columns: subgrid;
+    grid-template-rows: var(--layout-bar-height) var(--main-content-height);
+}
+
 .tab-list {
     --tab-height: var(--ui-height-sm);
     --tab-container-height: var(--space-10);
@@ -6,7 +13,7 @@
     --tab-outline-width: 2px;
     --tab-outline-color: transparent;
 
-    margin: var(--space-2) 0;
+    /* margin: var(--space-2) 0; */
     position: relative;
 
     height: var(--space-10);
@@ -27,11 +34,13 @@
     }
 
     &.center {
-        width: 100%;
-        max-width: var(--focused-width);
+        grid-column: focused;
 
-        margin-left: var(--focused-margin-left);
-        margin-right: var(--focused-margin-right);
+        width: 100%;
+        /* max-width: var(--focused-width); */
+
+        /* margin-left: var(--focused-margin-left); */
+        /* margin-right: var(--focused-margin-right); */
 
         display: grid;
         grid-auto-flow: column;

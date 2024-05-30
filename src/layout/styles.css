@@ -52,13 +52,27 @@
     );
 
     height: 100dvh;
-
     padding: 0 var(--layout-container-padding);
-
     background: var(--slate-3);
 
+    /* Grid layout */
+
+    --grid-side-nav: var(--side-nav-width);
+    --grid-back-button: var(--layout-bar-height);
+    --grid-wide-content-left: auto;
+    --grid-focused: var(--focused-width);
+    --grid-wide-content-right: auto;
+
+    display: grid;
+    /* prettier-ignore */
+    grid-template-columns: var(--grid-side-nav) var(--grid-back-button) var(--grid-wide-content-left) var(--grid-focused) var(--grid-wide-content-right);
+    grid-template-areas: "side-nav back-button wide-content-left focused wide-content-right";
+
     .layout-body {
-        display: flex;
+        display: grid;
+        grid-column: side-nav / wide-content-right;
+        grid-template-columns: subgrid;
+
         /* gap: var(--space-2); */
 
         border-radius: var(--radius-md);
@@ -71,9 +85,10 @@
 
     .layout-top-nav {
         display: grid;
-        grid-template-columns: 1fr var(--focused-width) 1fr;
+        grid-column: side-nav / wide-content-right;
+        grid-template-columns: subgrid;
         align-items: center;
-        gap: var(--space-2);
+        /* gap: var(--space-2); */
 
         /* margin-bottom: var(--space-1); */
 
@@ -88,10 +103,10 @@
         }
 
         .layout-top-nav-left {
-            justify-self: start;
+            grid-column: 1;
         }
         .layout-top-nav-center {
-            /* justify-self: center; */
+            grid-column: 4;
         }
         .layout-top-nav-right {
             justify-self: right;
@@ -127,9 +142,13 @@
         width: 100%;
         position: relative;
 
-        display: flex;
+        /* display: flex;
         flex-direction: column;
-        flex-shrink: 1;
+        flex-shrink: 1; */
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 2 / -1;
 
         background: var(--slate-1);
 
@@ -140,9 +159,13 @@
             overflow-y: auto;
             scrollbar-gutter: stable;
 
+            display: grid;
+            grid-column: back-button / wide-content-right;
+            grid-template-columns: subgrid;
+
             /* Parent is flex + column, it should grow to fill the space */
-            flex-grow: 1;
-            flex-shrink: 0;
+            /* flex-grow: 1;
+            flex-shrink: 0; */
 
             max-height: var(--main-content-height);
 
@@ -173,9 +196,9 @@
 
         .layout-header,
         .layout-footer {
-            display: flex;
+            /* display: flex;
             align-items: center;
-            gap: var(--space-2);
+            gap: var(--space-2); */
 
             height: var(--layout-bar-height);
             flex-shrink: 0;
@@ -187,24 +210,40 @@
         }
 
         .layout-header {
+            display: grid;
+            grid-column: back-button / wide-content-right;
+            grid-template-columns: subgrid;
+
             border-bottom: 1px solid var(--slate-5);
             top: 0;
 
             &.center {
                 justify-content: center;
             }
+
+            .header-back-button {
+                grid-column: back-button;
+
+                display: flex;
+                align-items: center;
+                justify-self: center;
+            }
         }
 
         .layout-footer {
-            margin-top: auto;
+            grid-column: back-button / wide-content-right;
+
+            /* margin-top: auto; */
             border-top: 1px solid var(--slate-5);
-            bottom: 0;
+            /* bottom: 0; */
         }
     }
 
     .layout-focused {
-        margin-left: max(var(--focused-margin-left), var(--space-2));
-        margin-right: var(--focused-margin-right);
+        /* margin-left: max(var(--focused-margin-left), var(--space-2));
+        margin-right: var(--focused-margin-right); */
+
+        grid-area: focused;
 
         padding-top: var(--layout-focused-padding-y);
         padding-bottom: var(--layout-focused-padding-y);

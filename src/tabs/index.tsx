@@ -117,6 +117,7 @@ function TabsContainer({ children, ...props }: AriaTabsProps) {
     return (
         <AriaTabs
             {...tabsProps}
+            className="tabs-container"
             onSelectionChange={(k) => {
                 setSelectedKey(k);
                 controlledOnSelectionChange?.(k);

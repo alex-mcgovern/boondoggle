@@ -11,6 +11,7 @@ import type {
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
+import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
 import clsx from "clsx";
 import { useCallback } from "react";
 import { forwardRef } from "react";
@@ -308,16 +309,28 @@ function TopNavRight({
  * Top bar HTML element.
  */
 function Header({
+    backHref,
     center,
     children,
     className,
     ...rest
-}: HTMLProps<HTMLElement> & { center?: boolean }) {
+}: HTMLProps<HTMLElement> & { backHref?: string; center?: boolean }) {
     return (
         <header
             className={clsx(className, "layout-header", { center })}
             {...rest}
         >
+            {backHref ? (
+                <div className="header-back-button">
+                    <LinkButton
+                        appearance="ghost"
+                        href={backHref}
+                        square
+                    >
+                        <Icon icon={faAngleLeft} />
+                    </LinkButton>
+                </div>
+            ) : null}
             {children}
         </header>
     );

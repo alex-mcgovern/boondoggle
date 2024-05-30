@@ -111,12 +111,7 @@ const meta = {
                     </Layout.SideBar>
                     <Layout.MainContentContainer>
                         <Tabs.Container>
-                            <Layout.Header>
-                                <Button appearance="secondary">
-                                    <Icon icon={faAngleLeft} />
-                                </Button>
-                                {/* <h1>Title goes here</h1> */}
-
+                            <Layout.Header backHref="/">
                                 <Tabs.List center>
                                     <Tabs.Item id="a">Lorem ipsum</Tabs.Item>
                                     <Tabs.Item id="b">Dolores sit</Tabs.Item>
