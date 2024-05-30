@@ -48,9 +48,7 @@ export const useSideNav = () => {
 
 function Container({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState<boolean>(
-        () =>
-            localStorage.getItem("sideNavOpen") === "true" ||
-            window.innerWidth > 992,
+        localStorage.getItem("sideNavOpen") === "true",
     );
 
     const toggleSideNav = useCallback(() => {
