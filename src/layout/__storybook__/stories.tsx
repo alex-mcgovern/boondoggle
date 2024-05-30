@@ -324,6 +324,7 @@ export const WithTable: Story = {
                     <Layout.MainContentContainer>
                         <Layout.Header backHref="/">
                             <h1>Table</h1>
+                            <Button className="ml-auto">Action button</Button>
                         </Layout.Header>
                         <Layout.MainContent>
                             <Table.Root aria-label="Files">

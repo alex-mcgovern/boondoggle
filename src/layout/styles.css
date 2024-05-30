@@ -58,10 +58,16 @@
     /* Grid layout */
 
     --grid-side-nav: var(--side-nav-width);
-    --grid-back-button: var(--layout-bar-height);
+    --grid-back-button: 0;
     --grid-wide-content-left: auto;
     --grid-focused: var(--focused-width);
     --grid-wide-content-right: auto;
+
+    /** Responsive properties for grid layout */
+
+    &:has(.header-back-button) {
+        --grid-back-button: var(--layout-bar-height);
+    }
 
     display: grid;
     /* prettier-ignore */
@@ -237,6 +243,20 @@
                 display: flex;
                 align-items: center;
                 justify-self: center;
+            }
+
+            .layout-header-content:has(.tab-list.center) {
+                display: grid;
+                grid-template-columns: subgrid;
+                grid-column: wide-content-left / wide-content-right;
+            }
+
+            .layout-header-content:not(:has(.tab-list.center)) {
+                display: flex;
+                align-items: center;
+                grid-column: wide-content-left / wide-content-right;
+
+                padding-right: var(--space-2);
             }
         }
 

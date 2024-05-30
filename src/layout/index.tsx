@@ -331,7 +331,7 @@ function Header({
                     </LinkButton>
                 </div>
             ) : null}
-            {children}
+            <div className="layout-header-content">{children}</div>
         </header>
     );
 }
