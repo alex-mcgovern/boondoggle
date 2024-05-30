@@ -47,6 +47,7 @@
     background: var(--slate-3);
 
     @media (prefers-reduced-motion: no-preference) {
+        will-change: grid;
         transition-duration: var(--dur-long);
         transition-property: grid;
         transition-timing-function: var(--ease-quart-in-out);
