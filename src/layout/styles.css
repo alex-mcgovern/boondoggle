@@ -137,6 +137,11 @@
         }
     }
 
+    &:not(:has(.tabs-container)) .main-content-container {
+        /* prettier-ignore */
+        grid-template-rows: var(--layout-bar-height) var(--main-content-height) var(--layout-bar-height);
+    }
+
     .main-content-container {
         height: var(--main-content-container-height);
         width: 100%;
@@ -149,6 +154,7 @@
         display: grid;
         grid-template-columns: subgrid;
         grid-column: 2 / -1;
+        /* prettier-ignore */
 
         background: var(--slate-1);
 
@@ -159,9 +165,12 @@
             overflow-y: auto;
             scrollbar-gutter: stable;
 
-            display: grid;
             grid-column: back-button / wide-content-right;
-            grid-template-columns: subgrid;
+
+            &:has(.layout-focused) {
+                display: grid;
+                grid-template-columns: subgrid;
+            }
 
             /* Parent is flex + column, it should grow to fill the space */
             /* flex-grow: 1;
@@ -213,6 +222,7 @@
             display: grid;
             grid-column: back-button / wide-content-right;
             grid-template-columns: subgrid;
+            align-items: center;
 
             border-bottom: 1px solid var(--slate-5);
             top: 0;
