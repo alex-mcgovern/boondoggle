@@ -435,7 +435,7 @@ export const Layout = {
     Link,
     MainContent,
     MainContentContainer,
-    OrgDisplay: OrgDisplay,
+    OrgDisplay,
     SideBar,
     SideNavFooter: SideNavFooter,
     SideNavHeader: SideNavHeader,
