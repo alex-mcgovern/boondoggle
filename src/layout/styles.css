@@ -329,12 +329,6 @@
 
         overflow-x: hidden;
 
-        @media (prefers-reduced-motion: no-preference) {
-            transition-duration: var(--dur-short);
-            transition-property: width;
-            transition-timing-function: var(--ease-quart-in-out);
-        }
-
         .side-nav-section {
             display: flex;
             flex-direction: column;
