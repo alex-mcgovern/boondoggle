@@ -31,16 +31,6 @@ export const CollapsibleSideNavContext = createContext<
     [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
-function Provider({ children }: { children: ReactNode }) {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
-
-    return (
-        <CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
-            {children}
-        </CollapsibleSideNavContext.Provider>
-    );
-}
-
 /**
  * Hook for consuming the CollapsibleSideNavContext.
  */
@@ -75,10 +65,17 @@ function ButtonToggleCollapsibleNav() {
 }
 
 function Container({ children }: { children: ReactNode }) {
+    const [isOpen, setIsOpen] = useState<boolean>(true);
+
     return (
-        <Provider>
-            <div className="layout-container">{children}</div>
-        </Provider>
+        <CollapsibleSideNavContext.Provider value={[isOpen, setIsOpen]}>
+            <div
+                className="layout-container"
+                data-is-side-nav-open={isOpen}
+            >
+                {children}
+            </div>
+        </CollapsibleSideNavContext.Provider>
     );
 }
 
@@ -414,7 +411,6 @@ export const Layout = {
     Link,
     MainContent,
     MainContentContainer,
-    Provider,
     SideBar,
     SideNavFooter: SideNavFooter,
     SideNavHeader: SideNavHeader,

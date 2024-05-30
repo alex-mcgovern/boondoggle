@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { faker } from "@faker-js/faker";
+import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
 import { faPerson } from "@fortawesome/pro-solid-svg-icons/faPerson";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
@@ -13,6 +14,8 @@ import { Input } from "../../input";
 import { Menu } from "../../menu";
 import { Popover } from "../../popover";
 import { SearchField } from "../../search-field";
+import { Table } from "../../table";
+import { Tabs } from "../../tabs";
 
 const meta = {
     args: {
@@ -26,7 +29,7 @@ const meta = {
                         </div>
                     </Layout.TopNavLeft>
                     <Layout.TopNavCenter>
-                        <SearchField>
+                        <SearchField className="w-100">
                             <Input />
                         </SearchField>
                     </Layout.TopNavCenter>
@@ -104,13 +107,163 @@ const meta = {
                         </Layout.SideNavSection>
                     </Layout.SideBar>
                     <Layout.MainContentContainer>
-                        <Layout.Header>
-                            <h1>Title goes here</h1>
-                            <Button className="ml-auto">Action</Button>
-                        </Layout.Header>
-                        <Layout.Focused>
-                            {faker.lorem.paragraphs(10)}
-                        </Layout.Focused>
+                        <Tabs.Container>
+                            <Layout.Header>
+                                <Button appearance="secondary">
+                                    <Icon icon={faAngleLeft} />
+                                </Button>
+                                {/* <h1>Title goes here</h1> */}
+
+                                <Tabs.List center>
+                                    <Tabs.Item id="a">Lorem ipsum</Tabs.Item>
+                                    <Tabs.Item id="b">Dolores sit</Tabs.Item>
+                                    <Tabs.Item id="c">Consectetur</Tabs.Item>
+                                </Tabs.List>
+                            </Layout.Header>
+                            <Layout.MainContent>
+                                <Layout.Focused>
+                                    <Tabs.Content id="a">
+                                        <Table.Root
+                                            aria-label="Files"
+                                            compact
+                                        >
+                                            <Table.Header>
+                                                <Table.Column
+                                                    allowsSorting
+                                                    isRowHeader
+                                                    width="2fr"
+                                                >
+                                                    User
+                                                </Table.Column>
+
+                                                <Table.Column width="1fr">
+                                                    Job type
+                                                </Table.Column>
+                                                <Table.Column width="1fr">
+                                                    Job area
+                                                </Table.Column>
+                                            </Table.Header>
+
+                                            <Table.Body>
+                                                {Array.from({ length: 5 }).map(
+                                                    (_, index) => {
+                                                        return (
+                                                            <Table.Row
+                                                                key={index}
+                                                            >
+                                                                <Table.Cell>
+                                                                    {faker.person.fullName()}
+                                                                </Table.Cell>
+
+                                                                <Table.Cell>
+                                                                    {faker.person.jobType()}
+                                                                </Table.Cell>
+                                                                <Table.Cell>
+                                                                    {faker.person.jobArea()}
+                                                                </Table.Cell>
+                                                            </Table.Row>
+                                                        );
+                                                    },
+                                                )}
+                                            </Table.Body>
+                                        </Table.Root>
+                                    </Tabs.Content>
+                                    <Tabs.Content id="b">
+                                        <Table.Root
+                                            aria-label="Files"
+                                            compact
+                                        >
+                                            <Table.Header>
+                                                <Table.Column
+                                                    allowsSorting
+                                                    isRowHeader
+                                                    width="2fr"
+                                                >
+                                                    User
+                                                </Table.Column>
+
+                                                <Table.Column width="1fr">
+                                                    Job type
+                                                </Table.Column>
+                                                <Table.Column width="1fr">
+                                                    Job area
+                                                </Table.Column>
+                                            </Table.Header>
+
+                                            <Table.Body>
+                                                {Array.from({ length: 5 }).map(
+                                                    (_, index) => {
+                                                        return (
+                                                            <Table.Row
+                                                                key={index}
+                                                            >
+                                                                <Table.Cell>
+                                                                    {faker.person.fullName()}
+                                                                </Table.Cell>
+
+                                                                <Table.Cell>
+                                                                    {faker.person.jobType()}
+                                                                </Table.Cell>
+                                                                <Table.Cell>
+                                                                    {faker.person.jobArea()}
+                                                                </Table.Cell>
+                                                            </Table.Row>
+                                                        );
+                                                    },
+                                                )}
+                                            </Table.Body>
+                                        </Table.Root>
+                                    </Tabs.Content>
+                                    <Tabs.Content id="c">
+                                        <Table.Root
+                                            aria-label="Files"
+                                            compact
+                                        >
+                                            <Table.Header>
+                                                <Table.Column
+                                                    allowsSorting
+                                                    isRowHeader
+                                                    width="2fr"
+                                                >
+                                                    User
+                                                </Table.Column>
+
+                                                <Table.Column width="1fr">
+                                                    Job type
+                                                </Table.Column>
+                                                <Table.Column width="1fr">
+                                                    Job area
+                                                </Table.Column>
+                                            </Table.Header>
+
+                                            <Table.Body>
+                                                {Array.from({ length: 5 }).map(
+                                                    (_, index) => {
+                                                        return (
+                                                            <Table.Row
+                                                                key={index}
+                                                            >
+                                                                <Table.Cell>
+                                                                    {faker.person.fullName()}
+                                                                </Table.Cell>
+
+                                                                <Table.Cell>
+                                                                    {faker.person.jobType()}
+                                                                </Table.Cell>
+                                                                <Table.Cell>
+                                                                    {faker.person.jobArea()}
+                                                                </Table.Cell>
+                                                            </Table.Row>
+                                                        );
+                                                    },
+                                                )}
+                                            </Table.Body>
+                                        </Table.Root>
+                                    </Tabs.Content>
+                                </Layout.Focused>
+                            </Layout.MainContent>
+                        </Tabs.Container>
+
                         <Layout.Footer>
                             <Button
                                 appearance="secondary"
