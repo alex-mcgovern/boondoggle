@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { faker } from "@faker-js/faker";
-import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
 import { faPerson } from "@fortawesome/pro-solid-svg-icons/faPerson";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
