@@ -52,7 +52,7 @@ export function CollapsibleTrigger(
  * ## Usage
  *
  * ```ts
- * import { Collapsible, type CollapsibleProps } from "boondoggle/collapsible"
+ * import { Collapsible } from "boondoggle";
  * ```
  */
 export function Collapsible({

@@ -58,7 +58,7 @@ if (import.meta.vitest) {
  * ## Usage
  *
  * ```ts
- * import { Avatar, type AvatarProps } from "boondoggle/avatar"
+ * import { Avatar } from "boondoggle";
  * ```
  */
 export function Avatar({

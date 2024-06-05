@@ -64,7 +64,7 @@ export function TooltipTrigger({
  * ## Usage
  *
  * ```ts
- * import { Tooltip, TooltipTriggerButton, TooltipTrigger, type TooltipProps } from "boondoggle/tooltip"
+ * import { Tooltip, TooltipTriggerButton, TooltipTrigger } from "boondoggle";
  * ```
  */
 export function Tooltip(props: AriaTooltipProps) {

@@ -38,7 +38,7 @@ export function DatePickerButton() {
  * ## Usage
  *
  * ```ts
- * import { DatePicker, DatePickerButton type DatePickerProps } from "boondoggle/date-picker"
+ * import { DatePicker, DatePickerButton } from "boondoggle";
  * ```
  */
 export const DatePicker = forwardRef<

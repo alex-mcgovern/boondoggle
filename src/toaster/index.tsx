@@ -28,7 +28,7 @@ export const toast = sonnerToast;
  * Render the toaster in the root of your app.
  *
  * ```tsx
- * import { Toaster, type ToasterProps } from "boondoggle/Toaster"
+ * import { Toaster } from "boondoggle";
  *
  * function App() {
  *     return (

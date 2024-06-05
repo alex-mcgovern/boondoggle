@@ -19,7 +19,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { FieldButton, type FieldButtonProps } from "boondoggle/field-button"
+ * import { FieldButton } from "boondoggle";
  * ```
  */
 export function FieldButton({ ...props }: AriaButtonProps) {

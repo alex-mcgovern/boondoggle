@@ -21,7 +21,20 @@ const debugFormErrors = (errors: FieldErrors) => {
     }
 };
 
-export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
+/**
+ * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
+ */
+export function Form<TFieldValues extends FieldValues>({
+    children,
+    className,
+    defaultValues,
+    handleErrors = debugFormErrors,
+    handleSubmit,
+    isDisabled,
+    resolver,
+    shouldResetOnSubmit = false,
+    watchCallback,
+}: {
     /**
      * Form field components & form submit button. They will be able to access `react-hook-form`'s form context.
      */
@@ -71,22 +84,7 @@ export type FormProps<TFieldValues extends FieldValues = FieldValues> = {
      * Function that will be called when a field value changes.
      */
     watchCallback?: WatchObserver<TFieldValues>;
-};
-
-/**
- * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
- */
-export function Form<TFieldValues extends FieldValues>({
-    children,
-    className,
-    defaultValues,
-    handleErrors = debugFormErrors,
-    handleSubmit,
-    isDisabled,
-    resolver,
-    shouldResetOnSubmit = false,
-    watchCallback,
-}: FormProps<TFieldValues>) {
+}) {
     const formMethods = useForm<TFieldValues>({
         defaultValues,
         disabled: isDisabled,

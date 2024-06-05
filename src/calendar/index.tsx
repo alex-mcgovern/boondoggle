@@ -32,7 +32,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Calendar, type CalendarProps } from "boondoggle/calendar"
+ * import { Calendar } from "boondoggle";
  * ```
  */
 export function Calendar<TDateValue extends AriaDateValue>(

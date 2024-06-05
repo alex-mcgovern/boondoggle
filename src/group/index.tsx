@@ -17,7 +17,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Group, type GroupProps } from "boondoggle/group"
+ * import { Group } from "boondoggle";
  * ```
  */
 export function Group(props: AriaGroupProps) {

@@ -62,7 +62,7 @@ export const ComboBoxInput = forwardRef<
  * ## Usage
  *
  * ```tsx
- * import { ComboBox, ComboBoxButton } from "boondoggle/combobox";
+ * import { ComboBox, ComboBoxButton } from "boondoggle";
  * ```
  */
 export const ComboBox = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(

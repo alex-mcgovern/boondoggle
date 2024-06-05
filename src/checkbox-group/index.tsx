@@ -17,7 +17,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { CheckboxGroup, type CheckboxGroupProps } from "boondoggle/checkbox-group"
+ * import { CheckboxGroup } from "boondoggle";
  * ```
  */
 export function CheckboxGroup({ className, ...props }: AriaCheckboxGroupProps) {

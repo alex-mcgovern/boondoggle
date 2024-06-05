@@ -44,7 +44,7 @@ export function SearchFieldIcon() {
  * ## Usage
  *
  * ```ts
- * import { SearchField, type SearchFieldProps } from "boondoggle/search-field"
+ * import { SearchField } from "boondoggle";
  * ```
  */
 export function SearchField(props: AriaSearchFieldProps) {

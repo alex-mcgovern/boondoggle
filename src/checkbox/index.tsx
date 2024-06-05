@@ -17,7 +17,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Checkbox, type CheckboxProps } from "boondoggle/checkbox"
+ * import { Checkbox } from "boondoggle";
  * ```
  */
 export function Checkbox(props: AriaCheckboxProps) {

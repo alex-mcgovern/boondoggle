@@ -17,7 +17,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { FieldError, type FieldErrorProps } from "boondoggle/field-error"
+ * import { FieldError } from "boondoggle";
  * ```
  */
 export function FieldError(props: AriaFieldErrorProps) {

@@ -17,7 +17,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Link, type LinkProps } from "boondoggle/link"
+ * import { Link } from "boondoggle";
  * ```
  */
 export function TextLink(props: AriaLinkProps) {

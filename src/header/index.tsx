@@ -16,7 +16,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { PageHeader, type PageHeaderProps } from "boondoggle/pageheader"
+ * import { PageHeader } from "boondoggle";
  * ```
  */
 export function PageHeader({

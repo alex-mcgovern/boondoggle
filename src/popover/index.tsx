@@ -43,7 +43,7 @@ export function PopoverOverlayArrow({ ...props }: AriaOverlayArrowProps) {
  * ## Usage
  *
  * ```ts
- * import { Popover, type PopoverProps } from "boondoggle/popover"
+ * import { Popover } from "boondoggle";
  * ```
  */
 export function Popover({ ...props }: AriaPopoverProps) {

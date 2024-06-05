@@ -13,7 +13,7 @@ import { DialogTrigger as AriaDialogTrigger } from "react-aria-components";
  * ## Usage
  *
  * ```ts
- * import { DialogTrigger, type DialogTriggerProps } from "boondoggle/dialog-trigger"
+ * import { DialogTrigger } from "boondoggle";
  * ```
  */
 export function DialogTrigger(props: AriaDialogTriggerProps) {

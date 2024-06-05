@@ -25,7 +25,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Button } from "boondoggle"
+ * import { Button } from "boondoggle";
  * ```
  */
 export const Button = forwardRef<

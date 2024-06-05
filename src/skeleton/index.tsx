@@ -14,7 +14,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { Skeleton, type SkeletonProps } from "boondoggle/skeleton"
+ * import { Skeleton } from "boondoggle";
  * ```
  */
 export function Skeleton({

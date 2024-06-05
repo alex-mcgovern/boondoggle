@@ -69,7 +69,7 @@ export function SelectButton<TItemId extends string = string>({
  * ## Usage
  *
  * ```ts
- * import { Select, type SelectProps } from "boondoggle/select"
+ * import { Select } from "boondoggle";
  * ```
  */
 export const Select = forwardRef<

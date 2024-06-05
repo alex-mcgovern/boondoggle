@@ -4,7 +4,25 @@ import clsx from "clsx";
 
 import "./styles.css";
 
-export type GridProps = {
+/**
+ * A <Grid> lays out fields in a grid.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Grid } from "boondoggle";
+ * ```
+ */
+export function Grid({
+    children,
+    ...props
+}: {
     /**
      * The children of the Grid.
      */
@@ -21,24 +39,7 @@ export type GridProps = {
      * The gap between grid items in 0.25rem increments.
      */
     gap?: 1 | 2 | 3 | 4;
-};
-
-/**
- * A <Grid> lays out fields in a grid.
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { Grid, type GridProps } from "boondoggle/grid"
- * ```
- */
-export function Grid({ children, ...props }: GridProps) {
+}) {
     return (
         <div
             {...props}

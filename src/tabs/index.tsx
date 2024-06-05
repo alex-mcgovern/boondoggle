@@ -101,7 +101,7 @@ function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
  * ## Usage
  *
  * ```ts
- * import { Tabs, type TabsProps } from "boondoggle/tabs"
+ * import { Tabs } from "boondoggle";
  * ```
  */
 function TabsContainer({ children, ...props }: AriaTabsProps) {

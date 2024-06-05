@@ -21,7 +21,7 @@ import { RouterProvider as AriaRouterProvider } from "react-aria-components";
  * ## Usage
  *
  * ```ts
- * import { RouterProvider } from "boondoggle/router-provider"
+ * import { RouterProvider } from "boondoggle";
  * ```
  */
 export function RouterProvider({

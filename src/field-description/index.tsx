@@ -17,7 +17,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { FieldDescription, type FieldDescriptionProps } from "boondoggle/field-description"
+ * import { FieldDescription } from "boondoggle";
  * ```
  */
 export function FieldDescription(props: AriaTextProps) {

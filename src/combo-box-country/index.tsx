@@ -69,8 +69,7 @@ const COUNTRIES: Array<IterableListBoxItem<TCountryCode>> = Object.entries(
  * ## Usage
  *
  * ```ts
- * import { ComboBoxCountry, ComboBoxButton, type ComboBoxCountryProps } from "boondoggle/combobox-country"
- * import { ComboBoxButton } from "boondoggle/combobox"
+ * import { ComboBoxCountry, ComboBoxButton } from "boondoggle";
  * ```
  */
 export const ComboBoxCountry = forwardRef<

@@ -34,7 +34,7 @@ export function SwitchIndicator() {
  * ## Usage
  *
  * ```ts
- * import { Switch, type SwitchProps } from "boondoggle/switch"
+ * import { Switch } from "boondoggle";
  * ```
  */
 export function Switch({ ...props }: AriaSwitchProps) {

@@ -21,7 +21,7 @@ import "./styles.css";
  * ## Usage
  *
  * ```ts
- * import { DateInput, type DateInputProps } from "boondoggle/date-input"
+ * import { DateInput } from "boondoggle";
  * ```
  */
 export function DateInput({

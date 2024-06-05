@@ -50,7 +50,7 @@ export function NumberFieldDecrementButton() {
  * ## Usage
  *
  * ```ts
- * import { NumberField, type NumberFieldProps } from "boondoggle/number-field"
+ * import { NumberField } from "boondoggle";
  * ```
  */
 export const NumberField = forwardRef<HTMLInputElement, AriaNumberFieldProps>(
