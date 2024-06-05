@@ -1,7 +1,0 @@
-import{j as o}from"./jsx-runtime-_e34SzbC.js";import{useMDXComponents as p}from"./index-BB7QKzG5.js";import{M as n,T as s,D as e,C as a,A as x}from"./index-DdnUljFf.js";import{C as i}from"./index-Eq1sKImk.js";import{s as c,D as f}from"./stories-D3peBA3i.js";import"./index-DVXBtNgz.js";import"./iframe-DIEELHIN.js";import"../sb-preview/runtime.js";import"./chunk-ZHZY55TS-CJLUcfRJ.js";import"./index-BAqkEV4U.js";import"./index-7BBFQWZf.js";import"./index-CHFuvV5_.js";import"./index-DrFu-skq.js";import"./clsx-B-dksMZM.js";import"./RSPContexts-D2_oAKli.js";import"./utils-DJbZa_IK.js";import"./FieldError-DztlAQZG.js";import"./Text-Dje1MlzB.js";import"./Form-BnTBccM9.js";import"./Label-Dze1OFf_.js";import"./focusSafely-BjFYYYEp.js";import"./platform-Dv8lzYqa.js";import"./useField-necAhpoZ.js";import"./useLabels-BxyvzJhL.js";import"./useControlledState-DO5k2rCg.js";import"./useToggleState-CXjXYSlD.js";import"./useFormReset-YLDGm2ha.js";import"./useFocusable-RfJY7Cc8.js";import"./useFocusRing-ONODwrZO.js";import"./openLink-D2-6eagY.js";import"./VisuallyHidden-GhPn1rIA.js";function m(t){const r={h2:"h2",...p(),...t.components};return o.jsxs(o.Fragment,{children:[o.jsx(n,{of:c}),`
-`,o.jsx(s,{of:i}),`
-`,o.jsx(e,{of:i}),`
-`,o.jsx(r.h2,{id:"example",children:"Example"}),`
-`,o.jsx(a,{sourceState:"shown",of:f}),`
-`,o.jsx(r.h2,{id:"props",children:"Props"}),`
-`,o.jsx(x,{of:i})]})}function K(t={}){const{wrapper:r}={...p(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(m,{...t})}):m(t)}export{K as default};
