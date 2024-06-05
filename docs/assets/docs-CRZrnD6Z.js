@@ -1,0 +1,7 @@
+import{j as o}from"./jsx-runtime-_e34SzbC.js";import{useMDXComponents as s}from"./index-BB7QKzG5.js";import{M as n,T as e,D as a,C as x,A as c}from"./index-CZkcHL_A.js";import{T as i}from"./index-Dq8ALLrF.js";import{s as m,D as f}from"./stories-BL4bU9UX.js";import"./index-DVXBtNgz.js";import"./iframe-6eE603z8.js";import"../sb-preview/runtime.js";import"./chunk-ZHZY55TS-CJLUcfRJ.js";import"./index-BAqkEV4U.js";import"./index-7BBFQWZf.js";import"./index-CHFuvV5_.js";import"./index-DrFu-skq.js";import"./clsx-B-dksMZM.js";import"./SelectionManager-Dj9bgdC4.js";import"./FocusScope-BWCvgq0Q.js";import"./focusSafely-BjFYYYEp.js";import"./utils-DJbZa_IK.js";import"./platform-Dv8lzYqa.js";import"./openLink-D2-6eagY.js";import"./useEvent-BPWJQnkZ.js";import"./scrollIntoView-u9iNRODo.js";import"./isScrollable-Bts8_1NI.js";import"./context-bfltU5m3.js";import"./useFocusRing-ONODwrZO.js";import"./useDescription-DbzbvyyX.js";import"./useControlledState-DO5k2rCg.js";import"./useSingleSelectListState-45AZsIyE.js";import"./useListState-CQ_Y-Rhm.js";import"./useLabels-BxyvzJhL.js";import"./useHasTabbableChild-hNEmOqtT.js";function p(t){const r={h3:"h3",...s(),...t.components};return o.jsxs(o.Fragment,{children:[o.jsx(n,{of:m}),`
+`,o.jsx(e,{of:m}),`
+`,o.jsx(a,{of:i}),`
+`,o.jsx(r.h3,{id:"example",children:"Example"}),`
+`,o.jsx(x,{sourceState:"shown",of:f}),`
+`,o.jsx(r.h3,{id:"props",children:"Props"}),`
+`,o.jsx(c,{of:i})]})}function K(t={}){const{wrapper:r}={...s(),...t.components};return r?o.jsx(r,{...t,children:o.jsx(p,{...t})}):p(t)}export{K as default};

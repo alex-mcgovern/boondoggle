@@ -1,0 +1,1 @@
+import{F as t}from"./ie-DAfQ97_7.js";import"./jsx-runtime-_e34SzbC.js";import"./index-DVXBtNgz.js";import"./clsx-B-dksMZM.js";/* empty css               */const p={args:{},component:t,title:"Components/IconFlag"},n={args:{}};export{n as Default,p as default};
