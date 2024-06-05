@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { faker } from "@faker-js/faker";
+import { faCircleA } from "@fortawesome/pro-solid-svg-icons/faCircleA";
 import { faGear } from "@fortawesome/pro-solid-svg-icons/faGear";
 import { faPerson } from "@fortawesome/pro-solid-svg-icons/faPerson";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
-import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 import { faUser } from "@fortawesome/pro-solid-svg-icons/faUser";
 import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
 
@@ -25,8 +25,11 @@ function TopNav() {
         <Layout.TopNav>
             <Layout.TopNavLeft>
                 <div className="flex gap-2 align-center">
-                    <Icon icon={faShapes} />
-                    Logo
+                    <Icon
+                        icon={faCircleA}
+                        size="xl"
+                    />
+                    <div className="nowrap font-medium">Acme Inc.</div>
                 </div>
             </Layout.TopNavLeft>
             <Layout.TopNavCenter>

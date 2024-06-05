@@ -61,7 +61,10 @@ export const Size: Story = {
         ];
 
         return (
-            <Grid columns={4}>
+            <Grid
+                align="center"
+                columns={3}
+            >
                 {sizes.map((size) => {
                     return (
                         <Button
@@ -69,11 +72,40 @@ export const Size: Story = {
                             key={size}
                             size={size}
                         >
-                            {size?.startsWith("square") ? (
-                                <Icon icon={faShapes} />
-                            ) : (
-                                `Size ${size?.toLocaleLowerCase()}`
-                            )}
+                            {`Size ${size?.toLocaleLowerCase()}`}
+                        </Button>
+                    );
+                })}
+            </Grid>
+        );
+    },
+};
+
+export const SizeSquare: Story = {
+    args: {
+        appearance: "primary",
+    },
+    render: (props) => {
+        const sizes: ComponentProps<typeof Button>["size"][] = [
+            "sm",
+            "md",
+            "lg",
+        ];
+
+        return (
+            <Grid
+                align="center"
+                columns={3}
+            >
+                {sizes.map((size) => {
+                    return (
+                        <Button
+                            {...props}
+                            key={size}
+                            size={size}
+                            square
+                        >
+                            {<Icon icon={faShapes} />}
                         </Button>
                     );
                 })}

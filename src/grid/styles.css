@@ -3,6 +3,18 @@
     grid-template-columns: 1fr;
     grid-gap: var(--space-4);
 
+    &.align-start {
+        align-items: start;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.align-end {
+        align-items: end;
+    }
+
     &.gap-1 {
         grid-gap: var(--space-1);
     }

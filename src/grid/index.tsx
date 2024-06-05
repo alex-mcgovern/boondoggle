@@ -20,9 +20,16 @@ import "./styles.css";
  * ```
  */
 export function Grid({
+    align = "start",
     children,
+    columns = 1,
+    gap = 2,
     ...props
 }: {
+    /**
+     * Alignment of the Grid items.
+     */
+    align?: "center" | "end" | "start";
     /**
      * The children of the Grid.
      */
@@ -46,8 +53,9 @@ export function Grid({
             className={clsx(
                 props.className,
                 "grid",
-                `x${props.columns}`,
-                `gap-${props.gap}`,
+                `x${columns}`,
+                `gap-${gap}`,
+                `align-${align}`,
             )}
         >
             {children}

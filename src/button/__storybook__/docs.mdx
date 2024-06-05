@@ -11,7 +11,6 @@ import {
 
 import { Button } from "..";
 import * as stories from "./stories.tsx";
-import { css } from "../../css/index.css.ts";
 
 <Meta of={stories} />
 <Title of={stories} />
@@ -31,7 +30,7 @@ import { css } from "../../css/index.css.ts";
 In addition to the props provided by the
 [React Aria Button component](https://react-spectrum.adobe.com/react-aria/Button.html#props),
 there are some additional props for customizing the appearance of the button,
-`appearance`, `size`, `colorOverlay` and `alignment`.
+`appearance`, `size`, `color` and `alignment`.
 
 ### Appearance
 
@@ -51,43 +50,33 @@ UI libraries, and supports the following options:
 
 ### Color
 
-Button can be customized with the globally available `colorOverlay`, this is
-intended to be used to convey semantic meaning.
+Button can be customized with the globally available `color`, this is intended
+to be used to convey semantic meaning.
 
-<Canvas of={stories.Color} />
-<Controls
-    of={stories.Color}
-    include={["colorOverlay"]}
-/>
+<Canvas of={stories.Red} />
+
+<Canvas of={stories.Green} />
 
 ### Size
 
 The `size` prop can be used to adjust the size of the button, and supports the
 following options:
 
--   `xs`
 -   `sm` **(default)**
 -   `md`
 -   `lg`
--   `square_xs`
--   `square_sm`
--   `square_md`
--   `square_lg`
 
 <Canvas
     sourceState="none"
     of={stories.Size}
 />
 
-### Playground
+### Square
 
-<Canvas of={stories.Default} />
+The in addition to the `size` prop provided, you can set `square` to true for an
+icon button.
 
-<Controls
-    of={stories.Default}
-    include={["appearance", "size", "colorOverlay", "alignment"]}
+<Canvas
+    sourceState="none"
+    of={stories.SizeSquare}
 />
-
-## Props
-
-<ArgTypes of={Button} />

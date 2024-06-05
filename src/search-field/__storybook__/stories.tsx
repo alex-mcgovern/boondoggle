@@ -13,8 +13,10 @@ const meta = {
             <SearchField {...args}>
                 <Label>Label</Label>
                 <Group>
-                    <SearchFieldIcon />
-                    <Input unstyled />
+                    <Input
+                        icon={<SearchFieldIcon />}
+                        unstyled
+                    />
                     <SearchFieldClearButton />
                 </Group>
             </SearchField>
