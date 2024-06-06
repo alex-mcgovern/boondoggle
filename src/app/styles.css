@@ -20,12 +20,14 @@ These are called "bars"
     --app-nav-height: calc(var(--app-height) - (var(--app-padding) * 2));
     --app-nav-padding-x: 0px;
 
-    --app-nav-width-open: 10rem;
+    --app-nav-width-open: 8rem;
     --app-nav-width-closed: var(--space-8);
     --app-nav-width: var(--app-nav-width-open);
 
     /* Vars for "main" container */
     --app-main-height: calc(var(--app-height) - (var(--app-padding) * 2));
+    /* prettier-ignore */
+    --app-main-width: calc(var(--app-width) - (var(--app-padding) * 3) - var(--app-nav-width));
     --app-main-content-height: var(--app-main-height);
     --app-main-padding-x: var(--space-4);
 
@@ -65,7 +67,7 @@ These are called "bars"
     }
 
     display: grid;
-    grid-template-columns: var(--app-nav-width) 1fr;
+    grid-template-columns: var(--app-nav-width) var(--app-main-width);
     gap: var(--app-padding);
 
     padding: var(--app-padding);
