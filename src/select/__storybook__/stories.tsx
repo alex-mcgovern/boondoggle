@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select, SelectButton } from "..";
 
-
 const meta = {
     args: {
         items: [
@@ -11,17 +10,14 @@ const meta = {
                     {
                         id: "france",
                         name: "France",
-
                     },
                     {
                         id: "germany",
                         name: "Germany",
-
                     },
                     {
                         id: "spain",
                         name: "Spain",
-
                     },
                 ],
                 id: "europe",
@@ -32,17 +28,14 @@ const meta = {
                     {
                         id: "uae",
                         name: "United Arab Emirates",
-
                     },
                     {
                         id: "saudi_arabia",
                         name: "Saudi Arabia",
-
                     },
                     {
                         id: "oman",
                         name: "Oman",
-
                     },
                 ],
                 id: "mena",
