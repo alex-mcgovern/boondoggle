@@ -56,7 +56,7 @@ These are called "bars"
     }
 
     &:has(.app-drawer:not(:empty)) {
-        --app-drawer-width: 30rem;
+        --app-drawer-width: 16rem;
     }
 
     @media (min-width: 992px) {
@@ -160,7 +160,7 @@ These are called "bars"
 
             &:not(:empty) {
                 border-color: var(--slate-5);
-                background: var(--slate-3);
+                background: var(--slate-2);
                 padding: var(--space-3) var(--app-main-padding-x);
             }
         }

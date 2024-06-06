@@ -11,6 +11,7 @@ import type {
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import { useCallback } from "react";
 import { forwardRef } from "react";
@@ -307,6 +308,26 @@ const AppDrawer = forwardRef<HTMLElement, { children: ReactNode }>(
     },
 );
 
+function AppDrawerCloseButton() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setDrawer] = useDrawer();
+
+    return (
+        <Button
+            appearance="ghost"
+            aria-label="Close"
+            className="ml-auto"
+            name="close"
+            onPress={() => setDrawer(null)}
+            size="sm"
+            square
+            type="button"
+        >
+            <Icon icon={faTimes} />
+        </Button>
+    );
+}
+
 function Focused({ children }: { children: ReactNode }) {
     return <div className="app-main-focused">{children}</div>;
 }
@@ -366,6 +387,7 @@ function SideNavSection({
 }
 
 export const App = {
+    AppDrawer: { CloseButton: AppDrawerCloseButton },
     Button: NavButton,
     Container,
     Focused,
