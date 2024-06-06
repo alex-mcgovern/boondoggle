@@ -15,17 +15,20 @@ export function Pill({
     color,
     icon,
     id,
+    style,
 }: {
     children?: ReactNode;
     className?: string;
     color?: Color;
     icon?: ReactNode;
     id?: string;
+    style?: React.CSSProperties;
 }) {
     return (
         <div
             className={clsx(className, "pill", color)}
             id={id}
+            style={style}
         >
             {icon ? <div className="pill-icon-container">{icon}</div> : null}
             {children}
