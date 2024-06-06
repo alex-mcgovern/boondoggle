@@ -8,7 +8,6 @@ import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
 
 import { App } from "..";
 import { Button } from "../../button";
-import { Drawer } from "../../drawer";
 import { Icon } from "../../icon";
 import { Menu } from "../../menu";
 import { Popover } from "../../popover";
@@ -16,6 +15,7 @@ import { Table } from "../../table";
 import { Tabs } from "../../tabs";
 
 function ButtonSetDrawer() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, setDrawerContent] = App.useDrawer();
 
     return (
