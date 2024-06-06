@@ -24,16 +24,10 @@ import { Skeleton } from "../skeleton";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import "./styles.css";
 
-/**
- * React context provider that allows toggling the open state of a collapsible UI element from anywhere in the app.
- */
 export const CollapsibleSideNavContext = createContext<
     [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
-/**
- * Hook for consuming the CollapsibleSideNavContext.
- */
 export const useSideNav = () => {
     const context = useContext(CollapsibleSideNavContext);
 
@@ -41,6 +35,20 @@ export const useSideNav = () => {
         throw new Error(
             "CollapsibleSideNavContext must be used within a Provider",
         );
+    }
+
+    return context;
+};
+
+const DrawerContext = createContext<
+    [ReactNode, Dispatch<SetStateAction<ReactNode | null>>]
+>([null, () => {}]);
+
+const useDrawer = () => {
+    const context = useContext(DrawerContext);
+
+    if (context == null) {
+        throw new Error("DrawerContext must be used within a Provider");
     }
 
     return context;
@@ -58,14 +66,18 @@ function Container({ children }: { children: ReactNode }) {
         });
     }, []);
 
+    const [drawerContent, setDrawerContent] = useState<ReactNode | null>(null);
+
     return (
         <CollapsibleSideNavContext.Provider value={[isOpen, toggleSideNav]}>
-            <div
-                className="layout-container"
-                data-nav-open={isOpen}
-            >
-                {children}
-            </div>
+            <DrawerContext.Provider value={[drawerContent, setDrawerContent]}>
+                <div
+                    className="layout-container"
+                    data-nav-open={isOpen}
+                >
+                    {children}
+                </div>
+            </DrawerContext.Provider>
         </CollapsibleSideNavContext.Provider>
     );
 }
@@ -256,13 +268,18 @@ function AppMainHeader(props: HTMLProps<HTMLElement>) {
 
 const AppMainContent = forwardRef<HTMLElement, { children: ReactNode }>(
     ({ children }, ref) => {
+        const [drawerContent] = useDrawer();
+
         return (
-            <section
-                className="app-main-content"
-                ref={ref}
-            >
-                {children}
-            </section>
+            <div className="app-main-content-container">
+                <section
+                    className="app-main-content"
+                    ref={ref}
+                >
+                    {children}
+                </section>
+                <AppDrawer>{drawerContent}</AppDrawer>
+            </div>
         );
     },
 );
@@ -275,6 +292,20 @@ function AppMainFooter(props: HTMLProps<HTMLElement>) {
         />
     );
 }
+
+const AppDrawer = forwardRef<HTMLElement, { children: ReactNode }>(
+    ({ children }, ref) => {
+        return (
+            <aside
+                className="app-drawer"
+                id="app-drawer"
+                ref={ref}
+            >
+                {children}
+            </aside>
+        );
+    },
+);
 
 function Focused({ children }: { children: ReactNode }) {
     return <div className="app-main-focused">{children}</div>;
@@ -350,6 +381,7 @@ export const App = {
     SideNavFooter: SideNavFooter,
     SideNavHeader: SideNavHeader,
     SideNavSection: SideNavSection,
+    useDrawer,
     UserMenuHeader,
     useSideNav,
 };

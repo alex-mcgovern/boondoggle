@@ -1,19 +1,22 @@
 /* 
 Taxonomy: 
 
-The layout is split into 3 main sections
+The layout is split into 4 main sections
 - "app" This is the main container for the entire application
 - "nav" This is the side navigation
 - "main" This is the main content area
+- "drawer" This is a drawer that slides in from the right side of the screen
 
 "main" and "nav" both support a header and footer section, which share a height variable.
 These are called "bars"
 */
 
 .layout-container {
+    --layout-transition-duration: var(--dur-medium);
+
     /* Vars for "app" container */
     --app-height: 100dvh;
-    --app-width: 100dvw;
+    --app-width: 100vw;
     --app-padding: var(--space-2);
 
     /* Vars for "nav" container */
@@ -24,12 +27,19 @@ These are called "bars"
     --app-nav-width-closed: var(--space-8);
     --app-nav-width: var(--app-nav-width-open);
 
+    /* Vars for "drawer" container */
+    --app-drawer-width: 0px;
+
     /* Vars for "main" container */
     --app-main-height: calc(var(--app-height) - (var(--app-padding) * 2));
     /* prettier-ignore */
     --app-main-width: calc(var(--app-width) - (var(--app-padding) * 3) - var(--app-nav-width));
-    --app-main-content-height: var(--app-main-height);
     --app-main-padding-x: var(--space-4);
+
+    /* Vars for "main content" */
+    --app-main-content-height: var(--app-main-height);
+    /* prettier-ignore */
+    --main-content-width: calc(var(--app-main-width) - var(--app-drawer-width));
 
     /* Vars for "focused" container — a subdivision of the main content */
     --app-main-focused-width: var(--width-main-sm);
@@ -39,9 +49,14 @@ These are called "bars"
     --app-bar-height: var(--space-10);
 
     @media (prefers-reduced-motion: no-preference) {
-        transition-duration: var(--dur-medium);
+        will-change: grid;
+        transition-duration: var(--layout-transition-duration);
         transition-property: grid;
         transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    &:has(.app-drawer:not(:empty)) {
+        --app-drawer-width: 30rem;
     }
 
     @media (min-width: 992px) {
@@ -67,7 +82,8 @@ These are called "bars"
     }
 
     display: grid;
-    grid-template-columns: var(--app-nav-width) var(--app-main-width);
+    /* prettier-ignore */
+    grid-template-columns: var(--app-nav-width) var(--app-main-width) var(--app-drawer-width);
     gap: var(--app-padding);
 
     padding: var(--app-padding);
@@ -80,7 +96,7 @@ These are called "bars"
 
     .app-main {
         height: var(--app-main-height);
-        width: 100%;
+        width: var(--app-main-width);
         position: relative;
 
         border: 1px solid var(--slate-5);
@@ -96,6 +112,19 @@ These are called "bars"
         &:has(.app-main-header):has(.app-main-footer) {
             /* prettier-ignore */
             --app-main-content-height: calc(var(--app-main-height) - (var(--app-bar-height) * 2));
+        }
+
+        .app-main-content-container {
+            display: grid;
+            will-change: grid;
+            /* prettier-ignore */
+            grid-template-columns: var(--main-content-width) var(--app-drawer-width);
+
+            @media (prefers-reduced-motion: no-preference) {
+                transition-duration: var(--layout-transition-duration);
+                transition-property: grid;
+                transition-timing-function: var(--ease-quart-in-out);
+            }
         }
 
         .app-main-content {
@@ -124,6 +153,16 @@ These are called "bars"
 
         .app-main-footer {
             border-top: 1px solid var(--slate-5);
+        }
+
+        .app-drawer {
+            border-left: 1px solid transparent;
+
+            &:not(:empty) {
+                border-color: var(--slate-5);
+                background: var(--slate-3);
+                padding: var(--space-3) var(--app-main-padding-x);
+            }
         }
     }
 

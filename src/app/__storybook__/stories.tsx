@@ -4,16 +4,31 @@ import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPerson } from "@fortawesome/pro-solid-svg-icons/faPerson";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
-import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
 
 import { App } from "..";
 import { Button } from "../../button";
+import { Drawer } from "../../drawer";
 import { Icon } from "../../icon";
 import { Menu } from "../../menu";
 import { Popover } from "../../popover";
 import { Table } from "../../table";
 import { Tabs } from "../../tabs";
+
+function ButtonSetDrawer() {
+    const [_, setDrawerContent] = App.useDrawer();
+
+    return (
+        <>
+            <Button onPress={() => setDrawerContent(<div>Hello</div>)}>
+                Set Drawer
+            </Button>
+            <Button onPress={() => setDrawerContent(undefined)}>
+                Clear Drawer
+            </Button>
+        </>
+    );
+}
 
 function SideNav() {
     return (
@@ -55,12 +70,6 @@ function SideNav() {
                             </Menu.DropdownMenu>
                         </Popover>
                     </Menu.Trigger>
-                    <Button
-                        appearance="secondary"
-                        square
-                    >
-                        <Icon icon={faSearch} />
-                    </Button>
                 </div>
             </App.SideNavSection>
             <App.SideNavSection>
@@ -274,6 +283,7 @@ export const WithTable: Story = {
                         >
                             <Icon icon={faEllipsis} />
                         </Button>
+                        <ButtonSetDrawer />
                         <Button>Primary action</Button>
                     </App.Main.Header>
                     <App.Main.Content>
