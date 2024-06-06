@@ -117,8 +117,11 @@ These are called "bars"
         .app-main-content-container {
             display: grid;
             will-change: grid;
+
+            /* Annoyingly, we have to offset the width of each column for the borders. */
+            /* This should be fixed eventually */
             /* prettier-ignore */
-            grid-template-columns: var(--main-content-width) var(--app-drawer-width);
+            grid-template-columns: calc(var(--main-content-width) - 1px) calc(var(--app-drawer-width) - 1px);
 
             @media (prefers-reduced-motion: no-preference) {
                 transition-duration: var(--layout-transition-duration);
