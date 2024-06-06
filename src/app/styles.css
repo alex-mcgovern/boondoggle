@@ -12,7 +12,7 @@ These are called "bars"
 */
 
 .layout-container {
-    --layout-transition-duration: var(--dur-medium);
+    --layout-transition-duration: var(--dur-long);
 
     /* Vars for "app" container */
     --app-height: 100dvh;
@@ -161,6 +161,9 @@ These are called "bars"
         .app-drawer {
             border-left: 1px solid transparent;
 
+            width: var(--app-drawer-width);
+            overflow: hidden;
+
             &:not(:empty) {
                 border-color: var(--slate-5);
                 background: var(--slate-2);
@@ -204,10 +207,11 @@ These are called "bars"
 
         height: var(--app-nav-height);
         width: var(--app-nav-width);
+        overflow: hidden;
 
         z-index: 1;
 
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
 
         .app-nav-section {
             display: flex;
