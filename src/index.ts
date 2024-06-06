@@ -14,7 +14,6 @@ export {
     ComboBoxInput,
     FormComboBox,
 } from "./combo-box";
-export { ComboBoxCountry, FormComboBoxCountry } from "./combo-box-country";
 export { DateInput } from "./date-input";
 export { DatePicker, DatePickerButton, FormDatePicker } from "./date-picker";
 export { Dialog } from "./dialog";
@@ -29,7 +28,6 @@ export { Form } from "./form";
 export { Grid } from "./grid";
 export { Group } from "./group";
 export { Icon } from "./icon";
-export { Flag } from "./icon-flag/_map";
 export { Input } from "./input";
 export { Label } from "./label";
 export { Layout } from "./layout";
