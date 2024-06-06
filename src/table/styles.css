@@ -110,11 +110,11 @@
         }
 
         &:first-child {
-            padding-left: var(--space-4);
+            padding-left: var(--app-main-padding-x);
         }
 
         &:last-child {
-            padding-right: var(--space-4);
+            padding-right: var(--app-main-padding-x);
         }
 
         &.right {

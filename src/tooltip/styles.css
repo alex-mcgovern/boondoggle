@@ -14,6 +14,8 @@
     --tooltip-bg: var(--slate-12);
     --tooltip-color: var(--slate-1);
 
+    --translate: var(--space-1);
+
     background: var(--tooltip-bg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
@@ -27,12 +29,12 @@
 
     &[data-placement="top"] {
         margin-bottom: var(--space-1);
-        --origin: calc(var(--space-2));
+        --origin: calc(var(--translate));
     }
 
     &[data-placement="bottom"] {
         margin-top: var(--space-1);
-        --origin: translateY(calc(var(--space-2) * -1));
+        --origin: translateY(calc(var(--translate) * -1));
         & .overlay-arrow svg {
             transform: rotate(180deg);
         }
@@ -40,7 +42,7 @@
 
     &[data-placement="right"] {
         margin-left: var(--space-1);
-        --origin: translateX(calc(var(--space-2) * -1));
+        --origin: translateX(calc(var(--translate) * -1));
         & .overlay-arrow svg {
             transform: rotate(90deg);
         }
@@ -48,7 +50,7 @@
 
     &[data-placement="left"] {
         margin-right: var(--space-1);
-        --origin: translateX(4px);
+        --origin: translateX(var(--translate));
         & .overlay-arrow svg {
             transform: rotate(-90deg);
         }

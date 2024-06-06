@@ -1,14 +1,7 @@
 .tabs-container {
-    display: grid;
-    grid-column: back-button / wide-content-right;
-    grid-template-columns: subgrid;
-    grid-template-rows: var(--layout-bar-height) var(--main-content-height);
 }
 
 .tab-panel {
-    display: grid;
-    grid-column: back-button / wide-content-right;
-    grid-template-columns: subgrid;
 }
 
 .tab-list {
@@ -24,6 +17,10 @@
 
     height: var(--space-10);
 
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--space-6);
+
     &:after {
         /* border-bottom: 1px solid var(--slate-5); */
         content: "";
@@ -33,19 +30,8 @@
         z-index: -10;
     }
 
-    &:not(.center) {
-        display: flex;
-        justify-content: flex-start;
-        gap: var(--space-6);
-    }
-
     &.center {
-        grid-column: focused;
-
-        width: 100%;
-
-        display: grid;
-        grid-auto-flow: column;
+        justify-content: center;
     }
 
     .tab {

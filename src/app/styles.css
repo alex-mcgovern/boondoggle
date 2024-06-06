@@ -1,0 +1,286 @@
+/* 
+Taxonomy: 
+
+The layout is split into 3 main sections
+- "app" This is the main container for the entire application
+- "nav" This is the side navigation
+- "main" This is the main content area
+
+"main" and "nav" both support a header and footer section, which share a height variable.
+These are called "bars"
+*/
+
+.layout-container {
+    /* Vars for "app" container */
+    --app-height: 100dvh;
+    --app-width: 100dvw;
+    --app-padding: var(--space-2);
+
+    /* Vars for "nav" container */
+    --app-nav-height: calc(var(--app-height) - (var(--app-padding) * 2));
+    --app-nav-padding-x: 0px;
+
+    --app-nav-width-open: 10rem;
+    --app-nav-width-closed: var(--space-8);
+    --app-nav-width: var(--app-nav-width-open);
+
+    /* Vars for "main" container */
+    --app-main-height: calc(var(--app-height) - (var(--app-padding) * 2));
+    --app-main-content-height: var(--app-main-height);
+    --app-main-padding-x: var(--space-4);
+
+    /* Vars for "focused" container — a subdivision of the main content */
+    --app-main-focused-width: var(--width-main-sm);
+    --app-main-focused-padding-y: var(--space-4);
+
+    /* Vars for "bars" */
+    --app-bar-height: var(--space-10);
+
+    @media (prefers-reduced-motion: no-preference) {
+        transition-duration: var(--dur-medium);
+        transition-property: grid;
+        transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    @media (min-width: 992px) {
+        &[data-nav-open="true"] {
+            --app-nav-width: var(--app-nav-width-open);
+        }
+
+        &[data-nav-open="false"] {
+            --app-nav-width: var(--app-nav-width-closed);
+
+            .hidden-when-collapsed {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        --app-nav-width: var(--app-nav-width-closed);
+
+        .hidden-when-collapsed {
+            display: none;
+        }
+    }
+
+    display: grid;
+    grid-template-columns: var(--app-nav-width) 1fr;
+    gap: var(--app-padding);
+
+    padding: var(--app-padding);
+
+    background: var(--slate-3);
+    height: var(--app-height);
+    width: var(--app-width);
+
+    position: relative;
+
+    .app-main {
+        height: var(--app-main-height);
+        width: 100%;
+        position: relative;
+
+        border: 1px solid var(--slate-5);
+        border-radius: var(--radius-md);
+        background: var(--slate-1);
+
+        &:has(.app-main-header),
+        &:has(.app-main-footer) {
+            /* prettier-ignore */
+            --app-main-content-height: calc(var(--app-main-height) - var(--app-bar-height));
+        }
+
+        &:has(.app-main-header):has(.app-main-footer) {
+            /* prettier-ignore */
+            --app-main-content-height: calc(var(--app-main-height) - (var(--app-bar-height) * 2));
+        }
+
+        .app-main-content {
+            overflow-y: auto;
+            scrollbar-gutter: stable;
+
+            height: var(--app-main-content-height);
+
+            scrollbar-width: thin;
+            scrollbar-color: var(--slate-5) var(--slate-3);
+        }
+
+        .app-main-header,
+        .app-main-footer {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+
+            height: var(--app-bar-height);
+            padding: 0 var(--app-main-padding-x);
+        }
+
+        .app-main-header {
+            border-bottom: 1px solid var(--slate-5);
+        }
+
+        .app-main-footer {
+            border-top: 1px solid var(--slate-5);
+        }
+    }
+
+    .app-main-focused {
+        max-width: var(--app-main-focused-width);
+        margin: 0 auto;
+
+        padding-top: var(--app-main-focused-padding-y);
+        padding-bottom: var(--app-main-focused-padding-y);
+
+        width: 100%;
+
+        scrollbar-gutter: stable;
+    }
+
+    .app-nav {
+        --btn-background: transparent;
+        --btn-text-color: var(--slate-12);
+
+        --btn-padding: var(--space-1) var(--space-3);
+        --btn-height: var(--ui-height-sm);
+
+        --btn-radius: var(--radius-md);
+
+        --btn-border-color: transparent;
+        --btn-border-size: 1px;
+
+        --btn-outline-color: transparent;
+        --btn-outline-size: 2px;
+
+        background: transparent;
+
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+
+        height: var(--app-nav-height);
+        width: var(--app-nav-width);
+
+        z-index: 1;
+
+        overflow-x: hidden;
+
+        .app-nav-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+
+            padding: var(--space-1) var(--app-nav-padding-x);
+        }
+
+        .app-nav-header,
+        .app-nav-footer {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+
+            height: var(--app-bar-height);
+            flex-shrink: 0;
+
+            padding: 0 var(--app-nav-padding-x);
+
+            position: sticky;
+            z-index: 1;
+        }
+
+        .app-nav-header {
+            /* border-bottom: 1px solid var(--slate-5); */
+            top: 0;
+        }
+
+        .app-nav-footer {
+            margin-top: auto;
+            /* border-top: 1px solid var(--slate-5); */
+            bottom: 0;
+        }
+
+        .app-nav-link {
+            display: flex;
+
+            &[data-hovered],
+            &[data-is-current="true"] {
+                background: var(--slate-5);
+            }
+        }
+
+        .btn-app-nav {
+            width: 100%;
+
+            &[data-hovered],
+            &[data-is-current="true"] {
+                background: var(--slate-5);
+            }
+        }
+
+        .btn-collapse-container {
+            border-top: 1px solid var(--slate-5);
+
+            position: sticky;
+            bottom: 0;
+
+            height: calc(var(--app-bar-height));
+            display: flex;
+            align-items: center;
+
+            margin-top: auto;
+        }
+
+        .org-display {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+
+            /* justify-self: flex-end; */
+
+            color: var(--slate-12);
+
+            font-size: var(--font-size-body-sm);
+            line-height: var(--line-height-body-sm);
+            font-weight: var(--font-weight-medium);
+
+            .org-display-name {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+.user-menu-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    min-width: 10rem;
+
+    margin: 0 var(--space-3);
+
+    padding: var(--space-2) 0;
+
+    /* border-bottom: 1px solid var(--slate-5); */
+
+    .user-menu-header-name,
+    .user-menu-header-org {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        font-size: var(--font-size-body-sm);
+        line-height: var(--line-height-body-sm);
+    }
+
+    .user-menu-header-name {
+        font-weight: var(--font-weight-medium);
+        color: var(--slate-12);
+    }
+
+    .user-menu-header-org {
+        color: var(--slate-11);
+    }
+}

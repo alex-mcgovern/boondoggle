@@ -1,6 +1,7 @@
 import "./styles/index.css";
 
 export { Alert } from "./alert";
+export { App } from "./app";
 export { Avatar } from "./avatar";
 export { Button, LinkButton } from "./button";
 export { Calendar } from "./calendar";
@@ -30,7 +31,6 @@ export { Group } from "./group";
 export { Icon } from "./icon";
 export { Input } from "./input";
 export { Label } from "./label";
-export { Layout } from "./layout";
 export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";
 export { type IterableMenuItem, Menu } from "./menu";

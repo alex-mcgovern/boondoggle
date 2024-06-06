@@ -15,9 +15,13 @@
     --btn-outline-color: transparent;
     --btn-outline-size: 2px;
 
-    --btn-padding: var(--space-1) var(--space-2);
+    --btn-padding-y: var(--space-2);
+    --btn-padding-x: var(--space-2);
+
     --btn-radius: var(--radius-md);
     --btn-height: var(--ui-height-sm);
+
+    --btn-icon-size: var(--space-3);
 
     background-color: var(--btn-background);
     color: var(--btn-text-color);
@@ -31,19 +35,37 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-2);
+    gap: var(--space-1\.5);
+    flex-shrink: 0;
 
     border-radius: var(--btn-radius);
     border: var(--btn-border-size) solid var(--btn-border-color);
     outline: var(--btn-outline-size) solid var(--btn-outline-color);
 
     height: var(--btn-height);
-    padding: var(--btn-padding);
+    padding: var(--btn-padding-y) var(--btn-padding-x);
 
     @media (prefers-reduced-motion: no-preference) {
         transition-duration: var(--dur-short);
         transition-property: background-color, border-color, color, outline;
         transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    &:has(.icon) {
+        &:not(.square) {
+            padding-left: calc(var(--btn-padding-y) - 1px);
+            /* This could also work */
+            /* padding-left: calc((var(--ui-height-sm) / 2) - (var(--space-3) / 2) - 1px) */
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: var(--space-3);
+            height: var(--space-3);
+        }
     }
 
     &[data-disabled] {
@@ -79,17 +101,23 @@
     }
 
     &.sm {
-        --btn-padding: var(--space-1) var(--space-2);
+        --btn-padding-y: var(--space-2);
+        --btn-padding-x: var(--space-2);
+
         --btn-height: var(--ui-height-sm);
     }
 
     &.md {
-        --btn-padding: var(--space-3) var(--space-4);
+        --btn-padding-y: var(--space-3);
+        --btn-padding-x: var(--space-4);
+
         --btn-height: var(--ui-height-md);
     }
 
     &.lg {
-        --btn-padding: var(--space-3) var(--space-6);
+        --btn-padding-y: var(--space-3);
+        --btn-padding-x: var(--space-6);
+
         --btn-height: var(--ui-height-lg);
     }
 
@@ -98,17 +126,23 @@
         flex-grow: 0;
 
         &.sm {
-            --btn-padding: var(--space-1);
+            --btn-padding-y: var(--space-1);
+            --btn-padding-x: var(--space-1);
+
             width: var(--ui-height-sm);
         }
 
         &.md {
-            --btn-padding: var(--space-3);
+            --btn-padding-y: var(--space-3);
+            --btn-padding-x: var(--space-3);
+
             width: var(--ui-height-md);
         }
 
         &.lg {
-            --btn-padding: var(--space-3);
+            --btn-padding-y: var(--space-3);
+            --btn-padding-x: var(--space-3);
+
             width: var(--ui-height-lg);
         }
     }

@@ -70,6 +70,7 @@ export const Button = forwardRef<
         },
         ref: ForwardedRef<HTMLButtonElement>,
     ) => {
+        console.debug("debug  square:", square);
         return (
             <AriaButton
                 {...props}
@@ -81,7 +82,7 @@ export const Button = forwardRef<
                     align,
                     color,
                     {
-                        square,
+                        square: !!square,
                     },
                 )}
                 ref={ref}
