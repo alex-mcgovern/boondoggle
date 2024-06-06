@@ -9,9 +9,6 @@ import {
     NumberFieldIncrementButton,
 } from "..";
 import { Group } from "../../group";
-import { FlagEu } from "../../icon-flag/eu";
-import { FlagGb } from "../../icon-flag/gb";
-import { FlagUs } from "../../icon-flag/us";
 import { Input } from "../../input";
 import { Label } from "../../label";
 import { Select, SelectButton } from "../../select";
@@ -114,17 +111,14 @@ export const WithCurrencySelect: Story = {
                             {
                                 id: "EUR",
                                 name: "EUR",
-                                slotLeft: <FlagEu />,
                             },
                             {
                                 id: "USD",
                                 name: "USD",
-                                slotLeft: <FlagUs />,
                             },
                             {
                                 id: "GBP",
                                 name: "GBP",
-                                slotLeft: <FlagGb />,
                             },
                         ]}
                         onSelectionChange={(k) => {
