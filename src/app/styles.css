@@ -12,7 +12,7 @@ These are called "bars"
 */
 
 .layout-container {
-    --layout-transition-duration: var(--dur-long);
+    --layout-transition-duration: var(--dur-medium);
 
     /* Vars for "app" container */
     --app-height: 100dvh;
@@ -103,6 +103,7 @@ These are called "bars"
         border: 1px solid var(--slate-5);
         border-radius: var(--radius-md);
         background: var(--slate-1);
+        overflow: hidden;
 
         &:has(.app-main-header),
         &:has(.app-main-footer) {

@@ -53,7 +53,7 @@
         }
 
         &[data-hovered] {
-            background: var(--slate-2);
+            background: var(--slate-3);
         }
         &[data-href] {
             cursor: pointer;
