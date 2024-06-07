@@ -95,7 +95,9 @@ export function Form<TFieldValues extends FieldValues>({
         formMethods.watch(watchCallback);
     }
 
-    const [formState, setFormState] = useState<Partial<TFieldValues>>({});
+    const [formState, setFormState] = useState<Partial<TFieldValues>>(
+        formMethods.getValues(),
+    );
 
     useEffect(() => {
         const subscription = formMethods.watch((v) => {
