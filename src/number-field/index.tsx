@@ -85,13 +85,7 @@ export function FormNumberField({
     const { control } = useFormContext();
 
     const {
-        field: {
-            disabled: isDisabled,
-            onChange,
-            ref,
-            value = props.value,
-            ...field
-        },
+        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
         fieldState: { error, invalid },
     } = useController({
         control,
@@ -108,6 +102,7 @@ export function FormNumberField({
         <NumberField
             {...props}
             {...field}
+            defaultValue={value}
             isDisabled={isDisabled}
             isInvalid={invalid}
             onChange={(k) => {
