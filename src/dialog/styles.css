@@ -122,6 +122,7 @@
         .dialog-content {
             overflow-y: auto;
             padding: var(--space-4);
+            max-height: 50dvh;
         }
 
         .dialog-footer {
