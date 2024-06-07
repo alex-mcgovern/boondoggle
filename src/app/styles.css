@@ -21,10 +21,11 @@ These are called "bars"
 
     /* Vars for "nav" container */
     --app-nav-height: calc(var(--app-height) - (var(--app-padding) * 2));
-    --app-nav-padding-x: 0px;
+    --app-nav-padding-x: var(--space-1);
 
     --app-nav-width-open: 8rem;
-    --app-nav-width-closed: var(--space-8);
+    /* prettier-ignore */
+    --app-nav-width-closed: calc(var(--ui-height-sm) + (var(--app-padding) * 2));
     --app-nav-width: var(--app-nav-width-open);
 
     /* Vars for "drawer" container */
@@ -84,7 +85,7 @@ These are called "bars"
     display: grid;
     /* prettier-ignore */
     grid-template-columns: var(--app-nav-width) var(--app-main-width) var(--app-drawer-width);
-    gap: var(--app-padding);
+    /* gap: var(--app-padding); */
 
     padding: var(--app-padding);
 
@@ -209,10 +210,6 @@ These are called "bars"
         width: var(--app-nav-width);
         overflow: hidden;
 
-        z-index: 1;
-
-        /* overflow-x: hidden; */
-
         .app-nav-section {
             display: flex;
             flex-direction: column;
@@ -233,7 +230,6 @@ These are called "bars"
             padding: 0 var(--app-nav-padding-x);
 
             position: sticky;
-            z-index: 1;
         }
 
         .app-nav-header {

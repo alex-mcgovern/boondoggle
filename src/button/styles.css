@@ -79,12 +79,12 @@
         background-color: var(--btn-background-active);
     }
 
-    &[data-focus-visible] {
-        --btn-outline-color: var(--blue-6);
+    &[data-focused] {
+        --btn-outline-color: transparent;
     }
 
-    &[data-focused] {
-        outline: 0;
+    &[data-focus-visible] {
+        --btn-outline-color: var(--blue-6);
     }
 
     &.secondary {
