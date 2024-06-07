@@ -4,7 +4,6 @@ import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { useEffect } from "react";
 import {
     NumberField as AriaNumberField,
     type NumberFieldProps as AriaNumberFieldProps,
@@ -93,10 +92,6 @@ export function FormNumberField({
         disabled: props.isDisabled,
         name: props.name,
     });
-
-    useEffect(() => {
-        onChange(props.value);
-    }, [onChange, props.value]);
 
     return (
         <NumberField

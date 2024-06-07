@@ -6,7 +6,6 @@ import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
-import { useEffect } from "react";
 import { forwardRef } from "react";
 import { useCallback, useMemo, useState } from "react";
 import {
@@ -179,10 +178,6 @@ export function FormTextField({
         defaultValue: props.defaultValue,
         name: props.name,
     });
-
-    useEffect(() => {
-        onChange(props.value);
-    }, [onChange, props.value]);
 
     return (
         <TextField
