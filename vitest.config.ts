@@ -3,6 +3,13 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
     test: {
-        includeSource: ["src/**/*.{js,ts,jsx,tsx}"],
+        environmentMatchGlobs: [
+            ["**/*.tsx", "jsdom"],
+            ["**/*.ts", "node"],
+        ],
+        globals: true,
+        include: ["**/*test.ts?(x)"],
+        includeSource: ["**/*.ts?(x)"],
+        setupFiles: ["./test/setup.ts"],
     },
 });

@@ -171,21 +171,29 @@ export function FormTextField({
     const { control } = useFormContext();
 
     const {
-        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        field: {
+            disabled: isDisabled,
+            name,
+            onBlur,
+            onChange,
+            ref,
+            value = "",
+        },
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.defaultValue,
+        defaultValue: props.value || props.defaultValue,
         name: props.name,
     });
 
     return (
         <TextField
             {...props}
-            {...field}
             defaultValue={value}
             isDisabled={isDisabled}
             isInvalid={invalid}
+            name={name}
+            onBlur={onBlur}
             onChange={(v) => {
                 onChange(v);
                 props.onChange?.(v);
@@ -194,10 +202,12 @@ export function FormTextField({
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
             value={value}
         >
-            {() => {
+            {(renderProps) => {
                 return (
                     <>
-                        {children}
+                        {typeof children === "function"
+                            ? children(renderProps)
+                            : children}
                         <FieldError>{error?.message}</FieldError>
                     </>
                 );

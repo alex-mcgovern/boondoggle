@@ -127,7 +127,14 @@ export function FormSelect({
     const { control } = useFormContext();
 
     const {
-        field: { disabled: isDisabled, onChange, ref, value = "", ...field },
+        field: {
+            disabled: isDisabled,
+            name,
+            onBlur,
+            onChange,
+            ref,
+            value = "",
+        },
         fieldState: { error, invalid },
     } = useController({
         control,
@@ -138,9 +145,11 @@ export function FormSelect({
     return (
         <Select
             {...props}
-            {...field}
+            defaultSelectedKey={value}
             isDisabled={isDisabled}
             isInvalid={invalid}
+            name={name}
+            onBlur={onBlur}
             onSelectionChange={(k) => {
                 onChange(k);
                 props.onSelectionChange?.(k);
