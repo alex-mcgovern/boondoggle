@@ -52,12 +52,11 @@
             transition-timing-function: var(--ease-quart-in-out);
         }
 
+        &[data-hovered] {
+            background: var(--slate-3);
+        }
         &[data-href] {
             cursor: pointer;
-
-            &[data-hovered] {
-                background: var(--slate-2);
-            }
         }
 
         &[data-focus-visible] {
@@ -110,15 +109,19 @@
         }
 
         &:first-child {
-            padding-left: var(--space-4);
+            padding-left: var(--app-main-padding-x);
         }
 
         &:last-child {
-            padding-right: var(--space-4);
+            padding-right: var(--app-main-padding-x);
         }
 
         &.right {
             text-align: right;
+        }
+
+        &.center {
+            text-align: center;
         }
     }
 

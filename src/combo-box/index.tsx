@@ -73,10 +73,10 @@ export const ComboBox = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
                 className={clsx(props.className, "combobox")}
                 ref={ref}
             >
-                {(values) => (
+                {(renderProps) => (
                     <>
                         {typeof children === "function"
-                            ? children(values)
+                            ? children(renderProps)
                             : children}
 
                         <Popover>
@@ -105,7 +105,7 @@ export function FormComboBox<TItemId extends string = string>({
     const { control } = useFormContext();
 
     const {
-        field: { disabled, onChange, ref, value = "", ...field },
+        field: { disabled, name, onBlur, onChange, ref, value = "" },
         fieldState: { error, invalid },
     } = useController({
         control,
@@ -117,9 +117,11 @@ export function FormComboBox<TItemId extends string = string>({
     return (
         <ComboBox
             {...props}
-            {...field}
+            defaultSelectedKey={value}
             isDisabled={disabled}
             isInvalid={invalid}
+            name={name}
+            onBlur={onBlur}
             onSelectionChange={(k) => {
                 onChange(k);
                 props.onSelectionChange?.(k);
@@ -128,10 +130,12 @@ export function FormComboBox<TItemId extends string = string>({
             selectedKey={value}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
         >
-            {() => {
+            {(renderProps) => {
                 return (
                     <>
-                        {children}
+                        {typeof children === "function"
+                            ? children(renderProps)
+                            : children}
                         <FieldError>{error?.message}</FieldError>
                     </>
                 );

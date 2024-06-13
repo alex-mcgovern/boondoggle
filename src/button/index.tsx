@@ -81,7 +81,7 @@ export const Button = forwardRef<
                     align,
                     color,
                     {
-                        square,
+                        square: !!square,
                     },
                 )}
                 ref={ref}

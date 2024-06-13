@@ -39,31 +39,41 @@ function DialogComponent({
 /**
  * Wrapper to render the dialog header.
  */
-function DialogHeader({ title }: { title: string }) {
-    const { close } = useContext(OverlayTriggerStateContext)!;
-
+function DialogHeader(props: { children: ReactNode }) {
     return (
-        <header className="dialog-header">
-            <AriaHeading
-                className="dialog-title"
-                slot="title"
-            >
-                {title}
-            </AriaHeading>
+        <header
+            className="dialog-header"
+            {...props}
+        />
+    );
+}
 
-            <Button
-                appearance="ghost"
-                aria-label="Close"
-                className="ml-auto"
-                name="close"
-                onPress={close}
-                size="sm"
-                square
-                type="button"
-            >
-                <Icon icon={faTimes} />
-            </Button>
-        </header>
+function DialogTitle({ children }: { children: string }) {
+    return (
+        <AriaHeading
+            className="dialog-title"
+            slot="title"
+        >
+            {children}
+        </AriaHeading>
+    );
+}
+
+function DialogCloseButton() {
+    const { close } = useContext(OverlayTriggerStateContext)!;
+    return (
+        <Button
+            appearance="ghost"
+            aria-label="Close"
+            className="ml-auto"
+            name="close"
+            onPress={close}
+            size="sm"
+            square
+            type="button"
+        >
+            <Icon icon={faTimes} />
+        </Button>
     );
 }
 
@@ -107,11 +117,13 @@ function DialogTrigger(props: AriaDialogTriggerProps) {
  * Dialog components built with React Aria Dialog component.
  */
 export const Dialog = {
+    CloseButton: DialogCloseButton,
     Content: ScrollableDialogContent,
     Footer: DialogFooter,
     Header: DialogHeader,
     Modal: DialogModal,
     ModalOverlay: DialogModalOverlay,
     Root: DialogComponent,
+    Title: DialogTitle,
     Trigger: DialogTrigger,
 };

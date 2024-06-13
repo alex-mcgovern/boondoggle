@@ -28,15 +28,24 @@ import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
 
 export type ColumnProps = AriaColumnProps;
+import { forwardRef } from "react";
+
 import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
-function Column(props: ColumnProps & { right?: boolean; sticky?: boolean }) {
+function Column(
+    props: ColumnProps & {
+        center?: boolean;
+        right?: boolean;
+        sticky?: boolean;
+    },
+) {
     return (
         <AriaColumn
             {...props}
             className={clsx(props.className, "column", {
+                center: props.center,
                 right: props.right,
                 sticky: props.sticky,
             })}
@@ -105,11 +114,14 @@ function TableHeader<T extends object>(props: AriaTableHeaderProps<T>) {
 /**
  * A `Cell` component, for use with a `Row` component. [Built with React Aria Cell component](https://react-spectrum.adobe.com/react-aria/Table.html#cell)
  */
-function Cell(props: AriaCellProps & { right?: boolean }) {
+function Cell(props: AriaCellProps & { center?: boolean; right?: boolean }) {
     return (
         <AriaCell
             {...props}
-            className={clsx(props.className, "cell", { right: props.right })}
+            className={clsx(props.className, "cell", {
+                center: props.center,
+                right: props.right,
+            })}
         />
     );
 }
@@ -152,18 +164,20 @@ function Row<T extends object>(props: AriaRowProps<T>) {
 /**
  * A `TableBody` component, for use with a `Table` component. [Built with React Aria TableBody component](https://react-spectrum.adobe.com/react-aria/Table.html#tablebody)
  */
-export function TableBody<T extends object>({
-    ...props
-}: AriaTableBodyProps<T>) {
+export const TableBody = forwardRef<
+    HTMLTableSectionElement,
+    AriaTableBodyProps<object>
+>((props, ref) => {
     return (
         <AriaTableBody
             {...props}
             className={clsx(props.className, "table-body")}
+            ref={ref}
         >
             {props.children}
         </AriaTableBody>
     );
-}
+});
 
 /**
  * A table displays data in rows and columns and enables a user to navigate its contents via directional navigation keys,

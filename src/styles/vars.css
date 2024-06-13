@@ -51,8 +51,7 @@
         --shadow-md: rgba(0, 0, 0, 0.1) 0px 5px 20px;
         --shadow-lg: rgba(0, 0, 0, 0.15) 0px 5px 40px;
 
-        --font-family-body: Inter, system-ui, Avenir, Helvetica, Arial,
-            sans-serif;
+        --font-family-body: "Inter", sans-serif;
 
         --font-size-root: 16px;
         --line-height-root: 1.5rem;

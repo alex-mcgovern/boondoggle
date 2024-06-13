@@ -11,7 +11,7 @@ import type {
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
-import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import { useCallback } from "react";
 import { forwardRef } from "react";
@@ -25,16 +25,10 @@ import { Skeleton } from "../skeleton";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import "./styles.css";
 
-/**
- * React context provider that allows toggling the open state of a collapsible UI element from anywhere in the app.
- */
 export const CollapsibleSideNavContext = createContext<
     [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
-/**
- * Hook for consuming the CollapsibleSideNavContext.
- */
 export const useSideNav = () => {
     const context = useContext(CollapsibleSideNavContext);
 
@@ -42,6 +36,20 @@ export const useSideNav = () => {
         throw new Error(
             "CollapsibleSideNavContext must be used within a Provider",
         );
+    }
+
+    return context;
+};
+
+const DrawerContext = createContext<
+    [ReactNode, Dispatch<SetStateAction<ReactNode | null>>]
+>([null, () => {}]);
+
+const useDrawer = () => {
+    const context = useContext(DrawerContext);
+
+    if (context == null) {
+        throw new Error("DrawerContext must be used within a Provider");
     }
 
     return context;
@@ -59,14 +67,18 @@ function Container({ children }: { children: ReactNode }) {
         });
     }, []);
 
+    const [drawerContent, setDrawerContent] = useState<ReactNode | null>(null);
+
     return (
         <CollapsibleSideNavContext.Provider value={[isOpen, toggleSideNav]}>
-            <div
-                className="layout-container"
-                data-is-side-nav-open={isOpen}
-            >
-                {children}
-            </div>
+            <DrawerContext.Provider value={[drawerContent, setDrawerContent]}>
+                <div
+                    className="layout-container"
+                    data-nav-open={isOpen}
+                >
+                    {children}
+                </div>
+            </DrawerContext.Provider>
         </CollapsibleSideNavContext.Provider>
     );
 }
@@ -87,10 +99,6 @@ function ButtonToggleCollapsibleNav() {
             {isOpen ? "Collapse" : "Expand"}
         </NavButton>
     );
-}
-
-function Body({ children }: { children: ReactNode }) {
-    return <div className="layout-body">{children}</div>;
 }
 
 function NavButton({
@@ -200,7 +208,7 @@ function Link({
                 {...props}
                 align={align}
                 appearance={appearance}
-                className={clsx("side-nav-link", props.className)}
+                className={clsx("app-nav-link", props.className)}
                 isCurrent={isCurrent}
                 size="sm"
                 square={!isOpen}
@@ -235,7 +243,7 @@ function SideBar(props: { children: ReactNode }) {
 
     return (
         <nav
-            className="side-nav"
+            className="app-nav"
             data-open={isOpen}
         >
             {props.children}
@@ -246,139 +254,82 @@ function SideBar(props: { children: ReactNode }) {
     );
 }
 
-/**
- * Top bar HTML element.
- */
-function TopNav({ children, className, ...rest }: HTMLProps<HTMLElement>) {
-    return (
-        <nav
-            className={clsx(className, "layout-top-nav")}
-            {...rest}
-        >
-            {children}
-        </nav>
-    );
+function AppMainRoot({ children }: { children: ReactNode }) {
+    return <main className="app-main">{children}</main>;
 }
 
-function TopNavLeft({
-    children,
-    className,
-    ...rest
-}: HTMLProps<HTMLDivElement>) {
-    return (
-        <div
-            className={clsx(className, "layout-top-nav-left")}
-            {...rest}
-        >
-            {children}
-        </div>
-    );
-}
-
-function TopNavCenter({
-    children,
-    className,
-    ...rest
-}: HTMLProps<HTMLDivElement>) {
-    return (
-        <div
-            className={clsx(className, "layout-top-nav-center")}
-            {...rest}
-        >
-            {children}
-        </div>
-    );
-}
-
-function TopNavRight({
-    children,
-    className,
-    ...rest
-}: HTMLProps<HTMLDivElement>) {
-    return (
-        <div
-            className={clsx(className, "layout-top-nav-right")}
-            {...rest}
-        >
-            {children}
-        </div>
-    );
-}
-
-/**
- * Top bar HTML element.
- */
-function Header({
-    backHref,
-    center,
-    children,
-    className,
-    title,
-    ...rest
-}: HTMLProps<HTMLElement> & {
-    backHref?: string;
-    center?: boolean;
-    title?: string;
-}) {
+function AppMainHeader(props: HTMLProps<HTMLElement>) {
     return (
         <header
-            className={clsx(className, "layout-header", { center })}
-            {...rest}
-        >
-            <div className="header-back-button">
-                <LinkButton
-                    appearance="ghost"
-                    href={backHref}
-                    isDisabled={!backHref}
-                    square
-                >
-                    <Icon icon={faAngleLeft} />
-                </LinkButton>
-            </div>
-
-            <div className="layout-header-content">
-                {title ? (
-                    <h1 className="layout-header-title mr-2">{title}</h1>
-                ) : null}
-                {children}
-            </div>
-        </header>
+            {...props}
+            className={clsx(props.className, "app-main-header")}
+        />
     );
 }
 
-/**
- * Bottom bar HTML element.
- */
-function Footer({ children, className, ...rest }: HTMLProps<HTMLElement>) {
-    return (
-        <footer
-            className={clsx(className, "layout-footer")}
-            {...rest}
-        >
-            {children}
-        </footer>
-    );
-}
-
-function MainContentContainer({ children }: { children: ReactNode }) {
-    return <main className="main-content-container">{children}</main>;
-}
-
-const MainContent = forwardRef<HTMLElement, { children: ReactNode }>(
+const AppMainContent = forwardRef<HTMLElement, { children: ReactNode }>(
     ({ children }, ref) => {
+        const [drawerContent] = useDrawer();
+
         return (
-            <section
-                className="main-content"
-                ref={ref}
-            >
-                {children}
-            </section>
+            <div className="app-main-content-container">
+                <section
+                    className="app-main-content"
+                    ref={ref}
+                >
+                    {children}
+                </section>
+                <AppDrawer>{drawerContent}</AppDrawer>
+            </div>
         );
     },
 );
 
+function AppMainFooter(props: HTMLProps<HTMLElement>) {
+    return (
+        <footer
+            {...props}
+            className={clsx(props.className, "app-main-footer")}
+        />
+    );
+}
+
+const AppDrawer = forwardRef<HTMLElement, { children: ReactNode }>(
+    ({ children }, ref) => {
+        return (
+            <aside
+                className="app-drawer"
+                id="app-drawer"
+                ref={ref}
+            >
+                {children}
+            </aside>
+        );
+    },
+);
+
+function AppDrawerCloseButton() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setDrawer] = useDrawer();
+
+    return (
+        <Button
+            appearance="ghost"
+            aria-label="Close"
+            className="ml-auto"
+            name="close"
+            onPress={() => setDrawer(null)}
+            size="sm"
+            square
+            type="button"
+        >
+            <Icon icon={faTimes} />
+        </Button>
+    );
+}
+
 function Focused({ children }: { children: ReactNode }) {
-    return <div className="layout-focused">{children}</div>;
+    return <div className="app-main-focused">{children}</div>;
 }
 
 /**
@@ -391,7 +342,7 @@ function SideNavHeader({
 }: HTMLProps<HTMLDivElement>) {
     return (
         <div
-            className={clsx(className, "side-nav-header")}
+            className={clsx(className, "app-nav-header")}
             {...rest}
         >
             {children}
@@ -409,7 +360,7 @@ function SideNavFooter({
 }: HTMLProps<HTMLDivElement>) {
     return (
         <div
-            className={clsx(className, "side-nav-footer")}
+            className={clsx(className, "app-nav-footer")}
             {...rest}
         >
             {children}
@@ -427,7 +378,7 @@ function SideNavSection({
 }: HTMLProps<HTMLElement>) {
     return (
         <section
-            className={clsx(className, "side-nav-section")}
+            className={clsx(className, "app-nav-section")}
             {...rest}
         >
             {children}
@@ -435,25 +386,24 @@ function SideNavSection({
     );
 }
 
-export const Layout = {
-    Body: Body,
+export const App = {
+    AppDrawer: { CloseButton: AppDrawerCloseButton },
     Button: NavButton,
     Container,
     Focused,
-    Footer,
-    Header: Header,
     Link,
-    MainContent,
-    MainContentContainer,
+    Main: {
+        Content: AppMainContent,
+        Footer: AppMainFooter,
+        Header: AppMainHeader,
+        Root: AppMainRoot,
+    },
     OrgDisplay,
     SideBar,
     SideNavFooter: SideNavFooter,
     SideNavHeader: SideNavHeader,
     SideNavSection: SideNavSection,
-    TopNav: TopNav,
-    TopNavCenter: TopNavCenter,
-    TopNavLeft: TopNavLeft,
-    TopNavRight: TopNavRight,
+    useDrawer,
     UserMenuHeader,
     useSideNav,
 };

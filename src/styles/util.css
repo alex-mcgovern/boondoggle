@@ -10,16 +10,20 @@
             justify-content: center;
         }
 
+        &.justify-start {
+            justify-content: start;
+        }
+
+        &.justify-end {
+            justify-content: end;
+        }
+
         &.column {
             flex-direction: column;
         }
 
         &.row {
             flex-direction: row;
-        }
-
-        &.grow {
-            flex-grow: 1;
         }
 
         &.gap-1 {
@@ -37,6 +41,10 @@
         &.gap-4 {
             gap: var(--space-4);
         }
+    }
+
+    .grow {
+        flex-grow: 1;
     }
 
     .mt-0 {

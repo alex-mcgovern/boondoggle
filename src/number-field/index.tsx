@@ -1,14 +1,11 @@
 import type { ComponentProps } from "react";
+import type { NumberFieldProps as AriaNumberFieldProps } from "react-aria-components";
 
 import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { useEffect } from "react";
-import {
-    NumberField as AriaNumberField,
-    type NumberFieldProps as AriaNumberFieldProps,
-} from "react-aria-components";
+import { NumberField as AriaNumberField } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
 import { FieldButton } from "../field-button";
@@ -87,29 +84,28 @@ export function FormNumberField({
     const {
         field: {
             disabled: isDisabled,
+            name,
+            onBlur,
             onChange,
             ref,
-            value = props.value,
-            ...field
+            value = "",
         },
         fieldState: { error, invalid },
     } = useController({
         control,
-        defaultValue: props.defaultValue,
+        defaultValue: props.value || props.defaultValue,
         disabled: props.isDisabled,
         name: props.name,
     });
 
-    useEffect(() => {
-        onChange(props.value);
-    }, [onChange, props.value]);
-
     return (
         <NumberField
             {...props}
-            {...field}
+            defaultValue={value}
             isDisabled={isDisabled}
             isInvalid={invalid}
+            name={name}
+            onBlur={onBlur}
             onChange={(k) => {
                 onChange(k);
                 props.onChange?.(k);
@@ -118,10 +114,12 @@ export function FormNumberField({
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
             value={value}
         >
-            {() => {
+            {(renderProps) => {
                 return (
                     <>
-                        {children}
+                        {typeof children === "function"
+                            ? children(renderProps)
+                            : children}
                         <FieldError>{error?.message}</FieldError>
                     </>
                 );

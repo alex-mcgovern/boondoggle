@@ -13,7 +13,9 @@ const meta = {
                 <Dialog.ModalOverlay>
                     <Dialog.Modal>
                         <Dialog.Root>
-                            <Dialog.Header title="Dialog Title" />
+                            <Dialog.Header>
+                                <Dialog.Title>Hello there</Dialog.Title>
+                            </Dialog.Header>
                             <Dialog.Content>
                                 <>
                                     <p>
