@@ -161,7 +161,7 @@ function Item<TItem extends object>({
                                 : props.children}
                         </span>
 
-                        {renderProps.selectionMode === "multiple" ? (
+                        {renderProps.selectionMode !== "none" ? (
                             <Checkbox
                                 // isIndeterminate
                                 isSelected={renderProps.isSelected}
@@ -169,7 +169,7 @@ function Item<TItem extends object>({
                         ) : null}
 
                         {renderProps.hasSubmenu ? (
-                            <div className="menu-item-icon">
+                            <div className="submenu-icon">
                                 <Icon icon={faAngleRight} />
                             </div>
                         ) : null}

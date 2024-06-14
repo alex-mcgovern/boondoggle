@@ -14,7 +14,7 @@
     --checkbox-outline-width: 2px;
     --checkbox-outline-color: transparent;
 
-    --transition-duration: var(--dur-medium);
+    --transition-duration: var(--dur-short);
 
     display: flex;
     align-items: center;
