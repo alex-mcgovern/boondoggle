@@ -227,7 +227,7 @@
         }
 
         &[data-selected] {
-            font-weight: var(--font-weight-medium);
+            /* font-weight: var(--font-weight-medium); */
         }
 
         &.red {
