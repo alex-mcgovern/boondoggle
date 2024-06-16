@@ -6,10 +6,12 @@ import type {
     TableBodyProps as AriaTableBodyProps,
     TableHeaderProps as AriaTableHeaderProps,
     TableProps as AriaTableProps,
+    SortDirection,
 } from "react-aria-components";
 
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faGripDots } from "@fortawesome/pro-solid-svg-icons/faGripDots";
+import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
 import { clsx } from "clsx";
 import {
     Cell as AriaCell,
@@ -31,6 +33,39 @@ export type ColumnProps = AriaColumnProps;
 import { forwardRef } from "react";
 
 import "./styles.css";
+
+function SortIcon({ direction }: { direction: SortDirection | undefined }) {
+    console.debug("debug  direction:", direction);
+    switch (direction) {
+        case "ascending": {
+            return (
+                <Icon
+                    className="sort-icon"
+                    icon={faSortUp}
+                />
+            );
+        }
+        case "descending": {
+            return (
+                <Icon
+                    className="sort-icon"
+                    icon={faSortUp}
+                    style={{ transform: "rotate(180deg)" }}
+                />
+            );
+        }
+
+        default: {
+            return (
+                <Icon
+                    className="sort-icon"
+                    icon={faSort}
+                />
+            );
+        }
+    }
+}
+
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
@@ -65,18 +100,9 @@ function Column({
                                 aria-hidden="true"
                                 className="sort-indicator"
                             >
-                                {renderProps.sortDirection === "ascending" ? (
-                                    <Icon
-                                        className="sort-icon"
-                                        icon={faSortUp}
-                                    />
-                                ) : (
-                                    <Icon
-                                        className="sort-icon"
-                                        icon={faSortUp}
-                                        style={{ transform: "rotate(180deg)" }}
-                                    />
-                                )}
+                                <SortIcon
+                                    direction={renderProps.sortDirection}
+                                />
                             </span>
                         )}
                     </>
