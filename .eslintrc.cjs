@@ -81,6 +81,7 @@ module.exports = {
                 },
             },
         ],
+        "no-console": ["error", { allow: ["warn", "error", "info"] }],
         "no-restricted-imports": [
             "error",
             {
@@ -103,6 +104,7 @@ module.exports = {
                 ],
             },
         ],
+
         // "jsdoc/require-description-complete-sentence": "error",
         "perfectionist/sort-objects": [
             "error",

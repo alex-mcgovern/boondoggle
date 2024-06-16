@@ -35,7 +35,6 @@ import { forwardRef } from "react";
 import "./styles.css";
 
 function SortIcon({ direction }: { direction: SortDirection | undefined }) {
-    console.debug("debug  direction:", direction);
     switch (direction) {
         case "ascending": {
             return (
