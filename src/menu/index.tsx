@@ -123,6 +123,7 @@ function DropdownMenu<TItem extends object = object>({
  */
 function Item<TItem extends object>({
     color,
+    hideCheckbox,
     icon,
     ...props
 }: AriaMenuItemProps<TItem> & {
@@ -130,6 +131,11 @@ function Item<TItem extends object>({
      * The color of the item.
      */
     color?: Color;
+
+    /**
+     * An override to hide the checkbox in the context of a selectable list.
+     */
+    hideCheckbox?: boolean;
 
     /**
      * The icon to display on the left side of the menu item.
@@ -161,7 +167,8 @@ function Item<TItem extends object>({
                                 : props.children}
                         </span>
 
-                        {renderProps.selectionMode === "multiple" ? (
+                        {!hideCheckbox &&
+                        renderProps.selectionMode !== "none" ? (
                             <Checkbox
                                 // isIndeterminate
                                 isSelected={renderProps.isSelected}
@@ -169,7 +176,7 @@ function Item<TItem extends object>({
                         ) : null}
 
                         {renderProps.hasSubmenu ? (
-                            <div className="menu-item-icon">
+                            <div className="submenu-icon">
                                 <Icon icon={faAngleRight} />
                             </div>
                         ) : null}

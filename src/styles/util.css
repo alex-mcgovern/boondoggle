@@ -219,6 +219,10 @@
         white-space: nowrap;
     }
 
+    .line-through {
+        text-decoration: line-through;
+    }
+
     .font-medium {
         font-weight: var(--font-weight-medium);
     }

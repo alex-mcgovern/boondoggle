@@ -2,7 +2,7 @@
     "author": "Alex McGovern",
     "name": "boondoggle",
     "description": "Boondoggle component library",
-    "version": "2.0.223",
+    "version": "2.0.228",
     "license": "MIT",
     "sideEffects": [
         "**/*.css"
@@ -52,8 +52,8 @@
         "test:watch": "vitest --watch"
     },
     "peerDependencies": {
-        "react": "18.2.0",
-        "react-dom": "18.2.0"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     },
     "dependencies": {
         "@dessert-box/core": "0.2.0",
