@@ -34,49 +34,54 @@ import "./styles.css";
 /**
  * A `Column` component, for use with a `TableHeader` component. [Built with React Aria Column component](https://react-spectrum.adobe.com/react-aria/Table.html#column)
  */
-function Column(
-    props: ColumnProps & {
-        center?: boolean;
-        right?: boolean;
-        sticky?: boolean;
-    },
-) {
+function Column({
+    center,
+    right,
+    sticky,
+    ...props
+}: ColumnProps & {
+    center?: boolean;
+    right?: boolean;
+    sticky?: boolean;
+}) {
     return (
         <AriaColumn
             {...props}
             className={clsx(props.className, "column", {
-                center: props.center,
-                right: props.right,
-                sticky: props.sticky,
+                center: center,
+                right: right,
+                sticky: sticky,
             })}
         >
-            {(renderProps) => (
-                <>
-                    {typeof props.children === "function"
-                        ? props.children(renderProps)
-                        : props.children}
+            {(renderProps) => {
+                return (
+                    <>
+                        {typeof props.children === "function"
+                            ? props.children(renderProps)
+                            : props.children}
 
-                    {renderProps.allowsSorting && (
-                        <span
-                            aria-hidden="true"
-                            className="sort-indicator"
-                        >
-                            {renderProps.sortDirection === "ascending" ? (
-                                <Icon
-                                    className="sort-icon"
-                                    icon={faSortUp}
-                                />
-                            ) : (
-                                <Icon
-                                    className="sort-icon"
-                                    icon={faSortUp}
-                                    style={{ transform: "rotate(180deg)" }}
-                                />
-                            )}
-                        </span>
-                    )}
-                </>
-            )}
+                        {renderProps.allowsSorting && (
+                            <span
+                                aria-hidden="true"
+                                className="sort-indicator"
+                            >
+                                {renderProps.sortDirection === "ascending" ? (
+                                    <Icon
+                                        className="sort-icon"
+                                        icon={faSortUp}
+                                    />
+                                ) : (
+                                    <Icon
+                                        className="sort-icon"
+                                        icon={faSortUp}
+                                        style={{ transform: "rotate(180deg)" }}
+                                    />
+                                )}
+                            </span>
+                        )}
+                    </>
+                );
+            }}
         </AriaColumn>
     );
 }

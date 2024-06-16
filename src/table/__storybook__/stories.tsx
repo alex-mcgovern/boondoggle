@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { faker } from "@faker-js/faker";
+import { useState } from "react";
 
 import { Table } from "..";
 import { Avatar } from "../../avatar";
@@ -122,4 +124,87 @@ export const RowsAsLinks: Story = {
             </>
         );
     },
+};
+
+function SortingTable(props: ComponentProps<typeof Table.Root>) {
+    const [users, setUsers] = useState(() => {
+        return Array.from({ length: 5 }).map(() => {
+            return {
+                email: faker.internet.email(),
+                name: faker.person.fullName(),
+            };
+        });
+    });
+
+    const [sortDescriptor, setSortDescriptor] = useState<
+        | { column: string | undefined; direction: "ascending" | "descending" }
+        | undefined
+    >();
+
+    console.debug("debug  users:", users);
+
+    const sortAsc = () => {
+        setSortDescriptor({ column: "name", direction: "ascending" });
+        return setUsers((prev) => {
+            return [...prev].sort((a, b) => a.name.localeCompare(b.name));
+        });
+    };
+
+    const sortDesc = () => {
+        setSortDescriptor({ column: "name", direction: "descending" });
+        return setUsers((prev) => {
+            return [...prev].sort((a, b) => a.name.localeCompare(b.name));
+        });
+    };
+
+    return (
+        <>
+            <Table.Root
+                aria-label="Files"
+                {...props}
+                onSortChange={({ column, direction }) => {
+                    switch (column) {
+                        case "name": {
+                            if (direction === "ascending") {
+                                console.log("it's fucking sorting");
+                                return sortAsc();
+                            } else {
+                                return sortDesc();
+                            }
+                        }
+                        default: {
+                            return null;
+                        }
+                    }
+                }}
+                sortDescriptor={sortDescriptor}
+            >
+                <Table.Header>
+                    <Table.Column
+                        allowsSorting
+                        id="name"
+                        isRowHeader
+                    >
+                        Name
+                    </Table.Column>
+                    <Table.Column id="email">Email</Table.Column>
+                </Table.Header>
+
+                <Table.Body>
+                    {users.map((user, index) => {
+                        return (
+                            <Table.Row key={index}>
+                                <Table.Cell>{user.name}</Table.Cell>
+                                <Table.Cell>{user.email}</Table.Cell>
+                            </Table.Row>
+                        );
+                    })}
+                </Table.Body>
+            </Table.Root>
+        </>
+    );
+}
+
+export const AllowsSorting: Story = {
+    render: SortingTable,
 };
