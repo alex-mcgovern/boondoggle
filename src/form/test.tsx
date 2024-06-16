@@ -2,6 +2,8 @@
 
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { useEffect } from "react";
+import { useFormContext } from "react-hook-form";
 import { describe, expect, it, vi } from "vitest";
 
 import { Form } from ".";
@@ -12,6 +14,27 @@ import { Label } from "../label";
 import { FormNumberField } from "../number-field";
 import { FormSelect, SelectButton } from "../select";
 import { FormTextField } from "../text-field";
+
+/**
+ * A component that resets the form after a successful submission.
+ * Used to test that form fields are reset after a successful submission.
+ */
+function Resetter() {
+    const {
+        formState: { isSubmitSuccessful },
+        reset,
+    } = useFormContext();
+
+    // It is recommended in the React Hook Form documentation to use `useEffect` to
+    // handle side effects like resetting the form after a successful submission.
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            reset();
+        }
+    }, [isSubmitSuccessful, reset]);
+
+    return null;
+}
 
 describe("FormTextField", async () => {
     it("submits form with `FormTextField`", async () => {
@@ -38,6 +61,35 @@ describe("FormTextField", async () => {
             { text_field: "abc123" },
             expect.anything(),
         );
+    });
+
+    it("`FormTextField` clears when reset after submission", async () => {
+        const user = userEvent.setup();
+        const onSubmit = vi.fn().mockImplementation(() => {});
+
+        const { getByLabelText, getByText } = render(
+            <Form onSubmit={onSubmit}>
+                <Resetter />
+                <FormTextField name="text_field">
+                    <Label>Text field</Label>
+                    <Input />
+                </FormTextField>
+                <Button type="submit">Submit</Button>
+            </Form>,
+        );
+
+        const field = getByLabelText("Text field");
+        await user.type(field, "abc123");
+
+        const button = getByText("Submit");
+        await user.click(button);
+
+        expect(onSubmit).toHaveBeenCalledWith(
+            { text_field: "abc123" },
+            expect.anything(),
+        );
+
+        expect(field).toHaveValue("");
     });
 
     it("handles `defaultValues` prop passed to `Form` correctly with `FormTextField`", async () => {
@@ -157,6 +209,35 @@ describe("FormNumberField", async () => {
             { number_field: 1234 },
             expect.anything(),
         );
+    });
+
+    it("`FormNumberField` resets (to 0) when reset after submission", async () => {
+        const user = userEvent.setup();
+        const onSubmit = vi.fn().mockImplementation(() => {});
+
+        const { getByLabelText, getByText } = render(
+            <Form onSubmit={onSubmit}>
+                <Resetter />
+                <FormNumberField name="number_field">
+                    <Label>Number field</Label>
+                    <Input />
+                </FormNumberField>
+                <Button type="submit">Submit</Button>
+            </Form>,
+        );
+
+        const field = getByLabelText("Number field");
+        await user.type(field, "1234");
+
+        const button = getByText("Submit");
+        await user.click(button);
+
+        expect(onSubmit).toHaveBeenCalledWith(
+            { number_field: 1234 },
+            expect.anything(),
+        );
+
+        expect(field).toHaveValue("0");
     });
 
     it("handles `defaultValues` prop passed to `Form` correctly with `FormNumberField`", async () => {
@@ -285,6 +366,46 @@ describe("FormSelect`", async () => {
             { select: "abc123" },
             expect.anything(),
         );
+    });
+
+    it("`FormNumberField` clears when reset after submission", async () => {
+        const user = userEvent.setup();
+        const onSubmit = vi.fn().mockImplementation(() => {});
+
+        const { getAllByRole, getByLabelText, getByRole, getByText } = render(
+            <Form onSubmit={onSubmit}>
+                <Resetter />
+                <FormSelect
+                    items={[{ id: "abc123", name: "abc123" }]}
+                    name="select"
+                >
+                    <Label>Select</Label>
+                    <SelectButton />
+                </FormSelect>
+                <Button type="submit">Submit</Button>
+            </Form>,
+        );
+
+        const field = getByLabelText("Select", { selector: "button" });
+        await user.click(field);
+
+        expect(getByRole("listbox")).toBeInTheDocument();
+
+        const option = getAllByRole("option")[0];
+        expect(option).toBeInTheDocument();
+        await user.click(option);
+
+        expect(field).toHaveTextContent("abc123");
+
+        const button = getByText("Submit");
+        await user.click(button);
+
+        expect(onSubmit).toHaveBeenCalledWith(
+            { select: "abc123" },
+            expect.anything(),
+        );
+
+        expect(field).not.toHaveTextContent("abc123");
     });
 
     it("handles `defaultValues` prop passed to `Form` correctly with `FormSelect`", async () => {
@@ -418,6 +539,46 @@ describe("FormComboBox", async () => {
             { combobox: "abc123" },
             expect.anything(),
         );
+    });
+
+    it("`FormNumberField` clears when reset after submission", async () => {
+        const user = userEvent.setup();
+        const onSubmit = vi.fn().mockImplementation(() => {});
+
+        const { getAllByRole, getByLabelText, getByRole, getByText } = render(
+            <Form onSubmit={onSubmit}>
+                <Resetter />
+                <FormComboBox
+                    items={[{ id: "abc123", name: "abc123" }]}
+                    name="combobox"
+                >
+                    <Label>ComboBox</Label>
+                    <ComboBoxInput />
+                </FormComboBox>
+                <Button type="submit">Submit</Button>
+            </Form>,
+        );
+
+        const field = getByLabelText("ComboBox");
+        await user.click(field);
+
+        expect(getByRole("listbox")).toBeInTheDocument();
+
+        const option = getAllByRole("option")[0];
+        expect(option).toBeInTheDocument();
+        await user.click(option);
+
+        expect(field).toHaveValue("abc123");
+
+        const button = getByText("Submit");
+        await user.click(button);
+
+        expect(onSubmit).toHaveBeenCalledWith(
+            { combobox: "abc123" },
+            expect.anything(),
+        );
+
+        expect(field).not.toHaveValue("abc123");
     });
 
     it("handles `defaultValues` prop passed to `Form` correctly with `FormComboBox`", async () => {

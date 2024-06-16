@@ -6,6 +6,7 @@ import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
+import { useEffect } from "react";
 import { forwardRef } from "react";
 import { useCallback, useMemo, useState } from "react";
 import {
@@ -87,7 +88,7 @@ export function TextFieldVisibilityButton(
 export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
     (props, ref) => {
         const [value, setValue] = useState<AriaTextFieldProps["value"]>(
-            props.value || props.defaultValue,
+            props.value || props.defaultValue || "",
         );
 
         const [type, setType] = useState<AriaTextFieldProps["type"]>(
@@ -109,6 +110,10 @@ export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
                 .writeText(value)
                 .then(() => toast.success(i18n.copied_to_clipboard));
         }, [value]);
+
+        useEffect(() => {
+            setValue(props.value || props.defaultValue || "");
+        }, [props.value, props.defaultValue]);
 
         const buttonContext: Record<
             "slots",
