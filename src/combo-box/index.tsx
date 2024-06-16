@@ -42,7 +42,6 @@ export const ComboBoxInput = forwardRef<
     const { isOpen, selectedItem, setOpen } = state || {};
     const { value } = selectedItem || {};
     const { slotLeft } = value || {};
-    console.debug("debug  slotLeft:", slotLeft);
 
     return (
         <Input
