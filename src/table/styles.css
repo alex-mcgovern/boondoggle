@@ -146,7 +146,7 @@
         white-space: nowrap;
 
         .sort-icon {
-            margin-left: var(--space-1);
+            margin-left: var(--space-1\.5);
             opacity: 0.5;
         }
 

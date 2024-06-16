@@ -60,6 +60,7 @@ function SortIcon({ direction }: { direction: SortDirection | undefined }) {
                 <Icon
                     className="sort-icon"
                     icon={faSort}
+                    style={{ opacity: 0.2 }}
                 />
             );
         }

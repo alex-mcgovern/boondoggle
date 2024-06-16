@@ -143,22 +143,36 @@ function SortingTable(props: ComponentProps<typeof Table.Root>) {
 
     console.debug("debug  users:", users);
 
-    const sortAsc = () => {
+    const sortNameAsc = () => {
         setSortDescriptor({ column: "name", direction: "ascending" });
         return setUsers((prev) => {
             return [...prev].sort((a, b) => a.name.localeCompare(b.name));
         });
     };
 
-    const sortDesc = () => {
+    const sortNameDesc = () => {
         setSortDescriptor({ column: "name", direction: "descending" });
         return setUsers((prev) => {
             return [...prev].sort((a, b) => a.name.localeCompare(b.name));
         });
     };
 
+    const sortEmailAsc = () => {
+        setSortDescriptor({ column: "email", direction: "ascending" });
+        return setUsers((prev) => {
+            return [...prev].sort((a, b) => a.email.localeCompare(b.email));
+        });
+    };
+
+    const sortEmailDesc = () => {
+        setSortDescriptor({ column: "email", direction: "descending" });
+        return setUsers((prev) => {
+            return [...prev].sort((a, b) => a.email.localeCompare(b.email));
+        });
+    };
+
     return (
-        <>
+        <Table.ResizableContainer>
             <Table.Root
                 aria-label="Files"
                 {...props}
@@ -166,10 +180,16 @@ function SortingTable(props: ComponentProps<typeof Table.Root>) {
                     switch (column) {
                         case "name": {
                             if (direction === "ascending") {
-                                console.log("it's fucking sorting");
-                                return sortAsc();
+                                return sortNameAsc();
                             } else {
-                                return sortDesc();
+                                return sortNameDesc();
+                            }
+                        }
+                        case "email": {
+                            if (direction === "ascending") {
+                                return sortEmailAsc();
+                            } else {
+                                return sortEmailDesc();
                             }
                         }
                         default: {
@@ -187,7 +207,12 @@ function SortingTable(props: ComponentProps<typeof Table.Root>) {
                     >
                         Name
                     </Table.Column>
-                    <Table.Column id="email">Email</Table.Column>
+                    <Table.Column
+                        allowsSorting
+                        id="email"
+                    >
+                        Email
+                    </Table.Column>
                 </Table.Header>
 
                 <Table.Body>
@@ -201,7 +226,7 @@ function SortingTable(props: ComponentProps<typeof Table.Root>) {
                     })}
                 </Table.Body>
             </Table.Root>
-        </>
+        </Table.ResizableContainer>
     );
 }
 
