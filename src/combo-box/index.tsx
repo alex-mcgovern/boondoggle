@@ -39,11 +39,15 @@ export const ComboBoxInput = forwardRef<
     ComponentProps<typeof Input>
 >((props, ref) => {
     const state = useContext(ComboBoxStateContext);
-    const { isOpen, setOpen } = state || {};
+    const { isOpen, selectedItem, setOpen } = state || {};
+    const { value } = selectedItem || {};
+    const { slotLeft } = value || {};
+    console.debug("debug  slotLeft:", slotLeft);
 
     return (
         <Input
             {...props}
+            icon={slotLeft}
             onClick={() => setOpen(!isOpen)}
             ref={ref}
         />

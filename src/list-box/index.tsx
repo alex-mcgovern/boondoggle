@@ -111,6 +111,7 @@ function Section<TItem extends object = object>(
 }
 
 function ListBoxItem<TItemId extends string = string>({
+    icon,
     value,
     ...props
 }: AriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
@@ -122,15 +123,18 @@ function ListBoxItem<TItemId extends string = string>({
     return (
         <AriaListBoxItem
             className={clsx(props.className, "dropdown-menu-item", {
-                "has-icon": !!props.icon,
+                "has-icon": !!icon,
             })}
             href={value?.href}
+            value={value}
             {...props}
         >
             {(renderProps) => {
                 return (
                     <>
-                        {props.icon}
+                        {icon ? (
+                            <div className="menu-item-icon">{icon}</div>
+                        ) : null}
                         <div>
                             <AriaText
                                 className="dropdown-menu-item-name"
@@ -145,9 +149,9 @@ function ListBoxItem<TItemId extends string = string>({
                                 {value?.description}
                             </AriaText>
                         </div>
-                        {renderProps.selectionMode === "multiple" ? (
+                        {renderProps.selectionMode !== "none" ? (
                             <Checkbox
-                                isIndeterminate
+                                // isIndeterminate
                                 isSelected={renderProps.isSelected}
                             />
                         ) : null}
