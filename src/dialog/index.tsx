@@ -24,7 +24,7 @@ import "./styles.css";
 /**
  * A dialog is an overlay shown above other content in an application. [Built with React Aria Dialog component](https://react-spectrum.adobe.com/react-aria/Dialog.html)
  */
-function DialogComponent({
+function DialogRoot({
     width = "sm",
     ...props
 }: AriaDialogProps & { width?: "lg" | "sm" }) {
@@ -123,7 +123,7 @@ export const Dialog = {
     Header: DialogHeader,
     Modal: DialogModal,
     ModalOverlay: DialogModalOverlay,
-    Root: DialogComponent,
+    Root: DialogRoot,
     Title: DialogTitle,
     Trigger: DialogTrigger,
 };

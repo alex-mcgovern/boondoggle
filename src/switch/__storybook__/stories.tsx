@@ -1,29 +1,33 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Switch, SwitchIndicator, SwitchLabel } from "..";
+import { Switch } from "..";
 
 const meta = {
-    component: Switch,
+    component: Switch.Root,
     title: "Components/Switch",
-} satisfies Meta<typeof Switch>;
+} satisfies Meta<typeof Switch.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: (props) => (
-        <Switch {...props}>
-            <SwitchLabel>Low power mode</SwitchLabel>
-            <SwitchIndicator />
-        </Switch>
-    ),
+    args: {
+        children: (
+            <>
+                <Switch.Label>Low power mode</Switch.Label>
+                <Switch.Indicator />
+            </>
+        ),
+    },
 };
 
 export const Reversed: Story = {
-    render: (props) => (
-        <Switch {...props}>
-            <SwitchIndicator />
-            <SwitchLabel>Low power mode</SwitchLabel>
-        </Switch>
-    ),
+    args: {
+        children: (
+            <>
+                <Switch.Indicator />
+                <Switch.Label>Low power mode</Switch.Label>
+            </>
+        ),
+    },
 };
