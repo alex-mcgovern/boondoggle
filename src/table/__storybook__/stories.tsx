@@ -141,8 +141,6 @@ function SortingTable(props: ComponentProps<typeof Table.Root>) {
         | undefined
     >();
 
-    console.debug("debug  users:", users);
-
     const sortNameAsc = () => {
         setSortDescriptor({ column: "name", direction: "ascending" });
         return setUsers((prev) => {
