@@ -24,6 +24,15 @@
         top: 0;
 
         pointer-events: none;
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: var(--icon-size-sm);
+            height: var(--icon-size-sm);
+        }
     }
 
     .input {
