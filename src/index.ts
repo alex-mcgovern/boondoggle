@@ -30,6 +30,7 @@ export { Grid } from "./grid";
 export { Group } from "./group";
 export { Icon } from "./icon";
 export { Input } from "./input";
+export { KeyboardShortcutIndicator } from "./keyboard-shortcut-indicator";
 export { Label } from "./label";
 export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";
