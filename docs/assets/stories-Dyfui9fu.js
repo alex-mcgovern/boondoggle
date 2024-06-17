@@ -1,1 +1,0 @@
-import{C as e}from"./index-CP3zWhqg.js";const t={args:{},component:e,title:"Components/Calendar"},o={},n=Object.freeze(Object.defineProperty({__proto__:null,Default:o,default:t},Symbol.toStringTag,{value:"Module"}));export{o as D,n as s};
