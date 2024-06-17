@@ -57,7 +57,7 @@ These are called "bars"
     }
 
     &:has(.app-drawer:not(:empty)) {
-        --app-drawer-width: 16rem;
+        --app-drawer-width: 20rem;
     }
 
     @media (min-width: 992px) {

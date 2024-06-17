@@ -1,11 +1,13 @@
 .filter-button-group {
+    --filter-button-radius: var(--radius-md);
+
     display: inline-flex;
     align-items: stretch;
     gap: 1px;
     padding: 1px;
 
     height: var(--ui-height-sm);
-    border-radius: var(--radius-pill);
+    border-radius: var(--filter-button-radius);
 
     &[data-disabled] {
         opacity: 0.5;
@@ -31,8 +33,8 @@
 
         padding: 0 var(--space-2);
 
-        border-bottom-left-radius: var(--radius-pill);
-        border-top-left-radius: var(--radius-pill);
+        border-bottom-left-radius: var(--filter-button-radius);
+        border-top-left-radius: var(--filter-button-radius);
     }
 
     .remove-filter-button {
@@ -49,8 +51,8 @@
         justify-content: center;
         white-space: nowrap;
 
-        border-bottom-right-radius: var(--radius-pill);
-        border-top-right-radius: var(--radius-pill);
+        border-bottom-right-radius: var(--filter-button-radius);
+        border-top-right-radius: var(--filter-button-radius);
 
         @media (prefers-reduced-motion: no-preference) {
             transition-duration: var(--dur-short);
@@ -95,13 +97,13 @@
         }
 
         &:first-child {
-            border-top-left-radius: var(--radius-pill);
-            border-bottom-left-radius: var(--radius-pill);
+            border-top-left-radius: var(--filter-button-radius);
+            border-bottom-left-radius: var(--filter-button-radius);
         }
 
         &:last-child {
-            border-top-right-radius: var(--radius-pill);
-            border-bottom-right-radius: var(--radius-pill);
+            border-top-right-radius: var(--filter-button-radius);
+            border-bottom-right-radius: var(--filter-button-radius);
         }
 
         &[data-disabled] {
