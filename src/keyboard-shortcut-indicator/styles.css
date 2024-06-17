@@ -4,6 +4,8 @@
 
     font-size: 12px;
     line-height: 1;
+
+    background-color: var(--slate-3);
     color: var(--slate-11);
 
     border: 1px solid var(--slate-5);
