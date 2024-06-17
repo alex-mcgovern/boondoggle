@@ -106,14 +106,22 @@ These are called "bars"
         overflow: hidden;
 
         &:has(.app-main-header),
+        &:has(.app-main-toolbar),
         &:has(.app-main-footer) {
             /* prettier-ignore */
             --app-main-content-height: calc(var(--app-main-height) - var(--app-bar-height));
         }
 
-        &:has(.app-main-header):has(.app-main-footer) {
+        &:has(.app-main-header):has(.app-main-footer),
+        &:has(.app-main-header):has(.app-main-toolbar),
+        &:has(.app-main-toolbar):has(.app-main-footer) {
             /* prettier-ignore */
             --app-main-content-height: calc(var(--app-main-height) - (var(--app-bar-height) * 2));
+        }
+
+        &:has(.app-main-header):has(.app-main-footer):has(.app-main-toolbar) {
+            /* prettier-ignore */
+            --app-main-content-height: calc(var(--app-main-height) - (var(--app-bar-height) * 3));
         }
 
         .app-main-content-container {

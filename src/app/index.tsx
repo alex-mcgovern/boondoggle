@@ -267,6 +267,15 @@ function AppMainHeader(props: HTMLProps<HTMLElement>) {
     );
 }
 
+function AppMainToolbar(props: HTMLProps<HTMLElement>) {
+    return (
+        <section
+            {...props}
+            className={clsx(props.className, "app-main-toolbar")}
+        />
+    );
+}
+
 const AppMainContent = forwardRef<HTMLElement, { children: ReactNode }>(
     ({ children }, ref) => {
         const [drawerContent] = useDrawer();
@@ -397,6 +406,7 @@ export const App = {
         Footer: AppMainFooter,
         Header: AppMainHeader,
         Root: AppMainRoot,
+        Toolbar: AppMainToolbar,
     },
     OrgDisplay,
     SideBar,
