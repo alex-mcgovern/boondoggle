@@ -38,7 +38,7 @@
     }
 
     .remove-filter-button {
-        color: var(--slate-11);
+        color: var(--slate-12);
         display: inline-flex;
         flex-shrink: 0;
         font-size: var(--font-size-body-sm);
