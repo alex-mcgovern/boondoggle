@@ -1,0 +1,1 @@
+import{F as e}from"./index-C09f2OLZ.js";const t={component:e,title:"Components/FieldDescription"},o={args:{children:"This is a field description."}},s=Object.freeze(Object.defineProperty({__proto__:null,Default:o,default:t},Symbol.toStringTag,{value:"Module"}));export{o as D,s};
