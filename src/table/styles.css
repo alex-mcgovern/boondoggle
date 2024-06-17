@@ -39,7 +39,11 @@
     }
 
     .row {
-        outline: none;
+        --row-outline-color: transparent;
+        --row-outline-offset: -2px;
+        --row-outline-width: 2px;
+
+        outline: var(--row-outline-width) solid var(--row-outline-color);
         cursor: default;
         color: var(--slate-12);
         position: relative;
@@ -60,8 +64,7 @@
         }
 
         &[data-focus-visible] {
-            outline: 2px solid var(--blue-6);
-            outline-offset: -2px;
+            --row-outline-color: var(--blue-6);
         }
 
         &[data-pressed] {
