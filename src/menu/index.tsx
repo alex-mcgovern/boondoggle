@@ -217,10 +217,19 @@ function Section<TItem extends object = object>(
     );
 }
 
-function SectionHeader({ children }: { children: ReactNode }) {
+function SectionHeader({
+    children,
+    icon,
+}: {
+    children: ReactNode;
+    icon?: ReactNode;
+}) {
     return (
         <AriaHeader className="dropdown-menu-section-header">
-            {children}
+            {icon ? <div className="menu-item-icon">{icon}</div> : null}
+            <span className="dropdown-menu-section-header-content">
+                {children}
+            </span>
         </AriaHeader>
     );
 }
