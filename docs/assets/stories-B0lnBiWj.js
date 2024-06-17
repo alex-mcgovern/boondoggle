@@ -1,0 +1,1 @@
+import{F as e}from"./index-BBQfozQw.js";const o={component:e,title:"Components/FieldError"},r={args:{children:"This field is required"}},s=Object.freeze(Object.defineProperty({__proto__:null,Default:r,default:o},Symbol.toStringTag,{value:"Module"}));export{r as D,s};
