@@ -144,7 +144,6 @@ These are called "bars"
             height: var(--app-main-content-height);
 
             overflow-y: auto;
-            scrollbar-gutter: stable;
             scrollbar-width: thin;
             scrollbar-color: var(--slate-5) var(--slate-3);
         }
@@ -207,7 +206,6 @@ These are called "bars"
                     padding: var(--space-2) var(--app-main-padding-x);
 
                     overflow-y: auto;
-                    scrollbar-gutter: stable;
                     scrollbar-width: thin;
                     scrollbar-color: var(--slate-5) var(--slate-3);
                 }
@@ -223,8 +221,6 @@ These are called "bars"
         padding-bottom: var(--app-main-focused-padding-y);
 
         width: 100%;
-
-        scrollbar-gutter: stable;
     }
 
     .app-nav {
