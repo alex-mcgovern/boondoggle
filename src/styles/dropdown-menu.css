@@ -1,9 +1,11 @@
 .dropdown-menu {
-    --dropdown-menu-spacing-x: var(--space-1);
     --dropdown-menu-item-spacing-x: var(--space-2);
 
     --dropdown-menu-item-font-size: var(--font-size-body-sm);
     --dropdown-menu-item-line-height: var(--line-height-body-sm);
+
+    /* Ensure that items in a menu item are aligned with buttons, inputs, etc */
+    --dropdown-menu-item-height: calc(var(--ui-height-sm));
 
     /* vars related to the horizontal layout of menu items */
 
@@ -31,30 +33,14 @@
     overflow-y: auto;
     overflow-x: hidden;
 
-    /* padding: var(--dropdown-menu-spacing-x); */
+    padding: var(--dropdown-menu-inset);
     max-height: inherit;
+    border-radius: var(--radius-sm);
 
-    /* min-width: 200px; */
+    min-width: 6rem;
 
-    &::-webkit-scrollbar {
-        background-color: transparent;
-        border-bottom-right-radius: var(--radius-sm);
-        border-top-right-radius: var(--radius-sm);
-        width: var(--space-2);
-    }
-
-    &::-webkit-scrollbar-button {
-        display: none;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--slate-5);
-        border: 2px solid var(--slate-1);
-        border-radius: var(--radius-md);
-    }
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
+    scrollbar-width: thin;
+    scrollbar-color: var(--slate-5) var(--slate-3);
 
     .dropdown-menu-section:not(:last-child)::after {
         background: var(--slate-5);
@@ -68,10 +54,10 @@
         display: flex;
         align-items: center;
 
-        color: var(--slate-11);
+        color: var(--slate-10);
 
-        font-size: var(--dropdown-menu-item-font-size);
-        line-height: var(--dropdown-menu-item-line-height);
+        font-size: var(--font-size-body-xs);
+        line-height: var(--font-size-body-xs);
         font-weight: var(--font-weight-medium);
         text-align: left;
     }
@@ -97,10 +83,12 @@
         text-align: left;
         text-decoration: none;
 
-        min-height: var(--ui-height-sm);
+        min-height: var(--dropdown-menu-item-height);
         width: 100%;
 
-        padding: var(--space-1) var(--dropdown-menu-item-spacing-x);
+        border-radius: var(--radius-sm);
+
+        padding: 0 var(--space-2);
 
         display: grid;
         grid-template-columns: var(--item-grid-template);
@@ -145,24 +133,25 @@
         }
 
         &:has(.menu-item-icon) {
-            padding-left: var(--space-1);
+            padding-left: var(--space-1\.5);
         }
         &:has(input[type="checkbox"]),
         &:has(.submenu-icon) {
-            padding-right: var(--space-1);
-            gap: var(--space-2);
+            padding-right: var(--space-1\.5);
+            /* gap: var(--space-2); */
         }
 
-        .menu-item-icon,
-        .submenu-icon {
-            color: var(--slate-11);
-            width: var(--space-4);
-            height: var(--space-4);
-
+        .icon {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+
+            width: var(--icon-size-sm);
+            height: var(--icon-size-sm);
+
+            color: var(--slate-11);
         }
+
         .menu-item-icon {
             grid-area: left;
         }

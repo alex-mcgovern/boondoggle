@@ -26,8 +26,8 @@
     forced-color-adjust: none;
 
     .checkbox {
-        width: var(--space-4);
-        height: var(--space-4);
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
 
         border: var(--checkbox-border-width) solid var(--checkbox-border-color);
         border-radius: var(--radius-sm);

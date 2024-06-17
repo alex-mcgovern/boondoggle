@@ -53,9 +53,9 @@
 
     &:has(.icon) {
         &:not(.square) {
+            /* The reason for the calc is to ensure that 
+             * toggling `.sq` class doesn't cause the icon to shift. */
             padding-left: calc(var(--btn-padding-y) - 1px);
-            /* This could also work */
-            /* padding-left: calc((var(--ui-height-sm) / 2) - (var(--space-3) / 2) - 1px) */
         }
 
         .icon {
@@ -63,8 +63,8 @@
             justify-content: center;
             align-items: center;
 
-            width: var(--space-3);
-            height: var(--space-3);
+            width: var(--icon-size-sm);
+            height: var(--icon-size-sm);
         }
     }
 

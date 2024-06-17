@@ -28,7 +28,9 @@
         --ui-height-md: var(--space-9);
         --ui-height-lg: var(--space-11);
 
-        --icon-size-sm: var(--space-4);
+        --icon-size-sm: var(--space-3);
+
+        --dropdown-menu-inset: var(--space-0\.5);
 
         --width-main-lg: 75rem;
         --width-main-md: 55.5rem;
@@ -64,6 +66,9 @@
 
         --font-size-body-sm: 0.8125rem;
         --line-height-body-sm: 1rem;
+
+        --font-size-body-xs: 0.75rem;
+        --line-height-body-xs: 0.775rem;
 
         --font-size-h1: 2.5rem;
         --line-height-h1: 3rem;
