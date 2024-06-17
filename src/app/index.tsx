@@ -5,18 +5,31 @@ import type {
     ComponentProps,
     Dispatch,
     HTMLProps,
+    MutableRefObject,
     ReactNode,
     SetStateAction,
 } from "react";
+import type {
+    ModalOverlayProps as AriaModalOverlayProps,
+    DialogProps,
+} from "react-aria-components";
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
 import { faAngleDoubleRight } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleRight";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
+import { useEffect } from "react";
+import { useRef } from "react";
 import { useCallback } from "react";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
+import {
+    Dialog as AriaDialog,
+    Modal,
+    OverlayTriggerStateContext,
+} from "react-aria-components";
+import { createPortal } from "react-dom";
 
 import { Avatar } from "../avatar";
 import { Button, LinkButton } from "../button";
@@ -25,9 +38,33 @@ import { Skeleton } from "../skeleton";
 import { Tooltip, TooltipTrigger } from "../tooltip";
 import "./styles.css";
 
+/** -----------------------------------------------------------------------------
+ * Context
+ * ------------------------------------------------------------------------------- */
+
+// In order to allow collapsing the side nav from anywhere in the app
+// we provide a context that allows direct access to the state and setter.
 export const CollapsibleSideNavContext = createContext<
     [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
+
+// In order to allow portal-ing content into the `Drawer` from anywhere in the app
+// we provide a ref via context, which can be used by the `Drawer` component to
+// append the content to the correct DOM element.
+export const AppDrawerContext =
+    createContext<MutableRefObject<HTMLElement | null> | null>(null);
+
+const useDrawerContext = () => {
+    const drawer_ref = useContext(AppDrawerContext);
+    if (!drawer_ref) {
+        throw new Error("Drawer ref not found");
+    }
+    return drawer_ref;
+};
+
+/** -----------------------------------------------------------------------------
+ * Utilities
+ * ------------------------------------------------------------------------------- */
 
 export const useSideNav = () => {
     const context = useContext(CollapsibleSideNavContext);
@@ -40,48 +77,6 @@ export const useSideNav = () => {
 
     return context;
 };
-
-const DrawerContext = createContext<
-    [ReactNode, Dispatch<SetStateAction<ReactNode | null>>]
->([null, () => {}]);
-
-const useDrawer = () => {
-    const context = useContext(DrawerContext);
-
-    if (context == null) {
-        throw new Error("DrawerContext must be used within a Provider");
-    }
-
-    return context;
-};
-
-function Container({ children }: { children: ReactNode }) {
-    const [isOpen, setIsOpen] = useState<boolean>(
-        localStorage.getItem("sideNavOpen") === "true",
-    );
-
-    const toggleSideNav = useCallback(() => {
-        setIsOpen((c) => {
-            localStorage.setItem("sideNavOpen", String(!c));
-            return !c;
-        });
-    }, []);
-
-    const [drawerContent, setDrawerContent] = useState<ReactNode | null>(null);
-
-    return (
-        <CollapsibleSideNavContext.Provider value={[isOpen, toggleSideNav]}>
-            <DrawerContext.Provider value={[drawerContent, setDrawerContent]}>
-                <div
-                    className="layout-container"
-                    data-nav-open={isOpen}
-                >
-                    {children}
-                </div>
-            </DrawerContext.Provider>
-        </CollapsibleSideNavContext.Provider>
-    );
-}
 
 /**
  * Button for toggling the side nav
@@ -100,6 +95,182 @@ function ButtonToggleCollapsibleNav() {
         </NavButton>
     );
 }
+
+/** -----------------------------------------------------------------------------
+ * Container — Wraps the entire app
+ * ------------------------------------------------------------------------------- */
+
+function AppRoot({ children }: { children: ReactNode }) {
+    const [isOpen, setIsOpen] = useState<boolean>(
+        localStorage.getItem("sideNavOpen") === "true",
+    );
+
+    const toggleSideNav = useCallback(() => {
+        setIsOpen((c) => {
+            localStorage.setItem("sideNavOpen", String(!c));
+            return !c;
+        });
+    }, []);
+
+    // Maintain a ref to the drawer container so that we can append content to it
+    // This needs to be available globally, but set in a nested component, so using
+    // context to pass it down.
+
+    const drawer_ref = useRef<HTMLElement>(null);
+
+    return (
+        <CollapsibleSideNavContext.Provider value={[isOpen, toggleSideNav]}>
+            <AppDrawerContext.Provider value={drawer_ref}>
+                <div
+                    className="layout-container"
+                    data-nav-open={isOpen}
+                >
+                    {children}
+                </div>
+            </AppDrawerContext.Provider>
+        </CollapsibleSideNavContext.Provider>
+    );
+}
+
+/** -----------------------------------------------------------------------------
+ * Main - the `<main>` element and associated components
+ * ------------------------------------------------------------------------------- */
+
+function AppMainRoot({ children }: { children: ReactNode }) {
+    return <main className="app-main">{children}</main>;
+}
+
+function AppMainHeader(props: HTMLProps<HTMLElement>) {
+    return (
+        <header
+            {...props}
+            className={clsx(props.className, "app-main-header")}
+        />
+    );
+}
+
+function AppMainToolbar(props: HTMLProps<HTMLElement>) {
+    return (
+        <section
+            {...props}
+            className={clsx(props.className, "app-main-toolbar")}
+        />
+    );
+}
+
+const AppMainContent = forwardRef<HTMLElement, { children: ReactNode }>(
+    ({ children }, ref) => {
+        return (
+            <div className="app-main-content-container">
+                <section
+                    className="app-main-content"
+                    ref={ref}
+                >
+                    {children}
+                </section>
+                <DrawerContainer />
+            </div>
+        );
+    },
+);
+
+function AppMainFooter(props: HTMLProps<HTMLElement>) {
+    return (
+        <footer
+            {...props}
+            className={clsx(props.className, "app-main-footer")}
+        />
+    );
+}
+
+/** -----------------------------------------------------------------------------
+ * Drawer
+ * ------------------------------------------------------------------------------- */
+
+function DrawerContainer() {
+    const drawer_ref = useDrawerContext();
+    return (
+        <aside
+            className="app-drawer-container"
+            id="app-drawer-container"
+            ref={drawer_ref}
+        />
+    );
+}
+
+function DrawerRoot({
+    children,
+    ...props
+}: Omit<AriaModalOverlayProps, "children"> & Pick<DialogProps, "children">) {
+    const container = useDrawerContext();
+    const [element, setElement] = useState<HTMLElement | null>(null);
+
+    useEffect(() => {
+        if (container.current) {
+            setElement(container.current);
+        }
+    }, [container]);
+
+    if (!element) {
+        return null;
+    }
+
+    return (
+        <Modal {...props}>
+            {createPortal(
+                <AriaDialog className="app-drawer-dialog">
+                    {(renderProps) => {
+                        return typeof children === "function"
+                            ? children(renderProps)
+                            : children;
+                    }}
+                </AriaDialog>,
+                element,
+            )}
+        </Modal>
+    );
+}
+
+function DrawerHeader(props: { children: ReactNode }) {
+    return (
+        <header
+            className="app-drawer-header"
+            {...props}
+        />
+    );
+}
+
+function DrawerContent(props: HTMLProps<HTMLElement>) {
+    return (
+        <section
+            className="app-drawer-content"
+            {...props}
+        />
+    );
+}
+
+function DrawerCloseButton() {
+    const state = useContext(OverlayTriggerStateContext)!;
+
+    return (
+        <Button
+            appearance="ghost"
+            aria-label="Close"
+            className="ml-auto"
+            name="close"
+            onPress={() => state.close()}
+            size="sm"
+            square
+            type="button"
+        >
+            <Icon icon={faTimes} />
+        </Button>
+    );
+}
+
+/** -----------------------------------------------------------------------------
+ * Sidebar
+ * ------------------------------------------------------------------------------- */
 
 function NavButton({
     align = "start",
@@ -254,89 +425,6 @@ function SideBar(props: { children: ReactNode }) {
     );
 }
 
-function AppMainRoot({ children }: { children: ReactNode }) {
-    return <main className="app-main">{children}</main>;
-}
-
-function AppMainHeader(props: HTMLProps<HTMLElement>) {
-    return (
-        <header
-            {...props}
-            className={clsx(props.className, "app-main-header")}
-        />
-    );
-}
-
-function AppMainToolbar(props: HTMLProps<HTMLElement>) {
-    return (
-        <section
-            {...props}
-            className={clsx(props.className, "app-main-toolbar")}
-        />
-    );
-}
-
-const AppMainContent = forwardRef<HTMLElement, { children: ReactNode }>(
-    ({ children }, ref) => {
-        const [drawerContent] = useDrawer();
-
-        return (
-            <div className="app-main-content-container">
-                <section
-                    className="app-main-content"
-                    ref={ref}
-                >
-                    {children}
-                </section>
-                <AppDrawer>{drawerContent}</AppDrawer>
-            </div>
-        );
-    },
-);
-
-function AppMainFooter(props: HTMLProps<HTMLElement>) {
-    return (
-        <footer
-            {...props}
-            className={clsx(props.className, "app-main-footer")}
-        />
-    );
-}
-
-const AppDrawer = forwardRef<HTMLElement, { children: ReactNode }>(
-    ({ children }, ref) => {
-        return (
-            <aside
-                className="app-drawer"
-                id="app-drawer"
-                ref={ref}
-            >
-                {children}
-            </aside>
-        );
-    },
-);
-
-function AppDrawerCloseButton() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setDrawer] = useDrawer();
-
-    return (
-        <Button
-            appearance="ghost"
-            aria-label="Close"
-            className="ml-auto"
-            name="close"
-            onPress={() => setDrawer(null)}
-            size="sm"
-            square
-            type="button"
-        >
-            <Icon icon={faTimes} />
-        </Button>
-    );
-}
-
 function Focused({ children }: { children: ReactNode }) {
     return <div className="app-main-focused">{children}</div>;
 }
@@ -396,9 +484,14 @@ function SideNavSection({
 }
 
 export const App = {
-    AppDrawer: { CloseButton: AppDrawerCloseButton },
     Button: NavButton,
-    Container,
+    Container: AppRoot,
+    Drawer: {
+        CloseButton: DrawerCloseButton,
+        Content: DrawerContent,
+        Header: DrawerHeader,
+        Root: DrawerRoot,
+    },
     Focused,
     Link,
     Main: {
@@ -413,7 +506,6 @@ export const App = {
     SideNavFooter: SideNavFooter,
     SideNavHeader: SideNavHeader,
     SideNavSection: SideNavSection,
-    useDrawer,
     UserMenuHeader,
     useSideNav,
 };

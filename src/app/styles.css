@@ -56,7 +56,7 @@ These are called "bars"
         transition-timing-function: var(--ease-quart-in-out);
     }
 
-    &:has(.app-drawer:not(:empty)) {
+    &:has(.app-drawer-container:not(:empty)) {
         --app-drawer-width: 20rem;
     }
 
@@ -84,7 +84,7 @@ These are called "bars"
 
     display: grid;
     /* prettier-ignore */
-    grid-template-columns: var(--app-nav-width) var(--app-main-width) var(--app-drawer-width);
+    grid-template-columns: var(--app-nav-width) var(--app-main-width) calc(var(--app-drawer-width) + 10px);
     /* gap: var(--app-padding); */
 
     padding: var(--app-padding);
@@ -141,18 +141,18 @@ These are called "bars"
         }
 
         .app-main-content {
-            overflow-y: auto;
-            scrollbar-gutter: stable;
-
             height: var(--app-main-content-height);
 
+            overflow-y: auto;
+            scrollbar-gutter: stable;
             scrollbar-width: thin;
             scrollbar-color: var(--slate-5) var(--slate-3);
         }
 
         .app-main-header,
         .app-main-toolbar,
-        .app-main-footer {
+        .app-main-footer,
+        .app-drawer-header {
             display: flex;
             align-items: center;
             gap: var(--space-2);
@@ -162,7 +162,8 @@ These are called "bars"
         }
 
         .app-main-header,
-        .app-main-toolbar {
+        .app-main-toolbar,
+        .app-drawer-header {
             border-bottom: 1px solid var(--slate-5);
         }
 
@@ -170,7 +171,15 @@ These are called "bars"
             border-top: 1px solid var(--slate-5);
         }
 
-        .app-drawer {
+        .app-drawer-container {
+            --drawer-height: var(--app-main-content-height);
+
+            &:has(.app-drawer-header) {
+                --app-drawer-content-height: calc(
+                    var(--app-main-content-height) - var(--app-bar-height)
+                );
+            }
+
             border-left: 1px solid transparent;
 
             width: var(--app-drawer-width);
@@ -179,7 +188,29 @@ These are called "bars"
             &:not(:empty) {
                 border-color: var(--slate-5);
                 background: var(--slate-2);
-                padding: var(--space-3) var(--app-main-padding-x);
+            }
+
+            .app-drawer-dialog {
+                /* padding: var(--space-3) var(--app-main-padding-x); */
+
+                height: var(--app-main-content-height);
+
+                outline: 0;
+
+                &:focus {
+                    outline: 2px solid var(--blue-6);
+                    outline-offset: -2px;
+                }
+
+                .app-drawer-content {
+                    height: var(--app-drawer-content-height);
+                    padding: var(--space-2) var(--app-main-padding-x);
+
+                    overflow-y: auto;
+                    scrollbar-gutter: stable;
+                    scrollbar-width: thin;
+                    scrollbar-color: var(--slate-5) var(--slate-3);
+                }
             }
         }
     }

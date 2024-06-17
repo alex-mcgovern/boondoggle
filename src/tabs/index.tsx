@@ -7,7 +7,6 @@ import type {
 } from "react-aria-components";
 
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import { useLayoutEffect, useState } from "react";
 import {
     Tab as AriaTab,
@@ -25,31 +24,13 @@ function Tab({ id, ...props }: AriaTabProps) {
             id={id}
             {...props}
         >
-            {(rp) => {
-                return (
-                    <>
-                        {rp.isSelected ? (
-                            <motion.span
-                                className="indicator"
-                                layoutId="indicator"
-                                style={{
-                                    originY: "0px", // prevent vertical movement
-                                }}
-                                transition={{
-                                    damping: 75,
-                                    stiffness: 750,
-                                    type: "spring",
-                                }}
-                            />
-                        ) : null}
-                        <div className="inner">
-                            {typeof props.children === "function"
-                                ? props.children(rp)
-                                : props.children}
-                        </div>
-                    </>
-                );
-            }}
+            {(rp) => (
+                <div className="inner">
+                    {typeof props.children === "function"
+                        ? props.children(rp)
+                        : props.children}
+                </div>
+            )}
         </AriaTab>
     );
 }

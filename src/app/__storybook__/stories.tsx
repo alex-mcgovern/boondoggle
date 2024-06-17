@@ -8,27 +8,12 @@ import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
 
 import { App } from "..";
 import { Button } from "../../button";
+import { DialogTrigger } from "../../dialog-trigger";
 import { Icon } from "../../icon";
 import { Menu } from "../../menu";
 import { Popover } from "../../popover";
 import { Table } from "../../table";
 import { Tabs } from "../../tabs";
-
-function ButtonSetDrawer() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setDrawerContent] = App.useDrawer();
-
-    return (
-        <>
-            <Button onPress={() => setDrawerContent(<div>Hello</div>)}>
-                Set Drawer
-            </Button>
-            <Button onPress={() => setDrawerContent(undefined)}>
-                Clear Drawer
-            </Button>
-        </>
-    );
-}
 
 function SideNav() {
     return (
@@ -283,10 +268,25 @@ export const WithTable: Story = {
                         >
                             <Icon icon={faEllipsis} />
                         </Button>
-                        <ButtonSetDrawer />
                         <Button>Primary action</Button>
+                        <DialogTrigger>
+                            <Button>Open drawer</Button>
+                            <App.Drawer.Root>
+                                <App.Drawer.Header>
+                                    <h1>Drawer title</h1>
+                                    <App.Drawer.CloseButton />
+                                </App.Drawer.Header>
+                                <App.Drawer.Content>
+                                    {faker.lorem.paragraphs(20)}
+                                </App.Drawer.Content>
+                            </App.Drawer.Root>
+                        </DialogTrigger>
                     </App.Main.Header>
                     <App.Main.Content>
+                        <App.Main.Toolbar>
+                            <Button appearance="secondary">Action 1</Button>
+                            <Button appearance="secondary">Action 2</Button>
+                        </App.Main.Toolbar>
                         <Table.Root aria-label="Files">
                             <Table.Header>
                                 <Table.Column
