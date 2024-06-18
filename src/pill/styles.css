@@ -49,16 +49,19 @@
         --pill-border-color: var(--amber-5);
     }
 
-    .pill-icon-container {
+    .icon {
         display: flex;
-        align-items: center;
         justify-content: center;
-        flex-shrink: 0;
+        align-items: center;
 
-        min-width: var(--icon-size-sm);
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
     }
 
-    &:has(.pill-icon-container) {
+    &:has(.icon:first-child) {
         padding-left: var(--space-1);
+    }
+    &:has(.icon:last-child) {
+        padding-right: var(--space-1);
     }
 }

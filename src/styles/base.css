@@ -22,6 +22,7 @@
         height: 100%;
         overscroll-behavior-y: none;
 
+        font-family: var(--font-family-body);
         font-size: var(--font-size-body-sm);
         line-height: var(--line-height-body-sm);
     }
@@ -29,6 +30,7 @@
     * {
         box-sizing: border-box;
         margin: 0;
+        font-family: inherit;
     }
 
     h1,

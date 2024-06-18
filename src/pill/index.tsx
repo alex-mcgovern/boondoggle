@@ -13,14 +13,12 @@ export function Pill({
     children,
     className,
     color,
-    icon,
     id,
     style,
 }: {
     children?: ReactNode;
     className?: string;
     color?: Color;
-    icon?: ReactNode;
     id?: string;
     style?: React.CSSProperties;
 }) {
@@ -30,7 +28,6 @@ export function Pill({
             id={id}
             style={style}
         >
-            {icon ? <div className="pill-icon-container">{icon}</div> : null}
             {children}
         </div>
     );

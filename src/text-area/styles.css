@@ -17,6 +17,7 @@
     background-color: var(--text-area-bg);
 
     font-size: var(--font-size-body-sm);
+    font-family: var(--font-family-body);
     line-height: var(--line-height-body-sm);
 
     width: 100%;
