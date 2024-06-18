@@ -201,10 +201,7 @@ function DrawerContainer() {
 function DrawerRoot({
     children,
     ...props
-}: Omit<
-    AriaPopoverProps,
-    "children" | "isNonModal" | "shouldCloseOnInteractOutside"
-> &
+}: Omit<AriaPopoverProps, "children" | "isNonModal"> &
     Pick<AriaDialogProps, "children">) {
     const container = useDrawerContext();
     const [element, setElement] = useState<HTMLElement | null>(null);
@@ -223,7 +220,6 @@ function DrawerRoot({
         <AriaPopover
             {...props}
             isNonModal
-            shouldCloseOnInteractOutside={() => false}
         >
             {createPortal(
                 <AriaDialog className="app-drawer-dialog">
