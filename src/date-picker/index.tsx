@@ -6,7 +6,6 @@ import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { useContext } from "react";
 import { forwardRef } from "react";
-import { DatePickerContext, useSlottedContext } from "react-aria-components";
 import { DatePickerStateContext } from "react-aria-components";
 import { Dialog } from "react-aria-components";
 import { DatePicker as AriaDatePicker } from "react-aria-components";
@@ -61,14 +60,10 @@ export function DatePickerPreset({
     children: ReactNode;
     date: ZonedDateTime;
 }) {
-    const context = useSlottedContext(DatePickerContext);
-    if (!context) {
-        throw new Error("Preset must be used within a DatePicker");
-    }
+    const { setValue } = useContext(DatePickerStateContext);
 
     const onPress = () => {
-        context.onFocusChange?.(true);
-        context.onChange?.(date);
+        setValue(date);
     };
 
     return (
