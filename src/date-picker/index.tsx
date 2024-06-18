@@ -1,5 +1,5 @@
 import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import type { DatePickerProps as AriaDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
@@ -58,8 +58,8 @@ export function DatePickerPreset({
     children,
     date,
 }: {
-    children: React.ReactNode;
-    date: CalendarDate;
+    children: ReactNode;
+    date: ZonedDateTime;
 }) {
     const context = useSlottedContext(DatePickerContext);
     if (!context) {
