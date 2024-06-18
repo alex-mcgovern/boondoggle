@@ -52,7 +52,10 @@ export function Calendar<TDateValue extends AriaDateValue>(
                 >
                     <Icon icon={faAngleLeft} />
                 </Button>
-                <AriaHeading className="heading" />
+                <AriaHeading
+                    className="heading"
+                    level={3}
+                />
                 <Button
                     appearance="ghost"
                     size="sm"

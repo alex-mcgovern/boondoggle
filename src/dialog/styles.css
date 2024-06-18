@@ -109,16 +109,6 @@
             max-width: 100%;
         }
 
-        .dialog-title {
-            color: var(--slate-12);
-
-            font-size: var(--font-size-body-lg);
-            line-height: var(--line-height-body-lg);
-            font-weight: var(--font-weight-semibold);
-
-            margin: 0;
-        }
-
         .dialog-content {
             overflow-y: auto;
             padding: var(--space-4);

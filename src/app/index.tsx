@@ -24,10 +24,9 @@ import { useCallback } from "react";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
-import { DialogTrigger } from "react-aria-components";
+import { Heading as AriaHeading } from "react-aria-components";
 import {
     Dialog as AriaDialog,
-    OverlayTriggerStateContext as AriaOverlayTriggerStateContext,
     Popover as AriaPopover,
 } from "react-aria-components";
 import { createPortal } from "react-dom";
@@ -199,6 +198,10 @@ function DrawerContainer() {
     );
 }
 
+const DrawerStateContext = createContext<
+    [boolean | undefined, (isOpen: boolean) => void]
+>([false, () => {}]);
+
 function DrawerRoot({
     children,
     isOpen,
@@ -206,8 +209,14 @@ function DrawerRoot({
     ...props
 }: Omit<
     AriaPopoverProps,
-    "children" | "isNonModal" | "shouldFlip" | "shouldUpdatePosition"
+    | "children"
+    | "isNonModal"
+    | "isOpen"
+    | "onOpenChange"
+    | "shouldFlip"
+    | "shouldUpdatePosition"
 > &
+    Required<Pick<AriaPopoverProps, "isOpen" | "onOpenChange">> &
     Pick<AriaDialogProps, "children">) {
     const container = useDrawerContext();
     const [element, setElement] = useState<HTMLElement | null>(null);
@@ -221,12 +230,8 @@ function DrawerRoot({
     if (!element) {
         return null;
     }
-
     return (
-        <DialogTrigger
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
-        >
+        <DrawerStateContext.Provider value={[isOpen, onOpenChange]}>
             <AriaPopover
                 {...props}
                 isNonModal
@@ -250,16 +255,30 @@ function DrawerRoot({
                     element,
                 )}
             </AriaPopover>
-        </DialogTrigger>
+        </DrawerStateContext.Provider>
     );
 }
 
-function DrawerHeader(props: { children: ReactNode }) {
+function DrawerHeader({
+    children,
+    title,
+    ...props
+}: {
+    title: string;
+} & HTMLProps<HTMLElement>) {
     return (
         <header
             className="app-drawer-header"
             {...props}
-        />
+        >
+            <AriaHeading
+                level={3}
+                slot="title"
+            >
+                {title}
+            </AriaHeading>
+            {children}
+        </header>
     );
 }
 
@@ -273,7 +292,10 @@ function DrawerContent(props: HTMLProps<HTMLElement>) {
 }
 
 function DrawerCloseButton() {
-    const { setOpen } = useContext(AriaOverlayTriggerStateContext);
+    const [, setOpen] = useContext(DrawerStateContext);
+    if (!setOpen) {
+        throw new Error("DrawerCloseButton must be used within a Drawer");
+    }
 
     return (
         <Button
@@ -281,7 +303,7 @@ function DrawerCloseButton() {
             aria-label="Close"
             className="ml-auto"
             name="close"
-            onPress={() => setOpen?.(false)}
+            onPress={() => setOpen(false)}
             size="sm"
             square
             type="button"

@@ -19,11 +19,7 @@
     .heading {
         flex-grow: 1;
 
-        font-size: var(--font-size-body-md);
-        line-height: var(--line-height-body-md);
         text-align: center;
-
-        margin: 0;
     }
 
     .cell {

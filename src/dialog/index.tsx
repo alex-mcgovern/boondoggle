@@ -51,7 +51,7 @@ function DialogHeader(props: { children: ReactNode }) {
 function DialogTitle({ children }: { children: string }) {
     return (
         <AriaHeading
-            className="dialog-title"
+            level={3}
             slot="title"
         >
             {children}

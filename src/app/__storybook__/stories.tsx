@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPerson } from "@fortawesome/pro-solid-svg-icons/faPerson";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import { faWallet } from "@fortawesome/pro-solid-svg-icons/faWallet";
+import { useState } from "react";
 
 import { App } from "..";
 import { Button } from "../../button";
-import { DialogTrigger } from "../../dialog-trigger";
 import { Icon } from "../../icon";
 import { Menu } from "../../menu";
 import { Popover } from "../../popover";
@@ -253,10 +254,23 @@ export const WithTabs: Story = {
     },
 };
 
-export const WithTable: Story = {
-    args: {
-        children: (
-            <>
+function AppWithTable(args: ComponentProps<typeof App.Container>) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <>
+            <App.Container {...args}>
+                <App.Drawer.Root
+                    isOpen={isOpen}
+                    onOpenChange={setIsOpen}
+                >
+                    <App.Drawer.Header title={"Drawer title"}>
+                        <App.Drawer.CloseButton />
+                    </App.Drawer.Header>
+                    <App.Drawer.Content>
+                        {faker.lorem.paragraphs(20)}
+                    </App.Drawer.Content>
+                </App.Drawer.Root>
                 <SideNav />
                 <App.Main.Root>
                     <App.Main.Header>
@@ -268,19 +282,14 @@ export const WithTable: Story = {
                         >
                             <Icon icon={faEllipsis} />
                         </Button>
-                        <Button>Primary action</Button>
-                        <DialogTrigger>
-                            <Button>Open drawer</Button>
-                            <App.Drawer.Root>
-                                <App.Drawer.Header>
-                                    <h1>Drawer title</h1>
-                                    <App.Drawer.CloseButton />
-                                </App.Drawer.Header>
-                                <App.Drawer.Content>
-                                    {faker.lorem.paragraphs(20)}
-                                </App.Drawer.Content>
-                            </App.Drawer.Root>
-                        </DialogTrigger>
+                        <Button
+                            onPress={() => {
+                                alert("opened");
+                                setIsOpen(true);
+                            }}
+                        >
+                            Open drawer
+                        </Button>
                     </App.Main.Header>
                     <App.Main.Content>
                         <App.Main.Toolbar>
@@ -296,7 +305,6 @@ export const WithTable: Story = {
                                 >
                                     User
                                 </Table.Column>
-
                                 <Table.Column width="1fr">
                                     Job type
                                 </Table.Column>
@@ -304,7 +312,6 @@ export const WithTable: Story = {
                                     Job area
                                 </Table.Column>
                             </Table.Header>
-
                             <Table.Body>
                                 {Array.from({ length: 25 }).map((_, index) => {
                                     return (
@@ -312,7 +319,6 @@ export const WithTable: Story = {
                                             <Table.Cell>
                                                 {faker.person.fullName()}
                                             </Table.Cell>
-
                                             <Table.Cell>
                                                 {faker.person.jobType()}
                                             </Table.Cell>
@@ -325,7 +331,6 @@ export const WithTable: Story = {
                             </Table.Body>
                         </Table.Root>
                     </App.Main.Content>
-
                     <App.Main.Footer>
                         <Button
                             appearance="secondary"
@@ -336,7 +341,14 @@ export const WithTable: Story = {
                         <Button appearance="secondary">Next</Button>
                     </App.Main.Footer>
                 </App.Main.Root>
-            </>
-        ),
+            </App.Container>
+        </>
+    );
+}
+
+export const WithTable: Story = {
+    args: {
+        children: null,
     },
+    render: AppWithTable,
 };
