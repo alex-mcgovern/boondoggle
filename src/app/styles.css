@@ -190,9 +190,9 @@ These are called "bars"
             }
 
             .app-drawer-dialog {
-                /* padding: var(--space-3) var(--app-main-padding-x); */
-
-                height: var(--app-main-content-height);
+                height: calc(var(--app-main-content-height) - 2px);
+                border-bottom-right-radius: var(--radius-md);
+                width: calc(100% - 1px);
 
                 outline: 0;
 
