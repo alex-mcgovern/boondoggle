@@ -3,11 +3,16 @@ import type { ComponentProps } from "react";
 import type { DatePickerProps as AriaDatePickerProps } from "react-aria-components";
 
 import { faCalendar } from "@fortawesome/pro-solid-svg-icons/faCalendar";
+import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
+import { useContext } from "react";
 import { forwardRef } from "react";
+import { DatePickerContext, useSlottedContext } from "react-aria-components";
+import { DatePickerStateContext } from "react-aria-components";
 import { Dialog } from "react-aria-components";
 import { DatePicker as AriaDatePicker } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
+import { Button } from "../button";
 import { Calendar } from "../calendar";
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
@@ -22,6 +27,58 @@ export function DatePickerButton() {
         <FieldButton>
             <Icon icon={faCalendar} />
         </FieldButton>
+    );
+}
+
+/**
+ * Clear button for the DatePicker.
+ */
+export function DatePickerClearButton() {
+    const { setValue, value } = useContext(DatePickerStateContext)!;
+
+    if (!value) {
+        return null;
+    }
+    return (
+        <FieldButton
+            aria-label="Clear"
+            className="clear-button"
+            onPress={() => setValue(null)}
+            slot={null}
+        >
+            <Icon icon={faTimes} />
+        </FieldButton>
+    );
+}
+
+/**
+ * Preset component for the DatePicker.
+ */
+export function DatePickerPreset({
+    children,
+    date,
+}: {
+    children: React.ReactNode;
+    date: CalendarDate;
+}) {
+    const context = useSlottedContext(DatePickerContext);
+    if (!context) {
+        throw new Error("Preset must be used within a DatePicker");
+    }
+
+    const onPress = () => {
+        context.onFocusChange?.(true);
+        context.onChange?.(date);
+    };
+
+    return (
+        <Button
+            appearance="secondary"
+            onPress={onPress}
+            slot={null}
+        >
+            {children}
+        </Button>
     );
 }
 
@@ -57,7 +114,7 @@ export const DatePicker = forwardRef<
                             ? props.children(values)
                             : props.children}
                         <Popover
-                            className="p2"
+                            className="p-1"
                             placement="bottom end"
                         >
                             <Dialog>

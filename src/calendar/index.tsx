@@ -71,12 +71,17 @@ export function Calendar<TDateValue extends AriaDateValue>(
                     )}
                 </AriaCalendarGridHeader>
                 <AriaCalendarGridBody className="grid-body">
-                    {(date) => (
-                        <AriaCalendarCell
-                            className="cell"
-                            date={date}
-                        />
-                    )}
+                    {(date) => {
+                        const isToday = date.day === new Date().getDate();
+
+                        return (
+                            <AriaCalendarCell
+                                className="cell"
+                                data-today={isToday}
+                                date={date}
+                            />
+                        );
+                    }}
                 </AriaCalendarGridBody>
             </AriaCalendarGrid>
         </AriaCalendar>
