@@ -24,6 +24,7 @@ import { useCallback } from "react";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
+import { DialogTrigger } from "react-aria-components";
 import {
     Dialog as AriaDialog,
     OverlayTriggerStateContext as AriaOverlayTriggerStateContext,
@@ -200,6 +201,8 @@ function DrawerContainer() {
 
 function DrawerRoot({
     children,
+    isOpen,
+    onOpenChange,
     ...props
 }: Omit<
     AriaPopoverProps,
@@ -220,27 +223,34 @@ function DrawerRoot({
     }
 
     return (
-        <AriaPopover
-            {...props}
-            isNonModal
-            // We spoof the ref here and tell it not to do anything with position
-            // We *are* sort of abusing the `Popover` component here, but it serves our needs
-            shouldCloseOnInteractOutside={() => false}
-            shouldFlip={false}
-            shouldUpdatePosition={false}
-            triggerRef={{ current: null }}
+        <DialogTrigger
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
         >
-            {createPortal(
-                <AriaDialog className="app-drawer-dialog">
-                    {(renderProps) => {
-                        return typeof children === "function"
-                            ? children(renderProps)
-                            : children;
-                    }}
-                </AriaDialog>,
-                element,
-            )}
-        </AriaPopover>
+            <AriaPopover
+                {...props}
+                isNonModal
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+                // We spoof the ref here and tell it not to do anything with position
+                // We *are* sort of abusing the `Popover` component here, but it serves our needs
+                shouldCloseOnInteractOutside={() => false}
+                shouldFlip={false}
+                shouldUpdatePosition={false}
+                triggerRef={{ current: null }}
+            >
+                {createPortal(
+                    <AriaDialog className="app-drawer-dialog">
+                        {(renderProps) => {
+                            return typeof children === "function"
+                                ? children(renderProps)
+                                : children;
+                        }}
+                    </AriaDialog>,
+                    element,
+                )}
+            </AriaPopover>
+        </DialogTrigger>
     );
 }
 
@@ -263,7 +273,7 @@ function DrawerContent(props: HTMLProps<HTMLElement>) {
 }
 
 function DrawerCloseButton() {
-    const { setOpen } = useContext(AriaOverlayTriggerStateContext) || {};
+    const { setOpen } = useContext(AriaOverlayTriggerStateContext);
 
     return (
         <Button

@@ -30,10 +30,17 @@
     .table-header {
         color: var(--slate-12);
 
-        & tr:last-child {
+        .column {
+            border-bottom: var(--table-border-width) solid
+                var(--table-border-color);
+        }
+
+        &.sticky {
             .column {
-                border-bottom: var(--table-border-width) solid
-                    var(--table-border-color);
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                background: var(--slate-1);
             }
         }
     }
@@ -159,13 +166,6 @@
             &[data-hovered] {
                 color: var(--slate-12);
             }
-        }
-
-        &.sticky {
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            background: var(--slate-1);
         }
     }
 
