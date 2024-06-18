@@ -46,9 +46,21 @@
     scrollbar-width: thin;
     scrollbar-color: var(--slate-5) var(--slate-3);
 
-    .dropdown-menu-section {
+    &:not(:has(.dropdown-menu-section)) {
         padding: var(--dropdown-menu-inset);
+    }
 
+    &:has(.dropdown-menu-section) {
+        .dropdown-menu-section {
+            padding: var(--dropdown-menu-inset);
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--slate-5);
+            }
+        }
+    }
+
+    .dropdown-menu-section {
         &:not(:last-child) {
             border-bottom: 1px solid var(--slate-5);
         }
