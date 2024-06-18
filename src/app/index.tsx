@@ -263,7 +263,7 @@ function DrawerContent(props: HTMLProps<HTMLElement>) {
 }
 
 function DrawerCloseButton() {
-    const state = useContext(AriaOverlayTriggerStateContext)!;
+    const { setOpen } = useContext(AriaOverlayTriggerStateContext);
 
     return (
         <Button
@@ -271,7 +271,7 @@ function DrawerCloseButton() {
             aria-label="Close"
             className="ml-auto"
             name="close"
-            onPress={() => state.close()}
+            onPress={() => setOpen(false)}
             size="sm"
             square
             type="button"
