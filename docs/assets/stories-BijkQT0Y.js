@@ -1,0 +1,1 @@
+import{f as o}from"./faShapes-D12tX9Vg.js";import{I as e}from"./index-Bm-Ss1KG.js";const t={args:{},component:e,title:"Components/Icon"},a={args:{icon:o.faShapes}},r=Object.freeze(Object.defineProperty({__proto__:null,Default:a,default:t},Symbol.toStringTag,{value:"Module"}));export{a as D,r as s};
