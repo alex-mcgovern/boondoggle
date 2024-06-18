@@ -56,3 +56,43 @@ export const Default: Story = {
         ],
     },
 };
+
+export const WithDefaultSelectedKey: Story = {
+    args: {
+        children: (
+            <>
+                <Label>Pick a fruit</Label>
+                <Group>
+                    <ComboBoxInput
+                        placeholder="Select a fruit..."
+                        unstyled
+                    />
+                    <ComboBoxButton />
+                </Group>
+            </>
+        ),
+        defaultItems: [
+            {
+                id: "apple",
+                name: "Apple",
+                slotLeft: <Icon icon={faSquare0} />,
+            },
+            {
+                id: "banana",
+                name: "Banana",
+                slotLeft: <Icon icon={faSquare1} />,
+            },
+            {
+                id: "cherry",
+                name: "Cherry",
+                slotLeft: <Icon icon={faSquare2} />,
+            },
+            {
+                id: "date",
+                name: "Date",
+                slotLeft: <Icon icon={faSquare3} />,
+            },
+        ],
+        defaultSelectedKey: "apple",
+    },
+};
