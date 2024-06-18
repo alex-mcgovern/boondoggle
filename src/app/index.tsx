@@ -201,7 +201,10 @@ function DrawerContainer() {
 function DrawerRoot({
     children,
     ...props
-}: Omit<AriaPopoverProps, "children" | "isNonModal"> &
+}: Omit<
+    AriaPopoverProps,
+    "children" | "isNonModal" | "shouldFlip" | "shouldUpdatePosition"
+> &
     Pick<AriaDialogProps, "children">) {
     const container = useDrawerContext();
     const [element, setElement] = useState<HTMLElement | null>(null);
@@ -220,6 +223,11 @@ function DrawerRoot({
         <AriaPopover
             {...props}
             isNonModal
+            // We spoof the ref here and tell it not to do anything with position
+            // We *are* sort of abusing the `Popover` component here, but it serves our needs
+            shouldFlip={false}
+            shouldUpdatePosition={false}
+            triggerRef={{ current: null }}
         >
             {createPortal(
                 <AriaDialog className="app-drawer-dialog">
