@@ -225,6 +225,7 @@ function DrawerRoot({
             isNonModal
             // We spoof the ref here and tell it not to do anything with position
             // We *are* sort of abusing the `Popover` component here, but it serves our needs
+            shouldCloseOnInteractOutside={() => false}
             shouldFlip={false}
             shouldUpdatePosition={false}
             triggerRef={{ current: null }}
