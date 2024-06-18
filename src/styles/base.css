@@ -33,6 +33,11 @@
         font-family: inherit;
     }
 
+    ::selection {
+        background: var(--blue-3);
+        color: var(--blue-11);
+    }
+
     h1,
     h2,
     h3,
