@@ -539,7 +539,7 @@ describe("FormComboBox", async () => {
         );
     });
 
-    it("`FormNumberField` clears when reset after submission", async () => {
+    it("`FormComboBox` clears when reset after submission", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => {});
 

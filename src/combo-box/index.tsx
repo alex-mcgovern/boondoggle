@@ -39,7 +39,7 @@ export const ComboBoxInput = forwardRef<
     ComponentProps<typeof Input>
 >((props, ref) => {
     const state = useContext(ComboBoxStateContext);
-    const { isOpen, selectedItem, setOpen } = state || {};
+    const { selectedItem, toggle } = state || {};
     const { value } = selectedItem || {};
     const { slotLeft } = value || {};
 
@@ -49,8 +49,9 @@ export const ComboBoxInput = forwardRef<
             defaultValue={value?.name}
             icon={slotLeft}
             onClick={() => {
-                setOpen(!isOpen);
+                toggle(null, "manual");
             }}
+            placeholder={selectedItem ? selectedItem.value.name : ""}
             ref={ref}
         />
     );
@@ -124,7 +125,6 @@ export function FormComboBox<TItemId extends string = string>({
     return (
         <ComboBox
             {...props}
-            defaultSelectedKey={value}
             isDisabled={disabled}
             isInvalid={invalid}
             name={name}
