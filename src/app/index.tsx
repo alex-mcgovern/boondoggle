@@ -10,8 +10,8 @@ import type {
     SetStateAction,
 } from "react";
 import type {
-    ModalOverlayProps as AriaModalOverlayProps,
-    DialogProps,
+    DialogProps as AriaDialogProps,
+    PopoverProps as AriaPopoverProps,
 } from "react-aria-components";
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
@@ -26,8 +26,8 @@ import { createContext, useContext } from "react";
 import { useState } from "react";
 import {
     Dialog as AriaDialog,
-    Modal,
-    OverlayTriggerStateContext,
+    OverlayTriggerStateContext as AriaOverlayTriggerStateContext,
+    Popover as AriaPopover,
 } from "react-aria-components";
 import { createPortal } from "react-dom";
 
@@ -201,7 +201,11 @@ function DrawerContainer() {
 function DrawerRoot({
     children,
     ...props
-}: Omit<AriaModalOverlayProps, "children"> & Pick<DialogProps, "children">) {
+}: Omit<
+    AriaPopoverProps,
+    "children" | "isNonModal" | "shouldCloseOnInteractOutside"
+> &
+    Pick<AriaDialogProps, "children">) {
     const container = useDrawerContext();
     const [element, setElement] = useState<HTMLElement | null>(null);
 
@@ -216,7 +220,11 @@ function DrawerRoot({
     }
 
     return (
-        <Modal {...props}>
+        <AriaPopover
+            {...props}
+            isNonModal
+            shouldCloseOnInteractOutside={() => false}
+        >
             {createPortal(
                 <AriaDialog className="app-drawer-dialog">
                     {(renderProps) => {
@@ -227,7 +235,7 @@ function DrawerRoot({
                 </AriaDialog>,
                 element,
             )}
-        </Modal>
+        </AriaPopover>
     );
 }
 
@@ -250,7 +258,7 @@ function DrawerContent(props: HTMLProps<HTMLElement>) {
 }
 
 function DrawerCloseButton() {
-    const state = useContext(OverlayTriggerStateContext)!;
+    const state = useContext(AriaOverlayTriggerStateContext)!;
 
     return (
         <Button
