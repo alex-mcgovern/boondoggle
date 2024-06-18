@@ -1,0 +1,1 @@
+import{L as e}from"./index-Ca5Wi8iW.js";const t={component:e,title:"Components/Label"},o={args:{children:"Label"}},l=Object.freeze(Object.defineProperty({__proto__:null,Default:o,default:t},Symbol.toStringTag,{value:"Module"}));export{o as D,l as s};
