@@ -2,9 +2,7 @@ import type { ComponentProps } from "react";
 import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
-import { useCallback } from "react";
 import { forwardRef, useContext } from "react";
 import {
     ComboBox as AriaCombobox,
@@ -26,21 +24,9 @@ import "./styles.css";
  * Button for triggering the ComboBox.
  */
 export function ComboBoxButton() {
-    const state = useContext(ComboBoxStateContext);
-    const { isOpen, selectedKey, setOpen, setSelectedKey } = state || {};
-
-    const handleClear = useCallback(() => {
-        if (!isOpen) {
-            setOpen(true);
-        }
-        setSelectedKey(null);
-    }, [isOpen, setOpen, setSelectedKey]);
-
     return (
-        <FieldButton
-            {...(selectedKey ? { onPress: handleClear, slot: null } : {})}
-        >
-            <Icon icon={selectedKey ? faTimes : faAnglesUpDown} />
+        <FieldButton>
+            <Icon icon={faAnglesUpDown} />
         </FieldButton>
     );
 }
