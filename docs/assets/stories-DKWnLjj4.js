@@ -1,0 +1,1 @@
+import{L as e}from"./index-BCX3-J2y.js";const t={component:e,title:"Components/Label"},o={args:{children:"Label"}},l=Object.freeze(Object.defineProperty({__proto__:null,Default:o,default:t},Symbol.toStringTag,{value:"Module"}));export{o as D,l as s};

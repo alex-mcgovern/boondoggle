@@ -1,1 +1,0 @@
-import{b as o}from"./utils-Bc7mYRVy.js";import{r as a,R as $}from"./index-DVXBtNgz.js";const f=a.createContext({});function n(e,t){[e,t]=o(e,t,f);let{elementType:r="span",...c}=e;return $.createElement(r,{className:"react-aria-Text",...c,ref:t})}const m=a.forwardRef(n);export{m as $,f as a};
