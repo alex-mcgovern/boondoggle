@@ -25,6 +25,7 @@ export function Checkbox(props: AriaCheckboxProps) {
         <AriaCheckbox
             {...props}
             className={clsx(props.className, "checkbox-wrapper")}
+            data-testid="checkbox"
         >
             {(renderProps) => {
                 return (
