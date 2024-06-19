@@ -78,7 +78,6 @@ export const ComboBox = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
             <AriaCombobox
                 {...props}
                 className={clsx(props.className, "combobox")}
-                // menuTrigger="manual"
                 ref={ref}
             >
                 {(renderProps) => (
@@ -134,7 +133,7 @@ export function FormComboBox<TItemId extends string = string>({
                 props.onSelectionChange?.(k);
             }}
             ref={ref}
-            selectedKey={value}
+            selectedKey={value ?? ""}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
         >
             {(renderProps) => {
