@@ -44,6 +44,7 @@ const RemoveFilterButton = forwardRef<
     return (
         <AriaButton
             {...props}
+            aria-label="Remove filter"
             className={clsx(props.className, "remove-filter-button")}
             ref={ref}
         >
