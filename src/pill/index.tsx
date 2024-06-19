@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { HTMLProps } from "react";
 
 import clsx from "clsx";
 
@@ -13,20 +13,14 @@ export function Pill({
     children,
     className,
     color,
-    id,
-    style,
+    ...props
 }: {
-    children?: ReactNode;
-    className?: string;
     color?: Color;
-    id?: string;
-    style?: React.CSSProperties;
-}) {
+} & HTMLProps<HTMLDivElement>) {
     return (
         <div
             className={clsx(className, "pill", color)}
-            id={id}
-            style={style}
+            {...props}
         >
             {children}
         </div>
