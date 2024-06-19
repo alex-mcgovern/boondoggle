@@ -24,6 +24,7 @@ import { useCallback } from "react";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
+import { Heading } from "react-aria-components";
 import {
     Dialog as AriaDialog,
     Modal,
@@ -231,12 +232,19 @@ function DrawerRoot({
     );
 }
 
-function DrawerHeader(props: { children: ReactNode }) {
+function DrawerHeader({
+    children,
+    title,
+    ...props
+}: HTMLProps<HTMLElement> & { title: string }) {
     return (
         <header
             className="app-drawer-header"
             {...props}
-        />
+        >
+            <Heading level={3}>{title}</Heading>
+            {children}
+        </header>
     );
 }
 
