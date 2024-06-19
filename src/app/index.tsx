@@ -10,8 +10,8 @@ import type {
     SetStateAction,
 } from "react";
 import type {
-    DialogProps as AriaDialogProps,
-    PopoverProps as AriaPopoverProps,
+    ModalOverlayProps as AriaModalOverlayProps,
+    DialogProps,
 } from "react-aria-components";
 
 import { faAngleDoubleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleDoubleLeft";
@@ -24,10 +24,10 @@ import { useCallback } from "react";
 import { forwardRef } from "react";
 import { createContext, useContext } from "react";
 import { useState } from "react";
-import { Heading as AriaHeading } from "react-aria-components";
 import {
     Dialog as AriaDialog,
-    Popover as AriaPopover,
+    Modal,
+    OverlayTriggerStateContext,
 } from "react-aria-components";
 import { createPortal } from "react-dom";
 
@@ -198,26 +198,10 @@ function DrawerContainer() {
     );
 }
 
-const DrawerStateContext = createContext<
-    [boolean | undefined, (isOpen: boolean) => void]
->([false, () => {}]);
-
 function DrawerRoot({
     children,
-    isOpen,
-    onOpenChange,
     ...props
-}: Omit<
-    AriaPopoverProps,
-    | "children"
-    | "isNonModal"
-    | "isOpen"
-    | "onOpenChange"
-    | "shouldFlip"
-    | "shouldUpdatePosition"
-> &
-    Required<Pick<AriaPopoverProps, "isOpen" | "onOpenChange">> &
-    Pick<AriaDialogProps, "children">) {
+}: Omit<AriaModalOverlayProps, "children"> & Pick<DialogProps, "children">) {
     const container = useDrawerContext();
     const [element, setElement] = useState<HTMLElement | null>(null);
 
@@ -230,55 +214,29 @@ function DrawerRoot({
     if (!element) {
         return null;
     }
+
     return (
-        <DrawerStateContext.Provider value={[isOpen, onOpenChange]}>
-            <AriaPopover
-                {...props}
-                isNonModal
-                isOpen={isOpen}
-                onOpenChange={onOpenChange}
-                // We spoof the ref here and tell it not to do anything with position
-                // We *are* sort of abusing the `Popover` component here, but it serves our needs
-                shouldCloseOnInteractOutside={() => false}
-                shouldFlip={false}
-                shouldUpdatePosition={false}
-                triggerRef={{ current: null }}
-            >
-                {createPortal(
-                    <AriaDialog className="app-drawer-dialog">
-                        {(renderProps) => {
-                            return typeof children === "function"
-                                ? children(renderProps)
-                                : children;
-                        }}
-                    </AriaDialog>,
-                    element,
-                )}
-            </AriaPopover>
-        </DrawerStateContext.Provider>
+        <Modal {...props}>
+            {createPortal(
+                <AriaDialog className="app-drawer-dialog">
+                    {(renderProps) => {
+                        return typeof children === "function"
+                            ? children(renderProps)
+                            : children;
+                    }}
+                </AriaDialog>,
+                element,
+            )}
+        </Modal>
     );
 }
 
-function DrawerHeader({
-    children,
-    title,
-    ...props
-}: {
-    title: string;
-} & HTMLProps<HTMLElement>) {
+function DrawerHeader(props: { children: ReactNode }) {
     return (
         <header
             className="app-drawer-header"
             {...props}
-        >
-            <AriaHeading
-                level={3}
-                slot="title"
-            >
-                {title}
-            </AriaHeading>
-            {children}
-        </header>
+        />
     );
 }
 
@@ -292,10 +250,7 @@ function DrawerContent(props: HTMLProps<HTMLElement>) {
 }
 
 function DrawerCloseButton() {
-    const [, setOpen] = useContext(DrawerStateContext);
-    if (!setOpen) {
-        throw new Error("DrawerCloseButton must be used within a Drawer");
-    }
+    const state = useContext(OverlayTriggerStateContext)!;
 
     return (
         <Button
@@ -303,7 +258,7 @@ function DrawerCloseButton() {
             aria-label="Close"
             className="ml-auto"
             name="close"
-            onPress={() => setOpen(false)}
+            onPress={() => state.close()}
             size="sm"
             square
             type="button"
