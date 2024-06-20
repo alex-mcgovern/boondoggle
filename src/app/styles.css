@@ -82,6 +82,14 @@ These are called "bars"
         }
     }
 
+    @media (max-width: 767px) {
+        --app-nav-width: 0px;
+
+        .app-nav {
+            display: none;
+        }
+    }
+
     display: grid;
     /* prettier-ignore */
     grid-template-columns: var(--app-nav-width) var(--app-main-width) calc(var(--app-drawer-width) + 10px);
