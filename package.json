@@ -2,7 +2,7 @@
     "author": "Alex McGovern",
     "name": "boondoggle",
     "description": "Boondoggle component library",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "license": "MIT",
     "sideEffects": [
         "**/*.css"
@@ -21,8 +21,9 @@
     "scripts": {
         "build": "parcel build --no-cache",
         "build:docs": "storybook build --docs -o docs",
-        "check": "concurrently -n PRETTIER,ESLINT,TSC,VITEST -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:vitest\"",
+        "check": "concurrently -n PRETTIER,ESLINT,TSC,VITEST,KNIP -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold,bgYellow.bold\" \"npm:check-prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:vitest\" \"npm:check-knip\"",
         "check-prettier": "prettier . --check",
+        "check-knip": "knip",
         "cy:open": "cypress open",
         "cy:run": "cypress run --component",
         "eslint": "eslint .",
@@ -42,8 +43,6 @@
         "react-dom": "^18.0.0"
     },
     "dependencies": {
-        "@dessert-box/core": "0.2.0",
-        "@dessert-box/react": "0.7.5",
         "@fortawesome/fontawesome-svg-core": "6.5.1",
         "@fortawesome/pro-duotone-svg-icons": "6.5.1",
         "@fortawesome/pro-solid-svg-icons": "6.5.1",
@@ -52,8 +51,6 @@
         "@radix-ui/colors": "3.0.0",
         "@radix-ui/react-collapsible": "1.0.3",
         "clsx": "2.1.1",
-        "countries-list": "3.1.0",
-        "framer-motion": "11.0.25",
         "parcel": "2.12.0",
         "react-aria-components": "1.2.0",
         "react-hook-form": "7.52.0",
@@ -92,15 +89,15 @@
         "prettier": "3.1.1",
         "react": "18.2.0",
         "storybook": "8.0.6",
-        "tsup": "6.7.0",
+        "tslib": "2.6.3",
         "typescript": "5.0.4",
         "vite": "5.2.8",
         "vitest": "1.4.0",
         "vitest-fail-on-console": "0.7.0"
     },
     "optionalDependencies": {
-        "@rollup/rollup-linux-x64-gnu": "4.9.5",
         "@parcel/watcher-linux-x64-glibc": "2.4.2-alpha.0",
+        "@rollup/rollup-linux-x64-gnu": "4.9.5",
         "lightningcss-linux-x64-gnu": "1.25.1"
     }
 }

@@ -3,16 +3,17 @@ import type {
     ColumnProps as AriaColumnProps,
     ResizableTableContainerProps as AriaResizableTableContainerProps,
     RowProps as AriaRowProps,
+    SortDirection as AriaSortDirection,
     TableBodyProps as AriaTableBodyProps,
     TableHeaderProps as AriaTableHeaderProps,
     TableProps as AriaTableProps,
-    SortDirection,
 } from "react-aria-components";
 
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faGripDots } from "@fortawesome/pro-solid-svg-icons/faGripDots";
 import { faSort } from "@fortawesome/pro-solid-svg-icons/faSort";
 import { clsx } from "clsx";
+import { forwardRef } from "react";
 import {
     Cell as AriaCell,
     Collection as AriaCollection,
@@ -28,13 +29,9 @@ import { Column as AriaColumn } from "react-aria-components";
 import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
-
-export type ColumnProps = AriaColumnProps;
-import { forwardRef } from "react";
-
 import "./styles.css";
 
-function SortIcon({ direction }: { direction: SortDirection | undefined }) {
+function SortIcon({ direction }: { direction: AriaSortDirection | undefined }) {
     switch (direction) {
         case "ascending": {
             return (
@@ -73,7 +70,7 @@ function Column({
     center,
     right,
     ...props
-}: ColumnProps & {
+}: AriaColumnProps & {
     center?: boolean;
     right?: boolean;
     sticky?: boolean;
@@ -196,7 +193,7 @@ function Row<T extends object>(props: AriaRowProps<T>) {
 /**
  * A `TableBody` component, for use with a `Table` component. [Built with React Aria TableBody component](https://react-spectrum.adobe.com/react-aria/Table.html#tablebody)
  */
-export const TableBody = forwardRef<
+const TableBody = forwardRef<
     HTMLTableSectionElement,
     AriaTableBodyProps<object>
 >((props, ref) => {
