@@ -366,7 +366,7 @@ describe("FormSelect`", async () => {
         );
     });
 
-    it("`FormNumberField` clears when reset after submission", async () => {
+    it("`FormSelect` clears when reset after submission", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => {});
 
