@@ -1,1 +1,0 @@
-import{S as e}from"./index-xCcZr_MV.js";const t={component:e,parameters:{layout:"padded"},title:"Components/Skeleton"},o={},n=Object.freeze(Object.defineProperty({__proto__:null,Default:o,default:t},Symbol.toStringTag,{value:"Module"}));export{o as D,n as s};
