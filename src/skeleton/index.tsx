@@ -18,12 +18,12 @@ import "./styles.css";
  * ```
  */
 export function Skeleton({
-    className,
+	className,
 }: {
-    /**
-     * CSS class name.
-     */
-    className?: string;
+	/**
+	 * CSS class name.
+	 */
+	className?: string;
 }) {
-    return <div className={clsx(className, "skeleton")} />;
+	return <div className={clsx(className, "skeleton")} />;
 }

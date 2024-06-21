@@ -7,13 +7,13 @@ import failOnConsole from "vitest-fail-on-console";
 expect.extend(matchers);
 
 failOnConsole({
-    shouldFailOnDebug: true,
-    shouldFailOnError: true,
-    shouldFailOnInfo: true,
-    shouldFailOnLog: true,
-    shouldFailOnWarn: true,
+	shouldFailOnDebug: true,
+	shouldFailOnError: true,
+	shouldFailOnInfo: true,
+	shouldFailOnLog: true,
+	shouldFailOnWarn: true,
 });
 
 afterEach(() => {
-    cleanup();
+	cleanup();
 });

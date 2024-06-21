@@ -2,8 +2,8 @@ import type { DateInputProps as AriaDateInputProps } from "react-aria-components
 
 import clsx from "clsx";
 import {
-    DateInput as AriaDateInput,
-    DateSegment as AriaDateSegment,
+	DateInput as AriaDateInput,
+	DateSegment as AriaDateSegment,
 } from "react-aria-components";
 
 import "./styles.css";
@@ -25,25 +25,25 @@ import "./styles.css";
  * ```
  */
 export function DateInput({
-    unstyled,
-    ...props
+	unstyled,
+	...props
 }: Omit<AriaDateInputProps, "children"> & {
-    /**
-     * For use within a `Group` component, will remove all styles from the input.
-     */
-    unstyled?: boolean;
+	/**
+	 * For use within a `Group` component, will remove all styles from the input.
+	 */
+	unstyled?: boolean;
 }) {
-    return (
-        <AriaDateInput
-            {...props}
-            className={clsx(props.className, "date-input", { unstyled })}
-        >
-            {(segment) => (
-                <AriaDateSegment
-                    className="date-segment"
-                    segment={segment}
-                />
-            )}
-        </AriaDateInput>
-    );
+	return (
+		<AriaDateInput
+			{...props}
+			className={clsx(props.className, "date-input", { unstyled })}
+		>
+			{(segment) => (
+				<AriaDateSegment
+					className="date-segment"
+					segment={segment}
+				/>
+			)}
+		</AriaDateInput>
+	);
 }

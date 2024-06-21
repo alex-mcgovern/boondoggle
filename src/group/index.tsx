@@ -21,10 +21,10 @@ import "./styles.css";
  * ```
  */
 export function Group(props: AriaGroupProps) {
-    return (
-        <AriaGroup
-            {...props}
-            className={clsx(props.className, "group")}
-        />
-    );
+	return (
+		<AriaGroup
+			{...props}
+			className={clsx(props.className, "group")}
+		/>
+	);
 }

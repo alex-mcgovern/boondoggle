@@ -1,16 +1,16 @@
 import type {
-    ButtonProps as AriaButtonProps,
-    TooltipProps as AriaTooltipProps,
-    TooltipTriggerComponentProps as AriaTooltipTriggerProps,
+	ButtonProps as AriaButtonProps,
+	TooltipProps as AriaTooltipProps,
+	TooltipTriggerComponentProps as AriaTooltipTriggerProps,
 } from "react-aria-components";
 
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import clsx from "clsx";
 import {
-    Button as AriaButton,
-    OverlayArrow as AriaOverlayArrow,
-    Tooltip as AriaTooltip,
-    TooltipTrigger as AriaTooltipTrigger,
+	Button as AriaButton,
+	OverlayArrow as AriaOverlayArrow,
+	Tooltip as AriaTooltip,
+	TooltipTrigger as AriaTooltipTrigger,
 } from "react-aria-components";
 
 import { Icon } from "../icon";
@@ -20,16 +20,16 @@ import "./styles.css";
  * The TooltipTriggerButton component is a default button with an info icon that can be composed with a TooltipTrigger to show a tooltip.
  */
 export function TooltipTriggerButton(props: Omit<AriaButtonProps, "children">) {
-    return (
-        <AriaButton
-            slot="clear"
-            {...props}
-            className={clsx(props.className, "tooltip-trigger-btn")}
-            excludeFromTabOrder
-        >
-            <Icon icon={faInfoCircle} />
-        </AriaButton>
-    );
+	return (
+		<AriaButton
+			slot="clear"
+			{...props}
+			className={clsx(props.className, "tooltip-trigger-btn")}
+			excludeFromTabOrder
+		>
+			<Icon icon={faInfoCircle} />
+		</AriaButton>
+	);
 }
 
 /**
@@ -37,19 +37,19 @@ export function TooltipTriggerButton(props: Omit<AriaButtonProps, "children">) {
  * [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/TooltipTrigger.html)
  */
 export function TooltipTrigger({
-    closeDelay,
-    delay = 0,
-    ...props
+	closeDelay,
+	delay = 0,
+	...props
 }: AriaTooltipTriggerProps) {
-    return (
-        <AriaTooltipTrigger
-            {...props}
-            closeDelay={closeDelay}
-            delay={delay}
-        >
-            {props.children}
-        </AriaTooltipTrigger>
-    );
+	return (
+		<AriaTooltipTrigger
+			{...props}
+			closeDelay={closeDelay}
+			delay={delay}
+		>
+			{props.children}
+		</AriaTooltipTrigger>
+	);
 }
 
 /**
@@ -68,31 +68,31 @@ export function TooltipTrigger({
  * ```
  */
 export function Tooltip(props: AriaTooltipProps) {
-    return (
-        <AriaTooltip
-            {...props}
-            className="tooltip"
-            offset={6}
-        >
-            {(renderProps) => {
-                return (
-                    <>
-                        <AriaOverlayArrow className="overlay-arrow">
-                            <svg
-                                height={8}
-                                viewBox="0 0 8 8"
-                                width={8}
-                            >
-                                <path d="M0 0 L4 4 L8 0" />
-                            </svg>
-                        </AriaOverlayArrow>
+	return (
+		<AriaTooltip
+			{...props}
+			className="tooltip"
+			offset={6}
+		>
+			{(renderProps) => {
+				return (
+					<>
+						<AriaOverlayArrow className="overlay-arrow">
+							<svg
+								height={8}
+								viewBox="0 0 8 8"
+								width={8}
+							>
+								<path d="M0 0 L4 4 L8 0" />
+							</svg>
+						</AriaOverlayArrow>
 
-                        {typeof props.children === "function"
-                            ? props.children(renderProps)
-                            : props.children}
-                    </>
-                );
-            }}
-        </AriaTooltip>
-    );
+						{typeof props.children === "function"
+							? props.children(renderProps)
+							: props.children}
+					</>
+				);
+			}}
+		</AriaTooltip>
+	);
 }

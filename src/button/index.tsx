@@ -1,7 +1,7 @@
 import type { ForwardedRef } from "react";
 import type {
-    ButtonProps as AriaButtonProps,
-    LinkProps as AriaLinkProps,
+	ButtonProps as AriaButtonProps,
+	LinkProps as AriaLinkProps,
 } from "react-aria-components";
 
 import clsx from "clsx";
@@ -29,65 +29,65 @@ import "./styles.css";
  * ```
  */
 export const Button = forwardRef<
-    HTMLButtonElement,
-    AriaButtonProps & {
-        /**
-         * Alignment for the LinkButton.
-         */
-        align?: "center" | "start";
-        /**
-         * The appearance of the button.
-         */
-        appearance?: "ghost" | "primary" | "secondary";
-        /**
-         * The color of the button.
-         */
-        color?: Color;
-        /**
-         * React ref for the button element.
-         */
-        ref?: ForwardedRef<HTMLButtonElement>;
-        /**
-         * The size of the button.
-         */
-        size?: "lg" | "md" | "sm";
+	HTMLButtonElement,
+	AriaButtonProps & {
+		/**
+		 * Alignment for the LinkButton.
+		 */
+		align?: "center" | "start";
+		/**
+		 * The appearance of the button.
+		 */
+		appearance?: "ghost" | "primary" | "secondary";
+		/**
+		 * The color of the button.
+		 */
+		color?: Color;
+		/**
+		 * React ref for the button element.
+		 */
+		ref?: ForwardedRef<HTMLButtonElement>;
+		/**
+		 * The size of the button.
+		 */
+		size?: "lg" | "md" | "sm";
 
-        /**
-         * Whether the button is square.
-         */
-        square?: boolean;
-    }
+		/**
+		 * Whether the button is square.
+		 */
+		square?: boolean;
+	}
 >(
-    (
-        {
-            align,
-            appearance = "primary",
-            className,
-            color,
-            size,
-            square,
-            ...props
-        },
-        ref: ForwardedRef<HTMLButtonElement>,
-    ) => {
-        return (
-            <AriaButton
-                {...props}
-                className={clsx(
-                    "btn",
-                    className,
-                    appearance,
-                    size,
-                    align,
-                    color,
-                    {
-                        square: !!square,
-                    },
-                )}
-                ref={ref}
-            />
-        );
-    },
+	(
+		{
+			align,
+			appearance = "primary",
+			className,
+			color,
+			size,
+			square,
+			...props
+		},
+		ref: ForwardedRef<HTMLButtonElement>,
+	) => {
+		return (
+			<AriaButton
+				{...props}
+				className={clsx(
+					"btn",
+					className,
+					appearance,
+					size,
+					align,
+					color,
+					{
+						square: !!square,
+					},
+				)}
+				ref={ref}
+			/>
+		);
+	},
 );
 
 /**
@@ -96,46 +96,46 @@ export const Button = forwardRef<
  * [Built with React Aria Link](https://react-spectrum.adobe.com/react-aria/Link.html)
  */
 export function LinkButton({
-    align,
-    appearance = "primary",
-    className,
-    color,
-    isCurrent,
-    size,
-    ...props
+	align,
+	appearance = "primary",
+	className,
+	color,
+	isCurrent,
+	size,
+	...props
 }: AriaLinkProps & {
-    /**
-     * Alignment for the LinkButton.
-     */
-    align?: "center" | "start";
-    /**
-     * The appearance of the button.
-     */
-    appearance?: "ghost" | "primary" | "secondary";
-    /**
-     * The color of the button.
-     */
-    color?: Color;
-    /**
-     * Whether the link points to the current page or resource.
-     */
-    isCurrent?: boolean;
-    /**
-     * The size of the button.
-     */
-    size?: "lg" | "md" | "sm";
-    /**
-     * Whether the button is square.
-     */
-    square?: boolean;
+	/**
+	 * Alignment for the LinkButton.
+	 */
+	align?: "center" | "start";
+	/**
+	 * The appearance of the button.
+	 */
+	appearance?: "ghost" | "primary" | "secondary";
+	/**
+	 * The color of the button.
+	 */
+	color?: Color;
+	/**
+	 * Whether the link points to the current page or resource.
+	 */
+	isCurrent?: boolean;
+	/**
+	 * The size of the button.
+	 */
+	size?: "lg" | "md" | "sm";
+	/**
+	 * Whether the button is square.
+	 */
+	square?: boolean;
 }) {
-    return (
-        <AriaLink
-            data-is-current={isCurrent}
-            {...props}
-            className={clsx("btn", className, appearance, size, align, color, {
-                square: props.square,
-            })}
-        />
-    );
+	return (
+		<AriaLink
+			data-is-current={isCurrent}
+			{...props}
+			className={clsx("btn", className, appearance, size, align, color, {
+				square: props.square,
+			})}
+		/>
+	);
 }

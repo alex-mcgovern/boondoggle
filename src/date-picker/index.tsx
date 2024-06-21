@@ -22,59 +22,59 @@ import { Popover } from "../popover";
  * Button for triggering the DatePicker.
  */
 export function DatePickerButton() {
-    return (
-        <FieldButton>
-            <Icon icon={faCalendar} />
-        </FieldButton>
-    );
+	return (
+		<FieldButton>
+			<Icon icon={faCalendar} />
+		</FieldButton>
+	);
 }
 
 /**
  * Clear button for the DatePicker.
  */
 export function DatePickerClearButton() {
-    const { setValue, value } = useContext(DatePickerStateContext)!;
+	const { setValue, value } = useContext(DatePickerStateContext)!;
 
-    if (!value) {
-        return null;
-    }
-    return (
-        <FieldButton
-            aria-label="Clear"
-            className="clear-button"
-            onPress={() => setValue(null)}
-            slot={null}
-        >
-            <Icon icon={faTimes} />
-        </FieldButton>
-    );
+	if (!value) {
+		return null;
+	}
+	return (
+		<FieldButton
+			aria-label="Clear"
+			className="clear-button"
+			onPress={() => setValue(null)}
+			slot={null}
+		>
+			<Icon icon={faTimes} />
+		</FieldButton>
+	);
 }
 
 /**
  * Preset component for the DatePicker.
  */
 export function DatePickerPreset({
-    children,
-    date,
+	children,
+	date,
 }: {
-    children: ReactNode;
-    date: ZonedDateTime;
+	children: ReactNode;
+	date: ZonedDateTime;
 }) {
-    const { setValue } = useContext(DatePickerStateContext);
+	const { setValue } = useContext(DatePickerStateContext);
 
-    const onPress = () => {
-        setValue(date);
-    };
+	const onPress = () => {
+		setValue(date);
+	};
 
-    return (
-        <Button
-            appearance="secondary"
-            onPress={onPress}
-            slot={null}
-        >
-            {children}
-        </Button>
-    );
+	return (
+		<Button
+			appearance="secondary"
+			onPress={onPress}
+			slot={null}
+		>
+			{children}
+		</Button>
+	);
 }
 
 /**
@@ -94,33 +94,33 @@ export function DatePickerPreset({
  * ```
  */
 export const DatePicker = forwardRef<
-    HTMLDivElement,
-    AriaDatePickerProps<CalendarDate | ZonedDateTime>
+	HTMLDivElement,
+	AriaDatePickerProps<CalendarDate | ZonedDateTime>
 >((props, ref) => {
-    return (
-        <AriaDatePicker
-            {...props}
-            ref={ref}
-        >
-            {(values) => {
-                return (
-                    <>
-                        {typeof props.children === "function"
-                            ? props.children(values)
-                            : props.children}
-                        <Popover
-                            className="p-1"
-                            placement="bottom end"
-                        >
-                            <Dialog>
-                                <Calendar />
-                            </Dialog>
-                        </Popover>
-                    </>
-                );
-            }}
-        </AriaDatePicker>
-    );
+	return (
+		<AriaDatePicker
+			{...props}
+			ref={ref}
+		>
+			{(values) => {
+				return (
+					<>
+						{typeof props.children === "function"
+							? props.children(values)
+							: props.children}
+						<Popover
+							className="p-1"
+							placement="bottom end"
+						>
+							<Dialog>
+								<Calendar />
+							</Dialog>
+						</Popover>
+					</>
+				);
+			}}
+		</AriaDatePicker>
+	);
 });
 
 /**
@@ -129,48 +129,48 @@ export const DatePicker = forwardRef<
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html)
  */
 export function FormDatePicker({
-    children,
-    defaultValue,
-    ...props
+	children,
+	defaultValue,
+	...props
 }: ComponentProps<typeof DatePicker>) {
-    if (!props.name) {
-        throw new Error("FormDatePicker requires a name prop");
-    }
+	if (!props.name) {
+		throw new Error("FormDatePicker requires a name prop");
+	}
 
-    const { control } = useFormContext();
+	const { control } = useFormContext();
 
-    const {
-        field: { disabled: isDisabled, onChange, ref, value, ...field },
-        fieldState: { error, invalid },
-    } = useController({
-        control,
-        defaultValue: defaultValue,
-        disabled: props.isDisabled,
-        name: props.name,
-    });
+	const {
+		field: { disabled: isDisabled, onChange, ref, value, ...field },
+		fieldState: { error, invalid },
+	} = useController({
+		control,
+		defaultValue: defaultValue,
+		disabled: props.isDisabled,
+		name: props.name,
+	});
 
-    return (
-        <DatePicker
-            {...props}
-            {...field}
-            isDisabled={isDisabled}
-            isInvalid={invalid}
-            onChange={(v) => {
-                onChange(v);
-                props.onChange?.(v);
-            }}
-            ref={ref}
-            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-            value={value}
-        >
-            {() => {
-                return (
-                    <>
-                        {children}
-                        <FieldError>{error?.message}</FieldError>
-                    </>
-                );
-            }}
-        </DatePicker>
-    );
+	return (
+		<DatePicker
+			{...props}
+			{...field}
+			isDisabled={isDisabled}
+			isInvalid={invalid}
+			onChange={(v) => {
+				onChange(v);
+				props.onChange?.(v);
+			}}
+			ref={ref}
+			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+			value={value}
+		>
+			{() => {
+				return (
+					<>
+						{children}
+						<FieldError>{error?.message}</FieldError>
+					</>
+				);
+			}}
+		</DatePicker>
+	);
 }

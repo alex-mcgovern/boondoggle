@@ -17,22 +17,22 @@ import "./styles.css";
  * A `FieldButton` to decrement the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 export function NumberFieldIncrementButton() {
-    return (
-        <FieldButton slot="increment">
-            <Icon icon={faPlus} />
-        </FieldButton>
-    );
+	return (
+		<FieldButton slot="increment">
+			<Icon icon={faPlus} />
+		</FieldButton>
+	);
 }
 
 /**
  * A `FieldButton` to increment the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 export function NumberFieldDecrementButton() {
-    return (
-        <FieldButton slot="decrement">
-            <Icon icon={faMinus} />
-        </FieldButton>
-    );
+	return (
+		<FieldButton slot="decrement">
+			<Icon icon={faMinus} />
+		</FieldButton>
+	);
 }
 
 /**
@@ -51,15 +51,15 @@ export function NumberFieldDecrementButton() {
  * ```
  */
 export const NumberField = forwardRef<HTMLInputElement, AriaNumberFieldProps>(
-    (props, ref) => {
-        return (
-            <AriaNumberField
-                {...props}
-                className={clsx(props.className, "number-field")}
-                ref={ref}
-            />
-        );
-    },
+	(props, ref) => {
+		return (
+			<AriaNumberField
+				{...props}
+				className={clsx(props.className, "number-field")}
+				ref={ref}
+			/>
+		);
+	},
 );
 
 /** -----------------------------------------------------------------------------
@@ -72,58 +72,58 @@ export const NumberField = forwardRef<HTMLInputElement, AriaNumberFieldProps>(
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  */
 export function FormNumberField({
-    children,
-    ...props
+	children,
+	...props
 }: ComponentProps<typeof NumberField>) {
-    if (!props.name) {
-        throw new Error("FormNumberField requires a name prop");
-    }
+	if (!props.name) {
+		throw new Error("FormNumberField requires a name prop");
+	}
 
-    const { control } = useFormContext();
+	const { control } = useFormContext();
 
-    const {
-        field: {
-            disabled: isDisabled,
-            name,
-            onBlur,
-            onChange,
-            ref,
-            value = "",
-        },
-        fieldState: { error, invalid },
-    } = useController({
-        control,
-        defaultValue: props.value || props.defaultValue,
-        disabled: props.isDisabled,
-        name: props.name,
-    });
+	const {
+		field: {
+			disabled: isDisabled,
+			name,
+			onBlur,
+			onChange,
+			ref,
+			value = "",
+		},
+		fieldState: { error, invalid },
+	} = useController({
+		control,
+		defaultValue: props.value || props.defaultValue,
+		disabled: props.isDisabled,
+		name: props.name,
+	});
 
-    return (
-        <NumberField
-            {...props}
-            defaultValue={value}
-            isDisabled={isDisabled}
-            isInvalid={invalid}
-            name={name}
-            onBlur={onBlur}
-            onChange={(k) => {
-                onChange(k);
-                props.onChange?.(k);
-            }}
-            ref={ref}
-            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-            value={value}
-        >
-            {(renderProps) => {
-                return (
-                    <>
-                        {typeof children === "function"
-                            ? children(renderProps)
-                            : children}
-                        <FieldError>{error?.message}</FieldError>
-                    </>
-                );
-            }}
-        </NumberField>
-    );
+	return (
+		<NumberField
+			{...props}
+			defaultValue={value}
+			isDisabled={isDisabled}
+			isInvalid={invalid}
+			name={name}
+			onBlur={onBlur}
+			onChange={(k) => {
+				onChange(k);
+				props.onChange?.(k);
+			}}
+			ref={ref}
+			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+			value={value}
+		>
+			{(renderProps) => {
+				return (
+					<>
+						{typeof children === "function"
+							? children(renderProps)
+							: children}
+						<FieldError>{error?.message}</FieldError>
+					</>
+				);
+			}}
+		</NumberField>
+	);
 }
