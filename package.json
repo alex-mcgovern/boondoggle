@@ -30,6 +30,7 @@
         "fix-eslint": "eslint . --fix",
         "fix-prettier": "prettier . --write",
         "postversion": "git push && git push --tags",
+        "prepare": "husky install",
         "preversion": "npm run check",
         "storybook": "storybook dev -p 6006",
         "test:watch": "vitest --watch",
