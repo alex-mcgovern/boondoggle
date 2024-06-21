@@ -73,7 +73,7 @@ tmp
 
 # storybook build output
 storybook-static
-docs
+build
 
 # Cypress
 cypress/downloads

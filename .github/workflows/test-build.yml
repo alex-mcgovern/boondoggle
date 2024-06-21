@@ -1,0 +1,42 @@
+name: test-build
+
+on:
+    pull_request:
+        types: [opened, reopened, synchronize]
+        branches:
+            - main
+
+permissions:
+    deployments: write
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    test-build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "21.x"
+                  registry-url: "https://registry.npmjs.org"
+
+            - name: Setup FontAwesome
+              shell: bash
+              run: |
+                  echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+                  echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
+
+            - name: Install
+              run: npm ci
+
+            - name: Code quality
+              run: npm run check
+
+            - name: Build
+              run: npm run build
