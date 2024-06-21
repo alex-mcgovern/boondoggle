@@ -14,7 +14,7 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    test-build-deploy:
+    test-build:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -33,7 +33,7 @@ jobs:
                   echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
 
             - name: Install
-              run: npm ci
+              run: npm i
 
             - name: Code quality
               run: npm run check
