@@ -45,18 +45,18 @@ import "./styles.css";
 
 // In order to allow collapsing the side nav from anywhere in the app
 // we provide a context that allows direct access to the state and setter.
-export const CollapsibleSideNavContext = createContext<
+const NavContext = createContext<
     [boolean, Dispatch<SetStateAction<boolean>>] | undefined
 >(undefined);
 
 // In order to allow portal-ing content into the `Drawer` from anywhere in the app
 // we provide a ref via context, which can be used by the `Drawer` component to
 // append the content to the correct DOM element.
-export const AppDrawerContext =
+const DrawerContext =
     createContext<MutableRefObject<HTMLElement | null> | null>(null);
 
 const useDrawerContext = () => {
-    const drawer_ref = useContext(AppDrawerContext);
+    const drawer_ref = useContext(DrawerContext);
     if (!drawer_ref) {
         throw new Error("Drawer ref not found");
     }
@@ -67,13 +67,11 @@ const useDrawerContext = () => {
  * Utilities
  * ------------------------------------------------------------------------------- */
 
-export const useSideNav = () => {
-    const context = useContext(CollapsibleSideNavContext);
+const useSideNav = () => {
+    const context = useContext(NavContext);
 
     if (context == null) {
-        throw new Error(
-            "CollapsibleSideNavContext must be used within a Provider",
-        );
+        throw new Error("NavContext must be used within a Provider");
     }
 
     return context;
@@ -120,16 +118,16 @@ function AppRoot({ children }: { children: ReactNode }) {
     const drawer_ref = useRef<HTMLElement>(null);
 
     return (
-        <CollapsibleSideNavContext.Provider value={[isOpen, toggleSideNav]}>
-            <AppDrawerContext.Provider value={drawer_ref}>
+        <NavContext.Provider value={[isOpen, toggleSideNav]}>
+            <DrawerContext.Provider value={drawer_ref}>
                 <div
                     className="layout-container"
                     data-nav-open={isOpen}
                 >
                     {children}
                 </div>
-            </AppDrawerContext.Provider>
-        </CollapsibleSideNavContext.Provider>
+            </DrawerContext.Provider>
+        </NavContext.Provider>
     );
 }
 
@@ -494,6 +492,10 @@ function SideNavSection({
 export const App = {
     Button: NavButton,
     Container: AppRoot,
+    Context: {
+        Drawer: DrawerContext,
+        Nav: NavContext,
+    },
     Drawer: {
         CloseButton: DrawerCloseButton,
         Content: DrawerContent,
