@@ -1,8 +1,6 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
 import clsx from "clsx";
-
 import { Icon } from "../icon";
 import "./styles.css";
 import type { ReactNode } from "react";

@@ -73,22 +73,26 @@ function WithPresetsComponent(props: ComponentProps<typeof DatePicker>) {
 					Today
 				</DatePickerPreset>
 				<DatePickerPreset
-					date={fromDate(new Date(), getLocalTimeZone()).add({ weeks: 1 }).set({
-						hour: 18,
-						millisecond: 0,
-						minute: 0,
-						second: 0,
-					})}
+					date={fromDate(new Date(), getLocalTimeZone())
+						.add({ weeks: 1 })
+						.set({
+							hour: 18,
+							millisecond: 0,
+							minute: 0,
+							second: 0,
+						})}
 				>
 					1 week
 				</DatePickerPreset>
 				<DatePickerPreset
-					date={fromDate(new Date(), getLocalTimeZone()).add({ weeks: 2 }).set({
-						hour: 18,
-						millisecond: 0,
-						minute: 0,
-						second: 0,
-					})}
+					date={fromDate(new Date(), getLocalTimeZone())
+						.add({ weeks: 2 })
+						.set({
+							hour: 18,
+							millisecond: 0,
+							minute: 0,
+							second: 0,
+						})}
 				>
 					2 weeks
 				</DatePickerPreset>

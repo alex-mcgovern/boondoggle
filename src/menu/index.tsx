@@ -157,7 +157,9 @@ function Item<TItem extends object>({
 			{(renderProps) => {
 				return (
 					<>
-						{icon ? <div className="menu-item-icon">{icon}</div> : null}
+						{icon ? (
+							<div className="menu-item-icon">{icon}</div>
+						) : null}
 
 						<span className="dropdown-menu-item-name">
 							{typeof props.children === "function"
@@ -165,7 +167,8 @@ function Item<TItem extends object>({
 								: props.children}
 						</span>
 
-						{!hideCheckbox && renderProps.selectionMode !== "none" ? (
+						{!hideCheckbox &&
+						renderProps.selectionMode !== "none" ? (
 							<Checkbox
 								// isIndeterminate
 								isSelected={renderProps.isSelected}
@@ -224,7 +227,9 @@ function SectionHeader({
 	return (
 		<AriaHeader className="dropdown-menu-section-header">
 			{icon ? <div className="menu-item-icon">{icon}</div> : null}
-			<span className="dropdown-menu-section-header-content">{children}</span>
+			<span className="dropdown-menu-section-header-content">
+				{children}
+			</span>
 		</AriaHeader>
 	);
 }

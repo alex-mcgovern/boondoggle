@@ -95,7 +95,9 @@ function Column({
 								aria-hidden="true"
 								className="sort-indicator"
 							>
-								<SortIcon direction={renderProps.sortDirection} />
+								<SortIcon
+									direction={renderProps.sortDirection}
+								/>
 							</span>
 						)}
 					</>
@@ -126,10 +128,14 @@ function TableHeader<T extends object>({
 					minWidth={36}
 					width={36}
 				>
-					{selectionMode === "multiple" && <Checkbox slot="selection" />}
+					{selectionMode === "multiple" && (
+						<Checkbox slot="selection" />
+					)}
 				</Column>
 			)}
-			<AriaCollection items={props.columns}>{props.children}</AriaCollection>
+			<AriaCollection items={props.columns}>
+				{props.children}
+			</AriaCollection>
 		</AriaTableHeader>
 	);
 }
@@ -177,7 +183,9 @@ function Row<T extends object>(props: AriaRowProps<T>) {
 					<Checkbox slot="selection" />
 				</Cell>
 			)}
-			<AriaCollection items={props.columns}>{props.children}</AriaCollection>
+			<AriaCollection items={props.columns}>
+				{props.children}
+			</AriaCollection>
 		</AriaRow>
 	);
 }

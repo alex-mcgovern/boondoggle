@@ -49,8 +49,8 @@
 		@media (prefers-reduced-motion: no-preference) {
 			&:before {
 				transition-duration: var(--dur-short);
-				transition-property: background-color, border-color, border-width, color,
-					outline;
+				transition-property: background-color, border-color,
+					border-width, color, outline;
 				transition-timing-function: var(--ease-quart-in-out);
 			}
 		}

@@ -31,7 +31,8 @@
 		color: var(--slate-12);
 
 		.column {
-			border-bottom: var(--table-border-width) solid var(--table-border-color);
+			border-bottom: var(--table-border-width) solid
+				var(--table-border-color);
 		}
 
 		&.sticky {
@@ -95,7 +96,8 @@
 
 		&:not(:last-child) {
 			.cell {
-				border-bottom: var(--table-border-width) solid var(--table-border-color);
+				border-bottom: var(--table-border-width) solid
+					var(--table-border-color);
 			}
 		}
 	}

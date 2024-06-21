@@ -98,7 +98,9 @@ export const Select = forwardRef<
 		>
 			{(values) => (
 				<>
-					{typeof children === "function" ? children(values) : children}
+					{typeof children === "function"
+						? children(values)
+						: children}
 
 					<Popover placement={props.placement}>
 						<ListBox<string> items={props.items} />
@@ -125,7 +127,14 @@ export function FormSelect({
 	const { control } = useFormContext();
 
 	const {
-		field: { disabled: isDisabled, name, onBlur, onChange, ref, value = "" },
+		field: {
+			disabled: isDisabled,
+			name,
+			onBlur,
+			onChange,
+			ref,
+			value = "",
+		},
 		fieldState: { error, invalid },
 	} = useController({
 		control,

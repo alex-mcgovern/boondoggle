@@ -91,7 +91,9 @@ export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
 			props.value || props.defaultValue || "",
 		);
 
-		const [type, setType] = useState<AriaTextFieldProps["type"]>(props.type);
+		const [type, setType] = useState<AriaTextFieldProps["type"]>(
+			props.type,
+		);
 
 		const clearValue = useCallback(() => {
 			setValue("");
@@ -174,7 +176,14 @@ export function FormTextField({
 	const { control } = useFormContext();
 
 	const {
-		field: { disabled: isDisabled, name, onBlur, onChange, ref, value = "" },
+		field: {
+			disabled: isDisabled,
+			name,
+			onBlur,
+			onChange,
+			ref,
+			value = "",
+		},
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -201,7 +210,9 @@ export function FormTextField({
 			{(renderProps) => {
 				return (
 					<>
-						{typeof children === "function" ? children(renderProps) : children}
+						{typeof children === "function"
+							? children(renderProps)
+							: children}
 						<FieldError>{error?.message}</FieldError>
 					</>
 				);

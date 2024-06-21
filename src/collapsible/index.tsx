@@ -100,7 +100,9 @@ export function Collapsible({
 			onOpenChange={handleOpenChange}
 			open={localOpenState}
 		>
-			<RadixCollapsible.Trigger asChild>{triggerNode}</RadixCollapsible.Trigger>
+			<RadixCollapsible.Trigger asChild>
+				{triggerNode}
+			</RadixCollapsible.Trigger>
 
 			<RadixCollapsible.Content className="collapsible-content">
 				{children}

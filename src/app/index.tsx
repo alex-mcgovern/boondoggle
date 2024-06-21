@@ -338,7 +338,9 @@ function OrgDisplay({
 			{isLoading ? (
 				<Skeleton className="w-100" />
 			) : (
-				<div className="org-display-name hidden-when-collapsed">{name}</div>
+				<div className="org-display-name hidden-when-collapsed">
+					{name}
+				</div>
 			)}
 		</div>
 	);

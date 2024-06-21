@@ -4,6 +4,7 @@
 		"formatter": {
 			"enabled": true,
 			"indentStyle": "tab",
+			"indentWidth": 4,
 			"lineEnding": "lf",
 			"lineWidth": 80,
 			"quoteStyle": "double"
@@ -27,6 +28,7 @@
 			"**/*.md"
 		],
 		"indentStyle": "tab",
+		"indentWidth": 4,
 		"lineEnding": "lf",
 		"lineWidth": 80
 	},

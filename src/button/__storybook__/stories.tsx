@@ -54,7 +54,11 @@ export const Size: Story = {
 		appearance: "primary",
 	},
 	render: (props) => {
-		const sizes: ComponentProps<typeof Button>["size"][] = ["sm", "md", "lg"];
+		const sizes: ComponentProps<typeof Button>["size"][] = [
+			"sm",
+			"md",
+			"lg",
+		];
 
 		return (
 			<Grid
@@ -82,7 +86,11 @@ export const SizeSquare: Story = {
 		appearance: "primary",
 	},
 	render: (props) => {
-		const sizes: ComponentProps<typeof Button>["size"][] = ["sm", "md", "lg"];
+		const sizes: ComponentProps<typeof Button>["size"][] = [
+			"sm",
+			"md",
+			"lg",
+		];
 
 		return (
 			<Grid

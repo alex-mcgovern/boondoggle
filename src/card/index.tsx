@@ -70,9 +70,13 @@ export function Card({
 					<div className="card-title-section">
 						{(title || description) && (
 							<div>
-								{title && <h3 className="card-title">{title}</h3>}
+								{title && (
+									<h3 className="card-title">{title}</h3>
+								)}
 								{description && (
-									<p className="card-description">{description}</p>
+									<p className="card-description">
+										{description}
+									</p>
 								)}
 							</div>
 						)}

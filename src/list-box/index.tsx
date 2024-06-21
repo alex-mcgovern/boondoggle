@@ -132,7 +132,9 @@ function ListBoxItem<TItemId extends string = string>({
 			{(renderProps) => {
 				return (
 					<>
-						{icon ? <div className="menu-item-icon">{icon}</div> : null}
+						{icon ? (
+							<div className="menu-item-icon">{icon}</div>
+						) : null}
 						<div>
 							<AriaText
 								className="dropdown-menu-item-name"

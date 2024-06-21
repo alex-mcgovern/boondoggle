@@ -58,8 +58,12 @@ const meta = {
 										<MockUserCell />
 									</Table.Cell>
 
-									<Table.Cell>{faker.person.jobType()}</Table.Cell>
-									<Table.Cell>{faker.person.jobArea()}</Table.Cell>
+									<Table.Cell>
+										{faker.person.jobType()}
+									</Table.Cell>
+									<Table.Cell>
+										{faker.person.jobArea()}
+									</Table.Cell>
 								</Table.Row>
 							);
 						})}
@@ -106,8 +110,12 @@ export const RowsAsLinks: Story = {
 									<Table.Cell>
 										<MockUserCell />
 									</Table.Cell>
-									<Table.Cell>{faker.person.jobArea()}</Table.Cell>
-									<Table.Cell>{faker.person.jobTitle()}</Table.Cell>
+									<Table.Cell>
+										{faker.person.jobArea()}
+									</Table.Cell>
+									<Table.Cell>
+										{faker.person.jobTitle()}
+									</Table.Cell>
 								</Table.Row>
 							);
 						})}

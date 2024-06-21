@@ -32,7 +32,8 @@
 	white-space: nowrap;
 	forced-color-adjust: none;
 
-	outline: var(--date-input-outline-size) solid var(--date-input-outline-color);
+	outline: var(--date-input-outline-size) solid
+		var(--date-input-outline-color);
 
 	padding: var(--date-input-padding);
 

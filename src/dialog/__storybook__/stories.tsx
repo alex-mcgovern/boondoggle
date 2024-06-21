@@ -26,7 +26,11 @@ const meta = {
 									</p>
 									{Array.from({ length: 10 }, () => {
 										return (
-											<p key={faker.string.alphanumeric(4)}>
+											<p
+												key={faker.string.alphanumeric(
+													4,
+												)}
+											>
 												{faker.lorem.paragraphs(1)}
 											</p>
 										);

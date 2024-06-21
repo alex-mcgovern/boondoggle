@@ -32,7 +32,8 @@
 
 		background-color: var(--checkbox-bg);
 
-		outline: var(--checkbox-outline-width) solid var(--checkbox-outline-color);
+		outline: var(--checkbox-outline-width) solid
+			var(--checkbox-outline-color);
 
 		display: flex;
 		align-items: center;

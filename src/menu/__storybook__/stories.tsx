@@ -91,8 +91,12 @@ export const SubmenusWithMixedModes: Story = {
 										>
 											To do
 										</Menu.Item>
-										<Menu.Item id="in_progress">In progress</Menu.Item>
-										<Menu.Item id="completed">Completed</Menu.Item>
+										<Menu.Item id="in_progress">
+											In progress
+										</Menu.Item>
+										<Menu.Item id="completed">
+											Completed
+										</Menu.Item>
 									</Menu.DropdownMenu>
 								</Popover>
 							</Menu.SubMenuTrigger>
@@ -104,11 +108,21 @@ export const SubmenusWithMixedModes: Story = {
 										aria-label="Filter by due date"
 										selectionMode="single"
 									>
-										<Menu.Item id="last_hour">Last hour</Menu.Item>
-										<Menu.Item id="last_day">Last day</Menu.Item>
-										<Menu.Item id="last_7_days">Last 7 days</Menu.Item>
-										<Menu.Item id="last_90_days">Last 90 days</Menu.Item>
-										<Menu.Item id="custom">Custom date range</Menu.Item>
+										<Menu.Item id="last_hour">
+											Last hour
+										</Menu.Item>
+										<Menu.Item id="last_day">
+											Last day
+										</Menu.Item>
+										<Menu.Item id="last_7_days">
+											Last 7 days
+										</Menu.Item>
+										<Menu.Item id="last_90_days">
+											Last 90 days
+										</Menu.Item>
+										<Menu.Item id="custom">
+											Custom date range
+										</Menu.Item>
 									</Menu.DropdownMenu>
 								</Popover>
 							</Menu.SubMenuTrigger>

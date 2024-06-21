@@ -82,7 +82,9 @@ export const ComboBox = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
 			>
 				{(renderProps) => (
 					<>
-						{typeof children === "function" ? children(renderProps) : children}
+						{typeof children === "function"
+							? children(renderProps)
+							: children}
 
 						<Popover>
 							<ListBox<string> />
@@ -137,7 +139,9 @@ export function FormComboBox<TItemId extends string = string>({
 			{(renderProps) => {
 				return (
 					<>
-						{typeof children === "function" ? children(renderProps) : children}
+						{typeof children === "function"
+							? children(renderProps)
+							: children}
 						<FieldError>{error?.message}</FieldError>
 					</>
 				);

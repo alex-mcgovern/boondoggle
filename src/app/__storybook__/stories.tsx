@@ -43,9 +43,15 @@ function SideNav() {
 									<Menu.Item>Create a collection</Menu.Item>
 								</Menu.Section>
 								<Menu.Section>
-									<Menu.SectionHeader>Import</Menu.SectionHeader>
-									<Menu.Item>Import an existing file</Menu.Item>
-									<Menu.Item>Import an existing folder</Menu.Item>
+									<Menu.SectionHeader>
+										Import
+									</Menu.SectionHeader>
+									<Menu.Item>
+										Import an existing file
+									</Menu.Item>
+									<Menu.Item>
+										Import an existing folder
+									</Menu.Item>
 								</Menu.Section>
 							</Menu.DropdownMenu>
 						</Popover>
@@ -112,21 +118,33 @@ export const WithTabs: Story = {
 												User
 											</Table.Column>
 
-											<Table.Column width="1fr">Job type</Table.Column>
-											<Table.Column width="1fr">Job area</Table.Column>
+											<Table.Column width="1fr">
+												Job type
+											</Table.Column>
+											<Table.Column width="1fr">
+												Job area
+											</Table.Column>
 										</Table.Header>
 
 										<Table.Body>
-											{Array.from({ length: 25 }).map((_, index) => {
-												return (
-													<Table.Row key={index}>
-														<Table.Cell>{faker.person.fullName()}</Table.Cell>
+											{Array.from({ length: 25 }).map(
+												(_, index) => {
+													return (
+														<Table.Row key={index}>
+															<Table.Cell>
+																{faker.person.fullName()}
+															</Table.Cell>
 
-														<Table.Cell>{faker.person.jobType()}</Table.Cell>
-														<Table.Cell>{faker.person.jobArea()}</Table.Cell>
-													</Table.Row>
-												);
-											})}
+															<Table.Cell>
+																{faker.person.jobType()}
+															</Table.Cell>
+															<Table.Cell>
+																{faker.person.jobArea()}
+															</Table.Cell>
+														</Table.Row>
+													);
+												},
+											)}
 										</Table.Body>
 									</Table.Root>
 								</Tabs.Content>
@@ -144,20 +162,32 @@ export const WithTabs: Story = {
 												User
 											</Table.Column>
 
-											<Table.Column width="1fr">Job type</Table.Column>
-											<Table.Column width="1fr">Job area</Table.Column>
+											<Table.Column width="1fr">
+												Job type
+											</Table.Column>
+											<Table.Column width="1fr">
+												Job area
+											</Table.Column>
 										</Table.Header>
 
 										<Table.Body>
-											{Array.from({ length: 5 }).map((_, index) => {
-												return (
-													<Table.Row key={index}>
-														<Table.Cell>{faker.person.fullName()}</Table.Cell>
-														<Table.Cell>{faker.person.jobType()}</Table.Cell>
-														<Table.Cell>{faker.person.jobArea()}</Table.Cell>
-													</Table.Row>
-												);
-											})}
+											{Array.from({ length: 5 }).map(
+												(_, index) => {
+													return (
+														<Table.Row key={index}>
+															<Table.Cell>
+																{faker.person.fullName()}
+															</Table.Cell>
+															<Table.Cell>
+																{faker.person.jobType()}
+															</Table.Cell>
+															<Table.Cell>
+																{faker.person.jobArea()}
+															</Table.Cell>
+														</Table.Row>
+													);
+												},
+											)}
 										</Table.Body>
 									</Table.Root>
 								</Tabs.Content>
@@ -175,21 +205,33 @@ export const WithTabs: Story = {
 												User
 											</Table.Column>
 
-											<Table.Column width="1fr">Job type</Table.Column>
-											<Table.Column width="1fr">Job area</Table.Column>
+											<Table.Column width="1fr">
+												Job type
+											</Table.Column>
+											<Table.Column width="1fr">
+												Job area
+											</Table.Column>
 										</Table.Header>
 
 										<Table.Body>
-											{Array.from({ length: 5 }).map((_, index) => {
-												return (
-													<Table.Row key={index}>
-														<Table.Cell>{faker.person.fullName()}</Table.Cell>
+											{Array.from({ length: 5 }).map(
+												(_, index) => {
+													return (
+														<Table.Row key={index}>
+															<Table.Cell>
+																{faker.person.fullName()}
+															</Table.Cell>
 
-														<Table.Cell>{faker.person.jobType()}</Table.Cell>
-														<Table.Cell>{faker.person.jobArea()}</Table.Cell>
-													</Table.Row>
-												);
-											})}
+															<Table.Cell>
+																{faker.person.jobType()}
+															</Table.Cell>
+															<Table.Cell>
+																{faker.person.jobArea()}
+															</Table.Cell>
+														</Table.Row>
+													);
+												},
+											)}
 										</Table.Body>
 									</Table.Root>
 								</Tabs.Content>
@@ -225,7 +267,9 @@ function AppWithTable(args: ComponentProps<typeof App.Container>) {
 					<App.Drawer.Header title={"Drawer title"}>
 						<App.Drawer.CloseButton />
 					</App.Drawer.Header>
-					<App.Drawer.Content>{faker.lorem.paragraphs(20)}</App.Drawer.Content>
+					<App.Drawer.Content>
+						{faker.lorem.paragraphs(20)}
+					</App.Drawer.Content>
 				</App.Drawer.Root>
 				<SideNav />
 				<App.Main.Root>
@@ -261,16 +305,26 @@ function AppWithTable(args: ComponentProps<typeof App.Container>) {
 								>
 									User
 								</Table.Column>
-								<Table.Column width="1fr">Job type</Table.Column>
-								<Table.Column width="1fr">Job area</Table.Column>
+								<Table.Column width="1fr">
+									Job type
+								</Table.Column>
+								<Table.Column width="1fr">
+									Job area
+								</Table.Column>
 							</Table.Header>
 							<Table.Body>
 								{Array.from({ length: 25 }).map((_, index) => {
 									return (
 										<Table.Row key={index}>
-											<Table.Cell>{faker.person.fullName()}</Table.Cell>
-											<Table.Cell>{faker.person.jobType()}</Table.Cell>
-											<Table.Cell>{faker.person.jobArea()}</Table.Cell>
+											<Table.Cell>
+												{faker.person.fullName()}
+											</Table.Cell>
+											<Table.Cell>
+												{faker.person.jobType()}
+											</Table.Cell>
+											<Table.Cell>
+												{faker.person.jobArea()}
+											</Table.Cell>
 										</Table.Row>
 									);
 								})}

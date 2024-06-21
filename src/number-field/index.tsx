@@ -82,7 +82,14 @@ export function FormNumberField({
 	const { control } = useFormContext();
 
 	const {
-		field: { disabled: isDisabled, name, onBlur, onChange, ref, value = "" },
+		field: {
+			disabled: isDisabled,
+			name,
+			onBlur,
+			onChange,
+			ref,
+			value = "",
+		},
 		fieldState: { error, invalid },
 	} = useController({
 		control,
@@ -110,7 +117,9 @@ export function FormNumberField({
 			{(renderProps) => {
 				return (
 					<>
-						{typeof children === "function" ? children(renderProps) : children}
+						{typeof children === "function"
+							? children(renderProps)
+							: children}
 						<FieldError>{error?.message}</FieldError>
 					</>
 				);

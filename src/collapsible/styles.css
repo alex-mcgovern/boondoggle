@@ -15,14 +15,14 @@
 	@media (prefers-reduced-motion: no-preference) {
 		&[data-state="open"] {
 			.collapsible-content {
-				animation: collapsible var(--dur-medium) var(--ease-quart-in-out)
-					forwards;
+				animation: collapsible var(--dur-medium)
+					var(--ease-quart-in-out) forwards;
 			}
 		}
 		&[data-state="closed"] {
 			.collapsible-content {
-				animation: collapsible var(--dur-medium) var(--ease-quart-in-out)
-					reverse;
+				animation: collapsible var(--dur-medium)
+					var(--ease-quart-in-out) reverse;
 			}
 		}
 	}

@@ -20,15 +20,16 @@ export const Default: Story = {
 					<Tabs.Item id="tab_3">Empire</Tabs.Item>
 				</Tabs.List>
 				<Tabs.Content id="tab_1">
-					The founding of Rome is a mythological event that is said to have
-					occurred in 753 BC.
+					The founding of Rome is a mythological event that is said to
+					have occurred in 753 BC.
 				</Tabs.Content>
 				<Tabs.Content id="tab_2">
-					The monarchy was overthrown in 509 BC and the Roman Republic was
-					established.
+					The monarchy was overthrown in 509 BC and the Roman Republic
+					was established.
 				</Tabs.Content>
 				<Tabs.Content id="tab_3">
-					The Roman Empire was established in 27 BC and lasted until 476 AD.
+					The Roman Empire was established in 27 BC and lasted until
+					476 AD.
 				</Tabs.Content>
 			</>
 		),

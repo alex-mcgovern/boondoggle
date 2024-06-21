@@ -17,12 +17,12 @@
 
 	@media (prefers-reduced-motion: no-preference) {
 		&[data-entering] {
-			animation: fade var(--dialog-transition-duration) var(--ease-quart-in-out)
-				forwards;
+			animation: fade var(--dialog-transition-duration)
+				var(--ease-quart-in-out) forwards;
 		}
 		&[data-exiting] {
-			animation: fade var(--dialog-transition-duration) var(--ease-quart-in-out)
-				reverse;
+			animation: fade var(--dialog-transition-duration)
+				var(--ease-quart-in-out) reverse;
 		}
 	}
 

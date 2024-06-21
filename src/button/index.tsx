@@ -59,15 +59,31 @@ export const Button = forwardRef<
 	}
 >(
 	(
-		{ align, appearance = "primary", className, color, size, square, ...props },
+		{
+			align,
+			appearance = "primary",
+			className,
+			color,
+			size,
+			square,
+			...props
+		},
 		ref: ForwardedRef<HTMLButtonElement>,
 	) => {
 		return (
 			<AriaButton
 				{...props}
-				className={clsx("btn", className, appearance, size, align, color, {
-					square: !!square,
-				})}
+				className={clsx(
+					"btn",
+					className,
+					appearance,
+					size,
+					align,
+					color,
+					{
+						square: !!square,
+					},
+				)}
 				ref={ref}
 			/>
 		);
