@@ -29,7 +29,7 @@
         "fix": "concurrently -n PRETTIER,ESLINT -c \"bgYellow.bold,bgRed.bold\" \"npm:fix-prettier\" \"npm:fix-eslint\"",
         "fix-eslint": "eslint . --fix",
         "fix-prettier": "prettier . --write",
-        "postversion": "git push && git push --tags",
+        "postversion": "git push --no-verify && git push --tags --no-verify",
         "prepare": "husky install",
         "preversion": "npm run check",
         "storybook": "storybook dev -p 6006",

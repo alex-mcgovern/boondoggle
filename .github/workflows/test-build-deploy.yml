@@ -6,6 +6,7 @@ on:
             - master
 
 permissions:
+    id-token: write
     deployments: write
 
 concurrency:
@@ -53,7 +54,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CF_PAGES_TOKEN }}
                   accountId: ${{ secrets.CF_ACCOUNT_ID }}
-                  projectName: local-first-tasks-dashboard
-                  directory: dist
+                  projectName: boondoggle-docs
+                  directory: docs
                   branch: main
                   gitHubToken: ${{ secrets.GITHUB_TOKEN }}
