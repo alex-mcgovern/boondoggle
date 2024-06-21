@@ -3,7 +3,7 @@ name: test-build-deploy
 on:
     push:
         branches:
-            - master
+            - main
 
 permissions:
     id-token: write
