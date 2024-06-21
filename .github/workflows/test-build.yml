@@ -23,8 +23,10 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: "21.x"
+                  node-version-file: ".nvmrc"
                   registry-url: "https://registry.npmjs.org"
+                  cache: "npm"
+                  cache-dependency-path: "package-lock.json"
 
             - name: Setup FontAwesome
               shell: bash
