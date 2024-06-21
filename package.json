@@ -4,8 +4,12 @@
 	"description": "Boondoggle component library",
 	"version": "2.1.2",
 	"license": "MIT",
-	"sideEffects": ["**/*.css"],
-	"files": ["dist"],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/alex-mcgovern/boondoggle"
@@ -15,14 +19,14 @@
 	"type": "module",
 	"main": "dist/index.js",
 	"scripts": {
+		"biome": "biome ci",
+		"biome:fix": "biome check . --write && biome format . --write",
 		"build": "parcel build --no-cache",
 		"build:docs": "storybook build --docs -o docs",
 		"check": "concurrently -g -n BIOME,TSC,VITEST,KNIP -c \"bgYellow.bold,bgBlue.bold,bgRed.bold,bgGreen.bold\" \"npm:biome\" \"npm:tsc\" \"npm:vitest\" \"npm:knip\"",
-		"biome": "biome ci",
-		"knip": "knip",
 		"cy:open": "cypress open",
 		"cy:run": "cypress run --component",
-		"biome:fix": "biome check . --write && biome format . --write",
+		"knip": "knip",
 		"postversion": "git push --no-verify && git push --tags --no-verify",
 		"prepare": "husky install",
 		"preversion": "npm run check",
