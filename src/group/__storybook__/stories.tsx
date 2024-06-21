@@ -3,27 +3,27 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Group } from "..";
 import { Input } from "../../input";
 import {
-    TextFieldClearButton,
-    TextFieldCopyButton,
-    TextFieldVisibilityButton,
+	TextFieldClearButton,
+	TextFieldCopyButton,
+	TextFieldVisibilityButton,
 } from "../../text-field";
 
 const meta = {
-    args: {},
-    component: Group,
-    title: "Components/Group",
+	args: {},
+	component: Group,
+	title: "Components/Group",
 } satisfies Meta<typeof Group>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: (args) => (
-        <Group {...args}>
-            <Input unstyled />
-            <TextFieldClearButton />
-            <TextFieldCopyButton />
-            <TextFieldVisibilityButton />
-        </Group>
-    ),
+	render: (args) => (
+		<Group {...args}>
+			<Input unstyled />
+			<TextFieldClearButton />
+			<TextFieldCopyButton />
+			<TextFieldVisibilityButton />
+		</Group>
+	),
 };

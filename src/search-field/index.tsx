@@ -13,23 +13,23 @@ import "./styles.css";
  * A `FieldButton` to clear the search field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 export function SearchFieldClearButton() {
-    return (
-        <FieldButton className="search-field-clear-button">
-            <Icon icon={faTimesCircle} />
-        </FieldButton>
-    );
+	return (
+		<FieldButton className="search-field-clear-button">
+			<Icon icon={faTimesCircle} />
+		</FieldButton>
+	);
 }
 
 /**
  * A `FieldButton` to copy the search field value to the clipboard. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 export function SearchFieldIcon() {
-    return (
-        <Icon
-            className="search-field-icon"
-            icon={faSearch}
-        />
-    );
+	return (
+		<Icon
+			className="search-field-icon"
+			icon={faSearch}
+		/>
+	);
 }
 
 /**
@@ -48,10 +48,10 @@ export function SearchFieldIcon() {
  * ```
  */
 export function SearchField(props: AriaSearchFieldProps) {
-    return (
-        <AriaSearchField
-            {...props}
-            className={clsx(props.className, "search-field")}
-        />
-    );
+	return (
+		<AriaSearchField
+			{...props}
+			className={clsx(props.className, "search-field")}
+		/>
+	);
 }

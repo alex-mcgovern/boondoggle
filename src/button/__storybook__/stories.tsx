@@ -8,136 +8,128 @@ import { Grid } from "../../grid";
 import { Icon } from "../../icon";
 
 const meta = {
-    component: Button,
-    title: "Components/Button",
+	component: Button,
+	title: "Components/Button",
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
-        children: "Press me",
-        onPress: () => {
-            alert("Hello world!");
-        },
-    },
+	args: {
+		children: "Press me",
+		onPress: () => {
+			alert("Hello world!");
+		},
+	},
 };
 
 export const Primary: Story = {
-    args: { appearance: "primary", children: "Primary" },
+	args: { appearance: "primary", children: "Primary" },
 };
 
 export const Secondary: Story = {
-    args: { appearance: "secondary", children: "Secondary" },
+	args: { appearance: "secondary", children: "Secondary" },
 };
 
 export const Ghost: Story = {
-    args: { appearance: "ghost", children: "Ghost" },
+	args: { appearance: "ghost", children: "Ghost" },
 };
 
 export const Red: Story = {
-    args: { children: "Click me", color: "red" },
+	args: { children: "Click me", color: "red" },
 };
 export const Green: Story = {
-    args: { children: "Click me", color: "green" },
+	args: { children: "Click me", color: "green" },
 };
 export const Blue: Story = {
-    args: { children: "Click me", color: "blue" },
+	args: { children: "Click me", color: "blue" },
 };
 export const Amber: Story = {
-    args: { children: "Click me", color: "amber" },
+	args: { children: "Click me", color: "amber" },
 };
 
 export const Size: Story = {
-    args: {
-        appearance: "primary",
-    },
-    render: (props) => {
-        const sizes: ComponentProps<typeof Button>["size"][] = [
-            "sm",
-            "md",
-            "lg",
-        ];
+	args: {
+		appearance: "primary",
+	},
+	render: (props) => {
+		const sizes: ComponentProps<typeof Button>["size"][] = ["sm", "md", "lg"];
 
-        return (
-            <Grid
-                align="center"
-                columns={3}
-            >
-                {sizes.map((size) => {
-                    return (
-                        <Button
-                            {...props}
-                            key={size}
-                            size={size}
-                        >
-                            {`Size ${size?.toLocaleLowerCase()}`}
-                        </Button>
-                    );
-                })}
-            </Grid>
-        );
-    },
+		return (
+			<Grid
+				align="center"
+				columns={3}
+			>
+				{sizes.map((size) => {
+					return (
+						<Button
+							{...props}
+							key={size}
+							size={size}
+						>
+							{`Size ${size?.toLocaleLowerCase()}`}
+						</Button>
+					);
+				})}
+			</Grid>
+		);
+	},
 };
 
 export const SizeSquare: Story = {
-    args: {
-        appearance: "primary",
-    },
-    render: (props) => {
-        const sizes: ComponentProps<typeof Button>["size"][] = [
-            "sm",
-            "md",
-            "lg",
-        ];
+	args: {
+		appearance: "primary",
+	},
+	render: (props) => {
+		const sizes: ComponentProps<typeof Button>["size"][] = ["sm", "md", "lg"];
 
-        return (
-            <Grid
-                align="center"
-                columns={3}
-            >
-                {sizes.map((size) => {
-                    return (
-                        <Button
-                            {...props}
-                            key={size}
-                            size={size}
-                            square
-                        >
-                            {<Icon icon={faShapes} />}
-                        </Button>
-                    );
-                })}
-            </Grid>
-        );
-    },
+		return (
+			<Grid
+				align="center"
+				columns={3}
+			>
+				{sizes.map((size) => {
+					return (
+						<Button
+							{...props}
+							key={size}
+							size={size}
+							square
+						>
+							{<Icon icon={faShapes} />}
+						</Button>
+					);
+				})}
+			</Grid>
+		);
+	},
 };
 
 export const SlotLeft: Story = {
-    args: {
-        children: (
-            <>
-                <Icon
-                    data-slot="left"
-                    icon={faShapes}
-                />
-                Button
-            </>
-        ),
-    },
+	args: {
+		children: (
+			<>
+				<Icon
+					data-slot="left"
+					icon={faShapes}
+				/>
+				Button
+			</>
+		),
+	},
 };
 
 export const SlotRight: Story = {
-    args: {
-        children: (
-            <>
-                Button
-                <Icon
-                    data-slot="left"
-                    icon={faShapes}
-                />
-            </>
-        ),
-    },
+	args: {
+		children: (
+			<>
+				Button
+				<Icon
+					data-slot="left"
+					icon={faShapes}
+				/>
+			</>
+		),
+	},
 };

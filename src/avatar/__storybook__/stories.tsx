@@ -4,8 +4,8 @@ import { Avatar as StoryComp } from "..";
 import { MOCK_AVATAR } from "../../../mocks/mock_avatar";
 
 const meta = {
-    component: StoryComp,
-    title: "Components/Avatar",
+	component: StoryComp,
+	title: "Components/Avatar",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
@@ -13,34 +13,34 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithSrc: Story = {
-    args: {
-        src: MOCK_AVATAR,
-    },
+	args: {
+		src: MOCK_AVATAR,
+	},
 };
 
 export const Name: Story = {
-    args: {
-        name: "Alex McGovern",
-    },
+	args: {
+		name: "Alex McGovern",
+	},
 };
 
 export const Size: Story = {
-    args: {
-        size: 32,
-        src: MOCK_AVATAR,
-    },
+	args: {
+		size: 32,
+		src: MOCK_AVATAR,
+	},
 };
 
 export const Loading: Story = {
-    args: {
-        isLoading: true,
-        variant: "square",
-    },
+	args: {
+		isLoading: true,
+		variant: "square",
+	},
 };
 
 export const Square: Story = {
-    args: {
-        src: MOCK_AVATAR,
-        variant: "square",
-    },
+	args: {
+		src: MOCK_AVATAR,
+		variant: "square",
+	},
 };

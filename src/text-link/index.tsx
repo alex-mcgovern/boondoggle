@@ -21,10 +21,10 @@ import "./styles.css";
  * ```
  */
 export function TextLink(props: AriaLinkProps) {
-    return (
-        <AriaLink
-            {...props}
-            className={clsx(props.className, "text-link")}
-        />
-    );
+	return (
+		<AriaLink
+			{...props}
+			className={clsx(props.className, "text-link")}
+		/>
+	);
 }

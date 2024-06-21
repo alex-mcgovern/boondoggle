@@ -17,5 +17,5 @@ import { DialogTrigger as AriaDialogTrigger } from "react-aria-components";
  * ```
  */
 export function DialogTrigger(props: AriaDialogTriggerProps) {
-    return <AriaDialogTrigger {...props} />;
+	return <AriaDialogTrigger {...props} />;
 }

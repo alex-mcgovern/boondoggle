@@ -10,19 +10,19 @@ import "./styles.css";
  * Pill component
  */
 export function Pill({
-    children,
-    className,
-    color,
-    ...props
+	children,
+	className,
+	color,
+	...props
 }: {
-    color?: Color;
+	color?: Color;
 } & HTMLProps<HTMLDivElement>) {
-    return (
-        <div
-            className={clsx(className, "pill", color)}
-            {...props}
-        >
-            {children}
-        </div>
-    );
+	return (
+		<div
+			className={clsx(className, "pill", color)}
+			{...props}
+		>
+			{children}
+		</div>
+	);
 }

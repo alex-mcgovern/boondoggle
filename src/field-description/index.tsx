@@ -21,11 +21,11 @@ import "./styles.css";
  * ```
  */
 export function FieldDescription(props: AriaTextProps) {
-    return (
-        <AriaText
-            {...props}
-            className={clsx(props.className, "description")}
-            slot="description"
-        />
-    );
+	return (
+		<AriaText
+			{...props}
+			className={clsx(props.className, "description")}
+			slot="description"
+		/>
+	);
 }
