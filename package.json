@@ -99,6 +99,7 @@
         "vitest-fail-on-console": "0.7.0"
     },
     "optionalDependencies": {
-        "@rollup/rollup-linux-x64-gnu": "4.9.5"
+        "@rollup/rollup-linux-x64-gnu": "4.9.5",
+        "@parcel/watcher-linux-x64-glibc": "2.4.2-alpha.0"
     }
 }
