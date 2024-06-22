@@ -8,7 +8,6 @@
 	}
 }
 
-
 @keyframes fade-and-slide-up {
 	from {
 		opacity: 0;
@@ -40,11 +39,13 @@
 
 	@media (prefers-reduced-motion: no-preference) {
 		&[data-entering] {
-			animation: fade var(--dialog-transition-duration) var(--ease-quart-in-out) forwards;
+			animation: fade var(--dialog-transition-duration)
+				var(--ease-quart-in-out) forwards;
 		}
 
 		&[data-exiting] {
-			animation: fade var(--dialog-transition-duration) var(--ease-quart-in-out) reverse;
+			animation: fade var(--dialog-transition-duration)
+				var(--ease-quart-in-out) reverse;
 		}
 	}
 
@@ -63,27 +64,31 @@
 
 		@media (prefers-reduced-motion: no-preference) {
 			&[data-entering] {
-				animation: fade var(--dialog-transition-duration) var(--ease-in-out-back) forwards;
+				animation: fade var(--dialog-transition-duration)
+					var(--ease-in-out-back) forwards;
 			}
 
 			&[data-exiting] {
-				animation: fade var(--dialog-transition-duration) var(--ease-in-out-back) reverse;
+				animation: fade var(--dialog-transition-duration)
+					var(--ease-in-out-back) reverse;
 			}
 		}
-
 
 		/* On large screens, add some translation to the entry / exit animation */
 		@media (min-width: 768px) {
 			@media (prefers-reduced-motion: no-preference) {
 				&[data-entering] {
-					animation: fade-and-slide-up var(--dialog-transition-duration) var(--ease-in-out-back) forwards;
+					animation: fade-and-slide-up
+						var(--dialog-transition-duration)
+						var(--ease-in-out-back) forwards;
 				}
 
 				&[data-exiting] {
-					animation: fade-and-slide-up var(--dialog-transition-duration) var(--ease-in-out-back) reverse;
+					animation: fade-and-slide-up
+						var(--dialog-transition-duration)
+						var(--ease-in-out-back) reverse;
 				}
 			}
-
 		}
 	}
 
@@ -102,7 +107,6 @@
 		min-height: var(--dialog-min-height);
 
 		outline: 0;
-
 
 		&.lg {
 			width: 100vw;
