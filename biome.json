@@ -48,13 +48,12 @@
 	"linter": {
 		"enabled": true,
 		"ignore": [
-			"**/.git",
-			"**/build",
-			"**/dist",
-			"**/docs",
-			"**/node_modules",
-			"**/storybook-static",
-			"**/tmp"
+			".git",
+			"dist",
+			"docs",
+			"node_modules",
+			"storybook-static",
+			"tmp"
 		],
 		"rules": {
 			"a11y": {
