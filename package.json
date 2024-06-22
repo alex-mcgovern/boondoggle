@@ -25,7 +25,7 @@
 		"knip": "knip",
 		"postinstall": "npm run biome:fix",
 		"postversion": "git push --no-verify && git push --tags --no-verify",
-		"prepare": "husky install",
+		"prepare": "husky",
 		"preversion": "npm run check",
 		"storybook": "storybook dev -p 6006",
 		"test:watch": "vitest --watch",
