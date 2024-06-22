@@ -18,7 +18,8 @@
 		margin-left: auto;
 
 		border-radius: var(--radius-round);
-		border: var(--close-button-border-width) solid var(--close-button-border-color);
+		border: var(--close-button-border-width) solid
+			var(--close-button-border-color);
 
 		color: var(--slate-11);
 
