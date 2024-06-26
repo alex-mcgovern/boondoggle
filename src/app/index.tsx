@@ -431,10 +431,6 @@ function NavLink({
 	);
 }
 
-function Focused({ children }: { children: ReactNode }) {
-	return <div className="app-main-focused">{children}</div>;
-}
-
 /**
  * Top bar HTML element.
  */
@@ -483,6 +479,10 @@ function NavSection({ children, className, ...rest }: HTMLProps<HTMLElement>) {
 			{children}
 		</section>
 	);
+}
+
+function Focused({ children }: { children: ReactNode }) {
+	return <div className="app-main-focused">{children}</div>;
 }
 
 export const App = {
