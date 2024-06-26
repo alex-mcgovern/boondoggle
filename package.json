@@ -4,12 +4,8 @@
 	"description": "Boondoggle component library",
 	"version": "2.1.10",
 	"license": "MIT",
-	"sideEffects": [
-		"**/*.css"
-	],
-	"files": [
-		"dist"
-	],
+	"sideEffects": ["**/*.css"],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/alex-mcgovern/boondoggle"
@@ -28,7 +24,6 @@
 		"cy:run": "cypress run --component",
 		"knip": "knip",
 		"postinstall": "npm run biome:fix",
-		"postversion": "npm run biome:fix",
 		"prepare": "husky",
 		"storybook": "storybook dev -p 6006",
 		"test:watch": "vitest --watch",

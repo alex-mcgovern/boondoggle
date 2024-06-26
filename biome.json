@@ -18,6 +18,7 @@
 		"enabled": true,
 		"formatWithErrors": true,
 		"ignore": [
+			"package.json",
 			".git",
 			"build",
 			"dist",
