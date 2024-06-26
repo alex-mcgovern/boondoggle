@@ -133,7 +133,7 @@ function Focused({ children }: { children: ReactNode }) {
 }
 
 /** -----------------------------------------------------------------------------
- * Main - the `<main>` element and associated components
+ * Main
  * ------------------------------------------------------------------------------- */
 
 function AppMainRoot({ children }: { children: ReactNode }) {
