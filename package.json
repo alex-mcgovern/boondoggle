@@ -2,14 +2,10 @@
 	"author": "Alex McGovern",
 	"name": "boondoggle",
 	"description": "Boondoggle component library",
-	"version": "2.1.7",
+	"version": "2.1.8",
 	"license": "MIT",
-	"sideEffects": [
-		"**/*.css"
-	],
-	"files": [
-		"dist"
-	],
+	"sideEffects": ["**/*.css"],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/alex-mcgovern/boondoggle"
