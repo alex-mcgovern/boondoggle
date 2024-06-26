@@ -131,6 +131,10 @@ function AppRoot({ children }: { children: ReactNode }) {
 	);
 }
 
+function Focused({ children }: { children: ReactNode }) {
+	return <div className="app-main-focused">{children}</div>;
+}
+
 /** -----------------------------------------------------------------------------
  * Main - the `<main>` element and associated components
  * ------------------------------------------------------------------------------- */
@@ -479,10 +483,6 @@ function NavFooter({
 			{children}
 		</div>
 	);
-}
-
-function Focused({ children }: { children: ReactNode }) {
-	return <div className="app-main-focused">{children}</div>;
 }
 
 export const App = {
