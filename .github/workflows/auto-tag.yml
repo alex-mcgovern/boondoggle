@@ -5,7 +5,10 @@ on:
         branches:
             - main
         paths:
+            - '.github/workflows/**'
             - 'src/**'
+            - 'package.json'
+            - 'package-lock.json'
 
 permissions:
     id-token: write
