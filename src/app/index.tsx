@@ -77,9 +77,6 @@ const useNavState = () => {
 	return context;
 };
 
-/**
- * Button for toggling the side nav
- */
 function ButtonToggleCollapsibleNav() {
 	const [isOpen, setIsOpen] = useNavState();
 
