@@ -18,14 +18,14 @@
 		"enabled": true,
 		"formatWithErrors": true,
 		"ignore": [
-			"**/.git",
-			"**/build",
-			"**/dist",
-			"**/docs",
-			"**/node_modules",
-			"**/storybook-static",
-			"**/tmp",
-			"**/*.md"
+			".git",
+			"build",
+			"dist",
+			"docs",
+			"node_modules",
+			"storybook-static",
+			"tmp",
+			"*.md"
 		],
 		"indentStyle": "tab",
 		"indentWidth": 4,
