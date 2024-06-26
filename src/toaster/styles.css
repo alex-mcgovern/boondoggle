@@ -6,9 +6,14 @@
 	--toast-text-color: var(--slate-1);
 	--toast-bg-color: var(--slate-12);
 
+	display: flex;
+	justify-content: center;
+
 	.toast-close-button {
-		height: var(--ui-height-sm);
-		width: var(--ui-height-sm);
+		height: var(--space-5);
+		width: var(--space-5);
+
+		background: var(--slate-2);
 
 		margin-left: auto;
 
@@ -16,7 +21,17 @@
 		border: var(--close-button-border-width) solid
 			var(--close-button-border-color);
 
-		color: var(--slate-1);
+		color: var(--slate-11);
+
+		@media (prefers-reduced-motion: no-preference) {
+			transition-duration: var(--dur-short);
+			transition-property: background-color;
+			transition-timing-function: var(--ease-quart-in-out);
+		}
+
+		&:hover {
+			background: var(--slate-3);
+		}
 	}
 
 	.toast-body {

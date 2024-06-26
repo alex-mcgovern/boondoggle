@@ -6,6 +6,26 @@ import { Dialog } from "..";
 import { Button } from "../../button";
 
 const meta = {
+	decorators: [
+		(Story) => {
+			return (
+				<div
+					style={{
+						width: "100dvw",
+						height: "100dvh",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						backgroundSize: "40px 40px",
+						backgroundImage:
+							"linear-gradient(to right, var(--slate-5) 1px, transparent 1px), linear-gradient(to bottom, var(--slate-5) 1px, transparent 1px)",
+					}}
+				>
+					<Story />
+				</div>
+			);
+		},
+	],
 	args: {
 		children: (
 			<>
