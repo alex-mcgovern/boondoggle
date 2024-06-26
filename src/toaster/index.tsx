@@ -65,6 +65,7 @@ export function Toaster() {
 					toast: "toast-body",
 				},
 				unstyled: true,
+				duration: 60_000,
 			}}
 		/>
 	);

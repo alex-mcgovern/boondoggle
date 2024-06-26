@@ -42,11 +42,12 @@
 		--radius-pill: 99999px;
 		--radius-round: 50%;
 
-		--dur-short: 150ms;
+		--dur-short: 200ms;
 		--dur-medium: 300ms;
-		--dur-long: 600ms;
+		--dur-long: 400ms;
 
 		--ease-quart-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+		--ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
 		--shadow-xs: rgba(0, 0, 0, 0.05) 0px 2px 1px;
 		--shadow-sm: rgba(0, 0, 0, 0.05) 0px 5px 10px;

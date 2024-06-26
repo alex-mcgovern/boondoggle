@@ -284,7 +284,6 @@ function AppWithTable(args: ComponentProps<typeof App.Container>) {
 						</Button>
 						<Button
 							onPress={() => {
-								alert("opened");
 								setIsOpen(true);
 							}}
 						>
