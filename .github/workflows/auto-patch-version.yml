@@ -26,14 +26,14 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: Update version and push tag if changes detected
+            - name: Patch NPM package version
               run: |
                 git config user.name github-actions
                 git config user.email github-actions@github.com
                 npm version patch -m "chore(release): bump version to %s [skip ci]"
-                git push origin HEAD:main --follow-tags --no-verify
+                git push --tags --no-verify
       
-            - name: Open a PR with updated package.json using GitHub CLI
+            - name: Open PR to sync package.json version
               run: |
                 git checkout -b update-package-json-${{ github.run_id }}
                 git add package.json

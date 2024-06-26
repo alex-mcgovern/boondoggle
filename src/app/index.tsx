@@ -294,44 +294,6 @@ function NavRoot(props: { children: ReactNode }) {
 	);
 }
 
-function NavButton({
-	align = "start",
-	appearance = "ghost",
-	icon,
-	...props
-}: Omit<ComponentProps<typeof Button>, "sm" | "square"> & {
-	icon: IconProp;
-	isCurrent?: boolean;
-}) {
-	const [isOpen] = useNavState();
-
-	return (
-		<TooltipTrigger isDisabled={isOpen}>
-			<Button
-				{...props}
-				align={align}
-				appearance={appearance}
-				size="sm"
-				square={!isOpen}
-			>
-				{(renderProps) => (
-					<>
-						<Icon icon={icon} />
-						<div className="hidden-when-collapsed">
-							{typeof props.children === "function"
-								? props.children(renderProps)
-								: props.children}
-						</div>
-					</>
-				)}
-			</Button>
-			<Tooltip placement="right">
-				{typeof props.children === "string" ? props.children : null}
-			</Tooltip>
-		</TooltipTrigger>
-	);
-}
-
 function NavOrg({
 	className,
 	image,
@@ -424,6 +386,44 @@ function NavLink({
 					</>
 				)}
 			</LinkButton>
+			<Tooltip placement="right">
+				{typeof props.children === "string" ? props.children : null}
+			</Tooltip>
+		</TooltipTrigger>
+	);
+}
+
+function NavButton({
+	align = "start",
+	appearance = "ghost",
+	icon,
+	...props
+}: Omit<ComponentProps<typeof Button>, "sm" | "square"> & {
+	icon: IconProp;
+	isCurrent?: boolean;
+}) {
+	const [isOpen] = useNavState();
+
+	return (
+		<TooltipTrigger isDisabled={isOpen}>
+			<Button
+				{...props}
+				align={align}
+				appearance={appearance}
+				size="sm"
+				square={!isOpen}
+			>
+				{(renderProps) => (
+					<>
+						<Icon icon={icon} />
+						<div className="hidden-when-collapsed">
+							{typeof props.children === "function"
+								? props.children(renderProps)
+								: props.children}
+						</div>
+					</>
+				)}
+			</Button>
 			<Tooltip placement="right">
 				{typeof props.children === "string" ? props.children : null}
 			</Tooltip>

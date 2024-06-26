@@ -24,7 +24,6 @@
 		"cy:run": "cypress run --component",
 		"knip": "knip",
 		"postinstall": "npm run biome:fix",
-		"postversion": "git push --no-verify && git push --tags --no-verify",
 		"prepare": "husky",
 		"storybook": "storybook dev -p 6006",
 		"test:watch": "vitest --watch",
