@@ -440,9 +440,6 @@ function NavHeader({
 	);
 }
 
-/**
- * Bottom bar HTML element.
- */
 function NavSection({ children, className, ...rest }: HTMLProps<HTMLElement>) {
 	return (
 		<section
