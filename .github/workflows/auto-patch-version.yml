@@ -1,0 +1,45 @@
+name: Auto patch version
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - 'src/**'
+
+permissions:
+    id-token: write
+    deployments: write
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    test:
+      uses: ./.github/workflows/test.yml
+      secrets: 
+        FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+        
+    test-build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Update version and push tag if changes detected
+              run: |
+                git config user.name github-actions
+                git config user.email github-actions@github.com
+                npm version patch -m "chore(release): bump version to %s [skip ci]"
+                git push origin HEAD:main --follow-tags
+      
+            - name: Open a PR with updated package.json using GitHub CLI
+              run: |
+                git checkout -b update-package-json-${{ github.run_id }}
+                git add package.json
+                git commit -m "chore: update package.json version"
+                git push origin update-package-json-${{ github.run_id }}
+                gh pr create --title "chore: update package.json version" --body "This PR updates the package.json version after changes in the src directory." --label "automated-pr" --base main --head update-package-json-${{ github.run_id }}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

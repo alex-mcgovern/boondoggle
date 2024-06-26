@@ -1,9 +1,9 @@
-name: test-build-deploy
+name: Deploy docs
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 permissions:
     id-token: write
@@ -14,6 +14,11 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
+    test:
+      uses: ./.github/workflows/test.yml
+      secrets: 
+        FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+        
     test-build-deploy:
         runs-on: ubuntu-latest
         steps:
@@ -36,17 +41,6 @@ jobs:
 
             - name: Install
               run: npm i
-
-            - name: Code quality
-              run: npm run check
-
-            - name: Build
-              run: npm run build
-
-            - name: Publish to NPM
-              run: npm publish --provenance --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Build docs
               run: npm run build:docs
