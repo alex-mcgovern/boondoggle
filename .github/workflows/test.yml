@@ -9,8 +9,6 @@ on:
       secrets:
         FONTAWESOME_TOKEN:
           required: true
-permissions:
-    deployments: write
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}

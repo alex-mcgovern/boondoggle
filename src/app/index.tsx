@@ -425,9 +425,6 @@ function NavOrg({
 	);
 }
 
-/**
- * Top bar HTML element.
- */
 function NavHeader({
 	children,
 	className,

@@ -8,8 +8,8 @@ on:
             - 'src/**'
 
 permissions:
-    contents: write
-    pull-requests: write
+    id-token: write
+    deployments: write
 
 jobs:
     test:
