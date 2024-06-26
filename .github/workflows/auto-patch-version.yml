@@ -31,7 +31,6 @@ jobs:
                 git checkout -b update-package-json-${{ github.run_id }}
                 npm version patch
                 git push --tags --no-verify
-                git push origin update-package-json-${{ github.run_id }}
                 gh pr create --title "chore: update package.json version" --label "automated-pr" --base main --head update-package-json-${{ github.run_id }}
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

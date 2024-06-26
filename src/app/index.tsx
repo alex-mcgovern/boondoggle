@@ -294,36 +294,6 @@ function NavRoot(props: { children: ReactNode }) {
 	);
 }
 
-function NavOrg({
-	className,
-	image,
-	isLoading,
-	name,
-}: {
-	className?: string;
-	image: string | undefined;
-	isLoading?: boolean;
-	name: string;
-}) {
-	return (
-		<div className={clsx(className, "org-display")}>
-			<Avatar
-				name={name}
-				size={28}
-				src={image}
-				variant="square"
-			/>
-			{isLoading ? (
-				<Skeleton className="w-100" />
-			) : (
-				<div className="org-display-name hidden-when-collapsed">
-					{name}
-				</div>
-			)}
-		</div>
-	);
-}
-
 function UserMenuHeader(props: {
 	avatarSrc: string | undefined;
 	name: string;
@@ -428,6 +398,36 @@ function NavButton({
 				{typeof props.children === "string" ? props.children : null}
 			</Tooltip>
 		</TooltipTrigger>
+	);
+}
+
+function NavOrg({
+	className,
+	image,
+	isLoading,
+	name,
+}: {
+	className?: string;
+	image: string | undefined;
+	isLoading?: boolean;
+	name: string;
+}) {
+	return (
+		<div className={clsx(className, "org-display")}>
+			<Avatar
+				name={name}
+				size={28}
+				src={image}
+				variant="square"
+			/>
+			{isLoading ? (
+				<Skeleton className="w-100" />
+			) : (
+				<div className="org-display-name hidden-when-collapsed">
+					{name}
+				</div>
+			)}
+		</div>
 	);
 }
 
