@@ -18,23 +18,23 @@ import { Tabs } from "../../tabs";
 
 function SideNav() {
 	return (
-		<App.SideBar>
-			<App.SideNavHeader>
-				<App.OrgDisplay
+		<App.Nav.Root>
+			<App.Nav.Header>
+				<App.Nav.Org
 					image={undefined}
 					name="Acme Inc."
 				/>
-			</App.SideNavHeader>
-			<App.SideNavSection>
+			</App.Nav.Header>
+			<App.Nav.Section>
 				<div className="flex gap-1">
 					<Menu.Trigger>
-						<App.Button
+						<App.Nav.Button
 							appearance="secondary"
 							className="grow"
 							icon={faPlus}
 						>
 							Create a file
-						</App.Button>
+						</App.Nav.Button>
 						<Popover placement="right top">
 							<Menu.DropdownMenu>
 								<Menu.Section>
@@ -57,22 +57,22 @@ function SideNav() {
 						</Popover>
 					</Menu.Trigger>
 				</div>
-			</App.SideNavSection>
-			<App.SideNavSection>
-				<App.Link
+			</App.Nav.Section>
+			<App.Nav.Section>
+				<App.Nav.Link
 					href="https://boondoggle.design"
 					icon={faPerson}
 				>
 					Users
-				</App.Link>
-				<App.Link
+				</App.Nav.Link>
+				<App.Nav.Link
 					href="https://boondoggle.design"
 					icon={faWallet}
 				>
 					Accounts
-				</App.Link>
-			</App.SideNavSection>
-		</App.SideBar>
+				</App.Nav.Link>
+			</App.Nav.Section>
+		</App.Nav.Root>
 	);
 }
 

@@ -67,7 +67,7 @@ const useDrawerContext = () => {
  * Utilities
  * ------------------------------------------------------------------------------- */
 
-const useSideNav = () => {
+const useNavState = () => {
 	const context = useContext(NavContext);
 
 	if (context == null) {
@@ -81,7 +81,7 @@ const useSideNav = () => {
  * Button for toggling the side nav
  */
 function ButtonToggleCollapsibleNav() {
-	const [isOpen, setIsOpen] = useSideNav();
+	const [isOpen, setIsOpen] = useNavState();
 
 	return (
 		<NavButton
@@ -287,7 +287,7 @@ function NavButton({
 	icon: IconProp;
 	isCurrent?: boolean;
 }) {
-	const [isOpen] = useSideNav();
+	const [isOpen] = useNavState();
 
 	return (
 		<TooltipTrigger isDisabled={isOpen}>
@@ -316,7 +316,7 @@ function NavButton({
 	);
 }
 
-function OrgDisplay({
+function NavOrg({
 	className,
 	image,
 	isLoading,
@@ -367,7 +367,7 @@ function UserMenuHeader(props: {
 	);
 }
 
-function Link({
+function NavLink({
 	align = "start",
 	appearance = "ghost",
 	icon,
@@ -377,7 +377,7 @@ function Link({
 	icon: IconProp;
 	isCurrent?: boolean;
 }) {
-	const [isOpen] = useSideNav();
+	const [isOpen] = useNavState();
 
 	return (
 		<TooltipTrigger isDisabled={isOpen}>
@@ -415,8 +415,8 @@ function Link({
 	);
 }
 
-function SideBar(props: { children: ReactNode }) {
-	const [isOpen] = useSideNav();
+function NavRoot(props: { children: ReactNode }) {
+	const [isOpen] = useNavState();
 
 	return (
 		<nav
@@ -424,9 +424,9 @@ function SideBar(props: { children: ReactNode }) {
 			data-open={isOpen}
 		>
 			{props.children}
-			<SideNavFooter>
+			<NavFooter>
 				<ButtonToggleCollapsibleNav />
-			</SideNavFooter>
+			</NavFooter>
 		</nav>
 	);
 }
@@ -438,7 +438,7 @@ function Focused({ children }: { children: ReactNode }) {
 /**
  * Top bar HTML element.
  */
-function SideNavHeader({
+function NavHeader({
 	children,
 	className,
 	...rest
@@ -456,7 +456,7 @@ function SideNavHeader({
 /**
  * Bottom bar HTML element.
  */
-function SideNavFooter({
+function NavFooter({
 	children,
 	className,
 	...rest
@@ -474,11 +474,7 @@ function SideNavFooter({
 /**
  * Bottom bar HTML element.
  */
-function SideNavSection({
-	children,
-	className,
-	...rest
-}: HTMLProps<HTMLElement>) {
+function NavSection({ children, className, ...rest }: HTMLProps<HTMLElement>) {
 	return (
 		<section
 			className={clsx(className, "app-nav-section")}
@@ -490,32 +486,32 @@ function SideNavSection({
 }
 
 export const App = {
-	Button: NavButton,
 	Container: AppRoot,
-	Context: {
-		Drawer: DrawerContext,
-		Nav: NavContext,
-	},
 	Drawer: {
+		Context: DrawerContext,
+		Root: DrawerRoot,
 		CloseButton: DrawerCloseButton,
 		Content: DrawerContent,
 		Header: DrawerHeader,
-		Root: DrawerRoot,
 	},
 	Focused,
-	Link,
 	Main: {
+		Root: AppMainRoot,
 		Content: AppMainContent,
 		Footer: AppMainFooter,
 		Header: AppMainHeader,
-		Root: AppMainRoot,
 		Toolbar: AppMainToolbar,
 	},
-	OrgDisplay,
-	SideBar,
-	SideNavFooter: SideNavFooter,
-	SideNavHeader: SideNavHeader,
-	SideNavSection: SideNavSection,
+	Nav: {
+		Root: NavRoot,
+		Button: NavButton,
+		Context: NavContext,
+		Footer: NavFooter,
+		Header: NavHeader,
+		Link: NavLink,
+		Org: NavOrg,
+		Section: NavSection,
+		useState: useNavState,
+	},
 	UserMenuHeader,
-	useSideNav,
 };
