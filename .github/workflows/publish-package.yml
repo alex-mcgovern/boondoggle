@@ -1,0 +1,48 @@
+name: Publish package
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+    id-token: write
+    deployments: write
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    test:
+      uses: ./.github/workflows/test.yml
+      secrets: 
+        FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+        
+    publish-package:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: ".nvmrc"
+                  registry-url: "https://registry.npmjs.org"
+                  cache: "npm"
+                  cache-dependency-path: "package-lock.json"
+
+            - name: Setup FontAwesome
+              shell: bash
+              run: |
+                  echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+                  echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}" >> .npmrc
+
+            - name: Install
+              run: npm i
+
+            - name: Publish to NPM
+              run: npm publish --provenance --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
