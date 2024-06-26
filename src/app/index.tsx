@@ -452,6 +452,20 @@ function NavHeader({
 /**
  * Bottom bar HTML element.
  */
+function NavSection({ children, className, ...rest }: HTMLProps<HTMLElement>) {
+	return (
+		<section
+			className={clsx(className, "app-nav-section")}
+			{...rest}
+		>
+			{children}
+		</section>
+	);
+}
+
+/**
+ * Bottom bar HTML element.
+ */
 function NavFooter({
 	children,
 	className,
@@ -464,20 +478,6 @@ function NavFooter({
 		>
 			{children}
 		</div>
-	);
-}
-
-/**
- * Bottom bar HTML element.
- */
-function NavSection({ children, className, ...rest }: HTMLProps<HTMLElement>) {
-	return (
-		<section
-			className={clsx(className, "app-nav-section")}
-			{...rest}
-		>
-			{children}
-		</section>
 	);
 }
 
