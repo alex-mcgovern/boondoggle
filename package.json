@@ -4,8 +4,12 @@
 	"description": "Boondoggle component library",
 	"version": "2.1.16",
 	"license": "MIT",
-	"sideEffects": ["**/*.css"],
-	"files": ["dist"],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/alex-mcgovern/boondoggle"
@@ -50,6 +54,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.2",
+		"@commitlint/cli": "19.3.0",
+		"@commitlint/config-conventional": "19.2.2",
 		"@faker-js/faker": "8.4.1",
 		"@parcel/packager-ts": "2.12.0",
 		"@parcel/transformer-typescript-tsc": "2.12.0",
