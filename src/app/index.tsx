@@ -278,6 +278,22 @@ function DrawerCloseButton() {
  * Nav
  * ------------------------------------------------------------------------------- */
 
+function NavRoot(props: { children: ReactNode }) {
+	const [isOpen] = useNavState();
+
+	return (
+		<nav
+			className="app-nav"
+			data-open={isOpen}
+		>
+			{props.children}
+			<NavFooter>
+				<ButtonToggleCollapsibleNav />
+			</NavFooter>
+		</nav>
+	);
+}
+
 function NavButton({
 	align = "start",
 	appearance = "ghost",
@@ -412,22 +428,6 @@ function NavLink({
 				{typeof props.children === "string" ? props.children : null}
 			</Tooltip>
 		</TooltipTrigger>
-	);
-}
-
-function NavRoot(props: { children: ReactNode }) {
-	const [isOpen] = useNavState();
-
-	return (
-		<nav
-			className="app-nav"
-			data-open={isOpen}
-		>
-			{props.children}
-			<NavFooter>
-				<ButtonToggleCollapsibleNav />
-			</NavFooter>
-		</nav>
 	);
 }
 
