@@ -341,14 +341,7 @@ function NavLink({
 			>
 				{(renderProps) => (
 					<>
-						<Icon
-							// color={
-							//     !!isCurrent || !!renderProps.isCurrent
-							//         ? "text_high_contrast"
-							//         : "text_low_contrast"
-							// }
-							icon={icon}
-						/>
+						<Icon icon={icon} />
 						<div className="hidden-when-collapsed">
 							{typeof props.children === "function"
 								? props.children(renderProps)
