@@ -28,17 +28,10 @@ jobs:
 
             - name: Patch NPM package version
               run: |
-                git config user.name github-actions
-                git config user.email github-actions@github.com
-                npm version patch -m "chore(release): bump version to %s [skip ci]"
-                git push --tags --no-verify
-      
-            - name: Open PR to sync package.json version
-              run: |
                 git checkout -b update-package-json-${{ github.run_id }}
-                git add package.json
-                git commit -m "chore: update package.json version"
+                npm version patch
+                git push --tags --no-verify
                 git push origin update-package-json-${{ github.run_id }}
-                gh pr create --title "chore: update package.json version" --body "This PR updates the package.json version after changes in the src directory." --label "automated-pr" --base main --head update-package-json-${{ github.run_id }}
+                gh pr create --title "chore: update package.json version" --label "automated-pr" --base main --head update-package-json-${{ github.run_id }}
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
