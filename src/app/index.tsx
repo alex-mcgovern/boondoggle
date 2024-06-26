@@ -451,9 +451,6 @@ function NavSection({ children, className, ...rest }: HTMLProps<HTMLElement>) {
 	);
 }
 
-/**
- * Bottom bar HTML element.
- */
 function NavFooter({
 	children,
 	className,

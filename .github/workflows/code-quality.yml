@@ -1,4 +1,4 @@
-name: Run tests
+name: Code quality
 
 on:
     pull_request:
@@ -15,7 +15,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    test:
+    code-quality:
+        name: Code quality
         runs-on: ubuntu-latest
         steps:
             - name: Checkout

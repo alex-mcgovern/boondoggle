@@ -1,4 +1,4 @@
-name: Auto patch version
+name: Auto-tag
 
 on:
     push:
@@ -10,16 +10,19 @@ on:
 permissions:
     id-token: write
     deployments: write
+    contents: write
 
 jobs:
-    test:
-      uses: ./.github/workflows/test.yml
+    code-quality:
+      name: Code quality
+      uses: ./.github/workflows/code-quality.yml
       secrets: 
         FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
         
-    auto-patch-version:
+    auto-tag:
+        name: Auto-tag
         runs-on: ubuntu-latest
-        needs: test
+        needs: code-quality
         permissions:
             contents: write
         steps:
