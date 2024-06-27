@@ -10,7 +10,7 @@ permissions:
     deployments: write
 
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
+    group: build-and-deploy-${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
 jobs:
