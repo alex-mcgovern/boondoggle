@@ -35,7 +35,7 @@ function Trigger(
 	);
 }
 
-export function CollapsibleRoot({
+function CollapsibleRoot({
 	children,
 	isOpen,
 	onOpenChange,
