@@ -77,12 +77,12 @@ function SideNav() {
 }
 
 const meta = {
-	component: App.Container,
+	component: App.Root,
 	parameters: {
 		layout: "fullscreen",
 	},
 	title: "Components/App",
-} satisfies Meta<typeof App.Container>;
+} satisfies Meta<typeof App.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -254,12 +254,12 @@ export const WithTabs: Story = {
 	},
 };
 
-function AppWithTable(args: ComponentProps<typeof App.Container>) {
+function AppWithTable(args: ComponentProps<typeof App.Root>) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<>
-			<App.Container {...args}>
+			<App.Root {...args}>
 				<App.Drawer.Root
 					isOpen={isOpen}
 					onOpenChange={setIsOpen}
@@ -340,7 +340,7 @@ function AppWithTable(args: ComponentProps<typeof App.Container>) {
 						<Button appearance="secondary">Next</Button>
 					</App.Main.Footer>
 				</App.Main.Root>
-			</App.Container>
+			</App.Root>
 		</>
 	);
 }

@@ -9,10 +9,7 @@ import { Button } from "react-aria-components";
 import { Icon } from "../icon";
 import "./styles.css";
 
-/**
- * A trigger component for a collapsible element.
- */
-export function CollapsibleTrigger(
+function Trigger(
 	props: AriaButtonProps & { ref?: ForwardedRef<HTMLButtonElement> },
 ) {
 	return (
@@ -38,24 +35,7 @@ export function CollapsibleTrigger(
 	);
 }
 
-/**
- * @deprecated
- *
- * An unstyled, primitive component for creating a collapsible UI element.
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { Collapsible } from "boondoggle";
- * ```
- */
-export function Collapsible({
+function CollapsibleRoot({
 	children,
 	isOpen,
 	onOpenChange,
@@ -110,3 +90,25 @@ export function Collapsible({
 		</RadixCollapsible.Root>
 	);
 }
+
+/**
+ * @deprecated
+ *
+ * An unstyled, primitive component for creating a collapsible UI element.
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```ts
+ * import { Collapsible } from "boondoggle";
+ * ```
+ */
+export const Collapsible = {
+	Root: CollapsibleRoot,
+	Trigger,
+};

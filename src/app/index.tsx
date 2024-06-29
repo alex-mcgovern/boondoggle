@@ -67,7 +67,7 @@ const useDrawerContext = () => {
  * Utilities
  * ------------------------------------------------------------------------------- */
 
-const useNavState = () => {
+const useNavContext = () => {
 	const context = useContext(NavContext);
 
 	if (context == null) {
@@ -78,7 +78,7 @@ const useNavState = () => {
 };
 
 function ButtonToggleCollapsibleNav() {
-	const [isOpen, setIsOpen] = useNavState();
+	const [isOpen, setIsOpen] = useNavContext();
 
 	return (
 		<NavButton
@@ -280,7 +280,7 @@ function DrawerCloseButton() {
  * ------------------------------------------------------------------------------- */
 
 function NavRoot(props: { children: ReactNode }) {
-	const [isOpen] = useNavState();
+	const [isOpen] = useNavContext();
 
 	return (
 		<nav
@@ -295,27 +295,6 @@ function NavRoot(props: { children: ReactNode }) {
 	);
 }
 
-function UserMenuHeader(props: {
-	avatarSrc: string | undefined;
-	name: string;
-	organization: string;
-}) {
-	return (
-		<div className="user-menu-header">
-			<Avatar
-				name={props.name}
-				size={32}
-				src={props.avatarSrc}
-				variant="square"
-			/>
-			<div>
-				<div className="user-menu-header-name">{props.name}</div>
-				<div className="user-menu-header-org">{props.organization}</div>
-			</div>
-		</div>
-	);
-}
-
 function NavLink({
 	align = "start",
 	appearance = "ghost",
@@ -326,7 +305,7 @@ function NavLink({
 	icon: IconProp;
 	isCurrent?: boolean;
 }) {
-	const [isOpen] = useNavState();
+	const [isOpen] = useNavContext();
 
 	return (
 		<TooltipTrigger isDisabled={isOpen}>
@@ -366,7 +345,7 @@ function NavButton({
 	icon: IconProp;
 	isCurrent?: boolean;
 }) {
-	const [isOpen] = useNavState();
+	const [isOpen] = useNavContext();
 
 	return (
 		<TooltipTrigger isDisabled={isOpen}>
@@ -467,10 +446,10 @@ function NavFooter({
 }
 
 export const App = {
-	Container: AppRoot,
+	Root: AppRoot,
 	Drawer: {
-		Context: DrawerContext,
 		Root: DrawerRoot,
+		Context: DrawerContext,
 		CloseButton: DrawerCloseButton,
 		Content: DrawerContent,
 		Header: DrawerHeader,
@@ -492,7 +471,6 @@ export const App = {
 		Link: NavLink,
 		Org: NavOrg,
 		Section: NavSection,
-		useState: useNavState,
+		useContext: useNavContext,
 	},
-	UserMenuHeader,
 };
