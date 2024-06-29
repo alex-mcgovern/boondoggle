@@ -14,18 +14,22 @@
 	--tooltip-bg: var(--slate-12);
 	--tooltip-color: var(--slate-1);
 
-	--translate: var(--space-1);
+	--translate: var(--space-0\.5);
 
 	background: var(--tooltip-bg);
 	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-md);
-	color: var(--slate-1);
+	color: var(--tooltip-color);
 	font-size: var(--font-size-body-sm);
 	padding: var(--space-2);
 
 	/* fixes FF gap */
 	transform: translate3d(0, 0, 0);
 	forced-color-adjust: none;
+
+	* {
+		color: var(--tooltip-color);
+	}
 
 	&[data-placement="top"] {
 		margin-bottom: var(--space-1);
