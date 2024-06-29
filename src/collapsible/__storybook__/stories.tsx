@@ -3,17 +3,17 @@ import type { ComponentProps } from "react";
 
 import { faker } from "@faker-js/faker";
 
-import { Collapsible, CollapsibleTrigger } from "..";
+import { CollapsibleRoot, CollapsibleTrigger } from "..";
 
 export default {
-	component: Collapsible,
+	component: CollapsibleRoot,
 	parameters: {
 		layout: "padded",
 	},
 	title: "Components/Collapsible",
 };
 
-export const Default: StoryObj<ComponentProps<typeof Collapsible>> = {
+export const Default: StoryObj<ComponentProps<typeof CollapsibleRoot>> = {
 	args: {
 		children: faker.lorem.paragraphs(3),
 		triggerNode: <CollapsibleTrigger>Click me</CollapsibleTrigger>,
