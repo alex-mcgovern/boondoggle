@@ -16,7 +16,7 @@ import {
 import { Icon } from "../icon";
 import "./styles.css";
 
-export function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
+function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
 	return (
 		<AriaButton
 			slot="clear"
@@ -29,11 +29,11 @@ export function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
 	);
 }
 
-export function TooltipRoot(props: AriaTooltipTriggerProps) {
+function TooltipRoot(props: AriaTooltipTriggerProps) {
 	return <AriaTooltipTrigger {...props}>{props.children}</AriaTooltipTrigger>;
 }
 
-export function TooltipBody(props: AriaTooltipProps) {
+function TooltipBody(props: AriaTooltipProps) {
 	return (
 		<AriaTooltip
 			{...props}
