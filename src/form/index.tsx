@@ -13,6 +13,7 @@ import {
 	useFormContext,
 } from "react-hook-form";
 import { FieldError } from "../field-error";
+import { FileTrigger } from "../file-trigger";
 import { NumberField } from "../number-field";
 import { TextFieldRoot } from "../text-field";
 
@@ -193,6 +194,36 @@ function FormNumberField({
 	);
 }
 
+function FormFileTrigger(
+	props: ComponentProps<typeof FileTrigger> & { name: string },
+) {
+	const { control } = useFormContext();
+
+	const {
+		field: { onChange, ref },
+		fieldState: { error },
+	} = useController({
+		control,
+		name: props.name,
+	});
+
+	return (
+		<>
+			<FileTrigger
+				{...props}
+				onSelect={(e) => {
+					if (props.onSelect) {
+						props.onSelect(e);
+					}
+					onChange(e?.item(0));
+				}}
+				ref={ref}
+			/>
+			<FieldError>{error?.message}</FieldError>
+		</>
+	);
+}
+
 /**
  * The `Form` namespace uses `react-hook-form` to connect UI components to form state.
  */
@@ -200,4 +231,5 @@ export const Form = {
 	Root: FormRoot,
 	TextField: FormTextField,
 	NumberField: FormNumberField,
+	FileTrigger: FormFileTrigger,
 };
