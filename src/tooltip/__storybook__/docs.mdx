@@ -44,18 +44,16 @@ using the `placement` prop on `Tooltip.Body`.
 
 ## Delay
 
+The delay can be adjusted for hover using the `delay` prop. The delay time for
+the tooltip to close can be adjusted using the `closeDelay` prop.
 
-The delay can be adjusted for hover using the `delay` prop.
-The delay time for the tooltip to close can be adjusted using the `closeDelay` prop.
+Tooltips appear after a short delay when hovering the trigger, or instantly when
+using keyboard focus. This delay is called the "warmup period", and it is a
+global timer, shared by all tooltips. Once a tooltip is displayed, other
+tooltips display immediately. If the user waits for the "cooldown period" before
+hovering another element, the warmup timer restarts.
 
-Tooltips appear after a short delay when hovering the trigger, or
-instantly when using keyboard focus. This delay is called the "warmup period",
-and it is a global timer, shared by all tooltips. Once a tooltip is displayed,
-other tooltips display immediately. If the user waits for the "cooldown
-period" before hovering another element, the warmup timer restarts. 
-
-[Source:
-React Aria Components](https://react-spectrum.adobe.com/react-aria/Tooltip.html#delay)
+[Source: React Aria Components](https://react-spectrum.adobe.com/react-aria/Tooltip.html#delay)
 
 <Controls
     of={root_stories.Delay}

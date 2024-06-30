@@ -6,15 +6,15 @@ import { FieldButton } from "..";
 import { Icon } from "../../icon";
 
 const meta = {
-	component: FieldButton,
-	title: "FieldButton",
+    component: FieldButton,
+    title: "FieldButton",
 } satisfies Meta<typeof FieldButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
-		children: <Icon icon={faShapes} />,
-	},
+    args: {
+        children: <Icon icon={faShapes} />,
+    },
 };

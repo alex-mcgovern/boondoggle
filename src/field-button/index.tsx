@@ -23,11 +23,11 @@ import "./styles.css";
  * ```
  */
 export function FieldButton({ ...props }: AriaButtonProps) {
-	return (
-		<AriaButton
-			{...props}
-			className={clsx(props.className, "field-button")}
-			excludeFromTabOrder
-		/>
-	);
+    return (
+        <AriaButton
+            {...props}
+            className={clsx(props.className, "field-button")}
+            excludeFromTabOrder
+        />
+    );
 }

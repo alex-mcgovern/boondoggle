@@ -6,9 +6,9 @@ on:
         branches:
             - main
     workflow_call:
-      secrets:
-        FONTAWESOME_TOKEN:
-          required: true
+        secrets:
+            FONTAWESOME_TOKEN:
+                required: true
 
 concurrency:
     group: code-quality-${{ github.workflow }}-${{ github.ref }}

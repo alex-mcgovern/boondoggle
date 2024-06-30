@@ -5,8 +5,8 @@ import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown"
 import clsx from "clsx";
 import { forwardRef, useContext } from "react";
 import {
-	ComboBox as AriaCombobox,
-	ComboBoxStateContext,
+    ComboBox as AriaCombobox,
+    ComboBoxStateContext,
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
@@ -24,37 +24,37 @@ import "./styles.css";
  * Button for triggering the ComboBox.
  */
 export function ComboBoxButton() {
-	return (
-		<FieldButton>
-			<Icon icon={faAnglesUpDown} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton>
+            <Icon icon={faAnglesUpDown} />
+        </FieldButton>
+    );
 }
 
 /**
  * Input for the ComboBox.
  */
 export const ComboBoxInput = forwardRef<
-	HTMLInputElement,
-	ComponentProps<typeof Input>
+    HTMLInputElement,
+    ComponentProps<typeof Input>
 >((props, ref) => {
-	const state = useContext(ComboBoxStateContext);
-	const { selectedItem, toggle } = state || {};
-	const { value } = selectedItem || {};
-	const { slotLeft } = value || {};
+    const state = useContext(ComboBoxStateContext);
+    const { selectedItem, toggle } = state || {};
+    const { value } = selectedItem || {};
+    const { slotLeft } = value || {};
 
-	return (
-		<Input
-			{...props}
-			defaultValue={value?.name}
-			icon={slotLeft}
-			onClick={() => {
-				toggle(null, "manual");
-			}}
-			placeholder={selectedItem ? selectedItem.value.name : ""}
-			ref={ref}
-		/>
-	);
+    return (
+        <Input
+            {...props}
+            defaultValue={value?.name}
+            icon={slotLeft}
+            onClick={() => {
+                toggle(null, "manual");
+            }}
+            placeholder={selectedItem ? selectedItem.value.name : ""}
+            ref={ref}
+        />
+    );
 });
 
 /**
@@ -73,79 +73,25 @@ export const ComboBoxInput = forwardRef<
  * ```
  */
 export const ComboBox = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
-	({ children, ...props }, ref) => {
-		return (
-			<AriaCombobox
-				{...props}
-				className={clsx(props.className, "combobox")}
-				ref={ref}
-			>
-				{(renderProps) => (
-					<>
-						{typeof children === "function"
-							? children(renderProps)
-							: children}
+    ({ children, ...props }, ref) => {
+        return (
+            <AriaCombobox
+                {...props}
+                className={clsx(props.className, "combobox")}
+                ref={ref}
+            >
+                {(renderProps) => (
+                    <>
+                        {typeof children === "function"
+                            ? children(renderProps)
+                            : children}
 
-						<Popover>
-							<ListBox<string> />
-						</Popover>
-					</>
-				)}
-			</AriaCombobox>
-		);
-	},
+                        <Popover>
+                            <ListBox<string> />
+                        </Popover>
+                    </>
+                )}
+            </AriaCombobox>
+        );
+    },
 );
-
-/**
- * A `FormComboBox` connects a `ComboBox` to a `Form` component using `react-hook-form`.
- *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
- */
-export function FormComboBox<TItemId extends string = string>({
-	children,
-	...props
-}: AriaComboBoxProps<IterableListBoxItem<TItemId>>) {
-	if (!props.name) {
-		throw new Error("FormComboBox requires a name prop");
-	}
-
-	const { control } = useFormContext();
-
-	const {
-		field: { disabled, name, onBlur, onChange, ref, value = "" },
-		fieldState: { error, invalid },
-	} = useController({
-		control,
-		defaultValue: props.selectedKey || props.defaultSelectedKey,
-		disabled: props.isDisabled,
-		name: props.name,
-	});
-
-	return (
-		<ComboBox
-			{...props}
-			isDisabled={disabled}
-			isInvalid={invalid}
-			name={name}
-			onBlur={onBlur}
-			onSelectionChange={(k) => {
-				onChange(k);
-				props.onSelectionChange?.(k);
-			}}
-			ref={ref}
-			selectedKey={value ?? ""}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-		>
-			{(renderProps) => {
-				return (
-					<>
-						{typeof children === "function"
-							? children(renderProps)
-							: children}
-						<FieldError>{error?.message}</FieldError>
-					</>
-				);
-			}}
-		</ComboBox>
-	);
-}

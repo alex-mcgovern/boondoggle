@@ -7,18 +7,18 @@ import { Button } from "../../button";
 import { Icon } from "../../icon";
 
 const meta = {
-	args: {
-		children: (
-			<Button
-				appearance="secondary"
-				square
-			>
-				<Icon icon={faBars} />
-			</Button>
-		),
-	},
-	component: MenuTrigger,
-	title: "MenuTrigger",
+    args: {
+        children: (
+            <Button
+                appearance="secondary"
+                square
+            >
+                <Icon icon={faBars} />
+            </Button>
+        ),
+    },
+    component: MenuTrigger,
+    title: "MenuTrigger",
 } satisfies Meta<typeof MenuTrigger>;
 
 export default meta;

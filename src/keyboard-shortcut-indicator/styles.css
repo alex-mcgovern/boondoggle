@@ -1,17 +1,17 @@
 .keyboard-shortcut-indicator {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 
-	font-size: 12px;
-	line-height: 1;
+    font-size: 12px;
+    line-height: 1;
 
-	background-color: var(--slate-3);
-	color: var(--slate-11);
+    background-color: var(--slate-3);
+    color: var(--slate-11);
 
-	border: 1px solid var(--slate-5);
-	border-bottom-width: 2px;
-	border-radius: var(--radius-sm);
+    border: 1px solid var(--slate-5);
+    border-bottom-width: 2px;
+    border-radius: var(--radius-sm);
 
-	height: var(--space-4);
-	padding: var(--space-0\.5) var(--space-1);
+    height: var(--space-4);
+    padding: var(--space-0\.5) var(--space-1);
 }

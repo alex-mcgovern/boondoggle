@@ -21,38 +21,38 @@ import "./styles.css";
  * ```
  */
 export function Checkbox(props: AriaCheckboxProps) {
-	return (
-		<AriaCheckbox
-			{...props}
-			className={clsx(props.className, "checkbox-wrapper")}
-			data-testid="checkbox"
-		>
-			{(renderProps) => {
-				return (
-					<>
-						<div className="checkbox">
-							<svg
-								aria-hidden="true"
-								viewBox="0 0 18 18"
-							>
-								{props.isIndeterminate ? (
-									<rect
-										height={3}
-										width={15}
-										x={1}
-										y={7.5}
-									/>
-								) : (
-									<polyline points="1 9 7 14 15 4" />
-								)}
-							</svg>
-						</div>
-						{typeof props.children === "function"
-							? props.children(renderProps)
-							: props.children}
-					</>
-				);
-			}}
-		</AriaCheckbox>
-	);
+    return (
+        <AriaCheckbox
+            {...props}
+            className={clsx(props.className, "checkbox-wrapper")}
+            data-testid="checkbox"
+        >
+            {(renderProps) => {
+                return (
+                    <>
+                        <div className="checkbox">
+                            <svg
+                                aria-hidden="true"
+                                viewBox="0 0 18 18"
+                            >
+                                {props.isIndeterminate ? (
+                                    <rect
+                                        height={3}
+                                        width={15}
+                                        x={1}
+                                        y={7.5}
+                                    />
+                                ) : (
+                                    <polyline points="1 9 7 14 15 4" />
+                                )}
+                            </svg>
+                        </div>
+                        {typeof props.children === "function"
+                            ? props.children(renderProps)
+                            : props.children}
+                    </>
+                );
+            }}
+        </AriaCheckbox>
+    );
 }

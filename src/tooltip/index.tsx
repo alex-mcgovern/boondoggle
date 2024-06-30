@@ -1,66 +1,66 @@
 import type {
-	ButtonProps as AriaButtonProps,
-	TooltipProps as AriaTooltipProps,
-	TooltipTriggerComponentProps as AriaTooltipTriggerProps,
+    ButtonProps as AriaButtonProps,
+    TooltipProps as AriaTooltipProps,
+    TooltipTriggerComponentProps as AriaTooltipTriggerProps,
 } from "react-aria-components";
 
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import clsx from "clsx";
 import {
-	Button as AriaButton,
-	OverlayArrow as AriaOverlayArrow,
-	Tooltip as AriaTooltip,
-	TooltipTrigger as AriaTooltipTrigger,
+    Button as AriaButton,
+    OverlayArrow as AriaOverlayArrow,
+    Tooltip as AriaTooltip,
+    TooltipTrigger as AriaTooltipTrigger,
 } from "react-aria-components";
 
 import { Icon } from "../icon";
 import "./styles.css";
 
 function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
-	return (
-		<AriaButton
-			slot="clear"
-			{...props}
-			className={clsx(props.className, "tooltip-trigger-btn")}
-			excludeFromTabOrder
-		>
-			<Icon icon={faInfoCircle} />
-		</AriaButton>
-	);
+    return (
+        <AriaButton
+            slot="clear"
+            {...props}
+            className={clsx(props.className, "tooltip-trigger-btn")}
+            excludeFromTabOrder
+        >
+            <Icon icon={faInfoCircle} />
+        </AriaButton>
+    );
 }
 
 function TooltipRoot(props: AriaTooltipTriggerProps) {
-	return <AriaTooltipTrigger {...props}>{props.children}</AriaTooltipTrigger>;
+    return <AriaTooltipTrigger {...props}>{props.children}</AriaTooltipTrigger>;
 }
 
 function TooltipBody(props: AriaTooltipProps) {
-	return (
-		<AriaTooltip
-			{...props}
-			className="tooltip"
-			offset={6}
-		>
-			{(renderProps) => {
-				return (
-					<>
-						<AriaOverlayArrow className="overlay-arrow">
-							<svg
-								height={8}
-								viewBox="0 0 8 8"
-								width={8}
-							>
-								<path d="M0 0 L4 4 L8 0" />
-							</svg>
-						</AriaOverlayArrow>
+    return (
+        <AriaTooltip
+            {...props}
+            className="tooltip"
+            offset={6}
+        >
+            {(renderProps) => {
+                return (
+                    <>
+                        <AriaOverlayArrow className="overlay-arrow">
+                            <svg
+                                height={8}
+                                viewBox="0 0 8 8"
+                                width={8}
+                            >
+                                <path d="M0 0 L4 4 L8 0" />
+                            </svg>
+                        </AriaOverlayArrow>
 
-						{typeof props.children === "function"
-							? props.children(renderProps)
-							: props.children}
-					</>
-				);
-			}}
-		</AriaTooltip>
-	);
+                        {typeof props.children === "function"
+                            ? props.children(renderProps)
+                            : props.children}
+                    </>
+                );
+            }}
+        </AriaTooltip>
+    );
 }
 
 /**
@@ -97,7 +97,7 @@ function TooltipBody(props: AriaTooltipProps) {
  * ```
  */
 export const Tooltip = {
-	Root: TooltipRoot,
-	Body: TooltipBody,
-	InfoButton: TooltipInfoButton,
+    Body: TooltipBody,
+    InfoButton: TooltipInfoButton,
+    Root: TooltipRoot,
 };

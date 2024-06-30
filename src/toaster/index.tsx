@@ -52,21 +52,21 @@ export const toast = sonnerToast;
  *
  */
 export function Toaster() {
-	return (
-		<SonnerToaster
-			className="toast"
-			closeButton
-			position="bottom-center"
-			toastOptions={{
-				classNames: {
-					closeButton: "toast-close-button",
-					description: "toast-description",
-					title: "toast-title",
-					toast: "toast-body",
-				},
-				unstyled: true,
-				duration: 60_000,
-			}}
-		/>
-	);
+    return (
+        <SonnerToaster
+            className="toast"
+            closeButton
+            position="bottom-center"
+            toastOptions={{
+                classNames: {
+                    closeButton: "toast-close-button",
+                    description: "toast-description",
+                    title: "toast-title",
+                    toast: "toast-body",
+                },
+                duration: 60_000,
+                unstyled: true,
+            }}
+        />
+    );
 }

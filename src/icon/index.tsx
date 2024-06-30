@@ -12,30 +12,30 @@ import "./styles.css";
  * A wrapper around the FontAwesome icon component.
  */
 export function Icon({
-	className,
-	color,
-	icon,
-	...rest
+    className,
+    color,
+    icon,
+    ...rest
 }: Omit<FontAwesomeIconProps, "color"> & {
-	/**
-	 * An optional class name to apply to the icon.
-	 */
-	className?: string;
-	/**
-	 * The color of the icon.
-	 */
-	color?: Color;
+    /**
+     * An optional class name to apply to the icon.
+     */
+    className?: string;
+    /**
+     * The color of the icon.
+     */
+    color?: Color;
 
-	/**
-	 * The FontAwesome icon definition to render.
-	 */
-	icon: IconProp;
+    /**
+     * The FontAwesome icon definition to render.
+     */
+    icon: IconProp;
 }) {
-	return (
-		<FontAwesomeIcon
-			className={clsx("icon", className, color)}
-			icon={icon}
-			{...rest}
-		/>
-	);
+    return (
+        <FontAwesomeIcon
+            className={clsx("icon", className, color)}
+            icon={icon}
+            {...rest}
+        />
+    );
 }

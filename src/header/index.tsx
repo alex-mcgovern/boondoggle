@@ -20,28 +20,28 @@ import "./styles.css";
  * ```
  */
 export function PageHeader({
-	actions,
-	children,
-	className,
-	...rest
+    actions,
+    children,
+    className,
+    ...rest
 }: HTMLProps<HTMLElement> & {
-	/**
-	 * Actions to be displayed on the right side of the pageheader.
-	 */
-	actions?: ReactNode;
+    /**
+     * Actions to be displayed on the right side of the pageheader.
+     */
+    actions?: ReactNode;
 
-	/**
-	 * Main content.
-	 */
-	children: ReactNode;
+    /**
+     * Main content.
+     */
+    children: ReactNode;
 }) {
-	return (
-		<header
-			className={clsx(className, "page-header")}
-			{...rest}
-		>
-			{children}
-			{actions && <div className="actions">{actions}</div>}
-		</header>
-	);
+    return (
+        <header
+            className={clsx(className, "page-header")}
+            {...rest}
+        >
+            {children}
+            {actions && <div className="actions">{actions}</div>}
+        </header>
+    );
 }

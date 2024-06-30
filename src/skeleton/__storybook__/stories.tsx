@@ -3,11 +3,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Skeleton as StoryComp } from "..";
 
 const meta = {
-	component: StoryComp,
-	parameters: {
-		layout: "padded",
-	},
-	title: "Skeleton",
+    component: StoryComp,
+    parameters: {
+        layout: "padded",
+    },
+    title: "Skeleton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

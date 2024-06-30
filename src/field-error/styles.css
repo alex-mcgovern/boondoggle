@@ -1,12 +1,12 @@
 .field-error {
-	display: flex;
-	align-items: center;
-	gap: var(--space-1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
 
-	color: var(--red-11);
+    color: var(--red-11);
 
-	margin: var(--space-1) 0;
+    margin: var(--space-1) 0;
 
-	font-size: var(--font-size-body-sm);
-	line-height: var(--line-height-body-sm);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-body-sm);
 }

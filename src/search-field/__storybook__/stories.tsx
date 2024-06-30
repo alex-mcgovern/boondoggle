@@ -6,23 +6,23 @@ import { Input } from "../../input";
 import { Label } from "../../label";
 
 const meta = {
-	args: {},
-	component: SearchField,
-	render: (args) => {
-		return (
-			<SearchField {...args}>
-				<Label>Label</Label>
-				<Group>
-					<Input
-						icon={<SearchFieldIcon />}
-						unstyled
-					/>
-					<SearchFieldClearButton />
-				</Group>
-			</SearchField>
-		);
-	},
-	title: "SearchField",
+    args: {},
+    component: SearchField,
+    render: (args) => {
+        return (
+            <SearchField {...args}>
+                <Label>Label</Label>
+                <Group>
+                    <Input
+                        icon={<SearchFieldIcon />}
+                        unstyled
+                    />
+                    <SearchFieldClearButton />
+                </Group>
+            </SearchField>
+        );
+    },
+    title: "SearchField",
 } satisfies Meta<typeof SearchField>;
 
 export default meta;
