@@ -5,8 +5,8 @@
         "body": [
             "export function functionName({ argument }) {",
             "\treturn argument;",
-            "}",
-        ],
+            "}"
+        ]
     },
 
     "Docs": {
@@ -39,8 +39,8 @@
             "",
             "## Props",
             "",
-            "<ArgTypes of={${1:Component}} />",
-        ],
+            "<ArgTypes of={${1:Component}} />"
+        ]
     },
 
     "jest suite boilerplate": {
@@ -50,8 +50,8 @@
             "test(\"XXXXX\", () => {",
             "  expect(YYYYYY).toBe(ZZZZZ)",
             "});",
-            "",
-        ],
+            ""
+        ]
     },
 
     "testing-library boilerplate": {
@@ -80,9 +80,9 @@
             "\t});",
             "",
             "\tit(\"should match snapshot\", () => {",
-            "\t\tconst { container } = renderComponent(PROPS);",
+            "\t\tconst { container } = renderComponent(PROPS);"
         ],
-        "description": "testing library boilerplate",
+        "description": "testing library boilerplate"
     },
 
     "React TypeScript Functional Component": {
@@ -97,8 +97,8 @@
             "\treturn (",
             "",
             "\t)",
-            "}",
-        ],
+            "}"
+        ]
     },
 
     "component docs": {
@@ -118,8 +118,8 @@
             " * ```ts",
             " * import { ${2:component}, type ${2:component}Props } from \"boondoggle/${2:component}\"",
             " * ```",
-            " */",
-        ],
+            " */"
+        ]
     },
 
     "Storybook story": {
@@ -140,7 +140,7 @@
             "export default meta;",
             "type Story = StoryObj<typeof meta>;",
             "",
-            "export const Default: Story = {};",
-        ],
-    },
+            "export const Default: Story = {};"
+        ]
+    }
 }
