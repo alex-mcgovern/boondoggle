@@ -16,7 +16,7 @@ import {
 import { Icon } from "../icon";
 import "./styles.css";
 
-function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
+export function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
 	return (
 		<AriaButton
 			slot="clear"
@@ -29,23 +29,11 @@ function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
 	);
 }
 
-function TooltipRoot({
-	closeDelay,
-	delay = 0,
-	...props
-}: AriaTooltipTriggerProps) {
-	return (
-		<AriaTooltipTrigger
-			{...props}
-			closeDelay={closeDelay}
-			delay={delay}
-		>
-			{props.children}
-		</AriaTooltipTrigger>
-	);
+export function TooltipRoot(props: AriaTooltipTriggerProps) {
+	return <AriaTooltipTrigger {...props}>{props.children}</AriaTooltipTrigger>;
 }
 
-function TooltipBody(props: AriaTooltipProps) {
+export function TooltipBody(props: AriaTooltipProps) {
 	return (
 		<AriaTooltip
 			{...props}
@@ -76,7 +64,8 @@ function TooltipBody(props: AriaTooltipProps) {
 }
 
 /**
- * A tooltip displays a description of an element on hover or focus. [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ * A tooltip displays a description of an element on hover or focus. [Built with
+ * React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
  *
  * ## Install
  *
@@ -86,14 +75,24 @@ function TooltipBody(props: AriaTooltipProps) {
  *
  * ## Usage
  *
- * ```ts
+ * The `Tooltip` namespace comprises several components, designed to be composed together
+ * to create a tooltip.
+ * - `Tooltip.Root` is the root component that handles triggering the tooltip.
+ *   It wraps the target element and the tooltip body.
+ * - `Tooltip.Body` is the component that "pops over" the target element and
+ *   contains the content shown when the tooltip is active.
+ * - `Tooltip.InfoButton` is an _optional_ button with a relevant icon that can
+ *   be used to trigger the tooltip. Note that other elements can be used to
+ *   trigger the tooltip as well, e.g. a link or button.
+ *
+ * ```tsx
  * import { Tooltip } from "boondoggle";
  *
  * <Tooltip.Root>
- * 	<Tooltip.InfoButton />
- * 	<Tooltip.Body>
- * 		<p>Some helpful information</p>
- * 	</Tooltip.Body>
+ *  <Tooltip.InfoButton />
+ *  <Tooltip.Body>
+ *      <p>Some helpful information</p>
+ *  </Tooltip.Body>
  * </Tooltip.Root>
  * ```
  */
