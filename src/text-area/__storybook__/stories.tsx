@@ -2,17 +2,17 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { TextArea } from "..";
 import { Label } from "../../label";
-import { TextFieldRoot } from "../../text-field";
+import { TextField } from "../../text-field";
 
 const meta = {
     args: {},
     component: TextArea,
     render: (args) => {
         return (
-            <TextFieldRoot>
+            <TextField.Root>
                 <Label>Description of your issue</Label>
                 <TextArea {...args} />
-            </TextFieldRoot>
+            </TextField.Root>
         );
     },
     title: "TextArea",
