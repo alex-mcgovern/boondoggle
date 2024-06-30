@@ -19,11 +19,11 @@ export const Default: Story = {
 	args: {
 		children: (
 			<>
-				<TextField
+				<TextField.Root
 					{...TextFieldStory.args}
 					name="full_name"
 				/>
-				<TextField
+				<TextField.Root
 					{...TextFieldEmailStory.args}
 					name="email_address"
 				/>

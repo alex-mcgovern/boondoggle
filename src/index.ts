@@ -63,12 +63,7 @@ export { Switch } from "./switch";
 export { Table } from "./table";
 export { Tabs } from "./tabs";
 export { TextArea } from "./text-area";
-export {
-	TextField,
-	TextFieldClearButton,
-	TextFieldCopyButton,
-	TextFieldVisibilityButton,
-} from "./text-field";
+export { TextField } from "./text-field";
 export { TextLink } from "./text-link";
 export { Toaster, toast } from "./toaster";
 export { Tooltip } from "./tooltip";

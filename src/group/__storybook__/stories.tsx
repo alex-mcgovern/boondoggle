@@ -2,11 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Group } from "..";
 import { Input } from "../../input";
-import {
-	TextFieldClearButton,
-	TextFieldCopyButton,
-	TextFieldVisibilityButton,
-} from "../../text-field";
+import { TextField } from "../../text-field";
 
 const meta = {
 	args: {},
@@ -21,9 +17,9 @@ export const Default: Story = {
 	render: (args) => (
 		<Group {...args}>
 			<Input unstyled />
-			<TextFieldClearButton />
-			<TextFieldCopyButton />
-			<TextFieldVisibilityButton />
+			<TextField.ClearButton />
+			<TextField.CopyButton />
+			<TextField.VisibilityButton />
 		</Group>
 	),
 };
