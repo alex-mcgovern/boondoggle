@@ -14,10 +14,8 @@ import {
 	ButtonContext as FieldButtonContext,
 	useSlottedContext,
 } from "react-aria-components";
-import { useController, useFormContext } from "react-hook-form";
 
 import { FieldButton } from "../field-button";
-import { FieldError } from "../field-error";
 import { i18n } from "../i18n";
 import { Icon } from "../icon";
 import { toast } from "../toaster";
@@ -157,68 +155,3 @@ export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
 		);
 	},
 );
-
-/** -----------------------------------------------------------------------------
- * FormTextField
- * ------------------------------------------------------------------------------- */
-
-/**
- * A form text field connects a `TextField` to a `Form` component using `react-hook-form`.
- *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
- */
-export function FormTextField({
-	children,
-	...props
-}: ComponentProps<typeof TextField>) {
-	if (!props.name) {
-		throw new Error("FormTextField requires a name prop");
-	}
-
-	const { control } = useFormContext();
-
-	const {
-		field: {
-			disabled: isDisabled,
-			name,
-			onBlur,
-			onChange,
-			ref,
-			value = "",
-		},
-		fieldState: { error, invalid },
-	} = useController({
-		control,
-		defaultValue: props.value || props.defaultValue,
-		name: props.name,
-	});
-
-	return (
-		<TextField
-			{...props}
-			defaultValue={value}
-			isDisabled={isDisabled}
-			isInvalid={invalid}
-			name={name}
-			onBlur={onBlur}
-			onChange={(v) => {
-				onChange(v);
-				props.onChange?.(v);
-			}}
-			ref={ref}
-			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-			value={value}
-		>
-			{(renderProps) => {
-				return (
-					<>
-						{typeof children === "function"
-							? children(renderProps)
-							: children}
-						<FieldError>{error?.message}</FieldError>
-					</>
-				);
-			}}
-		</TextField>
-	);
-}

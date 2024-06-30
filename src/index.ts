@@ -69,7 +69,6 @@ export { Table } from "./table";
 export { Tabs } from "./tabs";
 export { TextArea } from "./text-area";
 export {
-	FormTextField,
 	TextField,
 	TextFieldClearButton,
 	TextFieldCopyButton,

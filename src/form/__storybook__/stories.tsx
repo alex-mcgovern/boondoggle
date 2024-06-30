@@ -11,9 +11,9 @@ const meta = {
 			alert(JSON.stringify(data));
 		},
 	},
-	component: Form,
-	title: "Form",
-} satisfies Meta<typeof Form>;
+	component: Form.Root,
+	title: "Form/Root",
+} satisfies Meta<typeof Form.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

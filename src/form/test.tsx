@@ -11,7 +11,6 @@ import { Input } from "../input";
 import { Label } from "../label";
 import { FormNumberField } from "../number-field";
 import { FormSelect, SelectButton } from "../select";
-import { FormTextField } from "../text-field";
 
 /**
  * A component that resets the form after a successful submission.
@@ -40,13 +39,13 @@ describe("FormTextField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
-				<FormTextField name="text_field">
+			<Form.Root onSubmit={onSubmit}>
+				<Form.TextField name="text_field">
 					<Label>Text field</Label>
 					<Input />
-				</FormTextField>
+				</Form.TextField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Text field");
@@ -66,14 +65,14 @@ describe("FormTextField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<Resetter />
-				<FormTextField name="text_field">
+				<Form.TextField name="text_field">
 					<Label>Text field</Label>
 					<Input />
-				</FormTextField>
+				</Form.TextField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Text field");
@@ -95,7 +94,7 @@ describe("FormTextField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form
+			<Form.Root
 				onSubmit={onSubmit}
 				options={{
 					defaultValues: {
@@ -103,12 +102,12 @@ describe("FormTextField", async () => {
 					},
 				}}
 			>
-				<FormTextField name="text_field">
+				<Form.TextField name="text_field">
 					<Label>Text field</Label>
 					<Input />
-				</FormTextField>
+				</Form.TextField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Text field");
@@ -128,16 +127,16 @@ describe("FormTextField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
-				<FormTextField
+			<Form.Root onSubmit={onSubmit}>
+				<Form.TextField
 					defaultValue="abc123"
 					name="text_field"
 				>
 					<Label>Text field</Label>
 					<Input />
-				</FormTextField>
+				</Form.TextField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Text field");
@@ -157,16 +156,16 @@ describe("FormTextField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
-				<FormTextField
+			<Form.Root onSubmit={onSubmit}>
+				<Form.TextField
 					name="text_field"
 					value="abc123"
 				>
 					<Label>Text field</Label>
 					<Input />
-				</FormTextField>
+				</Form.TextField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Text field");
@@ -188,13 +187,13 @@ describe("FormNumberField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormNumberField name="number_field">
 					<Label>Number field</Label>
 					<Input />
 				</FormNumberField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Number field");
@@ -214,14 +213,14 @@ describe("FormNumberField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<Resetter />
 				<FormNumberField name="number_field">
 					<Label>Number field</Label>
 					<Input />
 				</FormNumberField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Number field");
@@ -243,7 +242,7 @@ describe("FormNumberField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form
+			<Form.Root
 				onSubmit={onSubmit}
 				options={{
 					defaultValues: {
@@ -256,7 +255,7 @@ describe("FormNumberField", async () => {
 					<Input />
 				</FormNumberField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Number field");
@@ -276,7 +275,7 @@ describe("FormNumberField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormNumberField
 					name="number_field"
 					value={1234}
@@ -285,7 +284,7 @@ describe("FormNumberField", async () => {
 					<Input />
 				</FormNumberField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Number field");
@@ -305,7 +304,7 @@ describe("FormNumberField", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormNumberField
 					defaultValue={1234}
 					name="number_field"
@@ -314,7 +313,7 @@ describe("FormNumberField", async () => {
 					<Input />
 				</FormNumberField>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Number field");
@@ -336,7 +335,7 @@ describe("FormSelect`", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getAllByRole, getByLabelText, getByRole, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormSelect
 					items={[{ id: "abc123", name: "abc123" }]}
 					name="select"
@@ -345,7 +344,7 @@ describe("FormSelect`", async () => {
 					<SelectButton />
 				</FormSelect>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Select", { selector: "button" });
@@ -371,7 +370,7 @@ describe("FormSelect`", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getAllByRole, getByLabelText, getByRole, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<Resetter />
 				<FormSelect
 					items={[{ id: "abc123", name: "abc123" }]}
@@ -381,7 +380,7 @@ describe("FormSelect`", async () => {
 					<SelectButton />
 				</FormSelect>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Select", { selector: "button" });
@@ -411,7 +410,7 @@ describe("FormSelect`", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form
+			<Form.Root
 				onSubmit={onSubmit}
 				options={{
 					defaultValues: {
@@ -427,7 +426,7 @@ describe("FormSelect`", async () => {
 					<SelectButton />
 				</FormSelect>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Select");
@@ -447,7 +446,7 @@ describe("FormSelect`", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormSelect
 					items={[{ id: "abc123", name: "abc123" }]}
 					name="select"
@@ -457,7 +456,7 @@ describe("FormSelect`", async () => {
 					<SelectButton />
 				</FormSelect>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Select");
@@ -477,7 +476,7 @@ describe("FormSelect`", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormSelect
 					defaultSelectedKey="abc123"
 					items={[{ id: "abc123", name: "abc123" }]}
@@ -487,7 +486,7 @@ describe("FormSelect`", async () => {
 					<SelectButton />
 				</FormSelect>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("Select");
@@ -509,7 +508,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getAllByRole, getByLabelText, getByRole, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormComboBox
 					items={[{ id: "abc123", name: "abc123" }]}
 					name="combobox"
@@ -518,7 +517,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
@@ -544,7 +543,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getAllByRole, getByLabelText, getByRole, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<Resetter />
 				<FormComboBox
 					items={[{ id: "abc123", name: "abc123" }]}
@@ -554,7 +553,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
@@ -584,7 +583,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form
+			<Form.Root
 				onSubmit={onSubmit}
 				options={{
 					defaultValues: {
@@ -600,7 +599,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
@@ -620,7 +619,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormComboBox
 					items={[{ id: "abc123", name: "abc123" }]}
 					name="combobox"
@@ -630,7 +629,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
@@ -650,7 +649,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormComboBox
 					defaultSelectedKey="abc123"
 					items={[{ id: "abc123", name: "abc123" }]}
@@ -660,7 +659,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
