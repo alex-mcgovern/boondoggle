@@ -48,7 +48,6 @@ export {
 	ScrollableMobileMenuContent,
 } from "./mobile-menu";
 export {
-	FormNumberField,
 	NumberField,
 	NumberFieldDecrementButton,
 	NumberFieldIncrementButton,

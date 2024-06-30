@@ -9,7 +9,6 @@ import { Button } from "../button";
 import { ComboBoxInput, FormComboBox } from "../combo-box";
 import { Input } from "../input";
 import { Label } from "../label";
-import { FormNumberField } from "../number-field";
 import { FormSelect, SelectButton } from "../select";
 
 /**
@@ -181,17 +180,17 @@ describe("FormTextField", async () => {
 	});
 });
 
-describe("FormNumberField", async () => {
-	it("submits form with `FormNumberField`", async () => {
+describe("Form.NumberField", async () => {
+	it("submits form with `Form.NumberField`", async () => {
 		const user = userEvent.setup();
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
 			<Form.Root onSubmit={onSubmit}>
-				<FormNumberField name="number_field">
+				<Form.NumberField name="number_field">
 					<Label>Number field</Label>
 					<Input />
-				</FormNumberField>
+				</Form.NumberField>
 				<Button type="submit">Submit</Button>
 			</Form.Root>,
 		);
@@ -208,17 +207,17 @@ describe("FormNumberField", async () => {
 		);
 	});
 
-	it("`FormNumberField` resets (to 0) when reset after submission", async () => {
+	it("`Form.NumberField` resets (to 0) when reset after submission", async () => {
 		const user = userEvent.setup();
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
 			<Form.Root onSubmit={onSubmit}>
 				<Resetter />
-				<FormNumberField name="number_field">
+				<Form.NumberField name="number_field">
 					<Label>Number field</Label>
 					<Input />
-				</FormNumberField>
+				</Form.NumberField>
 				<Button type="submit">Submit</Button>
 			</Form.Root>,
 		);
@@ -237,7 +236,7 @@ describe("FormNumberField", async () => {
 		expect(field).toHaveValue("0");
 	});
 
-	it("handles `defaultValues` prop passed to `Form` correctly with `FormNumberField`", async () => {
+	it("handles `defaultValues` prop passed to `Form` correctly with `Form.NumberField`", async () => {
 		const user = userEvent.setup();
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
@@ -250,10 +249,10 @@ describe("FormNumberField", async () => {
 					},
 				}}
 			>
-				<FormNumberField name="number_field">
+				<Form.NumberField name="number_field">
 					<Label>Number field</Label>
 					<Input />
-				</FormNumberField>
+				</Form.NumberField>
 				<Button type="submit">Submit</Button>
 			</Form.Root>,
 		);
@@ -270,19 +269,19 @@ describe("FormNumberField", async () => {
 		);
 	});
 
-	it("handles `value` prop passed to `FormNumberField`", async () => {
+	it("handles `value` prop passed to `Form.NumberField`", async () => {
 		const user = userEvent.setup();
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
 			<Form.Root onSubmit={onSubmit}>
-				<FormNumberField
+				<Form.NumberField
 					name="number_field"
 					value={1234}
 				>
 					<Label>Number field</Label>
 					<Input />
-				</FormNumberField>
+				</Form.NumberField>
 				<Button type="submit">Submit</Button>
 			</Form.Root>,
 		);
@@ -299,19 +298,19 @@ describe("FormNumberField", async () => {
 		);
 	});
 
-	it("handles `defaultValue` prop passed to `FormNumberField`", async () => {
+	it("handles `defaultValue` prop passed to `Form.NumberField`", async () => {
 		const user = userEvent.setup();
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getByLabelText, getByText } = render(
 			<Form.Root onSubmit={onSubmit}>
-				<FormNumberField
+				<Form.NumberField
 					defaultValue={1234}
 					name="number_field"
 				>
 					<Label>Number field</Label>
 					<Input />
-				</FormNumberField>
+				</Form.NumberField>
 				<Button type="submit">Submit</Button>
 			</Form.Root>,
 		);
