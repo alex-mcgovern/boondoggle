@@ -22,7 +22,7 @@
         "build": "parcel build --no-cache",
         "build:docs": "storybook build --docs -o docs",
         "commit": "commit",
-        "check": "concurrently -n PRETTIER,ESLINT,TSC,VITEST,KNIP -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold,bgYellow.bold\" \"npm:prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:vitest\" \"npm:check-knip\"",
+        "check": "concurrently -n PRETTIER,ESLINT,TSC,VITEST,KNIP -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold,bgYellow.bold\" \"npm:prettier\" \"npm:eslint\" \"npm:tsc\" \"npm:vitest\" \"npm:knip\"",
         "cy:open": "cypress open",
         "cy:run": "cypress run --component",
         "eslint": "eslint .",
