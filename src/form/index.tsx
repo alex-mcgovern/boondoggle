@@ -136,7 +136,7 @@ function FormTextField({
  *
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html)
  */
-export function FormNumberField({
+function FormNumberField({
 	children,
 	...props
 }: ComponentProps<typeof NumberField>) {
