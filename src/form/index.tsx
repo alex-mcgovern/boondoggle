@@ -14,7 +14,7 @@ import {
 } from "react-hook-form";
 import { FieldError } from "../field-error";
 import { NumberField } from "../number-field";
-import { TextField } from "../text-field";
+import { TextFieldRoot } from "../text-field";
 
 function FormRoot<TFieldValues extends FieldValues>({
 	children,
@@ -74,7 +74,7 @@ function FormRoot<TFieldValues extends FieldValues>({
 function FormTextField({
 	children,
 	...props
-}: ComponentProps<typeof TextField>) {
+}: ComponentProps<typeof TextFieldRoot>) {
 	if (!props.name) {
 		throw new Error("FormTextField requires a name prop");
 	}
@@ -98,7 +98,7 @@ function FormTextField({
 	});
 
 	return (
-		<TextField
+		<TextFieldRoot
 			{...props}
 			defaultValue={value}
 			isDisabled={isDisabled}
@@ -123,7 +123,7 @@ function FormTextField({
 					</>
 				);
 			}}
-		</TextField>
+		</TextFieldRoot>
 	);
 }
 

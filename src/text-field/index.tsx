@@ -25,7 +25,7 @@ import "./styles.css";
 /**
  * A `FieldButton` to clear the text field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
-export function TextFieldClearButton() {
+function TextFieldClearButton() {
 	return (
 		<Tooltip.Root>
 			<FieldButton slot="clear">
@@ -39,7 +39,7 @@ export function TextFieldClearButton() {
 /**
  * A `FieldButton` to copy the text field value to the clipboard. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
-export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
+function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
 	return (
 		<Tooltip.Root>
 			<FieldButton
@@ -58,9 +58,7 @@ export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
 /**
  * A `FieldButton` to toggle the visibility of the text field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
-export function TextFieldVisibilityButton(
-	props: ComponentProps<typeof FieldButton>,
-) {
+function TextFieldVisibilityButton(props: ComponentProps<typeof FieldButton>) {
 	const context = useSlottedContext(FieldButtonContext, "visibility");
 
 	return (
@@ -85,7 +83,7 @@ export function TextFieldVisibilityButton(
  * [React Aria TextField component](https://react-spectrum.adobe.com/react-aria/TextField.html)
  * with some additional props for styling / variants.
  */
-export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
+export const TextFieldRoot = forwardRef<HTMLInputElement, AriaTextFieldProps>(
 	(props, ref) => {
 		const [value, setValue] = useState<AriaTextFieldProps["value"]>(
 			props.value || props.defaultValue || "",
@@ -155,3 +153,10 @@ export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
 		);
 	},
 );
+
+export const TextField = {
+	Root: TextFieldRoot,
+	ClearButton: TextFieldClearButton,
+	CopyButton: TextFieldCopyButton,
+	VisibilityButton: TextFieldVisibilityButton,
+};

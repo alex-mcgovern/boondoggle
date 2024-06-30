@@ -1,11 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import {
-	TextField,
-	TextFieldClearButton,
-	TextFieldCopyButton,
-	TextFieldVisibilityButton,
-} from "..";
+import { TextField } from "..";
 import { FieldDescription } from "../../field-description";
 import { FieldError } from "../../field-error";
 import { Group } from "../../group";
@@ -16,7 +11,7 @@ import { Toaster } from "../../toaster";
 import { Tooltip } from "../../tooltip";
 
 const meta = {
-	component: TextField,
+	component: TextField.Root,
 	decorators: [
 		(Story) => {
 			return (
@@ -27,8 +22,8 @@ const meta = {
 			);
 		},
 	],
-	title: "TextField",
-} satisfies Meta<typeof TextField>;
+	title: "TextField/Root",
+} satisfies Meta<typeof TextField.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -50,13 +45,13 @@ export const CopyButton: Story = {
 	},
 	render: (args) => {
 		return (
-			<TextField {...args}>
+			<TextField.Root {...args}>
 				<Label>Reference number</Label>
 				<Group>
 					<Input unstyled />
-					<TextFieldCopyButton />
+					<TextField.CopyButton />
 				</Group>
-			</TextField>
+			</TextField.Root>
 		);
 	},
 };
@@ -67,13 +62,13 @@ export const ClearButton: Story = {
 	},
 	render: (args) => {
 		return (
-			<TextField {...args}>
+			<TextField.Root {...args}>
 				<Label>Search</Label>
 				<Group>
 					<Input unstyled />
-					<TextFieldClearButton />
+					<TextField.ClearButton />
 				</Group>
-			</TextField>
+			</TextField.Root>
 		);
 	},
 };
@@ -81,11 +76,11 @@ export const ClearButton: Story = {
 export const Description: Story = {
 	render: (args) => {
 		return (
-			<TextField {...args}>
+			<TextField.Root {...args}>
 				<Label>Preferred name</Label>
 				<Input />
 				<FieldDescription>What should we call you?</FieldDescription>
-			</TextField>
+			</TextField.Root>
 		);
 	},
 };
@@ -102,11 +97,11 @@ export const InvalidWithError: Story = {
 	},
 	render: (args) => {
 		return (
-			<TextField {...args}>
+			<TextField.Root {...args}>
 				<Label>First name</Label>
 				<Input />
 				<FieldError>This field is required</FieldError>
-			</TextField>
+			</TextField.Root>
 		);
 	},
 };
@@ -114,7 +109,7 @@ export const InvalidWithError: Story = {
 export const LabelTooltip: Story = {
 	render: (args) => {
 		return (
-			<TextField {...args}>
+			<TextField.Root {...args}>
 				<Label>
 					Label
 					<Tooltip.Root>
@@ -125,7 +120,7 @@ export const LabelTooltip: Story = {
 					</Tooltip.Root>
 				</Label>
 				<Input />
-			</TextField>
+			</TextField.Root>
 		);
 	},
 };
@@ -151,7 +146,7 @@ export const Visibility: Story = {
 				<Label>Password</Label>
 				<Group>
 					<Input unstyled />
-					<TextFieldVisibilityButton />
+					<TextField.VisibilityButton />
 				</Group>
 			</>
 		),
@@ -177,15 +172,15 @@ export const KitchenSink: Story = {
 	},
 	render: (args) => {
 		return (
-			<TextField {...args}>
+			<TextField.Root {...args}>
 				<Label>Label</Label>
 				<Group>
 					<Input unstyled />
-					<TextFieldClearButton />
-					<TextFieldCopyButton />
-					<TextFieldVisibilityButton />
+					<TextField.ClearButton />
+					<TextField.CopyButton />
+					<TextField.VisibilityButton />
 				</Group>
-			</TextField>
+			</TextField.Root>
 		);
 	},
 };
