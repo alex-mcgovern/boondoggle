@@ -5,7 +5,7 @@ import { ListBox } from "..";
 const meta = {
 	args: {},
 	component: ListBox,
-	title: "Components/ListBox",
+	title: "ListBox",
 } satisfies Meta<typeof ListBox>;
 
 export default meta;

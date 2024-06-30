@@ -20,7 +20,7 @@ const meta = {
 	parameters: {
 		layout: "padded",
 	},
-	title: "Components/DropZone",
+	title: "DropZone",
 } satisfies Meta<typeof DropZone>;
 
 export default meta;

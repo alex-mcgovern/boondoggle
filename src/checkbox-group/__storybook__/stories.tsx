@@ -6,7 +6,7 @@ import { Label } from "../../label";
 
 const meta = {
 	component: CheckboxGroup,
-	title: "Components/CheckboxGroup",
+	title: "CheckboxGroup",
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;

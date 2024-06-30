@@ -11,7 +11,7 @@ import {
 const meta = {
 	args: {},
 	component: Group,
-	title: "Components/Group",
+	title: "Group",
 } satisfies Meta<typeof Group>;
 
 export default meta;

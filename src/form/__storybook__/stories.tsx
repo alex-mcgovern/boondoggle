@@ -12,7 +12,7 @@ const meta = {
 		},
 	},
 	component: Form,
-	title: "Components/Form",
+	title: "Form",
 } satisfies Meta<typeof Form>;
 
 export default meta;

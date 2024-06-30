@@ -4,7 +4,7 @@ import { FieldError } from "..";
 
 const meta = {
 	component: FieldError,
-	title: "Components/FieldError",
+	title: "FieldError",
 } satisfies Meta<typeof FieldError>;
 
 export default meta;

@@ -7,7 +7,7 @@ const meta = {
 	parameters: {
 		layout: "padded",
 	},
-	title: "Components/Skeleton",
+	title: "Skeleton",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

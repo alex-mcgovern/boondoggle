@@ -72,7 +72,7 @@ const meta = {
 			</>
 		);
 	},
-	title: "Components/Table",
+	title: "Table",
 } satisfies Meta<typeof Table.Root>;
 
 export default meta;

@@ -81,7 +81,7 @@ const meta = {
 	parameters: {
 		layout: "fullscreen",
 	},
-	title: "Components/App",
+	title: "App",
 } satisfies Meta<typeof App.Root>;
 
 export default meta;

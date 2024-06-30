@@ -8,7 +8,7 @@ import { Menu } from "..";
 import { Button } from "../../button";
 import { Icon } from "../../icon";
 import { Popover } from "../../popover";
-import { Tooltip, TooltipTrigger } from "../../tooltip";
+import { Tooltip } from "../../tooltip";
 
 const meta = {
 	args: {
@@ -28,7 +28,7 @@ const meta = {
 		),
 	},
 	component: Menu.Trigger,
-	title: "Components/Menu",
+	title: "Menu",
 } satisfies Meta<ComponentProps<typeof Menu.Trigger>>;
 
 export default meta;
@@ -63,7 +63,7 @@ export const SubmenusWithMixedModes: Story = {
 	args: {
 		children: (
 			<>
-				<TooltipTrigger delay={1000}>
+				<Tooltip.Root delay={1000}>
 					<Button
 						appearance="ghost"
 						square
@@ -73,8 +73,8 @@ export const SubmenusWithMixedModes: Story = {
 							icon={faFilterList}
 						/>
 					</Button>
-					<Tooltip placement="bottom">Filter tasks</Tooltip>
-				</TooltipTrigger>
+					<Tooltip.Body placement="bottom">Filter tasks</Tooltip.Body>
+				</Tooltip.Root>
 				<Popover placement="right top">
 					<Menu.DropdownMenu>
 						<Menu.Section>

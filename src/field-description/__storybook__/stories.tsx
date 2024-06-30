@@ -4,7 +4,7 @@ import { FieldDescription } from "..";
 
 const meta = {
 	component: FieldDescription,
-	title: "Components/FieldDescription",
+	title: "FieldDescription",
 } satisfies Meta<typeof FieldDescription>;
 
 export default meta;

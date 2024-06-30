@@ -15,7 +15,7 @@ const meta = {
 			</TextField>
 		);
 	},
-	title: "Components/TextArea",
+	title: "TextArea",
 } satisfies Meta<typeof TextArea>;
 
 export default meta;

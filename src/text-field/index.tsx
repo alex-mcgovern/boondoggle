@@ -21,7 +21,7 @@ import { FieldError } from "../field-error";
 import { i18n } from "../i18n";
 import { Icon } from "../icon";
 import { toast } from "../toaster";
-import { Tooltip, TooltipTrigger } from "../tooltip";
+import { Tooltip } from "../tooltip";
 import "./styles.css";
 
 /**
@@ -29,12 +29,12 @@ import "./styles.css";
  */
 export function TextFieldClearButton() {
 	return (
-		<TooltipTrigger>
+		<Tooltip.Root>
 			<FieldButton slot="clear">
 				<Icon icon={faTimesCircle} />
 			</FieldButton>
-			<Tooltip placement="top">{i18n.clear}</Tooltip>
-		</TooltipTrigger>
+			<Tooltip.Body placement="top">{i18n.clear}</Tooltip.Body>
+		</Tooltip.Root>
 	);
 }
 
@@ -43,15 +43,17 @@ export function TextFieldClearButton() {
  */
 export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
 	return (
-		<TooltipTrigger>
+		<Tooltip.Root>
 			<FieldButton
 				{...props}
 				slot="copy"
 			>
 				<Icon icon={faCopy} />
 			</FieldButton>
-			<Tooltip placement="top">{i18n.copy_to_clipboard}</Tooltip>
-		</TooltipTrigger>
+			<Tooltip.Body placement="top">
+				{i18n.copy_to_clipboard}
+			</Tooltip.Body>
+		</Tooltip.Root>
 	);
 }
 
@@ -64,17 +66,17 @@ export function TextFieldVisibilityButton(
 	const context = useSlottedContext(FieldButtonContext, "visibility");
 
 	return (
-		<TooltipTrigger>
+		<Tooltip.Root>
 			<FieldButton
 				{...props}
 				slot="visibility"
 			>
 				<Icon icon={context?.value === "hidden" ? faEyeSlash : faEye} />
 			</FieldButton>
-			<Tooltip placement="top">
+			<Tooltip.Body placement="top">
 				{context?.value === "hidden" ? i18n.hide : i18n.show}
-			</Tooltip>
-		</TooltipTrigger>
+			</Tooltip.Body>
+		</Tooltip.Root>
 	);
 }
 

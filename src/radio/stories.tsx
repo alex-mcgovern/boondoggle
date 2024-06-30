@@ -6,7 +6,7 @@ import { Label } from "../label";
 const meta = {
 	args: {},
 	component: Radio.Group,
-	title: "Components/Radio",
+	title: "Radio",
 } satisfies Meta<typeof Radio.Group>;
 
 export default meta;

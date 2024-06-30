@@ -5,7 +5,7 @@ import { Button } from "../button";
 
 const meta = {
 	component: FileTrigger,
-	title: "Components/FileTrigger",
+	title: "FileTrigger",
 } satisfies Meta<typeof FileTrigger>;
 
 export default meta;

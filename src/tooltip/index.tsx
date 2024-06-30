@@ -16,10 +16,7 @@ import {
 import { Icon } from "../icon";
 import "./styles.css";
 
-/**
- * The TooltipTriggerButton component is a default button with an info icon that can be composed with a TooltipTrigger to show a tooltip.
- */
-export function TooltipTriggerButton(props: Omit<AriaButtonProps, "children">) {
+function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
 	return (
 		<AriaButton
 			slot="clear"
@@ -32,42 +29,11 @@ export function TooltipTriggerButton(props: Omit<AriaButtonProps, "children">) {
 	);
 }
 
-/**
- * The TooltipTrigger component does not render any DOM elements itself, but instead triggers a tooltip to appear when hovered or focused.
- * [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/TooltipTrigger.html)
- */
-export function TooltipTrigger({
-	closeDelay,
-	delay = 0,
-	...props
-}: AriaTooltipTriggerProps) {
-	return (
-		<AriaTooltipTrigger
-			{...props}
-			closeDelay={closeDelay}
-			delay={delay}
-		>
-			{props.children}
-		</AriaTooltipTrigger>
-	);
+function TooltipRoot(props: AriaTooltipTriggerProps) {
+	return <AriaTooltipTrigger {...props}>{props.children}</AriaTooltipTrigger>;
 }
 
-/**
- * A tooltip displays a description of an element on hover or focus. [Built with React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { Tooltip, TooltipTriggerButton, TooltipTrigger } from "boondoggle";
- * ```
- */
-export function Tooltip(props: AriaTooltipProps) {
+function TooltipBody(props: AriaTooltipProps) {
 	return (
 		<AriaTooltip
 			{...props}
@@ -96,3 +62,42 @@ export function Tooltip(props: AriaTooltipProps) {
 		</AriaTooltip>
 	);
 }
+
+/**
+ * A tooltip displays a description of an element on hover or focus. [Built with
+ * React Aria Tooltip](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * The `Tooltip` namespace comprises several components, designed to be composed together
+ * to create a tooltip.
+ * - `Tooltip.Root` is the root component that handles triggering the tooltip.
+ *   It wraps the target element and the tooltip body.
+ * - `Tooltip.Body` is the component that "pops over" the target element and
+ *   contains the content shown when the tooltip is active.
+ * - `Tooltip.InfoButton` is an _optional_ button with a relevant icon that can
+ *   be used to trigger the tooltip. Note that other elements can be used to
+ *   trigger the tooltip as well, e.g. a link or button.
+ *
+ * ```tsx
+ * import { Tooltip } from "boondoggle";
+ *
+ * <Tooltip.Root>
+ *  <Tooltip.InfoButton />
+ *  <Tooltip.Body>
+ *      <p>Some helpful information</p>
+ *  </Tooltip.Body>
+ * </Tooltip.Root>
+ * ```
+ */
+export const Tooltip = {
+	Root: TooltipRoot,
+	Body: TooltipBody,
+	InfoButton: TooltipInfoButton,
+};

@@ -4,7 +4,7 @@ import { Switch } from "..";
 
 const meta = {
 	component: Switch.Root,
-	title: "Components/Switch",
+	title: "Switch",
 } satisfies Meta<typeof Switch.Root>;
 
 export default meta;

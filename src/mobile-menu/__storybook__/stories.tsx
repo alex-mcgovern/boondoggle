@@ -53,7 +53,7 @@ const meta = {
 		},
 	},
 	component: MobileMenu,
-	title: "Components/MobileMenu",
+	title: "MobileMenu",
 } satisfies Meta<typeof MobileMenu>;
 
 export default meta;

@@ -75,7 +75,7 @@ const meta = {
 		),
 	},
 	component: Dialog.Trigger,
-	title: "Components/Dialog",
+	title: "Dialog",
 } satisfies Meta<typeof Dialog.Trigger>;
 
 export default meta;

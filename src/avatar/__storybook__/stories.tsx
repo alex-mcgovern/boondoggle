@@ -5,7 +5,7 @@ import { MOCK_AVATAR } from "../../../mocks/mock_avatar";
 
 const meta = {
 	component: StoryComp,
-	title: "Components/Avatar",
+	title: "Avatar",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
