@@ -139,7 +139,7 @@ function FormTextField({
 function FormNumberField({
 	children,
 	...props
-}: ComponentProps<typeof NumberField>) {
+}: ComponentProps<typeof NumberField.Root>) {
 	if (!props.name) {
 		throw new Error("FormNumberField requires a name prop");
 	}
@@ -164,7 +164,7 @@ function FormNumberField({
 	});
 
 	return (
-		<NumberField
+		<NumberField.Root
 			{...props}
 			defaultValue={value}
 			isDisabled={isDisabled}
@@ -189,7 +189,7 @@ function FormNumberField({
 					</>
 				);
 			}}
-		</NumberField>
+		</NumberField.Root>
 	);
 }
 

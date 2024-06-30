@@ -3,11 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import clsx from "clsx";
 import { useState } from "react";
 
-import {
-	NumberField,
-	NumberFieldDecrementButton,
-	NumberFieldIncrementButton,
-} from "..";
+import { NumberField } from "..";
 import { Group } from "../../group";
 import { Input } from "../../input";
 import { Label } from "../../label";
@@ -16,7 +12,7 @@ import { Toaster } from "../../toaster";
 
 const meta = {
 	args: {},
-	component: NumberField,
+	component: NumberField.Root,
 	decorators: [
 		(Story) => {
 			return (
@@ -29,14 +25,14 @@ const meta = {
 	],
 	render: (args) => {
 		return (
-			<NumberField {...args}>
+			<NumberField.Root {...args}>
 				<Label>Label</Label>
 				<Input />
-			</NumberField>
+			</NumberField.Root>
 		);
 	},
-	title: "NumberField",
-} satisfies Meta<typeof NumberField>;
+	title: "NumberField.Root",
+} satisfies Meta<typeof NumberField.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -67,15 +63,15 @@ export const IncrementDecrement: Story = {
 				<Label>Count</Label>
 				<Group>
 					<Input unstyled />
-					<NumberFieldDecrementButton />
-					<NumberFieldIncrementButton />
+					<NumberField.DecrementButton />
+					<NumberField.IncrementButton />
 				</Group>
 			</>
 		),
 		step: 100,
 	},
 	render: (args) => {
-		return <NumberField {...args}></NumberField>;
+		return <NumberField.Root {...args}></NumberField.Root>;
 	},
 };
 
@@ -92,7 +88,7 @@ export const WithCurrencySelect: Story = {
 			<div className="mb-2">
 				<Label htmlFor="amount">Amount</Label>
 				<div className={clsx("flex", "gap-2", "align-center")}>
-					<NumberField
+					<NumberField.Root
 						defaultValue={42000.69}
 						formatOptions={{
 							currency,
@@ -103,7 +99,7 @@ export const WithCurrencySelect: Story = {
 						name="amount"
 					>
 						<Input />
-					</NumberField>
+					</NumberField.Root>
 
 					<Select
 						aria-label="Currency"

@@ -47,11 +47,7 @@ export {
 	MobileMenuHeader,
 	ScrollableMobileMenuContent,
 } from "./mobile-menu";
-export {
-	NumberField,
-	NumberFieldDecrementButton,
-	NumberFieldIncrementButton,
-} from "./number-field";
+export { NumberField } from "./number-field";
 export { Pill } from "./pill";
 export { Popover, PopoverOverlayArrow } from "./popover";
 export { Radio } from "./radio";
