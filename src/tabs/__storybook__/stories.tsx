@@ -3,9 +3,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from "..";
 
 const meta = {
-    component: Tabs.Container,
+    component: Tabs.Root,
     title: "Tabs",
-} satisfies Meta<typeof Tabs.Container>;
+} satisfies Meta<typeof Tabs.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

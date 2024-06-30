@@ -93,7 +93,7 @@ export const WithTabs: Story = {
             <>
                 <SideNav />
                 <App.Main.Root>
-                    <Tabs.Container>
+                    <Tabs.Root>
                         <App.Main.Header>
                             <h1>Upload a file</h1>
                             <Tabs.List center>
@@ -237,7 +237,7 @@ export const WithTabs: Story = {
                                 </Tabs.Content>
                             </App.Focused>
                         </App.Main.Content>
-                    </Tabs.Container>
+                    </Tabs.Root>
 
                     <App.Main.Footer>
                         <Button

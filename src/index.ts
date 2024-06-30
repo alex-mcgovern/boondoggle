@@ -8,12 +8,7 @@ export { Calendar } from "./calendar";
 export { Checkbox } from "./checkbox";
 export { CheckboxGroup } from "./checkbox-group";
 export { Collapsible } from "./collapsible";
-export {
-    ComboBox,
-    ComboBoxButton,
-    ComboBoxInput,
-    FormComboBox,
-} from "./combo-box";
+export { ComboBox, ComboBoxButton, ComboBoxInput } from "./combo-box";
 export { DateInput } from "./date-input";
 export {
     DatePicker,
