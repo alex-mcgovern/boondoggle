@@ -20,6 +20,7 @@ import { ComboBox } from "../combo-box";
 import { FieldError } from "../field-error";
 import { FileTrigger } from "../file-trigger";
 import { NumberField } from "../number-field";
+import { TextField } from "../text-field";
 
 function FormRoot<TFieldValues extends FieldValues>({
     children,
@@ -79,9 +80,9 @@ function FormRoot<TFieldValues extends FieldValues>({
 function FormTextField({
     children,
     ...props
-}: ComponentProps<typeof TextFieldRoot>) {
+}: ComponentProps<typeof TextField.Root>) {
     if (!props.name) {
-        throw new Error("FormTextField requires a name prop");
+        throw new Error("Form.TextField requires a name prop");
     }
 
     const { control } = useFormContext();
@@ -103,7 +104,7 @@ function FormTextField({
     });
 
     return (
-        <TextFieldRoot
+        <TextField.Root
             {...props}
             defaultValue={value}
             isDisabled={isDisabled}
@@ -128,7 +129,7 @@ function FormTextField({
                     </>
                 );
             }}
-        </TextFieldRoot>
+        </TextField.Root>
     );
 }
 

@@ -16,6 +16,9 @@ import {
 import { Icon } from "../icon";
 import "./styles.css";
 
+/**
+ * A button with an info icon that triggers a tooltip.
+ */
 function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
     return (
         <AriaButton
@@ -29,10 +32,18 @@ function TooltipInfoButton(props: Omit<AriaButtonProps, "children">) {
     );
 }
 
+/**
+ * Wraps around a trigger element and a Tooltip.
+ * It handles opening and closing the Tooltip when the user hovers
+ * over or focuses the trigger, and positioning the Tooltip relative to the trigger.
+ */
 function TooltipRoot(props: AriaTooltipTriggerProps) {
     return <AriaTooltipTrigger {...props}>{props.children}</AriaTooltipTrigger>;
 }
 
+/**
+ * Displays a description of an element on hover or focus.
+ */
 function TooltipBody(props: AriaTooltipProps) {
     return (
         <AriaTooltip

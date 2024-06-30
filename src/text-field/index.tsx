@@ -76,14 +76,7 @@ function TextFieldVisibilityButton(props: ComponentProps<typeof FieldButton>) {
     );
 }
 
-/**
- * A text field allows a user to enter a plain text value with a keyboard.
- *
- * It is a thin layer on top of the
- * [React Aria TextField component](https://react-spectrum.adobe.com/react-aria/TextField.html)
- * with some additional props for styling / variants.
- */
-export const TextFieldRoot = forwardRef<HTMLInputElement, AriaTextFieldProps>(
+const TextFieldRoot = forwardRef<HTMLInputElement, AriaTextFieldProps>(
     (props, ref) => {
         const [value, setValue] = useState<AriaTextFieldProps["value"]>(
             props.value || props.defaultValue || "",
@@ -154,6 +147,13 @@ export const TextFieldRoot = forwardRef<HTMLInputElement, AriaTextFieldProps>(
     },
 );
 
+/**
+ * A text field allows a user to enter a plain text value with a keyboard.
+ *
+ * It is a thin layer on top of the
+ * [React Aria TextField component](https://react-spectrum.adobe.com/react-aria/TextField.html)
+ * with some additional props for styling / variants.
+ */
 export const TextField = {
     ClearButton: TextFieldClearButton,
     CopyButton: TextFieldCopyButton,

@@ -33,7 +33,13 @@ module.exports = {
             },
         },
         {
-            files: ["**/*.css.ts", "**/*stories.tsx", "vitest.config.ts", "commitlint.config.js"],
+            files: [
+                "**/*.css.ts",
+                "**/*stories.tsx",
+                "vitest.config.ts",
+                "vite.config.ts",
+                "commitlint.config.js",
+            ],
             rules: {
                 "jsdoc/require-jsdoc": "off",
             },

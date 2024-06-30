@@ -8,12 +8,8 @@ import {
     ComboBox as AriaCombobox,
     ComboBoxStateContext,
 } from "react-aria-components";
-import { useController, useFormContext } from "react-hook-form";
-
-import type { IterableListBoxItem } from "../list-box";
 
 import { FieldButton } from "../field-button";
-import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { ListBox } from "../list-box";
