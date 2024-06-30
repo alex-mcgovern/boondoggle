@@ -1,5 +1,4 @@
 import type { ComponentProps, ReactNode } from "react";
-import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 import type {
     FieldValues,
     SubmitErrorHandler,
@@ -14,13 +13,11 @@ import {
     useFormContext,
 } from "react-hook-form";
 
-import type { IterableListBoxItem } from "../list-box";
-
-import { ComboBox } from "../combo-box";
 import { FieldError } from "../field-error";
 import { FileTrigger } from "../file-trigger";
 import { NumberField } from "../number-field";
 import { TextField } from "../text-field";
+import { FormComboBox } from "./components/form-combobox";
 
 function FormRoot<TFieldValues extends FieldValues>({
     children,
@@ -230,63 +227,10 @@ function FormFileTrigger(
 }
 
 /**
- * A `FormComboBox` connects a `ComboBox` to a `Form` component using `react-hook-form`.
- *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
- */
-export function FormComboBox<TItemId extends string = string>({
-    children,
-    ...props
-}: AriaComboBoxProps<IterableListBoxItem<TItemId>>) {
-    if (!props.name) {
-        throw new Error("FormComboBox requires a name prop");
-    }
-
-    const { control } = useFormContext();
-
-    const {
-        field: { disabled, name, onBlur, onChange, ref, value = "" },
-        fieldState: { error, invalid },
-    } = useController({
-        control,
-        defaultValue: props.selectedKey || props.defaultSelectedKey,
-        disabled: props.isDisabled,
-        name: props.name,
-    });
-
-    return (
-        <ComboBox
-            {...props}
-            isDisabled={disabled}
-            isInvalid={invalid}
-            name={name}
-            onBlur={onBlur}
-            onSelectionChange={(k) => {
-                onChange(k);
-                props.onSelectionChange?.(k);
-            }}
-            ref={ref}
-            selectedKey={value ?? ""}
-            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-        >
-            {(renderProps) => {
-                return (
-                    <>
-                        {typeof children === "function"
-                            ? children(renderProps)
-                            : children}
-                        <FieldError>{error?.message}</FieldError>
-                    </>
-                );
-            }}
-        </ComboBox>
-    );
-}
-
-/**
  * The `Form` namespace uses `react-hook-form` to connect UI components to form state.
  */
 export const Form = {
+    ComboBox: FormComboBox,
     FileTrigger: FormFileTrigger,
     NumberField: FormNumberField,
     Root: FormRoot,

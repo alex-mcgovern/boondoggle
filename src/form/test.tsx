@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { Form } from ".";
 import { Button } from "../button";
-import { ComboBoxInput, FormComboBox } from "../combo-box";
+import { ComboBoxInput } from "../combo-box";
 import { Input } from "../input";
 import { Label } from "../label";
 import { FormSelect, SelectButton } from "../select";
@@ -501,20 +501,20 @@ describe("FormSelect`", async () => {
     });
 });
 
-describe("FormComboBox", async () => {
-    it("submits form with `FormComboBox`", async () => {
+describe("Form.ComboBox", async () => {
+    it("submits form with `Form.ComboBox`", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => null);
 
         const { getAllByRole, getByLabelText, getByRole, getByText } = render(
             <Form.Root onSubmit={onSubmit}>
-                <FormComboBox
+                <Form.ComboBox
                     items={[{ id: "abc123", name: "abc123" }]}
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
                     <ComboBoxInput />
-                </FormComboBox>
+                </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
         );
@@ -537,20 +537,20 @@ describe("FormComboBox", async () => {
         );
     });
 
-    it("`FormComboBox` clears when reset after submission", async () => {
+    it("`Form.ComboBox` clears when reset after submission", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => null);
 
         const { getAllByRole, getByLabelText, getByRole, getByText } = render(
             <Form.Root onSubmit={onSubmit}>
                 <Resetter />
-                <FormComboBox
+                <Form.ComboBox
                     items={[{ id: "abc123", name: "abc123" }]}
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
                     <ComboBoxInput />
-                </FormComboBox>
+                </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
         );
@@ -577,7 +577,7 @@ describe("FormComboBox", async () => {
         expect(field).not.toHaveValue("abc123");
     });
 
-    it("handles `defaultValues` prop passed to `Form` correctly with `FormComboBox`", async () => {
+    it("handles `defaultValues` prop passed to `Form` correctly with `Form.ComboBox`", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => null);
 
@@ -590,13 +590,13 @@ describe("FormComboBox", async () => {
                     },
                 }}
             >
-                <FormComboBox
+                <Form.ComboBox
                     items={[{ id: "abc123", name: "abc123" }]}
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
                     <ComboBoxInput />
-                </FormComboBox>
+                </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
         );
@@ -613,20 +613,20 @@ describe("FormComboBox", async () => {
         );
     });
 
-    it("handles `selectedKey` prop passed to `FormComboBox`", async () => {
+    it("handles `selectedKey` prop passed to `Form.ComboBox`", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => null);
 
         const { getByLabelText, getByText } = render(
             <Form.Root onSubmit={onSubmit}>
-                <FormComboBox
+                <Form.ComboBox
                     items={[{ id: "abc123", name: "abc123" }]}
                     name="combobox"
                     selectedKey="abc123"
                 >
                     <Label>ComboBox</Label>
                     <ComboBoxInput />
-                </FormComboBox>
+                </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
         );
@@ -643,20 +643,20 @@ describe("FormComboBox", async () => {
         );
     });
 
-    it("handles `defaultSelectedKey` prop passed to `FormComboBox`", async () => {
+    it("handles `defaultSelectedKey` prop passed to `Form.ComboBox`", async () => {
         const user = userEvent.setup();
         const onSubmit = vi.fn().mockImplementation(() => null);
 
         const { getByLabelText, getByText } = render(
             <Form.Root onSubmit={onSubmit}>
-                <FormComboBox
+                <Form.ComboBox
                     defaultSelectedKey="abc123"
                     items={[{ id: "abc123", name: "abc123" }]}
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
                     <ComboBoxInput />
-                </FormComboBox>
+                </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
         );
