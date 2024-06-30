@@ -10,13 +10,7 @@ export { CheckboxGroup } from "./checkbox-group";
 export { Collapsible } from "./collapsible";
 export { ComboBox, ComboBoxButton, ComboBoxInput } from "./combo-box";
 export { DateInput } from "./date-input";
-export {
-    DatePicker,
-    DatePickerButton,
-    DatePickerClearButton,
-    DatePickerPreset,
-    FormDatePicker,
-} from "./date-picker";
+export { DatePicker } from "./date-picker";
 export { Dialog } from "./dialog";
 export { DialogTrigger } from "./dialog-trigger";
 export { DropZone, FormDropZone } from "./drop-zone";
