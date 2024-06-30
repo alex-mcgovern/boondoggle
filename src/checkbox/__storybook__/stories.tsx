@@ -6,7 +6,7 @@ const meta = {
 	args: {},
 	component: Checkbox,
 	render: (props) => <Checkbox {...props}>Checkbox</Checkbox>,
-	title: "Components/Checkbox",
+	title: "Checkbox",
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;

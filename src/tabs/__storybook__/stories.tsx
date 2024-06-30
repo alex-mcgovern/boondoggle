@@ -4,7 +4,7 @@ import { Tabs } from "..";
 
 const meta = {
 	component: Tabs.Container,
-	title: "Components/Tabs",
+	title: "Tabs",
 } satisfies Meta<typeof Tabs.Container>;
 
 export default meta;

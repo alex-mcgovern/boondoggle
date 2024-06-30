@@ -28,7 +28,7 @@ const meta = {
 		),
 	},
 	component: Menu.Trigger,
-	title: "Components/Menu",
+	title: "Menu",
 } satisfies Meta<ComponentProps<typeof Menu.Trigger>>;
 
 export default meta;

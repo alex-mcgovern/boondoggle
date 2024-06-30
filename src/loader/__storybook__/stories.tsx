@@ -4,7 +4,7 @@ import { Loader } from "..";
 
 const meta = {
 	component: Loader,
-	title: "Components/Loader",
+	title: "Loader",
 } satisfies Meta<typeof Loader>;
 
 export default meta;

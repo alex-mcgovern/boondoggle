@@ -10,7 +10,7 @@ export default {
 	parameters: {
 		layout: "padded",
 	},
-	title: "Components/Collapsible",
+	title: "Collapsible",
 };
 
 export const Default: StoryObj<ComponentProps<typeof Collapsible.Root>> = {

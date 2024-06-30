@@ -99,6 +99,10 @@
 		color: var(--slate-11);
 	}
 
+	strong {
+		font-weight: var(--font-weight-semibold);
+	}
+
 	ul,
 	ol {
 		color: var(--slate-11);

@@ -18,7 +18,7 @@ const meta = {
 		),
 	},
 	component: MenuTrigger,
-	title: "Components/MenuTrigger",
+	title: "MenuTrigger",
 } satisfies Meta<typeof MenuTrigger>;
 
 export default meta;

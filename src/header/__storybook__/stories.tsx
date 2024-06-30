@@ -11,7 +11,7 @@ const meta = {
 	parameters: {
 		layout: "padded",
 	},
-	title: "Components/PageHeader",
+	title: "PageHeader",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;

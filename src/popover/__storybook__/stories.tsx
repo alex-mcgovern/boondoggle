@@ -25,7 +25,7 @@ const meta = {
 			</DialogTrigger>
 		);
 	},
-	title: "Components/Popover",
+	title: "Popover",
 } satisfies Meta<typeof Popover>;
 
 export default meta;
