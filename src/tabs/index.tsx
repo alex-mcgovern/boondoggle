@@ -17,6 +17,9 @@ import {
 
 import "./styles.css";
 
+/**
+ * A Tab provides a title for an individual item within a TabList.
+ */
 function Tab({ id, ...props }: AriaTabProps) {
     return (
         <AriaTab
@@ -46,6 +49,9 @@ function TabList({
     AriaTabListProps<Omit<ComponentProps<typeof Tab>, "animationKey">>,
     "className"
 > & {
+    /**
+     * Whether to center the tabs.
+     */
     center?: boolean;
 }) {
     return (
@@ -61,7 +67,7 @@ function TabList({
 /**
  * A panel that corresponds to a tab. A function passed as the children of the `Collection` component returns a corresponding `<TabPanel>` for each tab.
  */
-function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
+function TabsContent(props: Omit<AriaTabPanelProps, "className">) {
     return (
         <AriaTabPanel
             {...props}
@@ -85,7 +91,7 @@ function TabPanel(props: Omit<AriaTabPanelProps, "className">) {
  * import { Tabs } from "boondoggle";
  * ```
  */
-function TabsContainer({ children, ...props }: AriaTabsProps) {
+function TabsRoot({ children, ...props }: AriaTabsProps) {
     const {
         onSelectionChange: controlledOnSelectionChange,
         selectedKey: controlledSelectedKey,
@@ -118,8 +124,8 @@ function TabsContainer({ children, ...props }: AriaTabsProps) {
  * Tabs organize content into multiple sections and allow users to navigate between them. [Built with React Aria Tabs](https://react-spectrum.adobe.com/react-aria/Tabs.html)
  */
 export const Tabs = {
-    Container: TabsContainer,
-    Content: TabPanel,
+    Content: TabsContent,
     Item: Tab,
     List: TabList,
+    Root: TabsRoot,
 };
