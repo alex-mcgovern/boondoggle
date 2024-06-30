@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import type {
 	FieldValues,
 	SubmitErrorHandler,
@@ -6,12 +6,16 @@ import type {
 	UseFormProps,
 } from "react-hook-form";
 
-import { FormProvider, useForm } from "react-hook-form";
+import {
+	FormProvider,
+	useController,
+	useForm,
+	useFormContext,
+} from "react-hook-form";
+import { FieldError } from "../field-error";
+import { TextField } from "../text-field";
 
-/**
- * Form component that wraps `react-hook-form`'s `FormProvider` and `useForm` hooks.
- */
-export function Form<TFieldValues extends FieldValues>({
+function FormRoot<TFieldValues extends FieldValues>({
 	children,
 	className,
 	onError,
@@ -56,3 +60,76 @@ export function Form<TFieldValues extends FieldValues>({
 		</FormProvider>
 	);
 }
+
+/** -----------------------------------------------------------------------------
+ * FormTextField
+ * ------------------------------------------------------------------------------- */
+
+/**
+ * A form text field connects a `TextField` to a `Form` component using `react-hook-form`.
+ *
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
+ */
+function FormTextField({
+	children,
+	...props
+}: ComponentProps<typeof TextField>) {
+	if (!props.name) {
+		throw new Error("FormTextField requires a name prop");
+	}
+
+	const { control } = useFormContext();
+
+	const {
+		field: {
+			disabled: isDisabled,
+			name,
+			onBlur,
+			onChange,
+			ref,
+			value = "",
+		},
+		fieldState: { error, invalid },
+	} = useController({
+		control,
+		defaultValue: props.value || props.defaultValue,
+		name: props.name,
+	});
+
+	return (
+		<TextField
+			{...props}
+			defaultValue={value}
+			isDisabled={isDisabled}
+			isInvalid={invalid}
+			name={name}
+			onBlur={onBlur}
+			onChange={(v) => {
+				onChange(v);
+				props.onChange?.(v);
+			}}
+			ref={ref}
+			validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+			value={value}
+		>
+			{(renderProps) => {
+				return (
+					<>
+						{typeof children === "function"
+							? children(renderProps)
+							: children}
+						<FieldError>{error?.message}</FieldError>
+					</>
+				);
+			}}
+		</TextField>
+	);
+}
+
+/**
+ * The `Form` namespace uses `react-hook-form` to connect UI components to form state.
+ */
+export const Form = {
+	Root: FormRoot,
+	TextField: FormTextField,
+};

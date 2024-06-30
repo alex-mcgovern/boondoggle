@@ -13,7 +13,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getAllByRole, getByLabelText, getByRole, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormComboBox
 					defaultItems={[
 						{ id: "p0", name: "Urgent" },
@@ -27,7 +27,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
@@ -54,7 +54,7 @@ describe("FormComboBox", async () => {
 		const onSubmit = vi.fn().mockImplementation(() => null);
 
 		const { getAllByRole, getByLabelText, getByRole, getByText } = render(
-			<Form onSubmit={onSubmit}>
+			<Form.Root onSubmit={onSubmit}>
 				<FormComboBox
 					defaultItems={[
 						{ id: "p0", name: "Urgent" },
@@ -69,7 +69,7 @@ describe("FormComboBox", async () => {
 					<ComboBoxInput />
 				</FormComboBox>
 				<Button type="submit">Submit</Button>
-			</Form>,
+			</Form.Root>,
 		);
 
 		const field = getByLabelText("ComboBox");
