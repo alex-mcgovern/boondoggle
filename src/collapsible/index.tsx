@@ -110,5 +110,5 @@ function CollapsibleRoot({
  */
 export const Collapsible = {
 	Root: CollapsibleRoot,
-	Trigger,
+	Trigger: Trigger,
 };
