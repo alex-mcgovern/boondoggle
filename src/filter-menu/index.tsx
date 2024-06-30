@@ -15,7 +15,7 @@ import {
 import { Icon } from "../icon";
 import "./styles.css";
 
-function FilterButtonGroup({
+function FilterMenuRoot({
 	isFilterApplied,
 	...props
 }: AriaGroupProps & {
@@ -33,11 +33,11 @@ function FilterButtonGroup({
 	);
 }
 
-function FilterButtonGroupLabel({ children }: { children: ReactNode }) {
+function FilterMenuLabel({ children }: { children: ReactNode }) {
 	return <div className="filter-button-group-label">{children}</div>;
 }
 
-const RemoveFilterButton = forwardRef<
+const FilterMenuRemoveButton = forwardRef<
 	HTMLButtonElement,
 	Omit<AriaButtonProps, "children">
 >((props, ref) => {
@@ -53,7 +53,7 @@ const RemoveFilterButton = forwardRef<
 	);
 });
 
-const FilterButtonComponent = forwardRef<HTMLButtonElement, AriaButtonProps>(
+const FilterMenuButton = forwardRef<HTMLButtonElement, AriaButtonProps>(
 	(props, ref) => {
 		return (
 			<AriaButton
@@ -74,9 +74,9 @@ const FilterButtonComponent = forwardRef<HTMLButtonElement, AriaButtonProps>(
 /**
  * Represents a set of related UI controls for controlling filtering of data.
  */
-export const FilterButton = {
-	Button: FilterButtonComponent,
-	Group: FilterButtonGroup,
-	Label: FilterButtonGroupLabel,
-	Remove: RemoveFilterButton,
+export const FilterMenu = {
+	Button: FilterMenuButton,
+	Root: FilterMenuRoot,
+	Label: FilterMenuLabel,
+	Remove: FilterMenuRemoveButton,
 };

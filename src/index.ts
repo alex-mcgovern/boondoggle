@@ -29,7 +29,7 @@ export { FieldButton } from "./field-button";
 export { FieldDescription } from "./field-description";
 export { FieldError } from "./field-error";
 export { FileTrigger, FormFileTrigger } from "./file-trigger";
-export { FilterButton } from "./filter-button";
+export { FilterMenu } from "./filter-menu";
 export { Form } from "./form";
 export { Grid } from "./grid";
 export { Group } from "./group";
