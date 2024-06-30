@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.3](https://github.com/alex-mcgovern/boondoggle/compare/v3.0.2...v3.0.3) (2024-06-30)
+
+
+### Bug Fixes
+
+* **form:** move `FormTextField` into form namespace ([#72](https://github.com/alex-mcgovern/boondoggle/issues/72)) ([9bdabbc](https://github.com/alex-mcgovern/boondoggle/commit/9bdabbc1ae4670d557e28e9024cfddd17a415c5f))
+* **TextField:** move `TextField` sub-components into namespace ([#75](https://github.com/alex-mcgovern/boondoggle/issues/75)) ([8376333](https://github.com/alex-mcgovern/boondoggle/commit/8376333823900e8346a62b41203a90f6290e4432))
+
 ## [3.0.2](https://github.com/alex-mcgovern/boondoggle/compare/v3.0.1...v3.0.2) (2024-06-30)
 
 
