@@ -21,10 +21,10 @@ import "./styles.css";
  * ```
  */
 export function CheckboxGroup({ className, ...props }: AriaCheckboxGroupProps) {
-	return (
-		<AriaCheckboxGroup
-			{...props}
-			className={clsx(className, "checkbox-group")}
-		/>
-	);
+    return (
+        <AriaCheckboxGroup
+            {...props}
+            className={clsx(className, "checkbox-group")}
+        />
+    );
 }

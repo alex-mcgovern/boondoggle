@@ -14,34 +14,34 @@ import "./styles.css";
  * A `FieldButton` to decrement the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 function NumberFieldIncrementButton() {
-	return (
-		<FieldButton slot="increment">
-			<Icon icon={faPlus} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton slot="increment">
+            <Icon icon={faPlus} />
+        </FieldButton>
+    );
 }
 
 /**
  * A `FieldButton` to increment the number field value. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
  */
 function NumberFieldDecrementButton() {
-	return (
-		<FieldButton slot="decrement">
-			<Icon icon={faMinus} />
-		</FieldButton>
-	);
+    return (
+        <FieldButton slot="decrement">
+            <Icon icon={faMinus} />
+        </FieldButton>
+    );
 }
 
 const NumberFieldRoot = forwardRef<HTMLInputElement, AriaNumberFieldProps>(
-	(props, ref) => {
-		return (
-			<AriaNumberField
-				{...props}
-				className={clsx(props.className, "number-field")}
-				ref={ref}
-			/>
-		);
-	},
+    (props, ref) => {
+        return (
+            <AriaNumberField
+                {...props}
+                className={clsx(props.className, "number-field")}
+                ref={ref}
+            />
+        );
+    },
 );
 
 /**
@@ -69,7 +69,7 @@ const NumberFieldRoot = forwardRef<HTMLInputElement, AriaNumberFieldProps>(
  * ```
  */
 export const NumberField = {
-	Root: NumberFieldRoot,
-	DecrementButton: NumberFieldDecrementButton,
-	IncrementButton: NumberFieldIncrementButton,
+    DecrementButton: NumberFieldDecrementButton,
+    IncrementButton: NumberFieldIncrementButton,
+    Root: NumberFieldRoot,
 };

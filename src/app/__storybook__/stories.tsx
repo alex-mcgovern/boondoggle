@@ -17,337 +17,337 @@ import { Table } from "../../table";
 import { Tabs } from "../../tabs";
 
 function SideNav() {
-	return (
-		<App.Nav.Root>
-			<App.Nav.Header>
-				<App.Nav.Org
-					image={undefined}
-					name="Acme Inc."
-				/>
-			</App.Nav.Header>
-			<App.Nav.Section>
-				<div className="flex gap-1">
-					<Menu.Trigger>
-						<App.Nav.Button
-							appearance="secondary"
-							className="grow"
-							icon={faPlus}
-						>
-							Create a file
-						</App.Nav.Button>
-						<Popover placement="right top">
-							<Menu.DropdownMenu>
-								<Menu.Section>
-									<Menu.Item>Create new document</Menu.Item>
-									<Menu.Item>Create new folder</Menu.Item>
-									<Menu.Item>Create a collection</Menu.Item>
-								</Menu.Section>
-								<Menu.Section>
-									<Menu.SectionHeader>
-										Import
-									</Menu.SectionHeader>
-									<Menu.Item>
-										Import an existing file
-									</Menu.Item>
-									<Menu.Item>
-										Import an existing folder
-									</Menu.Item>
-								</Menu.Section>
-							</Menu.DropdownMenu>
-						</Popover>
-					</Menu.Trigger>
-				</div>
-			</App.Nav.Section>
-			<App.Nav.Section>
-				<App.Nav.Link
-					href="https://boondoggle.design"
-					icon={faPerson}
-				>
-					Users
-				</App.Nav.Link>
-				<App.Nav.Link
-					href="https://boondoggle.design"
-					icon={faWallet}
-				>
-					Accounts
-				</App.Nav.Link>
-			</App.Nav.Section>
-		</App.Nav.Root>
-	);
+    return (
+        <App.Nav.Root>
+            <App.Nav.Header>
+                <App.Nav.Org
+                    image={undefined}
+                    name="Acme Inc."
+                />
+            </App.Nav.Header>
+            <App.Nav.Section>
+                <div className="flex gap-1">
+                    <Menu.Trigger>
+                        <App.Nav.Button
+                            appearance="secondary"
+                            className="grow"
+                            icon={faPlus}
+                        >
+                            Create a file
+                        </App.Nav.Button>
+                        <Popover placement="right top">
+                            <Menu.DropdownMenu>
+                                <Menu.Section>
+                                    <Menu.Item>Create new document</Menu.Item>
+                                    <Menu.Item>Create new folder</Menu.Item>
+                                    <Menu.Item>Create a collection</Menu.Item>
+                                </Menu.Section>
+                                <Menu.Section>
+                                    <Menu.SectionHeader>
+                                        Import
+                                    </Menu.SectionHeader>
+                                    <Menu.Item>
+                                        Import an existing file
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                        Import an existing folder
+                                    </Menu.Item>
+                                </Menu.Section>
+                            </Menu.DropdownMenu>
+                        </Popover>
+                    </Menu.Trigger>
+                </div>
+            </App.Nav.Section>
+            <App.Nav.Section>
+                <App.Nav.Link
+                    href="https://boondoggle.design"
+                    icon={faPerson}
+                >
+                    Users
+                </App.Nav.Link>
+                <App.Nav.Link
+                    href="https://boondoggle.design"
+                    icon={faWallet}
+                >
+                    Accounts
+                </App.Nav.Link>
+            </App.Nav.Section>
+        </App.Nav.Root>
+    );
 }
 
 const meta = {
-	component: App.Root,
-	parameters: {
-		layout: "fullscreen",
-	},
-	title: "App",
+    component: App.Root,
+    parameters: {
+        layout: "fullscreen",
+    },
+    title: "App",
 } satisfies Meta<typeof App.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithTabs: Story = {
-	args: {
-		children: (
-			<>
-				<SideNav />
-				<App.Main.Root>
-					<Tabs.Container>
-						<App.Main.Header>
-							<h1>Upload a file</h1>
-							<Tabs.List center>
-								<Tabs.Item id="a">Lorem ipsum</Tabs.Item>
-								<Tabs.Item id="b">Dolores sit</Tabs.Item>
-								<Tabs.Item id="c">Consectetur</Tabs.Item>
-							</Tabs.List>
-						</App.Main.Header>
-						<App.Main.Content>
-							<App.Focused>
-								<Tabs.Content id="a">
-									<Table.Root
-										aria-label="Files"
-										compact
-									>
-										<Table.Header>
-											<Table.Column
-												allowsSorting
-												isRowHeader
-												width="2fr"
-											>
-												User
-											</Table.Column>
+    args: {
+        children: (
+            <>
+                <SideNav />
+                <App.Main.Root>
+                    <Tabs.Root>
+                        <App.Main.Header>
+                            <h1>Upload a file</h1>
+                            <Tabs.List center>
+                                <Tabs.Item id="a">Lorem ipsum</Tabs.Item>
+                                <Tabs.Item id="b">Dolores sit</Tabs.Item>
+                                <Tabs.Item id="c">Consectetur</Tabs.Item>
+                            </Tabs.List>
+                        </App.Main.Header>
+                        <App.Main.Content>
+                            <App.Focused>
+                                <Tabs.Content id="a">
+                                    <Table.Root
+                                        aria-label="Files"
+                                        compact
+                                    >
+                                        <Table.Header>
+                                            <Table.Column
+                                                allowsSorting
+                                                isRowHeader
+                                                width="2fr"
+                                            >
+                                                User
+                                            </Table.Column>
 
-											<Table.Column width="1fr">
-												Job type
-											</Table.Column>
-											<Table.Column width="1fr">
-												Job area
-											</Table.Column>
-										</Table.Header>
+                                            <Table.Column width="1fr">
+                                                Job type
+                                            </Table.Column>
+                                            <Table.Column width="1fr">
+                                                Job area
+                                            </Table.Column>
+                                        </Table.Header>
 
-										<Table.Body>
-											{Array.from({ length: 25 }).map(
-												(_, index) => {
-													return (
-														<Table.Row key={index}>
-															<Table.Cell>
-																{faker.person.fullName()}
-															</Table.Cell>
+                                        <Table.Body>
+                                            {Array.from({ length: 25 }).map(
+                                                (_, index) => {
+                                                    return (
+                                                        <Table.Row key={index}>
+                                                            <Table.Cell>
+                                                                {faker.person.fullName()}
+                                                            </Table.Cell>
 
-															<Table.Cell>
-																{faker.person.jobType()}
-															</Table.Cell>
-															<Table.Cell>
-																{faker.person.jobArea()}
-															</Table.Cell>
-														</Table.Row>
-													);
-												},
-											)}
-										</Table.Body>
-									</Table.Root>
-								</Tabs.Content>
-								<Tabs.Content id="b">
-									<Table.Root
-										aria-label="Files"
-										compact
-									>
-										<Table.Header>
-											<Table.Column
-												allowsSorting
-												isRowHeader
-												width="2fr"
-											>
-												User
-											</Table.Column>
+                                                            <Table.Cell>
+                                                                {faker.person.jobType()}
+                                                            </Table.Cell>
+                                                            <Table.Cell>
+                                                                {faker.person.jobArea()}
+                                                            </Table.Cell>
+                                                        </Table.Row>
+                                                    );
+                                                },
+                                            )}
+                                        </Table.Body>
+                                    </Table.Root>
+                                </Tabs.Content>
+                                <Tabs.Content id="b">
+                                    <Table.Root
+                                        aria-label="Files"
+                                        compact
+                                    >
+                                        <Table.Header>
+                                            <Table.Column
+                                                allowsSorting
+                                                isRowHeader
+                                                width="2fr"
+                                            >
+                                                User
+                                            </Table.Column>
 
-											<Table.Column width="1fr">
-												Job type
-											</Table.Column>
-											<Table.Column width="1fr">
-												Job area
-											</Table.Column>
-										</Table.Header>
+                                            <Table.Column width="1fr">
+                                                Job type
+                                            </Table.Column>
+                                            <Table.Column width="1fr">
+                                                Job area
+                                            </Table.Column>
+                                        </Table.Header>
 
-										<Table.Body>
-											{Array.from({ length: 5 }).map(
-												(_, index) => {
-													return (
-														<Table.Row key={index}>
-															<Table.Cell>
-																{faker.person.fullName()}
-															</Table.Cell>
-															<Table.Cell>
-																{faker.person.jobType()}
-															</Table.Cell>
-															<Table.Cell>
-																{faker.person.jobArea()}
-															</Table.Cell>
-														</Table.Row>
-													);
-												},
-											)}
-										</Table.Body>
-									</Table.Root>
-								</Tabs.Content>
-								<Tabs.Content id="c">
-									<Table.Root
-										aria-label="Files"
-										compact
-									>
-										<Table.Header>
-											<Table.Column
-												allowsSorting
-												isRowHeader
-												width="2fr"
-											>
-												User
-											</Table.Column>
+                                        <Table.Body>
+                                            {Array.from({ length: 5 }).map(
+                                                (_, index) => {
+                                                    return (
+                                                        <Table.Row key={index}>
+                                                            <Table.Cell>
+                                                                {faker.person.fullName()}
+                                                            </Table.Cell>
+                                                            <Table.Cell>
+                                                                {faker.person.jobType()}
+                                                            </Table.Cell>
+                                                            <Table.Cell>
+                                                                {faker.person.jobArea()}
+                                                            </Table.Cell>
+                                                        </Table.Row>
+                                                    );
+                                                },
+                                            )}
+                                        </Table.Body>
+                                    </Table.Root>
+                                </Tabs.Content>
+                                <Tabs.Content id="c">
+                                    <Table.Root
+                                        aria-label="Files"
+                                        compact
+                                    >
+                                        <Table.Header>
+                                            <Table.Column
+                                                allowsSorting
+                                                isRowHeader
+                                                width="2fr"
+                                            >
+                                                User
+                                            </Table.Column>
 
-											<Table.Column width="1fr">
-												Job type
-											</Table.Column>
-											<Table.Column width="1fr">
-												Job area
-											</Table.Column>
-										</Table.Header>
+                                            <Table.Column width="1fr">
+                                                Job type
+                                            </Table.Column>
+                                            <Table.Column width="1fr">
+                                                Job area
+                                            </Table.Column>
+                                        </Table.Header>
 
-										<Table.Body>
-											{Array.from({ length: 5 }).map(
-												(_, index) => {
-													return (
-														<Table.Row key={index}>
-															<Table.Cell>
-																{faker.person.fullName()}
-															</Table.Cell>
+                                        <Table.Body>
+                                            {Array.from({ length: 5 }).map(
+                                                (_, index) => {
+                                                    return (
+                                                        <Table.Row key={index}>
+                                                            <Table.Cell>
+                                                                {faker.person.fullName()}
+                                                            </Table.Cell>
 
-															<Table.Cell>
-																{faker.person.jobType()}
-															</Table.Cell>
-															<Table.Cell>
-																{faker.person.jobArea()}
-															</Table.Cell>
-														</Table.Row>
-													);
-												},
-											)}
-										</Table.Body>
-									</Table.Root>
-								</Tabs.Content>
-							</App.Focused>
-						</App.Main.Content>
-					</Tabs.Container>
+                                                            <Table.Cell>
+                                                                {faker.person.jobType()}
+                                                            </Table.Cell>
+                                                            <Table.Cell>
+                                                                {faker.person.jobArea()}
+                                                            </Table.Cell>
+                                                        </Table.Row>
+                                                    );
+                                                },
+                                            )}
+                                        </Table.Body>
+                                    </Table.Root>
+                                </Tabs.Content>
+                            </App.Focused>
+                        </App.Main.Content>
+                    </Tabs.Root>
 
-					<App.Main.Footer>
-						<Button
-							appearance="secondary"
-							className="ml-auto"
-						>
-							Prev
-						</Button>
-						<Button appearance="secondary">Next</Button>
-					</App.Main.Footer>
-				</App.Main.Root>
-			</>
-		),
-	},
+                    <App.Main.Footer>
+                        <Button
+                            appearance="secondary"
+                            className="ml-auto"
+                        >
+                            Prev
+                        </Button>
+                        <Button appearance="secondary">Next</Button>
+                    </App.Main.Footer>
+                </App.Main.Root>
+            </>
+        ),
+    },
 };
 
 function AppWithTable(args: ComponentProps<typeof App.Root>) {
-	const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-	return (
-		<>
-			<App.Root {...args}>
-				<App.Drawer.Root
-					isOpen={isOpen}
-					onOpenChange={setIsOpen}
-				>
-					<App.Drawer.Header title={"Drawer title"}>
-						<App.Drawer.CloseButton />
-					</App.Drawer.Header>
-					<App.Drawer.Content>
-						{faker.lorem.paragraphs(20)}
-					</App.Drawer.Content>
-				</App.Drawer.Root>
-				<SideNav />
-				<App.Main.Root>
-					<App.Main.Header>
-						<h1>All users</h1>
-						<Button
-							appearance="secondary"
-							className="ml-auto"
-							square
-						>
-							<Icon icon={faEllipsis} />
-						</Button>
-						<Button
-							onPress={() => {
-								setIsOpen(true);
-							}}
-						>
-							Open drawer
-						</Button>
-					</App.Main.Header>
-					<App.Main.Content>
-						<App.Main.Toolbar>
-							<Button appearance="secondary">Action 1</Button>
-							<Button appearance="secondary">Action 2</Button>
-						</App.Main.Toolbar>
-						<Table.Root aria-label="Files">
-							<Table.Header>
-								<Table.Column
-									allowsSorting
-									isRowHeader
-									width="2fr"
-								>
-									User
-								</Table.Column>
-								<Table.Column width="1fr">
-									Job type
-								</Table.Column>
-								<Table.Column width="1fr">
-									Job area
-								</Table.Column>
-							</Table.Header>
-							<Table.Body>
-								{Array.from({ length: 25 }).map((_, index) => {
-									return (
-										<Table.Row key={index}>
-											<Table.Cell>
-												{faker.person.fullName()}
-											</Table.Cell>
-											<Table.Cell>
-												{faker.person.jobType()}
-											</Table.Cell>
-											<Table.Cell>
-												{faker.person.jobArea()}
-											</Table.Cell>
-										</Table.Row>
-									);
-								})}
-							</Table.Body>
-						</Table.Root>
-					</App.Main.Content>
-					<App.Main.Footer>
-						<Button
-							appearance="secondary"
-							className="ml-auto"
-						>
-							Prev
-						</Button>
-						<Button appearance="secondary">Next</Button>
-					</App.Main.Footer>
-				</App.Main.Root>
-			</App.Root>
-		</>
-	);
+    return (
+        <>
+            <App.Root {...args}>
+                <App.Drawer.Root
+                    isOpen={isOpen}
+                    onOpenChange={setIsOpen}
+                >
+                    <App.Drawer.Header title={"Drawer title"}>
+                        <App.Drawer.CloseButton />
+                    </App.Drawer.Header>
+                    <App.Drawer.Content>
+                        {faker.lorem.paragraphs(20)}
+                    </App.Drawer.Content>
+                </App.Drawer.Root>
+                <SideNav />
+                <App.Main.Root>
+                    <App.Main.Header>
+                        <h1>All users</h1>
+                        <Button
+                            appearance="secondary"
+                            className="ml-auto"
+                            square
+                        >
+                            <Icon icon={faEllipsis} />
+                        </Button>
+                        <Button
+                            onPress={() => {
+                                setIsOpen(true);
+                            }}
+                        >
+                            Open drawer
+                        </Button>
+                    </App.Main.Header>
+                    <App.Main.Content>
+                        <App.Main.Toolbar>
+                            <Button appearance="secondary">Action 1</Button>
+                            <Button appearance="secondary">Action 2</Button>
+                        </App.Main.Toolbar>
+                        <Table.Root aria-label="Files">
+                            <Table.Header>
+                                <Table.Column
+                                    allowsSorting
+                                    isRowHeader
+                                    width="2fr"
+                                >
+                                    User
+                                </Table.Column>
+                                <Table.Column width="1fr">
+                                    Job type
+                                </Table.Column>
+                                <Table.Column width="1fr">
+                                    Job area
+                                </Table.Column>
+                            </Table.Header>
+                            <Table.Body>
+                                {Array.from({ length: 25 }).map((_, index) => {
+                                    return (
+                                        <Table.Row key={index}>
+                                            <Table.Cell>
+                                                {faker.person.fullName()}
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                {faker.person.jobType()}
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                {faker.person.jobArea()}
+                                            </Table.Cell>
+                                        </Table.Row>
+                                    );
+                                })}
+                            </Table.Body>
+                        </Table.Root>
+                    </App.Main.Content>
+                    <App.Main.Footer>
+                        <Button
+                            appearance="secondary"
+                            className="ml-auto"
+                        >
+                            Prev
+                        </Button>
+                        <Button appearance="secondary">Next</Button>
+                    </App.Main.Footer>
+                </App.Main.Root>
+            </App.Root>
+        </>
+    );
 }
 
 export const WithTable: Story = {
-	args: {
-		children: null,
-	},
-	render: AppWithTable,
+    args: {
+        children: null,
+    },
+    render: AppWithTable,
 };

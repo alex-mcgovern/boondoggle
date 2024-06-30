@@ -21,10 +21,10 @@ import "./styles.css";
  * ```
  */
 export function FieldError(props: AriaFieldErrorProps) {
-	return (
-		<AriaFieldError
-			{...props}
-			className={clsx(props.className, "field-error")}
-		/>
-	);
+    return (
+        <AriaFieldError
+            {...props}
+            className={clsx(props.className, "field-error")}
+        />
+    );
 }

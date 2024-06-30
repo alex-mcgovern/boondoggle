@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Loader } from "..";
 
 const meta = {
-	component: Loader,
-	title: "Loader",
+    component: Loader,
+    title: "Loader",
 } satisfies Meta<typeof Loader>;
 
 export default meta;

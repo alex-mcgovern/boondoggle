@@ -25,13 +25,13 @@ import { RouterProvider as AriaRouterProvider } from "react-aria-components";
  * ```
  */
 export function RouterProvider({
-	children,
-	navigate,
+    children,
+    navigate,
 }: {
-	children: ReactNode;
-	navigate: (path: string) => void;
+    children: ReactNode;
+    navigate: (path: string) => void;
 }) {
-	return (
-		<AriaRouterProvider navigate={navigate}>{children}</AriaRouterProvider>
-	);
+    return (
+        <AriaRouterProvider navigate={navigate}>{children}</AriaRouterProvider>
+    );
 }

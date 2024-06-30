@@ -6,23 +6,23 @@ import { Toaster } from "../src/toaster";
 import theme from "./theme";
 
 export const parameters: Parameters = {
-	layout: "centered",
+    layout: "centered",
 };
 
 export const preview: Preview = {
-	parameters: {
-		docs: {
-			theme,
-		},
-	},
-	decorators: [
-		(Story) => {
-			return (
-				<>
-					<Toaster />
-					<Story />
-				</>
-			);
-		},
-	],
+    parameters: {
+        docs: {
+            theme,
+        },
+    },
+    decorators: [
+        (Story) => {
+            return (
+                <>
+                    <Toaster />
+                    <Story />
+                </>
+            );
+        },
+    ],
 };

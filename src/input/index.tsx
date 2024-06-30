@@ -11,36 +11,36 @@ import "./styles.css";
  * An `Input` component, for use with a `TextField` component. [Built with React Aria Input component](https://react-spectrum.adobe.com/react-aria/TextField.html#input)
  */
 export const Input = forwardRef<
-	HTMLInputElement,
-	AriaInputProps & {
-		/**
-		 * The icon to display on the left side of the input.
-		 * Designed for use with the `Icon` component from boondoggle, but can be any React node.
-		 */
-		icon?: ReactNode;
-		/**
-		 * Aligns text to the right of the input
-		 */
-		right?: boolean;
+    HTMLInputElement,
+    AriaInputProps & {
+        /**
+         * The icon to display on the left side of the input.
+         * Designed for use with the `Icon` component from boondoggle, but can be any React node.
+         */
+        icon?: ReactNode;
+        /**
+         * Aligns text to the right of the input
+         */
+        right?: boolean;
 
-		/**
-		 * For use within a `Group` component, will remove all styles from the input.
-		 */
-		unstyled?: boolean;
-	}
+        /**
+         * For use within a `Group` component, will remove all styles from the input.
+         */
+        unstyled?: boolean;
+    }
 >(({ icon, right, unstyled, ...props }, ref) => {
-	return (
-		<div className="input-container">
-			{icon && <div className="input-icon-container">{icon}</div>}
-			<AriaInput
-				ref={ref}
-				{...props}
-				className={clsx(props.className, "input", {
-					"has-icon": !!icon,
-					right,
-					unstyled,
-				})}
-			/>
-		</div>
-	);
+    return (
+        <div className="input-container">
+            {icon && <div className="input-icon-container">{icon}</div>}
+            <AriaInput
+                ref={ref}
+                {...props}
+                className={clsx(props.className, "input", {
+                    "has-icon": !!icon,
+                    right,
+                    unstyled,
+                })}
+            />
+        </div>
+    );
 });
