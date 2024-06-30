@@ -7,16 +7,16 @@ import {
     parseAbsoluteToLocal,
 } from "@internationalized/date";
 
-import { DatePicker, DatePickerButton, DatePickerPreset } from "..";
+import { DatePicker } from "..";
 import { DateInput } from "../../date-input";
 import { Grid } from "../../grid";
 import { Group } from "../../group";
 import { Label } from "../../label";
 
 const meta = {
-    component: DatePicker,
+    component: DatePicker.Root,
     title: "DatePicker",
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta<typeof DatePicker.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -28,7 +28,7 @@ export const Default: Story = {
                 <Label>Date/time</Label>
                 <Group>
                     <DateInput unstyled />
-                    <DatePickerButton />
+                    <DatePicker.Button />
                 </Group>
             </>
         ),
@@ -42,7 +42,7 @@ export const WithTime: Story = {
                 <Label>Date/time</Label>
                 <Group>
                     <DateInput unstyled />
-                    <DatePickerButton />
+                    <DatePicker.Button />
                 </Group>
             </>
         ),
@@ -50,19 +50,19 @@ export const WithTime: Story = {
     },
 };
 
-function WithPresetsComponent(props: ComponentProps<typeof DatePicker>) {
+function WithPresetsComponent(props: ComponentProps<typeof DatePicker.Root>) {
     return (
-        <DatePicker {...props}>
+        <DatePicker.Root {...props}>
             <Label>Date/time</Label>
             <Group>
                 <DateInput unstyled />
-                <DatePickerButton />
+                <DatePicker.Button />
             </Group>
             <Grid
                 className="mt-2"
                 columns={3}
             >
-                <DatePickerPreset
+                <DatePicker.Preset
                     date={fromDate(new Date(), getLocalTimeZone()).set({
                         hour: 18,
                         millisecond: 0,
@@ -71,8 +71,8 @@ function WithPresetsComponent(props: ComponentProps<typeof DatePicker>) {
                     })}
                 >
                     Today
-                </DatePickerPreset>
-                <DatePickerPreset
+                </DatePicker.Preset>
+                <DatePicker.Preset
                     date={fromDate(new Date(), getLocalTimeZone())
                         .add({ weeks: 1 })
                         .set({
@@ -83,8 +83,8 @@ function WithPresetsComponent(props: ComponentProps<typeof DatePicker>) {
                         })}
                 >
                     1 week
-                </DatePickerPreset>
-                <DatePickerPreset
+                </DatePicker.Preset>
+                <DatePicker.Preset
                     date={fromDate(new Date(), getLocalTimeZone())
                         .add({ weeks: 2 })
                         .set({
@@ -95,9 +95,9 @@ function WithPresetsComponent(props: ComponentProps<typeof DatePicker>) {
                         })}
                 >
                     2 weeks
-                </DatePickerPreset>
+                </DatePicker.Preset>
             </Grid>
-        </DatePicker>
+        </DatePicker.Root>
     );
 }
 
