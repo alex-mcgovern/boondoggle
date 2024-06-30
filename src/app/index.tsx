@@ -36,7 +36,7 @@ import { Avatar } from "../avatar";
 import { Button, LinkButton } from "../button";
 import { Icon } from "../icon";
 import { Skeleton } from "../skeleton";
-import { Tooltip, TooltipTrigger } from "../tooltip";
+import { Tooltip } from "../tooltip";
 import "./styles.css";
 
 /** -----------------------------------------------------------------------------
@@ -308,7 +308,7 @@ function NavLink({
 	const [isOpen] = useNavContext();
 
 	return (
-		<TooltipTrigger isDisabled={isOpen}>
+		<Tooltip.Root isDisabled={isOpen}>
 			<LinkButton
 				{...props}
 				align={align}
@@ -329,10 +329,10 @@ function NavLink({
 					</>
 				)}
 			</LinkButton>
-			<Tooltip placement="right">
+			<Tooltip.Body placement="right">
 				{typeof props.children === "string" ? props.children : null}
-			</Tooltip>
-		</TooltipTrigger>
+			</Tooltip.Body>
+		</Tooltip.Root>
 	);
 }
 
@@ -348,7 +348,7 @@ function NavButton({
 	const [isOpen] = useNavContext();
 
 	return (
-		<TooltipTrigger isDisabled={isOpen}>
+		<Tooltip.Root isDisabled={isOpen}>
 			<Button
 				{...props}
 				align={align}
@@ -367,10 +367,10 @@ function NavButton({
 					</>
 				)}
 			</Button>
-			<Tooltip placement="right">
+			<Tooltip.Body placement="right">
 				{typeof props.children === "string" ? props.children : null}
-			</Tooltip>
-		</TooltipTrigger>
+			</Tooltip.Body>
+		</Tooltip.Root>
 	);
 }
 

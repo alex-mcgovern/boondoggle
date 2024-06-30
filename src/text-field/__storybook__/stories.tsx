@@ -13,7 +13,7 @@ import { Input } from "../../input";
 import { Label } from "../../label";
 import { TextArea } from "../../text-area";
 import { Toaster } from "../../toaster";
-import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "../../tooltip";
+import { Tooltip } from "../../tooltip";
 
 const meta = {
 	component: TextField,
@@ -117,12 +117,12 @@ export const LabelTooltip: Story = {
 			<TextField {...args}>
 				<Label>
 					Label
-					<TooltipTrigger>
-						<TooltipTriggerButton />
-						<Tooltip placement="right">
+					<Tooltip.Root>
+						<Tooltip.InfoButton />
+						<Tooltip.Body placement="right">
 							Provide additional info about the field
-						</Tooltip>
-					</TooltipTrigger>
+						</Tooltip.Body>
+					</Tooltip.Root>
 				</Label>
 				<Input />
 			</TextField>
