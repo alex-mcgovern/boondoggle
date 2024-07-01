@@ -23,7 +23,7 @@ import "./styles.css";
 function SelectButton<TItemId extends string = string>({
     variant = "default",
     ...props
-}: AriaButtonProps & {
+}: {
     /**
      * React ref to the SelectButton element.
      */
@@ -35,7 +35,7 @@ function SelectButton<TItemId extends string = string>({
      * - `"default"` - A select button with a border.
      */
     variant?: "borderless" | "default";
-}) {
+} & AriaButtonProps) {
     return (
         <AriaButton
             {...props}
@@ -54,7 +54,7 @@ function SelectButton<TItemId extends string = string>({
 
 const SelectRoot = forwardRef<
     HTMLDivElement,
-    AriaSelectProps<IterableListBoxItem<string>> & {
+    {
         /**
          * The items to display in the select popover.
          */
@@ -67,7 +67,7 @@ const SelectRoot = forwardRef<
          * React ref to the Select element.
          */
         ref?: ForwardedRef<HTMLDivElement>;
-    }
+    } & AriaSelectProps<IterableListBoxItem<string>>
 >(({ children, ...props }, ref) => {
     return (
         <AriaSelect<IterableListBoxItem<string>>

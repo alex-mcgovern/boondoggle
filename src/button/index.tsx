@@ -30,7 +30,7 @@ import "./styles.css";
  */
 export const Button = forwardRef<
     HTMLButtonElement,
-    AriaButtonProps & {
+    {
         /**
          * Alignment for the LinkButton.
          */
@@ -56,7 +56,7 @@ export const Button = forwardRef<
          * Whether the button is square.
          */
         square?: boolean;
-    }
+    } & AriaButtonProps
 >(
     (
         {
@@ -103,7 +103,7 @@ export function LinkButton({
     isCurrent,
     size,
     ...props
-}: AriaLinkProps & {
+}: {
     /**
      * Alignment for the LinkButton.
      */
@@ -128,7 +128,7 @@ export function LinkButton({
      * Whether the button is square.
      */
     square?: boolean;
-}) {
+} & AriaLinkProps) {
     return (
         <AriaLink
             data-is-current={isCurrent}

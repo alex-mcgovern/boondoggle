@@ -27,7 +27,7 @@ import "./styles.css";
 function DialogRoot({
     width = "sm",
     ...props
-}: AriaDialogProps & { width?: "lg" | "sm" }) {
+}: { width?: "lg" | "sm" } & AriaDialogProps) {
     return (
         <AriaDialog
             {...props}

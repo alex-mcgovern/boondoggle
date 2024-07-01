@@ -39,7 +39,7 @@ function SubMenuTrigger(props: AriaSubMenuTriggerProps) {
 }
 
 type SingleMenuItem<TItemId extends string = string> =
-    AnchorHTMLAttributes<HTMLAnchorElement> & {
+    {
         children?: never;
         /**
          * A description of the menu item, that is shown in the UI to the user.
@@ -69,7 +69,7 @@ type SingleMenuItem<TItemId extends string = string> =
          * @deprecated
          */
         type?: never;
-    };
+    } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type IterableMenuItem<TItemId extends string = string> =
     | {
@@ -126,7 +126,7 @@ function Item<TItem extends object>({
     hideCheckbox,
     icon,
     ...props
-}: AriaMenuItemProps<TItem> & {
+}: {
     /**
      * The color of the item.
      */
@@ -146,7 +146,7 @@ function Item<TItem extends object>({
      * React ref to the Item element.
      */
     ref?: ForwardedRef<HTMLDivElement>;
-}) {
+} & AriaMenuItemProps<TItem>) {
     return (
         <AriaMenuItem
             {...props}

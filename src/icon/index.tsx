@@ -16,7 +16,7 @@ export function Icon({
     color,
     icon,
     ...rest
-}: Omit<FontAwesomeIconProps, "color"> & {
+}: {
     /**
      * An optional class name to apply to the icon.
      */
@@ -30,7 +30,7 @@ export function Icon({
      * The FontAwesome icon definition to render.
      */
     icon: IconProp;
-}) {
+} & Omit<FontAwesomeIconProps, "color">) {
     return (
         <FontAwesomeIcon
             className={clsx("icon", className, color)}

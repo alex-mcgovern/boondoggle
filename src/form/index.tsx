@@ -200,7 +200,7 @@ function FormNumberField({
 }
 
 function FormFileTrigger(
-    props: ComponentProps<typeof FileTrigger> & { name: string },
+    props: { name: string } & ComponentProps<typeof FileTrigger>,
 ) {
     const { control } = useFormContext();
 

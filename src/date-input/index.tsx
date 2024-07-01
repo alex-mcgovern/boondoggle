@@ -27,12 +27,12 @@ import "./styles.css";
 export function DateInput({
     unstyled,
     ...props
-}: Omit<AriaDateInputProps, "children"> & {
+}: {
     /**
      * For use within a `Group` component, will remove all styles from the input.
      */
     unstyled?: boolean;
-}) {
+} & Omit<AriaDateInputProps, "children">) {
     return (
         <AriaDateInput
             {...props}
