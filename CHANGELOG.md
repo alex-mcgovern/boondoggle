@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.3](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.2...v4.0.3) (2024-07-01)
+
+
+### Bug Fixes
+
+* docs builds failing ([#104](https://github.com/alex-mcgovern/boondoggle/issues/104)) ([3c1f94d](https://github.com/alex-mcgovern/boondoggle/commit/3c1f94d24dd99008a6f8baa71133120f5e65ab90))
+
 ## [4.0.2](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.1...v4.0.2) (2024-07-01)
 
 
