@@ -19,6 +19,8 @@ import { NumberField } from "../number-field";
 import { TextField } from "../text-field";
 import { FormComboBox } from "./components/form-combobox";
 import { FormDatePicker } from "./components/form-date-picker";
+import { FormDropZone } from "./components/form-drop-zone";
+import { FormSelect } from "./components/form-select";
 
 function FormRoot<TFieldValues extends FieldValues>({
     children,
@@ -233,8 +235,10 @@ function FormFileTrigger(
 export const Form = {
     ComboBox: FormComboBox,
     DatePicker: FormDatePicker,
+    DropZone: FormDropZone,
     FileTrigger: FormFileTrigger,
     NumberField: FormNumberField,
     Root: FormRoot,
+    Select: FormSelect,
     TextField: FormTextField,
 };

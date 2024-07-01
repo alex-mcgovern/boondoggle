@@ -15,67 +15,7 @@ import { Button } from "../button";
 import { Icon } from "../icon";
 import "./styles.css";
 
-/**
- * Wrapper to render the dialog header.
- */
-export function MobileMenuHeader({
-    children,
-    close,
-    title,
-}: {
-    children?: ReactNode;
-    close: () => void;
-    title?: string;
-}) {
-    return (
-        <header className="mobile-menu-header">
-            {children}
-            {title ? (
-                <AriaHeading
-                    className="mobile-menu-title"
-                    slot="title"
-                >
-                    {title}
-                </AriaHeading>
-            ) : null}
-
-            <Button
-                appearance="ghost"
-                aria-label="Close"
-                className="ml-auto"
-                name="close"
-                onPress={close}
-                square
-                type="button"
-            >
-                <Icon icon={faTimes} />
-            </Button>
-        </header>
-    );
-}
-
-/**
- * Wrapper to render scrollable content within the dialog.
- */
-export function ScrollableMobileMenuContent({
-    children,
-}: {
-    children: ReactNode;
-}) {
-    return <div className="mobile-menu-content">{children}</div>;
-}
-
-/**
- * Wrapper to pin content to the bottom of the dialog.
- */
-export function MobileMenuFooter({ children }: { children: ReactNode }) {
-    return <footer className="mobile-menu-footer">{children}</footer>;
-}
-
-/**
- * A pre-composed mobile menu component.
- */
-export function MobileMenu({
+function Root({
     children,
     dialogTriggerProps,
     modalOverlayProps,
@@ -123,3 +63,57 @@ export function MobileMenu({
         </AriaDialogTrigger>
     );
 }
+
+function Header({
+    children,
+    close,
+    title,
+}: {
+    children?: ReactNode;
+    close: () => void;
+    title?: string;
+}) {
+    return (
+        <header className="mobile-menu-header">
+            {children}
+            {title ? (
+                <AriaHeading
+                    className="mobile-menu-title"
+                    slot="title"
+                >
+                    {title}
+                </AriaHeading>
+            ) : null}
+
+            <Button
+                appearance="ghost"
+                aria-label="Close"
+                className="ml-auto"
+                name="close"
+                onPress={close}
+                square
+                type="button"
+            >
+                <Icon icon={faTimes} />
+            </Button>
+        </header>
+    );
+}
+
+function Content({ children }: { children: ReactNode }) {
+    return <div className="mobile-menu-content">{children}</div>;
+}
+
+function Footer({ children }: { children: ReactNode }) {
+    return <footer className="mobile-menu-footer">{children}</footer>;
+}
+
+/**
+ * A pre-composed mobile menu component.
+ */
+export const MobileMenu = {
+    Content: Content,
+    Footer: Footer,
+    Header: Header,
+    Root: Root,
+};

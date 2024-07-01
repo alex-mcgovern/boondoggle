@@ -16,10 +16,7 @@ import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import "./styles.css";
 
-/**
- * Button for triggering the ComboBox.
- */
-export function ComboBoxButton() {
+function ComboBoxButton() {
     return (
         <FieldButton>
             <Icon icon={faAnglesUpDown} />
@@ -27,10 +24,7 @@ export function ComboBoxButton() {
     );
 }
 
-/**
- * Input for the ComboBox.
- */
-export const ComboBoxInput = forwardRef<
+const ComboBoxInput = forwardRef<
     HTMLInputElement,
     ComponentProps<typeof Input>
 >((props, ref) => {
@@ -53,6 +47,30 @@ export const ComboBoxInput = forwardRef<
     );
 });
 
+const ComboBoxRoot = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
+    ({ children, ...props }, ref) => {
+        return (
+            <AriaCombobox
+                {...props}
+                className={clsx(props.className, "combobox")}
+                ref={ref}
+            >
+                {(rp) => (
+                    <>
+                        {typeof children === "function"
+                            ? children(rp)
+                            : children}
+
+                        <Popover.Root>
+                            <ListBox<string> />
+                        </Popover.Root>
+                    </>
+                )}
+            </AriaCombobox>
+        );
+    },
+);
+
 /**
  * A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
  *
@@ -65,29 +83,65 @@ export const ComboBoxInput = forwardRef<
  * ## Usage
  *
  * ```tsx
- * import { ComboBox, ComboBoxButton } from "boondoggle";
+ * import { ComboBox, Label } from "boondoggle";
+ *
+ * <ComboBox.Root>
+ *   <Label>Pick a fruit</Label>
+ *   <Group>
+ *     <ComboBox.Input placeholder="Select a fruit..." unstyled />
+ *     <ComboBox.Button />
+ *   </Group>
+ * </ComboBox.Root>
  * ```
  */
-export const ComboBox = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
-    ({ children, ...props }, ref) => {
-        return (
-            <AriaCombobox
-                {...props}
-                className={clsx(props.className, "combobox")}
-                ref={ref}
-            >
-                {(renderProps) => (
-                    <>
-                        {typeof children === "function"
-                            ? children(renderProps)
-                            : children}
+export const ComboBox = {
+    Button: ComboBoxButton,
+    Input: ComboBoxInput,
+    Root: ComboBoxRoot,
+};
 
-                        <Popover>
-                            <ListBox<string> />
-                        </Popover>
-                    </>
-                )}
-            </AriaCombobox>
+if (import.meta.vitest) {
+    const { expect, it } = import.meta.vitest;
+    const { render } = await import("@testing-library/react");
+    const { userEvent } = await import("@testing-library/user-event");
+    const { Label } = await import("../label");
+    const { Group } = await import("../group");
+
+    it("Opens when clicking on input", async () => {
+        const user = userEvent.setup();
+
+        const { getByLabelText, getByRole } = render(
+            <ComboBox.Root defaultItems={[{ id: "abc123", name: "abc123" }]}>
+                <Label>ComboBox</Label>
+                <Group>
+                    <ComboBox.Input unstyled />
+                    <ComboBox.Button />
+                </Group>
+            </ComboBox.Root>,
         );
-    },
-);
+
+        const field = getByLabelText("ComboBox", { selector: "input" });
+        await user.click(field);
+
+        expect(getByRole("listbox")).toBeInTheDocument();
+    });
+
+    it("Opens when clicking on button", async () => {
+        const user = userEvent.setup();
+
+        const { getByLabelText, getByRole } = render(
+            <ComboBox.Root defaultItems={[{ id: "abc123", name: "abc123" }]}>
+                <Label>ComboBox</Label>
+                <Group>
+                    <ComboBox.Input unstyled />
+                    <ComboBox.Button />
+                </Group>
+            </ComboBox.Root>,
+        );
+
+        const field = getByLabelText("ComboBox", { selector: "button" });
+        await user.click(field);
+
+        expect(getByRole("listbox")).toBeInTheDocument();
+    });
+}

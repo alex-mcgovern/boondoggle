@@ -15,7 +15,7 @@ const meta = {
         children: (
             <>
                 <Button>Trigger</Button>
-                <Popover>
+                <Popover.Root>
                     <Menu.DropdownMenu>
                         <Menu.Section>
                             <Menu.Item>Item 1</Menu.Item>
@@ -23,7 +23,7 @@ const meta = {
                             <Menu.Item>Item 3</Menu.Item>
                         </Menu.Section>
                     </Menu.DropdownMenu>
-                </Popover>
+                </Popover.Root>
             </>
         ),
     },
@@ -41,7 +41,7 @@ export const PlacementRightTop: Story = {
         children: (
             <>
                 <Button>Trigger</Button>
-                <Popover placement="right top">
+                <Popover.Root placement="right top">
                     <Menu.DropdownMenu>
                         <Menu.Section>
                             <Menu.Item>Bananas</Menu.Item>
@@ -53,7 +53,7 @@ export const PlacementRightTop: Story = {
                             <Menu.Item>Sour cherry</Menu.Item>
                         </Menu.Section>
                     </Menu.DropdownMenu>
-                </Popover>
+                </Popover.Root>
             </>
         ),
     },
@@ -75,12 +75,12 @@ export const SubmenusWithMixedModes: Story = {
                     </Button>
                     <Tooltip.Body placement="bottom">Filter tasks</Tooltip.Body>
                 </Tooltip.Root>
-                <Popover placement="right top">
+                <Popover.Root placement="right top">
                     <Menu.DropdownMenu>
                         <Menu.Section>
                             <Menu.SubMenuTrigger>
                                 <Menu.Item>Status</Menu.Item>
-                                <Popover placement="right top">
+                                <Popover.Root placement="right top">
                                     <Menu.DropdownMenu
                                         aria-label="Filter by status"
                                         selectionMode="multiple"
@@ -98,12 +98,12 @@ export const SubmenusWithMixedModes: Story = {
                                             Completed
                                         </Menu.Item>
                                     </Menu.DropdownMenu>
-                                </Popover>
+                                </Popover.Root>
                             </Menu.SubMenuTrigger>
 
                             <Menu.SubMenuTrigger>
                                 <Menu.Item>Due date</Menu.Item>
-                                <Popover placement="right top">
+                                <Popover.Root placement="right top">
                                     <Menu.DropdownMenu
                                         aria-label="Filter by due date"
                                         selectionMode="single"
@@ -124,11 +124,11 @@ export const SubmenusWithMixedModes: Story = {
                                             Custom date range
                                         </Menu.Item>
                                     </Menu.DropdownMenu>
-                                </Popover>
+                                </Popover.Root>
                             </Menu.SubMenuTrigger>
                         </Menu.Section>
                     </Menu.DropdownMenu>
-                </Popover>
+                </Popover.Root>
             </>
         ),
     },

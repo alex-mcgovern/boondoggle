@@ -7,7 +7,7 @@ import { NumberField } from "..";
 import { Group } from "../../group";
 import { Input } from "../../input";
 import { Label } from "../../label";
-import { Select, SelectButton } from "../../select";
+import { Select } from "../../select";
 import { Toaster } from "../../toaster";
 
 const meta = {
@@ -101,7 +101,7 @@ export const WithCurrencySelect: Story = {
                         <Input />
                     </NumberField.Root>
 
-                    <Select
+                    <Select.Root
                         aria-label="Currency"
                         items={[
                             {
@@ -123,8 +123,8 @@ export const WithCurrencySelect: Story = {
                         placement="bottom end"
                         selectedKey={currency}
                     >
-                        <SelectButton />
-                    </Select>
+                        <Select.Button />
+                    </Select.Root>
                 </div>
             </div>
         );
