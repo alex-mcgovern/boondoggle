@@ -9,10 +9,7 @@ import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import "./styles.css";
 
-/**
- * A `FieldButton` to clear the search field. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
- */
-export function SearchFieldClearButton() {
+function SearchFieldClearButton() {
     return (
         <FieldButton className="search-field-clear-button">
             <Icon icon={faTimesCircle} />
@@ -20,14 +17,20 @@ export function SearchFieldClearButton() {
     );
 }
 
-/**
- * A `FieldButton` to copy the search field value to the clipboard. [Built with React Button component](https://react-spectrum.adobe.com/react-aria/Button.html)
- */
-export function SearchFieldIcon() {
+function SearchFieldIcon() {
     return (
         <Icon
             className="search-field-icon"
             icon={faSearch}
+        />
+    );
+}
+
+function SearchFieldRoot(props: AriaSearchFieldProps) {
+    return (
+        <AriaSearchField
+            {...props}
+            className={clsx(props.className, "search-field")}
         />
     );
 }
@@ -43,15 +46,20 @@ export function SearchFieldIcon() {
  *
  * ## Usage
  *
- * ```ts
- * import { SearchField } from "boondoggle";
+ * ```tsx
+ * import { SearchField, Input, Group } from "boondoggle";
+ *
+ * <SearchField.Root>
+ *  <Group>
+ *   <Group>
+ *     <Input icon={<SearchField.Icon />} />
+ *     <SearchField.ClearButton />
+ *   </Group>
+ * </SearchField.Root>
  * ```
  */
-export function SearchField(props: AriaSearchFieldProps) {
-    return (
-        <AriaSearchField
-            {...props}
-            className={clsx(props.className, "search-field")}
-        />
-    );
-}
+export const SearchField = {
+    ClearButton: SearchFieldClearButton,
+    Icon: SearchFieldIcon,
+    Root: SearchFieldRoot,
+};
