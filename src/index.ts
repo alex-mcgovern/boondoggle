@@ -36,11 +36,7 @@ export { Pill } from "./pill";
 export { Popover, PopoverOverlayArrow } from "./popover";
 export { Radio } from "./radio";
 export { RouterProvider } from "./router-provider";
-export {
-    SearchField,
-    SearchFieldClearButton,
-    SearchFieldIcon,
-} from "./search-field";
+export { SearchField } from "./search-field";
 export { FormSelect, Select, SelectButton } from "./select";
 export { Skeleton } from "./skeleton";
 export { Switch } from "./switch";

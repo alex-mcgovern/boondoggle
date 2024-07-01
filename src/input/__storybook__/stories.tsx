@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Input } from "..";
-import { SearchFieldIcon } from "../../search-field";
+import { SearchField } from "../../search-field";
 
 const meta = {
     args: {},
@@ -28,6 +28,6 @@ export const Invalid: Story = {
 
 export const Icon: Story = {
     args: {
-        icon: <SearchFieldIcon />,
+        icon: <SearchField.Icon />,
     },
 };
