@@ -13,7 +13,7 @@ export { DateInput } from "./date-input";
 export { DatePicker } from "./date-picker";
 export { Dialog } from "./dialog";
 export { DialogTrigger } from "./dialog-trigger";
-export { DropZone, FormDropZone } from "./drop-zone";
+export { DropZone } from "./drop-zone";
 export { FieldButton } from "./field-button";
 export { FieldDescription } from "./field-description";
 export { FieldError } from "./field-error";

@@ -1,14 +1,8 @@
-import type { ComponentProps } from "react";
-import type {
-    DropZoneProps as AriaDropZoneProps,
-    FileDropItem,
-} from "react-aria-components";
+import type { DropZoneProps as AriaDropZoneProps } from "react-aria-components";
 
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { FieldError } from "react-aria-components";
 import { DropZone as AriaDropZone } from "react-aria-components";
-import { useController, useFormContext } from "react-hook-form";
 
 import "./styles.css";
 
@@ -32,43 +26,3 @@ export const DropZone = forwardRef<HTMLDivElement, AriaDropZoneProps>(
         );
     },
 );
-
-/**
- *
- */
-export function FormDropZone(
-    props: ComponentProps<typeof DropZone> & { name: string },
-) {
-    const { control } = useFormContext();
-
-    const {
-        field: { onChange, ref },
-        fieldState: { error },
-    } = useController({
-        control,
-        name: props.name,
-    });
-
-    return (
-        <>
-            <DropZone
-                {...props}
-                onDrop={(e) => {
-                    if (props.onDrop) {
-                        props.onDrop(e);
-                    }
-                    const files = e.items.filter(
-                        (file) => file.kind === "file",
-                    ) as FileDropItem[];
-                    if (files[0]) {
-                        onChange(files[0].getFile());
-                    } else {
-                        onChange(null);
-                    }
-                }}
-                ref={ref}
-            />
-            <FieldError>{error?.message}</FieldError>
-        </>
-    );
-}
