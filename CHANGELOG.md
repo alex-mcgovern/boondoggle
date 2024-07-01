@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.0...v4.0.1) (2024-07-01)
+
+
+### Bug Fixes
+
+* relax version constraint on react dependency ([#99](https://github.com/alex-mcgovern/boondoggle/issues/99)) ([aaa1340](https://github.com/alex-mcgovern/boondoggle/commit/aaa1340df48ccdcafbe372359db172d5036f14e8))
+
 ## [4.0.0](https://github.com/alex-mcgovern/boondoggle/compare/v3.0.3...v4.0.0) (2024-07-01)
 
 
