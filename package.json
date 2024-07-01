@@ -2,7 +2,7 @@
     "author": "Alex McGovern",
     "name": "boondoggle",
     "description": "Boondoggle component library",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "license": "MIT",
     "sideEffects": [
         "**/*.css"
@@ -54,10 +54,10 @@
         "clsx": "2.1.1",
         "react-aria-components": "1.2.1",
         "react-hook-form": "7.52.0",
-        "sonner": "1.5.0",
-        "vite-plugin-dts": "3.9.1"
+        "sonner": "1.5.0"
     },
     "devDependencies": {
+        "vite-plugin-dts": "3.9.1",
         "@commitlint/cli": "19.3.0",
         "@commitlint/config-conventional": "19.2.2",
         "@commitlint/prompt-cli": "19.3.1",
@@ -88,7 +88,7 @@
         "jsdom": "24.1.0",
         "knip": "5.23.2",
         "prettier": "3.3.2",
-        "react": "18.3.1",
+        "react": "^18.3.1",
         "storybook": "8.1.11",
         "tslib": "2.6.3",
         "typescript": "5.5.2",
