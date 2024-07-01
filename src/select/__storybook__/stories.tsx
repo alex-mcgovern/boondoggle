@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Select, SelectButton } from "..";
+import { Select } from "..";
 
 const meta = {
     args: {
@@ -44,19 +44,19 @@ const meta = {
         ],
         placeholder: "Select a country",
     },
-    component: Select,
+    component: Select.Root,
     parameters: {
         layout: "padded",
     },
     render: (args) => {
         return (
-            <Select {...args}>
-                <SelectButton />
-            </Select>
+            <Select.Root {...args}>
+                <Select.Button />
+            </Select.Root>
         );
     },
     title: "Select",
-} satisfies Meta<typeof Select>;
+} satisfies Meta<typeof Select.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -65,9 +65,9 @@ export const Default: Story = {};
 export const Borderless: Story = {
     render: (args) => {
         return (
-            <Select {...args}>
-                <SelectButton variant="borderless" />
-            </Select>
+            <Select.Root {...args}>
+                <Select.Button variant="borderless" />
+            </Select.Root>
         );
     },
 };
