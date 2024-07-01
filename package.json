@@ -54,10 +54,10 @@
         "clsx": "2.1.1",
         "react-aria-components": "1.2.1",
         "react-hook-form": "7.52.0",
-        "sonner": "1.5.0",
-        "vite-plugin-dts": "3.9.1"
+        "sonner": "1.5.0"
     },
     "devDependencies": {
+        "vite-plugin-dts": "3.9.1",
         "@commitlint/cli": "19.3.0",
         "@commitlint/config-conventional": "19.2.2",
         "@commitlint/prompt-cli": "19.3.1",
