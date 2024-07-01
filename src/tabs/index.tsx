@@ -45,15 +45,15 @@ function Tab({ id, ...props }: AriaTabProps) {
 function TabList({
     center,
     ...props
-}: Omit<
-    AriaTabListProps<Omit<ComponentProps<typeof Tab>, "animationKey">>,
-    "className"
-> & {
+}: {
     /**
      * Whether to center the tabs.
      */
     center?: boolean;
-}) {
+} & Omit<
+    AriaTabListProps<Omit<ComponentProps<typeof Tab>, "animationKey">>,
+    "className"
+>) {
     return (
         <AriaTabList
             className={clsx("tab-list", { center })}

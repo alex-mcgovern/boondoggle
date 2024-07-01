@@ -12,7 +12,7 @@ import "./styles.css";
  */
 export const Input = forwardRef<
     HTMLInputElement,
-    AriaInputProps & {
+    {
         /**
          * The icon to display on the left side of the input.
          * Designed for use with the `Icon` component from boondoggle, but can be any React node.
@@ -27,7 +27,7 @@ export const Input = forwardRef<
          * For use within a `Group` component, will remove all styles from the input.
          */
         unstyled?: boolean;
-    }
+    } & AriaInputProps
 >(({ icon, right, unstyled, ...props }, ref) => {
     return (
         <div className="input-container">

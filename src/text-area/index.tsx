@@ -11,9 +11,9 @@ import "./styles.css";
 export function TextArea({
     resize = "vertical",
     ...props
-}: AriaTextAreaProps & {
+}: {
     resize?: "block" | "both" | "horizontal" | "inline" | "none" | "vertical";
-}) {
+} & AriaTextAreaProps) {
     return (
         <AriaTextArea
             {...props}

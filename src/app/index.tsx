@@ -235,7 +235,7 @@ function DrawerHeader({
     children,
     title,
     ...props
-}: HTMLProps<HTMLElement> & { title: string }) {
+}: { title: string } & HTMLProps<HTMLElement>) {
     return (
         <header
             className="app-drawer-header"
@@ -301,10 +301,10 @@ function NavLink({
     icon,
     isCurrent,
     ...props
-}: Omit<ComponentProps<typeof LinkButton>, "sm" | "square"> & {
+}: {
     icon: IconProp;
     isCurrent?: boolean;
-}) {
+} & Omit<ComponentProps<typeof LinkButton>, "sm" | "square">) {
     const [isOpen] = useNavContext();
 
     return (
@@ -341,10 +341,10 @@ function NavButton({
     appearance = "ghost",
     icon,
     ...props
-}: Omit<ComponentProps<typeof Button>, "sm" | "square"> & {
+}: {
     icon: IconProp;
     isCurrent?: boolean;
-}) {
+} & Omit<ComponentProps<typeof Button>, "sm" | "square">) {
     const [isOpen] = useNavContext();
 
     return (
