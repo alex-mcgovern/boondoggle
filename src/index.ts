@@ -30,12 +30,7 @@ export { type IterableListBoxItem, ListBox } from "./list-box";
 export { Loader } from "./loader";
 export { type IterableMenuItem, Menu } from "./menu";
 export { MenuTrigger } from "./menu-trigger";
-export {
-    MobileMenu,
-    MobileMenuFooter,
-    MobileMenuHeader,
-    ScrollableMobileMenuContent,
-} from "./mobile-menu";
+export { MobileMenu } from "./mobile-menu";
 export { NumberField } from "./number-field";
 export { Pill } from "./pill";
 export { Popover, PopoverOverlayArrow } from "./popover";
