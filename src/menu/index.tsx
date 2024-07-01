@@ -38,38 +38,37 @@ function SubMenuTrigger(props: AriaSubMenuTriggerProps) {
     return <AriaSubMenuTrigger {...props} />;
 }
 
-type SingleMenuItem<TItemId extends string = string> =
-    {
-        children?: never;
-        /**
-         * A description of the menu item, that is shown in the UI to the user.
-         */
-        description?: string;
-        /**
-         * A href to navigate to when the item is clicked.
-         */
-        href?: string;
-        /**
-         * The unique identifier for the menu item.
-         */
-        id: TItemId;
-        /**
-         * The name of the menu item, that is shown in the UI to the user.
-         */
-        name: string;
-        /**
-         * The icon to display on the left side of the menu item.
-         */
-        slotLeft?: ReactNode;
-        /**
-         * Tags used to filter the menu items.
-         */
-        tags?: Array<string>;
-        /**
-         * @deprecated
-         */
-        type?: never;
-    } & AnchorHTMLAttributes<HTMLAnchorElement>;
+type SingleMenuItem<TItemId extends string = string> = {
+    children?: never;
+    /**
+     * A description of the menu item, that is shown in the UI to the user.
+     */
+    description?: string;
+    /**
+     * A href to navigate to when the item is clicked.
+     */
+    href?: string;
+    /**
+     * The unique identifier for the menu item.
+     */
+    id: TItemId;
+    /**
+     * The name of the menu item, that is shown in the UI to the user.
+     */
+    name: string;
+    /**
+     * The icon to display on the left side of the menu item.
+     */
+    slotLeft?: ReactNode;
+    /**
+     * Tags used to filter the menu items.
+     */
+    tags?: Array<string>;
+    /**
+     * @deprecated
+     */
+    type?: never;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type IterableMenuItem<TItemId extends string = string> =
     | {
