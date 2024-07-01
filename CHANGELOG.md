@@ -1,5 +1,37 @@
 # Changelog
 
+## [4.0.0](https://github.com/alex-mcgovern/boondoggle/compare/v3.0.3...v4.0.0) (2024-07-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* move `Popover` components into namespace ([#98](https://github.com/alex-mcgovern/boondoggle/issues/98))
+* move `DropZone` components into namespace, and `FormDropZone` into `Form` namespace ([#97](https://github.com/alex-mcgovern/boondoggle/issues/97))
+* move `Select` components into namespace, and `FormSelect` into `Form` namespace ([#96](https://github.com/alex-mcgovern/boondoggle/issues/96))
+* move `MobileMenu` components into namespace ([#95](https://github.com/alex-mcgovern/boondoggle/issues/95))
+* move SearchField components into namespace ([#94](https://github.com/alex-mcgovern/boondoggle/issues/94))
+* move ComboBox components into namespace, add more tests ([#93](https://github.com/alex-mcgovern/boondoggle/issues/93))
+* move `DatePicker` and components into namespace ([#87](https://github.com/alex-mcgovern/boondoggle/issues/87))
+* move FormCombobox into Form namespace ([#81](https://github.com/alex-mcgovern/boondoggle/issues/81))
+* rename & move `FilterMenu` sub-components into namespaces ([#78](https://github.com/alex-mcgovern/boondoggle/issues/78))
+
+### Bug Fixes
+
+* **FileTrigger:** move `FormFileTrigger`  into `Form` namespace ([#80](https://github.com/alex-mcgovern/boondoggle/issues/80)) ([881acc5](https://github.com/alex-mcgovern/boondoggle/commit/881acc5e7502ca9febfe5340c31641444f626a21))
+* rename & move `FilterMenu` sub-components into namespaces ([#78](https://github.com/alex-mcgovern/boondoggle/issues/78)) ([376262b](https://github.com/alex-mcgovern/boondoggle/commit/376262bb4847c95b5f6e75016112f26b35a2a078))
+
+
+### Code Refactoring
+
+* move `DatePicker` and components into namespace ([#87](https://github.com/alex-mcgovern/boondoggle/issues/87)) ([14a6525](https://github.com/alex-mcgovern/boondoggle/commit/14a65255f8cfa6f9148581b24ee64e016be8bfca))
+* move `DropZone` components into namespace, and `FormDropZone` into `Form` namespace ([#97](https://github.com/alex-mcgovern/boondoggle/issues/97)) ([00f4d40](https://github.com/alex-mcgovern/boondoggle/commit/00f4d404ea012ddb8b3ef54244a87a36e4d4da71))
+* move `MobileMenu` components into namespace ([#95](https://github.com/alex-mcgovern/boondoggle/issues/95)) ([601de8e](https://github.com/alex-mcgovern/boondoggle/commit/601de8ecdbe92d605bf4705105ad48256cbb9f90))
+* move `Popover` components into namespace ([#98](https://github.com/alex-mcgovern/boondoggle/issues/98)) ([b0cafbf](https://github.com/alex-mcgovern/boondoggle/commit/b0cafbfc58a443d96bc5821ad787f7dfa305833e))
+* move `Select` components into namespace, and `FormSelect` into `Form` namespace ([#96](https://github.com/alex-mcgovern/boondoggle/issues/96)) ([a8b8514](https://github.com/alex-mcgovern/boondoggle/commit/a8b851406d4e7f855d36d3702bb413fe52334623))
+* move ComboBox components into namespace, add more tests ([#93](https://github.com/alex-mcgovern/boondoggle/issues/93)) ([fd96d62](https://github.com/alex-mcgovern/boondoggle/commit/fd96d628406a86e5e038b68651d5bac04d72d8cb))
+* move FormCombobox into Form namespace ([#81](https://github.com/alex-mcgovern/boondoggle/issues/81)) ([df89dff](https://github.com/alex-mcgovern/boondoggle/commit/df89dffc4c560340dd37785477292a14dffd76e9))
+* move SearchField components into namespace ([#94](https://github.com/alex-mcgovern/boondoggle/issues/94)) ([a09877d](https://github.com/alex-mcgovern/boondoggle/commit/a09877d52f748b9eaedcb7570cdab8a6f1c95248))
+
 ## [3.0.3](https://github.com/alex-mcgovern/boondoggle/compare/v3.0.2...v3.0.3) (2024-06-30)
 
 
