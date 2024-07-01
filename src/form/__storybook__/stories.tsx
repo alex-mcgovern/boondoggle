@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Form } from "..";
 import { Button } from "../../button";
-import { ComboBoxInput } from "../../combo-box";
+import { ComboBox } from "../../combo-box";
 import { Label } from "../../label";
 
 const meta = {
@@ -33,7 +33,7 @@ export const WithComboBox: Story = {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </>
