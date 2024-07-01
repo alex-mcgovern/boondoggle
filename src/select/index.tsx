@@ -62,8 +62,7 @@ const SelectRoot = forwardRef<
         /**
          * The placement of the select popover.
          */
-        placement?: ComponentProps<typeof Popover>["placement"];
-
+        placement?: ComponentProps<typeof Popover.Root>["placement"];
         /**
          * React ref to the Select element.
          */
@@ -82,9 +81,9 @@ const SelectRoot = forwardRef<
                         ? children(values)
                         : children}
 
-                    <Popover placement={props.placement}>
+                    <Popover.Root placement={props.placement}>
                         <ListBox<string> items={props.items} />
-                    </Popover>
+                    </Popover.Root>
                 </>
             )}
         </AriaSelect>

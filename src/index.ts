@@ -33,7 +33,7 @@ export { MenuTrigger } from "./menu-trigger";
 export { MobileMenu } from "./mobile-menu";
 export { NumberField } from "./number-field";
 export { Pill } from "./pill";
-export { Popover, PopoverOverlayArrow } from "./popover";
+export { Popover } from "./popover";
 export { Radio } from "./radio";
 export { RouterProvider } from "./router-provider";
 export { SearchField } from "./search-field";

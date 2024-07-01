@@ -11,10 +11,7 @@ import {
 
 import "./styles.css";
 
-/**
- * A `PopoverOverlayArrow` component, for use with a `Popover` component. [Built with React Aria PopoverOverlayArrow component](https://react-spectrum.adobe.com/react-aria/Popover.html#overlayarrow)
- */
-export function PopoverOverlayArrow({ ...props }: AriaOverlayArrowProps) {
+function PopoverOverlayArrow({ ...props }: AriaOverlayArrowProps) {
     return (
         <AriaOverlayArrow
             className={clsx(props.className, "overlay-arrow")}
@@ -28,6 +25,16 @@ export function PopoverOverlayArrow({ ...props }: AriaOverlayArrowProps) {
                 <path d="M0 0 L6 6 L12 0" />
             </svg>
         </AriaOverlayArrow>
+    );
+}
+
+function PopoverRoot({ ...props }: AriaPopoverProps) {
+    return (
+        <AriaPopover
+            {...props}
+            className={clsx(props.className, "popover")}
+            offset={4}
+        />
     );
 }
 
@@ -46,12 +53,7 @@ export function PopoverOverlayArrow({ ...props }: AriaOverlayArrowProps) {
  * import { Popover } from "boondoggle";
  * ```
  */
-export function Popover({ ...props }: AriaPopoverProps) {
-    return (
-        <AriaPopover
-            {...props}
-            className={clsx(props.className, "popover")}
-            offset={4}
-        />
-    );
-}
+export const Popover = {
+    OverlayArrow: PopoverOverlayArrow,
+    Root: PopoverRoot,
+};
