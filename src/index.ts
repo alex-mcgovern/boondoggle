@@ -37,7 +37,7 @@ export { Popover, PopoverOverlayArrow } from "./popover";
 export { Radio } from "./radio";
 export { RouterProvider } from "./router-provider";
 export { SearchField } from "./search-field";
-export { FormSelect, Select, SelectButton } from "./select";
+export { Select } from "./select";
 export { Skeleton } from "./skeleton";
 export { Switch } from "./switch";
 export { Table } from "./table";

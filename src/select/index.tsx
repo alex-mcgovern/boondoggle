@@ -12,20 +12,15 @@ import {
     Select as AriaSelect,
     SelectValue as AriaSelectValue,
 } from "react-aria-components";
-import { useController, useFormContext } from "react-hook-form";
 
 import type { IterableListBoxItem } from "../list-box";
 
-import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import "./styles.css";
 
-/**
- * A `SelectButton` component, for use with a `Select` component. [Built with React Aria SelectButton component](https://react-spectrum.adobe.com/react-aria/Select.html#button)
- */
-export function SelectButton<TItemId extends string = string>({
+function SelectButton<TItemId extends string = string>({
     variant = "default",
     ...props
 }: AriaButtonProps & {
@@ -57,22 +52,7 @@ export function SelectButton<TItemId extends string = string>({
     );
 }
 
-/**
- * A select displays a collapsible list of options and allows a user to select one of them. [Built with React Aria Select component](https://react-spectrum.adobe.com/react-aria/Select.html)
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```ts
- * import { Select } from "boondoggle";
- * ```
- */
-export const Select = forwardRef<
+const SelectRoot = forwardRef<
     HTMLDivElement,
     AriaSelectProps<IterableListBoxItem<string>> & {
         /**
@@ -112,60 +92,26 @@ export const Select = forwardRef<
 });
 
 /**
- * A `FormSelect` connects a `Select` to a `Form` component using `react-hook-form`.
+ * A select displays a collapsible list of options and allows a user to select one of them. [Built with React Aria Select component](https://react-spectrum.adobe.com/react-aria/Select.html)
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Select.html)
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * import { Select, Label } from "boondoggle";
+ *
+ * <Select.Root>
+ *  <Label>Choose a color</Label>
+ *  <Select.Button />
+ * </Select.Root>
+ * ```
  */
-export function FormSelect({
-    children,
-    ...props
-}: ComponentProps<typeof Select>) {
-    if (!props.name) {
-        throw new Error("FormSelect requires a name prop");
-    }
-
-    const { control } = useFormContext();
-
-    const {
-        field: {
-            disabled: isDisabled,
-            name,
-            onBlur,
-            onChange,
-            ref,
-            value = "",
-        },
-        fieldState: { error, invalid },
-    } = useController({
-        control,
-        defaultValue: props.selectedKey || props.defaultSelectedKey,
-        name: props.name,
-    });
-
-    return (
-        <Select
-            {...props}
-            defaultSelectedKey={value}
-            isDisabled={isDisabled}
-            isInvalid={invalid}
-            name={name}
-            onBlur={onBlur}
-            onSelectionChange={(k) => {
-                onChange(k);
-                props.onSelectionChange?.(k);
-            }}
-            ref={ref}
-            selectedKey={value}
-            validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
-        >
-            {() => {
-                return (
-                    <>
-                        {children}
-                        <FieldError>{error?.message}</FieldError>
-                    </>
-                );
-            }}
-        </Select>
-    );
-}
+export const Select = {
+    Button: SelectButton,
+    Root: SelectRoot,
+};
