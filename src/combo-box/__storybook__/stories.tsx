@@ -5,15 +5,15 @@ import { faSquare1 } from "@fortawesome/pro-duotone-svg-icons/faSquare1";
 import { faSquare2 } from "@fortawesome/pro-duotone-svg-icons/faSquare2";
 import { faSquare3 } from "@fortawesome/pro-duotone-svg-icons/faSquare3";
 
-import { ComboBox, ComboBoxButton, ComboBoxInput } from "..";
+import { ComboBox } from "..";
 import { Group } from "../../group";
 import { Icon } from "../../icon";
 import { Label } from "../../label";
 
 const meta = {
-    component: ComboBox,
+    component: ComboBox.Root,
     title: "ComboBox",
-} satisfies Meta<typeof ComboBox>;
+} satisfies Meta<typeof ComboBox.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -24,11 +24,11 @@ export const Default: Story = {
             <>
                 <Label>Pick a fruit</Label>
                 <Group>
-                    <ComboBoxInput
+                    <ComboBox.Input
                         placeholder="Select a fruit..."
                         unstyled
                     />
-                    <ComboBoxButton />
+                    <ComboBox.Button />
                 </Group>
             </>
         ),
@@ -63,11 +63,11 @@ export const WithDefaultSelectedKey: Story = {
             <>
                 <Label>Pick a fruit</Label>
                 <Group>
-                    <ComboBoxInput
+                    <ComboBox.Input
                         placeholder="Select a fruit..."
                         unstyled
                     />
-                    <ComboBoxButton />
+                    <ComboBox.Button />
                 </Group>
             </>
         ),

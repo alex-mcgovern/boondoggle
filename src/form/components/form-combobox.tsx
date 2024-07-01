@@ -33,7 +33,7 @@ export function FormComboBox<TItemId extends string = string>({
     });
 
     return (
-        <ComboBox
+        <ComboBox.Root
             {...props}
             isDisabled={disabled}
             isInvalid={invalid}
@@ -47,17 +47,17 @@ export function FormComboBox<TItemId extends string = string>({
             selectedKey={value ?? ""}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
         >
-            {(renderProps) => {
+            {(rp) => {
                 return (
                     <>
                         {typeof children === "function"
-                            ? children(renderProps)
+                            ? children(rp)
                             : children}
                         <FieldError>{error?.message}</FieldError>
                     </>
                 );
             }}
-        </ComboBox>
+        </ComboBox.Root>
     );
 }
 
@@ -67,7 +67,7 @@ if (import.meta.vitest) {
     const { userEvent } = await import("@testing-library/user-event");
     const { Form } = await import("../..");
     const { Button } = await import("../../button");
-    const { ComboBoxInput } = await import("../../combo-box");
+    const { ComboBox } = await import("../../combo-box");
     const { Label } = await import("../../label");
     const { useEffect } = await import("react");
 
@@ -104,7 +104,7 @@ if (import.meta.vitest) {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
@@ -140,7 +140,7 @@ if (import.meta.vitest) {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
@@ -186,7 +186,7 @@ if (import.meta.vitest) {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
@@ -216,7 +216,7 @@ if (import.meta.vitest) {
                     selectedKey="abc123"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
@@ -246,7 +246,7 @@ if (import.meta.vitest) {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
@@ -280,7 +280,7 @@ if (import.meta.vitest) {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
@@ -322,7 +322,7 @@ if (import.meta.vitest) {
                     name="combobox"
                 >
                     <Label>ComboBox</Label>
-                    <ComboBoxInput />
+                    <ComboBox.Input />
                 </Form.ComboBox>
                 <Button type="submit">Submit</Button>
             </Form.Root>,
