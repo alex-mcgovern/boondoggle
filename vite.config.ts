@@ -14,7 +14,15 @@ export default defineConfig({
         },
         minify: false,
         rollupOptions: {
-            external: [...Object.keys(pkg.dependencies), "react/jsx-runtime"],
+            external: [
+                ...Object.keys(pkg.dependencies).map(
+                    (key) => new RegExp(`^${key}`),
+                ),
+                ...Object.keys(pkg.peerDependencies).map(
+                    (key) => new RegExp(`^${key}`),
+                ),
+                "react/jsx-runtime",
+            ],
             output: {
                 globals: {
                     react: "react",
