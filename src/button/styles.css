@@ -2,7 +2,8 @@
 
 .btn {
     --btn-background: var(--blue-9);
-    --btn-background-active: var(--blue-10);
+    --btn-background-hover: var(--blue-10);
+    --btn-background-pressed: var(--blue-11);
     --btn-text-color: var(--slate-1);
 
     --btn-border-color: transparent;
@@ -16,7 +17,7 @@
     --btn-outline-size: 2px;
 
     --btn-padding-y: var(--space-2);
-    --btn-padding-x: var(--space-2);
+    --btn-padding-x: var(--space-3);
 
     --btn-radius: var(--radius-md);
     --btn-height: var(--ui-height-sm);
@@ -45,12 +46,6 @@
     height: var(--btn-height);
     padding: var(--btn-padding-y) var(--btn-padding-x);
 
-    @media (prefers-reduced-motion: no-preference) {
-        transition-duration: var(--dur-short);
-        transition-property: background-color, border-color, color, outline;
-        transition-timing-function: var(--ease-quart-in-out);
-    }
-
     &:has(.icon) {
         &:not(.square) {
             /* The reason for the calc is to ensure that 
@@ -74,9 +69,12 @@
     }
 
     &[data-focus-visible],
-    &[data-hovered],
+    &[data-hovered] {
+        background-color: var(--btn-background-hover);
+    }
+
     &[data-pressed] {
-        background-color: var(--btn-background-active);
+        background-color: var(--btn-background-pressed);
     }
 
     &[data-focused] {
@@ -88,21 +86,20 @@
     }
 
     &.secondary {
-        --btn-background-active: var(--slate-3);
-        --btn-background: var(--slate-2);
         --btn-border-color: var(--slate-5);
-        --btn-text-color: var(--slate-12);
     }
 
+    &.secondary,
     &.ghost {
-        --btn-background-active: var(--slate-3);
-        --btn-background: transparent;
+        --btn-background-hover: var(--slate-3);
+        --btn-background-pressed: var(--slate-4);
+        --btn-background: var(--slate-2);
         --btn-text-color: var(--slate-12);
     }
 
     &.sm {
         --btn-padding-y: var(--space-2);
-        --btn-padding-x: var(--space-2);
+        --btn-padding-x: var(--space-3);
 
         --btn-height: var(--ui-height-sm);
     }
@@ -158,77 +155,77 @@
 
     &.blue {
         --btn-background: var(--blue-9);
-        --btn-background-active: var(--blue-10);
+        --btn-background-hover: var(--blue-10);
+        --btn-background-pressed: var(--blue-11);
         --btn-text-color: var(--blue-1);
 
         &.secondary {
-            --btn-background-active: var(--blue-3);
-            --btn-background: var(--blue-2);
             --btn-border-color: var(--blue-6);
-            --btn-text-color: var(--blue-11);
         }
 
+        &.secondary,
         &.ghost {
-            --btn-background-active: var(--blue-3);
-            --btn-background: transparent;
+            --btn-background-hover: var(--blue-3);
+            --btn-background-pressed: var(--blue-4);
+            --btn-background: var(--blue-2);
             --btn-text-color: var(--blue-11);
         }
     }
 
     &.red {
         --btn-background: var(--red-9);
-        --btn-background-active: var(--red-10);
+        --btn-background-hover: var(--red-10);
+        --btn-background-pressed: var(--red-11);
         --btn-text-color: var(--red-1);
 
         &.secondary {
-            --btn-background-active: var(--red-3);
-            --btn-background: var(--red-2);
             --btn-border-color: var(--red-6);
-            --btn-text-color: var(--red-11);
         }
 
+        &.secondary,
         &.ghost {
-            --btn-background-active: var(--red-3);
-            --btn-background: transparent;
+            --btn-background-hover: var(--red-3);
+            --btn-background-pressed: var(--red-4);
+            --btn-background: var(--red-2);
             --btn-text-color: var(--red-11);
         }
     }
 
     &.green {
         --btn-background: var(--green-9);
-        --btn-background-active: var(--green-10);
+        --btn-background-hover: var(--green-10);
+        --btn-background-pressed: var(--green-11);
         --btn-text-color: var(--green-1);
 
         &.secondary {
-            --btn-background-active: var(--green-3);
-            --btn-background: var(--green-2);
             --btn-border-color: var(--green-6);
-            --btn-text-color: var(--green-11);
         }
 
+        &.secondary,
         &.ghost {
-            --btn-background-active: var(--green-3);
-            --btn-background: transparent;
+            --btn-background-hover: var(--green-3);
+            --btn-background-pressed: var(--green-4);
+            --btn-background: var(--green-2);
             --btn-text-color: var(--green-11);
         }
     }
 
     &.amber {
         --btn-background: var(--amber-9);
-        --btn-background-active: var(--amber-10);
+        --btn-background-hover: var(--amber-10);
+        --btn-background-pressed: var(--amber-11);
         --btn-text-color: var(--amber-1);
 
         &.secondary {
-            --btn-background-active: var(--amber-3);
-            --btn-background: var(--amber-2);
             --btn-border-color: var(--amber-6);
-            --btn-text-color: var(--amber-10);
         }
 
+        &.secondary,
         &.ghost {
-            --btn-background-active: var(--amber-3);
-            --btn-background: transparent;
-            --btn-text-color: var(--amber-10);
+            --btn-background-hover: var(--amber-3);
+            --btn-background-pressed: var(--amber-4);
+            --btn-background: var(--amber-2);
+            --btn-text-color: var(--amber-11);
         }
     }
 }
