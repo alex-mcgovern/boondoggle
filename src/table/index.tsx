@@ -70,11 +70,11 @@ function Column({
     center,
     right,
     ...props
-}: AriaColumnProps & {
+}: {
     center?: boolean;
     right?: boolean;
     sticky?: boolean;
-}) {
+} & AriaColumnProps) {
     return (
         <AriaColumn
             {...props}
@@ -113,7 +113,7 @@ function Column({
 function TableHeader<T extends object>({
     sticky,
     ...props
-}: AriaTableHeaderProps<T> & { sticky?: boolean }) {
+}: { sticky?: boolean } & AriaTableHeaderProps<T>) {
     const { allowsDragging, selectionBehavior, selectionMode } =
         useTableOptions();
 
@@ -143,7 +143,7 @@ function TableHeader<T extends object>({
 /**
  * A `Cell` component, for use with a `Row` component. [Built with React Aria Cell component](https://react-spectrum.adobe.com/react-aria/Table.html#cell)
  */
-function Cell(props: AriaCellProps & { center?: boolean; right?: boolean }) {
+function Cell(props: { center?: boolean; right?: boolean } & AriaCellProps) {
     return (
         <AriaCell
             {...props}
@@ -235,7 +235,7 @@ const TableBody = forwardRef<
 function TableRoot({
     compact,
     ...props
-}: AriaTableProps & { compact?: boolean }) {
+}: { compact?: boolean } & AriaTableProps) {
     return (
         <AriaTable
             {...props}

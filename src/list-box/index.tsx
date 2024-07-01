@@ -114,12 +114,12 @@ function ListBoxItem<TItemId extends string = string>({
     icon,
     value,
     ...props
-}: AriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
+}: {
     /**
      * The icon to display on the left side of the menu item.
      */
     icon?: ReactNode;
-}) {
+} & AriaListBoxItemProps<SingleListBoxItem<TItemId>>) {
     return (
         <AriaListBoxItem
             className={clsx(props.className, "dropdown-menu-item", {

@@ -24,7 +24,7 @@ export function PageHeader({
     children,
     className,
     ...rest
-}: HTMLProps<HTMLElement> & {
+}: {
     /**
      * Actions to be displayed on the right side of the pageheader.
      */
@@ -34,7 +34,7 @@ export function PageHeader({
      * Main content.
      */
     children: ReactNode;
-}) {
+} & HTMLProps<HTMLElement>) {
     return (
         <header
             className={clsx(className, "page-header")}

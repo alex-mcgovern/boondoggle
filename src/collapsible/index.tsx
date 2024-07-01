@@ -10,7 +10,7 @@ import { Icon } from "../icon";
 import "./styles.css";
 
 function Trigger(
-    props: AriaButtonProps & { ref?: ForwardedRef<HTMLButtonElement> },
+    props: { ref?: ForwardedRef<HTMLButtonElement> } & AriaButtonProps,
 ) {
     return (
         <Button

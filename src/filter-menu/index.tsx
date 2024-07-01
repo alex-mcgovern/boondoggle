@@ -18,12 +18,12 @@ import "./styles.css";
 function FilterMenuRoot({
     isFilterApplied,
     ...props
-}: AriaGroupProps & {
+}: {
     /**
      * Whether a filter is applied to the group.
      */
     isFilterApplied: boolean;
-}) {
+} & AriaGroupProps) {
     return (
         <AriaGroup
             {...props}
