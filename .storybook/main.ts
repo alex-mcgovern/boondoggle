@@ -1,5 +1,5 @@
 import type { StorybookConfig } from "storybook";
-import { mergeConfig } from "vite";
+import { withoutVitePlugins } from "@storybook/builder-vite";
 
 const config: StorybookConfig = {
     addons: ["@storybook/addon-essentials"],
@@ -16,6 +16,12 @@ const config: StorybookConfig = {
             },
         },
     }),
+    async viteFinal(config) {
+        return {
+            ...config,
+            plugins: await withoutVitePlugins(config.plugins, ["vite:dts"]),
+        };
+    },
     typescript: {
         check: false,
         checkOptions: {},
