@@ -35,7 +35,7 @@ function SideNav() {
                         >
                             Create a file
                         </App.Nav.Button>
-                        <Popover placement="right top">
+                        <Popover.Root placement="right top">
                             <Menu.DropdownMenu>
                                 <Menu.Section>
                                     <Menu.Item>Create new document</Menu.Item>
@@ -54,7 +54,7 @@ function SideNav() {
                                     </Menu.Item>
                                 </Menu.Section>
                             </Menu.DropdownMenu>
-                        </Popover>
+                        </Popover.Root>
                     </Menu.Trigger>
                 </div>
             </App.Nav.Section>

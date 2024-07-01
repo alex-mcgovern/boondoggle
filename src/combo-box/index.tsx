@@ -61,9 +61,9 @@ const ComboBoxRoot = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
                             ? children(rp)
                             : children}
 
-                        <Popover>
+                        <Popover.Root>
                             <ListBox<string> />
-                        </Popover>
+                        </Popover.Root>
                     </>
                 )}
             </AriaCombobox>

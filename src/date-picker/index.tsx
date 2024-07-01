@@ -81,14 +81,14 @@ const DatePickerRoot = forwardRef<
                         {typeof props.children === "function"
                             ? props.children(values)
                             : props.children}
-                        <Popover
+                        <Popover.Root
                             className="p-1"
                             placement="bottom end"
                         >
                             <Dialog>
                                 <Calendar />
                             </Dialog>
-                        </Popover>
+                        </Popover.Root>
                     </>
                 );
             }}
