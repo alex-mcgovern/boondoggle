@@ -2,23 +2,18 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { faker } from "@faker-js/faker";
 
-import {
-    MobileMenu,
-    MobileMenuFooter,
-    MobileMenuHeader,
-    ScrollableMobileMenuContent,
-} from "..";
+import { MobileMenu } from "..";
 import { Button } from "../../button";
 
 const meta = {
     args: {
         children: ({ close }) => (
             <>
-                <MobileMenuHeader
+                <MobileMenu.Header
                     close={close}
                     title="MobileMenu Title"
                 />
-                <ScrollableMobileMenuContent>
+                <MobileMenu.Content>
                     <>
                         <p>
                             A modal MobileMenu component powered by{" "}
@@ -34,8 +29,8 @@ const meta = {
                             );
                         })}
                     </>
-                </ScrollableMobileMenuContent>
-                <MobileMenuFooter>
+                </MobileMenu.Content>
+                <MobileMenu.Footer>
                     <Button
                         // className={css({ width: "100%" })}
                         onPress={() => {
@@ -45,16 +40,16 @@ const meta = {
                     >
                         Confirm
                     </Button>
-                </MobileMenuFooter>
+                </MobileMenu.Footer>
             </>
         ),
         modalOverlayProps: {
             isDismissable: true,
         },
     },
-    component: MobileMenu,
+    component: MobileMenu.Root,
     title: "MobileMenu",
-} satisfies Meta<typeof MobileMenu>;
+} satisfies Meta<typeof MobileMenu.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
