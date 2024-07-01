@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.1...v4.0.2) (2024-07-01)
+
+
+### Bug Fixes
+
+* `react` being bundled as peerDeps not marked as external in vite config ([#101](https://github.com/alex-mcgovern/boondoggle/issues/101)) ([abc8da3](https://github.com/alex-mcgovern/boondoggle/commit/abc8da33cff1731bd0117d68642f2ef6352e80df))
+
 ## [4.0.1](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.0...v4.0.1) (2024-07-01)
 
 
