@@ -19,6 +19,7 @@ import { NumberField } from "../number-field";
 import { TextField } from "../text-field";
 import { FormComboBox } from "./components/form-combobox";
 import { FormDatePicker } from "./components/form-date-picker";
+import { FormSelect } from "./components/form-select";
 
 function FormRoot<TFieldValues extends FieldValues>({
     children,
@@ -236,5 +237,6 @@ export const Form = {
     FileTrigger: FormFileTrigger,
     NumberField: FormNumberField,
     Root: FormRoot,
+    Select: FormSelect,
     TextField: FormTextField,
 };
