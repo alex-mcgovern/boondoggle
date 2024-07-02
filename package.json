@@ -83,7 +83,7 @@
         "eslint-plugin-jsdoc": "48.5.0",
         "eslint-plugin-perfectionist": "2.11.0",
         "eslint-plugin-react": "7.34.3",
-        "eslint-plugin-react-hooks": "4.6.0",
+        "eslint-plugin-react-hooks": "4.6.2",
         "husky": "9.0.11",
         "jsdom": "24.1.0",
         "knip": "5.23.3",
