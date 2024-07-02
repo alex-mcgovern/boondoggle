@@ -116,28 +116,14 @@ export const SizeSquare: Story = {
 
 export const SlotLeft: Story = {
     args: {
-        children: (
-            <>
-                <Icon
-                    data-slot="left"
-                    icon={faShapes}
-                />
-                Button
-            </>
-        ),
+        children: "Slot left",
+        slotLeft: <Icon icon={faShapes} />,
     },
 };
 
 export const SlotRight: Story = {
     args: {
-        children: (
-            <>
-                Button
-                <Icon
-                    data-slot="left"
-                    icon={faShapes}
-                />
-            </>
-        ),
+        children: "Slot right",
+        slotRight: <Icon icon={faShapes} />,
     },
 };

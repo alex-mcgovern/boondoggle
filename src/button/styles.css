@@ -17,7 +17,7 @@
     --btn-outline-size: 2px;
 
     --btn-padding-y: var(--space-2);
-    --btn-padding-x: var(--space-3);
+    --btn-padding-x: var(--space-2);
 
     --btn-radius: var(--radius-md);
     --btn-height: var(--ui-height-sm);
@@ -46,21 +46,24 @@
     height: var(--btn-height);
     padding: var(--btn-padding-y) var(--btn-padding-x);
 
-    &:has(.icon) {
-        &:not(.square) {
-            /* The reason for the calc is to ensure that 
-             * toggling `.sq` class doesn't cause the icon to shift. */
+    /* ensure that if the button changes from a square to 
+    a non-square button, the padding is adjusted accordingly */
+    &:not(.square) {
+        &:has(.slot-left) {
             padding-left: calc(var(--btn-padding-y) - 1px);
         }
-
-        .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            width: var(--icon-size-sm);
-            height: var(--icon-size-sm);
+        &:has(.slot-right) {
+            padding-right: calc(var(--btn-padding-y) - 1px);
         }
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
     }
 
     &[data-disabled] {
@@ -87,19 +90,23 @@
 
     &.secondary {
         --btn-border-color: var(--slate-5);
+        --btn-background: var(--slate-2);
+    }
+
+    &.ghost {
+        --btn-background: transparent;
     }
 
     &.secondary,
     &.ghost {
         --btn-background-hover: var(--slate-3);
         --btn-background-pressed: var(--slate-4);
-        --btn-background: var(--slate-2);
         --btn-text-color: var(--slate-12);
     }
 
     &.sm {
         --btn-padding-y: var(--space-2);
-        --btn-padding-x: var(--space-3);
+        --btn-padding-x: var(--space-2);
 
         --btn-height: var(--ui-height-sm);
     }
