@@ -1,4 +1,4 @@
-import type { ForwardedRef } from "react";
+import type { ForwardedRef, ReactNode } from "react";
 import type {
     ButtonProps as AriaButtonProps,
     LinkProps as AriaLinkProps,
@@ -51,7 +51,14 @@ export const Button = forwardRef<
          * The size of the button.
          */
         size?: "lg" | "md" | "sm";
-
+        /**
+         * Element to render on the left side of the button.
+         */
+        slotLeft?: ReactNode;
+        /**
+         * Element to render on the right side of the button.
+         */
+        slotRight?: ReactNode;
         /**
          * Whether the button is square.
          */
@@ -62,9 +69,12 @@ export const Button = forwardRef<
         {
             align,
             appearance = "primary",
+            children,
             className,
             color,
             size,
+            slotLeft,
+            slotRight,
             square,
             ...props
         },
@@ -85,7 +95,23 @@ export const Button = forwardRef<
                     },
                 )}
                 ref={ref}
-            />
+            >
+                {(rp) => (
+                    <>
+                        {slotLeft ? (
+                            <div className="slot-left">{slotLeft}</div>
+                        ) : null}
+
+                        {typeof children === "function"
+                            ? children(rp)
+                            : children}
+
+                        {slotRight ? (
+                            <div className="slot-right">{slotRight}</div>
+                        ) : null}
+                    </>
+                )}
+            </AriaButton>
         );
     },
 );
@@ -98,10 +124,13 @@ export const Button = forwardRef<
 export function LinkButton({
     align,
     appearance = "primary",
+    children,
     className,
     color,
     isCurrent,
     size,
+    slotLeft,
+    slotRight,
     ...props
 }: {
     /**
@@ -125,6 +154,14 @@ export function LinkButton({
      */
     size?: "lg" | "md" | "sm";
     /**
+     * Element to render on the left side of the button.
+     */
+    slotLeft?: ReactNode;
+    /**
+     * Element to render on the right side of the button.
+     */
+    slotRight?: ReactNode;
+    /**
      * Whether the button is square.
      */
     square?: boolean;
@@ -136,6 +173,20 @@ export function LinkButton({
             className={clsx("btn", className, appearance, size, align, color, {
                 square: props.square,
             })}
-        />
+        >
+            {(rp) => (
+                <>
+                    {slotLeft ? (
+                        <div className="slot-left">{slotLeft}</div>
+                    ) : null}
+
+                    {typeof children === "function" ? children(rp) : children}
+
+                    {slotRight ? (
+                        <div className="slot-right">{slotRight}</div>
+                    ) : null}
+                </>
+            )}
+        </AriaLink>
     );
 }
