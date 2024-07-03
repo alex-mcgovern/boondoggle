@@ -42,9 +42,9 @@
         --radius-pill: 99999px;
         --radius-round: 50%;
 
-        --dur-short: 200ms;
+        --dur-short: 150ms;
         --dur-medium: 300ms;
-        --dur-long: 400ms;
+        --dur-long: 450ms;
 
         --ease-quart-in-out: cubic-bezier(0.76, 0, 0.24, 1);
         --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
