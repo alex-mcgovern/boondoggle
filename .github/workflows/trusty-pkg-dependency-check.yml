@@ -5,6 +5,9 @@ on:
         branches:
             - main
 
+permissions:
+    pull-requests: write
+
 jobs:
     trusty_pkg_check:
         runs-on: ubuntu-latest
