@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.1.0](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.3...v4.1.0) (2024-07-03)
+
+
+### Features
+
+* add `GridList` component ([#120](https://github.com/alex-mcgovern/boondoggle/issues/120)) ([08e9ecc](https://github.com/alex-mcgovern/boondoggle/commit/08e9eccad0abbb62099b8677d6d27db4f75c1b7e))
+* **Button:** add `slotLeft` / `slotRight` props for icons ([#114](https://github.com/alex-mcgovern/boondoggle/issues/114)) ([fc8092f](https://github.com/alex-mcgovern/boondoggle/commit/fc8092f66b2920febb10086c3a31a12615be2f5e))
+* Next.js App Router compatibility ([#118](https://github.com/alex-mcgovern/boondoggle/issues/118)) ([ccbec47](https://github.com/alex-mcgovern/boondoggle/commit/ccbec471969a8ecb8336bb2bd2dc6221cf0580f8))
+
+
+### Bug Fixes
+
+* **button:** styles ([#107](https://github.com/alex-mcgovern/boondoggle/issues/107)) ([f122a68](https://github.com/alex-mcgovern/boondoggle/commit/f122a680166a5ce60d5171d90c558ae1e8f50e5b))
+* **Select:** `Checkbox` shouldn't be shown in `Select.Button` ([#119](https://github.com/alex-mcgovern/boondoggle/issues/119)) ([a3df3ce](https://github.com/alex-mcgovern/boondoggle/commit/a3df3ce0dc9541e45b1b15dca51630447239ff96))
+
 ## [4.0.3](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.2...v4.0.3) (2024-07-01)
 
 
