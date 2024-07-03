@@ -316,11 +316,11 @@ function NavLink({
                 className={clsx("app-nav-link", props.className)}
                 isCurrent={isCurrent}
                 size="sm"
+                slotLeft={<Icon icon={icon} />}
                 square={!isOpen}
             >
                 {(renderProps) => (
                     <>
-                        <Icon icon={icon} />
                         <div className="hidden-when-collapsed">
                             {typeof props.children === "function"
                                 ? props.children(renderProps)
@@ -354,11 +354,11 @@ function NavButton({
                 align={align}
                 appearance={appearance}
                 size="sm"
+                slotLeft={<Icon icon={icon} />}
                 square={!isOpen}
             >
                 {(renderProps) => (
                     <>
-                        <Icon icon={icon} />
                         <div className="hidden-when-collapsed">
                             {typeof props.children === "function"
                                 ? props.children(renderProps)
