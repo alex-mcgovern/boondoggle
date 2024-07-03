@@ -1,4 +1,4 @@
-import type { ComponentProps, ForwardedRef } from "react";
+import type { ComponentProps, ForwardedRef, ReactNode } from "react";
 import type {
     ButtonProps as AriaButtonProps,
     SelectProps as AriaSelectProps,
@@ -6,11 +6,12 @@ import type {
 
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
 import {
     Button as AriaButton,
     Select as AriaSelect,
     SelectValue as AriaSelectValue,
+    SelectStateContext,
 } from "react-aria-components";
 
 import type { IterableListBoxItem } from "../list-box";
@@ -36,6 +37,11 @@ function SelectButton<TItemId extends string = string>({
      */
     variant?: "borderless" | "default";
 } & AriaButtonProps) {
+    const state = useContext(SelectStateContext);
+    const { selectedItem } = state || {};
+    const { value } = selectedItem || {};
+    const { slotLeft } = (value as { slotLeft?: ReactNode }) || {};
+
     return (
         <AriaButton
             {...props}
@@ -43,7 +49,19 @@ function SelectButton<TItemId extends string = string>({
         >
             <AriaSelectValue<IterableListBoxItem<TItemId>>
                 className={"select-value"}
-            />
+            >
+                {(rp) => {
+                    return (
+                        <>
+                            {slotLeft ? (
+                                <div className="icon">{slotLeft}</div>
+                            ) : null}
+
+                            {rp.selectedText}
+                        </>
+                    );
+                }}
+            </AriaSelectValue>
             <Icon
                 className="select-icon"
                 icon={faAnglesUpDown}
