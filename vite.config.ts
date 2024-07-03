@@ -1,18 +1,32 @@
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import { glob } from "glob";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 import pkg from "./package.json";
 
+function resolveGlobEntries(pattern: string): Record<string, string> {
+    const entries: Record<string, string> = {};
+    const files = glob.sync(pattern);
+    files.forEach((file) => {
+        // Create a unique key for each entry. You might want to customize this part.
+        const entryKey = file
+            .replace(/src\/|\/index\.tsx$/g, "")
+            .replace(/\//g, "_");
+        entries[entryKey] = file;
+    });
+    return entries;
+}
+
 export default defineConfig({
     build: {
         lib: {
-            entry: [path.resolve(__dirname, "src/index.ts")],
+            entry: resolveGlobEntries("src/*/index.tsx"),
             formats: ["es"],
             name: "boondoggle.design",
         },
         minify: false,
+
         rollupOptions: {
             external: [
                 ...Object.keys(pkg.dependencies).map(
@@ -24,6 +38,7 @@ export default defineConfig({
                 "react/jsx-runtime",
             ],
             output: {
+                banner: '"use client";',
                 globals: {
                     react: "react",
                     "react-dom": "ReactDOM",
