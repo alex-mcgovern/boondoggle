@@ -21,6 +21,7 @@ export { FileTrigger } from "./file-trigger";
 export { FilterMenu } from "./filter-menu";
 export { Form } from "./form";
 export { Grid } from "./grid";
+export { GridList } from "./grid-list";
 export { Group } from "./group";
 export { Icon } from "./icon";
 export { Input } from "./input";

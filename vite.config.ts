@@ -24,11 +24,13 @@ export default defineConfig({
                 "react/jsx-runtime",
             ],
             output: {
+                banner: '"use client";',
                 globals: {
                     react: "react",
                     "react-dom": "ReactDOM",
                     "react/jsx-runtime": "react/jsx-runtime",
                 },
+                preserveModules: true,
             },
         },
     },
