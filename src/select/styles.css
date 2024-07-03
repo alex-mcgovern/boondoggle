@@ -37,10 +37,13 @@
         height: var(--ui-height-sm);
         width: 100%;
 
-        @media (prefers-reduced-motion: no-preference) {
-            transition-duration: var(--dur-short);
-            transition-property: background-color, border-color, color, outline;
-            transition-timing-function: var(--ease-quart-in-out);
+        .icon {
+            height: var(--icon-size-sm);
+            width: var(--icon-size-sm);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         &[data-disabled] {

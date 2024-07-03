@@ -149,7 +149,11 @@ function ListBoxItem<TItemId extends string = string>({
                                 {value?.description}
                             </AriaText>
                         </div>
-                        {renderProps.selectionMode !== "none" ? (
+                        {renderProps.selectionMode === "single" &&
+                        renderProps.isSelected ? (
+                            <Checkbox isSelected />
+                        ) : null}
+                        {renderProps.selectionMode === "multiple" ? (
                             <Checkbox
                                 // isIndeterminate
                                 isSelected={renderProps.isSelected}
