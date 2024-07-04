@@ -1,8 +1,9 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import type { ReactNode } from "react";
 
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons/faExclamationCircle";
+import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import clsx from "clsx";
+
+import type { Color } from "../types";
 
 import { Icon } from "../icon";
 import "./styles.css";
@@ -13,14 +14,14 @@ import "./styles.css";
 export function Alert({
     button_node,
     color,
-    icon = faExclamationCircle,
+    icon = <Icon icon={faInfoCircle} />,
     message,
     title,
     ...rest
 }: {
     button_node?: ReactNode;
-    color?: "amber" | "blue" | "green" | "red";
-    icon?: IconDefinition;
+    color?: Color;
+    icon?: ReactNode;
     message?: string;
     title: string;
 }) {
@@ -30,7 +31,7 @@ export function Alert({
             {...rest}
         >
             <div className="flex align-center gap-2">
-                <Icon icon={icon} />
+                {icon ? <div className="alert-icon">{icon}</div> : null}
                 <div>
                     {title && <div className="alert-title">{title}</div>}
                     {message && <div className="alert-message">{message}</div>}
