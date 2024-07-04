@@ -64,7 +64,7 @@
     }
 
     &[data-trigger="Select"] {
-        width: var(--trigger-width);
+        min-width: var(--trigger-width);
     }
 
     &[data-trigger="MenuTrigger"],
