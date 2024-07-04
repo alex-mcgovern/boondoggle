@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.1](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.0...v4.2.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* **`Card`:** missing styles ([#127](https://github.com/alex-mcgovern/boondoggle/issues/127)) ([cf9c9bf](https://github.com/alex-mcgovern/boondoggle/commit/cf9c9bf27f16af7783fd502f2859c54424e2b143))
+
 ## [4.2.0](https://github.com/alex-mcgovern/boondoggle/compare/v4.1.0...v4.2.0) (2024-07-04)
 
 
