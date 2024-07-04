@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.2.2](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.1...v4.2.2) (2024-07-04)
+
+
+### Bug Fixes
+
+* **`Alert`:** fix color & icon props ([6c7636b](https://github.com/alex-mcgovern/boondoggle/commit/6c7636be699c32b081a770742ea96bce02dc9162))
+* **`Card`:** fix border color ([982d278](https://github.com/alex-mcgovern/boondoggle/commit/982d278ac1189672f03764b18507fb02b270a6f6))
+* **`Card`:** fix height bug ([8d07249](https://github.com/alex-mcgovern/boondoggle/commit/8d07249e22827978d940155a5c90e84d8c6f6b65))
+* **`Skeleton`:** make styles less opinionated ([9b0a38e](https://github.com/alex-mcgovern/boondoggle/commit/9b0a38e8307a8a4356238c91afef3a4ded913a86))
+
 ## [4.2.1](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.0...v4.2.1) (2024-07-04)
 
 
