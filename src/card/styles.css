@@ -12,7 +12,7 @@
 
     .card-footer,
     .card-header {
-        padding: var(--space-2) var(--card-padding-x);
+        padding: 0 var(--card-padding-x);
     }
 
     .card-body {
