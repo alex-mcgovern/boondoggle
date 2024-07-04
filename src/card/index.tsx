@@ -2,6 +2,8 @@ import type { HTMLProps } from "react";
 
 import clsx from "clsx";
 
+import "./styles.css";
+
 function CardRoot(props: HTMLProps<HTMLElement>) {
     return (
         <section
