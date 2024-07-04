@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.2.3](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.2...v4.2.3) (2024-07-04)
+
+
+### Bug Fixes
+
+* **`Card`:** remove junk padding-y in footer & header ([45eab38](https://github.com/alex-mcgovern/boondoggle/commit/45eab386bd5cd9603c89f77b067168c5bc0e2c84))
+* **`Select`:** bug where width was constrained to width of `Select` trigger element ([0cc6709](https://github.com/alex-mcgovern/boondoggle/commit/0cc67097415b20b403580a7e95b6020b4aa92c9c))
+* **styles:** fix circular `[@import](https://github.com/import)` statements ([#134](https://github.com/alex-mcgovern/boondoggle/issues/134)) ([c0830e9](https://github.com/alex-mcgovern/boondoggle/commit/c0830e98f6f10bc623728a8009d67e00251c735b))
+
 ## [4.2.2](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.1...v4.2.2) (2024-07-04)
 
 
