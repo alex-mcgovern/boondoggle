@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.4](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.3...v4.2.4) (2024-07-04)
+
+
+### Bug Fixes
+
+* **styles:** empty layers breaking nanocss ([#135](https://github.com/alex-mcgovern/boondoggle/issues/135)) ([e8d1f68](https://github.com/alex-mcgovern/boondoggle/commit/e8d1f6844433a475e165db482fb4b0b1fccd62c3))
+
 ## [4.2.3](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.2...v4.2.3) (2024-07-04)
 
 
