@@ -1,5 +1,3 @@
-@import "../styles/vars.css";
-
 .checkbox-wrapper {
     --checkbox-bg: var(--slate-2);
     --check-mark-color: var(
