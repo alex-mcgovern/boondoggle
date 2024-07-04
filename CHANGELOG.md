@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/alex-mcgovern/boondoggle/compare/v4.1.0...v4.2.0) (2024-07-04)
+
+
+### Features
+
+* add `Card` component ([#125](https://github.com/alex-mcgovern/boondoggle/issues/125)) ([9db1efb](https://github.com/alex-mcgovern/boondoggle/commit/9db1efb40334823b453498a9c52a3190fad04fb9))
+
 ## [4.1.0](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.3...v4.1.0) (2024-07-03)
 
 
