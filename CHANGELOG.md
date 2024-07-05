@@ -1,5 +1,74 @@
 # Changelog
 
+## [4.2.8](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.7...v4.2.8) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** fix bug with`--trigger-width` variable naming ([#145](https://github.com/alex-mcgovern/boondoggle/issues/145)) ([1e377d2](https://github.com/alex-mcgovern/boondoggle/commit/1e377d278125e3f22bde2e83dbedf9c11511e13a))
+
+## [4.2.7](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.6...v4.2.7) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** ensure `Popover` width relates to the `Group` wrapping `ComboBox.Input` ([#144](https://github.com/alex-mcgovern/boondoggle/issues/144)) ([a447e7d](https://github.com/alex-mcgovern/boondoggle/commit/a447e7d0e2a59e7f82b8e65527bab4aa4ad699c5))
+* **`ComboBox`:** fix bug where supplied props are not respected in `ComboBox.Input` ([#142](https://github.com/alex-mcgovern/boondoggle/issues/142)) ([045ba07](https://github.com/alex-mcgovern/boondoggle/commit/045ba074f123c58cf42397e72ec92ff5ffc986c7))
+
+## [4.2.6](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.5...v4.2.6) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** fix UI bugs relating to icon & text-wrapping of items ([#140](https://github.com/alex-mcgovern/boondoggle/issues/140)) ([6fac36e](https://github.com/alex-mcgovern/boondoggle/commit/6fac36e3147b70fd5647234a685babf425132cf9))
+
+## [4.2.5](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.4...v4.2.5) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`Card`:** add `flex` & `align-center` to `Card.Footer` and `Card.Header` ([#138](https://github.com/alex-mcgovern/boondoggle/issues/138)) ([e557c48](https://github.com/alex-mcgovern/boondoggle/commit/e557c482c6dadea23c45f78337e6fd5f0da02259))
+
+## [4.2.4](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.3...v4.2.4) (2024-07-04)
+
+
+### Bug Fixes
+
+* **styles:** empty layers breaking nanocss ([#135](https://github.com/alex-mcgovern/boondoggle/issues/135)) ([e8d1f68](https://github.com/alex-mcgovern/boondoggle/commit/e8d1f6844433a475e165db482fb4b0b1fccd62c3))
+
+## [4.2.3](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.2...v4.2.3) (2024-07-04)
+
+
+### Bug Fixes
+
+* **`Card`:** remove junk padding-y in footer & header ([45eab38](https://github.com/alex-mcgovern/boondoggle/commit/45eab386bd5cd9603c89f77b067168c5bc0e2c84))
+* **`Select`:** bug where width was constrained to width of `Select` trigger element ([0cc6709](https://github.com/alex-mcgovern/boondoggle/commit/0cc67097415b20b403580a7e95b6020b4aa92c9c))
+* **styles:** fix circular `[@import](https://github.com/import)` statements ([#134](https://github.com/alex-mcgovern/boondoggle/issues/134)) ([c0830e9](https://github.com/alex-mcgovern/boondoggle/commit/c0830e98f6f10bc623728a8009d67e00251c735b))
+
+## [4.2.2](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.1...v4.2.2) (2024-07-04)
+
+
+### Bug Fixes
+
+* **`Alert`:** fix color & icon props ([6c7636b](https://github.com/alex-mcgovern/boondoggle/commit/6c7636be699c32b081a770742ea96bce02dc9162))
+* **`Card`:** fix border color ([982d278](https://github.com/alex-mcgovern/boondoggle/commit/982d278ac1189672f03764b18507fb02b270a6f6))
+* **`Card`:** fix height bug ([8d07249](https://github.com/alex-mcgovern/boondoggle/commit/8d07249e22827978d940155a5c90e84d8c6f6b65))
+* **`Skeleton`:** make styles less opinionated ([9b0a38e](https://github.com/alex-mcgovern/boondoggle/commit/9b0a38e8307a8a4356238c91afef3a4ded913a86))
+
+## [4.2.1](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.0...v4.2.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* **`Card`:** missing styles ([#127](https://github.com/alex-mcgovern/boondoggle/issues/127)) ([cf9c9bf](https://github.com/alex-mcgovern/boondoggle/commit/cf9c9bf27f16af7783fd502f2859c54424e2b143))
+
+## [4.2.0](https://github.com/alex-mcgovern/boondoggle/compare/v4.1.0...v4.2.0) (2024-07-04)
+
+
+### Features
+
+* add `Card` component ([#125](https://github.com/alex-mcgovern/boondoggle/issues/125)) ([9db1efb](https://github.com/alex-mcgovern/boondoggle/commit/9db1efb40334823b453498a9c52a3190fad04fb9))
+
 ## [4.1.0](https://github.com/alex-mcgovern/boondoggle/compare/v4.0.3...v4.1.0) (2024-07-03)
 
 

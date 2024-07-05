@@ -31,6 +31,7 @@
     color: var(--popover-text-color);
     outline: none;
     box-sizing: border-box;
+    overflow: hidden;
 
     @media (prefers-reduced-motion: no-preference) {
         &[data-entering] {
@@ -56,7 +57,7 @@
     }
 
     &[data-trigger="ComboBox"] {
-        width: calc(var(--trigger-width) + var(--space-1));
+        width: calc(var(--trigger-width));
     }
 
     &[data-trigger="DatePicker"] {
@@ -64,7 +65,7 @@
     }
 
     &[data-trigger="Select"] {
-        width: var(--trigger-width);
+        min-width: var(--trigger-width);
     }
 
     &[data-trigger="MenuTrigger"],

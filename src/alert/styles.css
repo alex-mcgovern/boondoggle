@@ -40,6 +40,12 @@
         --border-color: var(--amber-6);
     }
 
+    &.grey {
+        --text-color: var(--slate-11);
+        --background-color: var(--slate-2);
+        --border-color: var(--slate-5);
+    }
+
     .alert-title,
     .alert-message {
         font-size: var(--font-size-body-sm);

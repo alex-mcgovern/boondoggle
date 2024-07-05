@@ -1,26 +1,49 @@
-import type { ComponentProps } from "react";
+import type { CSSProperties, ComponentProps, RefObject } from "react";
 import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
-import { forwardRef, useContext } from "react";
+import {
+    createContext,
+    forwardRef,
+    useContext,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from "react";
 import {
     ComboBox as AriaCombobox,
     ComboBoxStateContext,
 } from "react-aria-components";
 
 import { FieldButton } from "../field-button";
+import { Group } from "../group";
 import { Icon } from "../icon";
 import { Input } from "../input";
 import { ListBox } from "../list-box";
 import { Popover } from "../popover";
 import "./styles.css";
 
+const ComboBoxRefContext = createContext<RefObject<HTMLDivElement> | null>(
+    null,
+);
+
 function ComboBoxButton() {
     return (
         <FieldButton>
             <Icon icon={faAnglesUpDown} />
         </FieldButton>
+    );
+}
+
+function ComboBoxGroup(props: ComponentProps<typeof Group>) {
+    const ref = useContext(ComboBoxRefContext);
+
+    return (
+        <Group
+            {...props}
+            ref={ref}
+        />
     );
 }
 
@@ -36,12 +59,13 @@ const ComboBoxInput = forwardRef<
     return (
         <Input
             {...props}
-            defaultValue={value?.name}
-            icon={slotLeft}
-            onClick={() => {
+            defaultValue={value?.name || props.defaultValue}
+            icon={slotLeft ?? props.icon}
+            onClick={(e) => {
                 toggle(null, "manual");
+                props.onClick?.(e);
             }}
-            placeholder={selectedItem ? selectedItem.value.name : ""}
+            placeholder={selectedItem?.value.name || props.placeholder || ""}
             ref={ref}
         />
     );
@@ -49,24 +73,57 @@ const ComboBoxInput = forwardRef<
 
 const ComboBoxRoot = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
     ({ children, ...props }, ref) => {
-        return (
-            <AriaCombobox
-                {...props}
-                className={clsx(props.className, "combobox")}
-                ref={ref}
-            >
-                {(rp) => (
-                    <>
-                        {typeof children === "function"
-                            ? children(rp)
-                            : children}
+        const groupRef = useRef<HTMLDivElement>(null);
+        const [groupWidth, setGroupWidth] = useState<null | number>(null);
 
-                        <Popover.Root>
-                            <ListBox<string> />
-                        </Popover.Root>
-                    </>
-                )}
-            </AriaCombobox>
+        useLayoutEffect(() => {
+            const targetElement = groupRef.current;
+            if (!targetElement) return;
+
+            const updateWidth = () => {
+                setGroupWidth(targetElement.offsetWidth);
+            };
+
+            updateWidth();
+
+            const observer = new MutationObserver(() => {
+                updateWidth();
+            });
+
+            observer.observe(targetElement, {
+                childList: true,
+                subtree: true,
+            });
+
+            return () => observer.disconnect();
+        }, []);
+
+        return (
+            <ComboBoxRefContext.Provider value={groupRef}>
+                <AriaCombobox
+                    {...props}
+                    className={clsx(props.className, "combobox")}
+                    ref={ref}
+                >
+                    {(rp) => (
+                        <>
+                            {typeof children === "function"
+                                ? children(rp)
+                                : children}
+
+                            <Popover.Root
+                                style={
+                                    {
+                                        "--trigger-width": `${groupWidth}px`,
+                                    } as CSSProperties
+                                }
+                            >
+                                <ListBox<string> />
+                            </Popover.Root>
+                        </>
+                    )}
+                </AriaCombobox>
+            </ComboBoxRefContext.Provider>
         );
     },
 );
@@ -96,6 +153,7 @@ const ComboBoxRoot = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
  */
 export const ComboBox = {
     Button: ComboBoxButton,
+    Group: ComboBoxGroup,
     Input: ComboBoxInput,
     Root: ComboBoxRoot,
 };

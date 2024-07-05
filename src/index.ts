@@ -5,6 +5,7 @@ export { App } from "./app";
 export { Avatar } from "./avatar";
 export { Button, LinkButton } from "./button";
 export { Calendar } from "./calendar";
+export { Card } from "./card";
 export { Checkbox } from "./checkbox";
 export { CheckboxGroup } from "./checkbox-group";
 export { Collapsible } from "./collapsible";

@@ -1,9 +1,3 @@
-.tabs-container {
-}
-
-.tab-panel {
-}
-
 .tab-list {
     --tab-height: var(--ui-height-sm);
     --tab-container-height: var(--space-10);

@@ -20,8 +20,3 @@
 
 @import "./animations.css";
 @import "./dropdown-menu.css";
-
-@layer vars;
-@layer reset;
-@layer base;
-@layer util;

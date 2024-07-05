@@ -1,5 +1,3 @@
-@import "../styles/index.css";
-
 .btn {
     --btn-background: var(--blue-9);
     --btn-background-hover: var(--blue-10);
