@@ -59,6 +59,10 @@
         width: calc(var(--trigger-width) + var(--space-1));
     }
 
+    &[data-trigger="Group"] {
+        width: calc(var(--trigger-width) + var(--space-1) + 2px);
+    }
+
     &[data-trigger="DatePicker"] {
         width: unset;
     }
