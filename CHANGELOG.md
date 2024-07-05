@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.5](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.4...v4.2.5) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`Card`:** add `flex` & `align-center` to `Card.Footer` and `Card.Header` ([#138](https://github.com/alex-mcgovern/boondoggle/issues/138)) ([e557c48](https://github.com/alex-mcgovern/boondoggle/commit/e557c482c6dadea23c45f78337e6fd5f0da02259))
+
 ## [4.2.4](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.3...v4.2.4) (2024-07-04)
 
 
