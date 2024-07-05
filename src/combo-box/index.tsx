@@ -36,12 +36,13 @@ const ComboBoxInput = forwardRef<
     return (
         <Input
             {...props}
-            defaultValue={value?.name}
+            defaultValue={value?.name || props.defaultValue}
             icon={slotLeft ?? props.icon}
-            onClick={() => {
+            onClick={(e) => {
                 toggle(null, "manual");
+                props.onClick?.(e);
             }}
-            placeholder={selectedItem ? selectedItem.value.name : ""}
+            placeholder={selectedItem?.value.name || props.placeholder || ""}
             ref={ref}
         />
     );
