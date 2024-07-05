@@ -175,7 +175,11 @@ export function ListBox<TItemId extends string = string>({
     return (
         <AriaListBox<IterableListBoxItem<TItemId>>
             className="dropdown-menu"
-            renderEmptyState={() => <div>{i18n.no_results}</div>}
+            renderEmptyState={() => (
+                <div className="dropdown-menu-empty-state">
+                    {i18n.no_results}
+                </div>
+            )}
             {...props}
         >
             {(item) => {

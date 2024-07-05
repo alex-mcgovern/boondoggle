@@ -57,7 +57,7 @@
     }
 
     &[data-trigger="ComboBox"] {
-        width: calc(var(--trigger-width) + var(--space-1));
+        width: calc(var(--trigger-width));
     }
 
     &[data-trigger="DatePicker"] {
