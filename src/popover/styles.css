@@ -31,6 +31,7 @@
     color: var(--popover-text-color);
     outline: none;
     box-sizing: border-box;
+    overflow: hidden;
 
     @media (prefers-reduced-motion: no-preference) {
         &[data-entering] {

@@ -41,10 +41,10 @@
     max-height: inherit;
     border-radius: var(--radius-sm);
 
-    min-width: 6rem;
+    /* min-width: 6rem; */
 
     scrollbar-width: thin;
-    scrollbar-color: var(--slate-5) var(--slate-3);
+    scrollbar-color: var(--slate-5) transparent;
 
     &:not(:has(.dropdown-menu-section)) {
         padding: var(--dropdown-menu-inset);
