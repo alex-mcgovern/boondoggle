@@ -22,6 +22,8 @@
     .card-footer,
     .card-header {
         height: var(--card-bar-height);
+        display: flex;
+        align-items: center;
     }
 
     .card-body {
