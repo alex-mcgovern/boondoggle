@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.6](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.5...v4.2.6) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** fix UI bugs relating to icon & text-wrapping of items ([#140](https://github.com/alex-mcgovern/boondoggle/issues/140)) ([6fac36e](https://github.com/alex-mcgovern/boondoggle/commit/6fac36e3147b70fd5647234a685babf425132cf9))
+
 ## [4.2.5](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.4...v4.2.5) (2024-07-05)
 
 
