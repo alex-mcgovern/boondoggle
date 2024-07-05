@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.9](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.8...v4.2.9) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** use mutation observer to coerce correct trigger width ([#147](https://github.com/alex-mcgovern/boondoggle/issues/147)) ([6b62753](https://github.com/alex-mcgovern/boondoggle/commit/6b62753d2fbc9acb09fbb968db2858cfa86dd74d))
+
 ## [4.2.8](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.7...v4.2.8) (2024-07-05)
 
 
