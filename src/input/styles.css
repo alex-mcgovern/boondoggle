@@ -13,7 +13,7 @@
         justify-content: center;
         align-items: center;
 
-        color: var(--slate-11);
+        color: var(--gray-11);
 
         width: var(--input-height);
         height: var(--input-height);
@@ -36,11 +36,11 @@
     }
 
     .input {
-        --input-bg: var(--slate-2);
-        --input-text-color: var(--slate-12);
+        --input-bg: var(--gray-2);
+        --input-text-color: var(--gray-12);
 
         --input-border-width: 1px;
-        --input-border-color: var(--slate-5);
+        --input-border-color: var(--gray-5);
         --input-border-radius: var(--radius-md);
 
         --input-outline-width: 2px;
@@ -90,15 +90,15 @@
         }
 
         &:not(.unstyled)[data-hovered] {
-            --input-bg: var(--slate-1);
-            --input-border-color: var(--slate-7);
+            --input-bg: var(--gray-1);
+            --input-border-color: var(--gray-7);
         }
 
         &:not(.unstyled)[data-focused],
         &:not(.unstyled)[data-focus-visible] {
-            --input-bg: var(--slate-1);
-            --input-border-color: var(--blue-8);
-            --input-outline-color: var(--blue-6);
+            --input-bg: var(--gray-1);
+            --input-border-color: var(--brand-8);
+            --input-outline-color: var(--brand-6);
         }
 
         &[data-invalid] {

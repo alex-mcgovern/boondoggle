@@ -1,5 +1,5 @@
 .table {
-    --table-border-color: var(--slate-5);
+    --table-border-color: var(--gray-5);
     --table-border-width: 1px;
 
     --table-font-size: var(--font-size-body-sm);
@@ -23,12 +23,12 @@
     line-height: var(--table-line-height);
 
     /* &[data-focus-visible] {
-        outline: 2px solid var(--blue-6);
+        outline: 2px solid var(--brand-6);
         outline-offset: -1px;
     } */
 
     .table-header {
-        color: var(--slate-12);
+        color: var(--gray-12);
 
         .column {
             border-bottom: var(--table-border-width) solid
@@ -40,7 +40,7 @@
                 position: sticky;
                 top: 0;
                 z-index: 1;
-                background: var(--slate-1);
+                background: var(--gray-1);
             }
         }
     }
@@ -52,7 +52,7 @@
 
         outline: var(--row-outline-width) solid var(--row-outline-color);
         cursor: default;
-        color: var(--slate-12);
+        color: var(--gray-12);
         position: relative;
         transform: scale(1);
         padding: var(--space-1) var(--space-8);
@@ -64,18 +64,18 @@
         }
 
         &[data-hovered] {
-            background: var(--slate-2);
+            background: var(--gray-2);
         }
         &[data-href] {
             cursor: pointer;
         }
 
         &[data-focus-visible] {
-            --row-outline-color: var(--blue-6);
+            --row-outline-color: var(--brand-6);
         }
 
         &[data-pressed] {
-            background: var(--slate-3);
+            background: var(--gray-3);
         }
 
         &[data-selected] {
@@ -114,7 +114,7 @@
         outline: none;
 
         &[data-focus-visible] {
-            outline: 2px solid var(--blue-6);
+            outline: 2px solid var(--brand-6);
             outline-offset: -2px;
         }
 
@@ -151,7 +151,7 @@
     }
 
     .column {
-        color: var(--slate-11);
+        color: var(--gray-11);
         font-weight: var(--font-weight-medium);
         white-space: nowrap;
 
@@ -164,7 +164,7 @@
             cursor: pointer;
 
             &[data-hovered] {
-                color: var(--slate-12);
+                color: var(--gray-12);
             }
         }
     }
@@ -235,7 +235,7 @@
         }
 
         &:focus-visible {
-            outline: 2px solid var(--blue-6);
+            outline: 2px solid var(--brand-6);
         } */
     }
 
@@ -264,11 +264,11 @@
         }
 
         &[data-focus-visible] {
-            background-color: var(--blue-6);
+            background-color: var(--brand-6);
         }
 
         &[data-resizing] {
-            border-color: var(--blue-6);
+            border-color: var(--brand-6);
             background-color: transparent;
         }
     }
@@ -294,7 +294,7 @@
 
         &[data-focus-visible] {
             border-radius: 4px;
-            outline: 2px solid var(--blue-6);
+            outline: 2px solid var(--brand-6);
         }
     }
 }

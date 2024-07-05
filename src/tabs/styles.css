@@ -16,7 +16,7 @@
     gap: var(--space-6);
 
     &:after {
-        /* border-bottom: 1px solid var(--slate-5); */
+        /* border-bottom: 1px solid var(--gray-5); */
         content: "";
         inset: 0;
         position: absolute;
@@ -48,7 +48,7 @@
 
         height: var(--tab-container-height);
 
-        color: var(--slate-11);
+        color: var(--gray-11);
 
         @media (prefers-reduced-motion: no-preference) {
             transition-duration: var(--dur-short);
@@ -57,15 +57,15 @@
         }
 
         &[data-selected] {
-            color: var(--blue-9);
+            color: var(--brand-9);
         }
 
         &[data-hovered] {
-            color: var(--blue-9);
+            color: var(--brand-9);
         }
 
         &[data-selected][data-hovered] {
-            color: var(--blue-9);
+            color: var(--brand-9);
         }
 
         .inner {
@@ -81,11 +81,11 @@
         }
 
         &[data-focus-visible] .inner {
-            --tab-outline-color: var(--blue-6);
+            --tab-outline-color: var(--brand-6);
         }
 
         .indicator {
-            background-color: var(--blue-9);
+            background-color: var(--brand-9);
             height: var(--tab-indicator-height);
 
             position: absolute;

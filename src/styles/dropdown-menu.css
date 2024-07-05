@@ -44,7 +44,7 @@
     /* min-width: 6rem; */
 
     scrollbar-width: thin;
-    scrollbar-color: var(--slate-5) transparent;
+    scrollbar-color: var(--gray-5) transparent;
 
     &:not(:has(.dropdown-menu-section)) {
         padding: var(--dropdown-menu-inset);
@@ -55,14 +55,14 @@
             padding: var(--dropdown-menu-inset);
 
             &:not(:last-child) {
-                border-bottom: 1px solid var(--slate-5);
+                border-bottom: 1px solid var(--gray-5);
             }
         }
     }
 
     .dropdown-menu-section {
         &:not(:last-child) {
-            border-bottom: 1px solid var(--slate-5);
+            border-bottom: 1px solid var(--gray-5);
         }
     }
 
@@ -114,7 +114,7 @@
     }
 
     .dropdown-menu-section-header {
-        color: var(--slate-10);
+        color: var(--gray-10);
 
         font-size: var(--font-size-body-xs);
         line-height: var(--font-size-body-xs);
@@ -130,7 +130,7 @@
                 var(--dropdown-menu-item-spacing-x) + var(--dropdown-menu-inset)
             );
 
-        color: var(--slate-11);
+        color: var(--gray-11);
         font-size: var(--font-size-body-sm);
         line-height: var(--line-height-body-sm);
 
@@ -142,12 +142,12 @@
     }
 
     .dropdown-menu-item {
-        --dropdown-name-color: var(--slate-12);
-        --dropdown-description-color: var(--slate-11);
+        --dropdown-name-color: var(--gray-12);
+        --dropdown-description-color: var(--gray-11);
 
-        --dropdown-highlight-bg: var(--slate-3);
+        --dropdown-highlight-bg: var(--gray-3);
         /* border-radius: var(--radius-sm); */
-        color: var(--slate-12);
+        color: var(--gray-12);
 
         font-size: var(--dropdown-menu-item-font-size);
         line-height: var(--dropdown-menu-item-line-height);
@@ -216,9 +216,9 @@
         }
 
         &.blue {
-            --dropdown-name-color: var(--blue-11);
-            --dropdown-description-color: var(--blue-10);
-            --dropdown-highlight-bg: var(--blue-3);
+            --dropdown-name-color: var(--brand-11);
+            --dropdown-description-color: var(--brand-10);
+            --dropdown-highlight-bg: var(--brand-3);
         }
 
         &.amber {

@@ -12,7 +12,7 @@
 }
 
 .mobile-menu-modal {
-    background: var(--slate-1);
+    background: var(--gray-1);
     box-shadow: var(--shadow-md);
     width: 100vw;
 
@@ -41,8 +41,8 @@
     align-items: center;
     gap: var(--space-4);
 
-    background: var(--slate-2);
-    border-bottom: 1px solid var(--slate-5);
+    background: var(--gray-2);
+    border-bottom: 1px solid var(--gray-5);
 
     height: var(--space-12);
     padding: var(--space-2) var(--space-4);
@@ -52,7 +52,7 @@
 }
 
 .mobile-menu-title {
-    color: var(--slate-12);
+    color: var(--gray-12);
 
     font-size: var(--font-size-body-lg);
     line-height: var(--line-height-body-lg);
@@ -67,7 +67,7 @@
 }
 
 .mobile-menu-footer {
-    border-top: 1px solid var(--slate-5);
+    border-top: 1px solid var(--gray-5);
     margin-top: auto;
     padding: var(--space-3) var(--space-4);
 }

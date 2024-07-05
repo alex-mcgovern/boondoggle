@@ -7,7 +7,7 @@
         height: var(--icon-size-sm);
         width: var(--icon-size-sm);
 
-        color: var(--slate-11);
+        color: var(--gray-11);
     }
 
     &[data-empty="true"] .search-field-clear-button {

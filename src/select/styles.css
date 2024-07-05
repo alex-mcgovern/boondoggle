@@ -7,14 +7,14 @@
     }
 
     .select-button {
-        --select-button-text-color: var(--slate-12);
+        --select-button-text-color: var(--gray-12);
 
         --select-button-outline-color: transparent;
         --select-button-outline-width: 2px;
 
-        --select-button-bg-color: var(--slate-2);
+        --select-button-bg-color: var(--gray-2);
 
-        --select-button-border-color: var(--slate-5);
+        --select-button-border-color: var(--gray-5);
         --select-button-border-width: 1px;
         --select-button-border-radius: var(--radius-md);
 
@@ -59,28 +59,28 @@
 
         &:not(.borderless) {
             &[data-hovered] {
-                --select-button-bg-color: var(--slate-1);
-                --select-button-border-color: var(--slate-7);
+                --select-button-bg-color: var(--gray-1);
+                --select-button-border-color: var(--gray-7);
             }
 
             &[data-focus-visible] {
-                --select-button-border-color: var(--blue-8);
-                --select-button-bg-color: var(--slate-1);
-                --select-button-outline-color: var(--blue-6);
+                --select-button-border-color: var(--brand-8);
+                --select-button-bg-color: var(--gray-1);
+                --select-button-outline-color: var(--brand-6);
             }
 
             &[data-pressed] {
-                --select-button-bg-color: var(--slate-3);
-                --select-button-border-color: var(--slate-8);
+                --select-button-bg-color: var(--gray-3);
+                --select-button-border-color: var(--gray-8);
             }
         }
 
         &[data-placeholder] {
-            --select-button-text-color: var(--slate-11);
+            --select-button-text-color: var(--gray-11);
         }
 
         .select-value {
-            --select-value-text-color: var(--slate-12);
+            --select-value-text-color: var(--gray-12);
 
             font-size: var(--font-size-body-sm);
             line-height: var(--line-height-body-sm);
@@ -94,7 +94,7 @@
             color: var(--select-value-text-color);
 
             &[data-placeholder] {
-                --select-value-text-color: var(--slate-11);
+                --select-value-text-color: var(--gray-11);
             }
         }
 
@@ -104,7 +104,7 @@
             height: var(--icon-size-sm);
             width: var(--icon-size-sm);
 
-            color: var(--slate-11);
+            color: var(--gray-11);
 
             margin-right: var(--space-2);
         }

@@ -1,6 +1,6 @@
 .avatar {
-    --avatar-bg: var(--blue-5);
-    --avatar-text-color: var(--blue-9);
+    --avatar-bg: var(--brand-5);
+    --avatar-text-color: var(--brand-9);
 
     background: var(--avatar-bg);
     color: var(--avatar-text-color);
@@ -25,8 +25,8 @@
     }
 
     &.gray {
-        --avatar-bg: var(--slate-5);
-        --avatar-text-color: var(--slate-9);
+        --avatar-bg: var(--gray-5);
+        --avatar-text-color: var(--gray-9);
         filter: grayscale(100%);
     }
 }

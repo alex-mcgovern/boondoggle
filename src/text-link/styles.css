@@ -1,5 +1,5 @@
 .text-link {
-    --link-color: var(--blue-9);
+    --link-color: var(--brand-9);
     --link-outline-color: transparent;
     --link-outline-size: 2px;
     --link-radius: var(--radius-md);
@@ -22,7 +22,7 @@
 
     &[data-hovered],
     &[data-pressed] {
-        --link-color: var(--blue-10);
+        --link-color: var(--brand-10);
         text-decoration: underline;
     }
 
@@ -32,6 +32,6 @@
     }
 
     &[data-focus-visible] {
-        --btn-outline-color: var(--blue-6);
+        --btn-outline-color: var(--brand-6);
     }
 }

@@ -1,10 +1,10 @@
 .toast {
     --close-button-size: var(--space-8);
     --close-button-border-width: 1px;
-    --close-button-border-color: var(--slate-5);
+    --close-button-border-color: var(--gray-5);
 
-    --toast-text-color: var(--slate-1);
-    --toast-bg-color: var(--slate-12);
+    --toast-text-color: var(--gray-1);
+    --toast-bg-color: var(--gray-12);
 
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@
         height: var(--space-5);
         width: var(--space-5);
 
-        background: var(--slate-2);
+        background: var(--gray-2);
 
         margin-left: auto;
 
@@ -21,7 +21,7 @@
         border: var(--close-button-border-width) solid
             var(--close-button-border-color);
 
-        color: var(--slate-11);
+        color: var(--gray-11);
 
         @media (prefers-reduced-motion: no-preference) {
             transition-duration: var(--dur-short);
@@ -30,7 +30,7 @@
         }
 
         &:hover {
-            background: var(--slate-3);
+            background: var(--gray-3);
         }
     }
 

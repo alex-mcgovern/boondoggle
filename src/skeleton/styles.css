@@ -8,12 +8,12 @@
     animation: 2s skeleton ease-in-out infinite;
     background: linear-gradient(
             100deg,
-            var(--slate-4) 40%,
-            var(--slate-6) 50%,
-            var(--slate-4) 60%
+            var(--gray-4) 40%,
+            var(--gray-6) 50%,
+            var(--gray-4) 60%
         )
-        var(--slate-4);
-    background-color: var(--slate-3);
+        var(--gray-4);
+    background-color: var(--gray-3);
     background-size: 200% 100%;
     background-position-x: 180%;
 

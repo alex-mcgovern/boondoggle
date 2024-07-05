@@ -6,9 +6,9 @@
         font-weight: var(--font-weight-normal);
 
         color-scheme: light dark;
-        color: var(--slate-12);
-        background: var(--slate-1);
-        accent-color: var(--blue-9);
+        color: var(--gray-12);
+        background: var(--gray-1);
+        accent-color: var(--brand-9);
 
         font-synthesis: none;
         text-rendering: optimizelegibility;
@@ -32,8 +32,8 @@
     }
 
     ::selection {
-        background: var(--blue-3);
-        color: var(--blue-11);
+        background: var(--brand-3);
+        color: var(--brand-11);
     }
 
     h1,
@@ -87,14 +87,14 @@
     }
 
     hr {
-        border: 1px solid var(--slate-5);
+        border: 1px solid var(--gray-5);
         border-width: 1px 0 0 0;
 
         margin: var(--space-4) 0;
     }
 
     p {
-        color: var(--slate-11);
+        color: var(--gray-11);
     }
 
     strong {
@@ -103,13 +103,13 @@
 
     ul,
     ol {
-        color: var(--slate-11);
+        color: var(--gray-11);
         list-style: inside;
 
         li {
             list-style-type: disc;
             &::marker {
-                color: var(--slate-8);
+                color: var(--gray-8);
             }
         }
     }

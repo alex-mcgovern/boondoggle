@@ -1,8 +1,8 @@
 .date-input {
-    --date-input-background: var(--slate-2);
-    --date-input-color: var(--slate-11);
+    --date-input-background: var(--gray-2);
+    --date-input-color: var(--gray-11);
 
-    --date-input-border-color: var(--slate-5);
+    --date-input-border-color: var(--gray-5);
     --date-input-border-size: 1px;
 
     --date-input-font-size: var(--font-size-body-md);
@@ -56,20 +56,20 @@
     }
 
     &:not(.unstyled)[data-hovered] {
-        --date-input-bg: var(--slate-1);
-        --date-input-border-color: var(--slate-7);
+        --date-input-bg: var(--gray-1);
+        --date-input-border-color: var(--gray-7);
     }
 
     &:not(.unstyled)[data-focus-within],
     &:not(.unstyled)[data-focus-visible] {
-        --date-input-bg: var(--slate-1);
-        --date-input-border-color: var(--blue-8);
-        --date-input-outline-color: var(--blue-6);
+        --date-input-bg: var(--gray-1);
+        --date-input-border-color: var(--brand-8);
+        --date-input-outline-color: var(--brand-6);
     }
 
     .date-segment {
         --date-segment-bg: transparent;
-        --date-segment-text-color: var(--slate-12);
+        --date-segment-text-color: var(--gray-12);
 
         color: var(--date-segment-text-color);
         background-color: var(--date-segment-bg);
@@ -93,12 +93,12 @@
 
         &[data-readonly],
         &[data-placeholder] {
-            --date-segment-text-color: var(--slate-11);
+            --date-segment-text-color: var(--gray-11);
         }
 
         &[data-focused] {
-            --date-segment-text-color: var(--blue-11);
-            --date-segment-bg: var(--blue-4);
+            --date-segment-text-color: var(--brand-11);
+            --date-segment-bg: var(--brand-4);
 
             caret-color: transparent;
         }

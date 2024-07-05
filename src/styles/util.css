@@ -212,7 +212,7 @@
     }
 
     .color-gray {
-        color: var(--slate-11);
+        color: var(--gray-11);
     }
 
     .nowrap {

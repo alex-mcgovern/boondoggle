@@ -5,10 +5,10 @@
     font-size: 12px;
     line-height: 1;
 
-    background-color: var(--slate-3);
-    color: var(--slate-11);
+    background-color: var(--gray-3);
+    color: var(--gray-11);
 
-    border: 1px solid var(--slate-5);
+    border: 1px solid var(--gray-5);
     border-bottom-width: 2px;
     border-radius: var(--radius-sm);
 

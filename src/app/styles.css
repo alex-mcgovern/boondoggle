@@ -104,7 +104,7 @@ These are called "bars"
 
     padding: var(--app-padding);
 
-    background: var(--slate-3);
+    background: var(--gray-3);
     height: var(--app-height);
     width: var(--app-width);
 
@@ -115,9 +115,9 @@ These are called "bars"
         width: var(--app-main-width);
         position: relative;
 
-        border: 1px solid var(--slate-5);
+        border: 1px solid var(--gray-5);
         border-radius: var(--radius-md);
-        background: var(--slate-1);
+        background: var(--gray-1);
         overflow: hidden;
 
         &:has(.app-main-header),
@@ -172,7 +172,7 @@ These are called "bars"
 
             overflow-y: auto;
             scrollbar-width: thin;
-            scrollbar-color: var(--slate-5) var(--slate-3);
+            scrollbar-color: var(--gray-5) var(--gray-3);
         }
 
         .app-main-header,
@@ -190,11 +190,11 @@ These are called "bars"
         .app-main-header,
         .app-main-toolbar,
         .app-drawer-header {
-            border-bottom: 1px solid var(--slate-5);
+            border-bottom: 1px solid var(--gray-5);
         }
 
         .app-main-footer {
-            border-top: 1px solid var(--slate-5);
+            border-top: 1px solid var(--gray-5);
         }
 
         .app-drawer-container {
@@ -212,8 +212,8 @@ These are called "bars"
             overflow: hidden;
 
             &:not(:empty) {
-                border-color: var(--slate-5);
-                background: var(--slate-2);
+                border-color: var(--gray-5);
+                background: var(--gray-2);
             }
 
             .app-drawer-dialog {
@@ -224,7 +224,7 @@ These are called "bars"
                 outline: 0;
 
                 &:focus {
-                    outline: 2px solid var(--blue-6);
+                    outline: 2px solid var(--brand-6);
                     outline-offset: -2px;
                 }
 
@@ -234,7 +234,7 @@ These are called "bars"
 
                     overflow-y: auto;
                     scrollbar-width: thin;
-                    scrollbar-color: var(--slate-5) var(--slate-3);
+                    scrollbar-color: var(--gray-5) var(--gray-3);
                 }
             }
         }
@@ -252,7 +252,7 @@ These are called "bars"
 
     .app-nav {
         --btn-background: transparent;
-        --btn-text-color: var(--slate-12);
+        --btn-text-color: var(--gray-12);
 
         --btn-padding: var(--space-1) var(--space-3);
         --btn-height: var(--ui-height-sm);
@@ -298,13 +298,13 @@ These are called "bars"
         }
 
         .app-nav-header {
-            /* border-bottom: 1px solid var(--slate-5); */
+            /* border-bottom: 1px solid var(--gray-5); */
             top: 0;
         }
 
         .app-nav-footer {
             margin-top: auto;
-            /* border-top: 1px solid var(--slate-5); */
+            /* border-top: 1px solid var(--gray-5); */
             bottom: 0;
         }
 
@@ -313,7 +313,7 @@ These are called "bars"
 
             &[data-hovered],
             &[data-is-current="true"] {
-                background: var(--slate-5);
+                background: var(--gray-5);
             }
         }
 
@@ -322,12 +322,12 @@ These are called "bars"
 
             &[data-hovered],
             &[data-is-current="true"] {
-                background: var(--slate-5);
+                background: var(--gray-5);
             }
         }
 
         .btn-collapse-container {
-            border-top: 1px solid var(--slate-5);
+            border-top: 1px solid var(--gray-5);
 
             position: sticky;
             bottom: 0;
@@ -346,7 +346,7 @@ These are called "bars"
 
             /* justify-self: flex-end; */
 
-            color: var(--slate-12);
+            color: var(--gray-12);
 
             font-size: var(--font-size-body-sm);
             line-height: var(--line-height-body-sm);
@@ -372,7 +372,7 @@ These are called "bars"
 
     padding: var(--space-2) 0;
 
-    /* border-bottom: 1px solid var(--slate-5); */
+    /* border-bottom: 1px solid var(--gray-5); */
 
     .user-menu-header-name,
     .user-menu-header-org {
@@ -386,10 +386,10 @@ These are called "bars"
 
     .user-menu-header-name {
         font-weight: var(--font-weight-medium);
-        color: var(--slate-12);
+        color: var(--gray-12);
     }
 
     .user-menu-header-org {
-        color: var(--slate-11);
+        color: var(--gray-11);
     }
 }

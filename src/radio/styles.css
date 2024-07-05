@@ -1,10 +1,10 @@
 .radio-group {
-    --text-color: var(--slate-12);
+    --text-color: var(--gray-12);
 
     --radio-item-width: var(--space-4);
-    --radio-item-bg: var(--slate-3);
+    --radio-item-bg: var(--gray-3);
 
-    --radio-item-border-color: var(--slate-5);
+    --radio-item-border-color: var(--gray-5);
     --radio-item-border-width: 1px;
 
     --radio-item-outline-color: transparent;
@@ -56,21 +56,21 @@
         }
 
         &[data-pressed]:before {
-            --radio-item-bg: var(--slate-4);
+            --radio-item-bg: var(--gray-4);
         }
 
         &[data-selected] {
             --radio-item-border-width: var(--space-1\.5);
-            --radio-item-border-color: var(--blue-9);
-            --radio-item-bg: var(--slate-1);
+            --radio-item-border-color: var(--brand-9);
+            --radio-item-bg: var(--gray-1);
 
             &[data-pressed]:before {
-                --radio-item-border-color: var(--blue-10);
+                --radio-item-border-color: var(--brand-10);
             }
         }
 
         &[data-focus-visible]:before {
-            --radio-item-outline-color: var(--blue-6);
+            --radio-item-outline-color: var(--brand-6);
         }
     }
 }

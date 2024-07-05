@@ -5,8 +5,8 @@
     --switch-height: calc(var(--dot-size) + (var(--switch-margin) * 2));
     --switch-width: calc((var(--dot-size) * 2) + (var(--switch-margin) * 2));
 
-    --switch-indicator-bg: var(--slate-7);
-    --switch-indicator-fg: var(--slate-1);
+    --switch-indicator-bg: var(--gray-7);
+    --switch-indicator-fg: var(--gray-1);
 
     --switch-indicator-outline-width: 2px;
     --switch-indicator-outline-color: transparent;
@@ -23,18 +23,18 @@
 
     &[data-selected] {
         --switch-indicator-transform: translateX(100%);
-        --switch-indicator-bg: var(--blue-9);
+        --switch-indicator-bg: var(--brand-9);
     }
 
     &[data-focus-visible] {
-        --switch-indicator-outline-color: var(--blue-6);
+        --switch-indicator-outline-color: var(--brand-6);
     }
 
     .switch-label {
         font-size: var(--font-size-body-md);
         line-height: var(--line-height-body-md);
 
-        color: var(--slate-12);
+        color: var(--gray-12);
     }
 
     .switch-indicator {

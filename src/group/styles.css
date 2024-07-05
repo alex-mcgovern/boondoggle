@@ -1,11 +1,11 @@
 .group {
-    --group-bg: var(--slate-2);
-    --group-color: var(--slate-12);
+    --group-bg: var(--gray-2);
+    --group-color: var(--gray-12);
 
     --group-height: var(--ui-height-sm);
 
     --group-border-width: 1px;
-    --group-border-color: var(--slate-5);
+    --group-border-color: var(--gray-5);
     --group-border-radius: var(--radius-md);
 
     --group-outline-width: 2px;
@@ -45,15 +45,15 @@
     }
 
     &[data-hovered] {
-        --group-bg: var(--slate-1);
-        --group-border-color: var(--slate-7);
+        --group-bg: var(--gray-1);
+        --group-border-color: var(--gray-7);
     }
 
     &[data-focus-within],
     &[data-focus-visible] {
-        --group-bg: var(--slate-1);
-        --group-border-color: var(--blue-8);
-        --group-outline-color: var(--blue-6);
+        --group-bg: var(--gray-1);
+        --group-border-color: var(--brand-8);
+        --group-outline-color: var(--brand-6);
     }
 
     &[data-invalid] {

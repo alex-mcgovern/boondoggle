@@ -1,8 +1,8 @@
 .btn {
-    --btn-background: var(--blue-9);
-    --btn-background-hover: var(--blue-10);
-    --btn-background-pressed: var(--blue-11);
-    --btn-text-color: var(--slate-1);
+    --btn-background: var(--brand-9);
+    --btn-background-hover: var(--brand-10);
+    --btn-background-pressed: var(--brand-11);
+    --btn-text-color: var(--gray-1);
 
     --btn-border-color: transparent;
     --btn-border-size: 1px;
@@ -83,12 +83,12 @@
     }
 
     &[data-focus-visible] {
-        --btn-outline-color: var(--blue-6);
+        --btn-outline-color: var(--brand-6);
     }
 
     &.secondary {
-        --btn-border-color: var(--slate-5);
-        --btn-background: var(--slate-2);
+        --btn-border-color: var(--gray-5);
+        --btn-background: var(--gray-2);
     }
 
     &.ghost {
@@ -97,9 +97,9 @@
 
     &.secondary,
     &.ghost {
-        --btn-background-hover: var(--slate-3);
-        --btn-background-pressed: var(--slate-4);
-        --btn-text-color: var(--slate-12);
+        --btn-background-hover: var(--gray-3);
+        --btn-background-pressed: var(--gray-4);
+        --btn-text-color: var(--gray-12);
     }
 
     &.sm {
@@ -159,21 +159,21 @@
     }
 
     &.blue {
-        --btn-background: var(--blue-9);
-        --btn-background-hover: var(--blue-10);
-        --btn-background-pressed: var(--blue-11);
-        --btn-text-color: var(--blue-1);
+        --btn-background: var(--brand-9);
+        --btn-background-hover: var(--brand-10);
+        --btn-background-pressed: var(--brand-11);
+        --btn-text-color: var(--brand-1);
 
         &.secondary {
-            --btn-border-color: var(--blue-6);
+            --btn-border-color: var(--brand-6);
         }
 
         &.secondary,
         &.ghost {
-            --btn-background-hover: var(--blue-3);
-            --btn-background-pressed: var(--blue-4);
-            --btn-background: var(--blue-2);
-            --btn-text-color: var(--blue-11);
+            --btn-background-hover: var(--brand-3);
+            --btn-background-pressed: var(--brand-4);
+            --btn-background: var(--brand-2);
+            --btn-text-color: var(--brand-11);
         }
     }
 

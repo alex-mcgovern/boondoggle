@@ -1,11 +1,11 @@
 .text-area {
-    --text-area-bg: var(--slate-2);
-    --text-area-color: var(--slate-12);
+    --text-area-bg: var(--gray-2);
+    --text-area-color: var(--gray-12);
 
     --text-area-height: calc(var(--space-8) * 3);
 
     --text-area-border-width: 1px;
-    --text-area-border-color: var(--slate-5);
+    --text-area-border-color: var(--gray-5);
     --text-area-border-radius: var(--radius-md);
 
     --text-area-outline-width: 2px;
@@ -37,15 +37,15 @@
     }
 
     &[data-hovered] {
-        --text-area-bg: var(--slate-1);
-        --text-area-border-color: var(--slate-7);
+        --text-area-bg: var(--gray-1);
+        --text-area-border-color: var(--gray-7);
     }
 
     &[data-focused],
     &[data-focus-visible] {
-        --text-area-bg: var(--slate-1);
-        --text-area-border-color: var(--blue-8);
-        --text-area-outline-color: var(--blue-6);
+        --text-area-bg: var(--gray-1);
+        --text-area-border-color: var(--brand-8);
+        --text-area-outline-color: var(--brand-6);
     }
 
     &[data-invalid] {

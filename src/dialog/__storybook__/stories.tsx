@@ -62,7 +62,7 @@ const meta = {
                     style={{
                         alignItems: "center",
                         backgroundImage:
-                            "linear-gradient(to right, var(--slate-5) 1px, transparent 1px), linear-gradient(to bottom, var(--slate-5) 1px, transparent 1px)",
+                            "linear-gradient(to right, var(--gray-5) 1px, transparent 1px), linear-gradient(to bottom, var(--gray-5) 1px, transparent 1px)",
                         backgroundSize: "40px 40px",
                         display: "flex",
                         height: "100dvh",

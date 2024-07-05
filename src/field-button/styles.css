@@ -1,6 +1,6 @@
 .field-button {
     --field-button-bg: transparent;
-    --field-button-color: var(--slate-11);
+    --field-button-color: var(--gray-11);
 
     --field-button-size: calc(var(--ui-height-sm) - var(--space-2));
 
@@ -44,8 +44,8 @@
 
     &[data-hovered],
     &[data-pressed] {
-        --field-button-bg: var(--slate-3);
-        --field-button-color: var(--slate-12);
+        --field-button-bg: var(--gray-3);
+        --field-button-color: var(--gray-12);
     }
 
     .icon {

@@ -1,7 +1,7 @@
 .pill {
-    --pill-bg: var(--slate-4);
-    --pill-color: var(--slate-11);
-    --pill-border-color: var(--slate-5);
+    --pill-bg: var(--gray-4);
+    --pill-color: var(--gray-11);
+    --pill-border-color: var(--gray-5);
 
     display: inline-flex;
     align-items: center;
@@ -26,9 +26,9 @@
     white-space: nowrap;
 
     &.blue {
-        --pill-bg: var(--blue-4);
-        --pill-color: var(--blue-11);
-        --pill-border-color: var(--blue-5);
+        --pill-bg: var(--brand-4);
+        --pill-color: var(--brand-11);
+        --pill-border-color: var(--brand-5);
     }
 
     &.red {

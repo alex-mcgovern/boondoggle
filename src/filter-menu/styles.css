@@ -16,10 +16,10 @@
     }
     &[data-filter-applied="false"] {
         background: transparent;
-        border: 1px dashed var(--slate-5);
+        border: 1px dashed var(--gray-5);
     }
     &[data-filter-applied="true"] {
-        border: 1px solid var(--slate-5);
+        border: 1px solid var(--gray-5);
     }
 
     .filter-button-group-label {
@@ -29,7 +29,7 @@
 
         font-size: var(--font-size-body-sm);
         line-height: var(--line-height-body-sm);
-        color: var(--slate-11);
+        color: var(--gray-11);
 
         padding: 0 var(--space-2);
 
@@ -38,7 +38,7 @@
     }
 
     .remove-filter-button {
-        color: var(--slate-11);
+        color: var(--gray-11);
         display: inline-flex;
         flex-shrink: 0;
         font-size: var(--font-size-body-sm);
@@ -69,7 +69,7 @@
         &[data-hovered],
         &[data-focus-visible],
         &[data-pressed] {
-            background-color: var(--slate-3);
+            background-color: var(--gray-3);
         }
     }
 
@@ -77,7 +77,7 @@
         --outline-color: transparent;
         --outline-size: 2px;
 
-        color: var(--slate-12);
+        color: var(--gray-12);
         display: inline-flex;
         flex-shrink: 0;
         font-size: var(--font-size-body-sm);
@@ -115,11 +115,11 @@
         &[data-hovered],
         &[data-focus-visible],
         &[data-pressed] {
-            background-color: var(--slate-3);
+            background-color: var(--gray-3);
         }
 
         &[data-focus-visible] {
-            --outline-color: var(--blue-6);
+            --outline-color: var(--brand-6);
         }
     }
 }

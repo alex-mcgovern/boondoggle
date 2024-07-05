@@ -1,7 +1,7 @@
 .alert {
-    --text-color: var(--slate-11);
-    --background-color: var(--slate-2);
-    --border-color: var(--slate-5);
+    --text-color: var(--gray-11);
+    --background-color: var(--gray-2);
+    --border-color: var(--gray-5);
 
     display: flex;
     gap: var(--space-2);
@@ -17,9 +17,9 @@
     border-radius: var(--radius-md);
 
     &.blue {
-        --text-color: var(--blue-11);
-        --background-color: var(--blue-2);
-        --border-color: var(--blue-6);
+        --text-color: var(--brand-11);
+        --background-color: var(--brand-2);
+        --border-color: var(--brand-6);
     }
 
     &.red {
@@ -41,9 +41,9 @@
     }
 
     &.grey {
-        --text-color: var(--slate-11);
-        --background-color: var(--slate-2);
-        --border-color: var(--slate-5);
+        --text-color: var(--gray-11);
+        --background-color: var(--gray-2);
+        --border-color: var(--gray-5);
     }
 
     .alert-title,

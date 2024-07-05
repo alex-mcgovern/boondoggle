@@ -6,9 +6,9 @@
     flex-direction: column;
 
     border-radius: var(--radius-md);
-    border: 1px solid var(--slate-5);
+    border: 1px solid var(--gray-5);
 
-    background-color: var(--slate-1);
+    background-color: var(--gray-1);
 
     .card-footer,
     .card-header {
@@ -32,10 +32,10 @@
     }
 
     .card-header {
-        border-bottom: 1px solid var(--slate-5);
+        border-bottom: 1px solid var(--gray-5);
     }
 
     .card-footer {
-        border-top: 1px solid var(--slate-5);
+        border-top: 1px solid var(--gray-5);
     }
 }

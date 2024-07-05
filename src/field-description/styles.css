@@ -1,6 +1,6 @@
 .description {
     display: block;
-    color: var(--slate-11);
+    color: var(--gray-11);
 
     font-size: var(--font-size-body-sm);
     line-height: var(--line-height-body-sm);

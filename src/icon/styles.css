@@ -11,11 +11,11 @@
     }
 
     &.blue {
-        --icon-color: var(--blue-9);
+        --icon-color: var(--brand-9);
     }
 
     &.grey {
-        --icon-color: var(--slate-11);
+        --icon-color: var(--gray-11);
     }
 
     &.red {

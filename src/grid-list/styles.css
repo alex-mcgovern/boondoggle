@@ -1,23 +1,23 @@
 .grid-list {
     .grid-list-item {
-        --grid-list-item-bg: var(--slate-1);
+        --grid-list-item-bg: var(--gray-1);
 
         background-color: var(--grid-list-item-bg);
 
         width: 100%;
 
         border-radius: var(--radius-md);
-        border: 1px solid var(--slate-5);
+        border: 1px solid var(--gray-5);
 
         margin-bottom: var(--space-2);
         padding: var(--space-2);
 
         &[data-hovered] {
             cursor: pointer;
-            --grid-list-item-bg: var(--slate-2);
+            --grid-list-item-bg: var(--gray-2);
         }
         &[data-pressed] {
-            --grid-list-item-bg: var(--slate-3);
+            --grid-list-item-bg: var(--gray-3);
         }
 
         &[data-focused] {
@@ -25,7 +25,7 @@
         }
 
         &[data-focus-visible] {
-            outline: 2px solid var(--blue-5);
+            outline: 2px solid var(--brand-5);
         }
     }
 }

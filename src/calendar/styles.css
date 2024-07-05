@@ -2,10 +2,10 @@
     --cell-outline-width: 2px;
     --cell-outline-color: transparent;
     --cell-bg: transparent;
-    --cell-color: var(--slate-11);
+    --cell-color: var(--gray-11);
     --cell-size: var(--space-8);
 
-    color: var(--slate-12);
+    color: var(--gray-12);
     max-width: 100%;
     width: fit-content;
 
@@ -36,10 +36,10 @@
     }
 
     .grid-header {
-        border-bottom: 1px solid var(--slate-5);
+        border-bottom: 1px solid var(--gray-5);
 
         .cell {
-            color: var(--slate-11);
+            color: var(--gray-11);
         }
     }
 
@@ -71,13 +71,13 @@
             }
 
             &[data-today="true"] {
-                --cell-color: var(--blue-11);
-                --cell-bg: var(--blue-3);
+                --cell-color: var(--brand-11);
+                --cell-bg: var(--brand-3);
             }
 
             &[data-hovered] {
-                --cell-color: var(--slate-12);
-                --cell-bg: var(--slate-3);
+                --cell-color: var(--gray-12);
+                --cell-bg: var(--gray-3);
             }
 
             &[data-disabled] {
@@ -87,13 +87,13 @@
 
             &[data-focused],
             &[data-focus-visible] {
-                --cell-color: var(--blue-9);
-                --cell-bg: var(--blue-5);
+                --cell-color: var(--brand-9);
+                --cell-bg: var(--brand-5);
             }
 
             &[data-selected] {
-                --cell-bg: var(--blue-9);
-                --cell-color: var(--slate-1);
+                --cell-bg: var(--brand-9);
+                --cell-color: var(--gray-1);
             }
         }
     }

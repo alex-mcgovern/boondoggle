@@ -1,12 +1,12 @@
 .checkbox-wrapper {
-    --checkbox-bg: var(--slate-2);
+    --checkbox-bg: var(--gray-2);
     --check-mark-color: var(
         --checkbox-bg
     ); /* Should be the same as the bg color */
 
-    --checkbox-label-color: var(--slate-12);
+    --checkbox-label-color: var(--gray-12);
 
-    --checkbox-border-color: var(--slate-5);
+    --checkbox-border-color: var(--gray-5);
     --checkbox-border-width: 1px;
 
     --checkbox-outline-width: 2px;
@@ -65,32 +65,32 @@
     }
 
     &[data-hovered] {
-        --checkbox-bg: var(--slate-1);
-        --checkbox-border-color: var(--slate-7);
+        --checkbox-bg: var(--gray-1);
+        --checkbox-border-color: var(--gray-7);
         cursor: pointer;
     }
 
     &[data-pressed],
     &[data-focus-visible] {
-        --checkbox-bg: var(--slate-3);
-        --checkbox-border-color: var(--slate-8);
+        --checkbox-bg: var(--gray-3);
+        --checkbox-border-color: var(--gray-8);
     }
 
     &[data-focus-visible] {
-        --checkbox-outline-color: var(--blue-6);
-        --checkbox-border-color: var(--blue-8);
+        --checkbox-outline-color: var(--brand-6);
+        --checkbox-border-color: var(--brand-8);
     }
 
     &[data-selected] {
-        --checkbox-bg: var(--blue-9);
-        --checkbox-border-color: var(--blue-9);
+        --checkbox-bg: var(--brand-9);
+        --checkbox-border-color: var(--brand-9);
 
-        --check-mark-color: var(--slate-1);
+        --check-mark-color: var(--gray-1);
 
         &[data-pressed],
         &[data-focus-visible] {
-            --checkbox-bg: var(--blue-11);
-            --checkbox-border-color: var(--blue-11);
+            --checkbox-bg: var(--brand-11);
+            --checkbox-border-color: var(--brand-11);
         }
 
         svg {

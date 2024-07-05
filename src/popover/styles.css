@@ -11,12 +11,12 @@
 }
 
 .popover {
-    --popover-bg: var(--slate-1);
-    --popover-text-color: var(--slate-12);
+    --popover-bg: var(--gray-1);
+    --popover-text-color: var(--gray-12);
 
     --animation-distance: var(--space-1);
 
-    --popover-border-color: var(--slate-5);
+    --popover-border-color: var(--gray-5);
     --popover-border-width: 1px;
     --popover-border-radius: var(--radius-md);
 
