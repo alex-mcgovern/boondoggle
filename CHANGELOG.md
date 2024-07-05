@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.8](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.7...v4.2.8) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** fix bug with`--trigger-width` variable naming ([#145](https://github.com/alex-mcgovern/boondoggle/issues/145)) ([1e377d2](https://github.com/alex-mcgovern/boondoggle/commit/1e377d278125e3f22bde2e83dbedf9c11511e13a))
+
 ## [4.2.7](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.6...v4.2.7) (2024-07-05)
 
 
