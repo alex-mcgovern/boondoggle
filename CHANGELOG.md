@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.7](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.6...v4.2.7) (2024-07-05)
+
+
+### Bug Fixes
+
+* **`ComboBox`:** ensure `Popover` width relates to the `Group` wrapping `ComboBox.Input` ([#144](https://github.com/alex-mcgovern/boondoggle/issues/144)) ([a447e7d](https://github.com/alex-mcgovern/boondoggle/commit/a447e7d0e2a59e7f82b8e65527bab4aa4ad699c5))
+* **`ComboBox`:** fix bug where supplied props are not respected in `ComboBox.Input` ([#142](https://github.com/alex-mcgovern/boondoggle/issues/142)) ([045ba07](https://github.com/alex-mcgovern/boondoggle/commit/045ba074f123c58cf42397e72ec92ff5ffc986c7))
+
 ## [4.2.6](https://github.com/alex-mcgovern/boondoggle/compare/v4.2.5...v4.2.6) (2024-07-05)
 
 
