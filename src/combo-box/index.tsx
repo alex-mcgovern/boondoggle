@@ -98,7 +98,7 @@ const ComboBoxRoot = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
                             <Popover.Root
                                 style={
                                     {
-                                        "--custom-trigger-width": `${groupWidth}px`,
+                                        "--trigger-width": `${groupWidth}px`,
                                     } as CSSProperties
                                 }
                             >
