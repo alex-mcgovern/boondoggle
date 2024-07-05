@@ -37,7 +37,7 @@ const ComboBoxInput = forwardRef<
         <Input
             {...props}
             defaultValue={value?.name}
-            icon={slotLeft}
+            icon={slotLeft ?? props.icon}
             onClick={() => {
                 toggle(null, "manual");
             }}
