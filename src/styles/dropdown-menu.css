@@ -92,6 +92,7 @@
 
         .dropdown-menu-item-name,
         .dropdown-menu-section-header-content {
+            white-space: nowrap;
             display: block;
             grid-area: center;
 
