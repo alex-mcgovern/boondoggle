@@ -1,6 +1,7 @@
 import type { GroupProps as AriaGroupProps } from "react-aria-components";
 
 import clsx from "clsx";
+import { forwardRef } from "react";
 import { Group as AriaGroup } from "react-aria-components";
 
 import "./styles.css";
@@ -20,11 +21,14 @@ import "./styles.css";
  * import { Group } from "boondoggle";
  * ```
  */
-export function Group(props: AriaGroupProps) {
-    return (
-        <AriaGroup
-            {...props}
-            className={clsx(props.className, "group")}
-        />
-    );
-}
+export const Group = forwardRef<HTMLDivElement, AriaGroupProps>(
+    (props: AriaGroupProps, ref) => {
+        return (
+            <AriaGroup
+                {...props}
+                className={clsx(props.className, "group")}
+                ref={ref}
+            />
+        );
+    },
+);
