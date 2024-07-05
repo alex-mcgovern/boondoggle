@@ -77,9 +77,25 @@ const ComboBoxRoot = forwardRef<HTMLDivElement, AriaComboBoxProps<object>>(
         const [groupWidth, setGroupWidth] = useState<null | number>(null);
 
         useLayoutEffect(() => {
-            if (groupRef.current) {
-                setGroupWidth(groupRef.current.offsetWidth);
-            }
+            const targetElement = groupRef.current;
+            if (!targetElement) return;
+
+            const updateWidth = () => {
+                setGroupWidth(targetElement.offsetWidth);
+            };
+
+            updateWidth();
+
+            const observer = new MutationObserver(() => {
+                updateWidth();
+            });
+
+            observer.observe(targetElement, {
+                childList: true,
+                subtree: true,
+            });
+
+            return () => observer.disconnect();
         }, []);
 
         return (
