@@ -32,7 +32,7 @@
     }
 
     ::selection {
-        background: var(--brand-2);
+        background: var(--brand-3);
         color: var(--brand-11);
     }
 
