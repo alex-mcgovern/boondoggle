@@ -24,13 +24,17 @@ export const Input = forwardRef<
         right?: boolean;
 
         /**
+         * The size of the input.
+         */
+        size?: "lg" | "md" | "sm";
+        /**
          * For use within a `Group` component, will remove all styles from the input.
          */
         unstyled?: boolean;
     } & AriaInputProps
->(({ icon, right, unstyled, ...props }, ref) => {
+>(({ icon, right, size, unstyled, ...props }, ref) => {
     return (
-        <div className="input-container">
+        <div className={clsx("input-container", size)}>
             {icon && <div className="input-icon-container">{icon}</div>}
             <AriaInput
                 ref={ref}
