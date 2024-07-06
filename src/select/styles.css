@@ -36,6 +36,7 @@
         flex-shrink: 0;
 
         color: var(--select-button-text-color);
+        background-color: var(--select-button-bg-color);
 
         font-size: var(--font-size-body-sm);
         line-height: var(--line-height-body-sm);
