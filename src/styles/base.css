@@ -32,8 +32,12 @@
     }
 
     ::selection {
-        background: var(--brand-3);
+        background: var(--brand-2);
         color: var(--brand-11);
+    }
+
+    a {
+        color: currentColor;
     }
 
     h1,
