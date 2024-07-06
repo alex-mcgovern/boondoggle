@@ -22,7 +22,7 @@
 
         font-family: var(--font-family-body);
         font-size: var(--font-size-body-md);
-        line-height: var(--line-height-body-sm);
+        line-height: var(--line-height-body-md);
     }
 
     * {
