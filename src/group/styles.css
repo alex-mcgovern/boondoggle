@@ -2,7 +2,7 @@
     --group-bg: var(--gray-2);
     --group-color: var(--gray-12);
 
-    --group-height: var(--ui-height-sm);
+    --group-height: var(--ui-height-md);
 
     --group-border-width: 1px;
     --group-border-color: var(--gray-5);
@@ -37,6 +37,18 @@
         transition-duration: var(--dur-short);
         transition-property: background-color, border-color, color, outline;
         transition-timing-function: var(--ease-quart-in-out);
+    }
+
+    &.sm {
+        --group-height: var(--ui-height-sm);
+    }
+
+    &.md {
+        --group-height: var(--ui-height-md);
+    }
+
+    &.lg {
+        --group-height: var(--ui-height-lg);
     }
 
     &[data-disabled] {

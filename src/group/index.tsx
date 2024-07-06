@@ -22,11 +22,22 @@ import "./styles.css";
  * ```
  */
 export const Group = forwardRef<HTMLDivElement, AriaGroupProps>(
-    (props: AriaGroupProps, ref) => {
+    (
+        {
+            size,
+            ...props
+        }: {
+            /**
+             * The size of the group.
+             */
+            size?: "lg" | "md" | "sm";
+        } & AriaGroupProps,
+        ref,
+    ) => {
         return (
             <AriaGroup
                 {...props}
-                className={clsx(props.className, "group")}
+                className={clsx(props.className, "group", size)}
                 ref={ref}
             />
         );

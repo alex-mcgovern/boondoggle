@@ -1,6 +1,6 @@
 .input-container {
     --input-icon-offset-x: var(--space-1);
-    --input-height: var(--ui-height-md);
+    --input-height: var(--group-height, --ui-height-md);
 
     display: inline-flex;
     align-items: center;
@@ -36,15 +36,15 @@
     }
 
     &.sm {
-        --input-height: var(--ui-height-sm);
+        --input-height: var(--group-height, --ui-height-sm);
     }
 
     &.md {
-        --input-height: var(--ui-height-md);
+        --input-height: var(--group-height, --ui-height-md);
     }
 
     &.lg {
-        --input-height: var(--ui-height-lg);
+        --input-height: var(--group-height, --ui-height-lg);
     }
 
     .input {
