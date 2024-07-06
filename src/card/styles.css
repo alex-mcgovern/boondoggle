@@ -1,6 +1,6 @@
 .card {
     --card-bar-height: var(--space-12);
-    --card-padding-x: var(--space-6);
+    --card-padding-x: var(--space-4);
 
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
     }
 
     .card-body {
-        padding: var(--space-3\.5) var(--card-padding-x);
+        padding: var(--space-3) var(--card-padding-x);
     }
 
     .card-footer,
