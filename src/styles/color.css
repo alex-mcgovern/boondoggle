@@ -2,30 +2,30 @@
     :root {
         --brand-color: hsl(206, 100%, 50%);
 
-        --brand-1:  oklch(from var(--brand-color) 99.12% c h);
-        --brand-2:  oklch(from var(--brand-color) 98.34% c h);
-        --brand-3:  oklch(from var(--brand-color) 96.05% c h);
-        --brand-4:  oklch(from var(--brand-color) 93.96% c h);
-        --brand-5:  oklch(from var(--brand-color) 90.39% c h);
-        --brand-6:  oklch(from var(--brand-color) 86.22% c h);
-        --brand-7:  oklch(from var(--brand-color) 80.74% c h);
-        --brand-8:  oklch(from var(--brand-color) 72.97% c h);
-        --brand-9:  oklch(from var(--brand-color) 65.04% c h);
-        --brand-10: oklch(from var(--brand-color) 61.82% c h);
-        --brand-11: oklch(from var(--brand-color) 55.6% c h);
-        --brand-12: oklch(from var(--brand-color) 32.5% c h);
+        --brand-1:  oklch(from var(--brand-color) 99.12% 0.004                   h);
+        --brand-2:  oklch(from var(--brand-color) 98.34% 0.008553640542686586    h);
+        --brand-3:  oklch(from var(--brand-color) 96.05% 0.02                    h);
+        --brand-4:  oklch(from var(--brand-color) 93.96% 0.03396919049441918     h);
+        --brand-5:  oklch(from var(--brand-color) 90.39% 0.05159523642953761     h);
+        --brand-6:  oklch(from var(--brand-color) 86.22% 0.069                   h);
+        --brand-7:  oklch(from var(--brand-color) 80.74% 0.089                   h);
+        --brand-8:  oklch(from var(--brand-color) 72.97% 0.123                   h);
+        --brand-9:  oklch(from var(--brand-color) 65.04% 0.19250535866368496     h);
+        --brand-10: oklch(from var(--brand-color) 61.82% 0.185                   h);
+        --brand-11: oklch(from var(--brand-color) 55.6%  0.162                   h);
+        --brand-12: oklch(from var(--brand-color) 32.5%  0.096                   h);
 
-        --gray-1:   oklch(from var(--brand-color) 99.12% 0.001 h);
-        --gray-2:   oklch(from var(--brand-color) 98.23% 0.003 h);
-        --gray-3:   oklch(from var(--brand-color) 95.85% 0.004 h);
-        --gray-4:   oklch(from var(--brand-color) 93.39% 0.005 h);
-        --gray-5:   oklch(from var(--brand-color) 91.01% 0.007 h);
-        --gray-6:   oklch(from var(--brand-color) 88.35% 0.01 h);
-        --gray-7:   oklch(from var(--brand-color) 85.17% 0.011 h);
-        --gray-8:   oklch(from var(--brand-color) 79.32% 0.015 h);
-        --gray-9:   oklch(from var(--brand-color) 64.46% 0.017 h);
-        --gray-10:  oklch(from var(--brand-color) 61.38% 0.014 h);
-        --gray-11:  oklch(from var(--brand-color) 50.23% 0.014 h);
-        --gray-12:  oklch(from var(--brand-color) 24.58% 0.01 h);
+        --gray-1:   oklch(from var(--brand-color) 99.12% 0.002 h);
+        --gray-2:   oklch(from var(--brand-color) 98.23% 0.006 h);
+        --gray-3:   oklch(from var(--brand-color) 95.85% 0.008 h);
+        --gray-4:   oklch(from var(--brand-color) 93.39% 0.01 h);
+        --gray-5:   oklch(from var(--brand-color) 91.01% 0.014 h);
+        --gray-6:   oklch(from var(--brand-color) 88.35% 0.02 h);
+        --gray-7:   oklch(from var(--brand-color) 85.17% 0.022 h);
+        --gray-8:   oklch(from var(--brand-color) 79.32% 0.03 h);
+        --gray-9:   oklch(from var(--brand-color) 64.46% 0.034 h);
+        --gray-10:  oklch(from var(--brand-color) 61.38% 0.028 h);
+        --gray-11:  oklch(from var(--brand-color) 50.23% 0.028 h);
+        --gray-12:  oklch(from var(--brand-color) 24.58% 0.02 h);
     }
 }
