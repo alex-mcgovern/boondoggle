@@ -14,11 +14,12 @@
     --btn-outline-color: transparent;
     --btn-outline-size: 2px;
 
-    --btn-padding-y: var(--space-2);
-    --btn-padding-x: var(--space-2);
+    --btn-padding-y: var(--space-3);
+    --btn-padding-x: var(--space-4);
+
+    --btn-height: var(--ui-height-md);
 
     --btn-radius: var(--radius-md);
-    --btn-height: var(--ui-height-sm);
 
     --btn-icon-size: var(--space-3);
 
