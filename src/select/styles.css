@@ -1,4 +1,28 @@
 .select {
+    --select-button-text-color: var(--gray-12);
+
+    --select-button-outline-color: transparent;
+    --select-button-outline-width: 2px;
+
+    --select-button-bg-color: var(--gray-2);
+    --select-button-height: var(--ui-height-md);
+
+    --select-button-border-color: var(--gray-5);
+    --select-button-border-width: 1px;
+    --select-button-border-radius: var(--radius-md);
+
+    &.sm {
+        --select-button-height: var(--group-height, --ui-height-sm);
+    }
+
+    &.md {
+        --select-button-height: var(--group-height, --ui-height-md);
+    }
+
+    &.lg {
+        --select-button-height: var(--group-height, --ui-height-lg);
+    }
+
     flex-shrink: 0;
 
     &[data-disabled] {
@@ -7,19 +31,6 @@
     }
 
     .select-button {
-        --select-button-text-color: var(--gray-12);
-
-        --select-button-outline-color: transparent;
-        --select-button-outline-width: 2px;
-
-        --select-button-bg-color: var(--gray-2);
-
-        --select-button-height: var(--ui-height-md);
-
-        --select-button-border-color: var(--gray-5);
-        --select-button-border-width: 1px;
-        --select-button-border-radius: var(--radius-md);
-
         display: flex;
         align-items: center;
         flex-shrink: 0;
@@ -38,18 +49,6 @@
 
         height: var(--select-button-height);
         width: 100%;
-
-        &.sm {
-            --select-button-height: var(--group-height, --ui-height-sm);
-        }
-
-        &.md {
-            --select-button-height: var(--group-height, --ui-height-md);
-        }
-
-        &.lg {
-            --select-button-height: var(--group-height, --ui-height-lg);
-        }
 
         .icon {
             height: var(--icon-size-sm);
