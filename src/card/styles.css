@@ -33,7 +33,6 @@
 
     .card-header {
         border-bottom: 1px solid var(--gray-5);
-        background-color: var(--gray-3);
     }
 
     .card-footer {
