@@ -59,17 +59,17 @@
         --font-size-root: 16px;
         --line-height-root: 1.5rem;
 
-        --font-size-body-lg: 1rem;
+        --font-size-body-lg: 1.125rem;
         --line-height-body-lg: 1.5rem;
 
-        --font-size-body-md: 0.875rem;
+        --font-size-body-md: 1rem;
         --line-height-body-md: 1.5rem;
 
-        --font-size-body-sm: 0.8125rem;
-        --line-height-body-sm: 1rem;
+        --font-size-body-sm: 0.875rem;
+        --line-height-body-sm: 1.5rem;
 
-        --font-size-body-xs: 0.75rem;
-        --line-height-body-xs: 0.775rem;
+        --font-size-body-xs: 0.8125rem;
+        --line-height-body-xs: 1rem;
 
         --font-size-h1: 2.5rem;
         --line-height-h1: 3rem;
