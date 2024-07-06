@@ -35,6 +35,7 @@
         "fix-prettier": "prettier . --write",
         "postversion": "git push --no-verify && git push --tags --no-verify",
         "prepare": "husky",
+        "prebuild": "rm -rf dist",
         "preversion": "npm run check",
         "storybook": "storybook dev -p 6006",
         "test:watch": "vitest --watch"
