@@ -14,6 +14,8 @@
 
         --select-button-bg-color: var(--gray-2);
 
+        --select-button-height: var(--ui-height-md);
+
         --select-button-border-color: var(--gray-5);
         --select-button-border-width: 1px;
         --select-button-border-radius: var(--radius-md);
@@ -34,8 +36,20 @@
         outline: var(--select-button-outline-width) solid
             var(--select-button-outline-color);
 
-        height: var(--ui-height-sm);
+        height: var(--select-button-height);
         width: 100%;
+
+        &.sm {
+            --select-button-height: var(--group-height, --ui-height-sm);
+        }
+
+        &.md {
+            --select-button-height: var(--group-height, --ui-height-md);
+        }
+
+        &.lg {
+            --select-button-height: var(--group-height, --ui-height-lg);
+        }
 
         .icon {
             height: var(--icon-size-sm);

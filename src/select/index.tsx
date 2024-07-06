@@ -22,6 +22,7 @@ import { Popover } from "../popover";
 import "./styles.css";
 
 function SelectButton<TItemId extends string = string>({
+    size = "md",
     variant = "default",
     ...props
 }: {
@@ -29,7 +30,10 @@ function SelectButton<TItemId extends string = string>({
      * React ref to the SelectButton element.
      */
     ref?: ForwardedRef<HTMLButtonElement>;
-
+    /**
+     * The size of the input.
+     */
+    size?: "lg" | "md" | "sm";
     /**
      * The variant of the select button.
      * - `"borderless"` - A select button with no border.
@@ -45,7 +49,7 @@ function SelectButton<TItemId extends string = string>({
     return (
         <AriaButton
             {...props}
-            className={clsx(props.className, "select-button", variant)}
+            className={clsx(props.className, "select-button", variant, size)}
         >
             <AriaSelectValue<IterableListBoxItem<TItemId>>
                 className={"select-value"}
