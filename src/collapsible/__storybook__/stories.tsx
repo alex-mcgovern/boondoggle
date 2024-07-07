@@ -15,7 +15,17 @@ export default {
 
 export const Default: StoryObj<ComponentProps<typeof Collapsible.Root>> = {
     args: {
-        children: faker.lorem.paragraphs(3),
-        triggerNode: <Collapsible.Trigger>Click me</Collapsible.Trigger>,
+        children: (
+            <>
+                <Collapsible.Trigger>
+                    <Collapsible.TriggerButton>
+                        Click me
+                    </Collapsible.TriggerButton>
+                </Collapsible.Trigger>
+                <Collapsible.Content>
+                    {faker.lorem.paragraphs(3)}
+                </Collapsible.Content>
+            </>
+        ),
     },
 };
