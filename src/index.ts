@@ -9,6 +9,7 @@ export { Card } from "./card";
 export { Checkbox } from "./checkbox";
 export { CheckboxGroup } from "./checkbox-group";
 export { Collapsible } from "./collapsible";
+export { CollapsibleCard } from "./collapsible-card";
 export { ComboBox } from "./combo-box";
 export { DateInput } from "./date-input";
 export { DatePicker } from "./date-picker";
