@@ -39,12 +39,17 @@ function CollapsibleTrigger(props: RadixCollapsible.CollapsibleTriggerProps) {
     return <RadixCollapsible.Trigger {...props}></RadixCollapsible.Trigger>;
 }
 
-function CollapsibleContent(props: RadixCollapsible.CollapsibleContentProps) {
+function CollapsibleContent({
+    children,
+    ...props
+}: RadixCollapsible.CollapsibleContentProps) {
     return (
         <RadixCollapsible.Content
             {...props}
             className={clsx(props.className, "collapsible-content")}
-        ></RadixCollapsible.Content>
+        >
+            <div>{children}</div>
+        </RadixCollapsible.Content>
     );
 }
 

@@ -1,0 +1,31 @@
+.collapsible-card-header-button {
+    color: inherit;
+    display: block;
+    appearance: none;
+    width: 100%;
+
+    &:hover {
+        .collapsible-card-header {
+            cursor: pointer;
+            background-color: var(--gray-2);
+        }
+    }
+    &:active {
+        .collapsible-card-header {
+            background-color: var(--gray-3);
+        }
+    }
+
+    &[data-state="closed"] {
+        .collapsible-card-header {
+            border-bottom: 1px solid transparent;
+            border-radius: var(--radius-md);
+        }
+    }
+    &[data-state="open"] {
+        .collapsible-card-header {
+            border-top-left-radius: var(--radius-md);
+            border-top-right-radius: var(--radius-md);
+        }
+    }
+}

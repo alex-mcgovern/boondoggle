@@ -1,6 +1,5 @@
-import type { HTMLProps } from "react";
-
 import clsx from "clsx";
+import { type HTMLProps, forwardRef } from "react";
 
 import "./styles.css";
 
@@ -13,23 +12,29 @@ function CardRoot(props: HTMLProps<HTMLElement>) {
     );
 }
 
-function CardHeader(props: HTMLProps<HTMLElement>) {
-    return (
-        <header
-            {...props}
-            className={clsx(props.className, "card-header")}
-        />
-    );
-}
+const CardHeader = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
+    (props, ref) => {
+        return (
+            <header
+                {...props}
+                className={clsx(props.className, "card-header")}
+                ref={ref}
+            />
+        );
+    },
+);
 
-function CardBody(props: HTMLProps<HTMLDivElement>) {
-    return (
-        <div
-            {...props}
-            className={clsx(props.className, "card-body")}
-        />
-    );
-}
+const CardBody = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
+    (props, ref) => {
+        return (
+            <div
+                {...props}
+                className={clsx(props.className, "card-body")}
+                ref={ref}
+            />
+        );
+    },
+);
 
 function CardFooter(props: HTMLProps<HTMLElement>) {
     return (

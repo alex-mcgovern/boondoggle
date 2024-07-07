@@ -1,4 +1,4 @@
-@keyframes collapsible {
+@keyframes collapsible-show {
     from {
         height: 0;
     }
@@ -7,22 +7,27 @@
     }
 }
 
+@keyframes collapsible-hide {
+    from {
+        height: var(--radix-collapsible-content-height);
+    }
+    to {
+        height: 0;
+    }
+}
+
 .collapsible {
     .collapsible-content {
         overflow: hidden;
-    }
 
-    @media (prefers-reduced-motion: no-preference) {
-        &[data-state="open"] {
-            .collapsible-content {
-                /* prettier-ignore */
-                animation: collapsible var(--dur-long) var(--ease-quart-in-out) forwards;
+        @media (prefers-reduced-motion: no-preference) {
+            &[data-state="open"] {
+                animation: collapsible-show var(--dur-medium)
+                    var(--ease-quart-in-out) forwards;
             }
-        }
-        &[data-state="closed"] {
-            .collapsible-content {
-                /* prettier-ignore */
-                animation: collapsible var(--dur-long) var(--ease-quart-in-out) reverse;
+            &[data-state="closed"] {
+                animation: collapsible-hide var(--dur-medium)
+                    var(--ease-quart-in-out) forwards;
             }
         }
     }
