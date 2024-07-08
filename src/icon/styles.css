@@ -15,7 +15,7 @@
     }
 
     &.grey {
-        --icon-color: var(--gray-11);
+        --icon-color: var(--gray-9);
     }
 
     &.red {
