@@ -9,6 +9,16 @@ import { Button } from "react-aria-components";
 import { Icon } from "../icon";
 import "./styles.css";
 
+function CollapsibleIcon() {
+    return (
+        <Icon
+            className="collapsible-icon"
+            color="grey"
+            icon={faChevronRight}
+        />
+    );
+}
+
 function TriggerButton(
     props: { ref?: ForwardedRef<HTMLButtonElement> } & AriaButtonProps,
 ) {
@@ -21,10 +31,7 @@ function TriggerButton(
             {(rp) => {
                 return (
                     <>
-                        <Icon
-                            className="collapsible-trigger-icon"
-                            icon={faChevronRight}
-                        />
+                        <CollapsibleIcon />
                         {typeof props.children === "function"
                             ? props.children(rp)
                             : props.children}
@@ -79,6 +86,7 @@ function CollapsibleRoot(props: RadixCollapsible.CollapsibleProps) {
  */
 export const Collapsible = {
     Content: CollapsibleContent,
+    Icon: CollapsibleIcon,
     Root: CollapsibleRoot,
     Trigger: CollapsibleTrigger,
     TriggerButton: TriggerButton,
