@@ -1,0 +1,59 @@
+.app-layout-vertical {
+    --nav-height: 3.5rem;
+
+    --app-layout-outer-width: 100vw;
+    --app-layout-inner-width: 76rem;
+    --app-layout-height: 100dvh;
+
+    --app-padding: 7rem;
+
+    position: relative;
+
+    width: var(--app-layout-outer-width);
+    height: var(--app-layout-height);
+
+    .app-layout-vertical-nav {
+        height: var(--nav-height);
+
+        background: var(--gray-2);
+        border-bottom: 1px solid var(--gray-6);
+
+        display: flex;
+        align-items: center;
+        padding: 0 var(--app-padding);
+
+        .app-layout-vertical-nav-inner {
+            max-width: var(--app-layout-inner-width);
+            width: 100%;
+
+            margin: 0 auto;
+            padding: var(--space-4) 0;
+
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-6);
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .app-layout-vertical-main {
+        height: calc(var(--app-layout-height) - var(--nav-height));
+        overflow-y: scroll;
+
+        background: var(--gray-2);
+
+        scrollbar-gutter: stable;
+        scrollbar-width: thin;
+        scrollbar-color: var(--gray-5) transparent;
+
+        padding: 0 var(--app-padding);
+
+        .app-layout-vertical-main-inner {
+            max-width: var(--app-layout-inner-width);
+            width: 100%;
+
+            margin: 0 auto;
+        }
+    }
+}
