@@ -1,4 +1,4 @@
-import type { ForwardedRef } from "react";
+import type { ComponentProps, ForwardedRef } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 
 import { faChevronRight } from "@fortawesome/pro-solid-svg-icons/faChevronRight";
@@ -9,10 +9,13 @@ import { Button } from "react-aria-components";
 import { Icon } from "../icon";
 import "./styles.css";
 
-function CollapsibleIcon() {
+function CollapsibleIcon(
+    props: Omit<ComponentProps<typeof Icon>, "color" | "icon">,
+) {
     return (
         <Icon
-            className="collapsible-icon"
+            {...props}
+            className={clsx(props.className, "collapsible-icon")}
             color="grey"
             icon={faChevronRight}
         />
