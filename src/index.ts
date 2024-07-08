@@ -2,7 +2,11 @@ import "./styles/index.css";
 
 export { Alert } from "./alert";
 export { App } from "./app";
-export { AppLayoutVertical } from "./app-layout-vertical";
+export {
+    AppVerticalMain,
+    AppVerticalNav,
+    AppVerticalRoot,
+} from "./app-layout-vertical";
 export { Avatar } from "./avatar";
 export { Button, LinkButton } from "./button";
 export { Calendar } from "./calendar";

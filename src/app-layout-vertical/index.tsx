@@ -4,7 +4,10 @@ import clsx from "clsx";
 
 import "./styles.css";
 
-function AppLayoutVerticalRoot(props: HTMLProps<HTMLDivElement>) {
+/**
+ * The vertical layout is a layout that has a top nav bar and a scrollable main content area.
+ */
+export function AppVerticalRoot(props: HTMLProps<HTMLDivElement>) {
     return (
         <div
             {...props}
@@ -13,7 +16,10 @@ function AppLayoutVerticalRoot(props: HTMLProps<HTMLDivElement>) {
     );
 }
 
-function AppLayoutVerticalNav({ children, ...props }: HTMLProps<HTMLElement>) {
+/**
+ * The top nav bar of the vertical layout.
+ */
+export function AppVerticalNav({ children, ...props }: HTMLProps<HTMLElement>) {
     return (
         <nav
             {...props}
@@ -24,7 +30,13 @@ function AppLayoutVerticalNav({ children, ...props }: HTMLProps<HTMLElement>) {
     );
 }
 
-function AppLayoutVerticalMain({ children, ...props }: HTMLProps<HTMLElement>) {
+/**
+ * The main content area of the vertical layout.
+ */
+export function AppVerticalMain({
+    children,
+    ...props
+}: HTMLProps<HTMLElement>) {
     return (
         <main
             {...props}
@@ -34,12 +46,3 @@ function AppLayoutVerticalMain({ children, ...props }: HTMLProps<HTMLElement>) {
         </main>
     );
 }
-
-/**
- * Vertical layout for an app, composed of a nav and main content area.
- */
-export const AppLayoutVertical = {
-    Main: AppLayoutVerticalMain,
-    Nav: AppLayoutVerticalNav,
-    Root: AppLayoutVerticalRoot,
-};
