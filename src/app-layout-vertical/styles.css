@@ -50,6 +50,8 @@
         padding: 0 var(--app-padding);
 
         .app-layout-vertical-main-inner {
+            padding: var(--space-8) 0;
+
             max-width: var(--app-layout-inner-width);
             width: 100%;
 
