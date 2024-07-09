@@ -224,7 +224,7 @@ These are called "bars"
                 outline: 0;
 
                 &:focus {
-                    outline: 2px solid var(--brand-6);
+                    outline: 2px solid var(--brand-5);
                     outline-offset: -2px;
                 }
 
