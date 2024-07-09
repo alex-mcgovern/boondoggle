@@ -8,22 +8,19 @@ import "./styles.css";
 /**
  * Pill component
  */
-export const Pill = forwardRef(
-    ({
-        children,
-        className,
-        color,
-        ...props
-    }: {
+export const Pill = forwardRef<
+    HTMLDivElement,
+    {
         color?: Color;
-    } & HTMLProps<HTMLDivElement>) => {
-        return (
-            <div
-                className={clsx(className, "pill", color)}
-                {...props}
-            >
-                {children}
-            </div>
-        );
-    },
-);
+    } & HTMLProps<HTMLDivElement>
+>(({ children, className, color, ...props }, ref) => {
+    return (
+        <div
+            {...props}
+            className={clsx(className, "pill", color)}
+            ref={ref}
+        >
+            {children}
+        </div>
+    );
+});
