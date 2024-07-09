@@ -49,6 +49,8 @@
         --pill-border-color: var(--amber-5);
     }
 
+    .slot-left,
+    .slot-right,
     .icon {
         display: flex;
         justify-content: center;
@@ -56,12 +58,14 @@
 
         width: var(--icon-size-sm);
         height: var(--icon-size-sm);
+
+        flex-shrink: 0;
     }
 
-    &:has(.icon:first-child) {
+    &:has(.slot-left) {
         padding-left: var(--space-1);
     }
-    &:has(.icon:last-child) {
+    &:has(.slot-right) {
         padding-right: var(--space-1);
     }
 }
