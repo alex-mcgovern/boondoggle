@@ -15,7 +15,7 @@ function GridListRoot<T extends object = object>(props: AriaGridListProps<T>) {
     return (
         <AriaGridList<T>
             {...props}
-            className={clsx(props.children, "grid-list")}
+            className={clsx(props.className, "grid-list")}
         />
     );
 }
@@ -26,7 +26,7 @@ function GridListItem<T extends object = object>(
     return (
         <AriaGridListItem
             {...props}
-            className={clsx(props.children, "grid-list-item")}
+            className={clsx(props.className, "grid-list-item")}
         />
     );
 }
