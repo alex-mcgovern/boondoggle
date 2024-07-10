@@ -20,13 +20,21 @@ function GridListRoot<T extends object = object>(props: AriaGridListProps<T>) {
     );
 }
 
-function GridListItem<T extends object = object>(
-    props: AriaGridListItemProps<T>,
-) {
+function GridListItem<T extends object = object>({
+    borderless,
+    ...props
+}: {
+    /**
+     * Whether the item should be displayed as a borderless card.
+     */
+    borderless?: boolean;
+} & AriaGridListItemProps<T>) {
     return (
         <AriaGridListItem
             {...props}
-            className={clsx(props.className, "grid-list-item")}
+            className={clsx(props.className, "grid-list-item", {
+                borderless: borderless,
+            })}
         />
     );
 }

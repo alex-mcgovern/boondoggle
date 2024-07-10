@@ -6,11 +6,12 @@
 
         width: 100%;
 
-        border-radius: var(--radius-md);
-        border: 1px solid var(--gray-5);
-
-        margin-bottom: var(--space-2);
         padding: var(--space-2);
+
+        &:not(.borderless) {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-5);
+        }
 
         &[data-hovered] {
             cursor: pointer;
