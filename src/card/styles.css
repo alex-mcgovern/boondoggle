@@ -15,7 +15,7 @@
         padding: 0 var(--card-padding-x);
     }
 
-    .card-body {
+    .card-body:not(.no-padding) {
         padding: var(--space-3) var(--card-padding-x);
     }
 

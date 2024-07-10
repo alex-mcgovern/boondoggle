@@ -24,17 +24,20 @@ const CardHeader = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
     },
 );
 
-const CardBody = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
-    (props, ref) => {
-        return (
-            <div
-                {...props}
-                className={clsx(props.className, "card-body")}
-                ref={ref}
-            />
-        );
-    },
-);
+const CardBody = forwardRef<
+    HTMLDivElement,
+    { noPadding?: boolean } & HTMLProps<HTMLDivElement>
+>(({ noPadding, ...props }, ref) => {
+    return (
+        <div
+            {...props}
+            className={clsx(props.className, "card-body", {
+                "no-padding": noPadding,
+            })}
+            ref={ref}
+        />
+    );
+});
 
 function CardFooter(props: HTMLProps<HTMLElement>) {
     return (
