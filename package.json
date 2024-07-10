@@ -3,7 +3,6 @@
     "name": "boondoggle",
     "description": "Boondoggle component library",
     "version": "4.2.10-44",
-    "license": "MIT",
     "sideEffects": [
         "**/*.css"
     ],
@@ -18,6 +17,7 @@
     "types": "dist/types.d.ts",
     "type": "module",
     "main": "dist/index.js",
+    "license": "MIT",
     "scripts": {
         "build": "vite build",
         "build:docs": "storybook build --docs -o docs",
