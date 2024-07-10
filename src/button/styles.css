@@ -84,7 +84,7 @@
     }
 
     &[data-focus-visible] {
-        --btn-outline-color: var(--brand-6);
+        --btn-outline-color: var(--brand-5);
     }
 
     &.secondary {

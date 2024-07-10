@@ -69,3 +69,50 @@
         padding-right: var(--space-1);
     }
 }
+
+.pill-button {
+    --pill-btn-bg-hovered: var(--gray-5);
+    --pill-btn-bg-pressed: var(--gray-6);
+    --pill-btn-outline-color: var(--brand-5);
+
+    &[data-focus-visible],
+    &[data-hovered] {
+        background-color: var(--pill-btn-bg-hovered);
+    }
+
+    &[data-pressed] {
+        background-color: var(--pill-btn-bg-pressed);
+    }
+
+    &[data-focused] {
+        outline: 0;
+    }
+
+    &[data-focus-visible] {
+        outline: 2px solid var(--pill-btn-outline-color);
+    }
+
+    &.blue {
+        --pill-btn-bg-hovered: var(--blue-5);
+        --pill-btn-bg-pressed: var(--blue-6);
+        --pill-btn-outline-color: var(--blue-5);
+    }
+
+    &.red {
+        --pill-btn-bg-hovered: var(--red-5);
+        --pill-btn-bg-pressed: var(--red-6);
+        --pill-btn-outline-color: var(--red-5);
+    }
+
+    &.green {
+        --pill-btn-bg-hovered: var(--green-5);
+        --pill-btn-bg-pressed: var(--green-6);
+        --pill-btn-outline-color: var(--green-5);
+    }
+
+    &.amber {
+        --pill-btn-bg-hovered: var(--amber-5);
+        --pill-btn-bg-pressed: var(--amber-6);
+        --pill-btn-outline-color: var(--amber-5);
+    }
+}

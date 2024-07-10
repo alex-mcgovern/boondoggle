@@ -40,7 +40,7 @@ export { type IterableMenuItem, Menu } from "./menu";
 export { MenuTrigger } from "./menu-trigger";
 export { MobileMenu } from "./mobile-menu";
 export { NumberField } from "./number-field";
-export { Pill } from "./pill";
+export { Pill, PillButton } from "./pill";
 export { Popover } from "./popover";
 export { Radio } from "./radio";
 export { RouterProvider } from "./router-provider";
