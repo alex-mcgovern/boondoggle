@@ -1,8 +1,4 @@
 .collapsible-card {
-    &[data-disabled] {
-        opacity: 0.5;
-    }
-
     &:has(.collapsible-card-header-button:focus-visible) {
         outline: 2px solid var(--brand-5);
     }
@@ -26,8 +22,15 @@
         }
 
         &:disabled {
-            &:disabled {
-                .collapsible-card-header {
+            .collapsible-card-header {
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6,
+                .collapsible-icon {
+                    opacity: 0.5;
                     cursor: not-allowed;
                 }
             }
