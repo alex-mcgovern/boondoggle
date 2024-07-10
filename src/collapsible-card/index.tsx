@@ -43,8 +43,10 @@ function CollapsibleCardHeader({
 
 function CollapsibleCardBody({
     children,
+    noPadding,
     ...props
-}: Omit<ComponentProps<typeof Collapsible.Content>, "asChild">) {
+}: Omit<ComponentProps<typeof Collapsible.Content>, "asChild"> &
+    Pick<ComponentProps<typeof Card.Body>, "noPadding">) {
     return (
         <Collapsible.Content
             {...props}
@@ -52,6 +54,7 @@ function CollapsibleCardBody({
         >
             <Card.Body
                 className={clsx(props.className, "collapsible-card-body")}
+                noPadding={noPadding}
             >
                 {children}
             </Card.Body>
