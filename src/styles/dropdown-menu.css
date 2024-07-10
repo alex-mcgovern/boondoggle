@@ -35,16 +35,17 @@
     }
 
     outline: 0;
+
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-5) transparent;
+    overscroll-behavior: contain;
 
     max-height: inherit;
     border-radius: var(--radius-sm);
 
     /* min-width: 6rem; */
-
-    scrollbar-width: thin;
-    scrollbar-color: var(--gray-5) transparent;
 
     &:not(:has(.dropdown-menu-section)) {
         padding: var(--dropdown-menu-inset);
