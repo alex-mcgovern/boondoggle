@@ -1,31 +1,31 @@
 @layer color {
     :root {
-        --brand-color: hsl(206, 100%, 50%);
+        --brand-color: var(--blue-9);
 
-        --brand-1:  oklch(from var(--brand-color) 99.12% 0.004                   h);
-        --brand-2:  oklch(from var(--brand-color) 98.34% 0.008553640542686586    h);
-        --brand-3:  oklch(from var(--brand-color) 96.05% 0.02                    h);
-        --brand-4:  oklch(from var(--brand-color) 93.96% 0.03396919049441918     h);
-        --brand-5:  oklch(from var(--brand-color) 90.39% 0.05159523642953761     h);
-        --brand-6:  oklch(from var(--brand-color) 86.22% 0.069                   h);
-        --brand-7:  oklch(from var(--brand-color) 80.74% 0.089                   h);
-        --brand-8:  oklch(from var(--brand-color) 72.97% 0.123                   h);
-        --brand-9:  oklch(from var(--brand-color) 65.04% 0.19250535866368496     h);
-        --brand-10: oklch(from var(--brand-color) 61.82% 0.185                   h);
-        --brand-11: oklch(from var(--brand-color) 55.6%  0.162                   h);
-        --brand-12: oklch(from var(--brand-color) 32.5%  0.096                   h);
+        --brand-1:  var(--blue-1);
+        --brand-2:  var(--blue-2);
+        --brand-3:  var(--blue-3);
+        --brand-4:  var(--blue-4);
+        --brand-5:  var(--blue-5);
+        --brand-6:  var(--blue-6);
+        --brand-7:  var(--blue-7);
+        --brand-8:  var(--blue-8);
+        --brand-9:  var(--blue-9);
+        --brand-10: var(--blue-10);
+        --brand-11: var(--blue-11);
+        --brand-12: var(--blue-12);
 
-        --gray-1:   oklch(from var(--brand-color) 99.12% 0.0015 h);
-        --gray-2:   oklch(from var(--brand-color) 98.23% 0.0045000000000000005 h);
-        --gray-3:   oklch(from var(--brand-color) 95.85% 0.006 h);
-        --gray-4:   oklch(from var(--brand-color) 93.39% 0.0075 h);
-        --gray-5:   oklch(from var(--brand-color) 91.01% 0.0105 h);
-        --gray-6:   oklch(from var(--brand-color) 88.35% 0.015 h);
-        --gray-7:   oklch(from var(--brand-color) 85.17% 0.0165 h);
-        --gray-8:   oklch(from var(--brand-color) 79.32% 0.0225 h);
-        --gray-9:   oklch(from var(--brand-color) 64.46% 0.025500000000000002 h);
-        --gray-10:  oklch(from var(--brand-color) 61.38% 0.021 h);
-        --gray-11:  oklch(from var(--brand-color) 50.23% 0.021 h);
-        --gray-12:  oklch(from var(--brand-color) 24.58% 0.015 h);
+        --gray-1:   var(--slate-1);
+        --gray-2:   var(--slate-2);
+        --gray-3:   var(--slate-3);
+        --gray-4:   var(--slate-4);
+        --gray-5:   var(--slate-5);
+        --gray-6:   var(--slate-6);
+        --gray-7:   var(--slate-7);
+        --gray-8:   var(--slate-8);
+        --gray-9:   var(--slate-9);
+        --gray-10:  var(--slate-1);
+        --gray-11:  var(--slate-1);
+        --gray-12:  var(--slate-1);
     }
 }

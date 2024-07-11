@@ -53,6 +53,7 @@ export { Tabs } from "./tabs";
 export { TextArea } from "./text-area";
 export { TextField } from "./text-field";
 export { TextLink } from "./text-link";
+export { ThemeProvider } from "./theme-provider";
 export { Toaster, toast } from "./toaster";
 export { Tooltip } from "./tooltip";
 export type { Color } from "./types";
