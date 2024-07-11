@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, RefObject } from "react";
 import type {
     FieldValues,
     SubmitErrorHandler,
@@ -19,6 +19,7 @@ import { FormTextField } from "./components/form-text-field";
 function FormRoot<TFieldValues extends FieldValues>({
     children,
     className,
+    formRef,
     onError,
     onSubmit,
     options,
@@ -32,6 +33,11 @@ function FormRoot<TFieldValues extends FieldValues>({
      * Class name for the form.
      */
     className?: string;
+
+    /**
+     * Reference to the form element.
+     */
+    formRef?: RefObject<HTMLFormElement>;
 
     /**
      * Function that will be called when form validation errors occur.
@@ -55,6 +61,7 @@ function FormRoot<TFieldValues extends FieldValues>({
             <form
                 className={className}
                 onSubmit={formMethods.handleSubmit(onSubmit, onError)}
+                ref={formRef}
             >
                 {children}
             </form>
