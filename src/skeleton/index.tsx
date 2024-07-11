@@ -1,3 +1,5 @@
+import type { HTMLProps } from "react";
+
 import clsx from "clsx";
 
 import "./styles.css";
@@ -17,13 +19,11 @@ import "./styles.css";
  * import { Skeleton } from "boondoggle";
  * ```
  */
-export function Skeleton({
-    className,
-}: {
-    /**
-     * CSS class name.
-     */
-    className?: string;
-}) {
-    return <div className={clsx(className, "skeleton")} />;
+export function Skeleton(props: HTMLProps<HTMLDivElement>) {
+    return (
+        <div
+            {...props}
+            className={clsx(props.className, "skeleton")}
+        />
+    );
 }
