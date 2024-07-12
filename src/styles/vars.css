@@ -31,6 +31,8 @@
         --ui-height-lg: var(--space-11);
 
         --icon-size-sm: var(--space-3);
+        --icon-size-md: var(--space-4);
+        --icon-size-lg: var(--space-5);
 
         --dropdown-menu-inset: var(--space-0\.5);
 

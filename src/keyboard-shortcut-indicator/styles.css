@@ -1,4 +1,9 @@
 .keyboard-shortcut-indicator {
+    --keyboard-shortcut-height: var(--adornment-size, var(--space-4));
+    --keyboard-shortcut-padding-x: calc(var(--keyboard-shortcut-height) * 0.25);
+    /* prettier-ignore */
+    --keyboard-shortcut-padding-y: calc(var(--keyboard-shortcut-height) * 0.125);
+
     display: flex;
     align-items: center;
 
@@ -12,6 +17,7 @@
     border-bottom-width: 2px;
     border-radius: var(--radius-sm);
 
-    height: var(--space-4);
-    padding: var(--space-0\.5) var(--space-1);
+    height: var(--keyboard-shortcut-height);
+    /* prettier-ignore */
+    padding: var(--keyboard-shortcut-padding-y) var(--keyboard-shortcut-padding-x);
 }

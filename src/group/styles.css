@@ -13,6 +13,8 @@
 
     --group-padding: 0 var(--space-2);
 
+    --adornment-size: var(--icon-size-md);
+
     display: flex;
     align-items: center;
 
@@ -41,14 +43,26 @@
 
     &.sm {
         --group-height: var(--ui-height-sm);
+        --adornment-size: var(--icon-size-sm);
     }
 
     &.md {
         --group-height: var(--ui-height-md);
+        --adornment-size: var(--icon-size-md);
     }
 
     &.lg {
         --group-height: var(--ui-height-lg);
+        --adornment-size: var(--icon-size-lg);
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: var(--adornment-size, var(--icon-size-sm));
+        height: var(--adornment-size, var(--icon-size-sm));
     }
 
     &[data-disabled] {

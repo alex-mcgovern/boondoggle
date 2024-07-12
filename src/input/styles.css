@@ -30,21 +30,24 @@
             justify-content: center;
             align-items: center;
 
-            width: var(--icon-size-sm);
-            height: var(--icon-size-sm);
+            width: var(--adornment-size, var(--icon-size-sm));
+            height: var(--adornment-size, var(--icon-size-sm));
         }
     }
 
     &.sm {
         --input-height: var(--group-height, --ui-height-sm);
+        --adornment-size: var(--icon-size-sm);
     }
 
     &.md {
         --input-height: var(--group-height, --ui-height-md);
+        --adornment-size: var(--icon-size-md);
     }
 
     &.lg {
         --input-height: var(--group-height, --ui-height-lg);
+        --adornment-size: var(--icon-size-lg);
     }
 
     .input {

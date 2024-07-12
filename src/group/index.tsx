@@ -24,7 +24,7 @@ import "./styles.css";
 export const Group = forwardRef<HTMLDivElement, AriaGroupProps>(
     (
         {
-            size,
+            size = "md",
             ...props
         }: {
             /**
