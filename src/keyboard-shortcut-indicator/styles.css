@@ -1,5 +1,7 @@
 .keyboard-shortcut-indicator {
-    --keyboard-shortcut-height: var(--adornment-size, var(--space-4));
+    --keyboard-shortcut-height: calc(
+        var(--adornment-size, var(--space-4)) * 1.25
+    );
     --keyboard-shortcut-padding-x: calc(var(--keyboard-shortcut-height) * 0.25);
     /* prettier-ignore */
     --keyboard-shortcut-padding-y: calc(var(--keyboard-shortcut-height) * 0.125);
